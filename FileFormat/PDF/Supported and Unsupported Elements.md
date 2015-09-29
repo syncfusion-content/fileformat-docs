@@ -8,7 +8,7 @@ documentation: UG
 ---
 # Supported and Unsupported Elements 
 
-The below table shows the various features available in Essential PDF and their availability in different platforms.
+The following table shows the various features available in the Essential PDF and their availability in different platforms.
 
 <table>
 <tr>
