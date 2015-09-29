@@ -1,7 +1,7 @@
 ---
 layout: Post
 title: Working with Bookmarks
-description: Bookmarks using Essential PDF: Bookmark
+description: Bookmarks by using Essential PDF: Bookmark
 platform: FileFormat
 control: PDF
 documentation: UG
@@ -12,38 +12,38 @@ documentation: UG
 
 ## Adding Bookmarks in a PDF
 
-The **PdfBookmarkBase** collection represents the bookmarks in a PDF document. To add a bookmark in a new PDF document, use the below code snippets.
+The **PdfBookmarkBase** collection represents the bookmarks in a PDF document. To add a bookmark in a new PDF document, use the following code examples.
 
 {% highlight c# %}
 [C#]
 
-//Create a new document.
+//Creates a new document.
 
 PdfDocument document = new PdfDocument();
 
-//Add a page.
+//Adds a page.
 
 PdfPage page = document.Pages.Add();
 
-//Create document bookmarks.
+//Creates document bookmarks.
 
 PdfBookmark bookmark = document.Bookmarks.Add("Page 1");
 
-//Set the destination page.
+//Sets the destination page.
 
 bookmark.Destination = new PdfDestination(page);
 
-//Set the destination location.
+//Sets the destination location.
 
 bookmark.Destination.Location = new PointF(20, 20);
 
-//Set the text style and color.
+//Sets the text style and color.
 
 bookmark.TextStyle = PdfTextStyle.Bold;
 
 bookmark.Color = Color.Red;
 
-//Save and close the PDF document.
+//Saves and closes the PDF document.
 
 document.Save("Output.pdf");
 
@@ -56,33 +56,33 @@ document.Close(True);
 {% highlight vb.net %}
 [VB.NET]
 
-'Create a new document.
+'Creates a new document.
 
 Dim document As New PdfDocument()
 
-'Add a page.
+'Adds a page.
 
 Dim page As PdfPage = document.Pages.Add()
 
-'Create document bookmarks.
+'Creates document bookmarks.
 
 Dim bookmark As PdfBookmark = document.Bookmarks.Add("Page 1")
 
-'Set the destination page.
+'Sets the destination page.
 
 bookmark.Destination = New PdfDestination(page)
 
-'Set the destination location.
+'Sets the destination location.
 
 bookmark.Destination.Location = New PointF(20, 20)
 
-'Set the text style and color.
+'Sets the text style and color.
 
 bookmark.TextStyle = PdfTextStyle.Bold
 
 bookmark.Color = Color.Red
 
-'Save and close the PDF document.
+'Saves and closes the PDF document.
 
 document.Save("Output.pdf")
 
@@ -94,16 +94,16 @@ document.Close(True)
 
 ## Adding Bookmarks in an existing PDF document
 
-To add bookmarks to an existing PDF document, use the below code snippets.
+To add bookmarks to an existing PDF document, use the following code examples.
 
 {% highlight c# %}
 [C#]
 
-//Load the document.
+//Loads the document.
 
 PdfLoadedDocument document = new PdfLoadedDocument("input.pdf");
 
-//Create document bookmarks.
+//Creates document bookmarks.
 
 PdfBookmark bookmark = document.Bookmarks.Add("Page 1");
 
@@ -111,17 +111,17 @@ PdfBookmark bookmark = document.Bookmarks.Add("Page 1");
 
 bookmark.Destination = new PdfDestination(document.Pages[0]);
 
-//Set the text style and color.
+//Sets the text style and color.
 
 bookmark.TextStyle = PdfTextStyle.Bold;
 
 bookmark.Color = Color.Red;
 
-//Set the destination location.
+//Sets the destination location.
 
 bookmark.Destination.Location = new PointF(20, 20);
 
-//Save and close the PDF document.
+//Saves and closes the PDF document.
 
 document.Save("Output.pdf");
 
@@ -136,29 +136,29 @@ document.Close(True);
 {% highlight vb.net %}
 [VB.NET]
 
-'Load the document.
+'Loads the document.
 
 Dim document As New PdfLoadedDocument("input.pdf")
 
-'Create document bookmarks.
+'Creates document bookmarks.
 
 Dim bookmark As PdfBookmark = document.Bookmarks.Add("Page 1")
 
-'Set the destination page.
+'Sets the destination page.
 
 bookmark.Destination = New PdfDestination(document.Pages(0))
 
-'Set the text style and color.
+'Sets the text style and color.
 
 bookmark.TextStyle = PdfTextStyle.Bold
 
 bookmark.Color = Color.Red
 
-'Set the destination location.
+'Sets the destination location.
 
 bookmark.Destination.Location = New PointF(20, 20)
 
-'Save and close the PDF document.
+'Saves and closes the PDF document.
 
 document.Save("Output.pdf")
 
@@ -170,32 +170,32 @@ document.Close(True)
 
 ## Adding a Child to the Bookmarks
 
-To a child to a bookmark, please refer to the below code snippet.
+To a child to a bookmark, refer to the following code example.
 
 {% highlight c# %}
 [C#]
 
-//Create a new document.
+//Creates a new document.
 
 PdfDocument document = new PdfDocument();
 
-//Add a page.
+//Adds a page.
 
 PdfPage page = document.Pages.Add();
 
-//Create bookmark.
+//Creates bookmark.
 
 PdfBookmark bookmark = document.Bookmarks.Add("Page 1");
 
-//Set the destination page.
+//Sets the destination page.
 
 bookmark.Destination = new PdfDestination(page);
 
-//Set the destination location.
+//Sets the destination location.
 
 bookmark.Destination.Location = new PointF(20, 20);
 
-//Adding the child bookmark
+//Adds the child bookmark
 
 PdfBookmark childBookmark = bookmark.Insert(0,"heading 1");
 
@@ -205,13 +205,13 @@ childBookmark.Destination.Location = new PointF(400, 300);
 
 childBookmark.Destination.Zoom = 2F;
 
-//Set the text style and color.
+//Sets the text style and color.
 
 bookmark.TextStyle = PdfTextStyle.Bold;
 
 bookmark.Color = Color.Red;
 
-//Save and close the PDF document.
+//Saves and closes the PDF document.
 
 document.Save("Output.pdf");
 
@@ -226,27 +226,27 @@ document.Close(True);
 {% highlight vb.net %}
 [VB.NET]
 
-'Create a new document.
+'Creates a new document.
 
 Dim document As New PdfDocument()
 
-'Add a page.
+'Adds a page.
 
 Dim page As PdfPage = document.Pages.Add()
 
-'Create bookmark.
+'Creates bookmark.
 
 Dim bookmark As PdfBookmark = document.Bookmarks.Add("Page 1")
 
-'Set the destination page.
+'Sets the destination page.
 
 bookmark.Destination = New PdfDestination(page)
 
-'Set the destination location.
+'Sets the destination location.
 
 bookmark.Destination.Location = New PointF(20, 20)
 
-'Adding the child bookmark
+'Adds the child bookmark
 
 Dim childBookmark As PdfBookmark = bookmark.Insert(0, "heading 1")
 
@@ -256,13 +256,13 @@ childBookmark.Destination.Location = New PointF(400, 300)
 
 childBookmark.Destination.Zoom = 2.0F
 
-'Set the text style and color.
+'Sets the text style and color.
 
 bookmark.TextStyle = PdfTextStyle.Bold
 
 bookmark.Color = Color.Red
 
-'Save and close the PDF document.
+'Saves and closes the PDF document.
 
 document.Save("Output.pdf")
 
@@ -281,21 +281,21 @@ Each loaded bookmark is represented by the **PdfLoadedBookmark** object. The fol
 {% highlight c# %}
 [C#]
 
-//Create a new document.
+//Creates a new document.
 
 PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
 
-//Insert a new bookmark in the existing bookmark collection.
+//Inserts a new bookmark in the existing bookmark collection.
 
 PdfBookmark bookmark = document.Bookmarks.Insert(1, "New Page 2");
 
-//Set the destination page and location.
+//Sets the destination page and location.
 
 bookmark.Destination = new PdfDestination(document.Pages[1]);
 
 bookmark.Destination.Location = new PointF(0, 300);
 
-//Save and close the PDF document.
+//Saves and closes the PDF document.
 
 document.Save("Output.pdf");
 
@@ -310,21 +310,21 @@ document.Close(True);
 {% highlight vb.net %}
 [VB.NET]
 
-'Create a new document.
+'Creates a new document.
 
 Dim document As New PdfLoadedDocument("Input.pdf")
 
-'Insert a new bookmark in the existing bookmark collection.
+'Inserts a new bookmark in the existing bookmark collection.
 
 Dim bookmark As PdfBookmark = document.Bookmarks.Insert(1, "New Page 2")
 
-'Set the destination page and location.
+'Sets the destination page and location.
 
 bookmark.Destination = New PdfDestination(document.Pages(1))
 
 bookmark.Destination.Location = New PointF(0, 300)
 
-'Save and close the PDF document.
+'Saves and closes the PDF document.
 
 document.Save("Output.pdf")
 
@@ -336,28 +336,28 @@ document.Close(True)
 
 ## Removing Bookmarks from an existing PDF 
 
-You can also remove bookmarks from the existing PDF document by using the below code snippets.
+You can also remove bookmarks from the existing PDF document by using the following code examples.
 
 {% highlight c# %}
 [C#]
 
-//Load the PDF document.
+//Loads the PDF document.
 
 PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
 
-//Get all the bookmarks.
+//Gets all the bookmarks.
 
 PdfBookmarkBase bookmarks = document.Bookmarks;
 
-//Remove bookmark by bookmark name.
+//Removes bookmark by bookmark name.
 
 bookmarks.Remove("Page 1");
 
-//Remove bookmark by index.
+//Removes bookmark by index.
 
 bookmarks.RemoveAt(1);
 
-//Save and close the document.
+//Saves and closes the document.
 
 document.Save("Output.pdf");
 
@@ -370,23 +370,23 @@ document.Close(True);
 {% highlight vb.net %}
 [VB.NET]
 
-'Load the PDF document.
+'Loads the PDF document.
 
 Dim document As New PdfLoadedDocument("Input.pdf")
 
-'Get all the bookmarks.
+'Gets all the bookmarks.
 
 Dim bookmarks As PdfBookmarkBase = document.Bookmarks
 
-'Remove bookmark by bookmark name.
+'Removes bookmark by bookmark name.
 
 bookmarks.Remove("Page 1")
 
-'Remove bookmark by index.
+'Removes bookmark by index.
 
 bookmarks.RemoveAt(1)
 
-'Save and close the document.
+'Saves and closes the document.
 
 document.Save("Output.pdf")
 
@@ -405,20 +405,20 @@ document.Close(True)
 * Add or insert new bookmarks as a child of another bookmark.
 * Assign the destination of the added bookmarks to a loaded page or a new page of the document.
 
-The following code snippet shows how to modify the destination, color, style and title of an existing bookmark collection.
+The following code example shows how to modify the destination, color, style and title of an existing bookmark collection.
 
 {% highlight c# %}
 [C#]
 
-//Load the PDF document.
+//Loads the PDF document.
 
 PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
 
-//Get all the bookmarks.
+//Gets all the bookmarks.
 
 PdfBookmarkBase bookmarks = document.Bookmarks;
 
-//Get the first bookmark and change the properties of the bookmark.
+//Gets the first bookmark and changes the properties of the bookmark.
 
 PdfLoadedBookmark bookmark = bookmarks[0] as PdfLoadedBookmark;
 
@@ -430,7 +430,7 @@ bookmark.TextStyle = PdfTextStyle.Bold;
 
 bookmark.Title = "Changed title";
 
-//Save the document
+//Saves the document
 
 document.Save("Output.pdf");
 
@@ -443,15 +443,15 @@ document.Close(True);
 {% highlight vb.net %}
 [VB.NET]
 
-'Load the PDF document.
+'Loads the PDF document.
 
 Dim document As New PdfLoadedDocument("Input.pdf")
 
-'Get all the bookmarks.
+'Gets all the bookmarks.
 
 Dim bookmarks As PdfBookmarkBase = document.Bookmarks
 
-'Get the first bookmark and change the properties of the bookmark.
+'Gets the first bookmark and changes the properties of the bookmark.
 
 Dim bookmark As PdfLoadedBookmark = TryCast(bookmarks(0), PdfLoadedBookmark)
 
@@ -463,7 +463,7 @@ bookmark.TextStyle = PdfTextStyle.Bold
 
 bookmark.Title = "Changed title"
 
-'Save the document
+'Saves the document
 
 document.Save("Output.pdf")
 
