@@ -37,8 +37,8 @@ Key Features of Essential PDF
     * Working with Image Masking
     * Replacing images in an existing document.
   * Working with Tables
-    * Creating a simple table using PdfLightTable model
-    * Support for cell customizations using PdfGrid model
+    * Creating a simple table by using PdfLightTable model
+    * Support for cell customizations by using PdfGrid model
     * Choosing between a Light Table and a Grid
   * Working with Forms
     * Creating a new PDF form
@@ -47,7 +47,7 @@ Key Features of Essential PDF
     * Flattening Form Fields of a PDF document
 * Merge Documents
     * Merging multiple documents from disk and stream
-    * Merging two documents using Append method
+    * Merging two documents by using Append method
     * Importing and rearranging pages from multiple documents
     * Best practices
 * Working with Text Extraction
@@ -56,12 +56,12 @@ Key Features of Essential PDF
 * Working with Image Extraction
 * Working with Document Conversions
     * HTML To PDF
-      * Conversion using IE Rendering
+      * Conversion by using IE Rendering
         * Prerequisites and setting up the conversion for IE9 and later
         * Converting the URL to a PDF document
         * Converting the HTML string to PDF document
         * Troubleshooting
-      * Conversion using WebKit Rendering
+      * Conversion by using WebKit Rendering
         * Prerequisites and setting up the WebKit engine for conversion
         * Converting the URL to a PDF document
         * Converting the HTML string to PDF document
