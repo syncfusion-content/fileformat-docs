@@ -15,7 +15,7 @@ Essential PDF allows you to set the color spaces in the following different ways
 ## Working with color space in document 
 
 
-You can set the color space using ColorSpace property in PDF document.
+You can set the color space by using ColorSpace property in PDF document.
 
 It supports the following types
 
@@ -25,7 +25,7 @@ It supports the following types
 ## Device colorspace
 
 
-Device color space simply describes the range of colors that a camera can see, a printer can print, or a monitor can display. These color spaces depend upon the device in which it is displayed. It contains the following types.
+Device color space simply describes the range of colors that a camera can see, a printer can print, or a monitor can display. These color spaces depend upon the device where it is displayed. It contains the following types.
 
 •DeviceGray
 
@@ -43,28 +43,28 @@ CIE-based color space in the PDF document is classified as,
 
 •Lab
 
-The below code sample illustrates how to draw a rectangle with **CalGray** brush in new PDF document.
+The following code example illustrates how to draw a rectangle with **CalGray** brush in new PDF document.
 
 {% highlight c# %}
 C#:
 
-//Create a new PDF document.
+//Creates a new PDF document.
 
 PdfDocument pdfDocument = new PdfDocument();
 
-//Add a page to the PDF document
+//Adds a page to the PDF document
 
 PdfPage pdfPage = pdfDocument.Pages.Add();
 
-//Acquire graphics of the page.
+//Acquires graphics of the page.
 
 PdfGraphics graphics = pdfPage.Graphics;
 
-//Create CalGray color space.
+//Creates CalGray color space.
 
 PdfCalGrayColorSpace calGrayColorSpace = new PdfCalGrayColorSpace();
 
-//Update color values.
+//Updates color values.
 
 calGrayColorSpace.Gamma = 0.7;
 
@@ -78,15 +78,15 @@ PdfBrush brush = new PdfSolidBrush(calGrayColorSpace1);
 
 RectangleF bounds = new RectangleF(0, 0, 300, 300);
 
-//Draw rectangle using the PdfBrush
+//Draws rectangle by using the PdfBrush
 
 graphics.DrawRectangle(brush, bounds);
 
-//Save the document.
+//Saves the document.
 
 pdfDocument.Save("Output.pdf");
 
-//close the document
+//closes the document
 
 pdfDocument.Close(true);
 
@@ -97,23 +97,23 @@ pdfDocument.Close(true);
 {% highlight vb.net %}
 VB:
 
-'Create a new PDF document.
+'Creates a new PDF document.
 
 Dim pdfDocument As New PdfDocument()
 
-'Add a page to the PDF document
+'Adds a page to the PDF document
 
 Dim pdfPage As PdfPage = pdfDocument.Pages.Add()
 
-'Acquire graphics of the page.
+'Acquires graphics of the page.
 
 Dim graphics As PdfGraphics = pdfPage.Graphics
 
-'Create CalGray color space.
+'Creates CalGray color space.
 
 Dim calGrayColorSpace As New PdfCalGrayColorSpace()
 
-'Update color values.
+'Updates color values.
 
 calGrayColorSpace.Gamma = 0.7
 
@@ -127,15 +127,15 @@ Dim brush As PdfBrush = New PdfSolidBrush(calGrayColorSpace1)
 
 Dim bounds As New RectangleF(0, 0, 300, 300)
 
-'Draw rectangle using the PdfBrush
+'Draws rectangle using the PdfBrush
 
 graphics.DrawRectangle(brush, bounds)
 
-'Save the document.
+'Saves the document.
 
 pdfDocument.Save("Output.pdf")
 
-'close the document
+'closes the document
 
 pdfDocument.Close(True)
 
@@ -143,28 +143,28 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-The below code sample illustrates how to draw a rectangle with **CalGray** brush in existing PDF document.
+The following code example illustrates how to draw a rectangle with **CalGray** brush in existing PDF document.
 
 {% highlight c# %}
 C#:
 
-//Load the existing PDF document.
+//Loads the existing PDF document.
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
 
-//Load the page
+//Loads the page
 
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
-//Acquire graphics of the page.
+//Acquires graphics of the page.
 
 PdfGraphics graphics = loadedPage.Graphics;
 
-//Create CalGray color space.
+//Creates CalGray color space.
 
 PdfCalGrayColorSpace calGrayColorSpace = new PdfCalGrayColorSpace();
 
-//Update color values.
+//Updates color values.
 
 calGrayColorSpace.Gamma = 0.7;
 
@@ -178,15 +178,15 @@ PdfBrush brush = new PdfSolidBrush(calGrayColorSpace1);
 
 RectangleF bounds = new RectangleF(0, 0, 300, 300);
 
-//Draw rectangle using the PdfBrush
+//Draws rectangle by using the PdfBrush
 
 graphics.DrawRectangle(brush, bounds);
 
-//Save the modified document.
+//Saves the modified document.
 
 loadedDocument.Save("Output.pdf");
 
-//close the document
+//Closes the document
 
 loadedDocument.Close(true);
 
@@ -197,23 +197,23 @@ loadedDocument.Close(true);
 {% highlight vb.net %}
 VB:
 
-'Load the existing PDF document.
+'Loads the existing PDF document.
 
 Dim loadedDocument As New PdfLoadedDocument(fileName)
 
-'Load the page
+'Loads the page
 
 Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
-'Acquire graphics of the page.
+'Acquires graphics of the page.
 
 Dim graphics As PdfGraphics = loadedPage.Graphics
 
-'Create CalGray color space.
+'Creates CalGray color space.
 
 Dim calGrayColorSpace As New PdfCalGrayColorSpace()
 
-'Update color values.
+'Updates color values.
 
 calGrayColorSpace.Gamma = 0.7
 
@@ -227,15 +227,15 @@ Dim brush As PdfBrush = New PdfSolidBrush(calGrayColorSpace1)
 
 Dim bounds As New RectangleF(0, 0, 300, 300)
 
-'Draw rectangle using the PdfBrush
+'Draws rectangle by using the PdfBrush
 
 graphics.DrawRectangle(brush, bounds)
 
-'Save the modified document.
+'Saves the modified document.
 
 loadedDocument.Save("Output.pdf")
 
-'close the document
+'closes the document
 
 loadedDocument.Close(True)
 
@@ -255,24 +255,24 @@ It contains the following types:
 * Indexed
 * Separation
 
-The below code snippet illustrates how to set the indexed ICC color space in new PDF document.
+The following code example illustrates how to set the indexed ICC color space in new PDF document.
 
 {% highlight c# %}
 C#:
 
-//Create a new PDF document.
+//Creates a new PDF document.
 
 PdfDocument pdfDocument = new PdfDocument();
 
-//Add a page to the PDF document.
+//Adds a page to the PDF document.
 
 PdfPage pdfPage = pdfDocument.Pages.Add();
 
-//Acquire graphics of the page.
+//Acquires graphics of the page.
 
 PdfGraphics graphics = pdfPage.Graphics;
 
-//Create ICCBased color space.
+//Creates ICCBased color space.
 
 PdfCalRGBColorSpace calRgbCS = new PdfCalRGBColorSpace();
 
@@ -282,7 +282,7 @@ calRgbCS.Matrix = new double[] { 1, 0, 0, 0, 1, 0, 0, 0, 1 };
 
 calRgbCS.WhitePoint = new double[] { 0.7, 1, 0.8 };
 
-//Read the ICC profile.
+//Reads the ICC profile.
 
 FileStream fs = new FileStream(@"input.icc", FileMode.Open, FileAccess.Read);
 
@@ -292,7 +292,7 @@ fs.Read(profileData, 0, profileData.Length);
 
 fs.Close();
 
-//Instantiate ICC color space.
+//Instantiates ICC color space.
 
 PdfICCColorSpace IccBasedCS = new PdfICCColorSpace();
 
@@ -312,15 +312,15 @@ PdfBrush brush = new PdfSolidBrush(red);
 
 RectangleF bounds = new RectangleF(0, 0, 300, 300);
 
-//Draw rectangle using the PdfBrush.
+//Draws rectangle by using the PdfBrush.
 
 graphics.DrawRectangle(brush, bounds);
 
-//Save the document.
+//Saves the document.
 
 pdfDocument.Save("Output.pdf");
 
-//close the document
+//Closes the document
 
 pdfDocument.Close(true);
 
@@ -331,19 +331,19 @@ pdfDocument.Close(true);
 {% highlight vb.net %}
 VB:
 
-'Create a new PDF document.
+'Creates a new PDF document.
 
 Dim pdfDocument As New PdfDocument()
 
-'Add a page to the PDF document.
+'Adds a page to the PDF document.
 
 Dim pdfPage As PdfPage = pdfDocument.Pages.Add()
 
-'Acquire graphics of the page.
+'Acquires graphics of the page.
 
 Dim graphics As PdfGraphics = pdfPage.Graphics
 
-'Create ICCBased color space.
+'Creates ICCBased color space.
 
 Dim calRgbCS As New PdfCalRGBColorSpace()
 
@@ -353,7 +353,7 @@ calRgbCS.Matrix = New Double() {1, 0, 0, 0, 1, 0, 0, 0, 1}
 
 calRgbCS.WhitePoint = New Double() {0.7, 1, 0.8}
 
-'Read the ICC profile.
+'Reads the ICC profile.
 
 Dim fs As New FileStream("input.icc", FileMode.Open, FileAccess.Read)
 
@@ -363,7 +363,7 @@ fs.Read(profileData, 0, profileData.Length)
 
 fs.Close()
 
-'Instantiate ICC color space.
+'Instantiates ICC color space.
 
 Dim IccBasedCS As New PdfICCColorSpace()
 
@@ -383,15 +383,15 @@ Dim brush As PdfBrush = New PdfSolidBrush(red)
 
 Dim bounds As New RectangleF(0, 0, 300, 300)
 
-'Draw rectangle using the PdfBrush.
+'Draws rectangle by using the PdfBrush.
 
 graphics.DrawRectangle(brush, bounds)
 
-'Save the document.
+'Saves the document.
 
 pdfDocument.Save("Output.pdf")
 
-'close the document
+'Closes the document
 
 pdfDocument.Close(True)
 
@@ -399,24 +399,24 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-The below code snippet illustrates how to set the indexed ICC color space in existing PDF document.
+The following code example illustrates how to set the indexed ICC color space in existing PDF document.
 
 {% highlight c# %}
 C#:
 
-//Load the existing PDF document.
+//Loads the existing PDF document.
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
 
-//Load the page
+//Loads the page
 
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
-//Acquire graphics of the page.
+//Acquires graphics of the page.
 
 PdfGraphics graphics = loadedPage.Graphics;
 
-//Create ICCBased color space.
+//Creates ICCBased color space.
 
 PdfCalRGBColorSpace calRgbCS = new PdfCalRGBColorSpace();
 
@@ -426,7 +426,7 @@ calRgbCS.Matrix = new double[] { 1, 0, 0, 0, 1, 0, 0, 0, 1 };
 
 calRgbCS.WhitePoint = new double[] { 0.7, 1, 0.8 };
 
-//Read the ICC profile.
+//Reads the ICC profile.
 
 FileStream fs = new FileStream(@"input.icc", FileMode.Open, FileAccess.Read);
 
@@ -436,7 +436,7 @@ fs.Read(profileData, 0, profileData.Length);
 
 fs.Close();
 
-//Instantiate ICC color space.
+//Instantiates ICC color space.
 
 PdfICCColorSpace IccBasedCS = new PdfICCColorSpace();
 
@@ -456,15 +456,15 @@ PdfBrush brush = new PdfSolidBrush(red);
 
 RectangleF bounds = new RectangleF(0, 0, 300, 300);
 
-//Draw rectangle using the PdfBrush.
+//Draws rectangle by using the PdfBrush.
 
 graphics.DrawRectangle(brush, bounds);
 
-//Save the document.
+//Saves the document.
 
 loadedDocument.Save("Output.pdf");
 
-//close the document
+//Closes the document
 
 loadedDocument.Close(true);
 
@@ -475,23 +475,23 @@ loadedDocument.Close(true);
 {% highlight vb.net %}
 VB:
 
-'Load the existing PDF document.
+'Loads the existing PDF document.
 
 Dim loadedDocument As New PdfLoadedDocument(fileName)
 
-'Load the page
+'Loads the page
 
 Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
-'Acquire graphics of the page.
+'Acquires graphics of the page.
 
 Dim graphics As PdfGraphics = loadedPage.Graphics
 
-'Create CalGray color space.
+'Creates CalGray color space.
 
 Dim calGrayColorSpace As New PdfCalGrayColorSpace()
 
-'Update color values.
+'Updates color values.
 
 calGrayColorSpace.Gamma = 0.7
 
@@ -505,15 +505,15 @@ Dim brush As PdfBrush = New PdfSolidBrush(calGrayColorSpace1)
 
 Dim bounds As New RectangleF(0, 0, 300, 300)
 
-'Draw rectangle using the PdfBrush
+'Draws rectangle by using the PdfBrush
 
 graphics.DrawRectangle(brush, bounds)
 
-'Save the document.
+'Saves the document.
 
 loadedDocument.Save("Output.pdf")
 
-'close the document
+'Closes the document
 
 loadedDocument.Close(True)
 
@@ -525,20 +525,20 @@ loadedDocument.Close(True)
 
 ## Pantone colors
 
-The below code snippet illustrates how to draw the graphics elements using pantone colors in new PDF document.
+The following code example illustrates how to draw the graphics elements by using pantone colors in new PDF document.
 
 {% highlight c# %}
 C#:           
 
-// Create a new document
+// Creates a new document
 
 PdfDocument document = new PdfDocument();
 
-//Create a new page
+//Creates a new page
 
 PdfPage page = document.Pages.Add();
 
-// Create exponential interpolation function
+// Creates exponential interpolation function
 
 PdfExponentialInterpolationFunction function = new PdfExponentialInterpolationFunction(true);
 
@@ -550,7 +550,7 @@ numArray[1] = 0.88f;
 
 function.C1 = numArray;
 
-// Create SeparationColorSpace
+// Creates SeparationColorSpace
 
 PdfSeparationColorSpace colorspace = new PdfSeparationColorSpace();
 
@@ -566,15 +566,15 @@ RectangleF bounds = new RectangleF(20, 70, 200, 100);
 
 PdfPen pen = new PdfPen(color);
 
-//Draw the rectangle
+//Draws the rectangle
 
 page.Graphics.DrawRectangle(pen, bounds);
 
-//save the document
+//Saves the document
 
 document.Save("SeparationColor.pdf");
 
-//close the document
+//Closes the document
 
 document.Close(true);
 
@@ -587,15 +587,15 @@ document.Close(true);
 {% highlight vb.net %}
 VB:
 
-' Create a new document
+' Creates a new document
 
 Dim docuemnt As PdfDocument = New PdfDocument()
 
-' Create a page
+' Creates a page
 
 Dim page As PdfPage = docuemnt.Pages.Add()
 
-' Create exponential interpolation function 
+' Creates exponential interpolation function 
 
 Dim [function] As PdfExponentialInterpolationFunction = New PdfExponentialInterpolationFunction(True)
 
@@ -607,7 +607,7 @@ numArray(1) = 0.88F
 
 [function].C1 = numArray
 
-' Create SeparationColorSpace
+' Creates SeparationColorSpace
 
 Dim colorspace As PdfSeparationColorSpace = New PdfSeparationColorSpace()
 
@@ -623,15 +623,15 @@ Dim bounds As RectangleF = New RectangleF(20, 70, 200, 100)
 
 Dim pen As PdfPen = New PdfPen(color)
 
-'Draw the rectangle
+'Draws the rectangle
 
 page.Graphics.DrawRectangle(pen, bounds)
 
-'save the document
+'Saves the document
 
 docuemnt.Save("SeparationColor.pdf")
 
-'close the document
+'Closes the document
 
 docuemnt.Close(True)
 
@@ -639,18 +639,18 @@ docuemnt.Close(True)
 
 {% endhighlight %}
 
-The below code snippet illustrates how to draw the graphics elements using pantone colors in existing PDF document.
+The following code example illustrates how to draw the graphics elements by using pantone colors in existing PDF document.
 
 {% highlight c# %}
 C#:
 
-//Load the document.
+//Loads the document.
 
 PdfLoadedDocument loadeddocument = new PdfLoadedDocument(fileName);
 
 PdfLoadedPage loadedPage = loadeddocument.Pages[0] as PdfLoadedPage;
 
-// Create exponential interpolation function 
+// Creates exponential interpolation function 
 
 PdfExponentialInterpolationFunction function = new PdfExponentialInterpolationFunction(true);
 
@@ -662,7 +662,7 @@ numArray[1] = 0.88f;
 
 function.C1 = numArray;
 
-// Create SeparationColorSpace
+// Creates SeparationColorSpace
 
 PdfSeparationColorSpace colorspace = new PdfSeparationColorSpace();
 
@@ -678,15 +678,15 @@ RectangleF bounds = new RectangleF(20, 70, 200, 100);
 
 PdfPen pen = new PdfPen(color);
 
-//Draw the rectangle
+//Draws the rectangle
 
 loadedPage.Graphics.DrawRectangle(pen, bounds);
 
-//save the document
+//Saves the document
 
 loadeddocument.Save("SeparationColor.pdf");
 
-//close the document
+//Closes the document
 
 loadeddocument.Close(true);
 
@@ -697,13 +697,13 @@ loadeddocument.Close(true);
 {% highlight vb.net %}
 VB:
 
-'Load the document.
+'Loads the document.
 
 Dim loadeddocument As New PdfLoadedDocument(fileName)
 
 Dim loadedPage As PdfLoadedPage = TryCast(loadeddocument.Pages(0), PdfLoadedPage)
 
-' Create exponential interpolation function
+' Creates exponential interpolation function
 
 Dim [function] As PdfExponentialInterpolationFunction = New PdfExponentialInterpolationFunction(True)
 
@@ -715,7 +715,7 @@ numArray(1) = 0.88F
 
 [function].C1 = numArray
 
-' Create SeparationColorSpace
+' Creates SeparationColorSpace
 
 Dim colorspace As PdfSeparationColorSpace = New PdfSeparationColorSpace()
 
@@ -731,15 +731,15 @@ Dim bounds As RectangleF = New RectangleF(20, 70, 200, 100)
 
 Dim pen As PdfPen = New PdfPen(color)
 
-'Draw the rectangle
+'Draws the rectangle
 
 loadedPage.Graphics.DrawRectangle(pen, bounds)
 
-'save the document
+'Saves the document
 
 loadeddocument.Save("SeparationColor.pdf")
 
-'close the document
+'Closes the document
 
 loadeddocument.Close(True)
 
@@ -749,22 +749,22 @@ loadeddocument.Close(True)
 
 ## Working with color space in graphics
 
-You can set the color spaces to the particular object in the PDF document using ColorSpace property in PdfGraphics class.
+You can set the color spaces to the particular object in the PDF document by using the ColorSpace property in PdfGraphics class.
 
-The below code illustrates how to use the color spaces in particular objects in new PDF document.
+The following code illustrates how to use the color spaces in particular objects in new PDF document.
 
 {% highlight c# %}
 C#:
 
-//Create a new PDF document.
+//Creates a new PDF document.
 
 PdfDocument pdfDocument = new PdfDocument();
 
-//Add a page to the PDF document.
+//Adds a page to the PDF document.
 
 PdfPage pdfPage = pdfDocument.Pages.Add();
 
-//Acquire graphics of the page.
+//Acquires graphics of the page.
 
 PdfGraphics graphics = pdfPage.Graphics;
 
@@ -798,15 +798,15 @@ graphics.Restore();
 
 graphics.DrawRectangle(pen, brush, rectangle);
 
-//Draw using the PdfBrush.
+//Draws by using the PdfBrush.
 
 graphics.DrawRectangle(brush, rectangle);
 
-//Save the document.
+//Saves the document.
 
 pdfDocument.Save("Output.pdf");
 
-//close the document
+//Closes the document
 
 pdfDocument.Close(true);
 
@@ -817,15 +817,15 @@ pdfDocument.Close(true);
 {% highlight vb.net %}
 VB:
 
-'Create a new PDF document.
+'Creates a new PDF document.
 
 Dim pdfDocument As New PdfDocument()
 
-'Add a page to the PDF document.
+'Adds a page to the PDF document.
 
 Dim pdfPage As PdfPage = pdfDocument.Pages.Add()
 
-'Acquire graphics of the page.
+'Acquires graphics of the page.
 
 Dim graphics As PdfGraphics = pdfPage.Graphics
 
@@ -859,15 +859,15 @@ graphics.Restore()
 
 graphics.DrawRectangle(pen, brush, rectangle)
 
-'Draw using the PdfBrush.
+'Draws by using the PdfBrush.
 
 graphics.DrawRectangle(brush, rectangle)
 
-'Save the document.
+'Saves the document.
 
 pdfDocument.Save("Output.pdf")
 
-'close the document
+'Closes the document
 
 pdfDocument.Close(True)
 
@@ -875,20 +875,20 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-The below code illustrates how to use the color spaces in particular objects in existing PDF document.
+The following code illustrates how to use the color spaces in particular objects in existing PDF document.
 
 {% highlight c# %}
 C#:
 
-//Load the existing PDF document.
+//Loads the existing PDF document.
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
 
-//Load the page
+//Loads the page
 
 PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
-//Acquire graphics of the page.
+//Acquires graphics of the page.
 
 PdfGraphics graphics = loadedPage.Graphics;
 
@@ -922,15 +922,15 @@ graphics.Restore();
 
 graphics.DrawRectangle(pen, brush, rectangle);
 
-//Draw using the PdfBrush.
+//Draws by using the PdfBrush.
 
 graphics.DrawRectangle(brush, rectangle);
 
-//Save the document.
+//Saves the document.
 
 loadedDocument.Save("Output.pdf");
 
-//close the document
+//Closes the document
 
 loadedDocument.Close(true);
 
@@ -941,15 +941,15 @@ loadedDocument.Close(true);
 {% highlight vb.net %}
 VB:
 
-'Load the existing PDF document.
+'Loads the existing PDF document.
 
 Dim loadedDocument As New PdfLoadedDocument(fileName)
 
-'Load the page
+'Loads the page
 
 Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
-'Acquire graphics of the page.
+'Acquires graphics of the page.
 
 Dim graphics As PdfGraphics = loadedPage.Graphics
 
@@ -983,15 +983,15 @@ graphics.Restore()
 
 graphics.DrawRectangle(pen, brush, rectangle)
 
-'Draw using the PdfBrush.
+'Draws by using the PdfBrush.
 
 graphics.DrawRectangle(brush, rectangle)
 
-'Save the document.
+'Saves the document.
 
 loadedDocument.Save("Output.pdf")
 
-'close the document
+'Closes the document
 
 loadedDocument.Close(True)
 
