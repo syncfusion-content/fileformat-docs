@@ -1,7 +1,7 @@
 ---
 layout: Post
 title: Getting Started with Essential Presentation library
-description: Getting started with Essential Presentation library; Creating a PowerPoint presentation; Modifying the existing PowerPoint presnetation
+description: Getting started with Essential Presentation library; Creating a PowerPoint presentation; Modifying the existing PowerPoint presentation
 platform: FileFormats
 control: Presentation
 documentation: UG
@@ -10,9 +10,9 @@ documentation: UG
 
 ## Creating a simple PowerPoint presentation with basic elements from scratch
 
-In this page, you can see how to create a simple PowerPoint presentation using Essential Presentation API.
+In this page, you can see how to create a simple PowerPoint presentation by using Essential Presentation API.
 
-For creating and manipulating a PowerPoint presentation, we need the below assemblies to be included in the application.
+For creating and manipulating a PowerPoint presentation, include the following assemblies to be included in the application.
 
 <table>
 <tr>
@@ -22,7 +22,7 @@ Short Description<br/><br/></td></tr>
 <tr>
 <td>
 Syncfusion.Presentation.Base<br/><br/></td><td>
-This assembly contains the core features needed for creating, reading, manipulating a Presentation file.<br/><br/></td></tr>
+This assembly contains the core features required for creating, reading, manipulating a Presentation file.<br/><br/></td></tr>
 <tr>
 <td>
 Syncfusion.Compression.Base<br/><br/></td><td>
@@ -38,12 +38,12 @@ The following namespaces are required to compile the code discussed in this topi
 
 An entire PowerPoint presentation is represented by an instance of IPresentation interface and it is the root element of Essential Presentation’s DOM.
 
-The below code snippet demonstrates how to create an instance of IPresentation interface.
+The following code example demonstrates how to create an instance of IPresentation interface.
 
 {% highlight c# %}
 [C#]
 
-//Create a new instance of PowerPoint presentation
+//Creates a new instance of PowerPoint presentation
 
 IPresentation presentation = Presentation.Create();
 
@@ -54,7 +54,7 @@ IPresentation presentation = Presentation.Create();
 {% highlight vb.net %}
 [VB.NET]
 
-' Create a new instance of PowerPoint presentation
+' Creates a new instance of PowerPoint presentation
 
 Dim presentation_1 As IPresentation = Presentation.Create()
 
@@ -62,14 +62,14 @@ Dim presentation_1 As IPresentation = Presentation.Create()
 
 {% endhighlight %}
 
-IPresentation instance has a slide collection which represents the individual slides present within PowerPoint presentation. A slide may contain textual and other graphics contents like shapes, images, charts etc.
+IPresentation instance has a slide collection that represents the individual slides present within PowerPoint presentation. A slide may contain textual and other graphics contents like shapes, images, charts etc.
 
-The below code snippet demonstrates how to add a blank slide to a PowerPoint presentation.
+The following code example demonstrates how to add a blank slide to a PowerPoint presentation.
 
 {% highlight c# %}
 [C#]
 
-//Add a slide to the PowerPoint presentation
+//Adds a slide to the PowerPoint presentation
 
 ISlide firstSlide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -80,7 +80,7 @@ ISlide firstSlide = presentation.Slides.Add(SlideLayoutType.Blank);
 {% highlight vb.net %}
 [VB.NET]
 
-'Add a slide to the PowerPoint presentation
+'Adds a slide to the PowerPoint presentation
 
 Dim firstSlide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
 
@@ -88,28 +88,28 @@ Dim firstSlide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
 
 {% endhighlight %}
 
-Note: We use the “Point” typographic units to add or manipulate any elements in a presentation. 
+Note: The “Point” typographic units are used to add or manipulate any element in a presentation. 
 
 All the textual contents in a Presentation document is represented by Paragraphs. Within the paragraph, textual contents are grouped into one or more child elements as TextParts. Each TextPart represents a region of text with a common set of formatted text.
 
-The below code snippet demonstrates how to add text into a presentation.
+The following code example demonstrates how to add text into a presentation.
 
 {% highlight c# %}
 [C#]
 
-//Add a textbox in a slide by specifying its position & size
+//Adds a textbox in a slide by specifying its position & size
 
 IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
 
-//Add a paragraph into the textShape
+//Adds a paragraph into the textShape
 
 IParagraph paragraph = textShape.TextBody.AddParagraph();
 
-//Add a textPart in the paragraph
+//Adds a textPart in the paragraph
 
 ITextPart textPart = paragraph.AddTextPart("Hello Presentation");
 
-//Apply font formatting to the text
+//Applies font formatting to the text
 
 textPart.Font.FontSize = 80;
 
@@ -122,11 +122,11 @@ textPart.Font.Bold = true;
 {% highlight vb.net %}
 [VB.NET]
 
-'Add a textbox in a slide by specifying its position & size
+'Adds a textbox in a slide by specifying its position & size
 
 Dim textShape As IShape  = firstSlide.AddTextBox(100, 75, 756, 200)
 
-'Add a paragraph into the textShape
+'Adds a paragraph into the textShape
 
 Dim paragraph As IParagraph  = textShape.TextBody.AddParagraph()
 
@@ -134,7 +134,7 @@ Dim paragraph As IParagraph  = textShape.TextBody.AddParagraph()
 
 Dim textPart As ITextPart  = paragraph.AddTextPart("Hello Presentation")
 
-'Apply font formatting to the text
+'Applies font formatting to the text
 
 textPart.Font.FontSize = 80
 
@@ -144,28 +144,28 @@ textPart.Font.Bold = True
 
 {% endhighlight %}
 
-Essential Presentation allows you to create simple and multi-level lists which makes the content easier for reading. The below code snippet demonstrates how to add a bulleted list in a paragraph.
+Essential Presentation allows you to create simple and multi-level lists that make the content easier for reading. The following code example demonstrates how to add a bulleted list in a paragraph.
 
 {% highlight c# %}
 [C#]
 
-//Add a new paragraph with text.
+//Adds a new paragraph with text.
 
 paragraph = textShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
 
-//Set the list type as bullet
+//Sets the list type as bullet
 
 paragraph.ListFormat.Type = ListType.Bulleted;
 
-//Set the bullet character for this list
+//Sets the bullet character for this list
 
 paragraph.ListFormat.BulletCharacter = Convert.ToChar(183);
 
-//Set the font of the bullet character
+//Sets the font of the bullet character
 
 paragraph.ListFormat.FontName = "Symbol";
 
-//Set the hanging value as 20
+//Sets the hanging value as 20
 
 paragraph.FirstLineIndent = -20;
 
@@ -176,23 +176,23 @@ paragraph.FirstLineIndent = -20;
 {% highlight vb.net %}
 [VB.NET]
 
-'Add a new paragraph with text.
+'Adds a new paragraph with text.
 
 paragraph = textShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 
-'Set the list type as bullet
+'Sets the list type as bullet
 
 paragraph.ListFormat.Type = ListType.Bulleted
 
-'Set the bullet character for this list
+'Sets the bullet character for this list
 
 paragraph.ListFormat.BulletCharacter = Convert.ToChar(183)
 
-'Set the font of the bullet character
+'Sets the font of the bullet character
 
 paragraph.ListFormat.FontName = "Symbol"
 
-'Set the hanging value as 20
+'Sets the hanging value as 20
 
 paragraph.FirstLineIndent = -20
 
@@ -200,20 +200,20 @@ paragraph.FirstLineIndent = -20
 
 {% endhighlight %}
 
-In PowerPoint presentation the multilevel lists are used for presenting the content in a hierarchy. You can create a multi-level list by setting the indentation levels. By default the level begins at 0 and increments by 1 for each level. The below code snippet demonstrates how to add multi-level list in a paragraph.
+In PowerPoint presentation the multilevel lists are used for presenting the content in a hierarchy. You can create a multi-level list by setting the indentation levels. By default, the level begins at 0 and increments by 1 for each level. The following code example demonstrates how to add multi-level list in a paragraph.
 
 {% highlight vb.net %}
 [C#]
 
-//Add a new paragraph  
+//Adds a new paragraph  
 
 paragraph = textShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
 
-//Set the list type as bullet
+//Sets the list type as bullet
 
 paragraph.ListFormat.Type = ListType.Bulleted;
 
-//Set the list level as 2. Possible values can range from 0 to 8
+//Sets the list level as 2. Possible values can range from 0 to 8
 
 paragraph.IndentLevelNumber = 2;
 
@@ -224,15 +224,15 @@ paragraph.IndentLevelNumber = 2;
 {% highlight vb.net %}
 [VB.NET]
 
-'Add a new paragraph  
+'Adds a new paragraph  
 
 paragraph = textShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
 
-'Set the list type as bullet
+'Sets the list type as bullet
 
 paragraph.ListFormat.Type = ListType.Bulleted
 
-'Set the list level as 2. Possible values can range from 0 to 8
+'Sets the list level as 2. Possible values can range from 0 to 8
 
 paragraph.IndentLevelNumber = 2
 
@@ -240,16 +240,16 @@ paragraph.IndentLevelNumber = 2
 
 {% endhighlight %}
 
-You can add images to the presentation by adding them in the picture collection of a slide. The below code snippet demonstrates how to add an image in a presentation.
+You can add images to the presentation by adding them in the picture collection of a slide. The following code example demonstrates how to add an image in a presentation.
 
 {% highlight c# %}
 [C#]
 
-//Get the image from file path
+//Gets the image from file path
 
 Image image = Image.FromFile(@"image.jpg");
 
-// Add the image to the slide by specifying position and size
+// Adds the image to the slide by specifying position and size
 
 firstSlide.Pictures.AddPicture(new MemoryStream(image.ImageData), 300, 270, 410, 250);
 
@@ -260,11 +260,12 @@ firstSlide.Pictures.AddPicture(new MemoryStream(image.ImageData), 300, 270, 410
 {% highlight vb.net %}
 [VB.NET]
 
-'Get the image from file path
+'Gets the image from file path
 
 Dim image__1 As Image = Image.FromFile("image.jpg")
 
-' Add the image to the slide by specifying position and size        firstSlide.Pictures.AddPicture(New MemoryStream (image__1.ImageData), 300, 270, 410, 250)
+' Adds the image to the slide by specifying position and size 
+firstSlide.Pictures.AddPicture(New MemoryStream (image__1.ImageData), 300, 270, 410, 250)
 
 
 
@@ -275,7 +276,7 @@ Finally, save the presentation in file system and close its instance.
 {% highlight c# %}
 [C#]
 
-//Save the presentation in the given name 
+//Saves the presentation in the given name 
 
 presentation.Save("Output.pptx");
 
@@ -290,7 +291,7 @@ presentation.Close();
 {% highlight vb.net %}
 [VB.NET]
 
-'Save the presentation in the given name
+'Saves the presentation in the given name
 
 Presentation_1.Save("Output.pptx")
 
@@ -302,14 +303,14 @@ Presentation_1.Close()
 
 {% endhighlight %}
 
-The resultant PowerPoint presentation will look like shown below.
+The resultant PowerPoint presentation looks as follows.
 
 ![](GettingStarted_images/GettingStarted_img1.jpeg)
 
 
 ## Converting PowerPoint presentation to PDF
 
-Essential Presentation allows you to convert a PowerPoint presentation into PDF document. The below assemblies are needed for the presentation to PDF conversion.
+Essential Presentation allows you to convert a PowerPoint presentation into PDF document. The following assemblies are required for the presentation to PDF conversion.
 
 <table>
 <tr>
@@ -319,11 +320,11 @@ Short Description<br/><br/></td></tr>
 <tr>
 <td>
 Syncfusion.Presentation.Base<br/><br/></td><td>
-This assembly contains the core features needed for creating, reading, manipulating a Presentation file.<br/><br/></td></tr>
+This assembly contains the core features required for creating, reading, manipulating a Presentation file.<br/><br/></td></tr>
 <tr>
 <td>
 Syncfusion.Compression.Base<br/><br/></td><td>
-This assembly is used to package the Presentation contents.<br/><br/></td></tr>
+This assembly is used to pack the Presentation contents.<br/><br/></td></tr>
 <tr>
 <td>
 Syncfusion.OfficeChart.Base<br/><br/></td><td>
@@ -356,32 +357,32 @@ The following namespaces are required to compile the code in this topic.
 * using Syncfusion.Presentation;
 * using Syncfusion.PresentationToPdfConverter;
 
-**PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The below code snippet demonstrates how to convert the PowerPoint presentation to PDF.
+**PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert the PowerPoint presentation to PDF.
 
 {% highlight c# %}
 [C#]
 
-//Open a PowerPoint presentation file
+//Opens a PowerPoint presentation file
 
 IPresentation presentation = Presentation.Open(fileName);
 
-//Create an instance of ChartToImageConverter and assign it to ChartToImageConverter property of Presentation
+//Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
 presentation.ChartToImageConverter = new ChartToImageConverter();
 
-//Convert the PowerPoint presentation into PDF document
+//Converts the PowerPoint presentation into PDF document
 
 PdfDocument PDFdocument = PresentationToPdfConverter.Convert(presentation);
 
-//Save the PDF document
+//Saves the PDF document
 
 PDFdocument.Save(@"SampleWithoutSetting.pdf");
 
-//Close the PDF document
+//Closes the PDF document
 
 PDFdocument.Close(true);
 
-//Close the presentation
+//Closes the presentation
 
 presentation.Close();
 
@@ -392,27 +393,27 @@ presentation.Close();
 {% highlight c# %}
 [VB.NET]
 
-'Open a PowerPoint presentation file
+'Opens a PowerPoint presentation file
 
 Dim presentation_1 As IPresentation = Presentation.Open(fileName)
 
-'Create an instance of ChartToImageConverter and assign it to ChartToImageConverter property of Presentation
+'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
 presentation_1.ChartToImageConverter = New ChartToImageConverter ()
 
-'Convert the PowerPoint presentation into PDF document
+'Converts the PowerPoint presentation into PDF document
 
 Dim PDFdocument As PdfDocument = PresentationToPdfConverter.Convert(presentation_1)
 
-'Save the PDF document
+'Saves the PDF document
 
 PDFdocument.Save("SampleWithoutSetting.pdf")
 
-'Close the PDF document
+'Closes the PDF document
 
 PDFdocument.Close(True)
 
-'Close the presentation
+'Closes the presentation
 
 presentation_1.Close()
 
@@ -422,7 +423,7 @@ presentation_1.Close()
 
 **Note****:**
 
-* Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to PDF. Otherwise the charts will not be exported to the converted PDF.
+* Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to PDF. Otherwise, the charts are not exported to the converted PDF.
 * **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 
 **PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF document. For more information about this, see [Conversion](http://www.google.com/# "").
