@@ -1,7 +1,7 @@
 ---
 layout: Post
 title: Working with Compression
-description: Compress PDF document using Essential PDF :Compressing; Content compression; Image compression
+description: Compress PDF document by using Essential PDF :Compressing; Content compression; Image compression
 platform: FileFormat
 control: PDF
 documentation: UG
@@ -23,32 +23,32 @@ Content compression involves,
 2) Inserting a single repeat character to indicate a string of repeated characters.
 3) Substituting smaller bit strings for frequently occurring characters.
 
-The following code snippet illustrates how to compress the content of the PDF document.
+The following code example illustrates how to compress the content of the PDF document.
 
 {% highlight c# %}
 [C#]
 
-//Create a new PDF document.
+//Creates a new PDF document.
 
 PdfDocument document = new PdfDocument();
 
 
 
-//Set the compression level to best
+//Sets the compression level to best
 
 document.Compression = PdfCompressionLevel.Best;
 
 
 
-//Add a page to the document.
+//Adds a page to the document.
 
 PdfPage page = document.Pages.Add();
 
-//Create PDF graphics for the page.
+//Creates PDF graphics for the page.
 
 PdfGraphics graphics = page.Graphics;
 
-//Set the font.
+//Sets the font.
 
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 
@@ -66,11 +66,11 @@ result = textElement.Draw(result.Page, new RectangleF(0, result.Bounds.Bottom +1
 
 }
 
-//Save the document.
+//Saves the document.
 
 document.Save("Output.pdf");
 
-//Close the document.
+//Closes the document.
 
 document.Close(true);
 
@@ -81,23 +81,23 @@ document.Close(true);
 {% highlight vb.net %}
 [VB]
 
-'Create a new PDF document.
+'Creates a new PDF document.
 
 Dim document As New PdfDocument()
 
-'Set the compression level to best
+'Sets the compression level to best
 
 document.Compression = PdfCompressionLevel.Best
 
-'Add a page to the document.
+'Adds a page to the document.
 
 Dim page As PdfPage = document.Pages.Add()
 
-'Create PDF graphics for the page.
+'Creates PDF graphics for the page.
 
 Dim graphics As PdfGraphics = page.Graphics
 
-'Set the font.
+'Sets the font.
 
 Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
 
@@ -113,11 +113,11 @@ result = textElement.Draw(result.Page, New RectangleF(0, result.Bounds.Bottom + 
 
 Next
 
-'Save the document.
+'Saves the document.
 
 document.Save("Output.pdf")
 
-'Close the document.
+'Closes the document.
 
 document.Close(True)
 
@@ -125,24 +125,24 @@ document.Close(True)
 
 {% endhighlight %}
 
-You can compress the existing PDF document by using the following code snippet.
+You can compress the existing PDF document by using the following code example.
 
 {% highlight c# %}
 [C#]
 
-//Load the PDF document
+//Loads the PDF document
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
-//Disable the incremental update
+//Disables the incremental update
 
 loadedDocument.FileStructure.IncrementalUpdate = false;
 
-//Set the compression level
+//Sets the compression level
 
 loadedDocument.Compression = PdfCompressionLevel.Best;
 
-//Save and close the document
+//Saves and closes the document
 
 loadedDocument.Save("Output.pdf");
 
@@ -155,19 +155,19 @@ loadedDocument.Close(true);
 {% highlight vb.net %}
 [VB]
 
-'Load the PDF document
+'Loads the PDF document
 
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
-'Disable the incremental update
+'Disables the incremental update
 
 loadedDocument.FileStructure.IncrementalUpdate = False
 
-'Set the compression level
+'Sets the compression level
 
 loadedDocument.Compression = PdfCompressionLevel.Best
 
-'Save and close the document
+'Saves and closes the document
 
 loadedDocument.Save("Output.pdf")
 
@@ -179,36 +179,36 @@ loadedDocument.Close(True)
 
 ## Compressing images
 
-Essential PDF allows you to compress/change the quality of the image in the PDF document by using the following code snippet.
+Essential PDF allows you to compress/change the quality of the image in the PDF document by using the following code example.
 
 {% highlight c# %}
 [C#]
 
-//Create a new PDF document.
+//Creates a new PDF document.
 
 PdfDocument document = new PdfDocument();
 
-//Add a page to the document.
+//Adds a page to the document.
 
 PdfPage page = document.Pages.Add();
 
-//Create PDF graphics for the page.
+//Creates PDF graphics for the page.
 
 PdfGraphics graphics = page.Graphics;
 
 PdfBitmap img = new PdfBitmap("Input.jpg");
 
-//Reduce the quality of the image
+//Reduces the quality of the image
 
 img.Quality = 50;
 
 img.Draw(page, new PointF(0, 0));
 
-//Save the document.
+//Saves the document.
 
 document.Save("Output.pdf");
 
-//Close the document.
+//Closes the document.
 
 document.Close(true);
 
@@ -219,31 +219,31 @@ document.Close(true);
 {% highlight vb.net %}
 [VB]
 
-'Create a new PDF document.
+'Creates a new PDF document.
 
 Dim document As New PdfDocument()
 
-'Add a page to the document.
+'Adds a page to the document.
 
 Dim page As PdfPage = document.Pages.Add()
 
-'Create PDF graphics for the page.
+'Creates PDF graphics for the page.
 
 Dim graphics As PdfGraphics = page.Graphics
 
 Dim img As New PdfBitmap("Input.jpg")
 
-'Reduce the quality of the image
+'Reduces the quality of the image
 
 img.Quality = 50
 
 img.Draw(page, New PointF(0, 0))
 
-'Save the document.
+'Saves the document.
 
 document.Save("Output.pdf")
 
-'Close the document.
+'Closes the document.
 
 document.Close(True)
 
@@ -251,30 +251,30 @@ document.Close(True)
 
 {% endhighlight %}
 
-You can compress the images in the existing PDF document by using the following code snippet
+You can compress the images in the existing PDF document by using the following code example.
 
 {% highlight c# %}
 [C#]
 
-//Load the PDF document which c images
+//Loads the PDF document which c images
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
-//Disable the incremental update
+//Disables the incremental update
 
 loadedDocument.FileStructure.IncrementalUpdate = false;
 
-//iterate all the pages to replace images
+//Iterates all the pages to replace images
 
 foreach (PdfPageBase page in loadedDocument.Pages)
 
 {
 
-//Extract the images from the document
+//Extracts the images from the document
 
 Image[] extractedImages = page.ExtractImages();
 
-//Iterate all the image
+//Iterates all the image
 
 for (int j = 0; j < extractedImages.Count(); j++)
 
@@ -282,11 +282,11 @@ for (int j = 0; j < extractedImages.Count(); j++)
 
 PdfBitmap img = new PdfBitmap(extractedImages[j]);
 
-//reduce the quality of the image
+//Reduces the quality of the image
 
 img.Quality = 50;
 
-//replace the compressed image with old image in the PDF document
+//Replaces the compressed image with old image in the PDF document
 
 page.ReplaceImage(j, img);
 
@@ -294,7 +294,7 @@ page.ReplaceImage(j, img);
 
 }
 
-//Save and close the document
+//Saves and closes the document
 
 loadedDocument.Save("Output.pdf");
 
@@ -307,33 +307,33 @@ loadedDocument.Close(true);
 {% highlight vb.net %}
 [VB]
 
-'Load the PDF document which consist of images
+'Loads the PDF document that consist of images
 
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
-'Disable the incremental update
+'Disables the incremental update
 
 loadedDocument.FileStructure.IncrementalUpdate = False
 
-'iterate all the pages to replace images
+'Iterates all the pages to replace images
 
 For Each page As PdfPageBase In loadedDocument.Pages
 
-'Extract the images from the document
+'Extracts the images from the document
 
 Dim extractedImages As Image() = page.ExtractImages()
 
-'Iterate all the image
+'Iterates all the image
 
 For j As Integer = 0 To extractedImages.Count() - 1
 
 Dim img As New PdfBitmap(extractedImages(j))
 
-'reduce the quality of the image
+'Reduces the quality of the image
 
 img.Quality = 50
 
-'replace the compressed image with old image in the PDF document
+'Replaces the compressed image with old image in the PDF document
 
 page.ReplaceImage(j, img)
 
@@ -341,7 +341,7 @@ Next
 
 Next
 
-'Save and close the document
+'Saves and closes the document
 
 loadedDocument.Save("Output.pdf")
 
