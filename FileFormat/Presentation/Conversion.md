@@ -10,7 +10,7 @@ documentation: UG
 
 ## Converting PowerPoint presentation to PDF
 
-To convert a PowerPoint presentation to PDF, we need the below assemblies to be included in the application.
+To convert a PowerPoint presentation to PDF, include the following assemblies in the application.
 
 <table>
 <tr>
@@ -44,7 +44,7 @@ Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td
 <tr>
 <td>
 Syncfusion.Compression.Base<br/><br/></td><td>
-This assembly is used to package the Presentation contents.<br/><br/></td></tr>
+This assembly is used to pack the Presentation contents.<br/><br/></td></tr>
 </table>
 The following namespaces are required to compile the code in this topic.
 
@@ -53,32 +53,32 @@ The following namespaces are required to compile the code in this topic.
 3. using Syncfusion.PresentationToPdfConverter;
 4. using Syncfusion.Pdf;
 
-**PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The below code snippet demonstrates how to convert a PowerPoint presentation to PDF.
+**PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert a PowerPoint presentation to PDF.
 
 {% highlight c# %}
 [C#]
 
-//Open a PowerPoint presentation file
+//Opens a PowerPoint presentation file
 
 IPresentation presentation = Presentation.Open(fileName);
 
-//Create an instance of ChartToImageConverter and assign it to ChartToImageConverter property of Presentation
+//Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
 presentation.ChartToImageConverter = new ChartToImageConverter();
 
-//Convert the PowerPoint presentation into PDF document
+//Converts the PowerPoint presentation into PDF document
 
 PdfDocument PDFdocument = PresentationToPdfConverter.Convert(presentation);
 
-//Save the PDF document
+//Saves the PDF document
 
 PDFdocument.Save(@"SampleWithoutSetting.pdf");
 
-//Close the PDF document
+//Closes the PDF document
 
 PDFdocument.Close(true);
 
-//Close the presentation
+//Closes the presentation
 
 presentation.Close();
 
@@ -89,27 +89,27 @@ presentation.Close();
 {% highlight vb.net %}
 [VB.NET]
 
-'Open a PowerPoint presentation file
+'Opens a PowerPoint presentation file
 
 Dim presentation_1 As IPresentation = Presentation.Open("ClonedPresentation.pptx")
 
-'Create an instance of ChartToImageConverter and assign it to ChartToImageConverter property of Presentation
+'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
 presentation_1.ChartToImageConverter = New ChartToImageConverter()
 
-'Convert the PowerPoint presentation into PDF document
+'Converts the PowerPoint presentation into PDF document
 
 Dim PDFdocument As PdfDocument = PresentationToPdfConverter.Convert(presentation_1)
 
-'Save the PDF document
+'Saves the PDF document
 
 PDFdocument.Save("SampleWithoutSetting.pdf")
 
-'Close the PDF document
+'Closes the PDF document
 
 PDFdocument.Close(True)
 
-'Close the presentation
+'Closes the presentation
 
 presentation_1.Close()
 
@@ -119,59 +119,59 @@ presentation_1.Close()
 
 **Note****:**
 
-1. Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to PDF. Otherwise the charts will not be exported to the converted PDF.
+1. Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to PDF. Otherwise, the charts are not exported to the converted PDF.
 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 
 **Customizing** **the** **PowerPoint** **presentation** **to** **PDF** **conversion**
 
-Essential Presentation library provides you the ability to customize the presentation to PDF conversion with the below options:
+Essential Presentation library provides you the ability to customize the presentation to PDF conversion with the following options:
 
 * Allows to include the hidden slide during conversion.
 * Allows to specify the number of slides per PDF page.
 * Allows to determine the quality of the charts in the converted PDF 
 
-The following code snippet shows the customized PDF conversion.
+The following code example shows the customized PDF conversion.
 
 {% highlight c# %}
 [C#]
 
-//Open a PowerPoint presentation file
+//Opens a PowerPoint presentation file
 
 IPresentation presentation = Presentation.Open(fileName);
 
-//Create an instance of ChartToImageConverter and assign it to ChartToImageConverter property of Presentation
+//Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
 presentation.ChartToImageConverter = new ChartToImageConverter();
 
-//Set the scaling mode of the chart to best.
+//Sets the scaling mode of the chart to best.
 
 presentation.ChartToImageConverter.ScalingMode = ScalingMode.Best;
 
-//Instantiate the presentation to pdf converter settings instance.
+//Instantiates the presentation to pdf converter settings instance.
 
 PresentationToPdfConverterSettings settings = new PresentationToPdfConverterSettings();
 
-//Set the option for adding hidden slides to converted pdf
+//Sets the option for adding hidden slides to converted pdf
 
 settings.ShowHiddenSlides = false;
 
-//Set the slide per page settings; this is optional.
+//Sets the slide per page settings; this is optional.
 
 settings.SlidesPerPage = SlidesPerPage.Three;
 
-//Convert the PowerPoint presentation into PDF document
+//Converts the PowerPoint presentation into PDF document
 
 PdfDocument PDFdocument = PresentationToPdfConverter.Convert(presentation, settings);
 
-//Save the PDF document
+//Saves the PDF document
 
 PDFdocument.Save(@"SampleWithoutSetting.pdf");
 
-//Close the PDF document
+//Closes the PDF document
 
 PDFdocument.Close(true);
 
-//Close the presentation
+//Closes the presentation
 
 presentation.Close();
 
@@ -182,43 +182,43 @@ presentation.Close();
 {% highlight vb.net %}
 [VB.NET]
 
-'Open a PowerPoint presentation file
+'Opens a PowerPoint presentation file
 
 Dim presentation_1 As IPresentation = Presentation.Open(fileName)
 
-'Create an instance of ChartToImageConverter and assign it to ChartToImageConverter property of Presentation
+'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
 presentation_1.ChartToImageConverter = New ChartToImageConverter()
 
-'Set the scaling mode of the chart to best.
+'Sets the scaling mode of the chart to best.
 
 presentation_1.ChartToImageConverter.ScalingMode = ScalingMode.Best
 
-'Instantiate the presentation to pdf converter settings instance.
+'Instantiates the presentation to pdf converter settings instance.
 
 Dim settings As New PresentationToPdfConverterSettings()
 
-'Set the hiding slides to false; this is optional.
+'Sets the hiding slides to false; this is optional.
 
 settings.ShowHiddenSlides = False
 
-'Set the slide per page settings; this is optional.
+'Sets the slide per page settings; this is optional.
 
 settings.SlidesPerPage = SlidesPerPage.Three
 
-'Convert the PowerPoint presentation into PDF document
+'Converts the PowerPoint presentation into PDF document
 
 Dim PDFdocument As PdfDocument = PresentationToPdfConverter.Convert(presentation_1, settings)
 
-'Save the PDF document
+'Saves the PDF document
 
 PDFdocument.Save("SampleWithoutSetting.pdf")
 
-'Close the PDF document
+'Closes the PDF document
 
 PDFdocument.Close(True)
 
-'Close the presentation
+'Closes the presentation
 
 presentation_1.Close()
 
@@ -228,7 +228,7 @@ presentation_1.Close()
 
 ## Converting PowerPoint presentation to Images
 
-An entire presentation or a single slide can be converted to image using Essential Presentation library. The supported image format are listed in the below.
+An entire presentation or a single slide can be converted to image by using Essential Presentation library. The supported image formats are listed as follows.
 
 * Bmp
 * Emf
@@ -241,7 +241,7 @@ An entire presentation or a single slide can be converted to image using Essenti
 * MemoryBmp
 * Tiff
 
-To convert a presentation or a single slide to image, the below assemblies are required in an application:
+To convert a presentation or a single slide to image, the following assemblies are required in an application:
 
 <table>
 <tr>
@@ -251,7 +251,7 @@ To convert a presentation or a single slide to image, the below assemblies are r
 <tr>
 <td>
 Syncfusion.Presentation.Base<br/><br/></td><td>
-This assembly contains the core features needed for creating, reading, manipulating a Presentation file.<br/><br/></td></tr>
+This assembly contains the core features required for creating, reading, manipulating a Presentation file.<br/><br/></td></tr>
 <tr>
 <td>
 Syncfusion.Compression.Base<br/><br/></td><td>
@@ -273,36 +273,36 @@ Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td
 Syncfusion.Shared.WPF<br/><br/></td><td>
 Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
 </table>
-The following code snippet demonstrates how to convert a slide to image.
+The following code example demonstrates how to convert a slide to image.
 
 {% highlight c# %}
 [C#]
 
-//Open a PowerPoint presentation file
+//Opens a PowerPoint presentation file
 
 IPresentation presentation = Presentation.Open(fileName);
 
-//Create an instance of ChartToImageConverter
+//Creates an instance of ChartToImageConverter
 
 presentation.ChartToImageConverter = new ChartToImageConverter();
 
-//Set the scaling mode as best
+//Sets the scaling mode as best
 
 presentation.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best;
 
-//Convert the first slide into image
+//Converts the first slide into image
 
 Image image = presentation.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
 
-//Save the image as file
+//Saves the image as file
 
 image.Save("slide1.png");
 
-//Dispose the image
+//Disposes the image
 
 image.dispose();
 
-//close the presentation instance
+//Closes the presentation instance
 
 presentation.Close();
 
@@ -313,31 +313,31 @@ presentation.Close();
 {% highlight vb.net %}
 [VB.NET]
 
-'Open a PowerPoint presentation file
+'Opens a PowerPoint presentation file
 
 Dim presentation_1 As IPresentation = Presentation.Open(fileName)
 
-'Create an instance of ChartToImageConverter
+'Creates an instance of ChartToImageConverter
 
 presentation_1.ChartToImageConverter = New ChartToImageConverter()
 
-'Set the scaling mode as best
+'Sets the scaling mode as best
 
 presentation_1.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best
 
-'Convert the first slide into image
+'Converts the first slide into image
 
 Dim image As Image = presentation_1.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageType.Metafile)
 
-'Save the image as file
+'Saves the image as file
 
 image.Save("slide1.png")
 
-'Dispose the image
+'Disposes the image
 
 image.Dispose()
 
-'close the presentation instance
+'Closes the presentation instance
 
 Presentation_1.Close()
 
@@ -345,28 +345,28 @@ Presentation_1.Close()
 
 {% endhighlight %}
 
-Below code snippet demonstrates the conversion of an entire presentation to images:
+The following code example demonstrates the conversion of an entire presentation to images:
 
 {% highlight c# %}
 [C#]
 
-//Load the PowerPoint presentation
+//Loads the PowerPoint presentation
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Create instance of ChartToImageConverter
+//Creates instance of ChartToImageConverter
 
 presentation.ChartToImageConverter = new ChartToImageConverter();
 
-//Set the scaling mode as best
+//Sets the scaling mode as best
 
 presentation.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best;
 
-//Convert entire presentation to images
+//Converts entire presentation to images
 
 Image[] images = presentation.RenderAsImages(Syncfusion.Drawing.ImageType.Metafile);
 
-//Save the image to file system
+//Saves the image to file system
 
 foreach (Image image in images)
 
@@ -383,23 +383,23 @@ image.Save("ImageOutput" + Guid.NewGuid().ToString()+ ".png");
 {% highlight vb.net %}
 [VB.NET]
 
-'Load the PowerPoint presentation
+'Loads the PowerPoint presentation
 
 Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
 
-'Create instance of ChartToImageConverter
+'Creates instance of ChartToImageConverter
 
 presentation_1.ChartToImageConverter = New ChartToImageConverter()
 
-'Set the scaling mode as best
+'Sets the scaling mode as best
 
 presentation_1.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best
 
-'Convert entire presentation to images
+'Converts entire presentation to images
 
 Dim images As Image() = presentation_1.RenderAsImages(Syncfusion.Drawing.ImageType.Metafile)
 
-'Save the image to file system
+'Saves the image to file system
 
 For Each image As Image In images
 
@@ -413,6 +413,6 @@ Next
 
 **Note****:**
 
-1. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to image. Otherwise the charts in the presentation will not be exported to the converted image.
+1. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to image. Otherwise, the charts in the presentation are not exported to the converted image.
 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onward.
 
