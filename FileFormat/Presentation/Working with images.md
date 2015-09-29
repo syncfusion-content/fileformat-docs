@@ -10,32 +10,32 @@ documentation: UG
 
 ## Adding Images
 
-Essential Presentation library facilitates adding or modifying the images in a PowerPoint presentation. The below code snippet demonstrates adding a new image to the presentation.
+Essential Presentation library facilitates adding or modifying the images in a PowerPoint presentation. The following code example demonstrates adding a new image to the presentation.
 
 {% highlight c# %}
 [C#]
 
-//Create a instance of presentation
+//Creates a instance of presentation
 
 IPresentation presentation = Presentation.Create();
 
-//Add a blank slide.
+//Adds a blank slide.
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Get a picture as stream.
+//Gets a picture as stream.
 
 Stream pictureStream = File.Open("Image.png", FileMode.Open);
 
-//Add the picture to a slide by specifying its size and position.
+//Adds the picture to a slide by specifying its size and position.
 
 IPicture picture = slide.Pictures.AddPicture(pictureStream, 0, 0, 250, 250);
 
-//Save the presentation to the file system.
+//Saves the presentation to the file system.
 
 presentation.Save("Output.pptx");
 
-//Close the presentation
+//Closes the presentation
 
 presentation.Close();
 
@@ -46,27 +46,27 @@ presentation.Close();
 {% highlight vb.net %}
 [VB.NET]
 
-'Create a instance of presentation
+'Creates a instance of presentation
 
 Dim presentation_1 As IPresentation = Presentation.Create()
 
-'Add a blank slide.
+'Adds a blank slide.
 
 Dim slide As ISlide = presentation.Slides.Add(SlideLayoutType.Blank)
 
-'Get a picture as stream.
+'Gets a picture as stream.
 
 Dim pictureStream As Stream = File.Open("Image.png", FileMode.Open)
 
-'Add the picture to a slide by specifying its size and position.
+'Adds the picture to a slide by specifying its size and position.
 
 Dim picture As IPicture = slide.Pictures.AddPicture(pictureStream, 0, 0, 250, 250)
 
-'Save the presentation to the file system.
+'Saves the presentation to the file system.
 
 presentation_1.Save("Result.pptx")
 
-'Close the presentation
+'Closes the presentation
 
 presentation_1.Close()
 
@@ -76,44 +76,44 @@ presentation_1.Close()
 
 ## Replacing Images
 
-The below code snippet demonstrates replacing an existing image in a slide.
+The following code example demonstrates replacing an existing image in a slide.
 
 {% highlight c# %}
 [C#]
 
-//Open an existing presentation.
+//Opens an existing presentation.
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Retrieve the first slide from the presentation.
+//Retrieves the first slide from the presentation.
 
 ISlide slide = presentation.Slides[0];
 
-//Retrieve the first picture from the slide.
+//Retrieves the first picture from the slide.
 
 IPicture picture = slide.Pictures[0];
 
-//Get the new picture as stream.
+//Gets the new picture as stream.
 
 Stream pictureStream = File.Open("Image.png", FileMode.Open);
 
-//Create instance for memory stream
+//Creates instance for memory stream
 
 MemoryStream memoryStream = new MemoryStream();
 
-//Copy stream to memoryStream.
+//Copies stream to memoryStream.
 
 pictureStream.CopyTo(memoryStream);
 
-//Replace the existing image with new image.
+//Replaces the existing image with new image.
 
 picture.ImageData = memoryStream.ToArray();
 
-//Save the presentation to the file system.
+//Saves the presentation to the file system.
 
 presentation.Save("Output.pptx");
 
-//Close the presentation
+//Closes the presentation
 
 presentation.Close();
 
@@ -124,39 +124,39 @@ presentation.Close();
 {% highlight vb.net %}
 [VB.NET]
 
-'Open an existing presentation.
+'Opens an existing presentation.
 
 Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
 
-'Retrieve the first slide from the presentation.
+'Retrieves the first slide from the presentation.
 
 Dim slide As ISlide = presentation_1.Slides(0)
 
-'Retrieve the first picture from the slide.
+'Retrieves the first picture from the slide.
 
 Dim picture As IPicture = slide.Pictures(0)
 
-'Get the new picture as stream.
+'Gets the new picture as stream.
 
 Dim pictureStream As Stream = File.Open("Image.png", FileMode.Open)
 
-'Create instance for memory stream
+'Creates instance for memory stream
 
 Dim memoryStream As New MemoryStream()
 
-'Copy stream to memoryStream.
+'Copies stream to memoryStream.
 
 pictureStream.CopyTo(memoryStream)
 
-'Replace the existing image with new image.
+'Replaces the existing image with new image.
 
 picture.ImageData = memoryStream.ToArray()
 
-'Save the presentation to the file system.
+'Saves the presentation to the file system.
 
 presentation_1.Save("Output.pptx")
 
-'Close the presentation
+'Closes the presentation
 
 presentation_1.Close()
 
@@ -166,26 +166,26 @@ presentation_1.Close()
 
 ## Removing Images
 
-The below code snippet demonstrates removing an existing image in a PowerPoint slide.
+The following code example demonstrates removing an existing image in a PowerPoint slide.
 
 {% highlight c# %}
 [C#]
 
-//Open an existing presentation from file system.
+//Opens an existing presentation from file system.
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Retrieve the first slide from presentation
+//Retrieves the first slide from presentation
 
 ISlide slide = presentation.Slides[0];
 
-//Iterate through the pictures collection and remove the picture named "Image".
+//Iterates through the pictures collection and remove the picture named "Image".
 
 foreach (IPicture picture in slide.Pictures)
 
 {
 
-//Remove the picture from the slide.
+//Removes the picture from the slide.
 
 slide.Pictures.Remove(picture);
 
@@ -193,11 +193,11 @@ break;
 
 }
 
-//Save the presentation to the file system.
+//Saves the presentation to the file system.
 
 presentation.Save("Output.pptx");
 
-//Close the presentation
+//Closes the presentation
 
 presentation.Close();
 
@@ -208,19 +208,19 @@ presentation.Close();
 {% highlight vb.net %}
 [VB.NET]
 
-'Open an existing presentation from file system.
+'Opens an existing presentation from file system.
 
 Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
 
-'Retrieve the first slide from presentation
+'Retrieves the first slide from presentation
 
 Dim slide As ISlide = presentation_1.Slides(0)
 
-'Iterate through the pictures collection and remove the picture named "Image".
+'Iterates through the pictures collection and removes the picture named "Image".
 
 For Each picture As IPicture In slide.Pictures
 
-'Remove the picture from the slide.
+'Removes the picture from the slide.
 
 slide.Pictures.Remove(picture)
 
@@ -228,11 +228,11 @@ Exit For
 
 Next
 
-'Save the presentation to the file system.
+'Saves the presentation to the file system.
 
 presentation_1.Save("Output.pptx")
 
-'Close the presentation
+'Closes the presentation
 
 presentation_1.Close()
 
