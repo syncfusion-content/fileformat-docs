@@ -10,7 +10,7 @@ documentation: UG
 
 ## Converting Word document to PDF
 
-Essential DocIO allows you to convert a Word document into PDF in a few lines of code. For converting a Word document to PDF, the following assemblies need to be referenced in your application
+Essential DocIO allows you to convert a Word document into PDF with a few lines of code. For converting a Word document to PDF, the following assemblies are required to be referred in your application.
 
 <table>
 <tr>
@@ -38,7 +38,7 @@ This assembly has the core features for creating PDF file.<br/><br/></td></tr>
 Syncfusion.OfficeChart.Base<br/><br/></td><td>
 This assembly has features to work with chart in Word document.<br/><br/></td></tr>
 </table>
-The following assemblies are need to be referred in addition to the above mentioned assemblies for converting the chart present in the Word document into PDF.
+The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the Word document into PDF.
 
 <table>
 <tr>
@@ -69,32 +69,32 @@ The following namespaces are required to compile the code in this topic.
 * using Syncfusion.Pdf
 * using Syncfusion.OfficeChartToImageConverter
 
-DocToPDFConverter class is responsible for converting a Word document into PDF. The following code snippet illustrates how to convert a Word document into PDF document.
+DocToPDFConverter class is responsible for converting a Word document into PDF. The following code example illustrates how to convert a Word document into PDF document.
 
 {% highlight c# %}
 [C#]
 
-//Load an existing Word document
+//Loads an existing Word document
 
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 
-//Initialize ChartToImageConverter for converting charts during Word to pdf conversion
+//Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
 
-//Create an instance of DocToPDFConverter
+//Creates an instance of the DocToPDFConverter
 
 DocToPDFConverter converter = new DocToPDFConverter();
 
-//Convert Word document into PDF document
+//Converts Word document into PDF document
 
 PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
 
-//Save the PDF file 
+//Saves the PDF file 
 
 pdfDocument.Save("WordtoPDF.pdf");
 
-//Close the instance of document objects
+//Closes the instance of document objects
 
 pdfDocument.Close(true);
 
@@ -107,27 +107,27 @@ wordDocument.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load an existing Word document
+'Loads an existing Word document
 
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 
-'Initialize ChartToImageConverter for converting charts during Word to pdf conversion
+'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 
-'Create an instance of DocToPDFConverter
+'Creates an instance of the DocToPDFConverter
 
 Dim converter As New DocToPDFConverter()
 
-'Convert Word document into PDF document
+'Converts Word document into PDF document
 
 Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
 
-'Save the PDF file 
+'Saves the PDF file 
 
 pdfDocument.Save("WordtoPDF.pdf")
 
-'Close the instance of document objects
+'Closes the instance of document objects
 
 pdfDocument.Close(True)
 
@@ -141,7 +141,7 @@ I> Note:
 
 I> Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
 
-I> Initializing the ChartToImageConverter is mandatory to convert the charts present in the Word document to PDF. Otherwise the charts will not be exported to the converted PDF
+I> Initializing the ChartToImageConverter is mandatory to convert the charts present in the Word document to PDF. Otherwise, the charts are not exported to the converted PDF.
 
 I> ChartToImageConverter is supported from .NET Framework 4.0 onwards
 
@@ -149,7 +149,7 @@ I> Total number of pages may vary  based on unsupported elements in the converte
 
 **Customizing** **the** **Word** **document** **to** **PDF** **conversion**
 
-Essential DocIO allows you to customize the Word to PDF conversion with the below options:
+Essential DocIO allows you to customize the Word to PDF conversion with the following options:
 
 * Allows to determine the quality of the charts in the converted PDF 
 * Allows to determine the quality of the jpeg images in the converted PDF
@@ -162,39 +162,39 @@ Essential DocIO allows you to customize the Word to PDF conversion with the belo
 
 WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
 
-//Initialize ChartToImageConverter for converting charts during Word to pdf conversion
+//Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
 
-//Set the scaling mode for charts (Normal mode reduces the Pdf file size)
+//Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
 
 wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
 
-//create an instance of DocToPDFConverter - responsible for Word to PDF conversion
+//Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
 
 DocToPDFConverter converter = new DocToPDFConverter();
 
-//Set the jpeg image quality to reduce the Pdf file size
+//Sets the jpeg image quality to reduce the Pdf file size
 
 converter.Settings.ImageQuality = 100;
 
-//Set the image resolution
+//Sets the image resolution
 
 converter.Settings.ImageResolution = 640;
 
-//Set true to optimize the memory usage for identical images
+//Sets true to optimize the memory usage for identical images
 
 converter.Settings.OptimizeIdenticalImages = true;
 
-//Convert Word document into PDF document
+//Converts Word document into PDF document
 
 PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
 
-//Save the PDF file to file system
+//Saves the PDF file to file system
 
 pdfDocument.Save("WordtoPDF.pdf");
 
-//close the instance of document objects
+//Closes the instance of document objects
 
 pdfDocument.Close(true);
 
@@ -211,39 +211,39 @@ wordDocument.Close();
 
 Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
 
-'Initialize ChartToImageConverter for converting charts during Word to pdf conversion
+'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
 
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 
-'Set the scaling mode for charts (Normal mode reduces the Pdf file size)
+'Sets the scaling mode for charts (Normal mode reduces the Pdf file size)
 
 wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
 
-'create an instance of DocToPDFConverter - responsible for Word to PDF conversion
+'creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
 
 Dim converter As New DocToPDFConverter()
 
-'Set the jpeg image quality to reduce the Pdf file size
+'Sets the jpeg image quality to reduce the Pdf file size
 
 converter.Settings.ImageQuality = 100
 
-'Set the image resolution
+'Sets the image resolution
 
 converter.Settings.ImageResolution = 640
 
-'Set true to optimize the memory usage for identical images
+'Sets true to optimize the memory usage for identical images
 
 converter.Settings.OptimizeIdenticalImages = True
 
-'Convert Word document into PDF document
+'Converts Word document into PDF document
 
 Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
 
-'Save the PDF file to file system
+'Saves the PDF file to file system
 
 pdfDocument.Save("WordtoPDF.pdf")
 
-'close the instance of document objects
+'Closes the instance of document objects
 
 pdfDocument.Close(True)
 
@@ -403,19 +403,19 @@ The following code illustrates how to convert the Word document to image.
 {% highlight c# %}
 [C#]
 
-//Load an existing Word document
+//Loads an existing Word document
 
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
 
-//Initialize ChartToImageConverter for converting charts during Word to image conversion
+//Initializes the ChartToImageConverter for converting charts during Word to image conversion
 
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
 
-//Set the scaling mode for charts (Normal mode reduces the file size)
+//Sets the scaling mode for charts (Normal mode reduces the file size)
 
 wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
 
-//Convert word document to image
+//Converts word document to image
 
 Image[] images = wordDocument.RenderAsImages(ImageType.Bitmap);
 
@@ -425,7 +425,7 @@ foreach (Image image in images)
 
 {
 
-//Save the images as jpeg
+//Saves the images as jpeg
 
 image.Save("WordToImage_" + i + ".jpeg", ImageFormat.Jpeg);
 
@@ -433,7 +433,7 @@ i++;
 
 }
 
-//Close the document
+//Closes the document
 
 wordDocument.Close();
 
@@ -446,19 +446,19 @@ wordDocument.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load an existing Word document
+'Loads an existing Word document
 
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 
-'Initialize ChartToImageConverter for converting charts during Word to image conversion
+'Initializes the ChartToImageConverter for converting charts during Word to image conversion
 
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
 
-'Set the scaling mode for charts (Normal mode reduces the file size)
+'Sets the scaling mode for charts (Normal mode reduces the file size)
 
 wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
 
-'Convert word document to image
+'Converts word document to image
 
 Dim images As Image() = wordDocument.RenderAsImages(ImageType.Bitmap)
 
@@ -466,7 +466,7 @@ Dim i As Integer = 0
 
 For Each image As Image In images
 
-'Save the images as jpeg
+'Saves the images as jpeg
 
 image.Save("WordToImage_" & i & ".jpeg", ImageFormat.Jpeg)
 
@@ -474,7 +474,7 @@ i += 1
 
 Next
 
-'Close the document
+'Closes the document
 
 wordDocument.Close()
 
@@ -486,7 +486,7 @@ I> Note:
 
 I> Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, UWP and Xamarin applications
 
-I> If the ChartToImageConverter object is not initialized, then the charts in Word document will get skipped during Word to Image conversion
+I> When the ChartToImageConverter object is not initialized, then the charts in Word document get skipped during Word to Image conversion
 
 I> ChartToImageConverter is supported from .NET Framework 4.0 onwards
 
@@ -505,11 +505,11 @@ Essential DocIO supports to convert the RTF document into Word document and vice
 
 WordDocument document = new WordDocument("Sample.rtf", FormatType.Rtf);
 
-//Saving the Word document as RTF file
+//Saves the Word document as RTF file
 
 document.Save("RtfToWord.docx", FormatType.Docx);
 
-//Closing the document
+//Closes the document
 
 document.Close();
 
@@ -526,11 +526,11 @@ document.Close();
 
 Dim document As New WordDocument("Sample.rtf", FormatType.Rtf)
 
-'Saving the Word document as RTF file
+'Saves the Word document as RTF file
 
 document.Save("RtfToWord.docx", FormatType.Docx)
 
-'Closing the document
+'Closes the document
 
 document.Close()
 
@@ -538,20 +538,20 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet shows how to convert Word document into RTF document 
+The following code example shows how to convert Word document into RTF document 
 
 {% highlight c# %}
 [C#]
 
-//Load an existing document
+//Loads an existing document
 
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 
-//Save the Word document as RTF file
+//Saves the Word document as RTF file
 
 document.Save("WordToRtf.rtf", FormatType.Rtf);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -562,15 +562,15 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load an existing document
+'Loads an existing document
 
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 
-'Save the Word document as RTF file
+'Saves the Word document as RTF file
 
 document.Save("WordToRtf.rtf", FormatType.Rtf)
 
-'Close the document
+'Closes the document
 
 document.Close()
 
@@ -580,22 +580,22 @@ document.Close()
 
 ## HTML conversion
 
-Essential DocIO supports convert the HTML file into Word document and vice versa. And it supports only the HTML files which meets the validation against either XHTML 1.0 strict or XHTML 1.0 Transitional schemas. 
+Essential DocIO supports converting the HTML file into Word document and vice versa. It supports only the HTML files that meet the validation either against XHTML 1.0 strict or XHTML 1.0 Transitional schemas. 
 
-The following code snippet shows how to convert the HTML file into Word document. 
+The following code example shows how to convert the HTML file into Word document. 
 
 {% highlight c# %}
 [C#]
 
-//Load the HTML document against transitional schema validation
+//Loads the HTML document against transitional schema validation
 
 WordDocument document = new WordDocument("Sample.html", FormatType.Html, XHTMLValidationType.Transitional);
 
-//Save the Word document
+//Saves the Word document
 
 document.Save("HTMLtoWord.docx", FormatType.Docx);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -606,15 +606,15 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-' Load the HTML document against transitional schema validation 
+' Loads the HTML document against transitional schema validation 
 
 Dim document As New WordDocument("Sample.html", FormatType.Html, XHTMLValidationType.Transitional)
 
-'Save the Word document
+'Saves the Word document
 
 document.Save("HTMLtoWord.docx", FormatType.Docx)
 
-'Close the document
+'Closes the document
 
 document.Close()
 
@@ -624,18 +624,18 @@ document.Close()
 
 **Customizing** **the** **HTML** **to** **Word** **conversion**
 
-You can customize the HTML to Word conversion with the below options:
+You can customize the HTML to Word conversion with the following options:
 
 * Validate the HTML string against XHTML 1.0 Strict and Transitional schemas 
 * Insert the HTML string at the specified position of the document body contents
 * Append HTML string to the specified paragraph
 
-The following Code snippet shows how to customize the HTML to Word conversion.
+The following Code example shows how to customize the HTML to Word conversion.
 
 {% highlight c# %}
 [C#]
 
-//Load the template document
+//Loads the template document
 
 WordDocument document = new WordDocument("Template.docx");
 
@@ -643,27 +643,27 @@ WordDocument document = new WordDocument("Template.docx");
 
 string htmlstring = "<p><b>This text is inserted as HTML string.</b></p>";
 
-//Validating the Html string
+//Validates the Html string
 
 bool isValidHtml = document.LastSection.Body.IsValidXHTML(htmlstring, XHTMLValidationType.Transitional);
 
-//If the Html string passes validation, it is inserted to document
+//When the Html string passes validation, it is inserted to the document
 
 if (isValidHtml)
 
 {
 
-//Append Html string as first item of the second paragraph in the document
+//Appends Html string as first item of the second paragraph in the document
 
 document.Sections[0].Body.InsertXHTML(htmlstring, 2, 0);
 
-//Append the Html string to first paragraph in the document
+//Appends the Html string to first paragraph in the document
 
 document.Sections[0].Body.Paragraphs[0].AppendHTML(htmlstring);
 
 }
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx");
 
@@ -676,7 +676,7 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document
+'Loads the template document
 
 Dim document As New WordDocument("Template.docx")
 
@@ -684,25 +684,25 @@ Dim document As New WordDocument("Template.docx")
 
 Dim htmlstring As String = "<p><b>This text is inserted as HTML string.</b></p>"
 
-'Validating the Html string
+'Validates the Html string
 
 Dim isValidHtmlAs Boolean = document.LastSection.Body.IsValidXHTML(htmlstring, XHTMLValidationType.Transitional)
 
-'If the Html string passes validation, it is inserted to document
+'When the Html string passes validation, it is inserted to document
 
 If isValidHtmlThen
 
-'Append Html string as first item of the second paragraph in the document
+'Appends Html string as first item of the second paragraph in the document
 
 document.Sections(0).Body.InsertXHTML(htmlstring, 2, 0)
 
-'Append the Html string to first paragraph in the document
+'Appends the Html string to first paragraph in the document
 
 document.Sections(0).Body.Paragraphs(0).AppendHTML(htmlstring)
 
 End If
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx")
 
@@ -722,20 +722,20 @@ I> XHTMLValidationType.Transitional - default validation while importing HTML fi
 
 I> XHTMLValidationType.None - validate the HTML file against XHTML format and it doesn’t perform any schemas validation.
 
-The following code snippet shows how to convert the Word document into HTML.
+The following code example shows how to convert the Word document into HTML.
 
 {% highlight c# %}
 [C#]
 
-//Load the template document
+//Loads the template document
 
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 
-//Save the document as Html file
+//Saves the document as Html file
 
 document.Save("WordToHtml.html", FormatType.Html);
 
-//Close the document 
+//Closes the document 
 
 document.Close();
 
@@ -746,15 +746,15 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document
+'Loads the template document
 
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 
-'Save the document as Html file
+'Saves the document as Html file
 
 document.Save("WordToHtml.html", FormatType.Html)
 
-'Close the document 
+'Closes the document 
 
 document.Close()
 
@@ -764,14 +764,14 @@ document.Close()
 
 **Customizing** **the** **Word** **to** **HTML** **conversion**
 
-You can customize the Word to HTML conversion with the below options:
+You can customize the Word to HTML conversion with the following options:
 
 * Extract the images used in the HTML document at the specified file directory 
 * Specify to export the header and footer of the Word document in the HTML 
 * Specify to consider Text Input field as a editable fields or text 
 * Specify the CSS style sheet type and its name
 
-The following code snippet shows how to customize Word to HTML conversion.
+The following code example shows how to customize Word to HTML conversion.
 
 {% highlight c# %}
 [C#]
@@ -782,27 +782,27 @@ WordDocument document = new WordDocument("Template.docx");
 
 HTMLExport export = new HTMLExport();
 
-//The images in the input document will be copied to this folder
+//The images in the input document are copied to this folder
 
 document.SaveOptions.HtmlExportImagesFolder = @"D:\Data\";
 
-//The headers and footers in the input will be exported
+//The headers and footers in the input are exported
 
 document.SaveOptions.HtmlExportHeadersFooters = true;
 
-//Export the text form fields as editable
+//Exports the text form fields as editable
 
 document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
 
-//Set the style sheet type
+//Sets the style sheet type
 
 document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External;
 
-//Set name for style sheet
+//Sets name for style sheet
 
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css";
 
-//Save the document as html file
+//Saves the document as html file
 
 export.SaveAsXhtml(document, "WordtoHtml.html");
 
@@ -821,27 +821,27 @@ Dim document As New WordDocument("Template.docx")
 
 Dim export As New HTMLExport()
 
-'The images in the input document will be copied to this folder
+'The images in the input document are copied to this folder
 
 document.SaveOptions.HtmlExportImagesFolder = "D:\Data\"
 
-'The headers and footers in the input will be exported
+'The headers and footers in the input are exported
 
 document.SaveOptions.HtmlExportHeadersFooters = True
 
-'Export the text form fields as editable
+'Exports the text form fields as editable
 
 document.SaveOptions.HtmlExportTextInputFormFieldAsText = False
 
-'Set the style sheet type
+'Sets the style sheet type
 
 document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External
 
-'Set name for style sheet
+'Sets name for style sheet
 
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css"
 
-'Save the document as html file
+'Saves the document as html file
 
 export.SaveAsXhtml(document, "WordtoHtml.html")
 
@@ -1291,20 +1291,20 @@ Underline types and colors are ignored.<br/><br/></td></tr>
 </table>
 ## Text file
 
-Essential DocIO supports to convert the Word document into Text file and vice versa. The following code snippet shows how to convert the Word document into text file.
+Essential DocIO supports to convert the Word document into Text file and vice versa. The following code example shows how to convert the Word document into text file.
 
 {% highlight c# %}
 [C#]
 
-//Load a template document
+//Loads a template document
 
 WordDocument document = new WordDocument("Template.docx");
 
-//Saving the document as text file
+//Saves the document as text file
 
 document.Save("WordToText.txt", FormatType.Txt);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -1315,15 +1315,15 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load a text file
+'Loads a text file
 
 Dim document As New WordDocument("Template.docx")
 
-'Saving the document as text file
+'Saves the document as text file
 
 document.Save("WordToText.txt", FormatType.Txt)
 
-'Close the document
+'Closes the document
 
 document.Close()
 
@@ -1331,20 +1331,20 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet shows how to convert a Text file into Word document. 
+The following code example shows how to convert a Text file into Word document. 
 
 {% highlight c# %}
 [C#]
 
-//Load a text file
+//Loads a text file
 
 WordDocument document = new WordDocument("Template.txt");
 
-//Saving the document as text file
+//Saves the document as text file
 
 document.Save("TextToWord.docx", FormatType.Docx);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -1355,15 +1355,15 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load a text file
+'Loads a text file
 
 Dim document As New WordDocument("Template.txt")
 
-'Saving the document as text file
+'Saves the document as text file
 
 document.Save("TextToWord.docx", FormatType.Docx)
 
-'Close the document
+'Closes the document
 
 document.Close()
 
@@ -1371,36 +1371,36 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet shows how to retrieve the Word document contents as a plain text.
+The following code example shows how to retrieve the Word document contents as a plain text.
 
 {% highlight c# %}
 [C#]
 
-//Load a template document
+//Loads a template document
 
 WordDocument document = new WordDocument("Template.docx");
 
-//Get the document text
+//Gets the document text
 
 string text = document.GetText();
 
-//Create new Word document
+//Creates new Word document
 
 WordDocument newdocument = new WordDocument();
 
-//Add new section
+//Adds new section
 
 IWSection section = newdocument.AddSection();
 
-//Add new paragraph
+//Adds new paragraph
 
 IWParagraph paragraph = section.AddParagraph();
 
-//Append the text to the paragraph
+//Appends the text to the paragraph
 
 paragraph.AppendText(text);
 
-//Save and close the document
+//Saves and closes the document
 
 newdocument.Save("Sample.docx");
 
@@ -1415,31 +1415,31 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load a template document
+'Loads a template document
 
 Dim document As New WordDocument("Template.docx")
 
-'Get the document text
+'Gets the document text
 
 Dim text As String = document.GetText()
 
-'Create new Word document
+'Creates new Word document
 
 Dim newdocument As New WordDocument()
 
-'Add new section
+'Adds new section
 
 Dim section As IWSection = newdocument.AddSection()
 
-'Add new paragraph
+'Adds new paragraph
 
 Dim paragraph As IWParagraph = section.AddParagraph()
 
-'Append the text to the paragraph
+'Appends the text to the paragraph
 
 paragraph.AppendText(text)
 
-'Save and close the document
+'Saves and closes the document
 
 newdocument.Save("Sample.docx")
 
@@ -1470,23 +1470,23 @@ The following code illustrates how to convert the Word document to EPub file.
 {% highlight c# %}
 [C#]
 
-//Load an existing document
+//Loads an existing document
 
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 
-//Export the fonts used in the document
+//Exports the fonts used in the document
 
 document.SaveOptions.EPubExportFont = true;
 
-//Export header and footer
+//Exports header and footer
 
 document.SaveOptions.HtmlExportHeadersFooters = true;
 
-//Save the document as EPub file
+//Saves the document as EPub file
 
 document.Save("WordToEPub.epub", FormatType.EPub);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -1497,23 +1497,23 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load an existing document
+'Loads an existing document
 
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 
-'Export the fonts used in the document
+'Exports the fonts used in the document
 
 document.SaveOptions.EPubExportFont = True
 
-'Export header and footer
+'Exports header and footer
 
 document.SaveOptions.HtmlExportHeadersFooters = True
 
-'Save the document as EPub file
+'Saves the document as EPub file
 
 document.Save("WordToEPub.epub", FormatType.EPub)
 
-'Close the document
+'Closes the document
 
 document.Close()
 
