@@ -8,32 +8,32 @@ documentation: UG
 ---
 # Accepting or Rejecting Track Changes
 
-It is used to keep track of the changes made to a Word document. It helps to maintain the record of author, name and time for every insertion, deletion, or modification in a document. This can be enabled using the TrackChanges property of Word document.
+It is used to keep track of the changes made to a Word document. It helps to maintain the record of author, name and time for every insertion, deletion, or modification in a document. This can be enabled by using the TrackChanges property of the Word document.
 
 I> Note: With this support, the changes made in the Word document by DocIO library cannot be tracked.
 
-The following code snippet illustrates how to enable track changes of the document.
+The following code example illustrates how to enable track changes of the document.
 
 {% highlight c# %}
 [C#]
 
-//Create a new Word document 
+//Creates a new Word document 
 
 WordDocument document = new WordDocument();
 
-//Add new section to the document
+//Adds new section to the document
 
 IWSection section = document.AddSection();
 
-//Add new paragraph to the section
+//Adds new paragraph to the section
 
 IWParagraph paragraph = section.AddParagraph();
 
-//Append text to the paragraph
+//Appends text to the paragraph
 
 IWTextRange text = paragraph.AppendText("This sample illustrates how to track the changes made to the word document. ");
 
-//Set font name and size for text
+//Sets font name and size for text
 
 text.CharacterFormat.FontName = "Times New Roman";
 
@@ -43,11 +43,11 @@ text = paragraph.AppendText("This track changes is useful in shared environment.
 
 text.CharacterFormat.FontSize = 12;
 
-//Turn on the track changes option
+//Turns on the track changes option
 
 document.TrackChanges = true;
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -60,23 +60,23 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create a new Word document 
+'Creates a new Word document 
 
 Dim document As New WordDocument()
 
-'Add new section to the document
+'Adds new section to the document
 
 Dim section As IWSection = document.AddSection()
 
-'Add new paragraph to the section
+'Adds new paragraph to the section
 
 Dim paragraph As IWParagraph = section.AddParagraph()
 
-'Append text to the paragraph
+'Appends text to the paragraph
 
 Dim text As IWTextRange = paragraph.AppendText("This sample illustrates how to track the changes made to the word document. ")
 
-'Set font name and size for text
+'Sets font name and size for text
 
 text.CharacterFormat.FontName = "Times New Roman"
 
@@ -86,11 +86,11 @@ text = paragraph.AppendText("This track changes is useful in shared environment.
 
 text.CharacterFormat.FontSize = 12
 
-'Turn on the track changes option
+'Turns on the track changes option
 
 document.TrackChanges = True
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -100,12 +100,12 @@ document.Close()
 
 {% endhighlight %}
 
-The changes made to the document can be accepted or rejected. The following code snippet illustrates how to accept or reject the changes made to the document. 
+The changes made to the document can be accepted or rejected. The following code example illustrates how to accept or reject the changes made to the document. 
 
 {% highlight c# %}
 [C#]
 
-//Load the template document
+//Loads the template document
 
 WordDocument document = new WordDocument("TrackChanges.docx", FormatType.Docx);
 
@@ -115,7 +115,7 @@ if (document.HasChanges)
 
 document.AcceptChanges();
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("TrackChanges_Sample.docx", FormatType.Docx);
 
@@ -128,7 +128,7 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document
+'Loads the template document
 
 Dim document As New WordDocument("TrackChanges.docx", FormatType.Docx)
 
@@ -140,7 +140,7 @@ document.AcceptChanges()
 
 End If
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("TrackChanges_Sample.docx", FormatType.Docx)
 
