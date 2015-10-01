@@ -15,15 +15,15 @@ The following code illustrates how to modify the built-in style while creating n
 {% highlight c# %}
 [C#]
 
-//Create a new Word document 
+//Creates a new Word document 
 
 WordDocument document = new WordDocument();
 
-//Add new section to the document
+//Adds new section to the document
 
 IWSection section = document.AddSection();
 
-//Create built-in style and modify its properties
+//Creates built-in style and modifies its properties
 
 Style style = Style.CreateBuiltinStyle(BuiltinStyle.Heading1, document) as Style;
 
@@ -31,25 +31,25 @@ style.CharacterFormat.Italic = true;
 
 style.CharacterFormat.TextColor = Color.DarkGreen;
 
-//Add it to the styles collection
+//Adds it to the styles collection
 
 document.Styles.Add(style);
 
-//Add new paragraph to the section
+//Adds new paragraph to the section
 
 IWParagraph paragraph = section.AddParagraph();
 
 IWTextRange text = paragraph.AppendText("A built-in style is modified and is applied to this paragraph.");
 
-//Apply the new style to paragraph
+//Applies the new style to paragraph
 
 paragraph.ApplyStyle(style.Name);
 
-//Save the Word document
+//Saves the Word document
 
 document.Save("Sample.docx", FormatType.Docx);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -60,15 +60,15 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create a new Word document 
+'Creates a new Word document 
 
 Dim document As New WordDocument()
 
-'Add new section to the document
+'Adds new section to the document
 
 Dim section As IWSection = document.AddSection()
 
-'Create built-in style and modify its properties
+'Creates built-in style and modifies its properties
 
 Dim style__1 As Style = TryCast(Style.CreateBuiltinStyle(BuiltinStyle.Heading1, document), Style)
 
@@ -76,25 +76,25 @@ style__1.CharacterFormat.Italic = True
 
 style__1.CharacterFormat.TextColor = Color.DarkGreen
 
-'Add it to the styles collection
+'Adds it to the styles collection
 
 document.Styles.Add(style__1)
 
-'Add new paragraph to the section
+'Adds new paragraph to the section
 
 Dim paragraph As IWParagraph = section.AddParagraph()
 
 Dim text As IWTextRange = paragraph.AppendText("A built-in style is modified and is applied to this paragraph.")
 
-'Apply the new style to paragraph
+'Applies the new style to paragraph
 
 paragraph.ApplyStyle(style__1.Name)
 
-'Save the Word document
+'Saves the Word document
 
 document.Save("Sample.docx", FormatType.Docx)
 
-'Close the document
+'Closes the document
 
 document.Close()
 
@@ -104,12 +104,12 @@ document.Close()
 
 ## How to open a document from stream using DocIO?
 
-A document can be opened as stream using **HttpWebResponse**. This stream does not support seek operation and so the contents should be read manually to get the position and length of the stream. The following code illustrates how to load the document from stream.
+A document can be opened as stream by using **HttpWebResponse**. This stream does not support seek operation and so the contents should be read manually to get the position and length of the stream. The following code illustrates how to load the document from stream.
 
 {% highlight c# %}
 [C#]
 
-//Get the document as stream
+//Gets the document as stream
 
 HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.swiftview.com/tech/letterlegal5.doc");
 
@@ -117,11 +117,11 @@ HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
 Stream stream = response.GetResponseStream();
 
-//Convert it to byte array
+//Converts it to byte array
 
 byte[] buffer = ReadFully(stream, 32768);            
 
-//Store bytes into the memory stream.
+//Stores bytes into the memory stream.
 
 MemoryStream ms = new MemoryStream();
 
@@ -131,15 +131,15 @@ ms.Seek(0, SeekOrigin.Begin);
 
 stream.Close();
 
-//Create a new document.
+//Creates a new document.
 
 WordDocument document = new WordDocument();
 
-//Open the template document from the MemoryStream.
+//Opens the template document from the MemoryStream.
 
 document.Open(ms, FormatType.Doc);
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -152,7 +152,7 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Get the document as stream
+'Gets the document as stream
 
 Dim request As HttpWebRequest = DirectCast(WebRequest.Create("https://www.swiftview.com/tech/letterlegal5.doc"), HttpWebRequest)
 
@@ -160,11 +160,11 @@ Dim response As HttpWebResponse = DirectCast(request.GetResponse(), HttpWebRespo
 
 Dim stream As Stream = response.GetResponseStream()
 
-'Convert it to byte array
+'Converts it to byte array
 
 Dim buffer As Byte() = ReadFully(stream, 32768)
 
-'Store bytes into the memory stream.
+'Stores bytes into the memory stream.
 
 Dim ms As New MemoryStream()
 
@@ -174,15 +174,15 @@ ms.Seek(0, SeekOrigin.Begin)
 
 stream.Close()
 
-'Create a new document.
+'Creates a new document.
 
 Dim document As New WordDocument ()
 
-'Open the template document from the MemoryStream.
+'Opens the template document from the MemoryStream.
 
 document.Open(ms, FormatType.Doc)
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -201,7 +201,7 @@ public static byte[] ReadFully(Stream stream, int initialLength)
 
 {
 
-//If an unhelpful initial length has been passed, just use 32K.
+//When an unhelpful initial length has been passed, just use 32K.
 
 if (initialLength < 1)
 
@@ -223,7 +223,7 @@ while ((chunk = stream.Read(buffer, read, buffer.Length - read)) > 0)
 
 read += chunk;
 
-//If you have reached the end of our buffer, check to see if there is any more information.
+//After reaching the end of the buffer, check and see whether you can find any information.
 
 if (read == buffer.Length)
 
@@ -231,7 +231,7 @@ if (read == buffer.Length)
 
 int nextByte = stream.ReadByte();
 
-//End of stream? If so, we are done.
+//End of stream? Then, you are done.
 
 if (nextByte == -1)
 
@@ -278,7 +278,7 @@ return ret;
 
 Public Shared Function ReadFully(stream As Stream, initialLength As Integer) As Byte()
 
-'If an unhelpful initial length has been passed, just use 32K.
+'When an unhelpful initial length has been passed, just use 32K.
 
 If initialLength < 1 Then
 
@@ -298,13 +298,13 @@ While (chunk > 0)
 
 read += chunk
 
-'If you have reached the end of our buffer, check to see if there is any more information.
+'After reaching the end of the buffer, check and see whether you can find any information.
 
 If read = buffer.Length Then
 
 Dim nextByte As Integer = stream.ReadByte()
 
-'End of stream? If so, we are done.
+'End of stream? Then, you are done.
 
 If nextByte = -1 Then
 
@@ -352,28 +352,28 @@ The Open type features provide special effects for the text. This feature is spe
 * Number forms – specifies number height
 * Stylistic sets – specifies the look of the text, based on the font used
 
-The following code illustrates the how to set ligature types for text.
+The following code illustrates how to set ligature types for text.
 
 {% highlight c# %}
 [C#]
 
-//Create a new Word document 
+//Creates a new Word document 
 
 WordDocument document = new WordDocument();
 
-//Add new section to the document
+//Adds new section to the document
 
 IWSection section = document.AddSection();
 
-//Add new paragraph to the section
+//Adds new paragraph to the section
 
 IWParagraph paragraph = section.AddParagraph();
 
-//Add new text
+//Adds new text
 
 IWTextRange text = paragraph.AppendText("Text to describe discretional ligatures");
 
-//Set ligature type
+//Sets ligature type
 
 text.CharacterFormat.Ligatures = LigatureType.Discretional;
 
@@ -395,7 +395,7 @@ text.CharacterFormat.Ligatures = LigatureType.Historical;
 
 text.CharacterFormat.FontName = "Arial";
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -408,23 +408,23 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create a new Word document 
+'Creates a new Word document 
 
 Dim document As New WordDocument()
 
-'Add new section to the document
+'Adds new section to the document
 
 Dim section As IWSection = document.AddSection()
 
-'Add new paragraph to the section
+'Adds new paragraph to the section
 
 Dim paragraph As IWParagraph = section.AddParagraph()
 
-'Add new text
+'Adds new text
 
 Dim text As IWTextRange = paragraph.AppendText("Text to describe discretional ligatures")
 
-'Set ligature type as Discretional
+'Sets ligature type as Discretional
 
 text.CharacterFormat.Ligatures = LigatureType.Discretional
 
@@ -434,7 +434,7 @@ paragraph = section.AddParagraph()
 
 text = paragraph.AppendText("Text to describe contextual ligatures")
 
-'Set ligature type as Contextual
+'Sets ligature type as Contextual
 
 text.CharacterFormat.Ligatures = LigatureType.Contextual
 
@@ -444,13 +444,13 @@ paragraph = section.AddParagraph()
 
 text = paragraph.AppendText("Text to describe historical ligatures")
 
-'Set ligature type as Historical
+'Sets ligature type as Historical
 
 text.CharacterFormat.Ligatures = LigatureType.Historical
 
 text.CharacterFormat.FontName = "Arial"
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -460,36 +460,36 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet illustrates how to set contextual alternates.
+The following code example illustrates how to set contextual alternates.
 
 {% highlight c# %}
 [C#]
 
-//Create a new Word document 
+//Creates a new Word document 
 
 WordDocument document = new WordDocument();
 
-//Add new section to the document
+//Adds new section to the document
 
 IWSection section = document.AddSection();
 
-//Add new paragraph to the section
+//Adds new paragraph to the section
 
 IWParagraph paragraph = section.AddParagraph();
 
-//Add new text
+//Adds new text
 
 IWTextRange text = paragraph.AppendText("Text to describe contextual alternates");
 
 text.CharacterFormat.FontName = "Segoe Script";
 
-//Set contextual alternates
+//Sets contextual alternates
 
 text.CharacterFormat.UseContextualAlternates = true;
 
 paragraph = section.AddParagraph();
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -502,31 +502,31 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create a new Word document 
+'Creates a new Word document 
 
 Dim document As New WordDocument()
 
-'Add new section to the document
+'Adds new section to the document
 
 Dim section As IWSection = document.AddSection()
 
-'Add new paragraph to the section
+'Adds new paragraph to the section
 
 Dim paragraph As IWParagraph = section.AddParagraph()
 
-'Add new text
+'Adds new text
 
 Dim text As IWTextRange = paragraph.AppendText("Text to describe contextual alternates")
 
 text.CharacterFormat.FontName = "Segoe Script"
 
-'Set contextual alternates
+'Sets contextual alternates
 
 text.CharacterFormat.UseContextualAlternates = True
 
 paragraph = section.AddParagraph()
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -536,30 +536,30 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet illustrates how to set number spacing.
+The following code example illustrates how to set number spacing.
 
 {% highlight c# %}
 [C#]
 
-//Create a new Word document 
+//Creates a new Word document 
 
 WordDocument document = new WordDocument();
 
-//Add new section to the document
+//Adds new section to the document
 
 IWSection section = document.AddSection();
 
-//Add new paragraph to the section
+//Adds new paragraph to the section
 
 IWParagraph paragraph = section.AddParagraph();
 
-//Add new text
+//Adds new text
 
 IWTextRange text = paragraph.AppendText("Numbers to describe tabular number spacing 0123456789");
 
 text.CharacterFormat.FontName = "Calibri";
 
-//Set number spacing
+//Sets number spacing
 
 text.CharacterFormat.NumberSpacing = NumberSpacingType.Tabular;
 
@@ -569,11 +569,11 @@ text = paragraph.AppendText("Numbers to describe proportional number spacing 012
 
 text.CharacterFormat.FontName = "Calibri";
 
-//Set number spacing
+//Sets number spacing
 
 text.CharacterFormat.NumberSpacing = NumberSpacingType.Proportional;
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -586,25 +586,25 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create a new Word document 
+'Creates a new Word document 
 
 Dim document As New WordDocument()
 
-'Add new section to the document
+'Adds new section to the document
 
 Dim section As IWSection = document.AddSection()
 
-'Add new paragraph to the section
+'Adds new paragraph to the section
 
 Dim paragraph As IWParagraph = section.AddParagraph()
 
-'Add new text
+'Adds new text
 
 Dim text As IWTextRange = paragraph.AppendText("Numbers to describe tabular number spacing 0123456789")
 
 text.CharacterFormat.FontName = "Calibri"
 
-'Set number spacing
+'Sets number spacing
 
 text.CharacterFormat.NumberSpacing = NumberSpacingType.Tabular
 
@@ -614,11 +614,11 @@ text = paragraph.AppendText("Numbers to describe proportional number spacing 012
 
 text.CharacterFormat.FontName = "Calibri"
 
-'Set number spacing
+'Sets number spacing
 
 text.CharacterFormat.NumberSpacing = NumberSpacingType.Proportional
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -628,30 +628,30 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet illustrates how to set number style.
+The following code example illustrates how to set number style.
 
 {% highlight c# %}
 [C#]
 
-//Create a new Word document 
+//Creates a new Word document 
 
 WordDocument document = new WordDocument();
 
-//Add new section to the document
+//Adds new section to the document
 
 IWSection section = document.AddSection();
 
-//Add new paragraph to the section
+//Adds new paragraph to the section
 
 IWParagraph paragraph = section.AddParagraph();
 
-//Add new text
+//Adds new text
 
 IWTextRange text = paragraph.AppendText("Numbers to describe oldstyle number form 0123456789");
 
 text.CharacterFormat.FontName = "Calibri";
 
-//Set number style
+//Sets number style
 
 text.CharacterFormat.NumberForm = NumberFormType.OldStyle;
 
@@ -661,11 +661,11 @@ text = paragraph.AppendText("Numbers to describe lining number form 0123456789")
 
 text.CharacterFormat.FontName = "Calibri";
 
-//Set number style
+//Sets number style
 
 text.CharacterFormat.NumberForm = NumberFormType.Lining;
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -678,25 +678,25 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create a new Word document 
+'Creates a new Word document 
 
 Dim document As New WordDocument()
 
-'Add new section to the document
+'Adds new section to the document
 
 Dim section As IWSection = document.AddSection()
 
-'Add new paragraph to the section
+'Adds new paragraph to the section
 
 Dim paragraph As IWParagraph = section.AddParagraph()
 
-'Add new text
+'Adds new text
 
 Dim text As IWTextRange = paragraph.AppendText("Numbers to describe oldstyle number form 0123456789")
 
 text.CharacterFormat.FontName = "Calibri"
 
-'Set number style
+'Sets number style
 
 text.CharacterFormat.NumberForm = NumberFormType.OldStyle
 
@@ -706,11 +706,11 @@ text = paragraph.AppendText("Numbers to describe lining number form 0123456789")
 
 text.CharacterFormat.FontName = "Calibri"
 
-'Set number style
+'Sets number style
 
 text.CharacterFormat.NumberForm = NumberFormType.Lining
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -720,46 +720,46 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet illustrates how to set different styles for the text.
+The following code example illustrates how to set different styles for the text.
 
 {% highlight c# %}
 [C#]
 
-//Create a new Word document 
+//Creates a new Word document 
 
 WordDocument document = new WordDocument();
 
-//Add new section to the document
+//Adds new section to the document
 
 IWSection section = document.AddSection();
 
-//Add new paragraph to the section
+//Adds new paragraph to the section
 
 IWParagraph paragraph = section.AddParagraph();
 
-//Add new text
+//Adds new text
 
 IWTextRange text = paragraph.AppendText("Text to describe stylistic sets");
 
 text.CharacterFormat.FontName = "Gabriola";
 
-//Set stylistic set
+//Sets stylistic set
 
 text.CharacterFormat.StylisticSet = StylisticSetType.StylisticSet06;
 
 paragraph = section.AddParagraph();
 
-//Add new text
+//Adds new text
 
 text = paragraph.AppendText("Text to describe stylistic sets");
 
 text.CharacterFormat.FontName = "Gabriola";
 
-//Set stylistic set
+//Sets stylistic set
 
 text.CharacterFormat.StylisticSet = StylisticSetType.StylisticSet15;
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -772,41 +772,41 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create a new Word document 
+'Creates a new Word document 
 
 Dim document As New WordDocument()
 
-'Add new section to the document
+'Adds new section to the document
 
 Dim section As IWSection = document.AddSection()
 
-'Add new paragraph to the section
+'Adds new paragraph to the section
 
 Dim paragraph As IWParagraph = section.AddParagraph()
 
-'Add new text
+'Adds new text
 
 Dim text As IWTextRange = paragraph.AppendText("Text to describe stylistic sets")
 
 text.CharacterFormat.FontName = "Gabriola"
 
-'Set stylistic set
+'Sets stylistic set
 
 text.CharacterFormat.StylisticSet = StylisticSetType.StylisticSet06
 
 paragraph = section.AddParagraph()
 
-'Add new text
+'Adds new text
 
 text = paragraph.AppendText("Text to describe stylistic sets")
 
 text.CharacterFormat.FontName = "Gabriola"
 
-'Set stylistic set
+'Sets stylistic set
 
 text.CharacterFormat.StylisticSet = StylisticSetType.StylisticSet15
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -823,19 +823,19 @@ The following code illustrates how to set the template for the document.
 {% highlight c# %}
 [C#]
 
-//Load a source document
+//Loads a source document
 
 WordDocument document = new WordDocument("Template.docx"); 
 
-//Attach the template document to the source document
+//Attaches the template document to the source document
 
 document.AttachedTemplate.Path = @"D:\Data\Template.docx";
 
-//Update the styles of the document from the attached template each time the document is opened
+//Updates the styles of the document from the attached template each time the document is opened
 
 document.UpdateStylesOnOpen = true;
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -848,19 +848,19 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load a source document
+'Loads a source document
 
 Dim document As New WordDocument("Template.docx")
 
-'Attach the template document to the source document
+'Attaches the template document to the source document
 
 document.AttachedTemplate.Path = "D:\Data\Template.docx"
 
-'Update the styles of the document from the attached template each time the document is opened
+'Updates the styles of the document from the attached template each time the document is opened
 
 document.UpdateStylesOnOpen = True
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -877,11 +877,11 @@ You can create new table in a Word document and copy the contents from data tabl
 {% highlight c# %}
 [C#]
 
-//Create new Word document
+//Creates new Word document
 
 WordDocument document = new WordDocument();
 
-//Create new data set and data table
+//Creates new data set and data table
 
 DataSet dataset = new DataSet();
 
@@ -891,15 +891,15 @@ DataTable datatable = new DataTable();
 
 datatable = dataset.Tables[0];
 
-//Add new setion
+//Adds new setion
 
 IWSection section = document.AddSection();
 
-//Add new table
+//Adds new table
 
 IWTable table = section.AddTable();
 
-//Add new row to the table
+//Adds new row to the table
 
 WTableRow row = table.AddRow();
 
@@ -907,7 +907,7 @@ foreach (DataColumn datacolumn in datatable.Columns)
 
 {
 
-//Set the column names for the table from the data table column names & cell width
+//Sets the column names for the table from the data table column names and cell width
 
 WTableCell cell = row.AddCell();
 
@@ -917,13 +917,13 @@ cell.Width = 150;
 
 }
 
-//Iterate through data table rows
+//Iterates through data table rows
 
 foreach (DataRow datarow in datatable.Rows)
 
 {
 
-//Add new row to the table
+//Adds new row to the table
 
 row = table.AddRow(true, false);
 
@@ -931,11 +931,11 @@ foreach (object datacolumn in datarow.ItemArray)
 
 {
 
-//Add new cell
+//Adds new cell
 
 WTableCell cell = row.AddCell();
 
-//Add contents from the data table to the table cell
+//Adds contents from the data table to the table cell
 
 cell.AddParagraph().AppendText(datacolumn.ToString());
 
@@ -943,7 +943,7 @@ cell.AddParagraph().AppendText(datacolumn.ToString());
 
 }
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -956,11 +956,11 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create new Word document
+'Creates new Word document
 
 Dim document As New WordDocument()
 
-'Create new data set and data table
+'Creates new data set and data table
 
 Dim dataset As New DataSet()
 
@@ -970,21 +970,21 @@ Dim datatable As New DataTable()
 
 datatable = dataset.Tables(0)
 
-'Add new setion
+'Adds new setion
 
 Dim section As IWSection = document.AddSection()
 
-'Add new table
+'Adds new table
 
 Dim table As IWTable = section.AddTable()
 
-'Add new row to the table
+'Adds new row to the table
 
 Dim row As WTableRow = table.AddRow()
 
 For Each datacolumn As DataColumn In datatable.Columns
 
-'Set the column names for the table from the data table column names & cell width
+'Sets the column names for the table from the data table column names and cell width
 
 Dim cell As WTableCell = row.AddCell()
 
@@ -994,21 +994,21 @@ cell.Width = 150
 
 Next
 
-'Iterate through data table rows
+'Iterates through data table rows
 
 For Each datarow As DataRow In datatable.Rows
 
-'Add new row to the table
+'Adds new row to the table
 
 row = table.AddRow(True, False)
 
 For Each datacolumn As Object In datarow.ItemArray
 
-'Add new cell
+'Adds new cell
 
 Dim cell As WTableCell = row.AddCell()
 
-'Add contents from the data table to the table cell
+'Adds contents from the data table to the table cell
 
 cell.AddParagraph().AppendText(datacolumn.ToString())
 
@@ -1016,7 +1016,7 @@ Next
 
 Next
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -1035,17 +1035,17 @@ private void GetDataTable(DataSet dataset)
 
 {
 
-// List of syncfusion products name.
+// List of syncfusion products.
 
 string[] products = { "DocIO", "PDF", "XlsIO" };
 
-// Add new Tables to the data set.
+// Adds new Tables to the data set.
 
 DataRow row;
 
 dataset.Tables.Add();
 
-// Add fields to the Products table.
+// Adds fields to the Products table.
 
 dataset.Tables[0].TableName = "Products";
 
@@ -1055,7 +1055,7 @@ dataset.Tables[0].Columns.Add("Binary");
 
 dataset.Tables[0].Columns.Add("Source");
 
-// Inserting values to the tables.
+// Inserts values to the tables.
 
 foreach (string product in products)
 
@@ -1084,17 +1084,17 @@ dataset.Tables["Products"].Rows.Add(row);
 
 Private Sub GetDataTable(dataset As DataSet)
 
-'List of syncfusion products name.
+'List of syncfusion products.
 
 Dim products As String() = {"DocIO", "PDF", "XlsIO"}
 
-'Add new Tables to the data set.
+'Adds new Tables to the data set.
 
 Dim row As DataRow
 
 dataset.Tables.Add()
 
-'Add fields to the Products table.
+'Adds fields to the Products table.
 
 dataset.Tables(0).TableName = "Products"
 
@@ -1104,7 +1104,7 @@ dataset.Tables(0).Columns.Add("Binary")
 
 dataset.Tables(0).Columns.Add("Source")
 
-'Inserting values to the tables.
+'Inserts values to the tables.
 
 For Each product As String In products
 
@@ -1133,23 +1133,23 @@ An html string can be inserted to the Word document at text body or paragraph. T
 {% highlight c# %}
 [C#]
 
-//Load the template document
+//Loads the template document
 
 WordDocument document = new WordDocument("Template.docx");
 
-//Get the text body
+//Gets the text body
 
 WTextBody textbody = document.Sections[0].Body;
 
-//Html string which represents table with two rows and two columns
+//Html string that represents table with two rows and two columns
 
 string htmlString = " <table border='1'><tr><td><p>First Row First Cell</p></td><td><p>First Row Second Cell</p></td></tr><tr><td><p>Second Row First Cell</p></td><td><p>Second Row Second Cell</p></td></tr></table> ";
 
-//Insert the string to the text body
+//Inserts the string to the text body
 
 textbody.InsertXHTML(htmlString);
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx");
 
@@ -1162,23 +1162,23 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document
+'Loads the template document
 
 Dim document As New WordDocument("Template.docx")
 
-'Get the text body
+'Gets the text body
 
 Dim textbody As WTextBody = document.Sections(0).Body
 
-'Html string which represents table with two rows and two columns
+'Html string that represents table with two rows and two columns
 
 Dim htmlString As String = " <table border='1'><tr><td><p>First Row First Cell</p></td><td><p>First Row Second Cell</p></td></tr><tr><td><p>Second Row First Cell</p></td><td><p>Second Row Second Cell</p></td></tr></table> "
 
-'Insert the string to the text body
+'Inserts the string to the text body
 
 textbody.InsertXHTML(htmlString)
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx")
 
@@ -1195,25 +1195,25 @@ Each cell in the table can have its own width. The following code illustrates ho
 {% highlight c# %}
 [C#]
 
-//Create new word document
+//Creates new word document
 
 WordDocument document = new WordDocument("Template.docx");
 
-//Get the text body of first section
+//Gets the text body of first section
 
 WTextBody textbody = document.Sections[0].Body;
 
-//Get the table
+//Gets the table
 
 IWTable table = textbody.Tables[0];
 
-//Iterate through table rows
+//Iterates through table rows
 
 foreach (WTableRow row in table.Rows)
 
 {
 
-//Set width for cells
+//Sets width for cells
 
 for (int i = 0; i < row.Cells.Count; i++)
 
@@ -1223,13 +1223,13 @@ WTableCell cell = row.Cells[i];
 
 if (i % 2 == 0)
 
-//Set width as 100 for cells in even column
+//Sets width as 100 for cells in even column
 
 cell.Width = 100;
 
 else
 
-//Set width as 150 for cell in odd column
+//Sets width as 150 for cell in odd column
 
 cell.Width = 150;
 
@@ -1237,7 +1237,7 @@ cell.Width = 150;
 
 }
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -1250,23 +1250,23 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create new word document
+'Creates new word document
 
 Dim document As New WordDocument("Template.docx")
 
-'Get the text body of first section
+'Gets the text body of first section
 
 Dim textbody As WTextBody = document.Sections(0).Body
 
-'Get the table
+'Gets the table
 
 Dim table As IWTable = textbody.Tables(0)
 
-'Iterate through table rows
+'Iterates through table rows
 
 For Each row As WTableRow In table.Rows
 
-'Set width for cells
+'Sets width for cells
 
 For i As Integer = 0 To row.Cells.Count - 1
 
@@ -1274,13 +1274,13 @@ Dim cell As WTableCell = row.Cells(i)
 
 If i Mod 2 = 0 Then
 
-'Set width as 100 for cells in even column
+'Sets width as 100 for cells in even column
 
 cell.Width = 100
 
 Else
 
-'Set width as 150 for cell in odd column
+'Sets width as 150 for cell in odd column
 
 cell.Width = 150
 
@@ -1290,7 +1290,7 @@ Next
 
 Next
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -1307,25 +1307,25 @@ You can position a table in a Word document by setting position properties. The 
 {% highlight c# %}
 [C#]
 
-//Load the template document
+//Loads the template document
 
 WordDocument document = new WordDocument("Template.docx");
 
-//Get the text body of first section
+//Gets the text body of first section
 
 WTextBody textbody = document.Sections[0].Body;
 
-//Get the table
+//Gets the table
 
 IWTable table = textbody.Tables[0];
 
-//Set the horizontal and vertical position for table
+//Sets the horizontal and vertical position for table
 
 table.TableFormat.Positioning.HorizPosition = 40;
 
 table.TableFormat.Positioning.VertPosition = 100;
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -1338,25 +1338,25 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document
+'Loads the template document
 
 Dim document As New WordDocument("Template.docx")
 
-'Get the text body of first section
+'Gets the text body of first section
 
 Dim textbody As WTextBody = document.Sections(0).Body
 
-'Get the table
+'Gets the table
 
 Dim table As IWTable = textbody.Tables(0)
 
-'Set the horizontal and vertical position for table
+'Sets the horizontal and vertical position for table
 
 table.TableFormat.Positioning.HorizPosition = 40
 
 table.TableFormat.Positioning.VertPosition = 100
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -1373,19 +1373,19 @@ The contents of the table cell can be in vertical or horizontal direction. Each 
 {% highlight c# %}
 [C#]
 
-//Load the template document
+//Loads the template document
 
 WordDocument document = new WordDocument("Template.docx");
 
-//Get the text body of first section
+//Gets the text body of first section
 
 WTextBody textbody = document.Sections[0].Body;
 
-//Get the table
+//Gets the table
 
 IWTable table = textbody.Tables[0];
 
-//Iterate through table rows
+//Iterates through table rows
 
 foreach (WTableRow row in table.Rows)
 
@@ -1395,7 +1395,7 @@ foreach (WTableCell cell in row.Cells)
 
 {
 
-//Set the text direction for the contents
+//Sets the text direction for the contents
 
 cell.CellFormat.TextDirection = Syncfusion.DocIO.DLS.TextDirection.Vertical;
 
@@ -1403,7 +1403,7 @@ cell.CellFormat.TextDirection = Syncfusion.DocIO.DLS.TextDirection.Vertical;
 
 }
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -1416,25 +1416,25 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document
+'Loads the template document
 
 Dim document As New WordDocument("Template.docx")
 
-'Get the text body of first section
+'Gets the text body of first section
 
 Dim textbody As WTextBody = document.Sections(0).Body
 
-'Get the table
+'Gets the table
 
 Dim table As IWTable = textbody.Tables(0)
 
-'Iterate through table rows
+'Iterates through table rows
 
 For Each row As WTableRow In table.Rows
 
 For Each cell As WTableCell In row.Cells
 
-'Set the text direction for the contents
+'Sets the text direction for the contents
 
 cell.CellFormat.TextDirection = Syncfusion.DocIO.DLS.TextDirection.Vertical
 
@@ -1442,7 +1442,7 @@ Next
 
 Next
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -1459,7 +1459,7 @@ The following code illustrates how to extract the images in the document.
 {% highlight c# %}
 [C#]
 
-//Load the template document
+//Loads the template document
 
 WordDocument document = new WordDocument("Template.docx");
 
@@ -1469,19 +1469,19 @@ Image image;
 
 int i = 1;
 
-//Iterate througth the paragraphs
+//Iterates througth the paragraphs
 
 foreach (WParagraph paragraph in textbody.Paragraphs)
 
 {
 
-//Iterate througth the paragraph items 
+//Iterates througth the paragraph items 
 
 foreach (ParagraphItem item in paragraph.ChildEntities)
 
 {
 
-//Get the picture and save it into specified location
+//Gets the picture and saves it into specified location
 
 switch (item.EntityType)
 
@@ -1509,7 +1509,7 @@ break;
 
 }
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -1520,7 +1520,7 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document
+'Loads the template document
 
 Dim document As New WordDocument("Template.docx")
 
@@ -1530,15 +1530,15 @@ Dim image As Image
 
 Dim i As Integer = 1
 
-'Iterate througth the paragraphs
+'Iterates through the paragraphs
 
 For Each paragraph As WParagraph In textbody.Paragraphs
 
-'Iterate througth the paragraph items 
+'Iterates through the paragraph items 
 
 For Each item As ParagraphItem In paragraph.ChildEntities
 
-'Get the picture and save it into specified location
+'Gets the picture and saves it into specified location
 
 Select Case item.EntityType
 
@@ -1577,21 +1577,21 @@ The images in the document can be extracted into a specific location when export
 {% highlight c# %}
 [C#]
 
-//Load the template document
+//Loads the template document
 
 WordDocument document = new WordDocument("Template.docx");
 
-//Set the location to extract images
+//Sets the location to extract images
 
 document.SaveOptions.HtmlExportImagesFolder = @"D:\Data\";
 
-//Save the document as html file
+//Saves the document as html file
 
 HTMLExport export = new HTMLExport();
 
 export.SaveAsXhtml(document, "Template.html");
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -1602,21 +1602,21 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document
+'Loads the template document
 
 Dim document As New WordDocument("Template.docx")
 
-'Set the location to extract images
+'Sets the location to extract images
 
 document.SaveOptions.HtmlExportImagesFolder = "D:\Data\"
 
-'Save the document as html file
+'Saves the document as html file
 
 Dim export As New HTMLExport()
 
 export.SaveAsXhtml(document, "Template.html")
 
-'Close the document
+'Closes the document
 
 document.Close()
 
@@ -1631,11 +1631,11 @@ The following code illustrates how to remove the header contents from the docume
 {% highlight c# %}
 [C#]
 
-//Load the template document
+//Loads the template document
 
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 
-//Iterate through the sections
+//Iterates through the sections
 
 foreach (WSection section in document.Sections)
 
@@ -1643,33 +1643,33 @@ foreach (WSection section in document.Sections)
 
 HeaderFooter header;
 
-//Get even footer of current section
+//Gets even footer of current section
 
 header = section.HeadersFooters[HeaderFooterType.EvenHeader];
 
-//Remove even footer
+//Removes even footer
 
 header.ChildEntities.Clear();
 
-//Get odd footer of current section
+//Gets odd footer of current section
 
 header = section.HeadersFooters[HeaderFooterType.OddHeader];
 
-//Remove odd footer
+//Removes odd footer
 
 header.ChildEntities.Clear();
 
-//Get first page footer
+//Gets first page footer
 
 header = section.HeadersFooters[HeaderFooterType.FirstPageHeader];
 
-//Remove first page footer
+//Removes first page footer
 
 header.ChildEntities.Clear();
 
 }
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -1682,43 +1682,43 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document
+'Loads the template document
 
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 
-'Iterate through the sections
+'Iterates through the sections
 
 For Each section As WSection In document.Sections
 
 Dim header As HeaderFooter
 
-'Get even footer of current section
+'Gets even footer of current section
 
 header = section.HeadersFooters(HeaderFooterType.EvenHeader)
 
-'Remove even footer
+'Removes even footer
 
 header.ChildEntities.Clear()
 
-'Get odd footer of current section
+'Gets odd footer of current section
 
 header = section.HeadersFooters(HeaderFooterType.OddHeader)
 
-'Remove odd footer
+'Removes odd footer
 
 header.ChildEntities.Clear()
 
-'Get first page footer
+'Gets first page footer
 
 header = section.HeadersFooters(HeaderFooterType.FirstPageHeader)
 
-'Remove first page footer
+'Removes first page footer
 
 header.ChildEntities.Clear()
 
 Next
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -1733,11 +1733,11 @@ The following code illustrates how to remove the footer contents from the docume
 {% highlight c# %}
 [C#]
 
-//Load the template document
+//Loads the template document
 
 WordDocument document = new WordDocument("Template.docx");            
 
-//Iterate through the sections
+//Iterates through the sections
 
 foreach (WSection section in document.Sections)
 
@@ -1745,33 +1745,33 @@ foreach (WSection section in document.Sections)
 
 HeaderFooter footer;
 
-//Get even footer of current section
+//Gets even footer of current section
 
 footer = section.HeadersFooters[HeaderFooterType.EvenFooter];
 
-//Remove even footer
+//Removes even footer
 
 footer.ChildEntities.Clear();
 
-//Get odd footer of current section
+//Gets odd footer of current section
 
 footer = section.HeadersFooters[HeaderFooterType.OddFooter];
 
-//Remove odd footer
+//Removes odd footer
 
 footer.ChildEntities.Clear();
 
-//Get first page footer
+//Gets first page footer
 
 footer = section.HeadersFooters[HeaderFooterType.FirstPageFooter];
 
-//Remove first page footer
+//Removes first page footer
 
 footer.ChildEntities.Clear();
 
 }
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -1784,43 +1784,43 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document
+'Loads the template document
 
 Dim document As New WordDocument("Template.docx")
 
-'Iterate through the sections
+'Iterates through the sections
 
 For Each section As WSection In document.Sections
 
 Dim footer As HeaderFooter
 
-'Get even footer of current section
+'Gets even footer of current section
 
 footer = section.HeadersFooters(HeaderFooterType.EvenFooter)
 
-'Remove even footer
+'Removes even footer
 
 footer.ChildEntities.Clear()
 
-'Get odd footer of current section
+'Gets odd footer of current section
 
 footer = section.HeadersFooters(HeaderFooterType.OddFooter)
 
-'Remove odd footer
+'Removes odd footer
 
 footer.ChildEntities.Clear()
 
-'Get first page footer
+'Gets first page footer
 
 footer = section.HeadersFooters(HeaderFooterType.FirstPageFooter)
 
-'Remove first page footer
+'Removes first page footer
 
 footer.ChildEntities.Clear()
 
 Next
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -1830,17 +1830,17 @@ document.Close()
 
 {% endhighlight %}
 
-## Which units does Essential DocIO uses for measurement properties such as size, margins, etc, In a Word document?
+## Which units does Essential DocIO uses for measurement properties such as size, margins, etc, in a Word document?
 
 Essential DocIO library uses Points for measurement properties in a Word document.
 
 ##  Could not find Syncfusion.OfficeChartToImageConverter assembly in .Net 3.5 framework, does it mean there is no support for chart conversion in this framework? 
 
-Yes, OfficeChartToImageConverter assembly is not supported in .Net 3.5 framework and it is available from .Net 4.0 framework.
+Yes, OfficeChartToImageConverter assembly is not supported in .Net 3.5 framework and it is available in .Net 4.0 framework.
 
 ## Can the chart data be refreshed?
 
-Yes, Essential DocIO supports refreshing the chart data. For more details please see, [Working with charts](http://www.google.com/# "")
+Yes, Essential DocIO supports refreshing the chart data. For more details, refer [Working with charts](http://www.google.com/# "")
 
 ## Is it possible to convert 3D charts to PDF or image?
 
@@ -1848,13 +1848,13 @@ Current version of the DocIO library does not provide support for converting 3D 
 
 ## Is it possible to specify PDF conformance level in Word to PDF conversion?
 
-Yes, you can specify the PDF conformance level in Word to PDF conversion. For more details please see, [PDF Conformance](http://www.google.com/# "")
+Yes, you can specify the PDF conformance level in Word to PDF conversion. For more details, refer [PDF Conformance](http://www.google.com/# "")
 
 ## Migration from Microsoft Office Automation to Essential DocIO
 
 ### Mail Merge
 
-The **Mail** **Merge** feature can be used to generate reports and letters in **MS** **Word**. The following code examples show how to generate an employee report from an MDB data source using **Office** **Automation** and **DocIO**.
+The **Mail** **Merge** feature can be used to generate reports and letters in **MS** **Word**. The following code examples show how to generate an employee report from an MDB data source by using **Office** **Automation** and **DocIO**.
 
 **Using** **MS** **Office** **Interop**
 
@@ -1976,13 +1976,13 @@ wordApp.Quit(nullobject, nullobject, nullobject)
 
 **Using** **DocIO**
 
-**DocIO** performs **Mail** **Merge** using the following methods:
+**DocIO** performs **Mail** **Merge** by using the following methods:
 
 * Execute
 * ExecuteGroup
 * ExecuteNestedGroup
 
-The following code example performs **Mail** **Merge** using the **Execute** method.
+The following code example performs **Mail** **Merge** by using the **Execute** method.
 
 {% highlight c# %}
 [C#]
@@ -2073,11 +2073,11 @@ Note: For more information on mail merge using DocIO, you can refer to online do
 
 ### Find and Replace
 
-This section illustrates how to perform a simple find and replace operation in a Word document using Microsoft Office Interop and DocIO.
+This section illustrates how to perform a simple find and replace operation in a Word document by using Microsoft Office Interop and DocIO.
 
 **Using** **Microsoft** **Office** **Interop**
 
-The following code snippet illustrates how to search for a word in a Word document, replace it with another word and save the document under a new name.
+The following code example illustrates how to search for a word in a Word document, replace it with another word and save the document under a new name.
 
 {% highlight c# %}
 [C#]
@@ -2239,7 +2239,7 @@ wordApp.Quit(nullobject, nullobject, nullobject)
 
 **Using** **DocIO**
 
-The following code snippet illustrates how to perform a simple find and replace operation using **DocIO**.
+The following code example illustrates how to perform a simple find and replace operation by using **DocIO**.
 
 {% highlight c# %}
 [C#] 
@@ -2306,7 +2306,7 @@ Bookmarks identify the location of text in a Word document that you can name and
 
 **Using** **Microsoft** **Office** **Interop**
 
-The following code snippet illustrates how to insert a bookmark for a range of text using **Office** **Automation**.
+The following code example illustrates how to insert a bookmark for a range of text by using **Office** **Automation**.
 
 {% highlight c# %}
 [C#]
@@ -2321,17 +2321,17 @@ object nullobject = Missing.Value;
 
 object newFilePath = "Sample.docx";
 
-//Start a Word application.
+//Starts a Word application.
 
 Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
 
-//Create a new Word document.
+//Creates a new Word document.
 
 wordApp.Documents.Add(ref nullobject, ref nullobject, ref nullobject, ref nullobject);
 
 Microsoft.Office.Interop.Word.Document document = wordApp.ActiveDocument;
 
-//Add a paragraph to the document.
+//Adds a paragraph to the document.
 
 Microsoft.Office.Interop.Word.Paragraph oPara1;
 
@@ -2432,7 +2432,7 @@ wordApp.Quit()
 
 **Using** **DocIO**
 
-The following code snippet illustrates how to insert the bookmark using **DocIO**. Here, the **AppendBookmarkStart****()** and **AppendBookmarkEnd****()** methods are used to add the bookmark.
+The following code example illustrates how to insert the bookmark by using **DocIO**. Here, the **AppendBookmarkStart****()** and **AppendBookmarkEnd****()** methods are used to add the bookmark.
 
 {% highlight c# %}
 [C#]
@@ -2441,11 +2441,11 @@ The following code snippet illustrates how to insert the bookmark using **DocIO*
 
 WordDocument doc = new WordDocument();
 
-//Add new section
+//Adds new section
 
 IWSection section = doc.AddSection();
 
-//Add new paragraph
+//Adds new paragraph
 
 IWParagraph paragraph = section.AddParagraph();
 
@@ -2455,7 +2455,7 @@ paragraph = section.AddParagraph();
 
 paragraph.AppendText("Bookmark with one ");
 
-//Insert bookmark.
+//Inserts bookmark.
 
 paragraph.AppendBookmarkStart("one_word");
 
@@ -2465,11 +2465,11 @@ paragraph.AppendBookmarkEnd("one_word");
 
 paragraph.AppendText(" selected");
 
-//Save the document.
+//Saves the document.
 
 doc.Save("Sample.docx", FormatType.Docx);
 
-//Close the document.
+//Closes the document.
 
 doc.Close();
 
@@ -2486,11 +2486,11 @@ doc.Close();
 
 Dim doc As WordDocument = New WordDocument()
 
-‘Add new section
+‘Adds new section
 
 Dim section As IWSection = doc.AddSection()
 
-‘Add new paragraph
+‘Adds new paragraph
 
 Dim paragraph As IWParagraph = section.AddParagraph()
 
@@ -2500,7 +2500,7 @@ paragraph = section.AddParagraph()
 
 paragraph.AppendText("Bookmark with one ")
 
-‘Insert bookmark.
+‘Inserts bookmark.
 
 paragraph.AppendBookmarkStart("one_word")
 
@@ -2510,11 +2510,11 @@ paragraph.AppendBookmarkEnd("one_word")
 
 paragraph.AppendText(" selected")
 
-‘Save the document.
+‘Saves the document.
 
 doc.Save("Sample.docx", FormatType.Docx)
 
-‘Close the document.
+‘Closes the document.
 
 doc.Close()
 
@@ -2533,7 +2533,7 @@ Page numbers can be added to the Word document in headers or footers.
 
 **Using** **MS** **Office** **Interop**
 
-The following code snippet illustrates how page numbers can be inserted to the footer of the Word document by adding a page number field.
+The following code example illustrates how page numbers can be inserted to the footer of the Word document by adding a page number field.
 
 {% highlight c# %}
 [C#]
@@ -2661,16 +2661,16 @@ wordApp.Quit()
 
 **Using** **DocIO**
 
-The following code snippet illustrates how page numbers are inserted to the footer of the Word document using DocIO.
+The following code example illustrates how page numbers are inserted to the footer of the Word document by using DocIO.
 
 {% highlight c# %}
 [C#]
 
-//Open the Word document.
+//Opens the Word document.
 
 WordDocument doc = new WordDocument("Template.docx", FormatType.Docx);
 
-//Iterate through sections
+//Iterates through sections
 
 foreach (WSection sec in doc.Sections)
 
@@ -2678,7 +2678,7 @@ foreach (WSection sec in doc.Sections)
 
 IWParagraph para = sec.AddParagraph();
 
-//Append page field to the paragraph
+//Appends page field to the paragraph
 
 para.AppendField("footer", FieldType.FieldPage);
 
@@ -2686,17 +2686,17 @@ para.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
 
 sec.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
 
-//Add paragraph to footer
+//Adds paragraph to footer
 
 sec.HeadersFooters.Footer.Paragraphs.Add(para);
 
 }
 
-//Save the document.
+//Saves the document.
 
 doc.Save("Sample.docx",FormatType.Docx);
 
-//Close the document.
+//Closes the document.
 
 doc.Close();
 
@@ -2707,17 +2707,17 @@ doc.Close();
 {% highlight vbnet %}
 [VB]
 
-‘Open the Word document.
+‘Opens the Word document.
 
 Dim doc As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 
-‘Iterate through sections
+‘Iterates through sections
 
 For Each sec As WSection In doc.Sections
 
 Dim para As IWParagraph = sec.AddParagraph()
 
-‘Append page field to the paragraph
+‘Appends page field to the paragraph
 
 para.AppendField("footer", FieldType.FieldPage)
 
@@ -2725,17 +2725,17 @@ para.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center
 
 sec.PageSetup.PageNumberStyle = PageNumberStyle.Arabic
 
-‘Add paragraph to footer
+‘Adds paragraph to footer
 
 sec.HeadersFooters.Footer.Paragraphs.Add(para)
 
 Next
 
-‘Save the document.
+‘Saves the document.
 
 doc.Save("Sample.docx", FormatType.Docx)
 
-‘Close the document.
+‘Closes the document.
 
 doc.Close()
 
@@ -2749,7 +2749,7 @@ Watermarks are text or pictures that appear behind document text.
 
 **Using** **Microsoft** **Office** **Interop**
 
-The following code snippet illustrates how to insert a text watermark as a shape using **Office** **Automation**.
+The following code example illustrates how to insert a text watermark as a shape by using **Office** **Automation**.
 
 {% highlight c# %}
 [C#]
@@ -3218,7 +3218,7 @@ Character formatting defines the appearance of the text in a Word document. This
 
 **Using** **MS** **Office** **Interop**
 
-The following code example illustrates how to apply the character formatting to the Word document using the **Range** properties.
+The following code example illustrates how to apply the character formatting to the Word document by using the **Range** properties.
 
 {% highlight c# %}
 [C#]
@@ -3349,23 +3349,23 @@ using word = Microsoft.Office.Interop.Word;
 
 ---------
 
-//Initialize the objects.
+//Initializes the objects.
 
 object nullobject = System.Reflection.Missing.Value;
 
 object newFilePath = "Sample.docx";
 
-//Start the Word application.
+//Starts the Word application.
 
 word.Application wordApp = new word.Application();
 
-//Create a new document.
+//Creates a new document.
 
 wordApp.Documents.Add(ref nullobject, ref nullobject, ref nullobject, ref nullobject);
 
 word.Document document = wordApp.ActiveDocument;
 
-//Insert the table.
+//Inserts the table.
 
 object start = 0;
 
@@ -3375,7 +3375,7 @@ word.Range tableLocation = document.Range(ref start, ref end);
 
 document.Tables.Add(tableLocation, 3, 2, ref nullobject, ref nullobject);
 
-//Save the document.
+//Saves the document.
 
 document.SaveAs(ref newFilePath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
 
@@ -3383,11 +3383,11 @@ ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, 
 
 ref nullobject);
 
-//Close the document.
+//Closes the document.
 
 document.Close(ref nullobject, ref nullobject, ref nullobject);
 
-//Quit the application.
+//Quits the application.
 
 wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
@@ -3402,23 +3402,23 @@ Imports word = Microsoft.Office.Interop.Word
 
 ---------
 
-'Initialize the objects.
+'Initializes the objects.
 
 Dim nullobject As Object = System.Reflection.Missing.Value
 
 Dim newFilePath As Object = "Sample.docx"
 
-'Start the Word application.
+'Starts the Word application.
 
 Dim wordApp As New word.Application()
 
-'Create a new document.
+'Creates a new document.
 
 wordApp.Documents.Add(nullobject, nullobject, nullobject, nullobject)
 
 Dim document As word.Document = wordApp.ActiveDocument
 
-'Insert the table.
+'Inserts the table.
 
 Dim start As Object = 0
 
@@ -3428,7 +3428,7 @@ Dim tableLocation As word.Range = document.Range(start, [end])
 
 document.Tables.Add(tableLocation, 3, 2, nullobject, nullobject)
 
-'Save the document.
+'Saves the document.
 
 document.SaveAs(newFilePath, nullobject, nullobject, nullobject, nullobject, nullobject, _
 
@@ -3436,11 +3436,11 @@ nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, _
 
 nullobject, nullobject, nullobject, nullobject)
 
-'Close the document.
+'Closes the document.
 
 document.Close(nullobject, nullobject, nullobject)
 
-'Quit the application.
+'Quits the application.
 
 wordApp.Quit(nullobject, nullobject, nullobject)
 
@@ -3455,23 +3455,23 @@ The following code example shows how to insert an empty table to a Word document
 {% highlight c# %}
 [C#]
 
-//Create a new Word document.
+//Creates a new Word document.
 
 WordDocument document = new WordDocument();
 
 IWSection section = document.AddSection();
 
-//Add a table to the document.
+//Adds a table to the document.
 
 IWTable table = section.AddTable();
 
 table.ResetCells(3, 2);
 
-//Save the document.
+//Saves the document.
 
 document.Save("Sample.docx",FormatType.Docx);
 
-//Close the document.
+//Closes the document.
 
 document.Close();   
 
@@ -3482,23 +3482,23 @@ document.Close();
 {% highlight vbnet %}
 [VB.NET] 
 
-'Create a new Word document.
+'Creates a new Word document.
 
 Dim document As New WordDocument()
 
 Dim section As IWSection = document.AddSection()
 
-'Add a table to the document.
+'Adds a table to the document.
 
 Dim table As IWTable = section.AddTable()
 
 table.ResetCells(3, 2)
 
-'Save the document.
+'Saves the document.
 
 document.Save("Sample.docx",FormatType.Docx);
 
-'Close the document.
+'Closes the document.
 
 document.Close()
 
@@ -3635,7 +3635,7 @@ wordApp.Quit()
 
 **Adding** **Comments** **Using** **DocIO**
 
-You can insert comments to a paragraph or text in a Word document using **DocIO**. The following code example shows how to insert comments to a Word document.
+You can insert comments to a paragraph or text in a Word document by using **DocIO**. The following code example shows how to insert comments to a Word document.
 
 {% highlight c# %}
 [C#]
@@ -3696,7 +3696,7 @@ Note: For more information on working with the comments using DocIO, you can ref
 
 ### Document Protection
 
-You can protect your Word documents with or without a password, from anyone accidentally or deliberately modifying the Word documents. You can specify the protection type for preserving the Word documents.
+You can protect your Word documents with or without a password from anyone accidentally or deliberately modifying the Word documents. You can specify the protection type for preserving the Word documents.
 
 **Using** **MS** **Office** **Interop**
 
@@ -3711,7 +3711,7 @@ You can protect your Word documents with or without a password, from anyone acci
 {% highlight c# %}
 [C#]
 
-//Initialize objects.
+//Initializes objects.
 
 object nullobject = System.Reflection.Missing.Value;
 
@@ -3727,11 +3727,11 @@ object useIRM = false;
 
 object enforceStyleLock = false;
 
-//Start the Word application.
+//Starts the Word application.
 
 word.Application wordApp = new word.Application();
 
-//Open the Word document that is to be protected.
+//Opens the Word document to be protected.
 
 word.Document document = wordApp.Documents.Open(ref filepath, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
 
@@ -3741,11 +3741,11 @@ ref nullobject, ref nullobject, ref nullobject);
 
 wordApp.Visible = false;
 
-//Set "Allow only Comments" protection to Word document.
+//Sets "Allow only Comments" protection to Word document.
 
 document.Protect(word.WdProtectionType.wdAllowOnlyComments, ref noReset, ref password, ref useIRM, ref enforceStyleLock);
 
-//Save the document.
+//Saves the document.
 
 document.SaveAs(ref newFilePath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
 
@@ -3753,11 +3753,11 @@ ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, 
 
 ref nullobject);
 
-//Close the document.
+//Closes the document.
 
 document.Close(ref nullobject, ref nullobject, ref nullobject);
 
-//Quit the application.
+//Quits the application.
 
 wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
@@ -3768,7 +3768,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% highlight vbnet %}
 [VB]
 
-'Initialize objects.
+'Initializes objects.
 
 Dim nullobject As Object = System.Reflection.Missing.Value
 
@@ -3784,11 +3784,11 @@ Dim useIRM As Object = False
 
 Dim enforceStyleLock As Object = False
 
-'Start the Word application.
+'Starts the Word application.
 
 Dim wordApp As New Word.Application()
 
-'Open the Word document that is to be protected.
+'Opens the Word document that is to be protected.
 
 Dim document As Word.Document = wordApp.Documents.Open(filepath, nullobject, nullobject, nullobject, nullobject, nullobject, _
 
@@ -3798,11 +3798,11 @@ nullobject, nullobject, nullobject, nullobject)
 
 wordApp.Visible = False
 
-'Set "Allow only Comments" protection to Word document.
+'Sets "Allow only Comments" protection to Word document.
 
 document.Protect(Word.WdProtectionType.wdAllowOnlyComments, noReset, password, useIRM, enforceStyleLock)
 
-'Save the document.
+'Saves the document.
 
 document.SaveAs(newFilePath, nullobject, nullobject, nullobject, nullobject, nullobject, _
 
@@ -3810,11 +3810,11 @@ nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, _
 
 nullobject, nullobject, nullobject, nullobject)
 
-'Close the document.
+'Closes the document.
 
 document.Close(nullobject, nullobject, nullobject)
 
-'Quit the application.
+'Quits the application.
 
 wordApp.Quit(nullobject, nullobject, nullobject)
 
@@ -3835,15 +3835,15 @@ wordApp.Quit(nullobject, nullobject, nullobject)
 
 [C#]
 
-//Load the existing Word document using DocIO instance
+//Loads the existing Word document by using DocIO instance
 
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 
-//Set "Allow only Comments" protection to Word document.
+//Sets "Allow only Comments" protection to Word document.
 
 document.ProtectionType = Syncfusion.DocIO.ProtectionType.AllowOnlyComments;
 
-//Save and close the document.
+//Saves and closes the document.
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -3856,15 +3856,15 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the existing Word document using DocIO instance
+'Loads the existing Word document by using DocIO instance
 
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 
-'Set "Allow only Comments" protection to Word document.
+'Sets "Allow only Comments" protection to Word document.
 
 document.ProtectionType = Syncfusion.DocIO.ProtectionType.AllowOnlyComments
 
-'Save and close the document.
+'Saves and closes the document.
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -3874,7 +3874,7 @@ document.Close()
 
 {% endhighlight %}
 
-Refer to the online documentation link for more details about ways to protect the Word documents using **DocIO**:
+Refer to the online documentation link for more details about the ways to protect the Word documents by using **DocIO**:
 
 [Protecting word document from editing](http://www.google.com/# "")
 
@@ -3889,7 +3889,7 @@ The following code example shows how to insert and update table of contents in a
 {% highlight c# %}
 [C#]
 
-//Initialize objects.
+//Initializes objects.
 
 object nullobject = System.Reflection.Missing.Value;
 
@@ -3899,11 +3899,11 @@ object newFilePath = "Sample.docx";
 
 object trueobj = true;
 
-//Start the Word application.
+//Starts the Word application.
 
 word.Application wordApp = new word.Application();
 
-//Open the Word document.
+//Opens the Word document.
 
 word.Document document = wordApp.Documents.Open(ref filepath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
 
@@ -3911,7 +3911,7 @@ ref nullobject, ref nullobject);
 
 wordApp.Visible = false;
 
-//Define the range for TOC in the document.
+//Defines the range for TOC in the document.
 
 object tocstart = 0;
 
@@ -3919,17 +3919,17 @@ object tocend = 0;
 
 word.Range rngToc = document.Range(ref tocstart, ref tocend);
 
-//Add TOC.
+//Adds TOC.
 
 word.TableOfContents toc = document.TablesOfContents.Add(rngToc, ref trueobj, ref nullobject, ref nullobject, ref nullobject,
 
 ref nullobject, ref trueobj, ref trueobj, ref trueobj, ref trueobj, ref trueobj, ref trueobj);
 
-//Update TOC.
+//Updates TOC.
 
 toc.Update();
 
-//Save the document.
+//Saves the document.
 
 document.SaveAs(ref newFilePath, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject,
 
@@ -3937,11 +3937,11 @@ ref nullobject, ref nullobject, ref nullobject, ref nullobject, ref nullobject, 
 
 ref nullobject, ref nullobject);
 
-//Close the document.
+//Closes the document.
 
 document.Close(ref nullobject, ref nullobject, ref nullobject);
 
-//Quit the application.
+//Quits the application.
 
 wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
@@ -3952,7 +3952,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% highlight vbnet %}
 [VB]
 
-'Initialize objects.
+'Initializes objects.
 
 Dim nullobject As Object = System.Reflection.Missing.Value
 
@@ -3962,11 +3962,11 @@ Dim newFilePath As Object = "Sample.docx"
 
 Dim trueobj As Object = True
 
-'Start the Word application.
+'Starts the Word application.
 
 Dim wordApp As New Word.Application()
 
-'Open the Word document.
+'Opens the Word document.
 
 Dim document As Word.Document = wordApp.Documents.Open(filepath, nullobject, nullobject, nullobject, nullobject, nullobject, _
 
@@ -3976,7 +3976,7 @@ nullobject, nullobject, nullobject, nullobject)
 
 wordApp.Visible = False
 
-'Define the range for TOC in the document.
+'Defines the range for TOC in the document.
 
 Dim tocstart As Object = 0
 
@@ -3984,17 +3984,17 @@ Dim tocend As Object = 0
 
 Dim rngToc As Word.Range = document.Range(tocstart, tocend)
 
-'Add TOC.
+'Adds TOC.
 
 Dim toc As Word.TableOfContents = document.TablesOfContents.Add(rngToc, trueobj, nullobject, nullobject, nullobject, nullobject, _
 
 trueobj, trueobj, trueobj, trueobj, trueobj, trueobj)
 
-'Update TOC.
+'Updates TOC.
 
 toc.Update()
 
-'Save the document.
+'Saves the document.
 
 document.SaveAs(newFilePath, nullobject, nullobject, nullobject, nullobject, nullobject, _
 
@@ -4002,11 +4002,11 @@ nullobject, nullobject, nullobject, nullobject, nullobject, nullobject, _
 
 nullobject, nullobject, nullobject, nullobject)
 
-'Close the document.
+'Closes the document.
 
 document.Close(nullobject, nullobject, nullobject)
 
-'Quit the application.
+'Quits the application.
 
 wordApp.Quit(nullobject, nullobject, nullobject)
 
@@ -4016,12 +4016,12 @@ wordApp.Quit(nullobject, nullobject, nullobject)
 
 **Using** **DocIO**
 
-The following code example illustrates how to insert and update the table of contents in a Word document using **DocIO**.
+The following code example illustrates how to insert and update the table of contents in a Word document by using **DocIO**.
 
 {% highlight c# %}
 [C#]
 
-//Load the existing Word document using DocIO instance
+//Loads the existing Word document by using DocIO instance
 
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 
@@ -4039,7 +4039,7 @@ section.Paragraphs.Insert(0, paragraph);
 
 document.UpdateTableOfContents();
 
-//Save and close the document.
+//Saves and closes the document.
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -4052,7 +4052,7 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the existing Word document using DocIO instance
+'Loads the existing Word document by using DocIO instance
 
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 
@@ -4070,7 +4070,7 @@ section.Paragraphs.Insert(0, paragraph)
 
 document.UpdateTableOfContents()
 
-'Save and close the document.
+'Saves and closes the document.
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -4080,7 +4080,7 @@ document.Close()
 
 {% endhighlight %}
 
-Refer to the online documentation link for more information about adding the table of contents to the Word document using **DocIO**:
+Refer to the online documentation link for more information about adding the table of contents to the Word document by using **DocIO**:
 
 [Working with table of contents](http://www.google.com/# "")
 
