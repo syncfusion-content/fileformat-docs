@@ -10,24 +10,24 @@ documentation: UG
 
 A bookmark identifies a location or a selection of text within a document that you can name and identify for future reference.
 
-In Essential DocIO, bookmark is represented by **Bookmark** instance which is a pair of **BookmarkStart** and **BookmarkEnd**. BookmarkStart represents start point of a bookmark and BookmarkEnd represents end point of a bookmark. Every Word document contains a collection of bookmarks which is accessible through the **Bookmarks** property of **WordDocument** class.
+In Essential DocIO, bookmark is represented by **Bookmark** instance that is a pair of **BookmarkStart** and **BookmarkEnd**. BookmarkStart represents start point of a bookmark and BookmarkEnd represents end point of a bookmark. Every Word document contains a collection of bookmarks that are accessible through the **Bookmarks** property of **WordDocument** class.
 
 ## Adding a bookmark
 
-The following code snippet shows how to add a bookmark in Word document.
+The following code example shows how to add a bookmark in Word document.
 
 {% highlight c# %}
 [C#]
 
-//Create an instance of WordDocument class (Empty Word Document)
+//Creates an instance of WordDocument class (Empty Word Document)
 
 WordDocument document = new WordDocument();
 
-//Add a new section into the Word Document
+//Adds a new section into the Word Document
 
 IWSection section = document.AddSection();
 
-//Add a new paragraph into Word document and append text into paragraph
+//Adds a new paragraph into Word document and appends text into paragraph
 
 IWParagraph paragraph = section.AddParagraph();
 
@@ -35,31 +35,31 @@ paragraph.AppendText("Northwind Database");
 
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center; 
 
-//Add a paragraph into section
+//Adds a paragraph into section
 
 paragraph = section.AddParagraph();
 
-//Add a new bookmark start into paragraph with name "Northwind"
+//Adds a new bookmark start into paragraph with name "Northwind"
 
 paragraph.AppendBookmarkStart("Northwind");
 
-//Add a text between the bookmark start and end into paragraph
+//Adds a text between the bookmark start and end into paragraph
 
 paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.");
 
-//Add a new bookmark end into paragraph with name " Northwind "
+//Adds a new bookmark end into paragraph with name " Northwind "
 
 paragraph.AppendBookmarkEnd("Northwind");
 
-//Add a text after the bookmark end
+//Adds a text after the bookmark end
 
 paragraph.AppendText(" Using Northwind, you can become familiar with how a relational database is structured and how the database objects work together to help you enter, store, manipulate, and print your data.");
 
-//Save the document in the given name and format
+//Saves the document in the given name and format
 
 document.Save("Bookmarks.docx", FormatType.Docx);
 
-//Release the resources occupied by WordDocument instance
+//Releases the resources occupied by WordDocument instance
 
 document.Close();
 
@@ -70,15 +70,15 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create an instance of WordDocument class (Empty Word Document)
+'Creates an instance of WordDocument class (Empty Word Document)
 
 Dim document As New WordDocument()
 
-'Add a new section into the Word Document
+'Adds a new section into the Word Document
 
 Dim section As IWSection = document.AddSection()
 
-'Add a new paragraph into Word document and append text into paragraph
+'Adds a new paragraph into Word document and appends text into paragraph
 
 Dim paragraph As IWParagraph = section.AddParagraph()
 
@@ -86,31 +86,31 @@ paragraph.AppendText("Northwind Database")
 
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center
 
-'Add a paragraph into section
+'Adds a paragraph into section
 
 paragraph = section.AddParagraph()
 
-'Add a new bookmark start into paragraph with name "Northwind"
+'Adds a new bookmark start into paragraph with name "Northwind"
 
 paragraph.AppendBookmarkStart("Northwind")
 
-'Add a text between the bookmark start and end into paragraph
+'Adds a text between the bookmark start and end into paragraph
 
 paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.")
 
-'Add a new bookmark end into paragraph with name " Northwind "
+'Adds a new bookmark end into paragraph with name " Northwind "
 
 paragraph.AppendBookmarkEnd("Northwind")
 
-'Add a text after the bookmark end
+'Adds a text after the bookmark end
 
 paragraph.AppendText(" Using Northwind, you can become familiar with how a relational database is structured and how the database objects work together to help you enter, store, manipulate, and print your data.")
 
-'Save the document in the given name and format
+'Saves the document in the given name and format
 
 document.Save("Bookmarks.docx", FormatType.Docx)
 
-'Release the resources occupied by WordDocument instance
+'Releases the resources occupied by WordDocument instance
 
 document.Close()
 
@@ -120,20 +120,20 @@ document.Close()
 
 ## Obtaining a bookmark instance
 
-The following code snippet shows how to retrieve an instance of bookmark from a Word document.
+The following code example shows how to retrieve an instance of bookmark from a Word document.
 
 {% highlight c# %}
 [C#]
 
-//Load an existing Word document into DocIO instance
+//Loads an existing Word document into DocIO instance
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
-//Get the bookmark instance using FindByName method of BookmarkCollection with bookmark name
+//Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
 
 Syncfusion.DocIO.DLS.Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
 
-//Access the bookmark start’s owner paragraph using bookmark and change its back color
+//Accessess the bookmark start’s owner paragraph by using bookmark and changes its back color
 
 bookmark.BookmarkStart.OwnerParagraph.ParagraphFormat.BackColor = Color.AliceBlue;
 
@@ -148,15 +148,15 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load an existing Word document into DocIO instance
+'Loads an existing Word document into DocIO instance
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
-'Get the bookmark instance using FindByName method of BookmarkCollection with bookmark name
+'Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
 
 Dim bookmark As Syncfusion.DocIO.DLS.Bookmark = document.Bookmarks.FindByName("Northwind")
 
-'Access the bookmark start’s owner paragraph using bookmark and change its back color
+'Accessess the bookmark start’s owner paragraph by using bookmark and changes its back color
 
 bookmark.BookmarkStart.OwnerParagraph.ParagraphFormat.BackColor = Color.AliceBlue
 
@@ -170,20 +170,20 @@ document.Close()
 
 ## Removing a Bookmark from Word document
 
-The following code snippet shows how to remove a bookmark from Word document.
+The following code example shows how to remove a bookmark from Word document.
 
 {% highlight c# %}
 [C#]
 
-//Load an existing Word document into DocIO instance
+//Loads an existing Word document into DocIO instance
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
-//Get the bookmark instance using FindByName method of BookmarkCollection with bookmark name
+//Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
 
 Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
 
-//Remove the bookmark named "Northwind" from Word document.
+//Removes the bookmark named "Northwind" from Word document.
 
 document.Bookmarks.Remove(bookmark);
 
@@ -198,15 +198,15 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load an existing Word document into DocIO instance
+'Loads an existing Word document into DocIO instance
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
-'Get the bookmark instance using FindByName method of BookmarkCollection with bookmark name
+'Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
 
 Dim bookmark As Bookmark = document.Bookmarks.FindByName("Northwind")
 
-'Remove the bookmark named "Northwind" from Word document.
+'Removes the bookmark named "Northwind" from Word document.
 
 document.Bookmarks.Remove(bookmark)
 
@@ -220,33 +220,33 @@ document.Close()
 
 ## Retrieving contents within a bookmark 
 
-**BookmarkNavigator** is used for navigating to a bookmark in a Word document. You can retrieve, replace and delete the content of a specified bookmark using BookmarkNavigator.
+**BookmarkNavigator** is used for navigating to a bookmark in a Word document. You can retrieve, replace and delete the content of a specified bookmark by using BookmarkNavigator.
 
 You can get the content between bookmark start and bookmark end of the specified bookmark in two ways: 
 
-1. You can use **GetBookmarkContent** method for retrieving content as collection of body items if the bookmark start and bookmark end are preserved in a single section
-2. You can use **GetContent** method for retrieving content as collection of sections if the bookmark start and bookmark end are preserved in different sections 
+1. You can use **GetBookmarkContent** method for retrieving content as collection of body items when the bookmark start and bookmark end are preserved in a single section.
+2. You can use **GetContent** method for retrieving content as collection of sections when the bookmark start and bookmark end are preserved in different sections. 
 
-The following code snippet shows how to retrieve the specified bookmark content using GetBookmarkContent method in a Word document.
+The following code example shows how to retrieve the specified bookmark content by using GetBookmarkContent method in a Word document.
 
 {% highlight c# %}
 [C#]
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
-//Create the bookmark navigator instance to access the bookmark
+//Creates the bookmark navigator instance to access the bookmark
 
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
 
-//Move the virtual cursor to the before the end location of the bookmark "Northwind"
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind");
 
-//Get the bookmark content
+//Gets the bookmark content
 
 TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
 
-//Add the retrieved content into another new section
+//Adds the retrieved content into another new section
 
 document.AddSection();
 
@@ -267,19 +267,19 @@ document.Close();
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
-'Create the bookmark navigator instance to access the bookmark
+'Creates the bookmark navigator instance to access the bookmark
 
 Dim bookmarkNavigator As New BookmarksNavigator(document)
 
-'Move the virtual cursor to the before the end location of the bookmark "Northwind"
+'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind")
 
-'Get the bookmark content
+'Gets the bookmark content
 
 Dim part As TextBodyPart = bookmarkNavigator.GetBookmarkContent()
 
-'Add the retrieved content into another new section
+'Adds the retrieved content into another new section
 
 document.AddSection()
 
@@ -297,34 +297,34 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet shows how to retrieve the specified bookmark content using GetContent method in a Word document.
+The following code example shows how to retrieve the specified bookmark content by using GetContent method in a Word document.
 
 {% highlight c# %}
 [C#]
 
-//Load the template document with bookmark "Northwind" whose start and end preserved in different section
+//Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
 
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 
-//Create the bookmark navigator instance to access the bookmark
+//Creates the bookmark navigator instance to access the bookmark
 
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
 
-//Move the virtual cursor to the before the end location of the bookmark "Northwind"
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind");
 
-//Get the bookmark content as WordDocumentPart
+//Gets the bookmark content as WordDocumentPart
 
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
 
-//Save the WordDocumentPart as separate Word document
+//Saves the WordDocumentPart as separate Word document
 
 WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
 
 newDocument.Save("Result.docx", FormatType.Docx);
 
-//Release the resources hold by WordDocument instance
+//Releases the resources hold by WordDocument instance
 
 newDocument.Close();
 
@@ -337,29 +337,29 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document with bookmark "Northwind" whose start and end preserved in different section
+'Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
 
-'Create the bookmark navigator instance to access the bookmark
+'Creates the bookmark navigator instance to access the bookmark
 
 Dim bookmarkNavigator As New BookmarksNavigator(document)
 
-'Move the virtual cursor to the before the end location of the bookmark "Northwind"
+'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind")
 
-'Get the bookmark content as WordDocumentPart
+'Gets the bookmark content as WordDocumentPart
 
 Dim wordDocumentPart As WordDocumentPart = bookmarkNavigator.GetContent()
 
-'Save the WordDocumentPart as separate Word document
+'Saves the WordDocumentPart as separate Word document
 
 Dim newDocument As WordDocument = wordDocumentPart.GetAsWordDocument()
 
 newDocument.Save("Result.docx", FormatType.Docx)
 
-'Release the resources hold by WordDocument instance
+'Releases the resources hold by WordDocument instance
 
 newDocument.Close()
 
@@ -371,24 +371,24 @@ document.Close()
 
 ## Inserting content into a bookmark
 
-You can insert table, paragraph, simple text and paragraph item at the start or end location of the current bookmark using bookmark navigator.
+You can insert table, paragraph, simple text and paragraph item at the start or end location of the current bookmark by using bookmark navigator.
 
-The following code snippet shows how to insert a simple text using BookmarkNavigator.
+The following code example shows how to insert a simple text by using BookmarkNavigator.
 
 {% highlight c# %}
 [C#]
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
-//Create the bookmark navigator instance to access the bookmark
+//Creates the bookmark navigator instance to access the bookmark
 
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
 
-//Move the virtual cursor to the before the end location of the bookmark "Northwind"
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind");
 
-//Insert a new text before the bookmark end of the bookmark
+//Inserts a new text before the bookmark end of the bookmark
 
 bookmarkNavigator.InsertText(" Northwind Database is a set of tables containing data fitted into predefined categories.");
 
@@ -405,15 +405,15 @@ document.Close();
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
-'Create the bookmark navigator instance to access the bookmark
+'Creates the bookmark navigator instance to access the bookmark
 
 Dim bookmarkNavigator As New BookmarksNavigator(document)
 
-'Move the virtual cursor to the before the end location of the bookmark "Northwind"
+'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind")
 
-'Insert a new text before the bookmark end of the bookmark
+'Inserts a new text before the bookmark end of the bookmark
 
 bookmarkNavigator.InsertText(" Northwind Database is a set of tables containing data fitted into predefined categories.")
 
@@ -427,22 +427,22 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet shows how to insert a paragraph item using BookmarkNavigator.
+The following code example shows how to insert a paragraph item by using BookmarkNavigator.
 
 {% highlight c# %}
 [C#]
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
-//Create the bookmark navigator instance to access the bookmark
+//Creates the bookmark navigator instance to access the bookmark
 
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
 
-//Move to the virtual cursor after the end location of the bookmark "Northwind"
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind", false, true);
 
-//Insert a new picture after the bookmark end
+//Inserts a new picture after the bookmark end
 
 WPicture picture = bookmarkNavigator.InsertParagraphItem(ParagraphItemType.Picture) as WPicture;
 
@@ -465,15 +465,15 @@ document.Close();
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
-'Create the bookmark navigator instance to access the bookmark
+'Creates the bookmark navigator instance to access the bookmark
 
 Dim bookmarkNavigator As New BookmarksNavigator(document)
 
-'Move to the virtual cursor after the end location of the bookmark "Northwind"
+'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind", False, True)
 
-'Insert a new picture after the bookmark end
+'Inserts a new picture after the bookmark end
 
 Dim picture As WPicture = TryCast(bookmarkNavigator.InsertParagraphItem(ParagraphItemType.Picture), WPicture)
 
@@ -491,22 +491,22 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet shows how to insert a paragraph using BookmarkNavigator.
+The following code example shows how to insert a paragraph by using BookmarkNavigator.
 
 {% highlight c# %}
 [C#]
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
-//Create the bookmark navigator instance to access the bookmark
+//Creates the bookmark navigator instance to access the bookmark
 
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
 
-//Move to the virtual cursor after the end location of the bookmark "Northwind"
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind", false, true);
 
-//Insert a new paragraph before the bookmark start
+//Inserts a new paragraph before the bookmark start
 
 IWParagraph paragraph = new WParagraph(document);
 
@@ -527,15 +527,15 @@ document.Close();
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
-'Create the bookmark navigator instance to access the bookmark
+'Creates the bookmark navigator instance to access the bookmark
 
 Dim bookmarkNavigator As New BookmarksNavigator(document)
 
-'Move to the virtual cursor after the end location of the bookmark "Northwind"
+'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind", False, True)
 
-'Insert a new paragraph before the bookmark start
+'Inserts a new paragraph before the bookmark start
 
 Dim paragraph As IWParagraph = New WParagraph(document)
 
@@ -551,22 +551,22 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet shows how to insert a table using BookmarkNavigator.
+The following code example shows how to insert a table by using BookmarkNavigator.
 
 {% highlight c# %}
 [C#]
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
-//Create the bookmark navigator instance to access the bookmark
+//Creates the bookmark navigator instance to access the bookmark
 
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
 
-//Move to the virtual cursor before the end location of the bookmark "Northwind"
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind", false, false);
 
-//Insert a new paragraph before the bookmark end
+//Inserts a new paragraph before the bookmark end
 
 IWParagraph paragraph = new WParagraph(document);
 
@@ -574,7 +574,7 @@ paragraph.AppendText("Northwind Database Contains the following tables:");
 
 bookmarkNavigator.InsertParagraph(paragraph);
 
-//Insert a new table before the bookmark end
+//Inserts a new table before the bookmark end
 
 WTable table = new WTable(document);
 
@@ -607,15 +607,15 @@ document.Close();
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
-'Create the bookmark navigator instance to access the bookmark
+'Creates the bookmark navigator instance to access the bookmark
 
 Dim bookmarkNavigator As New BookmarksNavigator(document)
 
-'Move to the virtual cursor before the end location of the bookmark "Northwind"
+'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind", False, False)
 
-'Insert a new paragraph before the bookmark end
+'Inserts a new paragraph before the bookmark end
 
 Dim paragraph As IWParagraph = New WParagraph(document)
 
@@ -623,7 +623,7 @@ paragraph.AppendText("Northwind Database Contains the following tables:")
 
 bookmarkNavigator.InsertParagraph(paragraph)
 
-'Insert a new table before the bookmark end
+'Inserts a new table before the bookmark end
 
 Dim table As New WTable(document)
 
@@ -651,22 +651,22 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet shows how to insert a TextBodyPart using BookmarkNavigator.
+The following code example shows how to insert a TextBodyPart by using BookmarkNavigator.
 
 {% highlight c# %}
 [C#]
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
-//Create the bookmark navigator instance to access the bookmark
+//Creates the bookmark navigator instance to access the bookmark
 
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
 
-//Move to the virtual cursor before the bookmark end location of the bookmark "Northwind"
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind");
 
-//Get the bookmark content
+//Gets the bookmark content
 
 TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
 
@@ -676,17 +676,17 @@ IWParagraph paragraph = document.LastSection.AddParagraph();
 
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
 
-//Add the new bookmark into Word document
+//Adds the new bookmark into Word document
 
 paragraph.AppendBookmarkStart("bm_empty");
 
 paragraph.AppendBookmarkEnd("bm_empty");
 
-//Move to the virtual cursor after the start location of the bookmark "bm_empty"
+//Moves the virtual cursor to the location after the start of the bookmark "bm_empty"
 
 bookmarkNavigator.MoveToBookmark("bm_empty", true, true);
 
-//Insert the text body part after the bookmark start
+//Inserts the text body part after the bookmark start
 
 bookmarkNavigator.InsertTextBodyPart(textBodyPart);
 
@@ -703,15 +703,15 @@ document.Close();
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
-'Create the bookmark navigator instance to access the bookmark
+'Creates the bookmark navigator instance to access the bookmark
 
 Dim bookmarkNavigator As New BookmarksNavigator(document)
 
-'Move to the virtual cursor before the bookmark end location of the bookmark "Northwind"
+'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind")
 
-'Get the bookmark content
+'Gets the bookmark content
 
 Dim textBodyPart As TextBodyPart = bookmarkNavigator.GetBookmarkContent()
 
@@ -721,17 +721,17 @@ Dim paragraph As IWParagraph = document.LastSection.AddParagraph()
 
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.")
 
-'Add the new bookmark into Word document
+'Adds the new bookmark into Word document
 
 paragraph.AppendBookmarkStart("bm_empty")
 
 paragraph.AppendBookmarkEnd("bm_empty")
 
-'Move to the virtual cursor after the start location of the bookmark "bm_empty"
+'Moves the virtual cursor to the location after the start of the bookmark "bm_empty"
 
 bookmarkNavigator.MoveToBookmark("bm_empty", True, True)
 
-'Insert the text body part after the bookmark start
+'Inserts the text body part after the bookmark start
 
 bookmarkNavigator.InsertTextBodyPart(textBodyPart)
 
@@ -747,22 +747,22 @@ document.Close()
 
 You can delete the contents between bookmark start and end of the specified bookmark in a Word document.
 
-The following code snippet shows how to remove the contents of a specified bookmark from Word document.
+The following code example shows how to remove the contents of a specified bookmark from Word document.
 
 {% highlight c# %}
 [C#]
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
-//Create the bookmark navigator instance to access the bookmark
+//Creates the bookmark navigator instance to access the bookmark
 
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
 
-//Move the virtual cursor to the before the end location of the bookmark " Northwind "
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind "
 
 bookmarkNavigator.MoveToBookmark("Northwind");
 
-//Delete bookmark content without deleting the format in the target document.
+//Deletes bookmark content without deleting the format in the target document.
 
 bookmarkNavigator.DeleteBookmarkContent(false);
 
@@ -779,15 +779,15 @@ document.Close();
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
-'Create the bookmark navigator instance to access the bookmark
+'Creates the bookmark navigator instance to access the bookmark
 
 Dim bookmarkNavigator As New BookmarksNavigator(document)
 
-'Move the virtual cursor to the before the end location of the bookmark "Northwind"
+'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind")
 
-'Delete bookmark content without deleting the format in the target document.
+'Deletes bookmark content without deleting the format in the target document.
 
 bookmarkNavigator.DeleteBookmarkContent(False)
 
@@ -807,7 +807,7 @@ I> Note:
 
 I> You cannot replace the multi section contents into a bookmark within table in Word documents.
 
-I> Use for loop instead of foreach loop for iterating through document elements when replacing the bookmark contents to avoid “collection modified exception”. Since there is chance for modification in document elements while replacing the bookmark contents.
+I> Use "for loop" instead of "foreach loop" to iterate through document elements when replacing the bookmark contents to avoid “collection modified exception”, as there is a chance for modification in the document elements on replacing the bookmark contents.
 
 The following are the limitations on the ReplaceBookmarkContent methods such as,
 
@@ -826,22 +826,22 @@ As per Microsoft Word behavior, you cannot replace the bookmark contents when th
 ![](WorkingwithBookmarks_images/WorkingwithBookmarks_img2.jpeg)
 
 
-The following code snippet shows how to replace a specified bookmark content using ReplaceBookmarkContent method in Word document.
+The following code example shows how to replace a specified bookmark content by using ReplaceBookmarkContent method in Word document.
 
 {% highlight c# %}
 [C#]
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
-//Create the bookmark navigator instance to access the bookmark
+//Creates the bookmark navigator instance to access the bookmark
 
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
 
-//Move to the virtual cursor before the bookmark end location of the bookmark "Northwind"
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind");
 
-//Get the bookmark content
+//Gets the bookmark content
 
 TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
 
@@ -851,17 +851,17 @@ IWParagraph paragraph = document.LastSection.AddParagraph();
 
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
 
-//Add the new bookmark into Word document
+//Adds the new bookmark into Word document
 
 paragraph.AppendBookmarkStart("bm_empty");
 
 paragraph.AppendBookmarkEnd("bm_empty");
 
-//Move to the virtual cursor before the end location of the bookmark "bm_empty"
+//Moves the virtual cursor to the location before the end of the bookmark "bm_empty"
 
 bookmarkNavigator.MoveToBookmark("bm_empty");
 
-//Replace the bookmark content with text body part
+//Replaces the bookmark content with text body part
 
 bookmarkNavigator.ReplaceBookmarkContent(textBodyPart);
 
@@ -878,15 +878,15 @@ document.Close();
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
-'Create the bookmark navigator instance to access the bookmark
+'Creates the bookmark navigator instance to access the bookmark
 
 Dim bookmarkNavigator As New BookmarksNavigator(document)
 
-'Move to the virtual cursor before the bookmark end location of the bookmark "Northwind"
+'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind")
 
-'Get the bookmark content
+'Gets the bookmark content
 
 Dim textBodyPart As TextBodyPart = bookmarkNavigator.GetBookmarkContent()
 
@@ -896,17 +896,17 @@ Dim paragraph As IWParagraph = document.LastSection.AddParagraph()
 
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.")
 
-'Add the new bookmark into Word document
+'Adds the new bookmark into Word document
 
 paragraph.AppendBookmarkStart("bm_empty")
 
 paragraph.AppendBookmarkEnd("bm_empty")
 
-'Move to the virtual cursor before the end location of the bookmark "bm_empty"
+'Moves the virtual cursor to the location before the end of the bookmark "bm_empty"
 
 bookmarkNavigator.MoveToBookmark("bm_empty")
 
-'Replace the bookmark content with text body part
+'Replaces the bookmark content with text body part
 
 bookmarkNavigator.ReplaceBookmarkContent(textBodyPart)
 
@@ -918,44 +918,44 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet shows how to replace a specified bookmark content using ReplaceContent method in Word document.
+The following code example shows how to replace a specified bookmark content by using ReplaceContent method in Word document.
 
 {% highlight c# %}
 [C#]
 
-//Load the template document with bookmark "Northwind" whose start and end preserved in different section
+//Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 
 WordDocument templateDocument = new WordDocument("Template.docx", FormatType.Docx);
 
-//Create the bookmark navigator instance to access the bookmark
+//Creates the bookmark navigator instance to access the bookmark
 
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
 
-//Move the virtual cursor to the before the end location of the bookmark "Northwind"
+//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind");
 
-//Get the bookmark content as WordDocumentPart
+//Gets the bookmark content as WordDocumentPart
 
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
 
-//Close the template document
+//Closes the template document
 
 templateDocument.Close();
 
-//Load the Word document with bookmark NorthwindDB
+//Loads the Word document with bookmark NorthwindDB
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
-//Create the bookmark navigator instance to access the bookmark
+//Creates the bookmark navigator instance to access the bookmark
 
 bookmarkNavigator = new BookmarksNavigator(document);
 
-//Move the virtual cursor to the before the end location of the bookmark "NorthwindDB"
+//Moves the virtual cursor to the location before the end of the bookmark "NorthwindDB"
 
 bookmarkNavigator.MoveToBookmark("NorthwindDB");
 
-//Replace the bookmark content with word body part
+//Replaces the bookmark content with word body part
 
 bookmarkNavigator.ReplaceContent(wordDocumentPart);
 
@@ -970,39 +970,39 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document with bookmark "Northwind" whose start and end preserved in different section
+'Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 
 Dim templateDocument As New WordDocument("Template.docx", FormatType.Docx)
 
-'Create the bookmark navigator instance to access the bookmark
+'Creates the bookmark navigator instance to access the bookmark
 
 Dim bookmarkNavigator As New BookmarksNavigator(templateDocument)
 
-'Move the virtual cursor to the before the end location of the bookmark "Northwind"
+'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
 
 bookmarkNavigator.MoveToBookmark("Northwind")
 
-'Get the bookmark content as WordDocumentPart
+'Gets the bookmark content as WordDocumentPart
 
 Dim wordDocumentPart As WordDocumentPart = bookmarkNavigator.GetContent()
 
-'Close the template document
+'Closes the template document
 
 templateDocument.Close()
 
-'Load the Word document with bookmark NorthwindDB
+'Loads the Word document with bookmark NorthwindDB
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
-'Create the bookmark navigator instance to access the bookmark
+'Creates the bookmark navigator instance to access the bookmark
 
 bookmarkNavigator = New BookmarksNavigator(document)
 
-'Move the virtual cursor to the before the end location of the bookmark "NorthwindDB"
+'Moves the virtual cursor to the location before the end of the bookmark "NorthwindDB"
 
 bookmarkNavigator.MoveToBookmark("NorthwindDB")
 
-'Replace the bookmark content with word body part
+'Replaces the bookmark content with word body part
 
 bookmarkNavigator.ReplaceContent(wordDocumentPart)
 

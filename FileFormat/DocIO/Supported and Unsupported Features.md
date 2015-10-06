@@ -8,7 +8,7 @@ documentation: UG
 ---
 # Supported and Unsupported Features
 
-This section describes the support and unsupported elements in DocIO. 
+This section describes the support and unsupported elements in the DocIO. 
 
 ## Word document features
 

@@ -14,24 +14,24 @@ The following link shows how to create a macro in the Word document.
 
 [https://support.office.com/en-in/article/Create-or-run-a-macro-c6b99036-905c-49a6-818a-dfb98b7c3c9c](https://support.office.com/en-in/article/Create-or-run-a-macro-c6b99036-905c-49a6-818a-dfb98b7c3c9c# "")
 
-The following code illustrates snippet how to load and save a macro enabled document.
+The following code illustrates how to load and save a macro enabled document.
 
 {% highlight c# %}
 [C#]
 
-// Load the macro-enabled template.
+// Loads the macro-enabled template.
 
 WordDocument document = new WordDocument("Template.dotm");
 
-// Get the table
+// Gets the table
 
 DataTable table = GetDataTable();
 
-// Execute Mail Merge with groups.
+// Executes Mail Merge with groups.
 
 document.MailMerge.ExecuteGroup(table);
 
-//Save and close the document
+//Saves and closes the document
 
 document.Save("Sample.docm", FormatType.Word2013Docm);
 
@@ -44,19 +44,19 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the macro-enabled template.
+'Loads the macro-enabled template.
 
 Dim document As New WordDocument("Template.dotm")
 
-'Get the table
+'Gets the table
 
 Dim table As DataTable = GetDataTable()
 
-'Execute Mail Merge with groups.
+'Executes Mail Merge with groups.
 
 document.MailMerge.ExecuteGroup(table)
 
-'Save and close the document
+'Saves and closes the document
 
 document.Save("Sample.docm", FormatType.Word2013Docm)
 
@@ -66,7 +66,7 @@ document.Close()
 
 {% endhighlight %}
 
-The following code snippet illustrates the method used to get the tables from data set.
+The following code example illustrates the method used to get the tables from data set.
 
 {% highlight c# %}
 [C#]
@@ -79,13 +79,13 @@ private DataTable GetDataTable()
 
 string[] products = { "DocIO", "PDF", "XlsIO" };
 
-// Add new Tables to the data set.
+// Adds new Tables to the data set.
 
 DataRow row;
 
 DataTable table = new DataTable();
 
-// Add fields to the Products table.
+// Adds fields to the Products table.
 
 table.TableName = "Products";
 
@@ -95,7 +95,7 @@ table.Columns.Add("Binary");
 
 table.Columns.Add("Source");
 
-// Inserting values to the tables.
+// Inserts values to the tables.
 
 foreach (string product in products)
 
@@ -130,13 +130,13 @@ Private Function GetDataTable() As DataTable
 
 Dim products As String() = {"DocIO", "PDF", "XlsIO"}
 
-'Add new Tables to the data set.
+'Adds new Tables to the data set.
 
 Dim row As DataRow
 
 Dim table As New DataTable()
 
-'Add fields to the Products table.
+'Adds fields to the Products table.
 
 table.TableName = "Products"
 
@@ -146,7 +146,7 @@ table.Columns.Add("Binary")
 
 table.Columns.Add("Source")
 
-'Inserting values to the tables.
+'Inserts values to the tables.
 
 For Each product As String In products
 
@@ -170,26 +170,26 @@ End Function
 
 {% endhighlight %}
 
-The following code snippet illustrates how to remove the macros present in the document using RemoveMacros method.
+The following code example illustrates how to remove the macros present in the document by using RemoveMacros method.
 
 {% highlight c# %}
 [C#]
 
-//Load the document with macros
+//Loads the document with macros
 
 WordDocument document = new WordDocument("Sample.docm");
 
-//Check whether the document has macros and remove them
+//Checks whether the document has macros and then removes them
 
 if (document.HasMacros)
 
 document.RemoveMacros();
 
-//Save the document
+//Saves the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -200,11 +200,11 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the document with macros
+'Loads the document with macros
 
 Dim document As New WordDocument("Sample.docm")
 
-'Check whether the document has macros and remove them
+'Checks whether the document has macros and then removes them
 
 If document.HasMacros Then
 
@@ -212,11 +212,11 @@ document.RemoveMacros()
 
 End If
 
-'Save the document
+'Saves the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
-'Close the document
+'Closes the document
 
 document.Close()
 

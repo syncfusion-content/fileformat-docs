@@ -10,7 +10,7 @@ documentation: UG
 
 A comment is a note or annotation that an author or reviewer can add to a document. DocIO represents comment with **WComment** instance.
 
-Note: The comment start and end range and date can be preserved only on processing an existing document which already contains these information for each comment.
+Note: The comment start and end ranges and dates can be preserved only on processing an existing document that already contains these information for each comment.
 
 ## Adding a Comment
 
@@ -25,29 +25,29 @@ The following code illustrates how to add a new comment to the document:
 
 WordDocument document = new WordDocument();
 
-//Add a section & a paragraph in the document
+//Adds a section and a paragraph in the document
 
 document.EnsureMinimal();
 
 IWParagraph paragraph = document.LastParagraph;
 
-//Append text to the paragraph
+//Appends text to the paragraph
 
 paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua");
 
-//Add comment to a parahraph
+//Adds comment to a parahraph
 
 WComment comment = paragraph.AppendComment("comment test");
 
-//Specify the author of the comment
+//Specifies the author of the comment
 
 comment.Format.User = "Peter";
 
-//Specify the initial of the author
+//Specifies the initial of the author
 
 comment.Format.UserInitials = "St";
 
-//Save and close the Word document
+//Saves and closes the Word document
 
 document.Save("Comment.docx", FormatType.Docx);
 
@@ -64,29 +64,29 @@ document.Close();
 
 Dim document As New WordDocument()
 
-'Add a section & a paragraph in the document
+'Adds a section and a paragraph in the document
 
 document.EnsureMinimal()
 
 Dim paragraph As IWParagraph = document.LastParagraph
 
-'Append text to the paragraph
+'Appends text to the paragraph
 
 paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua")
 
-'Add comment to a parahraph
+'Adds comment to a parahraph
 
 Dim comment As WComment = paragraph.AppendComment("comment test")
 
-'Specify the author of the comment
+'Specifies the author of the comment
 
 comment.Format.User = "Peter"
 
-'Specify the initial of the author
+'Specifies the initial of the author
 
 comment.Format.UserInitials = "St"
 
-'Save and close the Word document
+'Saves and closes the Word document
 
 document.Save("Comment.docx", FormatType.Docx)
 
@@ -105,13 +105,13 @@ The following code illustrates how to modify the text of an existing comment in 
 
 WordDocument document = new WordDocument("Comment.docx");
 
-//Iterate the comments in the Word document
+//Iterates the comments in the Word document
 
 foreach (WComment comment in document.Comments)
 
 {
 
-//Modify the last paragraph text of an existing comment if it is added by "Peter"
+//Modifies the last paragraph text of an existing comment when it is added by "Peter"
 
 if (comment.Format.User == "Peter")
 
@@ -132,11 +132,11 @@ document.Close();
 
 Dim document As New WordDocument("Comment.docx")
 
-'Iterate the comments in the Word document
+'Iterates the comments in the Word document
 
 For Each comment As WComment In document.Comments
 
-'Modify the last paragraph text of an existing comment if it is added by "Peter"
+'Modifies the last paragraph text of an existing comment when it is added by "Peter"
 
 If comment.Format.User = "Peter" Then
 
@@ -165,7 +165,7 @@ The following code illustrates how to remove all the comments in Word document.
 
 WordDocument document = new WordDocument("Comment.docx");
 
-//Remove all the comments in a Word document
+//Removes all the comments in a Word document
 
 document.Comments.Clear();
 
@@ -182,7 +182,7 @@ document.Close();
 
 Dim document As New WordDocument("Comment.docx")
 
-'Remove all the comments in a Word document
+'Removes all the comments in a Word document
 
 document.Comments.Clear()
 
@@ -201,11 +201,11 @@ The following code illustrates how to remove a particular comment from Word docu
 
 WordDocument document = new WordDocument("Comment.docx");
 
-//Remove second comments from a document.
+//Removes second comments from a document.
 
 document.Comments.RemoveAt(1);
 
-//Save and close the Word document
+//Saves and closes the Word document
 
 document.Save("Result.docx", FormatType.Docx);
 
@@ -220,11 +220,11 @@ document.Close();
 
 Dim document As New WordDocument("Comment.docx")
 
-'Remove second comments from a document.
+'Removes second comments from a document.
 
 document.Comments.RemoveAt(1)
 
-'Save and close the Word document
+'Saves and closes the Word document
 
 document.Save("Result.docx", FormatType.Docx)
 

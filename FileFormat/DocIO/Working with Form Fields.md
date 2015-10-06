@@ -8,9 +8,9 @@ documentation: UG
 ---
 # Working with Form Fields
 
-You can create template document with form fields such as Text, Checkbox and Drop-Down. You can also open an existing template document and fill the form fields with specified data. 
+You can create template document with form fields such as Text, Checkbox and Drop-Down. You can also open an existing template document and fill the form fields with the specified data. 
 
-The following are the types of form field in Word document
+The following are the types of form field in the Word document
 
 * Checkbox – represented by an instance of WCheckBox
 * Drop-down – represented by an instance of WDropDownFormField
@@ -18,40 +18,40 @@ The following are the types of form field in Word document
 ## Check Box
 
 
-You can add new Checkbox form field to a Word document using **AppendCheckBox** method of **WParagraph** class.
+You can add new Checkbox form field to a Word document by using **AppendCheckBox** method of **WParagraph** class.
 
 The following code illustrates how to add new checkbox form field.
 
 {% highlight c# %}
 [C#]
 
-//Create a new Word document 
+//Creates a new Word document 
 
 WordDocument document = new WordDocument();
 
-//Add new section to the document
+//Adds new section to the document
 
 IWSection section = document.AddSection();
 
-//Add new paragraph to the section
+//Adds new paragraph to the section
 
 WParagraph paragraph = section.AddParagraph() as WParagraph;
 
 paragraph.AppendText("Gender\t");
 
-//Append new Checkbox
+//Appends new Checkbox
 
 WCheckBox checkbox = paragraph.AppendCheckBox();
 
 checkbox.Checked = false;
 
-//Set Checkbox size
+//Sets Checkbox size
 
 checkbox.CheckBoxSize = 10; 
 
 checkbox.CalculateOnExit = true;
 
-//Set help text
+//Sets help text
 
 checkbox.Help = "Help text";
 
@@ -67,11 +67,11 @@ checkbox.CalculateOnExit = true;
 
 paragraph.AppendText("Female");
 
-//Save the Word document
+//Saves the Word document
 
 document.Save("Checkbox.docx", FormatType.Docx);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -82,33 +82,33 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create a new Word document 
+'Creates a new Word document 
 
 Dim document As New WordDocument()
 
-'Add new section to the document
+'Adds new section to the document
 
 Dim section As IWSection = document.AddSection()
 
-'Add new paragraph to the section
+'Adds new paragraph to the section
 
 Dim paragraph As WParagraph = TryCast(section.AddParagraph(), WParagraph)
 
 paragraph.AppendText("Gender" & vbTab)
 
-'Append new Checkbox
+'Appends new Checkbox
 
 Dim checkbox As WCheckBox = paragraph.AppendCheckBox()
 
 checkbox.Checked = False
 
-'Set Checkbox size
+'Sets Checkbox size
 
 checkbox.CheckBoxSize = 10
 
 checkbox.CalculateOnExit = True
 
-'Set help text
+'Sets help text
 
 checkbox.Help = "Help text"
 
@@ -124,11 +124,11 @@ checkbox.CalculateOnExit = True
 
 paragraph.AppendText("Female")
 
-'Save the Word document
+'Saves the Word document
 
 document.Save("Checkbox.docx", FormatType.Docx)
 
-'Close the document
+'Closes the document
 
 document.Close()
 
@@ -143,11 +143,11 @@ You can modify the checkbox properties such as checked state, size, help text in
 {% highlight c# %}
 [C#]
 
-//Load the template document 
+//Loads the template document 
 
 WordDocument document = new WordDocument("Checkbox.docx");
 
-//Iterate through paragraph items
+//Iterates through paragraph items
 
 foreach (ParagraphItem item in document.LastParagraph.ChildEntities)
 
@@ -159,7 +159,7 @@ if (item is WCheckBox)
 
 WCheckBox checkbox = item as WCheckBox;
 
-//Modify check box properties
+//Modifies check box properties
 
 if (checkbox.Checked)
 
@@ -171,11 +171,11 @@ checkbox.SizeType = CheckBoxSizeType.Exactly;
 
 }
 
-//Save the Word document
+//Saves the Word document
 
 document.Save("Sample.docx", FormatType.Docx);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -186,11 +186,11 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document 
+'Loads the template document 
 
 Dim document As New WordDocument("Checkbox.docx")
 
-'Iterate through paragraph items
+'Iterates through paragraph items
 
 For Each item As ParagraphItem In document.LastParagraph.ChildEntities
 
@@ -198,7 +198,7 @@ If TypeOf item Is WCheckBox Then
 
 Dim checkbox As WCheckBox = TryCast(item, WCheckBox)
 
-'Modify check box properties
+'Modifies check box properties
 
 If checkbox.Checked Then
 
@@ -212,11 +212,11 @@ End If
 
 Next
 
-'Save the Word document
+'Saves the Word document
 
 document.Save("Sample.docx", FormatType.Docx)
 
-'Close the document
+'Closes the document
 
 document.Close()
 
@@ -228,32 +228,32 @@ document.Close()
 
 ## Drop-Down
 
-You can add new Dropdown form field to a Word document using **AppendDropDownFormField** method of **WParagraph** class.
+You can add new Dropdown form field to a Word document by using **AppendDropDownFormField** method of **WParagraph** class.
 
 The following code illustrates how to add a new dropdown field.
 
 {% highlight c# %}
 [C#]
 
-//Create a new Word document 
+//Creates a new Word document 
 
 WordDocument document = new WordDocument();
 
-//Add new section to the document
+//Adds new section to the document
 
 IWSection section = document.AddSection();
 
-//Add new paragraph to the section
+//Adds new paragraph to the section
 
 WParagraph paragraph = section.AddParagraph() as WParagraph;
 
 paragraph.AppendText("Educational Qualification\t");
 
-//Append Dropdown field
+//Appends Dropdown field
 
 WDropDownFormField dropdownfield = paragraph.AppendDropDownFormField();
 
-//Add items to the dropdown items collection
+//Adds items to the dropdown items collection
 
 dropdownfield.DropDownItems.Add("Higher");
 
@@ -263,17 +263,17 @@ dropdownfield.DropDownItems.Add("Universal");
 
 dropdownfield.Enabled = true;
 
-//Set the item index for default value
+//Sets the item index for default value
 
 dropdownfield.DropDownSelectedIndex = 1;
 
 dropdownfield.CalculateOnExit = true;
 
-//Save the Word document
+//Saves the Word document
 
 document.Save("Dropdown.docx", FormatType.Docx);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -286,11 +286,11 @@ You can add or modify list of items of a Dropdown form field in a Word document.
 {% highlight c# %}
 [C#]
 
-//Load the template document 
+//Loads the template document 
 
 WordDocument document = new WordDocument("Dropdown.docx");
 
-//Iterate through paragraph items
+//Iterates through paragraph items
 
 foreach (ParagraphItem item in document.LastParagraph.ChildEntities)
 
@@ -302,7 +302,7 @@ if (item is WDropDownFormField)
 
 WDropDownFormField dropdown = item as WDropDownFormField;
 
-//Modify the dropdown items
+//Modifies the dropdown items
 
 dropdown.DropDownItems.Remove(1);
 
@@ -314,11 +314,11 @@ dropdown.CharacterFormat.FontName = "Arial";
 
 }
 
-//Save the Word document
+//Saves the Word document
 
 document.Save("Sample.docx", FormatType.Docx);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -329,11 +329,11 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document 
+'Loads the template document 
 
 Dim document As New WordDocument("Dropdown.docx")
 
-'Iterate through paragraph items
+'Iterates through paragraph items
 
 For Each item As ParagraphItem In document.LastParagraph.ChildEntities
 
@@ -341,7 +341,7 @@ If TypeOf item Is WDropDownFormField Then
 
 Dim dropdown As WDropDownFormField = TryCast(item, WDropDownFormField)
 
-'Modify the dropdown items
+'Modifies the dropdown items
 
 dropdown.DropDownItems.Remove(1)
 
@@ -353,11 +353,11 @@ End If
 
 Next
 
-'Save the Word document
+'Saves the Word document
 
 document.Save("Sample.docx", FormatType.Docx)
 
-'Close the document
+'Closes the document
 
 document.Close()
 
@@ -369,22 +369,22 @@ document.Close()
 
 ## Text Form field
 
-You can add new text form field to a Word document using **AppendTextFormField** method of **WParagraph** class.
+You can add new text form field to a Word document by using **AppendTextFormField** method of **WParagraph** class.
 
 The following code illustrates how to add new text form field.
 
 {% highlight c# %}
 [C#]
 
-//Create a new Word document 
+//Creates a new Word document 
 
 WordDocument document = new WordDocument();
 
-//Add new section to the document
+//Adds new section to the document
 
 IWSection section = document.AddSection();
 
-//Add new paragraph to the section
+//Adds new paragraph to the section
 
 WParagraph paragraph = section.AddParagraph() as WParagraph;
 
@@ -398,11 +398,11 @@ IWTextRange text = paragraph.AppendText("Name\t");
 
 text.CharacterFormat.Bold = true;
 
-//Append Text form field 
+//Appends Text form field 
 
 WTextFormField textfield = paragraph.AppendTextFormField(null);
 
-//Set type of Text form field
+//Sets type of Text form field
 
 textfield.Type = TextFormFieldType.RegularText;
 
@@ -418,23 +418,23 @@ text = paragraph.AppendText("Date of Birth\t");
 
 text.CharacterFormat.Bold = true;
 
-//Append Text form field
+//Appends Text form field
 
 textfield = paragraph.AppendTextFormField("Date field", DateTime.Now.ToString("MM/DD/YY"));
 
 textfield.StringFormat = "MM/DD/YY";
 
-//Set Text form field type
+//Sets Text form field type
 
 textfield.Type = TextFormFieldType.DateText;
 
 textfield.CalculateOnExit = true;
 
-//Save the Word document
+//Saves the Word document
 
 document.Save("Textfield.docx", FormatType.Docx);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -445,15 +445,15 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create a new Word document 
+'Creates a new Word document 
 
 Dim document As New WordDocument()
 
-'Add new section to the document
+'Adds new section to the document
 
 section As IWSection = document.AddSection()
 
-'Add new paragraph to the section
+'Adds new paragraph to the section
 
 Dim paragraph As WParagraph = TryCast(section.AddParagraph(), WParagraph)
 
@@ -467,11 +467,11 @@ Dim text As IWTextRange = paragraph.AppendText("Name" & vbTab)
 
 text.CharacterFormat.Bold = True
 
-'Append Text form field 
+'Appends Text form field 
 
 Dim textfield As WTextFormField = paragraph.AppendTextFormField(Nothing)
 
-'Set type of Text form field
+'Sets type of Text form field
 
 textfield.Type = TextFormFieldType.RegularText
 
@@ -487,23 +487,23 @@ text = paragraph.AppendText("Date of Birth" & vbTab)
 
 text.CharacterFormat.Bold = True
 
-'Append Text form field
+'Appends Text form field
 
 textfield = paragraph.AppendTextFormField("Date field", DateTime.Now.ToString("MM/DD/YY"))
 
 textfield.StringFormat = "MM/DD/YY"
 
-'Set Text form field type
+'Sets Text form field type
 
 textfield.Type = TextFormFieldType.DateText
 
 textfield.CalculateOnExit = True
 
-'Save the Word document
+'Saves the Word document
 
 document.Save("Textfield.docx", FormatType.Docx)
 
-'Close the document
+'Closes the document
 
 document.Close()
 
@@ -518,21 +518,21 @@ You can add or modify text form field properties such as default text, type in a
 {% highlight c# %}
 [C#]
 
-//Load the template document 
+//Loads the template document 
 
 WordDocument document = new WordDocument("Textfield.docx");
 
-//Iterate through section
+//Iterates through section
 
 foreach (WSection section in document.Sections)
 
-//Iterate through section child elements
+//Iterates through section child elements
 
 foreach (WTextBody textBody in section.ChildEntities)
 
 {
 
-//Iterate through form fields
+//Iterates through form fields
 
 foreach (WFormField formField in textBody.FormFields)
 
@@ -550,7 +550,7 @@ if (textField.Type == TextFormFieldType.DateText)
 
 {
 
-//Modify the text form field
+//Modifies the text form field
 
 textField.Type = TextFormFieldType.RegularText;
 
@@ -572,11 +572,11 @@ break;
 
 }
 
-//Save the Word document
+//Saves the Word document
 
 document.Save("Sample.docx", FormatType.Docx);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -587,19 +587,19 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Load the template document 
+'Loads the template document 
 
 Dim document As New WordDocument("Textfield.docx")
 
-'Iterate through section
+'Iterates through section
 
 For Each section As WSection In document.Sections
 
-'Iterate through section child elements
+'Iterates through section child elements
 
 For Each textBody As WTextBody In section.ChildEntities
 
-'Iterate through form fields
+'Iterates through form fields
 
 For Each formField As WFormField In textBody.FormFields
 
@@ -611,7 +611,7 @@ Dim textField As WTextFormField = TryCast(formField, WTextFormField)
 
 If textField.Type = TextFormFieldType.DateText Then
 
-'Modify the text form field
+'Modifies the text form field
 
 textField.Type = TextFormFieldType.RegularText
 
@@ -635,11 +635,11 @@ Next
 
 Next
 
-'Save the Word document
+'Saves the Word document
 
 document.Save("Sample.docx", FormatType.Docx)
 
-'Close the document
+'Closes the document
 
 document.Close()
 
