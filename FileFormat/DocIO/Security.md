@@ -8,24 +8,24 @@ documentation: UG
 ---
 # Security
 
-You can encrypt a Word document with password to restrict from unauthorized access. Also you can control what types of changes people can make to this document.
+You can encrypt a Word document with password to restrict unauthorized access. You can also control the types of changes you make to this document.
 
 ## Encrypting with password
 
-The following code snippet shows how to encrypt the Word document with password.
+The following code example shows how to encrypt the Word document with password.
 
 {% highlight c# %}
 C#
 
-//Open an input Word document
+//Opens an input Word document
 
 WordDocument document = new WordDocument(”Template.docx”);
 
-//Encrypt the Word document with a password
+//Encrypts the Word document with a password
 
 document.EncryptDocument("password");
 
-//Save and close the Word document instance
+//Saves and closes the Word document instance
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -38,15 +38,15 @@ document.Close();
 {% highlight vbnet %}
 VB
 
-'Open an input Word document
+'Opens an input Word document
 
 Dim document As New WordDocument("Template.docx")
 
-'Encrypt the Word document with a password
+'Encrypts the Word document with a password
 
 document.EncryptDocument("password")
 
-‘Save & close the Word document instance
+‘Saves and closes the Word document instance
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -60,16 +60,16 @@ document.Close()
 
 ## Opening the encrypted Word document
 
-The following code snippets shows how to open the encrypted Word document. 
+The following code example shows how to open the encrypted Word document. 
 
 {% highlight c# %}
 C#
 
-//Open an encrypted Word document
+//Opens an encrypted Word document
 
 WordDocument document = new WordDocument (”Template.docx”, "password");
 
-//Save and close the Word document instance
+//Saves and closes the Word document instance
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -82,11 +82,11 @@ document.Close();
 {% highlight vbnet %}
 VB
 
-'Open an encrypted Word document
+'Opens an encrypted Word document
 
 Dim document As New WordDocument("Template.docx", "password")
 
-‘Save & close the Word document instance
+‘Saves and closes the Word document instance
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -112,22 +112,22 @@ The following are the types of protection:
 
 5. NoProtection: You can access/edit the Word document contents as normally.
 
-The following code snippet shows how to restrict editing to modify only form fields in a Word document.
+The following code example shows how to restrict editing to modify only form fields in a Word document.
 
 
 
 {% highlight c# %}
 C#
 
-//Open a Word document
+//Opens a Word document
 
 WordDocument document = new WordDocument(@"Template.docx");
 
-//Set the protection with password and it allow only modify the form fields type
+//Sets the protection with password and it allows only to modify the form fields type
 
 document.Protect(ProtectionType.AllowOnlyFormFields, "password"); 
 
-//Save the Word document
+//Saves the Word document
 
 document.Save("Protection.docx", FormatType.Docx);
 
@@ -140,15 +140,15 @@ document.Close();
 {% highlight vbnet %}
 VB
 
-'Open a Word document
+'Opens a Word document
 
 Dim document As New WordDocument("Template.docx")
 
-'Set the protection with password and it allow only modify the form fields type
+'Sets the protection with password and it allows only to modify the form fields type
 
 document.Protect(ProtectionType.AllowOnlyFormFields, "password")
 
-'Save the Word document
+'Saves the Word document
 
 document.Save("Protection.docx", FormatType.Docx)
 

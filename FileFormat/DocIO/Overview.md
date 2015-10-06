@@ -14,18 +14,18 @@ It is a non-UI component that provides a full-fledged document instance model si
 
 **Key** **Features**
 
-* Support to create Word document from scratch
-* Support to open, modify and save existing Word documents
-* Advanced Mail Merge support with different data sources
-* Ability to create or edit Word 97-2003 and later version documents, and convert them to commonly used file formats such as RTF, TXT, HTML and vice versa
-* Ability to export a Word document as an Image, PDF file, and EPUB in high quality
-* Ability to create & manipulate charts and Shapes in Docx format documents
+* Support to create Word document from scratch.
+* Support to open, modify and save existing Word documents.
+* Advanced Mail Merge support with different data sources.
+* Ability to create or edit Word 97-2003 and later version documents, and convert them to commonly used file formats such as RTF, TXT, HTML and vice versa.
+* Ability to export a Word document as an Image, PDF file, and EPUB in high quality.
+* Ability to create and manipulate charts and Shapes in Docx format documents.
 * Ability to read and write Built-In and Custom Document Properties.
 * Ability to find and replace text with its original formatting.
-* Ability to insert Bookmarks and navigate corresponding bookmarks to insert, replace, and delete content
-* Support to insert and edit the form fields
-* Support to protect the document to restrict access to the elements present within the document
-* Ability to encrypt and decrypt Word documents
-* Support to insert and extract OLE objects
-* Support to run the **DocIO** applications in multi thread and its thread safe
+* Ability to insert Bookmarks and navigate corresponding bookmarks to insert, replace, and delete content.
+* Support to insert and edit the form fields.
+* Support to protect the document to restrict access to the elements present within the document.
+* Ability to encrypt and decrypt Word documents.
+* Support to insert and extract OLE objects.
+* Support to run the **DocIO** applications in multi-thread and its thread safe.
 
