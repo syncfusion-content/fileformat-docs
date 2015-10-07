@@ -12,11 +12,11 @@ documentation: UG
 
 The following are the important points to be remembered while iterating the document elements
 
-* Document consists of one or more section.
+* Document consists of one or more sections.
 * Section contains the contents present in Headers, Footers and main document through the instances of WTextBody.
-* WTextBody can contain two type of elements – either paragraph or table
+* WTextBody contains two type of elements – either paragraph or table
 
-The following code snippet shows how to iterate throughout the Word document and remove the paragraph with a particular style
+The following code example shows how to iterate throughout the Word document and remove the paragraph with a particular style.
 
 {% highlight c# %}
 [C#]
@@ -37,13 +37,13 @@ static void Main(string[] args)
 
 WordDocument document = new WordDocument(@"TestDocument.docx");
 
-//Process the body contents for each section in the Word document
+//Processess the body contents for each section in the Word document
 
 foreach (WSection section in document.Sections)
 
 {
 
-//Access the Body of section where all the contents in document apart
+//Accessess the Body of section where all the contents in document are apart
 
 WTextBody sectionBody = section.Body;
 
@@ -51,9 +51,9 @@ IterateTextBody(sectionBody);
 
 WHeadersFooters headersFooters = section.HeadersFooters;
 
-//Consider that OddHeader & OddFooter are applied to this document
+//Consider that OddHeader and OddFooter are applied to this document
 
-//Iterate through the TextBody of OddHeader & OddFooter
+//Iterates through the TextBody of OddHeader and OddFooter
 
 IterateTextBody(headersFooters.OddHeader);
 
@@ -61,7 +61,7 @@ IterateTextBody(headersFooters.OddFooter);
 
 }
 
-//Save & Close the document instance
+//Saves and closes the document instance
 
 document.Save("Result.docx");
 
@@ -75,7 +75,7 @@ private static void IterateTextBody(WTextBody textBody)
 
 {
 
-//Iterate through the each of the child items of WTextBody
+//Iterates through each of the child items of WTextBody
 
 for(int i = 0; i < textBody.ChildEntities.Count; i++)
 
@@ -83,13 +83,13 @@ for(int i = 0; i < textBody.ChildEntities.Count; i++)
 
 //IEntity is the basic unit in DocIO DOM. 
 
-//Accessing the body items (should be either paragraph or table) as IEntity
+//Accessess the body items (should be either paragraph or table) as IEntity
 
 IEntity bodyItemEntity = textBody.ChildEntities[i];
 
-//A Text body can have 2 type of elements - Paragraph and Table
+//A Text body has 2 types of elements - Paragraph and Table
 
-//decide the element type using EntityType
+//Decides the element type by using EntityType
 
 switch (bodyItemEntity.EntityType)
 
@@ -99,7 +99,7 @@ case EntityType.Paragraph:
 
 WParagraph paragraph = bodyItemEntity as WParagraph;
 
-//Check for particular style name and remove the paragraph from DOM
+//Checks for particular style name and removes the paragraph from DOM
 
 if (paragraph.StyleName == "MyStyle")
 
@@ -115,9 +115,9 @@ break;
 
 case EntityType.Table:
 
-//Table is a collection of rows & cells
+//Table is a collection of rows and cells
 
-//Iterate through table's DOM
+//Iterates through table's DOM
 
 IterateTable(bodyItemEntity as WTable);
 
@@ -133,13 +133,13 @@ private static void IterateTable(WTable table)
 
 {
 
-//Iterate the row collection in a table
+//Iterates the row collection in a table
 
 foreach (WTableRow row in table.Rows)
 
 {
 
-//Iterate the cell collection in a table row
+//Iterates the cell collection in a table row
 
 foreach (WTableCell cell in row.Cells)
 
@@ -180,11 +180,11 @@ Private Shared Sub Main(args As String())
 
 Dim document As New WordDocument("TestDocument.docx")
 
-'Process the body contents for each section in the Word document
+'Processess the body contents for each section in the Word document
 
 For Each section As WSection In document.Sections
 
-'Access the Body of section where all the contents in document apart
+'Accessess the Body of section where all the contents in document are apart
 
 Dim sectionBody As WTextBody = section.Body
 
@@ -192,9 +192,9 @@ IterateTextBody(sectionBody)
 
 Dim headersFooters As WHeadersFooters = section.HeadersFooters
 
-'Consider that OddHeader & OddFooter are applied to this document
+'Consider that OddHeader and OddFooter are applied to this document
 
-'Iterate through the text body of OddHeader & OddFooter
+'Iterates through the text body of OddHeader and OddFooter
 
 IterateTextBody(headersFooters.OddHeader)
 
@@ -202,7 +202,7 @@ IterateTextBody(headersFooters.OddFooter)
 
 Next
 
-'Save & Close the document instance
+'Saves and closes the document instance
 
 document.Save("Result.docx")
 
@@ -214,17 +214,17 @@ End Sub
 
 Private Shared Sub IterateTextBody(textBody As WTextBody)
 
-'Iterate through the each of the child items of WTextBody
+'Iterates through the each of the child items of WTextBody
 
 For i As Integer = 0 To textBody.ChildEntities.Count - 1
 
 'IEntity is the basic unit in DocIO DOM. 
 
-'Accessing the body items (should be either paragraph or table) as IEntity
+'Accessess the body items (should be either paragraph or table) as IEntity
 
 Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
 
-'A Text body can have 2 type of elements - Paragraph and Table
+'A Text body has 2 types of elements - Paragraph and Table
 
 'decide the element type using EntityType
 
@@ -234,7 +234,7 @@ Case EntityType.Paragraph
 
 Dim paragraph As WParagraph = TryCast(bodyItemEntity, WParagraph)
 
-'Check for particular style name and remove the paragraph from DOM
+'Checks for a particular style name and removes the paragraph from DOM
 
 If paragraph.StyleName = "MyStyle" Then
 
@@ -248,9 +248,9 @@ Exit Select
 
 Case EntityType.Table
 
-'Table is a collection of rows & cells
+'Table is a collection of rows and cells
 
-'Iterate through table's DOM
+'Iterates through table's DOM
 
 IterateTable(TryCast(bodyItemEntity, WTable))
 
@@ -264,11 +264,11 @@ End Sub
 
 Private Shared Sub IterateTable(table As WTable)
 
-'Iterate the row collection in a table
+'Iterates the row collection in a table
 
 For Each row As WTableRow In table.Rows
 
-'Iterate the cell collection in a table row
+'Iterates the cell collection in a table row
 
 For Each cell As WTableCell In row.Cells
 
@@ -292,7 +292,7 @@ End Namespace
 
 {% endhighlight %}
 
-The following code snippet shows how to iterate throughout the paragraph and modify the hyperlink (**Hyperlink****)** Uri and specific text (**WTextRange****)** with another.
+The following code example shows how to iterate throughout the paragraph and modify the hyperlink (**Hyperlink****)** Uri and specific text (**WTextRange****)** with another.
 
 {% highlight c# %}
 [C#]
@@ -315,13 +315,13 @@ static void Main(string[] args)
 
 WordDocument document = new WordDocument(@"TestDocument.docx");
 
-//Process the body contents for each section in the Word document
+//Processess the body contents for each section in the Word document
 
 foreach (WSection section in document.Sections)
 
 {
 
-//Access the Body of section where all the contents in document apart
+//Accessess the Body of section where all the contents in document are apart
 
 WTextBody sectionBody = section.Body;
 
@@ -331,7 +331,7 @@ WHeadersFooters headersFooters = section.HeadersFooters;
 
 //consider that OddHeader & OddFooter are applied to this document
 
-//Iterate through the TextBody of OddHeader & OddFooter
+//Iterates through the TextBody of OddHeader and OddFooter
 
 IterateTextBody(headersFooters.OddHeader);
 
@@ -339,7 +339,7 @@ IterateTextBody(headersFooters.OddFooter);
 
 }
 
-//Save & Close the document instance
+//Saves and closes the document instance
 
 document.Save("Result.docx");
 
@@ -353,7 +353,7 @@ private static void IterateTextBody(WTextBody textBody)
 
 {
 
-//Iterate through the each of the child items of WTextBody
+//Iterates through each of the child items of WTextBody
 
 for (int i = 0; i < textBody.ChildEntities.Count; i++)
 
@@ -361,13 +361,13 @@ for (int i = 0; i < textBody.ChildEntities.Count; i++)
 
 //IEntity is the basic unit in DocIO DOM. 
 
-//Accessing the body items (should be either paragraph or table) as IEntity
+//Accessess the body items (should be either paragraph or table) as IEntity
 
 IEntity bodyItemEntity = textBody.ChildEntities[i];
 
-//A Text body can have 2 type of elements - Paragraph and Table
+//A Text body has 2 types of elements - Paragraph and Table
 
-//decide the element type using EntityType
+//Decides the element type by using EntityType
 
 switch (bodyItemEntity.EntityType)
 
@@ -377,9 +377,9 @@ case EntityType.Paragraph:
 
 WParagraph paragraph = bodyItemEntity as WParagraph;
 
-//Process the paragraph contents
+//Processess the paragraph contents
 
-//Iterate through the paragraph's DOM
+//Iterates through the paragraph's DOM
 
 IterateParagraph(paragraph);
 
@@ -387,9 +387,9 @@ break;
 
 case EntityType.Table:
 
-//Table is a collection of rows & cells
+//Table is a collection of rows and cells
 
-//Iterate through table's DOM
+//Iterates through table's DOM
 
 IterateTable(bodyItemEntity as WTable);
 
@@ -405,13 +405,13 @@ private static void IterateTable(WTable table)
 
 {
 
-//Iterate the row collection in a table
+//Iterates the row collection in a table
 
 foreach (WTableRow row in table.Rows)
 
 {
 
-//Iterate the cell collection in a table row
+//Iterates the cell collection in a table row
 
 foreach (WTableCell cell in row.Cells)
 
@@ -441,7 +441,7 @@ Entity entity = paragraph.ChildEntities[i];
 
 //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
 
-//decide the element type using EntityType
+//Decides the element type by using EntityType
 
 switch (entity.EntityType)
 
@@ -449,7 +449,7 @@ switch (entity.EntityType)
 
 case EntityType.TextRange:
 
-//Replacing the text with another
+//Replaces the text with another
 
 WTextRange textRange = entity as WTextRange;
 
@@ -471,11 +471,11 @@ if (field.FieldType == FieldType.FieldHyperlink)
 
 {
 
-//Create hyperlink instance from field to manipulate the hyperlink
+//Creates hyperlink instance from field to manipulate the hyperlink
 
 Hyperlink hyperlink = new Hyperlink(entity as WField);
 
-//Modify the Uri of the hyperlink
+//Modifies the Uri of the hyperlink
 
 if (hyperlink.Type == HyperlinkType.WebLink && hyperlink.TextToDisplay == "HTML")
 
@@ -518,11 +518,11 @@ Private Shared Sub Main(args As String())
 
 Dim document As New WordDocument("TestDocument.docx")
 
-'Process the body contents for each section in the Word document
+'Processess the body contents for each section in the Word document
 
 For Each section As WSection In document.Sections
 
-'Access the Body of section where all the contents in document apart
+'Accessess the Body of section where all the contents in document are apart
 
 Dim sectionBody As WTextBody = section.Body
 
@@ -530,9 +530,9 @@ IterateTextBody(sectionBody)
 
 Dim headersFooters As WHeadersFooters = section.HeadersFooters
 
-'Consider that OddHeader & OddFooter are applied to this document
+'Considers that OddHeader and OddFooter are applied to this document
 
-'Iterate through the TextBody of OddHeader & OddFooter
+'Iterates through the TextBody of OddHeader and OddFooter
 
 IterateTextBody(headersFooters.OddHeader)
 
@@ -540,7 +540,7 @@ IterateTextBody(headersFooters.OddFooter)
 
 Next
 
-'Save & Close the document instance
+'Saves and closes the document instance
 
 document.Save("Result.docx")
 
@@ -552,19 +552,19 @@ End Sub
 
 Private Shared Sub IterateTextBody(textBody As WTextBody)
 
-'Iterate through the each of the child items of WTextBody
+'Iterates through each of the child items of WTextBody
 
 For i As Integer = 0 To textBody.ChildEntities.Count - 1
 
 'IEntity is the basic unit in DocIO DOM. 
 
-'Accessing the body items (should be either paragraph or table) as IEntity
+'Accessess the body items (should be either paragraph or table) as IEntity
 
 Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
 
-'A Text body can have 2 type of elements - Paragraph and Table
+'A Text body has 2 types of elements - Paragraph and Table
 
-'decide the element type using EntityType
+'Decides the element type by using EntityType
 
 Select Case bodyItemEntity.EntityType
 
@@ -572,9 +572,9 @@ Case EntityType.Paragraph
 
 Dim paragraph As WParagraph = TryCast(bodyItemEntity, WParagraph)
 
-'Process the paragraph contents
+'Processess the paragraph contents
 
-'Iterate through the paragraph's DOM
+'Iterates through the paragraph's DOM
 
 IterateParagraph(paragraph)
 
@@ -582,9 +582,9 @@ Exit Select
 
 Case EntityType.Table
 
-'Table is a collection of rows & cells
+'Table is a collection of rows and cells
 
-'Iterate through table's DOM
+'Iterates through table's DOM
 
 IterateTable(TryCast(bodyItemEntity, WTable))
 
@@ -598,11 +598,11 @@ End Sub
 
 Private Shared Sub IterateTable(table As WTable)
 
-'Iterate the row collection in a table
+'Iterates the row collection in a table
 
 For Each row As WTableRow In table.Rows
 
-'Iterate the cell collection in a table row
+'Iterates the cell collection in a table row
 
 For Each cell As WTableCell In row.Cells
 
@@ -624,15 +624,15 @@ For i As Integer = 0 To paragraph.ChildEntities.Count - 1
 
 Dim entity As Entity = paragraph.ChildEntities(i)
 
-'A Paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+'A Paragraph has child elements such as text, image, hyperlink, symbols, etc.,
 
-'decide the element type using EntityType
+'Decides the element type by using EntityType
 
 Select Case entity.EntityType
 
 Case EntityType.TextRange
 
-'Replacing the text with another
+'Replaces the text with another
 
 Dim textRange As WTextRange = TryCast(entity, WTextRange)
 
@@ -650,11 +650,11 @@ Dim field As WField = TryCast(entity, WField)
 
 If field.FieldType = FieldType.FieldHyperlink Then
 
-'Create Hyperlink instance from field to manipulate the Hyperlink
+'Creates Hyperlink instance from field to manipulate the Hyperlink
 
 Dim hyperlink As New Hyperlink(TryCast(entity, WField))
 
-'Modify the Uri of the hyperlink
+'Modifies the Uri of the hyperlink
 
 If hyperlink.Type = HyperlinkType.WebLink AndAlso hyperlink.TextToDisplay = "HTML" Then
 
@@ -686,26 +686,26 @@ End Namespace
 
 
 
-You can create a deep copy of a Word document using Clone method of WordDocument class. We can read the template document once from file system or stream and create multiple document copies by cloning it. This will improve the performance of document generation, as there is no need to read the Word document each time.
+You can create a deep copy of a Word document by using Clone method of WordDocument class. You can read the template document from file system or stream and create multiple document copies by cloning it. This improves the performance of document generation, as there is no need to read the Word document each time.
 
 {% highlight c# %}
 [C#]
 
-//Open an existing document 
+//Opens an existing document 
 
 WordDocument inputTemplateDoc = new WordDocument(fileName);
 
-//Create a clone of Input Template 
+//Creates a clone of Input Template 
 
 WordDocument clonedDocument = inputTemplateDoc.Clone();
 
-//Save & Close the cloned document instance
+//Saves and closes the cloned document instance
 
 clonedDocument.Save("ClonedDocument.docx");
 
 clonedDocument.Close();
 
-//Close the input template document instance
+//Closes the input template document instance
 
 sourceDocument.Close();
 
@@ -716,21 +716,21 @@ sourceDocument.Close();
 {% highlight vbnet %}
 [VB]
 
-'Open an existing document 
+'Opens an existing document 
 
 Dim inputTemplateDoc As New WordDocument(fileName)
 
-'Create a clone of Input Template 
+'Creates a clone of Input Template 
 
 Dim clonedDocument As WordDocument = inputTemplateDoc.Clone()
 
-'Save & Close the cloned document instance
+'Saves and closes the cloned document instance
 
 clonedDocument.Save("ClonedDocument.docx")
 
 clonedDocument.Close()
 
-'Close the input template document instance
+'Closes the input template document instance
 
 sourceDocument.Close()
 
@@ -740,30 +740,30 @@ sourceDocument.Close()
 
 {% endhighlight %}
 
-You can also create a deep copy of document elements such as sections, paragraphs, Tables, Text, Image, OleObject, Shapes, TextBoxes and etc., the following code snippets illustrates how to clone the section and save each cloned section as a Word document. 
+You can also create a deep copy of document elements such as sections, paragraphs, Tables, Text, Image, OleObject, Shapes, TextBoxes and etc., The following code example illustrates how to clone the section and save each cloned section as a Word document. 
 
 {% highlight c# %}
 [C#]
 
-//Open a source document
+//Opens a source document
 
 WordDocument sourceDocument = new WordDocument("SourceDocument.docx");
 
-//Process the each section in the Word document
+//Processess the each section in the Word document
 
 for (int i = 0; i < sourceDocument.Sections.Count;i++)
 
 {
 
-//Create new WordDocument instance to add cloned section
+//Creates new WordDocument instance to add cloned section
 
 WordDocument destinationDocument = new WordDocument();
 
-//Clone and add source document sections to the destination document
+//Clones and adds source document sections to the destination document
 
 destinationDocument.Sections.Add(sourceDocument.Sections[i].Clone());
 
-//Save & Close the document instance
+//Saves and closes the document instance
 
 destionationDocument.Save("Section_" + i + ".docx");
 
@@ -771,7 +771,7 @@ destinationDocument.Close();
 
 }
 
-//Close the source document instance
+//Closes the source document instance
 
 sourceDocument.Close();
 
@@ -782,23 +782,23 @@ sourceDocument.Close();
 {% highlight vbnet %}
 [VB]
 
-'Open a source document
+'Opens a source document
 
 Dim sourceDocument As New WordDocument("SourceDocument.docx")
 
-'Process the each section in the Word document
+'Processess the each section in the Word document
 
 For i As Integer = 0 To sourceDocument.Sections.Count - 1
 
-'Create new WordDocument instance to add cloned section
+'Creates new WordDocument instance to add cloned section
 
 Dim destinationDocument As New WordDocument()
 
-'Clone and add source document sections to the destination document
+'Clones and adds source document sections to the destination document
 
 destinationDocument.Sections.Add(sourceDocument.Sections(i).Clone())
 
-'Save & Close the document instance
+'Saves and closes the document instance
 
 destionationDocument.Save("Section_" + i + ".docx")
 
@@ -806,7 +806,7 @@ destinationDocument.Close()
 
 Next
 
-'Close the source document instance
+'Closes the source document instance
 
 sourceDocument.Close()
 
@@ -816,30 +816,30 @@ sourceDocument.Close()
 
 ## Merging Word documents
 
-You can merge multiple Word documents into single Word document using DocIO’s capability of importing contents from one document to another. The imported contents will be appended at the end of document.  The following code snippet illustrates how to import the contents from source document into destination document (where the contents will be appended). 
+You can merge multiple Word documents into single Word document by using DocIO’s capability of importing contents from one document to another. The imported contents are appended at the end of document.  The following code example illustrates how to import the contents from source document into destination document where the contents are appended. 
 
 
 
 {% highlight c# %}
 [C#]
 
-//Open the source document 
+//Opens the source document 
 
 WordDocument sourceDocument = new WordDocument(sourceFileName);
 
-//Open the destination document 
+//Opens the destination document 
 
 WordDocument destinationDocument = new WordDocument(targetFileName);
 
-//Import the contents of source document at the end of destination document
+//Imports the contents of source document at the end of destination document
 
 destinationDocument.ImportContent(sourceDocument, ImportOptions.UseDestinationStyles);
 
-//Save the destination document
+//Saves the destination document
 
 destinationDocument.Save(outputFileName, FormatType.Docx);
 
-//close the document instances
+//closes the document instances
 
 sourceDocument.Close();
 
@@ -852,23 +852,23 @@ destinationDocument.Close();
 {% highlight vbnet %}
 [VB]
 
-'Open the source document 
+'Opens the source document 
 
 Dim sourceDocument As New WordDocument(sourceFileName)
 
-'Open the destination document 
+'Opens the destination document 
 
 Dim destinationDocument As New WordDocument(targetFileName)
 
-'Import the contents of source document at the end of destination document
+'Imports the contents of source document at the end of destination document
 
 destinationDocument.ImportContent(sourceDocument, ImportOptions.UseDestinationStyles)
 
-'Save the destination document
+'Saves the destination document
 
 destinationDocument.Save(outputFileName, FormatType.Docx)
 
-'close the document instances
+'closes the document instances
 
 sourceDocument.Close()
 
@@ -878,34 +878,34 @@ destinationDocument.Close()
 
 {% endhighlight %}
 
-In the resultant document, the imported contents will start from a new page followed by existing contents in destination document. This is the default behavior.
+In the resultant document, the imported contents start from a new page followed by existing contents in a destination document. This is the default behavior.
 
-If your requirement is to append the contents from the same page instead of starting from a new page, we need to set the break code of First section of Source document as NoBreak. The following code snippet illustrates the importing contents from the same page.
+When your requirement is to append the contents from the same page instead of starting from a new page, you need to set the break code of first section of Source document as NoBreak. The following code example illustrates the importing contents from the same page.
 
 {% highlight c# %}
 [C#]
 
-//Open the source document 
+//Opens the source document 
 
 WordDocument sourceDocument = new WordDocument(sourceFileName);
 
-//Open the destination document 
+//Opens the destination document 
 
 WordDocument destinationDocument = new WordDocument(targetFileName);
 
-//Set the breakcode of First section of source document as NoBreak to avoid imported from a new page
+//Sets the breakcode of First section of source document as NoBreak to avoid imported from a new page
 
 sourceDocument.Sections[0].BreakCode = SectionBreakCode.NoBreak; 
 
-//Import the contents of source document at the end of destination document
+//Imports the contents of source document at the end of destination document
 
 destinationDocument.ImportContent(sourceDocument, ImportOptions.UseDestinationStyles);
 
-//Save the destination document
+//Saves the destination document
 
 destinationDocument.Save(outputFileName, FormatType.Docx);
 
-//Close the document instances
+//Closes the document instances
 
 sourceDocument.Close();
 
@@ -918,27 +918,27 @@ destinationDocument.Close();
 {% highlight vbnet %}
 [VB]
 
-'Open the source document 
+'Opens the source document 
 
 Dim sourceDocument As New WordDocument(sourceFileName)
 
-'Open the destination document 
+'Opens the destination document 
 
 Dim destinationDocument As New WordDocument(targetFileName)
 
-'Set the breakcode of First section of source document as NoBreak to avoid imported from a new page
+'Sets the breakcode of first section of source document as NoBreak to avoid imported from a new page
 
 sourceDocument.Sections(0).BreakCode = SectionBreakCode.NoBreak
 
-'Import the contents of source document at the end of destination document
+'Imports the contents of source document at the end of destination document
 
 destinationDocument.ImportContent(sourceDocument, ImportOptions.UseDestinationStyles)
 
-'Save the destination document
+'Saves the destination document
 
 destinationDocument.Save(outputFileName, FormatType.Docx)
 
-'Close the document instances
+'Closes the document instances
 
 sourceDocument.Close()
 
@@ -986,7 +986,7 @@ Dim document As New WordDocument(DirectCast(Me.textBox.Tag, String))
 
 Dim images As Image() = document.RenderAsImages(ImageType.Metafile)
 
-'Close the Word Document.
+'Closes the Word Document.
 
 document.Close()
 
@@ -996,56 +996,56 @@ document.Close()
 
 You can specify the printer settings and page settings through the [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx# "") class. The [PrintDocument.PrintPage](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument.printpage%28v=vs.110%29.aspx# "") event should be handled to layout the document for printing. 
 
-The following code snippet demonstrates how to print the Word document pages that have been rendered as an image:
+The following code example demonstrates how to print the Word document pages that have been rendered as an image:
 
 {% highlight c# %}
 [C#]
 
 int endPageIndex = images.Length;
 
-//Create new PrintDialog instance.
+//Creates new PrintDialog instance.
 
 System.Windows.Forms.PrintDialog printDialog = new System.Windows.Forms.PrintDialog();
 
-//Set new PrintDocument instance to print dialog.
+//Sets new PrintDocument instance to print dialog.
 
 printDialog.Document = new PrintDocument();
 
-//Enable the print current page option.
+//Enables the print current page option.
 
 printDialog.AllowCurrentPage = true;
 
-//Enable the print selected pages option.
+//Enables the print selected pages option.
 
 printDialog.AllowSomePages = true;
 
-//Set the start and end page index
+//Sets the start and end page index
 
 printDialog.PrinterSettings.FromPage = 1;
 
 printDialog.PrinterSettings.ToPage = images.Length;
 
-//Open the print dialog box.
+//Opens the print dialog box.
 
 if (printDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 
 {
 
-//Check if the selected page range is valid.
+//Checks whether the selected page range is valid.
 
 if (printDialog.PrinterSettings.FromPage > 0 && printDialog.PrinterSettings.ToPage <= images.Length)
 
 {
 
-//Update the start page of the document to print.
+//Updates the start page of the document to print.
 
 startPageIndex = printDialog.PrinterSettings.FromPage - 1;
 
-//Update the end page of the document to print.
+//Updates the end page of the document to print.
 
 endPageIndex = printDialog.PrinterSettings.ToPage;
 
-//Hook the PrintPage event to handle be drawing pages for printing.
+//Hooks the PrintPage event to handle the drawing pages for printing.
 
 printDialog.Document.PrintPage += new PrintPageEventHandler(PrintPageMethod);
 
@@ -1061,37 +1061,37 @@ private void PrintPageMethod (object sender, PrintPageEventArgs e)
 
 {
 
-//Get the print start page width.
+//Gets the print start page width.
 
 int currentPageWidth = images[startPageIndex].Width;
 
-//Get the print start page height.
+//Gets the print start page height.
 
 int currentPageHeight = images[startPageIndex].Height;
 
-//Get the visible bounds width for print.
+//Gets the visible bounds width for print.
 
 int visibleClipBoundsWidth = (int)e.Graphics.VisibleClipBounds.Width;
 
-//Get the visible bounds height for print.
+//Gets the visible bounds height for print.
 
 int visibleClipBoundsHeight = (int)e.Graphics.VisibleClipBounds.Height;
 
-//Check if the page layout is landscape or portrait.
+//Checks whether the page layout is landscape or portrait.
 
 if (currentPageWidth > currentPageHeight)
 
 {
 
-//Translate the position.
+//Translates the position.
 
 e.Graphics.TranslateTransform(0, visibleClipBoundsHeight);
 
-//Rotate the object at 270 degrees
+//Rotates the object at 270 degrees
 
 e.Graphics.RotateTransform(270.0f);
 
-//Draw the current page image.
+//Draws the current page image.
 
 e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, currentPageWidth, currentPageHeight));
 
@@ -1101,21 +1101,21 @@ else
 
 {
 
-//Draw the current page image.
+//Draws the current page image.
 
 e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight));
 
 }
 
-//Dispose the current page image after drawing.
+//Disposes the current page image after drawing.
 
 images[startPageIndex].Dispose();
 
-//Increment the start page index.
+//Increments the start page index.
 
 startPageIndex++;
 
-//Update if the document contains some more pages to print.
+//Updates whether the document contains some more pages to print.
 
 if (startPageIndex < endPageIndex)
 
@@ -1138,49 +1138,49 @@ startPageIndex = 0;
 
 Dim endPageIndex As Integer = images.Length
 
-'Create new PrintDialog instance.
+'Creates new PrintDialog instance.
 
 Dim printDialog As New System.Windows.Forms.PrintDialog()
 
-'Set new PrintDocument instance to print dialog.
+'Sets new PrintDocument instance to print dialog.
 
 printDialog.Document = New PrintDocument()
 
-'Enable the print current page option.
+'Enables the print current page option.
 
 printDialog.AllowCurrentPage = True
 
-'Enable the print selected pages option.
+'Enables the print selected pages option.
 
 printDialog.AllowSomePages = True
 
-'Set the start and end page index
+'Sets the start and end page index
 
 printDialog.PrinterSettings.FromPage = 1
 
 printDialog.PrinterSettings.ToPage = images.Length
 
-'Open the print dialog box.
+'Opens the print dialog box.
 
 If printDialog.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
 
-'Check if the selected page range is valid.
+'Checks whether the selected page range is valid or not.
 
 If printDialog.PrinterSettings.FromPage > 0 AndAlso printDialog.PrinterSettings.ToPage <= images.Length Then
 
-'Update the start page of the document to print.
+'Updates the start page of the document to print.
 
 startPageIndex = printDialog.PrinterSettings.FromPage - 1
 
-'Update the end page of the document to print.
+'Updates the end page of the document to print.
 
 endPageIndex = printDialog.PrinterSettings.ToPage
 
-'Hook the PrintPage event to handle be drawing pages for printing.
+'Hooks the PrintPage event to handle the drawing pages for printing.
 
 printDialog.Document.PrintPage += New PrintPageEventHandler(PrintPageMethod)
 
-'Print the document.
+'Prints the document.
 
 printDialog.Document.Print()
 
@@ -1190,55 +1190,55 @@ End If
 
 Private Sub PrintPageMethod(sender As Object, e As PrintPageEventArgs)
 
-'Get the print start page width.
+'Gets the print start page width.
 
 Dim currentPageWidth As Integer = images(startPageIndex).Width
 
-'Get the print start page height.
+'Gets the print start page height.
 
 Dim currentPageHeight As Integer = images(startPageIndex).Height
 
-'Get the visible bounds width for print.
+'Gets the visible bounds width for print.
 
 Dim visibleClipBoundsWidth As Integer = CInt(e.Graphics.VisibleClipBounds.Width)
 
-'Get the visible bounds height for print.
+'Gets the visible bounds height for print.
 
 Dim visibleClipBoundsHeight As Integer = CInt(e.Graphics.VisibleClipBounds.Height)
 
-'Check if the page layout is landscape or portrait.
+'Checks whether the page layout is landscape or portrait.
 
 If currentPageWidth > currentPageHeight Then
 
-'Translate the position.
+'Translates the position.
 
 e.Graphics.TranslateTransform(0, visibleClipBoundsHeight)
 
-'Rotate the object at 270 degrees
+'Rotates the object at 270 degrees
 
 e.Graphics.RotateTransform(270.0F)
 
-'Draw the current page image.
+'Draws the current page image.
 
 e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle(0, 0, currentPageWidth, currentPageHeight))
 
 Else
 
-'Draw the current page image.
+'Draws the current page image.
 
 e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle(0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight))
 
 End If
 
-'Dispose the current page image after drawing.
+'Disposes the current page image after drawing.
 
 images(startPageIndex).Dispose()
 
-'Increment the start page index.
+'Increments the start page index.
 
 startPageIndex += 1
 
-'Update if the document contains some more pages to print.
+'Updates whether the document contains some more pages to print.
 
 If startPageIndex < endPageIndex Then
 
@@ -1262,9 +1262,9 @@ You can download the complete working samples of the code from [here](http://www
 
 ## Working with Styles
 
-A style is predefined set of table, numbering, paragraph, and character properties which can be applied to regions within a document. DocIO provides the following functionalities related with styles.
+A style is a predefined set of table, numbering, paragraph, and character properties that can be applied to regions within a document. DocIO provides the following functionalities related with styles.
 
-* Access & modify the existing styles in the word document
+* Access and modify the existing styles in the word document
 * Create new paragraph style. 
 * Apply built-in styles.
 
@@ -1272,28 +1272,28 @@ A style is predefined set of table, numbering, paragraph, and character properti
 
 Paragraph and character styles present in the existing document are accessible through the WordDocument.Styles property. 
 
-This below code snippet demonstrates how a style can be accessed and style properties like text color and first line indent can be updated.
+This following code example demonstrates how a style can be accessed and style properties like text color and first line indent can be updated.
 
 {% highlight c# %}
 [C#]
 
-//Open an input Word template
+//Opens an input Word template
 
 WordDocument document = new WordDocument(inputFileName);
 
-//Access the styles collection which contains paragraph & character styles in Word document
+//Accessess the styles collection that contains paragraph and character styles in Word document
 
 IStyleCollection styleCollection = document.Styles;
 
-//Find the style with the name "Heading 1"
+//Finds the style with the name "Heading 1"
 
 WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
 
-//Change the text color of style "Heading 1" as DarkBlue
+//Changes the text color of style "Heading 1" as DarkBlue
 
 heading1ParagraphStyle.CharacterFormat.TextColor = Color.DarkBlue;
 
-//Change the first line indent of Paragraph as 36 points
+//Changes the first line indent of Paragraph as 36 points
 
 heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
 
@@ -1308,23 +1308,23 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Open an input Word template
+'Opens an input Word template
 
 Dim document As New WordDocument(inputFileName)
 
-'Access the styles collection which contains paragraph & character styles in Word document
+'Accessess the styles collection that contains paragraph and character styles in Word document
 
 Dim styleCollection As IStyleCollection = document.Styles
 
-'Find the style with the name "Heading 1"
+'Finds the style with the name "Heading 1"
 
 Dim heading1ParagraphStyle As WParagraphStyle = TryCast(styleCollection.FindByName("Heading 1"), WParagraphStyle)
 
-'Change the text color of style "Heading 1" as DarkBlue
+'Changes the text color of style "Heading 1" as DarkBlue
 
 heading1ParagraphStyle.CharacterFormat.TextColor = Color.DarkBlue
 
-'Change the first line indent of paragraph as 36 points
+'Changes the first line indent of paragraph as 36 points
 
 heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36
 
@@ -1338,26 +1338,26 @@ document.Close()
 
 **Creating** **a** **new** **Paragraph** **Style**
 
-You can create a new paragraph style using WordDocument.AddParagraphStyle method and apply it using ApplyStyle method of WParagraph class.
+You can create a new paragraph style by using WordDocument.AddParagraphStyle method and apply it by using ApplyStyle method of WParagraph class.
 
 {% highlight c# %}
 [C#]
 
-//Open an input Word template
+//Opens an input Word template
 
 WordDocument document = new WordDocument();
 
-//This method will add a section & a paragraph in the document
+//This method adds a section and a paragraph in the document
 
 document.EnsureMinimal();
 
 
 
-//Add a new paragraph style named "MyStyle"
+//Adds a new paragraph style named "MyStyle"
 
 IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
 
-//Set the formattings of the style
+//Sets the formattings of the style
 
 myStyle.CharacterFormat.FontSize = 16f;
 
@@ -1365,13 +1365,13 @@ myStyle.CharacterFormat.TextColor = Color.DarkBlue;
 
 myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
 
-//Append the contents into the paragraph
+//Appends the contents into the paragraph
 
 document.LastParagraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua");
 
 
 
-//Apply the style to paragraph
+//Applies the style to paragraph
 
 document.LastParagraph.ApplyStyle("MyStyle");
 
@@ -1388,19 +1388,19 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Open an input Word template
+'Opens an input Word template
 
 Dim document As New WordDocument()
 
-'This method will add a section & a paragraph in the document
+'This method adds a section and a paragraph in the document
 
 document.EnsureMinimal()
 
-'Add a new paragraph style named "MyStyle"
+'Adds a new paragraph style named "MyStyle"
 
 Dim myStyle As IWParagraphStyle = document.AddParagraphStyle("MyStyle")
 
-'Set the formattings of the style
+'Sets the formattings of the style
 
 myStyle.CharacterFormat.FontSize = 16.0F
 
@@ -1408,11 +1408,11 @@ myStyle.CharacterFormat.TextColor = Color.DarkBlue
 
 myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right
 
-'Append the content into the paragraph
+'Appends the content into the paragraph
 
 document.LastParagraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua")
 
-'Apply the style to paragraph
+'Applies the style to paragraph
 
 document.LastParagraph.ApplyStyle("MyStyle")
 
@@ -1428,28 +1428,28 @@ document.Close()
 
 **Applying** **built****-****in** **styles**
 
-DocIO provides a set of predefined styles to the user. You can apply those predefined styles as like shown in the below code snippet.
+DocIO provides a set of predefined styles. You can apply those predefined styles as shown in the following code example.
 
 {% highlight c# %}
 [C#]
 
-//Open an input Word template
+//Opens an input Word template
 
 WordDocument document = new WordDocument();
 
-//This method will add a section & a paragraph in the document
+//This method adds a section and a paragraph in the document
 
 document.EnsureMinimal();
 
 IWParagraph paragraph = document.LastParagraph;
 
-//Append the content into the paragraph
+//Appends the content into the paragraph
 
 paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua");
 
 
 
-//Applying the style to paragraph
+//Applies the style to paragraph
 
 paragraph.ApplyStyle(BuiltinStyle.Emphasis);
 
@@ -1466,21 +1466,21 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Open an input Word template
+'Opens an input Word template
 
 Dim document As New WordDocument()
 
-'This method will add a section & a paragraph in the document
+'This method adds a section and a paragraph in the document
 
 document.EnsureMinimal()
 
 Dim paragraph As IWParagraph = document.LastParagraph
 
-'Append the content into the paragraph
+'Appends the content into the paragraph
 
 paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua")
 
-'Apply the style to paragraph
+'Applies the style to paragraph
 
 paragraph.ApplyStyle(BuiltinStyle.Emphasis)
 
@@ -1496,27 +1496,27 @@ document.Close()
 
 ## Working with Word document properties
 
-Document properties, also known as metadata, are details about a file that describe or identify it. Also you can define additional custom document properties for the documents using DocIO Document properties are classified as two categories. 
+Document properties, also known as metadata, are details about a file that describe or identify it. You can also define the additional custom document properties for the documents by using DocIO Document properties that are classified as two categories. 
 
-* **Built****-****in** **DocumentProperties** - which include details such as title, author name, subject, and keywords that identify the document's topic or contents.
+* **Built****-****in** **DocumentProperties** - includes details such as title, author name, subject, and keywords that identify the document's topic or contents.
 * **Custom** **Document** **properties** - defines the user-defined document properties
 
 **Built****-****in** **document** **properties**
 
-The Built-in document properties of a word document is represented by WordDocument.BuiltinDocumentProperties object. The following code snippet illustrates how to access and modify the Built-in document properties of the document.
+The Built-in document properties of a word document is represented by WordDocument.BuiltinDocumentProperties object. The following code example illustrates how to access and modify the Built-in document properties of the document.
 
 {% highlight c# %}
 [C#]
 
 WordDocument document = new WordDocument(inputFileName);
 
-//Access the built-in document properties
+//Accessess the built-in document properties
 
 Console.WriteLine("Title - {0}",document.BuiltinDocumentProperties.Title);
 
 Console.WriteLine("Author - {0}", document.BuiltinDocumentProperties.Author);
 
-//Modify or set the category and company Build-in document properties
+//Modifies or sets the category and company Build-in document properties
 
 document.BuiltinDocumentProperties.Category = "Sales reports";
 
@@ -1539,13 +1539,13 @@ document.Close();
 
 Dim document As New WordDocument(inputFileName)
 
-'Access the built-in document properties
+'Accessess the built-in document properties
 
 Console.WriteLine("Title - {0}", document.BuiltinDocumentProperties.Title)
 
 Console.WriteLine("Author - {0}", document.BuiltinDocumentProperties.Author)
 
-'Modify or set the category and company Build-in document properties
+'Modifies or sets the category and company Build-in document properties
 
 document.BuiltinDocumentProperties.Category = "Sales reports"
 
@@ -1563,16 +1563,16 @@ document.Close()
 
 **Adding** **Custom** **Document** **properties**
 
-You add a new custom document properties through Add method of CustomProperties class. The following code snippet illustrates about how to add a new custom document properties.
+You add a new custom document properties through Add method of CustomProperties class. The following code example illustrates how to add a new custom document properties.
 
 {% highlight c# %}
 [C#]
 
-//Open an input word template
+//Opens an input word template
 
 WordDocument document = new WordDocument(inputFileName);
 
-//Add the custom document properties of various data type
+//Adds the custom document properties of various data types
 
 document.CustomDocumentProperties.Add("PropertyA", "ValueofA");
 
@@ -1595,11 +1595,11 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Open an input word template
+'Opens an input word template
 
 Dim document As New WordDocument(inputFileName)
 
-'Add the custom document properties of various data type
+'Adds the custom document properties of various data types
 
 document.CustomDocumentProperties.Add("PropertyA", "ValueofA")
 
@@ -1621,18 +1621,18 @@ document.Close()
 
 **Accessing** **&** **Modifying** **Custom** **Document** **Properties**
 
-You can access & modify an existing document property as shown in the below code snippet.
+You can access and modify an existing document property as shown in the following code example.
 
 {% highlight c# %}
 [C#]
 
 WordDocument document = new WordDocument(inputFileName);
 
-//Access an existing custom document property
+//Accessess an existing custom document property
 
 DocumentProperty property = document.CustomDocumentProperties["PropertyA"];
 
-//Modify the value of DocumentProperty instance
+//Modifies the value of DocumentProperty instance
 
 property.Value = "Hello world";
 
@@ -1651,11 +1651,11 @@ document.Close();
 
 Dim document As New WordDocument(inputFileName)
 
-'Access an existing custom document property
+'Accessess an existing custom document property
 
 Dim [property] As DocumentProperty = document.CustomDocumentProperties("PropertyA")
 
-'Modify the value of DocumentProperty instance
+'Modifies the value of DocumentProperty instance
 
 [property].Value = "Hello world"
 
@@ -1678,43 +1678,43 @@ The following code illustrates how to apply gradient as background to the docume
 {% highlight c# %}
 [C#]
 
-//Create a new Word document
+//Createss a new Word document
 
 WordDocument document = new WordDocument();
 
-//Add new section to the document
+//Adds new section to the document
 
 WSection section = document.AddSection() as WSection;
 
-//Add new paragraph to the section
+//Adds new paragraph to the section
 
 IWParagraph paragraph = section.AddParagraph() as WParagraph;
 
-//Append text to the paragraph
+//Appends text to the paragraph
 
 paragraph.AppendText("Sample for applying document background");
 
-//Set the background type as gradient
+//Sets the background type as gradient
 
 document.Background.Type = BackgroundType.Gradient;
 
-//Set color for gradient
+//Sets color for gradient
 
 document.Background.Gradient.Color1 = Color.LightGray;
 
 document.Background.Gradient.Color2 = Color.LightGreen;
 
-//Set the shading style 
+//Sets the shading style 
 
 document.Background.Gradient.ShadingStyle = GradientShadingStyle.DiagonalUp;
 
 document.Background.Gradient.ShadingVariant = GradientShadingVariant.ShadingDown;
 
-//Save the document
+//Saves the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -1725,43 +1725,43 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create a new Word document 
+'Creates a new Word document 
 
 Dim document As New WordDocument()
 
-'Add new section to the document
+'Adds new section to the document
 
 Dim section As WSection = TryCast(document.AddSection(), WSection)
 
-'Add new paragraph to the section 
+'Adds new paragraph to the section 
 
 Dim paragraph As IWParagraph = TryCast(section.AddParagraph(), WParagraph)
 
-'Appending text to the paragraph
+'Appends text to the paragraph
 
 paragraph.AppendText("Sample for applying document background")
 
-'Set the background type as gradient
+'Sets the background type as gradient
 
 document.Background.Type = BackgroundType.Gradient
 
-'Set color for gradient
+'Sets color for gradient
 
 document.Background.Gradient.Color1 = Color.LightGray
 
 document.Background.Gradient.Color2 = Color.LightGreen
 
-'Set the shading style 
+'Sets the shading style 
 
 document.Background.Gradient.ShadingStyle = GradientShadingStyle.DiagonalUp
 
 document.Background.Gradient.ShadingVariant = GradientShadingVariant.ShadingDown
 
-'Save the document
+'Saves the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
-'Close the document
+'Closes the document
 
 document.Close()
 
@@ -1776,33 +1776,33 @@ The following code illustrates how to apply image as background for the document
 {% highlight c# %}
 [C#]
 
-//Create a new Word document
+//Creates a new Word document
 
 WordDocument document = new WordDocument();
 
-//Add new section to the document 
+//Adds new section to the document 
 
 WSection section = document.AddSection() as WSection;
 
-//Add new paragraph to the section
+//Adds new paragraph to the section
 
 IWParagraph paragraph = section.AddParagraph() as WParagraph;
 
-//Append text to the paragraph
+//Appends text to the paragraph
 
 paragraph.AppendText("Sample for applying document background");
 
-//Set the background type as picture
+//Sets the background type as picture
 
 document.Background.Type = BackgroundType.Picture;
 
 document.Background.Picture = Image.FromFile("Image.png");
 
-//Save the document
+//Saves the document
 
 document.Save("Sample.docx", FormatType.Docx);
 
-//Close the document
+//Closes the document
 
 document.Close();
 
@@ -1813,33 +1813,33 @@ document.Close();
 {% highlight vbnet %}
 [VB]
 
-'Create a new Word document
+'Creates a new Word document
 
 Dim document As New WordDocument()
 
-'Add new section to document
+'Adds new section to document
 
 Dim section As WSection = TryCast(document.AddSection(), WSection)
 
-'Add new paragraph to the section
+'Adds new paragraph to the section
 
 Dim paragraph As IWParagraph = TryCast(section.AddParagraph(), WParagraph)
 
-'Append text to the paragraph
+'Appends text to the paragraph
 
 paragraph.AppendText("Sample for applying document background")
 
-'Set the background type as picture
+'Sets the background type as picture
 
 document.Background.Type = BackgroundType.Picture
 
 document.Background.Picture = Image.FromFile("Image.png")
 
-'Save the document
+'Saves the document
 
 document.Save("Sample.docx", FormatType.Docx)
 
-'Close the document
+'Closes the document
 
 document.Close()
 

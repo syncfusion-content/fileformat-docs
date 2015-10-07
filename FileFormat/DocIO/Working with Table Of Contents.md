@@ -48,94 +48,94 @@ Builds a table of contents from paragraphs formatted with specified styles other
 </table>
 ## Adding a toc field
 
-The following code snippet shows how to add a table of contents (TOC) in Word document. 
+The following code example shows how to add a table of contents (TOC) in Word document. 
 
 {% highlight c# %}
 [C#] 
 
-//Create a new Word document
+//Creates a new Word document
 
 WordDocument document = new WordDocument();
 
-//Add the section into the Word document
+//Adds the section into the Word document
 
 IWSection section = document.AddSection();
 
 string paraText = "Lorem ipsum dolor sit amet, lacus amet amet ultricies. Quisque mi venenatis morbi libero, orci dis, mi ut et class porta, massa ligula magna enim, aliquam orci vestibulum Turpis facilisis vitae consequat, cum a a,turpis dui consequat massa in dolor per, felis non amet.Auctor eleifend in omnis elit vestibulum, donec non elementum tellus est mauris, id aliquam, at lacus, arcu pretium proin lacus dolor et. Eu tortor, vel ultrices amet dignissim mauris vehicula";
 
-//Add the paragraph into the created section
+//Adds the paragraph into the created section
 
 IWParagraph paragraph = section.AddParagraph();
 
-//Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
+//Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
 
 paragraph.AppendTOC(1, 3);
 
-//Add the section into the Word document
+//Adds the section into the Word document
 
 section = document.AddSection();
 
-//Add the paragraph into the created section
+//Adds the paragraph into the created section
 
 paragraph = section.AddParagraph(); 
 
-//Add the text for the headings
+//Adds the text for the headings
 
 paragraph.AppendText("First Chapter");
 
-//Set a build in heading style.
+//Sets a build in heading style.
 
 paragraph.ApplyStyle(BuiltinStyle.Heading1);
 
-//Add the text into the paragraph
+//Adds the text into the paragraph
 
 section.AddParagraph().AppendText(paraText);
 
-//Add the section into the Word document
+//Adds the section into the Word document
 
 section = document.AddSection();
 
-//Add the paragraph into the created section
+//Adds the paragraph into the created section
 
 paragraph = section.AddParagraph();
 
-//Add the text for the headings
+//Adds the text for the headings
 
 paragraph.AppendText("Second Chapter");
 
-//Set a build in heading style.
+//Sets a build in heading style.
 
 paragraph.ApplyStyle(BuiltinStyle.Heading2);
 
-//Add the text into the paragraph
+//Adds the text into the paragraph
 
 section.AddParagraph().AppendText(paraText);
 
-//Add the section into the Word document
+//Adds the section into the Word document
 
 section = document.AddSection();
 
-//Add the paragraph into the created section
+//Adds the paragraph into the created section
 
 paragraph = section.AddParagraph();
 
-//Add the text into the headings
+//Adds the text into the headings
 
 paragraph.AppendText("Third Chapter");
 
-//Set a build in heading style
+//Sets a build in heading style
 
 paragraph.ApplyStyle(BuiltinStyle.Heading3);
 
-//Add the text into the paragraph.
+//Adds the text into the paragraph.
 
 section.AddParagraph().AppendText(paraText);
 
-//Update the table of contents
+//Updates the table of contents
 
 document.UpdateTableOfContents();
 
-//Save and close the Word document instance
+//Saves and closes the Word document instance
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -148,89 +148,89 @@ document.Close();
 {% highlight vbnet %}
 [VB] 
 
-'Create a new Word document
+'Creates a new Word document
 
 Dim document As New WordDocument()
 
-'Add the section into the Word document
+'Adds the section into the Word document
 
 Dim section As IWSection = document.AddSection()
 
 Dim paraText As String = "Lorem ipsum dolor sit amet, lacus amet amet ultricies. Quisque mi venenatis morbi libero, orci dis, mi ut et class porta, massa ligula magna enim, aliquam orci vestibulum Turpis facilisis vitae consequat, cum a a,turpis dui consequat massa in dolor per, felis non amet.Auctor eleifend in omnis elit vestibulum, donec non elementum tellus est mauris, id aliquam, at lacus, arcu pretium proin lacus dolor et. Eu tortor, vel ultrices amet dignissim mauris vehicula"
 
-'Add the paragraph into the created section
+'Adds the paragraph into the created section
 
 Dim paragraph As IWParagraph = section.AddParagraph()
 
-'Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
+'Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
 
 paragraph.AppendTOC(1, 3)
 
-'Add the section into the Word document
+'Adds the section into the Word document
 
 section = document.AddSection()
 
-'Add the paragraph into the created section
+'Adds the paragraph into the created section
 
 paragraph = section.AddParagraph()
 
-'Add the text for the headings
+'Adds the text for the headings
 
 paragraph.AppendText("First Chapter")
 
-'Set a build in heading style
+'Sets a build in heading style
 
 paragraph.ApplyStyle(BuiltinStyle.Heading1)
 
-'Add the text into the paragraph.
+'Adds the text into the paragraph.
 
 section.AddParagraph().AppendText(paraText)
 
-'Add the section into the Word document
+'Adds the section into the Word document
 
 section = document.AddSection()
 
-'Add the paragraph into the created section
+'Adds the paragraph into the created section
 
 paragraph = section.AddParagraph()
 
-'Add the text for the headings
+'Adds the text for the headings
 
 paragraph.AppendText("Second Chapter")
 
-'Set a build in heading style
+'Sets a build in heading style
 
 paragraph.ApplyStyle(BuiltinStyle.Heading2)
 
-'Add the text into the paragraph
+'Adds the text into the paragraph
 
 section.AddParagraph().AppendText(paraText)
 
-'Add the section into the Word document
+'Adds the section into the Word document
 
 section = document.AddSection()
 
-'Add the paragraph into the created section
+'Adds the paragraph into the created section
 
 paragraph = section.AddParagraph()
 
-'Add the text into the headings
+'Adds the text into the headings
 
 paragraph.AppendText("Third Chapter")
 
-'Set a build in heading style
+'Sets a build in heading style
 
 paragraph.ApplyStyle(BuiltinStyle.Heading3)
 
-'Add the text into the paragraph
+'Adds the text into the paragraph
 
 section.AddParagraph().AppendText(paraText)
 
-'Update the table of contents
+'Updates the table of contents
 
 document.UpdateTableOfContents()
 
-‘Save & close the Word document instance
+‘Saves and closes the Word document instance
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -250,22 +250,22 @@ I> Note:
 
 I> TOC is not supported in Silverlight, WinRT, Univeral, Xamarin and windows phone applications using DocIO. 
 
-I> Updating TOC makes use of our Word to PDF layouting engine which may lead to the updation of incorrect page number due to its [limitations](help.syncfusion.com# "").
+I> Updating TOC makes use of the Word to PDF layouting engine that may lead to the updation of incorrect page number due to its [limitations](help.syncfusion.com# "").
 
-The following code snippet shows how to update a TOC in an existing word document. 
+The following code example shows how to update a TOC in an existing word document. 
 
 {% highlight c# %}
 [C#] 
 
-//Open an input word template
+//Opens an input word template
 
 WordDocument document = new WordDocument(@”Template.docx”);
 
-//Update the table of contents.
+//Updates the table of contents.
 
 document.UpdateTableOfContents();
 
-//Save and close the Word document instance.
+//Saves and closes the Word document instance.
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -278,15 +278,15 @@ document.Close();
 {% highlight vbnet %}
 [VB] 
 
-'Open an input word template
+'Opens an input word template
 
 Dim document As New WordDocument("Template.docx")
 
-'Update the table of contents.
+'Updates the table of contents.
 
 document.UpdateTableOfContents()
 
-‘Save & close the Word document instance.
+‘Saves and closes the Word document instance.
 
 document.Save("Sample.docx", FormatType.Docx)
 
@@ -298,16 +298,16 @@ document.Close()
 
 ## Creating table of contents with user-defined styles
 
-The following code snippet shows how to create table of contents with user-defined styles instead of heading styles.
+The following code example shows how to create table of contents with user-defined styles instead of heading styles.
 
 {% highlight c# %}
 [C#] 
 
-//Create a new Word document
+//Creates a new Word document
 
 WordDocument document = new WordDocument();
 
-//Create a new custom styles
+//Creates a new custom styles
 
 Style style = (WParagraphStyle)document.AddParagraphStyle("Mystyle");
 
@@ -317,91 +317,91 @@ style.CharacterFormat.FontName = "Verdana";
 
 style.CharacterFormat.FontSize = 25;
 
-//Add the section into the Word document
+//Adds the section into the Word document
 
 IWSection section = document.AddSection();
 
 string paraText = "Lorem ipsum dolor sit amet, lacus amet amet ultricies. Quisque mi venenatis morbi libero, orci dis, mi ut et class porta, massa ligula magna enim, aliquam orci vestibulum Turpis facilisis vitae consequat, cum a a,turpis dui consequat massa in dolor per, felis non amet.Auctor eleifend in omnis elit vestibulum, donec non elementum tellus est mauris, id aliquam, at lacus, arcu pretium proin lacus dolor et. Eu tortor, vel ultrices amet dignissim mauris vehicula";
 
-//Add the paragraph into the created section
+//Adds the paragraph into the created section
 
 IWParagraph paragraph = section.AddParagraph();
 
-//Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
+//Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
 
 TableOfContent toc = paragraph.AppendTOC(1, 3);
 
 toc.UseHeadingStyles = false;
 
-//Set the TOC level style based on which the TOC should be created
+//Sets the TOC level style based on the created TOC 
 
 toc.SetTOCLevelStyle(2, "Mystyle");
 
-//Add the section into the Word document
+//Adds the section into the Word document
 
 section = document.AddSection();
 
-//Add the paragraph into the created section
+//Adds the paragraph into the created section
 
 paragraph = section.AddParagraph();
 
-//Add the text for the headings
+//Adds the text for the headings
 
 paragraph.AppendText("First Chapter");
 
-//Set the build in heading style
+//Sets the build in heading style
 
 paragraph.ApplyStyle("Mystyle");
 
-//Add the text into the paragraph
+//Adds the text into the paragraph
 
 section.AddParagraph().AppendText(paraText);
 
-//Add the section into the Word document
+//Adds the section into the Word document
 
 section = document.AddSection();
 
-//Add the paragraph into the created section
+//Adds the paragraph into the created section
 
 paragraph = section.AddParagraph();
 
-//Add the text for the headings
+//Adds the text for the headings
 
 paragraph.AppendText("Second Chapter");
 
-//Set the build in heading style
+//Sets the build in heading style
 
 paragraph.ApplyStyle(BuiltinStyle.Heading1);
 
-//Add the text to the paragraph
+//Adds the text to the paragraph
 
 section.AddParagraph().AppendText(paraText);
 
-//Add the section into Word document
+//Adds the section into Word document
 
 section = document.AddSection();
 
-//Add a paragraph to created section
+//Adds a paragraph to a created section
 
 paragraph = section.AddParagraph();
 
-//Add the text for the headings
+//Adds the text for the headings
 
 paragraph.AppendText("Third Chapter");
 
-//Set the build in heading style
+//Sets the build in heading style
 
 paragraph.ApplyStyle("Mystyle");
 
-//Add the text to the paragraph
+//Adds the text to the paragraph
 
 section.AddParagraph().AppendText(paraText);
 
-//Update the table of contents
+//Updates the table of contents
 
 document.UpdateTableOfContents();
 
-//Save and close the Word document instance
+//Saves and closes the Word document instance
 
 document.Save("Sample.docx", FormatType.Docx);
 
@@ -416,11 +416,11 @@ document.Close();
 {% highlight vbnet %}
 [VB] 
 
-'Create a new Word document
+'Creates a new Word document
 
 Dim document As New WordDocument()
 
-'Create a new custom styles
+'Creates a new custom styles
 
 Dim style As Style = DirectCast(document.AddParagraphStyle("Mystyle"), WParagraphStyle)
 
@@ -430,91 +430,91 @@ style.CharacterFormat.FontName = "Verdana"
 
 style.CharacterFormat.FontSize = 25
 
-'Add the section into the Word document
+'Adds the section into the Word document
 
 Dim section As IWSection = document.AddSection()
 
 Dim paraText As String = "Lorem ipsum dolor sit amet, lacus amet amet ultricies. Quisque mi venenatis morbi libero, orci dis, mi ut et class porta, massa ligula magna enim, aliquam orci vestibulum Turpis facilisis vitae consequat, cum a a,turpis dui consequat massa in dolor per, felis non amet.Auctor eleifend in omnis elit vestibulum, donec non elementum tellus est mauris, id aliquam, at lacus, arcu pretium proin lacus dolor et. Eu tortor, vel ultrices amet dignissim mauris vehicula"
 
-'Add the paragraph into the created section
+'Adds the paragraph into the created section
 
 Dim paragraph As IWParagraph = section.AddParagraph()
 
-'Append the TOC field with LowerHeadingLevel and UpperHeadingLevel to determine the TOC entries
+'Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determine the TOC entries
 
 Dim toc As TableOfContent = paragraph.AppendTOC(1, 3)
 
 toc.UseHeadingStyles = False
 
-'Set the TOC level style based on which the TOC should be created
+'Sets the TOC level style based on the created TOC 
 
 toc.SetTOCLevelStyle(2, "Mystyle")
 
-'Add the section into the Word document
+'Adds the section into the Word document
 
 section = document.AddSection()
 
-'Add the paragraph into the created section
+'Adds the paragraph into the created section
 
 paragraph = section.AddParagraph()
 
-'Add the text for the headings
+'Adds the text for the headings
 
 paragraph.AppendText("First Chapter")
 
-'Set the build in heading style
+'Sets the build in heading style
 
 paragraph.ApplyStyle("Mystyle")
 
-'Add the text into the paragraph
+'Adds the text into the paragraph
 
 section.AddParagraph().AppendText(paraText)
 
-'Add the section into the Word document
+'Adds the section into the Word document
 
 section = document.AddSection()
 
-'Add the paragraph into the created section
+'Adds the paragraph into the created section
 
 paragraph = section.AddParagraph()
 
-'Add the text for the headings
+'Adds the text for the headings
 
 paragraph.AppendText("Second Chapter")
 
-'Set the build in heading style
+'Sets the build in heading style
 
 paragraph.ApplyStyle(BuiltinStyle.Heading1)
 
-'Add the text to the paragraph
+'Adds the text to the paragraph
 
 section.AddParagraph().AppendText(paraText)
 
-'Add the section into Word document
+'Adds the section into Word document
 
 section = document.AddSection()
 
-'Add a paragraph to created section
+'Adds a paragraph to created section
 
 paragraph = section.AddParagraph()
 
-'Add the text for the headings
+'Adds the text for the headings
 
 paragraph.AppendText("Third Chapter")
 
-'Set the build in heading style
+'Sets the build in heading style
 
 paragraph.ApplyStyle("Mystyle")
 
-'Add the text to the paragraph
+'Adds the text to the paragraph
 
 section.AddParagraph().AppendText(paraText)
 
-'Update the table of contents
+'Updates the table of contents
 
 document.UpdateTableOfContents()
 
-‘Save & close the Word document instance
+‘Saves and closes the Word document instance
 
 document.Save("Sample.docx", FormatType.Docx)
 
