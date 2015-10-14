@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Working with image extractioin
-description: Extracting image from PDF document using Essential PDF: ExtractImages; 
+description: Extracting image from PDF document using Essential PDF- ExtractImages; 
 platform: FileFormat
 control: PDF
 documentation: UG

@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with PDF conformance
 description: You can create a PDF conformance documents; PDF/A-1b; PDF/x-1a;
 platform: FileFormat

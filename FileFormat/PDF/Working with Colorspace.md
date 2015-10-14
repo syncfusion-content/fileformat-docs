@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with Color Spaces
 description: Essential PDF allows you to set the color spaces. Document colorspace; Graphics colorspace
 platform: Fileformat

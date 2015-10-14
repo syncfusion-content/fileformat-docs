@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Overview
-description: About Essential PDF: Essential PDF
+description: About Essential PDF- Essential PDF
 platform: FileFormat
 control: PDF
 documentation: UG

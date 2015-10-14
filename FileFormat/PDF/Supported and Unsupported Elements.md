@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Supported and Unsupported Elements
 description: Features available in Essential PDF and their availability in different platforms. Supported and unsupported elements
 platform: Fileformat

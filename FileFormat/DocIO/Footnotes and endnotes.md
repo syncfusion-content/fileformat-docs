@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Footnotes and endnotes
 description: This section illustrates how to insert the footnote and endnote in a Word document
 platform: FileFormat

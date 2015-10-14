@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Working with Attachments
-description: File Attachments by using Essential PDF: File Attachments
+description: File Attachments by using Essential PDF- File Attachments
 platform: FileFormat
 control: PDF
 documentation: UG

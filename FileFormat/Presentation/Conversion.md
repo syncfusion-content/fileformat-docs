@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Converting PowerPoint Presentation to PDF or Image
 description: Converting PowerPoint Presentation to PDF; Converting PowerPoint Presentation slide to image; PowerPoint Presentation conversion
 platform: FileFormats

@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with Portfolio
 description: PDF Portfolios allows the user to bring together content from a variety of sources, including documents, drawings, images, e-mail, spreadsheets and web pages
 platform: Fileformat

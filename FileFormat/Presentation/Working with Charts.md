@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with Charts in PowerPoint Presentation
 description: Working with Charts in PowerPoint Presentation
 platform: FileFormats

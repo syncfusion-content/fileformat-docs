@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Getting Started
 description: This section illustrate how to create a new Word document from scratch
 platform: FileFormat

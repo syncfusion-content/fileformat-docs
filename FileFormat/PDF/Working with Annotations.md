@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Working with Annotations
-description: Creating interactive Annotation by using Essential PDf: Annotations; Free text Annotation; Rubber stamp Annotation
+description: Creating interactive Annotation by using Essential PDf- Annotations; Free text Annotation; Rubber stamp Annotation
 platform: FileFormat
 control: PDF
 documentation: UG

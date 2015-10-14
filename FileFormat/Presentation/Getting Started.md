@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Getting Started with Essential Presentation library
 description: Getting started with Essential Presentation library; Creating a PowerPoint presentation; Modifying the existing PowerPoint presentation
 platform: FileFormats

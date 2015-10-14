@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Working with Layers
-description: Layers refers to section of Content of PDF document: PdfPageLayer
+description: Layers refers to section of Content of PDF document- PdfPageLayer
 platform: FileFormat
 control: PDF
 documentation: UG

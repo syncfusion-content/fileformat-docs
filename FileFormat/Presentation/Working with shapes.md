@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with shapes in PowerPoint Presentation
 description: Working with shapes in PowerPoint Presentation
 platform: FileFormats

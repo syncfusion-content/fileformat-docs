@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with Tables
 description: We can create table in the PDF document. Grid; tables; PdfLightTable; DataSet; DataTable;
 platform: Fileformat

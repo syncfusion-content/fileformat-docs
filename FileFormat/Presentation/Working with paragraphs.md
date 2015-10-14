@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with Paragraph in PowerPoint Presentation
 description: Working with Paragraph in PowerPoint Presentation
 platform: FileFormats

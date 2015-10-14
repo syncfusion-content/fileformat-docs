@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with Table Of Contents
 description: This section illustrates how to insert and update the Table Of Content in a Word document
 platform: FileFormat

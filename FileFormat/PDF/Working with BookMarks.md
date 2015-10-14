@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Working with Bookmarks
-description: Bookmarks by using Essential PDF: Bookmark
+description: Bookmarks by using Essential PDF- Bookmark
 platform: FileFormat
 control: PDF
 documentation: UG

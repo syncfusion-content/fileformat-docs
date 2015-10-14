@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Working with Hyperlinks
-description: Hyperlink using Essential PDF: Hyperlink; Navigation ;PdfTextWeblink
+description: Hyperlink using Essential PDF- Hyperlink; Navigation ;PdfTextWeblink
 platform: FileFormat
 control: PDF
 documentation: UG

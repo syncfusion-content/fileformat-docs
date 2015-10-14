@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with Macros
 description: This section illustrates how to load and save a macro enabled documents
 platform: FileFormat

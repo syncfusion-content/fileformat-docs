@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Document Object Model of Essential Presentation library
 description: The Document Object Model of Essential Presentation library
 platform: FileFormats

@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Working with Images
-description: Working with images using Essential PDF: PdfImage; pdfMetafile; PdfImagemask,Image Pagination
+description: Working with images using Essential PDF- PdfImage; pdfMetafile; PdfImagemask,Image Pagination
 platform: FileFormat
 control: PDF
 documentation: UG

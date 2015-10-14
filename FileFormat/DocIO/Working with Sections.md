@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with Sections
 description: This section illustrates how to Work with Sections
 platform: FileFormat

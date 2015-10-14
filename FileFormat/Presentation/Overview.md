@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Overview of Essential Presentation library
 description: Overview of Essential Presentation library
 platform: FileFormats

@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Working with Action
-description: Creating user interactve PDF : PdfSoundAction; PdfjavascriptAction; PdfUriAction ;PdfLaunchAction
+description: Creating user interactve PDF - PdfSoundAction; PdfjavascriptAction; PdfUriAction ;PdfLaunchAction
 platform: Fileformat
 control: PDF
 documentation: UG

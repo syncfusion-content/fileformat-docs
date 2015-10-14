@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Fields
 description: This section illustrates how to add and update the fields in the Word document
 platform: FileFormat

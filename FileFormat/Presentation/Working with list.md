@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with lists in PowerPoint Presentation
 description: Working with lists in PowerPoint Presentation
 platform: FileFormats

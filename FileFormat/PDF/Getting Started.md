@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Getting Started
-description: Create a simple PDF document with basic elements : Adding page; Drawstring; Fill form ; Merge PDF documents
+description: Create a simple PDF document with basic elements- Adding page; Drawstring; Fill form ; Merge PDF documents
 platform: FileFormat
 control: PDF
 documentation: UG

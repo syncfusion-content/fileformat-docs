@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Merge Documents
-description: Merging multiple PDF document into single PDF: Merge PDF documents; Import page
+description: Merging multiple PDF document into single PDF- Merge PDF documents; Import page
 platform: FileFormat
 control: PDF
 documentation: UG

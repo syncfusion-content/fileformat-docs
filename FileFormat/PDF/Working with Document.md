@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Working with Document
-description: PDF Document Setting and properties of Essential PDF : PDF Document Setting; 
+description: PDF Document Setting and properties of Essential PDF - PDF Document Setting; 
 platform: File Format
 control: PDF
 documentation: UG

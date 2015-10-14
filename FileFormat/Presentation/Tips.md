@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Tips for using Essential Presentation library
 description: Tips for using Essential Presentation library
 platform: FileFormats

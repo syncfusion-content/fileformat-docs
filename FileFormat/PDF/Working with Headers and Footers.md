@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Working with Headers and Footers
-description: Essential PDF Headers and Footers elements: PdfPageTemplateElement
+description: Essential PDF Headers and Footers elements- PdfPageTemplateElement
 platform: FileFormat
 control: PDF
 documentation: UG

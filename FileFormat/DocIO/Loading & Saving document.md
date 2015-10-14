@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Loading & Saving document
 description: This section illustrate how to load and save the Word document
 platform: FileFormat

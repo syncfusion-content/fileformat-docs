@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with Bookmarks
 description: This section illustrates how to work with Bookmarks
 platform: FileFormat

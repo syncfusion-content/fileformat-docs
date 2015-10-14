@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Tagged PDF
-description: Creating Tagged PDF from Html File : Tagged PDF
+description: Creating Tagged PDF from Html File - Tagged PDF
 platform: FileFormat
 control: PDF
 documentation: UG

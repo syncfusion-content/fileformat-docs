@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Encrypting and Decrypting the PowerPoint Presentation
 description: Encrypting and Decrypting the PowerPoint Presentation; security in using presentation
 platform: FileFormats

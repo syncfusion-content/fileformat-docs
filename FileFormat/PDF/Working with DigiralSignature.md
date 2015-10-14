@@ -1,7 +1,7 @@
 ---
-layout: Post
+layout: post
 title: Working with Digital Signature
-description: Creating Digital Signature by using Essential PDF: Digital signature; Digital Sign
+description: Creating Digital Signature by using Essential PDF- Digital signature; Digital Sign
 platform: FileFormat
 control: PDF
 documentation: UG

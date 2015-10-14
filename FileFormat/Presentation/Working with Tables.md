@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Working with tables in PowerPoint Presentation
 description: Working with tables in PowerPoint Presentation
 platform: FileFormats
