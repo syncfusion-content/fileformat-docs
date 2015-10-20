@@ -1,3 +1,11 @@
+---
+layout: Post
+title: Working with Barcode
+description: Support to add barcodes to PDF document
+platform: FileFormat
+control: PDF
+documentation: 
+---
 ## Working with Barcode
 
 Essential PDF provides support to add barcodes to the PDF document. The following barcode types are supported.
@@ -9,36 +17,160 @@ Essential PDF provides support to add barcodes to the PDF document. The followin
 
 The below code snippet shows how to add Code39 barcode to a PDF document.
 
-<table>
-<tr>
-<td>
-**[****C****#]**<br/><br/>//Creating new PDF Document<br/><br/>PdfDocument doc = new PdfDocument();<br/><br/>//Adding new page to PDF document<br/><br/>PdfPage page = doc.Pages.Add();<br/><br/>//Drawing Code39 barcode <br/><br/>PdfCode39Barcode barcode = new PdfCode39Barcode(); <br/><br/>//Setting height of the barcode <br/><br/>barcode.BarHeight = 45; <br/><br/>barcode.Text = "CODE39$"; <br/><br/>//Printing barcode on to the Pdf. <br/><br/>barcode.Draw(page, new PointF(25, 70 ));<br/><br/>//Saving the Document<br/><br/>doc.Save("CODE39.pdf");<br/><br/></td></tr>
-</table>
+{% highlight c# %}
+//Creating new PDF Document
+
+PdfDocument doc = new PdfDocument();
+
+//Adding new page to PDF document
+
+PdfPage page = doc.Pages.Add();
+
+//Drawing Code39 barcode 
+
+PdfCode39Barcode barcode = new PdfCode39Barcode(); 
+
+//Setting height of the barcode 
+
+barcode.BarHeight = 45; 
+
+barcode.Text = "CODE39$"; 
+
+//Printing barcode on to the Pdf. 
+
+barcode.Draw(page, new PointF(25, 70 ));
+
+//Saving the Document
+
+doc.Save("CODE39.pdf");
 
 
-<table>
-<tr>
-<td>
-**[****VB****]**<br/><br/>'Creating new PDF Document<br/><br/>Dim doc As New PdfDocument()<br/><br/>'Adding new page to PDF document<br/><br/>Dim page As PdfPage = doc.Pages.Add()<br/><br/>'Drawing Code39 barcode <br/><br/>Dim barcode As New PdfCode39Barcode()<br/><br/>'Setting height of the barcode <br/><br/>barcode.BarHeight = 45<br/><br/>barcode.Text = "CODE39$"<br/><br/>'Printing barcode on to the Pdf. <br/><br/>barcode.Draw(page, New PointF(25, 70))<br/><br/>'Saving the Document<br/><br/>doc.Save("CODE39.pdf")           <br/><br/><br/><br/></td></tr>
-</table>
+
+{% endhighlight %}
+
+
+
+{% highlight vb.net %}
+[VB]
+
+'Creating new PDF Document
+
+Dim doc As New PdfDocument()
+
+'Adding new page to PDF document
+
+Dim page As PdfPage = doc.Pages.Add()
+
+'Drawing Code39 barcode 
+
+Dim barcode As New PdfCode39Barcode()
+
+'Setting height of the barcode 
+
+barcode.BarHeight = 45
+
+barcode.Text = "CODE39$"
+
+'Printing barcode on to the Pdf. 
+
+barcode.Draw(page, New PointF(25, 70))
+
+'Saving the Document
+
+doc.Save("CODE39.pdf")           
+
+
+
+
+
+{% endhighlight %}
+
 
 
 ### Adding a two dimensional barcode to a PDF document
 
 The below code snippet shows how to add a QR code to the PDF document.
 
-<table>
-<tr>
-<td>
-**[****C****#]**<br/><br/>//Drawing QR Barcode<br/><br/>PdfQRBarcode barcode = new PdfQRBarcode();<br/><br/>//Set Error Correction Level<br/><br/>barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High;<br/><br/>//Set XDimension<br/><br/>barcode.XDimension = 3;<br/><br/>barcode.Text = "http://www.syncfusion.com";<br/><br/>//Creating new PDF Document<br/><br/>PdfDocument doc = new PdfDocument();<br/><br/>//Adding new page to PDF document<br/><br/>PdfPage page = doc.Pages.Add();<br/><br/>//Printing barcode on to the Pdf. <br/><br/>barcode.Draw(page, new PointF(25, 70));<br/><br/>//Saving the Document<br/><br/>doc.Save("QRBarcode.pdf");<br/><br/></td></tr>
-</table>
+{% highlight c# %}
+[C#]
+
+//Drawing QR Barcode
+
+PdfQRBarcode barcode = new PdfQRBarcode();
+
+//Set Error Correction Level
+
+barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High;
+
+//Set XDimension
+
+barcode.XDimension = 3;
+
+barcode.Text = "http://www.syncfusion.com";
+
+//Creating new PDF Document
+
+PdfDocument doc = new PdfDocument();
+
+//Adding new page to PDF document
+
+PdfPage page = doc.Pages.Add();
+
+//Printing barcode on to the Pdf. 
+
+barcode.Draw(page, new PointF(25, 70));
+
+//Saving the Document
+
+doc.Save("QRBarcode.pdf");
 
 
-<table>
-<tr>
-<td>
-**[****VB****]**<br/><br/>'Drawing QR Barcode<br/><br/>Dim barcode As New PdfQRBarcode()<br/><br/>'Set Error Correction Level<br/><br/>barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High<br/><br/>'Set XDimension<br/><br/>barcode.XDimension = 3<br/><br/>barcode.Text = "http://www.syncfusion.com"<br/><br/>'Creating new PDF Document<br/><br/>Dim doc As New PdfDocument()<br/><br/>'Adding new page to PDF document<br/><br/>Dim page As PdfPage = doc.Pages.Add()<br/><br/>'Printing barcode on to the Pdf. <br/><br/>barcode.Draw(page, New PointF(25, 70))<br/><br/>'Saving the Document<br/><br/>doc.Save("QRBarcode.pdf")<br/><br/><br/><br/><br/><br/></td></tr>
-</table>
+
+{% endhighlight %}
+
+
+
+{% highlight vb.net %}
+[VB]
+
+'Drawing QR Barcode
+
+Dim barcode As New PdfQRBarcode()
+
+'Set Error Correction Level
+
+barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High
+
+'Set XDimension
+
+barcode.XDimension = 3
+
+barcode.Text = "http://www.syncfusion.com"
+
+'Creating new PDF Document
+
+Dim doc As New PdfDocument()
+
+'Adding new page to PDF document
+
+Dim page As PdfPage = doc.Pages.Add()
+
+'Printing barcode on to the Pdf. 
+
+barcode.Draw(page, New PointF(25, 70))
+
+'Saving the Document
+
+doc.Save("QRBarcode.pdf")
+
+
+
+
+
+
+
+{% endhighlight %}
+
 
 
 ### Customizing the barcode appearance
