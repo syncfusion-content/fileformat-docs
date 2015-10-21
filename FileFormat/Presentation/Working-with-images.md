@@ -10,7 +10,7 @@ documentation: UG
 
 ## Adding Images
 
-Essential Presentation library facilitates adding or modifying the images in a PowerPoint presentation. The following code example demonstrates adding a new image to the presentation.
+Essential Presentation library facilitates adding or modifying the images in a PowerPoint presentation. The following code example demonstrates how to add a new image to the presentation.
 
 {% highlight c# %}
 [C#]
@@ -74,9 +74,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Replacing Images
+## Replac Images
 
-The following code example demonstrates replacing an existing image in a slide.
+The following code example demonstrates how to replace an existing image in a slide.
 
 {% highlight c# %}
 [C#]
@@ -164,9 +164,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Removing Images
+## Remove Images
 
-The following code example demonstrates removing an existing image in a PowerPoint slide.
+The following code example demonstrates how to remove an existing image in a PowerPoint slide.
 
 {% highlight c# %}
 [C#]
