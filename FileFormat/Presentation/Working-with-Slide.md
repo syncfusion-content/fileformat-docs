@@ -12,7 +12,7 @@ documentation: UG
 
 In presentation, a slide is a container for the elements like shapes, images, charts, text box etc. The slides may inherit the formatting and layout properties from its Master and Layout slides that reside in the PowerPoint presentation.
 
-The following code example demonstrates adding a blank slide to the presentation.
+The following code example demonstrates how to add a blank slide to the presentation.
 
 {% highlight c# %}
 [C#]
@@ -62,7 +62,7 @@ presentation_1.Close()
 
 ## Cloning slide
 
-You can create a deep copy of a slide by cloning the slide. The cloned slide is an independent copy of its source slide. This means the changes made in the cloned slide does not affect the source slide.
+You can create a deep copy of a slide by cloning the slide. The cloned slide is an independent copy of its source slide. This means the changes made in the cloned slide do not affect the source slide.
 
 {% highlight c# %}
 [C#]
@@ -142,7 +142,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Merging slide
+## Merge slide
 
 The Essential Presentation provides ability to clone slides from one presentation to another presentation. With this ability, you can split a large presentation into small ones and also merge multiple presentations to one presentation. You can choose the theme for the cloned slide by using the [PasteOption](http://www.google.com/# "")s.
 
@@ -200,7 +200,7 @@ destinationPresentation_1.Save("Output.pptx")
 
 {% endhighlight %}
 
-## Removing slide
+## Remove slide
 
 The Essential Presentation provides the ability to delete a slide by its instance or by its index position in slide collection. The following code demonstrates how to delete a slide from a presentation. 
 
@@ -266,7 +266,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Converting to image
+## Convert to image
 
 You can convert a presentation slide to image with Essential Presentation. The following code example converts the first slide of a PowerPoint presentation into image and saves the image to a file.
 
@@ -326,7 +326,7 @@ presentation_1.Close()
 
 For more details on assemblies required for converting a slide to image,  see [Conversion](http://www.google.com/# "")
 
-## Changing Slide background
+## Change Slide background
 
 The following code example demonstrates setting the background for a slide.
 
