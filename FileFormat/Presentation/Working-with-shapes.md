@@ -10,9 +10,9 @@ documentation: UG
 
 ## Adding shapes to a slide
 
-In every slide, there is a shape collection that can contain any form of graphical objects such as [autoShape](https://msdn.microsoft.com/en-us/library/dd439450(v=office.12).aspx# ""), chart, text or picture.  You can add any shape element to this collection. The [IShape](http://www.google.com/# "") is the base type for the shape elements.
+In every slide, there is a shape collection that can contain any form of graphical objects such as [autoShape](https://msdn.microsoft.com/en-us/library/dd439450(v=office.12).aspx# ""), chart, text, or picture.  You can add any shape element to this collection. The [IShape](http://www.google.com/# "") is the base type for the shape elements.
 
-The following code example demonstrates adding an autoshape and image to the shape collection of a slide.
+The following code example demonstrates how to add an autoshape and image to the shape collection of a slide.
 
 {% highlight c# %}
 [C#]
@@ -45,7 +45,7 @@ presentation.Save("Sample.pptx");
 
 imageStream.Close();
 
-//closes the presentation
+//Closes the presentation
 
 presentation.Close();
 
@@ -92,9 +92,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Iterating through shapes
+## Iterate through shapes
 
-You can iterate through the shapes in a PowerPoint slide. The following code example demonstrates iterating through the shapes present in a slide for modifying its properties.
+You can iterate through the shapes in a PowerPoint slide. The following code example demonstrates how to iterate through the shapes present in a slide for modifying its properties.
 
 {% highlight c# %}
 [C#]
@@ -166,9 +166,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Specifying shape properties
+## Specify shape properties
 
-The shape properties can be used to format and modify the shapes in a slide. The following code example demonstrates applying formatting to a shape
+The shape properties can be used to format and modify the shapes in a slide. The following code example demonstrates how to apply formatting to a shape.
 
 {% highlight c# %}
 [C#]
@@ -288,9 +288,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Removing the shapes
+## Remove the shapes
 
-The shapes can be removed from a slide by its instance or by its index position in the shape collection. The following code example demonstrates removing the shapes from a slide. 
+The shapes can be removed from a slide by its instance or by its index position in the shape collection. The following code example demonstrates how to remove the shapes from a slide. 
 
 {% highlight c# %}
 [C#]
