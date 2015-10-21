@@ -6,11 +6,11 @@ platform: FileFormats
 control: Presentation
 documentation: UG
 ---
-# Working with Charts
+# Work with Charts
 
-## Creating a Chart from scratch
+## Create a Chart from scratch
 
-An instance of **IOfficeChart** can be used to create or modify the charts in PowerPoint presentation. The following code example demonstrates creating a simple chart by adding data from scratch.
+An instance of **IOfficeChart** can be used to create or modify the charts in PowerPoint presentation. The following code example demonstrates how to create a simple chart by adding data from scratch.
 
 {% highlight c# %}
 [C#]
@@ -214,7 +214,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Creating charts from excel sheet
+## Create charts from excel sheet
 
 You can also create a chart with the data from an existing excel worksheet. The following code example demonstrates the same.
 
@@ -233,7 +233,7 @@ ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
 MemoryStream excelStream = new MemoryStream(File.ReadAllBytes("Book1.xlsx"));
 
-//Adds a chart to the slide with a data range from excel worksheet – excel workbook, worksheet number, Data range, position and size
+//Adds a chart to the slide with a data range from excel worksheet – excel workbook, worksheet number, Data range, position, and size.
 
 IOfficeChart chart = slide.Charts.AddChart(excelStream, 1, "A1:D4", new RectangleF(100, 10, 700, 500));
 
@@ -264,7 +264,7 @@ Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
 
 Dim excelStream As New MemoryStream(File.ReadAllBytes("Book1.xlsx"))
 
-'Adds a chart to the slide with a data range from excel worksheet – excel workbook, worksheet number, Data range, position and size
+'Adds a chart to the slide with a data range from excel worksheet – excel workbook, worksheet number, Data range, position, and size.
 
 Dim chart As IOfficeChart = slide.Charts.AddChart(excelStream, 1, "A1:D4", New RectangleF(100, 10, 700, 500))
 
@@ -280,13 +280,13 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Creating Custom Charts 
+## Create Custom Charts 
 
 Essential Presentation facilitates you to create custom charts by adding different charts series for a single chart. 
 
-For example, you can use a Bar- clustered chart for the first data series and a scatter- line- marker chart for the second series. As a result, you can have a Bar- clustered chart, combined with a scatter- line- marker chart.
+For example, you can use a Bar- clustered chart for the first data series and a scatter- line- marker chart for the second series. As a result, you can have a Bar-clustered chart combined with a scatter-line-marker chart.
 
-The following code example demonstrates creating custom charts.
+The following code example demonstrates how to create custom charts.
 
 {% highlight c# %}
 [C#]
@@ -299,7 +299,7 @@ IPresentation presentation = Presentation.Create();
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Adds a new chart in the slide by specifying its position & size as parameters.
+//Adds a new chart in the slide by specifying its position and size as parameters.
 
 IOfficeChart chart = slide.Charts.AddChart(100, 80, 500, 350);       
 
@@ -307,7 +307,7 @@ chart.ChartTitle = "Sales comparison";
 
 chart.ChartTitleArea.Bold = true;
 
-//Sets the data for chart– RowIndex, columnIndex & data
+//Sets the data for chart– RowIndex, columnIndex and data
 
 chart.ChartData.SetValue(1, 1, "Month");
 
@@ -404,7 +404,7 @@ Dim presentation_1 As IPresentation = Presentation.Create()
 
 Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
 
-'Adds a new chart in the slide by specifying its position & size as parameters.
+'Adds a new chart in the slide by specifying its position and size as parameters.
 
 Dim chart As IOfficeChart = slide.Charts.AddChart(100, 80, 500, 350)
 
@@ -412,7 +412,7 @@ chart.ChartTitle = "Sales comparison"
 
 chart.ChartTitleArea.Bold = True
 
-'Sets the data for chart– RowIndex, columnIndex & data
+'Sets the data for chart– RowIndex, columnIndex, and data
 
 chart.ChartData.SetValue(1, 1, "Month")
 
@@ -506,11 +506,11 @@ The above code example creates a chart in the following screenshot.
 {{'![C:/Users/devisrijothi/Pictures/Screenshots/Screenshot (42).png](WorkingwithCharts_images/WorkingwithCharts_img1.jpeg)'| markdownify }}
 <br/><br/><br/><br/></td></tr>
 </table>
-## Refreshing the chart
+## Refresh the chart
 
-Sometimes, the charts does not represent the actual data. In those cases, the charts in PowerPoint presentation should be refreshed.
+Sometimes, the charts do not represent the actual data. In those cases, the charts in PowerPoint presentation should be refreshed.
 
-The following code example demonstrates refreshing the charts in PowerPoint presentation. 
+The following code example demonstrates how to refresh the charts in PowerPoint presentation. 
 
 {% highlight c# %}
 [C#]
@@ -582,9 +582,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Editing the Chart Data
+## Edit the Chart Data
 
-You can change the data for an existing chart. The code example demonstrates modifying the chart in a slide.
+You can change the data for an existing chart. The code example demonstrates how to modify the chart in a slide.
 
 {% highlight c# %}
 [C#]
@@ -684,7 +684,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Customizing the chart
+## Customize the chart
 
 ### Chart Basics
 
@@ -703,7 +703,7 @@ A chart is composed of various elements such as legends, axes, series, etc. Each
 5. The legend of the chart.
 6. A chart and axis title that you can use in the chart.
 7. A data label that you can use to identify the details of a data point in a data series.
-### Modifying the Chart Appearance 
+### Modify the Chart Appearance 
 
 
 The appearance of a chart can be modified according to the convenience and usage. The following code example demonstrates modifying the chart element styles. 
@@ -860,7 +860,7 @@ chart__2.Width = 700
 
 chart__2.ChartTitle = "New title"
 
-'Changes the serie name of first chart serie
+'Changes the series name of first chart series
 
 chart__2.Series(0).Name = "Modified serie name"
 
@@ -950,9 +950,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-### Modifying the Plot and Legends of chart
+### Modify the Plot and Legends of chart
 
-The following code example demonstrates modifying the legend and plot areas of a chart.
+The following code example demonstrates how to modify the legend and plot areas of a chart.
 
 {% highlight c# %}
 [C#]
@@ -1240,7 +1240,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-### Positioning Chart Elements
+### Position Chart Elements
 
 The following code examples illustrate how to position the different chart elements.
 
@@ -1259,7 +1259,7 @@ IOfficeChart chart = slide.Shapes.AddChart(100, 120, 500, 300);
 
 chart.DataRange = chart.ChartData[1, 2, 4, 3];
 
-//Sets data to the chart- RowIndex, columnIndex & data
+//Sets data to the chart- RowIndex, columnIndex and data
 
 chart.ChartData.SetValue(1, 2, "2012");
 
@@ -1271,17 +1271,17 @@ chart.ChartData.SetValue(4, 2, 700);
 
 chart.ChartType = OfficeChartType.Area;
 
-//Edge: Specifies that the width or Height is interpreted as right or bottom of the chart element.
+//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 
-//Factor: Specifies that the width or Height is interpreted as the width or height of the chart element.
+//Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 
-//Value in points should not be a negative value when LayoutMode is Edge
+//Value in points should not be negative value when LayoutMode is Edge
 
-//It can be a negative value when the LayoutMode is Factor.
+//It can be a negative value, when the LayoutMode is Factor.
 
 chart.ChartTitleArea.Layout.Left = 10;
 
@@ -1328,7 +1328,7 @@ Dim chart As IOfficeChart = slide.Shapes.AddChart(100, 120, 500, 300)
 
 chart.DataRange = chart.ChartData(1, 2, 4, 3)
 
-'Sets data to the chart- RowIndex, columnIndex & data
+'Sets data to the chart- RowIndex, columnIndex, and data
 
 chart.ChartData.SetValue(1, 2, "2012")
 
@@ -1340,17 +1340,17 @@ chart.ChartData.SetValue(4, 2, 700)
 
 chart.ChartType = OfficeChartType.Area
 
-'Edge: Specifies that the width or Height is interpreted as right or bottom of the chart element.
+'Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
 
-'Factor: Specifies that the width or Height is interpreted as the width or height of the chart element.
+'Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
 
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto
 
 chart.PlotArea.Layout.TopMode = LayoutModes.factor
 
-'Value in points should not be a negative value when LayoutMode is Edge
+'Value in points should not be negative value, when LayoutMode is Edge
 
-'It can be a negative value when the LayoutMode is Factor.
+'It can be negative value, when the LayoutMode is Factor.
 
 chart.ChartTitleArea.Layout.Left = 10
 
@@ -1382,7 +1382,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Applying 3D Formats
+## Apply 3D Formats
 
 Essential Presentation allows you to modify side wall, back wall, and floor settings of a 3-D chart. The following code example explains how to apply these settings to a 3-D chart.
 
@@ -1474,7 +1474,7 @@ presentation_1.Close()
 
 ## Chart to Image conversion
 
-The following code example demonstrates converting the charts in a presentation slide to image.
+The following code example demonstrates how to convert the charts in a presentation slide to image.
 
 {% highlight c# %}
 [C#]
@@ -1584,7 +1584,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Removing the chart from slide
+## Remove the chart from slide
 
 The following code example demonstrates removing a chart from a slide.
 
