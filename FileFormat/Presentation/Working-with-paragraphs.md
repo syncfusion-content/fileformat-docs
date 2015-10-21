@@ -6,13 +6,13 @@ platform: FileFormats
 control: Presentation
 documentation: UG
 ---
-# Working with Paragraph
+# Work with Paragraph
 
-## Adding Paragraph to slide
+## Add Paragraph to slide
 
 All the textual contents in a Presentation document is represented by Paragraphs. You can have any number of paragraphs within a [TextBody](http://www.google.com/# "") of a textbox or shape in a PowerPoint presentation. 
 
-The following code example demonstrates adding a paragraph in a slide.
+The following code example demonstrates how to add a paragraph in a slide.
 
 {% highlight c# %}
 [C#]
@@ -92,9 +92,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Applying Paragraph formatting
+## Apply Paragraph formatting
 
-Each paragraph in a slide can have its own formatting types such as alignment, indent etc.  The following code example demonstrates how to format a paragraph in PowerPoint presentation.
+Each paragraph in a slide can has its own formatting types such as alignment, indent etc. The following code example demonstrates how to format a paragraph in PowerPoint presentation.
 
 {% highlight c# %}
 [C#]
@@ -182,7 +182,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Working with text
+## Work with text
 
 With Essential Presentation, you can add or modify the text in a presentation. Within the paragraph, textual contents are grouped into one or more child elements as [TextParts](http://www.google.com/# ""). Each TextPart represents a region of text with a common set of formatted text. The following code example demonstrates how to add text parts with different formatting into a single paragraph.
 
@@ -336,9 +336,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Modifying text
+## Modify text
 
-You can modify a text by accessing the existing paragraphs in a presentation. The following code example demonstrates modifying the content in a paragraph.
+You can modify a text by accessing the existing paragraphs in a presentation. The following code example demonstrates how to modify the content in a paragraph.
 
 {% highlight c# %}
 [C#]
@@ -394,7 +394,7 @@ Dim slide As ISlide = presentation_1.Slides(0)
 
 Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
 
-'Retrieve the first paragraph of the shape.
+'Retrieves the first paragraph of the shape.
 
 Dim paragraph As IParagraph = shape.TextBody.Paragraphs(0)
 
@@ -418,9 +418,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Removing the paragraph 
+## Remove the paragraph 
 
-The following code example demonstrates removing a paragraph from a slide.
+The following code example demonstrates how to remove a paragraph from a slide.
 
 {% highlight c# %}
 [C#]
