@@ -6,11 +6,11 @@ platform: FileFormats
 control: Presentation
 documentation: UG
 ---
-# Working with PowerPoint presentation
+# Work with PowerPoint presentation
 
 ## Cloning a PowerPoint presentation
 
-Cloning a PowerPoint presentation creates a new copy of the PowerPoint presentation. The cloned copy is an independent object that means changes made in the cloned copy of the presentation does not affect the source PowerPoint presentation.
+Cloning a PowerPoint presentation creates a new copy of the PowerPoint presentation. The cloned copy is an independent object that indicates changes made in the cloned copy of the presentation do not affect the source PowerPoint presentation.
 
 {% highlight c# %}
 [C#]
@@ -27,7 +27,7 @@ IPresentation clonedPresentation = sourcePresentation.Clone();
 
 ISlide firstSlide = clonedPresentation.Slides[0];
 
-//Adds a textbox in a slide by specifying its position & size
+//Adds a textbox in a slide by specifying its position and size
 
 IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
 
@@ -82,11 +82,11 @@ clonedPresentation_1.Save("ClonedPresentation.pptx")
 
 {% endhighlight %}
 
-## Printing a PowerPoint presentation
+## Print a PowerPoint presentation
 
 You can print the presentation document by converting the PowerPoint Presentation slides to images. For more information about converting the PowerPoint presentation slides to images, see [Conversion](http://www.google.com/# ""). You can use the System.Drawing.Printing.[PrintDocument](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument(v=vs.110).aspx# "") class to print the converted images by the default printer or to any of the available printer with customized settings.
 
-The following code example demonstrates converting the slides of a PowerPoint presentationto images.
+The following code example demonstrates how to convert the slides of a PowerPoint presentationto images.
 
 {% highlight c# %}
 [C#]
@@ -126,7 +126,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-The following code example demonstrates printing the converted images.
+The following code example demonstrates how to print the converted images.
 
 {% highlight c# %}
 [C#]
@@ -296,7 +296,7 @@ printDialog.PrinterSettings.ToPage = images.Length
 
 If printDialog.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
 
-'Checks if the selected page range is valid.
+'Checks whether the selected page range is valid or not.
 
 If printDialog.PrinterSettings.FromPage > 0 AndAlso printDialog.PrinterSettings.ToPage <= images.Length Then
 
@@ -388,7 +388,7 @@ End Sub
 
 {% endhighlight %}
 
-## Working with PowerPoint presentation properties
+## Work with PowerPoint presentation properties
 
 Document properties, also known as metadata, are details about a file that describe or identify it. Document properties are classified into two categories. 
 
@@ -399,9 +399,9 @@ Document properties, also known as metadata, are details about a file that descr
 
 You can access and modify the built in document properties of a PowerPoint presentation with Essential Presentation library. The Built-in document properties of a PowerPoint presentation is represented by **IBuiltInDocumentProperties** type.
 
-**Accessing** **&** **Modifying** **Built****-****in** **Document** **Properties**
+**Accessing** **and** **Modifying** **Built****-****in** **Document** **Properties**
 
-The following code example demonstrates accessing the existing built in document property.
+The following code example demonstrates how to access the existing built in document property.
 
 {% highlight c# %}
 [C#]
@@ -445,7 +445,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-The following code example demonstrates modifying the existing built in document property
+The following code example demonstrates how to modify the existing built in document property
 
 {% highlight c# %}
 [C#]
@@ -503,7 +503,7 @@ You can create and modify the custom document properties of a PowerPoint present
 
 **Adding** **Custom** **Document** **properties**
 
-The following code example demonstrates adding a new custom document property.
+The following code example demonstrates how to add new custom document property.
 
 {% highlight c# %}
 [C#]
@@ -555,9 +555,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-**Accessing** **&** **Modifying** **Custom** **Document** **Properties**
+**Accessing** **and** **Modifying** **Custom** **Document** **Properties**
 
-The following code example demonstrates accessing and modifying an existing custom document property:
+The following code example demonstrates how to access and modify an existing custom document property:
 
 {% highlight c# %}
 [C#]
