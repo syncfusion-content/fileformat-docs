@@ -10,7 +10,7 @@ documentation: UG
 
 ## Creating a simple list
 
-Essential Presentation allows you to create simple and multi-level lists that make the content easier for reading. In PowerPoint, presentation lists consists the following types 
+Essential Presentation allows you to create simple and multi-level lists that make the content easier for reading. In PowerPoint, presentation lists consists of the following types 
 
 1. Numbered list
 2. Bulleted list
@@ -59,7 +59,7 @@ paragraph.IndentLevelNumber = 1;
 
 paragraph.FirstLineIndent = -20;         
 
-// Sets the bullet character size. Here 100 means 100% of its text. Possible values can range from 25 to 400.
+// Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100;           
 
@@ -83,7 +83,7 @@ paragraph.IndentLevelNumber = 1;
 
 paragraph.FirstLineIndent = -20;                     
 
-// Sets the bullet character size. Here 100 means 100% of its text. Possible values can range from 25 to 400.
+// Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100;
 
@@ -107,7 +107,7 @@ paragraph.IndentLevelNumber = 1;
 
 paragraph.FirstLineIndent = -20;    
 
-// Sets the bullet character size. Here 100 means 100% of its text. Possible values can range from 25 to 400.
+// Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100;
 
@@ -164,7 +164,7 @@ paragraph.IndentLevelNumber = 1
 
 paragraph.FirstLineIndent = -20
 
-' Sets the bullet character size. Here 100 means 100% of its text. Possible values can range from 25 to 400.
+' Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100
 
@@ -184,11 +184,11 @@ paragraph.ListFormat.NumberStyle = NumberedListStyle.ArabicPeriod
 
 paragraph.IndentLevelNumber = 1
 
-' Set the hanging value
+' Sets the hanging value
 
 paragraph.FirstLineIndent = -20
 
-' Sets the bullet character size. Here 100 means 100% of its text. Possible values can range from 25 to 400.
+' Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100
 
@@ -212,7 +212,7 @@ paragraph.IndentLevelNumber = 1
 
 paragraph.FirstLineIndent = -20
 
-' Set the bullet character size. Here 100 means 100% of its text. Possible values can range from 25 to 400.
+' Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100
 
@@ -232,7 +232,7 @@ presentation_1.Close()
 
 **Bulleted** **list**
 
-The following code example demonstrates creating a simple bulleted list.
+The following code example demonstrates how to create a simple bulleted list.
 
 {% highlight c# %}
 [C#]
@@ -273,7 +273,7 @@ paragraph.IndentLevelNumber = 1;
 
 paragraph.ListFormat.FontName = "Symbol";
 
-// Sets the bullet character size. Here 100 means 100% of its text. Possible values can range from 25 to 400.
+// Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100;
 
@@ -303,7 +303,7 @@ paragraph.IndentLevelNumber = 1;
 
 paragraph.ListFormat.FontName = "Symbol";
 
-// Sets the bullet character size. Here 100 means 100% of its text. Possible values can range from 25 to 400.
+// Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100;            
 
@@ -331,7 +331,7 @@ paragraph.IndentLevelNumber = 1;
 
 paragraph.ListFormat.FontName = "Symbol";
 
-// Sets the bullet character size. Here 100 means 100% of its text. Possible values can range from 25 to 400.
+// Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100;                    
 
@@ -388,7 +388,7 @@ paragraph.IndentLevelNumber = 1
 
 paragraph.ListFormat.FontName = "Symbol"
 
-' Sets the bullet character size. Here 100 means 100% of its text. Possible values can range from 25 to 400.
+' Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100
 
@@ -416,7 +416,7 @@ paragraph.IndentLevelNumber = 1
 
 paragraph.ListFormat.FontName = "Symbol"
 
-' Sets the bullet character size. Here 100 means 100% of its text. Possible values can range from 25 to 400.
+' Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100
 
@@ -444,7 +444,7 @@ paragraph.IndentLevelNumber = 1
 
 paragraph.ListFormat.FontName = "Symbol"
 
-' Sets the bullet character size. Here 100 means 100% of its text. Possible values can range from 25 to 400.
+' Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100
 
@@ -464,7 +464,7 @@ presentation_1.Close()
 
 **Picture** **List**
 
-The following code example demonstrates creating a simple picture list.
+The following code example demonstrates how to create a simple picture list.
 
 {% highlight c# %}
 [C#]
@@ -616,11 +616,11 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Creating a Multilevel List
+## Create a Multilevel List
 
 You can create a multi-level list by setting the indentation levels. By default, the level begins at 0 and increments by 1 for each level. A list can be incremented or decremented from levels 0 to 8 as like MS PowerPoint. 
 
-The following code example demonstrates creating a multilevel list.
+The following code example demonstrates how to create a multilevel list.
 
 {% highlight c# %}
 [C#]
