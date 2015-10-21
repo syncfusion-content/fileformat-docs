@@ -8,11 +8,11 @@ documentation: UG
 ---
 # Getting Started
 
-## Creating a simple PowerPoint presentation with basic elements from scratch
+## Create a simple PowerPoint presentation with basic elements from scratch
 
-In this page, you can see how to create a simple PowerPoint presentation by using Essential Presentation API.
+In this page, you can learn how to create a simple PowerPoint presentation by using Essential Presentation API.
 
-For creating and manipulating a PowerPoint presentation, include the following assemblies to be included in the application.
+For creating and manipulating a PowerPoint presentation, include the following assemblies in the application.
 
 <table>
 <tr>
@@ -54,7 +54,7 @@ IPresentation presentation = Presentation.Create();
 {% highlight vb.net %}
 [VB.NET]
 
-' Creates a new instance of PowerPoint presentation
+'Creates a new instance of PowerPoint presentation
 
 Dim presentation_1 As IPresentation = Presentation.Create()
 
@@ -90,14 +90,14 @@ Dim firstSlide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
 
 Note: The “Point” typographic units are used to add or manipulate any element in a presentation. 
 
-All the textual contents in a Presentation document is represented by Paragraphs. Within the paragraph, textual contents are grouped into one or more child elements as TextParts. Each TextPart represents a region of text with a common set of formatted text.
+All the textual contents in a Presentation document are represented by Paragraphs. Within the paragraph, textual contents are grouped into one or more child elements as TextParts. Each TextPart represents a region of text with a common set of formatted text.
 
 The following code example demonstrates how to add text into a presentation.
 
 {% highlight c# %}
 [C#]
 
-//Adds a textbox in a slide by specifying its position & size
+//Adds a textbox in a slide by specifying its position and size
 
 IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
 
@@ -122,7 +122,7 @@ textPart.Font.Bold = true;
 {% highlight vb.net %}
 [VB.NET]
 
-'Adds a textbox in a slide by specifying its position & size
+'Adds a textbox in a slide by specifying its position and size
 
 Dim textShape As IShape  = firstSlide.AddTextBox(100, 75, 756, 200)
 
@@ -200,7 +200,7 @@ paragraph.FirstLineIndent = -20
 
 {% endhighlight %}
 
-In PowerPoint presentation the multilevel lists are used for presenting the content in a hierarchy. You can create a multi-level list by setting the indentation levels. By default, the level begins at 0 and increments by 1 for each level. The following code example demonstrates how to add multi-level list in a paragraph.
+In PowerPoint presentation, the multilevel lists are used for presenting the content in a hierarchy. You can create a multi-level list by setting the indentation levels. By default, the level begins at 0 and increments by 1 for each level. The following code example demonstrates how to add multi-level list in a paragraph.
 
 {% highlight vb.net %}
 [C#]
@@ -308,7 +308,7 @@ The resultant PowerPoint presentation looks as follows.
 ![](GettingStarted_images/GettingStarted_img1.jpeg)
 
 
-## Converting PowerPoint presentation to PDF
+## Convert PowerPoint presentation to PDF
 
 Essential Presentation allows you to convert a PowerPoint presentation into PDF document. The following assemblies are required for the presentation to PDF conversion.
 
@@ -352,10 +352,10 @@ Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td
 </table>
 The following namespaces are required to compile the code in this topic.
 
-* using Syncfusion.OfficeChartToImageConverter;
-* using Syncfusion.Pdf;
-* using Syncfusion.Presentation;
-* using Syncfusion.PresentationToPdfConverter;
+* Syncfusion.OfficeChartToImageConverter;
+* Syncfusion.Pdf;
+* Syncfusion.Presentation;
+* Syncfusion.PresentationToPdfConverter;
 
 **PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert the PowerPoint presentation to PDF.
 
@@ -423,7 +423,7 @@ presentation_1.Close()
 
 **Note****:**
 
-* Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to PDF. Otherwise, the charts are not exported to the converted PDF.
+* Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to PDF conversion. Otherwise, the charts are not exported to the converted PDF.
 * **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 
 **PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF document. For more information about this, see [Conversion](http://www.google.com/# "").
