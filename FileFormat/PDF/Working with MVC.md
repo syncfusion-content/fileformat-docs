@@ -2,20 +2,20 @@
 
 # Save the document 
 
-The following code snippet illustrates how to save the PDF document in ASP.NET MVC.
+The following code example illustrates how to save the PDF document in ASP.NET MVC.
 
 {% highlight c# %}
 C#:
 
-// Create a new PdfDocument .
+// Create a new PdfDocument
 
 PdfDocument document = new PdfDocument();
 
-// Add a page to the document.
+// Add a page to the document
 
 PdfPage page = document.Pages.Add();
 
-// Create Pdf graphics for the page.
+// Create Pdf graphics for the page
 
 PdfGraphics graphics = page.Graphics;
 
@@ -23,15 +23,15 @@ PdfGraphics graphics = page.Graphics;
 
 PdfBrush brush = new PdfSolidBrush(Color.Black);
 
-// Set the font.
+// Set the font
 
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20f);
 
-// Draw the text.
+// Draw the text
 
 graphics.DrawString("Hello world!", font, brush, new PointF(20, 20));
 
-//Export the document after save
+//Export the document after saving
 
 return document.ExportAsActionResult("output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save);
 
@@ -228,15 +228,15 @@ this.PdfDoc.Close(true);
 {% highlight vb.net %}
 VB:
 
-' Create a new PdfDocument.
+' Create a new PdfDocument
 
 Dim document As New PdfDocument()
 
-' Add a page to the document.
+' Add a page to the document
 
 Dim page As PdfPage = document.Pages.Add()
 
-' Create Pdf graphics for the page.
+' Create Pdf graphics for the page
 
 Dim graphics As PdfGraphics = page.Graphics
 
@@ -244,15 +244,15 @@ Dim graphics As PdfGraphics = page.Graphics
 
 Dim brush As PdfBrush = New PdfSolidBrush(Color.Black)
 
-' Set the font.
+' Set the font
 
 Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20f)
 
-' Draw the text.
+' Draw the text
 
 graphics.DrawString("Hello world!", font, brush, New PointF(20, 20))
 
-'Export the document after save
+'Export the document after saving
 
 Return document.ExportAsActionResult("output.pdf", HttpContext.ApplicationInstance.Response, HttpReadType.Save)
 
