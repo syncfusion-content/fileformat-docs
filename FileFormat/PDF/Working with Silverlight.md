@@ -2,7 +2,7 @@
 
 # Loading the document 
 
-The below code snippet illustrates how to load the file using URI in Silverlight.
+The following code example illustrates how to load the file by using URI in Silverlight.
 
 {% highlight c# %}
 C#: 
@@ -176,7 +176,7 @@ End Module
 
 {% endhighlight %}
 
-The below code snippet illustrates how to load the file using stream in Silverlight.
+The following code example illustrates how to load the file by using stream in Silverlight.
 
 {% highlight c# %}
 C#:
@@ -348,12 +348,12 @@ End Module
 
 # Save the document 
 
-The following code snippet illustrate how to save the PDF document in Silverlight.
+The following code example illustrates how to save the PDF document in Silverlight.
 
 {% highlight c# %}
 C#:
 
-//Create a new document.
+//Create a new document
 
 PdfDocument document = new PdfDocument();
 

@@ -2,7 +2,7 @@
 
 # Loading the document 
 
-The below code snippet illustrates how to load the file using stream in winrt.
+The following code example illustrates how to load the file by using stream in winrt.
 
 {% highlight c# %}
 C#:
@@ -146,7 +146,7 @@ End Sub
 
 {% endhighlight %}
 
-The below code snippet illustrates how to load the file using file picker in Winrt.
+The following code example illustrates how to load the file by using file picker in Winrt.
 
 {% highlight c# %}
 C#:
@@ -308,12 +308,12 @@ End Sub
 
 # Save the document 
 
-The following code snippet illustrates how to save the PDF document in winrt using file picker.
+The following code example illustrates how to save the PDF document in winrt by using file picker.
 
 {% highlight c# %}
 C#:
 
-//Create a new document.
+//Create a new document
 
 PdfDocument document = new PdfDocument();
 
@@ -398,7 +398,7 @@ fileStream.Dispose();
 {% highlight vb.net %}
 VB:
 
-'Create a new document.
+'Create a new document
 
 Dim document As New PdfDocument()
 

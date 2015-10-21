@@ -2,7 +2,7 @@
 
 # Loading the document 
 
-The below code snippet illustrates how to load the file using stream in windows phone.
+The following code example illustrates how to load the file by using stream in windows phone.
 
 {% highlight c# %}
 C#:
@@ -76,7 +76,7 @@ End Using
 
 {% endhighlight %}
 
-The below code snippet illustrates how to load the file using file open picker in windows phone.
+The following code example illustrates how to load the file by using file open picker in windows phone.
 
 {% highlight c# %}
 C#:
@@ -170,7 +170,7 @@ loadedDocument.Close(True)
 
 # Save the document 
 
-The following code snippet illustrate how to save the PDF document in Windows phone.
+The following code example illustrates how to save the PDF document in Windows phone.
 
 {% highlight c# %}
 C#:

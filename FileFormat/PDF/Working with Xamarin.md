@@ -2,7 +2,7 @@
 
 # Loading the document 
 
-The below code snippet illustrates how to load the file using stream in Xamarin.
+The following code example illustrates how to load the file by using stream in Xamarin.
 
 {% highlight c# %}
 C#:
@@ -138,12 +138,12 @@ End Class
 
 # Save the document 
 
-The following code snippet illustrates how to save the PDF document in Xamarin windows phone platform.
+The following code example illustrates how to save the PDF document in Xamarin windows phone platform.
 
 {% highlight c# %}
 C#:
 
-//Create a new document.
+//Create a new document
 
 PdfDocument document = new PdfDocument();
 
@@ -296,12 +296,12 @@ End Class
 
 {% endhighlight %}
 
-The below code snippet illustrates how to save the file using stream in xamarin android platform.
+The following code example illustrates how to save the file by using stream in xamarin android platform.
 
 {% highlight c# %}
 C#:
 
-//Create a new document.
+//Create a new document
 
 PdfDocument document = new PdfDocument();
 
@@ -428,7 +428,7 @@ Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
 {% highlight vb.net %}
 VB:
 
-'Create a new document.
+'Create a new document
 
 Dim document As New PdfDocument()
 
@@ -542,12 +542,12 @@ End Class
 
 {% endhighlight %}
 
-The below code snippet illustrates how to save the file using stream in xamarin iOS platform.
+The following code example illustrates how to save the file by using stream in xamarin iOS platform.
 
 {% highlight c# %}
 C#:
 
-//Create a new document.
+//Create a new document
 
 PdfDocument document = new PdfDocument();
 
@@ -660,7 +660,7 @@ currentController.PresentViewController(qlPreview, true, null);
 {% highlight vb.net %}
 VB:
 
-'Create a new document.
+'Create a new document
 
 Dim document As New PdfDocument()
 
