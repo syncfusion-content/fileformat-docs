@@ -18,7 +18,7 @@ Essential Presentation allows you to create simple and multi-level lists that ma
 
 **Numbered** **List**
 
-The following code example illustrates creating a numbered list:
+The following code example illustrates how to create a numbered list:
 
 {% highlight c# %}
 [C#]
