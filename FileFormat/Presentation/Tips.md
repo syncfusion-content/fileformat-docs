@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
+layout: Post
+=======
 layout: post
+>>>>>>> development
 title: Tips for using Essential Presentation library
 description: Tips for using Essential Presentation library
 platform: FileFormats
