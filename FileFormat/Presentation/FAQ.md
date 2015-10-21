@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Frequently Asked Questions
 description: Frequently asked questions on Essential Presentation library
 platform: FileFormats
