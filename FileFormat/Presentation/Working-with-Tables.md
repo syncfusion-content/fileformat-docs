@@ -10,7 +10,7 @@ documentation: UG
 
 ## Creating a simple table
 
-Essential Presentation facilitates developers to add tables from scratch. The following code example demonstrates adding a simple table to a slide:
+Essential Presentation facilitates developers to add tables from scratch. The following code example demonstrates how to add a simple table to a slide:
 
 {% highlight c# %}
 [C#]
@@ -110,9 +110,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Applying table formatting
+## Apply table formatting
 
-You can format a table to change its appearance by customizing the table border, cell background, cell margins etc. The following code example demonstrates applying the custom table formatting.
+You can format a table to change its appearance by customizing the table border, cell background, cell margins etc. The following code example demonstrates how to apply the custom table formatting.
 
 {% highlight c# %}
 [C#]
@@ -312,9 +312,9 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Applying table styles
+## Apply table styles
 
-You can format a table by applying pre-defined table styles. The following code example demonstrates applying predefined styles to a table.
+You can format a table by applying pre-defined table styles. The following code example demonstrates how to apply predefined styles to a table.
 
 {% highlight c# %}
 [C#]
@@ -482,7 +482,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Modifying the table
+## Modify the table
 
 The following code example demonstrates how to modify the table in existing PowerPoint presentation.
 
@@ -564,7 +564,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Merging the cells
+## Merge the cells
 
 The following code example shows how to merge cells in a table.
 
@@ -682,7 +682,7 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-## Removing the table
+## Remove the table
 
 You can remove a table from a slide by its instance or by its index position in the shape collection. The following code example demonstrates removing a table in a slide.
 
