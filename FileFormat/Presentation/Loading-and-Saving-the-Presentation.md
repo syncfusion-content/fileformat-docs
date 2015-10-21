@@ -6,9 +6,9 @@ platform: FileFormats
 control: Presentation
 documentation: UG
 ---
-# Loading & saving the presentation
+# Load and save the presentation
 
-## Opening an existing presentation from file system
+## Open an existing presentation from file system
 
 You can open an existing PowerPoint presentation by using the file name and its physical path.
 
@@ -34,7 +34,7 @@ Dim presentation_1 As IPresentation = Presentation.Open(fileName)
 
 {% endhighlight %}
 
-## Opening an existing presentation from stream
+## Open an existing presentation from stream
 
 You can open an existing PowerPoint presentation from stream by using the overloads of Open method.
 
@@ -60,7 +60,7 @@ Dim presentation_1 As IPresentation = Presentation.Open(presentationStream)
 
 {% endhighlight %}
 
-## Opening an encrypted presentation
+## Open an encrypted presentation
 
 You can open an encrypted PowerPoint presentation from either file path or stream by using the following overloads of Open method as follows.
 
@@ -108,9 +108,9 @@ Dim presentation As IPresentation = Presentation.Open(fileName, password)
 
 {% endhighlight %}
 
-## Saving a PowerPoint presentation to file system
+## Save a PowerPoint presentation to file system
 
-You can save the created or manipulated PowerPoint presentation to file system using Save() method of **IPresentation** interface. Default format type is *.pptx.
+You can save the created or manipulated PowerPoint presentation to file system by using Save() method of **IPresentation** interface. Default format type is *.pptx.
 
 {% highlight c# %}
 [C#]
@@ -150,7 +150,7 @@ Presentation_1.Save("Output.pptx")
 
 {% endhighlight %}
 
-## Saving a PowerPoint presentation to stream
+## Save a PowerPoint presentation to stream
 
 You can save the created or manipulated PowerPoint presentation to stream by using overloads of Save method.
 
@@ -200,9 +200,9 @@ Presentation_1.Save(stream)
 
 {% endhighlight %}
 
-## Sending to a client browser
+## Send to a client browser
 
-You can save and send the presentation to a client browser from a website or web application by invoking the overload of Save method. This method explicitly make use of an instance of HttpResponse as its parameter in order to stream the presentation to client browser. So, this overload is suitable for web application that references [System.Web](https://msdn.microsoft.com/en-us/library/gg145018(v=vs.110).aspx# "") assembly.
+You can save and send the presentation to a client browser from a website or web application by invoking the overload of Save method. This method explicitly make use of an instance of HttpResponse as its parameter in order to stream the presentation to client browser. So, this overload is suitable for web application that refer to [System.Web](https://msdn.microsoft.com/en-us/library/gg145018(v=vs.110).aspx# "") assembly.
 
 {% highlight c# %}
 [C#]
@@ -242,9 +242,9 @@ Presentation_1.Save("Output.pptx", FormatType.Pptx, Response)
 
 {% endhighlight %}
 
-## Closing a PowerPoint presentation
+## Close a PowerPoint presentation
 
-Once, you are done with the presentation instance, you should close the instance of **IPresentation**, in order to release the memory consumed by Essential Presentation library. The following code example illustrates how to close an IPresentation instance.
+When you are done with the presentation instance, you should close the instance of **IPresentation** in order to release the memory consumed by Essential Presentation library. The following code example illustrates how to close an IPresentation instance.
 
 {% highlight c# %}
 [C#]
@@ -265,7 +265,7 @@ MemoryStream stream = new MemoryStream();
 
 presentation.Save(stream);
 
-//Closes the presentation instance & free the memory consumed.
+//Closes the presentation instance and free the memory consumed.
 
 presentation.Close();
 
@@ -292,7 +292,7 @@ Dim stream As New MemoryStream()
 
 presentation_1.Save(stream)
 
-'Closes the presentation instance & free the memory consumed.
+'Closes the presentation instance and free the memory consumed.
 
 presentation_1.Close()
 
