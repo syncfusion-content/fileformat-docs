@@ -1,20 +1,21 @@
 ---
 title: Working with Bookmarks
 description: Bookmarks by using Essential PDF- Bookmark
-platform: file-formats
+platform: FileFormat
 control: PDF
 documentation: UG
 ---
 # Working with Bookmarks
 
-**Essential** **PDF** provides support to insert, remove and modify the bookmarks in the PDF Document.
+Essential PDF provides support to insert, remove and modify the bookmarks in the PDF Document.
 
 ## Adding Bookmarks in a PDF
 
-The **PdfBookmarkBase** collection represents the bookmarks in a PDF document. To add a bookmark in a new PDF document, use the following code examples.
+The PdfBookmarkBase collection represents the bookmarks in a PDF document. To add a bookmark in a new PDF document, use the following code examples.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new document.
 
@@ -53,7 +54,6 @@ document.Close(True);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new document.
 
@@ -90,13 +90,14 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Adding Bookmarks in an existing PDF document
 
 To add bookmarks to an existing PDF document, use the following code examples.
-
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Loads the document.
 
@@ -133,7 +134,7 @@ document.Close(True);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Loads the document.
 
@@ -166,13 +167,14 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Adding a Child to the Bookmarks
 
 To a child to a bookmark, refer to the following code example.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Creates a new document.
 
@@ -223,7 +225,6 @@ document.Close(True);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new document.
 
@@ -270,6 +271,7 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Inserting Bookmarks in an existing PDF
 
@@ -277,8 +279,9 @@ When loading an existing document, the **Essential** **PDF** loads all bookmarks
 
 Each loaded bookmark is represented by the **PdfLoadedBookmark** object. The following code example illustrates how to insert new bookmarks in the existing **PDF** document.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new document.
 
@@ -307,7 +310,6 @@ document.Close(True);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new document.
 
@@ -332,13 +334,14 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Removing Bookmarks from an existing PDF 
 
 You can also remove bookmarks from the existing PDF document by using the following code examples.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Loads the PDF document.
 
@@ -367,7 +370,6 @@ document.Close(True);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Loads the PDF document.
 
@@ -394,10 +396,11 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Modifying the Bookmarks
 
-**Essential** **PDF** allows you to modify the bookmarks in the existing PDF document. The following modifications can be done to bookmarks in an existing document. 
+Essential PDF allows you to modify the bookmarks in the existing PDF document. The following modifications can be done to bookmarks in an existing document. 
 
 * Modify the bookmark style, color, title, and destination.
 * Add or insert new bookmarks into the root collection.
@@ -406,8 +409,8 @@ document.Close(True)
 
 The following code example shows how to modify the destination, color, style and title of an existing bookmark collection.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Loads the PDF document.
 
@@ -440,7 +443,6 @@ document.Close(True);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Loads the PDF document.
 
@@ -473,4 +475,4 @@ document.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}

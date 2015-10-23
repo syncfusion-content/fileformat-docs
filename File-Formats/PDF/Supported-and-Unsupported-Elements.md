@@ -1,7 +1,7 @@
 ---
 title: Supported and Unsupported Elements
 description: Features available in Essential PDF and their availability in different platforms. Supported and unsupported elements
-platform: file-formats
+platform: Fileformat
 control: PDF
 documentation: UG
 ---
@@ -10,14 +10,17 @@ documentation: UG
 The following table shows the various features available in the Essential PDF and their availability in different platforms.
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms /WPF<br/><br/></th><th>
+ASP.NET/ASP.NET MVC<br/><br/>(MediumTrust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps<br/><br/>(WinRT,WindowsPhone and Windows Universal)<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 Drawing Text<br/><br/></td><td>
@@ -74,18 +77,23 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>
-**Graphics****:**
+
+Graphics:
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms / WPF <br/><br/></th><th>
+ASP.NET /ASP.NET MVC<br/><br/> (Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps <br/><br/> (WinRT ,Windows Phone and Windows Universal )<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 Pen and Brush<br/><br/></td><td>
@@ -142,20 +150,24 @@ Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
+</tbody>
 </table>
 
 
-**Document****–****level** **Operations****:**
+Document–level Operations :
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms / WPF <br/><br/></th><th>
+ASP.NET/ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps <br/><br/> ( WinRT , Windows Phone and Windows Universal )<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 Merge Documents<br/><br/></td><td>
@@ -204,18 +216,23 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>
-**Document** **Settings****:**
+
+Document Settings :
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms /WPF<br/><br/></th><th>
+ASP.NET/ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps<br/><br/>(WinRT,Windows Phone and Windows Universal )<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 Custom Metadata<br/><br/></td><td>
@@ -256,18 +273,23 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>
-**Forms****:**
+
+Forms:
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms/WPF<br/><br/></th><th>
+ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 Fields<br/><br/></td><td>
@@ -308,18 +330,23 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>
-**Document** **Conversion****:**
+
+Document Conversion:
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms/WPF<br/><br/></th><th>
+ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 TIFF to PDF<br/><br/></td><td>
@@ -368,18 +395,23 @@ No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
+</tbody>
 </table>
-**PDF** **Standards****:**
+
+PDF Standards:
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms/WPF<br/><br/></th><th>
+ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 PDF/ A-1b Compliance<br/><br/></td><td>
@@ -396,18 +428,23 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
+</tbody>
 </table>
-**Fonts****:**
+
+Fonts:
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms/WPF<br/><br/></th><th>
+ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 Standard Fonts<br/><br/></td><td>
@@ -440,18 +477,23 @@ No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
+</tbody>
 </table>
-**Images****:**
+
+Images:
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms/WPF<br/><br/></th><th>
+ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 Scalar Images<br/><br/></td><td>
@@ -484,20 +526,24 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>
 
 
-**Tables****:**
+Tables:
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms/WPF<br/><br/></th><th>
+ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 ADO.Net Tables Support<br/><br/></td><td>
@@ -540,7 +586,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-RowSpan* and ColumnSpan<br/><br/></td><td>
+RowSpan and ColumnSpan<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -548,7 +594,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-Nested table*<br/><br/></td><td>
+Nested table<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -562,18 +608,23 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>
-**Page** **Level** **Operations****:**
+
+Page Level Operations:
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms/WPF<br/><br/></th><th>
+ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 Headers and Footers<br/><br/></td><td>
@@ -598,18 +649,23 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>
-**Interactive** **Elements****:**
+
+Interactive Elements:
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms/WPF<br/><br/></th><th>
+ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 3D-Annotation<br/><br/></td><td>
@@ -650,18 +706,23 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>
-**Security****:**
+
+Security:
 
 <table>
+<thead>
 <tr>
 <th>
-**Features**<br/><br/></th><th>
-**Windows** **Forms****/****WPF**<br/><br/></th><th>
-**ASP** **.****NET** **/** **ASP****.****NET** **MVC**<br/><br/>**(****Medium** **Trust****)**<br/><br/></th><th>
-**Silverlight**<br/><br/></th><th>
-**Windows** **Store** **Apps**<br/><br/>**(****WinRT****,** **Windows** **Phone** **and** **Windows** **Universal** **)**<br/><br/></th><th>
-**Xamarin**<br/><br/></th></tr>
+Features<br/><br/></th><th>
+Windows Forms/WPF<br/><br/></th><th>
+ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+Xamarin<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 Digital Signature<br/><br/></td><td>
@@ -678,9 +739,10 @@ Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
+</tbody>
 </table>
-![Description: http://help.syncfusion.com/ug_92/Reporting/PDF/ASP.NET/ImagesExt/image9_2.png](SupportedandUnsupportedElements_images/SupportedandUnsupportedElements_img1.jpeg)
-__**Note**____**:**__
 
-__*****____**Supported**__ __**only**__ __**in**__ __**PdfGrid**__ __**class**__
+N>
+
+Supported__ __only__ __in__ __PdfGrid__ __class__
 

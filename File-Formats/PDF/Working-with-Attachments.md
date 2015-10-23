@@ -1,7 +1,7 @@
 ---
 title: Working with Attachments
 description: File Attachments by using Essential PDF- File Attachments
-platform: file-formats
+platform: FileFormat
 control: PDF
 documentation: UG
 ---
@@ -14,9 +14,8 @@ Attachments can contain any kind of file with detailed information.
 ##  Adding attachment to a PDF document
 
 The following code example shows how to add a text file attachment to a PDF document.
-
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 
 
@@ -51,7 +50,6 @@ document.Close(true);
 
 
 {% highlight vb.net %}
-[VB.NET]
 
 
 
@@ -82,13 +80,13 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 Essential PDF also provides support for adding the attachments to existing PDF documents. The following code example illustrates the same.
 
 
-
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 
 
@@ -123,7 +121,6 @@ document.Close(true);
 
 
 {% highlight vb.net %}
-[VB.NET]
 
 
 
@@ -154,13 +151,14 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Removing attachment from an existing PDF 
 
 Essential PDF allows you to remove the attachments from the existing document as shown in the following code example.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Loads the PDF document
 
@@ -187,7 +185,6 @@ document.Close(true);
 
 
 {% highlight vb.net %}
-[VB.NET]
 
 
 
@@ -213,14 +210,14 @@ document.Close(True)
 
 {% endhighlight %}
 
-
+{% endtabs %}
 
 ## Extracting and saving an attachment to the disk.
 
 Essential PDF provides supports extracting the attachments and saving them to the disk. The following code example explains how to extract and save an attachment.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Loads the PDF document
 
@@ -253,7 +250,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Loads the PDF document
 
@@ -282,4 +278,4 @@ document.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}

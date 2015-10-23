@@ -1,7 +1,7 @@
 ---
 title: Working with Barcode
 description: Support to add barcodes to PDF document
-platform: file-formats
+platform: FileFormat
 control: PDF
 documentation: 
 ---
@@ -15,7 +15,7 @@ Essential PDF provides support to add barcodes to the PDF document. The followin
 
 
 The below code snippet shows how to add Code39 barcode to a PDF document.
-
+{% tabs %}
 {% highlight c# %}
 //Creating new PDF Document
 
@@ -50,7 +50,6 @@ doc.Save("CODE39.pdf");
 
 
 {% highlight vb.net %}
-[VB]
 
 'Creating new PDF Document
 
@@ -84,14 +83,14 @@ doc.Save("CODE39.pdf")
 
 {% endhighlight %}
 
-
+{% endtabs %}
 
 ### Adding a two dimensional barcode to a PDF document
 
 The below code snippet shows how to add a QR code to the PDF document.
-
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Drawing QR Barcode
 
@@ -130,7 +129,6 @@ doc.Save("QRBarcode.pdf");
 
 
 {% highlight vb.net %}
-[VB]
 
 'Drawing QR Barcode
 
@@ -170,24 +168,27 @@ doc.Save("QRBarcode.pdf")
 
 {% endhighlight %}
 
-
+{% endtabs %}
 
 ### Customizing the barcode appearance
 
 The height of the barcode can be changed using the **BarHeight** property. The equivalent property to change the block size for two dimensional barcode is **XDimension**. You can also customize the barcode color by changing the DarkBarColor and LightBarColor properties.
 
-**Note****:** This color customization is possible only for one dimensional barcodes and it is not supported for two dimensional barcodes.
+N> This color customization is possible only for one dimensional barcodes and it is not supported for two dimensional barcodes.
 
 ### Supported barcode types
 
 The following table contains the supported types and associated valid characters.
 
 <table>
+<thead>
 <tr>
-<td>
-**Symbol**<br/><br/></td><td>
-**Supported** **characters**<br/><br/></td><td>
-**Length**<br/><br/></td></tr>
+<th>
+Symbol <br/><br/></th><th>
+Supported characters<br/><br/></th><th>
+Length<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 {{'[QR Code](https://en.wikipedia.org/wiki/QR_code#"")'| markdownify }}<br/><br/></td><td>
@@ -248,4 +249,5 @@ variable<br/><br/></td></tr>
 {{'[Code 128C](https://en.wikipedia.org/wiki/Code_128#"")'| markdownify }}<br/><br/></td><td>
 ASCII 00-99(encodes each two digit with one code)<br/><br/></td><td>
 variable<br/><br/></td></tr>
+</tbody>
 </table>

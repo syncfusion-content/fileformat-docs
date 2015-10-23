@@ -1,7 +1,7 @@
 ---
 title: Working with Color Spaces
 description: Essential PDF allows you to set the color spaces. Document colorspace; Graphics colorspace
-platform: file-formats
+platform: Fileformat
 control: PDF
 documentation: UG
 ---
@@ -43,9 +43,9 @@ CIE-based color space in the PDF document is classified as,
 •Lab
 
 The following code example illustrates how to draw a rectangle with **CalGray** brush in new PDF document.
-
+{% tabs %}
 {% highlight c# %}
-C#:
+
 
 //Creates a new PDF document.
 
@@ -94,7 +94,6 @@ pdfDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Creates a new PDF document.
 
@@ -141,11 +140,12 @@ pdfDocument.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 The following code example illustrates how to draw a rectangle with **CalGray** brush in existing PDF document.
-
+{% tabs %}
 {% highlight c# %}
-C#:
+
 
 //Loads the existing PDF document.
 
@@ -194,7 +194,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Loads the existing PDF document.
 
@@ -243,6 +243,7 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## ICC-based Color Spaces
 
@@ -256,8 +257,9 @@ It contains the following types:
 
 The following code example illustrates how to set the indexed ICC color space in new PDF document.
 
+{% tabs %}
 {% highlight c# %}
-C#:
+
 
 //Creates a new PDF document.
 
@@ -328,7 +330,6 @@ pdfDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Creates a new PDF document.
 
@@ -397,11 +398,13 @@ pdfDocument.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 The following code example illustrates how to set the indexed ICC color space in existing PDF document.
 
+{% tabs %}
 {% highlight c# %}
-C#:
+
 
 //Loads the existing PDF document.
 
@@ -472,7 +475,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Loads the existing PDF document.
 
@@ -521,13 +524,15 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Pantone colors
 
 The following code example illustrates how to draw the graphics elements by using pantone colors in new PDF document.
 
+{% tabs %}
 {% highlight c# %}
-C#:           
+          
 
 // Creates a new document
 
@@ -584,7 +589,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 ' Creates a new document
 
@@ -637,11 +641,13 @@ docuemnt.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 The following code example illustrates how to draw the graphics elements by using pantone colors in existing PDF document.
 
+{% tabs %}
 {% highlight c# %}
-C#:
+
 
 //Loads the document.
 
@@ -694,7 +700,7 @@ loadeddocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Loads the document.
 
@@ -745,15 +751,15 @@ loadeddocument.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Working with color space in graphics
 
 You can set the color spaces to the particular object in the PDF document by using the ColorSpace property in PdfGraphics class.
 
 The following code illustrates how to use the color spaces in particular objects in new PDF document.
-
+{% tabs %}
 {% highlight c# %}
-C#:
 
 //Creates a new PDF document.
 
@@ -814,7 +820,6 @@ pdfDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Creates a new PDF document.
 
@@ -873,11 +878,12 @@ pdfDocument.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 The following code illustrates how to use the color spaces in particular objects in existing PDF document.
-
+{% tabs %}
 {% highlight c# %}
-C#:
+
 
 //Loads the existing PDF document.
 
@@ -938,7 +944,6 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Loads the existing PDF document.
 
@@ -997,4 +1002,4 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}

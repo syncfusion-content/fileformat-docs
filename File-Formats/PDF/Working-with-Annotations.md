@@ -1,7 +1,7 @@
 ---
 title: Working with Annotations
 description: Creating interactive Annotation by using Essential PDf- Annotations; Free text Annotation; Rubber stamp Annotation
-platform: file-formats
+platform: FileFormat
 control: PDF
 documentation: UG
 ---
@@ -15,8 +15,9 @@ You can add, delete and modify the annotation from the PDF documents.
 
 The following code example explains how to add a popup annotation to the page.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -59,7 +60,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new PDF document.
 
@@ -100,11 +100,12 @@ document.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}
 To add annotations to an existing PDF document, use the following code example.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -142,8 +143,7 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
-[VB.NET]      
+{% highlight vb.net %}      
 
 'Creates a new PDF document.
 
@@ -180,7 +180,7 @@ document.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}
 ## Supported annotation types
 
 ### 3D Annotation
@@ -188,9 +188,9 @@ document.Close(True)
 3D Annotations are used to represent 3D artworks in a PDF document. Essential PDF provides support to embed 3D files (u3d) in PDF. 
 
 The following example illustrates how to add 3D annotation in PDF document.
-
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -231,7 +231,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new PDF document.
 
@@ -268,15 +267,16 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### File Link Annotation 
 
 Links for external files can be added in a PDF document by using the file link annotation.
 
 The following code example explains how to add a file link annotation in PDF.
-
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document
 
@@ -309,7 +309,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new PDF document
 
@@ -342,6 +341,7 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### Free Text Annotation
 
@@ -349,8 +349,9 @@ Free text annotation enables you to display the text directly on the page. When 
 
 The following code example explains how to add a free text annotation in the PDF document.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new pdf document
 
@@ -405,7 +406,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new pdf document
 
@@ -460,15 +460,16 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### Line Annotation 
 
 Line annotation displays a single straight line on the page. When you open it, it displays a pop-up window containing text of the associated note.
 
-**PdfLineAnnotation** is used to create and set the properties of the Line annotation.
-
+PdfLineAnnotation is used to create and set the properties of the Line annotation.
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -539,7 +540,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new PDF document.
 
@@ -610,17 +610,18 @@ document.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}
 ### Rubber stamp Annotation
 
 Rubber stamp annotation displays text or graphics intended to look like it is stamped on the page with a rubber stamp. 
 
 When opened, it displays a pop-up window containing the text of the associated note.
 
-**PdfRubberStampAnnotation** is used to create rubber stamp annotation.
+PdfRubberStampAnnotation is used to create rubber stamp annotation.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -655,7 +656,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new PDF document.
 
@@ -688,6 +688,7 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### Ink Annotation
 
@@ -697,8 +698,8 @@ When you open it, it displays a pop-up window containing text of the associated 
 
 The following code example explains how to add ink annotation in a PDF document.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Creates a new PDF document.
 
@@ -733,7 +734,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new PDF document.
 
@@ -766,6 +766,7 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### Pop-up Annotation
 
@@ -775,8 +776,8 @@ It typically does not appear alone, but is associated with markup annotation, it
 
 The following code example explains how to add pop-up annotation in a PDF document.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Creates a new rectangle
 
@@ -811,7 +812,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new PDF document.
 
@@ -852,6 +852,7 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### File Attachment Annotation
 
@@ -859,8 +860,8 @@ File attachment annotation contains reference to a file that typically is embedd
 
 The following code example explains how to add a file attachment annotation in a PDF document.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Creates a new PDF Document.
 
@@ -897,7 +898,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new PDF Document.
 
@@ -932,15 +932,16 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### Sound Annotation
 
 Sound annotation is used to play the sound clip in the PDF Document.
 
 The following code example explains how to add a sound annotation in a PDF document.
-
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document
 
@@ -985,7 +986,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new PDF document
 
@@ -1028,15 +1028,16 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### URI Annotation
 
 URI annotation is used to navigate to a particular web URI
 
 The following code example explains how to add URI annotation in a PDF document.
-
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document
 
@@ -1073,7 +1074,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new PDF document
 
@@ -1108,15 +1108,15 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### Document Link Annotation
 
 This annotation is used to navigate to a specific destination within the document.
 
 The following code example explains how to add a document link annotation in PDF document.
-
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Creates a new PDF document
 
@@ -1167,7 +1167,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Creates a new PDF document
 
@@ -1216,13 +1216,14 @@ document.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}
 ## Modifying the annotations
 
 Essential PDF allows you to modify the annotation of existing document. The following code illustrates this.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Loads the document
 
@@ -1257,7 +1258,6 @@ lDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Loads the document
 
@@ -1290,13 +1290,15 @@ lDoc.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Removing annotations from an existing PDF 
 
 You can remove the annotation from the annotation collection, represented by the **PdfLoadedAnnotationCollection** of the loaded page. The following code illustrates this.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Loads the document
 
@@ -1325,7 +1327,6 @@ lDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Loads the document
 
@@ -1352,4 +1353,4 @@ lDoc.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}

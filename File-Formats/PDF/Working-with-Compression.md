@@ -1,7 +1,7 @@
 ---
 title: Working with Compression
 description: Compress PDF document by using Essential PDF -Compressing; Content compression; Image compression
-platform: file-formats
+platform: FileFormat
 control: PDF
 documentation: UG
 ---
@@ -24,8 +24,8 @@ Content compression involves,
 
 The following code example illustrates how to compress the content of the PDF document.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Creates a new PDF document.
 
@@ -78,7 +78,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Creates a new PDF document.
 
@@ -123,11 +122,13 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 You can compress the existing PDF document by using the following code example.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Loads the PDF document
 
@@ -152,7 +153,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Loads the PDF document
 
@@ -175,13 +176,15 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Compressing images
 
 Essential PDF allows you to compress/change the quality of the image in the PDF document by using the following code example.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -216,7 +219,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Creates a new PDF document.
 
@@ -249,11 +251,12 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 You can compress the images in the existing PDF document by using the following code example.
-
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Loads the PDF document which c images
 
@@ -304,7 +307,6 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Loads the PDF document that consist of images
 
@@ -349,4 +351,4 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}

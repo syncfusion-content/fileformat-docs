@@ -1,20 +1,19 @@
 ---
 title: Working with Action
 description: Creating user interactve PDF - PdfSoundAction; PdfjavascriptAction; PdfUriAction ;PdfLaunchAction
-platform: file-formats
+platform: Fileformat
 control: PDF
 documentation: UG
 ---
 # Working with Actions
 
-**Essential** **PDF** supports different actions that can be triggered by different events and user interactions.
+Essential PDF supports different actions that can be triggered by different events and user interactions.
 
 ## Adding an action to the PDF
 
 You can add the action to the PDF document using the below code snippet.
-
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document
 
@@ -37,7 +36,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Create a new PDF document
 
@@ -58,26 +56,28 @@ document.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}
 ## Supported action types
 
 Essential PDF supports the following types of actions.
 
-* **PdfSoundAction** that plays the music file
-* **PdfJavaScriptAction** that executes PDF JavaScript code
-* **PdfUriAction** that launches the URI
-* **PdfGoToAction** that goes to the specified page of the document
-* **PdfLaunchAction** that launches the application or opens the document
-* **PdfNamedAction** that goes to the named destination: next, previous, first or last page
-* **PdfSubmitAction** that submits the data that is entered into the PDF form
-* **PdfResetAction** that resets the fields of the PDF form
+* PdfSoundAction that plays the music file
+* PdfJavaScriptAction that executes PDF JavaScript code
+* PdfUriAction that launches the URI
+* PdfGoToAction that goes to the specified page of the document
+* PdfLaunchAction that launches the application or opens the document
+* PdfNamedAction that goes to the named destination: next, previous, first or last page
+* PdfSubmitAction that submits the data that is entered into the PDF form
+* PdfResetAction that resets the fields of the PDF form
+
 ### Sound action
 
 
 Sound action plays a specified music file in the PDF document. Volume and repeat can be specified for the sound action.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Create a new document
 
@@ -114,7 +114,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Create a new document
 
@@ -149,13 +148,14 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### JavaScript action
 
 A JavaScript action allows execution of **JavaScript** code embedded in the **PDF** document
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Create a new document
 
@@ -184,7 +184,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a new document
 
@@ -211,8 +211,9 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
-Note: 
+N>  
 
 You can refer more PDF JavaScript code in **PdfJavaScriptAction** from the below developer guide.
 
@@ -222,8 +223,8 @@ You can refer more PDF JavaScript code in **PdfJavaScriptAction** from the below
 
 URI action allows you to create a hyperlink that can open webpage in a web browser.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Create a new document with PDF/A standard.
 
@@ -248,7 +249,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a new document with PDF/A standard.
 
@@ -271,13 +272,14 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### GoTo action
 
 GoTo action displays the specified page in the current document. The location can be specified for the destination page.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Create a new document
 
@@ -312,7 +314,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a new document
 
@@ -345,13 +347,15 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### Launch action
 
 A Launch action allows execution of an external file. The code snippet below explains how to add a launch action.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Create a new PDF document
 
@@ -374,7 +378,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a new PDF document
 
@@ -395,6 +399,7 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### Named action
 
@@ -406,9 +411,10 @@ The following predefined **PDF** actions are available:
 * Go to prev page 
 * Go to first page and 
 * Go to last page.
+
+{% tabs %}
 {% highlight c# %}
 
-[C#]
 
 //Create a new document
 
@@ -437,7 +443,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a new document
 
@@ -464,13 +470,15 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### Submit action
 
 Submit action allows submission of data that is entered in the PDF form.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Create a PDF document
 
@@ -509,7 +517,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a PDF document
 
@@ -546,13 +554,15 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ### Reset action
 
 A reset action allows execution of reset of all the form fields in the PDF document.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Create a PDF document
 
@@ -607,7 +617,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a PDF document
 
@@ -660,6 +670,7 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Adding an action to the form field
 
@@ -669,8 +680,8 @@ PdfFieldActions class is used to create form field actions.
 
 The following code example illustrates this. 
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -713,7 +724,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a new PDF document.
 
@@ -754,13 +765,14 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Adding an action to the bookmarks
 
 Essential PDF provides you support to add the various action to the bookmarks. The code snippet below shows how to add an URI action to bookmark.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Create a new document.
 
@@ -799,7 +811,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Create a new document.
 
@@ -836,8 +847,9 @@ document.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
-**Note****:**
+N> 
 
 The action assigned to the bookmark works only when destination of bookmark is not set.
 

@@ -1,7 +1,7 @@
 ---
 title: Working with Digital Signature
 description: Creating Digital Signature by using Essential PDF- Digital signature; Digital Sign
-platform: file-formats
+platform: FileFormat
 control: PDF
 documentation: UG
 ---
@@ -12,9 +12,8 @@ documentation: UG
 Essential PDF allows you to add digital signature to the PDF document. In order to add digital signature, you can need a certificate with private keys. Essential PDF provides support for digital signature by using PFX files.
 
 The following code example illustrates how to add a digital signature in the PDF document.
-
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Creates a new PDF document.
 
@@ -63,7 +62,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Creates a new PDF document.
 
@@ -110,11 +108,12 @@ document.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}
 You can add a digital signature to an existing document as follows.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Loads the PDF document with signature field
 
@@ -159,7 +158,6 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Loads the PDF document with signature field
 
@@ -196,13 +194,13 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}
 ## Signing an existing document
 
 You can load the signature field from the existing PDF document and add certificate to the document as follows.
-
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Loads a PDF document
 
@@ -235,7 +233,6 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Loads a PDF document
 
@@ -266,13 +263,15 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Adding a timestamp in digital signature
 
 Essential PDF allows you to add timestamp in the digital signature of the PDF document. The following code example illustrates the same.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -325,7 +324,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Creates a new PDF document.
 
@@ -377,3 +375,4 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}

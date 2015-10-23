@@ -1,7 +1,7 @@
 ---
 title: Merge Documents
 description: Merging multiple PDF document into single PDF- Merge PDF documents; Import page
-platform: file-formats
+platform: FileFormat
 control: PDF
 documentation: UG
 ---
@@ -15,8 +15,8 @@ You can merge the multiple PDF document by specifying the path of the documents 
 
 Refer to the following code example to merge multiple documents from disk.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Creates a new PDF document
 
@@ -45,7 +45,6 @@ finalDoc.Close(true);
 
 
 {% highlight vb.net %}
-[VB]
 
 'Creates a new PDF document
 
@@ -70,11 +69,12 @@ finalDoc.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 You can merge the PDF document streams by using the following code example.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 //Creates a PDF document
 
@@ -113,7 +113,6 @@ stream2.Dispose();
 
 
 {% highlight vb.net %}
-[VB]
 
 'Creates a PDF document
 
@@ -148,13 +147,14 @@ stream2.Dispose()
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Importing pages from multiple documents
 
 **Essential** **PDF** provides support for importing the pages from one document to another document. The following code illustrates this. The imported page is added to the end of the original document.
 
-{% highlight c# %}
-[C#]      
+{% tabs %}
+{% highlight c# %}     
 
 //Loads document
 
@@ -185,7 +185,6 @@ lDoc.Close(true)
 
 
 {% highlight vb.net %}
-[VB]
 
 'Loads document
 
@@ -212,11 +211,12 @@ lDoc.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 You can import multiple pages from an existing document by using **ImportPageRange** method. The following code example illustrates this.
 
-{% highlight c# %}
-[C#]      
+{% tabs %}
+{% highlight c# %}      
 
 //Loads PDF document
 
@@ -247,7 +247,6 @@ lDoc.Close(true);
 
 
 {% highlight vb.net %}
-[VB]
 
 'Loads PDF document
 
@@ -274,11 +273,12 @@ lDoc.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 You can also import pages from multiple documents and arrange the pages as required. The following code example explains the same.
 
-{% highlight c# %}
-[C#]      
+{% tabs %}
+{% highlight c# %}      
 
 //Loads document
 
@@ -317,7 +317,6 @@ lDoc2.Close(true);
 
 
 {% highlight vb.net %}
-[VB]
 
 'Loads a document
 
@@ -350,6 +349,7 @@ lDoc2.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Best practices
 
@@ -359,8 +359,8 @@ Note:  The parent PDF document has all the contents in run time memory. It relea
 
 The following code shows how to split the PDF document
 
-{% highlight c# %}
-[C#]      
+{% tabs %}
+{% highlight c# %}      
 
 //Loads the PDF document
 
@@ -381,7 +381,6 @@ ldocument.Close(true);
 
 
 {% highlight vb.net %}
-[VB]
 
 'Loads the PDF document
 
@@ -398,11 +397,12 @@ ldocument.Close(True)
 
 
 {% endhighlight %}
+{% endtabs %}
 
 The following code shows how to merge the PDF documents.
 
+{% tabs %}
 {% highlight c# %}
-[C#]
 
 
 
@@ -431,7 +431,6 @@ document.Close(true);
 
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Input documents
 
@@ -454,6 +453,6 @@ document.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}
 
 

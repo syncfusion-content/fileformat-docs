@@ -1,7 +1,7 @@
 ---
 title: Working with Asp.net 
 description: Create a Asp.net and save the document
-platform: file-formats
+platform: FileFormat
 control: PDF
 documentation: UG
 
@@ -10,7 +10,7 @@ documentation: UG
 ## Save the document 
 
 The following code example illustrates how to download the PDF document in browser after saving the document.
-
+{% tabs %}
 {% highlight c# %}
 
 //Create a new PDF document
@@ -42,7 +42,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Create a new PDF document
 
@@ -71,11 +71,11 @@ document.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}
 The following code example illustrates how to open the PDF document in web browser after saving the document.
-
+{% tabs %}
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document
 
@@ -106,7 +106,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Create a new PDF document
 
@@ -135,4 +135,4 @@ document.Close(True)
 
 
 {% endhighlight %}
-
+{% endtabs %}
