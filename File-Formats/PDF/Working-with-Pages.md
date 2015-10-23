@@ -11,8 +11,10 @@ documentation: UG
 
 The following code sample explains you on how to add a page in a PDF document. When multiple pages are added, the new page is always added to the end of the document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Create a new PDF document.
 
@@ -49,7 +51,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Create a new PDF document.
 
@@ -85,12 +87,16 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Inserting pages in a document
 
 You can insert an empty page at any location of the existing PDF document. The below code snippet explains the same.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Load the PDF document
 
@@ -111,7 +117,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Load the PDF document
 
@@ -131,12 +137,16 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ## Adding margin to the PDF pages
 
 You can add margin to all the PDF pages of the PDF document using the pagesetting property. The following code snippet illustrates the same.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Create a new PDF document.
 
@@ -177,7 +187,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Create a new PDF document.
 
@@ -217,12 +227,17 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Importing pages from an existing document.
 
 Essential PDF allows you to import a page or import a range of pages from one document to the other. The following code sample illustrates how to import a page from an existing document
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 //Load the PDF document.
 
@@ -255,7 +270,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Load the PDF document.
 
@@ -287,12 +302,17 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %} 
+
+
 ## Rearranging pages in an existing document
 
 You can rearrange the pages in an existing PDF document using ReArrange method. The following code snippet illustrates the same.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Load the PDF document
 
@@ -313,7 +333,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Load the PDF document
 
@@ -333,12 +353,17 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Removing pages from a document
 
 You can remove the pages from the existing PDF document as shown in the below code snippet. 
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Load the PDF document.
 
@@ -361,7 +386,7 @@ loadedDocument.Save("Output.pdf");
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Load the PDF document.
 
@@ -383,12 +408,16 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Rotating a PDF page
 
 You can rotate a particular PDF page in the PDF document, using the following code snippet. 
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Create a new PDF document.
 
@@ -431,7 +460,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Create a new PDF document.
 
@@ -475,12 +504,16 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Splitting a PDF file to individual pages
 
 Essential PDF allows to split the pages of an existing PDF document into multiple individual PDF documents. The following code snippet explains the same.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Load document.
 
@@ -503,7 +536,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Load document.
 
@@ -525,3 +558,4 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  

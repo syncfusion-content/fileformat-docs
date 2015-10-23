@@ -13,6 +13,7 @@ Essential PDF allows you to convert HTML pages to PDF document. The converter of
 
 * IE Rendering 
 * WebKit Rendering 
+
 ### Conversion using IE Rendering
 
 
@@ -25,13 +26,16 @@ To use the IE rendering engine in your application, the following assemblies nee
 1. Syncfusion.Compression.Base.dll
 2. Syncfusion.Pdf.Base.dll
 3. Syncfusion.HtmlConverter.Base.dll
+
 #### Converting the URL to a PDF document
 
 
 To convert the http or https website to PDF, use the following the code snippet. 
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -86,7 +90,7 @@ pdfDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Creates a new PDF document.
 
@@ -140,17 +144,22 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
-1. The **EnableJavascript** property needs to be set to true for websites that contains JavaScript. 
-2. **ImageType** argument of the **Convert** method needs to be set as Metafile for vector graphics and a searchable PDF document. Selecting the Bitmap type would result in a non-searchable PDF.
-3. The Layout property of the **PdfMetafileLayoutFormat** need to be set as Paginate, to span the conversion across multiple pages.
-4. **SplitTextLines** and **SplitImages** property of the **PdfMetafileLayoutFormat** class needs to be set as false, to avoid image and text split across pages.
+{% endtabs %}  
+
+1. The EnableJavascript property needs to be set to true for websites that contains JavaScript. 
+2. ImageType argument of the Convert method needs to be set as Metafile for vector graphics and a searchable PDF document. Selecting the Bitmap type would result in a non-searchable PDF.
+3. The Layout property of the PdfMetafileLayoutFormat need to be set as Paginate, to span the conversion across multiple pages.
+4. SplitTextLines and SplitImages property of the PdfMetafileLayoutFormat class needs to be set as false, to avoid image and text split across pages.
+
 
 #### Converting the HTML string to PDF document
 
 To convert the HTML string to PDF document, use the following code snippet.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -207,7 +216,7 @@ pdfDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Creates a new PDF document.
 
@@ -261,12 +270,16 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 #### Converting Windows Authenticated webpage to PDF document
 
 To convert the Windows Authenticated webpage to PDF document by providing the username and password, use the following code snippet below.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -323,7 +336,6 @@ pdfDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Creates a new PDF document.
 
@@ -379,14 +391,19 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 #### Converting with PDFA conformance
 
 You can also convert the webpages to PDF with PDFA1B conformance, which embeds all the fonts into the PDF document.
 
 The following code snippet illustrates how to convert HTML pages to PDF document with PDFA1B conformance.
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDFA1B document.
 
@@ -441,7 +458,7 @@ pdfDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Creates a new PDFA1B document.
 
@@ -493,6 +510,9 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}
+
+
 #### Troubleshooting
 
 1. The following conditions may occur while converting HTML to PDF by using the IE rendering engine.
@@ -503,30 +523,36 @@ pdfDocument.Close(True)
 
 The above issues may occur in the machines with IE9 or later versions installed. As the Internet Explorer version 9 and above supports hardware acceleration, the rendered content would be in the form of Bitmap, where many features are not supported. 
 
-To overcome this issue, the key **FEATURE****_****IVIEWOBJECTDRAW****_****DMLT9****_****WITH****_****GDI** should be updated in the registry as explained in the link below. 
+To overcome this issue, the key FEATURE_IVIEWOBJECTDRAW_DMLT9_WITH_GDI should be updated in the registry as explained in the link below. 
 
-[http://msdn.microsoft.com/en-us/library/ee330732(v=vs.85).aspx#iviewobject_draw](http://msdn.microsoft.com/en-us/library/ee330732(v=vs.85).aspx#iviewobject_draw "")
+[http://msdn.microsoft.com/en-us/library/ee330732(v=vs.85).aspx#iviewobject_draw](http://msdn.microsoft.com/en-us/library/ee330732(v=vs.85).aspx#iviewobject_draw)
 
 * You can run the utility placed in the following location to perform the above changes automatically.
 
 $system drive: \Program Files\Syncfusion\Essential Studio\$Version # \Utilities\PDF\Legacy Drawing
 
-* While manually changing the registry key, the changes should be done on both **HKEY****_****LOCAL****_****MACHINE** and **HKEY****_****CURRENT****_****USER** as below.
+* While manually changing the registry key, the changes should be done on both HKEY_LOCAL_MACHINE and HKEY_CURRENT_USER as below.
+
 <table>
+<thead>  
 <tr>
-<td>
-<br/>**Name**<br/><br/></td><td>
-**Type**<br/><br/></td><td>
-**Data**<br/><br/></td></tr>
+<th><br/>Name<br/><br/></th>
+<th>Type<br/><br/></th>
+<th>Data<br/><br/></th>
+</tr>
+</thead>
+<tbody>  
 <tr>
 <td>
 *<br/><br/></td><td>
 REG_DWORD<br/><br/></td><td>
 0x00000001<br/><br/></td></tr>
+</tbody>
 </table>
-2. **Images** **or** **other** **contents** **in** **the** **HTML** **are** **missing** **in** **the** **resultant** **PDF** **document**
 
-The issue may be due to the slow internet connection or due to the behavior that the conversion completed before the URL is loaded completely. To overcome this issue, add suitable delay to the conversion using **AdditionalDelay** property of the HTMLConverter.
+2. Images or other contents in the HTML are missing in the resultant PDF document
+
+The issue may be due to the slow internet connection or due to the behavior that the conversion completed before the URL is loaded completely. To overcome this issue, add suitable delay to the conversion using AdditionalDelay property of the HTMLConverter.
 
 ### Conversion using WebKit Rendering
 
@@ -540,10 +566,12 @@ Essential PDF also supports HTML to PDF conversion by using the WebKit rendering
       c. Syncfusion.HtmlConverter.Base.dll
       d. Syncfusion.WebKitHtmlConverter.Base.dll
 
-2. The QtBinaries available in the WebKitHTMLConverter installed location __**($**____**Systemdrive**____**\**____**Program**__ __**Files**__ __**(**____**x86**____**)\**____**Syncfusion**____**\**____**WebKitHTMLConverter**____**\**____**xx**____**.**____**x**____**.**____**x**____**.**____**xx**____**\**____**QtBinaries**__) should be placed in the local machine where the conversion takes place. The physical path of this folder has be set to the **WebKitBinaryPath** property of the **WebkitHtmlConverter** class as shown below.
+2. The QtBinaries available in the WebKitHTMLConverter installed location ($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries) should be placed in the local machine where the conversion takes place. The physical path of this folder has be set to the WebKitBinaryPath property of the WebkitHtmlConverter class as shown below.
+
+
 
 {% highlight c# %}
-C#
+
 
 // Create a new instance of WebKitHtmlConverter class.
 
@@ -563,9 +591,9 @@ html.WebKitPath = WebKitBinaryPath;
 
 3. WebKit conversion also requires VC++ 2010 redistributable to be installed in the machine. You can use the below mentioned download link,
 
-X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555# "")
+X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555#)
 
-X64 - [https://www.microsoft.com/en-in/download/details.aspx?id=14632](https://www.microsoft.com/en-in/download/details.aspx?id=14632# "")
+X64 - [https://www.microsoft.com/en-in/download/details.aspx?id=14632](https://www.microsoft.com/en-in/download/details.aspx?id=14632#)
 
 Instead, the required assemblies below can be added in the Windows system folder (for 64 bit machine, it should be place in $Systemdrive\Windows\SysWOW64 and for 32 bit machine, it should be place in $Systemdrive\Windows\System32),
 
@@ -574,22 +602,26 @@ Instead, the required assemblies below can be added in the Windows system folder
 
 4. For converting https sites, conversion requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the below link,
 
-X86 - [https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe# "")
+X86 - [https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe# )
 
-X64 - [https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe# "")
+X64 - [https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe# )
 
 Instead, the required assemblies below can added in the Windows system folder (for 64 bit machine, it should be place in $Systemdrive\Windows\SysWOW64 and for 32 bit machine, it should be place in $Systemdrive\Windows\System32),
 
 1) libeay32.dll
 2) libssl32.dll
 3) ssleay32.dll
+
+
 #### Converting the URL to a PDF document
 
 
 To convert website URL or local html file to PDF using WebKit rendering engine, please refer the below code snippet.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -650,7 +682,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Creates a new PDF document.
 
@@ -710,12 +742,17 @@ document.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+ 
+
 #### Converting the HTML string to PDF document
 
 To convert the HTML string to pdf, use below code snippet.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -778,7 +815,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Creates a new PDF document.
 
@@ -840,12 +877,17 @@ document.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+ 
+
 #### Converting an SVG to PDF
 
 You can also convert local SVG files or online SVG URL to PDF using below code snippet.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new PDF document.
 
@@ -908,7 +950,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Creates a new PDF document.
 
@@ -968,24 +1010,28 @@ document.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
+ 
 #### Troubleshooting
 
 1. WebKit Converter may create PDF with blank pages under the following cases.
+
 * When the webpage (html) is not available/accessible.
 
-**Solution**
+Solution
 
 Please check your internet connection or the html webpage is not available in the mentioned location.
 
 * When VC++ 2010 redistributable and OpenSSL package is not installed in the machine,
 
-**Solution**
+Solution
 
 You can install the below mentioned download link to overcome the blank page issue,
 
-X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555# "")
+X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555# )
 
-X64 - [https://www.microsoft.com/en-in/download/details.aspx?id=14632](https://www.microsoft.com/en-in/download/details.aspx?id=14632# "")
+X64 - [https://www.microsoft.com/en-in/download/details.aspx?id=14632](https://www.microsoft.com/en-in/download/details.aspx?id=14632# )
 
 Instead, the required assemblies below can be added in the Windows system folder (for 64 bit machine, it should be place in $Systemdrive\Windows\SysWOW64 and for 32 bit machine, it should be place in $Systemdrive\Windows\System32),
 
@@ -994,33 +1040,34 @@ Instead, the required assemblies below can be added in the Windows system folder
 
 For converting https sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the below link,
 
-X86 - [https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe# "")
+X86 - [https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe# )
 
-X64 - [https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe# "")
+X64 - [https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe# )
 
 Instead, the required assemblies below can added in the Windows system folder (for 64 bit machine, it should be place in $Systemdrive\Windows\SysWOW64 and for 32 bit machine, it should be place in $Systemdrive\Windows\System32),
 
 * libeay32.dll
 * libssl32.dll
 * ssleay32.dll
+
 * When any Qt binaries are not available in the WebKitPath mentioned location.
 
-**Solution**
+Solution
 
-You need to place the Qt binaries in the location where the conversion takes place and assign that location to the WebKitPath. The Qt binaries will be available in the WebKitHTMLConverter installed location __**($**____**Systemdrive**____**\**____**Program**__ __**Files**__ __**(**____**x86**____**)\**____**Syncfusion**____**\**____**WebKitHTMLConverter**____**\**____**xx**____**.**____**x**____**.**____**x**____**.**____**xx**____**\**____**QtBinaries**__)
+You need to place the Qt binaries in the location where the conversion takes place and assign that location to the WebKitPath. The Qt binaries will be available in the WebKitHTMLConverter installed location ($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)
 
 2. Images or other contents in the HTML are missing in the resultant PDF document
 
 The issue may be due to the slow internet connection or due to the behavior that the conversion completed before the page is loaded completely.
 
-**Solution**
+Solution
 
-To overcome this issue, add suitable delay for the conversion using **AdditionalDelay** property of the HTMLConverter.
+To overcome this issue, add suitable delay for the conversion using AdditionalDelay property of the HTMLConverter.
 
 3. Converter fails in Azure website, but it works in development machine,
   * The converter can be used in Windows Azure Cloud Service but it cannot be used in Azure website due to lacks in administrator privilege and some restrictions which fails the conversion process. 
 
-**Solution**
+Solution
 
 You can move the conversion part into the cloud service with web role and add service reference to your Azure website.
 
@@ -1029,10 +1076,13 @@ You can move the conversion part into the cloud service with web role and add se
 Essential PDF allows you to convert a Word document into PDF. For converting a Word document to PDF, the following assemblies need to be referenced in your application
 
 <table>
+<thead>  
 <tr>
-<td>
-Assembly Name<br/><br/></td><td>
-Description<br/><br/></td></tr>
+<th>
+Assembly Name<br/><br/></th><th>
+Description<br/><br/></th></tr>
+</thead>
+<tbody>  
 <tr>
 <td>
 Syncfusion.DocIO.Base<br/><br/></td><td>
@@ -1053,14 +1103,19 @@ This assembly has the core features for creating PDF file.<br/><br/></td></tr>
 <td>
 Syncfusion.OfficeChart.Base<br/><br/></td><td>
 This assembly has features to work with chart in Word document.<br/><br/></td></tr>
+</tbody>
 </table>
+
 The following assemblies are need to be referred in addition to the above mentioned assemblies for converting the chart present in the Word document into PDF.
 
 <table>
+<thead> 
 <tr>
-<td>
-Assembly Name<br/><br/></td><td>
-Description<br/><br/></td></tr>
+<th>
+Assembly Name<br/><br/></th><th>
+Description<br/><br/></th></tr>
+ </thead>
+ <tbody>  
 <tr>
 <td>
 Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td><td>
@@ -1073,6 +1128,7 @@ This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><
 <td>
 Syncfusion.Shared.WPF<br/><br/></td><td>
 This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
+</tbody>
 </table>
 
 
@@ -1087,8 +1143,10 @@ The following namespaces are required to compile the code in this topic.
 
 DocToPDFConverter class is responsible for converting a Word document into PDF. The following code snippet illustrates how to convert a Word document into PDF document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Load an existing Word document
 
@@ -1121,7 +1179,7 @@ wordDocument.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Load an existing Word document
 
@@ -1153,12 +1211,15 @@ wordDocument.Close()
 
 {% endhighlight %}
 
-**Note****:**
+ {% endtabs %}  
+
+Note:
 
 * Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
-* Initializing the **ChartToImageConverter** is mandatory to convert the charts present in the Word document to PDF. Otherwise the charts will not be exported to the converted PDF
-* **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
+* Initializing the ChartToImageConverter is mandatory to convert the charts present in the Word document to PDF. Otherwise the charts will not be exported to the converted PDF
+* ChartToImageConverter is supported from .NET Framework 4.0 onwards
 * Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to Word document
+
 
 ### Customizing the Word document to PDF conversion
 
@@ -1167,9 +1228,12 @@ Essential DocIO allows you to customize the Word to PDF conversion with the belo
 * Allows to determine the quality of the charts in the converted PDF 
 * Allows to determine the quality of the jpeg images in the converted PDF
 * Allows to reduce the Main Memory usage in Word to PDF conversion by reusing the identical images.
+
+{% tabs %}  
+
 {% highlight c# %}
 
-[C#]
+
 
 //Loads an existing Word document
 
@@ -1218,7 +1282,7 @@ wordDocument.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Loads an existing Word document
 
@@ -1266,6 +1330,10 @@ wordDocument.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
+
 ## Converting Excel documents to PDF
 
 Essential PDF allows you to convert an entire workbook or a single worksheet into PDF document. For converting an Excel document to PDF, the following assemblies need to be referenced in your application
@@ -1282,8 +1350,10 @@ Essential PDF allows you to convert an entire workbook or a single worksheet int
 
 The following code illustrates how to convert a workbook to PDF Document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 
 ExcelEngine excelEngine = new ExcelEngine();
@@ -1324,7 +1394,7 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 Dim excelEngine As ExcelEngine = New ExcelEngine
 
@@ -1360,20 +1430,23 @@ workbook.Close()
 
 excelEngine.Dispose()       
 
-
-
-
-
 {% endhighlight %}
 
+ {% endtabs %}  
+
+
+
 To know more about ExcelToPdf conversion settings, please refer ExcelToPdfConverterSettings – LINK API reference
+
 
 ### Converting a Worksheet to PDF
 
 The following code shows how to convert a particular sheet to PDF Document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
@@ -1405,7 +1478,7 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 Dim excelEngine As ExcelEngine = New ExcelEngine
 
@@ -1439,18 +1512,23 @@ workbook.Close()
 
 excelEngine.Dispose()       
 
+{% endhighlight %} 
 
 
 
-
-{% endhighlight %}
+  {% endtabs %}  
+  
+  
 
 ### Creating individual PDF document for each worksheet	
 
 The following code snippet shows how to create an individual PDF document for each worksheet in a workbook.
 
+{% tabs %}  
+
+
 {% highlight c# %}
-[C#]
+
 
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
@@ -1491,7 +1569,7 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 Dim excelEngine As New ExcelEngine()
 
@@ -1523,16 +1601,18 @@ workbook.Close()
 
 excelEngine.Dispose()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 ### Excel with Chart to PDF
 
-To preserve the charts during Excel to PDF conversion, you should initialize the ChartToImageConverter of **IApplication** interface, otherwise the charts present in worksheet will get skipped. The following code illustrate how to convert an Excel with chart to PDF document.
+To preserve the charts during Excel to PDF conversion, you should initialize the ChartToImageConverter of IApplication interface, otherwise the charts present in worksheet will get skipped. The following code illustrate how to convert an Excel with chart to PDF document.
+
+{% tabs %}  
 
 {% highlight c# %}
-[C#]
+
 
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -1575,7 +1655,7 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 Dim excelEngine As New ExcelEngine()
 
@@ -1613,11 +1693,13 @@ workbook.Close()
 
 excelEngine.Dispose()
 
+{% endhighlight %} 
+
+  {% endtabs %}  
+
+N>This section is applicable only to the Windows Forms, ASP.Net, MVC and WPF platforms.
 
 
-{% endhighlight %}
-
-**Note****:** This section is applicable only to the Windows Forms, ASP.Net, MVC and WPF platforms.
 
 ### Supported Elements
 
@@ -1659,10 +1741,13 @@ The following list contains unsupported elements that presently will not be pres
 Essential PDF allows you to convert a RTF to PDF document. For converting a RTF to PDF, the following assemblies need to be referenced in your application
 
 <table>
+<thead> 
 <tr>
-<td>
-Assembly Name<br/><br/></td><td>
-Description<br/><br/></td></tr>
+<th>
+Assembly Name<br/><br/></th><th>
+Description<br/><br/></th></tr>
+</thead>
+<tbody>  
 <tr>
 <td>
 Syncfusion.DocIO.Base<br/><br/></td><td>
@@ -1679,6 +1764,7 @@ This assembly is needed for converting the RTF to PDF.<br/><br/></td></tr>
 <td>
 Syncfusion.Pdf.Base<br/><br/></td><td>
 This assembly has the core features for creating PDF file.<br/><br/></td></tr>
+</tbody>
 </table>
 
 
@@ -1691,8 +1777,10 @@ The following namespaces are required to compile the code in this topic.
 
 DocToPDFConverter class is responsible for converting a RTF to PDF. The following code snippet illustrates how to convert a RTF to PDF document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Load an existing RTF document
 
@@ -1721,7 +1809,7 @@ rtfDocument.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Load an existing Word document
 
@@ -1749,10 +1837,14 @@ rtfDocument.Close()
 
 {% endhighlight %}
 
-**Note****:**
+{% endtabs %}  
+
+
+Note:
 
 * RTF to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
 * Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to RTF document
+
 
 ### Customizing the RTF to PDF conversion
 
@@ -1760,9 +1852,13 @@ Essential DocIO allows you to customize the RTF to PDF conversion with the below
 
 * Allows to determine the quality of the jpeg images in the converted PDF
 * Allows to reduce the Main Memory usage in RTF to PDF conversion by reusing the identical images.
+
+
+{% tabs %}  
+
 {% highlight c# %}
 
-[C#]
+
 
 //Loads an existing Word document
 
@@ -1803,7 +1899,7 @@ rtfDocument.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 'Loads an existing Word document
 
@@ -1843,6 +1939,8 @@ rtfDocument.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 
 
 ## Converting Tiff to PDF
@@ -1853,8 +1951,10 @@ Multi frame TIFF image can be converted to PDF document. This can be done by acc
 
 The code snippet to illustrate the same is given below.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Create a PDF document
 
@@ -1911,7 +2011,7 @@ pdfDocument.Close(true);
 
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a PDF document
 
@@ -1959,20 +2059,23 @@ pdfDocument.Save("Sample.pdf")
 
 pdfDocument.Close(True)
 
+{% endhighlight %} 
 
 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
+  
 ### Compression in monochrome images
 
 Essential PDF supports JBIG2 compression for best compression of monochrome images.
 
 Refer the below code snippet to draw a single frame monochrome tiff image with JBIG2 compression
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Create a PDF document
 
@@ -2007,7 +2110,7 @@ pdfDocument.Close(true);
 
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a PDF document
 
@@ -2035,14 +2138,15 @@ pdfDocument.Save("Sample.pdf")
 
 pdfDocument.Close(True)
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
-Note: 
+N>
 
 1. Currently the JBIG2Decode compression is supported only in lossy mode and also only single frame tiff images are supported.
 2. By default, all monochrome images will be compressed in CITTT4 compression.
+
 
 ## Converting XPS document to PDF 
 
@@ -2052,8 +2156,10 @@ Essential PDF provides support for converting XPS to PDF using XPSToPdfConverter
 
 The below code illustrates how to convert XPS to PDF.
 
+{% tabs %}   
+
 {% highlight c# %}
-C#:
+
 
 //Create converter class.
 
@@ -2074,7 +2180,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create converter class.
 
@@ -2090,21 +2195,24 @@ document.Save("Sample.pdf")
 
 document.Close(True)
 
+{% endhighlight %} 
 
 
 
-
-{% endhighlight %}
+  {% endtabs %} 
 
 ### Supported Elements
 
 The below table shows the list of elements supported in XPS during the conversion.
 
 <table>
+<thead>  
 <tr>
-<td>
-**Element**<br/><br/></td><td>
-**Convert** **to** **PDF**<br/><br/></td></tr>
+<th>
+Element<br/><br/></th><th>
+Convert to PDF<br/><br/></th></tr>
+</thead>
+<tbody>  
 <tr>
 <td>
 ArcSegment<br/><br/></td><td>
@@ -2241,15 +2349,20 @@ No<br/><br/></td></tr>
 <td>
 VisualBrush<br/><br/></td><td>
 No<br/><br/></td></tr>
+</tbody>
 </table>
+
+
 ## Converting HTML to Image
 
 Essential PDF allows you to convert a HTML page to an image.
 
 The following code snippet illustrate how to convert HTML to image using Essential PDF.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 HtmlConverter html = new HtmlConverter();
 
@@ -2274,7 +2387,7 @@ html.Dispose();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 Dim html As New HtmlConverter()
 
@@ -2298,6 +2411,9 @@ html.Dispose()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Converting PDF to Image
 
 PDF pages can be converted to images. To add PDF to image functionality in an application, you need to add the below mentioned assemblies as reference to the project.
@@ -2308,8 +2424,10 @@ PDF pages can be converted to images. To add PDF to image functionality in an ap
 
 The following code snippet illustrates how to convert PDF page into image.
 
+{% tabs %}    
+
 {% highlight c# %}
-[C#]
+
 
 PdfDocumentView documentViewer = new PdfDocumentView();
 
@@ -2332,7 +2450,7 @@ documentViewer.Dispose();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
+
 
 Dim documentViewer As New PdfDocumentView()
 
@@ -2354,3 +2472,4 @@ documentViewer.Dispose()
 
 {% endhighlight %}
 
+{% endtabs %}

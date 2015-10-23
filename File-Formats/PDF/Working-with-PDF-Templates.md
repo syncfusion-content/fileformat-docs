@@ -15,8 +15,10 @@ The PdfTemplate class can be used to create a new PDF template. You can add cont
 
 The below code snippet illustrates how to add contents to the PdfTemplate and render into the new PDF page.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -59,7 +61,7 @@ pdfDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Create a new PDF document.
 
@@ -98,13 +100,17 @@ pdfDocument.Save("Output.pdf")
 pdfDocument.Close(True)
 
 
-
 {% endhighlight %}
+
+{% endtabs %}  
+
 
 The below code snippet illustrates how to render the PdfTemplate on an existing PDF document.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load the existing PDF document.
 
@@ -147,7 +153,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the existing PDF document.
 
@@ -189,14 +195,17 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Creating templates from existing PDF document
 
 Essential PDF supports to create the templates from an existing PDF document page and draw it in on a new PDF document.
 
 The below code illustrates how to create the template from an existing page and draw it in new PDF document.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
 
 //Load the existing PDF document.
 
@@ -245,7 +254,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the existing PDF document.
 
@@ -293,14 +302,20 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
+
 ## Working with PdfPageTemplateElement
 
 PdfPageTemplateElement is template element that can be added to any part of the PDF page such as header, footer etc.
 
 The below code illustrates how to add the page template elements in a PDF document.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -369,7 +384,7 @@ pdfDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Create a new PDF document.
 
@@ -431,18 +446,22 @@ pdfDocument.Save("Output.pdf")
 
 pdfDocument.Close(True)
 
-
-
-
-
 {% endhighlight %}
+
+
+
+
+
+{% endtabs %}  
 
 ## Creating Document Overlays 
 
 Multiple templates can be drawn over a PDF page, to create a document-overlay. The below code illustrates how to overlay the documents.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Load the existing documents
 
@@ -493,7 +512,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the existing documents
 
@@ -543,3 +562,4 @@ document.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  

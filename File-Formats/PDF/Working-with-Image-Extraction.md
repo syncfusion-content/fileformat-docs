@@ -11,8 +11,10 @@ Essential PDF provides the support to extract images from a particular page or a
 
 Please refer the below code snippet to extract the images from a pdf page.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load an existing PDF.
 
@@ -37,7 +39,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load an existing PDF.
 
@@ -61,14 +63,19 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Image informations
 
 To extract the image properties like bounds, image index etc. from a page, you can use ImageInfo property in the PdfPageBase class.
 
 Please refer the below code snippet to extract the image info from pdf page.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load an existing PDF.
 
@@ -91,7 +98,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load an existing PDF.
 
@@ -113,3 +120,4 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  

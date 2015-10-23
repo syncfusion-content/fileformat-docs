@@ -17,8 +17,10 @@ Essential PDF allows you to create and manage the form (Acroform) in PDF documen
 
 The below code snippet illustrates how to add a textbox field to a new PDF document.
 
+
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -52,17 +54,14 @@ document.Close(true);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
-VB:                                                                                                                                                         'Create a new PDF document.                                                                                                                  Dim document As New PdfDocument()'                                                                                                    Add a new page to PDF document.                                                                                                            Dim page As PdfPage = document.Pages.Add()                                                                                   'Create a textbox field and add the properties.                                                                        Dim textBoxField As New PdfTextBoxField(page, "FirstName")                                            textBoxField.Bounds = New RectangleF(0, 0, 100, 20)                                                         textBoxField.ToolTip = "First Name"                                                                                                          'Add the form field to the document.                                           document.Form.Fields.Add(textBoxField)                                                                                                'Save the PDF document.                                                                                       document.Save("Form.pdf")                                                                                                                     'close the document                                                                                                     document.Close(True)
 
-
-
-{% endhighlight %}
 
 The below code snippet illustrates how to add the textbox to an existing PDF document:
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load the existing PDF document.
 
@@ -105,7 +104,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the existing PDF document.
 
@@ -149,14 +148,19 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
+
 ### Adding the combo box field
 
 PdfComboBoxField class is used to create a combo box field in PDF forms. You can add a list of items to the combo box by using the PdfListFieldItem class.
 
 Please refer the below code snippet for adding the combo box in new PDF document:
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -203,7 +207,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:      
+     
 
 'Create a new PDF document.
 
@@ -249,10 +253,14 @@ document.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 Please refer the below code snippet for adding the combo box in existing PDF document.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Load the existing PDF document.
 
@@ -305,7 +313,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the existing PDF document.
 
@@ -361,14 +369,18 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ### Adding the radio button field
 
 To create the radio button in the PDF Forms, you can use PdfRadioButtonListField class and you can create the radio button list items by using the PdfRadioButtonListItem class.
 
 Please refer the below code snippet for adding the radio button in new PDF document:
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -415,7 +427,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:      
+   
 
 'Create a new PDF document.
 
@@ -461,10 +473,14 @@ document.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 The below code snippet illustrates how to add the radio button in existing PDF document:
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load the existing PDF document.
 
@@ -517,7 +533,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the existing PDF document.
 
@@ -571,14 +587,18 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ### Adding the list box field
 
 You can create the list box field in PDF forms using PdfListBoxField class.
 
 Please refer the below code snippet for adding the list box field in new PDF document:
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -629,7 +649,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:      
+ 
 
 'Create a new PDF document.
 
@@ -679,10 +699,14 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 Please refer the below code snippet for adding the list box field in existing PDF document:
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Load the existing PDF document.
 
@@ -739,7 +763,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the existing PDF document.
 
@@ -797,14 +821,19 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+ 
+
 ### Adding the check Box field
 
-You can create the check box field in **PDF** forms using PdfCheckBoxField class. 
+You can create the check box field in PDF forms using PdfCheckBoxField class. 
 
 Please refer the below code snippet for adding the check box field in new PDF document:
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -841,7 +870,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:      
+  
 
 'Create a new PDF document.
 
@@ -879,10 +908,14 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 Please refer the below code snippet for adding the check box field in existing PDF document:
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
+
 
 //Load the existing PDF document.
 
@@ -925,7 +958,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the existing PDF document.
 
@@ -969,14 +1002,19 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+  {% endtabs %}  
+  
+
 ### Adding the signature field
 
 You can add the signature field in PDF forms using PdfSignatureField class.
 
 Please refer the below code snippet for adding the signature field in new PDF document:
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -1013,7 +1051,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:      
+
 
 'Create a new PDF document.
 
@@ -1051,10 +1089,14 @@ document.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 Please refer the below code snippet for adding the signature field in existing PDF document:
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Load the existing PDF document.
 
@@ -1097,7 +1139,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the existing PDF document.
 
@@ -1141,14 +1183,18 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ### Adding the button field 
 
 To create Button fields in PDF forms, you can use PdfButtonField class.
 
 The below code illustrates how to add the button field in new PDF document:
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -1185,7 +1231,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:      
+    
 
 'Create a new PDF document.
 
@@ -1221,10 +1267,14 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 Please refer the below code snippet for adding the button field in existing PDF document:
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load the existing PDF document.
 
@@ -1265,7 +1315,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the existing PDF document.
 
@@ -1307,14 +1357,19 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Modifying the existing form field in PDF document 
 
 You can modify an existing form field by getting the field from the form field collection. You can retrieve a field from the field collection by index or by field name. 
 
 The following code snippet explains how to modify an existing form field in a PDF document.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load the PDF document.
 
@@ -1353,7 +1408,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the PDF document.
 
@@ -1391,6 +1446,9 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Filling form fields in an existing PDF Document
 
 Essential PDF allows you to fill the form fields using PdfLoadedField class. 
@@ -1399,8 +1457,10 @@ Essential PDF allows you to fill the form fields using PdfLoadedField class.
 
 Please refer the below sample for filling a textbox field.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load the PDF document.
 
@@ -1429,7 +1489,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the PDF document.
 
@@ -1457,12 +1517,16 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ### Filling the combo box field
 
 The below code snippet illustrates how to fill the combo box field in an existing PDF document.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Load the PDF document.
 
@@ -1491,7 +1555,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the PDF document.
 
@@ -1519,12 +1583,16 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ### Filling the radio button field
 
 Please refer the below code snippet to fill the radio button field in an existing PDF document.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load the PDF document.
 
@@ -1553,7 +1621,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the PDF document.
 
@@ -1581,12 +1649,17 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ### Filling the list box field
 
 The below code snippet illustrates how to fill the list box field in an existing PDF document.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Load the PDF document.
 
@@ -1619,7 +1692,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the existing PDF document.
 
@@ -1647,12 +1720,16 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ### Filling the check Box field
 
 Please refer the below code snippet to fill the check box field.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Load the PDF document.
 
@@ -1687,7 +1764,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the PDF document.
 
@@ -1721,12 +1798,16 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ### Filling the signature field
 
 The below code snippet illustrates how to fill the signature field with certificate:
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Load the PDF document.
 
@@ -1765,7 +1846,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the PDF document.
 
@@ -1803,14 +1884,19 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+
+ {% endtabs %}  
+
 ### Enumerate the form fields
 
 You can enumerate the fields from form field collection and fill them. 
 
 The following code example illustrates how to enumerate the form fields.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Load the PDF document.
 
@@ -1851,7 +1937,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the PDF document.
 
@@ -1887,14 +1973,19 @@ document.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+ 
+
 ### TryGetField
 
-To get a form field from an existing document using the field name, you can use the **TryGetField** method in the PdfFormFieldCollection class. It specifies whether the particular field is available in the form or not by returning a Boolean value.
+To get a form field from an existing document using the field name, you can use the TryGetField method in the PdfFormFieldCollection class. It specifies whether the particular field is available in the form or not by returning a Boolean value.
 
 The below code snippet explains how to get the field from collection using TryGetfield method.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 // Load the document.
 
@@ -1931,7 +2022,7 @@ doc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 ' Load the document.
 
@@ -1965,14 +2056,18 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ### TryGetValue
 
-To get the field value from the given field name, you can use **TryGetValue** method in PdfFormFieldCollection class. It specifies whether the particular field is available in the form or not by returning a boolean value.
+To get the field value from the given field name, you can use TryGetValue method in PdfFormFieldCollection class. It specifies whether the particular field is available in the form or not by returning a boolean value.
 
 Please refer the below code snippet to get the field value from collection using TryGetValue method.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 // Load the document.
 
@@ -2003,7 +2098,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 ' Load the document.
 
@@ -2033,18 +2128,22 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ## Removing editing capability of form fields
 
 The form field editing or filling capabilities can be removed by either flattening the PDF document or by marking the form or field as read only.
 
-**Flattening** **form** **field**
+Flattening form field
 
 Essential PDF provides support to flatten a form field by removing the existing form field and replacing it with graphical objects that would resemble the form field and cannot be edited.
 
 Please refer the sample for flattening the form fields in new PDF document.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -2085,7 +2184,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Create a new PDF document.
 
@@ -2123,10 +2222,14 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 Please refer the sample for flattening the form fields in existing PDF document:
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load the PDF document.
 
@@ -2161,7 +2264,7 @@ loadedDocument.Close(true);
 
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the PDF document.
 
@@ -2193,14 +2296,18 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-**Adding** **read** **only** **property** 
+{% endtabs %}  
+
+Adding read only property 
 
 To prevent the user from changing the form field content, you can also use Read-only property.
 
 The below code snippet illustrates how to set the read only property to a new PDF document.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -2249,7 +2356,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Create a new PDF document.
 
@@ -2299,10 +2406,14 @@ document.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 The below code snippet illustrates how to set the read only property to an existing PDF document.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load the PDF document.
 
@@ -2329,7 +2440,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the PDF document.
 
@@ -2355,7 +2466,9 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-**Note****:**
+{% endtabs %}  
+
+N> 
 
 Flattening and adding Read-only properties can be done to the entire form or an individual form field.
 
@@ -2365,8 +2478,10 @@ You can remove the form fields from an existing PDF document using PdfLoadedForm
 
 The below code illustrates how to remove the form fields from the existing PDF document:
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load the PDF document.
 
@@ -2407,7 +2522,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the PDF document.
 
@@ -2447,14 +2562,18 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Importing FDF file to PDF
 
 FDF stands for Forms Data Format. FDF is a file format for representing form data and annotations that are contained in a PDF form. You can import the FDF file to PDF using ImportDataFDF method in PdfLoadedForm class.
 
 The below code illustrates how to import FDF file to PDF.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Load an existing document.
 
@@ -2481,7 +2600,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load an existing document.
 
@@ -2507,14 +2626,19 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+ 
+
 ## Export PDF file to FDF
 
 To export the FDF file from PDF document, you can use ExportData method in PdfLoadedForm class.
 
 The below code illustrates how to export FDF file from PDF document.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 // Load an existing document
 
@@ -2559,22 +2683,27 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
+ 
 ## Adding actions to form fields 
 
 //need to provide link for actions 
 
-**Note****:** Essential PDF allows users to preserve the extended rights for form filling alone.
+N>Essential PDF allows users to preserve the extended rights for form filling alone.
 
 ## Trouble Shooting
 
 
 
-1) Form fields may appear empty in adobe reader some time due to the absence of the appearance dictionary. To resolve this, you have to enable the Adobe Reader default appearance by using the **SetDefaultAppearance** method in **PdfForm** class.
+1) Form fields may appear empty in adobe reader some time due to the absence of the appearance dictionary. To resolve this, you have to enable the Adobe Reader default appearance by using the SetDefaultAppearance method in PdfForm class.
 
 The below code illustrates how to enable the default appearance in new PDF document:
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -2615,7 +2744,7 @@ document.Close(true);
 
 
 {% highlight vb.net %}
-VB:
+
 
 'Create a new PDF document.
 
@@ -2653,10 +2782,14 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 The below code illustrates how to enable the default appearance in existing PDF document:
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Load the PDF document.
 
@@ -2691,7 +2824,7 @@ loadedDocument.Close(true);
 
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the PDF document.
 
@@ -2723,3 +2856,4 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  

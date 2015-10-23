@@ -15,7 +15,7 @@ You can navigate to specified URL from a PDF document by using the PdfTextWebLin
 
 Please refer the below code snippet for navigating to the webpage.
 
-**C****#:**
+{% tabs %}  
 
 {% highlight c# %}
 
@@ -66,9 +66,10 @@ document.Close(true);
 
 {% endhighlight %}
 
-**VB****:**
+
 
 {% highlight vb.net %}
+
 'Create a new PDF document.
 
 Dim document As New PdfDocument()
@@ -115,9 +116,12 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 To add a web hyperlink to an existing document, please refer the below code snippet.
 
-**C****#:**
+{% tabs %}  
 
 {% highlight c# %}
 
@@ -168,9 +172,10 @@ loadedDocument.Close(true);
 
 {% endhighlight %}
 
-**VB****:**
+
 
 {% highlight vb.net %}
+
 'Load the existing PDF document.
 
 Dim loadedDocument As New PdfLoadedDocument("fileName.pdf")
@@ -217,13 +222,17 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Working with internal document navigation
 
 To allow the users to navigate to any other part of the same document, PdfDocumentLinkAnnotation class can be used. The below code explains how to add the hyperlink for internal document navigation.
 
-**C****#:**
+{% tabs %}  
 
 {% highlight c# %}
+
 //Create a new PDF document.
 
 PdfDocument document = new PdfDocument();
@@ -286,9 +295,10 @@ document.Close();
 
 {% endhighlight %}
 
-**VB****:**
+
 
 {% highlight vb.net %}
+
 'Create a new PDF document.
 
 Dim document As New PdfDocument()
@@ -351,11 +361,14 @@ document.Close()
 
 {% endhighlight %}
 
-To add a **PdfDocumentLinkAnnotation** to an existing document, please use the below code snippet.
+{% endtabs %}  
 
-**C****#:**
+To add a PdfDocumentLinkAnnotation to an existing document, please use the below code snippet.
+
+{% tabs %}  
 
 {% highlight c# %}
+
 //Load the existing PDF document.
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(@"fileName.pdf");
@@ -406,7 +419,7 @@ loadedDocument.Close();
 
 {% endhighlight %}
 
-**VB****:**
+
 
 {% highlight vb.net %}
 'Load the existing PDF document.
@@ -459,15 +472,19 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Working with external document navigation
 
 You can open external documents like images, text files, PDF, etc. using PdfFileLinkAnnotation class.
 
 Please refer the below code snippet for navigating to external documents:
 
-**C****#:**
+{% tabs %}  
 
 {% highlight c# %}
+
 //Create the PDF document
 
 PdfDocument document = new PdfDocument();
@@ -502,9 +519,10 @@ document.Close();
 
 {% endhighlight %}
 
-**VB****:**
+
 
 {% highlight vb.net %}
+
 'Create the PDF document
 
 Dim document As New PdfDocument()
@@ -539,13 +557,16 @@ document.Close()
 
 {% endhighlight %}
 
-**Note****:** The above link makes use of the absolute path of the file for navigation. So, moving the files to another machine or location may lead to file not found error in PDF reader applications.
+{% endtabs %}  
+
+N>The above link makes use of the absolute path of the file for navigation. So, moving the files to another machine or location may lead to file not found error in PDF reader applications.
 
 To open a file in relative path, the PdfLaunchAction can be used. While using the relative path in launch action, the files can be moved to any machine, provided the relative path is being maintained. The below code snippet explains the same.
 
-**C****#:**
+{% tabs %}  
 
 {% highlight c# %}
+
 //Create a new PDF document.
 
 PdfDocument document = new PdfDocument();
@@ -588,9 +609,10 @@ document.Close();
 
 {% endhighlight %}
 
-**VB****:**
+
 
 {% highlight vb.net %}
+
 'Create a new PDF document.
 
 Dim document As New PdfDocument()
@@ -633,3 +655,4 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  

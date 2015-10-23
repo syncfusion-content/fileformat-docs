@@ -13,8 +13,10 @@ PDF Portfolios allows the user to bring together content from a variety of sourc
 
 To create a portfolio and attach a variety of documents, please refer the below code snippet.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 // Create a new instance of PdfDocument class.
 
@@ -55,7 +57,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 ' Create a new instance of PdfDocument class.
 
@@ -93,12 +95,17 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Extracting file from PDF Portfolio
 
 Essential PDF also provides support for extracting the files from the PDF Portfolio and saving it to the disk. The following code snippet shows the steps to extract files from PDF Portfolio.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Load the PDF document
 
@@ -131,7 +138,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Load the PDF document
 
@@ -161,12 +168,17 @@ document.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
+ 
 ## Removing files from PDF Portfolio
 
 You can also remove the files from PDF Portfolio using following code.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Load the PDF document
 
@@ -187,7 +199,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Load the PDF document
 
@@ -207,3 +219,4 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  

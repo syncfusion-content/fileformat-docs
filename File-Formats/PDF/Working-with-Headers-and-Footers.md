@@ -15,8 +15,10 @@ Essential PDF supports to add page count, page numbers, date and time using dyna
 
 The below code snippet explains how to draw the page numbers in footer using automatic fields.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -85,7 +87,7 @@ pdfDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB :
+
 
 'Create a new PDF document.
 
@@ -153,3 +155,4 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  

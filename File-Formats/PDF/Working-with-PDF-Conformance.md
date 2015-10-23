@@ -7,29 +7,31 @@ documentation: UG
 ---
 # Working with PDF Conformance
 
-**Essential** **PDF** Currently supports following PDF conformances.
+Essential PDF Currently supports following PDF conformances.
 
 * PDF/A-1b conformance
 * PDF/X-1a conformance
 
-**Note****:** 
-
+N>
 1. To know more details about PDF/A standard refer the below link.
 
-[https://en.wikipedia.org/wiki/PDF/A#Description](https://en.wikipedia.org/wiki/PDF/A#Description "")
+[https://en.wikipedia.org/wiki/PDF/A#Description](https://en.wikipedia.org/wiki/PDF/A#Description )
 
 2. To know more details about PDF/X standard refer the below link.
 
-[https://en.wikipedia.org/wiki/PDF/X](https://en.wikipedia.org/wiki/PDF/X# "")
+[https://en.wikipedia.org/wiki/PDF/X](https://en.wikipedia.org/wiki/PDF/X# )
 
 3. Conformances can be added only to documents created from scratch. Currently, Essential PDF do not support converting normal PDF documents to PDF/A-1b or PDF/X-1a conformance documents.
+
 ## Adding support for PDF/A-1b conformance.
 
 
 You can create a PDF/A-1b document by specifying the conformance level PdfConformanceLevel.Pdf_A1B when creating the new PDF document, as shown below.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Create a new document with PDF/A-1b standard.
 
@@ -68,7 +70,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a new document with PDF/A-1b standard.
 
@@ -106,12 +108,17 @@ document.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+ 
+
 ## Adding support for PDF/X-1a conformance.
 
 You can create a PDF/X-1a document by specifying the conformance level PdfConformanceLevel.Pdf_X1A2001 when creating the new PDF document, as shown below.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Create a new document with PDF/x standard.
 
@@ -152,7 +159,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a new document with PDF/x standard.
 
@@ -194,3 +201,4 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  

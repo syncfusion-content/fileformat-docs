@@ -10,7 +10,7 @@ documentation: UG
 
 Essential PDF supports both raster and vector images.
 
-Images are supported through the **PdfImage** class, which is an abstract base class that provides the common functionality for **PdfBitmap** and **PdfMetafile** classes.
+Images are supported through the PdfImage class, which is an abstract base class that provides the common functionality for PdfBitmap and PdfMetafile classes.
 
 ## Inserting a raster image
 
@@ -22,13 +22,13 @@ The following raster images are supported in Essential PDF.
 * Png
 * Tiff
 
-You can load image streams, files on disk, and use System.Drawing.Bitmap objects to draw the images through the **DrawImage** method of the **PdfGraphics** class.
+You can load image streams, files on disk, and use System.Drawing.Bitmap objects to draw the images through the DrawImage method of the PdfGraphics class.
 
 The following code snippet shows how to add a file from disk to the PDF document.
 
-{% highlight c# %}
-[C#]
+{% tabs %}  
 
+{% highlight c# %}
 
 
 //Create a new PDF document.
@@ -66,7 +66,7 @@ doc.Close(true);
 
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 
 
@@ -102,12 +102,14 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 You can also add images into an existing PDF document using the below code snippet.
 
+{% tabs %}
+
+
 {% highlight c# %}
-[C#]
-
-
 
 //Load a PDF document.
 
@@ -144,7 +146,7 @@ doc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Load a PDF document.
 
@@ -180,10 +182,14 @@ doc.Close(True)
 
 {% endhighlight %}
 
+  {% endtabs %}  
+
 To add image from stream, use the below code snippet.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 
 
@@ -226,7 +232,6 @@ doc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 
 
@@ -266,6 +271,9 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Inserting a vector image
 
 Essential PDF supports adding metafile vector image. During the insertion, metafile graphics will be transformed to native PDF graphics that supports text selection and searching. The following types of metafiles are supported in Essential PDF.
@@ -274,12 +282,14 @@ Essential PDF supports adding metafile vector image. During the insertion, metaf
 * EMF plus
 * EMF plus dual
 
-**PdfMetafile** class is used to load EMF images. Additionally the PdfMetafileLayoutFormat class allows you to prevent text and image split across pages in the PDF document.
+PdfMetafile class is used to load EMF images. Additionally the PdfMetafileLayoutFormat class allows you to prevent text and image split across pages in the PDF document.
 
 The following code illustrate this,
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 
 
@@ -328,7 +338,7 @@ doc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a PDF Document.
 
@@ -374,14 +384,18 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Working with image masking
 
 Essential PDF supports image masking through the PdfImageMask class.
 
 The following code illustrate shows how to add a mask to TIFF image.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 
 
@@ -424,7 +438,7 @@ doc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a PDF document
 
@@ -464,12 +478,17 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Replacing Images in an existing PDF document
 
-Essential PDF allows you to replace images in an existing document. The **ReplaceImage** method of the page collection allows you to replace an image.
+Essential PDF allows you to replace images in an existing document. The ReplaceImage method of the page collection allows you to replace an image.
+
+{% tabs %} 
 
 {% highlight c# %}
-[C#]
+
 
 //Load the PDF document
 
@@ -500,7 +519,7 @@ doc.Close(true);
 
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 
 
@@ -530,12 +549,16 @@ doc.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ## Image Pagination
 
-You can allow a large image to paginate across multiple pages in the PDF document. This can be done through the **PdfLayoutFormat** class as shown below.
+You can allow a large image to paginate across multiple pages in the PDF document. This can be done through the PdfLayoutFormat class as shown below.
+
+{% tabs %} 
 
 {% highlight c# %}
-[C#]
+
 
 //Create Document
 
@@ -574,7 +597,7 @@ doc.Close(true);
 
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create Document
 
@@ -610,12 +633,17 @@ doc.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+ 
+
 ## Applying transparency and rotation to the image
 
 You can add transparency and rotation to the image. This is explained in the below code snippet.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Create Document
 
@@ -668,7 +696,7 @@ doc.Close(true);
 
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create Document
 
@@ -718,3 +746,4 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  

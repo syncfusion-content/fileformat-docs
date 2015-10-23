@@ -11,8 +11,10 @@ documentation: UG
 
 The following code example illustrates how to save the PDF document in ASP.NET MVC.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 // Create a new PdfDocument
 
@@ -233,7 +235,7 @@ this.PdfDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 ' Create a new PdfDocument
 
@@ -431,3 +433,4 @@ End Class
 
 {% endhighlight %}
 
+{% endtabs %}  

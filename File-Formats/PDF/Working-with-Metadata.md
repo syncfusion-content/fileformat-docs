@@ -5,11 +5,10 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# 
 
 # Working with Metadata (XMP)
 
-**Metadata** is a data that describes the characteristics or properties of a document.
+Metadata is a data that describes the characteristics or properties of a document.
 
 Metadata includes document information properties such as author, modification date, and copyright status.
 
@@ -23,8 +22,10 @@ XMP standardizes the definition, creation, and processing of metadata.
 
 You can add XMP metadata in a PDF document as shown in the code snippet below.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Create a PDF document
 
@@ -75,7 +76,7 @@ pdfDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a PDF document
 
@@ -125,12 +126,17 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Adding XMP metadata in an existing PDF document
 
 You can add metadata in an existing PDF document as follow.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Load the document
 
@@ -177,7 +183,7 @@ pdfDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Load the document
 
@@ -223,6 +229,8 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Supported Schema types
 
 XMP is provided with the following schemas:
@@ -233,6 +241,7 @@ XMP is provided with the following schemas:
 * Basic Job Ticket Schema 
 * Paged-Text Schema 
 * PDF Schema 
+
 ## Basic Schema
 
 
@@ -247,12 +256,14 @@ Basic Schema contains properties that provide basic descriptive information such
 * Nickname
 * Rating
 
-**BasicSchema** class is used to create the basic schema properties.
+BasicSchema class is used to create the basic schema properties.
 
 Refer the following code sample to create XMP basic schema
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Create a PDF document
 
@@ -303,7 +314,7 @@ pdfDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a PDF document
 
@@ -353,6 +364,8 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ### Dublin Core Schema
 
 The Dublin Core schema provides a set of commonly used properties such as,
@@ -367,10 +380,12 @@ The Dublin Core schema provides a set of commonly used properties such as,
 * Publisher
 * Title
 
-**DublinCoreSchema** class is used to create the Dublincore schema properties
+DublinCoreSchema class is used to create the Dublincore schema properties
+
+{% tabs %}  
 
 {% highlight c# %}
-[C#]
+
 
 //Create new PDF document
 
@@ -409,7 +424,7 @@ pdfDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create new PDF document
 
@@ -447,6 +462,8 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ### Rights Management Schema
 
 This schema includes properties related to rights management. These properties provide information regarding the legal restrictions associated with a resource.
@@ -456,9 +473,12 @@ This schema includes properties related to rights management. These properties p
 * Owner
 * UsageTerm
 * WebStatement
+
+{% tabs %} 
+
 {% highlight c# %}
 
-[C#]
+
 
 //Create PDF document
 
@@ -493,7 +513,7 @@ pdfDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create PDF document
 
@@ -527,14 +547,19 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ### Basic Job Ticket Schema
 
 This schema describes very simple workflow or job information.
 
 * JobRef
+
+{% tabs %} 
+
 {% highlight c# %}
 
-[C#]
+
 
 //Create a document
 
@@ -567,7 +592,7 @@ pdfDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a document
 
@@ -599,6 +624,8 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ### Paged-Text Schema
 
 The Paged-Text schema is used for text appearence on page in a document.
@@ -607,9 +634,12 @@ The Paged-Text schema is used for text appearence on page in a document.
 * NPages
 * Colorants
 * PlateNames
+
+{% tabs %} 
+
 {% highlight c# %}
 
-[C#]
+
 
 //Create a Pdf document
 
@@ -648,7 +678,7 @@ pdfDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a Pdf document
 
@@ -686,14 +716,19 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+ 
+
 ### PDF schema
 
 This schema specifies properties used with Adobe PDF documents.
 
-**PDFSchema** class is used to create the PDF Schema. It has the following set of properties.
+PDFSchema class is used to create the PDF Schema. It has the following set of properties.
+
+{% tabs %} 
 
 {% highlight c# %}
-[C#]
+
 
 //Create a PDF document
 
@@ -730,7 +765,7 @@ pdfDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create a PDF document
 
@@ -766,6 +801,8 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ### Custom Schema
 
 A custom schema defines the structure of the customized information records. You can use the CustomSchema class to: 
@@ -775,8 +812,10 @@ A custom schema defines the structure of the customized information records. You
 
 Add the following code to define a custom schema. 
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Create Pdf document
 
@@ -813,7 +852,7 @@ pdfDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create Pdf document
 
@@ -849,14 +888,19 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## Adding Custom Metadata to the PDF document
 
-**Essential** **PDF** allows you to add required metadata (custom metadata) to a PDF document
+Essential PDF allows you to add required metadata (custom metadata) to a PDF document
 
 You can add custom metadata Using XmpMetadata class. The following code illustrates this.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Create PDF document
 
@@ -889,7 +933,7 @@ pdfDoc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Create PDF document
 
@@ -921,3 +965,4 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  

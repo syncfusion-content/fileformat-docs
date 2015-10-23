@@ -5,7 +5,6 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# 
 
 # Working with Layers
 
@@ -17,8 +16,10 @@ Essential PDF provides support to create, add and merge the layers into PDF docu
 
 Essential PDF allows the users to create a layer in a PDF page using PdfPageLayer class. The below code snippet illustrates how to add the multiple layers in a new PDF document.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Create PDF document.
 
@@ -67,7 +68,7 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Create PDF document.
 
@@ -115,10 +116,14 @@ document.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 The below code illustrates how to add the multiple layers in an existing PDF document.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#:
+
 
 //Load the existing PDF document.
 
@@ -167,7 +172,7 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Load the existing PDF document.
 
@@ -215,14 +220,19 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+ 
+
 ## Toggling the visibility of layers
 
 The visibility of a layer can be mentioned while creating a new page layer.
 
 The below code illustrates how to toggle the visibility of layers in new PDF document. 
 
+{% tabs %}  
+
 {% highlight c# %}
-C#:
+
 
 //Create the document
 
@@ -275,7 +285,7 @@ document.Close(true);
 
 
 {% highlight vb.net %}
-VB:
+
 
 'Create the document
 
@@ -325,3 +335,4 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}  
