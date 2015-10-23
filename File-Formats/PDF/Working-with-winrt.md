@@ -1,6 +1,14 @@
+---
+title: Working with winrt
+description: Create a Winrt application and load the document
+platform: FileFormat
+control: PDF
+documentation: UG
+---
+
 # Working with winrt
 
-# Loading the document 
+## Loading the document 
 
 The following code example illustrates how to load the file by using stream in winrt.
 

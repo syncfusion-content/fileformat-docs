@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Working With Tables
 description: This section illustrates how to work with Tables
 platform: FileFormat

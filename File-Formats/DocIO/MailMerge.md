@@ -1,5 +1,4 @@
 ---
-layout: post
 title: MailMerge
 description: This section illustrates how to merge the data from data source to a Word document
 platform: FileFormat

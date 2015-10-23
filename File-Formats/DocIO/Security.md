@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Security
 description: This section illustrate how to encrypt and protect the Word document
 platform: FileFormat

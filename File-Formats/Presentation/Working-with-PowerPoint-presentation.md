@@ -1,5 +1,4 @@
 ---
-layout: Post
 title: Working with PowerPoint presentation
 description: Working with PowerPoint presentation; Cloning the presentation; printing the presentation
 platform: FileFormats

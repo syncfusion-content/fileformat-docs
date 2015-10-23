@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Find and Replace
 description: This section illustrates finding a text and replacing it with a new text
 platform: FileFormat

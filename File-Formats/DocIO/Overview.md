@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Overview
 description: This section describes about the Essential DocIO
 platform: FileFormat

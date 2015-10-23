@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Working with PDF templates
 description: PDF template is a drawing surface, where contents can be added;
 platform: Fileformat

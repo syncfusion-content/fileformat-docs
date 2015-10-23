@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Working with Document Conversion
 description: Converting other document Types into PDF- Html ToPDF; DocToPDF; ExcelToPDF; TiffToPDF; XPsToPDF; PDFToImage
 platform: FileFormat

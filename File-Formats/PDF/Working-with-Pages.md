@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Working with pages
 description: Addinga pages in the PDF document; PdfPage; remove pages;split pages;rearrange pages;
 platform: Fileformat

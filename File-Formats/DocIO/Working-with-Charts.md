@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Working with Charts
 description: This section illustrates how to work with Charts
 platform: FileFormat

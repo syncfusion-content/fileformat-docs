@@ -1,6 +1,13 @@
+---
+title: Working with Xamarin
+description: Create a Xamarin application and load the document
+platform: FileFormat
+control: PDF
+documentation: UG
+---
 # Working with Xamarin
 
-# Loading the document 
+## Loading the document 
 
 The following code example illustrates how to load the file by using stream in Xamarin.
 

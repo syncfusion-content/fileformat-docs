@@ -1,6 +1,13 @@
+---
+title: Working with Silverlight
+description: Creating a Silverlight application and load the document
+platform: FileFormat
+control: PDF
+documentation: UG
+---
 # Working with Silverlight 
 
-# Loading the document 
+## Loading the document 
 
 The following code example illustrates how to load the file by using URI in Silverlight.
 

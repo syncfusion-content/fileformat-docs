@@ -1,5 +1,4 @@
 ---
-layout: Post
 title: Loading and saving the PowerPoint presentation
 description: Loading and saving the presentation; Modifying the presnetation
 platform: FileFormats

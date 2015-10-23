@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Tagged PDF
 description: Creating Tagged PDF from Html File - Tagged PDF
 platform: FileFormat

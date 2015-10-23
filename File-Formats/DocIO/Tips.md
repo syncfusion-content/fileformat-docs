@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Tips
 description: This section describes about Tips
 platform: FileFormat

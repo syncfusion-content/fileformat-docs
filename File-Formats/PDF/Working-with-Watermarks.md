@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Working with Watermarks
 description: Support to add watermark in the PDF document; text watermark; image watermark
 platform: FileFormat

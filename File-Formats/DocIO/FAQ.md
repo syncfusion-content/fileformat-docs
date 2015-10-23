@@ -1,5 +1,4 @@
 ---
-layout: post
 title: FAQ/How to
 description: This section illustrates about FAQs
 platform: FileFormat

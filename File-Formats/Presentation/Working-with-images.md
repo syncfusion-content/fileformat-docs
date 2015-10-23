@@ -1,5 +1,4 @@
 ---
-layout: Post
 title: Working with images in PowerPoint Presentation
 description: Working with images in PowerPoint Presentation
 platform: FileFormats

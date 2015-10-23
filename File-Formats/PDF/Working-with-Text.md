@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Working with Text
 description: Adding text to the PDF document. Truetype fonts; standard fonts; RTL; HTML text; multi column; ordered and unordered list;
 platform: Fileformat

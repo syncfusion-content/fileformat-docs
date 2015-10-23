@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Working with Paragraph
 description: This section describes about the child elements of a Paragraph  
 platform: FileFormat

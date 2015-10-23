@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Working with Attachments
 description: File Attachments by using Essential PDF- File Attachments
 platform: FileFormat

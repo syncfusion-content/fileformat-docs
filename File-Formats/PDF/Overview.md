@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Overview
 description: About Essential PDF- Essential PDF
 platform: FileFormat

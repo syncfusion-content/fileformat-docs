@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Working with Forms
 description: Interactive forms using Essential PDF- Acroform ; Form filling; Textbox;PdfComboBox; PdfListBox; PdfRadioButton; Pdfsignature
 platform: FileFormat

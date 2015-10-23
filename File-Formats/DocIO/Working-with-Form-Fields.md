@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Working with Form Fields
 description: This section illustrated how to work with FormFields
 platform: FileFormat

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Applying Watermark
 description: This section illustrates how to insert text or pictures watermark to the Word document
 platform: FileFormat
