@@ -1,7 +1,7 @@
 ---
 title: Working with Compression
 description: Compress PDF document by using Essential PDF -Compressing; Content compression; Image compression
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

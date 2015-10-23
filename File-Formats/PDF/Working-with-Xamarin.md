@@ -1,7 +1,7 @@
 ---
 title: Working with Xamarin
 description: Create a Xamarin application and load the document
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

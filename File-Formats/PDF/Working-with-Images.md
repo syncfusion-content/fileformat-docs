@@ -1,7 +1,7 @@
 ---
 title: Working with Images
 description: Working with images using Essential PDF- PdfImage; pdfMetafile; PdfImagemask,Image Pagination
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

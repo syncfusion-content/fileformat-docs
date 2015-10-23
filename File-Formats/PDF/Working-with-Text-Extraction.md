@@ -1,7 +1,7 @@
 ---
 title: Working with Text Extraction
 description: Extract the text from ta particular page; text extraction
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

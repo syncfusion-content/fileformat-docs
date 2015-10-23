@@ -1,7 +1,7 @@
 ---
 title: Overview
 description: About Essential PDF- Essential PDF
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

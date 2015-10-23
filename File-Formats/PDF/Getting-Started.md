@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 description: Create a simple PDF document with basic elements- Adding page; Drawstring; Fill form ; Merge PDF documents
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

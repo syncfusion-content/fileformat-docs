@@ -1,7 +1,7 @@
 ---
 title: Accepting or Rejecting Track Changes
 description: This section illustrates how to Accept or Reject the Track changes of the Word document
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---

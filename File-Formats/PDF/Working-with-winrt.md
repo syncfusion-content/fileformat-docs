@@ -1,7 +1,7 @@
 ---
 title: Working with winrt
 description: Create a Winrt application and load the document
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

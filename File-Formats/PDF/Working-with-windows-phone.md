@@ -1,7 +1,7 @@
 ---
 title: Working with Windows phone
 description: Create a Windows phone application and load the document
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

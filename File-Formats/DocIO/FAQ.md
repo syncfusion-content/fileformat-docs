@@ -1,7 +1,7 @@
 ---
 title: FAQ/How to
 description: This section illustrates about FAQs
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---

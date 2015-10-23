@@ -1,7 +1,7 @@
 ---
 title: Working with slides in PowerPoint Presentation
 description: Working with slides in PowerPoint Presentation; Adding and modifying the slides in PowerPoint Presnetation
-platform: FileFormats
+platform: file-formatss
 control: Presentation
 documentation: UG
 ---

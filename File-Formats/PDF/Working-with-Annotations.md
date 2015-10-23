@@ -1,7 +1,7 @@
 ---
 title: Working with Annotations
 description: Creating interactive Annotation by using Essential PDf- Annotations; Free text Annotation; Rubber stamp Annotation
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

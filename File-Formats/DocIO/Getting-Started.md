@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 description: This section illustrate how to create a new Word document from scratch
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---

@@ -1,7 +1,7 @@
 ---
 title: Working with Bookmarks
 description: This section illustrates how to work with Bookmarks
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---

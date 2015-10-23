@@ -1,7 +1,7 @@
 ---
 title: Document Object Model of the Essential Presentation library
 description: The Document Object Model of the Essential Presentation library
-platform: FileFormats
+platform: file-formatss
 control: Presentation
 documentation: UG
 ---

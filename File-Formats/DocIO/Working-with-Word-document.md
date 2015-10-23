@@ -1,7 +1,7 @@
 ---
 title: Working with Word document
 description: This section illustrates how to work with Word document
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---

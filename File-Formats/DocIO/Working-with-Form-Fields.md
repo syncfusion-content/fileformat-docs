@@ -1,7 +1,7 @@
 ---
 title: Working with Form Fields
 description: This section illustrated how to work with FormFields
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---

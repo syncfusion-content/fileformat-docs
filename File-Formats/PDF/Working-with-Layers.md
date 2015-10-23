@@ -1,7 +1,7 @@
 ---
 title: Working with Layers
 description: Layers refers to section of Content of PDF document- PdfPageLayer
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

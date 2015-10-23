@@ -1,7 +1,7 @@
 ---
 title: Working with Macros
 description: This section illustrates how to load and save a macro enabled documents
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---

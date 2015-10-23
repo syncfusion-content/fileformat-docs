@@ -1,7 +1,7 @@
 ---
 title: Tips for using Essential Presentation library
 description: Tips for using Essential Presentation library
-platform: FileFormats
+platform: file-formatss
 control: Presentation
 documentation: UG
 ---

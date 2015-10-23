@@ -1,7 +1,7 @@
 ---
 title: Merge Documents
 description: Merging multiple PDF document into single PDF- Merge PDF documents; Import page
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

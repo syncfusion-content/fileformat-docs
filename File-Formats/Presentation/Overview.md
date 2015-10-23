@@ -1,7 +1,7 @@
 ---
 title: Overview of Essential Presentation library
 description: Overview of Essential Presentation library
-platform: FileFormats
+platform: file-formatss
 control: Presentation
 documentation: UG
 ---

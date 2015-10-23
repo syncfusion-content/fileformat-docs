@@ -1,7 +1,7 @@
 ---
 title: Working with Action
 description: Creating user interactve PDF - PdfSoundAction; PdfjavascriptAction; PdfUriAction ;PdfLaunchAction
-platform: Fileformat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

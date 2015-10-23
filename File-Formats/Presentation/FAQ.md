@@ -1,7 +1,7 @@
 ---
 title: Frequently Asked Questions
 description: Frequently asked questions on Essential Presentation library
-platform: FileFormats
+platform: file-formatss
 control: Presentation
 documentation: UG
 ---

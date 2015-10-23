@@ -1,7 +1,7 @@
 ---
 title: Working with Metadata
 description: Metadata is a data that describes the characteristics of properties of a document- XMP; XMP Metada; PdfMetada; DoublinCoreschema; Basicschema
-platform: FIleFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

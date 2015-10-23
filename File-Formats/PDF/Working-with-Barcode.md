@@ -1,7 +1,7 @@
 ---
 title: Working with Barcode
 description: Support to add barcodes to PDF document
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: 
 ---

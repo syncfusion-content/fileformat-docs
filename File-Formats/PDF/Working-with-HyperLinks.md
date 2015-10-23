@@ -1,7 +1,7 @@
 ---
 title: Working with Hyperlinks
 description: Hyperlink using Essential PDF- Hyperlink; Navigation ;PdfTextWeblink
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

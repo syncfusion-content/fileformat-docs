@@ -1,7 +1,7 @@
 ---
 title: Working with Headers and Footers
 description: Essential PDF Headers and Footers elements- PdfPageTemplateElement
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

@@ -1,7 +1,7 @@
 ---
 title: Working with tables in PowerPoint Presentation
 description: Working with tables in PowerPoint Presentation
-platform: FileFormats
+platform: file-formatss
 control: Presentation
 documentation: UG
 ---

@@ -1,7 +1,7 @@
 ---
 title: Converting PowerPoint Presentation to PDF or Image
 description: Converting PowerPoint Presentation to PDF; Converting PowerPoint Presentation slide to image; PowerPoint Presentation conversion
-platform: FileFormats
+platform: file-formatss
 control: Presentation
 documentation: UG
 ---
@@ -12,10 +12,13 @@ documentation: UG
 To convert a PowerPoint presentation to PDF, include the following assemblies in the application.
 
 <table>
+<thead>
 <tr>
-<td>
-Assembly Name<br/><br/></td><td>
-Short Description<br/><br/></td></tr>
+<th>
+Assembly Name<br/><br/></th><th>
+Short Description<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 Syncfusion.Presentation.Base<br/><br/></td><td>
@@ -44,6 +47,7 @@ Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td
 <td>
 Syncfusion.Compression.Base<br/><br/></td><td>
 This assembly is used to pack the Presentation contents.<br/><br/></td></tr>
+</tbody>
 </table>
 The following namespaces are required to compile the code in this topic.
 
@@ -54,8 +58,9 @@ The following namespaces are required to compile the code in this topic.
 
 **PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert a PowerPoint presentation to PDF.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens a PowerPoint presentation file
 
@@ -86,7 +91,6 @@ presentation.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens a PowerPoint presentation file
 
@@ -116,10 +120,10 @@ presentation_1.Close()
 
 {% endhighlight %}
 
-**Note****:**
+{% endtabs %}
 
-1. Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to PDF. Otherwise, the charts are not exported to the converted PDF.
-2. **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
+N> 1. Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to PDF. Otherwise, the charts are not exported to the converted PDF.
+N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 
 **Customizing** **the** **PowerPoint** **presentation** **to** **PDF** **conversion**
 
@@ -131,8 +135,9 @@ Essential Presentation library provides you the ability to customize the present
 
 The following code example shows the customized PDF conversion.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens a PowerPoint presentation file
 
@@ -179,7 +184,6 @@ presentation.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens a PowerPoint presentation file
 
@@ -224,6 +228,8 @@ presentation_1.Close()
 
 
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Converting PowerPoint presentation to Images
 
@@ -274,8 +280,9 @@ Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td
 </table>
 The following code example demonstrates how to convert a slide to image.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens a PowerPoint presentation file
 
@@ -310,7 +317,6 @@ presentation.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens a PowerPoint presentation file
 
@@ -344,10 +350,13 @@ Presentation_1.Close()
 
 {% endhighlight %}
 
+{% endtabs %}
+
 The following code example demonstrates the conversion of an entire presentation to images:
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Loads the PowerPoint presentation
 
@@ -380,7 +389,6 @@ image.Save("ImageOutput" + Guid.NewGuid().ToString()+ ".png");
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Loads the PowerPoint presentation
 
@@ -410,8 +418,8 @@ Next
 
 {% endhighlight %}
 
-**Note****:**
+{% endtabs %}
 
-1. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to image. Otherwise, the charts in the presentation are not exported to the converted image.
-2. **ChartToImageConverter** is supported from .NET Framework 4.0 onward.
+N> 1. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to image. Otherwise, the charts in the presentation are not exported to the converted image.
+N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onward.
 

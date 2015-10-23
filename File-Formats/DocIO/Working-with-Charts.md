@@ -1,7 +1,7 @@
 ---
 title: Working with Charts
 description: This section illustrates how to work with Charts
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---
@@ -19,11 +19,8 @@ A Chart is a graphical representation of data where the data is represented as s
 * Stock chart
 * Radar chart
 
-I> Note: 
-
-I> DocIO provides chart support in following platforms – Windows, ASP.NET, WPF, ASP.NET MVC
-
-I> DocIO supports chart only in Docx to Docx conversion
+N> DocIO provides chart support in following platforms – Windows, ASP.NET, WPF, ASP.NET MVC
+N> DocIO supports chart only in Docx to Docx conversion
 
 ## Creating a simple Chart from scratch
 

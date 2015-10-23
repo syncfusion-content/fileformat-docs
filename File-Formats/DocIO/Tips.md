@@ -1,7 +1,7 @@
 ---
 title: Tips
 description: This section describes about Tips
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---

@@ -1,7 +1,7 @@
 ---
 title: Working with Bookmarks
 description: Bookmarks by using Essential PDF- Bookmark
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

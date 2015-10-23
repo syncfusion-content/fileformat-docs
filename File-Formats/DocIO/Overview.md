@@ -1,7 +1,7 @@
 ---
 title: Overview
 description: This section describes about the Essential DocIO
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---

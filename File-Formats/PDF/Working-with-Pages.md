@@ -1,7 +1,7 @@
 ---
 title: Working with pages
 description: Addinga pages in the PDF document; PdfPage; remove pages;split pages;rearrange pages;
-platform: Fileformat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

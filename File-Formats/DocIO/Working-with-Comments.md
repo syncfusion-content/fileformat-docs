@@ -1,7 +1,7 @@
 ---
 title: Working with Comments
 description: This section illustrates how to add, modify and remove the comments
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---

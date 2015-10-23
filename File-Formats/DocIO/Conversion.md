@@ -1,7 +1,7 @@
 ---
 title: Conversion
 description: This section illustrates how to convert a Word document into other supported file formats
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---

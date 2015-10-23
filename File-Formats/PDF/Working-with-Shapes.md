@@ -1,7 +1,7 @@
 ---
 title: Working with Shapes
 description: Support to add shapes in the PDF document; Line; curve; path; text; rectangle; pie; arc; Bezier; ellipse
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

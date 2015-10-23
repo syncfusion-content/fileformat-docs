@@ -1,7 +1,7 @@
 ---
 title: Working with Silverlight
 description: Creating a Silverlight application and load the document
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

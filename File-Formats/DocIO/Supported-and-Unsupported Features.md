@@ -1,7 +1,7 @@
 ---
 title: Supported and Unsupported Features
 description: This section describes the support and unsupported elements
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---

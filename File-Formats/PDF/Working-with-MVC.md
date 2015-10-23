@@ -1,7 +1,7 @@
 ---
 title: Working with Asp.Net MVC
 description: Creating a ASP.NET MVC application and save the document
-platform: FIleFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---
