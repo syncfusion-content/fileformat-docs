@@ -11,13 +11,15 @@ Essential PDF allows you to protect the PDF document using encryption and set pe
 
 1) Rivest Cipher 4 (RC4)
 2) Advanced Encryption Standard (AES)
+
 ## Working with RC4 Encryption
 
 
 You can encrypt PDF document using RC4 algorithm with 40bit or 128bit key size. The following code snippet illustrates how to encrypt the PDF document with the user password.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -51,12 +53,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -90,16 +89,17 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
 
-**Note****:** While using both user and owner passwords, please specify different user and owner password while encrypting the PDF document for better security.
+{% endtabs %}
+
+N> While using both user and owner passwords, please specify different user and owner password while encrypting the PDF document for better security.
 
 You can protect the PDF document from printing, editing, copying with the owner password by using the following code snippet.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -139,12 +139,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -184,18 +181,17 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Working with AES Encryption
 
 You can encrypt PDF document using AES algorithm with 40bit or 128bit or 256bit key size. The following code snippet illustrates how to encrypt the PDF document with the user password.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -229,12 +225,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -268,14 +261,15 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 You can protect the PDF document from printing, editing, copying with the owner password by using the following code snippet.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -315,12 +309,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -360,16 +351,17 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Changing the password of the PDF document
 
 You can change the user password of the existing PDF document by using following code snippet.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Load the password protected PDF document
 
@@ -385,12 +377,9 @@ loadedDocument.Save("Output.pdf");
 
 loadedDocument.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Load the password protected PDF document
 
@@ -406,16 +395,17 @@ loadedDocument.Save("Output.pdf")
 
 loadedDocument.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Change the permission of the PDF document
 
 You can change the permission of the PDF document using the owner password. The following code snippet illustrates the same.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Load the password protected PDF document
 
@@ -431,12 +421,9 @@ loadedDocument.Save("Output.pdf");
 
 loadedDocument.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Load the password protected PDF document
 
@@ -452,16 +439,17 @@ loadedDocument.Save("Output.pdf")
 
 loadedDocument.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Remove password from the user password PDF document
 
 You can remove the user password from the encrypted PDF document by using the following code snippet.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Load the password protected PDF document
 
@@ -477,12 +465,9 @@ loadedDocument.Save("Output.pdf");
 
 loadedDocument.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Load the password protected PDF document
 
@@ -498,65 +483,44 @@ loadedDocument.Save("Output.pdf")
 
 loadedDocument.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## How to determine whether the PDF document is password protected or not?
 
 You can determine whether the existing PDF document is password protected or not by catching the PdfDocumentException as shown below.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 try
-
 {
-
-//Load the password protected PDF document without user password
-
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Output.pdf");
-
+	//Load the password protected PDF document without user password
+	PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Output.pdf");
 }
-
 catch (PdfDocumentException exception)
-
 {
-
-if (exception.Message == "Can't open an encrypted document. The password is invalid.")
-
-{
-
-MessageBox.Show("Cannot open an encrypted document without password");
-
+	if (exception.Message == "Can't open an encrypted document. The password is invalid.")
+	{
+		MessageBox.Show("Cannot open an encrypted document without password");
+	}
 }
-
-}
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 Try
-
-'Load the password protected PDF document without user password
-
-Dim loadedDocument As New PdfLoadedDocument("Output.pdf")
-
+	'Load the password protected PDF document without user password
+	Dim loadedDocument As New PdfLoadedDocument("Output.pdf")
 Catch exception As PdfDocumentException
-
-If exception.Message = "Can't open an encrypted document. The password is invalid." Then
-
-MessageBox.Show("Cannot open an encrypted document without password")
-
-End If
-
+	If exception.Message = "Can't open an encrypted document. The password is invalid." Then
+		MessageBox.Show("Cannot open an encrypted document without password")
+	End If
 End Try
-
-
 
 {% endhighlight %}
 
+{% endtabs %}

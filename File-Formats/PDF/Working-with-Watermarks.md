@@ -17,8 +17,9 @@ Essential PDF allows you to draw the text watermark in PDF document using graphi
 
 The below code illustrates how to draw the text watermark in new PDF document:
 
-{% highlight c# %}
-C#:
+{% tabs %}
+
+{% highlight C# %}
 
 //Create a new PDF document.
 
@@ -50,12 +51,9 @@ pdfDocument.Save("watermark.pdf");
 
 pdfDocument.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new PDF document.
 
@@ -87,14 +85,15 @@ pdfDocument.Save("watermark.pdf")
 
 pdfDocument.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 The below code illustrates how to draw the text watermark in existing PDF document:
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Load the document.
 
@@ -124,12 +123,9 @@ loadedDocument.Save("watermark.pdf");
 
 loadedDocument.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Load the document.
 
@@ -159,9 +155,9 @@ loadedDocument.Save("watermark.pdf")
 
 loadedDocument.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Adding image watermark in PDF document
 
@@ -169,8 +165,9 @@ To add the image watermark in PDF document, you can draw the image with transpar
 
 The below code illustrates how to draw the image watermark in new PDF document:
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Create a new PDF document.
 
@@ -198,12 +195,9 @@ pdfDocument.Save("watermark.pdf");
 
 pdfDocument.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new PDF document.
 
@@ -231,14 +225,15 @@ pdfDocument.Save("watermark.pdf")
 
 pdfDocument.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 The below code illustrates how to draw the image watermark in existing PDF document.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Load the document.
 
@@ -264,14 +259,9 @@ loadedDocument.Save("watermark.pdf");
 
 loadedDocument.Close(true);
 
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Load the document.
 
@@ -297,7 +287,6 @@ loadedDocument.Save("watermark.pdf")
 
 loadedDocument.Close(True)
 
-
-
 {% endhighlight %}
 
+{% endtabs %}

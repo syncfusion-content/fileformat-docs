@@ -11,8 +11,9 @@ documentation: UG
 
 The following code example illustrates how to load the file by using URI in Silverlight.
 
+{% tabs %}
+
 {% highlight c# %}
-C#: 
 
 //Load the file as url
 
@@ -108,12 +109,9 @@ document.Save(stream);
 
 }
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Load the file as url
 
@@ -179,14 +177,15 @@ End Sub
 
 End Module
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 The following code example illustrates how to load the file by using stream in Silverlight.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Load the file as stream
 
@@ -280,12 +279,9 @@ document.Save(stream);
 
 }
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Load the file as stream
 
@@ -349,16 +345,17 @@ End Sub
 
 End Module
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 # Save the document 
 
 The following code example illustrates how to save the PDF document in Silverlight.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Create a new document
 
@@ -462,8 +459,6 @@ document.Save(stream);
 
 }
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
@@ -541,9 +536,6 @@ End Sub
 
 End Module
 
-
-
-
-
 {% endhighlight %}
 
+{% endtabs %}

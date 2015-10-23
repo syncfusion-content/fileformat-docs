@@ -15,8 +15,9 @@ You can extract the text from a page using ExtractText method in PdfPageBase cla
 
 The following code snippet explains how to extract the texts from a page.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Load an existing PDF.
 
@@ -34,14 +35,9 @@ string extractedText = page.ExtractText();
 
 loadedDocument.Close(true);
 
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Load an existing PDF.
 
@@ -59,18 +55,15 @@ Dim extractedText As String = page.ExtractText()
 
 loadedDocument.Close(True)
 
-
-
-
-
 {% endhighlight %}
 
-**Note****:** In this method, the text is extracted in the order in which it is written in the document stream and it may not be in the order in which it is viewed in the PDF reader application.
+{% endtabs %}
+
+N> In this method, the text is extracted in the order in which it is written in the document stream and it may not be in the order in which it is viewed in the PDF reader application.
 
 The below code illustrates how to extract the text from entire PDF document:
 
 {% highlight c# %}
-C#:
 
 // Load an existing PDF document.
 
@@ -96,12 +89,9 @@ extractedText += lpage.ExtractText();
 
 loadedDocument.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 ' Load an existing PDF document.
 
@@ -125,9 +115,9 @@ Next lpage
 
 loadedDocument.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Working with layout based text extraction
 
@@ -135,8 +125,9 @@ You can extract text from the given PDF page based on its layout using ExtractTe
 
 Please refer the following code snippet to extract the text with layout.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Load an existing PDF.
 
@@ -153,15 +144,10 @@ string extractedTexts = page.ExtractText(true);
 //close the document
 
 loadedDocument.Close(true);
-
-
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 //Load an existing PDF.
 
@@ -179,11 +165,9 @@ string extractedTexts = page.ExtractText(true);
 
 loadedDocument.Close(true);
 
-
-
-
-
 {% endhighlight %}
 
-**Note****:** Layout based text extraction may take additional processing time when compared to the normal extraction mode.
+{% endtabs %}
+
+N> Layout based text extraction may take additional processing time when compared to the normal extraction mode.
 

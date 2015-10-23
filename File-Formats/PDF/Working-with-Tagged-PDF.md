@@ -5,6 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
+
 # Tagged PDF
 
 Essential PDF provides the support to convert HTML to TaggedPDF by using MSHTML rendering library.
@@ -15,8 +16,9 @@ To convert HTML to Tagged PDF, you can use ConvertToTaggedPDF method in HtmlConv
 
 The following code illustrates how to convert HTML to TaggedPDF:
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Creates a new PdfDocument.
 
@@ -44,12 +46,9 @@ document.Save("Sample.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Creates a new PdfDocument.
 
@@ -76,10 +75,9 @@ document.Save("Sample.pdf")
 document.Close(True)
 
 
-
-
-
 {% endhighlight %}
 
-**Note** : Hyperlinks are not supported in tagged PDF
+{% endtabs %}
+
+N> Hyperlinks are not supported in tagged PDF
 

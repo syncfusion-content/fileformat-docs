@@ -25,8 +25,9 @@ You can add shapes with different types of brushes like solid bush, gradient bru
 
 The below code snippet shows how to add a polygon with Linear gradient brush.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a document.
 
@@ -68,14 +69,9 @@ doc.Save("Shapes.pdf");
 
 doc.Close(true);
 
-
-
 {% endhighlight %}
 
-
-
 {% highlight vb.net %}
-[VB]
 
 'Add a new page.
 
@@ -113,16 +109,17 @@ doc.Save("Shapes.pdf")
 
 doc.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Working with shape pagination
 
 You can also allow large shapes to paginate across pages using the below code snippet. 
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create Document
 
@@ -160,14 +157,9 @@ doc.Save("Shapes.pdf");
 
 doc.Close(true);
 
-
-
 {% endhighlight %}
 
-
-
 {% highlight vb.net %}
-[VB]
 
 'Create Document
 
@@ -205,7 +197,7 @@ doc.Save("Shapes.pdf")
 
 doc.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 

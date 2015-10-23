@@ -5,14 +5,16 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
+
 # Working with Windows phone 
 
 ## Loading the document 
 
 The following code example illustrates how to load the file by using stream in windows phone.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Load the file as stream
 
@@ -42,12 +44,9 @@ loadedDocument.Close(true);
 
 Save(stream, "Booklet.pdf");
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Load the document as stream
 
@@ -79,14 +78,15 @@ loadedDocument.Close(True)
 
 End Using
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 The following code example illustrates how to load the file by using file open picker in windows phone.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //create the file open picker
 
@@ -128,12 +128,9 @@ loadedDocument.Close(true);
 
 }
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'create the file open picker
 
@@ -171,16 +168,17 @@ document.Close(True)
 
 loadedDocument.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 # Save the document 
 
 The following code example illustrates how to save the PDF document in Windows phone.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Load the existing document
 
@@ -210,12 +208,9 @@ loadedDocument.Close(true);
 
 }
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Load the existing document
 
@@ -243,9 +238,6 @@ loadedDocument.Close(True)
 
 End Using
 
-
-
-
-
 {% endhighlight %}
 
+{% endtabs %}
