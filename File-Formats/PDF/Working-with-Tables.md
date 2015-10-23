@@ -11,6 +11,7 @@ Essential PDF provides support for two types of table models, both having a diff
 
 1. PdfGrid
 2. PdfLightTable.
+
 ## Creating a simple table 
 
 ### Creating a simple table using PdfLightTable
@@ -18,12 +19,13 @@ Essential PDF provides support for two types of table models, both having a diff
 
 Essential PDF allows you to create the table with data sources from DataSet, Data Table, arrays and IEnumerable objects using PdfLightTable class. It allows you to perform simple formatting.
 
-**Note****:** In Silverlight, Windows store apps and xamarin only strongly typed IEnumerable objects are supported. 
+N> In Silverlight, Windows store apps and xamarin only strongly typed IEnumerable objects are supported. 
 
 The below code snippet illustrates how to create a simple table from a data source using PdfLightTable.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Create a new PDF document.
 
@@ -69,14 +71,9 @@ doc.Save("Output.pdf");
 
 doc.Close(true);
 
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new PDF document.
 
@@ -122,8 +119,6 @@ doc.Save("Output.pdf")
 
 doc.Close(True)
 
-
-
 {% endhighlight %}
 
 You can directly add rows and columns, instead of a data source by setting DataSourceType property to PdfLightTableDataSourceType.TableDirect.
@@ -131,7 +126,6 @@ You can directly add rows and columns, instead of a data source by setting DataS
 The following code illustrates how to add the data directly into the PdfLightTable.
 
 {% highlight c# %}
-C#:
 
 //Create a new PDF document.
 
@@ -177,14 +171,9 @@ doc.Save("Output.pdf");
 
 doc.Close(true);
 
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new PDF document.
 
@@ -230,20 +219,22 @@ doc.Save("Output.pdf")
 
 doc.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ### Creating a simple table using PdfGrid 
 
 PdfGrid allows you to create table by entering the data manually or from an external data source. The datasource can be a data set, data table, arrays or a IEnumerable object.
 
-**Note****:** In Silverlight, Windows store apps and xamarin only strongly typed IEnumerable objects are supported. 
+N> In Silverlight, Windows store apps and xamarin only strongly typed IEnumerable objects are supported. 
 
 The below code snippet illustrates how to create a simple table from a data source using PdfGrid.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -294,7 +285,7 @@ doc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Create a new PDF document.
 
@@ -344,16 +335,18 @@ doc.Save("Output.pdf")
 
 doc.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 You can set the data directly without setting any data source using PdfGridRow and PdfGridColumn classes. 
 
 The below code snippet illustrates how to create the simple table directly using PdfGrid.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -408,7 +401,7 @@ pdfDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Create a new PDF document.
 
@@ -462,6 +455,8 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}
+
 ## Support for cell customization 
 
 ### Cell customization in PdfLightTable
@@ -470,8 +465,10 @@ PdfLightTable allows users to customize cell font, background, border, etc. usin
 
 The below code snippet illustrates how to customize the cell properties in PdfLightTable.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
+
 
 //Create a new PDF document.
 
@@ -544,7 +541,7 @@ doc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
+
 
 'Create a new PDF document.
 
@@ -616,12 +613,15 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% endtabs %}
+
 You can set different styles for particular cell using BeginCellLayout event and EndCellLayout events in PdfLightTable class.
 
 The following code example illustrates how to draw the graphics elements in particular cell using these event handlers.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Create a new PDF document.
 
@@ -703,12 +703,9 @@ args.Graphics.DrawEllipse(PdfBrushes.Red, args.Bounds);
 
 }
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new PDF document.
 
@@ -782,11 +779,9 @@ End If
 
 End Sub
 
-
-
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ### Cell customization in PdfGrid
 
@@ -794,8 +789,9 @@ PdfGridCell provides various direct options to customize cells like column span,
 
 The following code example illustrates you how to customize the cell in PdfGrid.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Create a new PDF document.
 
@@ -889,12 +885,9 @@ pdfDocument.Save("Output.pdf");
 
 pdfDocument.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new PDF document.
 
@@ -984,9 +977,9 @@ pdfDocument.Save("Output.pdf")
 
 pdfDocument.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Support for rows and columns customization
 
@@ -994,8 +987,9 @@ pdfDocument.Close(True)
 
 PdfLightTable doesn’t provide direct support for row customizations. However, this can be done through the event handlers.The following code snippet illustrates how to customize the row in PdfLightTable using BeginRowLayout and EndRowLayout event handlers.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Create a new PDF document.
 
@@ -1089,12 +1083,9 @@ args.ColumnSpanMap = spanMap;
 
 }
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new PDF document.
 
@@ -1184,16 +1175,17 @@ End If
 
 End Sub
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ### Column customization in PdfLightTable
 
 The following code snippet illustrates how to customize the column in PdfLightTable using the PdfStringFormat class.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Create a new PDF document.
 
@@ -1259,12 +1251,9 @@ doc.Save("Output.pdf");
 
 doc.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new PDF document.
 
@@ -1330,9 +1319,9 @@ doc.Save("Output.pdf")
 
 doc.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ### Row customization in PdfGrid 
 
@@ -1340,8 +1329,9 @@ You can customize row height and styles using Rows property in PdfGrid class.
 
 The following code snippet illustrates how to customize the row in PdfGrid.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Create a new PDF document.
 
@@ -1407,14 +1397,9 @@ pdfDocument.Save("Output.pdf");
 
 pdfDocument.Close(true);
 
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new PDF document.
 
@@ -1480,9 +1465,9 @@ pdfDocument.Save("Output.pdf")
 
 pdfDocument.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ### Columns customization in PdfGrid
 
@@ -1490,8 +1475,9 @@ You can customize column width and text formats using Column property in PdfGrid
 
 The following code snippet illustrates how to customize the column in PdfGrid.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Create a new PDF document.
 
@@ -1553,12 +1539,9 @@ pdfDocument.Save("Output.pdf");
 
 pdfDocument.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new PDF document.
 
@@ -1620,11 +1603,9 @@ pdfDocument.Save("Output.pdf")
 
 pdfDocument.Close(True)
 
-
-
 {% endhighlight %}
 
-
+{% endtabs %}
 
 ## Pagination
 
@@ -1634,8 +1615,9 @@ Essential PDF provides support to paginate the PdfLightTable using PdfLightTable
 
 The below sample illustrates how to allow the PdfLightTable to flow across pages.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Create a new PDF document.
 
@@ -1689,12 +1671,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new PDF document.
 
@@ -1748,9 +1727,9 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ### Pagination in PdfGrid
 
@@ -1758,8 +1737,9 @@ Essential PDF supports to paginate the grid table using PdfGridLayoutFormat clas
 
 The below sample illustrates how to allow the PdfGrid to flow across pages.
 
+{% tabs %}
+
 {% highlight c# %}
-C#:
 
 //Create a new PDF document.
 
@@ -1813,12 +1793,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new PDF document.
 
@@ -1872,61 +1849,114 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Difference between PdfLightTable and PdfGrid
 
 Both the PdfGrid and PdfLightTable models are supported across all the platforms and the below table explains the level of customizations both the models provide.
 
 <table>
-<tr>
-<td>
-**Features**<br/><br/></td><td>
-**PdfLightTable**<br/><br/></td><td>
-**PdfGrid**<br/><br/></td></tr>
-<tr>
-<td>
-<br/><br/>**Formatting**<br/><br/></td></tr>
-<tr>
-<td>
-Row<br/><br/></td><td>
-No direct API, possible through events.<br/><br/></td><td>
-Yes<br/><br/></td></tr>
-<tr>
-<td>
-Column<br/><br/></td><td>
-Yes (StringFormat)<br/><br/></td><td>
-Yes (StringFormat)<br/><br/></td></tr>
-<tr>
-<td>
-Cell<br/><br/></td><td>
-No direct API for single cell formatting, possible through events.<br/><br/></td><td>
-Yes<br/><br/></td></tr>
-<tr>
-<td>
-<br/><br/>**Others**<br/><br/></td></tr>
-<tr>
-<td>
-Row span<br/><br/></td><td>
-No<br/><br/></td><td>
-Yes<br/><br/></td></tr>
-<tr>
-<td>
-Column span<br/><br/></td><td>
-No direct API, possible through events.<br/><br/></td><td>
-Yes<br/><br/></td></tr>
-<tr>
-<td>
-Nested Grid<br/><br/></td><td>
-Possible through events<br/><br/></td><td>
-Yes<br/><br/></td></tr>
-<tr>
-<td>
-Layout Events<br/><br/></td><td>
-BeginCellLayout, BeginPageLayout, BeginRowLayout, EndCellLayout, EndPageLayout, EndRowLayout<br/><br/></td><td>
-BeginPageLayout, EndPageLayout<br/><br/></td></tr>
+    <thead>
+        <tr>
+            <th>
+                Features
+            </th>
+            <th>
+                PdfLightTable
+            </th>
+            <th>
+                PdfGrid
+            </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {{ '**Formatting**' | markdownify }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Row
+            </td>
+            <td>
+                No direct API, possible through events.
+            </td>
+            <td>
+                Yes
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Column
+            </td>
+            <td>
+                Yes (StringFormat)
+            </td>
+            <td>
+                Yes (StringFormat)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cell
+            </td>
+            <td>
+                No direct API for single cell formatting, possible through events.
+            </td>
+            <td>
+                Yes
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ '**Others**' | markdownify }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Row span
+            </td>
+            <td>
+                No
+            </td>
+            <td>
+                Yes
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Column span
+            </td>
+            <td>
+                No direct API, possible through events.
+            </td>
+            <td>
+                Yes
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Nested Grid
+            </td>
+            <td>
+                Possible through events
+            </td>
+            <td>
+                Yes
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Layout Events
+            </td>
+            <td>
+                BeginCellLayout, BeginPageLayout, BeginRowLayout, EndCellLayout, EndPageLayout, EndRowLayout
+            </td>
+            <td>
+                BeginPageLayout, EndPageLayout
+            </td>
+        </tr>
+    </tbody>
 </table>

@@ -13,13 +13,14 @@ Essential PDF allows you to add text to the PDF document using the following typ
 
 1. Standard fonts
 2. True type fonts
-### Draw text using True Type fonts
 
+### Draw text using True Type fonts
 
 You can add text using the true type fonts installed in the system by using the following code snippet.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -49,12 +50,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -84,14 +82,11 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
 
 You can add text using the font file from local file system by providing the path of the true type font location. The following code snippet explains the same.
 
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -121,12 +116,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -156,9 +148,9 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ### Draw text using standard fonts
 
@@ -168,8 +160,9 @@ https://en.wikipedia.org/wiki/Portable_Document_Format#Standard_Type_1_Fonts_.28
 
 You can add text using the standard PDF fonts by using the following code snippet. 
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -199,12 +192,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -234,18 +224,19 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Embedding fonts and working with Unicode text
 
 To embed a font or display Unicode text in the document, the ‘unicode’ Boolean parameter of the PdfTrueTypeFont constructor has to be set to true. The following code illustrates the same.
 
-**Note**: To render a Unicode text in the PDF document the chosen font should have the Unicode rendering capability.
+N> To render a Unicode text in the PDF document the chosen font should have the Unicode rendering capability.
+
+{% tabs %}
 
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -283,12 +274,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -326,16 +314,17 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Drawing Right-To-Left text 
 
 Essential PDF allows you to add RTL text in the PDF document by using the RightToLeft property in the PdfStringFormat class, the following code snippet illustrates how to add RTL text in the PDF document.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -385,12 +374,9 @@ doc.Save("Output.pdf");
 
 doc.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -440,32 +426,34 @@ doc.Save("Output.pdf")
 
 doc.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Adding a HTML Styled Text
 
 Essential PDF provides support to render simple HTML string in a PDF document that can flow through multiple pages. This can be done by using the PdfHTMLTextElement class.
 
-1) The PdfHTMLTextElement class provides support for a basic set of HTML tags, to render HTML format text in the PDF document.
+1. The PdfHTMLTextElement class provides support for a basic set of HTML tags, to render HTML format text in the PDF document.
 
-Supported tags (Should be XHTML-compliant)
+   Supported tags (Should be XHTML-compliant)
 
-* Font
-* B
-* I
-* U
-* Sub
-* Sup
-* BR
-2) The PdfMetafileLayoutFormat class enables to break the HTML text into multiple pages.
-3) Complex HTML with CSS are not supported in this class. Please check <<HTML to PDF link>> section
+   * Font
+   * B
+   * I
+   * U
+   * Sub
+   * Sup
+   * BR
+   
+2. The PdfMetafileLayoutFormat class enables to break the HTML text into multiple pages.
+3. Complex HTML with CSS are not supported in this class. Please check <<HTML to PDF link>> section
 
-The following code example illustrates how to render the HTML string in a PDF document.
+The following code example illustrates how to render the HTML string in a PDF document.   
+
+{% tabs %}
 
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -522,7 +510,6 @@ doc.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -570,16 +557,17 @@ doc.Save("Output.pdf")
 
 doc.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Creating a multicolumn PDF document
 
 Essential PDF allows you to create multi-column text in PDF document by using PdfTextElement class. The following code example illustrates the same.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a PDF document instance
 
@@ -611,14 +599,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a PDF document instance
 
@@ -650,18 +633,17 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 The PdfLayoutFormat class helps to allow the text to flow across pages. The PdfLayoutResult class provides the rendered bounds of the previously added text which can be used to place successive elements without overlapping.
 
 The following code snippet illustrates how to add elements relatively and also allow the text to flow across multiple pages.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a PDF document instance
 
@@ -711,12 +693,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a PDF document instance
 
@@ -760,9 +739,9 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Inserting Rich Text Format contents 
 
@@ -770,8 +749,9 @@ Essential PDF allows you to insert a RTF text into a PDF document.
 
 The following code example illustrates how to insert RTF text in PDF document.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -811,12 +791,9 @@ doc.Save("Output.pdf");
 
 doc.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -856,20 +833,21 @@ doc.Save("Output.pdf")
 
 doc.Close(True)
 
-
-
 {% endhighlight %}
 
-**Note****:** 
+{% endtabs %}
 
-1) For converting complex RTF content to PDF, refer the RTF to PDF section <<link goes here>
+
+N> 1) For converting complex RTF content to PDF, refer the RTF to PDF section
+
 ## Adding an Ordered List 
 
 
 Essential PDF allows you to create an ordered list in the document. Ordered List is represented by the PdfOrderedList class and can be numerical or alphabetical. The following code snippet illustrates the same.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new instance of PdfDocument class.
 
@@ -932,7 +910,6 @@ document.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new instance of PdfDocument class.
 
@@ -990,16 +967,17 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Adding an Unordered List 
 
 Essential Pdf also provides support to create an unordered List that is represented by the PdfUnorderedList class. An Unordered list can be bullets, circle or an image. The following code snippet illustrates the same.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new instance of PdfDocument class.
 
@@ -1065,12 +1043,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new instance of PdfDocument class.
 
@@ -1136,39 +1111,33 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Replace Fonts in an existing document
 
 Essential PDF allows you to replace the fonts in an existing PDF document by using the Replace method. The following code snippets illustrates the same.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates a new PDF document.
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
-
-
 //Replace font 
-
 loadedDocument.UsedFonts[0].Replace(new PdfStandardFont(PdfFontFamily.TimesRoman, 12));
 
 //Save the document
-
 loadedDocument.Save("Output.pdf");
 
 loadedDocument.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Creates a new PDF document.
 
@@ -1184,9 +1153,9 @@ loadedDocument.Save("Output.pdf")
 
 loadedDocument.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Search and get the bounds of a text in a document
 
@@ -1198,8 +1167,9 @@ You can search for a particular text in a document and get the bounds. To includ
 
 The following code snippet illustrates how to get the bound of a text from PDF document.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 PdfViewerControl documentViewer = new PdfViewerControl();
 
@@ -1215,12 +1185,9 @@ bool IsMatchFound = documentViewer.FindText("hello", out textSearch);
 
 documentViewer.Dispose();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 Dim documentViewer As New PdfViewerControl()
 
@@ -1236,7 +1203,6 @@ Dim IsMatchFound As Boolean = documentViewer.FindText("hello", textSearch)
 
 documentViewer.Dispose()
 
-
-
 {% endhighlight %}
 
+{% endtabs %}

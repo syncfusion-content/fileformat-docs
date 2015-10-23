@@ -63,6 +63,8 @@ N> In this method, the text is extracted in the order in which it is written in 
 
 The below code illustrates how to extract the text from entire PDF document:
 
+{% tabs %}
+
 {% highlight c# %}
 
 // Load an existing PDF document.

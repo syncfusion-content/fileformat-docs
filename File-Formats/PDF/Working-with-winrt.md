@@ -1,19 +1,20 @@
 ---
-title: Working with winrt
-description: Create a Winrt application and load the document
+title: Working with WinRT
+description: Create a WinRT application and load the document
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# Working with winrt
+# Working with WinRT
 
 ## Loading the document 
 
-The following code example illustrates how to load the file by using stream in winrt.
+The following code example illustrates how to load the file by using stream in WinRT.
+
+{% tabs %}
 
 {% highlight c# %}
-C#:
 
 //Load the file as stream
 
@@ -81,12 +82,9 @@ fileStream.Dispose();
 
 }
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Load the file as stream
 
@@ -150,14 +148,15 @@ End If
 
 End Sub
 
-
-
 {% endhighlight %}
 
-The following code example illustrates how to load the file by using file picker in Winrt.
+{% endtabs %}
+
+The following code example illustrates how to load the file by using file picker in WinRT.
+
+{% tabs %}
 
 {% highlight c# %}
-C#:
 
 //create the file open picker
 
@@ -233,12 +232,9 @@ fileStream.Dispose();
 
 }
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'create the file open picker
 
@@ -310,16 +306,17 @@ End If
 
 End Sub
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 # Save the document 
 
-The following code example illustrates how to save the PDF document in winrt by using file picker.
+The following code example illustrates how to save the PDF document in WinRT by using file picker.
+
+{% tabs %}
 
 {% highlight c# %}
-C#:
 
 //Create a new document
 
@@ -399,12 +396,9 @@ fileStream.Dispose();
 
 }
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new document
 
@@ -480,7 +474,6 @@ End If
 
 End Sub
 
-
-
 {% endhighlight %}
 
+{% endtabs %}
