@@ -13,8 +13,9 @@ Essential PDF supports various page setting options to control the page display.
 
 You can choose the standard or custom page size when you add a page to the PDF document. This sample below illustrates how to create a PDF document with standard page size.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -48,12 +49,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -87,14 +85,15 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 You can create a custom page size in the PDF document by using following code snippet.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -128,12 +127,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -167,14 +163,16 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 You can change page orientation from portrait to landscape by using the following code snippet.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
+
 
 //Create a new PDF document.
 
@@ -212,12 +210,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -255,14 +250,15 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 You can also change orientation by setting the rotation angle using PdfPageRotateAngle Enum. The following code snippets illustrates the same.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -300,12 +296,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -343,16 +336,17 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Creating sections in a PDF
 
 PDF sections are parts of the PDF document, which may contain one or more pages with their unique page settings. The following code snippet illustrates the same.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -386,12 +380,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -425,9 +416,9 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Printing PDF document
 
@@ -439,8 +430,9 @@ To print a PDF document, the following assemblies has to be added as reference t
 
 The following code snippet illustrates how to print a PDF document.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 PdfDocumentView viewer = new PdfDocumentView();
 
@@ -468,12 +460,9 @@ dialog.Document.Print();
 
 viewer.Dispose();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 Dim viewer As New PdfDocumentView()
 
@@ -501,9 +490,9 @@ dialog.Document.Print()
 
 viewer.Dispose()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Working with document properties
 
@@ -511,8 +500,9 @@ Essential PDF allows you to set, read and modify the document information of a P
 
 The following code snippet illustrates how to set PDF document information.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -556,12 +546,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -605,20 +592,19 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 The following code snippet shows how to read and modify the document properities of an existing PDF document.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
 PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
-
-
 
 //Modify document information.
 
@@ -634,22 +620,15 @@ document.DocumentInformation.Subject = "Document information DEMO";
 
 document.DocumentInformation.Title = "Essential PDF Sample";
 
-
-
 //Save the document.
-
 document.Save("Output.pdf");
 
 //Close the document.
-
 document.Close(true);
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -677,9 +656,9 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Choosing the viewer preferences
 
@@ -687,8 +666,9 @@ Essential PDF allows you to set various PDF viewer preferences to be used when t
 
 You can hide the menubar and toolbar by using the following code snippet.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -730,12 +710,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -777,14 +754,15 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 You can also allow the reader application to initially display the bookmarks, thumbnails or attachments using  PdfPageMode ENUM
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a new PDF document.
 
@@ -818,12 +796,9 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB]
 
 'Create a new PDF document.
 
@@ -857,11 +832,10 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Adding document action
 
-Please refer to the actions section for more document level operations using the PdfJavascript and PDF actions. <<Action link goes here>>
-
+Please refer to the actions section for more document level operations using the PdfJavascript and PDF actions.
