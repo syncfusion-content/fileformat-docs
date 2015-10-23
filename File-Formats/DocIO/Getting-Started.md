@@ -12,10 +12,13 @@ documentation: UG
 In this page, you can see how to create a simple Word document by using Essentail DocIO’s API. For creating and manipulating a Word document, the following assemblies are required to be referenced in your application.
 
 <table>
+<thead>  
 <tr>
-<th>
-**Assembly**<br/><br/></th><th>
-**Short** **description**<br/><br/></th></tr>
+<th>Assembly<br/><br/></th>
+<th>Short description<br/><br/></th>
+</tr>
+</thead>
+<tbody>  
 <tr>
 <td>
 Syncfusion.DocIO.Base<br/><br/></td><td>
@@ -28,7 +31,10 @@ This assembly is used to package the Word document contents.<br/><br/></td></tr>
 <td>
 Syncfusion.OfficeChart.Base<br/><br/></td><td>
 This assembly contains the Office Chart Object model and core features needed for chart creation.<br/><br/></td></tr>
+</tbody>
 </table>
+
+
 Include the following namespaces in your .cs or .vb file
 
 * Syncfusion.DocIO
@@ -40,8 +46,10 @@ A section represents group of paragraphs, tables etc., that have a specific set 
 
 The following code example explains how to add a section into a WordDocument instance.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates an instance of WordDocument Instance (Empty Word Document)
 
@@ -60,7 +68,7 @@ section.PageSetup.Margins.All = 50f;
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates an instance of WordDocument Instance (Empty Word Document)
 
@@ -74,16 +82,18 @@ Dim section As IWSection = document.AddSection()
 
 section.PageSetup.Margins.All = 50.0F
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 All the textual contents in a Word document is represented by Paragraphs. Within the paragraph, textual contents are grouped into one or more child elements such as TextRange, field etc. Each TextRange represents a region of text with a common set of rich text formatting.
 
 The following code example explains how to add a Paragraph into a Word document
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Adds a new simple paragraph into the section
 
@@ -120,7 +130,7 @@ secondTextRange.CharacterFormat.FontSize = 11;
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Adds a new simple paragraph into the section
 
@@ -152,16 +162,17 @@ secondTextRange.CharacterFormat.FontName = "Calibri"
 
 secondTextRange.CharacterFormat.FontSize = 11
 
+{% endhighlight %}  
 
 
-
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example shows how to add an image into the Word document. 
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Adds another paragraph and aligns it as center
 
@@ -184,7 +195,7 @@ picture.Width = 100;
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Adds another paragraph and aligns it as center
 
@@ -202,14 +213,16 @@ picture.Height = 100
 
 picture.Width = 100
 
-
-
 {% endhighlight %}
+
+  {% endtabs %}  
 
 Table is another important element in Word that contains a set of paragraphs arranged in rows and columns. You can create simple as well as complex table by using Essential DocIO’s API. The following code example creates a simple table and adds contents into it. Each table cell must contain at least one paragraph.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Adds a table into the Word document
 
@@ -272,7 +285,7 @@ textRange = paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipis
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Adds a table into the Word document
 
@@ -332,14 +345,16 @@ textRange = paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipis
 
 
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 Essential DocIO allow you to create simple and multi-level lists. The following code snippet explains about how to create a numbered and bulleted list.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Writes default numbered list. 
 
@@ -420,7 +435,7 @@ section.AddParagraph();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Writes default numbered list. 
 
@@ -492,16 +507,18 @@ paragraph.ListFormat.DecreaseIndentLevel()
 
 section.AddParagraph()
 
-
-
-
-
 {% endhighlight %}
+
+
+
+ {% endtabs %}  
 
 Finally, save the document in file system and close its instance.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Saves the document in the given name and format
 
@@ -516,7 +533,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Saves the document in the given name and format
 
@@ -529,6 +546,8 @@ document.Close()
 
 
 {% endhighlight %}
+
+ {% endtabs %}  
 
 The resultant Word document looks as follows.
 
@@ -543,8 +562,10 @@ Here, you can see how an existing Word document is loaded into DocIO’s DOM, re
 
 You can open an existing Word document either by using constructor of WordDocument class or by using Open method of WordDocument class that reads the document and populates DocIO’s DOM. The following code example shows how to load an existing document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads an existing Word document into DocIO instance
 
@@ -567,7 +588,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads an existing Word document into DocIO instance
 
@@ -585,16 +606,18 @@ document.Save("Result.docx")
 
 document.Close()
 
-
-
-
-
 {% endhighlight %}
+
+
+
+   {% endtabs %}  
 
 The following code example explains how to search a particular text and highlight it.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads an existing Word document into DocIO instance
 
@@ -625,7 +648,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads an existing Word document into DocIO instance
 
@@ -649,12 +672,14 @@ document.Save("Result.docx")
 
 document.Close()
 
+{% endhighlight %} 
 
 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
+  
+  
 ## Performing Mail merge
 
 Essential DocIO allows to generate documents by filling data in template document from data source. Mail merge operation automatically maps the column name in the data source and names of the merge fields in the template Word document and fills the data.  
@@ -679,8 +704,10 @@ The MailMerge class provides various overloads for Execute method to perform mai
 
 The following code example shows how to perform simple mail merge by using string array.
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document with required merge fields
 
@@ -709,7 +736,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document with required merge fields
 
@@ -734,17 +761,17 @@ document.Save("result.docx")
 document.Close()
 
 
-
-
-
 {% endhighlight %}
+
+
+   {% endtabs %} 
 
 The resultant Word document look as follows.
 
 ![](GettingStarted_images/GettingStarted_img3.jpeg)
 
 
-**Simple** **Mail** **merge** **with** **Group**
+### Simple Mail merge with Group
 
 You can perform mail merge with group to append multiple records from data source into a single document. Group is a part of the document enclosed by two special merge fields named «TableStart:TableName» and «TableEnd:TableName» 
 
@@ -758,16 +785,18 @@ For example – let’s consider that you have a template document as shown.
 ![](GettingStarted_images/GettingStarted_img4.jpeg)
 
 
-Here, in this template, **Employees** is the group name and exact same name should be used while performing mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the mail merge group. 
+Here, in this template, Employees is the group name and exact same name should be used while performing mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the mail merge group. 
 
-To merge an image in the replace of a merge field, you need to add a prefix (“**Image****:”)** the merge field name. 
+To merge an image in the replace of a merge field, you need to add a prefix (“Image:”)the merge field name. 
 
-For example: the merge field name should be like “<<**Image****:****Photo****>>”** (<<Image:MergeFieldName>>)
+For example: the merge field name should be like “<<Image:Photo>>”(<<Image:MergeFieldName>>)
 
 The following code example shows how to perform mail merge with objects.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -796,7 +825,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 //Loads the template document
 
@@ -821,15 +850,17 @@ document.Save("Result.docx")
 document.Close()
 
 
+{% endhighlight %} 
 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code example provides supporting methods and class for the above code
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 public List<Employee> GetEmployees()
 
@@ -900,7 +931,7 @@ Photo = Image.FromFile(photoFilePath);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Public Function GetEmployees() As List(Of Employee)
 
@@ -1100,9 +1131,9 @@ End Sub
 
 End Class
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The resultant document looks as follows.
 
@@ -1126,8 +1157,10 @@ For converting a Word document to PDF, the following assemblies are required to 
 
 DocToPDFConverter class is responsible for converting a Word document into PDF. The following code example illustrates how to convert a Word document into PDF document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -1162,7 +1195,7 @@ wordDocument.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document 
 
@@ -1192,15 +1225,13 @@ pdfDocument.Close()
 
 wordDocument.Close()
 
+{% endhighlight %}  
 
 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
-I> Note:
-
-I> When the ChartToImageConverter object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
-
-I> ChartToImageConverter is supported from .NET Framework 4.0 onwards
+N> 
+When the ChartToImageConverter object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
+ChartToImageConverter is supported from .NET Framework 4.0 onwards
 

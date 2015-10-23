@@ -17,8 +17,10 @@ The following are the important points to be remembered while iterating the docu
 
 The following code example shows how to iterate throughout the Word document and remove the paragraph with a particular style.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 using Syncfusion.DocIO.DLS;
 
@@ -167,7 +169,7 @@ IterateTextBody(cell);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Imports Syncfusion.DocIO.DLS
 
@@ -291,10 +293,14 @@ End Namespace
 
 {% endhighlight %}
 
-The following code example shows how to iterate throughout the paragraph and modify the hyperlink (**Hyperlink****)** Uri and specific text (**WTextRange****)** with another.
+ {% endtabs %}  
+
+The following code example shows how to iterate throughout the paragraph and modify the hyperlink (Hyperlink)Uri and specific text (WTextRange)with another.
+
+{% tabs %}  
 
 {% highlight c# %}
-[C#]
+
 
 using Syncfusion.DocIO.DLS;
 
@@ -503,7 +509,7 @@ break;
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Imports Syncfusion.DocIO.DLS
 
@@ -675,20 +681,23 @@ End Class
 
 End Namespace
 
-
-
-
-
 {% endhighlight %}
 
+
+
+  {% endtabs %}  
+
+  
 ## Cloning a Word document
 
 
 
 You can create a deep copy of a Word document by using Clone method of WordDocument class. You can read the template document from file system or stream and create multiple document copies by cloning it. This improves the performance of document generation, as there is no need to read the Word document each time.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Opens an existing document 
 
@@ -713,7 +722,7 @@ sourceDocument.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens an existing document 
 
@@ -739,10 +748,14 @@ sourceDocument.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+ 
 You can also create a deep copy of document elements such as sections, paragraphs, Tables, Text, Image, OleObject, Shapes, TextBoxes and etc., The following code example illustrates how to clone the section and save each cloned section as a Word document. 
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Opens a source document
 
@@ -779,7 +792,7 @@ sourceDocument.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens a source document
 
@@ -809,18 +822,19 @@ Next
 
 sourceDocument.Close()
 
-
-
 {% endhighlight %}
 
+   {% endtabs %}  
+
+   
 ## Merging Word documents
 
 You can merge multiple Word documents into single Word document by using DocIO’s capability of importing contents from one document to another. The imported contents are appended at the end of document.  The following code example illustrates how to import the contents from source document into destination document where the contents are appended. 
 
-
+{% tabs %} 
 
 {% highlight c# %}
-[C#]
+
 
 //Opens the source document 
 
@@ -849,7 +863,7 @@ destinationDocument.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the source document 
 
@@ -873,16 +887,18 @@ sourceDocument.Close()
 
 destinationDocument.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 In the resultant document, the imported contents start from a new page followed by existing contents in a destination document. This is the default behavior.
 
 When your requirement is to append the contents from the same page instead of starting from a new page, you need to set the break code of first section of Source document as NoBreak. The following code example illustrates the importing contents from the same page.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Opens the source document 
 
@@ -915,7 +931,7 @@ destinationDocument.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the source document 
 
@@ -943,18 +959,20 @@ sourceDocument.Close()
 
 destinationDocument.Close()
 
-
-
 {% endhighlight %}
+
+  {% endtabs %}  
 
 ## Printing a Word document
 
-You can print a Word document by utilizing DocIO’s capability to convert the document into images and .NET framework’s [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx# "") class
+You can print a Word document by utilizing DocIO’s capability to convert the document into images and .NET framework’s [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx#) class
 
 Initially you have to rasterize the pages as images as shown below
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Opens the Word document.
 
@@ -969,13 +987,10 @@ Image[] images = document.RenderAsImages(ImageType.Metafile);
 document.Close();
 
 
-
-
-
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the Word document.
 
@@ -989,16 +1004,18 @@ Dim images As Image() = document.RenderAsImages(ImageType.Metafile)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
-You can specify the printer settings and page settings through the [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx# "") class. The [PrintDocument.PrintPage](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument.printpage%28v=vs.110%29.aspx# "") event should be handled to layout the document for printing. 
+  {% endtabs %}  
+
+You can specify the printer settings and page settings through the [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx#) class. The [PrintDocument.PrintPage](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument.printpage%28v=vs.110%29.aspx#) event should be handled to layout the document for printing. 
 
 The following code example demonstrates how to print the Word document pages that have been rendered as an image:
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 int endPageIndex = images.Length;
 
@@ -1133,7 +1150,7 @@ startPageIndex = 0;
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim endPageIndex As Integer = images.Length
 
@@ -1251,13 +1268,14 @@ End If
 
 End Sub
 
-
-
-
-
 {% endhighlight %}
 
-You can download the complete working samples of the code from [here](http://www.syncfusion.com/downloads/support/directtrac/general/Sample-627835418.zip# "").
+
+
+   {% endtabs %}  
+
+You can download the complete working samples of the code from [here](http://www.syncfusion.com/downloads/support/directtrac/general/Sample-627835418.zip#).
+
 
 ## Working with Styles
 
@@ -1267,14 +1285,16 @@ A style is a predefined set of table, numbering, paragraph, and character proper
 * Create new paragraph style. 
 * Apply built-in styles.
 
-**Access** **Styles**
+### Access Styles
 
 Paragraph and character styles present in the existing document are accessible through the WordDocument.Styles property. 
 
 This following code example demonstrates how a style can be accessed and style properties like text color and first line indent can be updated.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Opens an input Word template
 
@@ -1305,7 +1325,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens an input Word template
 
@@ -1331,16 +1351,19 @@ document.Save(outputFileName, FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
-**Creating** **a** **new** **Paragraph** **Style**
+ 
+### Creating a new Paragraph Style
 
 You can create a new paragraph style by using WordDocument.AddParagraphStyle method and apply it by using ApplyStyle method of WParagraph class.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Opens an input Word template
 
@@ -1385,7 +1408,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens an input Word template
 
@@ -1420,17 +1443,21 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 
 
+{% endhighlight %} 
 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
-**Applying** **built****-****in** **styles**
+ 
+### Applying built-in styles
 
 DocIO provides a set of predefined styles. You can apply those predefined styles as shown in the following code example.
 
+{% tabs %} 
+
+
 {% highlight c# %}
-[C#]
+
 
 //Opens an input Word template
 
@@ -1463,7 +1490,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens an input Word template
 
@@ -1488,24 +1515,26 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 
 
-
-
-
 {% endhighlight %}
+
+
+   {% endtabs %}  
 
 ## Working with Word document properties
 
 Document properties, also known as metadata, are details about a file that describe or identify it. You can also define the additional custom document properties for the documents by using DocIO Document properties that are classified as two categories. 
 
-* **Built****-****in** **DocumentProperties** - includes details such as title, author name, subject, and keywords that identify the document's topic or contents.
-* **Custom** **Document** **properties** - defines the user-defined document properties
+* Built-in DocumentProperties - includes details such as title, author name, subject, and keywords that identify the document's topic or contents.
+* Custom Document properties - defines the user-defined document properties
 
-**Built****-****in** **document** **properties**
+### Built-in document properties
 
 The Built-in document properties of a word document is represented by WordDocument.BuiltinDocumentProperties object. The following code example illustrates how to access and modify the Built-in document properties of the document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument(inputFileName);
 
@@ -1534,7 +1563,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument(inputFileName)
 
@@ -1555,17 +1584,19 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 
 
-
-
-
 {% endhighlight %}
 
-**Adding** **Custom** **Document** **properties**
+ {% endtabs %}  
+
+ 
+### Adding Custom Document properties
 
 You add a new custom document properties through Add method of CustomProperties class. The following code example illustrates how to add a new custom document properties.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Opens an input word template
 
@@ -1592,7 +1623,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens an input word template
 
@@ -1613,17 +1644,19 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 
 
+{% endhighlight %} 
 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
-**Accessing** **&** **Modifying** **Custom** **Document** **Properties**
+### Accessing**&**Modifying**Custom**Document**Properties**
 
 You can access and modify an existing document property as shown in the following code example.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument(inputFileName);
 
@@ -1646,7 +1679,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument(inputFileName)
 
@@ -1662,20 +1695,25 @@ document.Save(outputFileName, FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %}  
 
 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
+  
+  
 ## Setting the Background for a Word document
 
 Essential DocIO allows to apply background such as color, gradient and picture to the Word document. A background of a Word document is represented by WordDocument.Background object. 
 
 The following code illustrates how to apply gradient as background to the document.
 
+{% tabs %} 
+
+
 {% highlight c# %}
-[C#]
+
 
 //Createss a new Word document
 
@@ -1722,7 +1760,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -1770,10 +1808,15 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+ 
 The following code illustrates how to apply image as background for the document.
 
+{% tabs %} 
+
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document
 
@@ -1810,7 +1853,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document
 
@@ -1846,3 +1889,4 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  

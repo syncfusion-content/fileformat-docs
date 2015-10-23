@@ -7,19 +7,23 @@ documentation: UG
 ---
 # Footnotes and endnotes
 
-__Footnotes__ and __endnotes__ are separate text body contents used in documents to show the source of supplementary information that does not interrupt the normal body text of the Word document. __Footnotes__ are typically located at the bottom of a page or beneath text being referenced, and __endnotes__ are typically placed at the end of a document or at the end of a section. When document has been divided up into one or more sections, each section of a document can contain endnotes.
+Footnotes and endnotes are separate text body contents used in documents to show the source of supplementary information that does not interrupt the normal body text of the Word document. Footnotes are typically located at the bottom of a page or beneath text being referenced, and endnotes are typically placed at the end of a document or at the end of a section. When document has been divided up into one or more sections, each section of a document can contain endnotes.
 
 Both footnotes and endnotes consist of two parts:
 
 * A note reference mark with numbering value in the body text to indicate that additional information is in a footnote or endnote at the end of the page or the end of the document or section.
 * The footnote or endnote text body content.
+
+
 ## Adding a Footnotes
 
 
 The following code example shows how to insert the footnotes into the Word document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document
 
@@ -74,7 +78,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document
 
@@ -124,16 +128,19 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+   {% endtabs %}  
+
+   
+   
 ## Adding a Endnotes
 
 The following code example shows how to insert the endnotes into the Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
 
 //Creates a new document
 
@@ -188,7 +195,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new document
 
@@ -238,10 +245,12 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+   {% endtabs %}  
+
+   
+   
 ## Footnote and Endnote separators
 
 Footnote/Endnote separator is used to separate the text body content and footnote/endnote by a small line. 
@@ -252,8 +261,10 @@ A footnote/endnote continuation notice is used to indicate the footnote/endnote 
 
 The following code example shows how to change the default footnote separator.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document
 
@@ -314,7 +325,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document
 
@@ -370,14 +381,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %}  
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example shows how to change the default endnote separator.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document
 
@@ -438,7 +451,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document
 
@@ -500,3 +513,4 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  

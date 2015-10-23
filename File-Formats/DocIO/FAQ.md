@@ -11,8 +11,9 @@ documentation: UG
 
 The following code illustrates how to modify the built-in style while creating new Word document.
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
 
 //Creates a new Word document 
 
@@ -53,11 +54,9 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 
 
-
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Creates a new Word document 
 
@@ -97,16 +96,19 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %}  
 
+{% endtabs %} 
 
-{% endhighlight %}
 
 ## How to open a document from stream using DocIO?
 
-A document can be opened as stream by using **HttpWebResponse**. This stream does not support seek operation and so the contents should be read manually to get the position and length of the stream. The following code illustrates how to load the document from stream.
+A document can be opened as stream by using HttpWebResponse. This stream does not support seek operation and so the contents should be read manually to get the position and length of the stream. The following code illustrates how to load the document from stream.
+
+{% tabs %}  
 
 {% highlight c# %}
-[C#]
+
 
 //Gets the document as stream
 
@@ -149,7 +151,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Gets the document as stream
 
@@ -187,14 +189,15 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+  {% endtabs %}  
 
 The following code illustrates the method used to read the stream and convert the stream to bytes.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
 
 public static byte[] ReadFully(Stream stream, int initialLength)
 
@@ -273,7 +276,7 @@ return ret;
 
 
 {% highlight vbnet %}
-[VB]
+
 
 Public Shared Function ReadFully(stream As Stream, initialLength As Integer) As Byte()
 
@@ -337,10 +340,12 @@ Return ret
 
 End Function
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
+ 
+ 
 ## How to set OpenType Font Features?
 
 The Open type features provide special effects for the text. This feature is specific to Word 2010 and later version documents. The OpenType features includes the following:
@@ -353,8 +358,10 @@ The Open type features provide special effects for the text. This feature is spe
 
 The following code illustrates how to set ligature types for text.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -405,7 +412,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Creates a new Word document 
 
@@ -455,14 +461,17 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code example illustrates how to set contextual alternates.
 
+{% tabs %} 
+
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -499,7 +508,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Creates a new Word document 
 
@@ -531,14 +539,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example illustrates how to set number spacing.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -583,7 +593,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Creates a new Word document 
 
@@ -623,14 +632,15 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code example illustrates how to set number style.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
 
 //Creates a new Word document 
 
@@ -675,7 +685,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Creates a new Word document 
 
@@ -715,14 +724,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+ {% endtabs %}  
 
 The following code example illustrates how to set different styles for the text.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -769,7 +780,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Creates a new Word document 
 
@@ -811,16 +821,19 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}  
+
 
 ## How to attach a Template to a Word document?
 
 The following code illustrates how to set the template for the document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads a source document
 
@@ -845,7 +858,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Loads a source document
 
@@ -869,12 +881,18 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
+
 ## How to insert a DataTable in a Word document?
 
 You can create new table in a Word document and copy the contents from data table. The following code illustrates how to insert a data table as table in a Word document.
 
+
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
 
 //Creates new Word document
 
@@ -953,7 +971,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Creates new Word document
 
@@ -1021,14 +1038,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code illustrates the method to get data table.
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 private void GetDataTable(DataSet dataset)
 
@@ -1079,7 +1098,6 @@ dataset.Tables["Products"].Rows.Add(row);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 Private Sub GetDataTable(dataset As DataSet)
 
@@ -1121,16 +1139,18 @@ Next
 
 End Sub
 
-
-
 {% endhighlight %}
+
+  {% endtabs %} 
 
 ## How to insert a table from Html string in Word document?
 
 An html string can be inserted to the Word document at text body or paragraph. The following code illustrates how to insert a table to the document from the Html string.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -1159,7 +1179,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Loads the template document
 
@@ -1183,16 +1202,19 @@ document.Save("Sample.docx")
 
 document.Close()
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
+ 
 ## How to set table cell width?
 
 Each cell in the table can have its own width. The following code illustrates how to set the width of the cell.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates new word document
 
@@ -1247,7 +1269,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates new word document
 
@@ -1299,12 +1321,16 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## How to position a table in a Word document?
 
 You can position a table in a Word document by setting position properties. The following code illustrates how to set position properties for a table.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -1335,7 +1361,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -1361,16 +1387,20 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+  {% endtabs %}  
+
+  
+  
 ## How to set the text direction to a table in Word document?
 
 The contents of the table cell can be in vertical or horizontal direction. Each cell content can have different text direction. The following code illustrates how to set the text direction for the text in the table.
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -1413,7 +1443,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Loads the template document
 
@@ -1447,16 +1476,20 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
+ {% endtabs %} 
 
-{% endhighlight %}
-
+ 
+ 
 ## How to extract the images in the document?
 
 The following code illustrates how to extract the images in the document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -1517,7 +1550,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Loads the template document
 
@@ -1567,14 +1599,15 @@ Next
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The images in the document can be extracted into a specific location when exporting it to HTML file. The following code illustrates how to extract images.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
 
 //Loads the template document
 
@@ -1599,7 +1632,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Loads the template document
 
@@ -1623,12 +1655,17 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
 ## How to remove headers and footers from the document?
 
 The following code illustrates how to remove the header contents from the document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -1679,7 +1716,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Loads the template document
 
@@ -1723,14 +1759,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code illustrates how to remove the footer contents from the document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -1781,7 +1819,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Loads the template document
 
@@ -1825,10 +1862,12 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+  {% endtabs %}  
+
+  
+  
 ## Which units does Essential DocIO uses for measurement properties such as size, margins, etc, in a Word document?
 
 Essential DocIO library uses Points for measurement properties in a Word document.
@@ -1839,7 +1878,7 @@ Yes, OfficeChartToImageConverter assembly is not supported in .Net 3.5 framework
 
 ## Can the chart data be refreshed?
 
-Yes, Essential DocIO supports refreshing the chart data. For more details, refer [Working with charts](http://www.google.com/# "")
+Yes, Essential DocIO supports refreshing the chart data. For more details, refer [Working with charts](/File-Formats/DocIO/Working-with-Charts)
 
 ## Is it possible to convert 3D charts to PDF or image?
 
@@ -1847,20 +1886,21 @@ Current version of the DocIO library does not provide support for converting 3D 
 
 ## Is it possible to specify PDF conformance level in Word to PDF conversion?
 
-Yes, you can specify the PDF conformance level in Word to PDF conversion. For more details, refer [PDF Conformance](http://www.google.com/# "")
+Yes, you can specify the PDF conformance level in Word to PDF conversion. 
 
 ## Migration from Microsoft Office Automation to Essential DocIO
 
 ### Mail Merge
 
-The **Mail** **Merge** feature can be used to generate reports and letters in **MS** **Word**. The following code examples show how to generate an employee report from an MDB data source by using **Office** **Automation** and **DocIO**.
+The Mail Merge feature can be used to generate reports and letters in MS Word. The following code examples show how to generate an employee report from an MDB data source by using Office Automation and DocIO.
 
-**Using** **MS** **Office** **Interop**
+Using MS Office Interop
 
-**Office** **Automation** performs the **Mail** **Merge** by executing a SQL query on the Word document. The output of the **Mail** **Merge** can be sent to a new Word document. Alternatively, it can be sent to a printer, a fax machine, or forwarded to an e-mail address.
+Office Automation performs the Mail Merge by executing a SQL query on the Word document. The output of the Mail Merge can be sent to a new Word document. Alternatively, it can be sent to a printer, a fax machine, or forwarded to an e-mail address.
+
+{% tabs %}  
 
 {% highlight c# %}
-[C#]
 
 using word = Microsoft.Office.Interop.Word;
 
@@ -1917,7 +1957,6 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -1969,22 +2008,26 @@ document.Close(nullobject, nullobject, nullobject)
 
 wordApp.Quit(nullobject, nullobject, nullobject)
 
-
-
 {% endhighlight %}
 
-**Using** **DocIO**
+ {% endtabs %}  
+ 
+ 
 
-**DocIO** performs **Mail** **Merge** by using the following methods:
+### Using DocIO
+
+DocIO performs Mail Merge by using the following methods:
 
 * Execute
 * ExecuteGroup
 * ExecuteNestedGroup
 
-The following code example performs **Mail** **Merge** by using the **Execute** method.
+The following code example performs Mail Merge by using the Execute method.
+
+{% tabs %}    
 
 {% highlight c# %}
-[C#]
+
 
 string dataBase = "Northwind.mdb";
 
@@ -2025,7 +2068,6 @@ doc.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 Dim dataBase As String = "Northwind.mdb" 
 
@@ -2061,25 +2103,26 @@ doc.Save("Sample.docx", FormatType.Docx)
 
 doc.Close()
 
-
-
 {% endhighlight %}
 
-I> ![http://help.syncfusion.com/ug/windows%20forms/docio/ImagesExt/image9_7.png](FAQ_images/FAQ_img1.jpeg)
-Note: For more information on mail merge using DocIO, you can refer to online documentation link:
+  {% endtabs %}
 
-[MailMerge](http://www.google.com/# "")
+N> 
+For more information on mail merge using DocIO, you can refer to online documentation link:
+[MailMerge](/File-Formats/DocIO/MailMerge)
 
 ### Find and Replace
 
 This section illustrates how to perform a simple find and replace operation in a Word document by using Microsoft Office Interop and DocIO.
 
-**Using** **Microsoft** **Office** **Interop**
+Using Microsoft Office Interop
 
 The following code example illustrates how to search for a word in a Word document, replace it with another word and save the document under a new name.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 using word = Microsoft.Office.Interop.Word;
 
@@ -2166,7 +2209,6 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2232,16 +2274,20 @@ doc.Close(nullobject, nullobject, nullobject)
 
 wordApp.Quit(nullobject, nullobject, nullobject)
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
+ 
+ 
+### Using DocIO
 
-**Using** **DocIO**
+The following code example illustrates how to perform a simple find and replace operation by using DocIO.
 
-The following code example illustrates how to perform a simple find and replace operation by using **DocIO**.
+{% tabs %}  
 
 {% highlight c# %}
-[C#] 
+
 
 //Opens the Word document.
 
@@ -2268,7 +2314,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
 
 ‘Opens the Word document.
 
@@ -2290,25 +2335,27 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
+
+ {% endtabs %}  
 
 
-{% endhighlight %}
+N>  For more information on performing the find and replace operation using DocIO, you can refer to online documentation link:
+[Find and Replace](/File-Formats/DocIO/Find-and-Replace)
 
-I> ![http://help.syncfusion.com/ug/windows%20forms/docio/ImagesExt/image9_7.png](FAQ_images/FAQ_img2.jpeg)
-Note: For more information on performing the find and replace operation using DocIO, you can refer to online documentation link:
 
-__**[Find and Replace](http://www.google.com/# "")**__
 
 ### Bookmarks
 
 Bookmarks identify the location of text in a Word document that you can name and identify for future reference.
 
-**Using** **Microsoft** **Office** **Interop**
+Using Microsoft Office Interop
 
-The following code example illustrates how to insert a bookmark for a range of text by using **Office** **Automation**.
+The following code example illustrates how to insert a bookmark for a range of text by using Office Automation.
+
+{% tabs %}  
 
 {% highlight c# %}
-[C#]
 
 using word = Microsoft.Office.Interop.Word;
 
@@ -2371,7 +2418,6 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2425,16 +2471,20 @@ doc.Close(nullobject, nullobject, nullobject)
 
 wordApp.Quit()
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
+ 
+ 
+### Using DocIO
 
-**Using** **DocIO**
+The following code example illustrates how to insert the bookmark by using DocIO. Here, the AppendBookmarkStart() and AppendBookmarkEnd() methods are used to add the bookmark.
 
-The following code example illustrates how to insert the bookmark by using **DocIO**. Here, the **AppendBookmarkStart****()** and **AppendBookmarkEnd****()** methods are used to add the bookmark.
+{% tabs %}  
 
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document.
 
@@ -2476,10 +2526,7 @@ doc.Close();
 
 {% endhighlight %}
 
-
-
 {% highlight vbnet %}
-[VB]
 
 ‘Creates a new Word document.
 
@@ -2517,25 +2564,24 @@ doc.Save("Sample.docx", FormatType.Docx)
 
 doc.Close()
 
-
-
 {% endhighlight %}
 
-I> ![http://help.syncfusion.com/ug/windows%20forms/docio/ImagesExt/image9_95.png](FAQ_images/FAQ_img3.jpeg)
-Note: For more information on working with bookmarks using DocIO, you can refer to the online documentation link:
+  {% endtabs %}  
 
-__**[Working with Bookmarks](http://www.google.com/# "")**__
+
 
 ### Page Numbers
 
 Page numbers can be added to the Word document in headers or footers.
 
-**Using** **MS** **Office** **Interop**
+Using MS Office Interop
 
 The following code example illustrates how page numbers can be inserted to the footer of the Word document by adding a page number field.
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 using word = Microsoft.Office.Interop.Word;
 
@@ -2598,7 +2644,6 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2654,16 +2699,20 @@ document.Close(nullobject, nullobject, nullobject)
 
 wordApp.Quit()
 
-
-
 {% endhighlight %}
 
-**Using** **DocIO**
+  {% endtabs %} 
+
+  
+  
+### Using DocIO
 
 The following code example illustrates how page numbers are inserted to the footer of the Word document by using DocIO.
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 //Opens the Word document.
 
@@ -2704,7 +2753,6 @@ doc.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 ‘Opens the Word document.
 
@@ -2738,20 +2786,24 @@ doc.Save("Sample.docx", FormatType.Docx)
 
 doc.Close()
 
-
-
 {% endhighlight %}
 
+  {% endtabs %} 
+
+  
+  
 ### Document Watermarks
 
 Watermarks are text or pictures that appear behind document text.
 
-**Using** **Microsoft** **Office** **Interop**
+Using Microsoft Office Interop
 
-The following code example illustrates how to insert a text watermark as a shape by using **Office** **Automation**.
+The following code example illustrates how to insert a text watermark as a shape by using Office Automation.
+
+{% tabs %}   
 
 {% highlight c# %}
-[C#]
+
 
 using word = Microsoft.Office.Interop.Word;
 
@@ -2820,7 +2872,6 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2872,16 +2923,18 @@ doc.Close(nullobject, nullobject, nullobject)
 
 wordApp.Quit()
 
+{% endhighlight %} 
 
+  {% endtabs %} 
 
-{% endhighlight %}
+### Using DocIO
 
-**Using** **DocIO**
+DocIO enables you to add a text watermark and a picture watermark to a Word document. The following code example shows how to insert the picture watermark to the Word document.
 
-**DocIO** enables you to add a text watermark and a picture watermark to a Word document. The following code example shows how to insert the picture watermark to the Word document.
+{% tabs %}  
 
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document.
 
@@ -2914,7 +2967,6 @@ doc.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 ‘Creates a new Word document.
 
@@ -2942,25 +2994,25 @@ doc.Save("Sample.docx", FormatType.Docx)
 
 doc.Close()
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
-I> ![http://help.syncfusion.com/ug/windows%20forms/docio/ImagesExt/image9_7.png](FAQ_images/FAQ_img4.jpeg)
-Note: For more information on adding watermarks to a Word document using DocIO, refer to the online documentation link:
-
-[Applying Watermark](http://www.google.com/# "")
+N>  For more information on adding watermarks to a Word document using DocIO, refer to the online documentation link:
+[Applying Watermark](/File-Formats/DocIO/Applying-Watermark)
 
 ### Headers and Footers
 
 The headers and footers can be inserted with text, graphics, and any other information that is contained in the document. 
 
-**Using** **MS** **Office** **Interop** 
+Using MS Office Interop 
 
 The following code example illustrates how to add headers and footers to a Word document. In this example, page numbers are inserted to the header and a text is inserted to the footer.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#] 
+
 
 using word = Microsoft.Office.Interop.Word;
 
@@ -3041,7 +3093,6 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -3099,13 +3150,13 @@ document.Close(nullobject, nullobject, nullobject)
 
 wordApp.Quit()
 
-
-
 {% endhighlight %}
 
-**Using** **DocIO**
+  {% endtabs %}  
 
-You can set the header and footer by using the **HeadersFooters** property in the Word document section. To access a particular header/footer, you can use the following properties of **WHeadersFooters** class:
+### Using DocIO
+
+You can set the header and footer by using the HeadersFooters property in the Word document section. To access a particular header/footer, you can use the following properties of WHeadersFooters class:
 
 * FirstPageHeader
 * FirstPageFooter
@@ -3114,8 +3165,11 @@ You can set the header and footer by using the **HeadersFooters** property in th
 * EvenHeader
 * EvenFooter
 
+
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 //Opens a Word document.
 
@@ -3162,7 +3216,6 @@ doc.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 ‘Opens the Word document.
 
@@ -3202,25 +3255,23 @@ doc.Save("Sample.docx", FormatType.Docx)
 
 doc.Close()
 
+{% endhighlight %} 
 
+ {% endtabs %} 
 
-{% endhighlight %}
-
-I> ![http://help.syncfusion.com/ug/windows%20forms/docio/ImagesExt/image9_7.png](FAQ_images/FAQ_img5.jpeg)
-Note: For more information on inserting Headers and Footers to a Word document using DocIO, you can refer to the online documentation link:
-
-[Working with headers and footers](http://www.google.com/# "")
 
 ### Character Formatting
 
 Character formatting defines the appearance of the text in a Word document. This section illustrates how to apply character level formatting to the Word document. 
 
-**Using** **MS** **Office** **Interop**
+Using MS Office Interop
 
-The following code example illustrates how to apply the character formatting to the Word document by using the **Range** properties.
+The following code example illustrates how to apply the character formatting to the Word document by using the Range properties.
+
+{% tabs %} 
 
 {% highlight c# %}
-[C#]
+
 
 using word = Microsoft.Office.Interop.Word
 
@@ -3279,7 +3330,6 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -3329,20 +3379,24 @@ doc.Close(nullobject, nullobject, nullobject)
 
 wordApp.Quit()
 
+{% endhighlight %} 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
+  
+  
 ### Tables
 
 Tables are used to organize information and to display the information in rows and columns. You can also add images or even other tables to the table.
 
-**Using** **MS** **Office** **Interop**
+Using MS Office Interop
 
 The following code example illustrates how to insert a table to a Word document, where the table contains three rows and two columns.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#] 
+
 
 using word = Microsoft.Office.Interop.Word;
 
@@ -3395,7 +3449,6 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB.NET] 
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -3443,16 +3496,18 @@ document.Close(nullobject, nullobject, nullobject)
 
 wordApp.Quit(nullobject, nullobject, nullobject)
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
+### Using DocIO
 
-**Using** **DocIO**
+The following code example shows how to insert an empty table to a Word document. The ResetCells() method is used to specify the number of rows and columns in a table.
 
-The following code example shows how to insert an empty table to a Word document. The **ResetCells****()** method is used to specify the number of rows and columns in a table.
+{% tabs %} 
 
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document.
 
@@ -3474,12 +3529,9 @@ document.Save("Sample.docx",FormatType.Docx);
 
 document.Close();   
 
-
-
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB.NET] 
 
 'Creates a new Word document.
 
@@ -3501,25 +3553,27 @@ document.Save("Sample.docx",FormatType.Docx);
 
 document.Close()
 
+{% endhighlight %} 
 
+   {% endtabs %}  
 
-{% endhighlight %}
+   
+N>  For more information on creating tables using DocIO, refer to online documentation link:
+[Working with Tables](/File-Formats/DocIO/Working-with-Tables.)
 
-I> ![http://help.syncfusion.com/ug/windows%20forms/docio/ImagesExt/image9_7.png](FAQ_images/FAQ_img6.jpeg)
-Note: For more information on creating tables using DocIO, refer to online documentation link:
-
-[Working with Tables](http://www.google.com/# "")
 
 ### Comments 
 
 Comments are used to include additional information to a paragraph or text in a Word document. Comments can be added or modified whenever needed and deleted when the comment has served its purpose. 
 
-**Adding** **Comments** **Using** **MS** **Office** **Interop**
+Adding Comments Using MS Office Interop
 
 The following code example illustrates how to add comments to a Word document. You need to define the range of text where the comment is to be added.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 using word = Microsoft.Office.Interop.Word;
 
@@ -3578,7 +3632,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -3628,16 +3682,17 @@ doc.Close(nullobject, nullobject, nullobject)
 
 wordApp.Quit()
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
+#### Adding Comments Using DocIO
 
-**Adding** **Comments** **Using** **DocIO**
+You can insert comments to a paragraph or text in a Word document by using DocIO. The following code example shows how to insert comments to a Word document.
 
-You can insert comments to a paragraph or text in a Word document by using **DocIO**. The following code example shows how to insert comments to a Word document.
+{% tabs %}  
 
 {% highlight c# %}
-[C#]
 
 //Creates a new Word document.
 
@@ -3664,7 +3719,7 @@ doc.Save("Sample.doc", FormatType.Doc);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 ‘Creates a new Word document.
 
@@ -3684,31 +3739,34 @@ para.AppendComment("Comment goes here")
 
 doc.Save("Sample.doc", FormatType.Doc)
 
+{% endhighlight %} 
+
+ {% endtabs %}  
 
 
-{% endhighlight %}
+N>  For more information on working with the comments using DocIO, you can refer to the online documentation link:
+[Working with Comments](/File-Formats/DocIO/Working-with-Comments) 
 
-I> ![http://help.syncfusion.com/ug/windows%20forms/docio/ImagesExt/image9_7.png](FAQ_images/FAQ_img7.jpeg)
-Note: For more information on working with the comments using DocIO, you can refer to the online documentation link:
 
-[Working with Comments](http://www.google.com/# "") 
 
 ### Document Protection
 
 You can protect your Word documents with or without a password from anyone accidentally or deliberately modifying the Word documents. You can specify the protection type for preserving the Word documents.
 
-**Using** **MS** **Office** **Interop**
+Using MS Office Interop
 
-**WdProtectionType** property is used to specify the type of protection for the Word document. This property uses the following values:
+WdProtectionType property is used to specify the type of protection for the Word document. This property uses the following values:
 
-* **wdAllowOnlyComments****:** Allows only comments to be added to the document.
-* **wdAllowOnlyFormFields****:** Allows content to be added to the document through form fields only.
-* **wdAllowOnlyReading****:** Allows read-only access to the document.
-* **wdAllowOnlyRevisions****:** Allows only revisions to be made to the existing content.
-* **wdNoProtection****:** Does not protect  the document.
+* wdAllowOnlyComments: Allows only comments to be added to the document.
+* wdAllowOnlyFormFields: Allows content to be added to the document through form fields only.
+* wdAllowOnlyReading: Allows read-only access to the document.
+* wdAllowOnlyRevisions: Allows only revisions to be made to the existing content.
+* wdNoProtection: Does not protect  the document.
+
+{% tabs %} 
 
 {% highlight c# %}
-[C#]
+
 
 //Initializes objects.
 
@@ -3765,7 +3823,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Initializes objects.
 
@@ -3818,21 +3876,24 @@ document.Close(nullobject, nullobject, nullobject)
 wordApp.Quit(nullobject, nullobject, nullobject)
 
 
+{% endhighlight %}  
 
-{% endhighlight %}
+ {% endtabs %}  
 
-**Using** **DocIO**
 
-**DocIO** uses **ProtectionType** property to specify the protection type of the Word document. This property uses the following values:
+### Using DocIO
 
-* **AllowOnlyComments****:** Allows only comments to be added to the document.
-* **AllowOnlyFormFields****:** Allows content to be added to the document through form fields only.
-* **AllowOnlyRevisions****:** Allows only revisions to be made to the existing content.
-* **AllowOnlyReading****:** All kinds of editing are restricted here and it makes the Word document as read-only document.
-* **NoProtection****:** Does not protect the document.
+DocIO uses ProtectionType property to specify the protection type of the Word document. This property uses the following values:
+
+* AllowOnlyComments: Allows only comments to be added to the document.
+* AllowOnlyFormFields: Allows content to be added to the document through form fields only.
+* AllowOnlyRevisions: Allows only revisions to be made to the existing content.
+* AllowOnlyReading: All kinds of editing are restricted here and it makes the Word document as read-only document.
+* NoProtection: Does not protect the document.
+
+{% tabs %}  
+
 {% highlight c# %}
-
-[C#]
 
 //Loads the existing Word document by using DocIO instance
 
@@ -3848,12 +3909,10 @@ document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the existing Word document by using DocIO instance
 
@@ -3873,20 +3932,27 @@ document.Close()
 
 {% endhighlight %}
 
-Refer to the online documentation link for more details about the ways to protect the Word documents by using **DocIO**:
 
-[Protecting word document from editing](http://www.google.com/# "")
+{% endtabs %}  
+
+Refer to the online documentation link for more details about the ways to protect the Word documents by using DocIO:
+
+[Protecting word document from editing](/File-Formats/DocIO/Working-with-Word-document)
+
+
 
 ### Table of Contents
 
-Table of contents can be generated by applying the heading styles to text in a Word document. To create the table of contents in **Microsoft** **Word**, click **Table** **of** **Contents** from the **Table** **of** **Contents** group on the **References** tab. 
+Table of contents can be generated by applying the heading styles to text in a Word document. To create the table of contents in Microsoft Word, click Table of Contents from the Table of Contents group on the References tab. 
 
-**Using** **MS** **Office** **Interop**
+Using MS Office Interop
 
 The following code example shows how to insert and update table of contents in a Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Initializes objects.
 
@@ -3949,7 +4015,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Initializes objects.
 
@@ -4009,16 +4075,21 @@ document.Close(nullobject, nullobject, nullobject)
 
 wordApp.Quit(nullobject, nullobject, nullobject)
 
-
-
 {% endhighlight %}
 
-**Using** **DocIO**
 
-The following code example illustrates how to insert and update the table of contents in a Word document by using **DocIO**.
+
+{% endtabs %}  
+
+
+### Using DocIO
+
+The following code example illustrates how to insert and update the table of contents in a Word document by using DocIO.
+
+{% tabs %} 
 
 {% highlight c# %}
-[C#]
+
 
 //Loads the existing Word document by using DocIO instance
 
@@ -4049,7 +4120,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the existing Word document by using DocIO instance
 
@@ -4079,7 +4150,9 @@ document.Close()
 
 {% endhighlight %}
 
-Refer to the online documentation link for more information about adding the table of contents to the Word document by using **DocIO**:
+ {% endtabs %}  
 
-[Working with table of contents](http://www.google.com/# "")
+Refer to the online documentation link for more information about adding the table of contents to the Word document by using DocIO:
+
+[Working with table of contents](/File-Formats/DocIO/Working-with-Table-Of-Contents)
 

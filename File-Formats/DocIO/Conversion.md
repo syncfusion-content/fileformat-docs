@@ -12,10 +12,13 @@ documentation: UG
 Essential DocIO allows you to convert a Word document into PDF with a few lines of code. For converting a Word document to PDF, the following assemblies are required to be referred in your application.
 
 <table>
+<thead>
 <tr>
-<td>
-Assembly Name<br/><br/></td><td>
-Description<br/><br/></td></tr>
+<th>Assembly Name<br/><br/></th>
+<th>Description<br/><br/></th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>
 Syncfusion.DocIO.Base<br/><br/></td><td>
@@ -36,14 +39,17 @@ This assembly has the core features for creating PDF file.<br/><br/></td></tr>
 <td>
 Syncfusion.OfficeChart.Base<br/><br/></td><td>
 This assembly has features to work with chart in Word document.<br/><br/></td></tr>
+</tbody>
 </table>
 The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the Word document into PDF.
 
 <table>
+<thead>  
 <tr>
-<td>
-Assembly Name<br/><br/></td><td>
-Description<br/><br/></td></tr>
+<th>Assembly Name<br/><br/></th>
+<th>Description<br/><br/></th></tr>
+</thead>
+<tbody> 
 <tr>
 <td>
 Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td><td>
@@ -56,6 +62,7 @@ This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><
 <td>
 Syncfusion.Shared.WPF<br/><br/></td><td>
 This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
+ </tbody>
 </table>
 
 
@@ -70,8 +77,10 @@ The following namespaces are required to compile the code in this topic.
 
 DocToPDFConverter class is responsible for converting a Word document into PDF. The following code example illustrates how to convert a Word document into PDF document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads an existing Word document
 
@@ -104,7 +113,7 @@ wordDocument.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads an existing Word document
 
@@ -132,30 +141,34 @@ pdfDocument.Close(True)
 
 wordDocument.Close()
 
-
-
 {% endhighlight %}
 
-I> Note:
+ {% endtabs %}  
 
-I> Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
+N> 
+Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
 
-I> Initializing the ChartToImageConverter is mandatory to convert the charts present in the Word document to PDF. Otherwise, the charts are not exported to the converted PDF.
+Initializing the ChartToImageConverter is mandatory to convert the charts present in the Word document to PDF. Otherwise, the charts are not exported to the converted PDF.
 
-I> ChartToImageConverter is supported from .NET Framework 4.0 onwards
+ChartToImageConverter is supported from .NET Framework 4.0 onwards
 
-I> Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to Word document
+Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to Word document
 
-**Customizing** **the** **Word** **document** **to** **PDF** **conversion**
+
+
+### Customizing the Word document to PDF conversion
 
 Essential DocIO allows you to customize the Word to PDF conversion with the following options:
 
 * Allows to determine the quality of the charts in the converted PDF 
 * Allows to determine the quality of the jpeg images in the converted PDF
 * Allows to reduce the Main Memory usage in Word to PDF conversion by reusing the identical images.
+
+{% tabs %}  
+
 {% highlight c# %}
 
-[C#]
+
 
 //Loads an existing Word document
 
@@ -204,7 +217,7 @@ wordDocument.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads an existing Word document
 
@@ -248,17 +261,22 @@ pdfDocument.Close(True)
 
 wordDocument.Close()
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
-**Unsupported** **elements** **and** **Limitations** **in** **Word** **to** **PDF** **conversion****:**
+ 
+ 
+### Unsupported elements and Limitations in Word to PDF conversion:
 
 <table>
+<thead> 
 <tr>
-<th>
-**Element**<br/><br/></th><th>
-**Limitations****/****Unsupported** **elements**<br/><br/></th></tr>
+<th>Element</th>
+<th>Limitations or Unsupported elements</th>
+</tr>
+ </thead>
+  <tbody> 
 <tr>
 <td>
 Predefined shapes<br/><br/></td><td>
@@ -282,7 +300,7 @@ Single underline style only supported<br/><br/></td></tr>
 <tr>
 <td>
 Pagination<br/><br/></td><td>
-**Essential** **DocIO** makes sensible decision while layouting the text, and its supported elements while generating the PDF documents. But however, there may not be guaranteed pagination with all the documents<br/><br/></td></tr>
+Essential DocIO makes sensible decision while layouting the text, and its supported elements while generating the PDF documents. But however, there may not be guaranteed pagination with all the documents<br/><br/></td></tr>
 <tr>
 <td>
 Custom Shapes and Grouped Shapes<br/><br/></td><td>
@@ -347,16 +365,22 @@ Only Docx format documents are supported<br/><br/></td></tr>
 <td>
 Textbox<br/><br/></td><td>
 Linked Textboxes are not supported<br/><br/></td></tr>
+ </tbody>
 </table>
+
+
 ## Rendering / Converting Word document to Image
 
 Essential DocIO supports to convert the Word document to images using RenderAsImages method. The following assemblies are need to be referred for converting Word to image.
 
 <table>
+<thead> 
 <tr>
-<td>
-Assembly Name<br/><br/></td><td>
-Description<br/><br/></td></tr>
+<th> Assembly Name </th>
+<th> Description </th>
+</tr>
+ </thead>
+<tbody> 
 <tr>
 <td>
 Syncfusion.DocIO.Base<br/><br/></td><td>
@@ -369,14 +393,19 @@ This assembly is used to package the Word documents<br/><br/></td></tr>
 <td>
 Syncfusion.OfficeChart.Base<br/><br/></td><td>
 This assembly has features to work with chart in Word document.<br/><br/></td></tr>
+ </tbody>
 </table>
+
 The following assemblies are need to be referred additionally for converting charts during Word to image conversion:
 
 <table>
+<thead>  
 <tr>
-<td>
-Assembly Name<br/><br/></td><td>
-Description<br/><br/></td></tr>
+<th> Assembly Name<br/><br/></th>
+<th> Description<br/><br/></th>
+</tr>
+</thead>
+<tbody>  
 <tr>
 <td>
 Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td><td>
@@ -389,7 +418,10 @@ This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><
 <td>
 Syncfusion.Shared.WPF<br/><br/></td><td>
 This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
+</tbody>
 </table>
+
+
 The following namespaces are required to compile the code in this topic. 
 
 * using Syncfusion.DocIO
@@ -399,8 +431,10 @@ The following namespaces are required to compile the code in this topic.
 
 The following code illustrates how to convert the Word document to image.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads an existing Word document
 
@@ -443,7 +477,7 @@ wordDocument.Close();
 
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads an existing Word document
 
@@ -477,28 +511,28 @@ Next
 
 wordDocument.Close()
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
+N> 
+Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, UWP and Xamarin applications
 
-I> Note:
+When the ChartToImageConverter object is not initialized, then the charts in Word document get skipped during Word to Image conversion
 
-I> Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, UWP and Xamarin applications
+ChartToImageConverter is supported from .NET Framework 4.0 onwards
 
-I> When the ChartToImageConverter object is not initialized, then the charts in Word document get skipped during Word to Image conversion
+Total number of images may vary based on unsupported elements when compare to Word document
 
-I> ChartToImageConverter is supported from .NET Framework 4.0 onwards
-
-I> Total number of images may vary based on unsupported elements when compare to Word document
-
-I> Word to Image conversion can have same limitations and unsupported elements of Word to PDF conversion
+Word to Image conversion can have same limitations and unsupported elements of Word to PDF conversion
 
 ## RTF conversion 
 
 Essential DocIO supports to convert the RTF document into Word document and vice versa. The following code shows how to convert RTF document into Word document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
 
 //Loads an existing document
 
@@ -519,7 +553,7 @@ document.Close();
 
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads an existing document
 
@@ -533,14 +567,16 @@ document.Save("RtfToWord.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example shows how to convert Word document into RTF document 
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads an existing document
 
@@ -559,7 +595,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads an existing document
 
@@ -573,9 +609,9 @@ document.Save("WordToRtf.rtf", FormatType.Rtf)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+  {% endtabs %}  
 
 ## HTML conversion
 
@@ -583,8 +619,10 @@ Essential DocIO supports converting the HTML file into Word document and vice ve
 
 The following code example shows how to convert the HTML file into Word document. 
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the HTML document against transitional schema validation
 
@@ -603,7 +641,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 ' Loads the HTML document against transitional schema validation 
 
@@ -617,11 +655,11 @@ document.Save("HTMLtoWord.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
+ {% endtabs %} 
 
-{% endhighlight %}
-
-**Customizing** **the** **HTML** **to** **Word** **conversion**
+### Customizing the HTML to Word conversion
 
 You can customize the HTML to Word conversion with the following options:
 
@@ -631,8 +669,10 @@ You can customize the HTML to Word conversion with the following options:
 
 The following Code example shows how to customize the HTML to Word conversion.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -673,7 +713,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -707,24 +747,26 @@ document.Save("Sample.docx")
 
 document.Close()
 
-
-
 {% endhighlight %}
 
-I> Note: 
+  {% endtabs %}  
 
-I> Inserting XHTML string is not supported in Silverlight and Windows Phone and Xamarin applications.
+N> 
+Inserting XHTML string is not supported in Silverlight and Windows Phone and Xamarin applications.
 
-I> XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
+XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
 
-I> XHTMLValidationType.Transitional - default validation while importing HTML file
+XHTMLValidationType.Transitional - default validation while importing HTML file
 
-I> XHTMLValidationType.None - validate the HTML file against XHTML format and it doesn’t perform any schemas validation.
+XHTMLValidationType.None - validate the HTML file against XHTML format and it doesn’t perform any schemas validation.
+
+
 
 The following code example shows how to convert the Word document into HTML.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
 
 //Loads the template document
 
@@ -738,12 +780,10 @@ document.Save("WordToHtml.html", FormatType.Html);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -757,11 +797,11 @@ document.Save("WordToHtml.html", FormatType.Html)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
-**Customizing** **the** **Word** **to** **HTML** **conversion**
+  {% endtabs %}  
+
+### Customizing the Word to HTML conversion
 
 You can customize the Word to HTML conversion with the following options:
 
@@ -772,8 +812,10 @@ You can customize the Word to HTML conversion with the following options:
 
 The following code example shows how to customize Word to HTML conversion.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads an existing document
 
@@ -812,7 +854,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads an existing document
 
@@ -846,21 +888,24 @@ export.SaveAsXhtml(document, "WordtoHtml.html")
 
 document.Close()
 
+{% endhighlight %} 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
-**Supported** **Document** **elements****:**
+### Supported Document elements
 
 The following document elements and attributes are supported by DocIO in Word to HTML and HTML to Word conversions.
 
 <table>
+<thead>  
 <tr>
-<td>
-**Document** **Element**<br/><br/></td><td>
-**Attribute**<br/><br/></td><td>
-**Support** **Status**<br/><br/></td><td>
-**Notes**<br/><br/></td></tr>
+<th> Document Element </th>
+<th> Attribute </th>
+<th> Support Status </th>
+<th> Notes </th>
+</tr>
+</thead>
+<tbody>  
 <tr>
 <td>
 Bookmark<br/><br/></td><td>
@@ -1287,13 +1332,19 @@ Yes<br/><br/></td><td>
 Underline<br/><br/></td><td>
 Partial<br/><br/></td><td>
 Underline types and colors are ignored.<br/><br/></td></tr>
+</tbody>
 </table>
+
+
 ## Text file
 
 Essential DocIO supports to convert the Word document into Text file and vice versa. The following code example shows how to convert the Word document into text file.
 
+
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads a template document
 
@@ -1312,7 +1363,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Loads a text file
 
@@ -1326,14 +1376,16 @@ document.Save("WordToText.txt", FormatType.Txt)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code example shows how to convert a Text file into Word document. 
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads a text file
 
@@ -1352,7 +1404,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Loads a text file
 
@@ -1366,14 +1417,15 @@ document.Save("TextToWord.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+{% endtabs %}  
 
 The following code example shows how to retrieve the Word document contents as a plain text.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
 
 //Loads a template document
 
@@ -1412,7 +1464,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Loads a template document
 
@@ -1446,10 +1497,11 @@ newdocument.Close()
 
 document.Close()
 
+{% endhighlight %} 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
+  
 ## Word to Epub
 
 Essential DocIO supports to convert the Word document into EPUB v2.0. It only supports in Windows Forms, WPF, Asp.Net Web and MVC platforms. The following elements are supported in Word to EPub conversion.
@@ -1466,8 +1518,10 @@ Essential DocIO supports to convert the Word document into EPUB v2.0. It only su
 
 The following code illustrates how to convert the Word document to EPub file.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads an existing document
 
@@ -1489,12 +1543,9 @@ document.Save("WordToEPub.epub", FormatType.EPub);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Loads an existing document
 
@@ -1520,3 +1571,4 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  

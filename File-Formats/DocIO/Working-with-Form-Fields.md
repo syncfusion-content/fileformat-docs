@@ -14,15 +14,19 @@ The following are the types of form field in the Word document
 * Checkbox – represented by an instance of WCheckBox
 * Drop-down – represented by an instance of WDropDownFormField
 * Text input – represented by an instance of WTextFormField
+
+
 ## Check Box
 
 
-You can add new Checkbox form field to a Word document by using **AppendCheckBox** method of **WParagraph** class.
+You can add new Checkbox form field to a Word document by using AppendCheckBoxmethod of WParagraphclass.
 
 The following code illustrates how to add new checkbox form field.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -79,7 +83,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -131,16 +135,18 @@ document.Save("Checkbox.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 You can modify the checkbox properties such as checked state, size, help text in a Word document. The following code illustrates how to modify the checkbox form field properties.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document 
 
@@ -183,7 +189,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document 
 
@@ -220,19 +226,22 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 
+{% endhighlight %}  
 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
+ 
 ## Drop-Down
 
-You can add new Dropdown form field to a Word document by using **AppendDropDownFormField** method of **WParagraph** class.
+You can add new Dropdown form field to a Word document by using AppendDropDownFormFieldmethod of WParagraphclass.
 
 The following code illustrates how to add a new dropdown field.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -276,14 +285,16 @@ document.Save("Dropdown.docx", FormatType.Docx);
 
 document.Close();
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 You can add or modify list of items of a Dropdown form field in a Word document. The following code illustrates how to modify the dropdown list of a Dropdown form field.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document 
 
@@ -326,7 +337,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document 
 
@@ -360,20 +371,22 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
-
-
 {% endhighlight %}
+
+
+{% endtabs %}  
+
 
 ## Text Form field
 
-You can add new text form field to a Word document by using **AppendTextFormField** method of **WParagraph** class.
+You can add new text form field to a Word document by using AppendTextFormFieldmethod of WParagraphclass.
 
 The following code illustrates how to add new text form field.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -442,7 +455,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -507,15 +520,17 @@ document.Save("Textfield.docx", FormatType.Docx)
 document.Close()
 
 
+{% endhighlight %}  
 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 You can add or modify text form field properties such as default text, type in a Word document. The following code illustrates how to modify the text form field
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document 
 
@@ -584,7 +599,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document 
 
@@ -648,3 +663,4 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  

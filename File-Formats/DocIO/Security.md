@@ -9,12 +9,14 @@ documentation: UG
 
 You can encrypt a Word document with password to restrict unauthorized access. You can also control the types of changes you make to this document.
 
-## Encrypting with password
+## Encrypting with password
 
 The following code example shows how to encrypt the Word document with password.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#
+
 
 //Opens an input Word document
 
@@ -35,7 +37,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-VB
+
 
 'Opens an input Word document
 
@@ -55,14 +57,15 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
 
-
-## Opening the encrypted Word document
+## Opening the encrypted Word document
 
 The following code example shows how to open the encrypted Word document. 
 
+{% tabs %}  
+
 {% highlight c# %}
-C#
 
 //Opens an encrypted Word document
 
@@ -79,7 +82,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-VB
 
 'Opens an encrypted Word document
 
@@ -91,11 +93,13 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
-## Protecting Word document from editing
+  
+  
+## Protecting Word document from editing
 
 You can restrict a Word document from editing either by providing a password or without password. 
 
@@ -113,10 +117,10 @@ The following are the types of protection:
 
 The following code example shows how to restrict editing to modify only form fields in a Word document.
 
-
+{% tabs %}  
 
 {% highlight c# %}
-C#
+
 
 //Opens a Word document
 
@@ -137,7 +141,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-VB
+
 
 'Opens a Word document
 
@@ -157,3 +161,4 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  

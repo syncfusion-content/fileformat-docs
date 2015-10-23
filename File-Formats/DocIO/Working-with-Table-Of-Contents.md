@@ -7,18 +7,21 @@ documentation: UG
 ---
 # Working with Table Of Contents
 
-[Table of contents](https://support.office.com/en-in/article/Create-a-table-of-contents-or-update-a-table-of-contents-eb275189-b93e-4559-8dd9-c279457bfd72#__create_a_table "") (TOC) is used to provide an outline of the Word document. By default table of contents will be created automatically from heading styles. 
+[Table of contents](https://support.office.com/en-in/article/Create-a-table-of-contents-or-update-a-table-of-contents-eb275189-b93e-4559-8dd9-c279457bfd72#__create_a_table ) (TOC) is used to provide an outline of the Word document. By default table of contents will be created automatically from heading styles. 
 
 You can add the TOC into the paragraph by specifying the LowerHeadingLevel and UpperHeadingLevel. The heading level range must be from 1 to 9.
 
 Basically TOC determines the TOC entries based on the TOC switches. 
 
 <table>
+<thead>  
 <tr>
-<td>
-S.No<br/><br/></td><td>
-Switches<br/><br/></td><td>
-Description<br/><br/></td></tr>
+<th> S.No <br/><br/></th>
+<th>Switches<br/><br/></th>
+<th>Description<br/><br/></th>
+</tr>
+</thead>
+<tbody>  
 <tr>
 <td>
 1<br/><br/></td><td>
@@ -44,13 +47,18 @@ Specifies the characters that separate a TOC entry and its page number. The defa
 5<br/><br/></td><td>
 \t<br/><br/></td><td>
 Builds a table of contents from paragraphs formatted with specified styles other than the built-in heading styles<br/><br/></td></tr>
+</tbody>
 </table>
+
+
 ## Adding a toc field
 
 The following code example shows how to add a table of contents (TOC) in Word document. 
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new Word document
 
@@ -145,7 +153,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new Word document
 
@@ -236,25 +244,28 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 
-
-
-
 {% endhighlight %}
+
+
+  {% endtabs %}  
 
 ## Updating table of contents
 
 You can also update or re-build the TOC in an existing document or document created from the scratch.  
 
-I> Note: 
+N>  
+TOC is not supported in Silverlight, WinRT, Univeral, Xamarin and windows phone applications using DocIO. 
 
-I> TOC is not supported in Silverlight, WinRT, Univeral, Xamarin and windows phone applications using DocIO. 
+Updating TOC makes use of the Word to PDF layouting engine that may lead to the updation of incorrect page number due to its limitations.
 
-I> Updating TOC makes use of the Word to PDF layouting engine that may lead to the updation of incorrect page number due to its [limitations](help.syncfusion.com# "").
+
 
 The following code example shows how to update a TOC in an existing word document. 
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Opens an input word template
 
@@ -275,7 +286,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Opens an input word template
 
@@ -291,16 +302,20 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+   {% endtabs %}  
+
+   
+   
 ## Creating table of contents with user-defined styles
 
 The following code example shows how to create table of contents with user-defined styles instead of heading styles.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new Word document
 
@@ -413,7 +428,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new Word document
 
@@ -523,3 +538,4 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  

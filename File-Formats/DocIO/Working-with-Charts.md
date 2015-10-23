@@ -26,8 +26,10 @@ N> DocIO supports chart only in Docx to Docx conversion
 
 A new chart can be created or an existing chart can be modified by using the WChart instance. The following code example illustrates how to create a new chart.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document
 
@@ -140,7 +142,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document
 
@@ -250,14 +252,19 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Creating a Chart from Excel file
 
 The chart data can be set through the object array or can be loaded from the excel stream. The specific range of the data from the excel file can be used to set chart data. 
 
 The following code example illustrates the chart data loaded from the excel file.
 
+
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document
 
@@ -318,7 +325,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document
 
@@ -378,14 +385,18 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ## Creating Custom Charts
 
 A chart is composed of data series. Each data series is represented by a series object. When creating a custom chart, you can specify different series types for each data series. 
 
 The following code example illustrates how to create custom charts.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document
 
@@ -484,7 +495,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document
 
@@ -584,14 +595,18 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Refreshing the Chart
 
 The chart may not have the data in the referred excel file instead it may represent some other data. For those charts to have the excel data, it should be refreshed. 
 
 The following code example illustrates how to refresh the chart.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -620,7 +635,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -648,12 +663,17 @@ document.Close()
 
 {% endhighlight %}
 
+
+{% endtabs %}  
+
 ## Modifying the Chart data
 
 The following code example illustrates how to modify an existing chart data.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -690,7 +710,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -726,6 +746,8 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ## Customizing the Chart & its elements
 
 A Chart is composed of various elements such as plot area, chart area, title area, legend, data labels, axis etc. The following screenshot illustrates the various elements of chart.
@@ -740,13 +762,17 @@ A Chart is composed of various elements such as plot area, chart area, title are
 5. The legend of the chart.
 6. The chart title and axis.
 7. A data label that you can use to identify the details of a data point in a data series.
+
+
 ### Modifying Chart Appearance
 
 
 The following code example illustrates how to modify the appearance of an existing chart in the document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -837,7 +863,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -927,12 +953,16 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ### Modifying Plot Area and Legend
 
 The following code example illustrates how to modify the plot area and legend of the chart.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -1033,7 +1063,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -1133,12 +1163,16 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ### Positioning Chart Elements
 
 The following code example illustrates how to specify the position of the chart elements.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new word document
 
@@ -1227,7 +1261,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new word document
 
@@ -1315,10 +1349,14 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 The following code example describes the BarChartData class.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 public class BarChartData
 
@@ -1415,7 +1453,7 @@ Expense = expense;
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Public Class BarChartData
 
@@ -1489,12 +1527,16 @@ End Class
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Applying 3D Formats
 
 Essential DocIO allows to modify the side wall, back wall, floor of the 3D chart. The following code snippet illustrates how to apply properties for side wall, floor and back wall of a 3D chart.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document
 
@@ -1613,7 +1655,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document
 
@@ -1731,12 +1773,16 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Removing Chart
 
 The following code example illustrates how to remove the chart from the document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -1775,7 +1821,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -1809,9 +1855,11 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Supported Chart Types 
 
-The following chart types are supported in **DocIO****.**
+The following chart types are supported in DocIO.
 
 * Area
 * Area_3D 

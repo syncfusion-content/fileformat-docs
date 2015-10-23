@@ -9,14 +9,16 @@ documentation: UG
 
 A bookmark identifies a location or a selection of text within a document that you can name and identify for future reference.
 
-In Essential DocIO, bookmark is represented by **Bookmark** instance that is a pair of **BookmarkStart** and **BookmarkEnd**. BookmarkStart represents start point of a bookmark and BookmarkEnd represents end point of a bookmark. Every Word document contains a collection of bookmarks that are accessible through the **Bookmarks** property of **WordDocument** class.
+In Essential DocIO, bookmark is represented by Bookmark instance that is a pair of BookmarkStart and BookmarkEnd. BookmarkStart represents start point of a bookmark and BookmarkEnd represents end point of a bookmark. Every Word document contains a collection of bookmarks that are accessible through the Bookmarks property of WordDocument class.
 
 ## Adding a bookmark
 
 The following code example shows how to add a bookmark in Word document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates an instance of WordDocument class (Empty Word Document)
 
@@ -67,7 +69,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates an instance of WordDocument class (Empty Word Document)
 
@@ -117,12 +119,16 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ## Obtaining a bookmark instance
 
 The following code example shows how to retrieve an instance of bookmark from a Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads an existing Word document into DocIO instance
 
@@ -145,7 +151,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads an existing Word document into DocIO instance
 
@@ -163,16 +169,19 @@ document.Save("Result.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+
+{% endtabs %}  
 
 ## Removing a Bookmark from Word document
 
 The following code example shows how to remove a bookmark from Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads an existing Word document into DocIO instance
 
@@ -195,7 +204,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads an existing Word document into DocIO instance
 
@@ -217,19 +226,23 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 ## Retrieving contents within a bookmark 
 
-**BookmarkNavigator** is used for navigating to a bookmark in a Word document. You can retrieve, replace and delete the content of a specified bookmark by using BookmarkNavigator.
+BookmarkNavigator is used for navigating to a bookmark in a Word document. You can retrieve, replace and delete the content of a specified bookmark by using BookmarkNavigator.
 
 You can get the content between bookmark start and bookmark end of the specified bookmark in two ways: 
 
-1. You can use **GetBookmarkContent** method for retrieving content as collection of body items when the bookmark start and bookmark end are preserved in a single section.
-2. You can use **GetContent** method for retrieving content as collection of sections when the bookmark start and bookmark end are preserved in different sections. 
+1. You can use GetBookmarkContent method for retrieving content as collection of body items when the bookmark start and bookmark end are preserved in a single section.
+2. You can use GetContent method for retrieving content as collection of sections when the bookmark start and bookmark end are preserved in different sections. 
 
 The following code example shows how to retrieve the specified bookmark content by using GetBookmarkContent method in a Word document.
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
@@ -262,7 +275,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
@@ -296,10 +309,14 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %} 
+
 The following code example shows how to retrieve the specified bookmark content by using GetContent method in a Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
 
@@ -334,7 +351,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 
@@ -364,9 +381,10 @@ newDocument.Close()
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+
+{% endtabs %}  
 
 ## Inserting content into a bookmark
 
@@ -374,8 +392,10 @@ You can insert table, paragraph, simple text and paragraph item at the start or 
 
 The following code example shows how to insert a simple text by using BookmarkNavigator.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
@@ -400,7 +420,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
@@ -421,15 +441,17 @@ document.Save("Result.docx", FormatType.Docx)
 document.Close()
 
 
+{% endhighlight %} 
 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example shows how to insert a paragraph item by using BookmarkNavigator.
 
+{% tabs %}    
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
@@ -460,7 +482,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
@@ -486,14 +508,16 @@ document.Save("Result.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+  {% endtabs %}
 
 The following code example shows how to insert a paragraph by using BookmarkNavigator.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
@@ -522,7 +546,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
@@ -546,14 +570,16 @@ document.Save("Result.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+   {% endtabs %}  
 
 The following code example shows how to insert a table by using BookmarkNavigator.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
@@ -602,7 +628,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
@@ -646,14 +672,16 @@ document.Save("Result.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+  {% endtabs %}  
 
 The following code example shows how to insert a TextBodyPart by using BookmarkNavigator.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
@@ -698,7 +726,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
@@ -738,9 +766,9 @@ document.Save("Result.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 ## Deleting content from a bookmark
 
@@ -748,8 +776,10 @@ You can delete the contents between bookmark start and end of the specified book
 
 The following code example shows how to remove the contents of a specified bookmark from Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
@@ -774,7 +804,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
@@ -794,19 +824,16 @@ document.Save("Result.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 ## Replacing content in a bookmark
 
 You can replace the contents of an existing bookmark with simple text, TextBodyPart, WordDocumentPart.
 
-I> Note:
-
-I> You cannot replace the multi section contents into a bookmark within table in Word documents.
-
-I> Use "for loop" instead of "foreach loop" to iterate through document elements when replacing the bookmark contents to avoid “collection modified exception”, as there is a chance for modification in the document elements on replacing the bookmark contents.
+N> 
+You cannot replace the multi section contents into a bookmark within table in Word documents. Use "for loop" instead of "foreach loop" to iterate through document elements when replacing the bookmark contents to avoid “collection modified exception”, as there is a chance for modification in the document elements on replacing the bookmark contents.
 
 The following are the limitations on the ReplaceBookmarkContent methods such as,
 
@@ -815,20 +842,22 @@ The following are the limitations on the ReplaceBookmarkContent methods such as,
 
 As per Microsoft Word behavior, you cannot replace the bookmark contents when the bookmark includes a partial table as following cases:
 
-**Case** **1**
+Case 1
 
 ![](WorkingwithBookmarks_images/WorkingwithBookmarks_img1.jpeg)
 
 
-**Case** **2**
+Case 2
 
 ![](WorkingwithBookmarks_images/WorkingwithBookmarks_img2.jpeg)
 
 
 The following code example shows how to replace a specified bookmark content by using ReplaceBookmarkContent method in Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
@@ -873,7 +902,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
@@ -913,14 +942,16 @@ document.Save("Result.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code example shows how to replace a specified bookmark content by using ReplaceContent method in Word document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 
@@ -967,7 +998,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
 
@@ -1013,3 +1044,4 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  

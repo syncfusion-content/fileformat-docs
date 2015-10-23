@@ -5,20 +5,22 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
+
 # Applying Watermark
 
-Watermarks are text or pictures that appear behind the document text. You can access the watermark in the document by using the **Watermark** property of **WordDocument** class.
+Watermarks are text or pictures that appear behind the document text. You can access the watermark in the document by using the Watermark property of WordDocument class.
 
-There are two types of watermarks: **Text** and **Picture**.
+There are two types of watermarks: Text and Picture .
 
 ## Text Watermark
 
-You can add or modify text watermark in the Word document. **TextWatermark** class represents text watermark in the Word document.
+You can add or modify text watermark in the Word document. TextWatermark class represents text watermark in the Word document.
 
 The following code example illustrates how to add a text watermark to the Word document.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#
 
 //Creates a new Word document
 
@@ -67,7 +69,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-VB
+
 
 'Creates a new Word document
 
@@ -111,18 +113,20 @@ document.Save("TextWatermark.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 ## Picture Watermark
 
-You can add or modify picture watermark in the Word document. **PictureWatermark** class represents picture watermark in the Word document.
+You can add or modify picture watermark in the Word document. PictureWatermark class represents picture watermark in the Word document.
 
 The following code example illustrates how to add a picture watermark to the Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#
+
 
 //Creates a new Word document
 
@@ -163,7 +167,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-VB
+
 
 'Creates a new Word document
 
@@ -203,3 +207,4 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  

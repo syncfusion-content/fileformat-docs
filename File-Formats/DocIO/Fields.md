@@ -7,20 +7,22 @@ documentation: UG
 ---
 # Fields
 
-Fields in Word document are placeholders for data that might change on field update. Fields are represented by **WField****,** **WFieldMark** instance in DocIO. A field in Word document contains field codes, field separator, field result, and field end.
+Fields in Word document are placeholders for data that might change on field update. Fields are represented by WField,WFieldMarkinstance in DocIO. A field in Word document contains field codes, field separator, field result, and field end.
 
 To know various types of Microsoft Word supported fields and its syntax refer to the following MSDN article:
 
-[https://support.office.com/en-US/article/Field-codes-in-Word-1ad6d91a-55a7-4a8d-b535-cf7888659a51](https://support.office.com/en-US/article/Field-codes-in-Word-1ad6d91a-55a7-4a8d-b535-cf7888659a51# "")
+[https://support.office.com/en-US/article/Field-codes-in-Word-1ad6d91a-55a7-4a8d-b535-cf7888659a51](https://support.office.com/en-US/article/Field-codes-in-Word-1ad6d91a-55a7-4a8d-b535-cf7888659a51#)
 
 ## Adding fields
 
-You can add a field in a Word document by using **AppendField** method of **WParagraph** class.
+You can add a field in a Word document by using AppendFieldmethod of WParagraphclass.
 
 The following code example illustrates how to add a field in Word document.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#
+
 
 //Creates an instance of WordDocument class (Empty Word Document)
 
@@ -57,7 +59,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-VB
+
 
 'Creates an instance of WordDocument class (Empty Word Document)
 
@@ -89,10 +91,12 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+   {% endtabs %}  
+
+   
+   
 ## Updating fields
 
 Field updating engine calculates the resultant value based on the field code information and updates the field result with the new value. You can update the following fields by using DocIO:
@@ -119,8 +123,10 @@ The following are the known limitations:
 
 The following code example illustrate how to update the fields present in Word document.
 
+{% tabs %} 
+
 {% highlight c# %}
-C#
+
 
 //Loads an existing Word document into DocIO instance 
 
@@ -139,7 +145,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-VB
 
 'Loads an existing Word document into DocIO instance 
 
@@ -153,22 +158,25 @@ document.Save("Result.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+ {% endtabs %}  
+
+ 
 ## IF Field
 
 If field compares two values and updates the field result with true text, when comparison succeeds otherwise false text.
 
 To know more about If field and its syntax in Microsoft Word, refer to the following MSDN article:
 
-[https://support.office.com/en-au/article/Field-codes-IF-field-9f79e82f-e53b-4ff5-9d2c-ae3b22b7eb5e](https://support.office.com/en-au/article/Field-codes-IF-field-9f79e82f-e53b-4ff5-9d2c-ae3b22b7eb5e# "")
+[https://support.office.com/en-au/article/Field-codes-IF-field-9f79e82f-e53b-4ff5-9d2c-ae3b22b7eb5e](https://support.office.com/en-au/article/Field-codes-IF-field-9f79e82f-e53b-4ff5-9d2c-ae3b22b7eb5e#)
 
 The following code example illustrates how to add an If field in Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#
+
 
 WordDocument document = new WordDocument();
 
@@ -215,7 +223,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-VB
 
 Dim document As New WordDocument()
 
@@ -257,18 +264,22 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+  {% endtabs %}  
+
+  
+  
 ## Document Variables
 
-The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using **Variables** property of **WordDocument** class.
+The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using Variablesproperty of WordDocumentclass.
 
 The following code example illustrate how to add a DocVariable field in Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#
+
 
 WordDocument document = new WordDocument();
 
@@ -309,7 +320,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-VB
 
 Dim document As New WordDocument()
 
@@ -345,20 +355,24 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+  {% endtabs %}  
+
+  
+  
 ## Cross Reference
 
-A cross-reference refers to an item that appears in another location in a document. You can create cross-reference to bookmarks in a document by using **AppendCrossReference** method of **WParagraph** class.
+A cross-reference refers to an item that appears in another location in a document. You can create cross-reference to bookmarks in a document by using AppendCrossReferencemethod of WParagraphclass.
 
-I> Note: Essential DocIO supports to create and update cross-reference fields only for bookmarks in a document
+N>  Essential DocIO supports to create and update cross-reference fields only for bookmarks in a document
 
 The following code example illustrate how to append cross reference for bookmark in Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-C#
+
 
 WordDocument document = new WordDocument();
 
@@ -407,7 +421,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-VB
+
 
 Dim document As New WordDocument()
 
@@ -455,3 +469,4 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  

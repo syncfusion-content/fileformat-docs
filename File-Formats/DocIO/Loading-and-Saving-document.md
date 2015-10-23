@@ -11,8 +11,10 @@ documentation: UG
 
 You can open an existing Word document by using either the Open method or the constructor of WordDocument class
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Opens an existing document from file system through constructor of WordDocument class
 
@@ -25,7 +27,7 @@ WordDocument document = new WordDocument(fileName);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens an existing document from file system through constructor of WordDocument class
 
@@ -35,8 +37,12 @@ Dim document As New WordDocument(fileName)
 
 {% endhighlight %}
 
+ {% endtabs %} 
+
+ {% tabs %}  
+ 
 {% highlight c# %}
-[C#]
+
 
 //Creates an empty Word document instance
 
@@ -53,7 +59,7 @@ document.Open(fileName);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates an empty Word document instance
 
@@ -63,29 +69,32 @@ Dim document As New WordDocument()
 
 document.Open(fileName)
 
-
-
 {% endhighlight %}
+
+
+
+{% endtabs %}  
+
+
 
 ## Opening an existing document from Stream
 
 You can open an existing document from stream by using either the overloads of Open methods or the constructor of WordDocument class
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Opens an existing document from stream through constructor of WordDocument class
 
 WordDocument document = new WordDocument(wordDocumentStream, FormatType.Automatic);
 
 
-
-
-
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens an existing document from stream through constructor of WordDocument class
 
@@ -93,12 +102,14 @@ Dim document As New WordDocument(wordDocumentStream, FormatType.Automatic)
 
 
 
-
-
 {% endhighlight %}
 
+{% endtabs %}  
+
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 //Creates an empty WordDocument instance
 
@@ -115,7 +126,7 @@ document.Open(wordDocumentStream, FormatType.Automatic);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates an empty Wordocument instance
 
@@ -126,17 +137,20 @@ Dim document As New WordDocument()
 document.Open(wordDocumentStream, FormatType.Automatic)
 
 
-
-
-
 {% endhighlight %}
+
+
+{% endtabs %} 
+
 
 ## Opening an Encrypted Word document
 
 You can open an existing encrypted word document from either the file system or the stream by using the following overloads as shown. 
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Opens an existing encrypted document through constructor of WordDocument class
 
@@ -147,18 +161,20 @@ WordDocument document = new WordDocument(fileName, FormatType.Automatic, "passwo
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens an existing encrypted document through constructor of WordDocument class
 
 Dim document As New WordDocument(fileName, FormatType.Automatic, "password")
 
+{% endhighlight %} 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
+  {% tabs %}  
+  
 {% highlight c# %}
-[C#]
+
 
 //Creates an empty Word document instance
 
@@ -175,7 +191,7 @@ document.Open(wordDocumentStream, FormatType.Automatic, "password");
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates an empty Word document instance
 
@@ -185,16 +201,18 @@ Dim document As New WordDocument()
 
 document.Open(wordDocumentStream, FormatType.Automatic, "password")
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 ## Saving a Word document to file system
 
 You can save the created or manipulated word document to file system using Save method of WordDocument class. When you do not provide the format type, then the document is saved in Word 97-2003 (*.doc) format.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates an empty WordDocument instance
 
@@ -219,7 +237,7 @@ document.Save(outputFileName, FormatType.Docx);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates an empty WordDocument instance
 
@@ -238,17 +256,21 @@ document.Open(fileName)
 document.Save(outputFileName, FormatType.Docx)
 
 
-
-
-
 {% endhighlight %}
 
+
+   {% endtabs %} 
+
+   
+   
 ## Saving a Word document to Stream
 
 You can also save the created or manipulated word document to stream by using overloads of Save methods
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates an empty WordDocument instance
 
@@ -277,7 +299,7 @@ document.Save(stream, FormatType.Docx);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates an empty WordDocument instance
 
@@ -303,12 +325,16 @@ document.Save(stream, FormatType.Docx)
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 ## Sending to a client browser
 
 You can save and send the document to a client browser from a web site or web application by invoking the following shown overload of Save method.  This method explicitly makes use of an instance of [HttpResponse](https://msdn.microsoft.com/en-us/library/system.web.httpresponse(v=vs.110).aspx# "") as its parameter in order to stream the document to client browser. So this overload is suitable for web application that references System.Web assembly.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates an empty WordDocument instance
 
@@ -337,7 +363,7 @@ document.Save(outputFileName, FormatType.Docx, Response, HttpContentDisposition.
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates an empty WordDocument instance
 
@@ -360,17 +386,21 @@ Dim stream As New MemoryStream()
 document.Save(outputFileName, FormatType.Docx, Response, HttpContentDisposition.Attachment)
 
 
+{% endhighlight %} 
 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
+ 
+ 
 ## Closing a document
 
 Once the document manipulation and save operation are completed, you should close the instance of WordDocument, in order to release all the memory consumed by DocIO’s DOM. The following code example illustrates how to close a WordDocument instance.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates an empty WordDocument instance
 
@@ -403,7 +433,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'creates an empty WordDocument instance
 
@@ -433,3 +463,4 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  

@@ -11,12 +11,13 @@ You can search a particular text you like to change and replace it with another 
 
 ## Finding contents in a Word document
 
-You can find the first occurrence of a particular text within a single paragraph in the document by using **Find** method and its next occurrence by using **FindNext** method. You can also find a particular text pattern in the document.
+You can find the first occurrence of a particular text within a single paragraph in the document by using Findmethod and its next occurrence by using FindNextmethod. You can also find a particular text pattern in the document.
 
 The following code example illustrates how to find a particular text and its next occurrence in the document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
 
 //Loads the template document
 
@@ -61,7 +62,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -102,17 +103,19 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 
-
-
-
 {% endhighlight %}
 
-You can find all the occurrence of a particular text within a single paragraph in the document by using **FindAll** method. 
+
+  {% endtabs %}  
+
+You can find all the occurrence of a particular text within a single paragraph in the document by using FindAllmethod. 
 
 The following code example illustrates how to find all the occurrences of a particular text in the document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -145,7 +148,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -172,17 +175,20 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 
+{% endhighlight %} 
 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
-You can find the first occurrence of a particular text extended to several paragraphs in the document by using **FindSingleLine** method and its next occurrence by using **FindNextSingleLine** method.
+You can find the first occurrence of a particular text extended to several paragraphs in the document by using FindSingleLinemethod and its next occurrence by using FindNextSingleLinemethod.
 
 The following code example illustrates how to find a particular text extended to several paragraphs in the Word document.
 
+
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -235,7 +241,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -280,19 +286,21 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 
-
-
-
 {% endhighlight %}
+
+
+  {% endtabs %} 
 
 ## Replacing the Search results
 
-You can replace a particular text with another text, part of a document or entire document by using **Replace** method. 
+You can replace a particular text with another text, part of a document or entire document by using Replacemethod. 
 
 The following code example illustrates how to replace a particular text.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads a template document
 
@@ -321,7 +329,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads a template document
 
@@ -346,17 +354,20 @@ document.Save("Replace.docx", FormatType.Docx)
 document.Close()
 
 
-
-
-
 {% endhighlight %}
 
-You can specify to replace only the first occurrence of the specified text by setting **ReplaceFirst** property of **WordDocument** class to true. 
+
+  {% endtabs %}  
+
+You can specify to replace only the first occurrence of the specified text by setting ReplaceFirstproperty of WordDocumentclass to true. 
 
 The following code example illustrates how to replace the first occurrence of a particular text.
 
+
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads a template document
 
@@ -389,7 +400,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads a template document
 
@@ -417,16 +428,18 @@ document.Save("Replace.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example illustrates how to replace a particular text with a Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads a template document
 
@@ -451,7 +464,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads a template document
 
@@ -471,18 +484,20 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
 
+  {% endtabs %}  
 
-
-{% endhighlight %}
-
-You can replace a particular text extended to several paragraphs in a document with another text or part of a document by using **ReplaceSingleLine** method.
+You can replace a particular text extended to several paragraphs in a document with another text or part of a document by using ReplaceSingleLinemethod.
 
 The following code example illustrates how to replace the text extended to several paragraphs with simple text.
 
+
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads a template document
 
@@ -503,7 +518,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads a template document
 
@@ -525,3 +540,4 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  

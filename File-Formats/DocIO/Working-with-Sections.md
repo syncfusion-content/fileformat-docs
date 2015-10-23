@@ -9,8 +9,10 @@ documentation: UG
 
 A section contains the contents present in Headers, Footers and main document through the instances of WTextBody. A section also has a specific set of properties used to define the page settings, number of columns, headers and footers and so on that decide how the text appears. WTextBody represents group of paragraphs and tables etc. 
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new Word document
 
@@ -39,7 +41,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new Word document
 
@@ -65,14 +67,18 @@ document.Close()
 
 
 
-{% endhighlight %}
+{% endhighlight %}  
+
+ {% endtabs %}  
 
 You can add the multiple sections into the document. When you add more than one section into the word document, the section starts from the next page by default.
 
 You can also add a new section that starts on a same page by specifying the BreakCode as shown in following code example.
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new Word document
 
@@ -119,7 +125,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new Word document
 
@@ -165,14 +171,20 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %} 
+
+
+
 ## Specifying Page Properties
 
 Each section has its own page setup properties such as page size, orientation, margins, borders, etc. 
 
 The following code example shows how to set the page setup properties
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#] 
+ 
 
 WordDocument document = new WordDocument();
 
@@ -205,7 +217,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 Dim document As New WordDocument()
 
@@ -233,18 +245,22 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
+  
+  
 ## Creating Multi-column document
 
 You can split the contents into two or more columns by specifying the column width and spacing between columns.
 
 The following code example shows how to display contents in multiple columns.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new Word document
 
@@ -315,7 +331,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new Word document
 
@@ -381,16 +397,20 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
+  
+  
 
 ## Creating document with different page settings
 
 You can prefer to have more sections in a Word document when you need to have different page settings or headers and footers for a specific set of contents. The following code example illustrates how to create a Word document with multiple sections whose page orientation are portrait and landscape respectively.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new Word document
 
@@ -443,7 +463,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new Word document
 
@@ -491,10 +511,11 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+   {% endtabs %}  
+
+   
 ## Working with Headers and Footers
 
 Header and footer also represent the group of paragraphs and tables that occur at the top and bottom of the page respectively. Header and footer may vary for each section. The following are the types of Headers/Footers:
@@ -508,8 +529,10 @@ Header and footer also represent the group of paragraphs and tables that occur a
 
 The following code example illustrates how to add simple header and footer into a Word document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new document
 
@@ -568,7 +591,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new document
 
@@ -622,14 +645,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+   {% endtabs %}  
 
 You can have a specific header and footer contents for the first page in a Word document. The following code illustrates the same. 
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new document
 
@@ -704,7 +729,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new document
 
@@ -778,12 +803,16 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 A Word document can have different header and footer for odd and even pages.
 
 The following code example shows how to set different header and footer for the odd and even pages of the document. 
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new document
 
@@ -858,7 +887,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new document
 
@@ -932,12 +961,16 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 You can use the previous section header and footer for the current section by using LinkToPrevious property.
 
 The following code example shows how to link the previous section header and footer for the current section.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new document
 
@@ -1016,7 +1049,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new document
 
@@ -1094,12 +1127,18 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
+
+
 ## Adding Page Numbers
 
 You can insert the current page number within the document contents. The following code example illustrates how to insert current page number within footer.   
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new Word document
 
@@ -1150,7 +1189,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new Word document
 
@@ -1196,14 +1235,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code example illustrates how to add the current page number and total number of pages in header/footer. 
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new Word document
 
@@ -1264,7 +1305,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new Word document
 
@@ -1320,14 +1361,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example shows how to adjust the height of header and footer.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Creates a new document
 
@@ -1394,7 +1437,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Creates a new document
 
@@ -1460,12 +1503,17 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+ 
+
 ## Removing a Section
 
 The following code example illustrates how to remove a particular section from the Word document
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Opens an input Word template
 
@@ -1486,7 +1534,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB] 
+ 
 
 'Opens an input Word template
 
@@ -1506,3 +1554,4 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  

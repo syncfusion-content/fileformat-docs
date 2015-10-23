@@ -9,12 +9,15 @@ documentation: UG
 
 It is used to keep track of the changes made to a Word document. It helps to maintain the record of author, name and time for every insertion, deletion, or modification in a document. This can be enabled by using the TrackChanges property of the Word document.
 
-I> Note: With this support, the changes made in the Word document by DocIO library cannot be tracked.
+N> 
+With this support, the changes made in the Word document by DocIO library cannot be tracked.
 
 The following code example illustrates how to enable track changes of the document.
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -57,7 +60,6 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
 
 'Creates a new Word document 
 
@@ -95,14 +97,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+{% endtabs %} 
 
 The changes made to the document can be accepted or rejected. The following code example illustrates how to accept or reject the changes made to the document. 
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -125,7 +129,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -145,7 +149,6 @@ document.Save("TrackChanges_Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+{% endtabs %}  

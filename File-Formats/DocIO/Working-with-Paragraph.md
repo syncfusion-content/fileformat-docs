@@ -29,8 +29,10 @@ Paragraph is the basic element in the Word document that contains a textual as w
 
 The following code example illustrates how to add a new paragraph.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -61,7 +63,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -91,10 +93,14 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 The following code example illustrates how to modify an existing paragraph.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -143,7 +149,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -183,16 +189,20 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}  
+
+
 
 ## Applying Paragraph Formatting
 
 As in the Microsoft Word, DocIO provides support for all the paragraph formatting options such as line spacing, indentation, spacing before and after, keep follow etc. The following code example illustrates how to apply formatting to a paragraph.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -237,7 +247,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -277,16 +287,18 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %}   
 
-
-{% endhighlight %}
+{% endtabs %}  
 
 Paragraph style contains definition for both font (text) as well as paragraph formatting that can be applied to the contents of an entire paragraph. DocIO supports various pre-defined styles and also provides ability to create custom paragraph styles.
 
 The following code example illustrates how to use the predefined styles.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -321,7 +333,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -351,14 +363,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+  {% endtabs %}  
 
 The following code example illustrates how to create a custom paragraph style and apply it to a paragraph.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -411,7 +425,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -459,9 +473,9 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 A tab stop is a horizontal position that is set for aligning text of the paragraph.  A tab character causes the carriage to go to the next tab stop.
 
@@ -469,8 +483,10 @@ Each paragraph has its own tab stop collection where the new tab stop can be add
 
 The following code example illustrates how to add tab stops to the paragraph.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -511,7 +527,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -547,9 +563,11 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %}  
+
+{% endtabs %}  
 
 
-{% endhighlight %}
 
 ## Working with Text 
 
@@ -557,8 +575,10 @@ Text within a paragraph is represented by one or more instances of the WTextRang
 
 The following code example illustrates how to append text to the paragraph.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -595,7 +615,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -631,12 +651,16 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 Text in the paragraph can be modified or replaced with a new text. This can be achieved by iterating through the paragraph items.
 
 The following code example illustrates how to replace the text of a text range.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document 
 
@@ -681,7 +705,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document 
 
@@ -717,16 +741,18 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+   {% endtabs %}  
 
 Text formatting enhances the appearance of text in the document. Text formatting includes font size, font color, font name, bold, italic, underline, etc. 
 
 The following code example illustrates how to apply formatting for the text.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -781,7 +807,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -831,9 +857,10 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}  
+
 
 ## Working with Images
 
@@ -844,8 +871,10 @@ DocIO provides support for both inline and absolute positioned images.
 
 The following code example illustrates how to add image to the paragraph.
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -882,7 +911,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -914,16 +943,18 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %} 
 
 Image present in the document can be replaced with a new image. This can be achieved by iterating through the paragraph items.
 
 The following code example illustrates how to replace an existing image:
 
+{% tabs %}   
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -974,7 +1005,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -1016,16 +1047,18 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+  {% endtabs %} 
 
 Images can be removed from the document by removing it from the paragraph items. 
 
 The following code example illustrates how to remove the image from the paragraph items:
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document 
 
@@ -1074,7 +1107,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document 
 
@@ -1112,16 +1145,18 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 Absolute positioned images have properties such as position, wrap formats, and alignments. These properties are not applicable when the text wrapping style is inline.
 
 The following code example illustrates how various picture formats can be applied to the picture:
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -1184,7 +1219,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -1242,16 +1277,18 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %}  
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 An Image with a specific title can be retrieved by iterating the paragraph items that can be used for further manipulations.
 
 The following code example illustrates how images can be iterated from the document elements.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -1316,7 +1353,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -1366,10 +1403,11 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+  {% endtabs %}  
+
+  
 ## Working with Lists
 
 Lists can organize and format the contents of the document in hierarchical way. There are 9 levels in the list, starting from level 0 to level 8. DocIO supports both built-in list styles and custom list styles. The following are the types of list supported in DocIO. 
@@ -1379,8 +1417,10 @@ Lists can organize and format the contents of the document in hierarchical way. 
 
 The following code example illustrates how to create a simple bulleted list:
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -1439,7 +1479,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -1493,14 +1533,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %}  
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code example illustrates how to create simple numbered list:
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -1559,7 +1601,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -1613,14 +1655,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example illustrates how to create a multi-level bulleted list.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -1687,7 +1731,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -1749,14 +1793,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code example illustrates how to create multi-level numbered list.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -1823,7 +1869,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -1885,14 +1931,17 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %}  
 
+ {% endtabs %}  
 
-{% endhighlight %}
+ 
+The list levels can be incremented or decremented by using the IncreaseIndentLeveland DecreaseIndentLevelmethods respectively. The following code example illustrates how to increase or decrease the list indent levels.
 
-The list levels can be incremented or decremented by using the **IncreaseIndentLevel** and **DecreaseIndentLevel** methods respectively. The following code example illustrates how to increase or decrease the list indent levels.
+{% tabs %} 
 
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -1973,7 +2022,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -2049,14 +2098,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example illustrates how to create user defined list styles.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -2139,7 +2190,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -2217,14 +2268,18 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+
+{% endtabs %}  
+
 
 The following code example illustrates how to create numbered list with prefix from previous level.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -2325,7 +2380,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -2421,10 +2476,12 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+  {% endtabs %}  
+
+  
+  
 ## Working with Hyperlinks
 
 Hyperlink is a reference to data that can link to external contents like images, files, web page, etc.  In Word document, a hyperlink may target to any one of the following sources.
@@ -2440,8 +2497,10 @@ Hyperlinks have two parts – the address and the display content.
 
 The following code example illustrates how to insert a web link.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -2476,7 +2535,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -2506,14 +2565,17 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+ {% endtabs %}  
+
+ 
 The following code example illustrates how to add an email link.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -2548,7 +2610,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -2578,14 +2640,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example illustrates how to add a file hyperlink.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -2620,7 +2684,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -2650,14 +2714,17 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+  {% endtabs %}  
+  
 
 The following code example illustrates how to add a bookmark hyperlink.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -2704,7 +2771,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -2746,16 +2813,18 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+  {% endtabs %}  
 
 The display content for the Hyperlinks can also be an image that may redirect to some other contents.
 
 The following code example illustrates how to add image hyperlink.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -2796,7 +2865,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -2832,14 +2901,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code example illustrates how to modify the URL of an existing hyperlink.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document 
 
@@ -2896,7 +2967,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document 
 
@@ -2940,18 +3011,21 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+  {% endtabs %}  
+
+  
 ## Working with Symbols
 
 Symbols are used to add contents such as currencies, numbers, punctuations, etc. DocIO represents symbols with WSymbol instance. Each symbol can be identified with their character codes.
 
 The following code example illustrates how to add new symbol to the document:
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -2982,7 +3056,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -3008,14 +3082,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code example illustrates how to modify an existing symbol:
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the template document
 
@@ -3072,7 +3148,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the template document
 
@@ -3116,10 +3192,11 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
+   {% endtabs %}  
 
-{% endhighlight %}
-
+   
 ## Appending Breaks
 
 Breaks allow the document contents to split into multiple parts, in order customize the appearance of the contents. The following are the types of breaks supported in the DocIO.
@@ -3130,8 +3207,10 @@ Breaks allow the document contents to split into multiple parts, in order custom
 
 The following code example illustrates how various types of breaks can be appended to the paragraphs:
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -3188,11 +3267,10 @@ document.Save("Sample.docx", FormatType.Docx);
 document.Close();
 
 
-
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -3248,10 +3326,11 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
+ 
 ## Appending OLE Objects
 
 OLE (Object Linking and Embedding) Objects allow embedding and linking to documents and other objects. It allows the content of one program to be used in a Word document. The Objects can be inserted in the following two ways:
@@ -3263,8 +3342,10 @@ You can create and manipulate the OLE Objects of both Linked and Embedded types 
 
 The following code example illustrates how to add OLE objects to the document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -3305,7 +3386,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -3341,18 +3422,21 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+  {% endtabs %}  
+
+  
 ## Working with Shapes
 
 Shapes are drawing objects that include lines, curves, circles, rectangles, etc. It can be preset or custom geometry. You can create and manipulate the pre-defined shape in Docx format documents.
 
 The following code example illustrates how to add pre-defined shape to the document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -3417,7 +3501,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -3477,14 +3561,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+   {% endtabs %}  
 
 Shape can have formatting such as line color, fill color, positioning, wrap formats, etc. The following code example illustrates how to apply formatting options for Shape.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -3549,7 +3635,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -3609,9 +3695,9 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+    {% endtabs %}  
 
 ## Working with Text Box
 
@@ -3619,8 +3705,10 @@ Textboxes have a group of textual and graphical contents. DocIO supports to crea
 
 The following code example illustrates how to add new text box to the paragraph.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -3665,7 +3753,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -3705,14 +3793,17 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
+ 
 
 Textbox has its own formatting such as outline color, fill effects, text direction, wrap formats, etc. The following code example illustrates how to apply formatting for textbox.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document 
 
@@ -3779,7 +3870,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document 
 
@@ -3845,3 +3936,4 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  

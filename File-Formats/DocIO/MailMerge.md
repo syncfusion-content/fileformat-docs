@@ -7,7 +7,7 @@ documentation: UG
 ---
 # MailMerge
 
-Mail Merge is a process of merging data from data source to a Word template document. **WMergeField** class provides support to bind template document and data source. **WMergeField** instance is replaced with the actual data retrieved from data source for the given merge field name in a template document.
+Mail Merge is a process of merging data from data source to a Word template document. WMergeFieldclass provides support to bind template document and data source. WMergeFieldinstance is replaced with the actual data retrieved from data source for the given merge field name in a template document.
 
 The following data sources are supported by Essential DocIO for performing mail merge.
 
@@ -31,8 +31,9 @@ The MailMerge class provides various overloads for Execute method to perform mai
 
 The following code example shows how to create a Word template document with merge fields.
 
+{% tabs %}  
+
 {% highlight c# %}
-[c#]
 
 //Creates an instance of a WordDocument 
 
@@ -77,7 +78,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates an instance of a WordDocument 
 
@@ -117,9 +118,9 @@ document.Save("Template.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+   {% endtabs %}  
 
 The generated template document looks as follows.
 
@@ -128,8 +129,10 @@ The generated template document looks as follows.
 
 The following code example shows how to perform a simple mail merge in the generated template document with string array as data source.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Opens the template document.
 
@@ -154,7 +157,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the template document.
 
@@ -178,6 +181,8 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 The resultant document looks as follows.
 
 ![](MailMerge_images/MailMerge_img3.jpeg)
@@ -198,12 +203,14 @@ For example – Consider that you have a template document as shown.
 ![](MailMerge_images/MailMerge_img4.jpeg)
 
 
-In this template, **Employees** is the group name and the same name should be used while performing mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the mail merge group. 
+In this template, Employeesis the group name and the same name should be used while performing mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the mail merge group. 
 
 The MailMerge class provides various overloads for ExecuteGroup method to perform mail merge within a group from various data sources. The following code example shows how to perform mail merge in the specific region with data source retrieved from SQL connection.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument("EmployeesTemplate.docx");
 
@@ -226,7 +233,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument("EmployeesTemplate.docx")
 
@@ -248,10 +255,14 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  
+
 The following code example provides supporting methods for the above code.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 private DataTable GetDataTable()
 
@@ -284,7 +295,7 @@ return table;
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Private Function GetDataTable() As DataTable
 
@@ -310,9 +321,9 @@ Return table
 
 End Function
 
-
-
 {% endhighlight %}
+
+  {% endtabs %}  
 
 The resultant document looks as follows.
 
@@ -323,7 +334,7 @@ The resultant document looks as follows.
 
 You can perform nested mail merge with relational or hierarchical data source and independent data tables in a template document.
 
-You need to define the commands with table name and expression for linking the independent data tables during nested mail merge process. You can use the **“%****TableName****.****ColumnName****%”** expression for getting the current value of specified column in a table. 
+You need to define the commands with table name and expression for linking the independent data tables during nested mail merge process. You can use the “%TableName.ColumnName%”expression for getting the current value of specified column in a table. 
 
 Nested mail merge operation automatically replaces the merge field with immediate group data. You can also predefine the group data that is populated to a merge field. You need to add a corresponding group name as a prefix to the merge field name for merging a specific group data to the merge field.
 
@@ -334,8 +345,10 @@ For example:
 
 The following code example shows how to perform a nested mail merge.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Opens the template document. 
 
@@ -366,7 +379,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the template document. 
 
@@ -393,15 +406,17 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 
+{% endhighlight %}  
 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example provides supporting methods for the above code.
 
+{% tabs %}   
+
 {% highlight c# %}
-[c#]
+
 
 private ArrayList GetCommands()
 
@@ -438,7 +453,7 @@ return commands;
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Private Function GetCommands() As ArrayList
 
@@ -468,16 +483,20 @@ Return commands
 
 End Function
 
+{% endhighlight %}  
 
+ {% endtabs %} 
 
-{% endhighlight %}
-
+ 
+ 
 ## Performing Mail merge with dynamic objects
 
-Essential DocIO allows you to perform mail merge with the dynamic objects. The following code snippet shows how to perform the mail merge with dynamic objects ([ExpandoObject](https://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject(v=vs.110).aspx# "")).
+Essential DocIO allows you to perform mail merge with the dynamic objects. The following code snippet shows how to perform the mail merge with dynamic objects ([ExpandoObject](https://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject(v=vs.110).aspx#)).
+
+{% tabs %} 
 
 {% highlight c# %}
-[c#]
+
 
 //Opens the template document. 
 
@@ -526,7 +545,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the template document. 
 
@@ -570,11 +589,13 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %}  
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example provides supporting methods for the above code.
+
+{% tabs %}  
 
 {% highlight c# %}
 private List<ExpandoObject> GetCustomers()
@@ -646,7 +667,7 @@ return dynamicOrder;
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Private Function GetCustomers() As List(Of ExpandoObject)
 
@@ -705,17 +726,20 @@ Return dynamicOrder
 End Function
 
 
+{% endhighlight %}  
 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
+ 
 ## Performing Mail merge with business objects
 
 You can perform mail merge with business objects in a template document. The following code snippet shows how to perform mail merge with business objects
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Opens the template document. 
 
@@ -744,7 +768,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the template document. 
 
@@ -768,11 +792,13 @@ document.Save("Result.docx")
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example provides supporting methods and class for the above code
+
+{% tabs %}  
 
 {% highlight c# %}
 public List<Employee> GetEmployees()
@@ -844,7 +870,7 @@ Photo = Image.FromFile(photoFilePath);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Public Function GetEmployees() As List(Of Employee)
 
@@ -1045,11 +1071,13 @@ End Sub
 End Class
 
 
+{% endhighlight %} 
 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
+  
+  
 ## Performing Nested Mail merge with relational data objects
 
 You can perform nested mail merge with implicit relational data objects without any explicit relational commands by using the ExecuteNestedGroup overload method. 
@@ -1059,12 +1087,14 @@ For example – Consider that you have a template document as follows.
 ![](MailMerge_images/MailMerge_img6.jpeg)
 
 
-In this template, **Employees** is the owner group and it has two child groups **Customers** and **Orders****.** 
+In this template, Employeesis the owner group and it has two child groups Customersand Orders.
 
 The following code exaample shows how to perform nested mail merge with the relational business objects.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Opens the template document. 
 
@@ -1093,7 +1123,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the template document. 
 
@@ -1118,15 +1148,17 @@ document.Save("Result.docx")
 document.Close()
 
 
-
-
-
 {% endhighlight %}
+
+
+  {% endtabs %}  
 
 The following code example provides supporting methods for the above code.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 public static List<Employees> GetEmployees()
 
@@ -1253,7 +1285,7 @@ RequiredDate = requiredDate;
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Public Function GetEmployees() As List(Of Employees)
 
@@ -1621,9 +1653,9 @@ End Sub
 
 End Class
 
-
-
 {% endhighlight %}
+
+   {% endtabs %}  
 
 The resultant document looks as follows.
 
@@ -1632,17 +1664,19 @@ The resultant document looks as follows.
 
 ## Event support for Mail merge
 
-The **MailMerge** class provides event support to customize the document contents and merging image data during the mail merge process. The following events are supported by Essential DocIO in mail merge process.
+The MailMerge class provides event support to customize the document contents and merging image data during the mail merge process. The following events are supported by Essential DocIO in mail merge process.
 
-* **MergeField** - occurs during mail merge when a mail merge field except image mail merge field is encountered in the document
-* **MergeImageField** - occurs during mail merge when a image mail merge field is encountered in the document
+* MergeField - occurs during mail merge when a mail merge field except image mail merge field is encountered in the document
+* MergeImageField - occurs during mail merge when a image mail merge field is encountered in the document
 
-**MergeField** **Event**
+MergeField Event
 
 The following code example shows how to use MergeField event during mail merge process.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#] 
+ 
 
 //Opens the template document. 
 
@@ -1667,7 +1701,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the template document. 
 
@@ -1687,14 +1721,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example shows how to set text color to the alternate mail merge record by using MergeFieldEventHandler.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs args)
 
@@ -1717,7 +1753,7 @@ args.CharacterFormat.TextColor = Color.FromArgb(255, 102, 0);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Private Function GetDataTable() As DataTable
 
@@ -1743,14 +1779,16 @@ Return dataTable
 
 End Function
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 The following code example provides supporting methods
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 private static DataTable GetDataTable()
 
@@ -1785,7 +1823,7 @@ return dataTable;
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Private Function GetDataTable() As DataTable
 
@@ -1811,16 +1849,18 @@ Return dataTable
 
 End Function
 
+{% endhighlight %} 
 
+  {% endtabs %}  
 
-{% endhighlight %}
-
-**MergeImageField** **event**
+### MergeImageField event
 
 The following code example shows how to use MergeImageField event during mail merge process.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Opens the template document
 
@@ -1851,7 +1891,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the template document
 
@@ -1877,14 +1917,17 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+  {% endtabs %}  
+
+  
 The following code example shows how to bind the image from file system during mail merge process by using MergeImageFieldEventHandler.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
 
@@ -1909,7 +1952,7 @@ args.Image = Image.FromFile(ProductFileName);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Private Sub MergeField_ProductImage(ByVal sender As Object, ByVal args As MergeImageFieldEventArgs)
 
@@ -1925,10 +1968,12 @@ End If
 
 End Sub
 
-
-
 {% endhighlight %}
 
+  {% endtabs %}  
+
+  
+  
 ## Mail merge options
 
 The MailMerge class allows you to customize the mail merge process with the following options.
@@ -1939,8 +1984,10 @@ The MailMerge class can automatically maps the merge field names with data sourc
 
 The following code example shows how to add mapping when a merge field name in a document and column name in a data source have different names.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Opens the template document. 
 
@@ -1977,7 +2024,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the template document. 
 
@@ -2009,16 +2056,20 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+  {% endtabs %}  
+  
+  
 
 ### Retrieving the merge field names
 
 The following code example shows how to retrieve the merge field names in the Word document
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Gets the merge field names from the document.
 
@@ -2029,20 +2080,23 @@ string[] filednames = document.MailMerge.GetMergeFieldNames()
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Gets the merge field names from the document.
 
 Dim filednames As String() = document.MailMerge.GetMergeFieldNames()
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
+ 
 The following code example shows how to retrieve the merge field group names in the Word document
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Gets the merge field group names from the document.
 
@@ -2053,20 +2107,22 @@ string[] groupNames = document.MailMerge.GetMergeGroupNames();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Gets the merge field group names from the document.
 
 Dim groupNames As String() = document.MailMerge.GetMergeGroupNames()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 The following code example shows how to retrieve the merge field names for a specific group in the Word document
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Gets the fields from the specified groups. 
 
@@ -2077,24 +2133,26 @@ string[] filednames = document.MailMerge.GetMergeFieldNames(groupName);
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Gets the fields from the specified groups. 
 
 Dim filednames As String() = document.MailMerge.GetMergeFieldNames(groupName)
 
 
+{% endhighlight %} 
 
 
-
-{% endhighlight %}
+ {% endtabs %}  
 
 ### Removing empty merge fields
 
 The following code example shows how to remove the empty paragraphs when the paragraph has a merge field item without any data during mail merge process.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 //Opens the template document. 
 
@@ -2123,7 +2181,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the template document. 
 
@@ -2147,14 +2205,16 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %}  
 
 Mail merge operation automatically removes the merge fields that do not have data in data source during mail merge process. The following code example shows how to keep the merge fields in the generated Word document when the merge field name is mapped with data source during mail merge process.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Opens the template document. 
 
@@ -2183,7 +2243,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Opens the template document. 
 
@@ -2208,8 +2268,9 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 
-
-
-
 {% endhighlight %}
 
+
+
+
+{% endtabs %}  

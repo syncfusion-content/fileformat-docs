@@ -7,18 +7,20 @@ documentation: UG
 ---
 # Working with Comments
 
-A comment is a note or annotation that an author or reviewer can add to a document. DocIO represents comment with **WComment** instance.
+A comment is a note or annotation that an author or reviewer can add to a document. DocIO represents comment with WCommentinstance.
 
-Note: The comment start and end ranges and dates can be preserved only on processing an existing document that already contains these information for each comment.
+N>  The comment start and end ranges and dates can be preserved only on processing an existing document that already contains these information for each comment.
 
 ## Adding a Comment
 
-You can add a new comment to the Word document by using **AppendComment** method of **WParagraph** class. 
+You can add a new comment to the Word document by using AppendCommentmethod of WParagraphclass. 
 
 The following code illustrates how to add a new comment to the document:
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a new Word document.
 
@@ -57,7 +59,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Creates a new Word document.
 
@@ -91,16 +93,20 @@ document.Save("Comment.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %} 
 
+ {% endtabs %}  
 
-{% endhighlight %}
-
+ 
+ 
 ## Modifying a Comment
 
 The following code illustrates how to modify the text of an existing comment in the Word document:
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument("Comment.docx");
 
@@ -127,7 +133,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument("Comment.docx")
 
@@ -149,18 +155,21 @@ document.Save("ModifiedComment.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
+  {% endtabs %}  
+
+  
 ## Removing Comments
 
 You can either remove all the comments or a particular comment from the Word document.
 
 The following code illustrates how to remove all the comments in Word document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument("Comment.docx");
 
@@ -177,7 +186,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument("Comment.docx")
 
@@ -193,10 +202,14 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
+
 The following code illustrates how to remove a particular comment from Word document.
 
+{% tabs %} 
+
 {% highlight c# %}
-[C#]
+
 
 WordDocument document = new WordDocument("Comment.docx");
 
@@ -215,7 +228,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Dim document As New WordDocument("Comment.docx")
 
@@ -233,3 +246,4 @@ document.Close()
 
 {% endhighlight %}
 
+ {% endtabs %}  

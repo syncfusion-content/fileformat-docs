@@ -12,12 +12,15 @@ This section describes the support and unsupported elements in the DocIO.
 ## Word document features
 
 <table>
+<thead>  
 <tr>
 <th>
-**Element**<br/><br/></th><th>
-**Doc****,** **Dot**<br/><br/></th><th>
-**DocX****,** **DotX****,** **Dotm****,** **Docm**<br/><br/></th><th>
-**RTF**<br/><br/></th></tr>
+Element<br/><br/></th><th>
+Doc, Dot<br/><br/></th><th>
+DocX, DotX, Dotm, Docm<br/><br/></th><th>
+RTF<br/><br/></th></tr>
+</thead>
+<tbody>  
 <tr>
 <th>
 <br/><br/></th><th>
@@ -144,16 +147,22 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
+</tbody>
 </table>
+
+
 ## Section features
 
 <table>
+<thead>  
 <tr>
 <th>
-**Element**<br/><br/></th><th>
-**Doc****,** **Dot**<br/><br/></th><th>
-**DocX****,** **DotX****,** **Dotm****,** **Docm**<br/><br/></th><th>
-**RTF**<br/><br/></th></tr>
+Element<br/><br/></th><th>
+Doc, Dot<br/><br/></th><th>
+DocX, DotX, Dotm, Docm<br/><br/></th><th>
+RTF<br/><br/></th></tr>
+</thead>
+<tbody> 
 <tr>
 <th>
 <br/><br/></th><th>
@@ -244,16 +253,22 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+ </tbody>
 </table>
+
+
 ## Paragraph elements features
 
 <table>
+<thead>  
 <tr>
-<th>
-**Element**<br/><br/></th><th>
-**Doc****,** **Dot**<br/><br/></th><th>
-**DocX****,** **DotX****,** **Dotm****,** **Docm**<br/><br/></th><th>
-**RTF**<br/><br/></th></tr>
+<th>Element<br/><br/></th>
+<th>Doc, Dot<br/><br/></th>
+<th>DocX, DotX, Dotm, Docm<br/><br/></th>
+<th>RTF<br/><br/></th>
+</tr>
+</thead>
+<tbody>  
 <tr>
 <th>
 <br/><br/></th><th>
@@ -398,16 +413,22 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>
+
+
 ## Paragraph features
 
 <table>
+<thead>  
 <tr>
-<th>
-**Element**<br/><br/></th><th>
-**Doc****,** **Dot**<br/><br/></th><th>
-**DocX****,** **DotX****,** **Dotm****,** **Docm**<br/><br/></th><th>
-**RTF**<br/><br/></th></tr>
+<th>Element<br/><br/></th>
+<th>Doc, Dot<br/><br/></th>
+<th>DocX, DotX, Dotm, Docm<br/><br/></th>
+<th>RTF<br/><br/></th>
+</tr>
+</thead>
+<tbody>  
 <tr>
 <th>
 <br/><br/></th><th>
@@ -534,16 +555,22 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>
+
+
 ## Style features
 
 <table>
+<thead>  
 <tr>
-<th>
-**Element**<br/><br/></th><th>
-**Doc****,** **Dot**<br/><br/></th><th>
-**DocX****,** **DotX****,** **Dotm****,** **Docm**<br/><br/></th><th>
-**RTF**<br/><br/></th></tr>
+<th>Element<br/><br/></th>
+<th>Doc, Dot<br/><br/></th>
+<th>DocX, DotX, Dotm, Docm<br/><br/></th>
+<th>RTF<br/><br/></th>
+</tr>
+</thead>
+<tbody>  
 <tr>
 <th>
 <br/><br/></th><th>
@@ -625,16 +652,22 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
+</tbody>
 </table>
+
+
 ## Table features
 
 <table>
+<thead>  
 <tr>
-<th>
-**Element**<br/><br/></th><th>
-**Doc****,** **Dot**<br/><br/></th><th>
-**DocX****,** **DotX****,** **Dotm****,** **Docm**<br/><br/></th><th>
-**RTF**<br/><br/></th></tr>
+<th>Element<br/><br/></th>
+<th>Doc, Dot<br/><br/></th>
+<th>DocX, DotX, Dotm, Docm<br/><br/></th>
+<th>RTF<br/><br/></th>
+</tr>
+</thead>
+<tbody>  
 <tr>
 <th>
 <br/><br/></th><th>
@@ -878,16 +911,18 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>
+
 ## Text features
 
 <table>
 <tr>
 <th>
-**Element**<br/><br/></th><th>
-**Doc****,** **Dot**<br/><br/></th><th>
-**DocX****,** **DotX****,** **Dotm****,** **Docm**<br/><br/></th><th>
-**RTF**<br/><br/></th></tr>
+Element<br/><br/></th><th>
+Doc, Dot<br/><br/></th><th>
+DocX, DotX, Dotm, Docm<br/><br/></th><th>
+RTF<br/><br/></th></tr>
 <tr>
 <th>
 <br/><br/></th><th>
@@ -1050,4 +1085,5 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>

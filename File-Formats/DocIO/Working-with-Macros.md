@@ -11,12 +11,14 @@ Macro is a way to automate the tasks that you perform repeatedly. It is a saved 
 
 The following link shows how to create a macro in the Word document.
 
-[https://support.office.com/en-in/article/Create-or-run-a-macro-c6b99036-905c-49a6-818a-dfb98b7c3c9c](https://support.office.com/en-in/article/Create-or-run-a-macro-c6b99036-905c-49a6-818a-dfb98b7c3c9c# "")
+[https://support.office.com/en-in/article/Create-or-run-a-macro-c6b99036-905c-49a6-818a-dfb98b7c3c9c](https://support.office.com/en-in/article/Create-or-run-a-macro-c6b99036-905c-49a6-818a-dfb98b7c3c9c#)
 
 The following code illustrates how to load and save a macro enabled document.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 // Loads the macro-enabled template.
 
@@ -41,7 +43,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the macro-enabled template.
 
@@ -61,14 +63,16 @@ document.Save("Sample.docm", FormatType.Word2013Docm)
 
 document.Close()
 
-
-
 {% endhighlight %}
+
+  {% endtabs %}  
 
 The following code example illustrates the method used to get the tables from data set.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 private DataTable GetDataTable()
 
@@ -121,7 +125,7 @@ return table;
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 Private Function GetDataTable() As DataTable
 
@@ -165,14 +169,16 @@ Return table
 
 End Function 
 
+{% endhighlight %} 
 
-
-{% endhighlight %}
+  {% endtabs %} 
 
 The following code example illustrates how to remove the macros present in the document by using RemoveMacros method.
 
+{% tabs %}  
+
 {% highlight c# %}
-[C#]
+
 
 //Loads the document with macros
 
@@ -197,7 +203,7 @@ document.Close();
 {% endhighlight %}
 
 {% highlight vbnet %}
-[VB]
+
 
 'Loads the document with macros
 
@@ -225,3 +231,4 @@ document.Close()
 
 {% endhighlight %}
 
+{% endtabs %}  
