@@ -1,7 +1,7 @@
 ---
 title: Working with shapes in PowerPoint Presentation
 description: Working with shapes in PowerPoint Presentation
-platform: file-formatss
+platform: file-formats
 control: Presentation
 documentation: UG
 ---
@@ -9,12 +9,13 @@ documentation: UG
 
 ## Adding shapes to a slide
 
-In every slide, there is a shape collection that can contain any form of graphical objects such as [autoShape](https://msdn.microsoft.com/en-us/library/dd439450(v=office.12).aspx# ""), chart, text, or picture.  You can add any shape element to this collection. The [IShape](http://www.google.com/# "") is the base type for the shape elements.
+In every slide, there is a shape collection that can contain any form of graphical objects such as [autoShape](https://msdn.microsoft.com/en-us/library/dd439450(v=office.12).aspx), chart, text, or picture.  You can add any shape element to this collection. The [IShape](http://www.google.com/# "") is the base type for the shape elements.
 
 The following code example demonstrates how to add an autoshape and image to the shape collection of a slide.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates an instance for PowerPoint
 
@@ -48,12 +49,9 @@ imageStream.Close();
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates an instance for PowerPoint
 
@@ -87,16 +85,17 @@ imageStream.Close()
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Iterate through shapes
 
 You can iterate through the shapes in a PowerPoint slide. The following code example demonstrates how to iterate through the shapes present in a slide for modifying its properties.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens an existing presentation from the file system.
 
@@ -108,13 +107,13 @@ foreach(IShape shape in presentation.Slides[0].Shapes)
 
 {
 
-if (shape is IPicture)
+	if (shape is IPicture)
 
-shape.Title = "Picture";
+		shape.Title = "Picture";
 
-else if (shape is IShape)
+	else if (shape is IShape)
 
-shape.Title = "AutoShape";
+		shape.Title = "AutoShape";
 
 }
 
@@ -126,12 +125,10 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Opens an existing presentation from the file system.
 
@@ -161,16 +158,17 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Specify shape properties
 
 The shape properties can be used to format and modify the shapes in a slide. The following code example demonstrates how to apply formatting to a shape.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates instance for PowerPoint
 
@@ -224,12 +222,10 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 'Creates instance for PowerPoint
 
@@ -283,16 +279,17 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Remove the shapes
 
 The shapes can be removed from a slide by its instance or by its index position in the shape collection. The following code example demonstrates how to remove the shapes from a slide. 
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens an existing presentation from file system.
 
@@ -318,12 +315,9 @@ presentation.Save("Result.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens an existing presentation from file system.
 
@@ -349,7 +343,7 @@ presentation_1.Save("Result.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 

@@ -1,7 +1,7 @@
 ---
 title: Working with images in PowerPoint Presentation
 description: Working with images in PowerPoint Presentation
-platform: file-formatss
+platform: file-formats
 control: Presentation
 documentation: UG
 ---
@@ -11,8 +11,9 @@ documentation: UG
 
 Essential Presentation library facilitates adding or modifying the images in a PowerPoint presentation. The following code example demonstrates how to add a new image to the presentation.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates a instance of presentation
 
@@ -38,12 +39,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a instance of presentation
 
@@ -69,16 +67,17 @@ presentation_1.Save("Result.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
 
-## Replac Images
+{% endtabs %}
+
+## Replace Images
 
 The following code example demonstrates how to replace an existing image in a slide.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens an existing presentation.
 
@@ -116,12 +115,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens an existing presentation.
 
@@ -159,16 +155,17 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Remove Images
 
 The following code example demonstrates how to remove an existing image in a PowerPoint slide.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens an existing presentation from file system.
 
@@ -184,11 +181,11 @@ foreach (IPicture picture in slide.Pictures)
 
 {
 
-//Removes the picture from the slide.
+	//Removes the picture from the slide.
 
-slide.Pictures.Remove(picture);
+	slide.Pictures.Remove(picture);
 
-break;
+	break;
 
 }
 
@@ -200,12 +197,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens an existing presentation from file system.
 
@@ -235,7 +229,7 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 

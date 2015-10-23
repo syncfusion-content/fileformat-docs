@@ -1,7 +1,7 @@
 ---
 title: Working with Paragraph in PowerPoint Presentation
 description: Working with Paragraph in PowerPoint Presentation
-platform: file-formatss
+platform: file-formats
 control: Presentation
 documentation: UG
 ---
@@ -13,8 +13,9 @@ All the textual contents in a Presentation document is represented by Paragraphs
 
 The following code example demonstrates how to add a paragraph in a slide.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates PowerPoint instance
 
@@ -48,12 +49,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates PowerPoint instance
 
@@ -87,16 +85,17 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Apply Paragraph formatting
 
 Each paragraph in a slide can has its own formatting types such as alignment, indent etc. The following code example demonstrates how to format a paragraph in PowerPoint presentation.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Loads the PowerPoint presentation
 
@@ -134,12 +133,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Loads the PowerPoint presentation
 
@@ -177,16 +173,17 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Work with text
 
 With Essential Presentation, you can add or modify the text in a presentation. Within the paragraph, textual contents are grouped into one or more child elements as [TextParts](http://www.google.com/# ""). Each TextPart represents a region of text with a common set of formatted text. The following code example demonstrates how to add text parts with different formatting into a single paragraph.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Loads the PowerPoint presentation
 
@@ -256,12 +253,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Loads the PowerPoint presentation
 
@@ -331,16 +325,17 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Modify text
 
 You can modify a text by accessing the existing paragraphs in a presentation. The following code example demonstrates how to modify the content in a paragraph.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens an existing presentation from file system.
 
@@ -374,12 +369,9 @@ presentation.Save("Result.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens an existing presentation from file system.
 
@@ -413,16 +405,17 @@ presentation_1.Save("Result.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Remove the paragraph 
 
 The following code example demonstrates how to remove a paragraph from a slide.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens an existing presentation from file system.
 
@@ -452,12 +445,9 @@ presentation.Save("Result.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens an existing presentation from file system.
 
@@ -487,7 +477,6 @@ presentation_1.Save("Result.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
 
+{% endtabs %}

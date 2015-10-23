@@ -1,7 +1,7 @@
 ---
 title: Getting Started with Essential Presentation library
 description: Getting started with Essential Presentation library; Creating a PowerPoint presentation; Modifying the existing PowerPoint presentation
-platform: file-formatss
+platform: file-formats
 control: Presentation
 documentation: UG
 ---
@@ -14,87 +14,105 @@ In this page, you can learn how to create a simple PowerPoint presentation by us
 For creating and manipulating a PowerPoint presentation, include the following assemblies in the application.
 
 <table>
-<tr>
-<td>
-Assembly Name<br/><br/></td><td>
-Short Description<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Presentation.Base<br/><br/></td><td>
-This assembly contains the core features required for creating, reading, manipulating a Presentation file.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Compression.Base<br/><br/></td><td>
-This assembly is used to package the Presentation contents.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.OfficeChart.Base<br/><br/></td><td>
-This assembly contains the Office Chart Object model and core features needed for chart creation.<br/><br/></td></tr>
+    <thead>
+        <tr>
+            <th>
+                Assembly Name
+            </th>
+            <th>
+                Short Description
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Syncfusion.Presentation.Base
+            </td>
+            <td>
+                This assembly contains the core features required for creating, reading, manipulating a Presentation file.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.Compression.Base
+            </td>
+            <td>
+                This assembly is used to package the Presentation contents.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.OfficeChart.Base
+            </td>
+            <td>
+                This assembly contains the Office Chart Object model and core features needed for chart creation.
+            </td>
+        </tr>
+    </tbody>
 </table>
+
 The following namespaces are required to compile the code discussed in this topic.
 
-* using Syncfusion.Presentation
+* Syncfusion.Presentation
 
 An entire PowerPoint presentation is represented by an instance of IPresentation interface and it is the root element of Essential Presentation’s DOM.
 
 The following code example demonstrates how to create an instance of IPresentation interface.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates a new instance of PowerPoint presentation
 
 IPresentation presentation = Presentation.Create();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new instance of PowerPoint presentation
 
 Dim presentation_1 As IPresentation = Presentation.Create()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 IPresentation instance has a slide collection that represents the individual slides present within PowerPoint presentation. A slide may contain textual and other graphics contents like shapes, images, charts etc.
 
 The following code example demonstrates how to add a blank slide to a PowerPoint presentation.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Adds a slide to the PowerPoint presentation
 
 ISlide firstSlide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Adds a slide to the PowerPoint presentation
 
 Dim firstSlide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
 
-
-
 {% endhighlight %}
 
-Note: The “Point” typographic units are used to add or manipulate any element in a presentation. 
+{% endtabs %}
+
+N> The “Point” typographic units are used to add or manipulate any element in a presentation. 
 
 All the textual contents in a Presentation document are represented by Paragraphs. Within the paragraph, textual contents are grouped into one or more child elements as TextParts. Each TextPart represents a region of text with a common set of formatted text.
 
 The following code example demonstrates how to add text into a presentation.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Adds a textbox in a slide by specifying its position and size
 
@@ -114,12 +132,9 @@ textPart.Font.FontSize = 80;
 
 textPart.Font.Bold = true;
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Adds a textbox in a slide by specifying its position and size
 
@@ -139,14 +154,15 @@ textPart.Font.FontSize = 80
 
 textPart.Font.Bold = True
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 Essential Presentation allows you to create simple and multi-level lists that make the content easier for reading. The following code example demonstrates how to add a bulleted list in a paragraph.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Adds a new paragraph with text.
 
@@ -168,12 +184,9 @@ paragraph.ListFormat.FontName = "Symbol";
 
 paragraph.FirstLineIndent = -20;
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Adds a new paragraph with text.
 
@@ -195,14 +208,16 @@ paragraph.ListFormat.FontName = "Symbol"
 
 paragraph.FirstLineIndent = -20
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
+
 
 In PowerPoint presentation, the multilevel lists are used for presenting the content in a hierarchy. You can create a multi-level list by setting the indentation levels. By default, the level begins at 0 and increments by 1 for each level. The following code example demonstrates how to add multi-level list in a paragraph.
 
+{% tabs %}
+
 {% highlight vb.net %}
-[C#]
 
 //Adds a new paragraph  
 
@@ -216,12 +231,9 @@ paragraph.ListFormat.Type = ListType.Bulleted;
 
 paragraph.IndentLevelNumber = 2;
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Adds a new paragraph  
 
@@ -235,14 +247,16 @@ paragraph.ListFormat.Type = ListType.Bulleted
 
 paragraph.IndentLevelNumber = 2
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
+
 
 You can add images to the presentation by adding them in the picture collection of a slide. The following code example demonstrates how to add an image in a presentation.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Gets the image from file path
 
@@ -252,12 +266,9 @@ Image image = Image.FromFile(@"image.jpg");
 
 firstSlide.Pictures.AddPicture(new MemoryStream(image.ImageData), 300, 270, 410, 250);
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Gets the image from file path
 
@@ -266,14 +277,15 @@ Dim image__1 As Image = Image.FromFile("image.jpg")
 ' Adds the image to the slide by specifying position and size 
 firstSlide.Pictures.AddPicture(New MemoryStream (image__1.ImageData), 300, 270, 410, 250)
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 Finally, save the presentation in file system and close its instance.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Saves the presentation in the given name 
 
@@ -283,12 +295,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Saves the presentation in the given name
 
@@ -298,9 +307,10 @@ Presentation_1.Save("Output.pptx")
 
 Presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
+
 
 The resultant PowerPoint presentation looks as follows.
 
@@ -312,43 +322,84 @@ The resultant PowerPoint presentation looks as follows.
 Essential Presentation allows you to convert a PowerPoint presentation into PDF document. The following assemblies are required for the presentation to PDF conversion.
 
 <table>
-<tr>
-<td>
-Assembly Name<br/><br/></td><td>
-Short Description<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Presentation.Base<br/><br/></td><td>
-This assembly contains the core features required for creating, reading, manipulating a Presentation file.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Compression.Base<br/><br/></td><td>
-This assembly is used to pack the Presentation contents.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.OfficeChart.Base<br/><br/></td><td>
-This assembly contains the Office Chart Object model and core features needed for chart creation.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td><td>
-This assembly is used to convert Office Chart into Image. <br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Pdf.Base<br/><br/></td><td>
-This assembly is used for PDF file creation. <br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.PresentationToPDFConverter.Base<br/><br/></td><td>
-This assembly is used to convert Presentation file into PDF. <br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.SfChart.WPF<br/><br/></td><td>
-Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Shared.WPF<br/><br/></td><td>
-Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
+    <thead>
+        <tr>
+            <th>
+                Assembly Name
+            </th>
+            <th>
+                Short Description
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Syncfusion.Presentation.Base
+            </td>
+            <td>
+                This assembly contains the core features required for creating, reading, manipulating a Presentation file.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.Compression.Base
+            </td>
+            <td>
+                This assembly is used to pack the Presentation contents.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.OfficeChart.Base
+            </td>
+            <td>
+                This assembly contains the Office Chart Object model and core features needed for chart creation.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.OfficeChartToImageConverter.WPF
+            </td>
+            <td>
+                This assembly is used to convert Office Chart into Image. 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.Pdf.Base
+            </td>
+            <td>
+                This assembly is used for PDF file creation. 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.PresentationToPDFConverter.Base
+            </td>
+            <td>
+                This assembly is used to convert Presentation file into PDF. 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.SfChart.WPF
+            </td>
+            <td>
+                Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.Shared.WPF
+            </td>
+            <td>
+                Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF
+            </td>
+        </tr>
+    </tbody>
 </table>
+
 The following namespaces are required to compile the code in this topic.
 
 * Syncfusion.OfficeChartToImageConverter;
@@ -358,8 +409,9 @@ The following namespaces are required to compile the code in this topic.
 
 **PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert the PowerPoint presentation to PDF.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens a PowerPoint presentation file
 
@@ -385,12 +437,9 @@ PDFdocument.Close(true);
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight c# %}
-[VB.NET]
 
 'Opens a PowerPoint presentation file
 
@@ -416,14 +465,13 @@ PDFdocument.Close(True)
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
 
-**Note****:**
+{% endtabs %}
 
-* Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to PDF conversion. Otherwise, the charts are not exported to the converted PDF.
-* **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 
-**PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF document. For more information about this, see [Conversion](http://www.google.com/# "").
+N> * Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to PDF conversion. Otherwise, the charts are not exported to the converted PDF.
+N> * **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
+
+**PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF document. For more information about this, see [Conversion](http://www.google.com/).
 

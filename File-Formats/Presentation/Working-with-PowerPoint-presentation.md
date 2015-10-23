@@ -1,7 +1,7 @@
 ---
 title: Working with PowerPoint presentation
 description: Working with PowerPoint presentation; Cloning the presentation; printing the presentation
-platform: file-formatss
+platform: file-formats
 control: Presentation
 documentation: UG
 ---
@@ -11,8 +11,9 @@ documentation: UG
 
 Cloning a PowerPoint presentation creates a new copy of the PowerPoint presentation. The cloned copy is an independent object that indicates changes made in the cloned copy of the presentation do not affect the source PowerPoint presentation.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens a PowerPoint presentation file
 
@@ -42,12 +43,9 @@ ITextPart textPart = paragraph.AddTextPart("Essential Presentation");
 
 clonedPresentation.Save("ClonedPresentation.pptx");
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens a PowerPoint presentation file
 
@@ -77,18 +75,19 @@ Dim textPart As ITextPart = paragraph.AddTextPart("Essential Presentation")
 
 clonedPresentation_1.Save("ClonedPresentation.pptx")
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Print a PowerPoint presentation
 
-You can print the presentation document by converting the PowerPoint Presentation slides to images. For more information about converting the PowerPoint presentation slides to images, see [Conversion](http://www.google.com/# ""). You can use the System.Drawing.Printing.[PrintDocument](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument(v=vs.110).aspx# "") class to print the converted images by the default printer or to any of the available printer with customized settings.
+You can print the presentation document by converting the PowerPoint Presentation slides to images. For more information about converting the PowerPoint presentation slides to images, see [Conversion](http://www.google.com/). You can use the System.Drawing.Printing.[PrintDocument](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument(v=vs.110).aspx) class to print the converted images by the default printer or to any of the available printer with customized settings.
 
 The following code example demonstrates how to convert the slides of a PowerPoint presentationto images.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens a PowerPoint presentation
 
@@ -102,12 +101,9 @@ Image[] images = presentation.RenderAsImages(Syncfusion.Drawing.ImageType.Bitmap
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens a PowerPoint presentation
 
@@ -121,14 +117,15 @@ Dim images As Image() = presentation_1.RenderAsImages(Syncfusion.Drawing. ImageT
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 The following code example demonstrates how to print the converted images.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Initializes the start and page for printing
 
@@ -164,29 +161,29 @@ if (printDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 
 {
 
-//Checks whether the selected page range is valid or not
+	//Checks whether the selected page range is valid or not
 
-if (printDialog.PrinterSettings.FromPage > 0 && printDialog.PrinterSettings.ToPage <= images.Length)
+	if (printDialog.PrinterSettings.FromPage > 0 && printDialog.PrinterSettings.ToPage <= images.Length)
 
-{
+	{
 
-//Updates the start page of the document to print.
+	//Updates the start page of the document to print.
 
-startPageIndex = printDialog.PrinterSettings.FromPage - 1;
+	startPageIndex = printDialog.PrinterSettings.FromPage - 1;
 
-//Updates the end page of the document to print.
+	//Updates the end page of the document to print.
 
-endPageIndex = printDialog.PrinterSettings.ToPage;
+	endPageIndex = printDialog.PrinterSettings.ToPage;
 
-//Hooks the PrintPage event to handle be drawing pages for printing.
+	//Hooks the PrintPage event to handle be drawing pages for printing.
 
-printDialog.Document.PrintPage += new PrintPageEventHandler(PrintPageMethod);
+	printDialog.Document.PrintPage += new PrintPageEventHandler(PrintPageMethod);
 
-//Prints the document.
+	//Prints the document.
 
-printDialog.Document.Print();
+	printDialog.Document.Print();
 
-}
+	}
 
 }
 
@@ -194,78 +191,76 @@ private void PrintPageMethod (object sender, PrintPageEventArgs e)
 
 {
 
-//Gets the print start page width.
+	//Gets the print start page width.
 
-int currentPageWidth = images[startPageIndex].Width;
+	int currentPageWidth = images[startPageIndex].Width;
 
-//Gets the print start page height.
+	//Gets the print start page height.
 
-int currentPageHeight = images[startPageIndex].Height;
+	int currentPageHeight = images[startPageIndex].Height;
 
-//Gets the visible bounds width for print.
+	//Gets the visible bounds width for print.
 
-int visibleClipBoundsWidth = (int)e.Graphics.VisibleClipBounds.Width;
+	int visibleClipBoundsWidth = (int)e.Graphics.VisibleClipBounds.Width;
 
-//Gets the visible bounds height for print.
+	//Gets the visible bounds height for print.
 
-int visibleClipBoundsHeight = (int)e.Graphics.VisibleClipBounds.Height;
+	int visibleClipBoundsHeight = (int)e.Graphics.VisibleClipBounds.Height;
 
-//Checks whether the page layout is landscape or portrait.
+	//Checks whether the page layout is landscape or portrait.
 
-if (currentPageWidth > currentPageHeight)
+	if (currentPageWidth > currentPageHeight)
 
-{
+	{
 
-//Translates the position.
+		//Translates the position.
 
-e.Graphics.TranslateTransform(0, visibleClipBoundsHeight);
+		e.Graphics.TranslateTransform(0, visibleClipBoundsHeight);
 
-//Rotates the object at 270 degrees
+		//Rotates the object at 270 degrees
 
-e.Graphics.RotateTransform(270.0f);
+		e.Graphics.RotateTransform(270.0f);
 
-//Draws the current page image.
+		//Draws the current page image.
 
-e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, currentPageWidth, currentPageHeight));
+		e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, currentPageWidth, currentPageHeight));
+
+	}
+
+	else
+
+	{
+
+		//Draws the current page image.
+
+		e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight));
+
+	}
+
+	//Disposes the current page image after drawing.
+
+	images[startPageIndex].Dispose();
+
+	//Increments the start page index.
+
+	startPageIndex++;
+
+	//Updates whether the document contains more pages to print or not.
+
+	if (startPageIndex < endPageIndex)
+
+		e.HasMorePages = true;
+
+	else
+
+		startPageIndex = 0;
 
 }
-
-else
-
-{
-
-//Draws the current page image.
-
-e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight));
-
-}
-
-//Disposes the current page image after drawing.
-
-images[startPageIndex].Dispose();
-
-//Increments the start page index.
-
-startPageIndex++;
-
-//Updates whether the document contains more pages to print or not.
-
-if (startPageIndex < endPageIndex)
-
-e.HasMorePages = true;
-
-else
-
-startPageIndex = 0;
-
-}
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
+
 
 Dim endPageIndex As Integer = images.Length
 
@@ -383,9 +378,9 @@ End If
 
 End Sub
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Work with PowerPoint presentation properties
 
@@ -402,8 +397,9 @@ You can access and modify the built in document properties of a PowerPoint prese
 
 The following code example demonstrates how to access the existing built in document property.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens a PowerPoint presentation
 
@@ -419,12 +415,9 @@ Console.WriteLine("Author - {0}", presentation.BuiltInDocumentProperties.Author)
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens a PowerPoint presentation
 
@@ -440,14 +433,15 @@ Console.WriteLine("Author - {0}", presentation_1.BuiltInDocumentProperties.Autho
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 The following code example demonstrates how to modify the existing built in document property
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens a PowerPoint presentation
 
@@ -467,12 +461,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens a PowerPoint presentation
 
@@ -492,20 +483,22 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
 
-**Custom** **Document** **properties**
+{% endtabs %}
+
+## Custom Document properties
 
 You can create and modify the custom document properties of a PowerPoint presentation with Essential Presentation library. The collection of custom document properties in a PowerPoint presentation is represented by **ICustomDocumentProperties** object. 
 
-**Adding** **Custom** **Document** **properties**
+### Adding Custom Document properties
 
 The following code example demonstrates how to add new custom document property.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
+
 
 //Creates a PowerPoint presentation
 
@@ -525,12 +518,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a PowerPoint presentation
 
@@ -550,16 +540,17 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
 
-**Accessing** **and** **Modifying** **Custom** **Document** **Properties**
+{% endtabs %}
+
+### Accessing and Modifying Custom Document Properties
 
 The following code example demonstrates how to access and modify an existing custom document property:
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens a PowerPoint presentation
 
@@ -581,12 +572,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens a PowerPoint presentation
 
@@ -608,7 +596,6 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
 
+{% endtabs %}

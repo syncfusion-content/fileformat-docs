@@ -1,7 +1,7 @@
 ---
 title: Working with tables in PowerPoint Presentation
 description: Working with tables in PowerPoint Presentation
-platform: file-formatss
+platform: file-formats
 control: Presentation
 documentation: UG
 ---
@@ -11,8 +11,9 @@ documentation: UG
 
 Essential Presentation facilitates developers to add tables from scratch. The following code example demonstrates how to add a simple table to a slide:
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates instance of PowerPoint presentation
 
@@ -56,12 +57,9 @@ presentation.Save("Table.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates instance of PowerPoint presentation
 
@@ -105,16 +103,17 @@ presentation_1.Save("Table.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Apply table formatting
 
 You can format a table to change its appearance by customizing the table border, cell background, cell margins etc. The following code example demonstrates how to apply the custom table formatting.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates instance of PowerPoint presentation
 
@@ -208,12 +207,9 @@ presentation.Save("Table.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates instance of PowerPoint presentation
 
@@ -307,16 +303,17 @@ presentation_1.Save("Table.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Apply table styles
 
 You can format a table by applying pre-defined table styles. The following code example demonstrates how to apply predefined styles to a table.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates instance of PowerPoint presentation
 
@@ -394,12 +391,9 @@ presentation.Save("Table.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates instance of PowerPoint presentation
 
@@ -477,16 +471,17 @@ presentation_1.Save("Table.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Modify the table
 
 The following code example demonstrates how to modify the table in existing PowerPoint presentation.
 
-{% highlight vb.net %}
-[C#]
+{% tabs %}
+
+{% highlight c# %}
 
 //Creates instance of PowerPoint presentation
 
@@ -520,12 +515,9 @@ presentation.Save("TableModified.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates instance of PowerPoint presentation
 
@@ -559,16 +551,17 @@ presentation_1.Save("TableModified.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Merge the cells
 
 The following code example shows how to merge cells in a table.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates instance of PowerPoint presentation
 
@@ -620,12 +613,9 @@ presentation.Save("Table.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates instance of PowerPoint presentation
 
@@ -677,16 +667,17 @@ presentation_1.Save("Table.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Remove the table
 
 You can remove a table from a slide by its instance or by its index position in the shape collection. The following code example demonstrates removing a table in a slide.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates instance of PowerPoint presentation
 
@@ -712,12 +703,9 @@ presentation.Save("TableRemoved.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates instance of PowerPoint presentation
 
@@ -743,7 +731,6 @@ presentation_1.Save("TableRemoved.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
 
+{% endtabs %}

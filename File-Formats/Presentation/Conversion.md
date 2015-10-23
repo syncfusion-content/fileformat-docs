@@ -1,7 +1,7 @@
 ---
 title: Converting PowerPoint Presentation to PDF or Image
 description: Converting PowerPoint Presentation to PDF; Converting PowerPoint Presentation slide to image; PowerPoint Presentation conversion
-platform: file-formatss
+platform: file-formats
 control: Presentation
 documentation: UG
 ---
@@ -12,49 +12,66 @@ documentation: UG
 To convert a PowerPoint presentation to PDF, include the following assemblies in the application.
 
 <table>
-<thead>
-<tr>
-<th>
-Assembly Name<br/><br/></th><th>
-Short Description<br/><br/></th></tr>
-</thead>
-<tbody>
-<tr>
-<td>
-Syncfusion.Presentation.Base<br/><br/></td><td>
-This assembly contains the core features needed for creating, reading, manipulating a Presentation file.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.OfficeChart.Base<br/><br/></td><td>
-This assembly contains the Office Chart Object model and core features needed for chart creation.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td><td>
-This assembly is used to convert Office Chart into Image. <br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Pdf.Base<br/><br/></td><td>
-This assembly is used for PDF file creation. <br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.SfChart.WPF<br/><br/></td><td>
-Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Shared.WPF<br/><br/></td><td>
-Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Compression.Base<br/><br/></td><td>
-This assembly is used to pack the Presentation contents.<br/><br/></td></tr>
-</tbody>
+    <thead>
+        <tr>
+            <th>
+                Assembly Name</th>
+            <th>
+                Short Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Syncfusion.Presentation.Base</td>
+            <td>
+                This assembly contains the core features needed for creating, reading, manipulating a Presentation file.</td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.OfficeChart.Base</td>
+            <td>
+                This assembly contains the Office Chart Object model and core features needed for chart creation.</td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.OfficeChartToImageConverter.WPF</td>
+            <td>
+                This assembly is used to convert Office Chart into Image. </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.Pdf.Base</td>
+            <td>
+                This assembly is used for PDF file creation. </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.SfChart.WPF</td>
+            <td>
+                Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF</td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.Shared.WPF</td>
+            <td>
+                Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF</td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.Compression.Base</td>
+            <td>
+                This assembly is used to pack the Presentation contents.</td>
+        </tr>
+    </tbody>
 </table>
+
 The following namespaces are required to compile the code in this topic.
 
-1. using Syncfusion.OfficeChartToImageConverter;
-2. using Syncfusion.Presentation;
-3. using Syncfusion.PresentationToPdfConverter;
-4. using Syncfusion.Pdf;
+1. Syncfusion.OfficeChartToImageConverter;
+2. Syncfusion.Presentation;
+3. Syncfusion.PresentationToPdfConverter;
+4. Syncfusion.Pdf;
 
 **PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert a PowerPoint presentation to PDF.
 
@@ -86,8 +103,6 @@ PDFdocument.Close(true);
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
@@ -115,8 +130,6 @@ PDFdocument.Close(True)
 'Closes the presentation
 
 presentation_1.Close()
-
-
 
 {% endhighlight %}
 
@@ -179,8 +192,6 @@ PDFdocument.Close(true);
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
@@ -225,8 +236,6 @@ PDFdocument.Close(True)
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -249,35 +258,90 @@ An entire presentation or a single slide can be converted to image by using Esse
 To convert a presentation or a single slide to image, the following assemblies are required in an application:
 
 <table>
-<tr>
-<td>
-**Assembly** **Name**<br/><br/></td><td>
-**Short** **Description**<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Presentation.Base<br/><br/></td><td>
-This assembly contains the core features required for creating, reading, manipulating a Presentation file.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Compression.Base<br/><br/></td><td>
-This assembly is used to package the Presentation contents.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.OfficeChart.Base<br/><br/></td><td>
-This assembly contains the Office Chart Object model and core features needed for chart creation.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td><td>
-This assembly is used to convert Office Chart into Image. This assembly depends on Syncfusion.SfChart.WPF and Syncfusion.Shared.WPF for chart conversion.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.SfChart.WPF<br/><br/></td><td>
-Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Shared.WPF<br/><br/></td><td>
-Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
+    <thead>
+        <tr>
+            <th>
+                Assembly Name</th>
+            <th>
+                Short Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Syncfusion.Presentation.Base
+                
+                
+            </td>
+            <td>
+                This assembly contains the core features required for creating, reading, manipulating a Presentation file.
+                
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.Compression.Base
+                
+                
+            </td>
+            <td>
+                This assembly is used to package the Presentation contents.
+                
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.OfficeChart.Base
+                
+                
+            </td>
+            <td>
+                This assembly contains the Office Chart Object model and core features needed for chart creation.
+                
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.OfficeChartToImageConverter.WPF
+                
+                
+            </td>
+            <td>
+                This assembly is used to convert Office Chart into Image. This assembly depends on Syncfusion.SfChart.WPF and Syncfusion.Shared.WPF for chart conversion.
+                
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.SfChart.WPF
+                
+                
+            </td>
+            <td>
+                Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF
+                
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Syncfusion.Shared.WPF
+                
+                
+            </td>
+            <td>
+                Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF
+                
+                
+            </td>
+        </tr>
+    </tbody>
 </table>
+
 The following code example demonstrates how to convert a slide to image.
 
 {% tabs %}
@@ -312,8 +376,6 @@ image.dispose();
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
@@ -346,11 +408,10 @@ image.Dispose()
 
 Presentation_1.Close()
 
-
-
 {% endhighlight %}
 
 {% endtabs %}
+
 
 The following code example demonstrates the conversion of an entire presentation to images:
 
@@ -413,8 +474,6 @@ For Each image As Image In images
 image.Save("ImageOutput" + Guid.NewGuid().ToString() + ".png")
 
 Next
-
-
 
 {% endhighlight %}
 

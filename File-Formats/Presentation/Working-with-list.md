@@ -1,7 +1,7 @@
 ---
 title: Working with lists in PowerPoint Presentation
 description: Working with lists in PowerPoint Presentation
-platform: file-formatss
+platform: file-formats
 control: Presentation
 documentation: UG
 ---
@@ -15,12 +15,13 @@ Essential Presentation allows you to create simple and multi-level lists that ma
 2. Bulleted list
 3. Picture list 
 
-**Numbered** **List**
+### Numbered List
 
 The following code example illustrates how to create a numbered list:
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates a new presentation instance.
 
@@ -120,12 +121,9 @@ Process.Start("Sample.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new presentation instance.
 
@@ -225,16 +223,17 @@ Process.Start("Sample.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
 
-**Bulleted** **list**
+{% endtabs %}
+
+### Bulleted list
 
 The following code example demonstrates how to create a simple bulleted list.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates a new presentation instance.
 
@@ -275,8 +274,6 @@ paragraph.ListFormat.FontName = "Symbol";
 // Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 
 paragraph.ListFormat.Size = 100;
-
-
 
 // Adds another paragraph with the text in the left hand side textbox.
 
@@ -344,12 +341,9 @@ Process.Start("Result.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new presentation instance.
 
@@ -457,16 +451,17 @@ Process.Start("Result.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
 
-**Picture** **List**
+{% endtabs %}
+
+### Picture List
 
 The following code example demonstrates how to create a simple picture list.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates a new presentation instance.
 
@@ -536,12 +531,9 @@ presentation.Save("output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new presentation instance.
 
@@ -611,9 +603,9 @@ presentation_1.Save("output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Create a Multilevel List
 
@@ -621,8 +613,9 @@ You can create a multi-level list by setting the indentation levels. By default,
 
 The following code example demonstrates how to create a multilevel list.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates a new presentation instance.
 
@@ -726,12 +719,9 @@ presentation.Save("MultiLevelList.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a new presentation instance.
 
@@ -835,15 +825,11 @@ presentation_1.Save("MultiLevelList.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 The above code example generates a multi-level list in presentation as follows.
 
-<table>
-<tr>
-<td>
-{{'![C:/Users/devisrijothi/Pictures/Screenshots/Screenshot (34).png](Workingwithlist_images/Workingwithlist_img1.jpeg)'| markdownify }}
-<br/><br/></td></tr>
-</table>
+![](Workingwithlist_images/Workingwithlist_img1.jpeg)
+

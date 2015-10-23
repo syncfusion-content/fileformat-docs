@@ -1,7 +1,7 @@
 ---
 title: Working with slides in PowerPoint Presentation
 description: Working with slides in PowerPoint Presentation; Adding and modifying the slides in PowerPoint Presnetation
-platform: file-formatss
+platform: file-formats
 control: Presentation
 documentation: UG
 ---
@@ -13,8 +13,9 @@ In presentation, a slide is a container for the elements like shapes, images, ch
 
 The following code example demonstrates how to add a blank slide to the presentation.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates a PowerPoint instance
 
@@ -32,12 +33,9 @@ presentation.Save("Sample.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a PowerPoint instance
 
@@ -55,16 +53,17 @@ presentation_1.Save("Sample.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Cloning slide
 
 You can create a deep copy of a slide by cloning the slide. The cloned slide is an independent copy of its source slide. This means the changes made in the cloned slide do not affect the source slide.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens an existing presentation.
 
@@ -98,12 +97,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens an existing presentation.
 
@@ -137,16 +133,17 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Merge slide
 
 The Essential Presentation provides ability to clone slides from one presentation to another presentation. With this ability, you can split a large presentation into small ones and also merge multiple presentations to one presentation. You can choose the theme for the cloned slide by using the [PasteOption](http://www.google.com/# "")s.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens the source presentation
 
@@ -168,12 +165,9 @@ destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme
 
 destinationPresentation.Save("Output.pptx");
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens the source presentation
 
@@ -195,16 +189,17 @@ destinationPresentation_1.Slides.Add(clonedSlide, PasteOptions.UseDestinationThe
 
 destinationPresentation_1.Save("Output.pptx")
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Remove slide
 
 The Essential Presentation provides the ability to delete a slide by its instance or by its index position in slide collection. The following code demonstrates how to delete a slide from a presentation. 
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens an existing presentation.
 
@@ -230,12 +225,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens an existing presentation.
 
@@ -261,16 +253,17 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Convert to image
 
 You can convert a presentation slide to image with Essential Presentation. The following code example converts the first slide of a PowerPoint presentation into image and saves the image to a file.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens a PowerPoint presentation file
 
@@ -292,12 +285,9 @@ image.Save("slide1.png"); 
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens a PowerPoint presentation file
 
@@ -319,18 +309,19 @@ image.Save("slide1.png")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
 
-For more details on assemblies required for converting a slide to image,  see [Conversion](http://www.google.com/# "")
+{% endtabs %}
+
+For more details on assemblies required for converting a slide to image,  see [Conversion](http://www.google.com)
 
 ## Change Slide background
 
 The following code example demonstrates setting the background for a slide.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens an existing presentation.
 
@@ -368,12 +359,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens an existing presentation.
 
@@ -411,7 +399,6 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
 
+{% endtabs %}

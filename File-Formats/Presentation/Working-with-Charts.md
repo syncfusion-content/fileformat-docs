@@ -1,7 +1,7 @@
 ---
 title: Working with Charts in PowerPoint Presentation
 description: Working with Charts in PowerPoint Presentation
-platform: file-formatss
+platform: file-formats
 control: Presentation
 documentation: UG
 ---
@@ -11,8 +11,9 @@ documentation: UG
 
 An instance of **IOfficeChart** can be used to create or modify the charts in PowerPoint presentation. The following code example demonstrates how to create a simple chart by adding data from scratch.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates a presentation instance
 
@@ -108,12 +109,9 @@ presentation.Save("sample.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a presentation instance
 
@@ -209,16 +207,17 @@ presentation_1.Save("sample.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Create charts from excel sheet
 
 You can also create a chart with the data from an existing excel worksheet. The following code example demonstrates the same.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates a presentation instance
 
@@ -244,12 +243,9 @@ presentation.Save("output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates a presentation instance
 
@@ -275,9 +271,9 @@ presentation_1.Save("output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Create Custom Charts 
 
@@ -287,8 +283,9 @@ For example, you can use a Bar- clustered chart for the first data series and a 
 
 The following code example demonstrates how to create custom charts.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Creates an instance of the IPresentation 
 
@@ -388,12 +385,9 @@ presentation.Save("Output_1.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Creates an instance of the IPresentation 
 
@@ -493,26 +487,23 @@ presentation_1.Save("Output_1.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 The above code example creates a chart in the following screenshot.
 
-<table>
-<tr>
-<td>
-{{'![C:/Users/devisrijothi/Pictures/Screenshots/Screenshot (42).png](WorkingwithCharts_images/WorkingwithCharts_img1.jpeg)'| markdownify }}
-<br/><br/><br/><br/></td></tr>
-</table>
+![](WorkingwithCharts_images/WorkingwithCharts_img1.jpeg)
+
 ## Refresh the chart
 
 Sometimes, the charts do not represent the actual data. In those cases, the charts in PowerPoint presentation should be refreshed.
 
 The following code example demonstrates how to refresh the charts in PowerPoint presentation. 
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens the presentation
 
@@ -542,12 +533,9 @@ presentation.Save("output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens the presentation
 
@@ -577,16 +565,17 @@ presentation_1.Save("output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Edit the Chart Data
 
 You can change the data for an existing chart. The code example demonstrates how to modify the chart in a slide.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens a presentation
 
@@ -630,12 +619,9 @@ presentation.Save("output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens a presentation
 
@@ -679,9 +665,9 @@ presentation_1.Save("output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Customize the chart
 
@@ -689,12 +675,8 @@ presentation_1.Close()
 
 A chart is composed of various elements such as legends, axes, series, etc. Each chart element corresponds to an object. The following image illustrates the basic elements of a chart.
 
-<table>
-<tr>
-<td>
-{{'![C:/Users/meikandai/Desktop/chart.png](WorkingwithCharts_images/WorkingwithCharts_img2.jpeg)'| markdownify }}
-<br/><br/></td></tr>
-</table>
+![](WorkingwithCharts_images/WorkingwithCharts_img2.jpeg)
+
 1. The chart area of the chart.
 2. The plot area of the chart.
 3. The data points of the data series that are plotted in the chart.
@@ -702,13 +684,14 @@ A chart is composed of various elements such as legends, axes, series, etc. Each
 5. The legend of the chart.
 6. A chart and axis title that you can use in the chart.
 7. A data label that you can use to identify the details of a data point in a data series.
-### Modify the Chart Appearance 
 
+### Modify the Chart Appearance 
 
 The appearance of a chart can be modified according to the convenience and usage. The following code example demonstrates modifying the chart element styles. 
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens the presentation
 
@@ -824,12 +807,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens the presentation
 
@@ -945,16 +925,17 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ### Modify the Plot and Legends of chart
 
 The following code example demonstrates how to modify the legend and plot areas of a chart.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens a presentation
 
@@ -1092,12 +1073,9 @@ presentation.Save("ModifiedChart.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens a presentation
 
@@ -1235,16 +1213,17 @@ presentation_1.Save("ModifiedChart.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ### Position Chart Elements
 
 The following code examples illustrate how to position the different chart elements.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 IPresentation presentation = Presentation.Create();
 
@@ -1308,12 +1287,9 @@ presentation.Save("Output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 Dim presentation_1 As IPresentation = Presentation.Create()
 
@@ -1377,16 +1353,17 @@ presentation_1.Save("Output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Apply 3D Formats
 
 Essential Presentation allows you to modify side wall, back wall, and floor settings of a 3-D chart. The following code example explains how to apply these settings to a 3-D chart.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens the presentation
 
@@ -1424,12 +1401,9 @@ presentation.Save("output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens the presentation
 
@@ -1467,16 +1441,17 @@ presentation_1.Save("output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Chart to Image conversion
 
 The following code example demonstrates how to convert the charts in a presentation slide to image.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens the presentation
 
@@ -1524,12 +1499,9 @@ presentation.Save("output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens the presentation
 
@@ -1579,16 +1551,17 @@ presentation_1.Save("output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Remove the chart from slide
 
 The following code example demonstrates removing a chart from a slide.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Opens the presentation
 
@@ -1614,12 +1587,9 @@ presentation.Save("output.pptx");
 
 presentation.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Opens the presentation
 
@@ -1645,9 +1615,9 @@ presentation_1.Save("output.pptx")
 
 presentation_1.Close()
 
-
-
 {% endhighlight %}
+
+{% endtabs %}
 
 ## Supported Chart Types 
 
