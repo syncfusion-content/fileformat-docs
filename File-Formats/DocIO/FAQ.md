@@ -1,4 +1,4 @@
----
+﻿---
 title: FAQ/How to
 description: This section illustrates about FAQs
 platform: file-formats
@@ -1878,7 +1878,7 @@ Yes, OfficeChartToImageConverter assembly is not supported in .Net 3.5 framework
 
 ## Can the chart data be refreshed?
 
-Yes, Essential DocIO supports refreshing the chart data. For more details, refer [Working with charts](/File-Formats/DocIO/Working-with-Charts)
+Yes, Essential DocIO supports refreshing the chart data. For more details, refer [Working with charts](#Working-with-Charts)
 
 ## Is it possible to convert 3D charts to PDF or image?
 
@@ -1886,7 +1886,7 @@ Current version of the DocIO library does not provide support for converting 3D 
 
 ## Is it possible to specify PDF conformance level in Word to PDF conversion?
 
-Yes, you can specify the PDF conformance level in Word to PDF conversion. 
+Yes, you can specify the PDF conformance level in Word to PDF conversion. For more details, refer [PDF Conformance](/file-formats/pdf/working-with-pdf-conformance)
 
 ## Migration from Microsoft Office Automation to Essential DocIO
 
@@ -2109,7 +2109,7 @@ doc.Close()
 
 N> 
 For more information on mail merge using DocIO, you can refer to online documentation link:
-[MailMerge](/File-Formats/DocIO/MailMerge)
+[MailMerge](#MailMerge)
 
 ### Find and Replace
 
@@ -2341,7 +2341,7 @@ document.Close()
 
 
 N>  For more information on performing the find and replace operation using DocIO, you can refer to online documentation link:
-[Find and Replace](/File-Formats/DocIO/Find-and-Replace)
+[Find and Replace](#Find-and-Replace)
 
 
 
@@ -2999,7 +2999,7 @@ doc.Close()
  {% endtabs %}  
 
 N>  For more information on adding watermarks to a Word document using DocIO, refer to the online documentation link:
-[Applying Watermark](/File-Formats/DocIO/Applying-Watermark)
+[Applying Watermark](#Applying-Watermark)
 
 ### Headers and Footers
 
@@ -3559,7 +3559,7 @@ document.Close()
 
    
 N>  For more information on creating tables using DocIO, refer to online documentation link:
-[Working with Tables](/File-Formats/DocIO/Working-with-Tables.)
+[Working with Tables](#Working-with-Tables)
 
 
 ### Comments 
@@ -3745,7 +3745,7 @@ doc.Save("Sample.doc", FormatType.Doc)
 
 
 N>  For more information on working with the comments using DocIO, you can refer to the online documentation link:
-[Working with Comments](/File-Formats/DocIO/Working-with-Comments) 
+[Working with Comments](#Working-with-Comments) 
 
 
 
@@ -3937,7 +3937,7 @@ document.Close()
 
 Refer to the online documentation link for more details about the ways to protect the Word documents by using DocIO:
 
-[Protecting word document from editing](/File-Formats/DocIO/Working-with-Word-document)
+[Protecting word document from editing](#Security)
 
 
 
@@ -4154,5 +4154,5 @@ document.Close()
 
 Refer to the online documentation link for more information about adding the table of contents to the Word document by using DocIO:
 
-[Working with table of contents](/File-Formats/DocIO/Working-with-Table-Of-Contents)
+[Working with table of contents](#Working-with-Table-Of-Contents)
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Supported and Unsupported Features
 description: This section describes the support and unsupported elements
 platform: file-formats
@@ -15,9 +15,9 @@ This section describes the support and unsupported elements in the DocIO.
 <thead>  
 <tr>
 <th>
-Element<br/><br/></th><th>
-Doc, Dot<br/><br/></th><th>
-DocX, DotX, Dotm, Docm<br/><br/></th><th>
+Element<br/><br/></th><th colspan="2">
+Doc, Dot<br/><br/></th><th colspan="2">
+DocX, DotX, Dotm, Docm<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
 </thead>
 <tbody>  
@@ -157,9 +157,9 @@ No<br/><br/></td></tr>
 <thead>  
 <tr>
 <th>
-Element<br/><br/></th><th>
-Doc, Dot<br/><br/></th><th>
-DocX, DotX, Dotm, Docm<br/><br/></th><th>
+Element<br/><br/></th><th colspan="2">
+Doc, Dot<br/><br/></th><th colspan="2">
+DocX, DotX, Dotm, Docm<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
 </thead>
 <tbody> 
@@ -263,9 +263,9 @@ Yes<br/><br/></td></tr>
 <thead>  
 <tr>
 <th>Element<br/><br/></th>
-<th>Doc, Dot<br/><br/></th>
-<th>DocX, DotX, Dotm, Docm<br/><br/></th>
-<th>RTF<br/><br/></th>
+<th colspan="2">Doc, Dot<br/><br/></th>
+<th colspan="2">DocX, DotX, Dotm, Docm<br/><br/></th>
+<th colspan="2">RTF<br/><br/></th>
 </tr>
 </thead>
 <tbody>  
@@ -423,9 +423,9 @@ Yes<br/><br/></td></tr>
 <thead>  
 <tr>
 <th>Element<br/><br/></th>
-<th>Doc, Dot<br/><br/></th>
-<th>DocX, DotX, Dotm, Docm<br/><br/></th>
-<th>RTF<br/><br/></th>
+<th colspan="2">Doc, Dot<br/><br/></th>
+<th colspan="2">DocX, DotX, Dotm, Docm<br/><br/></th>
+<th colspan="2">RTF<br/><br/></th>
 </tr>
 </thead>
 <tbody>  
@@ -565,9 +565,9 @@ Yes<br/><br/></td></tr>
 <thead>  
 <tr>
 <th>Element<br/><br/></th>
-<th>Doc, Dot<br/><br/></th>
-<th>DocX, DotX, Dotm, Docm<br/><br/></th>
-<th>RTF<br/><br/></th>
+<th colspan="2">Doc, Dot<br/><br/></th>
+<th colspan="2">DocX, DotX, Dotm, Docm<br/><br/></th>
+<th colspan="2">RTF<br/><br/></th>
 </tr>
 </thead>
 <tbody>  
@@ -662,9 +662,9 @@ No<br/><br/></td></tr>
 <thead>  
 <tr>
 <th>Element<br/><br/></th>
-<th>Doc, Dot<br/><br/></th>
-<th>DocX, DotX, Dotm, Docm<br/><br/></th>
-<th>RTF<br/><br/></th>
+<th colspan="2">Doc, Dot<br/><br/></th>
+<th colspan="2">DocX, DotX, Dotm, Docm<br/><br/></th>
+<th colspan="2">RTF<br/><br/></th>
 </tr>
 </thead>
 <tbody>  
@@ -919,9 +919,9 @@ Yes<br/><br/></td></tr>
 <table>
 <tr>
 <th>
-Element<br/><br/></th><th>
-Doc, Dot<br/><br/></th><th>
-DocX, DotX, Dotm, Docm<br/><br/></th><th>
+Element<br/><br/></th><th colspan="2">
+Doc, Dot<br/><br/></th><th colspan="2">
+DocX, DotX, Dotm, Docm<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
 <tr>
 <th>
