@@ -14,5 +14,5 @@ documentation: UG
 
 2. **How to improve the quality of the charts in the slide to image or PDF conversion?**
 
-   You can specify the quality of the converted charts by setting the scaling mode. For more details on how to set the scaling mode, see [Converting PowerPoint presentation to Images](http://www.google.com)
+   You can specify the quality of the converted charts by setting the scaling mode. For more details on how to set the scaling mode, see [Converting PowerPoint presentation to Images](http://help.syncfusion.com/file-formats/presentation/conversion#converting-powerpoint-presentation-to-images)
 

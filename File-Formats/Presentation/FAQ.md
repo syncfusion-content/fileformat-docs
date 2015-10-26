@@ -36,7 +36,7 @@ documentation: UG
 
 7. **Can** **the** **chart** **data** **be** **refreshed****?**
 
-   Yes, Essential Presentation supports refreshing the chart data. For more details, refer to [Working with charts](http://www.google.com)
+   Yes, Essential Presentation supports refreshing the chart data. For more details, refer to [Working with charts](http://help.syncfusion.com/file-formats/presentation/working-with-charts)
 
 8. **Is** **it** **possible** **to** **convert** **3D** **charts** **to** **PDF** **or** **image****?**
 
