@@ -2468,9 +2468,7 @@ loadedDocument.Close(True)
 
 {% endtabs %}  
 
-N> 
-
-Flattening and adding Read-only properties can be done to the entire form or an individual form field.
+N> Flattening and adding Read-only properties can be done to the entire form or an individual form field.
 
 ## Removing the form fields from existing PDF document:
 
@@ -2688,7 +2686,7 @@ loadedDocument.Close(True)
  
 ## Adding actions to form fields 
 
-//need to provide link for actions 
+[Action](/file-formats/pdf/working-with-action#adding-an-action-to-the-form-field "Working with action")
 
 N>Essential PDF allows users to preserve the extended rights for form filling alone.
 
@@ -2696,7 +2694,7 @@ N>Essential PDF allows users to preserve the extended rights for form filling al
 
 
 
-1) Form fields may appear empty in adobe reader some time due to the absence of the appearance dictionary. To resolve this, you have to enable the Adobe Reader default appearance by using the SetDefaultAppearance method in PdfForm class.
+Form fields may appear empty in adobe reader some time due to the absence of the appearance dictionary. To resolve this, you have to enable the Adobe Reader default appearance by using the SetDefaultAppearance method in PdfForm class.
 
 The below code illustrates how to enable the default appearance in new PDF document:
 

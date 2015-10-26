@@ -379,7 +379,8 @@ loadedDocument.Pages.RemoveAt(0);
 
 loadedDocument.Save("Output.pdf");
 
-//Close the document.            loadedDocument.Close(true);
+//Close the document.            
+loadedDocument.Close(true);
 
 
 

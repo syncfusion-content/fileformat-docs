@@ -275,9 +275,9 @@ document.Close(True)
 
 ## Inserting Bookmarks in an existing PDF
 
-When loading an existing document, the **Essential** **PDF** loads all bookmarks of the document. 
+When loading an existing document, the Essential PDF loads all bookmarks of the document.  
 
-Each loaded bookmark is represented by the **PdfLoadedBookmark** object. The following code example illustrates how to insert new bookmarks in the existing **PDF** document.
+Each loaded bookmark is represented by the PdfLoadedBookmark object. The following code example illustrates how to insert new bookmarks in the existing PDF document.
 
 {% tabs %}
 {% highlight c# %}

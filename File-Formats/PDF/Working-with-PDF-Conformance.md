@@ -12,16 +12,15 @@ Essential PDF Currently supports following PDF conformances.
 * PDF/A-1b conformance
 * PDF/X-1a conformance
 
-N>
-1. To know more details about PDF/A standard refer the below link.
+N> * To know more details about PDF/A standard refer the below link.
 
-[https://en.wikipedia.org/wiki/PDF/A#Description](https://en.wikipedia.org/wiki/PDF/A#Description )
+N> [https://en.wikipedia.org/wiki/PDF/A#Description](https://en.wikipedia.org/wiki/PDF/A#Description )
 
-2. To know more details about PDF/X standard refer the below link.
+N> * To know more details about PDF/X standard refer the below link.
 
-[https://en.wikipedia.org/wiki/PDF/X](https://en.wikipedia.org/wiki/PDF/X# )
+N> [https://en.wikipedia.org/wiki/PDF/X](https://en.wikipedia.org/wiki/PDF/X# )
 
-3. Conformances can be added only to documents created from scratch. Currently, Essential PDF do not support converting normal PDF documents to PDF/A-1b or PDF/X-1a conformance documents.
+N> * Conformances can be added only to documents created from scratch. Currently, Essential PDF do not support converting normal PDF documents to PDF/A-1b or PDF/X-1a conformance documents.
 
 ## Adding support for PDF/A-1b conformance.
 

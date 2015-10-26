@@ -849,7 +849,5 @@ document.Close(True)
 {% endhighlight %}
 {% endtabs %}
 
-N> 
-
-The action assigned to the bookmark works only when destination of bookmark is not set.
+N> The action assigned to the bookmark works only when destination of bookmark is not set.
 
