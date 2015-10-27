@@ -5,7 +5,7 @@ platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Work with PowerPoint presentation
+# Working with PowerPoint presentation
 
 ## Cloning a PowerPoint presentation
 
@@ -405,7 +405,7 @@ The following code example demonstrates how to access the existing built in docu
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Accessess the built-in document properties
+//Accesses the built-in document properties
 
 Console.WriteLine("Title - {0}", presentation.BuiltInDocumentProperties.Title);
 
@@ -423,7 +423,7 @@ presentation.Close();
 
 Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
 
-'Accessess the built-in document properties
+'Accesses the built-in document properties
 
 Console.WriteLine("Title - {0}", presentation_1.BuiltInDocumentProperties.Title)
 
@@ -556,7 +556,7 @@ The following code example demonstrates how to access and modify an existing cus
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Accessess an existing custom document property
+//Accesses an existing custom document property
 
 IDocumentProperty property = presentation.CustomDocumentProperties["PropertyA"];
 
@@ -580,7 +580,7 @@ presentation.Close();
 
 Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
 
-'Accessess an existing custom document property
+'Accesses an existing custom document property
 
 Dim [property] As IDocumentProperty = presentation_1.CustomDocumentProperties("PropertyA")
 

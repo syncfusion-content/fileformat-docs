@@ -5,7 +5,7 @@ platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Work with Charts
+# Working with Charts
 
 ## Create a Chart from scratch
 
