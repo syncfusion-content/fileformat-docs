@@ -1,4 +1,4 @@
----
+﻿---
 title: FAQ/How to
 description: This section illustrates about FAQs
 platform: file-formats
@@ -1886,7 +1886,7 @@ Current version of the DocIO library does not provide support for converting 3D 
 
 ## Is it possible to specify PDF conformance level in Word to PDF conversion?
 
-Yes, you can specify the PDF conformance level in Word to PDF conversion. 
+Yes, you can specify the PDF conformance level in Word to PDF conversion. For more details, refer [PDF Conformance](/file-formats/pdf/working-with-pdf-conformance)
 
 ## Migration from Microsoft Office Automation to Essential DocIO
 
@@ -3937,7 +3937,7 @@ document.Close()
 
 Refer to the online documentation link for more details about the ways to protect the Word documents by using DocIO:
 
-[Protecting word document from editing](/File-Formats/DocIO/Working-with-Word-document)
+[Protecting word document from editing](/File-Formats/DocIO/Security)
 
 
 
