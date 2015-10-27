@@ -1,6 +1,6 @@
 ---
 title: Working with Compression
-description: his section explains how to Compress PDF document by using Essential PDF
+description: This section explains how to Compress PDF document by using Essential PDF
 platform: FileFormat
 control: PDF
 documentation: UG
