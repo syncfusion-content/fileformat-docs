@@ -1,6 +1,6 @@
 ---
 title: Working with Tables
-description: We can create table in the PDF document. Grid; tables; PdfLightTable; DataSet; DataTable;
+description: This section expains how to create tables in the PDF document
 platform: file-formats
 control: PDF
 documentation: UG
@@ -1872,7 +1872,7 @@ Both the PdfGrid and PdfLightTable models are supported across all the platforms
     </thead>
     <tbody>
         <tr>
-            <td>
+            <td align="center" colspan="3">
                 {{ '**Formatting**' | markdownify }}
             </td>
         </tr>
@@ -1910,7 +1910,7 @@ Both the PdfGrid and PdfLightTable models are supported across all the platforms
             </td>
         </tr>
         <tr>
-            <td>
+            <td align="center" colspan="3">
                 {{ '**Others**' | markdownify }}
             </td>
         </tr>

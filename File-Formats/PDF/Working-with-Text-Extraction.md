@@ -1,6 +1,6 @@
 ---
 title: Working with Text Extraction
-description: Extract the text from ta particular page; text extraction
+description: This section explains how to extract text from the particular page of the PDF document
 platform: file-formats
 control: PDF
 documentation: UG

@@ -1,6 +1,6 @@
 ---
 title: Working with Annotations
-description: Creating interactive Annotation by using Essential PDf- Annotations; Free text Annotation; Rubber stamp Annotation
+description: This section explains how to create different type of interactive Annotation by using Essential PDF
 platform: FileFormat
 control: PDF
 documentation: UG

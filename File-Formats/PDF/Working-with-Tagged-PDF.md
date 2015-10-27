@@ -1,6 +1,6 @@
 ---
 title: Tagged PDF
-description: Creating Tagged PDF from Html File - Tagged PDF
+description: This section explains how to create a Tagged PDF from HTML File
 platform: file-formats
 control: PDF
 documentation: UG

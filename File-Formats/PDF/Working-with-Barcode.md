@@ -1,6 +1,6 @@
 ---
 title: Working with Barcode
-description: Support to add barcodes to PDF document
+description: This section explains how to add barcodes to PDF document
 platform: FileFormat
 control: PDF
 documentation: 
@@ -11,6 +11,7 @@ Essential PDF provides support to add barcodes to the PDF document. The followin
 
 * 10 one-dimensional barcodes including Code 39 and Code 32 barcodes.
 * 2 two-dimensional barcodes such as QR and DataMatrix barcode
+
 ### Adding a one dimensional barcode to the PDF document
 
 

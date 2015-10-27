@@ -1,6 +1,6 @@
 ---
 title: Working with Security
-description: protect the PDF document using encryption and set permission to the PDF document operations like printing, editing, copy content; AES; RC4
+description: This sections explains how to protect the PDF document using encryption and set permission to the PDF document operations like printing, editing, copy content
 platform: file-formats
 control: PDF
 documentation: UG
@@ -9,8 +9,8 @@ documentation: UG
 
 Essential PDF allows you to protect the PDF document using encryption and set permission to the PDF document operations like printing, editing, copy content etc. using user password and owner password.  Two types of encryption algorithms are available
 
-1) Rivest Cipher 4 (RC4)
-2) Advanced Encryption Standard (AES)
+1. Rivest Cipher 4 (RC4)
+2. Advanced Encryption Standard (AES)
 
 ## Working with RC4 Encryption
 

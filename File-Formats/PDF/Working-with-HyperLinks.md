@@ -1,6 +1,6 @@
 ---
 title: Working with Hyperlinks
-description: Hyperlink using Essential PDF- Hyperlink; Navigation ;PdfTextWeblink
+description: This section explains how to add hyperlink in the PDF document using Essential PDF
 platform: file-formats
 control: PDF
 documentation: UG

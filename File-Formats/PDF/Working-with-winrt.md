@@ -1,6 +1,6 @@
 ---
 title: Working with WinRT
-description: Create a WinRT application and load the document
+description: This section explains how to load and save PDF document in WinRT
 platform: file-formats
 control: PDF
 documentation: UG

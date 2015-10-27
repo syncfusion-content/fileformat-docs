@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Create a simple PDF document with basic elements- Adding page; Drawstring; Fill form ; Merge PDF documents
+description: This section explains creating a simple PDF document with basic elements
 platform: FileFormat
 control: PDF
 documentation: UG
@@ -173,7 +173,8 @@ graphics.DrawLine(linePen, startPoint, endPoint)
 
 {% endhighlight %}
 {% endtabs %}
-Essential PDF provides two types of table models. The difference between both the table models can be referred from the link <<<Link to PdfGrid vs PdfLightTable>>
+Essential PDF provides two types of table models. The difference between both the table models can be referred from the link 
+[Difference between PdfLightTable and PdfGrid](/file-formats/pdf/working-with-tables#difference-between-pdflighttable-and-pdfgrid "difference-between-pdflighttable-and-pdfgrid")
 
 Since the invoice document requires only simple cell customizations, the given code example explains how to create a simple invoice table by using PdfGrid.
 
@@ -369,7 +370,7 @@ Essential PDF supports converting HTML contents to PDF. To add the HTML to PDF c
       c. Syncfusion.HtmlConverter.Base.dll
       d. Syncfusion.WebKitHtmlConverter.Base.dll
 
-The QtBinaries available in the WebKitHTMLConverter installed location __**($**____**Systemdrive**____**\**____**Program**__ __**Files**__ __**(**____**x86**____**)\**____**Syncfusion**____**\**____**WebKitHTMLConverter**____**\**____**xx**____**.**____**x**____**.**____**x**____**.**____**xx**____**\**____**QtBinaries**__) should be placed in the local machine where the conversion takes place. The physical path of this folder has been set to the **WebKitBinaryPath** property of the **WebkitHtmlConverter** class, as shown.
+The QtBinaries available in the WebKitHTMLConverter installed location __**($Systemdrive\Program Files(x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)**__ should be placed in the local machine where the conversion takes place. The physical path of this folder has been set to the **WebKitBinaryPath** property of the **WebkitHtmlConverter** class, as shown.
 
 {% highlight c# %}
 
@@ -383,15 +384,15 @@ html.WebKitPath = WebKitBinaryPath;
 
 For converting https sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the following link,
 
-X86 - [https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe# "")
+X86 - [https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe)
 
-X64 - [https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe# "")
+X64 - [https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe)
 
 WebKit conversion also requires VC++ 2010 redistributable to be installed in the machine. You can use the below mentioned download link,
 
-X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555# "")
+X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555)
 
-X64 - [https://www.microsoft.com/en-in/download/details.aspx?id=14632](https://www.microsoft.com/en-in/download/details.aspx?id=14632# "")
+X64 - [https://www.microsoft.com/en-in/download/details.aspx?id=14632](https://www.microsoft.com/en-in/download/details.aspx?id=14632)
 
 To convert website URL or local html file to PDF by using WebKit rendering engine, refer to the following code example.
 

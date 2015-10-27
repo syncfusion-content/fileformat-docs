@@ -1,6 +1,6 @@
 ---
 title: Merge Documents
-description: Merging multiple PDF document into single PDF- Merge PDF documents; Import page
+description: This section explains merging multiple PDF document into single PDF
 platform: FileFormat
 control: PDF
 documentation: UG
@@ -151,7 +151,7 @@ stream2.Dispose()
 
 ## Importing pages from multiple documents
 
-**Essential** **PDF** provides support for importing the pages from one document to another document. The following code illustrates this. The imported page is added to the end of the original document.
+Essential PDF provides support for importing the pages from one document to another document. The following code illustrates this. The imported page is added to the end of the original document.
 
 {% tabs %}
 {% highlight c# %}     
@@ -353,9 +353,9 @@ lDoc2.Close(True)
 
 ## Best practices
 
-Merging multiple large **PDF** documents can lead to high runtime memory. So, you can split the documents into multiple documents and later you can merge. This method avoids the extensive memory usage and increases the performance.
+Merging multiple large PDF documents can lead to high runtime memory. So, you can split the documents into multiple documents and later you can merge. This method avoids the extensive memory usage and increases the performance.
 
-Note:  The parent PDF document has all the contents in run time memory. It releases the memory once the final PDF document instance is disposed. 
+N> Note:  The parent PDF document has all the contents in run time memory. It releases the memory once the final PDF document instance is disposed. 
 
 The following code shows how to split the PDF document
 

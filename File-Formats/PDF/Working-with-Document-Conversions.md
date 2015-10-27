@@ -1,6 +1,6 @@
 ---
 title: Working with Document Conversion
-description: Converting other document Types into PDF- Html ToPDF; DocToPDF; ExcelToPDF; TiffToPDF; XPsToPDF; PDFToImage
+description: This section explains converting other document Types into PDF
 platform: file-formats
 control: PDF
 documentation: UG
@@ -560,13 +560,13 @@ Essential PDF also supports HTML to PDF conversion by using the WebKit rendering
 
 #### Prerequisites and setting up the WebKit engine for conversion
 
-1. To use the HTML to PDF conversion in your application using WebKit rendering engine, the following assemblies needs to be added as reference to the project.
+* To use the HTML to PDF conversion in your application using WebKit rendering engine, the following assemblies needs to be added as reference to the project.
       a. Syncfusion.Compression.Base.dll
       b. Syncfusion.Pdf.Base.dll
       c. Syncfusion.HtmlConverter.Base.dll
       d. Syncfusion.WebKitHtmlConverter.Base.dll
 
-2. The QtBinaries available in the WebKitHTMLConverter installed location ($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries) should be placed in the local machine where the conversion takes place. The physical path of this folder has be set to the WebKitBinaryPath property of the WebkitHtmlConverter class as shown below.
+* The QtBinaries available in the WebKitHTMLConverter installed location ($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries) should be placed in the local machine where the conversion takes place. The physical path of this folder has be set to the WebKitBinaryPath property of the WebkitHtmlConverter class as shown below.
 
 
 
@@ -589,7 +589,7 @@ html.WebKitPath = WebKitBinaryPath;
 
 {% endhighlight %}
 
-3. WebKit conversion also requires VC++ 2010 redistributable to be installed in the machine. You can use the below mentioned download link,
+* WebKit conversion also requires VC++ 2010 redistributable to be installed in the machine. You can use the below mentioned download link,
 
 X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555#)
 
@@ -597,10 +597,10 @@ X64 - [https://www.microsoft.com/en-in/download/details.aspx?id=14632](https://w
 
 Instead, the required assemblies below can be added in the Windows system folder (for 64 bit machine, it should be place in $Systemdrive\Windows\SysWOW64 and for 32 bit machine, it should be place in $Systemdrive\Windows\System32),
 
-1) MSVCP100.dll
-2) MSVCR100.dll
+1. MSVCP100.dll
+2. MSVCR100.dll
 
-4. For converting https sites, conversion requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the below link,
+* For converting https sites, conversion requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the below link,
 
 X86 - [https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe](https://slproweb.com/download/Win32OpenSSL-1_0_2d.exe# )
 
@@ -608,9 +608,9 @@ X64 - [https://slproweb.com/download/Win64OpenSSL-1_0_2d.exe](https://slproweb.c
 
 Instead, the required assemblies below can added in the Windows system folder (for 64 bit machine, it should be place in $Systemdrive\Windows\SysWOW64 and for 32 bit machine, it should be place in $Systemdrive\Windows\System32),
 
-1) libeay32.dll
-2) libssl32.dll
-3) ssleay32.dll
+1. libeay32.dll
+2. libssl32.dll
+3. ssleay32.dll
 
 
 #### Converting the URL to a PDF document
@@ -1017,13 +1017,13 @@ document.Close(True)
 
 1. WebKit Converter may create PDF with blank pages under the following cases.
 
-* When the webpage (html) is not available/accessible.
+~ When the webpage (html) is not available/accessible.~
 
 Solution
 
 Please check your internet connection or the html webpage is not available in the mentioned location.
 
-* When VC++ 2010 redistributable and OpenSSL package is not installed in the machine,
+~ When VC++ 2010 redistributable and OpenSSL package is not installed in the machine,~
 
 Solution
 
@@ -1050,7 +1050,7 @@ Instead, the required assemblies below can added in the Windows system folder (f
 * libssl32.dll
 * ssleay32.dll
 
-* When any Qt binaries are not available in the WebKitPath mentioned location.
+~ When any Qt binaries are not available in the WebKitPath mentioned location.~
 
 Solution
 

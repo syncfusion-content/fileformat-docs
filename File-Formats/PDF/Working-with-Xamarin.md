@@ -1,6 +1,6 @@
 ---
 title: Working with Xamarin
-description: Create a Xamarin application and load the document
+description: This section explains how to load and save PDF document in Xamarin
 platform: file-formats
 control: PDF
 documentation: UG
@@ -10,7 +10,7 @@ documentation: UG
 ## Loading the document 
 
 The following code example illustrates how to load the file by using stream in Xamarin.
-
+{% tabs %}
 {% highlight c# %}
 C#:
 
@@ -142,11 +142,11 @@ End Class
 
 
 {% endhighlight %}
-
+{% endtabs %}
 # Save the document 
 
 The following code example illustrates how to save the PDF document in Xamarin windows phone platform.
-
+{% tabs %}
 {% highlight c# %}
 C#:
 
@@ -302,9 +302,9 @@ End Class
 
 
 {% endhighlight %}
-
+{% endtabs %}
 The following code example illustrates how to save the file by using stream in xamarin android platform.
-
+{% tabs %}
 {% highlight c# %}
 C#:
 
@@ -548,9 +548,9 @@ End Class
 
 
 {% endhighlight %}
-
+{% endtabs %}
 The following code example illustrates how to save the file by using stream in xamarin iOS platform.
-
+{% tabs %}
 {% highlight c# %}
 C#:
 
@@ -766,4 +766,4 @@ End Class
 
 
 {% endhighlight %}
-
+{% endtabs %}

@@ -1,6 +1,6 @@
 ---
 title: Working with Silverlight
-description: Creating a Silverlight application and load the document
+description: This section explains how to load and save PDF document in Silverlight
 platform: file-formats
 control: PDF
 documentation: UG

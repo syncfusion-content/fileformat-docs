@@ -1,6 +1,6 @@
 ---
 title: Working with Document
-description: PDF Document Setting and properties of Essential PDF - PDF Document Setting; 
+description: This section explains how to set document Settings and properties to the PDF document using Essential PDF
 platform: File Format
 control: PDF
 documentation: UG
@@ -424,9 +424,9 @@ document.Close(True)
 
 To print a PDF document, the following assemblies has to be added as reference to the project.
 
-1) Syncfusion.Compression.Base.dll
-2) Syncfusion.Pdf.Base.dll
-3) Syncfusion.PdfViewer.Windows.dll 
+1. Syncfusion.Compression.Base.dll
+2. Syncfusion.Pdf.Base.dll
+3. Syncfusion.PdfViewer.Windows.dll 
 
 The following code snippet illustrates how to print a PDF document.
 
@@ -839,3 +839,4 @@ document.Close(True)
 ## Adding document action
 
 Please refer to the actions section for more document level operations using the PdfJavascript and PDF actions.
+[Action](/file-formats/pdf/working-with-action "Working with action")

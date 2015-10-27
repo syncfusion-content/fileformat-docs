@@ -1,6 +1,6 @@
 ---
 title: Working with Bookmarks
-description: Bookmarks by using Essential PDF- Bookmark
+description: This section explains how to add bookmarks to the PDF document by using Essential PDF
 platform: FileFormat
 control: PDF
 documentation: UG
@@ -275,9 +275,9 @@ document.Close(True)
 
 ## Inserting Bookmarks in an existing PDF
 
-When loading an existing document, the **Essential** **PDF** loads all bookmarks of the document. 
+When loading an existing document, the Essential PDF loads all bookmarks of the document.  
 
-Each loaded bookmark is represented by the **PdfLoadedBookmark** object. The following code example illustrates how to insert new bookmarks in the existing **PDF** document.
+Each loaded bookmark is represented by the PdfLoadedBookmark object. The following code example illustrates how to insert new bookmarks in the existing PDF document.
 
 {% tabs %}
 {% highlight c# %}

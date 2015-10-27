@@ -1,6 +1,6 @@
 ---
 title: Working with Optical Character Recognition (OCR)
-description: Optical Character Recognition engine- OCR
+description: This section explains how to process OCR for the existing PDF document
 platform: file-formats
 control: PDF
 documentation: UG
