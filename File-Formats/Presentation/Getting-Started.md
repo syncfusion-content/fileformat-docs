@@ -217,7 +217,7 @@ In PowerPoint presentation, the multilevel lists are used for presenting the con
 
 {% tabs %}
 
-{% highlight vb.net %}
+{% highlight c# %}
 
 //Adds a new paragraph  
 
@@ -439,7 +439,7 @@ presentation.Close();
 
 {% endhighlight %}
 
-{% highlight c# %}
+{% highlight vb.net %}
 
 'Opens a PowerPoint presentation file
 
@@ -473,5 +473,5 @@ presentation_1.Close()
 N> * Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to PDF conversion. Otherwise, the charts are not exported to the converted PDF.
 N> * **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 
-**PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF document. For more information about this, see [Conversion](http://www.google.com/).
+**PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF document. For more information about this, see [Conversion](/file-formats/presentation/conversion).
 

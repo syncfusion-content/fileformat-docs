@@ -313,7 +313,7 @@ presentation_1.Close()
 
 {% endtabs %}
 
-For more details on assemblies required for converting a slide to image,  see [Conversion](http://www.google.com)
+For more details on assemblies required for converting a slide to image,  see [Conversion](/file-formats/presentation/conversion)
 
 ## Change Slide background
 
