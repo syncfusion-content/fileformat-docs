@@ -473,5 +473,5 @@ presentation_1.Close()
 N> * Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the presentation to PDF conversion. Otherwise, the charts are not exported to the converted PDF.
 N> * **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 
-**PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF document. For more information about this, see [Conversion](http://help.syncfusion.com/file-formats/presentation/conversion).
+**PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF document. For more information about this, see [Conversion](/file-formats/presentation/conversion).
 
