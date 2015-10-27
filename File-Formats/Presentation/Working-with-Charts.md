@@ -115,11 +115,11 @@ presentation.Close();
 
 'Creates a presentation instance
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds a blank slide to the presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds chart to the slide with postion and size
 
@@ -201,11 +201,11 @@ chart.ChartType = OfficeChartType.Column_Clustered
 
 'Adds the third slide into the presentation
 
-presentation_1.Save("sample.pptx")
+presentationDocument.Save("sample.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -249,11 +249,11 @@ presentation.Close();
 
 'Creates a presentation instance
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds a blank slide to the presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Gets the excel file as stream
 
@@ -265,11 +265,11 @@ Dim chart As IOfficeChart = slide.Charts.AddChart(excelStream, 1, "A1:D4", New R
 
 'Saves the presentation
 
-presentation_1.Save("output.pptx")
+presentationDocument.Save("output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -391,11 +391,11 @@ presentation.Close();
 
 'Creates an instance of the IPresentation 
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Creates a new slide
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds a new chart in the slide by specifying its position and size as parameters.
 
@@ -481,11 +481,11 @@ serie2014.SerieType = OfficeChartType.Scatter_Line_Markers
 
 'Saves the presentation
 
-presentation_1.Save("Output_1.pptx")
+presentationDocument.Save("Output_1.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -539,15 +539,15 @@ presentation.Close();
 
 'Opens the presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Chart.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Chart.pptx")
 
 'Initializes the ChartToImageConverter class; this is mandatory
 
-presentation_1.ChartToImageConverter = New ChartToImageConverter()
+presentationDocument.ChartToImageConverter = New ChartToImageConverter()
 
 'Gets the first slide
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the chart in slide
 
@@ -559,11 +559,11 @@ chart.Refresh()
 
 'Saves the presentation
 
-presentation_1.Save("output.pptx")
+presentationDocument.Save("output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -625,11 +625,11 @@ presentation.Close();
 
 'Opens a presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Adds a slide to the presentation
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the chart in slide
 
@@ -659,11 +659,11 @@ chart.Refresh()
 
 'Saves the presentation
 
-presentation_1.Save("output.pptx")
+presentationDocument.Save("output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -813,15 +813,15 @@ presentation.Close();
 
 'Opens the presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Initializes the ChartToImageConverter class; this is mandatory
 
-presentation_1.ChartToImageConverter = New ChartToImageConverter()
+presentationDocument.ChartToImageConverter = New ChartToImageConverter()
 
 'Gets the first slide
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the chart in slide
 
@@ -919,11 +919,11 @@ chartPlotArea.Fill.ForeColor = Color.White
 
 'Saves the presentation
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -1079,11 +1079,11 @@ presentation.Close();
 
 'Opens a presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Gets the chart from the first slide
 
-Dim chart As IOfficeChart = TryCast(presentation_1.Slides(0).Charts(0), IOfficeChart)
+Dim chart As IOfficeChart = TryCast(presentationDocument.Slides(0).Charts(0), IOfficeChart)
 
 'Sets border settings
 
@@ -1207,11 +1207,11 @@ chart.Legend.Layout.WidthMode = LayoutModes.factor
 
 'Saves the presentation
 
-presentation_1.Save("ModifiedChart.pptx")
+presentationDocument.Save("ModifiedChart.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -1291,9 +1291,9 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds chart to slide
 
@@ -1347,11 +1347,11 @@ chart.Legend.Layout.TopMode = LayoutModes.factor
 
 'Saves the presentation
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -1407,11 +1407,11 @@ presentation.Close();
 
 'Opens the presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Gets the first slide
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the chart in slide
 
@@ -1435,11 +1435,11 @@ chart.BackWall.Border.LineWeight = OfficeChartLineWeight.Narrow
 
 'Saves the presentation
 
-presentation_1.Save("output.pptx")
+presentationDocument.Save("output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -1448,6 +1448,10 @@ presentation_1.Close()
 ## Chart to Image conversion
 
 The following code example demonstrates how to convert the charts in a presentation slide to image.
+
+T> **How to improve the quality of the charts in the slide to image or PDF conversion?**
+
+T> You can specify the quality of the converted charts by setting the scaling mode. For more details on how to set the scaling mode, see [Converting PowerPoint presentation to Images](/file-formats/presentation/conversion#converting-powerpoint-presentation-to-images)
 
 {% tabs %}
 
@@ -1505,19 +1509,19 @@ presentation.Close();
 
 'Opens the presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Initializes the ChartToImageConverter class; this is mandatory
 
-presentation_1.ChartToImageConverter = New ChartToImageConverter()
+presentationDocument.ChartToImageConverter = New ChartToImageConverter()
 
 'Sets the scaling mode for quality
 
-presentation_1.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best
+presentationDocument.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best
 
 'Gets the first slide
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the chart in slide
 
@@ -1545,11 +1549,11 @@ stream.Close()
 
 'Saves the Presentation
 
-presentation_1.Save("output.pptx")
+presentationDocument.Save("output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -1593,11 +1597,11 @@ presentation.Close();
 
 'Opens the presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Gets the first slide
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the chart in slide
 
@@ -1609,11 +1613,11 @@ slide.Shapes.Remove(TryCast(chart, IShape))
 
 'Saves the Presentation
 
-presentation_1.Save("output.pptx")
+presentationDocument.Save("output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 

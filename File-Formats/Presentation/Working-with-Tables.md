@@ -63,11 +63,11 @@ presentation.Close();
 
 'Creates instance of PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds slide to the presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds table to the slide
 
@@ -97,11 +97,11 @@ table.Description = "Table arrangement"
 
 'Saves the presentation
 
-presentation_1.Save("Table.pptx")
+presentationDocument.Save("Table.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -213,11 +213,11 @@ presentation.Close();
 
 'Creates instance of PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds slide to the presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds table to the slide
 
@@ -297,11 +297,11 @@ cell.TextBody.AddParagraph("Second Row and Second Column")
 
 'Saves the presentation
 
-presentation_1.Save("Table.pptx")
+presentationDocument.Save("Table.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -397,11 +397,11 @@ presentation.Close();
 
 'Creates instance of PowerPoint presentation
 
-Dim  presentation_1 As IPresentation = Presentation.Create()
+Dim  presentationDocument As IPresentation = Presentation.Create()
 
 'Adds slide to the presentation
 
-Dim slide As ISlide =  presentation_1 .Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide =  presentationDocument .Slides.Add(SlideLayoutType.Blank)
 
 'Adds table to the slide
 
@@ -465,11 +465,11 @@ table.Description = "Table arrangement"
 
 'Saves the presentation
 
-presentation_1.Save("Table.pptx")
+presentationDocument.Save("Table.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -521,11 +521,11 @@ presentation.Close();
 
 'Creates instance of PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Table.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Table.pptx")
 
 'Gets slide from the presentation
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets table from slide
 
@@ -545,11 +545,11 @@ table.Rows(0).Cells(0).TextBody.AddParagraph("Row1 Cell1")
 
 'Saves the presentation
 
-presentation_1.Save("TableModified.pptx")
+presentationDocument.Save("TableModified.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -619,11 +619,11 @@ presentation.Close();
 
 'Creates instance of PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds slide to the presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds table to the slide
 
@@ -661,11 +661,11 @@ table.Description = "Table arrangement"
 
 'Saves the presentation
 
-presentation_1.Save("Table.pptx")
+presentationDocument.Save("Table.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -709,11 +709,11 @@ presentation.Close();
 
 'Creates instance of PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Table.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Table.pptx")
 
 'Gets slide from the presentation
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the table from slide
 
@@ -725,11 +725,11 @@ slide.Shapes.Remove(table)
 
 'Saves the presentation
 
-presentation_1.Save("TableRemoved.pptx")
+presentationDocument.Save("TableRemoved.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 

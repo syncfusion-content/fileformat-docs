@@ -93,7 +93,7 @@ PdfDocument PDFdocument = PresentationToPdfConverter.Convert(presentation);
 
 //Saves the PDF document
 
-PDFdocument.Save(@"SampleWithoutSetting.pdf");
+PDFdocument.Save(@"Sample.pdf");
 
 //Closes the PDF document
 
@@ -109,19 +109,19 @@ presentation.Close();
 
 'Opens a PowerPoint presentation file
 
-Dim presentation_1 As IPresentation = Presentation.Open("ClonedPresentation.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("ClonedPresentation.pptx")
 
 'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
-presentation_1.ChartToImageConverter = New ChartToImageConverter()
+presentationDocument.ChartToImageConverter = New ChartToImageConverter()
 
 'Converts the PowerPoint presentation into PDF document
 
-Dim PDFdocument As PdfDocument = PresentationToPdfConverter.Convert(presentation_1)
+Dim PDFdocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
 
 'Saves the PDF document
 
-PDFdocument.Save("SampleWithoutSetting.pdf")
+PDFdocument.Save("Sample.pdf")
 
 'Closes the PDF document
 
@@ -129,7 +129,7 @@ PDFdocument.Close(True)
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -182,7 +182,7 @@ PdfDocument PDFdocument = PresentationToPdfConverter.Convert(presentation, setti
 
 //Saves the PDF document
 
-PDFdocument.Save(@"SampleWithoutSetting.pdf");
+PDFdocument.Save(@"Sample.pdf");
 
 //Closes the PDF document
 
@@ -198,15 +198,15 @@ presentation.Close();
 
 'Opens a PowerPoint presentation file
 
-Dim presentation_1 As IPresentation = Presentation.Open(fileName)
+Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
-presentation_1.ChartToImageConverter = New ChartToImageConverter()
+presentationDocument.ChartToImageConverter = New ChartToImageConverter()
 
 'Sets the scaling mode of the chart to best.
 
-presentation_1.ChartToImageConverter.ScalingMode = ScalingMode.Best
+presentationDocument.ChartToImageConverter.ScalingMode = ScalingMode.Best
 
 'Instantiates the presentation to pdf converter settings instance.
 
@@ -222,11 +222,11 @@ settings.SlidesPerPage = SlidesPerPage.Three
 
 'Converts the PowerPoint presentation into PDF document
 
-Dim PDFdocument As PdfDocument = PresentationToPdfConverter.Convert(presentation_1, settings)
+Dim PDFdocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument, settings)
 
 'Saves the PDF document
 
-PDFdocument.Save("SampleWithoutSetting.pdf")
+PDFdocument.Save("Sample.pdf")
 
 'Closes the PDF document
 
@@ -234,7 +234,7 @@ PDFdocument.Close(True)
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -342,6 +342,10 @@ To convert a presentation or a single slide to image, the following assemblies a
     </tbody>
 </table>
 
+T> **How to get good image resolution while converting a slide to image?**
+
+T> When converting a slide to image, use metafile format for good image resolution.
+
 The following code example demonstrates how to convert a slide to image.
 
 {% tabs %}
@@ -382,19 +386,19 @@ presentation.Close();
 
 'Opens a PowerPoint presentation file
 
-Dim presentation_1 As IPresentation = Presentation.Open(fileName)
+Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 'Creates an instance of ChartToImageConverter
 
-presentation_1.ChartToImageConverter = New ChartToImageConverter()
+presentationDocument.ChartToImageConverter = New ChartToImageConverter()
 
 'Sets the scaling mode as best
 
-presentation_1.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best
+presentationDocument.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best
 
 'Converts the first slide into image
 
-Dim image As Image = presentation_1.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageType.Metafile)
+Dim image As Image = presentationDocument.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageType.Metafile)
 
 'Saves the image as file
 
@@ -453,19 +457,19 @@ image.Save("ImageOutput" + Guid.NewGuid().ToString()+ ".png");
 
 'Loads the PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Creates instance of ChartToImageConverter
 
-presentation_1.ChartToImageConverter = New ChartToImageConverter()
+presentationDocument.ChartToImageConverter = New ChartToImageConverter()
 
 'Sets the scaling mode as best
 
-presentation_1.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best
+presentationDocument.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best
 
 'Converts entire presentation to images
 
-Dim images As Image() = presentation_1.RenderAsImages(Syncfusion.Drawing.ImageType.Metafile)
+Dim images As Image() = presentationDocument.RenderAsImages(Syncfusion.Drawing.ImageType.Metafile)
 
 'Saves the image to file system
 

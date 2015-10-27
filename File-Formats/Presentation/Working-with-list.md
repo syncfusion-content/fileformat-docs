@@ -127,11 +127,11 @@ presentation.Close();
 
 'Creates a new presentation instance.
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds the slide into the presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds a textbox to hold the list
 
@@ -215,13 +215,13 @@ paragraph.ListFormat.Size = 100
 
 'Saves the presentation to the file system.
 
-presentation_1.Save("Sample.pptx")
+presentationDocument.Save("Sample.pptx")
 
 Process.Start("Sample.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -347,11 +347,11 @@ presentation.Close();
 
 'Creates a new presentation instance.
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds the slide into the presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 ' Adds a textbox to hold the list
 
@@ -443,13 +443,13 @@ paragraph.ListFormat.Size = 100
 
 'Saves the presentation to the file system.
 
-presentation_1.Save("Result.pptx")
+presentationDocument.Save("Result.pptx")
 
 Process.Start("Result.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -537,11 +537,11 @@ presentation.Close();
 
 'Creates a new presentation instance.
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds the slide into the presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 ' Adds a textbox to hold the list
 
@@ -597,11 +597,11 @@ paragraph.FirstLineIndent = -20
 
 'Saves the presentation to the file system.
 
-presentation_1.Save("output.pptx")
+presentationDocument.Save("output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -725,11 +725,11 @@ presentation.Close();
 
 'Creates a new presentation instance.
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds the slide into the presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds a textbox to hold the bulleted list
 
@@ -819,11 +819,11 @@ paragraph.FirstLineIndent = -20
 
 'Saves the presentation to the file system.
 
-presentation_1.Save("MultiLevelList.pptx")
+presentationDocument.Save("MultiLevelList.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 

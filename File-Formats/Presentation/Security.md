@@ -51,11 +51,11 @@ presentation.Close();
 
 'Creates an instance for presentation
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds slide to presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds textbox to slide
 
@@ -67,15 +67,15 @@ Dim paragraph As IParagraph = shape.TextBody.AddParagraph("Password Protected.")
 
 'Protects the file with password
 
-presentation_1.Encrypt("PASSWORD!@1#$")
+presentationDocument.Encrypt("PASSWORD!@1#$")
 
 'Saves the presentation
 
-presentation_1.Save("Sample.pptx")
+presentationDocument.Save("Sample.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -111,15 +111,15 @@ presentation.Close();
 
 'Opens an existing presentation from file system and it can be decrypted by using the provided password.
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
 
 'Saves the presentation
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -155,19 +155,19 @@ presentation.Close();
 
 'Opens an existing presentation from file system and it can be decrypted by using the provided password.
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
 
 'Decrypts the document
 
-presentation_1.RemoveEncryption()
+presentationDocument.RemoveEncryption()
 
 'Saves the presentation
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 

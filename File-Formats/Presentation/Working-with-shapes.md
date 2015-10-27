@@ -9,7 +9,7 @@ documentation: UG
 
 ## Adding shapes to a slide
 
-In every slide, there is a shape collection that can contain any form of graphical objects such as [autoShape](https://msdn.microsoft.com/en-us/library/dd439450(v=office.12).aspx), chart, text, or picture.  You can add any shape element to this collection. The [IShape](http://www.google.com/# "") is the base type for the shape elements.
+In every slide, there is a shape collection that can contain any form of graphical objects such as [autoShape](https://msdn.microsoft.com/en-us/library/dd439450(v=office.12).aspx), chart, text, or picture.  You can add any shape element to this collection. The IShape is the base type for the shape elements.
 
 The following code example demonstrates how to add an autoshape and image to the shape collection of a slide.
 
@@ -55,11 +55,11 @@ presentation.Close();
 
 'Creates an instance for PowerPoint
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds a blank slide to presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds normal shape to slide
 
@@ -75,7 +75,7 @@ Dim picture As IPicture = slide.Shapes.AddPicture(imageStream, 373, 83, 500, 382
 
 'Saves the presentation
 
-presentation_1.Save("Sample.pptx")
+presentationDocument.Save("Sample.pptx")
 
 'Closes the stream
 
@@ -83,7 +83,7 @@ imageStream.Close()
 
 'closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -132,11 +132,11 @@ presentation.Close();
 
 'Opens an existing presentation from the file system.
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Iterates through shapes in a slide and sets title
 
-For Each shape As IShape In presentation_1.Slides(0).Shapes
+For Each shape As IShape In presentationDocument.Slides(0).Shapes
 
 If TypeOf shape Is IPicture Then
 
@@ -152,11 +152,11 @@ Next
 
 'Saves the presentation
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -229,11 +229,11 @@ presentation.Close();
 
 'Creates instance for PowerPoint
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Gets the first slide of the presentation
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the shape of the slide
 
@@ -273,11 +273,11 @@ shape.Fill.PatternFill.BackColor = ColorObject.DarkSalmon
 
 'Saves the presentation
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -321,11 +321,11 @@ presentation.Close();
 
 'Opens an existing presentation from file system.
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Retrieves the first slide from presentation
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Retrieves the first shape.
 
@@ -337,11 +337,11 @@ slide.Shapes.Remove(shape)
 
 'Saves the presentation to the file system.
 
-presentation_1.Save("Result.pptx")
+presentationDocument.Save("Result.pptx")
 
 'Closes the presentation.
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
