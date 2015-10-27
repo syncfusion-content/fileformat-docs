@@ -1,6 +1,6 @@
 ---
 title: Working with Bookmarks
-description: Bookmarks by using Essential PDF- Bookmark
+description: This section explains how to add bookmarks to the PDF document by using Essential PDF
 platform: FileFormat
 control: PDF
 documentation: UG

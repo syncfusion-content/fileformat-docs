@@ -1,6 +1,6 @@
 ---
 title: Working with Watermarks
-description: Support to add watermark in the PDF document; text watermark; image watermark
+description: This section explains how to add watermark in the PDF document
 platform: file-formats
 control: PDF
 documentation: UG

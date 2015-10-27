@@ -1,6 +1,6 @@
 ---
 title: Working with Digital Signature
-description: Creating Digital Signature by using Essential PDF- Digital signature; Digital Sign
+description: This section explains how to create a Digital Signature in the PDF document by using Essential PDF
 platform: FileFormat
 control: PDF
 documentation: UG

@@ -1,6 +1,6 @@
 ---
 title: Working with PDF templates
-description: PDF template is a drawing surface, where contents can be added;
+description: This section explains how to create a PDF template is a drawing surface, where contents can be added;
 platform: file-formats
 control: PDF
 documentation: UG

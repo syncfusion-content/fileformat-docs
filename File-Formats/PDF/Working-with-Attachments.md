@@ -1,6 +1,6 @@
 ---
 title: Working with Attachments
-description: File Attachments by using Essential PDF- File Attachments
+description: This section explains how to add, remove and extract attachments in the PDF document 
 platform: FileFormat
 control: PDF
 documentation: UG

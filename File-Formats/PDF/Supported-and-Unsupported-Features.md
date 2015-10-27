@@ -1,6 +1,6 @@
 ---
 title: Supported and Unsupported Features
-description: Features available in Essential PDF and their availability in different platforms. Supported and unsupported features
+description: This section explains about features available in Essential PDF and their availability in different platforms.
 platform: Fileformat
 control: PDF
 documentation: UG

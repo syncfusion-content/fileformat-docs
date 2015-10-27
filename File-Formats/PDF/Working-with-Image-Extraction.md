@@ -1,6 +1,6 @@
 ---
 title: Working with image extractioin
-description: Extracting image from PDF document using Essential PDF- ExtractImages; 
+description: This section explains extracting image from PDF document using Essential PDF
 platform: file-formats
 control: PDF
 documentation: UG

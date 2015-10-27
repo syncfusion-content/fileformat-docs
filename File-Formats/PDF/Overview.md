@@ -1,6 +1,6 @@
 ---
 title: Overview
-description: About Essential PDF- Essential PDF
+description: This section explains about Essential PDF
 platform: file-formats
 control: PDF
 documentation: UG

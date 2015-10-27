@@ -1,6 +1,6 @@
 ---
 title: Working with Text
-description: Adding text to the PDF document. Truetype fonts; standard fonts; RTL; HTML text; multi column; ordered and unordered list;
+description: This section explains how to add text to the PDF document using different type of fonts, Truetype fonts and standard fonts
 platform: file-formats
 control: PDF
 documentation: UG

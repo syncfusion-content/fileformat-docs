@@ -1,6 +1,6 @@
 ---
 title: Working with Document Conversion
-description: Converting other document Types into PDF- Html ToPDF; DocToPDF; ExcelToPDF; TiffToPDF; XPsToPDF; PDFToImage
+description: This section explains converting other document Types into PDF
 platform: file-formats
 control: PDF
 documentation: UG

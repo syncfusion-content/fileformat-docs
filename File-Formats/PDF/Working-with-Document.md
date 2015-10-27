@@ -1,6 +1,6 @@
 ---
 title: Working with Document
-description: PDF Document Setting and properties of Essential PDF - PDF Document Setting; 
+description: This section explains how to set document Setting and properties to the PDF document using Essential PDF
 platform: File Format
 control: PDF
 documentation: UG

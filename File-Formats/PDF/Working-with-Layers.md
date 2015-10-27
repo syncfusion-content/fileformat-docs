@@ -1,6 +1,6 @@
 ---
 title: Working with Layers
-description: Layers refers to section of Content of PDF document- PdfPageLayer
+description: This section explains adding the layer in the PDF document and the layers refers to section of Content of PDF document
 platform: file-formats
 control: PDF
 documentation: UG

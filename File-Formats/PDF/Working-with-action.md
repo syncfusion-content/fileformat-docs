@@ -1,6 +1,6 @@
 ---
 title: Working with Action
-description: Creating user interactve PDF - PdfSoundAction; PdfjavascriptAction; PdfUriAction ;PdfLaunchAction
+description: This section explains how to add actions to the document and form fields
 platform: Fileformat
 control: PDF
 documentation: UG

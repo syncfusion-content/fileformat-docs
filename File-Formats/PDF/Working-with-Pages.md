@@ -1,6 +1,6 @@
 ---
 title: Working with pages
-description: Addinga pages in the PDF document; PdfPage; remove pages;split pages;rearrange pages;
+description: This section explains how to add, rearrange and remove pages from the PDF document
 platform: file-formats
 control: PDF
 documentation: UG

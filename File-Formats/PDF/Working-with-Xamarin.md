@@ -1,6 +1,6 @@
 ---
 title: Working with Xamarin
-description: Create a Xamarin application and load the document
+description: This section explains how to load and save PDF document in Xamarin
 platform: file-formats
 control: PDF
 documentation: UG

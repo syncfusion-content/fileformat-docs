@@ -1,6 +1,6 @@
 ---
 title: Working with Headers and Footers
-description: Essential PDF Headers and Footers elements- PdfPageTemplateElement
+description: This section explains how to create Headers and Footers in the PDF document
 platform: file-formats
 control: PDF
 documentation: UG

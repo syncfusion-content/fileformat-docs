@@ -1,6 +1,6 @@
 ---
 title: Working with Tables
-description: We can create table in the PDF document. Grid; tables; PdfLightTable; DataSet; DataTable;
+description: This section expains how to create tables in the PDF document
 platform: file-formats
 control: PDF
 documentation: UG
