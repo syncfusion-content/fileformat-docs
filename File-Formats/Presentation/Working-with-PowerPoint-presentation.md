@@ -107,15 +107,15 @@ presentation.Close();
 
 'Opens a PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Converts the slides to images
 
-Dim images As Image() = presentation_1.RenderAsImages(Syncfusion.Drawing. ImageType.Bitmap)
+Dim images As Image() = presentationDocument.RenderAsImages(Syncfusion.Drawing. ImageType.Bitmap)
 
 'Closes the PowerPoint presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -421,17 +421,17 @@ presentation.Close();
 
 'Opens a PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Accesses the built-in document properties
 
-Console.WriteLine("Title - {0}", presentation_1.BuiltInDocumentProperties.Title)
+Console.WriteLine("Title - {0}", presentationDocument.BuiltInDocumentProperties.Title)
 
-Console.WriteLine("Author - {0}", presentation_1.BuiltInDocumentProperties.Author)
+Console.WriteLine("Author - {0}", presentationDocument.BuiltInDocumentProperties.Author)
 
 'Closes the PowerPoint presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -467,21 +467,21 @@ presentation.Close();
 
 'Opens a PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Modifies the Built-in document properties
 
-presentation_1.BuiltInDocumentProperties.Category = "Sales reports"
+presentationDocument.BuiltInDocumentProperties.Category = "Sales reports"
 
-presentation_1.BuiltInDocumentProperties.Company = "Northwind traders"
+presentationDocument.BuiltInDocumentProperties.Company = "Northwind traders"
 
 'Saves the modified PowerPoint presentation
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the modified PowerPoint presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -524,21 +524,21 @@ presentation.Close();
 
 'Creates a PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds custom document properties of various data type
 
-presentation_1.CustomDocumentProperties.Add("PropertyA")
+presentationDocument.CustomDocumentProperties.Add("PropertyA")
 
-presentation_1.CustomDocumentProperties.Add("PropertyB")
+presentationDocument.CustomDocumentProperties.Add("PropertyB")
 
 'Saves the PowerPoint presentation            
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the PowerPoint presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -578,11 +578,11 @@ presentation.Close();
 
 'Opens a PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Accesses an existing custom document property
 
-Dim [property] As IDocumentProperty = presentation_1.CustomDocumentProperties("PropertyA")
+Dim [property] As IDocumentProperty = presentationDocument.CustomDocumentProperties("PropertyA")
 
 'Modifies the value of DocumentProperty
 
@@ -590,11 +590,11 @@ Dim [property] As IDocumentProperty = presentation_1.CustomDocumentProperties("P
 
 'Saves the PowerPoint presentation
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the PowerPoint presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 

@@ -25,7 +25,7 @@ IPresentation presentation = Presentation.Open(fileName);
 
 'Opens an existing presentation from file system 
 
-Dim presentation_1 As IPresentation = Presentation.Open(fileName)
+Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 {% endhighlight %}
 
@@ -49,7 +49,7 @@ IPresentation presentation = Presentation.Open(presentationStream);
 
 'Opens an existing presentation from stream 
 
-Dim presentation_1 As IPresentation = Presentation.Open(presentationStream)
+Dim presentationDocument As IPresentation = Presentation.Open(presentationStream)
 
 {% endhighlight %}
 
@@ -73,7 +73,7 @@ IPresentation presentation = Presentation.Open(presentationStream, password);
 
 'Opens an existing encrypted presentation from stream 
 
-Dim presentation_1 As IPresentation = Presentation.Open(presentationStream, password)
+Dim presentationDocument As IPresentation = Presentation.Open(presentationStream, password)
 
 {% endhighlight %}
 
@@ -125,7 +125,7 @@ presentation.Save("Output.pptx");
 
 'Opens an existing PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open(fileName)
+Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 'To-Do some manipulation
 
@@ -169,7 +169,7 @@ presentation.Save(stream);
 
 'Opens an existing PowerPoint presentation 
 
-Dim presentation_1 As IPresentation = Presentation.Open(fileName)
+Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 'To-Do some manipulation
 
@@ -213,7 +213,7 @@ presentation.Save("Output.pptx", FormatType.Pptx, Response);
 
 'Opens an existing PowerPoint presentation 
 
-Dim presentation_1 As IPresentation = Presentation.Open(fileName)
+Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 'To-Do some manipulation
 
@@ -261,7 +261,7 @@ presentation.Close();
 
 'Opens an existing presentation from file system 
 
-Dim presentation_1 As IPresentation = Presentation.Open(fileName)
+Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 'To-Do some manipulation
 
@@ -273,11 +273,11 @@ Dim stream As New MemoryStream()
 
 'Saves the presentation to stream
 
-presentation_1.Save(stream)
+presentationDocument.Save(stream)
 
 'Closes the presentation instance and free the memory consumed.
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 

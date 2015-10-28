@@ -45,7 +45,7 @@ presentation.Close();
 
 'Creates a instance of presentation
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds a blank slide.
 
@@ -61,11 +61,11 @@ Dim picture As IPicture = slide.Pictures.AddPicture(pictureStream, 0, 0, 250, 25
 
 'Saves the presentation to the file system.
 
-presentation_1.Save("Result.pptx")
+presentationDocument.Save("Result.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -121,11 +121,11 @@ presentation.Close();
 
 'Opens an existing presentation.
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Retrieves the first slide from the presentation.
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Retrieves the first picture from the slide.
 
@@ -149,11 +149,11 @@ picture.ImageData = memoryStream.ToArray()
 
 'Saves the presentation to the file system.
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -203,11 +203,11 @@ presentation.Close();
 
 'Opens an existing presentation from file system.
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Retrieves the first slide from presentation
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Iterates through the pictures collection and removes the picture named "Image".
 
@@ -223,11 +223,11 @@ Next
 
 'Saves the presentation to the file system.
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 

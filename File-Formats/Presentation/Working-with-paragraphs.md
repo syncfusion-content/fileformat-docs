@@ -55,11 +55,11 @@ presentation.Close();
 
 'Creates PowerPoint instance
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds slide to the PowerPoint
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds textbox to the slide
 
@@ -79,11 +79,11 @@ textPart.Text = "Lorem Ipsum is simply dummy text of the printing and typesettin
 
 'Saves the presentation
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -139,11 +139,11 @@ presentation.Close();
 
 'Loads the PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Gets the slide from presentation
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the shape in slide
 
@@ -167,11 +167,11 @@ paragraph.LeftIndent = 8
 
 'Saves the presentation
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -259,11 +259,11 @@ presentation.Close();
 
 'Loads the PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Gets the slide from presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds textbox to the slide
 
@@ -319,11 +319,11 @@ font2.UnderLine = TextUnderlineType.WavyDouble
 
 'Saves the presentation
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -375,11 +375,11 @@ presentation.Close();
 
 'Opens an existing presentation from file system.
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Retrieves the first slide from presentation
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Retrieves the first shape.
 
@@ -399,11 +399,11 @@ textPart.Text = "Hello Presentation"
 
 'Saves the presenation to the file system.
 
-presentation_1.Save("Result.pptx")
+presentationDocument.Save("Result.pptx")
 
 'Closes the presentation.
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -451,11 +451,11 @@ presentation.Close();
 
 'Opens an existing presentation from file system.
 
-Dim presentation_1 As IPresentation = Presentation.Open("Sample.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Retrieves the first slide from presentation
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Retrieves the first shape.
 
@@ -471,11 +471,11 @@ shape.TextBody.Paragraphs.Remove(paragraph)
 
 'Saves the presenation to the file system.
 
-presentation_1.Save("Result.pptx")
+presentationDocument.Save("Result.pptx")
 
 'Closes the presentation.
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 

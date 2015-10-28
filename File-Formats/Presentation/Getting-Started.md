@@ -74,7 +74,7 @@ IPresentation presentation = Presentation.Create();
 
 'Creates a new instance of PowerPoint presentation
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 {% endhighlight %}
 
@@ -98,7 +98,7 @@ ISlide firstSlide = presentation.Slides.Add(SlideLayoutType.Blank);
 
 'Adds a slide to the PowerPoint presentation
 
-Dim firstSlide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim firstSlide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 {% endhighlight %}
 
@@ -443,15 +443,15 @@ presentation.Close();
 
 'Opens a PowerPoint presentation file
 
-Dim presentation_1 As IPresentation = Presentation.Open(fileName)
+Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
-presentation_1.ChartToImageConverter = New ChartToImageConverter ()
+presentationDocument.ChartToImageConverter = New ChartToImageConverter ()
 
 'Converts the PowerPoint presentation into PDF document
 
-Dim PDFdocument As PdfDocument = PresentationToPdfConverter.Convert(presentation_1)
+Dim PDFdocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
 
 'Saves the PDF document
 
@@ -463,7 +463,7 @@ PDFdocument.Close(True)
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 

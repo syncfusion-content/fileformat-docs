@@ -39,19 +39,19 @@ presentation.Close();
 
 'Creates a PowerPoint instance
 
-Dim presentation_1 As IPresentation = Presentation.Create()
+Dim presentationDocument As IPresentation = Presentation.Create()
 
 'Adds a slide to the PowerPoint presentation
 
-Dim slide As ISlide = presentation_1.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Saves the presentation to the file system.
 
-presentation_1.Save("Sample.pptx")
+presentationDocument.Save("Sample.pptx")
 
 'Closes the presentation instance
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -103,11 +103,11 @@ presentation.Close();
 
 'Opens an existing presentation.
 
-Dim presentation_1 As IPresentation = Presentation.Open("Presentation.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Presentation.pptx")
 
 'Retrieves the slide instance.
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Creates a cloned copy of slide.
 
@@ -123,15 +123,15 @@ textboxShape.TextBody.AddParagraph("Hello Presentation")
 
 'Adds the slide to the presentation.
 
-presentation_1.Slides.Add(slideClone)
+presentationDocument.Slides.Add(slideClone)
 
 'Saves the presentation to the file system.
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -231,27 +231,27 @@ presentation.Close();
 
 'Opens an existing presentation.
 
-Dim presentation_1 As IPresentation = Presentation.Open("Presentation1.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Presentation1.pptx")
 
 'Retrieves the slide instance.
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Removes the specified slide from the presentation.
 
-presentation_1.Slides.Remove(slide)
+presentationDocument.Slides.Remove(slide)
 
 'Removes the slide from the specified index.
 
-presentation_1.Slides.RemoveAt(1)
+presentationDocument.Slides.RemoveAt(1)
 
 'Saves the destination presentation.
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation instance
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -291,15 +291,15 @@ presentation.Close();
 
 'Opens a PowerPoint presentation file
 
-Dim presentation_1 As IPresentation = Presentation.Open(fileName)
+Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter 
 
-presentation_1.ChartToImageConverter = New ChartToImageConverter()
+presentationDocument.ChartToImageConverter = New ChartToImageConverter()
 
 'Converts the first slide into image
 
-Dim image As Image = presentation_1.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageType. Metafile)
+Dim image As Image = presentationDocument.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageType. Metafile)
 
 'Saves the image as file
 
@@ -307,7 +307,7 @@ image.Save("slide1.png")
 
 'Closes the presentation instance
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
@@ -365,11 +365,11 @@ presentation.Close();
 
 'Opens an existing presentation.
 
-Dim presentation_1 As IPresentation = Presentation.Open("Presentation1.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Presentation1.pptx")
 
 'Retrieves the slide instance.
 
-Dim slide As ISlide = presentation_1.Slides(0)
+Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Retrieves the background instance.
 
@@ -393,11 +393,11 @@ gradient.GradientStops.Add(ColorObject.Yellow, 50)
 
 'Saves the presentation to the file system.
 
-presentation_1.Save("Output.pptx")
+presentationDocument.Save("Output.pptx")
 
 'Closes the presentation
 
-presentation_1.Close()
+presentationDocument.Close()
 
 {% endhighlight %}
 
