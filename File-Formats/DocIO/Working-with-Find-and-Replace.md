@@ -1,5 +1,5 @@
 ---
-title: Find and Replace
+title: Working with Find and Replace
 description: This section illustrates finding a text and replacing it with a new text
 platform: file-formats
 control: DocIO

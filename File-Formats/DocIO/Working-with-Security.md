@@ -1,5 +1,5 @@
 ---
-title: Security
+title: Working with Security
 description: This section illustrate how to encrypt and protect the Word document
 platform: file-formats
 control: DocIO

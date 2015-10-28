@@ -1,4 +1,4 @@
-﻿---
+---
 title: Supported and Unsupported Features
 description: This section describes the support and unsupported elements
 platform: file-formats

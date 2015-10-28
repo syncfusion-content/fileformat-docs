@@ -429,6 +429,9 @@ The following namespaces are required to compile the code in this topic.
 * using Syncfusion.OfficeChart
 * using Syncfusion.OfficeChartToImageConverter
 
+T> To get good image quality during Word to image conversion use metafile format.
+T> You can specify the quality of the converted charts by setting the scaling mode.
+
 The following code illustrates how to convert the Word document to image.
 
 {% tabs %}  

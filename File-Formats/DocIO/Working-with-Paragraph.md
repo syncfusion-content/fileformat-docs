@@ -293,6 +293,8 @@ document.Close()
 
 Paragraph style contains definition for both font (text) as well as paragraph formatting that can be applied to the contents of an entire paragraph. DocIO supports various pre-defined styles and also provides ability to create custom paragraph styles.
 
+T> You can define a custom style or modify any built-in style to the required formatting, and apply this style to the part of Word document to be formatted. You can reduce the file size and code length by using styles instead of formatting each element explicitly.
+
 The following code example illustrates how to use the predefined styles.
 
 {% tabs %}  
