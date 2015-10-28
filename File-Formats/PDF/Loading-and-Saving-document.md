@@ -6,9 +6,9 @@ platform: FileFormat
 control: PDF
 documentation: Open,Save,Edit
 ---
-## Loading & saving document
+# Loading & saving document
 
-### Opening an existing PDF document
+## Opening an existing PDF document
 
 You can open an existing PDF document by using the PdfLoadedDocument class. The following example shows how to load an existing document from physical path.
 
@@ -34,7 +34,7 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
 {% endhighlight %}
 
-### Opening an existing PDF document from Stream
+## Opening an existing PDF document from Stream
 
 You can open an existing document from stream by using PdfLoadedDocument class as shown below
 
@@ -62,7 +62,7 @@ Dim loadedDocument As New PdfLoadedDocument(stream)
 
 {% endhighlight %}
 
-### Opening an existing PDF document from byte array
+## Opening an existing PDF document from byte array
 
 You can open an existing document from byte array by using PdfLoadedDocument class as shown in the below code snippet.
 
@@ -90,7 +90,7 @@ Dim loadedDocument As New PdfLoadedDocument(byteArray)
 
 {% endhighlight %}
 
-### Opening an Encrypted PDF document
+## Opening an Encrypted PDF document
 
 You can open an existing encrypted PDF document from either the file system or the stream or the byte array using the following overloads as shown below
 
@@ -160,7 +160,7 @@ Dim loadedDocument As New PdfLoadedDocument(byteArray,"password")
 
 {% endhighlight %}
 
-### Opening a corrupted PDF document
+## Opening a corrupted PDF document
 
 You can open a corrupted PDF document from either the file system or the stream or the byte array using the following overloads as shown below
 
@@ -236,7 +236,7 @@ N> 1. The OpenAndRepair overload is capable of resolving basic cross reference o
 
 N> 2.  Using this overload may cause performance delay when compared with other overloads, due to the repairing process.
 
-### Saving a PDF document to file system
+## Saving a PDF document to file system
 
 You can save the manipulated PDF document to file system using Save method of PdfLoadedDocument class.
 
@@ -280,7 +280,7 @@ loadedDocument.Save("Output.pdf")
 
 {% endhighlight %}
 
-### Saving a PDF document to stream
+## Saving a PDF document to stream
 
 You can also save the manipulated PDF document to stream using overloads of Save method
 
@@ -332,7 +332,7 @@ loadedDocument.Save(stream)
 
 {% endhighlight %}
 
-### Saving a PDF document into the same file or stream
+## Saving a PDF document into the same file or stream
 
 You can also resave the manipulated PDF document to the same file using overloads of Save method
 
@@ -416,7 +416,7 @@ loadedDocument.Save()
 
 {% endhighlight %}
 
-### Closing a document
+## Closing a document
 
 After the document manipulation and save operation are completed, you should close the instance of PdfLoadedDocument, in order to release all the memory consumed by PDF DOM. The following code snippet illustrates how to close a PdfLoadedDocument instance.
 
