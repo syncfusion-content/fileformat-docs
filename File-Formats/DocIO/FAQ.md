@@ -1,4 +1,4 @@
-﻿---
+---
 title: FAQ/How to
 description: This section illustrates about FAQs
 platform: file-formats
@@ -2109,7 +2109,7 @@ doc.Close()
 
 N> 
 For more information on mail merge using DocIO, you can refer to online documentation link:
-[MailMerge](/File-Formats/DocIO/MailMerge)
+[MailMerge](/File-Formats/DocIO/Working-with-MailMerge)
 
 ### Find and Replace
 
@@ -2341,7 +2341,7 @@ document.Close()
 
 
 N>  For more information on performing the find and replace operation using DocIO, you can refer to online documentation link:
-[Find and Replace](/File-Formats/DocIO/Find-and-Replace)
+[Find and Replace](/File-Formats/DocIO/Working-with-Find-and-Replace)
 
 
 
@@ -3937,7 +3937,7 @@ document.Close()
 
 Refer to the online documentation link for more details about the ways to protect the Word documents by using DocIO:
 
-[Protecting word document from editing](/File-Formats/DocIO/Security)
+[Protecting word document from editing](/File-Formats/DocIO/Working-with-Security)
 
 
 

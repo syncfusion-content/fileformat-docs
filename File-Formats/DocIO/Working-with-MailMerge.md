@@ -1,5 +1,5 @@
 ---
-title: MailMerge
+title: Working with MailMerge
 description: This section illustrates how to merge the data from data source to a Word document
 platform: file-formats
 control: DocIO
