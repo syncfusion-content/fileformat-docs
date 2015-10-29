@@ -7,12 +7,219 @@ documentation: UG
 ---
 # Working with Text
 
-## Drawing text in the PDF page
+## Drawing text in a new document
+
+You can add text in the new PDF document by using the following code sample,
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+
+//Save the document.
+
+document.Save("Output.pdf");
+
+//Close the document.
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document.
+
+Dim document As New PdfDocument()
+
+'Add a page to the document.
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create PDF graphics for the page.
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Set the standard font.
+
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
+
+'Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, New PointF(0, 0))
+
+'Save the document.
+
+document.Save("Output.pdf")
+
+'Close the document.
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Drawing text in an existing document
+
+You can add text in the existing PDF document by using the following code sample,
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load a PDF document.
+PdfLoadedDocument doc = new PdfLoadedDocument("input.pdf");
+
+//Get first page from document
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text.
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+
+//Save the document.
+doc.Save("Output.pdf");
+
+//Close the document.
+doc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load a PDF document.
+Dim doc As New PdfLoadedDocument("input.pdf")
+
+'Get first page from document
+Dim page As PdfLoadedPage = TryCast(doc.Pages(0), PdfLoadedPage)
+
+'Create PDF graphics for the page
+Dim graphics As PdfGraphics = page.Graphics
+
+'Set the standard font.
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
+
+'Draw the text.
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, New PointF(0, 0))
+
+'Save the document.
+doc.Save("Output.pdf")
+
+'Close the document.
+doc.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Drawing text using different fonts
 
 Essential PDF allows you to add text to the PDF document using the following types of fonts.
 
 1. Standard fonts
 2. True type fonts
+3. Chinese, Japanese and Korean (CJK) fonts
+
+### Draw text using standard fonts
+
+PDF has fourteen base fonts, also known as standard fonts which has special significance. The details can be referred from the link below.
+
+[Standard type 1 fonts](https://en.wikipedia.org/wiki/Portable_Document_Format#Standard_Type_1_Fonts_.28Standard_14_Fonts.29 "")
+
+You can add text using the standard PDF fonts by using the following code snippet. 
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+
+//Save the document.
+
+document.Save("Output.pdf");
+
+//Close the document.
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document.
+
+Dim document As New PdfDocument()
+
+'Add a page to the document.
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create PDF graphics for the page.
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Set the standard font.
+
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
+
+'Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, New PointF(0, 0))
+
+'Save the document.
+
+document.Save("Output.pdf")
+
+'Close the document.
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
 
 ### Draw text using True Type fonts
 
@@ -152,44 +359,33 @@ document.Close(True)
 
 {% endtabs %}
 
-### Draw text using standard fonts
+### Draw text using CJK fonts
 
-PDF has fourteen base fonts, also known as standard fonts which has special significance. The details can be referred from the link below.
-
-[Standard type 1 fonts](https://en.wikipedia.org/wiki/Portable_Document_Format#Standard_Type_1_Fonts_.28Standard_14_Fonts.29 "")
-
-You can add text using the standard PDF fonts by using the following code snippet. 
+You can add text using CJK fonts by using the following code sample,
 
 {% tabs %}
 
 {% highlight c# %}
 
 //Create a new PDF document.
-
 PdfDocument document = new PdfDocument();
 
 //Add a page to the document.
-
 PdfPage page = document.Pages.Add();
 
 //Create PDF graphics for the page.
-
 PdfGraphics graphics = page.Graphics;
 
 //Set the standard font.
-
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+PdfFont font = new PdfCjkStandardFont(PdfCjkFontFamily.HeiseiMinchoW3, 20);
 
 //Draw the text.
-
-graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+graphics.DrawString("こんにちは世界", font, PdfBrushes.Black, new PointF(0, 0));
 
 //Save the document.
-
 document.Save("Output.pdf");
 
 //Close the document.
-
 document.Close(true);
 
 {% endhighlight %}
@@ -197,31 +393,24 @@ document.Close(true);
 {% highlight vb.net %}
 
 'Create a new PDF document.
-
 Dim document As New PdfDocument()
 
 'Add a page to the document.
-
 Dim page As PdfPage = document.Pages.Add()
 
 'Create PDF graphics for the page.
-
 Dim graphics As PdfGraphics = page.Graphics
 
 'Set the standard font.
-
-Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
+Dim font As PdfFont = New PdfCjkStandardFont(PdfCjkFontFamily.HeiseiMinchoW3, 20)
 
 'Draw the text.
-
-graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, New PointF(0, 0))
+graphics.DrawString("こんにちは世界", font, PdfBrushes.Black, New PointF(0, 0))
 
 'Save the document.
-
 document.Save("Output.pdf")
 
 'Close the document.
-
 document.Close(True)
 
 {% endhighlight %}

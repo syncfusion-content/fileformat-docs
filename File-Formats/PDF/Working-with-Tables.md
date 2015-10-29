@@ -14,7 +14,7 @@ Essential PDF provides support for two types of table models, both having a diff
 
 ## Creating a simple table 
 
-### Creating a simple table using PdfLightTable
+### Creating a simple table using PdfLightTable in a new document
 
 
 Essential PDF allows you to create the table with data sources from DataSet, Data Table, arrays and IEnumerable objects using PdfLightTable class. It allows you to perform simple formatting.
@@ -120,11 +120,13 @@ doc.Save("Output.pdf")
 doc.Close(True)
 
 {% endhighlight %}
+{% endtabs %}
 
 You can directly add rows and columns, instead of a data source by setting DataSourceType property to PdfLightTableDataSourceType.TableDirect.
 
 The following code illustrates how to add the data directly into the PdfLightTable.
 
+{% tabs %}
 {% highlight c# %}
 
 //Create a new PDF document.
@@ -223,7 +225,96 @@ doc.Close(True)
 
 {% endtabs %}
 
-### Creating a simple table using PdfGrid 
+### Creating a simple table using PdfLightTable in an existing document
+
+You can create table using PdfLightTable in the existing document by using the followind code sample
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load a PDF document.
+PdfLoadedDocument doc = new PdfLoadedDocument("input.pdf");
+
+//Get first page from document
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+            
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+            
+// Create a PdfLightTable.
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+// Initialize DataTable to assign as DateSource to the light table.
+DataTable table = new DataTable();
+
+//Include columns to the DataTable.
+table.Columns.Add("Name");
+
+table.Columns.Add("Age");
+
+table.Columns.Add("Sex");
+
+//Include rows to the DataTable.
+table.Rows.Add(new string[] { "abc", "21", "Male" });
+
+//Assign data source.
+pdfLightTable.DataSource = table;
+
+//Draw PdfLightTable.
+pdfLightTable.Draw(graphics, new PointF(0, 0));
+
+//Save the document.
+doc.Save("Output.pdf");
+
+//Close the document
+doc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load a PDF document.
+Dim doc As New PdfLoadedDocument("input.pdf")
+
+'Get first page from document
+Dim page As PdfLoadedPage = TryCast(doc.Pages(0), PdfLoadedPage)
+
+'Create PDF graphics for the page
+Dim graphics As PdfGraphics = page.Graphics
+
+' Create a PdfLightTable.
+Dim pdfLightTable As New PdfLightTable()
+
+' Initialize DataTable to assign as DateSource to the light table.
+Dim table As New DataTable()
+
+'Include columns to the DataTable.
+table.Columns.Add("Name")
+
+table.Columns.Add("Age")
+
+table.Columns.Add("Sex")
+
+'Include rows to the DataTable.
+table.Rows.Add(New String() {"abc", "21", "Male"})
+
+'Assign data source.
+pdfLightTable.DataSource = table
+
+'Draw PdfLightTable.
+pdfLightTable.Draw(graphics, New PointF(0, 0))
+
+'Save the document.
+doc.Save("Output.pdf")
+
+'Close the document
+doc.Close(True)
+
+{% endhighlight %}
+{% endtabs %}
+
+### Creating a simple table using PdfGrid in the a document
 
 PdfGrid allows you to create table by entering the data manually or from an external data source. The datasource can be a data set, data table, arrays or a IEnumerable object.
 
@@ -452,6 +543,92 @@ pdfDocument.Save("Output.pdf")
 pdfDocument.Close(True)
 
 
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Creating a simple table using PdfGrid in an existing document
+
+You can create a table using PdfGrid in the existing document by using the following code sample
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load a PDF document.
+PdfLoadedDocument doc = new PdfLoadedDocument("input.pdf");
+
+//Get first page from document
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create a DataTable.
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+
+//Add rows to the DataTable.
+dataTable.Rows.Add(new object[] { "E01", "Clay" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas" });
+
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(graphics, new PointF(10, 10));
+
+//Save the document.
+doc.Save("Output.pdf");
+
+//close the document
+doc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load a PDF document.
+Dim doc As New PdfLoadedDocument("input.pdf")
+
+'Get first page from document
+Dim page As PdfLoadedPage = TryCast(doc.Pages(0), PdfLoadedPage)
+
+'Create PDF graphics for the page
+Dim graphics As PdfGraphics = page.Graphics
+
+'Create a PdfGrid.
+Dim pdfGrid As New PdfGrid()
+
+'Create a DataTable.
+Dim dataTable As New DataTable()
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+
+'Add rows to the DataTable.
+dataTable.Rows.Add(New Object() {"E01", "Clay"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas"})
+
+'Assign data source.
+pdfGrid.DataSource = dataTable
+
+'Draw grid to the page of PDF document.
+pdfGrid.Draw(graphics, New PointF(10, 10))
+
+'Save the document.
+doc.Save("Output.pdf")
+
+'close the document
+doc.Close(True)
 
 {% endhighlight %}
 
