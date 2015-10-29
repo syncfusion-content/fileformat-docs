@@ -1017,13 +1017,13 @@ document.Close(True)
 
 1. WebKit Converter may create PDF with blank pages under the following cases.
 
-~ When the webpage (html) is not available/accessible.~
+** When the webpage (html) is not available/accessible. **
 
 Solution
 
 Please check your internet connection or the html webpage is not available in the mentioned location.
 
-~ When VC++ 2010 redistributable and OpenSSL package is not installed in the machine,~
+** When VC++ 2010 redistributable and OpenSSL package is not installed in the machine, **
 
 Solution
 
@@ -1050,7 +1050,7 @@ Instead, the required assemblies below can added in the Windows system folder (f
 * libssl32.dll
 * ssleay32.dll
 
-~ When any Qt binaries are not available in the WebKitPath mentioned location.~
+** When any Qt binaries are not available in the WebKitPath mentioned location. **
 
 Solution
 

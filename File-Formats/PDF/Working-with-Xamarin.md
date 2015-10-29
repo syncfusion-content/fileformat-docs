@@ -12,7 +12,6 @@ documentation: UG
 The following code example illustrates how to load the file by using stream in Xamarin.
 {% tabs %}
 {% highlight c# %}
-C#:
 
 //Load the file as stream
 
@@ -81,7 +80,6 @@ await Windows.System.Launcher.LaunchFileAsync(outFile);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Load the file as stream
 
@@ -143,12 +141,11 @@ End Class
 
 {% endhighlight %}
 {% endtabs %}
-# Save the document 
+## Save the document 
 
 The following code example illustrates how to save the PDF document in Xamarin windows phone platform.
 {% tabs %}
 {% highlight c# %}
-C#:
 
 //Create a new document
 
@@ -229,7 +226,6 @@ await Windows.System.Launcher.LaunchFileAsync(outFile);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new document.
 
@@ -306,7 +302,6 @@ End Class
 The following code example illustrates how to save the file by using stream in xamarin android platform.
 {% tabs %}
 {% highlight c# %}
-C#:
 
 //Create a new document
 
@@ -433,7 +428,6 @@ Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new document
 
@@ -552,7 +546,6 @@ End Class
 The following code example illustrates how to save the file by using stream in xamarin iOS platform.
 {% tabs %}
 {% highlight c# %}
-C#:
 
 //Create a new document
 
@@ -665,7 +658,6 @@ currentController.PresentViewController(qlPreview, true, null);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 'Create a new document
 

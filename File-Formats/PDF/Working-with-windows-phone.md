@@ -172,7 +172,7 @@ loadedDocument.Close(True)
 
 {% endtabs %}
 
-# Save the document 
+## Save the document 
 
 The following code example illustrates how to save the PDF document in Windows phone.
 
