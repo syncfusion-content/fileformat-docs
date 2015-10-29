@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting
 description: Explains various troubleshooting issues while using XlsIO
 platform: File-formats

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with Excel Worksheet
 description: Briefs about worksheet operations in XlsIO
 platform: File-formats

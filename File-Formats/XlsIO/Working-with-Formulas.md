@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with Formulas
 description: Briefs about Formulas 
 platform: File-formats

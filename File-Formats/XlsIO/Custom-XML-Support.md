@@ -1,4 +1,4 @@
-﻿---
+---
 title: Custom XML Support
 description: Briefs about Custom XML Support in XlsIO
 platform: File-Formats

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Loading and saving workbook
 description: Explains various load and save operations in XlsIO
 platform: File-formats
