@@ -3,7 +3,7 @@ title: Working with Pivot Charts
 description: Briefs about Pivot Charts in XlsIO
 platform: File-formats
 control: XlsIO
-documentation: UG
+documentation: UG 
 ---
 
 # Working with Pivot Charts

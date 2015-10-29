@@ -1,4 +1,4 @@
-﻿---
+---
 title: Security
 description: Briefs about Security in XlsIO
 platform: File-formats

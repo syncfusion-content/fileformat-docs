@@ -1,4 +1,4 @@
-﻿---
+---
 title: Worksheet Rows and Columns Manipulation
 description: Briefs about Row and Column manipulations in XlsIO
 platform: File-formats

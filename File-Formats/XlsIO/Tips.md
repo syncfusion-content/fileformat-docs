@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tips
 description: Explains tips for efficient usage of XlsIO
 platform: File-formats

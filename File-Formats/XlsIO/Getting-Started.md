@@ -1,4 +1,4 @@
-﻿---
+---
 title: Getting Started
 description: Explains basic operations in XlsIO
 platform: File-formats

@@ -1,4 +1,4 @@
-﻿---
+---
 title: FAQ Section
 description: Frequently Asked Questions in XlsIO
 platform: File-formats

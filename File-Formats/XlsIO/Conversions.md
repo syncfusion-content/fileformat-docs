@@ -1,4 +1,4 @@
-﻿---
+---
 title: Conversions
 description: Briefs about conversions supported in XlsIO
 platform: File-formats
@@ -8,7 +8,7 @@ documentation: UG
 
 # Conversions
 
-## Excel to PDF Conversion
+## Excel to PDF Conversion
 
 XlsIO allows you to convert an entire workbook or a single worksheet into PDF document. For converting an Excel document to PDF, the following assemblies need to be referenced in your application
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with Drawing Objects
 description: Briefs about Drawing Objects in XlsIO
 platform: File-formats

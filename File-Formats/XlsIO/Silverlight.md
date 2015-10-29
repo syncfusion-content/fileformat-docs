@@ -5,7 +5,7 @@ platform: Silverlight
 control: XlsIO
 documentation: UG
 ---
-# Silverlight
+# Silverlight 
 
 ## Loading in Silverlight
 

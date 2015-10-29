@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with Template Markers
 description: Briefs about template markers operations
 platform: File-formats

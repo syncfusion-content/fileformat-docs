@@ -1,4 +1,4 @@
-﻿---
+---
 title: Supported and Non- Supported Elements
 description: Briefs about supported and non-supported elements in XlsIO
 platform: File-formats
