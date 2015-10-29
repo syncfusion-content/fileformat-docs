@@ -12,7 +12,7 @@ Essential PDF supports both raster and vector images.
 
 Images are supported through the PdfImage class, which is an abstract base class that provides the common functionality for PdfBitmap and PdfMetafile classes.
 
-## Inserting a raster image
+## Inserting an image in a new document
 
 The following raster images are supported in Essential PDF.
 
@@ -103,6 +103,8 @@ doc.Close(True)
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Inserting an image in an existing document
 
 You can also add images into an existing PDF document using the below code snippet.
 
