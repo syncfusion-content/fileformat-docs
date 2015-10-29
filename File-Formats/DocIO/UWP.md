@@ -376,7 +376,7 @@ End Sub
 
 {% endtabs %}
 
-# Save the document 
+## Save the document 
 
 The following code example illustrates how to save the Word document in WinRT by using file picker.
 
