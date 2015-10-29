@@ -1,5 +1,4 @@
 ﻿---
-layout: Post
 title: Improving Performance
 description: Brief about improving performance in XlsIO
 platform: File-Formats

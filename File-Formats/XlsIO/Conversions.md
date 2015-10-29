@@ -1,12 +1,10 @@
 ﻿---
-layout: Post
 title: Conversions
 description: Briefs about conversions supported in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
-**Document** **Properties**
 
 # Conversions
 

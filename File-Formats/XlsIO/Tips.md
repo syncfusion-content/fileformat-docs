@@ -1,12 +1,10 @@
 ﻿---
-layout: Post
 title: Tips
 description: Explains tips for efficient usage of XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
-**Document** **Properties**
 
 # Tips
 

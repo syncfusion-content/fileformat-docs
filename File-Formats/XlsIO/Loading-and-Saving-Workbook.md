@@ -1,12 +1,10 @@
----
-layout: Post
+﻿---
 title: Loading and saving workbook
 description: Explains various load and save operations in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
-**Document** **Properties**
 
 # Loading and Saving Workbook
 

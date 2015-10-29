@@ -1,5 +1,4 @@
----
-layout: Post
+﻿---
 title: Cell or Range Formatting
 description: Briefs about Cell or Range Formatting in XlsIO.
 platform: File-Formats

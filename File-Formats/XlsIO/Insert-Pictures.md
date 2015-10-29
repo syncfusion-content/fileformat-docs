@@ -1,5 +1,4 @@
 ﻿---
-layout: Post
 title: Insert Pictures
 description: Briefs about inserting pictures in XlsIO
 platform: File-Formats

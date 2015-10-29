@@ -1,12 +1,10 @@
 ﻿---
-layout: Post
 title: Working with Drawing Objects
 description: Briefs about Drawing Objects in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
-**Document** **Properties**
 
 # Working with Drawing Objects 
 

@@ -1,12 +1,10 @@
 ﻿---
-layout: Post
 title: FAQ Section
 description: Frequently Asked Questions in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
-**Document** **Properties**
 
 # FAQ Section  
 

@@ -1,5 +1,4 @@
----
-layout: Post
+﻿---
 title: Data Validation
 description: Briefs about data validation
 platform: File-formats

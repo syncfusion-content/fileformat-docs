@@ -1,12 +1,10 @@
----
-layout: Post
+﻿---
 title: Getting Started
 description: Explains basic operations in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
-**Document** **Properties**
 
 # Getting Started
 

@@ -1,12 +1,10 @@
----
-layout: Post
+﻿---
 title: Working with Excel Worksheet
 description: Briefs about worksheet operations in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
-**Document** **Properties**
 
 # Working with Excel Worksheet 
 

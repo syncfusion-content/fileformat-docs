@@ -1,5 +1,4 @@
----
-layout: Post
+﻿---
 title: Conditional Formatting
 description: Briefs about conditional formatting operations
 platform: XlsIO

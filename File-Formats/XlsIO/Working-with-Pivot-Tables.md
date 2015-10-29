@@ -1,5 +1,4 @@
 ﻿---
-layout: Post
 title: Working with Pivot Tables
 description: Briefs about working with Pivot tables in XlsIO
 platform: File-Formats

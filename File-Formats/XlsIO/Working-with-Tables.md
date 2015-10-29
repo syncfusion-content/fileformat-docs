@@ -1,5 +1,4 @@
 ﻿---
-layout: Post
 title: Working with Tables
 description: Briefs about tables
 platform: File-formats

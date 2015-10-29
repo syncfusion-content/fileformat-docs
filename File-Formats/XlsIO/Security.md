@@ -1,12 +1,10 @@
 ﻿---
-layout: Post
 title: Security
 description: Briefs about Security in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
-**Document** **Properties**
 
 # Security
 

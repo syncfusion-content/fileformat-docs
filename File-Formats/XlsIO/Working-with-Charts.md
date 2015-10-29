@@ -1,5 +1,4 @@
----
-layout: Post
+﻿---
 title: Working with Charts
 description: Briefs about charts operations
 platform: File-formats
