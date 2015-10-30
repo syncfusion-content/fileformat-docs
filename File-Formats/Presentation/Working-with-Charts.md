@@ -1449,8 +1449,6 @@ presentationDocument.Close()
 
 The following code example demonstrates how to convert the charts in a presentation slide to image.
 
-T> **How to improve the quality of the charts in the slide to image or PDF conversion?**
-
 T> You can specify the quality of the converted charts by setting the scaling mode. For more details on how to set the scaling mode, see [Converting PowerPoint presentation to Images](/file-formats/presentation/conversion#converting-powerpoint-presentation-to-images)
 
 {% tabs %}

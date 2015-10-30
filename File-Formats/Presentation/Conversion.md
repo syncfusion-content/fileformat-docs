@@ -342,8 +342,6 @@ To convert a presentation or a single slide to image, the following assemblies a
     </tbody>
 </table>
 
-T> **How to get good image resolution while converting a slide to image?**
-
 T> When converting a slide to image, use metafile format for good image resolution.
 
 The following code example demonstrates how to convert a slide to image.
