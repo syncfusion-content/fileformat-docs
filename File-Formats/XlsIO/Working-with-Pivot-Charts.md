@@ -12,7 +12,7 @@ PivotCharts are interactive graphical representations of PivotTable data that al
 
 I> XlsIO provides PivotCharts support for XLSX format.
 
-LINK: To create a pivot table refer in Create Pivot Table section. 
+To create a pivot table refer [Create Pivot Table](/file-formats/xlsio/working-with-pivot-tables#create-a-pivot-table). 
 
 The following code snippet illustrates how to create a PivotChart.
 
@@ -143,5 +143,4 @@ pivotChartSheet.ShowValueFieldButtons = False
 
   {% endtabs %}  
 
-# 
 

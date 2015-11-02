@@ -1,6 +1,6 @@
 ---
-title: Supported and Non- Supported Elements
-description: Briefs about supported and non-supported elements in XlsIO
+title: Supported and Non- Supported Features
+description: Briefs about supported and non-supported features in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -11,30 +11,35 @@ documentation: UG
 The list of various supported and non-supported Excel elements of Essential XlsIO for different platforms is given in the following table. XLS represents Excel 97 to 2003 format and XLSX represents Excel 2007 and above formats.
 
 
+
 <table>
 <tr>
-<td>
-**Element**<br/><br/></td><td>
-**xls**<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-**xlsx**<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-**xls** **to** **xlsx**<br/><br/></td></tr>
+<th rowspan ="2">
+Element <br/><br/></th>
+<th colspan = "3">
+xls<br/><br/></th>
+<th colspan = "3">
+xlsx<br/><br/>
+</th>
+<th rowspan="2">
+xls to xlsx<br/><br/></th></tr>
+<tr>
+<th>
+Read<br/><br/></th>
+<th>
+Write<br/><br/></th>
+<th>
+Preserve<br/><br/></th>
+<th>
+Read<br/><br/></th><th>
+Write<br/><br/></th><th>
+Preserve<br/><br/></th>
+</tr>
+<tbody>
 <tr>
 <td>
-<br/><br/></td><td>
-**Read**<br/><br/></td><td>
-**Write**<br/><br/></td><td>
-**Preserve**<br/><br/></td><td>
-**Read**<br/><br/></td><td>
-**Write**<br/><br/></td><td>
-**Preserve**<br/><br/></td><td>
-<br/><br/></td></tr>
-<tr>
+Document Properties<br/><br/></td>
 <td>
-Document Properties<br/><br/></td><td>
 Yes <br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td><td>
@@ -42,16 +47,6 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td><td>
 Yes<br/><br/></td></tr>
-<tr>
-<td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td></tr>
 <tr>
 <td>
 Font settings<br/><br/></td><td>
@@ -202,16 +197,6 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td><td>
 Yes<br/><br/></td></tr>
-<tr>
-<td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td></tr>
 <tr>
 <td>
 Charts<br/><br/></td><td>
@@ -484,16 +469,6 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td></tr>
-<tr>
-<td>
 Macros<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
@@ -564,16 +539,6 @@ Yes<br/><br/></td><td>
 -<br/><br/></td></tr>
 <tr>
 <td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td></tr>
-<tr>
-<td>
 Conditional Formatting<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -614,16 +579,6 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td></tr>
-<tr>
-<td>
 OLE Objects<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
@@ -632,4 +587,7 @@ Yes (Full Trust Only)<br/><br/></td><td>
 Yes (Full Trust Only)<br/><br/></td><td>
 -<br/><br/></td><td>
 No<br/><br/></td></tr>
+</tbody>
 </table>
+
+

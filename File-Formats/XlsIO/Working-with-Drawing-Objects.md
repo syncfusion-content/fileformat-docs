@@ -14,7 +14,7 @@ You can add and manipulate the text Box, option button, check box and combo box 
 
 I> Support for Active X Form controls is not yet available.
 
-This section explains the usage of the following [Form controls](https://support.office.com/en-us/article/Overview-of-forms-Form-controls-and-ActiveX-controls-on-a-worksheet-15BA7E28-8D7F-42AB-9470-FFB9AB94E7C2#bmcontrols_on_the_forms_toolbar "").
+This section explains the usage of the following [Form Controls] (https://support.office.com/en-us/article/Overview-of-forms-Form-controls-and-ActiveX-controls-on-a-worksheet-15BA7E28-8D7F-42AB-9470-FFB9AB94E7C2#bmcontrols_on_the_forms_toolbar).
 
 * Text Box
 * Check Box
@@ -521,7 +521,7 @@ excelEngine.Dispose()
 
 ## Comments
 
-**ICommentShape** object represents a [comments](https://support.office.com/en-au/article/Annotate-a-worksheet-by-using-comments-3b7065dd-531a-4ffe-8f18-8d047a6ccae7# "") in a worksheet. You can insert both **Regular** and **Rich** **Text** comments. The following code example illustrates how to insert and manipulate comments.
+**ICommentShape** object represents a [comments](https://support.office.com/en-au/article/Annotate-a-worksheet-by-using-comments-3b7065dd-531a-4ffe-8f18-8d047a6ccae7#) in a worksheet. You can insert both **Regular** and **Rich** **Text** comments. The following code example illustrates how to insert and manipulate comments.
 
 {% tabs %}  
 
@@ -759,7 +759,7 @@ excelEngine.Dispose()
 
 ## AutoShapes
 
-The **IShape** interface represents the [AutoShapes](https://support.office.com/en-ca/article/Add-change-or-delete-shapes-4f7931c3-7794-440e-820e-9469ad756f05# "") in an Excel workbook. 
+The **IShape** interface represents the [AutoShapes](https://support.office.com/en-ca/article/Add-change-or-delete-shapes-4f7931c3-7794-440e-820e-9469ad756f05#) in an Excel workbook. 
 
 LINK- API reference for AutoShapeType enum.
 
@@ -869,7 +869,7 @@ excelEngine.Dispose()
 
 ## OLE Objects 
 
-**IOleObject** object represents an [OLE Objects](https://support.office.com/en-US/article/Create-change-or-delete-an-OLE-object-F767F0F1-4170-4850-9B96-0B6C07EC6EA4# "") in a worksheet. 
+**IOleObject** object represents an [OLE Objects](https://support.office.com/en-US/article/Create-change-or-delete-an-OLE-object-F767F0F1-4170-4850-9B96-0B6C07EC6EA4#) in a worksheet. 
 
 I> XlsIO provides OLE Objects support for XLSX format in Windows, ASP.NET and WPF platforms only.
 
@@ -1136,5 +1136,4 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-# 
 

@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Charts 
 
-Essential XlsIO has support for creating and modifying Excel charts inside a workbook or as a [chart worksheet](https://support.office.com/en-us/article/Create-a-chart-0baf399e-dd61-4e18-8a73-b3fd5d5680c2# ""). 
+Essential XlsIO has support for creating and modifying Excel charts inside a workbook or as a [chart worksheet](https://support.office.com/en-us/article/Create-a-chart-0baf399e-dd61-4e18-8a73-b3fd5d5680c2#). 
 
 ## Creating a Chart 
 
@@ -976,7 +976,7 @@ Dim excelEngine As ExcelEngine = New ExcelEngine
 
 Dim application As IApplication = excelEngine.Excel
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
@@ -1588,7 +1588,7 @@ I> In order to position the chart elements, plot area should be smaller than cha
 
 ## Sparkline 
 
-[Sparkline](https://support.office.com/en-za/article/About-sparklines-bf2059c8-1f44-4dbf-aa2e-ca792a139849# "") is a small chart in a worksheet cell that provides a visual representation of data.
+[Sparkline](https://support.office.com/en-za/article/About-sparklines-bf2059c8-1f44-4dbf-aa2e-ca792a139849#) is a small chart in a worksheet cell that provides a visual representation of data.
 
 ### Sparkline Creation Using XlsIO
 

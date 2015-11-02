@@ -14,10 +14,13 @@ documentation: UG
 This section explains how to create a simple Excel document using Essential XlsIO. The following assemblies must be referred in your application to create and manipulate Excel document.
 
 <table>
+<thead>
 <tr>
-<td>
-**Assembly** **Name**<br/><br/></td><td>
-**Description**<br/><br/></td></tr>
+<th>
+Assembly Name <br/><br/></th><th>
+Description<br/><br/></th></tr>
+</thead>
+<tbody>
 <tr>
 <td>
 Syncfusion.XlsIO.Base<br/><br/></td><td>
@@ -26,6 +29,7 @@ This assembly contains the core features needed for creating, reading, manipulat
 <td>
 Syncfusion.Compression.Base<br/><br/></td><td>
 This assembly is used to package the Workbook contents.<br/><br/></td></tr>
+</tbody>
 </table>
 Include the following namespaces in your .cs or .vb file as shown below
 
@@ -145,7 +149,6 @@ Dim worksheet As IWorksheet = workbook.Worksheets[0]
 {% endhighlight %}
 {% endtabs %}  
 
-Worksheet cells are accessed by the instance of IRange. IRange can be used to represent a single cell or a group of cells. A cell can contain text, numbers, dates, formula etc. The following code snippet shows how to set the different types of values to a worksheet cells.
 
 {% tabs %}  
 {% highlight c# %}
@@ -931,14 +934,14 @@ LINK- Template marker section for argument.
 <table>
 <tr>
 <td>
-{{'__%<__'| markdownify }}{{'__MarkerVariable__'| markdownify }}{{'__>.<__'| markdownify }}{{'__Property__'| markdownify }}{{'__>__'| markdownify }}<br/><br/>For example: %Report.SalesPerson<br/><br/></td></tr>
+%&lt;MarkerVariable&gt;.&lt;Property&gt; <br/><br/>For example: %Report.SalesPerson<br/><br/></td></tr>
 </table>
 To maintain row formats while applying marker, you can use the following syntax.
 
 <table>
 <tr>
 <td>
-%<{{'__MarkerVariable__'| markdownify }}>.<Property>;insert:copystyles<br/><br/>For example: %Report.SalesPerson;insert:copystyles<br/><br/></td></tr>
+%&lt;MarkerVariable&gt;.&lt;Property&gt;;insert:copystyles<br/><br/>For example: %Report.SalesPerson;insert:copystyles<br/><br/></td></tr>
 </table>
 For example – let’s consider that you have a template document as shown below.
 

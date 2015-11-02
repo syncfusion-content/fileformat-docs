@@ -171,6 +171,8 @@ excelEngine.Dispose()
 
 I> Applying custom styles will override original styles.
 
+T> You can use default styles, to apply styles for a whole column instead of applying in each cell.
+
 ## Apply Global Style
 
 XlsIO supports to add styles globally that can be applied to one or more cells in a workbook. This is a recommended approach to apply single style in different rows and columns, which improves memory and performance considerably.
@@ -434,9 +436,10 @@ The following table shows various custom formatting codes.
 
 <table>
 <tr>
-<td>
-**Number** **Code**<br/><br/></td><td>
-**Description**<br/><br/></td></tr>
+<th>
+Number Code <br/><br/></th><th>
+Description<br/><br/></th></tr>
+<tbody>
 <tr>
 <td>
 General<br/><br/></td><td>
@@ -470,9 +473,9 @@ Thousands separator. A comma followed by a placeholder (0 or #) scales the numbe
 E+ E- e+ e-<br/><br/></td><td>
 Scientific notation.<br/><br/></td></tr>
 <tr>
-<td>
-**Text** **Code**<br/><br/></td><td>
-**Description**<br/><br/></td></tr>
+<th>
+Text Code<br/><br/></th><th>
+Description<br/><br/></th></tr>
 <tr>
 <td>
 $ - + / ( ) : space<br/><br/></td><td>
@@ -498,9 +501,9 @@ This code skips the width of the next character. This code is commonly used as "
 @<br/><br/></td><td>
 Text placeholder.<br/><br/></td></tr>
 <tr>
-<td>
-**Date** **Code**<br/><br/></td><td>
-**Description**<br/><br/></td></tr>
+<th>
+Date Code<br/><br/></th><th>
+Description<br/><br/></th></tr>
 <tr>
 <td>
 m<br/><br/></td><td>
@@ -542,9 +545,9 @@ Year as a two-digit number (for example, 96).<br/><br/></td></tr>
 yyyy<br/><br/></td><td>
 Year as a four-digit number (for example, 1996).<br/><br/></td></tr>
 <tr>
-<td>
-**Time** **Code**<br/><br/></td><td>
-**Description**<br/><br/></td></tr>
+<th>
+Time Code<br/><br/></th><th>
+Description <br/><br/></th></tr>
 <tr>
 <td>
 h<br/><br/></td><td>
@@ -574,9 +577,9 @@ Seconds as a number with leading zeros (00-59).<br/><br/></td></tr>
 AM/PM am/pm<br/><br/></td><td>
 Time based on the twelve-hour clock.<br/><br/></td></tr>
 <tr>
-<td>
-**Miscellaneous** **Code**<br/><br/></td><td>
-**Description**<br/><br/></td></tr>
+<th>
+Miscellaneous Code<br/><br/></th><th>
+Description<br/><br/></th></tr>
 <tr>
 <td>
 [BLACK], [BLUE], [CYAN], [GREEN], [MAGENTA], [RED], [WHITE], [YELLOW], [COLOR n]<br/><br/></td><td>
@@ -585,6 +588,7 @@ These codes display the characters in the specified colors. <br/><br/>Note: n is
 <td>
 [Condition value]<br/><br/></td><td>
 Condition may be <, >, =, >=, <=, &lt;&gt; and value may be any number.<br/><br/>Note: A number format may contain up to two conditions.<br/><br/></td></tr>
+</tbody>
 </table>
 XlsIO provides support for reading and writing various built-in and custom number formats in a cell by using the **NumberFormat** property of **IRange** interface.
 
@@ -858,7 +862,7 @@ The screen-shot of the above code is shown below.
 
 **Access** **number** **format** **applied** **results** **at** **runtime**
 
-Cell values can be accessed as __Text__, __Number__, __DateTime__ and __Formula__ of __IRange__ interface. In addition to this, there is another property __**DisplayText**__ in __IRange__, which returns a resultant value of a cell with its number format applied.
+Cell values can be accessed as __Text__, __Number__, __DateTime__ and __Formula__ of __IRange__ interface. In addition to this, there is another property __DisplayText__ in __IRange__, which returns a resultant value of a cell with its number format applied.
 
 The following code example illustrates how to get display text of a cell.
 
@@ -930,6 +934,26 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}    
 
+You can set **IWorkbook**.**DetectDateTimeInValue** property as ‘false’ with Value2 property, if you are sure that the given value is not of DateTime data type which improves time performance. 
+
+{% tabs %}  
+
+{% highlight c# %}
+workbook.DetectDateTimeInValue = false;
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+workbook.DetectDateTimeInValue = False
+
+
+
+{% endhighlight %}
+
+  {% endtabs %}  
+  
 ## Apply Cell Text Alignment
 
 The following are the alignment options that XlsIO supports.

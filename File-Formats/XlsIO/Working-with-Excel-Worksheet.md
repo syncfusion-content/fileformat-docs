@@ -141,6 +141,26 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}   
 
+T>If the workbook contains multiple worksheet, then the parsing of the workbook will consume time. You can use **ExcelParseOptions****.****ParseWorksheetsOnDemand** in IWorkbooks.Open method which parses the worksheet only when their accessed. This option can be used in a scenario where workbook contains multiple worksheets but you are going to use few worksheets among them.
+
+{% tabs %}  
+
+{% highlight c# %}
+IWorkbook workbook = application.Workbooks.Open(fileName,ExcelParseOptions.ParseWorksheetsOnDemand);
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim workbook As IWorkbook = application.Workbooks.Open(fileName, ExcelParseOptions.ParseWorksheetsOnDemand)
+
+
+
+{% endhighlight %}
+
+  {% endtabs %}  
+  
 ## Remove a Worksheet
 
 Deletes the worksheets from the workbook collection by accessing the worksheet.
@@ -382,7 +402,7 @@ excelEngine.Dispose()
 
 ## Freeze Panes 	
 
-You can [freeze ](https://support.office.com/en-au/article/Freeze-rows-and-columns-32b23056-d13b-4b2d-aabb-de55a4c2f708# "")a portion of the sheet to keep it visible while you scroll through the rest of the sheet. The following code snippet shows how to freeze panes through the FreezePanes method of **IRange**. 
+You can [freeze](https://support.office.com/en-au/article/Freeze-rows-and-columns-32b23056-d13b-4b2d-aabb-de55a4c2f708#)a portion of the sheet to keep it visible while you scroll through the rest of the sheet. The following code snippet shows how to freeze panes through the FreezePanes method of **IRange**. 
 
 
 {% tabs %}  
@@ -503,7 +523,7 @@ excelEngine.Dispose()
 
 ## Split Panes 
 
-You can divide the window into different [panes](https://support.office.com/en-AU/article/Split-panes-to-lock-rows-or-columns-in-separate-worksheet-areas-516a7001-b3ed-4122-a6bb-fd6d4a9d6434# "") that each scroll separately. The following code snippets illustrates how to split the window through the **HorizontalSplit** and **VerticalSplit** properties.
+You can divide the window into different [panes](https://support.office.com/en-AU/article/Split-panes-to-lock-rows-or-columns-in-separate-worksheet-areas-516a7001-b3ed-4122-a6bb-fd6d4a9d6434#) that each scroll separately. The following code snippets illustrates how to split the window through the **HorizontalSplit** and **VerticalSplit** properties.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1285,5 +1305,5 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-# 
+
 

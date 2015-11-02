@@ -7,11 +7,11 @@ documentation: UG
 ---
 # Working with Formulas
 
-[Formulas](https://support.office.com/en-ca/article/Overview-of-formulas-7abfda78-eff3-4cc6-b4a7-6350d512d2dc# "") are entries in Excel that have equations, by which values are calculated. A typical formula might contain cell references, constants, and even functions. 
+[Formulas](https://support.office.com/en-ca/article/Overview-of-formulas-7abfda78-eff3-4cc6-b4a7-6350d512d2dc#) are entries in Excel that have equations, by which values are calculated. A typical formula might contain cell references, constants, and even functions. 
 
 ## Enable and Disable Calculation
 
-To perform calculation in an Excel workbook, it is recommended to invoke **EnableSheetCalculations** method of __IWorksheet__. Enabling this method will initialize [CalcEngine](#_Calculation_Engine "") objects and retrieves calculated values of formulas in a worksheet. 
+To perform calculation in an Excel workbook, it is recommended to invoke **EnableSheetCalculations** method of __IWorksheet__. Enabling this method will initialize [CalcEngine](/file-formats/xlsio/calculation_engine) objects and retrieves calculated values of formulas in a worksheet. 
 
 The following code sample illustrates on how to enable worksheet formula calculations.
 
@@ -37,7 +37,7 @@ sheet.EnableSheetCalculations()
 {% endhighlight %}
 {% endtabs %}   
 
-On completion of worksheet calculation, it is recommended to invoke **DisableSheetCalculations** method of __IWorksheet__. This will dispose all the [CalcEngine](#_Calculation_Engine "") objects.
+On completion of worksheet calculation, it is recommended to invoke **DisableSheetCalculations** method of __IWorksheet__. This will dispose all the [CalcEngine](/file-formats/xlsio/calculation_engine) objects.
 
 The following code sample illustrates on how to disable worksheet formula calculations.
 
@@ -215,7 +215,7 @@ Dim formula as String = sheet("C1").Formula
 
 ## Accessing a Calculated value
 
-To evaluate formula, it is must to [enable sheet calculation](#_Enable_and_Disable "") in prior. After enabling the sheet calculation, the formula can be evaluated using **CalculatedValue** of __IRange__, which returns a string value.
+To evaluate formula, it is must to [enable sheet calculation](/file-formats/xlsio/enable_and_disable_calculation) in prior. After enabling the sheet calculation, the formula can be evaluated using **CalculatedValue** of __IRange__, which returns a string value.
 
 The following code shows how to access a calculated value.
 
@@ -625,9 +625,10 @@ XlsIO supports all the formulas supported by Excel. Whereas, below is the list o
 
 <table>
 <tr>
-<td>
-**Functions**<br/><br/></td><td>
-**Description**<br/><br/></td></tr>
+<th>
+Functions<br/><br/></th><th>
+Description<br/><br/></th></tr>
+<tbody>
 <tr>
 <td>
 ABS<br/><br/></td><td>
@@ -1756,10 +1757,12 @@ Returns the logical value FALSE<br/><br/></td></tr>
 <td>
 TRUE<br/><br/></td><td>
 Returns the logical value TRUE<br/><br/></td></tr>
+</tbody>
 </table>
+
 ## Add-In Functions
 
-Add-Ins are mini-programs or custom functions that enhance the feature set of the Microsoft Excel application. These Add-Ins can be accessed by registering it at first from Excel and refer it using XlsIO. For more details on adding AddIn functions, see [Add or remove add-ins](https://support.office.com/en-ZA/article/add-or-remove-add-ins-64d3d147-98fb-4b82-8833-709d54e3ace1# "").
+Add-Ins are mini-programs or custom functions that enhance the feature set of the Microsoft Excel application. These Add-Ins can be accessed by registering it at first from Excel and refer it using XlsIO. For more details on adding AddIn functions, see [Add or remove add-ins](https://support.office.com/en-ZA/article/add-or-remove-add-ins-64d3d147-98fb-4b82-8833-709d54e3ace1#)
 
 The following code illustrates on how to include and access Add-Ins in XlsIO.
 
@@ -1881,7 +1884,7 @@ I> If you move the file to another computer, or distribute it, the workbook will
 
 ## Defined Names
 
-Cell ranges can be [defined by names](https://support.office.com/en-ZA/article/define-and-use-names-in-formulas-b2bacf14-945d-41d4-b3aa-267b18a23f6e# "") to perform formula calculation. This section explains about creating named ranges and accessing them from workbook or worksheet levels.
+Cell ranges can be [defined by names](https://support.office.com/en-ZA/article/define-and-use-names-in-formulas-b2bacf14-945d-41d4-b3aa-267b18a23f6e#) to perform formula calculation. This section explains about creating named ranges and accessing them from workbook or worksheet levels.
 
 The following code shows how to define a named range from workbook level.
 
@@ -2143,7 +2146,7 @@ Calculate engines provides certain options like calculation modes, Recalculate b
 
 ### Calculation Modes
 
-There are various calculation [modes](https://support.office.com/en-ZA/article/Formula-calculation-performance-and-error-handling-options-805928aa-6fc0-4787-b41c-fcdb65113423# "") that enable users to customize formula calculations according to their needs. They are:
+There are various calculation [modes](https://support.office.com/en-ZA/article/Formula-calculation-performance-and-error-handling-options-805928aa-6fc0-4787-b41c-fcdb65113423#) that enable users to customize formula calculations according to their needs. They are:
 
 * Automatic
 * Automatic except for Data Tables
