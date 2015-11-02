@@ -10,7 +10,7 @@ documentation: UG
 
 PivotCharts are interactive graphical representations of PivotTable data that allows rapid analysis of the displayed data. In XlsIO, **PivotCharts** are created by __IChart__ interface by setting its pivot source as __PivotTable__.
 
-I> XlsIO provides PivotCharts support for XLSX format.
+N> XlsIO provides PivotCharts support for XLSX format.
 
 To create a pivot table refer [Create Pivot Table](/file-formats/xlsio/working-with-pivot-tables#create-a-pivot-table). 
 
@@ -95,7 +95,7 @@ excelEngine.Dispose()
 
 The following code snippet shows how to set field buttons in a pivot chart.
 
-I> PivotChart properties are exclusive for Excel 2010 version.
+N> PivotChart properties are exclusive for Excel 2010 version.
 
 {% tabs %}  
 

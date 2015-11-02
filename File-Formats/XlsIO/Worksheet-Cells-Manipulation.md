@@ -14,7 +14,7 @@ The **IRange** interface represents a single cell or a group of cells in a works
 
 The following code shows the different ways of accessing a single cell or group of cells
 
-I> Here row and column indexes in the range are "one based". 
+N> Here row and column indexes in the range are "one based". 
 
 {% tabs %}  
 {% highlight c# %}
@@ -186,7 +186,7 @@ excelEngine.Dispose()
 
 ### Accessing a Cell or Range using IMigrantRange 
 
-The **IMigrantRange** interface can also be used to access a single cell or group of cells and manipulate it.  You can prefer IMigrantRange instead of IRange while writing large amount of data which is an optimal way. For more information about IMigrantRange, [Tips](/file-formats/xlsio/tips) 
+The **IMigrantRange** interface can also be used to access a single cell or group of cells and manipulate it.  You can prefer IMigrantRange instead of IRange while writing large amount of data which is an optimal way. 
 
 {% tabs %}  
 {% highlight c# %}
@@ -280,7 +280,7 @@ excelEngine.Dispose()
 
 The following code snippet shows how to get the range of cells used in a given sheet.
 
-I> By default, XlsIO considers a cell as used, even if there exists some formatting alone. You can disable this behavior, and make XlsIO consider a cell as used, only when there exists data, by using the UsedRangeIncludesFormatting property.
+N> By default, XlsIO considers a cell as used, even if there exists some formatting alone. You can disable this behavior, and make XlsIO consider a cell as used, only when there exists data, by using the UsedRangeIncludesFormatting property.
 
 {% tabs %}  
 {% highlight c# %}
@@ -470,7 +470,7 @@ excelEngine.Dispose()
 
 **MoveTo** method is used for moving a range of cells to another range as shown below. 
 
-I> MoveTo method does not update formulas.
+N> MoveTo method does not update formulas.
 
 {% tabs %}  
 {% highlight c# %}
@@ -534,9 +534,9 @@ excelEngine.Dispose()
 
 ## Find and Replace
 
-You can use [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33#) options to replace text, jump right to a specific spot, or pick other ways to narrow your search. ExcelFindType and ExcelFindOptions enumerators are used for effective search results. LINK- API reference for ExcelFindType and ExcelFindOptions.
+You can use [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33#) options to replace text, jump right to a specific spot, or pick other ways to narrow your search. ExcelFindType and ExcelFindOptions enumerators are used for effective search results. To know more about FindType, please refer ExcelFindType enumeration in API section.
 
-You can find all occurrences of a text in worksheet by using FindAll method. LINK- API reference for FindAll overload methods.
+You can find all occurrences of a text in worksheet by using FindAll method. To know more about Find and Replace, please refer **WorksheetImpl** in API section.
 
 The following code illustrates how to find all occurrences of text in worksheet with different find options.
 
@@ -607,7 +607,7 @@ excelEngine.Dispose()
 
 You can replace a text with another text with help of Replace method which searches for text you’d like to change, and replace it with something else. You can replace a string, with the data of various data types and data sources, such as data table, data column and array. 
 
-LINK- API reference for Replace overload methods.
+To know more about replace overloads, please refer **WorksheetImpl** in API section.
 
 Following code example illustrates how to replace strings with various data.
 
@@ -699,7 +699,7 @@ You can sort a range of cells based on data in one or more columns. You can perf
 * Based on Font Color
 * Based on Cell Color
 
-I> Currently XlsIO don’t support sorting based on cell icon, parsing and serialization of its sorting details.
+N> Currently XlsIO don’t support sorting based on cell icon, parsing and serialization of its sorting details.
 
 **Based** **on** **Cell** **Values**
 

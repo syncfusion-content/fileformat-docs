@@ -243,7 +243,7 @@ excelEngine.Dispose()
 <td>
 %&lt;DataSource&gt;.&lt;FieldName&gt; <br/><br/>For example: %Products.ProductName<br/><br/>Where, “Products” is a data source which can be data tables, datasets, data readers and data views and ProductName is the field name or column name<br/><br/></td></tr>
 </table>
-By default, DataTable values will be filled in the worksheet as a string format. You can the detect datatype and number format of DataTable values by using VariableTypeAction enumerator. LINK- API reference to VariableTypeAction enum.
+By default, DataTable values will be filled in the worksheet as a string format. You can the detect datatype and number format of DataTable values by using VariableTypeAction enumerator. To know more about the VariableTypeAction enumerator, please refer **VariableTypeAction** in API section.
 
 Here is the screen shot of input template which has a template marker.
 
@@ -403,7 +403,7 @@ __Marker__ __added__ __for__ __merging__ __images__
 
 I> Image can be used in array, DataTable and Business objects.
 
-Different position of image are maintained internally in ImageVerticalPosition and ImageHorizontalPosition enumerators.  LINK- API reference of the position of the image in template marker.
+Different position of image are maintained internally in ImageVerticalPosition and ImageHorizontalPosition enumerators.  To know more about this, please refer **ImageVerticalPosition** and **ImageHorizontalPosition** enumerators in API section.
 
 The output screens of all the image insertion options along with its input templates are as follows.
 
@@ -467,7 +467,7 @@ Generated Output
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg)
 
 
-You can also refer [__Template__ __based__ __data__ __filling__ __using__ __Template__ __Markers__](/file-formats/xlsio/getting-started#template-based-data-filling-using-template-markers) section in [__Getting__ __Started__](/file-formats/xlsio/getting-started) for the sample regarding template marker with images. LINK- Refer to Template based data filling using Template Markers
+You can also refer [__Template__ __based__ __data__ __filling__ __using__ __Template__ __Markers__](/file-formats/xlsio/getting-started#template-based-data-filling-using-template-markers) section in [__Getting__ __Started__](/file-formats/xlsio/getting-started) for the sample regarding template marker with images.
 
 ## Template Marker with Conditional Formatting
 

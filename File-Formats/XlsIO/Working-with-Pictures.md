@@ -1,11 +1,11 @@
 ---
-title: Insert Pictures
+title: Working with Pictures
 description: Briefs about inserting pictures in XlsIO
 platform: File-Formats
 control: XlsIO
 documentation: UG
 ---
-# Insert Pictures 
+# Working with Pictures 
 
 XlsIO allows to insert Pictures into a worksheet. The following code snippet shows how to insert picture using XlsIO. 
 
@@ -123,17 +123,17 @@ Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, "Image.png")
 
 'Positioning a Picture
 
-shape.Top = 100;
+shape.Top = 100
 
-shape.Left = 100;
+shape.Left = 100
 
 'Re-sizing a Picture
 
-shape.Height = 100;
+shape.Height = 100
 
-shape.Width = 100;
+shape.Width = 100
 
-workbook.SaveAs("AddingImage.xlsx");
+workbook.SaveAs("AddingImage.xlsx")
 
 workbook.Close()
 

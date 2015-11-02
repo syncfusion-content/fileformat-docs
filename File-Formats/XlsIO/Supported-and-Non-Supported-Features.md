@@ -1,6 +1,6 @@
 ---
-title: Supported and Non- Supported Features
-description: Briefs about supported and non-supported features in XlsIO
+title: Supported and Non- Supported Elements
+description: Briefs about supported and non-supported elements in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -513,20 +513,10 @@ Themes<br/><br/></td><td>
 -<br/><br/></td><td>
 -<br/><br/></td><td>
 -<br/><br/></td><td>
-Yes<br/><br/></td><td>
+Yes<br/>partial<br/><br/></td><td>
 No<br/><br/></td><td>
 -<br/><br/></td><td>
 -<br/><br/></td></tr>
-<tr>
-<td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-partial<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td></tr>
 <tr>
 <td>
 Cell gradient<br/><br/></td><td>

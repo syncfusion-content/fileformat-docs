@@ -132,7 +132,7 @@ listValidation.ListOfValues = New String() {"ListItem1", "ListItem2", "ListItem3
 {% endhighlight %}
 {% endtabs %}   
 
-I> ListOfValues property should be used when the values in the Data Validation list are entered manually whose limit is only 255 characters including separators.
+N> ListOfValues property should be used when the values in the Data Validation list are entered manually whose limit is only 255 characters including separators.
 
 ## Number Validation
 

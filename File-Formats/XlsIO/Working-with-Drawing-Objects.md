@@ -12,9 +12,9 @@ documentation: UG
 
 You can add and manipulate the text Box, option button, check box and combo box controls into the worksheet. These controls enables to create forms which are very user friendly.
 
-I> Support for Active X Form controls is not yet available.
+N> Support for Active X Form controls is not yet available.
 
-This section explains the usage of the following [Form Controls] (https://support.office.com/en-us/article/Overview-of-forms-Form-controls-and-ActiveX-controls-on-a-worksheet-15BA7E28-8D7F-42AB-9470-FFB9AB94E7C2#bmcontrols_on_the_forms_toolbar).
+This section explains the usage of the following [Form Controls](https://support.office.com/en-us/article/Overview-of-forms-Form-controls-and-ActiveX-controls-on-a-worksheet-15BA7E28-8D7F-42AB-9470-FFB9AB94E7C2#bmcontrols_on_the_forms_toolbar).
 
 * Text Box
 * Check Box
@@ -393,9 +393,9 @@ excelEngine.Dispose()
 
 ### Option Button
 
-**IOptionButtonShape** object represents a combo box in a worksheet. The following code example illustrates how to insert and manipulate an option button control.
+**IOptionButtonShape** object represents an option button in a worksheet. The following code example illustrates how to insert and manipulate an option button control.
 
-I> XlsIO provides Option button support for only XLSX format.
+N> XlsIO provides Option button support for only XLSX format.
 
 {% tabs %}  
 
@@ -761,7 +761,7 @@ excelEngine.Dispose()
 
 The **IShape** interface represents the [AutoShapes](https://support.office.com/en-ca/article/Add-change-or-delete-shapes-4f7931c3-7794-440e-820e-9469ad756f05#) in an Excel workbook. 
 
-LINK- API reference for AutoShapeType enum.
+To know more about various auto shape types supported in XlsIO, please refer **AutoShapeType** enumeration in API section.
 
 The following code example illustrates how to insert and format autoshapes.
 
@@ -871,7 +871,7 @@ excelEngine.Dispose()
 
 **IOleObject** object represents an [OLE Objects](https://support.office.com/en-US/article/Create-change-or-delete-an-OLE-object-F767F0F1-4170-4850-9B96-0B6C07EC6EA4#) in a worksheet. 
 
-I> XlsIO provides OLE Objects support for XLSX format in Windows, ASP.NET and WPF platforms only.
+N> XlsIO provides OLE Objects support for XLSX format in Windows, ASP.NET and WPF platforms only.
 
 **OLE** **Objects** **and** **Linking** **Types**
 
@@ -884,7 +884,7 @@ XlsIO supports two types of association of objects:
 
 Linked objects remain as a separate files. When the file is opened in another machine, then linked object should be in the same location as created.
 
-The following sample code illustrates how to linking an OLE Object to an Excel document.
+The following sample code illustrates how to link an OLE Object to an Excel document.
 
 {% tabs %}  
 
@@ -1010,7 +1010,7 @@ excelEngine.Dispose()
 
 The following code example illustrates how to insert and manipulate OLEObjects with their properties. 
 
-LINK- API reference to IOleObjects
+To know more about OLEObjects, refer **IOleObjects** in API section.
 
 {% tabs %}  
 

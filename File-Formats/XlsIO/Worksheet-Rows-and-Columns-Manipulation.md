@@ -75,9 +75,9 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-I> Row and Column index of Insert methods are "one based".
+N> Row and Column index of Insert methods are "one based".
 
-LINK: API Reference
+To know more about inset rows and columns, please refer **WorksheetImpl** in API section.
 
 ## Delete Rows and Columns 
 
@@ -227,9 +227,9 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-I> Deletion by using above method is more efficient than looping.
+N> Deletion by using above method is more efficient than looping.
 
-I> Row/Column index of these methods are "one based".
+N> Row/Column index of these methods are "one based".
 
 ## Show or Hide Rows and Columns 
 
@@ -511,9 +511,9 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-I> If a column width or a row height is 0, then the column/row is hidden.
+N> If a column width or a row height is 0, then the column/row is hidden.
 
-I> Column width and row height can also be set in pixels, by using the IWorksheet.SetColumnWidthInPixel and IWorksheet.SetRowHeightInPixel methods respectively.
+N> Column width and row height can also be set in pixels, by using the IWorksheet.SetColumnWidthInPixel and IWorksheet.SetRowHeightInPixel methods respectively.
 
 ## Auto-Fit Rows and Columns
 
@@ -595,7 +595,7 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-I> Row and Column indexes are "one based".
+N> Row and Column indexes are "one based".
 
 There is an alternative way to auto-fit row or column is by accessing the row or column, which is shown in the below code snippet.
 
@@ -627,7 +627,7 @@ worksheet.Columns[0].AutofitColumns()
 {% endhighlight %}
 {% endtabs %}  
 
-I> Here column and row indexes are "zero based".
+N> Here column and row indexes are "zero based".
 
 ### Auto-Fit Multiple Rows or Columns
 
@@ -713,11 +713,11 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-I> 1) If a Range is text wrapped, AutoFitColumn method will not be applied on it.
+N> 1) If a Range is text wrapped, AutoFitColumn method will not be applied on it.
 
-I> 2) If a Range is merged, Auto-Fit methods will not be applied on it. Note that this is the behavior of Excel as well.
+N> 2) If a Range is merged, Auto-Fit methods will not be applied on it. Note that this is the behavior of Excel as well.
 
-I> 3) Auto fitting is a time consuming process so it might cause performance issues when used excessively.
+N> 3) Auto fitting is a time consuming process so it might cause performance issues when used excessively.
 
 ## Group or Ungroup Rows and Columns 
 
@@ -947,12 +947,12 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-I> Here column and row indexes are "zero based".
+N> Here column and row indexes are "zero based".
 
 The screenshot of the output with SubTotal generated from the above code.
 
 ![](Worksheet-Rows-and-Columns-Manipulation_images/Worksheet-Rows-and-Columns-Manipulation_img1.jpeg)
 
 
-I> Summary of a group can be shown above rows and left of column using the IsSummaryRowBelow and IsSummaryColumnRight properties of IPageSetup interface. By default, these properties were set to TRUE.
+N> Summary of a group can be shown above rows and left of column using the IsSummaryRowBelow and IsSummaryColumnRight properties of IPageSetup interface. By default, these properties were set to TRUE.
 

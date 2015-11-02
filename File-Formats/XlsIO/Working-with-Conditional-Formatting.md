@@ -287,9 +287,9 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-I> Excel allows the addition of a maximum of three conditions for the same cell in the Biff8 format and hence XlsIO. However, this restriction is removed from Excel 2007 formats.
+N> Excel allows the addition of a maximum of three conditions for the same cell in the Biff8 format and hence XlsIO. However, this restriction is removed from Excel 2007 formats.
 
-I> The conditional formats for a single range should be added in descending order of priority in XlsIO.
+N> The conditional formats for a single range should be added in descending order of priority in XlsIO.
 
 When proper criteria are met, the output file looks like the below one.
 
@@ -944,5 +944,5 @@ excelEngine.Dispose()
 
 __Excel__ __with__ __Conditional__ __Formatting__
 
-I> XlsIO visualization has been enhanced with backward compatibility for Advanced Conditional Formatting.
+N> XlsIO visualization has been enhanced with backward compatibility for Advanced Conditional Formatting.
 
