@@ -1,6 +1,6 @@
 ---
 title: Working with Color Spaces
-description: This section explains how to create a PDF document with the specified colorspace
+description: This section explains how to create a PDF document with the specified color space
 platform: Fileformat
 control: PDF
 documentation: UG
@@ -9,13 +9,13 @@ documentation: UG
 
 Essential PDF allows you to set the color spaces in the following different ways.
 
-* Document colorspace
-* Graphics colorspace
+* Document Color Space
+* Graphics Color Space
 
 ## Working with color space in document 
 
 
-You can set the color space by using ColorSpace property in PDF document.
+You can set the color space by using Color Space property in PDF document.
 
 It supports the following types
 
@@ -23,7 +23,7 @@ It supports the following types
 * CIE-based Color Spaces
 * ICC-based Color Spaces
 
-## Device colorspace
+## Device Color Space
 
 
 Device color space simply describes the range of colors that a camera can see, a printer can print, or a monitor can display. These color spaces depend upon the device where it is displayed. It contains the following types.

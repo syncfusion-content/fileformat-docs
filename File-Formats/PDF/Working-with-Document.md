@@ -838,5 +838,4 @@ document.Close(True)
 
 ## Adding document action
 
-Please refer to the actions section for more document level operations using the PdfJavascript and PDF actions.
-[Action](/file-formats/pdf/working-with-action "Working with action")
+Please refer to the [actions](/file-formats/pdf/working-with-action "Working with action") section for more document level operations using the PdfJavascript and PDF actions.

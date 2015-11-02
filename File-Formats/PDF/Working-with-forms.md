@@ -2134,8 +2134,6 @@ loadedDocument.Close(True)
 
 The form field editing or filling capabilities can be removed by either flattening the PDF document or by marking the form or field as read only.
 
-Flattening form field
-
 Essential PDF provides support to flatten a form field by removing the existing form field and replacing it with graphical objects that would resemble the form field and cannot be edited.
 
 Please refer the sample for flattening the form fields in new PDF document.
@@ -2298,7 +2296,6 @@ loadedDocument.Close(True)
 
 {% endtabs %}  
 
-Adding read only property 
 
 To prevent the user from changing the form field content, you can also use Read-only property.
 
@@ -2690,7 +2687,7 @@ loadedDocument.Close(True)
 
 N>Essential PDF allows users to preserve the extended rights for form filling alone.
 
-## Trouble Shooting
+## Troubleshooting
 
 
 

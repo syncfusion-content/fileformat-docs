@@ -166,10 +166,8 @@ Dim loadedDocument As New PdfLoadedDocument(byteArray, True)
 
 {% endhighlight %}
 {% endtabs %}
-N> Note:
 
 N> 1. The OpenAndRepair overload is capable of resolving basic cross reference offset issues and cannot repair complex document corruption.
-
 N> 2.  Using this overload may cause performance delay when compared with other overloads, due to the repairing process.
 
 ## Saving a PDF document to file system
@@ -316,9 +314,6 @@ loadedDocument.Close(True)
 {% endhighlight %}
 {% endtabs %}
 
-N> Note: 
-
 N> Close() method will dispose all the memory consumed by PDF DOM.
-
 N> Close(true) method will dispose all the memory consumed by PDF DOM as well as disposes its document stream
 

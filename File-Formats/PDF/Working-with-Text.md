@@ -149,7 +149,7 @@ Essential PDF allows you to add text to the PDF document using the following typ
 
 PDF has fourteen base fonts, also known as standard fonts which has special significance. The details can be referred from the link below.
 
-[Standard type 1 fonts](https://en.wikipedia.org/wiki/Portable_Document_Format#Standard_Type_1_Fonts_.28Standard_14_Fonts.29 "")
+[Standard type 1 fonts](https://en.wikipedia.org/wiki/Portable_Document_Format#Standard_Type_1_Fonts_.28Standard_14_Fonts.29)
 
 You can add text using the standard PDF fonts by using the following code snippet. 
 
@@ -1027,8 +1027,7 @@ doc.Close(True)
 {% endtabs %}
 
 
-N> For converting complex RTF content to PDF, refer the RTF to PDF section
-N> [RTF to PDF](/file-formats/pdf/working-with-document-conversions#converting-rtf-documents-to-pdf "Working with document conversions")
+N> For converting complex RTF content to PDF, refer the [RTF to PDF](/file-formats/pdf/working-with-document-conversions#converting-rtf-documents-to-pdf "Working with document conversions") section.
 
 ## Adding an Ordered List 
 

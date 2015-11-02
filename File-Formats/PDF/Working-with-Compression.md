@@ -11,8 +11,8 @@ Essential PDF allows you to compress the PDF document and thereby reduce the fil
 
 1) Content compression
 2) Image compression
-## Compressing the PDF content
 
+## Compressing the PDF content
 
 Essential PDF allows you to control the compression level of the document by using the PdfCompressionLevel ENUM. The compression level can be set to best, normal, none etc...
 

@@ -12,12 +12,12 @@ Essential PDF provides support for Optical Character Recognition with the help o
 
 ## Prerequisites and setting up the Tesseract Engine
 
-1. To use the OCR feature in your application, you need to add reference to the following set of assemblies.
-* Syncfusion.Compression.Base.dll
-* Syncfusion.Pdf.Base.dll
-* Syncfusion.OCRProcessor.Base.dll
+* To use the OCR feature in your application, you need to add reference to the following set of assemblies.
+1. Syncfusion.Compression.Base.dll
+2. Syncfusion.Pdf.Base.dll
+3. Syncfusion.OCRProcessor.Base.dll
 
-2. Place the SyncfusionTesseract.dll and liblept168.dll Tesseract assemblies (available in the installed location Installation Location>>\Syncfusion\Essential Studio\<<Version Number>>\OCRProcessor) in the local system and provide the assembly path to the OCR processor.
+* Place the SyncfusionTesseract.dll and liblept168.dll Tesseract assemblies (available in the installed location Installation Location>>\Syncfusion\Essential Studio\<<Version Number>>\OCRProcessor) in the local system and provide the assembly path to the OCR processor.
 
 {% tabs %}  
 
@@ -42,7 +42,7 @@ Dim processor As New OCRProcessor("TesseractBinaries\")
 
 {% endtabs %}  
 
-3. Place the Tesseract language data {E.g eng.traineddata} (available in the installed location <<Installation Location>>\Syncfusion\Essential Studio\<<Version Number>>\OCRProcessor) in the local system and provide a path to the OCR processor 
+* Place the Tesseract language data {E.g eng.traineddata} (available in the installed location <<Installation Location>>\Syncfusion\Essential Studio\<<Version Number>>\OCRProcessor) in the local system and provide a path to the OCR processor 
 
 {% tabs %}  
 
@@ -122,7 +122,7 @@ lDoc.Close(true);
 
 
 
-'Initialize the OCR processor by providing the path of tesseract                  binaries(SyncfusionTesseract.dll and liblept168.dll)
+'Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
 
 Using processor As New OCRProcessor("TesseractBinaries\")
 
@@ -152,9 +152,7 @@ End Using
 
 {% endtabs %} 
 
-Note:
-
-The PerformOCR method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page won’t be returned in this method. Please check <<text extraction link>> for this.
+N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page won’t be returned in this method. Please check [text extraction](/file-formats/pdf/Working-with-Text-Extraction) feature for this.
 
 ## Performing OCR for a region of the document
 
@@ -325,18 +323,18 @@ End Using
 
 ## Best Practices
 
-1. You can improve the accuracy of the OCR process by choosing the correct compression method when converting the scanned paper to a TIFF image and then to a PDF document.
+**You can improve the accuracy of the OCR process by choosing the correct compression method when converting the scanned paper to a TIFF image and then to a PDF document.**
 * Use (zip) lossless compression for color or gray-scale images.
 * Use CCITT Group 4 or JBIG2 (lossless) compression for monochrome images. This ensures that optical character recognition works on the highest-quality image, thereby improving the OCR accuracy. This is especially useful in low-resolution scans.
 * In addition, rotated images and skewed images can also affect the accuracy and readability of the OCR process.
 
-2. Tesseract works best with text when at least 300 dots per inch (DPI) are used, so it is beneficial to resize images.
+**Tesseract works best with text when at least 300 dots per inch (DPI) are used, so it is beneficial to resize images.**
 
 For more details regarding quality improvement, refer to the following link:
 
 [https://code.google.com/p/tesseract-ocr/wiki/ImproveQuality](https://code.google.com/p/tesseract-ocr/wiki/ImproveQuality# )
 
-3. You can set the different performance level to the OCRProcessor using “Performance” enumeration.
+**You can set the different performance level to the OCRProcessor using “Performance” enumeration.**
 * Rapid – high speed OCR performance and provide normal OCR accuracy
 * Fast – provides moderate OCR processing speed and accuracy
 * Slow – Slow OCR performance and provide best OCR accuracy.
@@ -375,9 +373,9 @@ processor.Settings.Performance = Performance.Fast
 
 ## Troubleshooting
 
-1. Issue: You can get the exception “Tesseract has not been initialized” while performing OCR process. 
+**Issue:** You can get the exception “Tesseract has not been initialized” while performing OCR process. 
 
-Solution: To resolve this, make sure the path of the Tesseract binaries and Tesseract data are properly provided as shown below.
+**Solution:** To resolve this, make sure the path of the Tesseract binaries and Tesseract data are properly provided as shown below.
 
 {% tabs %}  
 
@@ -413,9 +411,9 @@ processor.PerformOCR(lDoc, "Tessdata\")
 
 {% endtabs %}  
 
-2. Issue: OCR processor doesn’t process languages other than English.
+**Issue:** OCR processor doesn’t process languages other than English.
 
-Solution: Essential PDF supports all the languages supported by Tesseract engine.
+**Solution:** Essential PDF supports all the languages supported by Tesseract engine.
 
 The dictionary packs for the languages can be downloaded from the following online location:
 
@@ -425,5 +423,5 @@ It is also mandatory to change the corresponding language code in the OCRProcess
 
 The following link contains the complete set of languages supported by Tesseract and their language codes.
 
-http://tesseract-ocr.googlecode.com/svn/trunk/doc/tesseract.1.html#_languages
+[http://tesseract-ocr.googlecode.com/svn/trunk/doc/tesseract.1.html#_languages](http://tesseract-ocr.googlecode.com/svn/trunk/doc/tesseract.1.html#_languages)
 

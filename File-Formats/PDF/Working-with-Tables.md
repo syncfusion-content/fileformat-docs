@@ -227,7 +227,7 @@ doc.Close(True)
 
 ### Creating a simple table using PdfLightTable in an existing document
 
-You can create table using PdfLightTable in the existing document by using the followind code sample
+You can create table using PdfLightTable in the existing document by using the following code sample
 
 {% tabs %}
 
@@ -314,7 +314,7 @@ doc.Close(True)
 {% endhighlight %}
 {% endtabs %}
 
-### Creating a simple table using PdfGrid in the a document
+### Creating a simple table using PdfGrid in a new document
 
 PdfGrid allows you to create table by entering the data manually or from an external data source. The datasource can be a data set, data table, arrays or a IEnumerable object.
 

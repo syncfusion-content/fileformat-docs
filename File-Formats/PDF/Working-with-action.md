@@ -213,11 +213,8 @@ document.Close(True)
 {% endhighlight %}
 {% endtabs %}
 
-N>  
-
-You can refer more PDF JavaScript code in **PdfJavaScriptAction** from the below developer guide.
-
-[http://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_developer_guide.pdf](http://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_developer_guide.pdf# "")
+N> You can refer more PDF JavaScript code in **PdfJavaScriptAction** from the below developer guide.
+N> [http://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_developer_guide.pdf](http://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_developer_guide.pdf)
 
 ### URI action
 

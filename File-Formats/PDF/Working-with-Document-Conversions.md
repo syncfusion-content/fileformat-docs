@@ -515,21 +515,21 @@ pdfDocument.Close(True)
 
 #### Troubleshooting
 
-1. The following conditions may occur while converting HTML to PDF by using the IE rendering engine.
+**Issue:**
+The following conditions may occur while converting HTML to PDF by using the IE rendering engine.
 * Converted PDF document contains content as a Bitmap.
 * Page break may not be applied in the resultant PDF document.
 * Text could not be selectable in the PDF document
 * Converted PDF is blurry.
 
+**Solution:**
 The above issues may occur in the machines with IE9 or later versions installed. As the Internet Explorer version 9 and above supports hardware acceleration, the rendered content would be in the form of Bitmap, where many features are not supported. 
 
 To overcome this issue, the key FEATURE_IVIEWOBJECTDRAW_DMLT9_WITH_GDI should be updated in the registry as explained in the link below. 
 
 [http://msdn.microsoft.com/en-us/library/ee330732(v=vs.85).aspx#iviewobject_draw](http://msdn.microsoft.com/en-us/library/ee330732(v=vs.85).aspx#iviewobject_draw)
 
-* You can run the utility placed in the following location to perform the above changes automatically.
-
-$system drive: \Program Files\Syncfusion\Essential Studio\$Version # \Utilities\PDF\Legacy Drawing
+* You can run the utility placed in ($system drive: \Program Files\Syncfusion\Essential Studio\$Version # \Utilities\PDF\Legacy Drawing) to perform the above changes automatically.
 
 * While manually changing the registry key, the changes should be done on both HKEY_LOCAL_MACHINE and HKEY_CURRENT_USER as below.
 
@@ -550,8 +550,10 @@ REG_DWORD<br/><br/></td><td>
 </tbody>
 </table>
 
-2. Images or other contents in the HTML are missing in the resultant PDF document
+**Issue:**
+Images or other contents in the HTML are missing in the resultant PDF document
 
+**Solution:**
 The issue may be due to the slow internet connection or due to the behavior that the conversion completed before the URL is loaded completely. To overcome this issue, add suitable delay to the conversion using AdditionalDelay property of the HTMLConverter.
 
 ### Conversion using WebKit Rendering
@@ -1015,19 +1017,17 @@ document.Close(True)
  
 #### Troubleshooting
 
-1. WebKit Converter may create PDF with blank pages under the following cases.
+**WebKit Converter may create PDF with blank pages under the following cases**
 
-** When the webpage (html) is not available/accessible. **
+1. When the webpage (html) is not available/accessible.
+2. When VC++ 2010 redistributable and OpenSSL package is not installed in the machine.
+3. When any Qt binaries are not available in the WebKitPath mentioned location.
 
-Solution
+**Solution 1:**
+Please check your internet connection and if the html page is available in the mentioned location.
 
-Please check your internet connection or the html webpage is not available in the mentioned location.
-
-** When VC++ 2010 redistributable and OpenSSL package is not installed in the machine, **
-
-Solution
-
-You can install the below mentioned download link to overcome the blank page issue,
+**Solution 2:**
+2. You can install the VC++ and OpenSSL packages from the below mentioned download links,
 
 X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555# )
 
@@ -1050,24 +1050,22 @@ Instead, the required assemblies below can added in the Windows system folder (f
 * libssl32.dll
 * ssleay32.dll
 
-** When any Qt binaries are not available in the WebKitPath mentioned location. **
-
-Solution
+**Solution 3:**
 
 You need to place the Qt binaries in the location where the conversion takes place and assign that location to the WebKitPath. The Qt binaries will be available in the WebKitHTMLConverter installed location ($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)
 
-2. Images or other contents in the HTML are missing in the resultant PDF document
+**Images or other contents in the HTML are missing in the resultant PDF document.**
 
 The issue may be due to the slow internet connection or due to the behavior that the conversion completed before the page is loaded completely.
 
-Solution
+**Solution**
 
 To overcome this issue, add suitable delay for the conversion using AdditionalDelay property of the HTMLConverter.
 
-3. Converter fails in Azure website, but it works in development machine,
-  * The converter can be used in Windows Azure Cloud Service but it cannot be used in Azure website due to lacks in administrator privilege and some restrictions which fails the conversion process. 
+**Converter fails in Azure website, but it works in development machine**
+The converter can be used in Windows Azure Cloud Service but it cannot be used in Azure website due to the lack of administrator privilege and few other  restrictions which fails the conversion process. 
 
-Solution
+**Solution**
 
 You can move the conversion part into the cloud service with web role and add service reference to your Azure website.
 
