@@ -100,6 +100,8 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
+T> You can use of GetText, SetText, GetNumber and SetNumber methods from worksheet object that enable users to get/set values without range object.
+
 ### Accessing Discontinuous Ranges
 
 You can also access discontinuous ranges and add them to the **RangesCollection**.  You can modify the contents or applying formatting of discontinuous range through RangeCollection instance. 
@@ -184,7 +186,7 @@ excelEngine.Dispose()
 
 ### Accessing a Cell or Range using IMigrantRange 
 
-The **IMigrantRange** interface can also be used to access a single cell or group of cells and manipulate it.  You can prefer IMigrantRange instead of IRange while writing large amount of data which is an optimal way. For more information about IMigrantRange, see LINK – tips 
+The **IMigrantRange** interface can also be used to access a single cell or group of cells and manipulate it.  You can prefer IMigrantRange instead of IRange while writing large amount of data which is an optimal way. For more information about IMigrantRange, [Tips](/file-formats/xlsio/tips) 
 
 {% tabs %}  
 {% highlight c# %}
@@ -532,7 +534,7 @@ excelEngine.Dispose()
 
 ## Find and Replace
 
-You can use [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33# "") options to replace text, jump right to a specific spot, or pick other ways to narrow your search. ExcelFindType and ExcelFindOptions enumerators are used for effective search results. LINK- API reference for ExcelFindType and ExcelFindOptions.
+You can use [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33#) options to replace text, jump right to a specific spot, or pick other ways to narrow your search. ExcelFindType and ExcelFindOptions enumerators are used for effective search results. LINK- API reference for ExcelFindType and ExcelFindOptions.
 
 You can find all occurrences of a text in worksheet by using FindAll method. LINK- API reference for FindAll overload methods.
 
@@ -1006,7 +1008,7 @@ excelEngine.Dispose()
 
 ## Data Filtering 
 
-Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e# ""), you can filter data to enable quick and easy way to find and work with a subset of data in a range of cells. When you filter data, entire rows are hidden if values in one or more columns don't meet the filtering criteria.
+Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e#), you can filter data to enable quick and easy way to find and work with a subset of data in a range of cells. When you filter data, entire rows are hidden if values in one or more columns don't meet the filtering criteria.
 
 The following code illustrates how to apply simple auto filters.
 
@@ -1461,5 +1463,5 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-# 
+
 

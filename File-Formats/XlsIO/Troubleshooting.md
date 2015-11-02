@@ -18,7 +18,7 @@ This may occur when there is an assembly conflict between the GAC assemblies and
 **Solution** 
 Try deleting ‘bin’ and ‘obj’ folders from the project and clear GAC assemblies using Syncfusion assembly manager from Syncfusion dashboard and then try the patch. Removing the GAC assemblies is explained in the below link.
 
-[http://help.syncfusion.com/ug/common/default.htm#!documents/assemblymanager.htm](http://help.syncfusion.com/ug/common/default.htm#!documents/assemblymanager.htm "")
+[Assembly Manager](http://help.syncfusion.com/ug/common/default.htm#!documents/assemblymanager.htm)
 
 ## Could not load file or assembly 'Syncfusion.XlsIO.Base, Version=xxxx, Culture=neutral, PublicKeyToken=xxxxxxxxxx' or one of its dependencies. The system cannot find the file specified.
 
@@ -40,7 +40,7 @@ The following properties must be ensured during deployment.
 
   * If the CopyLocal is set to **True** for all the Syncfusion assemblies in your project, then you have to place the Syncfusion assemblies in the Bin/local folder to ensure it ends up in the output directory so it can be found at runtime.
 
-For more details on Specific Version and Copy Local, see link. 
+For more details on Specific Version and Copy Local, see [link](https://social.msdn.microsoft.com/Forums/en-US/0891f0cb-1f9a-44c3-a93f-f81eefece6e8/specific-version-copy-local-settings-are-ignored?forum=netfxbcl). 
 
 
 

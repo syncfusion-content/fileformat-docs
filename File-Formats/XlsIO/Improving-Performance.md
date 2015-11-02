@@ -67,11 +67,179 @@ Next
 
 ## Range Access
 
-Use IMigrantRange instead of IRange to optimize performance while dealing with large data. LINK- Reference to Tips section.
+Use IMigrantRange instead of IRange to optimize performance while dealing with large data.
+
+The **IMigrantRange** interface can be used to access and manipulate worksheet range. This is an optimal method of writing values with better memory performance. 
+
+The following code example illustrates how the **IMigrantRange** is accessed.
+
+{% tabs %}  
+
+{% highlight c# %}
+IMigrantRange migrantRange = workbook.Worksheets[0].MigrantRange; 
+
+// Writing Data.
+for (int row = 1; row <= rowCount; row++)
+{
+for (int column = 1; column <= colCount; column++)
+{
+// Writing values.
+
+migrantRange.ResetRowColumn(row, column);
+
+// Setting value of this migrant range which is similar to IRange object.
+
+migrantRange.Value = "Syncfusion";        
+
+}
+}
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+'Writing Data.
+Dim row As Integer 
+Dim migrantRange As IMigrantRange = workbook.Worksheets(0).MigrantRange
+For row = 1 To rowCount Step row + 1
+Dim column As Integer
+For column = 1 To colCount Step column + 1 
+'Writing values.
+migrantRange.ResetRowColumn(row, column)
+
+' Setting value of this migrant range which is similar to IRange object.
+
+migrantRange.Value = "Syncfusion"
+
+Next
+Next
+
+
+
+{% endhighlight %}
+
+  {% endtabs %}  
+
+**IMigrantRange** provides us a SetValue method in which different value for the range can be assigned. Following code snippet illustrates regarding this.
+
+{% tabs %}  
+
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+excelEngine.Excel.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = excelEngine.Excel.Workbooks.Create();
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+IMigrantRange migrantRange = workbook.Worksheets[0].MigrantRange;
+
+// Writing values.
+
+migrantRange.ResetRowColumn(1, 1);
+
+//Setting boolean value
+
+migrantRange.SetValue(true);
+
+migrantRange.ResetRowColumn(1, 2);
+
+//Setting DateTime value
+
+migrantRange.SetValue(DateTime.Now);
+
+migrantRange.ResetRowColumn(1, 3);
+
+//Setting double value
+
+migrantRange.SetValue(5.5);
+
+migrantRange.ResetRowColumn(1, 4);
+
+//Setting int value
+
+migrantRange.SetValue(5);
+
+migrantRange.ResetRowColumn(1, 5);
+
+//Setting string value
+
+migrantRange.SetValue("Syncfusion");
+
+workbook.Version = ExcelVersion.Excel2013;
+
+workbook.SaveAs("MigirantRange.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();            
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+
+excelEngine.Excel.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Create()
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+Dim migrantRange As IMigrantRange = workbook.Worksheets(0).MigrantRange
+
+' Writing values.
+
+migrantRange.ResetRowColumn(1, 1)
+
+'Setting boolean value
+
+migrantRange.SetValue(True)
+
+migrantRange.ResetRowColumn(1, 2)
+
+'Setting DateTime value
+
+migrantRange.SetValue(DateTime.Now)
+
+migrantRange.ResetRowColumn(1, 3)
+
+'Setting double value
+
+migrantRange.SetValue(5.5)
+
+migrantRange.ResetRowColumn(1, 4)
+
+'Setting int value
+
+migrantRange.SetValue(5)
+
+migrantRange.ResetRowColumn(1, 5)
+
+'Setting string value
+
+migrantRange.SetValue("Syncfusion")
+
+workbook.Version = ExcelVersion.Excel2013
+
+workbook.SaveAs("MigirantRange.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
+{% endhighlight %}
+
+  {% endtabs %} 
 
 ## Styles
 
-Use global styles, rather than using different cell styles for each cell/range. LINK- Reference to global style section.
+Use global styles, rather than using different cell styles for each cell/range. See [Applying global styles](/file-formats/xlsio/working-with-cell-or-range-formatting#apply-global-style).
 
 Use Begin and End call while using more than one global style for a worksheet.
 

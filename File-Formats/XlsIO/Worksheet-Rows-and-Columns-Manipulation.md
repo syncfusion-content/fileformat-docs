@@ -143,6 +143,26 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
+T>To extract values little faster or to delete a larger number of rows and columns, use Un-Safe code option of **IApplication** interface as follows
+
+{% tabs %}  
+
+{% highlight c# %}
+application.DataProviderType = ExcelDataProviderType.Unsafe;
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+application.DataProviderType = ExcelDataProviderType.Unsafe
+
+
+
+{% endhighlight %}
+
+  {% endtabs %}  
+  
 In addition, cells can be deleted by shifting other cells in a row/column towards up/left by one step. This can be done by using **Clear** method as shown in the below code.
 
 {% tabs %}  
@@ -356,7 +376,7 @@ excelEngine.Dispose()
 
 ## Adjust Row Height and Column Width 
 
-Rows and columns can be [resized](https://support.office.com/en-ca/article/Change-the-column-width-and-row-height-72f5e3cc-994d-43e8-ae58-9774a0905f46# "") based on its contents. XlsIO allows to resize rows and columns in the following ways.
+Rows and columns can be [resized](https://support.office.com/en-ca/article/Change-the-column-width-and-row-height-72f5e3cc-994d-43e8-ae58-9774a0905f46#) based on its contents. XlsIO allows to resize rows and columns in the following ways.
 
 * Resize a specific row or column
 * Resize a range of rows or columns

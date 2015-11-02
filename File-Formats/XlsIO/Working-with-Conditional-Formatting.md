@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Conditional Formatting
 
-Conditional formatting allows the contents of a cell to be dynamically formatted. This can be defined and applied in XlsIO through [IConditionalFormats](IConditionalFormat interface# "") interface.
+Conditional formatting allows the contents of a cell to be dynamically formatted. This can be defined and applied in XlsIO through  **IConditionalFormat** interface.
 
 ## Create a Conditional Format 
 
@@ -37,7 +37,7 @@ Dim condition1 As IConditionalFormat = condition.AddCondition()
 {% endhighlight %}
 {% endtabs %}  
 
-The criteria or rules that the target range should meet is set through [IConditionalFormat](go to IConditionalFormat# "") interface. The  desired format type is set through [ExcelCFType](ExcelCFType enumerator# "") enumerator, which are the supported conditional format types in XlsIO. The below piece of code sets a basic conditional formatting rule.
+The criteria or rules that the target range should meet is set through  **IConditionalFormat** interface. The  desired format type is set through **ExcelCFType** enumerator, which are the supported conditional format types in XlsIO. The below piece of code sets a basic conditional formatting rule.
 
 {% tabs %}  
 {% highlight c# %}
@@ -75,7 +75,7 @@ worksheet.Range("A1").Text = "Enter a number between 10 and 20"
 {% endhighlight %}
 {% endtabs %}  
 
-When the criteria set for the target range is satisfied, the defined formats (like the one below) are applied in the order of priority. For more details on conditional format priority, see [Manage conditional formatting rule precedence](https://support.office.com/en-us/article/Manage-conditional-formatting-rule-precedence-063cde21-516e-45ca-83f5-8e8126076249# "").
+When the criteria set for the target range is satisfied, the defined formats (like the one below) are applied in the order of priority. For more details on conditional format priority, see [Manage conditional formatting rule precedence](https://support.office.com/en-us/article/Manage-conditional-formatting-rule-precedence-063cde21-516e-45ca-83f5-8e8126076249#)
 
 {% tabs %}  
 {% highlight c# %}
@@ -364,7 +364,7 @@ excelEngine.Dispose()
 
 ## Removing Conditional Formats
 
-All the conditional format for a specified range can be removed through [Remove](Go to Remove# "") method. This is illustrated below.
+All the conditional format for a specified range can be removed through **Remove** method. This is illustrated below.
 
 {% tabs %}  
 {% highlight c# %}
@@ -659,7 +659,7 @@ dataBar.BarColor = Color.Aqua
 
 Color Scales let you create visual effects in your data, to see how the value of a cell is compared with the values in a range of cells. A color scale uses cell shading, as opposed to bars, to communicate relative values, beyond the relative size of the value of a cell.
 
-Creation of color scales and its formatting rules through [IColorScale](Go to IColorScale# "") interface in XlsIO is illustrated below.
+Creation of color scales and its formatting rules through **IColorScale** interface in XlsIO is illustrated below.
 
 {% tabs %}  
 {% highlight c# %}

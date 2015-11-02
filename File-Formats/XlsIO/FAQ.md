@@ -517,7 +517,7 @@ IRange destinationRange = DestinationWorksheet.Range[1, 1, 90, 100];
 
 sourceRange.CopyTo(destinationRange);
 
-destinationWorkbook.SaveAs("CoyingRange.xlsx");
+destinationWorkbook.SaveAs("CopyingRange.xlsx");
 
 destinationWorkbook.Close();
 
@@ -556,7 +556,7 @@ Dim destinationRange As Syncfusion.XlsIO.IRange = DestinationWorksheet.Range(1, 
 
 sourceRange.CopyTo(destinationRange)
 
-destinationWorkbook.SaveAs("CoyingRange.xlsx")
+destinationWorkbook.SaveAs("CopyingRange.xlsx")
 
 destinationWorkbook.Close()
 
@@ -886,7 +886,7 @@ excelEngine.Dispose();
 
 ## How to set or format a Header/Footer?
 
-Script commands are used to set header/ footer formatting. The following code snippet illustrate this. For more information on formatting the string, see [http://support.microsoft.com/?kbid=213618.](http://support.microsoft.com/?kbid=213618.# "")
+Script commands are used to set header/ footer formatting. The following code snippet illustrate this. For more information on formatting the string, see [Inserting and Formatting Text in Headers and Footers](http://support.microsoft.com/?kbid=213618.#)
 
 {% tabs %}  
 
@@ -1062,7 +1062,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-LINK: For information on Print settings, refer to section [Page Setup Settings](#_Print_Settings "").
+For information on Print settings, refer to section [Page Setup Settings](/file-formats/xlsio/working-with-excel-worksheet#page-setup-settings).
 
 ## How to unfreeze the rows and columns in XlsIO?
 
@@ -1137,11 +1137,11 @@ XlsIO has support below worksheet size for Excel 97 to 2003, Excel 2007 and late
 * **Excel** **97** **to** **2003****(.****xls** **format****)** – 65,536 by 256 rows and columns.
 * **Excel** **2007** **and** **Later** **versions****(.****xlsx** **format****)**  – 1,048,576 by 16,384 rows and columns
 
-The above specification is the worksheet size of Excel. For more information, see   [Excel specifications and limits](https://support.office.com/en-nz/article/Excel-specifications-and-limits-1672b34d-7043-467e-8e27-269d656771c3# "")
+The above specification is the worksheet size of Excel. For more information, see [Excel specifications and limits](https://support.office.com/en-nz/article/Excel-specifications-and-limits-1672b34d-7043-467e-8e27-269d656771c3#)
 
 ## How to use Named Ranges with XlsIO?
 
-A named range can be added to worksheet or workbook based on the required scope, the following code snippet illustrate this. For more information, see   [Named Range](https://support.office.com/en-us/article/Define-and-use-names-in-formulas-4d0f13ac-53b7-422e-afd2-abd7ff379c64# "")
+A named range can be added to worksheet or workbook based on the required scope, the following code snippet illustrate this. For more information, see [Named Range](https://support.office.com/en-us/article/Define-and-use-names-in-formulas-4d0f13ac-53b7-422e-afd2-abd7ff379c64#)
 
 {% tabs %}  
 
@@ -1947,6 +1947,8 @@ zipArchive.Close()
 
   {% endtabs %}  
 
+T>You can use CompressionLevel to reduce the size of the file.
+  
 ## How to zip all the files in subfolders using the Syncfusion.Compression.Zip namespace?
 
 You can compress and decompress the files with our Compression library. The following code snippet illustrates this.
@@ -2335,5 +2337,4 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-# 
-
+I> This method is available from 12.4 version onwards.

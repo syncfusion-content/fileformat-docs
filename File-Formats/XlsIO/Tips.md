@@ -8,11 +8,11 @@ documentation: UG
 
 # Tips
 
-This section gives you a necessary tips for efficient usage of Essential XlsIO. Following tips are most commonly used in XlsIO.
+T> This section gives you a necessary tips for efficient usage of Essential XlsIO. Following tips are most commonly used in XlsIO.
 
 **How** **to** **apply** **same** **styles** **to** **entire** **rows** **or** **columns****?**
 
-You can use default styles, to apply styles for a whole column instead of applying in each cell. LINK -  reference to default styles section.
+You can use [default styles](/file-formats/xlsio/working-with-cell-or-range-formatting#set-default-style-for-rowcolumn), to apply styles for a whole column instead of applying in each cell.
 
 **How** **to** **assign** **a** **value** **to** **a** **range** **without** **know** **their** **types****?**
 

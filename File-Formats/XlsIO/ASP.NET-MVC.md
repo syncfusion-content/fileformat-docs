@@ -1,7 +1,7 @@
 ---
 title: ASP.NET MVC
 description: Briefs about saving an Excel document in ASP.NET MVC platform.
-platform: ASP.NET MVC
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

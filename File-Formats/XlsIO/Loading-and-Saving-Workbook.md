@@ -40,6 +40,26 @@ Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(fileName)
 {% endhighlight %}
 {% endtabs %}  
 
+T>Files parsing can be optimized by setting **IApplication****.****UseFastRecordParsing** = **false** or **true** (true –fast mode, but less error checks and false – slower but more reliable).
+
+{% tabs %}  
+
+{% highlight c# %}
+application.UseFastRecordParsing = true;
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+application.UseFastRecordParsing = True
+
+
+
+{% endhighlight %}
+
+  {% endtabs %}  
+  
 ## Opening an existing workbook from Stream
 
 You can open an existing workbook from stream by using the overloads of Open methods of IWorkbooks interface.
@@ -312,3 +332,27 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
+
+T>You can use ThrowNotSavedOnDestroy property of ExcelEngine object to prevent the data loss while unfortunately closing the workbook or disposing excel engine without saving contents. If it is set to true, then ExcelWorkbookNotSavedException will be thrown when you forgot to save the workbook before closing them. Following code illustrates how to set ThrowNotSavedOnDestroy property of ExcelEngine object.
+
+{% tabs %}  
+
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+excelEngine.ThrowNotSavedOnDestroy = true;
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+
+excelEngine.ThrowNotSavedOnDestroy = True
+
+
+
+{% endhighlight %}
+
+  {% endtabs %}  

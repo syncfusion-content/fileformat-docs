@@ -1,4 +1,5 @@
 ---
+layout: Post
 title: XAMARIN
 description: Briefs about loading and saving an Excel document in Xamarin platform.
 platform: Xamarin
@@ -336,6 +337,10 @@ workbook.Close();
 
 excelEngine.Dispose();
 
+//Save the stream into xlsx file
+
+Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.xlsx","application/msexcel", stream);
+
 public interface ISave
 
 {
@@ -522,7 +527,7 @@ End Class
 
 
 {% endhighlight %}
-
+  
   {% endtabs %}  
 
 The below code snippet illustrates how to load an Excel file using stream in Xamarin iOS platform.

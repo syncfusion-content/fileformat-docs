@@ -20,7 +20,7 @@ Each marker starts with a prefix character (by default it is “%” character).
 <table>
 <tr>
 <td>
-{{'__%<__'| markdownify }}{{'__MarkerVariable__'| markdownify }}{{'__>.<__'| markdownify }}{{'__Property__'| markdownify }}{{'__>__'| markdownify }}<br/><br/>For example: %Customers.CompanyName<br/><br/>Where, “Customers” is marker variable name and CompanyName is the property name<br/><br/></td></tr>
+%&lt;MarkerVariable&gt;.&lt;Property&gt; <br/><br/>For example: %Customers.CompanyName<br/><br/>Where, “Customers” is marker variable name and CompanyName is the property name</td></tr>
 </table>
 You can change the marker prefix and delimiter characters by the **MarkerPrefix** and **ArgumentSeparator** properties of the ITemplateMarkersProcessor instance respectively. 
 
@@ -30,27 +30,27 @@ You can specify the following arguments with the marker to customize the workshe
 
 **Horizontal**-This argument specifies the horizontal direction of the data filling for variables.
 
-Syntax: %<MarkerVariable>.<Property>;horizontal
+Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;;horizontal
 
 **Vertical**-This argument specifies the vertical direction of the data filling for variables. By default, data will be filled in vertical direction
 
-Syntax: %<MarkerVariable>.<Property>;vertical
+Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;;vertical
 
 **insert**-This argument inserts new row or column, depending on the direction argument for each new cell. Note that by default, the rows will not be insert.
 
-Syntax: %<MarkerVariable>.<Property>;insert
+Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;;insert
 
 **insert****:****copystyles**-This argument copies styles from the above row or left column.
 
-Syntax: %<MarkerVariable>.<Property>;insert:copystyles
+Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;;insert:copystyles
 
 **jump****:[****cell** **reference** **in** **R1C1** **notation****]-**This argument binds the data to the cell at the specified reference. Cell reference addresses can be relative or absolute.
 
-Syntax: %<MarkerVariable>.<Property>;jump:R2C2
+Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;;jump:R2C2
 
 **copyrange****:[****top****-****left** **cell** **reference** **in** **R1C1****]:[****bottom****-****right** **cell** **reference** **in** **R1C1****]-**Copies the specified cells after each cell import.
 
-Syntax: %<MarkerVariable>.<Property>;copyrange:R2C2:R4C4
+Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;;copyrange:R2C2:R4C4
 
 ## Bind from Array
 
@@ -241,7 +241,7 @@ excelEngine.Dispose()
 <table>
 <tr>
 <td>
-{{'__%<__'| markdownify }}{{'__DataSource__ '| markdownify }}{{'__>.<__ '| markdownify }}{{'__FieldName__ '| markdownify }}{{'__>__'| markdownify }}<br/><br/>For example: %Products.ProductName<br/><br/>Where, “Products” is a data source which can be data tables, datasets, data readers and data views and ProductName is the field name or column name<br/><br/></td></tr>
+%&lt;DataSource&gt;.&lt;FieldName&gt; <br/><br/>For example: %Products.ProductName<br/><br/>Where, “Products” is a data source which can be data tables, datasets, data readers and data views and ProductName is the field name or column name<br/><br/></td></tr>
 </table>
 By default, DataTable values will be filled in the worksheet as a string format. You can the detect datatype and number format of DataTable values by using VariableTypeAction enumerator. LINK- API reference to VariableTypeAction enum.
 
@@ -369,29 +369,29 @@ XlsIO detects the property as image when its type is System.Drawing.Image or byt
 
 <table>
 <tr>
-<td>
-**No**<br/><br/></td><td>
-**Image** **arguments**<br/><br/></td><td>
-**Description**<br/><br/></td></tr>
+<th>
+No<br/><br/></th><th>
+Image arguments<br/><br/></th><th>
+Description<br/><br/></th></tr>
 <tr>
 <td>
-1<br/><br/></td><td>
-No argument<br/>Ex: %Reports.Image;<br/><br/></td><td>
+1<br/><br/></td><td><span style="font-weight:bold">
+No argument</span><br/>Ex: %Reports.Image;<br/><br/></td><td>
 Image is applied with a default size (50x50 px) and position (Top-Left).<br/><br/></td></tr>
 <tr>
 <td>
-2<br/><br/></td><td>
-**fittocell** <br/>Ex: %Reports.Image;fittocell<br/><br/></td><td>
+2<br/><br/></td><td><span style="font-weight:bold">
+fittocell</span><br/>Ex: %Reports.Image;fittocell<br/><br/></td><td>
 The image is applied to cell width and height.<br/><br/></td></tr>
 <tr>
 <td>
-3<br/><br/></td><td>
-**size**:width,height<br/><br/>Ex:<br/><br/>%Reports.Image;size:60<br/><br/>(or)<br/><br/>%Reports.Image;size:60,60<br/><br/></td><td>
+3<br/><br/></td><td><span style="font-weight:bold">
+size:</span>width,height<br/><br/>Ex:<br/><br/>%Reports.Image;size:60<br/><br/>(or)<br/><br/>%Reports.Image;size:60,60<br/><br/></td><td>
 Image is applied to the specified size (width, height).<br/><br/>Height parameter is optional. Value of width is applied when height is not specified.<br/><br/></td></tr>
 <tr>
 <td>
-4<br/><br/></td><td>
-**position**:position<br/><br/>Ex:<br/><br/>%Reports.Image;position:middle-center<br/><br/>(or)<br/><br/>%Reports.Image;position:right <br/><br/></td><td>
+4<br/><br/></td><td><span style="font-weight:bold">
+position:</span>position<br/><br/>Ex:<br/><br/>%Reports.Image;position:middle-center<br/><br/>(or)<br/><br/>%Reports.Image;position:right <br/><br/></td><td>
 Image is positioned (top-left, top-center, etc.,) within the cell.<br/><br/></td></tr>
 </table>
 In the following example, a marker is added for merging images.  Like a simple template marker, data source and property name is specified (%Reports.Image;) for image also. 
@@ -467,7 +467,7 @@ Generated Output
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg)
 
 
-You can also refer __Template__ __based__ __data__ __filling__ __using__ __Template__ __Markers__ section in __Getting__ __Started__ for the sample regarding template marker with images. LINK- Refer to Template based data filling using Template Markers
+You can also refer [__Template__ __based__ __data__ __filling__ __using__ __Template__ __Markers__](/file-formats/xlsio/getting-started#template-based-data-filling-using-template-markers) section in [__Getting__ __Started__](/file-formats/xlsio/getting-started) for the sample regarding template marker with images. LINK- Refer to Template based data filling using Template Markers
 
 ## Template Marker with Conditional Formatting
 
