@@ -1,6 +1,6 @@
 ---
 layout: Post
-title: XAMARIN
+title: Xamarin
 description: Briefs about loading and saving an Excel document in Xamarin platform.
 platform: Xamarin
 control: XlsIO
