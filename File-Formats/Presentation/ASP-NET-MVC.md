@@ -1,17 +1,17 @@
 ---
-layout: Post
 title: Loading and Saving the presentation in ASP.NET MVC platform
 description: Loading and Saving the presentation in ASP.NET MVC platform
-platform: ASP.NET MVC
+platform: file-formats
 control: Presentation
-documentation: FileFormats
+documentation: ug
 ---
-## ASP.NET MVC 
+# ASP.NET MVC 
 
 The below code snippet demonstrates how to load and save a PowerPoint presentation in ASP.NET MVC platform:
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Create a PowerPoint presentation
 
@@ -29,14 +29,35 @@ IParagraph paragraph = slide.Shapes.AddTextBox(100, 120, 300, 200).TextBody.AddP
 
 return new PresentationResult(presentationDocument, "Output.pptx", HttpContext.ApplicationInstance.Response);
 
+{% endhighlight %}
 
+{% highlight vb.net %}
+
+'Create a PowerPoint presentation
+
+Dim presentationDocument As IPresentation = Presentation.Create()
+
+'Add slide to the presentation
+
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+
+'Add paragraph to the text box
+
+Dim paragraph As IParagraph = slide.Shapes.AddTextBox(100, 120, 300, 200).TextBody.AddParagraph("Sample Text")
+
+'Save the presentation
+
+Return New PresentationResult(presentationDocument, "Output.pptx", HttpContext.ApplicationInstance.Response)
 
 {% endhighlight %}
 
+{% endtabs %} 
+
 The following code snippet demonstrates the class “PresentationResult” used in the above code snippet.
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 public class PresentationResult : ActionResult
 
@@ -143,30 +164,6 @@ this.m_source.Save(FileName, FormatType.Pptx, Response);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
-
-'Create a PowerPoint presentation
-
-Dim presentationDocument As IPresentation = Presentation.Create()
-
-'Add slide to the presentation
-
-Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
-
-'Add paragraph to the text box
-
-Dim paragraph As IParagraph = slide.Shapes.AddTextBox(100, 120, 300, 200).TextBody.AddParagraph("Sample Text")
-
-'Save the presentation
-
-Return New PresentationResult(presentationDocument, "Output.pptx", HttpContext.ApplicationInstance.Response)
-
-
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-[VB.NET]
 
 Public Class PresentationResult
 
@@ -256,5 +253,5 @@ End Class
 
 {% endhighlight %}
 
-## 
+{% endtabs %} 
 

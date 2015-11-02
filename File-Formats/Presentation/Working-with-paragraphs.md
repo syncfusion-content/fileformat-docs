@@ -9,7 +9,7 @@ documentation: UG
 
 ## Add Paragraph to slide
 
-All the textual contents in a Presentation document is represented by Paragraphs. You can have any number of paragraphs within a [TextBody](http://www.google.com/# "") of a textbox or shape in a PowerPoint presentation. 
+All the textual contents in a Presentation document is represented by Paragraphs. You can have any number of paragraphs within a TextBody of a textbox or shape in a PowerPoint presentation. 
 
 The following code example demonstrates how to add a paragraph in a slide.
 
@@ -179,7 +179,7 @@ presentationDocument.Close()
 
 ## Work with text
 
-With Essential Presentation, you can add or modify the text in a presentation. Within the paragraph, textual contents are grouped into one or more child elements as [TextParts](http://www.google.com/# ""). Each TextPart represents a region of text with a common set of formatted text. The following code example demonstrates how to add text parts with different formatting into a single paragraph.
+With Essential Presentation, you can add or modify the text in a presentation. Within the paragraph, textual contents are grouped into one or more child elements as TextParts. Each TextPart represents a region of text with a common set of formatted text. The following code example demonstrates how to add text parts with different formatting into a single paragraph.
 
 {% tabs %}
 

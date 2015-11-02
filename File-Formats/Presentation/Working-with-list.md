@@ -609,7 +609,7 @@ presentationDocument.Close()
 
 ## Create a Multilevel List
 
-You can create a multi-level list by setting the indentation levels. By default, the level begins at 0 and increments by 1 for each level. A list can be incremented or decremented from levels 0 to 8 as like MS PowerPoint. 
+You can create a multi-level list by setting the indentation levels. By default, the level begins at 0 and increments by 1 for each level. A list can be incremented or decremented from levels 0 to 8 as like Microsoft PowerPoint. 
 
 The following code example demonstrates how to create a multilevel list.
 

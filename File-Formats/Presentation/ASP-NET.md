@@ -1,17 +1,17 @@
 ---
-layout: Post
 title: Loading and Saving the presentation in ASP.NET platform
 description: Loading and Saving the presentation in ASP.NET platform
-platform: ASP.NET
+platform: file-formats
 control: Presentation
-documentation: FileFormats
+documentation: ug
 ---
-## ASP.NET
+# ASP.NET
 
 The below code snippet demonstrates how to load and save a PowerPoint presentation in ASP.NET platform:
 
+{% tabs %}
+
 {% highlight c# %}
-[C#]
 
 //Open an existing PowerPoint presentation
 
@@ -34,7 +34,6 @@ presentationDocument.Save("Output.pptx", FormatType.Pptx, Response);
 {% endhighlight %}
 
 {% highlight vb.net %}
-[VB.NET]
 
 'Open an existing PowerPoint presentation
 
@@ -52,9 +51,6 @@ Dim paragraph As IParagraph = slide.Shapes.AddTextBox(100, 120, 300, 200).TextBo
 
 presentationDocument.Save("Output.pptx", FormatType.Pptx, Response)
 
-
-
-
-
 {% endhighlight %}
 
+{% endtabs %}

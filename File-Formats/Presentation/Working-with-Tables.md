@@ -9,7 +9,7 @@ documentation: UG
 
 ## Creating a simple table
 
-Essential Presentation facilitates developers to add tables from scratch. The following code example demonstrates how to add a simple table to a slide:
+Essential Presentation facilitates developers to add tables from scratch. The following code example demonstrates how to add a simple table to a slide.
 
 {% tabs %}
 

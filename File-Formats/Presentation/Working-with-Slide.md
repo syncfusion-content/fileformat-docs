@@ -139,7 +139,7 @@ presentationDocument.Close()
 
 ## Merge slide
 
-The Essential Presentation provides ability to clone slides from one presentation to another presentation. With this ability, you can split a large presentation into small ones and also merge multiple presentations to one presentation. You can choose the theme for the cloned slide by using the [PasteOption](http://www.google.com/# "")s.
+The Essential Presentation provides ability to clone slides from one presentation to another presentation. With this ability, you can split a large presentation into small ones and also merge multiple presentations to one presentation. You can choose the theme for the cloned slide by using the enum PasteOption.
 
 {% tabs %}
 
