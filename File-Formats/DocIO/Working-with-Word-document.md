@@ -38,13 +38,13 @@ static void Main(string[] args)
 
 WordDocument document = new WordDocument(@"TestDocument.docx");
 
-//Processess the body contents for each section in the Word document
+//Processes the body contents for each section in the Word document
 
 foreach (WSection section in document.Sections)
 
 {
 
-//Accessess the Body of section where all the contents in document are apart
+//Accesses the Body of section where all the contents in document are apart
 
 WTextBody sectionBody = section.Body;
 
@@ -84,7 +84,7 @@ for(int i = 0; i < textBody.ChildEntities.Count; i++)
 
 //IEntity is the basic unit in DocIO DOM. 
 
-//Accessess the body items (should be either paragraph or table) as IEntity
+//Accesses the body items (should be either paragraph or table) as IEntity
 
 IEntity bodyItemEntity = textBody.ChildEntities[i];
 
@@ -181,11 +181,11 @@ Private Shared Sub Main(args As String())
 
 Dim document As New WordDocument("TestDocument.docx")
 
-'Processess the body contents for each section in the Word document
+'Processes the body contents for each section in the Word document
 
 For Each section As WSection In document.Sections
 
-'Accessess the Body of section where all the contents in document are apart
+'Accesses the Body of section where all the contents in document are apart
 
 Dim sectionBody As WTextBody = section.Body
 
@@ -221,7 +221,7 @@ For i As Integer = 0 To textBody.ChildEntities.Count - 1
 
 'IEntity is the basic unit in DocIO DOM. 
 
-'Accessess the body items (should be either paragraph or table) as IEntity
+'Accesses the body items (should be either paragraph or table) as IEntity
 
 Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
 
@@ -320,13 +320,13 @@ static void Main(string[] args)
 
 WordDocument document = new WordDocument(@"TestDocument.docx");
 
-//Processess the body contents for each section in the Word document
+//Processes the body contents for each section in the Word document
 
 foreach (WSection section in document.Sections)
 
 {
 
-//Accessess the Body of section where all the contents in document are apart
+Accesses the Body of section where all the contents in document are apart
 
 WTextBody sectionBody = section.Body;
 
@@ -366,7 +366,7 @@ for (int i = 0; i < textBody.ChildEntities.Count; i++)
 
 //IEntity is the basic unit in DocIO DOM. 
 
-//Accessess the body items (should be either paragraph or table) as IEntity
+//Accesses the body items (should be either paragraph or table) as IEntity
 
 IEntity bodyItemEntity = textBody.ChildEntities[i];
 
@@ -382,7 +382,7 @@ case EntityType.Paragraph:
 
 WParagraph paragraph = bodyItemEntity as WParagraph;
 
-//Processess the paragraph contents
+//Processes the paragraph contents
 
 //Iterates through the paragraph's DOM
 
@@ -523,11 +523,11 @@ Private Shared Sub Main(args As String())
 
 Dim document As New WordDocument("TestDocument.docx")
 
-'Processess the body contents for each section in the Word document
+'Processes the body contents for each section in the Word document
 
 For Each section As WSection In document.Sections
 
-'Accessess the Body of section where all the contents in document are apart
+'Accesses the Body of section where all the contents in document are apart
 
 Dim sectionBody As WTextBody = section.Body
 
@@ -563,7 +563,7 @@ For i As Integer = 0 To textBody.ChildEntities.Count - 1
 
 'IEntity is the basic unit in DocIO DOM. 
 
-'Accessess the body items (should be either paragraph or table) as IEntity
+'Accesses the body items (should be either paragraph or table) as IEntity
 
 Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
 
@@ -577,7 +577,7 @@ Case EntityType.Paragraph
 
 Dim paragraph As WParagraph = TryCast(bodyItemEntity, WParagraph)
 
-'Processess the paragraph contents
+'Processes the paragraph contents
 
 'Iterates through the paragraph's DOM
 
@@ -761,7 +761,7 @@ You can also create a deep copy of document elements such as sections, paragraph
 
 WordDocument sourceDocument = new WordDocument("SourceDocument.docx");
 
-//Processess the each section in the Word document
+//Processes the each section in the Word document
 
 for (int i = 0; i < sourceDocument.Sections.Count;i++)
 
@@ -798,7 +798,7 @@ sourceDocument.Close();
 
 Dim sourceDocument As New WordDocument("SourceDocument.docx")
 
-'Processess the each section in the Word document
+'Processes the each section in the Word document
 
 For i As Integer = 0 To sourceDocument.Sections.Count - 1
 
@@ -1300,7 +1300,7 @@ This following code example demonstrates how a style can be accessed and style p
 
 WordDocument document = new WordDocument(inputFileName);
 
-//Accessess the styles collection that contains paragraph and character styles in Word document
+//Accesses the styles collection that contains paragraph and character styles in Word document
 
 IStyleCollection styleCollection = document.Styles;
 
@@ -1331,7 +1331,7 @@ document.Close();
 
 Dim document As New WordDocument(inputFileName)
 
-'Accessess the styles collection that contains paragraph and character styles in Word document
+'Accesses the styles collection that contains paragraph and character styles in Word document
 
 Dim styleCollection As IStyleCollection = document.Styles
 
@@ -1538,7 +1538,7 @@ The Built-in document properties of a word document is represented by WordDocume
 
 WordDocument document = new WordDocument(inputFileName);
 
-//Accessess the built-in document properties
+//Accesses the built-in document properties
 
 Console.WriteLine("Title - {0}",document.BuiltinDocumentProperties.Title);
 
@@ -1567,7 +1567,7 @@ document.Close();
 
 Dim document As New WordDocument(inputFileName)
 
-'Accessess the built-in document properties
+'Accesses the built-in document properties
 
 Console.WriteLine("Title - {0}", document.BuiltinDocumentProperties.Title)
 
@@ -1660,7 +1660,7 @@ You can access and modify an existing document property as shown in the followin
 
 WordDocument document = new WordDocument(inputFileName);
 
-//Accessess an existing custom document property
+//Accesses an existing custom document property
 
 DocumentProperty property = document.CustomDocumentProperties["PropertyA"];
 
@@ -1683,7 +1683,7 @@ document.Close();
 
 Dim document As New WordDocument(inputFileName)
 
-'Accessess an existing custom document property
+'Accesses an existing custom document property
 
 Dim [property] As DocumentProperty = document.CustomDocumentProperties("PropertyA")
 

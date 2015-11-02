@@ -9,8 +9,6 @@ documentation: UG
 
 ## Loading the document
 
-You can load and save the Word document asynchronously using DocIO.
-
 The following code example illustrates how to load the file by using stream in Xamarin.
 
 {% tabs %}
@@ -27,13 +25,13 @@ WordDocument document = new WordDocument();
 
 //Loads or opens an existing word document through open method of WordDocument class
 
-await document.OpenAsync(docStream, FormatType.Docx);
+await document.Open(docStream, FormatType.Docx);
 
 MemoryStream stream = new MemoryStream();
 
 //Save the document into memory stream
 
-await document.SaveAsync(stream, FormatType.Docx);
+await document.Save(stream, FormatType.Docx);
 
 //close the documents
 
@@ -53,13 +51,13 @@ Dim document As New WordDocument()
 
 'Loads or opens an existing word document through open method of WordDocument class
 
-Await document.OpenAsync(docStream, FormatType.Docx)
+Await document.Open(docStream, FormatType.Docx)
 
 Dim stream As New MemoryStream()
 
 'Save the document into memory stream
 
-await document.SaveAsync(stream, FormatType.Docx)
+await document.Save(stream, FormatType.Docx)
 
 'close the documents
 
@@ -97,7 +95,7 @@ MemoryStream memoryStream = new MemoryStream();
 
 //Save the document into memory stream
 
-await document.SaveAsync(stream, FormatType.Docx);
+await document.Save(stream, FormatType.Docx);
 
 //close the documents
 
@@ -163,7 +161,7 @@ Dim memoryStream As New MemoryStream()
 
 'Save the document into memory stream
 
-Await document.SaveAsync(stream, FormatType.Docx)
+Await document.Save(stream, FormatType.Docx)
 
 'close the documents
 
@@ -229,7 +227,7 @@ MemoryStream memoryStream = new MemoryStream();
 
 //Save the document into memory stream
 
-await document.SaveAsync(stream, FormatType.Docx);
+await document.Save(stream, FormatType.Docx);
 
 //close the documents
 
@@ -341,7 +339,7 @@ Dim memoryStream As New MemoryStream()
 
 'Save the document into memory stream
 
-Await document.SaveAsync(stream, FormatType.Docx)
+Await document.Save(stream, FormatType.Docx)
 
 'close the documents
 
@@ -449,7 +447,7 @@ MemoryStream memoryStream = new MemoryStream();
 
 //Save the document into memory stream
 
-await document.SaveAsync(stream, FormatType.Docx);
+await document.Save(stream, FormatType.Docx);
 
 //close the documents
 
@@ -548,7 +546,7 @@ Dim memoryStream As New MemoryStream()
 
 'Save the document into memory stream
 
-Await document.SaveAsync(stream, FormatType.Docx)
+Await document.Save(stream, FormatType.Docx)
 
 'close the documents
 

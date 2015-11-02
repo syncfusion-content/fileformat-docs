@@ -186,7 +186,7 @@ End Sub
 
 {% endtabs %}
 
-The following code example illustrates how to load the file by using file picker in WinRT.
+The following code example illustrates how to load the file by using file open picker in WinRT.
 
 {% tabs %}
 
@@ -378,7 +378,7 @@ End Sub
 
 ## Save the document 
 
-The following code example illustrates how to save the Word document in WinRT by using file picker.
+The following code example illustrates how to save the Word document in WinRT by using file save picker.
 
 {% tabs %}
 
