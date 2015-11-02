@@ -1838,10 +1838,8 @@ rtfDocument.Close()
 {% endtabs %}  
 
 
-Note:
-
-* RTF to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
-* Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to RTF document
+N> 1.RTF to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
+N> 2.Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to RTF document
 
 
 ### Customizing the RTF to PDF conversion
@@ -1941,7 +1939,7 @@ rtfDocument.Close()
 
 
 
-## Converting Tiff to PDF
+## Converting TIFF to PDF
 
 ### Converting multipage TIFF to PDF
 
@@ -2140,10 +2138,8 @@ pdfDocument.Close(True)
 
  {% endtabs %}  
 
-N>
-
-1. Currently the JBIG2Decode compression is supported only in lossy mode and also only single frame tiff images are supported.
-2. By default, all monochrome images will be compressed in CITTT4 compression.
+N> 1.Currently the JBIG2Decode compression is supported only in lossy mode and also only single frame tiff images are supported.
+N> 2.By default, all monochrome images will be compressed in CITTT4 compression.
 
 
 ## Converting XPS document to PDF 
