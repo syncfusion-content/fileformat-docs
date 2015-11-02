@@ -516,6 +516,7 @@ pdfDocument.Close(True)
 #### Troubleshooting
 
 **Issue:**
+
 The following conditions may occur while converting HTML to PDF by using the IE rendering engine.
 * Converted PDF document contains content as a Bitmap.
 * Page break may not be applied in the resultant PDF document.
@@ -523,6 +524,7 @@ The following conditions may occur while converting HTML to PDF by using the IE 
 * Converted PDF is blurry.
 
 **Solution:**
+
 The above issues may occur in the machines with IE9 or later versions installed. As the Internet Explorer version 9 and above supports hardware acceleration, the rendered content would be in the form of Bitmap, where many features are not supported. 
 
 To overcome this issue, the key FEATURE_IVIEWOBJECTDRAW_DMLT9_WITH_GDI should be updated in the registry as explained in the link below. 
@@ -530,7 +532,6 @@ To overcome this issue, the key FEATURE_IVIEWOBJECTDRAW_DMLT9_WITH_GDI should be
 [http://msdn.microsoft.com/en-us/library/ee330732(v=vs.85).aspx#iviewobject_draw](http://msdn.microsoft.com/en-us/library/ee330732(v=vs.85).aspx#iviewobject_draw)
 
 * You can run the utility placed in ($system drive: \Program Files\Syncfusion\Essential Studio\$Version # \Utilities\PDF\Legacy Drawing) to perform the above changes automatically.
-
 * While manually changing the registry key, the changes should be done on both HKEY_LOCAL_MACHINE and HKEY_CURRENT_USER as below.
 
 <table>
@@ -551,9 +552,11 @@ REG_DWORD<br/><br/></td><td>
 </table>
 
 **Issue:**
+
 Images or other contents in the HTML are missing in the resultant PDF document
 
 **Solution:**
+
 The issue may be due to the slow internet connection or due to the behavior that the conversion completed before the URL is loaded completely. To overcome this issue, add suitable delay to the conversion using AdditionalDelay property of the HTMLConverter.
 
 ### Conversion using WebKit Rendering
@@ -567,7 +570,6 @@ Essential PDF also supports HTML to PDF conversion by using the WebKit rendering
       b. Syncfusion.Pdf.Base.dll
       c. Syncfusion.HtmlConverter.Base.dll
       d. Syncfusion.WebKitHtmlConverter.Base.dll
-
 * The QtBinaries available in the WebKitHTMLConverter installed location ($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries) should be placed in the local machine where the conversion takes place. The physical path of this folder has be set to the WebKitBinaryPath property of the WebkitHtmlConverter class as shown below.
 
 
@@ -1024,9 +1026,11 @@ document.Close(True)
 3. When any Qt binaries are not available in the WebKitPath mentioned location.
 
 **Solution 1:**
+
 Please check your internet connection and if the html page is available in the mentioned location.
 
 **Solution 2:**
+
 2. You can install the VC++ and OpenSSL packages from the below mentioned download links,
 
 X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555# )
