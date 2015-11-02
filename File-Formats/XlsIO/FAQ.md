@@ -2301,7 +2301,7 @@ I> Syncfusion.Core is no longer needed from 13.2 version onwards.
 
 ## How to resolve the “File does not contain workbook stream” error in Syncfusion.XlsIO.Base.dll?
 
-XlsIO does not support files generated prior to 97-2003 version. Hence the exception” File does not contain workbook stream “occurs. This can be checked in prior with the below code snippet. 
+XlsIO does not support files generated prior to 97-2003 version. Hence the exception "File does not contain workbook stream" occurs. This can be checked in prior with the below code snippet. 
 
 {% tabs %}  
 
@@ -2338,3 +2338,91 @@ excelEngine.Dispose()
   {% endtabs %}  
 
 I> This method is available from 12.4 version onwards.
+
+## How to resolve "Excel cannot open the file 'filename.xlsx' because the file format for the file extension is not valid. Verify that the file has not been corrupted and that the file extension matches the format of the file" error?
+
+This error occurs when there is a mismatch between the file format and its extension. The default workbook creation version in XlsIO is Excel97-2003 (.xls). The application version set to the required version should match its file format during save, as in the below code. 
+
+{% tabs %}  
+
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+//Set application version
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//Do some manipulation
+
+//Do some manipulation
+
+//Workbook is saved in Excel2013 format
+
+workbook.SaveAs("Sample.xlsx");
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+
+Dim application As IApplication = excelEngine.Excel
+
+'Set application version
+
+application.DefaultVersion = ExcelVersion.Excel2013
+
+'Do some manipulation
+
+'Do some manipulation
+
+'Workbook is saved in Excel2013 format
+
+workbook.SaveAs("Sample.xlsx")
+
+
+
+{% endhighlight %}
+
+  {% endtabs %}  
+
+If the application version is ignored, then the workbook version should be set properly during creation and save.
+
+* To save a workbook in Excel2003 format, set the workbook version to Excel97to2003 and save the file with extension ‘.xls’ i.e. binary file format.
+
+* To save a workbook in Excel 2007 and above formats, set the workbook version to Excel2007 and above and save the file with extension __‘.____xlsx’__ i.e. open xml file format.
+
+These are represented in the below code snippet.
+
+{% tabs %}  
+
+{% highlight c# %}
+workbook.Version = ExcelVersion.Excel97to2003;
+
+workbook.SaveAs("Sample.xls");
+
+workbook.Version = ExcelVersion.Excel2013;
+
+workbook.SaveAs("Sample.xlsx");
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+workbook.Version = ExcelVersion.Excel97to2003
+
+workbook.SaveAs("Sample.xls")
+
+workbook.Version = ExcelVersion.Excel2013
+
+workbook.SaveAs("Sample.xlsx")
+
+
+
+{% endhighlight %}
+
+  {% endtabs %}  
