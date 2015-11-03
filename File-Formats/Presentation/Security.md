@@ -125,7 +125,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-**Removing** **the** **encryption** **form** **presentation**
+**Removing** **the** **encryption** **from** **presentation**
 
 The following code example demonstrates removing the encryption from a PowerPoint presentation. 
 
