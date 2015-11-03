@@ -296,7 +296,7 @@ string paraText = "Lorem ipsum dolor sit amet, lacus amet amet ultricies. Quisqu
 
 paragraph.AppendText(paraText);
 
-//Adds the column breaks
+//Adds the column break
 
 paragraph.AppendBreak(BreakType.ColumnBreak);
 
@@ -308,7 +308,7 @@ paragraph = section.AddParagraph();
 
 paragraph.AppendText(paraText);
 
-//Adds the column breaks
+//Adds the column break
 
 paragraph.AppendBreak(BreakType.ColumnBreak);
 
@@ -367,7 +367,7 @@ Dim paraText As String = "Lorem ipsum dolor sit amet, lacus amet amet ultricies.
 
 paragraph.AppendText(paraText)
 
-'Adds the column breaks
+'Adds the column break
 
 paragraph.AppendBreak(BreakType.ColumnBreak)
 
@@ -379,7 +379,7 @@ paragraph = section.AddParagraph()
 
 paragraph.AppendText(paraText)
 
-'Adds the column breaks
+'Adds the column break
 
 paragraph.AppendBreak(BreakType.ColumnBreak)
 

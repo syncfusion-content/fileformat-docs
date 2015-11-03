@@ -12,7 +12,7 @@ documentation: UG
 
 You can load and save the Word document asynchronously using DocIO.
 
-The following code example illustrates how to load the file by using stream in windows phone.
+The following code example illustrates how to load the file by using stream in Windows Phone.
 
 {% tabs %}
 
@@ -83,7 +83,7 @@ End Using
 
 {% endtabs %}
 
-The following code example illustrates how to load the file by using file open picker in windows phone.
+The following code example illustrates how to load the file by using file open picker in Windows Phone.
 
 {% tabs %}
 
@@ -172,7 +172,7 @@ End Using
 
 ## Save the document 
 
-The following code example illustrates how to save the Word document in Windows phone using file save picker.
+The following code example illustrates how to save the Word document in Windows Phone using file save picker.
 
 {% tabs %}
 

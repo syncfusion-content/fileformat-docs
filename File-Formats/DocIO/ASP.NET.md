@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Working with Asp.net
+# Working with ASP.NET
 
 ## Save the document 
 
@@ -34,7 +34,7 @@ paragraph.AppendText("Lorem ipsum dolor sit amet, lacus amet amet ultricies. Qui
 
 document.Save("Sample.docx", FormatType.Docx, HttpContext.Current.Response, HttpContentDisposition.Attachment);
 
-//close the documents
+//close the document
 
 document.Close();
 
@@ -62,7 +62,7 @@ paragraph.AppendText("Lorem ipsum dolor sit amet, lacus amet amet ultricies. Qui
 
 document.Save("Sample.docx", FormatType.Docx, HttpContext.Current.Response, HttpContentDisposition.Attachment)
 
-'close the documents
+'close the document
 
 document.Close()
 
@@ -93,7 +93,7 @@ paragraph.AppendText("Lorem ipsum dolor sit amet, lacus amet amet ultricies. Qui
 
 document.Save("Sample.html", FormatType.Html, HttpContext.Current.Response, HttpContentDisposition.InBrowser);
 
-//close the documents
+//close the document
 
 document.Close();
 {% endhighlight %}
@@ -121,7 +121,7 @@ paragraph.AppendText("Lorem ipsum dolor sit amet, lacus amet amet ultricies. Qui
 
 document.Save("Sample.html", FormatType.Html, HttpContext.Current.Response, HttpContentDisposition.InBrowser)
 
-'close the documents
+'close the document
 
 document.Close()
 {% endhighlight %}

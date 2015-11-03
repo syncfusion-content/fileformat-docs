@@ -35,7 +35,7 @@ MemoryStream stream = new MemoryStream();
 
 document.SaveAsDocx();
 
-//close the documents
+//close the document
 
 document.Close();
 
@@ -133,7 +133,7 @@ Dim stream As New MemoryStream()
 
 document.SaveAsDocx()
 
-'close the documents
+'close the document
 
 document.Close()
 
@@ -205,7 +205,7 @@ MemoryStream stream = new MemoryStream();
 
 document.SaveAsDocx();
 
-//close the documents
+//close the document
 
 document.Close();
 
@@ -301,7 +301,7 @@ Dim stream As New MemoryStream()
 
 document.SaveAsDocx()
 
-'close the documents
+'close the document
 
 document.Close()
 
@@ -377,7 +377,7 @@ paragraph.AppendText("Lorem ipsum dolor sit amet, lacus amet amet ultricies. Qui
 
 document.SaveAsDocx();
 
-//close the documents
+//close the document
 
 document.Close();
 
@@ -476,7 +476,7 @@ paragraph.AppendText("Lorem ipsum dolor sit amet, lacus amet amet ultricies. Qui
 
 document.SaveAsDocx()
 
-'close the documents
+'close the document
 
 document.Close()
 
