@@ -403,7 +403,7 @@ excelEngine.Dispose()
 
 A custom charts can be created by using different types of charts for different data series. 
 
-For an example, you can use a column chart for the first data series and a line chart for the second series. As a result you will have a column chart, combined with a line chart.
+For example, you can use a column chart for the first data series and a line chart for the second series. As a result you will have a column chart, combined with a line chart.
 
 The following code sample demonstrates how to create a custom charts. 
 
@@ -779,7 +779,7 @@ chartArea.Fill.FillType = ExcelFillType.Gradient;
 
 //Set Fill Effects                    
 
-chartArea.Fill.BackColor = Color.FromArgb(205,217,234);
+chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 
 chartArea.Fill.ForeColor = Color.White; 
 
@@ -821,7 +821,7 @@ IChartFrameFormat  chartPlotArea = chart.PlotArea;
 
 //Set fill color
 
-chartPlotArea.Fill.BackColor = Color.FromArgb(205,217,234);
+chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 
 chartPlotArea.Fill.ForeColor = Color.White;
 
@@ -1337,7 +1337,7 @@ chart.Width = 500;
 {% endhighlight %}
 
 {% highlight vb %}
-Dim chart As IShape = chartShape as IShape;
+Dim chart As IShape = chartShape as IShape
 
 'Set Height of the chart
 chart.Height = 300
@@ -1584,7 +1584,7 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-I> In order to position the chart elements, plot area should be smaller than chart area.
+N> In order to position the chart elements, plot area should be smaller than chart area.
 
 ## Sparkline 
 
@@ -1843,7 +1843,7 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-I> Sparklines are supported only from Excel 2007 onwards and are ignored in the earlier versions.
+N> Sparklines are supported only from Excel 2007 onwards and are ignored in the earlier versions.
 
 ## Supported Chart Types 
 

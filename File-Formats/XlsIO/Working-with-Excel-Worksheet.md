@@ -402,7 +402,7 @@ excelEngine.Dispose()
 
 ## Freeze Panes 	
 
-You can [freeze](https://support.office.com/en-au/article/Freeze-rows-and-columns-32b23056-d13b-4b2d-aabb-de55a4c2f708#)a portion of the sheet to keep it visible while you scroll through the rest of the sheet. The following code snippet shows how to freeze panes through the FreezePanes method of **IRange**. 
+You can [freeze](https://support.office.com/en-au/article/Freeze-rows-and-columns-32b23056-d13b-4b2d-aabb-de55a4c2f708) a portion of the sheet to keep it visible while you scroll through the rest of the sheet. The following code snippet shows how to freeze panes through the FreezePanes method of **IRange**. 
 
 
 {% tabs %}  
@@ -459,7 +459,7 @@ excelEngine.Dispose()
 
 You can set first visible row and first visible column in frozen area, by setting the FirstVisibleRow and FirstVisibleColumn as shown below
 
-I> FirstVisibleColumn and FirstVisibleRow indexes are "zero-based".
+N> FirstVisibleColumn and FirstVisibleRow indexes are "zero-based".
 
 {% tabs %}  
 {% highlight c# %}
@@ -496,7 +496,7 @@ Dim excelEngine As ExcelEngine = New ExcelEngine
 
 Dim application As IApplication = excelEngine.Excel
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
 

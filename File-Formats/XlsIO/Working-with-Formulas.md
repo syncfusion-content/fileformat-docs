@@ -11,7 +11,7 @@ documentation: UG
 
 ## Enable and Disable Calculation
 
-To perform calculation in an Excel workbook, it is recommended to invoke **EnableSheetCalculations** method of __IWorksheet__. Enabling this method will initialize [CalcEngine](/file-formats/xlsio/calculation_engine) objects and retrieves calculated values of formulas in a worksheet. 
+To perform calculation in an Excel workbook, it is recommended to invoke **EnableSheetCalculations** method of __IWorksheet__. Enabling this method will initialize [CalcEngine](/file-formats/xlsio/working-with-formulas#calculation-engine)objects and retrieves calculated values of formulas in a worksheet. 
 
 The following code sample illustrates on how to enable worksheet formula calculations.
 
@@ -37,7 +37,7 @@ sheet.EnableSheetCalculations()
 {% endhighlight %}
 {% endtabs %}   
 
-On completion of worksheet calculation, it is recommended to invoke **DisableSheetCalculations** method of __IWorksheet__. This will dispose all the [CalcEngine](/file-formats/xlsio/calculation_engine) objects.
+On completion of worksheet calculation, it is recommended to invoke **DisableSheetCalculations** method of __IWorksheet__. This will dispose all the [CalcEngine](/file-formats/xlsio/working-with-formulas#calculation-engine) objects.
 
 The following code sample illustrates on how to disable worksheet formula calculations.
 
@@ -215,7 +215,7 @@ Dim formula as String = sheet("C1").Formula
 
 ## Accessing a Calculated value
 
-To evaluate formula, it is must to [enable sheet calculation](/file-formats/xlsio/enable_and_disable_calculation) in prior. After enabling the sheet calculation, the formula can be evaluated using **CalculatedValue** of __IRange__, which returns a string value.
+To evaluate formula, it is must to [enable sheet calculation](/file-formats/xlsio/working-with-formulas#enable-and-disable-calculation) in prior. After enabling the sheet calculation, the formula can be evaluated using **CalculatedValue** of __IRange__, which returns a string value.
 
 The following code shows how to access a calculated value.
 
@@ -285,7 +285,7 @@ excelEngine.Dispose()
 
 Apart from __CalculatedValue__ property, the evaluated values can be accessed as **bool**, **DateTime** and **double** data types. To obtain updated values of these types, **CalculatedValue** property must be called in prior.
 
-LINK- API reference to IRange properties to know more.
+To know more about evaluated values, please refer **IRange** in API section.
 
 The following code shows how to access calculated values in different types.
 
@@ -479,7 +479,7 @@ excelEngine.Dispose()
 
 Array formula is a special type of formula in Excel. It works with an array or series of data values, rather than a single data value which can be done through **FormulaArray** property of __IRange__ instance.
 
-Following code shows how an array of values from [Named Range](#_Defined_Names_1 "") is used for computation. 
+Following code shows how an array of values from [Named Range](/file-formats/xlsio/working-with-formulas#defined-names) is used for computation. 
 
 {% tabs %}  
 {% highlight c# %}
@@ -604,7 +604,7 @@ Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 'Write an external formula value. 
 
-sheet.Range["C1"].Formula = "[One.xls]Sheet1!$A$1*5"; 
+sheet.Range["C1"].Formula = "[One.xls]Sheet1!$A$1*5"
 
 workbook.SaveAs("Formula.xlsx")
 
@@ -617,7 +617,7 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}   
 
-I> Enable automatic updation of links in Microsoft Excel, to view the result for the preceding code.
+N> Enable automatic updation of links in Microsoft Excel, to view the result for the preceding code.
 
 ## Supported Functions
 
@@ -1880,7 +1880,7 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}   
 
-I> If you move the file to another computer, or distribute it, the workbook will expect to find the same Add-In, in the same place, on their computers. But, if the Add-In is moved or deleted from the computer, the workbook won't be able to find it, and your code won't work. Make sure that the Add-In is accessed by locating the .xlam file through the menu (Developer -> Addins -> Browse).
+N> If you move the file to another computer, or distribute it, the workbook will expect to find the same Add-In, in the same place, on their computers. But, if the Add-In is moved or deleted from the computer, the workbook won't be able to find it, and your code won't work. Make sure that the Add-In is accessed by locating the .xlam file through the menu (Developer -> Addins -> Browse).
 
 ## Defined Names
 
@@ -2068,7 +2068,7 @@ Microsoft excel constantly checks in the background for potential errors in your
 
 In certain cases, these errors can be ignored so that the error will not appear in further error checks. The **IgnoreErrorOptions** property of __IRange__ manages different types of errors checks, for example numbers stored as text, formula calculation errors and validation errors.
 
-LINK- API reference to ExcelIgnoreError enum. 
+To know more about IngoreErrorOptions, please refer ExcelIgnoreError enumeration in API section.
 
 Following code illustrates on how to ignore or set error indicators.
 
@@ -2136,9 +2136,9 @@ excelEngine.Dispose()
 
 Essential Calculate is now (from v9.1.x.x) integrated with Essential XlsIO, and thus makes it possible to calculate formulas entered at runtime without any additional references or packages.
 
-I> Do not add reference to Syncfusion.Calculate.Base. It will throw conflict errors as these are already integrated with XlsIO.
+N> Do not add reference to Syncfusion.Calculate.Base. It will throw conflict errors as these are already integrated with XlsIO.
 
-I> Only the formulas that are supported by Calculate engine can be calculated at runtime using Essential XlsIO.
+N> Only the formulas that are supported by Calculate engine can be calculated at runtime using Essential XlsIO.
 
 ## Calculate Options
 

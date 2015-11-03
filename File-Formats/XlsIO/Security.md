@@ -119,7 +119,7 @@ Dim excelEngine As New ExcelEngine()
 
 'Loads or open an existing workbook through Open method of IWorkbooks
 
-Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOptions.[Default], False, "password")
+Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOptions.Default, False, "password")
 
 
 
@@ -162,7 +162,7 @@ Dim application As IApplication = excelEngine.Excel
 
 application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelParseOptions.[Default], True, "password")
+Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelParseOptions.Default, True, "password")
 
 'Removing a protection.
 
@@ -282,7 +282,7 @@ Dim workbook As IWorkbook = application.Workbooks.Open("ProtectedWorkbook.xlsx")
 
 ' Unprotecting (unlocking) Workbook by using the Password.
 
-workbook.Unprotect("password");
+workbook.Unprotect("password")
 
 workbook.SaveAs("Output.xlsx")
 
@@ -354,7 +354,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-I> By using the ExcelSheetProtection enumerator, you can set protection to the workbook elements/operations.
+N> By using the ExcelSheetProtection enumerator, you can set protection to the workbook elements/operations.
 
 **Chart** **Sheet** **Protection**
 
@@ -532,7 +532,7 @@ excelEngine.Dispose()
 
 XlsIO supports locking and unlocking cells by using the cell's **Locked** property of __CellStyle__. This can be manipulated to make certain cells editable in a protected worksheet. 
 
-I> By default, cells are locked. Lock or Unlock cell in an unprotected worksheet has no effect. 
+N> By default, cells are locked. Lock or Unlock cell in an unprotected worksheet has no effect. 
 
 {% tabs %}  
 

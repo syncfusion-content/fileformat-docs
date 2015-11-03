@@ -105,7 +105,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-To know more about ExcelToPdf conversion settings, please refer ExcelToPdfConverterSettings – LINK API reference
+To know more about different conversion settings in Excel to PDF conversion, please refer ExcelToPdfConverterSettings in API section.
 
 ### Worksheet to PDF
 
@@ -354,7 +354,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-I> This section is applicable only to the Windows Forms, ASP.Net, MVC and WPF platforms.
+N> This section is applicable only to the Windows Forms, ASP.NET, ASP.NET MVC and WPF platforms.
 
 **Supported** **Elements**
 

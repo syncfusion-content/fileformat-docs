@@ -169,7 +169,7 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}    
 
-I> Applying custom styles will override original styles.
+N> Applying custom styles will override original styles.
 
 T> You can use default styles, to apply styles for a whole column instead of applying in each cell.
 
@@ -177,7 +177,7 @@ T> You can use default styles, to apply styles for a whole column instead of app
 
 XlsIO supports to add styles globally that can be applied to one or more cells in a workbook. This is a recommended approach to apply single style in different rows and columns, which improves memory and performance considerably.
 
-LINK: Refer Improving Performing section for better performance in XlsIO.
+To know more about performance, please refer [Improving Performing section for better performance in XlsIO](/file-formats/xlsio/improving-performance).
 
 The following code snippet illustrate to setting header style and body style to the cells.
 
@@ -1388,7 +1388,7 @@ excelEngine.Dispose()
 
 If a cell content is too wide to fit a column and don’t want to split over into adjacent cells, you can use the **WrapText** property. This will set the content within the cell border. The following code snippet illustrates this behavior.
 
-I> Applying wrap-text will not auto-fit the rows by default. It is recommended to [auto-fit](#_AutoFit_Rows_or "") manually.
+N> Applying wrap-text will not auto-fit the rows by default. It is recommended to [auto-fit](#_AutoFit_Rows_or "") manually.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1868,7 +1868,7 @@ The output of the above code is shown in the below screen-shot.
 
 You can format each character in a cell with different font styles. XlsIO provides support for reading and writing rich text by using the **IRichTextString** interface. 
 
-I> Currently XlsIO cannot process and write RTF codes to cells.
+N> Currently XlsIO cannot process and write RTF codes to cells.
 
 {% tabs %}  
 {% highlight c# %}

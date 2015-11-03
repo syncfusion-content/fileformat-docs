@@ -18,7 +18,7 @@ Following are the steps for creating a simple pivot table.
 * Add row and column fields
 * Add data fields
 
-Pivot tables do not take data directly from the source data, but rather from the pivot cache that memorizes a snapshot of the data. [IPivotCache](Go to interface# "") interface caches the data that needs to be summarized. 
+Pivot tables do not take data directly from the source data, but rather from the pivot cache that memorizes a snapshot of the data. **IPivotCache** interface caches the data that needs to be summarized. 
 
 The data in worksheet is added to pivot cache as below.
 
@@ -44,7 +44,7 @@ Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:H50"))
 
   {% endtabs %}  
 
-[IPivotTable](Go to interface# "") represents a single pivot table object created from the cache. It has [properties](Go to properties# "") that allow to customize pivot table. The following code creates a blank pivot table. 
+**IPivotTable** represents a single pivot table object created from the cache. It has properties that allow to customize pivot table. The following code creates a blank pivot table. 
 
 {% tabs %}  
 
@@ -68,7 +68,7 @@ Dim pivotTable As IPivotTable = worksheet.PivotTables.Add("PivotTable1", workshe
 
   {% endtabs %}  
 
-Now the pivot table should be populated with required fields. [IPivotField](Go to interface# "") represents a single field in the pivot table which includes row, column and data field axis. 
+Now the pivot table should be populated with required fields. **IPivotField** represents a single field in the pivot table which includes row, column and data field axis. 
 
 {% tabs %}  
 
@@ -100,7 +100,7 @@ pivotTable.Fields(3).Axis = PivotAxisTypes.Column
 
   {% endtabs %}  
 
-[IPivotDataFields](E:\company\trunk\work_area\IOTeam\Documentation\UG\XlsIO\Go to interface# "") represents a collection of data field in the pivot table. The data field is added with the required subtotal function using [PivotSubtotalTypes](Go to enumerator# "") enum. Following is the code to configure a pivot field as a data field.
+**IPivotDataFields** represents a collection of data fields in the pivot table. The data field is added with the required subtotal function using **PivotSubtotalTypes** enumeration. To know more about different subtotal types supported in Pivot Tables, please refer **PivotSubtotalTypes** in API section. Following is the code to configure a pivot field as a data field.
 
 {% tabs %}  
 
@@ -216,7 +216,7 @@ workbook.SaveAs("PivotTable.xlsx")
 
 workbook.Close()
 
-excelEngine.Dispose();
+excelEngine.Dispose()
 
 
 
@@ -226,7 +226,7 @@ excelEngine.Dispose();
 
 ## Editing and Formatting a Pivot Table
 
-A Pivot table can be accessed from [IPivotTables](Go to interface# "") interface which holds the collection of pivot tables in the worksheet. The below code shows how to dynamically refresh the data in a pivot table. In prior,
+A Pivot table can be accessed from **IPivotTables** interface which holds the collection of pivot tables in the worksheet. The below code shows how to dynamically refresh the data in a pivot table. In prior,
 
 * Create the pivot table using Excel GUI.
 * Specify the named range to be the data source of the pivot table.
@@ -287,7 +287,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-XlsIO supports 85 built-in styles of Excel 2007, enabling users to create a table with rich formatting. This is done by using the [PivotBuiltInStyles](Go to enumerator# "") property of IPivotTable as follows.
+XlsIO supports 85 built-in styles of Excel 2007, enabling users to create a table with rich formatting through PivotBuiltInStyles property as follows. To know more about various built-in styles supported, please refer **PivotBuiltInStyles** enumeration in API section.
 
 {% tabs %}  
 
@@ -355,7 +355,7 @@ excelEngine.Dispose()
 
 ## Applying Pivot Table Filters 
 
-The filtered data of a pivot table displays only the subset of data that meet the specified [criteria](javascript:AppendPopup(this,'420434735_1')# ""). This can be achieved in XlsIO using the [IPivotFilters](Go to link# "") interface.
+The filtered data of a pivot table displays only the subset of data that meet the specified criteria. This can be achieved in XlsIO using the **IPivotFilters** interface.
 
 
 
@@ -610,7 +610,7 @@ excelEngine.Dispose()
 
 Excel provides various options through the PivotTableOptions dialog box to customize the appearance of the pivot table.
 
-XlsIO supports these pivot table options using [IPivotTableOptions](Go to link# "") interface to control various settings for the existing Pivot table.  Following code illustrated how to access PivotTableOptions object. 
+XlsIO supports these pivot table options using IPivotTableOptions interface to control various settings for the existing Pivot table.  To know more about various pivot table options, please refer **IPivotTableOptions** in API section. Following code illustrated how to access PivotTableOptions object. 
 
 {% tabs %}  
 
@@ -661,7 +661,7 @@ options.ShowFieldList = False
 
 ### Header Caption
 
-The **RowHeaderCaption** and **ColumnHeadercaption** properties allows to edit the respective pivot table headers. The header caption can be enabled or disabled through [DisplayFieldCaption](Go to that property# "") property.
+The **RowHeaderCaption** and **ColumnHeadercaption** properties allows to edit the respective pivot table headers. The header caption can be enabled or disabled through **DisplayFieldCaption** property.
 
 {% tabs %}  
 

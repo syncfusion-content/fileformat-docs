@@ -64,7 +64,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-I> Workbook must be saved in appropriate version, failing in this leads to file corruption.
+N> Workbook must be saved in appropriate version, failing in this leads to file corruption.
 
 ## How to open an Excel file from Stream?
 
@@ -820,7 +820,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-I> Locking/Unlocking cells in an unprotected worksheet has no effect.
+N> Locking/Unlocking cells in an unprotected worksheet has no effect.
 
 ## How to set a line break inside a cell?
 
@@ -942,7 +942,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-I> Go to “ View -> Page Layout” option to view the header and footer in MS Excel. 
+N> Go to “ View -> Page Layout” option to view the header and footer in MS Excel. 
 
 ## How to set print titles?
 
@@ -2297,7 +2297,7 @@ Yes, Essential XlsIO provides support for Client profile. In order to use Essent
 * Syncfusion.Compresssion.Base.dll
 * Syncfusion.XlsIO.ClientProfile.dll
 
-I> Syncfusion.Core is no longer needed from 13.2 version onwards. 
+N> Syncfusion.Core is no longer needed from 13.2 version onwards. 
 
 ## How to resolve the “File does not contain workbook stream” error in Syncfusion.XlsIO.Base.dll?
 
@@ -2337,7 +2337,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-I> This method is available from 12.4 version onwards.
+N> This method is available from 12.4 version onwards.
 
 ## How to resolve "Excel cannot open the file 'filename.xlsx' because the file format for the file extension is not valid. Verify that the file has not been corrupted and that the file extension matches the format of the file" error?
 

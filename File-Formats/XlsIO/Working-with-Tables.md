@@ -14,7 +14,7 @@ XlsIO provides support to read and write table which helps to organize and analy
 * **IListObjects** represents a collection of tables in the worksheet. 
 * **IListObject** represent a table in the worksheet
 
-I> In XlsIO, Tables are supported only for Excel 2007 and later formats (*.xlsx files).
+N> In XlsIO, Tables are supported only for Excel 2007 and later formats (*.xlsx files).
 
 The below code sample explains the creation of a simple table by the range of data from an existing worksheet
 
@@ -219,7 +219,7 @@ excelEngine.Dispose()
   {% endtabs %}  
 ## Insert/Remove Columns in a Table
 
-IListObject is a collection of columns, whereas a single column is represented by an instance of [IListObjectColmn](IListObjectColumn# ""). XlsIO provides support to insert or remove columns in a table by passing the column item or the column index to this column collection, as below.
+IListObject is a collection of columns, whereas a single column is represented by an instance of **IListObjectColmn**. XlsIO provides support to insert or remove columns in a table by passing the column item or the column index to this column collection, as below.
 
 {% tabs %}  
 
@@ -240,15 +240,11 @@ IListObject table = worksheet.ListObjects.Create("Table1", worksheet ["A1:C8"]);
 
 //Inserting a column in the table
 
-table.Columns.Insert(listObjectColum);
+worksheet.InsertColumn(2, 2);
 
-// Removing a column from the table - Method 1
+// Removing a column from the table
 
-table.Columns.Remove(listObjectColum);
-
-// Removing a column from the table - Method 2
-
-table.Columns.RemoveAt(columnIndex);
+worksheet.DeleteColumn(2, 1);
 
 string fileName = "Output.xlsx";
 
@@ -281,15 +277,11 @@ Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet ("A1
 
 'Inserting a column in the table
 
-table.Columns.Insert(listObjectColum)
+worksheet.InsertColumn(2, 2)
 
-'Removing a column from the table - Method 1
+'Removing a column from the table
 
-table.Columns.Remove(listObjectColum)
-
-'Removing a column from the table - Method 2
-
-table.Columns.RemoveAt(columnIndex)
+worksheet.DeleteColumn(2, 1)
 
 Dim fileName As String = "Output.xlsx"
 
@@ -305,11 +297,11 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-I> Inserting rows/columns in a worksheet within table range also modifies table structure.
+N> Inserting rows/columns in a worksheet within table range also modifies table structure.
 
 ## Adding a Total Row
 
-The "Total Row" is added to a table by accessing the **Table** **Columns**. It is possible to set calculation function to be used to the Total Row cells, by using the [ExcelTotalsCalculation](Go to enumerator# "") enumerator. These cells will be updated once they are calculated.
+The "Total Row" is added to a table by accessing the **Table** **Columns**. It is possible to set calculation function to be used to the Total Row cells, by using the ExcelTotalsCalculation enumerator. To know more about this enumerator, please refer **ExcelTotalsCalculation** in API section. These cells will be updated once they are calculated.
 
 {% tabs %}  
 
@@ -395,7 +387,6 @@ External connection support allows to work with most recent data right in the wo
 
 The following table shows different data sources and its connection string formats which are supported in XlsIO.
 
-
 <table>
 <thead>
 <tr>
@@ -441,6 +432,7 @@ Stars with OLEDB<br/><br/></td></tr>
 Odbc<br/><br/></td><td>
 Stars with ODBC<br/><br/></td></tr>
 </table>
+
 The following code snippet explains the method of importing data through an external connection in the workbook.
 
 {% tabs %}  
@@ -553,6 +545,4 @@ excelEngine.Dispose()
 {% endhighlight %}
 
   {% endtabs %}  
-
-# 
 
