@@ -68,7 +68,7 @@ Dim pivotTable As IPivotTable = worksheet.PivotTables.Add("PivotTable1", workshe
 
   {% endtabs %}  
 
-Now the pivot table should be populated with required fields. **IPivotField** represents a single field in the pivot table which includes row, column and data field axis. 
+Now the pivot table should be populated with required fields. **IPivotField** represents a single field in the pivot table which includes row, column and data field axes. 
 
 {% tabs %}  
 
@@ -610,13 +610,15 @@ excelEngine.Dispose()
 
 Excel provides various options through the PivotTableOptions dialog box to customize the appearance of the pivot table.
 
-XlsIO supports these pivot table options using IPivotTableOptions interface to control various settings for the existing Pivot table.  To know more about various pivot table options, please refer **IPivotTableOptions** in API section. Following code illustrated how to access PivotTableOptions object. 
+XlsIO supports these pivot table options using IPivotTableOptions interface to control various settings for the existing Pivot table.  To know more about various pivot table options, please refer **IPivotTableOptions** in API section. Following code illustrates how to access PivotTableOptions object. 
 
 {% tabs %}  
 
 {% highlight c# %}
 //Enable ColumnHeaderCaption
+
 IPivotTable pivotTable = worksheet.PivotTables[0];
+
 IPivotTableOptions options = pivotTable.Options;
 
 
@@ -624,6 +626,8 @@ IPivotTableOptions options = pivotTable.Options;
 {% endhighlight %}
 
 {% highlight vb %}
+'Enable ColumnHeaderCaption
+
 Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
 
 Dim options As IPivotTableOptions = pivotTable.Options

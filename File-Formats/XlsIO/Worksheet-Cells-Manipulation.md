@@ -389,7 +389,7 @@ Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 sheet.Range("A4").Clear(True)
 
-workbook.Version = ExcelVersion.Excel2013;
+workbook.Version = ExcelVersion.Excel2013
 
 workbook.SaveAs("ClearRange.xlsx")
 
@@ -1008,7 +1008,7 @@ excelEngine.Dispose()
 
 ## Data Filtering 
 
-Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e#), you can filter data to enable quick and easy way to find and work with a subset of data in a range of cells. When you filter data, entire rows are hidden if values in one or more columns don't meet the filtering criteria.
+Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e#) , you can filter data to enable quick and easy way to find and work with a subset of data in a range of cells. When you filter data, entire rows are hidden if values in one or more columns don't meet the filtering criteria.
 
 The following code illustrates how to apply simple auto filters.
 
@@ -1063,7 +1063,7 @@ Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
 
-sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"]
+sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
 
 ' Column index to which Autofilter must be applied.
 
@@ -1159,7 +1159,7 @@ Dim firstCondition As IAutoFilterCondition = filter.FirstCondition
 
 firstCondition.ConditionOperator = ExcelFilterCondition.Greater
 
-firstCondition.[Double] = 100
+firstCondition.Double = 100
 
 'Specfiying second condtion.
 
@@ -1167,7 +1167,7 @@ Dim secondCondition As IAutoFilterCondition = filter.SecondCondition
 
 secondCondition.ConditionOperator = ExcelFilterCondition.Less
 
-secondCondition.[Double] = 200
+secondCondition.Double = 200
 
 workbook.Version = ExcelVersion.Excel2013
 

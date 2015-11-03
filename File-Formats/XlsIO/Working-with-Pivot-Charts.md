@@ -10,7 +10,7 @@ documentation: UG
 
 PivotCharts are interactive graphical representations of PivotTable data that allows rapid analysis of the displayed data. In XlsIO, **PivotCharts** are created by __IChart__ interface by setting its pivot source as __PivotTable__.
 
-N> XlsIO provides PivotCharts support for XLSX format.
+N> PivotCharts is supported in XLSX format alone.
 
 To create a pivot table refer [Create Pivot Table](/file-formats/xlsio/working-with-pivot-tables#create-a-pivot-table). 
 

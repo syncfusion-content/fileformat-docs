@@ -614,11 +614,11 @@ worksheet.Columns[0].AutofitColumns();
 {% highlight vb %}
 'AutoFit applied to first row
 
-worksheet.Rows[0].AutofitRows()
+worksheet.Rows(0).AutofitRows()
 
 'AutoFit applied to first column
 
-worksheet.Columns[0].AutofitColumns()
+worksheet.Columns(0).AutofitColumns()
 
 
 
@@ -688,7 +688,7 @@ worksheet.Range("A1:D1").Text = "This is the Long Text"
 
 worksheet.Range("A2:A5").Text = "This is the Long Text using Autofit Columns and Rows"
 
-worksheet.Range["A2:A5"].WrapText = true
+worksheet.Range("A2:A5").WrapText = true
 
 'Auto-Fit the range
 

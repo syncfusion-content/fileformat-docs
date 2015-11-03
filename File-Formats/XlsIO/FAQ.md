@@ -870,13 +870,13 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 worksheet.Range("A1").CellStyle.WrapText = True
 
-worksheet.Range("A1").Text = [String].Format("Hello" & vbLf & "world")
+worksheet.Range("A1").Text = String.Format("Hello" & vbLf & "world")
 
 workbook.SaveAs("Linebreak.xlsx")
 
-workbook.Close();
+workbook.Close()
 
-excelEngine.Dispose();     
+excelEngine.Dispose()     
 
 
 
@@ -1710,7 +1710,7 @@ blueFont.Italic = true;
 
 blueFont.RGBColor = Color.Blue;
 
-rtf.SetFont(4, 7, blueFont);
+rtf.SetFont(4, 7, blueFont)
 
 workbook.SaveAs("FormattingText.xlsx");
 

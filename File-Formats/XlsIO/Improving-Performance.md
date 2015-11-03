@@ -100,11 +100,11 @@ migrantRange.Value = "Syncfusion";
 
 {% highlight vb %}
 'Writing Data.
-Dim row As Integer 
+Dim row As Integer
 Dim migrantRange As IMigrantRange = workbook.Worksheets(0).MigrantRange
-For row = 1 To rowCount Step row + 1
+For row = 1 To rowCount Step row + 1
 Dim column As Integer
-For column = 1 To colCount Step column + 1 
+For column = 1 To colCount Step column + 1
 'Writing values.
 migrantRange.ResetRowColumn(row, column)
 

@@ -266,7 +266,7 @@ Dim condition3 As IConditionalFormat = condition.AddCondition()
 
 condition3.FormatType = ExcelCFType.CellValue
 
-condition3.[Operator] = ExcelComparisonOperator.LessOrEqual
+condition3.Operator = ExcelComparisonOperator.LessOrEqual
 
 condition3.FirstFormula = "1000"
 

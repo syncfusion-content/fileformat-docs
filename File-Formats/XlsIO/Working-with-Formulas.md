@@ -112,9 +112,9 @@ Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 'Setting values to the cells
 
-sheet.Range["A1"] = 10
+sheet.Range("A1") = 10
 
-sheet.Range["B1"] = 10
+sheet.Range("B1") = 10
 
 'Setting formula for the range
 
@@ -534,7 +534,7 @@ Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 'Assign array formula
 
-sheet.Range["A1:D1"].FormulaArray = "{1,2,3,4}"
+sheet.Range("A1:D1").FormulaArray = "{1,2,3,4}"
 
 
 
@@ -604,7 +604,7 @@ Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 'Write an external formula value. 
 
-sheet.Range["C1"].Formula = "[One.xls]Sheet1!$A$1*5"
+sheet.Range("C1").Formula = "[One.xls]Sheet1!$A$1*5"
 
 workbook.SaveAs("Formula.xlsx")
 
@@ -2115,11 +2115,11 @@ Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 'Sets warning if number is entered as text.
 
-sheet.Range["A2:D2"].IgnoreErrorOptions = ExcelIgnoreError.NumberAsText
+sheet.Range("A2:D2").IgnoreErrorOptions = ExcelIgnoreError.NumberAsText
 
 'Ignores all the error warnings.
 
-sheet.Range["A3"].IgnoreErrorOptions = ExcelIgnoreError.None
+sheet.Range("A3").IgnoreErrorOptions = ExcelIgnoreError.None
 
 workbook.SaveAs("FormulaAuditing.xlsx")
 
