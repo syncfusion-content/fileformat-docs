@@ -77,7 +77,7 @@ excelEngine.Dispose()
 
 N> Row and Column index of Insert methods are "one based".
 
-To know more about inset rows and columns, please refer **WorksheetImpl** in API section.
+To know more about insert rows and columns, please refer **WorksheetImpl** in API section.
 
 ## Delete Rows and Columns 
 
@@ -228,7 +228,6 @@ excelEngine.Dispose()
 {% endtabs %}  
 
 N> Deletion by using above method is more efficient than looping.
-
 N> Row/Column index of these methods are "one based".
 
 ## Show or Hide Rows and Columns 
@@ -512,7 +511,6 @@ excelEngine.Dispose()
 {% endtabs %}  
 
 N> If a column width or a row height is 0, then the column/row is hidden.
-
 N> Column width and row height can also be set in pixels, by using the IWorksheet.SetColumnWidthInPixel and IWorksheet.SetRowHeightInPixel methods respectively.
 
 ## Auto-Fit Rows and Columns
@@ -714,9 +712,7 @@ excelEngine.Dispose()
 {% endtabs %}  
 
 N> 1) If a Range is text wrapped, AutoFitColumn method will not be applied on it.
-
 N> 2) If a Range is merged, Auto-Fit methods will not be applied on it. Note that this is the behavior of Excel as well.
-
 N> 3) Auto fitting is a time consuming process so it might cause performance issues when used excessively.
 
 ## Group or Ungroup Rows and Columns 
