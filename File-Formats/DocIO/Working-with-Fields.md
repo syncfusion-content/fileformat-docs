@@ -15,7 +15,7 @@ To know various types of Microsoft Word supported fields and its syntax refer to
 
 ## Adding fields
 
-You can add a field in a Word document by using AppendFieldmethod of WParagraphclass.
+You can add a field in a Word document by using `AppendField` method of `WParagraph` class.
 
 The following code example illustrates how to add a field in Word document.
 
@@ -272,7 +272,7 @@ document.Close()
   
 ## Document Variables
 
-The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using Variablesproperty of WordDocumentclass.
+The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using Variablesproperty of `WordDocument` class.
 
 The following code example illustrate how to add a DocVariable field in Word document.
 
@@ -363,7 +363,7 @@ document.Close()
   
 ## Cross Reference
 
-A cross-reference refers to an item that appears in another location in a document. You can create cross-reference to bookmarks in a document by using AppendCrossReferencemethod of WParagraphclass.
+A cross-reference refers to an item that appears in another location in a document. You can create cross-reference to bookmarks in a document by using `AppendCrossReference` method of `WParagraph` class.
 
 N>  Essential DocIO supports to create and update cross-reference fields only for bookmarks in a document
 

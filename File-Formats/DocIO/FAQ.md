@@ -2022,7 +2022,7 @@ DocIO performs Mail Merge by using the following methods:
 * ExecuteGroup
 * ExecuteNestedGroup
 
-The following code example performs Mail Merge by using the Execute method.
+The following code example performs Mail Merge by using the `Execute` method.
 
 {% tabs %}    
 
@@ -3156,7 +3156,7 @@ wordApp.Quit()
 
 ### Using DocIO
 
-You can set the header and footer by using the HeadersFooters property in the Word document section. To access a particular header/footer, you can use the following properties of WHeadersFooters class:
+You can set the header and footer by using the HeadersFooters property in the Word document section. To access a particular header/footer, you can use the following properties of `WHeadersFooters` class:
 
 * FirstPageHeader
 * FirstPageFooter

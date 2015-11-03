@@ -371,7 +371,7 @@ Linked Textboxes are not supported<br/><br/></td></tr>
 
 ## Rendering / Converting Word document to Image
 
-Essential DocIO supports to convert the Word document to images using RenderAsImages method. The following assemblies are need to be referred for converting Word to image.
+Essential DocIO supports to convert the Word document to images using `RenderAsImages` method. The following assemblies are need to be referred for converting Word to image.
 
 <table>
 <thead> 

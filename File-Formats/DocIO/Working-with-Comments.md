@@ -13,7 +13,7 @@ N>  The comment start and end ranges and dates can be preserved only on processi
 
 ## Adding a Comment
 
-You can add a new comment to the Word document by using AppendCommentmethod of WParagraphclass. 
+You can add a new comment to the Word document by using `AppendComment` method of `WParagraph` class. 
 
 The following code illustrates how to add a new comment to the document:
 

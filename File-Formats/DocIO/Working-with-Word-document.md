@@ -692,7 +692,7 @@ End Namespace
 
 
 
-You can create a deep copy of a Word document by using Clone method of WordDocument class. You can read the template document from file system or stream and create multiple document copies by cloning it. This improves the performance of document generation, as there is no need to read the Word document each time.
+You can create a deep copy of a Word document by using Clone method of `WordDocument` class. You can read the template document from file system or stream and create multiple document copies by cloning it. This improves the performance of document generation, as there is no need to read the Word document each time.
 
 {% tabs %} 
 
@@ -1358,7 +1358,7 @@ document.Close()
  
 ### Creating a new Paragraph Style
 
-You can create a new paragraph style by using WordDocument.AddParagraphStyle method and apply it by using ApplyStyle method of WParagraph class.
+You can create a new paragraph style by using `WordDocument.AddParagraphStyle` method and apply it by using `ApplyStyle` method of `WParagraph` class.
 
 {% tabs %}  
 
@@ -1591,7 +1591,7 @@ document.Close()
  
 ### Adding Custom Document properties
 
-You add a new custom document properties through Add method of CustomProperties class. The following code example illustrates how to add a new custom document properties.
+You add a new custom document properties through Add method of `CustomProperties` class. The following code example illustrates how to add a new custom document properties.
 
 {% tabs %} 
 

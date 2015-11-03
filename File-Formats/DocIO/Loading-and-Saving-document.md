@@ -9,14 +9,14 @@ documentation: UG
 
 ## Opening an existing document
 
-You can open an existing Word document by using either the Open method or the constructor of WordDocument class
+You can open an existing Word document by using either the Open method or the constructor of `WordDocument` class
 
 {% tabs %}  
 
 {% highlight c# %}
 
 
-//Opens an existing document from file system through constructor of WordDocument class
+//Opens an existing document from file system through constructor of `WordDocument` class
 
 WordDocument document = new WordDocument(fileName);
 
@@ -79,7 +79,7 @@ document.Open(fileName)
 
 ## Opening an existing document from Stream
 
-You can open an existing document from stream by using either the overloads of Open methods or the constructor of WordDocument class
+You can open an existing document from stream by using either the overloads of Open methods or the constructor of `WordDocument` class
 
 {% tabs %}  
 
@@ -207,7 +207,7 @@ document.Open(wordDocumentStream, FormatType.Automatic, "password")
 
 ## Saving a Word document to file system
 
-You can save the created or manipulated word document to file system using Save method of WordDocument class. When you do not provide the format type, then the document is saved in Word 97-2003 (*.doc) format.
+You can save the created or manipulated word document to file system using Save method of `WordDocument` class. When you do not provide the format type, then the document is saved in Word 97-2003 (*.doc) format.
 
 {% tabs %}  
 

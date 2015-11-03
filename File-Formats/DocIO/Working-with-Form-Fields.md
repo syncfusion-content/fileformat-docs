@@ -19,7 +19,7 @@ The following are the types of form field in the Word document
 ## Check Box
 
 
-You can add new Checkbox form field to a Word document by using AppendCheckBoxmethod of WParagraphclass.
+You can add new Checkbox form field to a Word document by using `AppendCheckBox` method of `WParagraph` class.
 
 The following code illustrates how to add new checkbox form field.
 
@@ -234,7 +234,7 @@ document.Close()
  
 ## Drop-Down
 
-You can add new Dropdown form field to a Word document by using AppendDropDownFormFieldmethod of WParagraphclass.
+You can add new Dropdown form field to a Word document by using `AppendDropDownFormField` method of `WParagraph` class.
 
 The following code illustrates how to add a new dropdown field.
 
@@ -379,7 +379,7 @@ document.Close()
 
 ## Text Form field
 
-You can add new text form field to a Word document by using AppendTextFormFieldmethod of WParagraphclass.
+You can add new text form field to a Word document by using `AppendTextFormField` method of `WParagraph` class.
 
 The following code illustrates how to add new text form field.
 

@@ -11,7 +11,7 @@ You can search a particular text you like to change and replace it with another 
 
 ## Finding contents in a Word document
 
-You can find the first occurrence of a particular text within a single paragraph in the document by using Findmethod and its next occurrence by using FindNextmethod. You can also find a particular text pattern in the document.
+You can find the first occurrence of a particular text within a single paragraph in the document by using `Find` method and its next occurrence by using `FindNext` method. You can also find a particular text pattern in the document.
 
 The following code example illustrates how to find a particular text and its next occurrence in the document.
 
@@ -108,7 +108,7 @@ document.Close()
 
   {% endtabs %}  
 
-You can find all the occurrence of a particular text within a single paragraph in the document by using FindAllmethod. 
+You can find all the occurrence of a particular text within a single paragraph in the document by using `FindAll` method. 
 
 The following code example illustrates how to find all the occurrences of a particular text in the document.
 
@@ -180,7 +180,7 @@ document.Close()
 
   {% endtabs %}  
 
-You can find the first occurrence of a particular text extended to several paragraphs in the document by using FindSingleLinemethod and its next occurrence by using FindNextSingleLinemethod.
+You can find the first occurrence of a particular text extended to several paragraphs in the document by using `FindSingleLine` method and its next occurrence by using `FindNextSingleLine` method.
 
 The following code example illustrates how to find a particular text extended to several paragraphs in the Word document.
 
@@ -293,7 +293,7 @@ document.Close()
 
 ## Replacing the Search results
 
-You can replace a particular text with another text, part of a document or entire document by using Replacemethod. 
+You can replace a particular text with another text, part of a document or entire document by using `Replace` method. 
 
 The following code example illustrates how to replace a particular text.
 
@@ -359,7 +359,7 @@ document.Close()
 
   {% endtabs %}  
 
-You can specify to replace only the first occurrence of the specified text by setting ReplaceFirstproperty of WordDocumentclass to true. 
+You can specify to replace only the first occurrence of the specified text by setting ReplaceFirstproperty of `WordDocument` class to true. 
 
 The following code example illustrates how to replace the first occurrence of a particular text.
 
@@ -489,7 +489,7 @@ document.Close()
 
   {% endtabs %}  
 
-You can replace a particular text extended to several paragraphs in a document with another text or part of a document by using ReplaceSingleLinemethod.
+You can replace a particular text extended to several paragraphs in a document with another text or part of a document by using `ReplaceSingleLine` method.
 
 The following code example illustrates how to replace the text extended to several paragraphs with simple text.
 

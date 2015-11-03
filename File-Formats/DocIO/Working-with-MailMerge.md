@@ -7,7 +7,7 @@ documentation: UG
 ---
 # MailMerge
 
-Mail Merge is a process of merging data from data source to a Word template document. WMergeFieldclass provides support to bind template document and data source. WMergeFieldinstance is replaced with the actual data retrieved from data source for the given merge field name in a template document.
+Mail Merge is a process of merging data from data source to a Word template document. `WMergeField` class provides support to bind template document and data source. `WMergeField` instance is replaced with the actual data retrieved from data source for the given merge field name in a template document.
 
 The following data sources are supported by Essential DocIO for performing mail merge.
 
@@ -27,7 +27,7 @@ For example: The merge field name should be like “Image:Photo” (<<Image:Merg
 
 ## Simple mail merge
 
-The MailMerge class provides various overloads for Execute method to perform mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
+The `MailMerge` class provides various overloads for Execute method to perform mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
 
 The following code example shows how to create a Word template document with merge fields.
 
@@ -205,7 +205,7 @@ For example – Consider that you have a template document as shown.
 
 In this template, Employeesis the group name and the same name should be used while performing mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the mail merge group. 
 
-The MailMerge class provides various overloads for ExecuteGroup method to perform mail merge within a group from various data sources. The following code example shows how to perform mail merge in the specific region with data source retrieved from SQL connection.
+The `MailMerge` class provides various overloads for ExecuteGroup method to perform mail merge within a group from various data sources. The following code example shows how to perform mail merge in the specific region with data source retrieved from SQL connection.
 
 {% tabs %} 
 
@@ -1664,7 +1664,7 @@ The resultant document looks as follows.
 
 ## Event support for Mail merge
 
-The MailMerge class provides event support to customize the document contents and merging image data during the mail merge process. The following events are supported by Essential DocIO in mail merge process.
+The `MailMerge` class provides event support to customize the document contents and merging image data during the mail merge process. The following events are supported by Essential DocIO in mail merge process.
 
 * MergeField - occurs during mail merge when a mail merge field except image mail merge field is encountered in the document
 * MergeImageField - occurs during mail merge when a image mail merge field is encountered in the document
@@ -1976,11 +1976,11 @@ End Sub
   
 ## Mail merge options
 
-The MailMerge class allows you to customize the mail merge process with the following options.
+The `MailMerge` class allows you to customize the mail merge process with the following options.
 
 ### Field Mapping
 
-The MailMerge class can automatically maps the merge field names with data source column names during mail merge process. You can also customize the field mapping when the merge field names in the template document varies with the column names in the data source by using MappedFields collection.
+The `MailMerge` class can automatically maps the merge field names with data source column names during mail merge process. You can also customize the field mapping when the merge field names in the template document varies with the column names in the data source by using MappedFields collection.
 
 The following code example shows how to add mapping when a merge field name in a document and column name in a data source have different names.
 

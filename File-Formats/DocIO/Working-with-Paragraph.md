@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Paragraph
 
-Paragraph is the basic element in the Word document that contains a textual as well as graphical contents. Each paragraph has its own formatting such as line spacing, alignment, indentation etc. Within a paragraph, the contents are represented by one or more child elements such as WTextRange, WPicture, and Hyperlink etc. ParagraphItem is the base class for the child elements of paragraph. The following elements can be the child elements of a paragraph:
+Paragraph is the basic element in the Word document that contains a textual as well as graphical contents. Each paragraph has its own formatting such as line spacing, alignment, indentation etc. Within a paragraph, the contents are represented by one or more child elements such as WTextRange, WPicture, and Hyperlink etc. `ParagraphItem` is the base class for the child elements of paragraph. The following elements can be the child elements of a paragraph:
 
 
 
