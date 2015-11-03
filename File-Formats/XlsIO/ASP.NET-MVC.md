@@ -5,7 +5,7 @@ platform: file-formats
 control: XlsIO
 documentation: UG
 ---
-# ASP.NET  MVC
+# ASP.NET MVC
 
 ## Saving in ASP.NET MVC
 
