@@ -77,7 +77,7 @@ excelEngine.Dispose()
 
 N> Row and Column index of Insert methods are "one based".
 
-To know more about inset rows and columns, please refer **WorksheetImpl** in API section.
+To know more about insert rows and columns, please refer **WorksheetImpl** in API section.
 
 ## Delete Rows and Columns 
 
