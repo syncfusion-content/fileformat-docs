@@ -219,7 +219,7 @@ excelEngine.Dispose()
   {% endtabs %}  
 ## Insert/Remove Columns in a Table
 
-IListObject is a collection of columns, whereas a single column is represented by an instance of **IListObjectColmn**. XlsIO provides support to through worksheet, as below.
+IListObject is a collection of columns, whereas a single column is represented by an instance of **IListObjectColmn**. XlsIO provides support to insert or remove columns in a table through worksheet, as shown below.
 
 {% tabs %}  
 

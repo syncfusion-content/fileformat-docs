@@ -1710,7 +1710,7 @@ blueFont.Italic = true;
 
 blueFont.RGBColor = Color.Blue;
 
-rtf.SetFont(4, 7, blueFont)
+rtf.SetFont(4, 7, blueFont);
 
 workbook.SaveAs("FormattingText.xlsx");
 
@@ -1765,7 +1765,7 @@ blueFont.RGBColor = Color.Blue
 
 rtf.SetFont(4, 7, blueFont)
 
-workbook.SaveAs(("FormattingText.xlsx")
+workbook.SaveAs("FormattingText.xlsx")
 
 workbook.Close()
 
