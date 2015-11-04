@@ -326,9 +326,7 @@ End Using
 **You can improve the accuracy of the OCR process by choosing the correct compression method when converting the scanned paper to a TIFF image and then to a PDF document.**
 
 * Use (zip) lossless compression for color or gray-scale images.
-
 * Use CCITT Group 4 or JBIG2 (lossless) compression for monochrome images. This ensures that optical character recognition works on the highest-quality image, thereby improving the OCR accuracy. This is especially useful in low-resolution scans.
-
 * In addition, rotated images and skewed images can also affect the accuracy and readability of the OCR process.
 
 **Tesseract works best with text when at least 300 dots per inch (DPI) are used, so it is beneficial to resize images.**
