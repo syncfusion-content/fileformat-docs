@@ -479,7 +479,7 @@ Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
-Encryption and Decryption<br/>(partial – just default algorithm)<br/><br/></td><td>
+Encryption and Decryption<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td><td>

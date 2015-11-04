@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Formulas
 
-[Formulas](https://support.office.com/en-ca/article/Overview-of-formulas-7abfda78-eff3-4cc6-b4a7-6350d512d2dc#) are entries in Excel that have equations, by which values are calculated. A typical formula might contain cell references, constants, and even functions. 
+[Formulas](https://support.office.com/en-ca/article/Overview-of-formulas-7abfda78-eff3-4cc6-b4a7-6350d512d2dc) are entries in Excel that have equations, by which values are calculated. A typical formula might contain cell references, constants, and even functions. 
 
 ## Enable and Disable Calculation
 
@@ -1762,7 +1762,7 @@ Returns the logical value TRUE<br/><br/></td></tr>
 
 ## Add-In Functions
 
-Add-Ins are mini-programs or custom functions that enhance the feature set of the Microsoft Excel application. These Add-Ins can be accessed by registering it at first from Excel and refer it using XlsIO. For more details on adding AddIn functions, see [Add or remove add-ins](https://support.office.com/en-ZA/article/add-or-remove-add-ins-64d3d147-98fb-4b82-8833-709d54e3ace1#)
+Add-Ins are mini-programs or custom functions that enhance the feature set of the Microsoft Excel application. These Add-Ins can be accessed by registering it at first from Excel and refer it using XlsIO. For more details on adding AddIn functions, see [Add or remove add-ins](https://support.office.com/en-ZA/article/add-or-remove-add-ins-64d3d147-98fb-4b82-8833-709d54e3ace1)
 
 The following code illustrates on how to include and access Add-Ins in XlsIO.
 
@@ -1884,7 +1884,7 @@ N> If you move the file to another computer, or distribute it, the workbook will
 
 ## Defined Names
 
-Cell ranges can be [defined by names](https://support.office.com/en-ZA/article/define-and-use-names-in-formulas-b2bacf14-945d-41d4-b3aa-267b18a23f6e#) to perform formula calculation. This section explains about creating named ranges and accessing them from workbook or worksheet levels.
+Cell ranges can be [defined by names](https://support.office.com/en-ZA/article/define-and-use-names-in-formulas-b2bacf14-945d-41d4-b3aa-267b18a23f6e) to perform formula calculation. This section explains about creating named ranges and accessing them from workbook or worksheet levels.
 
 The following code shows how to define a named range from workbook level.
 
@@ -2146,7 +2146,7 @@ Calculate engines provides certain options like calculation modes, Recalculate b
 
 ### Calculation Modes
 
-There are various calculation [modes](https://support.office.com/en-ZA/article/Formula-calculation-performance-and-error-handling-options-805928aa-6fc0-4787-b41c-fcdb65113423#) that enable users to customize formula calculations according to their needs. They are:
+There are various calculation [modes](https://support.office.com/en-ZA/article/Formula-calculation-performance-and-error-handling-options-805928aa-6fc0-4787-b41c-fcdb65113423) that enable users to customize formula calculations according to their needs. They are:
 
 * Automatic
 * Automatic except for Data Tables

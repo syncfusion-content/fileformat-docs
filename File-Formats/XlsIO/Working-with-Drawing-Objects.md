@@ -521,7 +521,7 @@ excelEngine.Dispose()
 
 ## Comments
 
-**ICommentShape** object represents a [comments](https://support.office.com/en-au/article/Annotate-a-worksheet-by-using-comments-3b7065dd-531a-4ffe-8f18-8d047a6ccae7#) in a worksheet. You can insert both **Regular** and **Rich** **Text** comments. The following code example illustrates how to insert and manipulate comments.
+**ICommentShape** object represents a [comment](https://support.office.com/en-au/article/Annotate-a-worksheet-by-using-comments-3b7065dd-531a-4ffe-8f18-8d047a6ccae7) in a worksheet. You can insert both **Regular** and **Rich** **Text** comments. The following code example illustrates how to insert and manipulate comments.
 
 {% tabs %}  
 
@@ -759,7 +759,7 @@ excelEngine.Dispose()
 
 ## AutoShapes
 
-The **IShape** interface represents the [AutoShapes](https://support.office.com/en-ca/article/Add-change-or-delete-shapes-4f7931c3-7794-440e-820e-9469ad756f05#) in an Excel workbook. 
+The **IShape** interface represents an [AutoShape](https://support.office.com/en-ca/article/Add-change-or-delete-shapes-4f7931c3-7794-440e-820e-9469ad756f05) in an Excel workbook. 
 
 To know more about various auto shape types supported in XlsIO, please refer **AutoShapeType** enumeration in API section.
 
@@ -869,7 +869,7 @@ excelEngine.Dispose()
 
 ## OLE Objects 
 
-**IOleObject** object represents an [OLE Object](https://support.office.com/en-US/article/Create-change-or-delete-an-OLE-object-F767F0F1-4170-4850-9B96-0B6C07EC6EA4#) in a worksheet. 
+**IOleObject** object represents an [OLE Object](https://support.office.com/en-US/article/Create-change-or-delete-an-OLE-object-F767F0F1-4170-4850-9B96-0B6C07EC6EA4) in a worksheet. 
 
 N> XlsIO provides OLE Objects support for XLSX format in Windows, ASP.NET and WPF platforms only.
 

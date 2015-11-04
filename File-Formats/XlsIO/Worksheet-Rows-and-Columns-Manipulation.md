@@ -375,7 +375,7 @@ excelEngine.Dispose()
 
 ## Adjust Row Height and Column Width 
 
-Rows and columns can be [resized](https://support.office.com/en-ca/article/Change-the-column-width-and-row-height-72f5e3cc-994d-43e8-ae58-9774a0905f46#) based on its contents. XlsIO allows to resize rows and columns in the following ways.
+Rows and columns can be [resized](https://support.office.com/en-ca/article/Change-the-column-width-and-row-height-72f5e3cc-994d-43e8-ae58-9774a0905f46) based on its contents. XlsIO allows to resize rows and columns in the following ways.
 
 * Resize a specific row or column
 * Resize a range of rows or columns
