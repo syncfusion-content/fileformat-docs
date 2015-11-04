@@ -340,9 +340,7 @@ For more details regarding quality improvement, refer to the following link:
 **You can set the different performance level to the OCRProcessor using “Performance” enumeration.**
 
 * Rapid – high speed OCR performance and provide normal OCR accuracy
-
 * Fast – provides moderate OCR processing speed and accuracy
-
 * Slow – Slow OCR performance and provide best OCR accuracy.
 
 Refer below code snippet to set the performance of the OCR.
