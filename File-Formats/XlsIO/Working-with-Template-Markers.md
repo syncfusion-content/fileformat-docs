@@ -467,7 +467,7 @@ Generated Output
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg)
 
 
-You can also refer [__Template__ __based__ __data__ __filling__ __using__ __Template__ __Markers__](/file-formats/xlsio/getting-started#template-based-data-filling-using-template-markers) section in [__Getting__ __Started__](/file-formats/xlsio/getting-started) for the sample regarding template marker with images.
+You can also refer [Template based data filling using Template Markers](/file-formats/xlsio/getting-started#template-based-data-filling-using-template-markers) section in [Getting Started](/file-formats/xlsio/getting-started) for the sample regarding template marker with images.
 
 ## Template Marker with Conditional Formatting
 

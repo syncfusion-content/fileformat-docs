@@ -389,7 +389,7 @@ Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 sheet.Range("A4").Clear(True)
 
-workbook.Version = ExcelVersion.Excel2013;
+workbook.Version = ExcelVersion.Excel2013
 
 workbook.SaveAs("ClearRange.xlsx")
 
@@ -534,7 +534,7 @@ excelEngine.Dispose()
 
 ## Find and Replace
 
-You can use [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33#) options to replace text, jump right to a specific spot, or pick other ways to narrow your search. ExcelFindType and ExcelFindOptions enumerators are used for effective search results. To know more about FindType, please refer ExcelFindType enumeration in API section.
+You can use [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33) options to replace text, jump right to a specific spot, or pick other ways to narrow your search. ExcelFindType and ExcelFindOptions enumerators are used for effective search results. To know more about FindType, please refer ExcelFindType enumeration in API section.
 
 You can find all occurrences of a text in worksheet by using FindAll method. To know more about Find and Replace, please refer **WorksheetImpl** in API section.
 
@@ -1008,7 +1008,7 @@ excelEngine.Dispose()
 
 ## Data Filtering 
 
-Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e#), you can filter data to enable quick and easy way to find and work with a subset of data in a range of cells. When you filter data, entire rows are hidden if values in one or more columns don't meet the filtering criteria.
+Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e) , you can filter data to enable quick and easy way to find and work with a subset of data in a range of cells. When you filter data, entire rows are hidden if values in one or more columns don't meet the filtering criteria.
 
 The following code illustrates how to apply simple auto filters.
 
@@ -1063,7 +1063,7 @@ Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
 
-sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"]
+sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
 
 ' Column index to which Autofilter must be applied.
 
@@ -1159,7 +1159,7 @@ Dim firstCondition As IAutoFilterCondition = filter.FirstCondition
 
 firstCondition.ConditionOperator = ExcelFilterCondition.Greater
 
-firstCondition.[Double] = 100
+firstCondition.Double = 100
 
 'Specfiying second condtion.
 
@@ -1167,7 +1167,7 @@ Dim secondCondition As IAutoFilterCondition = filter.SecondCondition
 
 secondCondition.ConditionOperator = ExcelFilterCondition.Less
 
-secondCondition.[Double] = 200
+secondCondition.Double = 200
 
 workbook.Version = ExcelVersion.Excel2013
 

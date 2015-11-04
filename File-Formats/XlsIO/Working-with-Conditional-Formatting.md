@@ -75,7 +75,7 @@ worksheet.Range("A1").Text = "Enter a number between 10 and 20"
 {% endhighlight %}
 {% endtabs %}  
 
-When the criteria set for the target range is satisfied, the defined formats (like the one below) are applied in the order of priority. For more details on conditional format priority, see [Manage conditional formatting rule precedence](https://support.office.com/en-us/article/Manage-conditional-formatting-rule-precedence-063cde21-516e-45ca-83f5-8e8126076249#)
+When the criteria set for the target range is satisfied, the defined formats (like the one below) are applied in the order of priority. For more details on conditional format priority, see [Manage conditional formatting rule precedence](https://support.office.com/en-us/article/Manage-conditional-formatting-rule-precedence-063cde21-516e-45ca-83f5-8e8126076249)
 
 {% tabs %}  
 {% highlight c# %}
@@ -266,7 +266,7 @@ Dim condition3 As IConditionalFormat = condition.AddCondition()
 
 condition3.FormatType = ExcelCFType.CellValue
 
-condition3.[Operator] = ExcelComparisonOperator.LessOrEqual
+condition3.Operator = ExcelComparisonOperator.LessOrEqual
 
 condition3.FirstFormula = "1000"
 

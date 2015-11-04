@@ -158,6 +158,6 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-N> Custom Xml cannot be modified when the file is saved in Excel 97-2003 (*.xls) format.
-N> Custom Xml can be created and modified when the file is saved in Excel 2007 and later versions (*.xlsx).
+N> Custom Xml cannot be modified when the file is saved in Excel 97-2003 (\*.xls) format.
+N> Custom Xml can be created and modified when the file is saved in Excel 2007 and later versions (\*.xlsx).
 

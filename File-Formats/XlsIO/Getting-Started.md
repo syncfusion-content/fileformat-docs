@@ -142,7 +142,7 @@ Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
 'Access a worksheet from workbook.
 
-Dim worksheet As IWorksheet = workbook.Worksheets[0]
+Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 
 
@@ -205,15 +205,15 @@ worksheet.Range("A6").Text = "Total"
 
 'Adding DateTime data
 
-worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10)
+worksheet.Range("A2").DateTime = new DateTime(2015, 1, 10)
 
-worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10)
+worksheet.Range("A3").DateTime = new DateTime(2015, 2, 10)
 
-worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10)
+worksheet.Range("A4").DateTime = new DateTime(2015, 3, 10)
 
 'Applying number format for date value cells A2 to A4
 
-worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy"
+worksheet.Range("A2:A4").NumberFormat = "mmmm, yyyy"
 
 'Auto-size the first column to fit the content
 
@@ -229,7 +229,7 @@ worksheet.Range("B4").Number = 72808
 
 'Adding formula
 
-worksheet.Range["B6"].Formula = "SUM(B2:B4)"
+worksheet.Range("B6").Formula = "SUM(B2:B4)"
 
 
 
@@ -468,15 +468,15 @@ worksheet.Range("A6").Text = "Total"
 
 'Adding DateTime data
 
-worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10)
+worksheet.Range("A2").DateTime = new DateTime(2015, 1, 10)
 
-worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10)
+worksheet.Range("A3").DateTime = new DateTime(2015, 2, 10)
 
-worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10)
+worksheet.Range("A4").DateTime = new DateTime(2015, 3, 10)
 
 'Applying number format for date value cells A2 to A4
 
-worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy"
+worksheet.Range("A2:A4").NumberFormat = "mmmm, yyyy"
 
 'Auto-size the first column to fit the content
 
@@ -492,7 +492,7 @@ worksheet.Range("B4").Number = 72808
 
 'Adding formula
 
-worksheet.Range["B6"].Formula = "SUM(B2:B4)"
+worksheet.Range("B6").Formula = "SUM(B2:B4)"
 
 'Inserting image
 

@@ -173,7 +173,7 @@ style.Borders.Color = ExcelKnownColors.Violet
 
 sheet.UsedRange.CellStyle = style
 
-Imports (Stream stream = sfd.OpenFile())
+Imports(Stream stream = sfd.OpenFile())
 
 workbook.SaveAs(stream)
 

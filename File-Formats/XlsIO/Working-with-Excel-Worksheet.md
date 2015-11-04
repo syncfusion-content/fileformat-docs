@@ -194,7 +194,7 @@ Dim excelEngine As ExcelEngine = New ExcelEngine
 
 Dim application As IApplication = excelEngine.Excel
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Create(2)
 
@@ -411,7 +411,7 @@ ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+application.DefaultVersion = ExcelVersion.Excel2013
 
 IWorkbook workbook = application.Workbooks.Create(1);
 
@@ -523,7 +523,7 @@ excelEngine.Dispose()
 
 ## Split Panes 
 
-You can divide the window into different [panes](https://support.office.com/en-AU/article/Split-panes-to-lock-rows-or-columns-in-separate-worksheet-areas-516a7001-b3ed-4122-a6bb-fd6d4a9d6434#) that each scroll separately. The following code snippets illustrates how to split the window through the **HorizontalSplit** and **VerticalSplit** properties.
+You can divide the window into different [panes](https://support.office.com/en-AU/article/Split-panes-to-lock-rows-or-columns-in-separate-worksheet-areas-516a7001-b3ed-4122-a6bb-fd6d4a9d6434) that each scroll separately. The following code snippets illustrates how to split the window through the **HorizontalSplit** and **VerticalSplit** properties.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1225,9 +1225,9 @@ sheet.SaveAsHtml("Sample.html")
 
 workbook.SaveAsHtml("Sample.html", Implementation.HtmlSaveOptions.Default)
 
-workbook.Close();
+workbook.Close()
 
-excelEngine.Dispose();
+excelEngine.Dispose()
 
 
 

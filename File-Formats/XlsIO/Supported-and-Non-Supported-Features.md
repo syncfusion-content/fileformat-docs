@@ -489,16 +489,6 @@ Yes<br/><br/></td><td>
 Yes <br/><br/></td></tr>
 <tr>
 <td>
-(partial – just default algorithm)<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td><td>
-<br/><br/></td></tr>
-<tr>
-<td>
 Track changes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>

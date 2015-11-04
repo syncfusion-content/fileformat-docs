@@ -8,7 +8,7 @@ documentation: UG
 
 # Security
 
-You can protect an anonymous user from viewing, moving, editing or deleting important data from a worksheet or workbook, you can **[protect a worksheet or workbook](https://support.office.com/en-ca/article/Password-protect-worksheet-or-workbook-elements-dbf706e0-ba22-4a08-84d8-552db16eef11#bmprotectelements)**, with or without a password.
+You can protect an anonymous user from viewing, moving, editing or deleting important data from a worksheet or workbook, you can [protect a worksheet or workbook](https://support.office.com/en-ca/article/Password-protect-worksheet-or-workbook-elements-dbf706e0-ba22-4a08-84d8-552db16eef11#bmprotectelements), with or without a password.
 
 ## Protect Workbook
 
