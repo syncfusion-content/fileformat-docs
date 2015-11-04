@@ -9,8 +9,8 @@ documentation: UG
 
 Essential PDF allows you to compress the PDF document and thereby reduce the file size in the following two ways.
 
-1) Content compression
-2) Image compression
+1. Content compression
+2. Image compression
 
 ## Compressing the PDF content
 
@@ -18,11 +18,9 @@ Essential PDF allows you to control the compression level of the document by usi
 
 Content compression involves, 
 
-1) Removing all extra space characters.
-
-2) Inserting a single repeat character to indicate a string of repeated characters.
-
-3) Substituting smaller bit strings for frequently occurring characters.
+1. Removing all extra space characters.
+2. Inserting a single repeat character to indicate a string of repeated characters.
+3. Substituting smaller bit strings for frequently occurring characters.
 
 The following code example illustrates how to compress the content of the PDF document.
 

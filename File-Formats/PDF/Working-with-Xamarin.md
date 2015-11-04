@@ -141,7 +141,7 @@ End Class
 
 {% endhighlight %}
 {% endtabs %}
-## Save the document 
+## Saving the document 
 
 The following code example illustrates how to save the PDF document in Xamarin windows phone platform.
 {% tabs %}

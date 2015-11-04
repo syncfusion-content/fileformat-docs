@@ -28,21 +28,21 @@ It supports the following types
 
 Device color space simply describes the range of colors that a camera can see, a printer can print, or a monitor can display. These color spaces depend upon the device where it is displayed. It contains the following types.
 
-•DeviceGray
+* DeviceGray
 
-•DeviceRGB
+* DeviceRGB
 
-•DeviceCMYK
+* DeviceCMYK
 
 ##  CIE-based Color Spaces
 
 CIE-based color space in the PDF document is classified as, 
 
-•CalGray
+* CalGray
 
-•CalRGB
+* CalRGB
 
-•Lab
+* Lab
 
 The following code example illustrates how to draw a rectangle with **CalGray** brush in new PDF document.
 {% tabs %}
