@@ -1008,7 +1008,7 @@ excelEngine.Dispose()
 
 ## Data Filtering 
 
-Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e#) , you can filter data to enable quick and easy way to find and work with a subset of data in a range of cells. When you filter data, entire rows are hidden if values in one or more columns don't meet the filtering criteria.
+Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e) , you can filter data to enable quick and easy way to find and work with a subset of data in a range of cells. When you filter data, entire rows are hidden if values in one or more columns don't meet the filtering criteria.
 
 The following code illustrates how to apply simple auto filters.
 
