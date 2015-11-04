@@ -401,7 +401,7 @@ In the following example, a marker is added for merging images.  Like a simple t
 
 __Marker__ __added__ __for__ __merging__ __images__
 
-I> Image can be used in array, DataTable and Business objects.
+N> Image can be used in array, DataTable and Business objects.
 
 Different position of image are maintained internally in ImageVerticalPosition and ImageHorizontalPosition enumerators.  To know more about this, please refer **ImageVerticalPosition** and **ImageHorizontalPosition** enumerators in API section.
 
