@@ -77,7 +77,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates an instance of a WordDocument 
@@ -156,7 +156,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the template document.
@@ -232,7 +232,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("EmployeesTemplate.docx")
@@ -294,7 +294,7 @@ return table;
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Private Function GetDataTable() As DataTable
@@ -378,7 +378,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the template document. 
@@ -452,7 +452,7 @@ return commands;
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Private Function GetCommands() As ArrayList
@@ -544,7 +544,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the template document. 
@@ -666,7 +666,7 @@ return dynamicOrder;
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Private Function GetCustomers() As List(Of ExpandoObject)
@@ -767,7 +767,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the template document. 
@@ -869,7 +869,7 @@ Photo = Image.FromFile(photoFilePath);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Public Function GetEmployees() As List(Of Employee)
@@ -1122,7 +1122,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the template document. 
@@ -1284,7 +1284,7 @@ RequiredDate = requiredDate;
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Public Function GetEmployees() As List(Of Employees)
@@ -1700,7 +1700,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the template document. 
@@ -1752,7 +1752,7 @@ args.CharacterFormat.TextColor = Color.FromArgb(255, 102, 0);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Private Function GetDataTable() As DataTable
@@ -1822,7 +1822,7 @@ return dataTable;
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Private Function GetDataTable() As DataTable
@@ -1890,7 +1890,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the template document
@@ -1951,7 +1951,7 @@ args.Image = Image.FromFile(ProductFileName);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Private Sub MergeField_ProductImage(ByVal sender As Object, ByVal args As MergeImageFieldEventArgs)
@@ -2023,7 +2023,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the template document. 
@@ -2079,7 +2079,7 @@ string[] filednames = document.MailMerge.GetMergeFieldNames()
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Gets the merge field names from the document.
@@ -2106,7 +2106,7 @@ string[] groupNames = document.MailMerge.GetMergeGroupNames();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Gets the merge field group names from the document.
@@ -2132,7 +2132,7 @@ string[] filednames = document.MailMerge.GetMergeFieldNames(groupName);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Gets the fields from the specified groups. 
@@ -2180,7 +2180,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the template document. 
@@ -2242,7 +2242,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the template document. 

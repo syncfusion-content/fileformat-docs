@@ -67,7 +67,7 @@ section.PageSetup.Margins.All = 50f;
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates an instance of WordDocument Instance (Empty Word Document)
@@ -129,7 +129,7 @@ secondTextRange.CharacterFormat.FontSize = 11;
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Adds a new simple paragraph into the section
@@ -194,7 +194,7 @@ picture.Width = 100;
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Adds another paragraph and aligns it as center
@@ -284,7 +284,7 @@ textRange = paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipis
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Adds a table into the Word document
@@ -434,7 +434,7 @@ section.AddParagraph();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Writes default numbered list. 
@@ -532,7 +532,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Saves the document in the given name and format
@@ -587,7 +587,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads an existing Word document into DocIO instance
@@ -647,7 +647,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads an existing Word document into DocIO instance
@@ -735,7 +735,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the template document with required merge fields
@@ -824,7 +824,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 //Loads the template document
@@ -930,7 +930,7 @@ Photo = Image.FromFile(photoFilePath);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Public Function GetEmployees() As List(Of Employee)
@@ -1194,7 +1194,7 @@ wordDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the template document 

@@ -42,7 +42,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the macro-enabled template.
@@ -124,7 +124,7 @@ return table;
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Private Function GetDataTable() As DataTable
@@ -202,7 +202,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the document with macros

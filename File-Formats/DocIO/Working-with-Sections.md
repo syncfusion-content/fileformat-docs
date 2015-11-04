@@ -40,7 +40,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new Word document
@@ -124,7 +124,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new Word document
@@ -216,7 +216,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 Dim document As New WordDocument()
@@ -330,7 +330,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new Word document
@@ -462,7 +462,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new Word document
@@ -590,7 +590,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new document
@@ -728,7 +728,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new document
@@ -886,7 +886,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new document
@@ -1048,7 +1048,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new document
@@ -1188,7 +1188,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new Word document
@@ -1304,7 +1304,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new Word document
@@ -1436,7 +1436,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new document
@@ -1533,7 +1533,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Opens an input Word template

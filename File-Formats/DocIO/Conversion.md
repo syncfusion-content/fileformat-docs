@@ -112,7 +112,7 @@ wordDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads an existing Word document
@@ -216,7 +216,7 @@ wordDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads an existing Word document
@@ -479,7 +479,7 @@ wordDocument.Close();
 
 
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads an existing Word document
@@ -555,7 +555,7 @@ document.Close();
 
 
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads an existing document
@@ -597,7 +597,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads an existing document
@@ -643,7 +643,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 ' Loads the HTML document against transitional schema validation 
@@ -715,7 +715,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the template document
@@ -785,7 +785,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the template document
@@ -856,7 +856,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads an existing document
@@ -1365,7 +1365,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Loads a text file
 
@@ -1406,7 +1406,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Loads a text file
 
@@ -1466,7 +1466,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Loads a template document
 
@@ -1548,7 +1548,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Loads an existing document
 

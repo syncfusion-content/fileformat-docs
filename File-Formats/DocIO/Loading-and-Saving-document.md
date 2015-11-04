@@ -26,7 +26,7 @@ WordDocument document = new WordDocument(fileName);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens an existing document from file system through constructor of WordDocument class
@@ -58,7 +58,7 @@ document.Open(fileName);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates an empty Word document instance
@@ -93,7 +93,7 @@ WordDocument document = new WordDocument(wordDocumentStream, FormatType.Automati
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens an existing document from stream through constructor of WordDocument class
@@ -125,7 +125,7 @@ document.Open(wordDocumentStream, FormatType.Automatic);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates an empty Wordocument instance
@@ -160,7 +160,7 @@ WordDocument document = new WordDocument(fileName, FormatType.Automatic, "passwo
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens an existing encrypted document through constructor of WordDocument class
@@ -190,7 +190,7 @@ document.Open(wordDocumentStream, FormatType.Automatic, "password");
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates an empty Word document instance
@@ -236,7 +236,7 @@ document.Save(outputFileName, FormatType.Docx);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates an empty WordDocument instance
@@ -298,7 +298,7 @@ document.Save(stream, FormatType.Docx);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates an empty WordDocument instance
@@ -362,7 +362,7 @@ document.Save(outputFileName, FormatType.Docx, Response, HttpContentDisposition.
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates an empty WordDocument instance
@@ -432,7 +432,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'creates an empty WordDocument instance
