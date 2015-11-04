@@ -520,11 +520,8 @@ pdfDocument.Close(True)
 The following conditions may occur while converting HTML to PDF by using the IE rendering engine.
 
 1. Converted PDF document contains content as a Bitmap.
-
 2. Page break may not be applied in the resultant PDF document.
-
 3. Text could not be selectable in the PDF document
-
 4. Converted PDF is blurry.
 
 **Solution:**
