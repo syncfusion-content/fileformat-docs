@@ -560,7 +560,7 @@ Essential DocIO allows you to manipulate an existing Word document, RTF, HTML an
 
 Here, you can see how an existing Word document is loaded into DocIO’s DOM, replaces an existing content with another and finally saves the Word document.
 
-You can open an existing Word document either by using constructor of WordDocument class or by using Open method of WordDocument class that reads the document and populates DocIO’s DOM. The following code example shows how to load an existing document.
+You can open an existing Word document either by using constructor of `WordDocument` class or by using Open method of `WordDocument` class that reads the document and populates DocIO’s DOM. The following code example shows how to load an existing document.
 
 {% tabs %}  
 
@@ -700,7 +700,7 @@ Let’s consider that you have a template Word document with merge fields as sho
 ![](GettingStarted_images/GettingStarted_img2.jpeg)
 
 
-The MailMerge class provides various overloads for Execute method to perform mail merge from various data source. The Mail merge operation replaces the matching merge fields with the respective data.
+The `MailMerge` class provides various overloads for Execute method to perform mail merge from various data source. The Mail merge operation replaces the matching merge fields with the respective data.
 
 The following code example shows how to perform simple mail merge by using string array.
 
@@ -1155,7 +1155,7 @@ For converting a Word document to PDF, the following assemblies are required to 
 * Syncfusion.SfChart.WPF
 * Syncfusion.Shared.WPF
 
-DocToPDFConverter class is responsible for converting a Word document into PDF. The following code example illustrates how to convert a Word document into PDF document.
+`DocToPDFConverter` class is responsible for converting a Word document into PDF. The following code example illustrates how to convert a Word document into PDF document.
 
 {% tabs %} 
 

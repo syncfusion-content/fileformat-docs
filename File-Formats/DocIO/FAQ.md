@@ -2479,7 +2479,7 @@ wordApp.Quit()
  
 ### Using DocIO
 
-The following code example illustrates how to insert the bookmark by using DocIO. Here, the AppendBookmarkStart() and AppendBookmarkEnd() methods are used to add the bookmark.
+The following code example illustrates how to insert the bookmark by using DocIO. Here, the `AppendBookmarkStart()` and `AppendBookmarkEnd()` methods are used to add the bookmark.
 
 {% tabs %}  
 
@@ -3502,7 +3502,7 @@ wordApp.Quit(nullobject, nullobject, nullobject)
 
 ### Using DocIO
 
-The following code example shows how to insert an empty table to a Word document. The ResetCells() method is used to specify the number of rows and columns in a table.
+The following code example shows how to insert an empty table to a Word document. The `ResetCells()` method is used to specify the number of rows and columns in a table.
 
 {% tabs %} 
 

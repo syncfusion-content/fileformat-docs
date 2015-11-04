@@ -9,7 +9,7 @@ documentation: UG
 
 ## Opening an existing document
 
-You can open an existing Word document by using either the Open method or the constructor of `WordDocument` class
+You can open an existing Word document by using either the `Open` method or the constructor of `WordDocument` class
 
 {% tabs %}  
 
@@ -329,7 +329,7 @@ document.Save(stream, FormatType.Docx)
 
 ## Sending to a client browser
 
-You can save and send the document to a client browser from a web site or web application by invoking the following shown overload of Save method.  This method explicitly makes use of an instance of [HttpResponse](https://msdn.microsoft.com/en-us/library/system.web.httpresponse(v=vs.110).aspx#) as its parameter in order to stream the document to client browser. So this overload is suitable for web application that references System.Web assembly.
+You can save and send the document to a client browser from a web site or web application by invoking the following shown overload of `Save` method.  This method explicitly makes use of an instance of [HttpResponse](https://msdn.microsoft.com/en-us/library/system.web.httpresponse(v=vs.110).aspx#) as its parameter in order to stream the document to client browser. So this overload is suitable for web application that references System.Web assembly.
 
 {% tabs %}  
 

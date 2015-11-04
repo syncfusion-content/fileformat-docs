@@ -173,7 +173,7 @@ End Function
 
   {% endtabs %} 
 
-The following code example illustrates how to remove the macros present in the document by using RemoveMacros method.
+The following code example illustrates how to remove the macros present in the document by using `RemoveMacros` method.
 
 {% tabs %}  
 

@@ -27,7 +27,7 @@ For example: The merge field name should be like “Image:Photo” (<<Image:Merg
 
 ## Simple mail merge
 
-The `MailMerge` class provides various overloads for Execute method to perform mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
+The `MailMerge` class provides various overloads for `Execute` method to perform mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
 
 The following code example shows how to create a Word template document with merge fields.
 
@@ -205,7 +205,7 @@ For example – Consider that you have a template document as shown.
 
 In this template, Employeesis the group name and the same name should be used while performing mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the mail merge group. 
 
-The `MailMerge` class provides various overloads for ExecuteGroup method to perform mail merge within a group from various data sources. The following code example shows how to perform mail merge in the specific region with data source retrieved from SQL connection.
+The `MailMerge` class provides various overloads for `ExecuteGroup` method to perform mail merge within a group from various data sources. The following code example shows how to perform mail merge in the specific region with data source retrieved from SQL connection.
 
 {% tabs %} 
 
@@ -1080,7 +1080,7 @@ End Class
   
 ## Performing Nested Mail merge with relational data objects
 
-You can perform nested mail merge with implicit relational data objects without any explicit relational commands by using the ExecuteNestedGroup overload method. 
+You can perform nested mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method. 
 
 For example – Consider that you have a template document as follows.
 
