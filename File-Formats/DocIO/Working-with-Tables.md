@@ -114,7 +114,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates an instance of WordDocument class 
@@ -357,7 +357,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument()
@@ -589,7 +589,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument()
@@ -773,7 +773,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates an instance of WordDocument class (Empty Word Document)
@@ -944,7 +944,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument()
@@ -1047,7 +1047,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Table.docx", FormatType.Docx)
@@ -1124,7 +1124,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Table.docx", FormatType.Docx)
@@ -1205,7 +1205,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument()
@@ -1259,7 +1259,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument()
@@ -1331,7 +1331,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument()
@@ -1421,7 +1421,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument()
@@ -1524,7 +1524,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument()
@@ -1599,7 +1599,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Template.docx")
@@ -1679,7 +1679,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Template.docx")

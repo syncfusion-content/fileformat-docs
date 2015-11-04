@@ -168,7 +168,7 @@ IterateTextBody(cell);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Imports Syncfusion.DocIO.DLS
@@ -508,7 +508,7 @@ break;
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Imports Syncfusion.DocIO.DLS
@@ -721,7 +721,7 @@ sourceDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens an existing document 
@@ -791,7 +791,7 @@ sourceDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens a source document
@@ -862,7 +862,7 @@ destinationDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the source document 
@@ -930,7 +930,7 @@ destinationDocument.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the source document 
@@ -989,7 +989,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens the Word document.
@@ -1149,7 +1149,7 @@ startPageIndex = 0;
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim endPageIndex As Integer = images.Length
@@ -1324,7 +1324,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens an input Word template
@@ -1407,7 +1407,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens an input Word template
@@ -1489,7 +1489,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens an input Word template
@@ -1562,7 +1562,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument(inputFileName)
@@ -1622,7 +1622,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Opens an input word template
@@ -1678,7 +1678,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument(inputFileName)
@@ -1759,7 +1759,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates a new Word document 
@@ -1852,7 +1852,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates a new Word document

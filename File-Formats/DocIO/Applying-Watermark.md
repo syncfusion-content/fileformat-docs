@@ -68,7 +68,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates a new Word document
@@ -166,7 +166,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates a new Word document

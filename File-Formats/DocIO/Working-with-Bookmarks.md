@@ -68,7 +68,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates an instance of WordDocument class (Empty Word Document)
@@ -150,7 +150,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads an existing Word document into DocIO instance
@@ -203,7 +203,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads an existing Word document into DocIO instance
@@ -274,7 +274,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
@@ -350,7 +350,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
@@ -419,7 +419,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
@@ -481,7 +481,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
@@ -545,7 +545,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
@@ -627,7 +627,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
@@ -725,7 +725,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
@@ -803,7 +803,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
@@ -901,7 +901,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
@@ -997,7 +997,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the template document with bookmark "Northwind" whose start and end are preserved in different section

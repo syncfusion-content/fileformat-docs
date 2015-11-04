@@ -61,7 +61,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the template document
@@ -147,7 +147,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the template document
@@ -240,7 +240,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the template document
@@ -328,7 +328,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads a template document
@@ -399,7 +399,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads a template document
@@ -463,7 +463,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads a template document
@@ -517,7 +517,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads a template document

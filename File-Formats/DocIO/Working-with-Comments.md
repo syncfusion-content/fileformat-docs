@@ -58,7 +58,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates a new Word document.
@@ -132,7 +132,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Comment.docx")
@@ -185,7 +185,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Comment.docx")
@@ -227,7 +227,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Dim document As New WordDocument("Comment.docx")

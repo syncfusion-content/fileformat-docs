@@ -152,7 +152,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new Word document
@@ -285,7 +285,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Opens an input word template
@@ -427,7 +427,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
  
 
 'Creates a new Word document

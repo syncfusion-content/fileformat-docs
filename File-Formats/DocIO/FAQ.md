@@ -56,7 +56,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Creates a new Word document 
 
@@ -150,7 +150,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Gets the document as stream
@@ -275,7 +275,7 @@ return ret;
 
 
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Public Shared Function ReadFully(stream As Stream, initialLength As Integer) As Byte()
@@ -411,7 +411,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Creates a new Word document 
 
@@ -507,7 +507,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Creates a new Word document 
 
@@ -592,7 +592,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Creates a new Word document 
 
@@ -684,7 +684,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Creates a new Word document 
 
@@ -779,7 +779,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Creates a new Word document 
 
@@ -857,7 +857,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Loads a source document
 
@@ -970,7 +970,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Creates new Word document
 
@@ -1097,7 +1097,7 @@ dataset.Tables["Products"].Rows.Add(row);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 Private Sub GetDataTable(dataset As DataSet)
 
@@ -1178,7 +1178,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Loads the template document
 
@@ -1268,7 +1268,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Creates new word document
@@ -1360,7 +1360,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the template document
@@ -1442,7 +1442,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Loads the template document
 
@@ -1549,7 +1549,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Loads the template document
 
@@ -1631,7 +1631,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Loads the template document
 
@@ -1715,7 +1715,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Loads the template document
 
@@ -1818,7 +1818,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Loads the template document
 
@@ -1956,7 +1956,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2067,7 +2067,7 @@ doc.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 Dim dataBase As String = "Northwind.mdb" 
 
@@ -2208,7 +2208,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2313,7 +2313,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 ‘Opens the Word document.
 
@@ -2417,7 +2417,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2526,7 +2526,7 @@ doc.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 ‘Creates a new Word document.
 
@@ -2643,7 +2643,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2752,7 +2752,7 @@ doc.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 ‘Opens the Word document.
 
@@ -2871,7 +2871,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -2966,7 +2966,7 @@ doc.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 ‘Creates a new Word document.
 
@@ -3092,7 +3092,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -3215,7 +3215,7 @@ doc.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 ‘Opens the Word document.
 
@@ -3329,7 +3329,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -3448,7 +3448,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 Imports word = Microsoft.Office.Interop.Word
 
@@ -3531,7 +3531,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 'Creates a new Word document.
 
@@ -3631,7 +3631,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 Imports word = Microsoft.Office.Interop.Word
@@ -3718,7 +3718,7 @@ doc.Save("Sample.doc", FormatType.Doc);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 ‘Creates a new Word document.
@@ -3822,7 +3822,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Initializes objects.
@@ -3911,7 +3911,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the existing Word document by using DocIO instance
@@ -4014,7 +4014,7 @@ wordApp.Quit(ref nullobject, ref nullobject, ref nullobject);
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Initializes objects.
@@ -4119,7 +4119,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight vbnet %}
+{% highlight vb.net %}
 
 
 'Loads the existing Word document by using DocIO instance
