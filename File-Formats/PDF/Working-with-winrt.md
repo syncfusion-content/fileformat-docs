@@ -310,7 +310,7 @@ End Sub
 
 {% endtabs %}
 
-## Save the document 
+## Saving the document 
 
 The following code example illustrates how to save the PDF document in WinRT by using file picker.
 

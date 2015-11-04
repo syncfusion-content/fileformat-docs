@@ -518,10 +518,11 @@ pdfDocument.Close(True)
 **Issue:**
 
 The following conditions may occur while converting HTML to PDF by using the IE rendering engine.
-* Converted PDF document contains content as a Bitmap.
-* Page break may not be applied in the resultant PDF document.
-* Text could not be selectable in the PDF document
-* Converted PDF is blurry.
+
+1. Converted PDF document contains content as a Bitmap.
+2. Page break may not be applied in the resultant PDF document.
+3. Text could not be selectable in the PDF document
+4. Converted PDF is blurry.
 
 **Solution:**
 
@@ -1842,8 +1843,8 @@ rtfDocument.Close()
 {% endtabs %}  
 
 
-N> 1.RTF to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
-N> 2.Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to RTF document
+N> 1. RTF to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
+N> 2. Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to RTF document.
 
 
 ### Customizing the RTF to PDF conversion
@@ -2142,8 +2143,8 @@ pdfDocument.Close(True)
 
  {% endtabs %}  
 
-N> 1.Currently the JBIG2Decode compression is supported only in lossy mode and also only single frame tiff images are supported.
-N> 2.By default, all monochrome images will be compressed in CITTT4 compression.
+N> 1. Currently the JBIG2Decode compression is supported only in lossy mode and also only single frame tiff images are supported.
+N> 2. By default, all monochrome images will be compressed in CITTT4 compression.
 
 
 ## Converting XPS document to PDF 
@@ -2416,9 +2417,9 @@ html.Dispose()
 
 PDF pages can be converted to images. To add PDF to image functionality in an application, you need to add the below mentioned assemblies as reference to the project.
 
-1) Syncfusion.Compression.Base.dll
-2) Syncfusion.Pdf.Base.dll
-3) Syncfusion.PdfViewer.Windows.dll 
+1. Syncfusion.Compression.Base.dll
+2. Syncfusion.Pdf.Base.dll
+3. Syncfusion.PdfViewer.Windows.dll 
 
 The following code snippet illustrates how to convert PDF page into image.
 

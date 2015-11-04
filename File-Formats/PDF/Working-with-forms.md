@@ -2683,7 +2683,7 @@ loadedDocument.Close(True)
  
 ## Adding actions to form fields 
 
-[Action](/file-formats/pdf/working-with-action#adding-an-action-to-the-form-field "Working with action")
+Please refer to the [actions](/file-formats/pdf/working-with-action#adding-an-action-to-the-form-field "Working with action") section for more details
 
 N>Essential PDF allows users to preserve the extended rights for form filling alone.
 
