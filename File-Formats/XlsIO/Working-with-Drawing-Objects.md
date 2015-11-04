@@ -869,7 +869,7 @@ excelEngine.Dispose()
 
 ## OLE Objects 
 
-**IOleObject** object represents an [OLE Object](https://support.office.com/en-US/article/Create-change-or-delete-an-OLE-object-F767F0F1-4170-4850-9B96-0B6C07EC6EA4#) in a worksheet. 
+**IOleObject** object represents an [OLE Object](https://support.office.com/en-US/article/Create-change-or-delete-an-OLE-object-F767F0F1-4170-4850-9B96-0B6C07EC6EA4) in a worksheet. 
 
 N> XlsIO provides OLE Objects support for XLSX format in Windows, ASP.NET and WPF platforms only.
 
