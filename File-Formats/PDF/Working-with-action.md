@@ -1,0 +1,850 @@
+---
+title: Working with Action
+description: This section explains how to add actions to the document and form fields
+platform: Fileformat
+control: PDF
+documentation: UG
+---
+# Working with Actions
+
+Essential PDF supports different actions that can be triggered by different events and user interactions.
+
+## Adding an action to the PDF
+
+You can add the action to the PDF document using the below code snippet.
+{% tabs %}
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Create and add new launch action to the document
+
+PdfLaunchAction action = new PdfLaunchAction("../../Data/logo.png");
+
+document.Actions.AfterOpen = action;
+
+//Save the document
+
+document.Save("LaunchAction.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document
+
+Dim document As New PdfDocument()
+
+'Create and add new launch action to the document
+
+Dim action As New PdfLaunchAction("../../Data/logo.png")
+
+document.Actions.AfterOpen = action
+
+'Save the document
+
+document.Save("LaunchAction.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+{% endtabs %}
+## Supported action types
+
+Essential PDF supports the following types of actions.
+
+* PdfSoundAction that plays the music file
+* PdfJavaScriptAction that executes PDF JavaScript code
+* PdfUriAction that launches the URI
+* PdfGoToAction that goes to the specified page of the document
+* PdfLaunchAction that launches the application or opens the document
+* PdfNamedAction that goes to the named destination: next, previous, first or last page
+* PdfSubmitAction that submits the data that is entered into the PDF form
+* PdfResetAction that resets the fields of the PDF form
+
+### Sound action
+
+
+Sound action plays a specified music file in the PDF document. Volume and repeat can be specified for the sound action.
+
+{% tabs %}
+{% highlight c# %}
+
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create a sound action
+
+PdfSoundAction soundAction = new PdfSoundAction("../../Data/Startup.wav");
+
+soundAction.Sound.Bits = 16;
+
+soundAction.Sound.Channels = PdfSoundChannels.Stereo;
+
+soundAction.Sound.Encoding = PdfSoundEncoding.Signed;
+
+soundAction.Volume = 0.9f;
+
+//Set the sound action
+
+document.Actions.AfterOpen = soundAction;
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new document
+
+Dim document As New PdfDocument()
+
+'Add a page.
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create a sound action
+
+Dim soundAction As New PdfSoundAction("../../Data/Startup.wav")
+
+soundAction.Sound.Bits = 16
+
+soundAction.Sound.Channels = PdfSoundChannels.Stereo
+
+soundAction.Sound.Encoding = PdfSoundEncoding.Signed
+
+soundAction.Volume = 0.9F
+
+'Set the sound action
+
+document.Actions.AfterOpen = soundAction
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+### JavaScript action
+
+A JavaScript action allows execution of **JavaScript** code embedded in the **PDF** document
+
+{% tabs %}
+{% highlight c# %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create JavaScript action
+
+PdfJavaScriptAction javaScriptAction = new PdfJavaScriptAction("app.alert(\"Hello World!!!\")");
+
+//Add the JavaScript action
+
+document.Actions.AfterOpen = javaScriptAction;
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Create a new document
+
+Dim document As New PdfDocument()
+
+'Add a page.
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create JavaScript action
+
+Dim javaScriptAction As New PdfJavaScriptAction("app.alert(""Hello World!!!"")")
+
+'Add the JavaScript action
+
+document.Actions.AfterOpen = javaScriptAction
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+N> You can refer more PDF JavaScript code in **PdfJavaScriptAction** from the below developer guide.
+N> [http://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_developer_guide.pdf](http://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_developer_guide.pdf)
+
+### URI action
+
+URI action allows you to create a hyperlink that can open webpage in a web browser.
+
+{% tabs %}
+{% highlight c# %}
+
+//Create a new document with PDF/A standard.
+
+PdfDocument document = new PdfDocument();
+
+//Create a uri action
+
+PdfUriAction uriAction = new PdfUriAction("http://www.google.com");
+
+//Add the action to the document
+
+document.Actions.AfterOpen = uriAction;
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Create a new document with PDF/A standard.
+
+Dim document As New PdfDocument()
+
+'Create a uri action
+
+Dim uriAction As New PdfUriAction("http://www.google.com")
+
+'Add the action to the document
+
+document.Actions.AfterOpen = uriAction
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+### GoTo action
+
+GoTo action displays the specified page in the current document. The location can be specified for the destination page.
+
+{% tabs %}
+{% highlight c# %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+//Add first page
+
+PdfPage page = document.Pages.Add();
+
+//Add second page
+
+PdfPage secondPage = document.Pages.Add();
+
+//Set the goto action
+
+PdfGoToAction gotoAction = new PdfGoToAction(secondPage);
+
+//Set destination location
+
+gotoAction.Destination = new PdfDestination(secondPage, new PointF(0, 100));
+
+document.Actions.AfterOpen = gotoAction;
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Create a new document
+
+Dim document As New PdfDocument()
+
+'Add first page
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Add second page
+
+Dim secondPage As PdfPage = document.Pages.Add()
+
+'Set the goto action
+
+Dim gotoAction As New PdfGoToAction(secondPage)
+
+'Set destination location
+
+gotoAction.Destination = New PdfDestination(secondPage, New PointF(0, 100))
+
+document.Actions.AfterOpen = gotoAction
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+### Launch action
+
+A Launch action allows execution of an external file. The code snippet below explains how to add a launch action.
+
+{% tabs %}
+{% highlight c# %}
+
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Create and add new launch Action to the document
+
+PdfLaunchAction action = new PdfLaunchAction("../../Data/logo.png");
+
+document.Actions.AfterOpen = action;
+
+//Save the document
+
+document.Save("LaunchAction.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Create a new PDF document
+
+Dim document As New PdfDocument()
+
+'Create and add new launch Action to the document
+
+Dim action As New PdfLaunchAction("../../Data/logo.png")
+
+document.Actions.AfterOpen = action
+
+'Save the document
+
+document.Save("LaunchAction.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+### Named action
+
+Named action allows execution of predefined **PDF** actions. 
+
+The following predefined **PDF** actions are available:
+
+* Go to next page
+* Go to prev page 
+* Go to first page and 
+* Go to last page.
+
+{% tabs %}
+{% highlight c# %}
+
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+document.Pages.Add();
+
+document.Pages.Add();
+
+//Create a named action
+
+PdfNamedAction namedAction = new PdfNamedAction(PdfActionDestination.LastPage);
+
+//Add the named action
+
+document.Actions.AfterOpen = namedAction;
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Create a new document
+
+Dim document As New PdfDocument()
+
+document.Pages.Add()
+
+document.Pages.Add()
+
+'Create a named action
+
+Dim namedAction As New PdfNamedAction(PdfActionDestination.LastPage)
+
+'Add the named action
+
+document.Actions.AfterOpen = namedAction
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+### Submit action
+
+Submit action allows submission of data that is entered in the PDF form.
+
+{% tabs %}
+{% highlight c# %}
+
+
+//Create a PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page
+
+PdfPage page = document.Pages.Add();
+
+// Create a Button field.
+
+PdfButtonField submitButton = new PdfButtonField(page, "Submit data");
+
+submitButton.Bounds = new RectangleF(100, 60, 50, 20);
+
+submitButton.ToolTip = "Submit";
+
+document.Form.Fields.Add(submitButton);
+
+// Create a submit action. It submit the data of the form fields to the mentioned URL
+
+PdfSubmitAction submitAction = new PdfSubmitAction("http://www.syncfusionforms.com/Submit.aspx");
+
+submitAction.DataFormat = SubmitDataFormat.Html;
+
+submitButton.Actions.GotFocus = submitAction;
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Create a PDF document
+
+Dim document As New PdfDocument()
+
+'Add a new page
+
+Dim page As PdfPage = document.Pages.Add()
+
+' Create a Button field.
+
+Dim submitButton As New PdfButtonField(page, "Submit data")
+
+submitButton.Bounds = New RectangleF(100, 60, 50, 20)
+
+submitButton.ToolTip = "Submit"
+
+document.Form.Fields.Add(submitButton)
+
+' Create a submit action. It submit the data of the form fields to the mentioned URL
+
+Dim submitAction As New PdfSubmitAction("http:// www.example.com/Submit.aspx")
+
+submitAction.DataFormat = SubmitDataFormat.Html
+
+submitButton.Actions.GotFocus = submitAction
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+### Reset action
+
+A reset action allows execution of reset of all the form fields in the PDF document.
+
+{% tabs %}
+{% highlight c# %}
+
+
+//Create a PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page
+
+PdfPage page = document.Pages.Add();
+
+// Create a Text box field.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+//Set properties to the textbox.
+
+textBoxField.BorderColor = new PdfColor(Color.Gray);
+
+textBoxField.BorderStyle = PdfBorderStyle.Beveled;
+
+textBoxField.Bounds = new RectangleF(80, 0, 100, 20);
+
+textBoxField.Text = "First Name";
+
+//Add the form field to the document
+
+document.Form.Fields.Add(textBoxField);
+
+// Create a Button field.
+
+PdfButtonField clearButton = new PdfButtonField(page, "Clear");
+
+clearButton.Bounds = new RectangleF(100, 60, 50, 20);
+
+clearButton.ToolTip = "Clear";
+
+document.Form.Fields.Add(clearButton);
+
+// Create an instance of reset action
+
+PdfResetAction resetAction = new PdfResetAction();
+
+clearButton.Actions.GotFocus = resetAction;
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Create a PDF document
+
+Dim document As New PdfDocument()
+
+'Add a new page
+
+Dim page As PdfPage = document.Pages.Add()
+
+' Create a Text box field.
+
+Dim textBoxField As New PdfTextBoxField(page, "FirstName")
+
+'Set properties to the textbox.
+
+textBoxField.BorderColor = New PdfColor(Color.Gray)
+
+textBoxField.BorderStyle = PdfBorderStyle.Beveled
+
+textBoxField.Bounds = New RectangleF(80, 0, 100, 20)
+
+textBoxField.Text = "First Name"
+
+'Add the form field to the document
+
+document.Form.Fields.Add(textBoxField)
+
+' Create a Button field.
+
+Dim clearButton As New PdfButtonField(page, "Clear")
+
+clearButton.Bounds = New RectangleF(100, 60, 50, 20)
+
+clearButton.ToolTip = "Clear"
+
+document.Form.Fields.Add(clearButton)
+
+' Create an instance of reset action
+
+Dim resetAction As New PdfResetAction()
+
+clearButton.Actions.GotFocus = resetAction
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+## Adding an action to the form field
+
+Essential PDF provides you support to add the various actions to form fields.
+
+PdfFieldActions class is used to create form field actions.
+
+The following code example illustrates this. 
+
+{% tabs %}
+{% highlight c# %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfButtonField
+
+PdfButtonField submitButton = new PdfButtonField(page, "submitButton");
+
+submitButton.Bounds = new RectangleF(25, 160, 100, 20);
+
+submitButton.Text = "Apply";
+
+submitButton.BackColor = new PdfColor(181, 191, 203);
+
+//Create a new PdfJavaScriptAction
+
+PdfJavaScriptAction javaAction = new PdfJavaScriptAction("app.alert(\"You are looking at Form field action of PDF \")");
+
+//Set the javaAction to submitButton
+
+submitButton.Actions.MouseDown = javaAction;
+
+//Add the submit button to the new document.
+
+document.Form.Fields.Add(submitButton);
+
+//Save document to disk.
+
+document.Save("fieldAction.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Create a new PDF document.
+
+Dim document As New PdfDocument()
+
+'Creates a new page
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create a new PdfButtonField
+
+Dim submitButton As New PdfButtonField(page, "submitButton")
+
+submitButton.Bounds = New RectangleF(25, 160, 100, 20)
+
+submitButton.Text = "Apply"
+
+submitButton.BackColor = New PdfColor(181, 191, 203)
+
+'Create a new PdfJavaScriptAction
+
+Dim javaAction As New PdfJavaScriptAction("app.alert(""You are looking at Form field action of PDF "")")
+
+'Set the javaAction to submitButton
+
+submitButton.Actions.MouseDown = javaAction
+
+'Add the submit button to the new document.
+
+document.Form.Fields.Add(submitButton)
+
+'Save document to disk.
+
+document.Save("fieldAction.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+## Adding an action to the bookmarks
+
+Essential PDF provides you support to add the various action to the bookmarks. The code snippet below shows how to add an URI action to bookmark.
+
+{% tabs %}
+{% highlight c# %}
+
+//Create a new document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create document bookmarks.
+
+PdfBookmark bookmark = document.Bookmarks.Add("Page 1");
+
+//Set the text style and color.
+
+bookmark.TextStyle = PdfTextStyle.Bold;
+
+bookmark.Color = Color.Red;
+
+//Create a Uri action
+
+PdfUriAction uriAction = new PdfUriAction("http://www.google.com");
+
+//Set the Uri action
+
+bookmark.Action = uriAction;
+
+//Save and close the PDF document.
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new document.
+
+Dim document As New PdfDocument()
+
+'Add a page.
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create document bookmarks.
+
+Dim bookmark As PdfBookmark = document.Bookmarks.Add("Page 1")
+
+'Set the text style and color.
+
+bookmark.TextStyle = PdfTextStyle.Bold
+
+bookmark.Color = Color.Red
+
+'Create a Uri action
+
+Dim uriAction As New PdfUriAction("http://www.google.com")
+
+'Set the Uri action
+
+bookmark.Action = uriAction
+
+'Save and close the PDF document.
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+N> The action assigned to the bookmark works only when destination of bookmark is not set.
+
