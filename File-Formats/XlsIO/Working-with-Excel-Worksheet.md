@@ -411,7 +411,7 @@ ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
 
-application.DefaultVersion = ExcelVersion.Excel2013
+application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Create(1);
 
@@ -436,7 +436,7 @@ Dim excelEngine As ExcelEngine = New ExcelEngine
 
 Dim application As IApplication = excelEngine.Excel
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
 

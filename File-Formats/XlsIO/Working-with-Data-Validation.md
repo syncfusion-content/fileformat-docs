@@ -517,7 +517,7 @@ worksheet.Range("D1").Text = "Enter the Number in D3"
 
 worksheet.Range("D1").AutofitColumns()
 
-numberValidation.AllowType = ExcelDataType.[Integer]
+numberValidation.AllowType = ExcelDataType.Integer
 
 numberValidation.CompareOperator = ExcelDataValidationComparisonOperator.Between
 
@@ -543,7 +543,7 @@ worksheet.Range("E1").Text = "Enter the Date in B7"
 
 worksheet.Range("E1").AutofitColumns()
 
-dateValidation.AllowType = ExcelDataType.[Date]
+dateValidation.AllowType = ExcelDataType.Date
 
 dateValidation.CompareOperator = ExcelDataValidationComparisonOperator.Between
 
