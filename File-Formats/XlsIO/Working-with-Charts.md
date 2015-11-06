@@ -85,7 +85,7 @@ excelEngine.Dispose()
 
 ### Creating a Chart from directly entered Values
 
-A chart in XlsIO can also be created from directly entered values. The Following code snippets illustrates how to create a chart from directly entered values.
+A chart in XlsIO can also be created from directly entered values. The Following code snippets illustrate how to create a chart from directly entered values.
 
 {% tabs %}  
 {% highlight c# %}
@@ -401,11 +401,11 @@ excelEngine.Dispose()
 
 ## Creating Custom Charts 
 
-A custom charts can be created by using different types of charts for different data series. 
+A custom chart can be created by using different types of charts for different data series. 
 
 For example, you can use a column chart for the first data series and a line chart for the second series. As a result you will have a column chart, combined with a line chart.
 
-The following code sample demonstrates how to create a custom charts. 
+The following code sample demonstrates how to create a custom chart. 
 
 {% tabs %}  
 {% highlight c# %}
@@ -849,7 +849,7 @@ chartPlotArea.Fill.ForeColor = Color.White
 
 ### Data Labels Appearance
 
-The following code snippet illustrate how to modify the appearance of data labels.
+The following code snippet illustrates how to modify the appearance of data labels.
 
 {% tabs %}  
 {% highlight c# %}
@@ -883,7 +883,7 @@ serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = True
 
 ### Series Appearance
 
-The following code snippet illustrate how to modify the appearance of chart series.
+The following code snippet illustrates how to modify the appearance of chart series.
 
 {% tabs %}  
 {% highlight c# %}

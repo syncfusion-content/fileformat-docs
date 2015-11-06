@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Pivot Tables
 
-You can easily arrange and summarize complex data in a [Pivot Table](https://support.office.com/en-us/article/PivotTable-I-Get-started-with-PivotTable-reports-in-Excel-2007-bfe774d3-3e20-46f7-b6a3-f7984855d665). Creation and Manipulation of pivot table is supported in Excel 2007 and later formats, and pivot table in existing document can be preserved for Excel 2003 format.
+You can easily arrange and summarize complex data in a [Pivot Table](https://support.office.com/en-us/article/PivotTable-I-Get-started-with-PivotTable-reports-in-Excel-2007-bfe774d3-3e20-46f7-b6a3-f7984855d665). Creation and Manipulation of pivot table is supported in Excel 2007 and later formats, and pivot table in existing document can be preserved for Excel 2003 format**.**
 
 ## Create a Pivot Table
 
@@ -665,7 +665,7 @@ options.ShowFieldList = False
 
 ### Header Caption
 
-The **RowHeaderCaption** and **ColumnHeadercaption** properties allows to edit the respective pivot table headers. The header caption can be enabled or disabled through **DisplayFieldCaption** property.
+The **RowHeaderCaption** and **ColumnHeadercaption** properties allow to edit the respective pivot table headers. The header caption can be enabled or disabled through **DisplayFieldCaption** property.
 
 {% tabs %}  
 
@@ -694,7 +694,7 @@ options.ColumnHeaderCaption = "Payments"
 
 ### Grand Total
 
-XlsIO provides an equivalent API to perform with simple properties as follows.
+XlsIO provides an equivalent API to perform grand totals with simple properties as follows.
 
 {% tabs %}  
 

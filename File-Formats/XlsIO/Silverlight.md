@@ -65,13 +65,17 @@ Dim fileStream As Stream = Assembly.GetExecutingAssembly().GetManifestResourceSt
 
 Dim book As IWorkbook = excelEngine.Excel.Workbooks.Open(fileStream, ExcelOpenType.Automatic)
 
-Imports (Stream stream = sfd.OpenFile())
+Dim stream As Stream
+
+Using (stream = sfd.OpenFile())
 
 book.SaveAs(stream)
 
 book.Close()
 
 excelEngine.Dispose()
+
+End Using
 
 End If
 

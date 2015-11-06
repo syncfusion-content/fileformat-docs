@@ -10,7 +10,7 @@ documentation: UG
 
 ## Form Controls 
 
-You can add and manipulate the text Box, option button, check box and combo box controls into the worksheet. These controls enables to create forms which are very user friendly.
+You can add and manipulate the text Box, option button, check box and combo box controls into the worksheet. These controls enable to create forms which are very user friendly.
 
 N> Support for Active X Form controls is not yet available.
 

@@ -536,17 +536,13 @@ Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 sheet.Range("A1:D1").FormulaArray = "{1,2,3,4}"
 
-
-
 'Adding a named range for the range A1 to D1
 
-sheet.Names.Add("ArrayRange", sheet.Range["A1:D1"])
-
-
+sheet.Names.Add("ArrayRange", sheet.Range("A1:D1"))
 
 'Assign formula array with named range
 
-sheet.Range["A2:D2"].FormulaArray = "ArrayRange+100"
+sheet.Range("A2:D2").FormulaArray = "ArrayRange+100"
 
 workbook.SaveAs("FormulaArray.xlsx")
 
