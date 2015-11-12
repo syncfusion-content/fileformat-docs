@@ -577,15 +577,13 @@ ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
 
 //Retrieves first cell.
 
-ICell firstCell = table[0, 0];
+ICell cell = table[0, 0];
 
 //Sets the columnspan to merge the cell.
 
-firstCell.ColumnSpan = 2;
+cell.ColumnSpan = 2;
 
 //Retrieves each cell and fills text content to the cell.
-
-ICell cell = table[0, 0];
 
 cell.TextBody.AddParagraph("First Row and First Column");
 
@@ -631,15 +629,13 @@ Dim table As ITable = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200)
 
 'Retrieves first cell.
 
-Dim firstCell As ICell = table(0, 0)
+Dim cell As ICell = table(0, 0)
 
 'Sets the columnspan to merge the cell.
 
-firstCell.ColumnSpan = 2
+cell.ColumnSpan = 2
 
 'Retrieves each cell and fills text content to the cell.
-
-Dim cell As ICell = table(0, 0)
 
 cell.TextBody.AddParagraph("First Row and First Column")
 

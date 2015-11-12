@@ -165,6 +165,14 @@ destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme
 
 destinationPresentation.Save("Output.pptx");
 
+//Closes the source presentation
+
+sourcePresentation.Close();
+
+//Closes the destination presentation
+
+destinationPresentation.Close();
+
 {% endhighlight %}
 
 {% highlight vb.net %}
@@ -188,6 +196,14 @@ destinationPresentation_1.Slides.Add(clonedSlide, PasteOptions.UseDestinationThe
 'Saves the destination presentation.
 
 destinationPresentation_1.Save("Output.pptx")
+
+'Closes the source presentation
+
+sourcePresentation.Close()
+
+'Closes the destination presentation
+
+destinationPresentation.Close()
 
 {% endhighlight %}
 

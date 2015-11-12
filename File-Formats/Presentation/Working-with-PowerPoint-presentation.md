@@ -504,11 +504,17 @@ The following code example demonstrates how to add new custom document property.
 
 IPresentation presentation = Presentation.Create();
 
-//Adds custom document properties of various data type
+//Adds custom document properties 
 
-presentation.CustomDocumentProperties.Add("PropertyA");
+ICustomDocumentProperties documentProperty = presentation.CustomDocumentProperties;
 
-presentation.CustomDocumentProperties.Add("PropertyB");
+documentProperty.Add("PropertyA");
+
+documentProperty["PropertyA"].Text = "@!123";
+
+documentProperty.Add("PropertyB");
+
+documentProperty["PropertyB"].Text = "B";
 
 //Saves the PowerPoint presentation            
 
@@ -526,11 +532,17 @@ presentation.Close();
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds custom document properties of various data type
+'Adds custom document properties
 
-presentationDocument.CustomDocumentProperties.Add("PropertyA")
+Dim documentProperty As ICustomDocumentProperties = presentationDocument.CustomDocumentProperties
 
-presentationDocument.CustomDocumentProperties.Add("PropertyB")
+documentProperty.Add("PropertyA")
+
+documentProperty("PropertyA").Text = "@!123"
+
+documentProperty.Add("PropertyB")
+
+documentProperty("PropertyB").Text = "B"
 
 'Saves the PowerPoint presentation            
 
