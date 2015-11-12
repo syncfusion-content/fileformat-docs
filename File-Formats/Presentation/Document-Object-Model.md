@@ -9,6 +9,6 @@ documentation: UG
 
 In order to create and modify a PowerPoint presentation, you need to know how the elements are organized in Essential Presentation’s document object model (DOM). The following figure illustrates this DOM.
 
-![](DocumentObjectModel_images/DocumentObjectModel_img1.jpeg)
+![](DocumentObjectModel_images/DocumentObjectModel_img1.png)
 
 
