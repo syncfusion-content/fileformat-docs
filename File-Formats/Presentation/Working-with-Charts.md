@@ -25,7 +25,7 @@ ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
 //Adds chart to the slide with postion and size
 
-IOfficeChart chart = slide.Charts.AddChart(100, 10, 700, 500);
+IPresentationChart chart = slide.Charts.AddChart(100, 10, 700, 500);
 
 //Specifies the chart title
 
@@ -41,33 +41,33 @@ chart.ChartData.SetValue(1, 4, "March");
 
 //Sets chart data - Row2
 
-chart.ChartData.SetValue(2, 1, "2010");
+chart.ChartData.SetValue(2, 1, 2010);
 
-chart.ChartData.SetValue(2, 2, "60");
+chart.ChartData.SetValue(2, 2, 60);
 
-chart.ChartData.SetValue(2, 3, "70");
+chart.ChartData.SetValue(2, 3, 70);
 
-chart.ChartData.SetValue(2, 4, "80");
+chart.ChartData.SetValue(2, 4, 80);
 
 //Sets chart data - Row3
 
-chart.ChartData.SetValue(3, 1, "2011");
+chart.ChartData.SetValue(3, 1, 2011);
 
-chart.ChartData.SetValue(3, 2, "80");
+chart.ChartData.SetValue(3, 2, 80);
 
-chart.ChartData.SetValue(3, 3, "70");
+chart.ChartData.SetValue(3, 3, 70);
 
-chart.ChartData.SetValue(3, 4, "60");
+chart.ChartData.SetValue(3, 4, 60);
 
 //Sets chart data - Row4
 
-chart.ChartData.SetValue(4, 1, "2012");
+chart.ChartData.SetValue(4, 1, 2012);
 
-chart.ChartData.SetValue(4, 2, "60");
+chart.ChartData.SetValue(4, 2, 60);
 
-chart.ChartData.SetValue(4, 3, "70");
+chart.ChartData.SetValue(4, 3, 70);
 
-chart.ChartData.SetValue(4, 4, "80");
+chart.ChartData.SetValue(4, 4, 80);
 
 //Creates a new chart series with the name
 
@@ -123,7 +123,7 @@ Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds chart to the slide with postion and size
 
-Dim chart As IOfficeChart = slide.Charts.AddChart(100, 10, 700, 500)
+Dim chart As IPresentationChart = slide.Charts.AddChart(100, 10, 700, 500)
 
 'Specifies the chart title
 
@@ -139,33 +139,33 @@ chart.ChartData.SetValue(1, 4, "March")
 
 'Sets chart data - Row2
 
-chart.ChartData.SetValue(2, 1, "2010")
+chart.ChartData.SetValue(2, 1, 2010)
 
-chart.ChartData.SetValue(2, 2, "60")
+chart.ChartData.SetValue(2, 2, 60)
 
-chart.ChartData.SetValue(2, 3, "70")
+chart.ChartData.SetValue(2, 3, 70)
 
-chart.ChartData.SetValue(2, 4, "80")
+chart.ChartData.SetValue(2, 4, 80)
 
 'Sets chart data - Row3
 
-chart.ChartData.SetValue(3, 1, "2011")
+chart.ChartData.SetValue(3, 1, 2011)
 
-chart.ChartData.SetValue(3, 2, "80")
+chart.ChartData.SetValue(3, 2, 80)
 
-chart.ChartData.SetValue(3, 3, "70")
+chart.ChartData.SetValue(3, 3, 70)
 
-chart.ChartData.SetValue(3, 4, "60")
+chart.ChartData.SetValue(3, 4, 60)
 
 'Sets chart data - Row4
 
-chart.ChartData.SetValue(4, 1, "2012")
+chart.ChartData.SetValue(4, 1, 2012)
 
-chart.ChartData.SetValue(4, 2, "60")
+chart.ChartData.SetValue(4, 2, 60)
 
-chart.ChartData.SetValue(4, 3, "70")
+chart.ChartData.SetValue(4, 3, 70)
 
-chart.ChartData.SetValue(4, 4, "80")
+chart.ChartData.SetValue(4, 4, 80)
 
 'Creates a new chart series with the name
 
@@ -233,7 +233,7 @@ MemoryStream excelStream = new MemoryStream(File.ReadAllBytes("Book1.xlsx"));
 
 //Adds a chart to the slide with a data range from excel worksheet – excel workbook, worksheet number, Data range, position, and size.
 
-IOfficeChart chart = slide.Charts.AddChart(excelStream, 1, "A1:D4", new RectangleF(100, 10, 700, 500));
+IPresentationChart chart = slide.Charts.AddChart(excelStream, 1, "A1:D4", new RectangleF(100, 10, 700, 500));
 
 //Saves the presentation
 
@@ -261,7 +261,7 @@ Dim excelStream As New MemoryStream(File.ReadAllBytes("Book1.xlsx"))
 
 'Adds a chart to the slide with a data range from excel worksheet – excel workbook, worksheet number, Data range, position, and size.
 
-Dim chart As IOfficeChart = slide.Charts.AddChart(excelStream, 1, "A1:D4", New RectangleF(100, 10, 700, 500))
+Dim chart As IPresentationChart = slide.Charts.AddChart(excelStream, 1, "A1:D4", New RectangleF(100, 10, 700, 500))
 
 'Saves the presentation
 
@@ -297,7 +297,7 @@ ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
 //Adds a new chart in the slide by specifying its position and size as parameters.
 
-IOfficeChart chart = slide.Charts.AddChart(100, 80, 500, 350);       
+IPresentationChart chart = slide.Charts.AddChart(100, 80, 500, 350);       
 
 chart.ChartTitle = "Sales comparison";
 
@@ -399,7 +399,7 @@ Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds a new chart in the slide by specifying its position and size as parameters.
 
-Dim chart As IOfficeChart = slide.Charts.AddChart(100, 80, 500, 350)
+Dim chart As IPresentationChart = slide.Charts.AddChart(100, 80, 500, 350)
 
 chart.ChartTitle = "Sales comparison"
 
@@ -509,17 +509,13 @@ The following code example demonstrates how to refresh the charts in PowerPoint 
 
 IPresentation presentation = Presentation.Open("Chart.pptx");
 
-//Initializes the ChartToImageConverter class; this is mandatory
-
-presentation.ChartToImageConverter = new ChartToImageConverter();
-
 //Gets the first slide
 
 ISlide slide = presentation.Slides[0];
 
 //Gets the chart in slide
 
-IOfficeChart chart = slide.Shapes[0] as IOfficeChart;
+IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
 //Refreshes the chart
 
@@ -541,17 +537,13 @@ presentation.Close();
 
 Dim presentationDocument As IPresentation = Presentation.Open("Chart.pptx")
 
-'Initializes the ChartToImageConverter class; this is mandatory
-
-presentationDocument.ChartToImageConverter = New ChartToImageConverter()
-
 'Gets the first slide
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the chart in slide
 
-Dim chart As IOfficeChart = TryCast(slide.Shapes(0), IOfficeChart)
+Dim chart As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
 
 'Refreshes the chart
 
@@ -587,7 +579,7 @@ ISlide slide = presentation.Slides[0];
 
 //Gets the chart in slide
 
-IOfficeChart chart = slide.Shapes[0] as IOfficeChart;
+IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
 //Modifies chart data - Row1
 
@@ -599,13 +591,13 @@ chart.ChartData.SetValue(1, 4, "March");
 
 //Modifies chart data - Row2
 
-chart.ChartData.SetValue(2, 1, "2010");
+chart.ChartData.SetValue(2, 1, 2010);
 
-chart.ChartData.SetValue(2, 2, "60");
+chart.ChartData.SetValue(2, 2, 60);
 
-chart.ChartData.SetValue(2, 3, "70");
+chart.ChartData.SetValue(2, 3, 70);
 
-chart.ChartData.SetValue(2, 4, "80");
+chart.ChartData.SetValue(2, 4, 80);
 
 //Refreshes the chart
 
@@ -633,7 +625,7 @@ Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the chart in slide
 
-Dim chart As IOfficeChart = TryCast(slide.Shapes(0), IOfficeChart)
+Dim chart As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
 
 'Modifies chart data - Row1
 
@@ -645,13 +637,13 @@ chart.ChartData.SetValue(1, 4, "March")
 
 'Modifies chart data - Row2
 
-chart.ChartData.SetValue(2, 1, "2010")
+chart.ChartData.SetValue(2, 1, 2010)
 
-chart.ChartData.SetValue(2, 2, "60")
+chart.ChartData.SetValue(2, 2, 60)
 
-chart.ChartData.SetValue(2, 3, "70")
+chart.ChartData.SetValue(2, 3, 70)
 
-chart.ChartData.SetValue(2, 4, "80")
+chart.ChartData.SetValue(2, 4, 80)
 
 'Refreshes the chart
 
@@ -707,7 +699,7 @@ ISlide slide = presentation.Slides[0];
 
 //Gets the chart in slide
 
-IOfficeChart chart = slide.Shapes[0] as IOfficeChart;
+IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
 //Modifies the chart height
 
@@ -715,7 +707,7 @@ chart.Height = 500;
 
 //Modifies the chart width
 
-Chart.Width = 700;
+chart.Width = 700;
 
 //Changes the title
 
@@ -825,7 +817,7 @@ Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the chart in slide
 
-Dim chart__2 As IOfficeChart = TryCast(slide.Shapes(0), IOfficeChart)
+Dim chart__2 As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
 
 'Modifies the chart height
 
@@ -943,7 +935,7 @@ IPresentation presentation = Presentation.Open("Sample.pptx");
 
 //Gets the chart from the first slide
 
-IOfficeChart chart = presentation.Slides[0].Charts[0] as IOfficeChart;
+IPresentationChart chart = presentation.Slides[0].Charts[0] as IPresentationChart;
 
 //Sets border settings
 
@@ -1083,7 +1075,7 @@ Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Gets the chart from the first slide
 
-Dim chart As IOfficeChart = TryCast(presentationDocument.Slides(0).Charts(0), IOfficeChart)
+Dim chart As IPresentationChart = TryCast(presentationDocument.Slides(0).Charts(0), IPresentationChart)
 
 'Sets border settings
 
@@ -1231,7 +1223,7 @@ ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
 //Adds chart to slide
 
-IOfficeChart chart = slide.Shapes.AddChart(100, 120, 500, 300);
+IPresentationChart chart = slide.Shapes.AddChart(100, 120, 500, 300);
 
 //Sets the data range of chart
 
@@ -1297,7 +1289,7 @@ Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds chart to slide
 
-Dim chart As IOfficeChart = slide.Shapes.AddChart(100, 120, 500, 300)
+Dim chart As IPresentationChart = slide.Shapes.AddChart(100, 120, 500, 300)
 
 'Sets the data range of chart
 
@@ -1375,7 +1367,7 @@ ISlide slide = presentation.Slides[0];
 
 //Gets the chart in slide
 
-IOfficeChart chart = slide.Shapes[0] as IOfficeChart;
+IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
 //Changes the chart type to 3D
 
@@ -1415,7 +1407,7 @@ Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the chart in slide
 
-Dim chart As IOfficeChart = TryCast(slide.Shapes(0), IOfficeChart)
+Dim chart As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
 
 'Changes the chart type to 3D
 
@@ -1473,7 +1465,7 @@ ISlide slide = presentation.Slides[0];
 
 //Gets the chart in slide
 
-IOfficeChart chart = slide.Shapes[0] as IOfficeChart;
+IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
 //Creates a stream instance to store the image
 
@@ -1492,10 +1484,6 @@ fileStream.Write(stream.ToArray(), 0, stream.ToArray().Length);
 //Closes the stream
 
 stream.Close(); 
-
-//Saves the Presentation
-
-presentation.Save("output.pptx");
 
 //Closes the presentation
 
@@ -1523,7 +1511,7 @@ Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the chart in slide
 
-Dim chart As IOfficeChart = TryCast(slide.Shapes(0), IOfficeChart)
+Dim chart As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
 
 'Creates a stream instance to store the image
 
@@ -1544,10 +1532,6 @@ End Using
 'Closes the stream
 
 stream.Close()
-
-'Saves the Presentation
-
-presentationDocument.Save("output.pptx")
 
 'Closes the presentation
 
@@ -1575,7 +1559,7 @@ ISlide slide = presentation.Slides[0];
 
 //Gets the chart in slide
 
-IOfficeChart chart = slide.Shapes[0] as IOfficeChart;
+IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
 //Removes the chart from slide
 
@@ -1603,7 +1587,7 @@ Dim slide As ISlide = presentationDocument.Slides(0)
 
 'Gets the chart in slide
 
-Dim chart As IOfficeChart = TryCast(slide.Shapes(0), IOfficeChart)
+Dim chart As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
 
 'Removes the chart from slide
 

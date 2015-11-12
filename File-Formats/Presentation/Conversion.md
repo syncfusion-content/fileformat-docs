@@ -372,7 +372,7 @@ image.Save("slide1.png");
 
 //Disposes the image
 
-image.dispose();
+image.Dispose();
 
 //Closes the presentation instance
 

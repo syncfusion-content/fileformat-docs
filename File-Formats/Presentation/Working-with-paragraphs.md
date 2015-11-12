@@ -211,7 +211,7 @@ textPartFormatting.Text = "The standard chunk of Lorem Ipsum used since the 1500
 
 //Sets the underline color
 
-textPartFormatting.UnderLineColor.SystemColor = Color.Black;
+textPartFormatting.UnderlineColor.SystemColor = Color.Black;
 
 //Retrieves the existing font for modification
 
@@ -219,7 +219,7 @@ IFont font = textPartFormatting.Font;
 
 //Sets the underline type
 
-font.UnderLine = TextUnderlineType.Single;
+font.Underline = TextUnderlineType.Single;
 
 //Sets the font weight
 
@@ -243,7 +243,7 @@ font2.Color.SystemColor = Color.Blue;
 
 //Sets the underline type
 
-font2.UnderLine = TextUnderlineType.WavyDouble;
+font2.Underline = TextUnderlineType.WavyDouble;
 
 //Saves the presentation
 
@@ -283,7 +283,7 @@ textPartFormatting.Text = "The standard chunk of Lorem Ipsum used since the 1500
 
 'Sets the underline color
 
-textPartFormatting.UnderLineColor.SystemColor = Color.Black
+textPartFormatting.UnderlineColor.SystemColor = Color.Black
 
 'Retrieves the existing font for modification
 
@@ -291,7 +291,7 @@ Dim font As IFont = textPartFormatting.Font
 
 'Sets the underline type
 
-font.UnderLine = TextUnderlineType.[Single]
+font.Underline = TextUnderlineType.[Single]
 
 'Sets the font weight
 
@@ -315,7 +315,7 @@ font2.Color.SystemColor = Color.Blue
 
 'Sets the underline type
 
-font2.UnderLine = TextUnderlineType.WavyDouble
+font2.Underline = TextUnderlineType.WavyDouble
 
 'Saves the presentation
 

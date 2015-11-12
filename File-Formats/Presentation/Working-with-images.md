@@ -35,6 +35,10 @@ IPicture picture = slide.Pictures.AddPicture(pictureStream, 0, 0, 250, 250);
 
 presentation.Save("Output.pptx");
 
+//Dispose the image stream
+
+pictureStream.Dispose();
+
 //Closes the presentation
 
 presentation.Close();
@@ -62,6 +66,10 @@ Dim picture As IPicture = slide.Pictures.AddPicture(pictureStream, 0, 0, 250, 25
 'Saves the presentation to the file system.
 
 presentationDocument.Save("Result.pptx")
+
+'Dispose the image stream
+
+pictureStream.Dispose()
 
 'Closes the presentation
 
