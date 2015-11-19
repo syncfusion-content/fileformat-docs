@@ -1,7 +1,7 @@
 ---
 title: Working with Annotations
 description: This section explains how to create different type of interactive Annotation by using Essential PDF
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

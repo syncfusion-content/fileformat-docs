@@ -1,7 +1,7 @@
 ---
 title: Working with Attachments
 description: This section explains how to add, remove and extract attachments in the PDF document 
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

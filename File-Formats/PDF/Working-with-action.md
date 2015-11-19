@@ -1,7 +1,7 @@
 ---
 title: Working with Action
 description: This section explains how to add actions to the document and form fields
-platform: Fileformat
+platform: file-formats
 control: PDF
 documentation: UG
 ---
