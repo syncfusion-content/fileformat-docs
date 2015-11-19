@@ -122,7 +122,7 @@ excelEngine.Dispose()
 
 ## How to save a file to stream?
 
-XlsIO provides support to save a worksheet to a .NET stream. The following code snippet illustrates this.
+XlsIO provides support to save a workbook to a .NET stream. The following code snippet illustrates this.
 
 {% tabs %}  
 

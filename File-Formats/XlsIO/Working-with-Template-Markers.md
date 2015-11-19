@@ -243,7 +243,7 @@ excelEngine.Dispose()
 <td>
 %&lt;DataSource&gt;.&lt;FieldName&gt; <br/><br/>For example: %Products.ProductName<br/><br/>Where, “Products” is a data source which can be data tables, datasets, data readers and data views and ProductName is the field name or column name<br/><br/></td></tr>
 </table>
-By default, DataTable values will be filled in the worksheet as a string format. You can the detect datatype and number format of DataTable values by using VariableTypeAction enumerator. To know more about the VariableTypeAction enumerator, please refer **VariableTypeAction** in API section.
+By default, DataTable values will be filled in the worksheet as a string format. You can detect datatype and number format of DataTable values by using VariableTypeAction enumerator. To know more about the VariableTypeAction enumerator, please refer **VariableTypeAction** in API section.
 
 Here is the screen shot of input template which has a template marker.
 

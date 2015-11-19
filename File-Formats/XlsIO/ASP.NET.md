@@ -1,7 +1,7 @@
 ---
 title: ASP.NET
 description: Briefs about download and open an Excel document in browser after saving the document in ASP.NET platform.
-platform: ASP.NET
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---

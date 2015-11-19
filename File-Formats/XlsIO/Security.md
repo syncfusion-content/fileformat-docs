@@ -570,6 +570,8 @@ application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
+Dim worksheet As IWorkbook = workbook.Worksheets(0)
+
 'Unlocking a cell to edit in worksheet protection mode 
 
 worksheet.Range("A1").CellStyle.Locked = False
