@@ -1,7 +1,7 @@
 ---
 title: Silverlight
 description: Briefs about loading and saving an Excel document in Silverlight platform.
-platform: Silverlight
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
