@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 description: This section explains creating a simple PDF document with basic elements
-platform: FileFormat
+platform: file-formats
 control: PDF
 documentation: UG
 ---

@@ -1,7 +1,7 @@
 ---
 title: Working with Color Spaces
 description: This section explains how to create a PDF document with the specified color space
-platform: Fileformat
+platform: file-formats
 control: PDF
 documentation: UG
 ---
