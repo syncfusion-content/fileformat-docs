@@ -1,7 +1,7 @@
 ---
 title: Working with Asp.net 
 description: Create a Asp.net and save the document
-platform: FileFormat
+platform: file-formats
 control: DocIO
 documentation: UG
 ---
