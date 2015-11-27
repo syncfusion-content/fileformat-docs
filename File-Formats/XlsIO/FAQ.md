@@ -122,7 +122,7 @@ excelEngine.Dispose()
 
 ## How to save a file to stream?
 
-XlsIO provides support to save a worksheet to a .NET stream. The following code snippet illustrates this.
+XlsIO provides support to save a workbook to a .NET stream. The following code snippet illustrates this.
 
 {% tabs %}  
 
@@ -1591,7 +1591,7 @@ excelEngine.Dispose()
 
 ## How to define discontinuous ranges?
 
-You can set a discontinuous range by adding different ranges to the Range collection. The following code example illustrates this.
+You can define a discontinuous range by adding different ranges to the Range collection. The following code example illustrates this.
 
 {% tabs %}  
 
@@ -1893,6 +1893,8 @@ zipArchive.Close()
 
   {% endtabs %}  
 
+T>You can use CompressionLevel to reduce the size of the file.  
+
 For compressing directories, you can make use of the **AddDirectory** method which adds an empty directory file to a ZipArchive. If you want to add all the files inside the directory, then you should manually add these files by using the **AddItem** method.
 
 The following code snippet illustrate how to add the file from the local drive.
@@ -1947,7 +1949,6 @@ zipArchive.Close()
 
   {% endtabs %}  
 
-T>You can use CompressionLevel to reduce the size of the file.
   
 ## How to zip all the files in subfolders using the Syncfusion.Compression.Zip namespace?
 

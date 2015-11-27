@@ -8,11 +8,11 @@ documentation: UG
 
 # Security
 
-You can protect an anonymous user from viewing, moving, editing or deleting important data from a worksheet or workbook, you can [protect a worksheet or workbook](https://support.office.com/en-ca/article/Password-protect-worksheet-or-workbook-elements-dbf706e0-ba22-4a08-84d8-552db16eef11#bmprotectelements), with or without a password.
+You can protect an anonymous user from viewing, moving, editing or deleting important data from a worksheet or workbook by [protecting a worksheet or workbook](https://support.office.com/en-ca/article/Password-protect-worksheet-or-workbook-elements-dbf706e0-ba22-4a08-84d8-552db16eef11#bmprotectelements), with or without a password.
 
 ## Protect Workbook
 
-To keep others from making structural changes to your documents such as moving, deleting and adding sheets. 
+To keep others from making structural changes to your documents such as moving, deleting and adding sheets, you can protect the workbook in the following ways. 
 
 **Encryption** **with** **password**
 
@@ -95,7 +95,7 @@ Now, the encrypted workbook can be saved. Refer [Save Excel file](/file-formats/
 
 **Opening** **an** **encrypted** **workbook**
 
-You can open an existing encrypted workbook (decrypting) from either the file system or the stream using the following overloads as shown below
+You can open an existing encrypted workbook (decrypting) from either the file system or the stream using the following overloads.
 
 {% tabs %}  
 
@@ -570,7 +570,11 @@ application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
-'Unlocking a cell to edit in worksheet protection mode worksheet.Range("A1").CellStyle.Locked = False
+Dim worksheet As IWorkbook = workbook.Worksheets(0)
+
+'Unlocking a cell to edit in worksheet protection mode 
+
+worksheet.Range("A1").CellStyle.Locked = False
 
 workbook.SaveAs("Output.xlsx")
 

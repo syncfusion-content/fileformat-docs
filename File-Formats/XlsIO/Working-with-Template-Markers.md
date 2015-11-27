@@ -36,7 +36,7 @@ Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;;horizontal
 
 Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;;vertical
 
-**insert**-This argument inserts new row or column, depending on the direction argument for each new cell. Note that by default, the rows will not be insert.
+**insert**-This argument inserts new row or column, depending on the direction argument for each new cell. Note that by default, the rows will not be inserted.
 
 Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;;insert
 
@@ -243,7 +243,7 @@ excelEngine.Dispose()
 <td>
 %&lt;DataSource&gt;.&lt;FieldName&gt; <br/><br/>For example: %Products.ProductName<br/><br/>Where, “Products” is a data source which can be data tables, datasets, data readers and data views and ProductName is the field name or column name<br/><br/></td></tr>
 </table>
-By default, DataTable values will be filled in the worksheet as a string format. You can the detect datatype and number format of DataTable values by using VariableTypeAction enumerator. To know more about the VariableTypeAction enumerator, please refer **VariableTypeAction** in API section.
+By default, DataTable values will be filled in the worksheet as a string format. You can detect datatype and number format of DataTable values by using VariableTypeAction enumerator. To know more about the VariableTypeAction enumerator, please refer **VariableTypeAction** in API section.
 
 Here is the screen shot of input template which has a template marker.
 
@@ -350,14 +350,14 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-Here is the screen shot of generated excel in which data type was detect and then number format was applied.   
+Here is the screen shot of generated excel in which data type is detected and then number format is applied.   
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg)
 
 
 ## Bind from Business objects with images
 
-You can generate reports more appealingly with image support in Template Markers. The possible images supported are listed as follows.
+You can generate reports more appealingly with image support in Template Markers. The possible images supported are listed below.
 
 * GIF
 * JPEG
@@ -403,7 +403,7 @@ __Marker__ __added__ __for__ __merging__ __images__
 
 N> Image can be used in array, DataTable and Business objects.
 
-Different position of image are maintained internally in ImageVerticalPosition and ImageHorizontalPosition enumerators.  To know more about this, please refer **ImageVerticalPosition** and **ImageHorizontalPosition** enumerators in API section.
+Different positions of image are maintained internally in ImageVerticalPosition and ImageHorizontalPosition enumerators.  To know more about this, please refer **ImageVerticalPosition** and **ImageHorizontalPosition** enumerators respectively in API section.
 
 The output screens of all the image insertion options along with its input templates are as follows.
 

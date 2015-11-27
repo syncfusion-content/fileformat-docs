@@ -570,13 +570,13 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 worksheet.Range("A1").Text = "This is a long text"
 
-worksheet.Range["A1"].WrapText = true
+worksheet.Range("A1").WrapText = true
 
 'AutoFit applied to a single row
 
 worksheet.AutofitRow(1) 
 
-worksheet.Range["A3"].Text = "This is a long text"
+worksheet.Range("A3").Text = "This is a long text"
 
 'AutoFit applied to a single column
 

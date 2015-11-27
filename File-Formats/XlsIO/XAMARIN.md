@@ -1,7 +1,7 @@
 ---
 title: Xamarin
 description: Briefs about loading and saving an Excel document in Xamarin platform.
-platform: Xamarin
+platform: file-formats
 control: XlsIO
 documentation: UG
 ---
