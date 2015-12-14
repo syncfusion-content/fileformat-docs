@@ -12,8 +12,8 @@ documentation: UG
 The following are the important points to be remembered while iterating the document elements
 
 * Document consists of one or more sections.
-* Section contains the contents present in Headers, Footers and main document through the instances of WTextBody.
-* WTextBody contains two type of elements – either paragraph or table
+* Section contains the contents present in Headers, Footers and main document through the instances of `WTextBody`.
+* `WTextBody` contains two type of elements – either paragraph or table
 
 The following code example shows how to iterate throughout the Word document and remove the paragraph with a particular style.
 
@@ -35,6 +35,8 @@ class Program
 static void Main(string[] args)
 
 {
+
+//Opens an existing document from file system through constructor of WordDocument class
 
 WordDocument document = new WordDocument(@"TestDocument.docx");
 
@@ -162,14 +164,9 @@ IterateTextBody(cell);
 
 }
 
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 Imports Syncfusion.DocIO.DLS
 
@@ -178,6 +175,8 @@ Namespace RemoveParagraphs
 Class Program
 
 Private Shared Sub Main(args As String())
+
+'Opens an existing document from file system through constructor of WordDocument class
 
 Dim document As New WordDocument("TestDocument.docx")
 
@@ -289,18 +288,15 @@ End Class
 
 End Namespace
 
-
-
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 The following code example shows how to iterate throughout the paragraph and modify the hyperlink (Hyperlink)Uri and specific text (WTextRange)with another.
 
 {% tabs %}  
 
 {% highlight c# %}
-
 
 using Syncfusion.DocIO.DLS;
 
@@ -317,6 +313,8 @@ class Program
 static void Main(string[] args)
 
 {
+
+//Opens an existing document from file system through constructor of WordDocument class
 
 WordDocument document = new WordDocument(@"TestDocument.docx");
 
@@ -504,12 +502,9 @@ break;
 
 }
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 Imports Syncfusion.DocIO.DLS
 
@@ -683,21 +678,15 @@ End Namespace
 
 {% endhighlight %}
 
+{% endtabs %}  
 
-
-  {% endtabs %}  
-
-  
 ## Cloning a Word document
-
-
 
 You can create a deep copy of a Word document by using `Clone` method of `WordDocument` class. You can read the template document from file system or stream and create multiple document copies by cloning it. This improves the performance of document generation, as there is no need to read the Word document each time.
 
 {% tabs %} 
 
 {% highlight c# %}
-
 
 //Opens an existing document 
 
@@ -717,12 +706,9 @@ clonedDocument.Close();
 
 sourceDocument.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Opens an existing document 
 
@@ -742,20 +728,15 @@ clonedDocument.Close()
 
 sourceDocument.Close()
 
-
-
-
-
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
  
 You can also create a deep copy of document elements such as sections, paragraphs, Tables, Text, Image, OleObject, Shapes, TextBoxes and etc., The following code example illustrates how to clone the section and save each cloned section as a Word document. 
 
 {% tabs %} 
 
 {% highlight c# %}
-
 
 //Opens a source document
 
@@ -787,12 +768,9 @@ destinationDocument.Close();
 
 sourceDocument.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Opens a source document
 
@@ -824,8 +802,7 @@ sourceDocument.Close()
 
 {% endhighlight %}
 
-   {% endtabs %}  
-
+{% endtabs %}  
    
 ## Merging Word documents
 
@@ -834,7 +811,6 @@ You can merge multiple Word documents into single Word document by using DocIO�
 {% tabs %} 
 
 {% highlight c# %}
-
 
 //Opens the source document 
 
@@ -858,12 +834,9 @@ sourceDocument.Close();
 
 destinationDocument.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Opens the source document 
 
@@ -889,7 +862,7 @@ destinationDocument.Close()
 
 {% endhighlight %} 
 
-  {% endtabs %}  
+{% endtabs %}  
 
 In the resultant document, the imported contents start from a new page followed by existing contents in a destination document. This is the default behavior.
 
@@ -898,7 +871,6 @@ When your requirement is to append the contents from the same page instead of st
 {% tabs %}  
 
 {% highlight c# %}
-
 
 //Opens the source document 
 
@@ -926,12 +898,9 @@ sourceDocument.Close();
 
 destinationDocument.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Opens the source document 
 
@@ -961,7 +930,7 @@ destinationDocument.Close()
 
 {% endhighlight %}
 
-  {% endtabs %}  
+{% endtabs %}  
 
 ## Printing a Word document
 
@@ -972,7 +941,6 @@ Initially you have to rasterize the pages as images as shown below
 {% tabs %}  
 
 {% highlight c# %}
-
 
 //Opens the Word document.
 
@@ -986,11 +954,9 @@ Image[] images = document.RenderAsImages(ImageType.Metafile);
 
 document.Close();
 
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Opens the Word document.
 
@@ -1006,7 +972,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% endtabs %}  
+{% endtabs %}  
 
 You can specify the printer settings and page settings through the [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx#) class. The [PrintDocument.PrintPage](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument.printpage%28v=vs.110%29.aspx#) event should be handled to layout the document for printing. 
 
@@ -1015,7 +981,6 @@ The following code example demonstrates how to print the Word document pages tha
 {% tabs %} 
 
 {% highlight c# %}
-
 
 int endPageIndex = images.Length;
 
@@ -1143,14 +1108,9 @@ startPageIndex = 0;
 
 }
 
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 Dim endPageIndex As Integer = images.Length
 
@@ -1270,12 +1230,9 @@ End Sub
 
 {% endhighlight %}
 
-
-
-   {% endtabs %}  
+{% endtabs %}  
 
 You can download the complete working samples of the code from [here](http://www.syncfusion.com/downloads/support/directtrac/general/Sample-627835418.zip#).
-
 
 ## Working with Styles
 
@@ -1287,14 +1244,13 @@ A style is a predefined set of table, numbering, paragraph, and character proper
 
 ### Access Styles
 
-Paragraph and character styles present in the existing document are accessible through the WordDocument.Styles property. 
+Paragraph and character styles present in the existing document are accessible through the `Styles` property of `WordDocument` class. 
 
 This following code example demonstrates how a style can be accessed and style properties like text color and first line indent can be updated.
 
 {% tabs %}  
 
 {% highlight c# %}
-
 
 //Opens an input Word template
 
@@ -1316,16 +1272,15 @@ heading1ParagraphStyle.CharacterFormat.TextColor = Color.DarkBlue;
 
 heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
 
+//Saves and closes the document instance
+
 document.Save(outputFileName, FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Opens an input Word template
 
@@ -1347,15 +1302,16 @@ heading1ParagraphStyle.CharacterFormat.TextColor = Color.DarkBlue
 
 heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36
 
+'Saves and closes the document instance
+
 document.Save(outputFileName, FormatType.Docx)
 
 document.Close()
 
 {% endhighlight %} 
 
- {% endtabs %}  
+{% endtabs %}  
 
- 
 ### Creating a new Paragraph Style
 
 You can create a new paragraph style by using `WordDocument.AddParagraphStyle` method and apply it by using `ApplyStyle` method of `WParagraph` class.
@@ -1364,7 +1320,6 @@ You can create a new paragraph style by using `WordDocument.AddParagraphStyle` m
 
 {% highlight c# %}
 
-
 //Opens an input Word template
 
 WordDocument document = new WordDocument();
@@ -1372,8 +1327,6 @@ WordDocument document = new WordDocument();
 //This method adds a section and a paragraph in the document
 
 document.EnsureMinimal();
-
-
 
 //Adds a new paragraph style named "MyStyle"
 
@@ -1391,8 +1344,6 @@ myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
 
 document.LastParagraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua");
 
-
-
 //Applies the style to paragraph
 
 document.LastParagraph.ApplyStyle("MyStyle");
@@ -1401,14 +1352,9 @@ document.Save(outputFileName, FormatType.Docx);
 
 document.Close();
 
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Opens an input Word template
 
@@ -1442,12 +1388,9 @@ document.Save(outputFileName, FormatType.Docx)
 
 document.Close()
 
-
 {% endhighlight %} 
 
-
- {% endtabs %}  
-
+{% endtabs %}  
  
 ### Applying built-in styles
 
@@ -1455,9 +1398,7 @@ DocIO provides a set of predefined styles. You can apply those predefined styles
 
 {% tabs %} 
 
-
 {% highlight c# %}
-
 
 //Opens an input Word template
 
@@ -1473,24 +1414,17 @@ IWParagraph paragraph = document.LastParagraph;
 
 paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua");
 
-
-
 //Applies the style to paragraph
 
 paragraph.ApplyStyle(BuiltinStyle.Emphasis);
-
-
 
 document.Save(outputFileName, FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Opens an input Word template
 
@@ -1514,27 +1448,26 @@ document.Save(outputFileName, FormatType.Docx)
 
 document.Close()
 
-
 {% endhighlight %}
 
-
-   {% endtabs %}  
+{% endtabs %}  
 
 ## Working with Word document properties
 
 Document properties, also known as metadata, are details about a file that describe or identify it. You can also define the additional custom document properties for the documents by using DocIO Document properties that are classified as two categories. 
 
-* Built-in DocumentProperties - includes details such as title, author name, subject, and keywords that identify the document's topic or contents.
-* Custom Document properties - defines the user-defined document properties
+* Built-in document properties - includes details such as title, author name, subject, and keywords that identify the document's topic or contents.
+* Custom document properties - defines the user-defined document properties.
 
 ### Built-in document properties
 
-The Built-in document properties of a word document is represented by WordDocument.BuiltinDocumentProperties object. The following code example illustrates how to access and modify the Built-in document properties of the document.
+The Built-in document properties of a word document is represented by `BuiltinDocumentProperties` property of `WordDocument` class. The following code example illustrates how to access and modify the Built-in document properties of the document.
 
 {% tabs %} 
 
 {% highlight c# %}
 
+//Opens an existing Word document
 
 WordDocument document = new WordDocument(inputFileName);
 
@@ -1550,20 +1483,15 @@ document.BuiltinDocumentProperties.Category = "Sales reports";
 
 document.BuiltinDocumentProperties.Company = "Northwind traders";
 
-
-
 document.Save(outputFileName, FormatType.Docx);
 
 document.Close();
-
-
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Opens an existing Word document
 
 Dim document As New WordDocument(inputFileName)
 
@@ -1579,24 +1507,24 @@ document.BuiltinDocumentProperties.Category = "Sales reports"
 
 document.BuiltinDocumentProperties.Company = "Northwind traders"
 
+'Saves and closes the document
+
 document.Save(outputFileName, FormatType.Docx)
 
 document.Close()
 
-
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
  
 ### Adding Custom Document properties
 
-You add a new custom document properties through Add method of `CustomProperties` class. The following code example illustrates how to add a new custom document properties.
+You add a new custom document properties through `Add` method of `CustomProperties` class. The following code example illustrates how to add a new custom document properties.
 
 {% tabs %} 
 
 {% highlight c# %}
-
 
 //Opens an input word template
 
@@ -1612,20 +1540,17 @@ document.CustomDocumentProperties.Add("PropertyC", true);
 
 document.CustomDocumentProperties.Add("PropertyD", new DateTime(2015,7,20));
 
-
+//Saves and closes the document
 
 document.Save(outputFileName, FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
 
-
-'Opens an input word template
+'Opens an existing document from file system through constructor of WordDocument class
 
 Dim document As New WordDocument(inputFileName)
 
@@ -1639,24 +1564,23 @@ document.CustomDocumentProperties.Add("PropertyC", True)
 
 document.CustomDocumentProperties.Add("PropertyD", New DateTime(2015, 7, 20))
 
+'Saves and closes the document
+
 document.Save(outputFileName, FormatType.Docx)
 
 document.Close()
 
-
 {% endhighlight %} 
 
+{% endtabs %}  
 
-  {% endtabs %}  
-
-### Accessing**&**Modifying**Custom**Document**Properties**
+### Accessing & Modifying Custom Document Properties
 
 You can access and modify an existing document property as shown in the following code example.
 
 {% tabs %} 
 
 {% highlight c# %}
-
 
 WordDocument document = new WordDocument(inputFileName);
 
@@ -1671,10 +1595,6 @@ property.Value = "Hello world";
 document.Save(outputFileName, FormatType.Docx);
 
 document.Close();
-
-
-
-
 
 {% endhighlight %}
 
@@ -1697,23 +1617,17 @@ document.Close()
 
 {% endhighlight %}  
 
-
-
-  {% endtabs %}  
-
-  
+{% endtabs %}  
   
 ## Setting the Background for a Word document
 
-Essential DocIO allows to apply background such as color, gradient and picture to the Word document. A background of a Word document is represented by WordDocument.Background object. 
+Essential DocIO allows to apply background such as color, gradient and picture to the Word document. A background of a Word document is represented by `Background` property of `WordDocument' class. 
 
 The following code illustrates how to apply gradient as background to the document.
 
-{% tabs %} 
-
+{% tabs %}
 
 {% highlight c# %}
-
 
 //Createss a new Word document
 
@@ -1755,12 +1669,9 @@ document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Creates a new Word document 
 
@@ -1802,10 +1713,6 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
-
-
 {% endhighlight %}
 
  {% endtabs %}  
@@ -1814,9 +1721,7 @@ The following code illustrates how to apply image as background for the document
 
 {% tabs %} 
 
-
 {% highlight c# %}
-
 
 //Creates a new Word document
 
@@ -1848,12 +1753,9 @@ document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Creates a new Word document
 
@@ -1885,8 +1787,6 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  

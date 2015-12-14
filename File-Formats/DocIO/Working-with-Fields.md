@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Fields
 
-Fields in Word document are placeholders for data that might change on field update. Fields are represented by WField,WFieldMarkinstance in DocIO. A field in Word document contains field codes, field separator, field result, and field end.
+Fields in Word document are placeholders for data that might change on field update. Fields are represented by `WField`, `WFieldMarkinstance` in DocIO. A field in Word document contains field codes, field separator, field result, and field end.
 
 To know various types of Microsoft Word supported fields and its syntax refer to the following MSDN article:
 
@@ -22,7 +22,6 @@ The following code example illustrates how to add a field in Word document.
 {% tabs %} 
 
 {% highlight c# %}
-
 
 //Creates an instance of WordDocument class (Empty Word Document)
 
@@ -54,12 +53,9 @@ document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Creates an instance of WordDocument class (Empty Word Document)
 
@@ -93,9 +89,7 @@ document.Close()
 
 {% endhighlight %}
 
-   {% endtabs %}  
-
-   
+{% endtabs %}  
    
 ## Updating fields
 
@@ -127,7 +121,6 @@ The following code example illustrate how to update the fields present in Word d
 
 {% highlight c# %}
 
-
 //Loads an existing Word document into DocIO instance 
 
 WordDocument document = new WordDocument("Input.docx", FormatType.Docx);
@@ -139,8 +132,6 @@ document.UpdateDocumentFields();
 document.Save("Result.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
@@ -160,9 +151,8 @@ document.Close()
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
- 
 ## IF Field
 
 If field compares two values and updates the field result with true text, when comparison succeeds otherwise false text.
@@ -176,7 +166,6 @@ The following code example illustrates how to add an If field in Word document.
 {% tabs %}  
 
 {% highlight c# %}
-
 
 WordDocument document = new WordDocument();
 
@@ -217,8 +206,6 @@ document.UpdateDocumentFields();
 document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
@@ -266,20 +253,17 @@ document.Close()
 
 {% endhighlight %}
 
-  {% endtabs %}  
-
-  
+{% endtabs %} 
   
 ## Document Variables
 
-The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using Variablesproperty of `WordDocument` class.
+The DocVariable field displays the value of a specified document variable in the Word document. The document variables can be added or modified using `Variables` property of `WordDocument` class.
 
 The following code example illustrate how to add a DocVariable field in Word document.
 
 {% tabs %}  
 
 {% highlight c# %}
-
 
 WordDocument document = new WordDocument();
 
@@ -314,8 +298,6 @@ document.UpdateDocumentFields();
 document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
@@ -357,9 +339,7 @@ document.Close()
 
 {% endhighlight %}
 
-  {% endtabs %}  
-
-  
+{% endtabs %}
   
 ## Cross Reference
 
@@ -372,7 +352,6 @@ The following code example illustrate how to append cross reference for bookmark
 {% tabs %}  
 
 {% highlight c# %}
-
 
 WordDocument document = new WordDocument();
 
@@ -416,12 +395,9 @@ document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 Dim document As New WordDocument()
 
@@ -464,8 +440,6 @@ document.UpdateDocumentFields()
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
-
-
 
 {% endhighlight %}
 

@@ -12,13 +12,13 @@ documentation: UG
 
 You can load and save the Word document asynchronously using DocIO.
 
-The following code example illustrates how to load the file by using stream in Windows Phone.
+The following code example illustrates how to load the Word document by using stream in Windows Phone.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Load the file as stream
+//Load the Word document as stream
 
 Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Sample.docx");
 
@@ -26,7 +26,7 @@ Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceSt
 
 WordDocument document = new WordDocument();
 
-//Loads or opens an existing word document through open method of WordDocument class
+//Loads or opens an existing word document through Open method of WordDocument class
 
 await document.OpenAsync(docStream, FormatType.Docx);
 
@@ -41,7 +41,7 @@ using (Stream outStream = await outFile.OpenStreamForWriteAsync())
 
 await document.SaveAsync(outStream, FormatType.Docx);
 
-//close the document
+//Close the document
 
 document.Close();
 
@@ -51,7 +51,7 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Load the file as stream
+'Load the Word document as stream
 
 Dim docStream As Stream = GetType(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Sample.docx")
 
@@ -59,7 +59,7 @@ Dim docStream As Stream = GetType(MainPage).GetTypeInfo().Assembly.GetManifestRe
 
 Dim document As New WordDocument()
 
-'Loads or opens an existing word document through open method of WordDocument class
+'Loads or opens an existing word document through Open method of WordDocument class
 
 Await document.OpenAsync(docStream, FormatType.Docx)
 
@@ -73,7 +73,7 @@ Using outStream As Stream = Await outFile.OpenStreamForWriteAsync()
 
 Await document.SaveAsync(outStream, FormatType.Docx)
 
-'close the document
+'Close the document
 
 document.Close()
 	
@@ -83,13 +83,13 @@ End Using
 
 {% endtabs %}
 
-The following code example illustrates how to load the file by using file open picker in Windows Phone.
+The following code example illustrates how to load the Word document by using file open picker in Windows Phone.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//create the file open picker
+//Create the file open picker
 
 var picker = new FileOpenPicker();
 
@@ -105,7 +105,7 @@ StorageFile files = await picker.PickSingleFileAsync();
 
 WordDocument document = new WordDocument();
 
-//Loads or opens an existing word document through open method of WordDocument class
+//Loads or opens an existing word document through Open method of WordDocument class
 
 await document.OpenAsync(files);
 
@@ -120,7 +120,7 @@ using (Stream outStream = await outFile.OpenStreamForWriteAsync())
 
 await document.SaveAsync(outStream, FormatType.Docx);
 
-//close the document
+//Close the document
 
 document.Close();
 
@@ -130,7 +130,7 @@ document.Close();
 
 {% highlight vb.net %}
 
-'create the file open picker
+'Create the file open picker
 
 Dim picker = New FileOpenPicker()
 
@@ -146,7 +146,7 @@ Dim files As StorageFile = Await picker.PickSingleFileAsync()
 
 Dim document As New WordDocument()
 
-'Loads or opens an existing word document through open method of WordDocument class
+'Loads or opens an existing word document through Open method of WordDocument class
 
 Await document.OpenAsync(files)
 
@@ -160,7 +160,7 @@ Using outStream As Stream = Await outFile.OpenStreamForWriteAsync()
 
 Await document.SaveAsync(outStream, FormatType.Docx)
 
-'close the document
+'Close the document
 
 document.Close()
 	
@@ -200,11 +200,11 @@ MemoryStream stream = new MemoryStream();
 
 await document.SaveAsync(stream, FormatType.Docx);
 
-//close the documents
+//Close the documents
 
 document.Close();
 
-//Save the stream into Word document file
+//Save the stream as Word document file in local machine
 
 Save(stream, "Result.docx");
 
@@ -270,11 +270,11 @@ Dim stream As New MemoryStream()
 
 Await document.SaveAsync(stream, FormatType.Docx)
 
-'close the documents
+'Close the documents
 
 document.Close()
 
-'Save the stream into Word document file
+'Save the stream as Word document file in local machine
 
 Save(stream, "Result.docx")
 

@@ -9,7 +9,7 @@ documentation: UG
 
 [Table of contents](https://support.office.com/en-in/article/Create-a-table-of-contents-or-update-a-table-of-contents-eb275189-b93e-4559-8dd9-c279457bfd72#__create_a_table ) (TOC) is used to provide an outline of the Word document. By default table of contents will be created automatically from heading styles. 
 
-You can add the TOC into the paragraph by specifying the LowerHeadingLevel and UpperHeadingLevel. The heading level range must be from 1 to 9.
+You can add the TOC into the paragraph by specifying the `LowerHeadingLevel` and `UpperHeadingLevel`. The heading level range must be from 1 to 9.
 
 Basically TOC determines the TOC entries based on the TOC switches. 
 
@@ -254,9 +254,9 @@ document.Close()
 You can also update or re-build the TOC in an existing document or document created from the scratch.  
 
 N>  
-TOC is not supported in Silverlight, WinRT, Univeral, Xamarin and windows phone applications using DocIO. 
+Updating of TOC is not supported in Silverlight, WinRT, Univeral, Xamarin and windows phone applications using DocIO. 
 
-Updating TOC makes use of the Word to PDF layouting engine that may lead to the updation of incorrect page number due to its limitations.
+> Updating TOC makes use of the Word to PDF layouting engine that may lead to the updation of incorrect page number due to its limitations.
 
 
 
