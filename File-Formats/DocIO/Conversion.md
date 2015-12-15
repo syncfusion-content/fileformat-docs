@@ -75,7 +75,7 @@ The following namespaces are required to compile the code in this topic.
 * using Syncfusion.Pdf
 * using Syncfusion.OfficeChartToImageConverter
 
-DocToPDFConverter class is responsible for converting a Word document into PDF. The following code example illustrates how to convert a Word document into PDF document.
+`DocToPDFConverter` class is responsible for converting a Word document into PDF. The following code example illustrates how to convert a Word document into PDF document.
 
 {% tabs %} 
 
@@ -148,11 +148,11 @@ wordDocument.Close()
 N> 
 Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
 
-Initializing the ChartToImageConverter is mandatory to convert the charts present in the Word document to PDF. Otherwise, the charts are not exported to the converted PDF.
+> Initializing the ChartToImageConverter is mandatory to convert the charts present in the Word document to PDF. Otherwise, the charts are not exported to the converted PDF.
 
-ChartToImageConverter is supported from .NET Framework 4.0 onwards
+> ChartToImageConverter is supported from .NET Framework 4.0 onwards
 
-Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to Word document
+> Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to Word document
 
 
 
@@ -521,13 +521,13 @@ wordDocument.Close()
 N> 
 Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, UWP and Xamarin applications
 
-When the ChartToImageConverter object is not initialized, then the charts in Word document get skipped during Word to Image conversion
+> When the `ChartToImageConverter` object is not initialized, then the charts in Word document get skipped during Word to Image conversion
 
-ChartToImageConverter is supported from .NET Framework 4.0 onwards
+> `ChartToImageConverter` is supported from .NET Framework 4.0 onwards
 
-Total number of images may vary based on unsupported elements when compare to Word document
+> Total number of images may vary based on unsupported elements when compare to Word document
 
-Word to Image conversion can have same limitations and unsupported elements of Word to PDF conversion
+> Word to Image conversion can have same limitations and unsupported elements of Word to PDF conversion
 
 ## RTF conversion 
 
@@ -757,11 +757,11 @@ document.Close()
 N> 
 Inserting XHTML string is not supported in Silverlight and Windows Phone and Xamarin applications.
 
-XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
+> XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
 
-XHTMLValidationType.Transitional - default validation while importing HTML file
+> XHTMLValidationType.Transitional - default validation while importing HTML file
 
-XHTMLValidationType.None - validate the HTML file against XHTML format and it doesn’t perform any schemas validation.
+> XHTMLValidationType.None - validate the HTML file against XHTML format and it doesn’t perform any schemas validation.
 
 
 
@@ -812,6 +812,9 @@ You can customize the Word to HTML conversion with the following options:
 * Specify to export the header and footer of the Word document in the HTML 
 * Specify to consider Text Input field as a editable fields or text 
 * Specify the CSS style sheet type and its name
+
+N> 
+While exporting header and footer, DocIO exports the first section header content at the top of the HTML file and first section footer content at the end of the HTML file
 
 The following code example shows how to customize Word to HTML conversion.
 

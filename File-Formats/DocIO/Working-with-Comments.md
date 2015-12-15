@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Comments
 
-A comment is a note or annotation that an author or reviewer can add to a document. DocIO represents comment with WCommentinstance.
+A comment is a note or annotation that an author or reviewer can add to a document. DocIO represents comment with `WComment` instance.
 
 N>  The comment start and end ranges and dates can be preserved only on processing an existing document that already contains these information for each comment.
 

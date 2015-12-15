@@ -67,11 +67,14 @@ document.Save("Sample.docx", FormatType.Docx, HttpContext.Current.Response, Http
 document.Close()
 
 {% endhighlight %}
-{% endtabs %}
-The following code example illustrates how to open the HTML file in web browser after saving the Word document as HTMl file using DocIO.
-{% tabs %}
-{% highlight c# %}
 
+{% endtabs %}
+
+The following code example illustrates how to open the HTML file in web browser after saving the Word document as HTML file using DocIO.
+
+{% tabs %}
+
+{% highlight c# %}
 
 //Creates an empty Word document instance
 
@@ -93,13 +96,13 @@ paragraph.AppendText("Lorem ipsum dolor sit amet, lacus amet amet ultricies. Qui
 
 document.Save("Sample.html", FormatType.Html, HttpContext.Current.Response, HttpContentDisposition.InBrowser);
 
-//close the document
+//Close the document
 
 document.Close();
+
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Creates an empty Word document instance
 
@@ -121,8 +124,10 @@ paragraph.AppendText("Lorem ipsum dolor sit amet, lacus amet amet ultricies. Qui
 
 document.Save("Sample.html", FormatType.Html, HttpContext.Current.Response, HttpContentDisposition.InBrowser)
 
-'close the document
+'Close the document
 
 document.Close()
+
 {% endhighlight %}
+
 {% endtabs %}

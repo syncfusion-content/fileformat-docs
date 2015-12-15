@@ -9,13 +9,13 @@ documentation: UG
 
 ## Loading the document
 
-The following code example illustrates how to load the file by using stream in Xamarin.
+The following code example illustrates how to load the Word document by using stream in Xamarin.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Load the file as stream
+//Load the Word document as stream
 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
 
@@ -23,7 +23,7 @@ Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream(
 
 WordDocument document = new WordDocument();
 
-//Loads or opens an existing word document through open method of WordDocument class
+//Loads or opens an existing word document through Open method of WordDocument class
 
 await document.Open(docStream, FormatType.Docx);
 
@@ -33,7 +33,7 @@ MemoryStream stream = new MemoryStream();
 
 await document.Save(stream, FormatType.Docx);
 
-//close the documents
+//Close the documents
 
 document.Close();
 
@@ -41,7 +41,7 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Load the file as stream
+'Load the Word document as stream
 
 Dim docStream As Stream = GetType(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx")
 
@@ -49,7 +49,7 @@ Dim docStream As Stream = GetType(App).GetTypeInfo().Assembly.GetManifestResourc
 
 Dim document As New WordDocument()
 
-'Loads or opens an existing word document through open method of WordDocument class
+'Loads or opens an existing word document through Open method of WordDocument class
 
 Await document.Open(docStream, FormatType.Docx)
 
@@ -59,7 +59,7 @@ Dim stream As New MemoryStream()
 
 await document.Save(stream, FormatType.Docx)
 
-'close the documents
+'Close the documents
 
 document.Close()
 
@@ -69,7 +69,7 @@ document.Close()
 
 ## Save the document 
 
-The following code example illustrates how to save the Word document in Xamarin windows phone platform.
+The following code example illustrates how to save the Word document in Xamarin Windows Phone platform.
 
 {% tabs %}
 
@@ -97,7 +97,7 @@ MemoryStream memoryStream = new MemoryStream();
 
 await document.Save(stream, FormatType.Docx);
 
-//close the documents
+//Close the documents
 
 document.Close();
 
@@ -163,7 +163,7 @@ Dim memoryStream As New MemoryStream()
 
 Await document.Save(stream, FormatType.Docx)
 
-'close the documents
+'Close the documents
 
 document.Close()
 
@@ -201,7 +201,7 @@ End Class
 
 {% endtabs %}
 
-The following code example illustrates how to save the file by using stream in xamarin android platform.
+The following code example illustrates how to save the Word document by using stream in Xamarin Android platform.
 
 {% tabs %}
 
@@ -229,7 +229,7 @@ MemoryStream memoryStream = new MemoryStream();
 
 await document.Save(stream, FormatType.Docx);
 
-//close the documents
+//Close the documents
 
 document.Close();
 
@@ -341,7 +341,7 @@ Dim memoryStream As New MemoryStream()
 
 Await document.Save(stream, FormatType.Docx)
 
-'close the documents
+'Close the documents
 
 document.Close()
 
@@ -421,7 +421,7 @@ End Class
 
 {% endtabs %}
 
-The following code example illustrates how to save the file by using stream in xamarin iOS platform.
+The following code example illustrates how to save the Word document by using stream in Xamarin iOS platform.
 
 {% tabs %}
 
@@ -449,7 +449,7 @@ MemoryStream memoryStream = new MemoryStream();
 
 await document.Save(stream, FormatType.Docx);
 
-//close the documents
+//Close the documents
 
 document.Close();
 
@@ -548,7 +548,7 @@ Dim memoryStream As New MemoryStream()
 
 Await document.Save(stream, FormatType.Docx)
 
-'close the documents
+'Close the documents
 
 document.Close()
 
