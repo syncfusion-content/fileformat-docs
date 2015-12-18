@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Load and save the presentation
 
-## Open an existing presentation from file system
+## Opening an existing presentation from file system
 
 You can open an existing PowerPoint presentation by using the file name and its physical path.
 
@@ -31,7 +31,7 @@ Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 {% endtabs %}
 
-## Open an existing presentation from stream
+## Opening an existing presentation from stream
 
 You can open an existing PowerPoint presentation from stream by using the overloads of Open method.
 
@@ -55,7 +55,7 @@ Dim presentationDocument As IPresentation = Presentation.Open(presentationStream
 
 {% endtabs %}
 
-## Open an encrypted presentation
+## Opening an encrypted presentation
 
 You can open an encrypted PowerPoint presentation from either file path or stream by using the following overloads of Open method as follows.
 
@@ -99,7 +99,7 @@ Dim presentation As IPresentation = Presentation.Open(fileName, password)
 
 {% endtabs %}
 
-## Save a PowerPoint presentation to file system
+## Saving a PowerPoint presentation to file system
 
 You can save the created or manipulated PowerPoint presentation to file system by using Save() method of **IPresentation** interface. Default format type is *.pptx.
 
@@ -139,7 +139,7 @@ Presentation_1.Save("Output.pptx")
 
 {% endtabs %}
 
-## Save a PowerPoint presentation to stream
+## Saving a PowerPoint presentation to stream
 
 You can save the created or manipulated PowerPoint presentation to stream by using overloads of Save method.
 
@@ -187,7 +187,7 @@ Presentation_1.Save(stream)
 
 {% endtabs %}
 
-## Send to a client browser
+## Sending to a client browser
 
 You can save and send the presentation to a client browser from a website or web application by invoking the overload of Save method. This method explicitly make use of an instance of HttpResponse as its parameter in order to stream the presentation to client browser. So, this overload is suitable for web application that refer to [System.Web](https://msdn.microsoft.com/en-us/library/gg145018(v=vs.110).aspx) assembly.
 
@@ -227,7 +227,7 @@ Presentation_1.Save("Output.pptx", FormatType.Pptx, Response)
 
 {% endtabs %}
 
-## Close a PowerPoint presentation
+## Closing a PowerPoint presentation
 
 When you are done with the presentation instance, you should close the instance of **IPresentation** in order to release the memory consumed by Essential Presentation library. The following code example illustrates how to close an IPresentation instance.
 

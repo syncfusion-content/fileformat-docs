@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Getting Started
 
-## Create a simple PowerPoint presentation with basic elements from scratch
+## Creating a simple PowerPoint presentation with basic elements from scratch
 
 In this page, you can learn how to create a simple PowerPoint presentation by using Essential Presentation API.
 
@@ -325,7 +325,7 @@ The resultant PowerPoint presentation looks as follows.
 ![](GettingStarted_images/GettingStarted_img1.jpeg)
 
 
-## Convert PowerPoint presentation to PDF
+## Converting PowerPoint presentation to PDF
 
 Essential Presentation allows you to convert a PowerPoint presentation into PDF document. The following assemblies are required for the presentation to PDF conversion.
 

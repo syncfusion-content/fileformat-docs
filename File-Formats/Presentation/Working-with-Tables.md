@@ -107,7 +107,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Apply table formatting
+## Applying table formatting
 
 You can format a table to change its appearance by customizing the table border, cell background, cell margins etc. The following code example demonstrates how to apply the custom table formatting.
 
@@ -307,7 +307,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Apply table styles
+## Applying table styles
 
 You can format a table by applying pre-defined table styles. The following code example demonstrates how to apply predefined styles to a table.
 
@@ -475,7 +475,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Modify the table
+## Modifying the table
 
 The following code example demonstrates how to modify the table in existing PowerPoint presentation.
 
@@ -555,7 +555,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Merge the cells
+## Merging the cells
 
 The following code example shows how to merge cells in a table.
 
@@ -667,7 +667,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Remove the table
+## Removing the table
 
 You can remove a table from a slide by its instance or by its index position in the shape collection. The following code example demonstrates removing a table in a slide.
 

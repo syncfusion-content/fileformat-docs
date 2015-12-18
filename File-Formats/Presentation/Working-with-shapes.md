@@ -89,7 +89,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Iterate through shapes
+## Iterating through shapes
 
 You can iterate through the shapes in a PowerPoint slide. The following code example demonstrates how to iterate through the shapes present in a slide for modifying its properties.
 
@@ -162,7 +162,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Specify shape properties
+## Specifying shape properties
 
 The shape properties can be used to format and modify the shapes in a slide. The following code example demonstrates how to apply formatting to a shape.
 
@@ -283,7 +283,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Remove the shapes
+## Removing the shapes
 
 The shapes can be removed from a slide by its instance or by its index position in the shape collection. The following code example demonstrates how to remove the shapes from a slide. 
 
