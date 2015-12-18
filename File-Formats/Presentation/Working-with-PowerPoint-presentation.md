@@ -79,7 +79,7 @@ clonedPresentation_1.Save("ClonedPresentation.pptx")
 
 {% endtabs %}
 
-## Print a PowerPoint presentation
+## Printing a PowerPoint presentation
 
 You can print the presentation document by converting the PowerPoint Presentation slides to images. For more information about converting the PowerPoint presentation slides to images, see [Conversion](/file-formats/presentation/conversion). You can use the System.Drawing.Printing.[PrintDocument](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument(v=vs.110).aspx) class to print the converted images by the default printer or to any of the available printer with customized settings.
 
@@ -382,7 +382,7 @@ End Sub
 
 {% endtabs %}
 
-## Work with PowerPoint presentation properties
+## Working with PowerPoint presentation properties
 
 Document properties, also known as metadata, are details about a file that describe or identify it. Document properties are classified into two categories. 
 

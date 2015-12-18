@@ -79,7 +79,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Replace Images
+## Replacing Images
 
 The following code example demonstrates how to replace an existing image in a slide.
 
@@ -167,7 +167,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Remove Images
+## Removing Images
 
 The following code example demonstrates how to remove an existing image in a PowerPoint slide.
 

@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Charts
 
-## Create a Chart from scratch
+## Creating a Chart from scratch
 
 An instance of **IOfficeChart** can be used to create or modify the charts in PowerPoint presentation. The following code example demonstrates how to create a simple chart by adding data from scratch.
 
@@ -211,7 +211,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Create charts from excel sheet
+## Creating charts from excel sheet
 
 You can also create a chart with the data from an existing excel worksheet. The following code example demonstrates the same.
 
@@ -275,7 +275,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Create Custom Charts 
+## Creating Custom Charts 
 
 Essential Presentation facilitates you to create custom charts by adding different charts series for a single chart. 
 
@@ -495,7 +495,7 @@ The above code example creates a chart in the following screenshot.
 
 ![](WorkingwithCharts_images/WorkingwithCharts_img1.jpeg)
 
-## Refresh the chart
+## Refreshing the chart
 
 Sometimes, the charts do not represent the actual data. In those cases, the charts in PowerPoint presentation should be refreshed.
 
@@ -561,7 +561,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Edit the Chart Data
+## Editing the Chart Data
 
 You can change the data for an existing chart. The code example demonstrates how to modify the chart in a slide.
 
@@ -661,7 +661,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Customize the chart
+## Customizing the chart
 
 ### Chart Basics
 
@@ -677,7 +677,7 @@ A chart is composed of various elements such as legends, axes, series, etc. Each
 6. A chart and axis title that you can use in the chart.
 7. A data label that you can use to identify the details of a data point in a data series.
 
-### Modify the Chart Appearance 
+### Modifying the Chart Appearance 
 
 The appearance of a chart can be modified according to the convenience and usage. The following code example demonstrates modifying the chart element styles. 
 
@@ -921,7 +921,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-### Modify the Plot and Legends of chart
+### Modifying the Plot and Legends of chart
 
 The following code example demonstrates how to modify the legend and plot areas of a chart.
 
@@ -1209,7 +1209,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-### Position Chart Elements
+### Positioning Chart Elements
 
 The following code examples illustrate how to position the different chart elements.
 
@@ -1349,7 +1349,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Apply 3D Formats
+## Applying 3D Formats
 
 Essential Presentation allows you to modify side wall, back wall, and floor settings of a 3-D chart. The following code example explains how to apply these settings to a 3-D chart.
 
@@ -1541,7 +1541,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Remove the chart from slide
+## Removing the chart from slide
 
 The following code example demonstrates removing a chart from a slide.
 
