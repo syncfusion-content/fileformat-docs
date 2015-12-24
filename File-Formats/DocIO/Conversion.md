@@ -518,16 +518,15 @@ wordDocument.Close()
 
  {% endtabs %}  
 
+N> Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, UWP and Xamarin applications
 N> 
-Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, UWP and Xamarin applications
-
-When the ChartToImageConverter object is not initialized, then the charts in Word document get skipped during Word to Image conversion
-
-ChartToImageConverter is supported from .NET Framework 4.0 onwards
-
-Total number of images may vary based on unsupported elements when compare to Word document
-
-Word to Image conversion can have same limitations and unsupported elements of Word to PDF conversion
+N> When the ChartToImageConverter object is not initialized, then the charts in Word document get skipped during Word to Image conversion
+N> 
+N> ChartToImageConverter is supported from .NET Framework 4.0 onwards
+N> 
+N> Total number of images may vary based on unsupported elements when compare to Word document
+N>
+N> Word to Image conversion can have same limitations and unsupported elements of Word to PDF conversion
 
 ## RTF conversion 
 
