@@ -137,7 +137,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Merge slide
+## Merging slide
 
 The Essential Presentation provides ability to clone slides from one presentation to another presentation. With this ability, you can split a large presentation into small ones and also merge multiple presentations to one presentation. You can choose the theme for the cloned slide by using the enum PasteOption.
 
@@ -209,7 +209,7 @@ destinationPresentation.Close()
 
 {% endtabs %}
 
-## Remove slide
+## Removing slide
 
 The Essential Presentation provides the ability to delete a slide by its instance or by its index position in slide collection. The following code demonstrates how to delete a slide from a presentation. 
 
@@ -273,7 +273,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Convert to image
+## Converting to image
 
 You can convert a presentation slide to image with Essential Presentation. The following code example converts the first slide of a PowerPoint presentation into image and saves the image to a file.
 
@@ -331,7 +331,7 @@ presentationDocument.Close()
 
 For more details on assemblies required for converting a slide to image,  see [Conversion](/file-formats/presentation/conversion)
 
-## Change Slide background
+## Changing Slide background
 
 The following code example demonstrates setting the background for a slide.
 

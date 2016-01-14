@@ -9,13 +9,13 @@ documentation: UG
 
 ## Loading the document 
 
-The following code example illustrates how to load the file by using URI in Silverlight.
+The following code example illustrates how to load the Word document by using URI in Silverlight.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Load the file as url
+//Load the Word document as url
 
 Uri uri = new Uri(@"\Resources\data\Sample.docx", UriKind.Relative);
 
@@ -25,7 +25,7 @@ Stream docStream = ResourceManager.Load(uri);
 
 WordDocument document = new WordDocument();
 
-//Loads or opens an existing word document through open method of WordDocument class
+//Loads or opens an existing word document through Open method of WordDocument class
 
 document.Open(docStream, FormatType.Docx);
 
@@ -35,7 +35,7 @@ MemoryStream stream = new MemoryStream();
 
 document.SaveAsDocx();
 
-//close the document
+//Close the document
 
 document.Close();
 
@@ -113,7 +113,7 @@ document.Save(stream, FormatType.Docx);
 
 {% highlight vb.net %}
 
-'Load the file as url
+'Load the Word document as url
 
 Dim uri As New Uri("\Resources\data\Sample.docx", UriKind.Relative)
 
@@ -123,7 +123,7 @@ Dim docStream As Stream = ResourceManager.Load(uri)
 
 Dim document As New WordDocument()
 
-'Loads or opens an existing word document through open method of WordDocument class
+'Loads or opens an existing word document through Open method of WordDocument class
 
 document.Open(docStream, FormatType.Docx)
 
@@ -133,7 +133,7 @@ Dim stream As New MemoryStream()
 
 document.SaveAsDocx()
 
-'close the document
+'Close the document
 
 document.Close()
 
@@ -181,13 +181,13 @@ End Module
 
 {% endtabs %}
 
-The following code example illustrates how to load the file by using stream in Silverlight.
+The following code example illustrates how to load the Word document by using stream in Silverlight.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Load the file as stream
+//Load the Word document as stream
 
 Stream docStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("sample.Resources.Data.sample.docx");
 
@@ -195,7 +195,7 @@ Stream docStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("sa
 
 WordDocument document = new WordDocument();
 
-//Loads or opens an existing word document through open method of WordDocument class
+//Loads or opens an existing word document through Open method of WordDocument class
 
 document.Open(docStream, FormatType.Docx);
 
@@ -205,7 +205,7 @@ MemoryStream stream = new MemoryStream();
 
 document.SaveAsDocx();
 
-//close the document
+//Close the document
 
 document.Close();
 
@@ -283,7 +283,7 @@ document.Save(stream, FormatType.Docx);
 
 {% highlight vb.net %}
 
-'Load the file as stream
+'Load the Word document as stream
 
 Dim docStream As Stream = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("sample.Resources.Data.sample.docx")
 
@@ -291,7 +291,7 @@ Dim docStream As Stream = System.Reflection.Assembly.GetExecutingAssembly().GetM
 
 Dim document As New WordDocument()
 
-'Loads or opens an existing word document through open method of WordDocument class
+'Loads or opens an existing word document through Open method of WordDocument class
 
 document.Open(docStream, FormatType.Docx)
 
@@ -301,7 +301,7 @@ Dim stream As New MemoryStream()
 
 document.SaveAsDocx()
 
-'close the document
+'Close the document
 
 document.Close()
 
@@ -351,7 +351,7 @@ End Module
 
 ## Save the document 
 
-The following code example illustrates how to save the PDF document in Silverlight.
+The following code example illustrates how to save the Word document in Silverlight.
 
 {% tabs %}
 
@@ -377,7 +377,7 @@ paragraph.AppendText("Lorem ipsum dolor sit amet, lacus amet amet ultricies. Qui
 
 document.SaveAsDocx();
 
-//close the document
+//Close the document
 
 document.Close();
 
@@ -476,7 +476,7 @@ paragraph.AppendText("Lorem ipsum dolor sit amet, lacus amet amet ultricies. Qui
 
 document.SaveAsDocx()
 
-'close the document
+'Close the document
 
 document.Close()
 

@@ -57,12 +57,9 @@ document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Loads the template document
 
@@ -102,11 +99,9 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
 {% endhighlight %}
 
-
-  {% endtabs %}  
+{% endtabs %}  
 
 You can find all the occurrence of a particular text within a single paragraph in the document by using `FindAll` method. 
 
@@ -115,7 +110,6 @@ The following code example illustrates how to find all the occurrences of a part
 {% tabs %} 
 
 {% highlight c# %}
-
 
 //Loads the template document
 
@@ -143,12 +137,9 @@ document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Loads the template document
 
@@ -174,21 +165,17 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
 {% endhighlight %} 
 
-
-  {% endtabs %}  
+{% endtabs %}  
 
 You can find the first occurrence of a particular text extended to several paragraphs in the document by using `FindSingleLine` method and its next occurrence by using `FindNextSingleLine` method.
 
 The following code example illustrates how to find a particular text extended to several paragraphs in the Word document.
 
-
 {% tabs %}   
 
 {% highlight c# %}
-
 
 //Loads the template document
 
@@ -236,12 +223,9 @@ document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Loads the template document
 
@@ -285,11 +269,9 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
 {% endhighlight %}
 
-
-  {% endtabs %} 
+{% endtabs %} 
 
 ## Replacing the Search results
 
@@ -300,7 +282,6 @@ The following code example illustrates how to replace a particular text.
 {% tabs %}  
 
 {% highlight c# %}
-
 
 //Loads a template document
 
@@ -324,12 +305,9 @@ document.Save("Replace.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Loads a template document
 
@@ -353,21 +331,17 @@ document.Save("Replace.docx", FormatType.Docx)
 
 document.Close()
 
-
 {% endhighlight %}
 
-
-  {% endtabs %}  
+{% endtabs %}  
 
 You can specify to replace only the first occurrence of the specified text by setting ReplaceFirstproperty of `WordDocument` class to true. 
 
 The following code example illustrates how to replace the first occurrence of a particular text.
 
-
 {% tabs %}  
 
 {% highlight c# %}
-
 
 //Loads a template document
 
@@ -395,12 +369,9 @@ document.Save("Replace.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Loads a template document
 
@@ -430,16 +401,13 @@ document.Close()
 
 {% endhighlight %} 
 
-
-
-  {% endtabs %}  
+{% endtabs %}  
 
 The following code example illustrates how to replace a particular text with a Word document.
 
 {% tabs %}  
 
 {% highlight c# %}
-
 
 //Loads a template document
 
@@ -459,12 +427,9 @@ document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Loads a template document
 
@@ -486,18 +451,15 @@ document.Close()
 
 {% endhighlight %} 
 
-
-  {% endtabs %}  
+{% endtabs %}  
 
 You can replace a particular text extended to several paragraphs in a document with another text or part of a document by using `ReplaceSingleLine` method.
 
 The following code example illustrates how to replace the text extended to several paragraphs with simple text.
 
-
 {% tabs %} 
 
 {% highlight c# %}
-
 
 //Loads a template document
 
@@ -513,12 +475,9 @@ document.Save("Replace.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Loads a template document
 
@@ -534,10 +493,6 @@ document.Save("Replace.docx", FormatType.Docx)
 
 document.Close()
 
-
-
-
-
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  

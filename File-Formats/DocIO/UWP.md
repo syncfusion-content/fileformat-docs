@@ -12,13 +12,13 @@ documentation: UG
 
 You can load and save the Word document asynchronously using DocIO.
 
-The following code example illustrates how to load the file by using stream in UWP.
+The following code example illustrates how to load the Word document by using stream in UWP.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Load the file as stream
+//Load the Word document as stream
 
 Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Sample.docx");
 
@@ -26,7 +26,7 @@ Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceSt
 
 WordDocument document = new WordDocument();
 
-//Loads or opens an existing word document through open method of WordDocument class
+//Loads or opens an existing word document through Open method of WordDocument class
 
 await document.OpenAsync(docStream, FormatType.Docx);
 
@@ -36,11 +36,11 @@ MemoryStream stream = new MemoryStream();
 
 await document.SaveAsync(stream, FormatType.Docx);
 
-//close the documents
+//Close the documents
 
 document.Close();
 
-//Save the stream into Word document file
+//Save the stream as Word document file in local machine
 
 Save(stream, "Result.docx");
 
@@ -108,7 +108,7 @@ outstream.Flush();
 
 {% highlight vb.net %}
 
-'Load the file as stream
+'Load the Word document as stream
 
 Dim docStream As Stream = GetType(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Sample.docx")
 
@@ -116,7 +116,7 @@ Dim docStream As Stream = GetType(MainPage).GetTypeInfo().Assembly.GetManifestRe
 
 Dim document As New WordDocument()
 
-'Loads or opens an existing word document through open method of WordDocument class
+'Loads or opens an existing word document through Open method of WordDocument class
 
 Await document.OpenAsync(docStream, FormatType.Docx)
 
@@ -126,11 +126,11 @@ Dim stream As New MemoryStream()
 
 Await document.SaveAsync(stream, FormatType.Docx)
 
-'close the documents
+'Close the documents
 
 document.Close()
 
-'Save the stream into Word document file
+'Save the stream as Word document file in local machine
 
 Save(stream, "Result.docx")
 
@@ -186,13 +186,13 @@ End Sub
 
 {% endtabs %}
 
-The following code example illustrates how to load the file by using file open picker in WinRT.
+The following code example illustrates how to load the Word document by using file open picker in WinRT.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//create the file open picker
+//Create the file open picker
 
 var picker = new FileOpenPicker();
 
@@ -208,7 +208,7 @@ StorageFile files = await picker.PickSingleFileAsync();
 
 WordDocument document = new WordDocument();
 
-//Loads or opens an existing word document through open method of WordDocument class
+//Loads or opens an existing word document through Open method of WordDocument class
 
 await document.OpenAsync(files);
 
@@ -218,11 +218,11 @@ MemoryStream stream = new MemoryStream();
 
 await document.SaveAsync(stream, FormatType.Docx);
 
-//close the documents
+//Close the documents
 
 document.Close();
 
-//Save the stream into Word document file
+//Save the stream as Word document file in local machine
 
 Save(stream, "Result.docx");
 
@@ -290,7 +290,7 @@ outstream.Flush();
 
 {% highlight vb.net %}
 
-'create the file open picker
+'Create the file open picker
 
 Dim picker = New FileOpenPicker()
 
@@ -306,7 +306,7 @@ Dim files As StorageFile = Await picker.PickSingleFileAsync()
 
 Dim document As New WordDocument()
 
-'Loads or opens an existing word document through open method of WordDocument class
+'Loads or opens an existing word document through Open method of WordDocument class
 
 Await document.OpenAsync(files)
 
@@ -316,11 +316,11 @@ Dim stream As New MemoryStream()
 
 Await document.SaveAsync(stream, FormatType.Docx)
 
-'close the documents
+'Close the documents
 
 document.Close()
 
-'Save the stream into Word document file
+'Save the stream as Word document file in local machine
 
 Save(stream, "Result.docx")
 
@@ -406,7 +406,7 @@ MemoryStream stream = new MemoryStream();
 
 await document.SaveAsync(stream, FormatType.Docx);
 
-//close the documents
+//Close the documents
 
 document.Close();
 
@@ -500,7 +500,7 @@ Dim stream As New MemoryStream()
 
 Await document.SaveAsync(stream, FormatType.Docx)
 
-'close the documents
+'Close the documents
 
 document.Close()
 

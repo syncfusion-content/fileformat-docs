@@ -7,20 +7,20 @@ documentation: UG
 ---
 # Working with Tables
 
-A table in Word document is used to arrange document content in rows and columns. WTableinstance represents a table in Word document. A table must contain at least one row.
+A table in Word document is used to arrange document content in rows and columns. `WTable` instance represents a table in Word document. A table must contain at least one row.
 
-1. A row is a collection of cells and it is represented by an instance of WTableRow. Each row must contain at least one cell.
-2. A cell can contain one or more paragraphs and tables. An instance of WTableCellrepresents a table cell. Each table cell must contain at least one paragraph.
+1. A row is a collection of cells and it is represented by an instance of `WTableRow`. Each row must contain at least one cell.
+2. A cell can contain one or more paragraphs and tables. An instance of `WTableCell` represents a table cell. Each table cell must contain at least one paragraph.
 
 The following image illustrates how a table in Word document is organized in EssentialDocIO’s DOM:
+
+![](WorkingwithTables_images/WTable_DOM.jpg)
 
 The following code example illustrates how to create a simple table with predefined number of rows and cells.
 
 {% tabs %}  
 
-
 {% highlight c# %}
-
 
 //Creates an instance of WordDocument class 
 
@@ -110,12 +110,9 @@ document.Save("Table.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Creates an instance of WordDocument class 
 
@@ -207,15 +204,15 @@ document.Close()
 
 {% endhighlight %} 
 
- {% endtabs %}  
+{% endtabs %}  
 
 The following code example illustrates how to create a simple table by dynamically adding rows.
 
 {% tabs %} 
 
-
 {% highlight c# %}
 
+//Creates an instance of WordDocument class
 
 WordDocument document = new WordDocument();
 
@@ -349,16 +346,17 @@ cell.Width = 200;
 
 cell.AddParagraph().AppendText("70");
 
+//Saves and closes the document instance
+
 document.Save("Table.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Creates an instance of WordDocument class
 
 Dim document As New WordDocument()
 
@@ -492,14 +490,15 @@ cell.Width = 200
 
 cell.AddParagraph().AppendText("70")
 
+'Saves and closes the document instance
+
 document.Save("Table.docx", FormatType.Docx)
 
 document.Close()
 
 {% endhighlight %}  
 
-  {% endtabs %}  
-
+{% endtabs %}  
 
 ## Nested Table 
 
@@ -507,9 +506,9 @@ You can create a nested table by adding a new table into a cell. The following c
 
 {% tabs %} 
 
-
 {% highlight c# %}
 
+//Creates an instance of WordDocument class
 
 WordDocument document = new WordDocument();
 
@@ -581,16 +580,17 @@ table[2, 0].AddParagraph().AppendText("Pomegranate");
 
 table[2, 1].AddParagraph().AppendText("70");
 
+//Saves and closes the document instance
+
 document.Save("NestedTable.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Creates an instance of WordDocument class
 
 Dim document As New WordDocument()
 
@@ -662,6 +662,8 @@ table(2, 0).AddParagraph().AppendText("Pomegranate")
 
 table(2, 1).AddParagraph().AppendText("70")
 
+'Saves and closes the document instance
+
 document.Save("NestedTable.docx", FormatType.Docx)
 
 document.Close()
@@ -670,16 +672,13 @@ document.Close()
 
 {% endtabs %}  
 
-
 ## Apply formatting to Table, Row and Cell
 
 The following code example illustrates how to load an existing document and apply table formatting options such as Borders, LeftIndent, Paddings, IsAutoResize, etc.
 
 {% tabs %}  
 
-
 {% highlight c# %}
-
 
 //Creates an instance of WordDocument class (Empty Word Document)
 
@@ -765,16 +764,15 @@ row.Height = 20;
 
 row.HeightType = TableRowHeightType.AtLeast;
 
+//Saves and closes the document instance
+
 document.Save("TableFormatting.docx", FormatType.Docx);
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Creates an instance of WordDocument class (Empty Word Document)
 
@@ -860,14 +858,15 @@ row.Height = 20
 
 row.HeightType = TableRowHeightType.AtLeast
 
+'Saves and closes the document instance
+
 document.Save("TableFormatting.docx", FormatType.Docx)
 
 document.Close()
 
 {% endhighlight %} 
 
-  {% endtabs %}  
-
+{% endtabs %}  
   
 The following code example illustrates how to load an existing document and apply cell formatting options such as VerticalAlignment, TextDirection, Paddings, Borders, etc.
 
@@ -875,6 +874,7 @@ The following code example illustrates how to load an existing document and appl
 
 {% highlight c# %}
 
+//Creates an instance of WordDocument class
 
 WordDocument document = new WordDocument();
 
@@ -936,16 +936,17 @@ cell.CellFormat.Paddings.All = 5;
 
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 
+//Saves and closes the document instance
+
 document.Save("TableCellFormatting.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Creates an instance of WordDocument class
 
 Dim document As New WordDocument()
 
@@ -1007,18 +1008,19 @@ cell.CellFormat.Paddings.All = 5
 
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle
 
+'Saves and closes the document instance
+
 document.Save("TableCellFormatting.docx", FormatType.Docx)
 
 document.Close()
 
 {% endhighlight %} 
 
-   {% endtabs %}  
-
+{% endtabs %}  
 
 ### Working with Table Style
 
-A table style defines a set of table, row, cell and paragraph level formatting that can be applied to a table. WTableStyleinstance represents table style in a Word document.
+A table style defines a set of table, row, cell and paragraph level formatting that can be applied to a table. `WTableStyle` instance represents table style in a Word document.
 
 N>  Essential DocIO currently provides support for table styles in Docx formats alone. DocIO can preserve both built-in and customized table styles on opening Docx and saving as Docx format. The visual appearance is also preserved in Word to PDF, Word to Image, and Word to HTML conversions.
 
@@ -1028,6 +1030,7 @@ The following code example illustrates how to apply the built-in table styles to
 
 {% highlight c# %}
 
+//Creates an instance of WordDocument class
 
 WordDocument document = new WordDocument("Table.docx", FormatType.Docx);
 
@@ -1039,16 +1042,17 @@ WTable table = section.Tables[0] as WTable;
 
 table.ApplyStyle(BuiltinTableStyle.LightShading);
 
+//Saves and closes the document instance
+
 document.Save("TableStyle.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Creates an instance of WordDocument class
 
 Dim document As New WordDocument("Table.docx", FormatType.Docx)
 
@@ -1060,16 +1064,15 @@ Dim table As WTable = TryCast(section.Tables(0), WTable)
 
 table.ApplyStyle(BuiltinTableStyle.LightShading)
 
+'Saves and closes the document instance
+
 document.Save("TableStyle.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}   
 
 {% endtabs %}  
-
 
 ### Table style options
 
@@ -1081,6 +1084,7 @@ The following code example illustrates how to enable and disable the special tab
 
 {% highlight c# %}
 
+//Creates an instance of WordDocument class
 
 WordDocument document = new WordDocument("Table.docx", FormatType.Docx);
 
@@ -1116,16 +1120,17 @@ table.ApplyStyleForLastColumn = true;
 
 table.ApplyStyleForLastRow = false;
 
+//Saves and closes the document instance
+
 document.Save("TableStyle.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Creates an instance of WordDocument class
 
 Dim document As New WordDocument("Table.docx", FormatType.Docx)
 
@@ -1161,16 +1166,15 @@ table.ApplyStyleForLastColumn = True
 
 table.ApplyStyleForLastRow = False
 
+'Saves and closes the document instance
+
 document.Save("TableStyle.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
- {% endtabs %}  
-
+{% endtabs %}  
  
 ## Merging cells vertically and horizontally
 
@@ -1182,6 +1186,7 @@ The following code example illustrates how to apply horizontal merge to specifie
 
 {% highlight c# %}
 
+//Creates an instance of WordDocument class
 
 WordDocument document = new WordDocument();
 
@@ -1197,16 +1202,17 @@ table.ResetCells(5, 5);
 
 table.ApplyHorizontalMerge(2, 1, 4);
 
+//Saves and closes the document instance
+
 document.Save("HorizontalMerge.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Creates an instance of WordDocument class
 
 Dim document As New WordDocument()
 
@@ -1222,13 +1228,15 @@ table.ResetCells(5, 5)
 
 table.ApplyHorizontalMerge(2, 1, 4)
 
+'Saves and closes the document instance
+
 document.Save("HorizontalMerge.docx", FormatType.Docx)
 
 document.Close()
 
 {% endhighlight %} 
 
- {% endtabs %}  
+{% endtabs %}  
 
 The following code example illustrates how to apply vertical merge to specified range of rows in a specified column.
 
@@ -1236,6 +1244,7 @@ The following code example illustrates how to apply vertical merge to specified 
 
 {% highlight c# %}
 
+//Creates an instance of WordDocument class
 
 WordDocument document = new WordDocument();
 
@@ -1251,16 +1260,17 @@ table.ResetCells(5, 5);
 
 table.ApplyVerticalMerge(2, 1, 4);
 
+//Saves and closes the document instance
+
 document.Save("VerticalMerge.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Creates an instance of WordDocument class
 
 Dim document As New WordDocument()
 
@@ -1276,13 +1286,15 @@ table.ResetCells(5, 5)
 
 table.ApplyVerticalMerge(2, 1, 4)
 
+'Saves and closes the document instance
+
 document.Save("VerticalMerge.docx", FormatType.Docx)
 
 document.Close()
 
 {% endhighlight %} 
 
- {% endtabs %}  
+{% endtabs %}  
 
 The following code example illustrate how to create a table that contains horizontal merged cells.
 
@@ -1290,6 +1302,7 @@ The following code example illustrate how to create a table that contains horizo
 
 {% highlight c# %}
 
+//Creates an instance of WordDocument class
 
 WordDocument document = new WordDocument();
 
@@ -1323,16 +1336,17 @@ table[0, 0].Paragraphs[0].Text = "Horizontally merged cell";
 
 table[0, 1].CellFormat.HorizontalMerge = CellMerge.Continue;
 
+//Saves and closes the document instance
+
 document.Save("HorizontalMerge.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Creates an instance of WordDocument class
 
 Dim document As New WordDocument()
 
@@ -1366,13 +1380,15 @@ table(0, 0).Paragraphs(0).Text = "Horizontally merged cell"
 
 table(0, 1).CellFormat.HorizontalMerge = CellMerge.[Continue]
 
+'Saves and closes the document instance
+
 document.Save("HorizontalMerge.docx", FormatType.Docx)
 
 document.Close()
 
 {% endhighlight %}
 
-  {% endtabs %}  
+{% endtabs %}  
 
 The following code example illustrates how to create a table with vertical merged cells.
 
@@ -1380,6 +1396,7 @@ The following code example illustrates how to create a table with vertical merge
 
 {% highlight c# %}
 
+//Creates an instance of WordDocument class
 
 WordDocument document = new WordDocument();
 
@@ -1413,16 +1430,17 @@ table[0, 0].Paragraphs[0].Text = "Vertically merged cell";
 
 table[1, 0].CellFormat.VerticalMerge = CellMerge.Continue;
 
+//Saves and closes the document instance
+
 document.Save("VerticalMerge.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Creates an instance of WordDocument class
 
 Dim document As New WordDocument()
 
@@ -1456,16 +1474,16 @@ table(0, 0).Paragraphs(0).Text = "Vertically merged cell"
 
 table(1, 0).CellFormat.VerticalMerge = CellMerge.[Continue]
 
+'Saves and closes the document instance
+
 document.Save("VerticalMerge.docx", FormatType.Docx)
 
 document.Close()
 
 {% endhighlight %}
 
-   {% endtabs %}  
-
-   
-   
+{% endtabs %}  
+  
 ## Specifying table header row to repeat on each page
 
 You can specify one or more rows in a table to be repeated as header row at the top of each page, when the table spans across multiple pages. 
@@ -1481,6 +1499,7 @@ The following code example illustrates how to create a table with a single heade
 
 {% highlight c# %}
 
+//Creates an instance of WordDocument class
 
 WordDocument document = new WordDocument();
 
@@ -1516,16 +1535,17 @@ row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
 
 }
 
+//Saves and closes the document instance
+
 document.Save("TableWithHeaderRow.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Creates an instance of WordDocument class
 
 Dim document As New WordDocument()
 
@@ -1559,15 +1579,16 @@ row.Cells(0).AddParagraph().AppendText("Text in Row" + i.ToString())
 
 Next
 
+'Saves and closes the document instance
+
 document.Save("TableWithHeaderRow.docx", FormatType.Docx)
 
 document.Close()
 
 {% endhighlight %} 
 
-  {% endtabs %}  
+{% endtabs %}  
 
-  
 ## Keeping rows from breaking across pages
 
 You can enable or disable the table row content to split across multiple pages, when the row contents do not fit in a previous page.
@@ -1578,6 +1599,7 @@ The following code example illustrates how to disable all the table rows from sp
 
 {% highlight c# %}
 
+//Creates an instance of WordDocument class
 
 WordDocument document = new WordDocument("Template.docx");
 
@@ -1591,16 +1613,17 @@ foreach (WTableRow row in table.Rows)
 
 row.RowFormat.IsBreakAcrossPages = false;
 
+//Saves and closes the document instance
+
 document.Save("Result.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Creates an instance of WordDocument class
 
 Dim document As New WordDocument("Template.docx")
 
@@ -1616,15 +1639,15 @@ row.RowFormat.IsBreakAcrossPages = False
 
 Next
 
+'Saves and closes the document instance
+
 document.Save("Result.docx", FormatType.Docx)
 
 document.Close()
 
 {% endhighlight %}  
 
-  {% endtabs %}  
-
-  
+{% endtabs %} 
   
 ## Iterating through table elements
 
@@ -1634,6 +1657,7 @@ The following code example illustrates how to iterate through the table and appl
 
 {% highlight c# %}
 
+//Creates an instance of WordDocument class
 
 WordDocument document = new WordDocument("Template.docx");
 
@@ -1671,16 +1695,17 @@ cell.CellFormat.BackColor = Color.Green;
 
 }
 
+//Saves and closes the document instance
+
 document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
+'Creates an instance of WordDocument class
 
 Dim document As New WordDocument("Template.docx")
 
@@ -1714,12 +1739,12 @@ Next
 
 Next
 
+'Saves and closes the document instance
+
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
-
-
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  

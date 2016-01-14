@@ -5,9 +5,9 @@ platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Work with Paragraph
+# Working with Paragraph
 
-## Add Paragraph to slide
+## Adding Paragraph to slide
 
 All the textual contents in a Presentation document is represented by Paragraphs. You can have any number of paragraphs within a TextBody of a textbox or shape in a PowerPoint presentation. 
 
@@ -89,7 +89,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Apply Paragraph formatting
+## Applying Paragraph formatting
 
 Each paragraph in a slide can has its own formatting types such as alignment, indent etc. The following code example demonstrates how to format a paragraph in PowerPoint presentation.
 
@@ -177,7 +177,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Work with text
+## Working with text
 
 With Essential Presentation, you can add or modify the text in a presentation. Within the paragraph, textual contents are grouped into one or more child elements as TextParts. Each TextPart represents a region of text with a common set of formatted text. The following code example demonstrates how to add text parts with different formatting into a single paragraph.
 
@@ -329,7 +329,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Modify text
+## Modifying text
 
 You can modify a text by accessing the existing paragraphs in a presentation. The following code example demonstrates how to modify the content in a paragraph.
 
@@ -409,7 +409,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Remove the paragraph 
+## Removing the paragraph 
 
 The following code example demonstrates how to remove a paragraph from a slide.
 

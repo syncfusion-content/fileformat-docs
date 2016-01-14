@@ -20,7 +20,7 @@ The following code example shows how to encrypt the Word document with password.
 
 //Opens an input Word document
 
-WordDocument document = new WordDocument(”Template.docx”);
+WordDocument document = new WordDocument("Template.docx");
 
 //Encrypts the Word document with a password
 
@@ -69,7 +69,7 @@ The following code example shows how to open the encrypted Word document.
 
 //Opens an encrypted Word document
 
-WordDocument document = new WordDocument (”Template.docx”, "password");
+WordDocument document = new WordDocument ("Template.docx", "password");
 
 //Saves and closes the Word document instance
 
@@ -105,15 +105,15 @@ You can restrict a Word document from editing either by providing a password or 
 
 The following are the types of protection:
 
-1. AllowOnlyComments: You can add/modify only the comments in the Word document.
+1. `AllowOnlyComments`: You can add/modify only the comments in the Word document.
 
-2. AllowOnlyFormFields: You can modify the form field values in the Word document.
+2. `AllowOnlyFormFields`: You can modify the form field values in the Word document.
 
-3. AllowOnlyRevisions: You can accept or reject the revisions in the Word document.
+3. `AllowOnlyRevisions`: You can accept or reject the revisions in the Word document.
 
-4. AllowOnlyReading: You can only view the content in the Word document.
+4. `AllowOnlyReading`: You can only view the content in the Word document.
 
-5. NoProtection: You can access/edit the Word document contents as normally.
+5. `NoProtection`: You can access/edit the Word document contents as normally.
 
 The following code example shows how to restrict editing to modify only form fields in a Word document.
 

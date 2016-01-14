@@ -3559,7 +3559,7 @@ document.Close()
 
    
 N>  For more information on creating tables using DocIO, refer to online documentation link:
-[Working with Tables](/File-Formats/DocIO/Working-with-Tables.)
+[Working with Tables](/File-Formats/DocIO/Working-with-Tables)
 
 
 ### Comments 

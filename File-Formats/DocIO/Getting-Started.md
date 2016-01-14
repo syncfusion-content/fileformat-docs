@@ -44,7 +44,7 @@ An entire Word document is represented by an instance of WordDocument and it is 
 
 A section represents group of paragraphs, tables etc., that have a specific set of properties used to define the pages, number of columns, headers and footers and so on that decides how the text appears. A section should contain at least one paragraph in this body.
 
-The following code example explains how to add a section into a WordDocument instance.
+The following code example explains how to add a section into a `WordDocument` instance.
 
 {% tabs %}  
 
@@ -560,12 +560,11 @@ Essential DocIO allows you to manipulate an existing Word document, RTF, HTML an
 
 Here, you can see how an existing Word document is loaded into DocIO’s DOM, replaces an existing content with another and finally saves the Word document.
 
-You can open an existing Word document either by using constructor of `WordDocument` class or by using Open method of `WordDocument` class that reads the document and populates DocIO’s DOM. The following code example shows how to load an existing document.
+You can open an existing Word document either by using constructor of `WordDocument` class or by using `Open` method of `WordDocument` class that reads the document and populates DocIO’s DOM. The following code example shows how to load an existing document.
 
 {% tabs %}  
 
 {% highlight c# %}
-
 
 //Loads an existing Word document into DocIO instance
 
@@ -583,12 +582,9 @@ document.Save("Result.docx");
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Loads an existing Word document into DocIO instance
 
@@ -608,16 +604,13 @@ document.Close()
 
 {% endhighlight %}
 
-
-
-   {% endtabs %}  
+{% endtabs %}  
 
 The following code example explains how to search a particular text and highlight it.
 
 {% tabs %}  
 
 {% highlight c# %}
-
 
 //Loads an existing Word document into DocIO instance
 
@@ -639,16 +632,15 @@ textRange.CharacterFormat.HighlightColor = Color.Yellow;
 
 }
 
+//Saves and closes the document
+
 document.Save("Result.docx");
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Loads an existing Word document into DocIO instance
 
@@ -674,12 +666,9 @@ document.Close()
 
 {% endhighlight %} 
 
+{% endtabs %}  
 
 
-  {% endtabs %}  
-
-  
-  
 ## Performing Mail merge
 
 Essential DocIO allows to generate documents by filling data in template document from data source. Mail merge operation automatically maps the column name in the data source and names of the merge fields in the template Word document and fills the data.  
@@ -708,7 +697,6 @@ The following code example shows how to perform simple mail merge by using strin
 
 {% highlight c# %}
 
-
 //Loads the template document with required merge fields
 
 WordDocument document = new WordDocument(@"..\..\data\SimpleMailMergeTemplate.docx");
@@ -731,12 +719,9 @@ document.Save("result.docx");
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Loads the template document with required merge fields
 
@@ -760,11 +745,9 @@ document.Save("result.docx")
 
 document.Close()
 
-
 {% endhighlight %}
 
-
-   {% endtabs %} 
+{% endtabs %} 
 
 The resultant Word document look as follows.
 
@@ -797,7 +780,6 @@ The following code example shows how to perform mail merge with objects.
 
 {% highlight c# %}
 
-
 //Loads the template document
 
 WordDocument document = new WordDocument(@"..\..\Data\EmployeesTemplate.doc");
@@ -820,12 +802,9 @@ document.Save("Result.docx");
 
 document.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 //Loads the template document
 
@@ -849,18 +828,15 @@ document.Save("Result.docx")
 
 document.Close()
 
-
 {% endhighlight %} 
 
-
- {% endtabs %}  
+{% endtabs %}  
 
 The following code example provides supporting methods and class for the above code
 
 {% tabs %}  
 
 {% highlight c# %}
-
 
 public List<Employee> GetEmployees()
 
@@ -925,8 +901,6 @@ Photo = Image.FromFile(photoFilePath);
 }
 
 }
-
-
 
 {% endhighlight %}
 
@@ -1107,23 +1081,23 @@ End Property
 
 Private m_Photo As Image
 
-Public Sub New(firstName__1 As String, lastName__2 As String, title__3 As String, address__4 As String, city__5 As String, region__6 As String, _
+Public Sub New(firstName As String, lastName As String, title As String, address As String, city As String, region As String, country As String, 
 
-country__7 As String, photoFilePath As String)
+photoFilePath As String)
 
-FirstName = firstName__1
+FirstName = firstName
 
-LastName = lastName__2
+LastName = lastName
 
-Title = title__3
+Title = title
 
-Address = address__4
+Address = address
 
-City = city__5
+City = city
 
-Region = region__6
+Region = region
 
-Country = country__7
+Country = country
 
 Photo = Image.FromFile(photoFilePath)
 
@@ -1133,7 +1107,7 @@ End Class
 
 {% endhighlight %} 
 
-  {% endtabs %}  
+{% endtabs %}  
 
 The resultant document looks as follows.
 
@@ -1160,7 +1134,6 @@ For converting a Word document to PDF, the following assemblies are required to 
 {% tabs %} 
 
 {% highlight c# %}
-
 
 //Loads the template document
 
@@ -1190,12 +1163,9 @@ pdfDocument.Close();
 
 wordDocument.Close();
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 
 'Loads the template document 
 
@@ -1227,9 +1197,7 @@ wordDocument.Close()
 
 {% endhighlight %}  
 
-
-
- {% endtabs %}  
+{% endtabs %}  
 
 N> 
 When the ChartToImageConverter object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
