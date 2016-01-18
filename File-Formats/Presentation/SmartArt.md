@@ -541,7 +541,7 @@ presentationDocument.Close()
 
 ## Limitations
 
-The modifications in a SmartArt (like add/remove nodes, modify position and size of nodes etc., which involve SmartArt layout changes) done by Essential Presentation are not supported in Image and PDF conversion. Whereas layout changes will be reflected properly in the generated PPTX file when opened using Microsoft PowerPoint.
+The modifications in a SmartArt (like add/remove nodes, modify position and size of nodes etc., which involve SmartArt layout changes) done by Essential Presentation will not reflected in Image and PDF conversion. Whereas layout changes will be reflected properly in the generated PPTX file when opened using Microsoft PowerPoint.
 
 ## Supported SmartArt layout types
 
