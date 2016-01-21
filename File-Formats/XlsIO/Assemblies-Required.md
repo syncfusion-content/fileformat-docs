@@ -166,7 +166,7 @@ Syncfusion.ExcelToPDFConverter.ClientProfile
 
 N> Excel to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
 
-The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the Excel document into PDF.
+The following assemblies are to be referred in addition to the above mentioned assemblies for converting charts present in the Excel document into PDF/Image.
 <table>
 <tr>
 <th>
@@ -190,4 +190,4 @@ Syncfusion.Shared.WPF
 </tbody>
 </table>
 
-N> The above mentioned assemblies is supported from .NET Framework 4.0 onwards
+N> The above mentioned assemblies are supported from .NET Framework 4.0 onwards.
