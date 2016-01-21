@@ -11,7 +11,7 @@ documentation: UG
 ## Create a simple Excel Document
 
 
-This section explains how to create a simple Excel document using Essential XlsIO. The following assemblies must be referred in your application to create and manipulate Excel document.
+This section explains how to create a simple Excel document using XlsIO. The following assemblies must be referred in your application to create and manipulate Excel document.
 
 <table>
 <thead>
@@ -835,7 +835,7 @@ You can refer various importing options in “Importing Data to Worksheet” sec
 
 ## Exporting Data from Worksheets 
 
-Worksheet data can be exported to a data table using the **ExportDataTable****()** method. This method provides various options that allows to export data with specific requirement through ExcelExportDataTableOptions. 
+Worksheet data can be exported to a data table using the **ExportDataTable****()** method. This method provides various options that allows to export data as required through ExcelExportDataTableOptions. 
 
 The following code demonstrates how to export data from a worksheet to a data table with __ColumnNames__ and __DetectColumnTypes__ options.
 
@@ -919,7 +919,7 @@ You can refer various exporting options in “Exporting from Worksheet to Data T
 
 ## Template based data filling using Template Markers
 
-A template marker is a special marker symbol created in an Excel template that appends multiple records from a data source into a worksheet. This marker automatically maps the column name in the data source and names of the marker fields in the template Excel document and fills the data (text or image).
+A template marker is a special marker symbol which allows to generate document by filling data in an Excel template from data source. This marker automatically maps the column name in the data source and names of the marker fields in the Excel template document and fills the data (text or image).
 
 This functionality supports the following data sources.
 
@@ -936,7 +936,7 @@ LINK- Template marker section for argument.
 <td>
 %&lt;MarkerVariable&gt;.&lt;Property&gt; <br/><br/>For example: %Report.SalesPerson<br/><br/></td></tr>
 </table>
-To maintain row formats while applying marker, you can use the following syntax.
+To maintain row formats while filling data, you can use the following syntax.
 
 <table>
 <tr>
