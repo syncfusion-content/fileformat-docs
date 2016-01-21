@@ -8,6 +8,8 @@ documentation: UG
 
 # Working with ASP.NET
 
+In your ASP.NET application, please add the required assemblies in order to use DocIO. [Refer here for assemblies required](/File-Formats/DocIO/Assemblies-Required).
+
 ## Save the document 
 
 The following code example illustrates how to download the Word document in browser after saving the document.
