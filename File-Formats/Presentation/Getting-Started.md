@@ -56,6 +56,24 @@ The following namespaces are required to compile the code discussed in this topi
 
 * Syncfusion.Presentation
 
+Include the following namespace in your .cs or .vb code as shown below
+
+{% tabs %}
+
+{% highlight c# %}
+
+using Syncfusion.Presentation;
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Imports Syncfusion.Presentation
+
+{% endhighlight %}
+
+{% endtabs %}
+
 An entire PowerPoint presentation is represented by an instance of IPresentation interface and it is the root element of Essential Presentation’s DOM.
 
 The following code example demonstrates how to create an instance of IPresentation interface.
@@ -414,6 +432,36 @@ The following namespaces are required to compile the code in this topic.
 * Syncfusion.Pdf;
 * Syncfusion.Presentation;
 * Syncfusion.PresentationToPdfConverter;
+
+Include the following namespaces in your .cs or .vb code as shown below
+
+{% tabs %}
+
+{% highlight c# %}
+
+using Syncfusion.Presentation;
+
+using Syncfusion.OfficeChartToImageConverter;
+
+using Syncfusion.Pdf;
+
+using Syncfusion.PresentationToPdfConverter;
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Imports Syncfusion.Presentation
+
+Imports Syncfusion.OfficeChartToImageConverter
+
+Imports Syncfusion.Pdf
+
+Imports Syncfusion.PresentationToPdfConverter
+
+{% endhighlight %}
+
+{% endtabs %}
 
 **PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert the PowerPoint presentation to PDF.
 
