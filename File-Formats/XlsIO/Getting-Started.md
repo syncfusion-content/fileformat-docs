@@ -8,9 +8,6 @@ documentation: UG
 
 # Getting Started
 
-## Create a simple Excel Document
-
-
 This section explains how to create a simple Excel document using XlsIO. The following assemblies must be referred in your application to create and manipulate Excel document.
 
 <table>
@@ -48,6 +45,116 @@ Imports Syncfusion.XlsIO
 
 {% endhighlight %}
 {% endtabs %}  
+
+## Creating a Hello World sample
+
+The following code example explains how to create a hello world sample.
+
+{% tabs %} 
+{% highlight c# %}
+using Syncfusion.XlsIO;
+
+//New instance of ExcelEngine is created 
+
+//Equivalent to launching Microsoft Excel with no workbooks open
+
+//Instantiate the spreadsheet creation engine
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+//Instantiate the Excel application object
+
+IApplication application = excelEngine.Excel;
+
+//Assigns default application version
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//A new workbook is created. 
+
+//Equivalent to creating a new workbook in Excel.
+
+//Create a workbook with 1 worksheet.
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+//Access first worksheet from the workbook.
+
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Adding text to a cell
+
+worksheet.Range["A1"].Text = "Hello World";
+
+//Saving the workbook to disk in xlsx format
+
+workbook.SaveAs("Sample.xlsx");
+
+//Closing the workbook.
+
+workbook.Close();
+
+//Dispose the Excel engine
+
+excelEngine.Dispose();
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Imports Syncfusion.XlsIO
+
+'New instance of ExcelEngine is created
+
+'Equivalent to launching Microsoft Excel with no workbooks open
+
+'Instantiate the spreadsheet creation engine
+
+Dim excelEngine As ExcelEngine = New ExcelEngine()
+
+'Instantiate the Excel application object
+
+Dim application As IApplication = excelEngine.Excel
+
+'Assigns default application version
+
+application.DefaultVersion = ExcelVersion.Excel2013
+
+'A new workbook is created. 
+
+'Equivalent to creating a new workbook in Excel.
+
+'Create a workbook with 1 worksheet.
+
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+'Access first worksheet from workbook.
+
+Dim worksheet As IWorksheet = workbook.Worksheets[0]
+
+'Adding text to a cell
+
+worksheet.Range("A1").Text = "Hello World"
+
+'Saving the workbook to disk in xlsx format
+
+workbook.SaveAs("Sample.xlsx")
+
+'Closing the workbook.
+
+workbook.Close()
+
+'Dispose the Excel engine
+
+excelEngine.Dispose()
+
+
+
+{% endhighlight %}
+{% endtabs %}  
+
+## Create a simple Excel Document
 
 An instance of ExcelEngine gives access to create an application instance which will be similar to launching Microsoft Excel application. The following code snippet shows how to initialize the application object for creating or manipulating Excel documents.
 
