@@ -52,10 +52,6 @@ For creating and manipulating a PowerPoint presentation, include the following a
     </tbody>
 </table>
 
-The following namespaces are required to compile the code discussed in this topic.
-
-* Syncfusion.Presentation
-
 Include the following namespace in your .cs or .vb code as shown below
 
 {% tabs %}
