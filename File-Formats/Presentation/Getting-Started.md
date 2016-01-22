@@ -52,9 +52,23 @@ For creating and manipulating a PowerPoint presentation, include the following a
     </tbody>
 </table>
 
-The following namespaces are required to compile the code discussed in this topic.
+Include the following namespace in your .cs or .vb code as shown below
 
-* Syncfusion.Presentation
+{% tabs %}
+
+{% highlight c# %}
+
+using Syncfusion.Presentation;
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Imports Syncfusion.Presentation
+
+{% endhighlight %}
+
+{% endtabs %}
 
 An entire PowerPoint presentation is represented by an instance of IPresentation interface and it is the root element of Essential Presentation’s DOM.
 
@@ -408,12 +422,36 @@ Essential Presentation allows you to convert a PowerPoint presentation into PDF 
     </tbody>
 </table>
 
-The following namespaces are required to compile the code in this topic.
 
-* Syncfusion.OfficeChartToImageConverter;
-* Syncfusion.Pdf;
-* Syncfusion.Presentation;
-* Syncfusion.PresentationToPdfConverter;
+Include the following namespaces in your .cs or .vb code as shown below
+
+{% tabs %}
+
+{% highlight c# %}
+
+using Syncfusion.Presentation;
+
+using Syncfusion.OfficeChartToImageConverter;
+
+using Syncfusion.Pdf;
+
+using Syncfusion.PresentationToPdfConverter;
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Imports Syncfusion.Presentation
+
+Imports Syncfusion.OfficeChartToImageConverter
+
+Imports Syncfusion.Pdf
+
+Imports Syncfusion.PresentationToPdfConverter
+
+{% endhighlight %}
+
+{% endtabs %}
 
 **PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert the PowerPoint presentation to PDF.
 
