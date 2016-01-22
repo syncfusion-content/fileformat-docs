@@ -422,12 +422,6 @@ Essential Presentation allows you to convert a PowerPoint presentation into PDF 
     </tbody>
 </table>
 
-The following namespaces are required to compile the code in this topic.
-
-* Syncfusion.OfficeChartToImageConverter;
-* Syncfusion.Pdf;
-* Syncfusion.Presentation;
-* Syncfusion.PresentationToPdfConverter;
 
 Include the following namespaces in your .cs or .vb code as shown below
 
