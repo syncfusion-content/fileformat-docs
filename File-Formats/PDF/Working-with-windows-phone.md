@@ -8,6 +8,8 @@ documentation: UG
 
 # Working with Windows phone 
 
+In your Windows phone application, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
+
 ## Loading the document 
 
 The following code example illustrates how to load the file by using stream in windows phone.
