@@ -8,10 +8,7 @@ documentation: UG
 
 # Getting Started
 
-## Create a simple Excel Document
-
-
-This section explains how to create a simple Excel document using Essential XlsIO. The following assemblies must be referred in your application to create and manipulate Excel document.
+This section explains how to create a simple Excel document using XlsIO. The following assemblies must be referred in your application to create and manipulate Excel document.
 
 <table>
 <thead>
@@ -48,6 +45,116 @@ Imports Syncfusion.XlsIO
 
 {% endhighlight %}
 {% endtabs %}  
+
+## Creating a Hello World sample
+
+The following code example explains how to create a hello world sample.
+
+{% tabs %} 
+{% highlight c# %}
+using Syncfusion.XlsIO;
+
+//New instance of ExcelEngine is created 
+
+//Equivalent to launching Microsoft Excel with no workbooks open
+
+//Instantiate the spreadsheet creation engine
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+//Instantiate the Excel application object
+
+IApplication application = excelEngine.Excel;
+
+//Assigns default application version
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//A new workbook is created. 
+
+//Equivalent to creating a new workbook in Excel.
+
+//Create a workbook with 1 worksheet.
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+//Access first worksheet from the workbook.
+
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Adding text to a cell
+
+worksheet.Range["A1"].Text = "Hello World";
+
+//Saving the workbook to disk in xlsx format
+
+workbook.SaveAs("Sample.xlsx");
+
+//Closing the workbook.
+
+workbook.Close();
+
+//Dispose the Excel engine
+
+excelEngine.Dispose();
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Imports Syncfusion.XlsIO
+
+'New instance of ExcelEngine is created
+
+'Equivalent to launching Microsoft Excel with no workbooks open
+
+'Instantiate the spreadsheet creation engine
+
+Dim excelEngine As ExcelEngine = New ExcelEngine()
+
+'Instantiate the Excel application object
+
+Dim application As IApplication = excelEngine.Excel
+
+'Assigns default application version
+
+application.DefaultVersion = ExcelVersion.Excel2013
+
+'A new workbook is created. 
+
+'Equivalent to creating a new workbook in Excel.
+
+'Create a workbook with 1 worksheet.
+
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+'Access first worksheet from workbook.
+
+Dim worksheet As IWorksheet = workbook.Worksheets[0]
+
+'Adding text to a cell
+
+worksheet.Range("A1").Text = "Hello World"
+
+'Saving the workbook to disk in xlsx format
+
+workbook.SaveAs("Sample.xlsx")
+
+'Closing the workbook.
+
+workbook.Close()
+
+'Dispose the Excel engine
+
+excelEngine.Dispose()
+
+
+
+{% endhighlight %}
+{% endtabs %}  
+
+## Create a simple Excel Document
 
 An instance of ExcelEngine gives access to create an application instance which will be similar to launching Microsoft Excel application. The following code snippet shows how to initialize the application object for creating or manipulating Excel documents.
 
@@ -835,7 +942,7 @@ You can refer various importing options in “Importing Data to Worksheet” sec
 
 ## Exporting Data from Worksheets 
 
-Worksheet data can be exported to a data table using the **ExportDataTable****()** method. This method provides various options that allows to export data with specific requirement through ExcelExportDataTableOptions. 
+Worksheet data can be exported to a data table using the **ExportDataTable****()** method. This method provides various options that allows to export data as required through ExcelExportDataTableOptions. 
 
 The following code demonstrates how to export data from a worksheet to a data table with __ColumnNames__ and __DetectColumnTypes__ options.
 
@@ -919,7 +1026,7 @@ You can refer various exporting options in “Exporting from Worksheet to Data T
 
 ## Template based data filling using Template Markers
 
-A template marker is a special marker symbol created in an Excel template that appends multiple records from a data source into a worksheet. This marker automatically maps the column name in the data source and names of the marker fields in the template Excel document and fills the data (text or image).
+A template marker is a special marker symbol which allows to generate document by filling data in an Excel template from data source. This marker automatically maps the column name in the data source and names of the marker fields in the Excel template document and fills the data (text or image).
 
 This functionality supports the following data sources.
 
@@ -936,7 +1043,7 @@ LINK- Template marker section for argument.
 <td>
 %&lt;MarkerVariable&gt;.&lt;Property&gt; <br/><br/>For example: %Report.SalesPerson<br/><br/></td></tr>
 </table>
-To maintain row formats while applying marker, you can use the following syntax.
+To maintain row formats while filling data, you can use the following syntax.
 
 <table>
 <tr>

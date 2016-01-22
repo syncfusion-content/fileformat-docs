@@ -7,6 +7,8 @@ documentation: UG
 ---
 # Silverlight 
 
+In order to use XlsIO in your Silverlight application, please add the required assemblies in your Silverlight application. Refer [Assemblies Required](/File-Formats/XlsIO/Assemblies-Required).
+
 ## Loading in Silverlight
 
 The below code snippet illustrates how to load an Excel file using stream in Silverlight.

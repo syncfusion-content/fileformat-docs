@@ -7,6 +7,8 @@ documentation: UG
 ---
 # ASP.NET
 
+In order to use XlsIO in your ASP.NET application, please add the required assemblies in your ASP.NET application. Refer [Assemblies Required](/File-Formats/XlsIO/Assemblies-Required).
+
 ## Saving in ASP.NET
 
 The following code snippet illustrates how to download an Excel document in browser after saving the document.
