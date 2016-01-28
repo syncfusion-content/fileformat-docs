@@ -7,6 +7,8 @@ documentation: UG
 ---
 # WinRT 
 
+In order to use XlsIO in your WinRT application, please add the required assemblies in your WinRT application. Refer [Assemblies Required](/File-Formats/XlsIO/Assemblies-Required).
+
 ## Loading in WinRT
 
 The below code snippet illustrates how to load an Excel file using file picker in WinRT.

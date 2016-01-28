@@ -6,7 +6,9 @@ control: DocIO
 documentation: UG
 ---
 
-# Working with Windows phone 
+# Working with Windows Phone 
+
+In your Windows Phone application, please add the required assemblies in order to use DocIO. [Refer here for assemblies required](/File-Formats/DocIO/Assemblies-Required).
 
 ## Loading the document 
 

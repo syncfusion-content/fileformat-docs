@@ -5,7 +5,10 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
+
 # Working with Xamarin
+
+In your Xamarin application, please add the required assemblies in order to use DocIO. [Refer here for assemblies required](/File-Formats/DocIO/Assemblies-Required).
 
 ## Loading the document
 
