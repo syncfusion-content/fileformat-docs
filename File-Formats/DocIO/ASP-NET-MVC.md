@@ -7,6 +7,8 @@ documentation: UG
 ---
 # Working with ASP.NET MVC
 
+In your ASP.NET MVC application, please add the required assemblies in order to use DocIO. [Refer here for assemblies required](/File-Formats/DocIO/Assemblies-Required).
+
 ## Save the document 
 
 The following code example illustrates how to save the Word document in ASP.NET MVC.

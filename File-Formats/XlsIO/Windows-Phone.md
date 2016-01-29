@@ -7,6 +7,8 @@ documentation: UG
 ---
 # Windows Phone
 
+In order to use XlsIO in your Windows Phone application, please add the required assemblies in your Windows Phone application. Refer [Assemblies Required](/File-Formats/XlsIO/Assemblies-Required).
+
 ## Loading In Windows Phone
 
 The below code snippet illustrates how to load an Excel file in Windows Phone.

@@ -7,8 +7,6 @@ documentation: UG
 ---
 # Getting Started
 
-## Creating a new Word document from scratch with basic elements
-
 In this page, you can see how to create a simple Word document by using Essentail DocIO’s API. For creating and manipulating a Word document, the following assemblies are required to be referenced in your application.
 
 <table>
@@ -34,11 +32,81 @@ This assembly contains the Office Chart Object model and core features needed fo
 </tbody>
 </table>
 
-
 Include the following namespaces in your .cs or .vb file
 
-* Syncfusion.DocIO
-* Syncfusion.DocIO.DLS
+{% tabs %}  
+
+{% highlight c# %}
+
+using Syncfusion.DocIO;
+
+using Syncfusion.DocIO.DLS;
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Imports Syncfusion.DocIO
+
+Imports Syncfusion.DocIO.DLS
+
+{% endhighlight %} 
+
+{% endtabs %}
+
+## Creating a new Word document with few lines of code
+
+The following code example explains how to create a new Word document with few lines of code
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Creates an instance of WordDocument Instance (Empty Word Document)
+
+WordDocument document = new WordDocument();
+
+//Add a section & a paragraph in the empty document
+
+document.EnsureMinimal();
+
+//Append text to the last paragraph of the document
+
+document.LastParagraph.AppendText("Hello World");
+
+//Save and close the Word document
+
+document.Save("Result.docx");
+
+document.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates an instance of WordDocument Instance (Empty Word Document)
+
+Dim document As New WordDocument()
+
+'Add a section & a paragraph in the empty document
+
+document.EnsureMinimal()
+
+'Append text to the last paragraph of the document
+
+document.LastParagraph.AppendText("Hello World")
+
+'Save and close the Word document
+
+document.Save("Result.docx")
+
+document.Close()
+
+{% endhighlight %} 
+
+{% endtabs %}
+
+## Creating a new Word document from scratch with basic elements
 
 An entire Word document is represented by an instance of WordDocument and it is root element of DocIO’s DOM. Word document contains a collection of sections. A Word document must contain at least one section.
 

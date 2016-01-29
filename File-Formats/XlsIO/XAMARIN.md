@@ -7,6 +7,8 @@ documentation: UG
 ---
 # Xamarin
 
+In order to use XlsIO in your Xamarin application, please add the required assemblies in your Xamarin application. Refer [Assemblies Required](/File-Formats/XlsIO/Assemblies-Required).
+
 ## Loading in Xamarin
 
 The below code snippet illustrates how to load an Excel file using stream in Xamarin.
