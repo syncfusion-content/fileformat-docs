@@ -331,7 +331,7 @@ presentationDocument.Close()
 
 For more details on assemblies required for converting a slide to image,  see [Conversion](/file-formats/presentation/conversion)
 
-N> You can print the PowerPoint presentations by using its ability to convert the slides as images. For more details, refer to [Printing a PowerPoint Presentation](file-formats/presentation/working-with-powerpoint-presentation#printing-a-powerpoint-presentation)
+N> You can print the PowerPoint presentations by using its ability to convert the slides as images. For more details, refer to [Printing a PowerPoint Presentation](/file-formats/presentation/working-with-powerpoint-presentation#printing-a-powerpoint-presentation)
 
 ## Changing Slide background
 
