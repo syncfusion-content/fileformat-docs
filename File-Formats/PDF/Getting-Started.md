@@ -384,9 +384,7 @@ html.WebKitPath = WebKitBinaryPath;
 
 For converting https sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the following link,
 
-X86 - [https://slproweb.com/download/Win32OpenSSL-1_0_2e.exe](https://slproweb.com/download/Win32OpenSSL-1_0_2e.exe)
-
-X64 - [https://slproweb.com/download/Win64OpenSSL-1_0_2e.exe](https://slproweb.com/download/Win64OpenSSL-1_0_2e.exe)
+[OpenSSL](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064# )
 
 WebKit conversion also requires VC++ 2010 redistributable to be installed in the machine. You can use the below mentioned download link,
 
