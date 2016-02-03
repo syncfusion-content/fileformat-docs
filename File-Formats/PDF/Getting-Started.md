@@ -7,38 +7,180 @@ documentation: UG
 ---
 # Getting Started
 
-## Creating a simple PDF document with basic elements
-
-To create a simple PDF document with basic elements, the following assemblies have to be added as reference to the project.
-
-      a. Syncfusion.Pdf.Base
-      b. Syncfusion.Compression.Base
-
-The following table shows the required namespace that needs to be added as well as their functionalities.
+To create a PDF document from scratch and saving it to disk or stream, the following assemblies have to be added as reference to the project.
 
 <table>
-<thead>
-<tr>
-<th>
-Namespace<br/><br/></th><th>
-Functionalities<br/><br/></th></tr>
-</thead>
-<tbody>
-<tr>
-<td>
-Syncfusion.Pdf<br/><br/></td><td>
-Required for creating a PDF from scratch, add pages, saving the PDF to disk or stream.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Pdf.Graphics<br/><br/></td><td>
-Required for all basic graphics operations like drawing string, images, shapes etc.<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Pdf.Grid<br/><br/></td><td>
-Required for inserting a table in the PDF document.<br/><br/></td></tr>
-</tbody>
+  <tr>
+    <th>Assembly Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Syncfusion.Pdf.Base</td>
+    <td>This assembly contains the core feature for creating, manipulating and saving PDF documents.</td>
+  </tr>
+  <tr>
+    <td>Syncfusion.Compression.Base</td>
+    <td>This assembly is required for compressing the internal contents of a PDF document.</td>
+  </tr>
 </table>
 
+Include the following namespaces in your .cs or .vb file as shown below.
+{% tabs %}
+{% highlight c# %}
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Parsing;
+using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Grid;
+{% endhighlight %}
+
+{% highlight vb.net %}
+Imports Syncfusion.Pdf
+Imports Syncfusion.Pdf.Parsing
+Imports Syncfusion.Pdf.Graphics
+Imports Syncfusion.Pdf.Grid
+{% endhighlight %}
+{% endtabs %}
+
+## Creating a PDF document with simple text
+
+The following code example shows how to create a PDF document with simple text.
+{% tabs %}
+{% highlight c# %}
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+//Set the standard font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+//Draw the text.
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+//Save the document.
+document.Save("Output.pdf");
+//Close the document.
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document.
+Dim document As New PdfDocument()
+'Add a page to the document.
+Dim page As PdfPage = document.Pages.Add()
+'Create PDF graphics for the page.
+Dim graphics As PdfGraphics = page.Graphics
+'Set the standard font.
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
+'Draw the text.
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, New PointF(0, 0))
+'Save the document.
+document.Save("Output.pdf")
+'Close the document.
+document.Close(True)
+{% endhighlight %}
+{% endtabs %}
+
+## Creating a PDF document with image
+
+The following code example shows how to create a PDF document with an image.
+{% tabs %}
+{% highlight c# %}
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page to the document.
+PdfPage page = doc.Pages.Add();
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+//Load the image from the disk.
+PdfBitmap image = new PdfBitmap("Autumn Leaves.jpg");
+//Draw the image
+graphics.DrawImage(image, 0, 0);
+//Save the document.
+doc.Save("Output.pdf");
+//Close the document.
+doc.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document.
+Dim doc As New PdfDocument()
+'Add a page to the document.
+Dim page As PdfPage = doc.Pages.Add()
+'Create PDF graphics for the page
+Dim graphics As PdfGraphics = page.Graphics
+'Load the image from the disk.
+Dim image As New PdfBitmap("Autumn Leaves.jpg")
+'Draw the image
+graphics.DrawImage(image, 0, 0)
+'Save the document.
+doc.Save("Output.pdf")
+'Close the document.
+doc.Close(True)
+{% endhighlight %}
+{% endtabs %}
+
+## Creating a PDF document with table
+
+The following code example shows how to create a PDF document with a simple table.
+{% tabs %}
+{% highlight c# %}
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page.
+PdfPage page = doc.Pages.Add();
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+//Create a DataTable.
+DataTable dataTable = new DataTable();
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+//Add rows to the DataTable.
+dataTable.Rows.Add(new object[] { "E01", "Clay" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas" });
+dataTable.Rows.Add(new object[] { "E03", "Andrew" });
+dataTable.Rows.Add(new object[] { "E04", "Paul" });
+dataTable.Rows.Add(new object[] { "E05", "Gary" });
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new PointF(10, 10));
+//Save the document.
+doc.Save("Output.pdf");
+//close the document
+doc.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document.
+Dim doc As New PdfDocument()
+'Add a page.
+Dim page As PdfPage = doc.Pages.Add()
+'Create a PdfGrid.
+Dim pdfGrid As New PdfGrid()
+'Create a DataTable.
+Dim dataTable As New DataTable()
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+'Add rows to the DataTable.
+dataTable.Rows.Add(New Object() {"E01", "Clay"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas"})
+dataTable.Rows.Add(New Object() {"E03", "Andrew"})
+dataTable.Rows.Add(New Object() {"E04", "Paul"})
+dataTable.Rows.Add(New Object() {"E05", "Gary"})
+'Assign data source.
+pdfGrid.DataSource = dataTable
+'Draw grid to the page of PDF document.
+pdfGrid.Draw(page, New PointF(10, 10))
+'Save the document.
+doc.Save("Output.pdf")
+'close the document
+doc.Close(True)
+{% endhighlight %}
+{% endtabs %}
+
+## Creating a simple PDF document with basic elements
 The PdfDocument object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a page to it along with the page settings.
 
 {% tabs %}
@@ -365,22 +507,42 @@ The filled form is shown in adobe reader application as follows.
 
 Essential PDF supports converting HTML contents to PDF. To add the HTML to PDF conversion functionality by using WebKit rendering engine, the following assemblies need to be added as reference to the project.
 
-      a. Syncfusion.Compression.Base.dll
-      b. Syncfusion.Pdf.Base.dll
-      c. Syncfusion.HtmlConverter.Base.dll
-      d. Syncfusion.WebKitHtmlConverter.Base.dll
+<table>
+  <tr>
+    <th>Assembly Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Syncfusion.Pdf.Base</td>
+    <td>This assembly contains the core feature for creating, manipulating and saving PDF documents.</td>
+  </tr>
+  <tr>
+    <td>Syncfusion.Compression.Base</td>
+    <td>This assembly is required for compressing the internal contents of a PDF document.</td>
+  </tr>
+  <tr>
+    <td>Syncfusion.HtmlConverter.Base.dll</td>
+    <td>This assembly is required for converting the HTML to PDF</td>
+  </tr>
+</table>
 
-The QtBinaries available in the WebKitHTMLConverter installed location __**($Systemdrive\Program Files(x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)**__ should be placed in the local machine where the conversion takes place. The physical path of this folder has been set to the **WebKitBinaryPath** property of the **WebkitHtmlConverter** class, as shown.
+The QtBinaries available in the WebKitHTMLConverter installed location __**($Systemdrive\Program Files(x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)**__ should be placed in the local machine where the conversion takes place. The physical path of this folder has been set to the **WebKitPath** property of the **WebKitConverterSettings** class, as shown. By default it will search for WebKit assemblies in bin folder.
 
+{% tabs %}
 {% highlight c# %}
-
-// Creates a new instance of WebKitHtmlConverter class.
-WebKitHtmlConverter html = new WebKitHtmlConverter();
-string WebKitBinaryPath = "/QtBinaries/";
-//WebKit assembly path
-html.WebKitPath = WebKitBinaryPath;
-
+//Create a WebKitConverterSettings instance
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
 {% endhighlight %}
+
+{% highlight vb.net %}
+'Create a WebKitConverterSettings instance
+Dim webKitSettings As New WebKitConverterSettings()
+'Set WebKit path
+webKitSettings.WebKitPath = "/QtBinaries/"
+{% endhighlight %}
+{% endtabs %}
 
 For converting https sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the following link,
 
@@ -398,138 +560,70 @@ To convert website URL or local html file to PDF by using WebKit rendering engin
 
 {% tabs %}
 {% highlight c# %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Sets page margins.
-document.PageSettings.Margins.All = 0;
-PdfPage page = document.Pages.Add();
-PdfUnitConvertor convertor = new PdfUnitConvertor();
-float width = convertor.ConvertToPixels(document.PageSettings.Width, PdfGraphicsUnit.Point);
-float height = convertor.ConvertToPixels(document.PageSettings.Height, PdfGraphicsUnit.Point);
-// Creates a new instance of WebKitHtmlConverter class.
-WebKitHtmlConverter html = new WebKitHtmlConverter();
-string WebKitBinaryPath = "/QtBinaries/";
-//WebKit assembly path
-html.WebKitPath = WebKitBinaryPath;
-// Converts to PDF document.
-HtmlToPdfResult result = html.Convert("http://www.google.com" , (int)width, (int)height);
-PdfMetafileLayoutFormat metafileFormat = new PdfMetafileLayoutFormat();
-metafileFormat.Break = PdfLayoutBreakType.FitPage;
-metafileFormat.Layout = PdfLayoutType.Paginate;
-//Avoids splitting the text/images across the pages
-metafileFormat.SplitTextLines = false;
-metafileFormat.SplitImages = false;
-// Draws metafile in PdfPage.
-result.Render(page, metafileFormat);
-// Saves and closes the document.
-document.Save("Output.pdf");
+//Create an instance of HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+//Create a WebKitConverterSettings instance
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+//Assign the WebKit settings to converter
+htmlConverter.ConverterSettings = webKitSettings;
+//Convert the URL to PDF
+PdfDocument document = htmlConverter.Convert("http://www.google.com");
+//Save and close the document.
+document.Save("Sample.pdf");
 document.Close(true);
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
-
-'Creates a new PDF document.
-Dim document As New PdfDocument()
-'Sets page margins.
-document.PageSettings.Margins.All = 0
-Dim page As PdfPage = document.Pages.Add()
-Dim convertor As New PdfUnitConvertor()
-Dim width As Single = convertor.ConvertToPixels(document.PageSettings.Width, PdfGraphicsUnit.Point)
-Dim height As Single = convertor.ConvertToPixels(document.PageSettings.Height, PdfGraphicsUnit.Point)
-' Creates a new instance of WebKitHtmlConverter class.
-Dim html As New WebKitHtmlConverter()
-Dim WebKitBinaryPath As String = "/QtBinaries/"
-'WebKit assembly path
-html.WebKitPath = WebKitBinaryPath
-' Convert to PDF document.
-Dim result As HtmlToPdfResult = html.Convert("http://www.google.com", CInt(width), CInt(height))
-// Layout format for Metafile.
-PdfMetafileLayoutFormat metafileFormat = new PdfMetafileLayoutFormat();
-metafileFormat.Break = PdfLayoutBreakType.FitPage;
-metafileFormat.Layout = PdfLayoutType.Paginate;
-//Avoids splitting the text/images across the pages
-metafileFormat.SplitTextLines = false;
-metafileFormat.SplitImages = false;
-// Draws metafile in PdfPage.
-result.Render(page, metafileFormat);
-' Saves and closes the document.
-document.Save("Output.pdf")
+'Create an instance of HTML to PDF converter
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+'Create a WebKitConverterSettings instance
+Dim webKitSettings As New WebKitConverterSettings()
+'Set WebKit path
+webKitSettings.WebKitPath = "/QtBinaries/"
+'Assign the WebKit settings to converter
+htmlConverter.ConverterSettings = webKitSettings
+'Convert the URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("http://www.google.com")
+'Save and close the document.
+document.Save("Sample.pdf")
 document.Close(True)
-
-
 {% endhighlight %}
 {% endtabs %}
 
 To convert the HTML string to PDF, use the following code example.
 {% tabs %}
 {% highlight c# %}
-
-//Creates a new PDF document.
-PdfDocument document = new PdfDocument();
-//Sets page margins.
-document.PageSettings.Margins.All = 0;
-PdfPage page = document.Pages.Add();
-PdfUnitConvertor convertor = new PdfUnitConvertor();
-float width = convertor.ConvertToPixels(document.PageSettings.Width, PdfGraphicsUnit.Point);
-float height = convertor.ConvertToPixels(document.PageSettings.Height, PdfGraphicsUnit.Point);
-// Creates a new instance of WebKitHtmlConverter class.
-WebKitHtmlConverter html = new WebKitHtmlConverter();
-string WebKitBinaryPath = "/QtBinaries";
-//WebKit assembly path
-html.WebKitPath = WebKitBinaryPath;
-string htmlText = @"<html><head><title></title></head><body><div>Hello World!!!</div></body></html>";
-// Converts to PDF document.
-HtmlToPdfResult result = html.Convert(htmlText,"", (int)width, (int)height);
-PdfMetafileLayoutFormat metafileFormat = new PdfMetafileLayoutFormat();
-metafileFormat.Break = PdfLayoutBreakType.FitPage;
-metafileFormat.Layout = PdfLayoutType.Paginate;
-//Avoids splitting the text/images across the pages
-metafileFormat.SplitTextLines = false;
-metafileFormat.SplitImages = false;
-// Draws metafile in PdfPage.
-result.Render(page, metafileFormat);
-// Saves and closes the document.
+//Create an instance of HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+//Create a WebKitConverterSettings instance
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+//Assign the WebKit settings to converter
+htmlConverter.ConverterSettings = webKitSettings;
+//Convert the HTML string to PDF
+PdfDocument document = htmlConverter.Convert("<html><head><title></title></head><body><div>Hello World!!!</div></body></html>","");
+//Save and close the document.
 document.Save("Sample.pdf");
 document.Close(true);
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
-'Creates a new PDF document.
-Dim document As New PdfDocument()
-'Sets page margins.
-document.PageSettings.Margins.All = 0
-Dim page As PdfPage = document.Pages.Add()
-Dim convertor As New PdfUnitConvertor()
-Dim width As Single = convertor.ConvertToPixels(document.PageSettings.Width, PdfGraphicsUnit.Point)
-Dim height As Single = convertor.ConvertToPixels(document.PageSettings.Height, PdfGraphicsUnit.Point)
-'Creates a new instance of WebKitHtmlConverter class.
-Dim html As New WebKitHtmlConverter()
-Dim WebKitBinaryPath As String = "/QtBinaries"
-'WebKit assembly path
-html.WebKitPath = WebKitBinaryPath
-Dim htmlText As String = "<html><head><title></title></head><body><div>Hello World!!!</div></body></html>"
-'Converts to PDF document.
-Dim result As HtmlToPdfResult = html.Convert(htmlText, "", CInt(width), CInt(height))
-// Layout format for Metafile.
-PdfMetafileLayoutFormat metafileFormat = new PdfMetafileLayoutFormat();
-metafileFormat.Break = PdfLayoutBreakType.FitPage;
-metafileFormat.Layout = PdfLayoutType.Paginate;
-//Avoids splitting the text/images across the pages
-metafileFormat.SplitTextLines = false;
-metafileFormat.SplitImages = false;
-// Draws metafile in PdfPage.
-result.Render(page, metafileFormat);
-'Saves and closes the document.
+'Create an instance of HTML to PDF converter
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+'Create a WebKitConverterSettings instance
+Dim webKitSettings As New WebKitConverterSettings()
+'Set WebKit path
+webKitSettings.WebKitPath = "/QtBinaries/"
+'Assign the WebKit settings to converter
+htmlConverter.ConverterSettings = webKitSettings
+'Convert the HTML string to PDF
+Dim document As PdfDocument = htmlConverter.Convert("<html><head><title></title></head><body><div>Hello World!!!</div></body></html>", "")
+'Save and close the document.
 document.Save("Sample.pdf")
 document.Close(True)
-
 {% endhighlight %}
 {% endtabs %}
 ## Merge PDF Documents
