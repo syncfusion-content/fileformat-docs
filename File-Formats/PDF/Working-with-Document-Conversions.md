@@ -607,9 +607,7 @@ Instead, the required assemblies below can be added in the Windows system folder
 
 * For converting https sites, conversion requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the below link,
 
-X86 - [https://slproweb.com/download/Win32OpenSSL-1_0_2e.exe](https://slproweb.com/download/Win32OpenSSL-1_0_2e.exe# )
-
-X64 - [https://slproweb.com/download/Win64OpenSSL-1_0_2e.exe](https://slproweb.com/download/Win64OpenSSL-1_0_2e.exe# )
+[OpenSSL](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064 )
 
 Instead, the required assemblies below can added in the Windows system folder (for 64 bit machine, it should be place in $Systemdrive\Windows\SysWOW64 and for 32 bit machine, it should be place in $Systemdrive\Windows\System32),
 
@@ -1045,9 +1043,7 @@ Instead, the required assemblies below can be added in the Windows system folder
 
 For converting https sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the below link,
 
-X86 - <https://slproweb.com/download/Win32OpenSSL-1_0_2e.exe>
-
-X64 - <https://slproweb.com/download/Win64OpenSSL-1_0_2e.exe>
+[OpenSSL](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064 )
 
 Instead, the required assemblies below can added in the Windows system folder (for 64 bit machine, it should be place in $Systemdrive\Windows\SysWOW64 and for 32 bit machine, it should be place in $Systemdrive\Windows\System32),
 
