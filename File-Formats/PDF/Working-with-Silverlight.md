@@ -7,6 +7,8 @@ documentation: UG
 ---
 # Working with Silverlight 
 
+In your Silverlight application, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
+
 ## Loading the document 
 
 The following code example illustrates how to load the file by using URI in Silverlight.
