@@ -7,6 +7,8 @@ documentation: UG
 ---
 # Working with Asp.net
 
+In your ASP.NET application, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
+
 ## Saving the document 
 
 The following code example illustrates how to download the PDF document in browser after saving the document.
