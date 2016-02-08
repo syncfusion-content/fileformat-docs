@@ -1,5 +1,5 @@
 ---
-title: Post
+title: Assemblies Required
 description: Assemblies Required
 platform: Briefs the assemblies required for various platforms and frameworks.
 control: file-formats
