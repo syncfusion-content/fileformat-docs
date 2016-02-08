@@ -10,24 +10,24 @@ documentation: UG
 PDF documents can be created using flow model instead of adding elements through absolute positioning. To create a PDF document in flow model, please add references to the following set of assemblies. 
 <table>
 <tr>
-<td colspan=1 rowspan=1>
-Assembly Name<br/></td><td colspan=1 rowspan=1>
-Description<br/></td></tr>
+<th>
+Assembly Name<br/></th><th>
+Description<br/></th></tr>
 <tr>
-<td colspan=1 rowspan=1>
-Syncfusion.Pdf.Base<br/></td><td colspan=1 rowspan=1>
+<td>
+Syncfusion.Pdf.Base<br/></td><td>
 This assembly contains the core feature for creating, manipulating and saving PDF documents.<br/></td></tr>
 <tr>
-<td colspan=1 rowspan=1>
-Syncfusion.Compression.Base<br/></td><td colspan=1 rowspan=1>
+<td>
+Syncfusion.Compression.Base<br/></td><td>
 This assembly is required for compressing the internal contents of a PDF document.<br/></td></tr>
 <tr>
-<td colspan=1 rowspan=1>
-Syncfusion.DocIO.Base<br/></td><td colspan=1 rowspan=1>
+<td>
+Syncfusion.DocIO.Base<br/></td><td>
 This assembly contains the core features needed for creating, reading, manipulating a Word document.<br/></td></tr>
 <tr>
-<td colspan=1 rowspan=1>
-Syncfusion.DocToPdfConverter.Base<br/></td><td colspan=1 rowspan=1>
+<td>
+Syncfusion.DocToPdfConverter.Base<br/></td><td>
 This assembly is required for converting word to PDF<br/></td></tr>
 </table>
 Include the following namespaces in your .cs or .vb file as shown below.
