@@ -41,7 +41,7 @@ Assembly<br/>
 </tr>
 <tr>
 <td>
-WPF, Windows Forms, ASP. NET and ASP.NET MVC</br>
+WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/>
 </td>
 <td>
 Syncfusion.Presentation.Base<br/>
