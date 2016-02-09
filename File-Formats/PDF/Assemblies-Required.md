@@ -1,10 +1,10 @@
 ---
 title: Assemblies Required
-description: Assemblies Required
-platform: Briefs the assemblies required for various platforms and frameworks.
-control: file-formats
-documentation: PDF
-keywords: UG
+description: Briefs the assemblies required for various platforms and frameworks.
+platform: file-formats
+control: PDF
+documentation: UG
+keywords: Assemblies
 ---
 # Assemblies Required
 
