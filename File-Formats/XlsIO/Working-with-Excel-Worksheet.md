@@ -1051,7 +1051,7 @@ excelEngine.Dispose()
 
 ## Save Worksheet as CSV
 
-The following code example illustrates how to save a worksheet as CSV file. To know more about opening / saving a CSV file, refer [Open a CSV File](#_Open_a_CSV "") and [Save a CSV File](#_Save_Workbook_as_3 "") sections.
+The following code example illustrates how to save a worksheet as CSV file.
 
 {% tabs %}  
 {% highlight c# %}
