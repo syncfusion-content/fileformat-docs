@@ -11,45 +11,44 @@ The following assemblies need to be referenced in your application
 <table>
 <tr>
 <td>
-{{'**Platform(s)**'| markdownify }}
+Platform(s)<br/>
 </td>
 <td>
-{{'**Assembly**'| markdownify }}
+Assembly<br/>
 </td>
 </tr>
 <tr>
 <td>
-WPF, Windows Forms, ASP. NET and ASP.NET MVC
+WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/>
 </td>
 <td>
-Syncfusion. Presentation.Base
-Syncfusion.Compression.Base
-Syncfusion.OfficeChart.Base
+Syncfusion.Presentation.Base<br/>
+Syncfusion.Compression.Base<br/>
+Syncfusion.OfficeChart.Base<br/>
 </td>
 </tr>
 </table>
-### 
-### Converting PowerPoint presentation to PDF
+## Converting PowerPoint presentation to PDF
 For converting a Powerpoint presentation to PDF, the following assemblies need to be referenced in your application
 <table>
 <tr>
 <td>
-{{'**Platform(s)**'| markdownify }}
+Platform(s)<br/>
 </td>
 <td>
-{{'**Assembly**'| markdownify }}
+Assembly<br/>
 </td>
 </tr>
 <tr>
 <td>
-WPF, Windows Forms, ASP. NET and ASP.NET MVC
+WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/>
 </td>
 <td>
-Syncfusion. Presentation.Base
-Syncfusion.Compression.Base
-Syncfusion.OfficeChart.Base
-Syncfusion.Pdf.Base
-Syncfusion. PresentationToPDFConverter.Base
+Syncfusion.Presentation.Base<br/>
+Syncfusion.Compression.Base<br/>
+Syncfusion.OfficeChart.Base<br/>
+Syncfusion.Pdf.Base<br/>
+Syncfusion.PresentationToPDFConverter.Base<br/>
 </td>
 </tr>
 </table>
@@ -57,21 +56,21 @@ The following assemblies are required to be referred in addition to the above me
 <table>
 <tr>
 <td>
-{{'**Platform(s)**'| markdownify }}
+Platform(s)<br/>
 </td>
 <td>
-{{'**Assembly**'| markdownify }}
+Assembly<br/>
 </td>
 </tr>
 <tr>
 <td>
-WPF, Windows Forms, ASP. NET and ASP.NET MVC
+WPF, Windows Forms, ASP. NET and ASP.NET MVC</br>
 </td>
 <td>
-Syncfusion.OfficeChartToImageConverter.WPF
-Syncfusion.SfChart.WPF
-Syncfusion.Shared.WPF
+Syncfusion.OfficeChartToImageConverter.WPF<br/>
+Syncfusion.SfChart.WPF<br/>
+Syncfusion.Shared.WPF<br/>
 </td>
 </tr>
 </table>
-**Note**: The above mentioned “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards
+N> The above mentioned “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards
