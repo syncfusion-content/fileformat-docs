@@ -272,9 +272,9 @@ pdfDocument.Close(True)
 
 {% endtabs %}  
 
-#### Converting Windows Authenticated webpage to PDF document
+#### Converting Windows Authenticated web page to PDF document
 
-To convert the Windows Authenticated webpage to PDF document by providing the username and password, use the following code snippet below.
+To convert the Windows Authenticated web page to PDF document by providing the username and password, use the following code snippet below.
 
 {% tabs %}  
 
@@ -396,7 +396,7 @@ pdfDocument.Close(True)
 
 #### Converting with PDFA conformance
 
-You can also convert the webpages to PDF with PDFA1B conformance, which embeds all the fonts into the PDF document.
+You can also convert the web pages to PDF with PDFA1B conformance, which embeds all the fonts into the PDF document.
 
 The following code snippet illustrates how to convert HTML pages to PDF document with PDFA1B conformance.
 
@@ -558,7 +558,7 @@ Images or other contents in the HTML are missing in the resultant PDF document
 
 **Solution:**
 
-The issue may be due to the slow internet connection or due to the behavior that the conversion completed before the URL is loaded completely. To overcome this issue, add suitable delay to the conversion using AdditionalDelay property of the HTMLConverter.
+The issue may be due to the slow Internet connection or due to the behavior that the conversion completed before the URL is loaded completely. To overcome this issue, add suitable delay to the conversion using AdditionalDelay property of the HTMLConverter.
 
 ### Conversion using WebKit Rendering
 
@@ -1022,13 +1022,13 @@ document.Close(True)
 
 **WebKit Converter may create PDF with blank pages under the following cases**
 
-1. When the webpage (html) is not available/accessible.
+1. When the web page (html) is not available/accessible.
 2. When VC++ 2010 redistributable and OpenSSL package is not installed in the machine.
 3. When any Qt binaries are not available in the WebKitPath mentioned location.
 
 **Solution 1:**
 
-Please check your internet connection and if the html page is available in the mentioned location.
+Please check your Internet connection and if the html page is available in the mentioned location.
 
 **Solution 2:**
 
@@ -1061,7 +1061,7 @@ You need to place the Qt binaries in the location where the conversion takes pla
 
 **Images or other contents in the HTML are missing in the resultant PDF document.**
 
-The issue may be due to the slow internet connection or due to the behavior that the conversion completed before the page is loaded completely.
+The issue may be due to the slow Internet connection or due to the behavior that the conversion completed before the page is loaded completely.
 
 **Solution**
 
@@ -1229,7 +1229,7 @@ Note:
 Essential DocIO allows you to customize the Word to PDF conversion with the below options:
 
 * Allows to determine the quality of the charts in the converted PDF 
-* Allows to determine the quality of the jpeg images in the converted PDF
+* Allows to determine the quality of the JPEG images in the converted PDF
 * Allows to reduce the Main Memory usage in Word to PDF conversion by reusing the identical images.
 
 {% tabs %}  
@@ -1851,7 +1851,7 @@ N> 2. Total number of pages may vary  based on unsupported elements in the conve
 
 Essential DocIO allows you to customize the RTF to PDF conversion with the below options:
 
-* Allows to determine the quality of the jpeg images in the converted PDF
+* Allows to determine the quality of the JPEG images in the converted PDF
 * Allows to reduce the Main Memory usage in RTF to PDF conversion by reusing the identical images.
 
 
@@ -1946,7 +1946,7 @@ rtfDocument.Close()
 
 ## Converting TIFF to PDF
 
-### Converting multipage TIFF to PDF
+### Converting multi page TIFF to PDF
 
 Multi frame TIFF image can be converted to PDF document. This can be done by accessing each frame of the multi frame TIFF image and rendering it in each page of the PDF document.
 

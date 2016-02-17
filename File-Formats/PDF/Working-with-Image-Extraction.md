@@ -1,5 +1,5 @@
 ---
-title: Working with image extractioin
+title: Working with image extraction
 description: This section explains extracting image from PDF document using Essential PDF
 platform: file-formats
 control: PDF

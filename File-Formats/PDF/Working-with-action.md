@@ -218,7 +218,7 @@ N> [http://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_developer_g
 
 ### URI action
 
-URI action allows you to create a hyperlink that can open webpage in a web browser.
+URI action allows you to create a hyperlink that can open web page in a web browser.
 
 {% tabs %}
 {% highlight c# %}
