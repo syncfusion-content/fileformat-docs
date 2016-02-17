@@ -1396,7 +1396,7 @@ chart.Legend.Layout.Height = 100
 
 ### Chart with transparent background
 
-The following code example explains how to apply transperancy to chart area.
+The following code example explains how to apply transparency to chart area.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1594,7 +1594,7 @@ N> In order to position the chart elements, plot area should be smaller than cha
 
 XlsIO provides support for creation, modification and removal of Sparklines.
 
-* **ISparklineGroups** interface caches the SparklineGroup that needs to be added to the Spreadsheet. 
+* **ISparklineGroups** interface caches the SparklineGroup that need to be added to the Spreadsheet. 
 * **ISparklineGroup** represents Sparklines in object, and has properties that allows  to customize it. 
 * **ISparklines** interface returns the collection of Sparkline present in a Worksheet. 
 * **ISparkline** represents a sparkline in the Sparklines. Currently, XlsIO supports all the three types of sparklines- Line, Column, Win/Loss.

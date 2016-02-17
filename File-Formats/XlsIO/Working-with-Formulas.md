@@ -756,7 +756,7 @@ Chooses a value from a list of values<br/><br/></td></tr>
 <tr>
 <td>
 CLEAN<br/><br/></td><td>
-Removes all nonprintable characters from text<br/><br/></td></tr>
+Removes all non-printable characters from text<br/><br/></td></tr>
 <tr>
 <td>
 CODE<br/><br/></td><td>
@@ -816,7 +816,7 @@ Counts the number of blank cells within a range<br/><br/></td></tr>
 <tr>
 <td>
 COUNTIF<br/><br/></td><td>
-Counts the number of nonblank cells within a range that meet the given criteria<br/><br/></td></tr>
+Counts the number of non-blank cells within a range that meet the given criteria<br/><br/></td></tr>
 <tr>
 <td>
 COVAR<br/><br/></td><td>
@@ -1244,11 +1244,11 @@ Returns the parameters of an exponential trend<br/><br/></td></tr>
 <tr>
 <td>
 LOGINV<br/><br/></td><td>
-Returns the inverse of the lognormal distribution<br/><br/></td></tr>
+Returns the inverse of the log-normal distribution<br/><br/></td></tr>
 <tr>
 <td>
 LOGNORMDIST<br/><br/></td><td>
-Returns the cumulative lognormal distribution<br/><br/></td></tr>
+Returns the cumulative log-normal distribution<br/><br/></td></tr>
 <tr>
 <td>
 LOOKUP<br/><br/></td><td>
@@ -1496,7 +1496,7 @@ Returns the rightmost characters from a text value<br/><br/></td></tr>
 <tr>
 <td>
 ROMAN<br/><br/></td><td>
-Converts an arabic numeral to roman, as text<br/><br/></td></tr>
+Converts an Arabic numeral to roman, as text<br/><br/></td></tr>
 <tr>
 <td>
 ROUND<br/><br/></td><td>
@@ -2064,7 +2064,7 @@ Microsoft excel constantly checks in the background for potential errors in your
 
 In certain cases, these errors can be ignored so that the error will not appear in further error checks. The **IgnoreErrorOptions** property of __IRange__ manages different types of errors checks, for example numbers stored as text, formula calculation errors and validation errors.
 
-To know more about IngoreErrorOptions, please refer ExcelIgnoreError enumeration in API section.
+To know more about IgnoreErrorOptions, please refer ExcelIgnoreError enumeration in API section.
 
 Following code illustrates on how to ignore or set error indicators.
 

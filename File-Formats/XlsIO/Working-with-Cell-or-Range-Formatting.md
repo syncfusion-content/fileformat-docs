@@ -483,7 +483,7 @@ These characters are displayed in the number. To display any other character, en
 <tr>
 <td>
 \character<br/><br/></td><td>
-This code displays the suceeding character you specify.<br/><br/>Note Typing !, ^, &, ', ~, {, }, =, <, or > automatically places a backslash in front of the character.<br/><br/></td></tr>
+This code displays the succeeding character you specify.<br/><br/>Note Typing !, ^, &, ', ~, {, }, =, <, or > automatically places a backslash in front of the character.<br/><br/></td></tr>
 <tr>
 <td>
 "text"<br/><br/></td><td>

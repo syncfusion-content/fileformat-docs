@@ -2295,7 +2295,7 @@ End Sub
 Yes, Essential XlsIO provides support for Client profile. In order to use Essential XlsIO in an application (which targeted to Client profile), the user should include the following assemblies.
 
 * Syncfusion.Core.dll
-* Syncfusion.Compresssion.Base.dll
+* Syncfusion.Compression.Base.dll
 * Syncfusion.XlsIO.ClientProfile.dll
 
 N> Syncfusion.Core is no longer needed from 13.2 version onwards. 

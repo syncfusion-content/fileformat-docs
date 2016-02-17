@@ -65,7 +65,7 @@ excelEngine.Dispose()
 
 ## Positioning and Re-Sizing Pictures
 
-Pictures can be re-sized, positioned and formatted using various properties of **IPictureshape** interface. The following code snippet shows how to apply picture settings.
+Pictures can be re-sized, positioned and formatted using various properties of **IPictureShape** interface. The following code snippet shows how to apply picture settings.
 
 {% tabs %}  
 
