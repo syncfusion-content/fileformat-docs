@@ -1,6 +1,6 @@
 ---
 title: Loading and saving the PowerPoint presentation
-description: Loading and saving the presentation; Modifying the presnetation
+description: Loading and saving the presentation; Modifying the presentation
 platform: file-formats
 control: Presentation
 documentation: UG
@@ -101,7 +101,7 @@ Dim presentation As IPresentation = Presentation.Open(fileName, password)
 
 ## Saving a PowerPoint presentation to file system
 
-You can save the created or manipulated PowerPoint presentation to file system by using Save() method of **IPresentation** interface. Default format type is *.pptx.
+You can save the created or manipulated PowerPoint presentation to file system by using Save() method of **IPresentation** interface. Default format type is *.PPTX.
 
 {% tabs %}
 
