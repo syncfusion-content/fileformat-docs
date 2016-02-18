@@ -405,7 +405,7 @@ Named action allows execution of predefined **PDF** actions.
 The following predefined **PDF** actions are available:
 
 * Go to next page
-* Go to prev page 
+* Go to previous page 
 * Go to first page and 
 * Go to last page.
 
