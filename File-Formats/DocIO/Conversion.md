@@ -161,7 +161,7 @@ Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Un
 Essential DocIO allows you to customize the Word to PDF conversion with the following options:
 
 * Allows to determine the quality of the charts in the converted PDF 
-* Allows to determine the quality of the jpeg images in the converted PDF
+* Allows to determine the quality of the JPEG images in the converted PDF
 * Allows to reduce the Main Memory usage in Word to PDF conversion by reusing the identical images.
 
 {% tabs %}  
@@ -300,7 +300,7 @@ Single underline style only supported<br/><br/></td></tr>
 <tr>
 <td>
 Pagination<br/><br/></td><td>
-Essential DocIO makes sensible decision while layouting the text, and its supported elements while generating the PDF documents. But however, there may not be guaranteed pagination with all the documents<br/><br/></td></tr>
+Essential DocIO makes sensible decision while layout the text, and its supported elements while generating the PDF documents. But however, there may not be guaranteed pagination with all the documents<br/><br/></td></tr>
 <tr>
 <td>
 Custom Shapes and Grouped Shapes<br/><br/></td><td>
@@ -344,7 +344,7 @@ First watermark of the Word document should be applied to the entire converted P
 <tr>
 <td>
 Multi-Column Texts<br/><br/></td><td>
-Multi-Column text positions are calculated dynamically while layouting the text. so there may be some content position differences that occur in the PDF document.<br/><br/></td></tr>
+Multi-Column text positions are calculated dynamically while layout the text. so there may be some content position differences that occur in the PDF document.<br/><br/></td></tr>
 <tr>
 <td>
 Borders<br/><br/></td><td>
@@ -364,7 +364,7 @@ Only Docx format documents are supported<br/><br/></td></tr>
 <tr>
 <td>
 Textbox<br/><br/></td><td>
-Linked Textboxes are not supported<br/><br/></td></tr>
+Linked text boxes are not supported<br/><br/></td></tr>
  </tbody>
 </table>
 
@@ -429,7 +429,7 @@ The following namespaces are required to compile the code in this topic.
 * using Syncfusion.OfficeChart
 * using Syncfusion.OfficeChartToImageConverter
 
-T> To get good image quality during Word to image conversion use metafile format.
+T> To get good image quality during Word to image conversion use image type as Metafile.
 T> You can specify the quality of the converted charts by setting the scaling mode.
 
 The following code illustrates how to convert the Word document to image.
@@ -618,7 +618,7 @@ document.Close()
 
 ## HTML conversion
 
-Essential DocIO supports converting the HTML file into Word document and vice versa. It supports only the HTML files that meet the validation either against XHTML 1.0 strict or XHTML 1.0 Transitional schemas. 
+Essential DocIO supports converting the HTML file into Word document and vice versa. It supports only the HTML files that meet the validation either against XHTML 1.0 strict or XHTML 1.0 Transitional schema. 
 
 The following code example shows how to convert the HTML file into Word document. 
 
@@ -666,7 +666,7 @@ document.Close()
 
 You can customize the HTML to Word conversion with the following options:
 
-* Validate the HTML string against XHTML 1.0 Strict and Transitional schemas 
+* Validate the HTML string against XHTML 1.0 Strict and Transitional schema
 * Insert the HTML string at the specified position of the document body contents
 * Append HTML string to the specified paragraph
 
@@ -761,7 +761,7 @@ Inserting XHTML string is not supported in Silverlight and Windows Phone and Xam
 
 > XHTMLValidationType.Transitional - default validation while importing HTML file
 
-> XHTMLValidationType.None - validate the HTML file against XHTML format and it doesn’t perform any schemas validation.
+> XHTMLValidationType.None - validate the HTML file against XHTML format and it doesn’t perform any schema validation.
 
 
 
@@ -1053,7 +1053,7 @@ See Borders, for more details.<br/><br/></td></tr>
 <tr>
 <td>
 <br/><br/></td><td>
-Keep together and Keep with next properities<br/><br/></td><td>
+Keep together and Keep with next properties<br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td></tr>
 <tr>
@@ -1508,7 +1508,7 @@ document.Close()
   {% endtabs %}  
 
   
-## Word to Epub
+## Word to EPUB
 
 Essential DocIO supports to convert the Word document into EPUB v2.0. It only supports in Windows Forms, WPF, Asp.Net Web and MVC platforms. The following elements are supported in Word to EPub conversion.
 

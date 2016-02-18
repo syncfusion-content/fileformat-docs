@@ -32,7 +32,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
 <tr>
 <td>
-BuiltinDocumentProperties<br/><br/></td><td>
+Built-in document properties<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -41,7 +41,7 @@ Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
-CustomDocumentProperties<br/><br/></td><td>
+Custom document properties<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -86,7 +86,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-Font Substutuion Table<br/><br/></td><td>
+Font Substitution Table<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -316,7 +316,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-Pictures (*.bmp, *.jpg, *.png, *.emf, *.tif and *.gif)<br/><br/></td><td>
+Pictures (*.bmp, *.jpeg, *.png, *.emf, *.tiff and *.gif)<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -548,7 +548,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-Shadding<br/><br/></td><td>
+Shading<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>

@@ -936,7 +936,7 @@ destinationDocument.Close()
 
 You can print a Word document by utilizing DocIO’s capability to convert the document into images and .NET framework’s [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx#) class
 
-Initially you have to rasterize the pages as images as shown below
+Initially you have to render the pages as images as shown below
 
 {% tabs %}  
 

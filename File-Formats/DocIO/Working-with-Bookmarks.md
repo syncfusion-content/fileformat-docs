@@ -835,12 +835,8 @@ You can replace the contents of an existing bookmark with simple text, TextBodyP
 N> 
 You cannot replace the multi section contents into a bookmark within table in Word documents. Use "for loop" instead of "foreach loop" to iterate through document elements when replacing the bookmark contents to avoid “collection modified exception”, as there is a chance for modification in the document elements on replacing the bookmark contents.
 
-The following are the limitations on the `ReplaceBookmarkContent` methods such as,
 
-* ReplaceBookmarkContent(TextBodyPart textbody)
-* ReplaceContent(WordDocumentPart documentPart)
-
-As per Microsoft Word behavior, you cannot replace the bookmark contents when the bookmark includes a partial table as following cases:
+As per Microsoft Word behavior, you cannot replace the bookmark contents when the bookmark start and end is not in a same table as following cases:
 
 Case 1
 
