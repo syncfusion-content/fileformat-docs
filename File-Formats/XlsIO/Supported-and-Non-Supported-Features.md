@@ -129,7 +129,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-Hide/unhide rows/cols<br/><br/></td><td>
+Hide/Unhide rows/cols<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td><td>
@@ -379,7 +379,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-Autofilter<br/><br/></td><td>
+Filter<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td><td>
@@ -459,7 +459,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-View[Zoom,show/hide gridline,show/hide headings], horizontal/vertical scroll bars<br/><br/></td><td>
+View[Zoom, show/hide gridlines, show/hide headings], horizontal/vertical scroll bars<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td><td>
@@ -529,7 +529,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-Advanced CF [Icon Set,Databars,Color scales,Specific Date]<br/><br/></td><td>
+Advanced CF [Icon Set, Data bars, Color scales, Specific Date]<br/><br/></td><td>
 -<br/><br/></td><td>
 -<br/><br/></td><td>
 -<br/><br/></td><td>

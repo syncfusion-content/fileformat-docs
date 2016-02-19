@@ -219,7 +219,7 @@ excelEngine.Dispose()
   {% endtabs %}  
 ## Insert/Remove Columns in a Table
 
-IListObject is a collection of columns, whereas a single column is represented by an instance of **IListObjectColmn**. XlsIO provides support to insert or remove columns in a table through worksheet, as below.
+IListObject is a collection of columns, whereas a single column is represented by an instance of **IListObjectColumn**. XlsIO provides support to insert or remove columns in a table through worksheet, as below.
 
 {% tabs %}  
 
@@ -397,39 +397,39 @@ The following table shows different data sources and its connection string forma
 <td rowspan ="2"> <span style="font-weight:bold">
 MS Access<br/><br/></td>
 <td>
-Oledb<br/><br/></td><td>
+OLEDB<br/><br/></td><td>
 OLEDB;Provider=Microsoft.JET.OLEDB.4.0;Password=\"\";<br/><br/>User ID=Admin;Data Source=C:\\Company\\DB\\TestDB.mdb<br/><br/></td></tr>
 <tr>
 <td>
-Odbc<br/><br/></td><td>
+ODBC<br/><br/></td><td>
 ODBC;DSN=MS Access;DBQ=C:\\Company\\DB\\Testing.mdb;<br/><br/>DefaultDir=C:\\Company\\DB;FIL=MS Access;MaxBufferSize=2048;PageTimeout=5;<br/><br/></td></tr>
 <tr>
 <td rowspan="2"> <span style="font-weight:bold">
-Sql<br/><br/></td>
+SQL<br/><br/></td>
 <td>
-Oledb<br/><br/></td>
+OLEDB<br/><br/></td>
 <td>
 OLEDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;<br/><br/>Persist Security Info=True;Initial Catalog=Temp;<br/><br/>Data Source=SYNCFUSION\\SQLEXPRESS;Workstation ID=SYNCINC;<br/><br/></td></tr>
 <tr>
 <td>
-Odbc<br/><br/></td>
+ODBC<br/><br/></td>
 <td>
 ODBC;DSN=Test1;UID=syncfusion;Trusted_Connection=Yes;<br/><br/>APP=Microsoft Office <br/><br/>2010;WSID=SYNCINC;DATABASE=Temp<br/><br/></td></tr>
 <tr>
 <td><span style="font-weight:bold">
 Excel<br/><br/></td><td>
-Oledb<br/><br/></td><td>
+OLEDB<br/><br/></td><td>
 OLEDB;Provider=Microsoft.ACE.OLEDB.12.0;Password=\"\";<br/><br/>User ID=Admin;Data Source="c:\SourceTemplate.xlsx;<br/><br/>Jet OLEDB:Engine Type=37;<br/><br/></td></tr>
 <tr>
 <td rowspan = "2"> <span style="font-weight:bold">
 Share Point<br/><br/></td>
 <td>
-Oledb<br/><br/></td>
+OLEDB<br/><br/></td>
 <td>
 Stars with OLEDB<br/><br/></td></tr>
 <tr>
 <td>
-Odbc<br/><br/></td><td>
+ODBC<br/><br/></td><td>
 Stars with ODBC<br/><br/></td></tr>
 </table>
 
