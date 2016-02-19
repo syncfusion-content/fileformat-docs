@@ -291,7 +291,7 @@ Minimize AutoFit manipulations which reduces the time consumption.
 
 ## Importing DataTable
 
-**ImportDataTable** overload method which has **ImportonSave** argument allows you to import data with less memory consumption along with improved method performance by serializing the data directly on save method. This option is preferred for larger data that need to be imported in short time.
+**ImportDataTable** overload method which has **ImportOnSave** argument allows you to import data with less memory consumption along with improved method performance by serializing the data directly on save method. This option is preferred for larger data that need to be imported in short time.
 
 {% tabs %}  
 

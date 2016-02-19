@@ -613,7 +613,7 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}   
 
-N> Enable automatic updation of links in Microsoft Excel, to view the result for the preceding code.
+N> Links are updated automatically in Microsoft Excel to view the result for the preceding code.
 
 ## Supported Functions
 
