@@ -300,7 +300,7 @@ Single underline style only supported<br/><br/></td></tr>
 <tr>
 <td>
 Pagination<br/><br/></td><td>
-Essential DocIO makes sensible decision while layout the text, and its supported elements while generating the PDF documents. But however, there may not be guaranteed pagination with all the documents<br/><br/></td></tr>
+Essential DocIO makes sensible decision while laying out the text, and its supported elements while generating the PDF documents. But however, there may not be guaranteed pagination with all the documents<br/><br/></td></tr>
 <tr>
 <td>
 Custom Shapes and Grouped Shapes<br/><br/></td><td>
@@ -344,7 +344,7 @@ First watermark of the Word document should be applied to the entire converted P
 <tr>
 <td>
 Multi-Column Texts<br/><br/></td><td>
-Multi-Column text positions are calculated dynamically while layout the text. so there may be some content position differences that occur in the PDF document.<br/><br/></td></tr>
+Multi-Column text positions are calculated dynamically while laying out the text. so there may be some content position differences that occur in the PDF document.<br/><br/></td></tr>
 <tr>
 <td>
 Borders<br/><br/></td><td>
