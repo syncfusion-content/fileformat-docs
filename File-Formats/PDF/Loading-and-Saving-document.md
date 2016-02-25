@@ -1,6 +1,6 @@
 ---
 title: Loading and saving document
-description: This secion explains loading and saving a PDF document
+description: This section explains loading and saving a PDF document
 platform: file-formats
 control: PDF
 documentation: UG

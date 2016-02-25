@@ -1,6 +1,6 @@
 ---
 title: Working with Tables
-description: This section expains how to create tables in the PDF document
+description: This section explains how to create tables in the PDF document
 platform: file-formats
 control: PDF
 documentation: UG

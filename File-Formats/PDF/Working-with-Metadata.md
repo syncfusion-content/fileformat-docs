@@ -380,7 +380,7 @@ The Dublin Core schema provides a set of commonly used properties such as,
 * Publisher
 * Title
 
-DublinCoreSchema class is used to create the Dublincore schema properties
+DublinCoreSchema class is used to create the Dublin core schema properties
 
 {% tabs %}  
 
@@ -628,7 +628,7 @@ pdfDoc.Close(True)
 
 ### Paged-Text Schema
 
-The Paged-Text schema is used for text appearence on page in a document.
+The Paged-Text schema is used for text appearance on page in a document.
 
 * MaxPageSize
 * NPages

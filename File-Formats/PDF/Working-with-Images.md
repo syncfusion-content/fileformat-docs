@@ -16,11 +16,11 @@ Images are supported through the PdfImage class, which is an abstract base cla
 
 The following raster images are supported in Essential PDF.
 
-* Bmp
-* Jpeg
-* Gif
-* Png
-* Tiff
+* BMP
+* JPEG
+* GIF
+* PNG
+* TIFF
 
 You can load image streams, files on disk, and use System.Drawing.Bitmap objects to draw the images through the DrawImage method of the PdfGraphics class.
 

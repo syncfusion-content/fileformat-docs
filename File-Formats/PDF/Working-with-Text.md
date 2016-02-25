@@ -1,6 +1,6 @@
 ---
 title: Working with Text
-description: This section explains how to add text to the PDF document using different type of fonts, Truetype fonts and standard fonts
+description: This section explains how to add text to the PDF document using different type of fonts, TrueType fonts and standard fonts
 platform: file-formats
 control: PDF
 documentation: UG
@@ -419,7 +419,7 @@ document.Close(True)
 
 ## Embedding fonts and working with Unicode text
 
-To embed a font or display Unicode text in the document, the ‘unicode’ Boolean parameter of the PdfTrueTypeFont constructor has to be set to true. The following code illustrates the same.
+To embed a font or display Unicode text in the document, the ‘Unicode’ Boolean parameter of the PdfTrueTypeFont constructor has to be set to true. The following code illustrates the same.
 
 N> To render a Unicode text in the PDF document the chosen font should have the Unicode rendering capability.
 
@@ -636,7 +636,7 @@ Essential PDF provides support to render simple HTML string in a PDF document th
    * BR
    
 2. The PdfMetafileLayoutFormat class enables to break the HTML text into multiple pages.
-3. Complex HTML with CSS are not supported in this class. Please use [HTML to PDF](/file-formats/pdf/working-with-document-conversions#converting-html-documents-to-pdf "Converting HTML documents To PDF") section for complex HTML with css and URL's
+3. Complex HTML with CSS are not supported in this class. Please use [HTML to PDF](/file-formats/pdf/working-with-document-conversions#converting-html-documents-to-pdf "Converting HTML documents To PDF") section for complex HTML with CSS and URL's
 
 The following code example illustrates how to render the HTML string in a PDF document.   
 
