@@ -15,10 +15,10 @@ The following list shows the key features available in the Essential PDF.
 
 * Support to create PDF files from scratch.
 * Support to add text, various formats of images, tables and shapes.
-* Support for creation, filling and flattening forms (acroforms).   
+* Support for creation, filling and flattening forms (AcroForms).   
 * Open, modify and save existing PDF files.
 * Ability to merge and split PDF files.
-* Support for Optical Character Recognition by using tesseract engine.
+* Support for Optical Character Recognition by using Tesseract engine.
 * Ability to convert HTML, RTF, Microsoft word, Microsoft Excel and XPS documents to PDF.
 * Ability to encrypt and decrypt PDF files.
 * Support to add, modify and remove interactive elements such as bookmarks, annotations and attachments.

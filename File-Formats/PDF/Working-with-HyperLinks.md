@@ -13,7 +13,7 @@ In PDF, hyperlinks can be added to allow the users to navigate to another part o
 
 You can navigate to specified URL from a PDF document by using the PdfTextWebLink class.
 
-Please refer the below code snippet for navigating to the webpage.
+Please refer the below code snippet for navigating to the web page.
 
 {% tabs %}  
 

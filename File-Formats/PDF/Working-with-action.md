@@ -218,7 +218,7 @@ N> [http://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_developer_g
 
 ### URI action
 
-URI action allows you to create a hyperlink that can open webpage in a web browser.
+URI action allows you to create a hyperlink that can open web page in a web browser.
 
 {% tabs %}
 {% highlight c# %}
@@ -405,7 +405,7 @@ Named action allows execution of predefined **PDF** actions.
 The following predefined **PDF** actions are available:
 
 * Go to next page
-* Go to prev page 
+* Go to previous page 
 * Go to first page and 
 * Go to last page.
 

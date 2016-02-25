@@ -596,7 +596,7 @@ document.Close(True)
 
 {% endtabs %}
 
-The following code snippet shows how to read and modify the document properities of an existing PDF document.
+The following code snippet shows how to read and modify the document properties of an existing PDF document.
 
 {% tabs %}
 
@@ -664,7 +664,7 @@ document.Close(True)
 
 Essential PDF allows you to set various PDF viewer preferences to be used when the generated PDF document is displayed in a PDF reader application.
 
-You can hide the menubar and toolbar by using the following code snippet.
+You can hide the menu bar and toolbar by using the following code snippet.
 
 {% tabs %}
 

@@ -11,7 +11,7 @@ An interactive form, sometimes referred to as an AcroForm is a collection of fie
 
 ## Creating a new PDF form
 
-Essential PDF allows you to create and manage the form (Acroform) in PDF document by using PdfForm class. The PdfFormFieldCollection class represents the entire field collection of the form.
+Essential PDF allows you to create and manage the form (AcroForm) in PDF document by using PdfForm class. The PdfFormFieldCollection class represents the entire field collection of the form.
 
 ### Adding the text box field 
 
@@ -1980,7 +1980,7 @@ document.Close(True)
 
 To get a form field from an existing document using the field name, you can use the TryGetField method in the PdfFormFieldCollection class. It specifies whether the particular field is available in the form or not by returning a Boolean value.
 
-The below code snippet explains how to get the field from collection using TryGetfield method.
+The below code snippet explains how to get the field from collection using TryGetField method.
 
 {% tabs %} 
 

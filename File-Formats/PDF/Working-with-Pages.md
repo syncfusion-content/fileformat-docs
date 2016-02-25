@@ -141,7 +141,7 @@ loadedDocument.Close(True)
 
 ## Adding margin to the PDF pages
 
-You can add margin to all the PDF pages of the PDF document using the pagesetting property. The following code snippet illustrates the same.
+You can add margin to all the PDF pages of the PDF document using the PageSettings property. The following code snippet illustrates the same.
 
 {% tabs %}  
 
