@@ -654,7 +654,7 @@ The modifications in a SmartArt (like add/remove nodes, modify position and size
 107. Grid Matrix
 108. Cycle Matrix
 109. Accent Picture
-110. Circular Picture
+110. Circular Picture Callout
 111. Snapshot Picture List
 112. Spiral Picture
 113. Captioned Pictures
