@@ -29,7 +29,7 @@ Windows Forms and WPF (Client Profile)<br/></td><td>
 Syncfusion.Pdf.ClientProfile<br/>Syncfusion.Compression.Base<br/></td></tr>
 <tr>
 <td>
-Universal Windows<br/></td><td>
+Universal Windows Platform<br/></td><td>
 Syncfusion.Pdf.UWP<br/></td></tr>
 <tr>
 <td>

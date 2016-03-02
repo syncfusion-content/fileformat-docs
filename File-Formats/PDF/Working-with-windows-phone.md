@@ -1,18 +1,18 @@
 ---
-title: Working with Windows phone
+title: Working with Windows Phone
 description: This section explains how to load and save PDF document in Windows Phone
 platform: file-formats
 control: PDF
 documentation: UG
 ---
 
-# Working with Windows phone 
+# Working with Windows Phone 
 
-In your Windows phone application, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
+In your Windows Phone application, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
 
 ## Loading the document 
 
-The following code example illustrates how to load the file by using stream in windows phone.
+The following code example illustrates how to load the file by using stream in Windows Phone.
 
 {% tabs %}
 
@@ -84,7 +84,7 @@ End Using
 
 {% endtabs %}
 
-The following code example illustrates how to load the file by using file open picker in windows phone.
+The following code example illustrates how to load the file by using file open picker in Windows Phone.
 
 {% tabs %}
 
@@ -176,7 +176,7 @@ loadedDocument.Close(True)
 
 ## Saving the document 
 
-The following code example illustrates how to save the PDF document in Windows phone.
+The following code example illustrates how to save the PDF document in Windows Phone.
 
 {% tabs %}
 

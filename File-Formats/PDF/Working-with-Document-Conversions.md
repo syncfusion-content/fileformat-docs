@@ -30,7 +30,7 @@ To use the IE rendering engine in your application, the following assemblies nee
 #### Converting the URL to a PDF document
 
 
-To convert the http or https website to PDF, use the following the code snippet. 
+To convert the HTTP or HTTPS website to PDF, use the following the code snippet. 
 
 {% tabs %}  
 
@@ -605,7 +605,7 @@ Instead, the required assemblies below can be added in the Windows system folder
 1. MSVCP100.dll
 2. MSVCR100.dll
 
-* For converting https sites, conversion requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the below link,
+* For converting HTTPS sites, conversion requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the below link,
 
 X86 - [https://slproweb.com/download/Win32OpenSSL-1_0_2e.exe](https://slproweb.com/download/Win32OpenSSL-1_0_2e.exe# )
 
@@ -621,7 +621,7 @@ Instead, the required assemblies below can added in the Windows system folder (f
 #### Converting the URL to a PDF document
 
 
-To convert website URL or local html file to PDF using WebKit rendering engine, please refer the below code snippet.
+To convert website URL or local HTML file to PDF using WebKit rendering engine, please refer the below code snippet.
 
 {% tabs %}  
 
@@ -752,7 +752,7 @@ document.Close(True)
 
 #### Converting the HTML string to PDF document
 
-To convert the HTML string to pdf, use below code snippet.
+To convert the HTML string to PDF, use below code snippet.
 
 {% tabs %} 
 
@@ -1022,13 +1022,13 @@ document.Close(True)
 
 **WebKit Converter may create PDF with blank pages under the following cases**
 
-1. When the web page (html) is not available/accessible.
+1. When the web page (HTML) is not available/accessible.
 2. When VC++ 2010 redistributable and OpenSSL package is not installed in the machine.
 3. When any Qt binaries are not available in the WebKitPath mentioned location.
 
 **Solution 1:**
 
-Please check your Internet connection and if the html page is available in the mentioned location.
+Please check your Internet connection and if the HTML page is available in the mentioned location.
 
 **Solution 2:**
 
@@ -1043,7 +1043,7 @@ Instead, the required assemblies below can be added in the Windows system folder
 * MSVCP100.dll
 * MSVCR100.dll
 
-For converting https sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the below link,
+For converting HTTPS sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the below link,
 
 X86 - <https://slproweb.com/download/Win32OpenSSL-1_0_2e.exe>
 
@@ -1700,7 +1700,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-N>This section is applicable only to the Windows Forms, ASP.Net, MVC and WPF platforms.
+N>This section is applicable only to the Windows Forms, ASP.NET, MVC and WPF platforms.
 
 
 
@@ -2071,7 +2071,7 @@ pdfDocument.Close(True)
 
 Essential PDF supports JBIG2 compression for best compression of monochrome images.
 
-Refer the below code snippet to draw a single frame monochrome tiff image with JBIG2 compression
+Refer the below code snippet to draw a single frame monochrome TIFF image with JBIG2 compression
 
 {% tabs %}  
 
@@ -2143,7 +2143,7 @@ pdfDocument.Close(True)
 
  {% endtabs %}  
 
-N> 1. Currently the JBIG2Decode compression is supported only in lossy mode and also only single frame tiff images are supported.
+N> 1. Currently the JBIG2Decode compression is supported only in lossy mode and also only single frame TIFF images are supported.
 N> 2. By default, all monochrome images will be compressed in CITTT4 compression.
 
 

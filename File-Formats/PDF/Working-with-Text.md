@@ -142,7 +142,7 @@ doc.Close(True)
 Essential PDF allows you to add text to the PDF document using the following types of fonts.
 
 1. Standard fonts
-2. True type fonts
+2. TrueType fonts
 3. Chinese, Japanese and Korean (CJK) fonts
 
 ### Draw text using standard fonts
@@ -221,9 +221,9 @@ document.Close(True)
 
 {% endtabs %}
 
-### Draw text using True Type fonts
+### Draw text using TrueType fonts
 
-You can add text using the true type fonts installed in the system by using the following code snippet.
+You can add text using the TrueType fonts installed in the system by using the following code snippet.
 
 {% tabs %}
 
@@ -291,7 +291,7 @@ document.Close(True)
 
 {% endhighlight %}
 
-You can add text using the font file from local file system by providing the path of the true type font location. The following code snippet explains the same.
+You can add text using the font file from local file system by providing the path of the TrueType font location. The following code snippet explains the same.
 
 {% highlight c# %}
 
@@ -1162,7 +1162,7 @@ document.Close(True)
 
 ## Adding an Unordered List 
 
-Essential Pdf also provides support to create an unordered List that is represented by the PdfUnorderedList class. An Unordered list can be bullets, circle or an image. The following code snippet illustrates the same.
+Essential PDF also provides support to create an unordered List that is represented by the PdfUnorderedList class. An Unordered list can be bullets, circle or an image. The following code snippet illustrates the same.
 
 {% tabs %}
 

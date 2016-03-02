@@ -9,7 +9,7 @@ documentation: UG
 
 Essential PDF provides the support to extract images from a particular page or an entire PDF document.You can extract the images from a page using the ExtractImages method in the PdfPageBase class.
 
-Please refer the below code snippet to extract the images from a pdf page.
+Please refer the below code snippet to extract the images from a PDF page.
 
 {% tabs %}  
 
@@ -70,7 +70,7 @@ loadedDocument.Close(True)
 
 To extract the image properties like bounds, image index etc. from a page, you can use ImageInfo property in the PdfPageBase class.
 
-Please refer the below code snippet to extract the image info from pdf page.
+Please refer the below code snippet to extract the image info from PDF page.
 
 {% tabs %}  
 
