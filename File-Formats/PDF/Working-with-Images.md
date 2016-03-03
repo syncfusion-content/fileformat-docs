@@ -278,7 +278,7 @@ doc.Close(True)
 
 ## Inserting a vector image
 
-Essential PDF supports adding metafile vector image. During the insertion, metafile graphics will be transformed to native PDF graphics that supports text selection and searching. The following types of metafiles are supported in Essential PDF.
+Essential PDF supports adding Metafile vector image. During the insertion, Metafile graphics will be transformed to native PDF graphics that supports text selection and searching. The following types of Metafiles are supported in Essential PDF.
 
 * EMF only 
 * EMF plus

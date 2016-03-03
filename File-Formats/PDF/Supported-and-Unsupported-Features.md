@@ -463,7 +463,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-True Type Fonts<br/><br/></td><td>
+TrueType Fonts<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
@@ -471,7 +471,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-Unicode True Type<br/><br/></td><td>
+Unicode TrueType<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>

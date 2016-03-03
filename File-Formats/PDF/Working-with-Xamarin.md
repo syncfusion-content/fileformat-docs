@@ -145,7 +145,7 @@ End Class
 {% endtabs %}
 ## Saving the document 
 
-The following code example illustrates how to save the PDF document in Xamarin windows phone platform.
+The following code example illustrates how to save the PDF document in Xamarin Windows Phone platform.
 {% tabs %}
 {% highlight c# %}
 
@@ -301,7 +301,7 @@ End Class
 
 {% endhighlight %}
 {% endtabs %}
-The following code example illustrates how to save the file by using stream in xamarin android platform.
+The following code example illustrates how to save the file by using stream in Xamarin.Android platform.
 {% tabs %}
 {% highlight c# %}
 
@@ -545,7 +545,7 @@ End Class
 
 {% endhighlight %}
 {% endtabs %}
-The following code example illustrates how to save the file by using stream in xamarin iOS platform.
+The following code example illustrates how to save the file by using stream in Xamarin.iOS platform.
 {% tabs %}
 {% highlight c# %}
 

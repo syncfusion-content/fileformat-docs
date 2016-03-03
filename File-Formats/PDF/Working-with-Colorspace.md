@@ -526,7 +526,7 @@ loadedDocument.Close(True)
 
 ## Pantone colors
 
-The following code example illustrates how to draw the graphics elements by using pantone colors in new PDF document.
+The following code example illustrates how to draw the graphics elements by using Pantone colors in new PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -641,7 +641,7 @@ docuemnt.Close(True)
 {% endhighlight %}
 {% endtabs %}
 
-The following code example illustrates how to draw the graphics elements by using pantone colors in existing PDF document.
+The following code example illustrates how to draw the graphics elements by using Pantone colors in existing PDF document.
 
 {% tabs %}
 {% highlight c# %}
