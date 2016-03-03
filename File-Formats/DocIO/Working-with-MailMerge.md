@@ -5,11 +5,11 @@ platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# MailMerge
+# Mail merge
 
-Mail Merge is a process of merging data from data source to a Word template document. `WMergeField` class provides support to bind template document and data source. `WMergeField` instance is replaced with the actual data retrieved from data source for the given merge field name in a template document.
+Mail merge is a process of merging data from data source to a Word template document. `WMergeField` class provides support to bind template document and data source. `WMergeField` instance is replaced with the actual data retrieved from data source for the given merge field name in a template document.
 
-The following data sources are supported by Essential DocIO for performing mail merge.
+The following data sources are supported by Essential DocIO for performing Mail merge.
 
 * String Arrays
 * ADO.NET objects
@@ -25,9 +25,9 @@ You need to add a prefix (“Image:”) to the merge field name for merging an i
 
 For example: The merge field name should be like “Image:Photo” (<<Image:MergeFieldName>>)
 
-## Simple mail merge
+## Simple Mail merge
 
-The `MailMerge` class provides various overloads for `Execute` method to perform mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
+The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
 
 The following code example shows how to create a Word template document with merge fields.
 
@@ -123,7 +123,7 @@ The generated template document looks as follows.
 
 ![](MailMerge_images/MailMerge_img2.jpeg)
 
-The following code example shows how to perform a simple mail merge in the generated template document with string array as data source.
+The following code example shows how to perform a simple Mail merge in the generated template document with string array as data source.
 
 {% tabs %}  
 
@@ -180,22 +180,22 @@ The resultant document looks as follows.
 
 ## Performing Mail merge for a group
 
-You can perform mail merge and append multiple records from data source within a specified region to a template document. The region between start and end groups merge fields. It gets repeated for every record from the data source. The region where the mail merge operations are to be performed must be marked by two MergeFields with the following names.
+You can perform Mail merge and append multiple records from data source within a specified region to a template document. The region between start and end groups merge fields. It gets repeated for every record from the data source. The region where the Mail merge operations are to be performed must be marked by two MergeFields with the following names.
 
 * «TableStart:TableName» and «BeginGroup:GroupName» - For the entry point of the region
 * «TableEnd:TableName» and «EndGroup:GroupName» - For the end point of the region
 
-1. TableStart and TableEnd region is preferred for performing mail merge inside the table cell 
-2. BeginGroup and EndGroup region is preferred for performing mail merge inside the document body contents.
+1. TableStart and TableEnd region is preferred for performing Mail merge inside the table cell 
+2. BeginGroup and EndGroup region is preferred for performing Mail merge inside the document body contents.
 
 For example – Consider that you have a template document as shown.
 
 ![](MailMerge_images/MailMerge_img4.jpeg)
 
 
-In this template, Employees is the group name and the same name should be used while performing mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the mail merge group. 
+In this template, Employees is the group name and the same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the Mail merge group. 
 
-The `MailMerge` class provides various overloads for `ExecuteGroup` method to perform mail merge within a group from various data sources. The following code example shows how to perform mail merge in the specific region with data source retrieved from SQL connection.
+The `MailMerge` class provides various overloads for `ExecuteGroup` method to perform Mail merge within a group from various data sources. The following code example shows how to perform Mail merge in the specific region with data source retrieved from SQL connection.
 
 {% tabs %} 
 
@@ -312,18 +312,18 @@ The resultant document looks as follows.
 
 ## Performing Nested Mail merge for group
 
-You can perform nested mail merge with relational or hierarchical data source and independent data tables in a template document.
+You can perform nested Mail merge with relational or hierarchical data source and independent data tables in a template document.
 
-You need to define the commands with table name and expression for linking the independent data tables during nested mail merge process. You can use the “%TableName.ColumnName%”expression for getting the current value of specified column in a table. 
+You need to define the commands with table name and expression for linking the independent data tables during nested Mail merge process. You can use the “%TableName.ColumnName%” expression for getting the current value of specified column in a table. 
 
-Nested mail merge operation automatically replaces the merge field with immediate group data. You can also predefine the group data that is populated to a merge field. You need to add a corresponding group name as a prefix to the merge field name for merging a specific group data to the merge field.
+Nested Mail merge operation automatically replaces the merge field with immediate group data. You can also predefine the group data that is populated to a merge field. You need to add a corresponding group name as a prefix to the merge field name for merging a specific group data to the merge field.
 
 For example: 
 
 * The merge field name should be like “TableName:Id” (<<TableName:MergeFieldName>>)
 * The merge field name should be like “Image:TableName:Photo” (<<Image:TableName:MergeFieldName>>)
 
-The following code example shows how to perform a nested mail merge.
+The following code example shows how to perform a nested Mail merge.
 
 {% tabs %} 
 
@@ -459,7 +459,7 @@ End Function
  
 ## Performing Mail merge with dynamic objects
 
-Essential DocIO allows you to perform mail merge with the dynamic objects. The following code snippet shows how to perform the mail merge with dynamic objects ([ExpandoObject](https://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject(v=vs.110).aspx#)).
+Essential DocIO allows you to perform Mail merge with the dynamic objects. The following code snippet shows how to perform the Mail merge with dynamic objects ([ExpandoObject](https://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject(v=vs.110).aspx#)).
 
 {% tabs %} 
 
@@ -694,7 +694,7 @@ End Function
 
 ## Performing Mail merge with business objects
 
-You can perform mail merge with business objects in a template document. The following code snippet shows how to perform mail merge with business objects
+You can perform Mail merge with business objects in a template document. The following code snippet shows how to perform Mail merge with business objects
 
 {% tabs %} 
 
@@ -1028,7 +1028,7 @@ End Class
  
 ## Performing Nested Mail merge with relational data objects
 
-You can perform nested mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method. 
+You can perform nested Mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method. 
 
 For example – Consider that you have a template document as follows.
 
@@ -1037,7 +1037,7 @@ For example – Consider that you have a template document as follows.
 
 In this template, Employees is the owner group and it has two child groups Customers and Orders.
 
-The following code example shows how to perform nested mail merge with the relational business objects.
+The following code example shows how to perform nested Mail merge with the relational business objects.
 
 {% tabs %}  
 
@@ -1602,14 +1602,14 @@ The resultant document looks as follows.
 
 ## Event support for Mail merge
 
-The `MailMerge` class provides event support to customize the document contents and merging image data during the mail merge process. The following events are supported by Essential DocIO in mail merge process.
+The `MailMerge` class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO in Mail merge process.
 
-* `MergeField` - occurs during mail merge when a mail merge field except image mail merge field is encountered in the document
-* `MergeImageField` - occurs during mail merge when a image mail merge field is encountered in the document
+* `MergeField` - occurs during Mail merge when a Mail merge field except image Mail merge field is encountered in the document
+* `MergeImageField` - occurs during Mail merge when a image Mail merge field is encountered in the document
 
 ### MergeField Event
 
-The following code example shows how to use `MergeField` event during mail merge process.
+The following code example shows how to use `MergeField` event during Mail merge process.
 
 {% tabs %}  
 
@@ -1659,7 +1659,7 @@ document.Close()
 
 {% endtabs %}  
 
-The following code example shows how to set text color to the alternate mail merge record by using MergeFieldEventHandler.
+The following code example shows how to set text color to the alternate Mail merge record by using MergeFieldEventHandler.
 
 {% tabs %} 
 
@@ -1781,7 +1781,7 @@ End Function
 
 ### MergeImageField Event
 
-The following code example shows how to use `MergeImageField` event during mail merge process.
+The following code example shows how to use `MergeImageField` event during Mail merge process.
 
 {% tabs %}  
 
@@ -1843,7 +1843,7 @@ document.Close()
 
 {% endtabs %}  
   
-The following code example shows how to bind the image from file system during mail merge process by using MergeImageFieldEventHandler.
+The following code example shows how to bind the image from file system during Mail merge process by using MergeImageFieldEventHandler.
 
 {% tabs %}  
 
@@ -1891,11 +1891,11 @@ End Sub
   
 ## Mail merge options
 
-The `MailMerge` class allows you to customize the mail merge process with the following options.
+The `MailMerge` class allows you to customize the Mail merge process with the following options.
 
 ### Field Mapping
 
-The `MailMerge` class can automatically maps the merge field names with data source column names during mail merge process. You can also customize the field mapping when the merge field names in the template document varies with the column names in the data source by using `MappedFields` collection.
+The `MailMerge` class can automatically maps the merge field names with data source column names during Mail merge process. You can also customize the field mapping when the merge field names in the template document varies with the column names in the data source by using `MappedFields` collection.
 
 The following code example shows how to add mapping when a merge field name in a document and column name in a data source have different names.
 
@@ -2041,7 +2041,7 @@ Dim filednames As String() = document.MailMerge.GetMergeFieldNames(groupName)
 
 ### Removing empty merge fields
 
-The following code example shows how to remove the empty paragraphs when the paragraph has a merge field item without any data during mail merge process.
+The following code example shows how to remove the empty paragraphs when the paragraph has a merge field item without any data during Mail merge process.
 
 {% tabs %} 
 
@@ -2099,7 +2099,7 @@ document.Close()
 
 {% endtabs %}  
 
-Mail merge operation automatically removes the merge fields that do not have data in data source during mail merge process. The following code example shows how to keep the merge fields in the generated Word document when the merge field name is mapped with data source during mail merge process.
+Mail merge operation automatically removes the merge fields that do not have data in data source during Mail merge process. The following code example shows how to keep the merge fields in the generated Word document when the merge field name is mapped with data source during Mail merge process.
 
 {% tabs %}  
 

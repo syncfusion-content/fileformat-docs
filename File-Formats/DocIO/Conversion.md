@@ -280,11 +280,11 @@ wordDocument.Close()
 <tr>
 <td>
 Predefined shapes<br/><br/></td><td>
-Only Docx format documents are supported<br/><br/></td></tr>
+Only DOCX format documents are supported<br/><br/></td></tr>
 <tr>
 <td>
 Chart<br/><br/></td><td>
-Only Docx format documents are supported and it supported from .Net framework 4.0 onwards<br/><br/></td></tr>
+Only DOCX format documents are supported and it supported from .NET Framework 4.0 onwards<br/><br/></td></tr>
 <tr>
 <td>
 List - Bulleted, Numbered and Multi-level lists<br/><br/></td><td>
@@ -292,7 +292,7 @@ The image bullets preserved in the  document may be replaced by the disc style b
 <tr>
 <td>
 Table Styles<br/><br/></td><td>
-Only Docx format documents are supported<br/><br/></td></tr>
+Only DOCX format documents are supported<br/><br/></td></tr>
 <tr>
 <td>
 Underline<br/><br/></td><td>
@@ -300,7 +300,7 @@ Single underline style only supported<br/><br/></td></tr>
 <tr>
 <td>
 Pagination<br/><br/></td><td>
-Essential DocIO makes sensible decision while laying out the text, and its supported elements while generating the PDF documents. But however, there may not be guaranteed pagination with all the documents<br/><br/></td></tr>
+Essential DocIO makes sensible decision while layout the text, and its supported elements while generating the PDF documents. But however, there may not be guaranteed pagination with all the documents<br/><br/></td></tr>
 <tr>
 <td>
 Custom Shapes and Grouped Shapes<br/><br/></td><td>
@@ -316,7 +316,7 @@ Not supported<br/><br/></td></tr>
 <tr>
 <td>
 Fit Text – Table cell and Textbox<br/><br/></td><td>
-Not Supported<br/><br/></td></tr>
+Not supported<br/><br/></td></tr>
 <tr>
 <td>
 Right to Left Paragraphs and Tables<br/><br/></td><td>
@@ -336,7 +336,27 @@ Not supported<br/><br/></td></tr>
 <tr>
 <td>
 Vertical Alignment of the section<br/><br/></td><td>
-Not Supported<br/><br/></td></tr>
+Not supported<br/><br/></td></tr>
+<tr>
+<td>
+Equation<br/><br/></td><td>
+Not supported<br/><br/></td></tr>
+<tr>
+<td>
+Track changes<br/><br/></td><td>
+Not supported<br/><br/></td></tr>
+<tr>
+<td>
+SmartArt<br/><br/></td><td>
+Not supported<br/><br/></td></tr>
+<tr>
+<td>
+WordArt<br/><br/></td><td>
+Not supported<br/><br/></td></tr>
+<tr>
+<td>
+Line and Section number<br/><br/></td><td>
+Not supported<br/><br/></td></tr>
 <tr>
 <td>
 Watermark<br/><br/></td><td>
@@ -344,7 +364,7 @@ First watermark of the Word document should be applied to the entire converted P
 <tr>
 <td>
 Multi-Column Texts<br/><br/></td><td>
-Multi-Column text positions are calculated dynamically while laying out the text. so there may be some content position differences that occur in the PDF document.<br/><br/></td></tr>
+Multi-Column text positions are calculated dynamically while layout the text. So there may be some content position differences that occur in the PDF document.<br/><br/></td></tr>
 <tr>
 <td>
 Borders<br/><br/></td><td>
@@ -360,7 +380,7 @@ Number formats in Roman, Alphabets and Arabic only supported<br/><br/></td></tr>
 <tr>
 <td>
 Image cropping<br/><br/></td><td>
-Only Docx format documents are supported<br/><br/></td></tr>
+Only DOCX format documents are supported<br/><br/></td></tr>
 <tr>
 <td>
 Textbox<br/><br/></td><td>
@@ -429,7 +449,7 @@ The following namespaces are required to compile the code in this topic.
 * using Syncfusion.OfficeChart
 * using Syncfusion.OfficeChartToImageConverter
 
-T> To get good image quality during Word to image conversion use image type as Metafile.
+T> You can get the converted images in good quality by specifying the image type as Metafile.
 T> You can specify the quality of the converted charts by setting the scaling mode.
 
 The following code illustrates how to convert the Word document to image.
@@ -1053,7 +1073,7 @@ See Borders, for more details.<br/><br/></td></tr>
 <tr>
 <td>
 <br/><br/></td><td>
-Keep together and Keep with next properties<br/><br/></td><td>
+Keep lines and paragraphs together<br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td></tr>
 <tr>
@@ -1510,7 +1530,7 @@ document.Close()
   
 ## Word to EPUB
 
-Essential DocIO supports to convert the Word document into EPUB v2.0. It only supports in Windows Forms, WPF, Asp.Net Web and MVC platforms. The following elements are supported in Word to EPub conversion.
+Essential DocIO supports to convert the Word document into EPUB v2.0. It only supports in Windows Forms, WPF, ASP.NET Web and MVC platforms. The following elements are supported in Word to EPUB conversion.
 
 * Text and Paragraph Formatting
 * Lists
@@ -1522,7 +1542,7 @@ Essential DocIO supports to convert the Word document into EPUB v2.0. It only su
 * Table of Contents
 * Document Properties
 
-The following code illustrates how to convert the Word document to EPub file.
+The following code illustrates how to convert the Word document to EPUB file.
 
 {% tabs %}  
 

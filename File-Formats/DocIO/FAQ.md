@@ -1143,9 +1143,9 @@ End Sub
 
   {% endtabs %} 
 
-## How to insert a table from Html string in Word document?
+## How to insert a table from HTML string in Word document?
 
-An html string can be inserted to the Word document at text body or paragraph. The following code illustrates how to insert a table to the document from the Html string.
+An HTML string can be inserted to the Word document at text body or paragraph. The following code illustrates how to insert a table to the document from the HTML string.
 
 {% tabs %}  
 
@@ -1872,9 +1872,9 @@ document.Close()
 
 Essential DocIO library uses Points for measurement properties in a Word document.
 
-##  Could not find Syncfusion.OfficeChartToImageConverter assembly in .Net 3.5 framework, does it mean there is no support for chart conversion in this framework? 
+##  Could not find Syncfusion.OfficeChartToImageConverter assembly in .NET 3.5 Framework, does it mean there is no support for chart conversion in this Framework? 
 
-Yes, OfficeChartToImageConverter assembly is not supported in .Net 3.5 framework and it is available in .Net 4.0 framework.
+Yes, OfficeChartToImageConverter assembly is not supported in .NET 3.5 Framework and it is available in .NET 4.0 Framework.
 
 ## Can the chart data be refreshed?
 
@@ -1890,13 +1890,13 @@ Yes, you can specify the PDF conformance level in Word to PDF conversion. For mo
 
 ## Migration from Microsoft Office Automation to Essential DocIO
 
-### Mail Merge
+### Mail merge
 
-The Mail Merge feature can be used to generate reports and letters in MS Word. The following code examples show how to generate an employee report from an MDB data source by using Office Automation and DocIO.
+The Mail merge feature can be used to generate reports and letters in Microsoft Word. The following code examples show how to generate an employee report from an MDB data source by using Office Automation and DocIO.
 
 Using Microsoft Office Automation
 
-Office Automation performs the Mail Merge by executing a SQL query on the Word document. The output of the Mail Merge can be sent to a new Word document. Alternatively, it can be sent to a printer, a fax machine, or forwarded to an e-mail address.
+Office Automation performs the Mail merge by executing a SQL query on the Word document. The output of the Mail merge can be sent to a new Word document. Alternatively, it can be sent to a printer, a fax machine, or forwarded to an e-mail address.
 
 {% tabs %}  
 
@@ -2016,13 +2016,13 @@ wordApp.Quit(nullobject, nullobject, nullobject)
 
 ### Using DocIO
 
-DocIO performs Mail Merge by using the following methods:
+DocIO performs Mail merge by using the following methods:
 
 * Execute
 * ExecuteGroup
 * ExecuteNestedGroup
 
-The following code example performs Mail Merge by using the `Execute` method.
+The following code example performs Mail merge by using the `Execute` method.
 
 {% tabs %}    
 
@@ -2108,7 +2108,7 @@ doc.Close()
   {% endtabs %}
 
 N> 
-For more information on mail merge using DocIO, you can refer to online documentation link:
+For more information on Mail merge using DocIO, you can refer to online documentation link:
 [MailMerge](/File-Formats/DocIO/Working-with-MailMerge)
 
 ### Find and Replace
@@ -3566,7 +3566,7 @@ N>  For more information on creating tables using DocIO, refer to online documen
 
 Comments are used to include additional information to a paragraph or text in a Word document. Comments can be added or modified whenever needed and deleted when the comment has served its purpose. 
 
-Adding Comments Using Microsoft Office Automation
+Adding Comments using Microsoft Office Automation
 
 The following code example illustrates how to add comments to a Word document. You need to define the range of text where the comment is to be added.
 
@@ -3755,7 +3755,7 @@ You can protect your Word documents with or without a password from anyone accid
 
 Using Microsoft Office Automation
 
-[WdProtectionType](https://msdn.microsoft.com/en-us/library/office/ff844959.aspx) property is used to specify the type of protection for the Word document.
+[WdProtectionType](https://msdn.microsoft.com/en-us/library/office/ff844959.aspx) is used to specify the protection type of the Word document.
 
 {% tabs %} 
 
