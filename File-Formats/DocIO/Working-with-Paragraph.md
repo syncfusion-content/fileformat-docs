@@ -3548,7 +3548,7 @@ document.Close()
 
 ## Working with Text Box
 
-Textboxes have a group of textual and graphical contents. DocIO supports to create and manipulate the textboxes and its formatting by using `WTextBox` instance.
+Text box contains a group of textual and graphical contents. DocIO supports to create and manipulate the text box and its formatting by using `WTextBox` instance.
 
 The following code example illustrates how to add new text box to the paragraph.
 

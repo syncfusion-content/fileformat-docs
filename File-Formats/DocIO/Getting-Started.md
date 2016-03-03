@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Getting Started
 
-In this page, you can see how to create a simple Word document by using Essentail DocIO’s API. For creating and manipulating a Word document, the following assemblies are required to be referenced in your application.
+In this page, you can see how to create a simple Word document by using Essential DocIO’s API. For creating and manipulating a Word document, the following assemblies are required to be referenced in your application.
 
 <table>
 <thead>  
@@ -624,7 +624,7 @@ The resultant Word document looks as follows.
 
 ## Modifying an existing Word document
 
-Essential DocIO allows you to manipulate an existing Word document, RTF, HTML and Plain text files. You can modify the documents either by manipulating DocIO’s DOM or by using DocIO’s built-in functionalities such as Find and Repalce, replacing bookmark contents etc.
+Essential DocIO allows you to manipulate an existing Word document, RTF, HTML and Plain text files. You can modify the documents either by manipulating DocIO’s DOM or by using DocIO’s built-in functionalities such as Find and Replace, replacing bookmark contents etc.
 
 Here, you can see how an existing Word document is loaded into DocIO’s DOM, replaces an existing content with another and finally saves the Word document.
 

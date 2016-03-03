@@ -193,7 +193,7 @@ For example – Consider that you have a template document as shown.
 ![](MailMerge_images/MailMerge_img4.jpeg)
 
 
-In this template, Employeesis the group name and the same name should be used while performing mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the mail merge group. 
+In this template, Employees is the group name and the same name should be used while performing mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the mail merge group. 
 
 The `MailMerge` class provides various overloads for `ExecuteGroup` method to perform mail merge within a group from various data sources. The following code example shows how to perform mail merge in the specific region with data source retrieved from SQL connection.
 
@@ -1035,7 +1035,7 @@ For example – Consider that you have a template document as follows.
 ![](MailMerge_images/MailMerge_img6.jpeg)
 
 
-In this template, Employeesis the owner group and it has two child groups Customersand Orders.
+In this template, Employees is the owner group and it has two child groups Customers and Orders.
 
 The following code example shows how to perform nested mail merge with the relational business objects.
 
