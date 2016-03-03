@@ -7,11 +7,9 @@ documentation: UG
 ---
 # Fields
 
-Fields in Word document are placeholders for data that might change on field update. Fields are represented by `WField`, `WFieldMarkinstance` in DocIO. A field in Word document contains field codes, field separator, field result, and field end.
+Fields in Word document are placeholders for data that might change on field update. Fields are represented by `WField`, `WFieldMark` instance in DocIO. A field in Word document contains field codes, field separator, field result, and field end.
 
-To know various types of Microsoft Word supported fields and its syntax refer to the following MSDN article:
-
-[https://support.office.com/en-US/article/Field-codes-in-Word-1ad6d91a-55a7-4a8d-b535-cf7888659a51](https://support.office.com/en-US/article/Field-codes-in-Word-1ad6d91a-55a7-4a8d-b535-cf7888659a51#)
+To know various types of Microsoft Word supported fields and its syntax,refer [MSDN article](https://support.office.com/en-US/article/Field-codes-in-Word-1ad6d91a-55a7-4a8d-b535-cf7888659a51#)
 
 ## Adding fields
 
@@ -157,9 +155,7 @@ document.Close()
 
 If field compares two values and updates the field result with true text, when comparison succeeds otherwise false text.
 
-To know more about If field and its syntax in Microsoft Word, refer to the following MSDN article:
-
-[https://support.office.com/en-au/article/Field-codes-IF-field-9f79e82f-e53b-4ff5-9d2c-ae3b22b7eb5e](https://support.office.com/en-au/article/Field-codes-IF-field-9f79e82f-e53b-4ff5-9d2c-ae3b22b7eb5e#)
+To know more about If field and its syntax in Microsoft Word, refer [MSDN article](https://support.office.com/en-au/article/Field-codes-IF-field-9f79e82f-e53b-4ff5-9d2c-ae3b22b7eb5e#)
 
 The following code example illustrates how to add an If field in Word document.
 

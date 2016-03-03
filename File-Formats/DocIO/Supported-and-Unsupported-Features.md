@@ -16,8 +16,8 @@ This section describes the support and unsupported elements in the DocIO.
 <tr>
 <th>
 Element<br/><br/></th><th colspan="2">
-Doc, Dot<br/><br/></th><th colspan="2">
-Docx, Dotx, Dotm, Docm<br/><br/></th><th colspan="2">
+DOC, DOT<br/><br/></th><th colspan="2">
+DOCX, DOTX, DOTM, DOCM<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
 </thead>
 <tbody>  
@@ -86,7 +86,7 @@ No<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-Font substutuion table<br/><br/></td><td>
+Font substitution table<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -158,8 +158,8 @@ No<br/><br/></td></tr>
 <tr>
 <th>
 Element<br/><br/></th><th colspan="2">
-Doc, Dot<br/><br/></th><th colspan="2">
-Docx, Dotx, Dotm, Docm<br/><br/></th><th colspan="2">
+DOC, DOT<br/><br/></th><th colspan="2">
+DOCX, DOTX, DOTM, DOCM<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
 </thead>
 <tbody> 
@@ -263,8 +263,8 @@ Yes<br/><br/></td></tr>
 <thead>  
 <tr>
 <th>Element<br/><br/></th>
-<th colspan="2">Doc, Dot<br/><br/></th>
-<th colspan="2">Docx, Dotx, Dotm, Docm<br/><br/></th>
+<th colspan="2">DOC, DOT<br/><br/></th>
+<th colspan="2">DOCX, DOTX, DOTM, DOCM<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
 </thead>
@@ -370,6 +370,33 @@ No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
+Equation<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td></tr>
+<tr>
+<td>
+SmartArt<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td></tr>
+<tr>
+<td>
+WordArt<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td></tr>
+<tr>
+<td>
 Bookmark<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -423,8 +450,8 @@ Yes<br/><br/></td></tr>
 <thead>  
 <tr>
 <th>Element<br/><br/></th>
-<th colspan="2">Doc, Dot<br/><br/></th>
-<th colspan="2">Docx, Dotx, Dotm, Docm<br/><br/></th>
+<th colspan="2">DOC, DOT<br/><br/></th>
+<th colspan="2">DOCX, DOTX, DOTM, DOCM<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
 </thead>
@@ -565,8 +592,8 @@ Yes<br/><br/></td></tr>
 <thead>  
 <tr>
 <th>Element<br/><br/></th>
-<th colspan="2">Doc, Dot<br/><br/></th>
-<th colspan="2">Docx, Dotx, Dotm, Docm<br/><br/></th>
+<th colspan="2">DOC, DOT<br/><br/></th>
+<th colspan="2">DOCX, DOTX, DOTM, DOCM<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
 </thead>
@@ -662,8 +689,8 @@ No<br/><br/></td></tr>
 <thead>  
 <tr>
 <th>Element<br/><br/></th>
-<th colspan="2">Doc, Dot<br/><br/></th>
-<th colspan="2">Docx, Dotx, Dotm, Docm<br/><br/></th>
+<th colspan="2">DOC, DOT<br/><br/></th>
+<th colspan="2">DOCX, DOTX, DOTM, DOCM<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
 </thead>
@@ -902,8 +929,8 @@ Yes<br/><br/></td></tr>
 <tr>
 <th>
 Element<br/><br/></th><th colspan="2">
-Doc, Dot<br/><br/></th><th colspan="2">
-Docx, Dotx, Dotm, Docm<br/><br/></th><th colspan="2">
+DOC, DOT<br/><br/></th><th colspan="2">
+DOCX, DOTX, DOTM, DOCM<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
 <tr>
 <th>

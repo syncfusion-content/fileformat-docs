@@ -204,7 +204,7 @@ End Class
 
 {% endtabs %}
 
-The following code example illustrates how to save the Word document by using stream in Xamarin Android platform.
+The following code example illustrates how to save the Word document by using stream in Xamarin.Android platform.
 
 {% tabs %}
 
@@ -424,7 +424,7 @@ End Class
 
 {% endtabs %}
 
-The following code example illustrates how to save the Word document by using stream in Xamarin iOS platform.
+The following code example illustrates how to save the Word document by using stream in Xamarin.iOS platform.
 
 {% tabs %}
 
