@@ -544,7 +544,7 @@ webKitSettings.WebKitPath = "/QtBinaries/"
 {% endhighlight %}
 {% endtabs %}
 
-For converting https sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the following link,
+For converting HTTPS sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the following link,
 
 [OpenSSL](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064 )
 
@@ -554,7 +554,7 @@ X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://ww
 
 X64 - [https://www.microsoft.com/en-in/download/details.aspx?id=14632](https://www.microsoft.com/en-in/download/details.aspx?id=14632)
 
-To convert website URL or local html file to PDF by using WebKit rendering engine, refer to the following code example.
+To convert website URL or local HTML file to PDF by using WebKit rendering engine, refer to the following code example.
 
 {% tabs %}
 {% highlight c# %}

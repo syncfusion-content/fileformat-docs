@@ -10,7 +10,7 @@ documentation: UG
 
 Essential PDF provides the support to convert HTML to TaggedPDF by using MSHTML rendering library.
 
-Tagged PDF is a stylized use of PDF that builds the logical structure framework. It defines a set of standard structure types and attributes that allow page content (text, graphics, and images) to be extracted and reused. The contents are accessible to users with visual impairments.
+Tagged PDF is a stylized use of PDF that builds the logical structure Framework. It defines a set of standard structure types and attributes that allow page content (text, graphics, and images) to be extracted and reused. The contents are accessible to users with visual impairments.
 
 To convert HTML to Tagged PDF, you can use ConvertToTaggedPDF method in HtmlConverter class.
 

@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with Asp.net
+# Working with ASP.NET
 
 In your ASP.NET application, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
 
