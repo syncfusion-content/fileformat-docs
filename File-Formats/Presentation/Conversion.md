@@ -244,16 +244,16 @@ presentationDocument.Close()
 
 An entire presentation or a single slide can be converted to image by using Essential Presentation library. The supported image formats are listed as follows.
 
-* Bmp
+* BMP
 * Emf
 * GIF
 * JPEG
-* Png
+* PNG
 * WMF
 * Icon
 * EXIF
 * MemoryBmp
-* Tiff
+* TIFF
 
 To convert a presentation or a single slide to image, the following assemblies are required in an application:
 
@@ -342,7 +342,7 @@ To convert a presentation or a single slide to image, the following assemblies a
     </tbody>
 </table>
 
-T> When converting a slide to image, use metafile format for good image resolution.
+T> When converting a slide to image, use Metafile format for good image resolution.
 
 The following code example demonstrates how to convert a slide to image.
 
