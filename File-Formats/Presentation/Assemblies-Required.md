@@ -29,7 +29,7 @@ Syncfusion.OfficeChart.Base<br/>
 </tr>
 </table>
 ## Converting PowerPoint presentation to PDF
-For converting a Powerpoint presentation to PDF, the following assemblies need to be referenced in your application
+For converting a PowerPoint presentation to PDF, the following assemblies need to be referenced in your application
 <table>
 <tr>
 <td>
