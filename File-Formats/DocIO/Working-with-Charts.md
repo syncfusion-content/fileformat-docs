@@ -20,7 +20,7 @@ A Chart is a graphical representation of data where the data is represented as s
 * Radar chart
 
 N> DocIO provides chart support in following platforms – Windows, ASP.NET, WPF, ASP.NET MVC
-N> DocIO supports chart only in Docx to Docx conversion
+N> DocIO supports chart only in DOCX to DOCX conversion
 
 ## Creating a simple Chart from scratch
 

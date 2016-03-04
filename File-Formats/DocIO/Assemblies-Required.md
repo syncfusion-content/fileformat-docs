@@ -25,7 +25,7 @@ Windows Forms and WPF (Client Profile)<br/></td><td>
 Syncfusion.DocIO.ClientProfile<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/></td></tr>
 <tr>
 <td>
-Universal Windows<br/></td><td>
+Universal Windows Platform<br/></td><td>
 Syncfusion.DocIO.UWP<br/></td></tr>
 <tr>
 <td>
