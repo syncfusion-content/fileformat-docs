@@ -335,7 +335,7 @@ document.Close()
 
 {% endtabs %}  
 
-You can specify to replace only the first occurrence of the specified text by setting ReplaceFirstproperty of `WordDocument` class to true. 
+You can specify to replace only the first occurrence of the specified text by setting `ReplaceFirst` property of `WordDocument` class to true. 
 
 The following code example illustrates how to replace the first occurrence of a particular text.
 

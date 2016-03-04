@@ -3284,7 +3284,7 @@ document.Close()
   
 ## Working with Shapes
 
-Shapes are drawing objects that include lines, curves, circles, rectangles, etc. It can be preset or custom geometry. You can create and manipulate the pre-defined shape in Docx format documents.
+Shapes are drawing objects that include lines, curves, circles, rectangles, etc. It can be preset or custom geometry. You can create and manipulate the pre-defined shape in DOCX format documents.
 
 The following code example illustrates how to add pre-defined shape to the document.
 
@@ -3548,7 +3548,7 @@ document.Close()
 
 ## Working with Text Box
 
-Textboxes have a group of textual and graphical contents. DocIO supports to create and manipulate the textboxes and its formatting by using `WTextBox` instance.
+Text box contains a group of textual and graphical contents. DocIO supports to create and manipulate the text box and its formatting by using `WTextBox` instance.
 
 The following code example illustrates how to add new text box to the paragraph.
 

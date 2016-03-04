@@ -51,7 +51,7 @@ Builds a table of contents from paragraphs formatted with specified styles other
 </table>
 
 
-## Adding a toc field
+## Adding a TOC field
 
 The following code example shows how to add a table of contents (TOC) in Word document. 
 
@@ -254,9 +254,9 @@ document.Close()
 You can also update or re-build the TOC in an existing document or document created from the scratch.  
 
 N>  
-Updating of TOC is not supported in Silverlight, WinRT, Univeral, Xamarin and windows phone applications using DocIO. 
+Updating of TOC is not supported in Silverlight, WinRT, Universal, Xamarin and Windows Phone applications using DocIO. 
 
-> Updating TOC makes use of the Word to PDF layouting engine that may lead to the updation of incorrect page number due to its limitations.
+> Updating TOC makes use of the Word to PDF layout engine that may lead to update incorrect page number due to its limitations.
 
 
 
