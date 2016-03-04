@@ -30,9 +30,9 @@ documentation: UG
    * Slide in the presentation can be cloned from one presentation to another or within a same presentation.
    * An entire presentation can also be cloned as an independent copy of the original.
    
-6. **Could not find Syncfusion.OfficeChartToImageConverter assembly in .NET 3.5 framework, does it mean there is no support for chart conversion in this framework?**
+6. **Could not find Syncfusion.OfficeChartToImageConverter assembly in .NET 3.5 Framework, does it mean there is no support for chart conversion in this framework?**
 
-   Yes, OfficeChartToImageConverter assembly is not supported in .Net 3.5 framework and it is available from .Net 4.0 framework.
+   Yes, OfficeChartToImageConverter assembly is not supported in .NET 3.5 Framework and it is available from .NET 4.0 Framework.
 
 7. **Can chart data be refreshed?**
 

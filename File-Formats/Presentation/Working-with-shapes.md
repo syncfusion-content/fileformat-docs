@@ -9,9 +9,9 @@ documentation: UG
 
 ## Adding shapes to a slide
 
-In every slide, there is a shape collection that can contain any form of graphical objects such as Autoshape, chart, text, or picture.  You can add any shape element to this collection. The IShape is the base type for the shape elements.
+In every slide, there is a shape collection that can contain any form of graphical objects such as AutoShape, chart, text, or picture.  You can add any shape element to this collection. The IShape is the base type for the shape elements.
 
-The following code example demonstrates how to add an Autoshape and image to the shape collection of a slide.
+The following code example demonstrates how to add an AutoShape and image to the shape collection of a slide.
 
 {% tabs %}
 
