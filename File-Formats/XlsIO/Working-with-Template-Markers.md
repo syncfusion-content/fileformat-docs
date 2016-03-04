@@ -243,7 +243,7 @@ excelEngine.Dispose()
 <td>
 %&lt;DataSource&gt;.&lt;FieldName&gt; <br/><br/>For example: %Products.ProductName<br/><br/>Where, “Products” is a data source which can be data tables, datasets, data readers and data views and ProductName is the field name or column name<br/><br/></td></tr>
 </table>
-By default, DataTable values will be filled in the worksheet as a string format. You can detect datatype and number format of DataTable values by using VariableTypeAction enumerator. To know more about the VariableTypeAction enumerator, please refer **VariableTypeAction** in API section.
+By default, DataTable values will be filled in the worksheet as a string format. You can detect data type and number format of DataTable values by using VariableTypeAction enumerator. To know more about the VariableTypeAction enumerator, please refer **VariableTypeAction** in API section.
 
 Here is the screen shot of input template which has a template marker.
 
@@ -377,7 +377,7 @@ Description<br/><br/></th></tr>
 <td>
 1<br/><br/></td><td><span style="font-weight:bold">
 No argument</span><br/>Ex: %Reports.Image;<br/><br/></td><td>
-Image is applied with a default size (50x50 px) and position (Top-Left).<br/><br/></td></tr>
+Image is applied with a default size (50x50 pixels) and position (Top-Left).<br/><br/></td></tr>
 <tr>
 <td>
 2<br/><br/></td><td><span style="font-weight:bold">

@@ -257,7 +257,7 @@ application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open(@"ProtectedWorkbook.xlsx");
 
-// Unprotecting (unlocking) Workbook by using the Password.
+// Unprotect (unlock) Workbook using Password.
 
 workbook.Unprotect("password");
 
@@ -280,7 +280,7 @@ application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Open("ProtectedWorkbook.xlsx")
 
-' Unprotecting (unlocking) Workbook by using the Password.
+' Unprotect (unlock) Workbook using Password.
 
 workbook.Unprotect("password")
 

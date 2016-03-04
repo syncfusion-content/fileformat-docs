@@ -1143,9 +1143,9 @@ End Sub
 
   {% endtabs %} 
 
-## How to insert a table from Html string in Word document?
+## How to insert a table from HTML string in Word document?
 
-An html string can be inserted to the Word document at text body or paragraph. The following code illustrates how to insert a table to the document from the Html string.
+An HTML string can be inserted to the Word document at text body or paragraph. The following code illustrates how to insert a table to the document from the HTML string.
 
 {% tabs %}  
 
@@ -1872,9 +1872,9 @@ document.Close()
 
 Essential DocIO library uses Points for measurement properties in a Word document.
 
-##  Could not find Syncfusion.OfficeChartToImageConverter assembly in .Net 3.5 framework, does it mean there is no support for chart conversion in this framework? 
+##  Could not find Syncfusion.OfficeChartToImageConverter assembly in .NET 3.5 Framework, does it mean there is no support for chart conversion in this Framework? 
 
-Yes, OfficeChartToImageConverter assembly is not supported in .Net 3.5 framework and it is available in .Net 4.0 framework.
+Yes, OfficeChartToImageConverter assembly is not supported in .NET 3.5 Framework and it is available in .NET 4.0 Framework.
 
 ## Can the chart data be refreshed?
 
@@ -1890,13 +1890,13 @@ Yes, you can specify the PDF conformance level in Word to PDF conversion. For mo
 
 ## Migration from Microsoft Office Automation to Essential DocIO
 
-### Mail Merge
+### Mail merge
 
-The Mail Merge feature can be used to generate reports and letters in MS Word. The following code examples show how to generate an employee report from an MDB data source by using Office Automation and DocIO.
+The Mail merge feature can be used to generate reports and letters in Microsoft Word. The following code examples show how to generate an employee report from an MDB data source by using Office Automation and DocIO.
 
-Using MS Office Interop
+Using Microsoft Office Automation
 
-Office Automation performs the Mail Merge by executing a SQL query on the Word document. The output of the Mail Merge can be sent to a new Word document. Alternatively, it can be sent to a printer, a fax machine, or forwarded to an e-mail address.
+Office Automation performs the Mail merge by executing a SQL query on the Word document. The output of the Mail merge can be sent to a new Word document. Alternatively, it can be sent to a printer, a fax machine, or forwarded to an e-mail address.
 
 {% tabs %}  
 
@@ -2016,13 +2016,13 @@ wordApp.Quit(nullobject, nullobject, nullobject)
 
 ### Using DocIO
 
-DocIO performs Mail Merge by using the following methods:
+DocIO performs Mail merge by using the following methods:
 
 * Execute
 * ExecuteGroup
 * ExecuteNestedGroup
 
-The following code example performs Mail Merge by using the `Execute` method.
+The following code example performs Mail merge by using the `Execute` method.
 
 {% tabs %}    
 
@@ -2108,14 +2108,14 @@ doc.Close()
   {% endtabs %}
 
 N> 
-For more information on mail merge using DocIO, you can refer to online documentation link:
+For more information on Mail merge using DocIO, you can refer to online documentation link:
 [MailMerge](/File-Formats/DocIO/Working-with-MailMerge)
 
 ### Find and Replace
 
-This section illustrates how to perform a simple find and replace operation in a Word document by using Microsoft Office Interop and DocIO.
+This section illustrates how to perform a simple find and replace operation in a Word document by using Microsoft Office Automation and DocIO.
 
-Using Microsoft Office Interop
+Using Microsoft Office Automation
 
 The following code example illustrates how to search for a word in a Word document, replace it with another word and save the document under a new name.
 
@@ -2349,7 +2349,7 @@ N>  For more information on performing the find and replace operation using DocI
 
 Bookmarks identify the location of text in a Word document that you can name and identify for future reference.
 
-Using Microsoft Office Interop
+Using Microsoft Office Automation
 
 The following code example illustrates how to insert a bookmark for a range of text by using Office Automation.
 
@@ -2574,7 +2574,7 @@ doc.Close()
 
 Page numbers can be added to the Word document in headers or footers.
 
-Using MS Office Interop
+Using Microsoft Office Automation
 
 The following code example illustrates how page numbers can be inserted to the footer of the Word document by adding a page number field.
 
@@ -2796,7 +2796,7 @@ doc.Close()
 
 Watermarks are text or pictures that appear behind document text.
 
-Using Microsoft Office Interop
+Using Microsoft Office Automation
 
 The following code example illustrates how to insert a text watermark as a shape by using Office Automation.
 
@@ -3005,7 +3005,7 @@ N>  For more information on adding watermarks to a Word document using DocIO, re
 
 The headers and footers can be inserted with text, graphics, and any other information that is contained in the document. 
 
-Using MS Office Interop 
+Using Microsoft Office Automation 
 
 The following code example illustrates how to add headers and footers to a Word document. In this example, page numbers are inserted to the header and a text is inserted to the footer.
 
@@ -3264,7 +3264,7 @@ doc.Close()
 
 Character formatting defines the appearance of the text in a Word document. This section illustrates how to apply character level formatting to the Word document. 
 
-Using MS Office Interop
+Using Microsoft Office Automation
 
 The following code example illustrates how to apply the character formatting to the Word document by using the Range properties.
 
@@ -3389,7 +3389,7 @@ wordApp.Quit()
 
 Tables are used to organize information and to display the information in rows and columns. You can also add images or even other tables to the table.
 
-Using MS Office Interop
+Using Microsoft Office Automation
 
 The following code example illustrates how to insert a table to a Word document, where the table contains three rows and two columns.
 
@@ -3566,7 +3566,7 @@ N>  For more information on creating tables using DocIO, refer to online documen
 
 Comments are used to include additional information to a paragraph or text in a Word document. Comments can be added or modified whenever needed and deleted when the comment has served its purpose. 
 
-Adding Comments Using MS Office Interop
+Adding Comments using Microsoft Office Automation
 
 The following code example illustrates how to add comments to a Word document. You need to define the range of text where the comment is to be added.
 
@@ -3753,15 +3753,9 @@ N>  For more information on working with the comments using DocIO, you can refer
 
 You can protect your Word documents with or without a password from anyone accidentally or deliberately modifying the Word documents. You can specify the protection type for preserving the Word documents.
 
-Using MS Office Interop
+Using Microsoft Office Automation
 
-WdProtectionType property is used to specify the type of protection for the Word document. This property uses the following values:
-
-* wdAllowOnlyComments: Allows only comments to be added to the document.
-* wdAllowOnlyFormFields: Allows content to be added to the document through form fields only.
-* wdAllowOnlyReading: Allows read-only access to the document.
-* wdAllowOnlyRevisions: Allows only revisions to be made to the existing content.
-* wdNoProtection: Does not protect  the document.
+[WdProtectionType](https://msdn.microsoft.com/en-us/library/office/ff844959.aspx) is used to specify the protection type of the Word document.
 
 {% tabs %} 
 
@@ -3945,7 +3939,7 @@ Refer to the online documentation link for more details about the ways to protec
 
 Table of contents can be generated by applying the heading styles to text in a Word document. To create the table of contents in Microsoft Word, click Table of Contents from the Table of Contents group on the References tab. 
 
-Using MS Office Interop
+Using Microsoft Office Automation
 
 The following code example shows how to insert and update table of contents in a Word document.
 

@@ -665,7 +665,7 @@ options.ShowFieldList = False
 
 ### Header Caption
 
-The **RowHeaderCaption** and **ColumnHeadercaption** properties allow to edit the respective pivot table headers. The header caption can be enabled or disabled through **DisplayFieldCaption** property.
+The **RowHeaderCaption** and **ColumnHeaderCaption** properties allow to edit the respective pivot table headers. The header caption can be enabled or disabled through **DisplayFieldCaption** property.
 
 {% tabs %}  
 
