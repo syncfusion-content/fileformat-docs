@@ -19,7 +19,7 @@ Essential PDF provides support for two types of table models, both having a diff
 
 Essential PDF allows you to create the table with data sources from DataSet, Data Table, arrays and IEnumerable objects using PdfLightTable class. It allows you to perform simple formatting.
 
-N> In Silverlight, Windows store apps and xamarin only strongly typed IEnumerable objects are supported. 
+N> In Silverlight, Windows store apps and Xamarin only strongly typed IEnumerable objects are supported. 
 
 The below code snippet illustrates how to create a simple table from a data source using PdfLightTable.
 
@@ -318,7 +318,7 @@ doc.Close(True)
 
 PdfGrid allows you to create table by entering the data manually or from an external data source. The datasource can be a data set, data table, arrays or a IEnumerable object.
 
-N> In Silverlight, Windows store apps and xamarin only strongly typed IEnumerable objects are supported. 
+N> In Silverlight, Windows store apps and Xamarin only strongly typed IEnumerable objects are supported. 
 
 The below code snippet illustrates how to create a simple table from a data source using PdfGrid.
 
