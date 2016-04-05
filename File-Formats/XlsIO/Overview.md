@@ -34,3 +34,10 @@ The library can be used in Windows Forms, WPF, ASP.NET, ASP.NET MVC, WinRT, Wind
 * Support to open and create CSV, SpreadsheetML files.
 * Access the Built-in and Custom document properties.
 
+**Compatible** **Microsoft** **Excel** **Versions**
+
+* Microsoft Excel 2003
+* Microsoft Excel 2007
+* Microsoft Excel 2010
+* Microsoft Excel 2013
+* Microsoft Excel 2016

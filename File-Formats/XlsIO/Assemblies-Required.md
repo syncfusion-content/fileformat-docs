@@ -15,8 +15,8 @@ Platform(s)</th>
 <th>
 Assembly
 </th>
-</tr>
 </thead>
+</tr>
 <tbody>
 <tr>
 <td>
