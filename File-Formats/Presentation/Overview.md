@@ -23,7 +23,7 @@ It is a non-UI component that provides a full-fledged PowerPoint presentation in
 * Ability to encrypt and decrypt PowerPoint presentation.
 * Ability to access the Built-in and Custom document properties.
 
-## Compatible Microsoft Presentation Versions
+## Compatible Microsoft PowerPoint Versions
 
 * Microsoft PowerPoint 2007
 * Microsoft PowerPoint 2010
