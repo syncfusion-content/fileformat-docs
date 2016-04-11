@@ -11,7 +11,7 @@ documentation: UG
 
 The library can be used in Windows Forms, WPF, ASP.NET, ASP.NET MVC, WinRT, Windows Phone 8/8.1, Xamarin, UWP and Silverlight application.
 
-**Key** **Features**
+**Key Features**
 
 * Support to create Excel documents from scratch.
 * Modifying existing workbooks.
@@ -34,3 +34,10 @@ The library can be used in Windows Forms, WPF, ASP.NET, ASP.NET MVC, WinRT, Wind
 * Support to open and create CSV, SpreadsheetML files.
 * Access the Built-in and Custom document properties.
 
+**Compatible Microsoft Excel Versions**
+
+* Microsoft Excel 2003
+* Microsoft Excel 2007
+* Microsoft Excel 2010
+* Microsoft Excel 2013
+* Microsoft Excel 2016
