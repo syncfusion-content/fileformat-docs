@@ -11,7 +11,7 @@ Essential DocIO is a native .NET Word library that is used by developers to crea
 
 It is a non-UI component that provides a full-fledged document instance model similar to the Microsoft Office COM libraries to iterate with the document elements explicitly and perform necessary manipulation. It is built from scratch in C# and does not require Microsoft Word to be installed in the machine. It supports Word 97-2003 and later version documents.
 
-Key Features
+**Key Features**
 
 * Support to create Word document from scratch.
 * Support to open, modify and save existing Word documents.
@@ -28,3 +28,10 @@ Key Features
 * Support to insert and extract OLE objects.
 * Support to run the DocIO applications in multi-thread and its thread safe.
 
+**Compatible Microsoft Word Versions**
+
+* Microsoft Word 97-2003
+* Microsoft Word 2007
+* Microsoft Word 2010
+* Microsoft Word 2013
+* Microsoft Word 2016
