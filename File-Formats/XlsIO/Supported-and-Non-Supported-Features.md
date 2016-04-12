@@ -17,12 +17,12 @@ The list of various supported and non-supported Excel elements of Essential XlsI
 <th rowspan ="2">
 Element <br/><br/></th>
 <th colspan = "3">
-xls<br/><br/></th>
+XLS<br/><br/></th>
 <th colspan = "3">
-xlsx<br/><br/>
+XLSX<br/><br/>
 </th>
 <th rowspan="2">
-xls to xlsx<br/><br/></th></tr>
+XLS to XLSX<br/><br/></th></tr>
 <tr>
 <th>
 Read<br/><br/></th>
@@ -249,7 +249,7 @@ Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
-Auto Shapes<br/><br/></td><td>
+AutoShapes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
 Yes<br/><br/></td><td>

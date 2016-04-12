@@ -257,7 +257,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-The below code snippet illustrates how to load an Xml file in WinRT.
+The below code snippet illustrates how to load an XML file in WinRT.
 
 {% tabs %}  
 

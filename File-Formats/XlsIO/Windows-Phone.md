@@ -275,7 +275,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-The below code snippet illustrates how to load an Xml file in Windows Phone.
+The below code snippet illustrates how to load an XML file in Windows Phone.
 
 {% tabs %}  
 
