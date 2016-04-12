@@ -1597,7 +1597,7 @@ XlsIO provides support for creation, modification and removal of Sparklines.
 * **ISparklineGroups** interface caches the SparklineGroup that need to be added to the Spreadsheet. 
 * **ISparklineGroup** represents Sparklines in object, and has properties that allows  to customize it. 
 * **ISparklines** interface returns the collection of Sparkline present in a Worksheet. 
-* **ISparkline** represents a sparkline in the Sparklines. Currently, XlsIO supports all the three types of sparklines- Line, Column, Win/Loss.
+* **ISparkline** represents a sparkline in the Sparklines. Currently, XlsIO supports all the three types of sparklines - Line, Column, Win/Loss.
 
 Following code example illustrates how to create Sparklines by using XlsIO.
 
@@ -1765,7 +1765,7 @@ excelEngine.Dispose()
 
 ### Removing Sparklines
 
-XlsIO provides an API to remove the Sparklines from the sparkline groups and also the sparklinegroup from the worksheet.This is illustrated in the following code.
+XlsIO provides an API to remove sparklines from the sparkline group and also the sparkline group from the worksheet. This is illustrated in the following code.
 
 {% tabs %}  
 {% highlight c# %}

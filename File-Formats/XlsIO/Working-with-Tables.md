@@ -390,12 +390,12 @@ The following table shows different data sources and its connection string forma
 <table>
 <thead>
 <tr>
-<th>Data Base<br/><br/>
+<th>Database<br/><br/>
 <th>Connection Type<br/><br/></th>
 <th>Sample connection string<br/><br/></th></tr></thead>
 <tr>
 <td rowspan ="2"> <span style="font-weight:bold">
-MS Access<br/><br/></td>
+Microsoft Access<br/><br/></td>
 <td>
 OLEDB<br/><br/></td><td>
 OLEDB;Provider=Microsoft.JET.OLEDB.4.0;Password=\"\";<br/><br/>User ID=Admin;Data Source=C:\\Company\\DB\\TestDB.mdb<br/><br/></td></tr>
@@ -422,7 +422,7 @@ OLEDB<br/><br/></td><td>
 OLEDB;Provider=Microsoft.ACE.OLEDB.12.0;Password=\"\";<br/><br/>User ID=Admin;Data Source="c:\SourceTemplate.xlsx;<br/><br/>Jet OLEDB:Engine Type=37;<br/><br/></td></tr>
 <tr>
 <td rowspan = "2"> <span style="font-weight:bold">
-Share Point<br/><br/></td>
+SharePoint<br/><br/></td>
 <td>
 OLEDB<br/><br/></td>
 <td>

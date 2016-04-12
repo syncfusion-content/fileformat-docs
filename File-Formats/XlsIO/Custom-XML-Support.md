@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Custom XML Support
 
-When you embed XML data in a document, the data is named as custom XML part which is used to store arbitrary xml data in the workbook. 
+When you embed XML data in a document, the data is named as custom XML part which is used to store arbitrary XML data in the workbook. 
 
 Essential XlsIO supports the following functionalities with Custom XML such as,
 
@@ -158,6 +158,6 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-N> Custom Xml cannot be modified when the file is saved in Excel 97-2003 (\*.xls) format.
-N> Custom Xml can be created and modified when the file is saved in Excel 2007 and later versions (\*.xlsx).
+N> Custom XML cannot be modified when the file is saved in Excel 97-2003 (\*.xls) format.
+N> Custom XML can be created and modified when the file is saved in Excel 2007 and later versions (\*.xlsx).
 

@@ -309,7 +309,7 @@ End Class
 
   {% endtabs %}  
 
-The below code snippet illustrates how to load an Excel file using stream in Xamarin Android platform.
+The below code snippet illustrates how to load an Excel file using stream in Xamarin.Android platform.
 
 {% tabs %}  
 
@@ -531,7 +531,7 @@ End Class
   
   {% endtabs %}  
 
-The below code snippet illustrates how to load an Excel file using stream in Xamarin iOS platform.
+The below code snippet illustrates how to load an Excel file using stream in Xamarin.iOS platform.
 
 {% tabs %}  
 

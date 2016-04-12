@@ -28,7 +28,7 @@ The library can be used in Windows Forms, WPF, ASP.NET, ASP.NET MVC, WinRT, Wind
 * Convert chart in a worksheet to image.
 * Supports data filtering.
 * Supports data sorting.
-* Support to add images, auto-shapes, Ole objects, Comments and other drawing objects.
+* Support to add Images, AutoShapes, Ole objects, Comments and other drawing objects.
 * Convert Excel workbook to PDF.
 * Convert Excel worksheet to HTML.
 * Support to open and create CSV, SpreadsheetML files.
