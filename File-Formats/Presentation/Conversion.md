@@ -251,7 +251,7 @@ An entire presentation or a single slide can be converted to image by using Esse
 * PNG
 * WMF
 * Icon
-* EXIF
+* Exif
 * MemoryBmp
 * TIFF
 
