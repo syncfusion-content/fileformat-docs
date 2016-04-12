@@ -10,7 +10,7 @@ documentation: UG
 
 The frequently asked questions in Essential XlsIO are listed below.
 
-## How to open an existing Xlsx workbook and save it as Xls?
+## How to open an existing XLSX workbook and save it as XLS?
 
 You can open and save an existing .xlsx file to the .xls file by using XlsIO. The following code snippet illustrates this.
 
@@ -942,7 +942,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-N> Go to “ View -> Page Layout” option to view the header and footer in MS Excel. 
+N> Go to “ View -> Page Layout” option to view the header and footer in Microsoft Excel. 
 
 ## How to set print titles?
 
@@ -2290,9 +2290,9 @@ End Sub
 
   {% endtabs %}  
 
-## Does Essential XlsIO provide support for Client profile?
+## Does Essential XlsIO provide support for Client Profile?
 
-Yes, Essential XlsIO provides support for Client profile. In order to use Essential XlsIO in an application (which targeted to Client profile), the user should include the following assemblies.
+Yes, Essential XlsIO provides support for Client Profile. In order to use Essential XlsIO in an application (which targeted to Client Profile), the user should include the following assemblies.
 
 * Syncfusion.Core.dll
 * Syncfusion.Compression.Base.dll
@@ -2394,7 +2394,7 @@ If the application version is ignored, then the workbook version should be set p
 
 * To save a workbook in Excel2003 format, set the workbook version to Excel97to2003 and save the file with extension ‘.xls’ i.e. binary file format.
 
-* To save a workbook in Excel 2007 and above formats, set the workbook version to Excel2007 and above and save the file with extension __‘.____xlsx’__ i.e. open xml file format.
+* To save a workbook in Excel 2007 and above formats, set the workbook version to Excel2007 and above and save the file with extension __‘.____xlsx’__ i.e. open XML file format.
 
 These are represented in the below code snippet.
 

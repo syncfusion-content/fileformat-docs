@@ -761,9 +761,9 @@ excelEngine.Dispose()
 
 The **IShape** interface represents an [AutoShape](https://support.office.com/en-ca/article/Add-change-or-delete-shapes-4f7931c3-7794-440e-820e-9469ad756f05) in an Excel workbook. 
 
-To know more about various auto shape types supported in XlsIO, please refer **AutoShapeType** enumeration in API section.
+To know more about various AutoShape types supported in XlsIO, please refer **AutoShapeType** enumeration in API section.
 
-The following code example illustrates how to insert and format autoshapes.
+The following code example illustrates how to insert and format AutoShapes.
 
 {% tabs %}  
 
