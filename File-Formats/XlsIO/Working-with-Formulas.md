@@ -11,7 +11,7 @@ documentation: UG
 
 ## Enable and Disable Calculation
 
-To perform calculation in an Excel workbook, it is recommended to invoke **EnableSheetCalculations** method of __IWorksheet__. Enabling this method will initialize [CalcEngine](/file-formats/xlsio/working-with-formulas#calculation-engine)objects and retrieves calculated values of formulas in a worksheet. 
+To perform calculation in an Excel workbook, it is recommended to invoke **EnableSheetCalculations** method of __IWorksheet__. Enabling this method will initialize [CalcEngine](/file-formats/xlsio/working-with-formulas#calculation-engine) objects and retrieves calculated values of formulas in a worksheet. 
 
 The following code sample illustrates on how to enable worksheet formula calculations.
 
@@ -1758,9 +1758,9 @@ Returns the logical value TRUE<br/><br/></td></tr>
 
 ## Add-In Functions
 
-Add-Ins are mini-programs or custom functions that enhance the feature set of the Microsoft Excel application. These Add-Ins can be accessed by registering it at first from Excel and refer it using XlsIO. For more details on adding AddIn functions, see [Add or remove add-ins](https://support.office.com/en-ZA/article/add-or-remove-add-ins-64d3d147-98fb-4b82-8833-709d54e3ace1)
+Add-ins are mini-programs or custom functions that enhance the feature set of the Microsoft Excel application. These Add-ins can be accessed by registering it at first from Excel and refer it using XlsIO. For more details on adding AddIn functions, see [Add or remove Add-ins](https://support.office.com/en-ZA/article/add-or-remove-add-ins-64d3d147-98fb-4b82-8833-709d54e3ace1)
 
-The following code illustrates on how to include and access Add-Ins in XlsIO.
+The following code illustrates on how to include and access Add-ins in XlsIO.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1876,7 +1876,7 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}   
 
-N> If you move the file to another computer, or distribute it, the workbook will expect to find the same Add-In, in the same place, on their computers. But, if the Add-In is moved or deleted from the computer, the workbook won't be able to find it, and your code won't work. Make sure that the Add-In is accessed by locating the .xlam file through the menu (Developer -> Addins -> Browse).
+N> If you move the file to another computer, or distribute it, the workbook will expect to find the same Add-In, in the same place, on their computers. But, if the Add-In is moved or deleted from the computer, the workbook won't be able to find it, and your code won't work. Make sure that the Add-In is accessed by locating the .xlam file through the menu (Developer -> Add-ins -> Browse).
 
 ## Defined Names
 
@@ -2060,7 +2060,7 @@ sheet.Names("SheetLevelName").Delete()
 
 ## Formula Auditing
 
-Microsoft excel constantly checks in the background for potential errors in your worksheets, when open. If an error is located (or, at the least, what Excel thinks is an error), then the cell is "flagged" with a small green triangle in the upper-left corner of the cell. Auditing a formula helps to identify the error in it. 
+Microsoft Excel constantly checks in the background for potential errors in your worksheets, when open. If an error is located (or, at the least, what Excel thinks is an error), then the cell is "flagged" with a small green triangle in the upper-left corner of the cell. Auditing a formula helps to identify the error in it. 
 
 In certain cases, these errors can be ignored so that the error will not appear in further error checks. The **IgnoreErrorOptions** property of __IRange__ manages different types of errors checks, for example numbers stored as text, formula calculation errors and validation errors.
 

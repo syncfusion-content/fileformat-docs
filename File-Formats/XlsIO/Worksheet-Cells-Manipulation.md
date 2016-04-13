@@ -1185,7 +1185,7 @@ workbook.Close()
 You can create hyperlink in a workbook to provide quick access to web pages, places in your document and files. Hyperlink may target to any one of the following
 
 * Worksheet range
-* Web url
+* Web URL
 * E-mail
 * External files
 

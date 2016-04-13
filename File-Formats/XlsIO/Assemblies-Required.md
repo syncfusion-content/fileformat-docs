@@ -38,7 +38,7 @@ Syncfusion.Compression.Base
 </tr>
 <tr>
 <td>
-Universal Windows
+Universal Windows Platform
 </td>
 <td>
 Syncfusion.XlsIO.UWP
