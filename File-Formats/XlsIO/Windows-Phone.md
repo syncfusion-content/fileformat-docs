@@ -9,7 +9,7 @@ documentation: UG
 
 In order to use XlsIO in your Windows Phone application, please add the required assemblies in your Windows Phone application. Refer [Assemblies Required](/File-Formats/XlsIO/Assemblies-Required).
 
-## Loading In Windows Phone
+## Loading the document
 
 The below code snippet illustrates how to load an Excel file in Windows Phone.
 
@@ -367,7 +367,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-## Saving in Windows Phone
+## Saving the document
 
 The following code snippet illustrate how to save an Excel document in Windows Phone.
 
