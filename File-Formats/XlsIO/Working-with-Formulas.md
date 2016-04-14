@@ -779,6 +779,10 @@ COMPLEX<br/><br/></td><td>
 Converts real and imaginary coefficients into a complex number<br/><br/></td></tr>
 <tr>
 <td>
+CONCAT<br/><br/></td><td>
+Combines the text from multiple ranges and/or strings<br/><br/></td></tr>
+<tr>
+<td>
 CONCATENATE<br/><br/></td><td>
 Joins several text items into one text item<br/><br/></td></tr>
 <tr>
@@ -1059,6 +1063,10 @@ IFERROR<br/><br/></td><td>
 Returns a specified value if a formula evaluates to an error.<br/><br/></td></tr>
 <tr>
 <td>
+IFS<br/><br/></td><td>
+Checks whether one or more conditions are met and returns a value that corresponds to the first TRUE condition<br/><br/></td></tr>
+<tr>
+<td>
 IMABS<br/><br/></td><td>
 Returns the absolute value (modulus) of a complex number<br/><br/></td></tr>
 <tr>
@@ -1271,6 +1279,10 @@ MAXA<br/><br/></td><td>
 Returns the maximum value in a list of arguments, including numbers, text, and logical values<br/><br/></td></tr>
 <tr>
 <td>
+MAXIFS<br/><br/></td><td>
+Returns the maximum value among cells specified by a given set of conditions or criteria<br/><br/></td></tr>
+<tr>
+<td>
 MDETERM<br/><br/></td><td>
 Returns the matrix determinant of an array<br/><br/></td></tr>
 <tr>
@@ -1289,6 +1301,10 @@ Returns the minimum value in a list of arguments<br/><br/></td></tr>
 <td>
 MINA<br/><br/></td><td>
 Returns the smallest value in a list of arguments, including numbers, text, and logical values<br/><br/></td></tr>
+<tr>
+<td>
+MINIFS<br/><br/></td><td>
+Returns the minimum value among cells specified by a given set of conditions or criteria<br/><br/></td></tr>
 <tr>
 <td>
 MINUTE<br/><br/></td><td>
@@ -1631,6 +1647,10 @@ SUMXMY2<br/><br/></td><td>
 Returns the sum of squares of differences of corresponding values in two arrays<br/><br/></td></tr>
 <tr>
 <td>
+SWITCH<br/><br/></td><td>
+Evaluates an expression against a list of values and returns the result corresponding to the first matching value. If there is no match, an optional default value may be returned.<br/><br/></td></tr>
+<tr>
+<td>
 SYD<br/><br/></td><td>
 Returns the sum-of-years' digits depreciation of an asset for a specified period<br/><br/></td></tr>
 <tr>
@@ -1649,6 +1669,10 @@ Returns the hyperbolic tangent of a number<br/><br/></td></tr>
 <td>
 TEXT<br/><br/></td><td>
 Formats a number and converts it to text<br/><br/></td></tr>
+<tr>
+<td>
+TEXTJOIN<br/><br/></td><td>
+Combines the text from multiple ranges and/or strings with a delimiter you specify between each text value that will be combined<br/><br/></td></tr>
 <tr>
 <td>
 TIME<br/><br/></td><td>
