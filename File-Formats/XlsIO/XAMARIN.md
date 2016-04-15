@@ -9,7 +9,7 @@ documentation: UG
 
 In order to use XlsIO in your Xamarin application, please add the required assemblies in your Xamarin application. Refer [Assemblies Required](/File-Formats/XlsIO/Assemblies-Required).
 
-## Loading in Xamarin
+## Loading the document
 
 The below code snippet illustrates how to load an Excel file using stream in Xamarin.
 
@@ -159,7 +159,7 @@ End Class
 
   {% endtabs %}  
 
-## Saving in Xamarin
+## Saving the document
 
 The below code snippet illustrates how to load an Excel file using stream in Xamarin Windows Phone platform.
 

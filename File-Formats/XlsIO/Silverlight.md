@@ -9,7 +9,7 @@ documentation: UG
 
 In order to use XlsIO in your Silverlight application, please add the required assemblies in your Silverlight application. Refer [Assemblies Required](/File-Formats/XlsIO/Assemblies-Required).
 
-## Loading in Silverlight
+## Loading the document
 
 The below code snippet illustrates how to load an Excel file using stream in Silverlight.
 
@@ -87,7 +87,7 @@ End If
 
   {% endtabs %}  
 
-## Saving in Silverlight
+## Saving the document
 
 The following code snippet illustrate how to save an Excel document in Silverlight.
 
