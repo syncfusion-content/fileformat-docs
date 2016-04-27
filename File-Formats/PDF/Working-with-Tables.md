@@ -1784,6 +1784,270 @@ pdfDocument.Close(True)
 
 {% endtabs %}
 
+## Built-in table styles
+
+In-built table styles can be applied to both PdfGrid and PdfLightTable models and the appearance is made similar to Microsoft Word’s built-in table styles. You can also apply in-built table styles with the following additional table style options.
+
+
+* Banded columns
+* Banded rows
+* First column
+* Last column
+* Header row
+* Last row
+
+The below code example illustrates how to apply built-in table styles to the PdfGrid
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+//Create a DataTable.
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+
+//Add rows to the DataTable.
+dataTable.Rows.Add(new object[] { "E01", "Clay" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas" });
+dataTable.Rows.Add(new object[] { "E03", "George" });
+            
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+
+//Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the document.
+doc.Save("Output.pdf");
+//close the document
+doc.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document.
+Dim doc As New PdfDocument()
+
+'Add a page.
+Dim page As PdfPage = doc.Pages.Add()
+
+'Create a PdfGrid.
+Dim pdfGrid As New PdfGrid()
+'Create a DataTable.
+Dim dataTable As New DataTable()
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+
+'Add rows to the DataTable.
+dataTable.Rows.Add(New Object() {"E01", "Clay"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas"})
+dataTable.Rows.Add(New Object() {"E03", "George"})
+
+'Assign data source.
+pdfGrid.DataSource = dataTable
+
+'Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1)
+'Draw grid to the page of PDF document.
+pdfGrid.Draw(page, New PointF(10, 10))
+
+'Save the document.
+doc.Save("Output.pdf")
+'close the document
+doc.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The below code example illustrates how to apply built-in table styles to the PdfLightTable.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable.
+PdfLightTable pdfLightTable = new PdfLightTable();
+//Create a DataTable.
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+
+//Add rows to the DataTable.
+dataTable.Rows.Add(new object[] { "E01", "Clay" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas" });
+dataTable.Rows.Add(new object[] { "E03", "George" });
+
+//Assign data source.
+pdfLightTable.DataSource = dataTable;
+
+//Apply built-in table style
+pdfLightTable.ApplyBuiltinStyle(PdfLightTableBuiltinStyle.GridTable4Accent2);
+
+//Draw grid to the page of PDF document.
+pdfLightTable.Draw(page, new PointF(10, 10));
+
+//Save the document.
+doc.Save("Output.pdf");
+//close the document
+doc.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document.
+Dim doc As New PdfDocument()
+
+'Add a page.
+Dim page As PdfPage = doc.Pages.Add()
+
+'Create a PdfLightTable.
+Dim pdfLightTable As New PdfLightTable()
+'Create a DataTable.
+Dim dataTable As New DataTable()
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+
+'Add rows to the DataTable.
+dataTable.Rows.Add(New Object() {"E01", "Clay"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas"})
+dataTable.Rows.Add(New Object() {"E03", "George"})
+
+'Assign data source.
+pdfLightTable.DataSource = dataTable
+
+'Apply built-in table style
+pdfLightTable.ApplyBuiltinStyle(PdfLightTableBuiltinStyle.GridTable4Accent2)
+
+'Draw grid to the page of PDF document.
+pdfLightTable.Draw(page, New PointF(10, 10))
+
+'Save the document.
+doc.Save("Output.pdf")
+'close the document
+doc.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The below code example illustrates how to apply built-in table styles with table options to the PdfGrid.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+//Create a DataTable.
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+
+//Add rows to the DataTable.
+dataTable.Rows.Add(new object[] { "E01", "Clay" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas" });
+dataTable.Rows.Add(new object[] { "E03", "George" });
+
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+
+PdfGridBuiltinStyleSettings tableStyleOption = new PdfGridBuiltinStyleSettings();
+tableStyleOption.ApplyStyleForBandedRows = true;
+tableStyleOption.ApplyStyleForHeaderRow = true;
+
+//Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent4, tableStyleOption);
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the document.
+doc.Save("Output.pdf");
+//close the document
+doc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document.
+Dim doc As New PdfDocument()
+
+'Add a page.
+Dim page As PdfPage = doc.Pages.Add()
+
+'Create a PdfGrid.
+Dim pdfGrid As New PdfGrid()
+'Create a DataTable.
+Dim dataTable As New DataTable()
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+
+'Add rows to the DataTable.
+dataTable.Rows.Add(New Object() {"E01", "Clay"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas"})
+dataTable.Rows.Add(New Object() {"E03", "George"})
+
+'Assign data source.
+pdfGrid.DataSource = dataTable
+
+Dim tableStyleOption As New PdfGridBuiltinStyleSettings()
+tableStyleOption.ApplyStyleForBandedRows = True
+tableStyleOption.ApplyStyleForHeaderRow = True
+
+'Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent4, tableStyleOption)
+'Draw grid to the page of PDF document.
+pdfGrid.Draw(page, New PointF(10, 10))
+
+'Save the document.
+doc.Save("Output.pdf")
+'close the document
+doc.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Pagination
 
 ### Pagination in PdfLightTable
