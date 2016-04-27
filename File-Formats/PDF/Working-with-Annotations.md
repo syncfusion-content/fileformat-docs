@@ -184,7 +184,7 @@ document.Close(True)
 
 ## Flatten annotation
 
-Flatten annotation can be done by removing the existing annotation and replacing it with graphics objects that would resemble the annotation and cannot be edited.
+Annotations can be flattened by removing the existing annotation and replacing it with graphics objects that would resemble the annotation and cannot be edited.
 
 Please refer the sample for flattening all the annotations in the PDF document.
 
