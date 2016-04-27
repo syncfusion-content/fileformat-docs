@@ -181,6 +181,93 @@ document.Close(True)
 
 {% endhighlight %}
 {% endtabs %}
+
+## Flatten annotation
+
+Annotations can be flattened by removing the existing annotation and replacing it with graphics objects that would resemble the annotation and cannot be edited.
+
+Please refer the sample for flattening all the annotations in the PDF document.
+
+{% tabs %}
+{% highlight c# %}
+//Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+//Get all the pages
+foreach (PdfLoadedPage loadedpage in loadedDocument.Pages)
+{
+//Flatten all the annotations in the page
+loadedpage.Annotations.Flatten = true;
+}
+//Save and close the PDF document instance
+loadedDocument.Save("output.pdf");
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}      
+
+'Load the existing PDF document
+Dim loadedDocument As New PdfLoadedDocument("input.pdf")
+'Get all the pages
+For Each loadedpage As PdfLoadedPage In loadedDocument.Pages
+'Flatten all the annotations in the page
+loadedpage.Annotations.Flatten = True
+Next
+'Save and close the PDF document instance
+loadedDocument.Save("output.pdf")
+loadedDocument.Close(True)
+
+{% endhighlight %}
+{% endtabs %}
+
+To flatten the specific annotation in the PDF document, use the below code example.
+
+{% tabs %}
+{% highlight c# %}
+//Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+//Get all the pages
+foreach (PdfLoadedPage loadedpage in loadedDocument.Pages)
+{
+//Flatten all the annotations in the page
+foreach (PdfLoadedAnnotation annotation in loadedpage.Annotations)
+{
+//Check for the circle annotation
+if (annotation is PdfLoadedCircleAnnotation)
+{
+//Flatten the circle annoation
+annotation.Flatten = true;
+}
+}
+}
+//Save and close the PDF document instance
+loadedDocument.Save("Output.pdf");
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}      
+
+'Load the existing PDF document
+Dim loadedDocument As New PdfLoadedDocument("input.pdf")
+'Get all the pages
+For Each loadedpage As PdfLoadedPage In loadedDocument.Pages
+	'Flatten all the annotations in the page
+	For Each annotation As PdfLoadedAnnotation In loadedpage.Annotations
+		'Check for the circle annotation
+		If TypeOf annotation Is PdfLoadedCircleAnnotation Then
+			'Flatten the circle annoation
+			annotation.Flatten = True
+		End If
+	Next
+Next
+'Save and close the PDF document instance
+loadedDocument.Save("Output.pdf")
+loadedDocument.Close(True)
+
+{% endhighlight %}
+{% endtabs %}
+
 ## Supported annotation types
 
 ### 3D Annotation
