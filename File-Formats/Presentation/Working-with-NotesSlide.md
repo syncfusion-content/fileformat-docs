@@ -1,5 +1,5 @@
 **Working with Notes**
-Notes slide helps to the keep key points and reminders in the PowerPoint Presentation. Presentation library provides support for creating, modifying and removing notes in a PowerPoint Slide. 
+Notes slide helps to keep the key points and reminders in the PowerPoint Presentation. Presentation library provides support for creating, modifying and removing notes in a PowerPoint Slide. 
 **Adding Notes Slide**
 The below code example demonstrates how to create a Notes in a PowerPoint Slide.
 {% tabs %}
