@@ -1,3 +1,12 @@
+---
+title: Working with UWP
+description: Working with presentation library in UWP Platform
+platform: file-formats
+control: Presentation
+documentation: UG
+keywords: Working with presentation library in UWP Platform
+---
+
 **Working with UWP**
 In your UWP application, please add the required assemblies in order to use Presentation. [Refer here for assemblies required](/File-Formats/Presentation/Assemblies-Required)
 **Loading the Presentation**
