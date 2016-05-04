@@ -1,3 +1,12 @@
+---
+title: Supported and Unsupported Features
+description: Briefs the supported and unsupported features of presentation library for various platforms.
+platform: file-formats
+control: Presentation
+documentation: UG
+keywords: Supported and Unsupported Features of presentation library
+---
+
 **Supported and Unsupported Features** 
 <table>
 <tr>

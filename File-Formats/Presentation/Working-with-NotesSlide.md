@@ -1,3 +1,11 @@
+---
+title: Working with Notes
+description: Working with Notes
+platform: file-formats 
+control: Presentation
+documentation: UG
+keywords: Working with Notes
+---
 **Working with Notes**
 Notes slide helps to keep the key points and reminders in the PowerPoint Presentation. Presentation library provides support for creating, modifying and removing notes in a PowerPoint Slide. 
 **Adding Notes Slide**

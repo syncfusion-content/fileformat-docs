@@ -1,3 +1,11 @@
+---
+title: Working with Xamarin
+description: Working with presentation library in Xamarin Platform
+platform: file-formats
+control: Presentation
+documentation: UG
+keywords: Working with presentation library in Xamarin Platform
+---
 **Working with Xamarin**
 In your Xamarin Application, please add the required assemblies in order to use Presentation. [Refer here for assemblies required](/File-Formats/Presentation/Assemblies-Required)
 **Loading the Presentation**
