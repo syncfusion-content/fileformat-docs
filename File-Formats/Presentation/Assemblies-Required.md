@@ -7,6 +7,7 @@ documentation: UG
 keywords: Assemblies
 ---
 # Assemblies Required
+
 The following assemblies need to be referenced in your application
 <table>
 <tr>
@@ -27,8 +28,18 @@ Syncfusion.Compression.Base<br/>
 Syncfusion.OfficeChart.Base<br/>
 </td>
 </tr>
+<tr>
+<td>
+Xamarin<br/></td><td>
+Syncfusion.Presentation.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/></td></tr>
+<tr>
+<td>
+Universal Windows Platform<br/></td><td>
+Syncfusion.Presentation.UWP<br/>Syncfusion.OfficeChart.UWP<br/></td></tr>
 </table>
+
 ## Converting PowerPoint presentation to PDF
+
 For converting a PowerPoint presentation to PDF, the following assemblies need to be referenced in your application
 <table>
 <tr>
@@ -52,6 +63,7 @@ Syncfusion.PresentationToPDFConverter.Base<br/>
 </td>
 </tr>
 </table>
+N> Presentation to PDF conversion is not supported in Xamarin and UWP applications.
 The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the PowerPoint presentation into PDF.
 <table>
 <tr>
