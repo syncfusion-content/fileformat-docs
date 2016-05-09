@@ -6,9 +6,13 @@ control: Presentation
 documentation: UG
 keywords: Working with Notes
 ---
-**Working with Notes**
+
+# Working with Notes
+
 Notes slide helps to keep the key points and reminders in the PowerPoint Presentation. Presentation library provides support for creating, modifying and removing notes in a PowerPoint Slide. 
-**Adding Notes Slide**
+
+## Adding Notes Slide
+
 The below code example demonstrates how to create a Notes in a PowerPoint Slide.
 {% tabs %}
 {% highlight c# %}
@@ -28,7 +32,9 @@ notesSlide.NotesTextBody.AddParagraph("Notes content");
 presentation.Save("PresentationWithNotesSlide.pptx");
 {% endhighlight %}
 {% endtabs %}
-**Adding Text paragraph into the Notes Slide**
+
+## Adding Text paragraph into the Notes Slide
+
 The following code example demonstrates how to add a text in a Notes. 
 {% tabs %}
 {% highlight c# %}
@@ -62,7 +68,9 @@ textPart.Font.FontSize = 20;
 presentation.Save("PresentationWithNotesSlide.pptx");
 {% endhighlight %}
 {% endtabs %}
-**Adding a numbered list to Notes**
+
+## Adding a numbered list to Notes
+
 The following code example demonstrates how to create simple numbered list as Notes.
 {% tabs %}
 {% highlight c# %}
@@ -124,7 +132,9 @@ presentation.Save("Sample.pptx");
 presentation.Close();
 {% endhighlight %}
 {% endtabs %}
-**Removing Notes Slide**
+
+## Removing Notes Slide
+
 The below code example demonstrates how to remove a Notes from a PowerPoint Slide.
 {% tabs %}
 {% highlight c# %}

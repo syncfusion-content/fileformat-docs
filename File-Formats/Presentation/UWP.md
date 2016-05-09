@@ -7,10 +7,14 @@ documentation: UG
 keywords: Working with presentation library in UWP Platform
 ---
 
-**Working with UWP**
+# Working with UWP
+
 In your UWP application, please add the required assemblies in order to use Presentation. [Refer here for assemblies required](/File-Formats/Presentation/Assemblies-Required)
-**Loading the Presentation**
+
+## Loading the Presentation**
+
 You can load and save PowerPoint Presentation asynchrony using Presentation. 
+
 The following code example illustrates how to load PowerPoint Presentation by using stream in UWP.
 {% tabs %}
 {% highlight c# %}
@@ -71,7 +75,8 @@ if (stgFile != null)
 {% endhighlight %}
 {% endtabs %}
 
-**Save the Presentation**
+## Save the Presentation
+
 The following code example illustrates how to save the PowerPoint Presentation in UWP using save file picker.
 {% tabs %}
 {% highlight c# %}
