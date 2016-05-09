@@ -11,7 +11,7 @@ keywords: Working with presentation library in UWP Platform
 
 In your UWP application, please add the required assemblies in order to use Presentation. [Refer here for assemblies required](/File-Formats/Presentation/Assemblies-Required)
 
-## Loading the Presentation**
+## Loading the Presentation
 
 You can load and save PowerPoint Presentation asynchrony using Presentation. 
 
