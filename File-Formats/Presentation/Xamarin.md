@@ -6,9 +6,13 @@ control: Presentation
 documentation: UG
 keywords: Working with presentation library in Xamarin Platform
 ---
-**Working with Xamarin**
+
+# Working with Xamarin
+
 In your Xamarin Application, please add the required assemblies in order to use Presentation. [Refer here for assemblies required](/File-Formats/Presentation/Assemblies-Required)
-**Loading the Presentation**
+
+## Loading the Presentation
+
 The following code example illustrates how to load the PowerPoint Presentation by using stream in Xamarin.
 {% tabs %}
 {% highlight c# %}
@@ -35,7 +39,9 @@ presentation.Save(stream);
 presentation.Close();
 {% endhighlight %}
 {% endtabs %}
-**Saving the Presentation**
+
+## Saving the Presentation
+
 The following code example illustrates how to save the PowerPoint Presentation in Xamarin Windows Phone platform.
 {% tabs %}
 {% highlight c# %}
