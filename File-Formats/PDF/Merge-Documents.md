@@ -24,7 +24,7 @@ PdfDocument finalDoc = new PdfDocument();
 
 // Creates a string array of source files to be merged.
 
-string[] source = { "file1.pdf, file2.pdf" };
+string[] source = { "file1.pdf", "file2.pdf" };
 
 // Merges PDFDocument.
 
@@ -52,7 +52,7 @@ Dim finalDoc As New PdfDocument()
 
 ' Creates a string array of source files to be merged.
 
-Dim source As String() = {"file1.pdf, file2.pdf"}
+Dim source As String() = {"file1.pdf", "file2.pdf"}
 
 ' Merges PDFDocument.
 
