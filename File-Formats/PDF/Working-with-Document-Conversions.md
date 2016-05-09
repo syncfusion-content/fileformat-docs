@@ -1696,7 +1696,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-N>This section is applicable only to the Windows Forms, ASP.NET, MVC and WPF platforms.
+N> This section is applicable only to the Windows Forms, ASP.NET, MVC and WPF platforms.
 
 
 

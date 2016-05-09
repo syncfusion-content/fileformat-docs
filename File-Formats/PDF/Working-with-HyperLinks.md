@@ -559,7 +559,7 @@ document.Close()
 
 {% endtabs %}  
 
-N>The above link makes use of the absolute path of the file for navigation. So, moving the files to another machine or location may lead to file not found error in PDF reader applications.
+N> The above link makes use of the absolute path of the file for navigation. So, moving the files to another machine or location may lead to file not found error in PDF reader applications.
 
 To open a file in relative path, the PdfLaunchAction can be used. While using the relative path in launch action, the files can be moved to any machine, provided the relative path is being maintained. The below code snippet explains the same.
 
