@@ -133,7 +133,7 @@ presentation.Close();
 {% endhighlight %}
 {% endtabs %}
 
-## Removing Notes from a slide
+## Removing Notes from a Slide
 
 The below code example demonstrates how to remove a Notes from a PowerPoint Slide.
 {% tabs %}
