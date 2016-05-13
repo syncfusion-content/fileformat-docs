@@ -11,7 +11,7 @@ keywords: Working with Notes
 
 Notes slide helps to keep the key points and reminders in the PowerPoint Presentation. Presentation library provides support for creating, modifying and removing notes in a PowerPoint Slide. 
 
-## Adding Notes Slide
+## Adding Notes to a Slide
 
 The below code example demonstrates how to create a Notes in a PowerPoint Slide.
 {% tabs %}
@@ -33,7 +33,7 @@ presentation.Save("PresentationWithNotesSlide.pptx");
 {% endhighlight %}
 {% endtabs %}
 
-## Adding Text paragraph into the Notes Slide
+## Adding Text into the Notes 
 
 The following code example demonstrates how to add a text in a Notes. 
 {% tabs %}
@@ -133,7 +133,7 @@ presentation.Close();
 {% endhighlight %}
 {% endtabs %}
 
-## Removing Notes Slide
+## Removing Notes from a Slide
 
 The below code example demonstrates how to remove a Notes from a PowerPoint Slide.
 {% tabs %}
