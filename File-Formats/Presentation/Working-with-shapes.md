@@ -21,7 +21,7 @@ The following code example demonstrates how to add an AutoShape and image to the
 
 IPresentation presentation = Presentation.Create();
 
-//Adds a blank slide to presentation
+//Adds a blank slide to Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank); 
 
@@ -37,7 +37,7 @@ Stream imageStream = File.Open("Image.jpg", FileMode.Open);
 
 IPicture picture = slide.Shapes.AddPicture(imageStream, 373, 83, 526, 382);            
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Sample.pptx");
 
@@ -45,7 +45,7 @@ presentation.Save("Sample.pptx");
 
 imageStream.Close();
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -53,11 +53,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates an instance for PowerPoint
+'Creates an instance for PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds a blank slide to presentation
+'Adds a blank slide to Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -73,7 +73,7 @@ Dim imageStream As Stream = File.Open("Image.jpg", FileMode.Open)
 
 Dim picture As IPicture = slide.Shapes.AddPicture(imageStream, 373, 83, 500, 382)
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Sample.pptx")
 
@@ -81,7 +81,7 @@ presentationDocument.Save("Sample.pptx")
 
 imageStream.Close()
 
-'closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -97,7 +97,7 @@ You can iterate through the shapes in a PowerPoint slide. The following code exa
 
 {% highlight c# %}
 
-//Opens an existing presentation from the file system.
+//Opens an existing Presentation from the file system
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
@@ -117,11 +117,11 @@ foreach(IShape shape in presentation.Slides[0].Shapes)
 
 }
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Output.pptx");
 
-//closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -130,7 +130,7 @@ presentation.Close();
 {% highlight vb.net %}
 
 
-'Opens an existing presentation from the file system.
+'Opens an existing Presentation from the file system
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
@@ -150,11 +150,11 @@ End If
 
 Next
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -174,7 +174,7 @@ The shape properties can be used to format and modify the shapes in a slide. The
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Gets the first slide of the presentation
+//Gets the first slide of the Presentation
 
 ISlide slide = presentation.Slides[0];
 
@@ -214,11 +214,11 @@ shape.Fill.PatternFill.ForeColor = ColorObject.AliceBlue;
 
 shape.Fill.PatternFill.BackColor = ColorObject.DarkSalmon;
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Output.pptx");           
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -231,7 +231,7 @@ presentation.Close();
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
-'Gets the first slide of the presentation
+'Gets the first slide of the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
@@ -271,11 +271,11 @@ shape.Fill.PatternFill.ForeColor = ColorObject.AliceBlue
 
 shape.Fill.PatternFill.BackColor = ColorObject.DarkSalmon
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -291,11 +291,11 @@ The shapes can be removed from a slide by its instance or by its index position 
 
 {% highlight c# %}
 
-//Opens an existing presentation from file system.
+//Opens an existing Presentation from file system
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Retrieves the first slide from presentation
+//Retrieves the first slide from Presentation
 
 ISlide slide = presentation.Slides[0];
 
@@ -307,11 +307,11 @@ IShape shape = slide.Shapes[0] as IShape;
 
 slide.Shapes.Remove(shape);
 
-//Saves the presentation to the file system.
+//Saves the Presentation to the file system.
 
 presentation.Save("Result.pptx");
 
-//Closes the presentation.
+//Closes the Presentation.
 
 presentation.Close();
 
@@ -319,11 +319,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing presentation from file system.
+'Opens an existing Presentation from file system
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
-'Retrieves the first slide from presentation
+'Retrieves the first slide from Presentation
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
@@ -335,11 +335,11 @@ Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
 
 slide.Shapes.Remove(shape)
 
-'Saves the presentation to the file system.
+'Saves the Presentation to the file system.
 
 presentationDocument.Save("Result.pptx")
 
-'Closes the presentation.
+'Closes the Presentation.
 
 presentationDocument.Close()
 

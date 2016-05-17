@@ -76,7 +76,7 @@ stream.Position = 0;
 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("GettingStartedSample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 {% endtabs %}
-The following code example illustrates how to save the PowerPoint Presentation in Xamarin. Android platform.
+The following code example illustrates how to save the PowerPoint Presentation in Xamarin.Android platform.
 {% tabs %}
 {% highlight c# %}
 //Creates new Presentation without slides.
@@ -145,4 +145,4 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("GettingStartedSample.pptx", "
 {% endhighlight %}
 {% endtabs %}
 
-N> The Image and Pdf conversions are not supported in Xamarin.Forms Platform.
+N> The image and PDF conversions are not supported in UWP,Xamarin.Forms,Xamarin.Android,Xamarin.IOS,Xamarin.WindowsPhone platforms.

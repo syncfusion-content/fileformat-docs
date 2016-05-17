@@ -1,6 +1,6 @@
 ---
 title: Encrypting and Decrypting the PowerPoint Presentation
-description: Encrypting and Decrypting the PowerPoint Presentation; security in using presentation
+description: Encrypting and Decrypting the PowerPoint Presentation; security in using Presentation
 platform: file-formats
 control: Presentation
 documentation: UG
@@ -9,19 +9,19 @@ documentation: UG
 
 ## Encrypting with password 
 
-You can protect a PowerPoint presentation by encrypting the document by using a password. This prevents unauthorized users to access or make changes in the presentation. 
+You can protect a PowerPoint Presentation by encrypting the document by using a password. This prevents unauthorized users to access or make changes in the Presentation. 
 
-The following code example demonstrates how to encrypt a PowerPoint presentation with password.
+The following code example demonstrates how to encrypt a PowerPoint Presentation with password.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Creates an instance for presentation
+//Creates an instance for Presentation
 
 IPresentation presentation = Presentation.Create();
 
-//Adds slide to presentation
+//Adds slide to Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -37,11 +37,11 @@ IParagraph paragraph = shape.TextBody.AddParagraph("Password Protected.");
 
 presentation.Encrypt("PASSWORD!@1#$");
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Sample.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -49,11 +49,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates an instance for presentation
+'Creates an instance for Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds slide to presentation
+'Adds slide to Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -69,11 +69,11 @@ Dim paragraph As IParagraph = shape.TextBody.AddParagraph("Password Protected.")
 
 presentationDocument.Encrypt("PASSWORD!@1#$")
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Sample.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -81,27 +81,27 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Decrypting the PowerPoint presentation
+## Decrypting the PowerPoint Presentation
 
-Essential Presentation provides ability to remove the encryption from the PowerPoint presentation. You can decrypt a PowerPoint presentation by opening it with the password.
+Essential Presentation provides ability to remove the encryption from the PowerPoint Presentation. You can decrypt a PowerPoint Presentation by opening it with the password.
 
-**Opening** **the** **Encrypted** **PowerPoint** **presentation**
+**Opening** **the** **Encrypted** **PowerPoint** **Presentation**
 
-The following code example demonstrates opening the encrypted PowerPoint presentation. 
+The following code example demonstrates opening the encrypted PowerPoint Presentation. 
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens an existing presentation from file system and it can be decrypted by using the provided password.
+//Opens an existing Presentation from file system and it can be decrypted by using the provided password.
 
 IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$");
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -109,15 +109,15 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing presentation from file system and it can be decrypted by using the provided password.
+'Opens an existing Presentation from file system and it can be decrypted by using the provided password.
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -125,15 +125,15 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-**Removing** **the** **encryption** **from** **presentation**
+**Removing** **the** **encryption** **from** **Presentation**
 
-The following code example demonstrates removing the encryption from a PowerPoint presentation. 
+The following code example demonstrates removing the encryption from a PowerPoint Presentation. 
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens an existing presentation from file system and it can be decrypted by using the provided password.
+//Opens an existing Presentation from file system and it can be decrypted by using the provided password.
 
 IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$");
 
@@ -145,7 +145,7 @@ presentation.RemoveEncryption();
 
 presentation.Save("Output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -153,7 +153,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing presentation from file system and it can be decrypted by using the provided password.
+'Opens an existing Presentation from file system and it can be decrypted by using the provided password.
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
 
@@ -161,11 +161,11 @@ Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PA
 
 presentationDocument.RemoveEncryption()
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 

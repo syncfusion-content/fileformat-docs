@@ -11,37 +11,37 @@ A SmartArt diagram is a visual representation of your information, to effectivel
 
 ## Adding SmartArt to a Slide
 
-You can add any of the predefined SmartArt diagrams to PowerPoint presentation. The following code example demonstrates adding a SmartArt to a Slide.
+You can add any of the predefined SmartArt diagrams to PowerPoint Presentation. The following code example demonstrates adding a SmartArt to a Slide.
 
 {% highlight c# %}
-// Create an instance of PowerPoint presentation
+// Create an instance of PowerPoint Presentation
 
 IPresentation presentation = Presentation.Create();
 
-//Add a blank slide to the presentation
+//Add a blank slide to the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
 //Add a BasicBlockList SmartArt to the slide at the specified size and position.
 
-ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.BasicBlockList, 0, 0, 640, 426); //Save the presentation
+ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.BasicBlockList, 0, 0, 640, 426); 
+
+//Save the Presentation
 
 presentation.Save("SmartArt.pptx");
 
-//Close the presentation
+//Close the Presentation
 
 presentation.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Create an instance of PowerPoint presentation
+'Create an instance of PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Add a blank slide to the presentation
+'Add a blank slide to the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -49,11 +49,11 @@ Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 Dim smartArt As ISmartArt = slide.Shapes.AddSmartArt(SmartArtType.BasicBlockList, 0, 0, 640, 426)
 
-'Save the presentation
+'Save the Presentation
 
 presentationDocument.Save("SmartArt.pptx")
 
-'Close the presentation
+'Close the Presentation
 
 presentationDocument.Close()
 
@@ -66,11 +66,11 @@ presentationDocument.Close()
 You can add a new node to the SmartArt diagram. The following code example demonstrates the same.
 
 {% highlight c# %}
-// Create an instance of PowerPoint presentation
+// Create an instance of PowerPoint Presentation
 
 IPresentation presentation = Presentation.Create();
 
-//Add a blank slide to the presentation
+//Add a blank slide to the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -86,11 +86,11 @@ ISmartArtNode newNode = smartArt.Nodes.Add();
 
 newNode.TextBody.AddParagraph("New main node added.");
 
-//Save the presentation.
+//Save the Presentation.
 
 presentation.Save("SmartArt.pptx");
 
-//Close the presentation.
+//Close the Presentation.
 
 presentation.Close();
 
@@ -99,11 +99,11 @@ presentation.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Create an instance of PowerPoint presentation
+'Create an instance of PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Add a blank slide to the presentation
+'Add a blank slide to the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -119,11 +119,11 @@ Dim newNode As ISmartArtNode = smartArt.Nodes.Add()
 
 newNode.TextBody.AddParagraph("New main node added.")
 
-'Save the presentation.
+'Save the Presentation.
 
 presentationDocument.Save("SmartArt.pptx")
 
-'Close the presentation.
+'Close the Presentation.
 
 presentationDocument.Close()
 
@@ -134,11 +134,11 @@ presentationDocument.Close()
 In SmartArt diagrams, you can also add nodes to several nested levels. The maximum limit of nested levels may vary based on SmartArt types. The following code example demonstrates adding nested level nodes in a SmartArt.
 
 {% highlight c# %}
-// Create an instance of PowerPoint presentation
+// Create an instance of PowerPoint Presentation
 
 IPresentation presentation = Presentation.Create();
 
-//Add a blank slide to the presentation
+//Add a blank slide to the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -158,11 +158,11 @@ ISmartArtNode childNode = newNode.ChildNodes.Add();
 
 childNode.TextBody.AddParagraph("Child node of the existing node.");
 
-//Save the presentation.
+//Save the Presentation.
 
 presentation.Save("SmartArt.pptx");
 
-//Close the presentation.
+//Close the Presentation.
 
 presentation.Close();
 
@@ -171,11 +171,11 @@ presentation.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Create an instance of PowerPoint presentation
+'Create an instance of PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Add a blank slide to the presentation
+'Add a blank slide to the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -195,11 +195,11 @@ Dim childNode As ISmartArtNode = newNode.ChildNodes.Add()
 
 childNode.TextBody.AddParagraph("Child node of the existing node.")
 
-'Save the presentation.
+'Save the Presentation.
 
 presentationDocument.Save("SmartArt.pptx")
 
-'Close the presentation.
+'Close the Presentation.
 
 presentationDocument.Close()
 
@@ -212,11 +212,11 @@ presentationDocument.Close()
 You can modify the SmartArt appearance by modifying the fill type, color, transparency etc. The below code example demonstrates modifying the appearance of SmartArt nodes.
 
 {% highlight c# %}
-//Open a PowerPoint presentation
+//Open a PowerPoint Presentation
 
 IPresentation presentation = Presentation.Open("SampleDocument.pptx");
 
-//Get the Slide from presentation
+//Get the Slide from Presentation
 
 ISlide slide = presentation.Slides[0];
 
@@ -244,11 +244,11 @@ firstNode.Shapes[0].Fill.SolidFill.Color = ColorObject.GreenYellow;
 
 firstNode.Shapes[0].Fill.SolidFill.Transparency = 30;
 
-//Save the presentation.
+//Save the Presentation.
 
 presentation.Save("SmartArt.pptx");
 
-//Close the presentation.
+//Close the Presentation.
 
 presentation.Close();
 
@@ -257,11 +257,11 @@ presentation.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Open a PowerPoint presentation
+'Open a PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("SampleDocument.pptx")
 
-'Get the Slide from presentation
+'Get the Slide from Presentation
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
@@ -289,11 +289,11 @@ firstNode.Shapes(0).Fill.SolidFill.Color = ColorObject.GreenYellow
 
 firstNode.Shapes(0).Fill.SolidFill.Transparency = 30
 
-'Save the presentation.
+'Save the Presentation.
 
 presentationDocument.Save("SmartArt.pptx")
 
-'Close the presentation.
+'Close the Presentation.
 
 presentationDocument.Close()
 
@@ -306,7 +306,7 @@ presentationDocument.Close()
 You can iterate through the child nodes and access the properties of each node in a SmartArt. The following code example demonstrates accessing and modifying the text content of node.
 
 {% highlight c# %}
-//Open a PowerPoint presentation
+//Open a PowerPoint Presentation
 
 IPresentation presentation = Presentation.Open("SampleDocument.pptx");
 
@@ -338,11 +338,11 @@ mainNode.TextBody.Paragraphs[0].TextParts[0].Text = "New Content";
 
 }
 
-//Save the presentation.
+//Save the Presentation.
 
 presentation.Save("SmartArt.pptx");
 
-//Close the presentation.
+//Close the Presentation.
 
 presentation.Close();
 
@@ -351,7 +351,7 @@ presentation.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Open a PowerPoint presentation
+'Open a PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("SampleDocument.pptx")
 
@@ -379,11 +379,11 @@ End If
 
 Next
 
-'Save the presentation.
+'Save the Presentation.
 
 presentationDocument.Save("SmartArt.pptx")
 
-'Close the presentation.
+'Close the Presentation.
 
 presentationDocument.Close()
 
@@ -396,11 +396,11 @@ presentationDocument.Close()
 You can remove a node from the SmartArt diagram. The following code example demonstrates the same.
 
 {% highlight c# %}
-//Open a PowerPoint presentation
+//Open a PowerPoint Presentation
 
 IPresentation presentation = Presentation.Open("SampleDocument.pptx");
 
-//Get the first slide from the presentation.
+//Get the first slide from the Presentation.
 
 ISlide slide = presentation.Slides[0];
 
@@ -412,11 +412,11 @@ ISmartArt smartArt = slide.Shapes[0] as ISmartArt;
 
 smartArt.Nodes.RemoveAt(4);
 
-//Save the presentation.
+//Save the Presentation.
 
 presentation.Save("SmartArt.pptx");
 
-//Close the presentation.
+//Close the Presentation.
 
 presentation.Close();
 
@@ -425,11 +425,11 @@ presentation.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Open a PowerPoint presentation
+'Open a PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("SampleDocument.pptx")
 
-'Get the first slide from the presentation.
+'Get the first slide from the Presentation.
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
@@ -441,11 +441,11 @@ Dim smartArt As ISmartArt = TryCast(slide.Shapes(0), ISmartArt)
 
 smartArt.Nodes.RemoveAt(4)
 
-'Save the presentation.
+'Save the Presentation.
 
 presentationDocument.Save("SmartArt.pptx")
 
-'Close the presentation.
+'Close the Presentation.
 
 presentationDocument.Close()
 
@@ -458,11 +458,11 @@ presentationDocument.Close()
 You can check whether a node is an assistant or not. Also you can change a node as assistant node or revert an assistant node to normal node.  The following code example demonstrates making an assistant node as normal node.
 
 {% highlight c# %}
-// Create an instance of PowerPoint presentation
+// Create an instance of PowerPoint Presentation
 
 IPresentation presentation = Presentation.Create();
 
-//Add a blank slide to the presentation
+//Add a blank slide to the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -486,11 +486,11 @@ node.IsAssistant = false;
 
 }
 
-//Save the presentation.
+//Save the Presentation.
 
 presentation.Save("Sample.pptx");
 
-//Close the presentation.
+//Close the Presentation.
 
 presentation.Close();
 
@@ -499,11 +499,11 @@ presentation.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Create an instance of PowerPoint presentation
+'Create an instance of PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Add a blank slide to the presentation
+'Add a blank slide to the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -527,11 +527,11 @@ End If
 
 Next
 
-'Save the presentation.
+'Save the Presentation.
 
 presentationDocument.Save("Sample.pptx")
 
-'Close the presentation.
+'Close the Presentation.
 
 presentationDocument.Close()
 

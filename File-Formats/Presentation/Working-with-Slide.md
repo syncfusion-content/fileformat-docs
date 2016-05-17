@@ -7,11 +7,11 @@ documentation: UG
 ---
 # Working with Slide
 
-## Adding slide to the PowerPoint presentation
+## Adding slide to the PowerPoint Presentation
 
-In presentation, a slide is a container for the elements like shapes, images, charts, text box etc. The slides may inherit the formatting and layout properties from its Master and Layout slides that reside in the PowerPoint presentation.
+In Presentation, a slide is a container for the elements like shapes, images, charts, text box etc. The slides may inherit the formatting and layout properties from its Master and Layout slides that reside in the PowerPoint presentation.
 
-The following code example demonstrates how to add a blank slide to the presentation.
+The following code example demonstrates how to add a blank slide to the Presentation.
 
 {% tabs %}
 
@@ -21,15 +21,15 @@ The following code example demonstrates how to add a blank slide to the presenta
 
 IPresentation presentation = Presentation.Create();
 
-//Adds a slide to the PowerPoint presentation
+//Adds a slide to the PowerPoint Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Saves the presentation to the file system.
+//Saves the Presentation to the file system.
 
 presentation.Save("Sample.pptx");
 
-//Closes the presentation instance
+//Closes the Presentation instance
 
 presentation.Close();
 
@@ -41,15 +41,15 @@ presentation.Close();
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds a slide to the PowerPoint presentation
+'Adds a slide to the PowerPoint Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
-'Saves the presentation to the file system.
+'Saves the Presentation to the file system.
 
 presentationDocument.Save("Sample.pptx")
 
-'Closes the presentation instance
+'Closes the Presentation instance
 
 presentationDocument.Close()
 
@@ -65,7 +65,7 @@ You can create a deep copy of a slide by cloning the slide. The cloned slide is 
 
 {% highlight c# %}
 
-//Opens an existing presentation.
+//Opens an existing Presentation.
 
 IPresentation presentation = Presentation.Open("Presentation.pptx");
 
@@ -85,15 +85,15 @@ IShape textboxShape = slideClone.AddTextBox(0, 0, 250, 250);
 
 textboxShape.TextBody.AddParagraph("Hello Presentation");
 
-//Adds the slide to the presentation.
+//Adds the slide to the Presentation.
 
 presentation.Slides.Add(slideClone);
 
-//Saves the presentation to the file system.
+//Saves the Presentation to the file system.
 
 presentation.Save("Output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -101,7 +101,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing presentation.
+'Opens an existing Presentation.
 
 Dim presentationDocument As IPresentation = Presentation.Open("Presentation.pptx")
 
@@ -121,15 +121,15 @@ Dim textboxShape As IShape = slideClone.AddTextBox(0, 0, 250, 250)
 
 textboxShape.TextBody.AddParagraph("Hello Presentation")
 
-'Adds the slide to the presentation.
+'Adds the slide to the Presentation.
 
 presentationDocument.Slides.Add(slideClone)
 
-'Saves the presentation to the file system.
+'Saves the Presentation to the file system.
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -139,29 +139,29 @@ presentationDocument.Close()
 
 ## Merging slide
 
-The Essential Presentation provides ability to clone slides from one presentation to another presentation. With this ability, you can split a large presentation into small ones and also merge multiple presentations to one presentation. You can choose the theme for the cloned slide by using the enum PasteOption.
+The Essential Presentation provides ability to clone slides from one Presentation to another Presentation. With this ability, you can split a large Presentation into small ones and also merge multiple presentations to one Presentation. You can choose the theme for the cloned slide by using the enum PasteOption.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens the source presentation
+//Opens the source Presentation
 
 IPresentation sourcePresentation = Presentation.Open("SourcePresentation.pptx");
 
-//Opens the destination presentation
+//Opens the destination Presentation
 
 IPresentation destinationPresentation = Presentation.Open("DestinationPresentation.pptx");
 
-//Clones the first slide of the source presentation.
+//Clones the first slide of the source Presentation
 
 ISlide clonedSlide = sourcePresentation.Slides[0].Clone();
 
-//Merges the cloned slide to the destination presentation with paste option - Destination Them.
+//Merges the cloned slide to the destination Presentation with paste option - Destination Theme
 
 destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme, sourcePresentation);
 
-//Saves the destination presentation.
+//Saves the destination Presentation
 
 destinationPresentation.Save("Output.pptx");
 
@@ -169,7 +169,7 @@ destinationPresentation.Save("Output.pptx");
 
 sourcePresentation.Close();
 
-//Closes the destination presentation
+//Closes the destination Presentation
 
 destinationPresentation.Close();
 
@@ -177,23 +177,23 @@ destinationPresentation.Close();
 
 {% highlight vb.net %}
 
-'Opens the source presentation
+'Opens the source Presentation
 
 Dim sourcePresentation_1 As IPresentation = Presentation.Open("SourcePresentation.pptx")
 
-'Opens the destination presentation
+'Opens the destination Presentation
 
 Dim destinationPresentation_1 As IPresentation = Presentation.Open("DestinationPresentation.pptx")
 
-'Clones the first slide of the source presentation.
+'Clones the first slide of the source Presentation
 
 Dim clonedSlide As ISlide = sourcePresentation_1.Slides(0).Clone()
 
-'Merges the cloned slide to the destination presentation with paste option - Destination Them.
+'Merges the cloned slide to the destination Presentation with paste option - Destination Theme
 
 destinationPresentation_1.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme, sourcePresentation_1)
 
-'Saves the destination presentation.
+'Saves the destination Presentation
 
 destinationPresentation_1.Save("Output.pptx")
 
@@ -201,7 +201,7 @@ destinationPresentation_1.Save("Output.pptx")
 
 sourcePresentation.Close()
 
-'Closes the destination presentation
+'Closes the destination Presentation
 
 destinationPresentation.Close()
 
@@ -225,7 +225,7 @@ IPresentation presentation = Presentation.Open("Presentation1.pptx");
 
 ISlide slide = presentation.Slides[0];
 
-//Removes the specified slide from the presentation.
+//Removes the specified slide from the Presentation.
 
 presentation.Slides.Remove(slide);
 
@@ -233,11 +233,11 @@ presentation.Slides.Remove(slide);
 
 presentation.Slides.RemoveAt(1);
 
-//Saves the destination presentation.
+//Saves the destination Presentation
 
 presentation.Save("Output.pptx");
 
-//Closes the presentation instance
+//Closes the Presentation instance
 
 presentation.Close();
 
@@ -245,7 +245,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing presentation.
+'Opens an existing Presentation.
 
 Dim presentationDocument As IPresentation = Presentation.Open("Presentation1.pptx")
 
@@ -253,7 +253,7 @@ Dim presentationDocument As IPresentation = Presentation.Open("Presentation1.ppt
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
-'Removes the specified slide from the presentation.
+'Removes the specified slide from the Presentation.
 
 presentationDocument.Slides.Remove(slide)
 
@@ -261,11 +261,11 @@ presentationDocument.Slides.Remove(slide)
 
 presentationDocument.Slides.RemoveAt(1)
 
-'Saves the destination presentation.
+'Saves the destination Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation instance
+'Closes the Presentation instance
 
 presentationDocument.Close()
 
@@ -281,7 +281,7 @@ You can convert a presentation slide to image with Essential Presentation. The f
 
 {% highlight c# %}
 
-//Opens a PowerPoint presentation file
+//Opens a PowerPoint Presentation file
 
 IPresentation presentation = Presentation.Open(fileName); 
 
@@ -297,7 +297,7 @@ Image image = presentation.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageTyp
 
 image.Save("slide1.png"); 
 
-//Closes the presentation instance
+//Closes the Presentation instance
 
 presentation.Close();
 
@@ -305,7 +305,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens a PowerPoint presentation file
+'Opens a PowerPoint Presentation file
 
 Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
@@ -321,7 +321,7 @@ Dim image As Image = presentationDocument.Slides(0).ConvertToImage(Syncfusion.D
 
 image.Save("slide1.png")
 
-'Closes the presentation instance
+'Closes the Presentation instance
 
 presentationDocument.Close()
 
@@ -341,7 +341,7 @@ The following code example demonstrates setting the background for a slide.
 
 {% highlight c# %}
 
-//Opens an existing presentation.
+//Opens an existing Presentation.
 
 IPresentation presentation = Presentation.Open("Presentation1.pptx");
 
@@ -369,11 +369,11 @@ gradient.GradientStops.Add(ColorObject.Green, 20);
 
 gradient.GradientStops.Add(ColorObject.Yellow, 50);
 
-//Saves the presentation to the file system.
+//Saves the Presentation to the file system
 
 presentation.Save("Output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -381,7 +381,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing presentation.
+'Opens an existing Presentation.
 
 Dim presentationDocument As IPresentation = Presentation.Open("Presentation1.pptx")
 
@@ -409,11 +409,11 @@ gradient.GradientStops.Add(ColorObject.Green, 20)
 
 gradient.GradientStops.Add(ColorObject.Yellow, 50)
 
-'Saves the presentation to the file system.
+'Saves the Presentation to the file system
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 

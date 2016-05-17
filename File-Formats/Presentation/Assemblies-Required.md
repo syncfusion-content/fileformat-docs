@@ -38,9 +38,9 @@ Universal Windows Platform<br/></td><td>
 Syncfusion.Presentation.UWP<br/>Syncfusion.OfficeChart.UWP<br/></td></tr>
 </table>
 
-## Converting PowerPoint presentation to PDF
+## Converting PowerPoint Presentation to PDF
 
-For converting a PowerPoint presentation to PDF, the following assemblies need to be referenced in your application
+For converting a PowerPoint Presentation to PDF, the following assemblies needed to be referenced in your application
 <table>
 <tr>
 <td>
@@ -64,7 +64,7 @@ Syncfusion.PresentationToPDFConverter.Base<br/>
 </tr>
 </table>
 N> Presentation to PDF conversion is not supported in Xamarin and UWP applications.
-The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the PowerPoint presentation into PDF.
+The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the PowerPoint Presentation into PDF.
 <table>
 <tr>
 <td>

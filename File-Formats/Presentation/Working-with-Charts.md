@@ -9,17 +9,17 @@ documentation: UG
 
 ## Creating a Chart from scratch
 
-An instance of **IOfficeChart** can be used to create or modify the charts in PowerPoint presentation. The following code example demonstrates how to create a simple chart by adding data from scratch.
+An instance of **IOfficeChart** can be used to create or modify the charts in PowerPoint Presentation. The following code example demonstrates how to create a simple chart by adding data from scratch.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Creates a presentation instance
+//Creates a Presentation instance
 
 IPresentation presentation = Presentation.Create();
 
-//Adds a blank slide to the presentation
+//Adds a blank slide to the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -101,11 +101,11 @@ chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 4, 1];
 
 chart.ChartType = OfficeChartType.Column_Clustered;
 
-//Adds the third slide into the presentation
+//Adds the third slide into the Presentation
 
 presentation.Save("sample.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -113,11 +113,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates a presentation instance
+'Creates a Presentation instance
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds a blank slide to the presentation
+'Adds a blank slide to the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -199,11 +199,11 @@ chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData(2, 1, 4, 1)
 
 chart.ChartType = OfficeChartType.Column_Clustered
 
-'Adds the third slide into the presentation
+'Adds the third slide into the Presentation
 
 presentationDocument.Save("sample.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -219,11 +219,11 @@ You can also create a chart with the data from an existing excel worksheet. The 
 
 {% highlight c# %}
 
-//Creates a presentation instance
+//Creates a Presentation instance
 
 IPresentation presentation = Presentation.Create();
 
-//Adds a blank slide to the presentation
+//Adds a blank slide to the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -235,11 +235,11 @@ MemoryStream excelStream = new MemoryStream(File.ReadAllBytes("Book1.xlsx"));
 
 IPresentationChart chart = slide.Charts.AddChart(excelStream, 1, "A1:D4", new RectangleF(100, 10, 700, 500));
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -247,11 +247,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates a presentation instance
+'Creates a Presentation instance
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds a blank slide to the presentation
+'Adds a blank slide to the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -263,11 +263,11 @@ Dim excelStream As New MemoryStream(File.ReadAllBytes("Book1.xlsx"))
 
 Dim chart As IPresentationChart = slide.Charts.AddChart(excelStream, 1, "A1:D4", New RectangleF(100, 10, 700, 500))
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -377,11 +377,11 @@ serie2014.Values = chart.ChartData[2, 3, 7, 3];
 
 serie2014.SerieType = OfficeChartType.Scatter_Line_Markers;
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Output_1.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -479,11 +479,11 @@ serie2014.Values = chart.ChartData(2, 3, 7, 3)
 
 serie2014.SerieType = OfficeChartType.Scatter_Line_Markers
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Output_1.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -497,15 +497,15 @@ The above code example creates a chart in the following screenshot.
 
 ## Refreshing the chart
 
-Sometimes, the charts do not represent the actual data. In those cases, the charts in PowerPoint presentation should be refreshed.
+Sometimes, the charts do not represent the actual data. In those cases, the charts in PowerPoint Presentation should be refreshed.
 
-The following code example demonstrates how to refresh the charts in PowerPoint presentation. 
+The following code example demonstrates how to refresh the charts in PowerPoint Presentation. 
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens the presentation
+//Opens the Presentation
 
 IPresentation presentation = Presentation.Open("Chart.pptx");
 
@@ -521,11 +521,11 @@ IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
 chart.Refresh();
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -533,7 +533,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens the presentation
+'Opens the Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Chart.pptx")
 
@@ -549,11 +549,11 @@ Dim chart As IPresentationChart = TryCast(slide.Shapes(0), IPresentationChart)
 
 chart.Refresh()
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -569,11 +569,11 @@ You can change the data for an existing chart. The code example demonstrates how
 
 {% highlight c# %}
 
-//Opens a presentation
+//Opens a Presentation
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Adds a slide to the presentation
+//Adds a slide to the Presentation
 
 ISlide slide = presentation.Slides[0];
 
@@ -603,11 +603,11 @@ chart.ChartData.SetValue(2, 4, 80);
 
 chart.Refresh();
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -615,11 +615,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens a presentation
+'Opens a Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
-'Adds a slide to the presentation
+'Adds a slide to the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
@@ -649,11 +649,11 @@ chart.ChartData.SetValue(2, 4, 80)
 
 chart.Refresh()
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -685,7 +685,7 @@ The appearance of a chart can be modified according to the convenience and usage
 
 {% highlight c# %}
 
-//Opens the presentation
+//Opens the Presentation
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
@@ -791,11 +791,11 @@ chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 
 chartPlotArea.Fill.ForeColor = Color.White;
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -803,7 +803,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens the presentation
+'Opens the Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
@@ -909,11 +909,11 @@ chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
 
 chartPlotArea.Fill.ForeColor = Color.White
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -929,7 +929,7 @@ The following code example demonstrates how to modify the legend and plot areas 
 
 {% highlight c# %}
 
-//Opens a presentation
+//Opens a Presentation
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
@@ -1057,11 +1057,11 @@ chart.Legend.Layout.Width = 300;
 
 chart.Legend.Layout.WidthMode = LayoutModes.factor;
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("ModifiedChart.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -1069,7 +1069,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens a presentation
+'Opens a Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
@@ -1197,11 +1197,11 @@ chart.Legend.Layout.Width = 300
 
 chart.Legend.Layout.WidthMode = LayoutModes.factor
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("ModifiedChart.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -1271,11 +1271,11 @@ chart.Legend.Layout.LeftMode = LayoutModes.factor;
 
 chart.Legend.Layout.TopMode = LayoutModes.factor;
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -1337,11 +1337,11 @@ chart.Legend.Layout.LeftMode = LayoutModes.factor
 
 chart.Legend.Layout.TopMode = LayoutModes.factor
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -1357,7 +1357,7 @@ Essential Presentation allows you to modify side wall, back wall, and floor sett
 
 {% highlight c# %}
 
-//Opens the presentation
+//Opens the Presentation
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
@@ -1385,11 +1385,11 @@ chart.SideWall.Shadow.Angle = 60;
 
 chart.BackWall.Border.LineWeight = OfficeChartLineWeight.Narrow;
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -1397,7 +1397,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens the presentation
+'Opens the Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
@@ -1425,11 +1425,11 @@ chart.SideWall.Shadow.Angle = 60
 
 chart.BackWall.Border.LineWeight = OfficeChartLineWeight.Narrow
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -1439,7 +1439,7 @@ presentationDocument.Close()
 
 ## Chart to Image conversion
 
-The following code example demonstrates how to convert the charts in a presentation slide to image.
+The following code example demonstrates how to convert the charts in a Presentation slide to image.
 
 T> You can specify the quality of the converted charts by setting the scaling mode. For more details on how to set the scaling mode, see [Converting PowerPoint presentation to Images](/file-formats/presentation/conversion#converting-powerpoint-presentation-to-images)
 
@@ -1447,7 +1447,7 @@ T> You can specify the quality of the converted charts by setting the scaling mo
 
 {% highlight c# %}
 
-//Opens the presentation
+//Opens the Presentation
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
@@ -1485,7 +1485,7 @@ fileStream.Write(stream.ToArray(), 0, stream.ToArray().Length);
 
 stream.Close(); 
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -1493,7 +1493,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens the presentation
+'Opens the Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
@@ -1533,7 +1533,7 @@ End Using
 
 stream.Close()
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -1549,7 +1549,7 @@ The following code example demonstrates removing a chart from a slide.
 
 {% highlight c# %}
 
-//Opens the presentation
+//Opens the Presentation
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
@@ -1577,7 +1577,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens the presentation
+'Opens the Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
@@ -1597,7 +1597,7 @@ slide.Shapes.Remove(TryCast(chart, IShape))
 
 presentationDocument.Save("output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 

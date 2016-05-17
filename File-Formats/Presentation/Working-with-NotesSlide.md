@@ -9,7 +9,7 @@ keywords: Working with Notes
 
 # Working with Notes
 
-Notes slide helps to keep the key points and reminders in the PowerPoint Presentation. Presentation library provides support for creating, modifying and removing notes in a PowerPoint Slide. 
+PowerPoint Presentation provides an option to add “Notes” to the slides in a Presentation. The “Notes” are a special section that can be optionally added to each slide in a Presentation. You can add any slide elements such as text, numbered or bulleted lists, charts, images and shapes to the "Notes". Presentation library provides support for creating, modifying and removing notes in a PowerPoint Slide. 
 
 ## Adding Notes to a Slide
 
@@ -126,9 +126,9 @@ paragraph.IndentLevelNumber = 1;
 paragraph.FirstLineIndent = -20; 
 // Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400. 
 paragraph.ListFormat.Size = 100; 
-//Saves the presentation to the file system. 
+//Saves the Presentation to the file system. 
 presentation.Save("Sample.pptx"); 
-//Closes the presentation 
+//Closes the Presentation 
 presentation.Close();
 {% endhighlight %}
 {% endtabs %}

@@ -1,29 +1,29 @@
 ---
-title: Working with PowerPoint presentation
-description: Working with PowerPoint presentation; Cloning the presentation; printing the presentation
+title: Working with PowerPoint Presentation
+description: Working with PowerPoint Presentation; Cloning the Presentation; Printing the Presentation
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Working with PowerPoint presentation
+# Working with PowerPoint Presentation
 
-## Cloning a PowerPoint presentation
+## Cloning a PowerPoint Presentation
 
-Cloning a PowerPoint presentation creates a new copy of the PowerPoint presentation. The cloned copy is an independent object that indicates changes made in the cloned copy of the presentation do not affect the source PowerPoint presentation.
+Cloning a PowerPoint presentation creates a new copy of the PowerPoint Presentation. The cloned copy is an independent object that indicates changes made in the cloned copy of the presentation do not affect the source PowerPoint presentation.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens a PowerPoint presentation file
+//Opens a PowerPoint Presentation
 
 IPresentation sourcePresentation = Presentation.Open(fileName);
 
-//Clones the presentation
+//Clones the Presentation
 
 IPresentation clonedPresentation = sourcePresentation.Clone();
 
-//Gets the first slide from the cloned PowerPoint presentation
+//Gets the first slide from the cloned PowerPoint Presentation
 
 ISlide firstSlide = clonedPresentation.Slides[0];
 
@@ -39,7 +39,7 @@ IParagraph paragraph = textShape.TextBody.AddParagraph();
 
 ITextPart textPart = paragraph.AddTextPart("Essential Presentation");
 
-//Saves the modified cloned PowerPoint presentation
+//Saves the modified cloned PowerPoint Presentation
 
 clonedPresentation.Save("ClonedPresentation.pptx");
 
@@ -47,15 +47,15 @@ clonedPresentation.Save("ClonedPresentation.pptx");
 
 {% highlight vb.net %}
 
-'Opens a PowerPoint presentation file
+'Opens a PowerPoint Presentation
 
 Dim sourcePresentation_1 As IPresentation = Presentation.Open(fileName)
 
-'Clones the presentation
+'Clones the Presentation
 
 Dim clonedPresentation_1 As IPresentation = sourcePresentation_1.Clone()
 
-'Gets the first slide from the cloned PowerPoint presentation
+'Gets the first slide from the cloned PowerPoint Presentation
 
 Dim firstSlide As ISlide = clonedPresentation_1.Slides(0)
 
@@ -71,7 +71,7 @@ Dim paragraph As IParagraph = textShape.TextBody.AddParagraph()
 
 Dim textPart As ITextPart = paragraph.AddTextPart("Essential Presentation")
 
-'Saves the modified cloned PowerPoint presentation
+'Saves the modified cloned PowerPoint Presentation
 
 clonedPresentation_1.Save("ClonedPresentation.pptx")
 
@@ -79,17 +79,17 @@ clonedPresentation_1.Save("ClonedPresentation.pptx")
 
 {% endtabs %}
 
-## Printing a PowerPoint presentation
+## Printing a PowerPoint Presentation
 
-You can print the presentation document by converting the PowerPoint Presentation slides to images. For more information about converting the PowerPoint presentation slides to images, see [Conversion](/file-formats/presentation/conversion). You can use the System.Drawing.Printing.[PrintDocument](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument(v=vs.110).aspx) class to print the converted images by the default printer or to any of the available printer with customized settings.
+You can print the Presentation document by converting the PowerPoint Presentation slides to images. For more information about converting the PowerPoint Presentation slides to images, see [Conversion](/file-formats/presentation/conversion). You can use the System.Drawing.Printing.[PrintDocument](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument(v=vs.110).aspx) class to print the converted images by the default printer or to any of the available printer with customized settings.
 
-The following code example demonstrates how to convert the slides of a PowerPoint presentation to images.
+The following code example demonstrates how to convert the slides of a PowerPoint Presentation to images.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens a PowerPoint presentation
+//Opens a PowerPoint Presentation
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
@@ -97,7 +97,7 @@ IPresentation presentation = Presentation.Open("Sample.pptx");
 
 Image[] images = presentation.RenderAsImages(Syncfusion.Drawing.ImageType.Bitmap);
 
-//Closes the PowerPoint presentation
+//Closes the PowerPoint Presentation
 
 presentation.Close();
 
@@ -105,7 +105,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens a PowerPoint presentation
+'Opens a PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
@@ -113,7 +113,7 @@ Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 Dim images As Image() = presentationDocument.RenderAsImages(Syncfusion.Drawing. ImageType.Bitmap)
 
-'Closes the PowerPoint presentation
+'Closes the PowerPoint Presentation
 
 presentationDocument.Close()
 
@@ -382,7 +382,7 @@ End Sub
 
 {% endtabs %}
 
-## Working with PowerPoint presentation properties
+## Working with PowerPoint Presentation properties
 
 Document properties, also known as metadata, are details about a file that describe or identify it. Document properties are classified into two categories. 
 
@@ -391,7 +391,7 @@ Document properties, also known as metadata, are details about a file that descr
 
 **Built****-****in** **Document** **Properties**
 
-You can access and modify the built in document properties of a PowerPoint presentation with Essential Presentation library. The Built-in document properties of a PowerPoint presentation is represented by **IBuiltInDocumentProperties** type.
+You can access and modify the built in document properties of a PowerPoint Presentation with Essential Presentation library. The Built-in document properties of a PowerPoint presentation is represented by **IBuiltInDocumentProperties** type.
 
 **Accessing** **and** **Modifying** **Built****-****in** **Document** **Properties**
 
@@ -401,7 +401,7 @@ The following code example demonstrates how to access the existing built in docu
 
 {% highlight c# %}
 
-//Opens a PowerPoint presentation
+//Opens a PowerPoint Presentation
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
@@ -411,7 +411,7 @@ Console.WriteLine("Title - {0}", presentation.BuiltInDocumentProperties.Title);
 
 Console.WriteLine("Author - {0}", presentation.BuiltInDocumentProperties.Author);
 
-//Closes the PowerPoint presentation
+//Closes the PowerPoint Presentation
 
 presentation.Close();
 
@@ -419,7 +419,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens a PowerPoint presentation
+'Opens a PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
@@ -429,7 +429,7 @@ Console.WriteLine("Title - {0}", presentationDocument.BuiltInDocumentProperties.
 
 Console.WriteLine("Author - {0}", presentationDocument.BuiltInDocumentProperties.Author)
 
-'Closes the PowerPoint presentation
+'Closes the PowerPoint Presentation
 
 presentationDocument.Close()
 
@@ -443,7 +443,7 @@ The following code example demonstrates how to modify the existing built in docu
 
 {% highlight c# %}
 
-//Opens a PowerPoint presentation
+//Opens a PowerPoint Presentation
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
@@ -453,11 +453,11 @@ presentation.BuiltInDocumentProperties.Category = "Sales reports";
 
 presentation.BuiltInDocumentProperties.Company = "Northwind traders";
 
-//Saves the modified PowerPoint presentation
+//Saves the modified PowerPoint Presentation
 
 presentation.Save("Output.pptx");
 
-//Closes the modified PowerPoint presentation
+//Closes the modified PowerPoint Presentation
 
 presentation.Close();
 
@@ -465,7 +465,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens a PowerPoint presentation
+'Opens a PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
@@ -475,11 +475,11 @@ presentationDocument.BuiltInDocumentProperties.Category = "Sales reports"
 
 presentationDocument.BuiltInDocumentProperties.Company = "Northwind traders"
 
-'Saves the modified PowerPoint presentation
+'Saves the modified PowerPoint Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the modified PowerPoint presentation
+'Closes the modified PowerPoint Presentation
 
 presentationDocument.Close()
 
@@ -489,7 +489,7 @@ presentationDocument.Close()
 
 ## Custom Document properties
 
-You can create and modify the custom document properties of a PowerPoint presentation with Essential Presentation library. The collection of custom document properties in a PowerPoint presentation is represented by **ICustomDocumentProperties** object. 
+You can create and modify the custom document properties of a PowerPoint Presentation with Essential Presentation library. The collection of custom document properties in a PowerPoint Presentation is represented by **ICustomDocumentProperties** object. 
 
 ### Adding Custom Document properties
 
@@ -500,7 +500,7 @@ The following code example demonstrates how to add new custom document property.
 {% highlight c# %}
 
 
-//Creates a PowerPoint presentation
+//Creates a PowerPoint Presentation
 
 IPresentation presentation = Presentation.Create();
 
@@ -516,11 +516,11 @@ documentProperty.Add("PropertyB");
 
 documentProperty["PropertyB"].Text = "B";
 
-//Saves the PowerPoint presentation            
+//Saves the PowerPoint Presentation
 
 presentation.Save("Output.pptx");
 
-//Closes the PowerPoint presentation
+//Closes the PowerPoint Presentation
 
 presentation.Close();
 
@@ -528,7 +528,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates a PowerPoint presentation
+'Creates a PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
@@ -544,11 +544,11 @@ documentProperty.Add("PropertyB")
 
 documentProperty("PropertyB").Text = "B"
 
-'Saves the PowerPoint presentation            
+'Saves the PowerPoint Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the PowerPoint presentation
+'Closes the PowerPoint Presentation
 
 presentationDocument.Close()
 
@@ -564,7 +564,7 @@ The following code example demonstrates how to access and modify an existing cus
 
 {% highlight c# %}
 
-//Opens a PowerPoint presentation
+//Opens a PowerPoint Presentation
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
@@ -576,11 +576,11 @@ IDocumentProperty property = presentation.CustomDocumentProperties["PropertyA"];
 
 property.Value = "Hello world";
 
-//Saves the PowerPoint presentation
+//Saves the PowerPoint Presentation
 
 presentation.Save("Output.pptx");
 
-//Closes the PowerPoint presentation
+//Closes the PowerPoint Presentation
 
 presentation.Close();
 
@@ -588,7 +588,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens a PowerPoint presentation
+'Opens a PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
@@ -600,11 +600,11 @@ Dim [property] As IDocumentProperty = presentationDocument.CustomDocumentPropert
 
 [property].Value = "Hello world"
 
-'Saves the PowerPoint presentation
+'Saves the PowerPoint Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the PowerPoint presentation
+'Closes the PowerPoint Presentation
 
 presentationDocument.Close()
 

@@ -1,23 +1,23 @@
 ---
-title: Loading and Saving the presentation in ASP.NET MVC platform
-description: Loading and Saving the presentation in ASP.NET MVC platform
+title: Loading and Saving the Presentation in ASP.NET MVC platform
+description: Loading and Saving the Presentation in ASP.NET MVC platform
 platform: file-formats
 control: Presentation
 documentation: ug
 ---
 # ASP.NET MVC 
 
-The below code snippet demonstrates how to load and save a PowerPoint presentation in ASP.NET MVC platform:
+The below code snippet demonstrates how to load and save a PowerPoint Presentation in ASP.NET MVC platform:
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Create a PowerPoint presentation
+//Create a PowerPoint Presentation
 
 IPresentation presentationDocument = Presentation.Create();
 
-//Add slide to the presentation
+//Add slide to the Presentation
 
 ISlide slide = presentationDocument.Slides.Add(SlideLayoutType.Blank);
 
@@ -25,7 +25,7 @@ ISlide slide = presentationDocument.Slides.Add(SlideLayoutType.Blank);
 
 IParagraph paragraph = slide.Shapes.AddTextBox(100, 120, 300, 200).TextBody.AddParagraph("Sample Text");
 
-//Save the presentation
+//Save the Presentation
 
 return new PresentationResult(presentationDocument, "Output.pptx", HttpContext.ApplicationInstance.Response);
 
@@ -33,11 +33,11 @@ return new PresentationResult(presentationDocument, "Output.pptx", HttpContext.A
 
 {% highlight vb.net %}
 
-'Create a PowerPoint presentation
+'Create a PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Add slide to the presentation
+'Add slide to the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -45,7 +45,7 @@ Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 Dim paragraph As IParagraph = slide.Shapes.AddTextBox(100, 120, 300, 200).TextBody.AddParagraph("Sample Text")
 
-'Save the presentation
+'Save the Presentation
 
 Return New PresentationResult(presentationDocument, "Output.pptx", HttpContext.ApplicationInstance.Response)
 
@@ -71,7 +71,7 @@ private string m_filename;
 
 private HttpResponse m_response;
 
-//Get/Set the filename of presentation
+//Get/Set the filename of Presentation
 
 public string FileName
 
@@ -95,7 +95,7 @@ m_filename = value;
 
 }
 
-//Get the presentation
+//Get the Presentation
 
 public IPresentation Source
 
@@ -151,7 +151,7 @@ if (context == null)
 
 throw new ArgumentNullException("Context");
 
-//Save the presentation to the client browser
+//Save the Presentation to the client browser
 
 this.m_source.Save(FileName, FormatType.Pptx, Response);
 
@@ -177,7 +177,7 @@ Private m_filename As String
 
 Private m_response As HttpResponse
 
-'Get/Set the filename of presentation
+'Get/Set the filename of Presentation
 
 Public Property FileName() As String
 
@@ -195,7 +195,7 @@ End Set
 
 End Property
 
-'Get the presentation
+'Get the Presentation
 
 Public ReadOnly Property Source() As IPresentation
 
@@ -241,7 +241,7 @@ Throw New ArgumentNullException("Context")
 
 End If
 
-'Save the presentation to the client browser
+'Save the Presentation to the client browser
 
 Me.m_source.Save(FileName, FormatType.Pptx, Response)
 
