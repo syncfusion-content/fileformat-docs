@@ -545,12 +545,12 @@ document.Close(True)
 
 #### Troubleshooting
 
-Syncfusion provides troubleshooting tool to analyze the issue and provide the solution. The tool is available in the location <span style="color:gray;font-size:14px"><i>($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\WebKitUtility)</i>
+Syncfusion provides troubleshooting tool to find out the missing prerequisites. The tool is available in the location: <span style="color:gray;font-size:14px"><i>($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\WebKitUtility)</i>
 </span>
  
 ![](DocumentConversion_images/TroubleShootingTool.png)
 
-Please follow the below instruction for manual troubleshooting,
+Please follow the below instructions for manual troubleshooting.
 
 <table>
 <th>WebKit Converter may create PDF with blank pages under the following cases
