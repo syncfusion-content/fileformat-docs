@@ -143,4 +143,4 @@ if (stgFile != null)
 {% endhighlight %}
 {% endtabs %}
 
-N> The image and PDF conversions are not supported in UWP,Xamarin.Forms,Xamarin.Android,Xamarin.IOS,Xamarin.WindowsPhone platforms.
+N> The image and PDF conversions are not supported in UWP,Xamarin.Forms,Xamarin.Android,Xamarin.IOS platforms.
