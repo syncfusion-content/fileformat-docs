@@ -89,13 +89,10 @@ Essential PDF also provides support for adding the attachments to existing PDF d
 {% highlight c# %}
 
 
+//Load an existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
-//Creates a new PDF document
-
-PdfDocument document = new PdfDocument();
-
-//Creates an attachment
-
+//Create an attachment
 PdfAttachment attachment = new PdfAttachment("Input.txt");
 
 attachment.ModificationDate = DateTime.Now;
@@ -104,16 +101,14 @@ attachment.Description = "Input.txt";
 
 attachment.MimeType = "application/txt";
 
-//Adds the attachment to the document
-
-document.Attachments.Add(attachment);
+if (loadedDocument.Attachments == null)
+loadedDocument.CreateAttachment();
+//Add the attachment to the document
+loadedDocument.Attachments.Add(attachment);
 
 //Saves and closes the PDF document
-
-document.Save("Output.pdf");
-
-document.Close(true);
-
+loadedDocument.Save("Output.pdf");
+loadedDocument.Close(true);
 
 
 {% endhighlight %}
@@ -122,14 +117,10 @@ document.Close(true);
 
 {% highlight vb.net %}
 
+'Load an existing PDF document
+Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
-
-'Creates a new PDF document
-
-Dim document As New PdfDocument()
-
-'Creates an attachment
-
+'Create an attachment
 Dim attachment As New PdfAttachment("Input.txt")
 
 attachment.ModificationDate = DateTime.Now
@@ -138,17 +129,15 @@ attachment.Description = "Input.txt"
 
 attachment.MimeType = "application/txt"
 
-'Adds the attachment to the document
-
-document.Attachments.Add(attachment)
+If loadedDocument.Attachments Is Nothing Then
+	loadedDocument.CreateAttachment()
+End If
+'Add the attachment to the document
+loadedDocument.Attachments.Add(attachment)
 
 'Saves and closes the PDF document
-
-document.Save("Output.pdf")
-
-document.Close(True)
-
-
+loadedDocument.Save("Output.pdf")
+loadedDocument.Close(True)
 
 {% endhighlight %}
 {% endtabs %}
