@@ -77,9 +77,6 @@ document.Close(True)
 
 {% endtabs %}
 
-1. The EnableJavascript property needs to be set to true for websites that contains JavaScript.
-2. SplitTextLines and SplitImages property of the IEConverterSettings class needs to be set as false, to avoid image and text split across pages.
-
 
 #### Converting the HTML string to PDF document
 
@@ -297,10 +294,10 @@ Issue
 The following conditions may occur while converting HTML to PDF by using the IE rendering engine.
 <ol>
 
-<li> Converted PDF document contains content as a Bitmap.&nbsp;<br/></li>
+<li>Converted PDF document contains content as a Bitmap.</li>
 <li>Page break may not be applied in the resultant PDF document.</li>
-<li> Text could not be selectable in the PDF document</li>
-<li> Converted PDF is blurry.</li>
+<li>Text could not be selected in the PDF document.</li>
+<li>Converted PDF looks blurry.</li>
 </ol>
 </td>
 </tr>
@@ -548,6 +545,13 @@ document.Close(True)
 
 #### Troubleshooting
 
+Syncfusion provides troubleshooting tool to analyze the issue and provide the solution. The tool is available in the location <span style="color:gray;font-size:14px"><i>($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\WebKitUtility)</i>
+</span>
+ 
+![](DocumentConversion_images/TroubleShootingTool.png)
+
+Please follow the below instruction for manual troubleshooting,
+
 <table>
 <th>WebKit Converter may create PDF with blank pages under the following cases
 </th>
@@ -624,7 +628,7 @@ Instead, the required assemblies below can added in the Windows system folder (f
 <th style="font-size:14px">Solution
 </th>
 <td>You need to place the Qt binaries in the location where the conversion takes place and assign that location to the WebKitPath.
-<br/><br/>The Qt binaries will be available in the WebKitHTMLConverter installed location <p style="color:gray;font-size:14px"><i>($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i><h6 id="T3"></h6>
+<br/><br/>The Qt binaries will be available in the WebKitHTMLConverter installed location <p style="color:gray;font-size:14px"><i>($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i>
 </p>
 </td>
 </tr>
@@ -649,7 +653,7 @@ Issue
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>To overcome this issue, add suitable delay for the conversion using AdditionalDelay property of the HTMLConverter.<h6 id="T2"></h6>
+<td>To overcome this issue, add suitable delay for the conversion using AdditionalDelay property of the HTMLConverter.
 </td>
 </tr>
 </table>
@@ -672,6 +676,8 @@ Issue
 </td>
 </tr>
 </table>
+
+
 
 ## Converting SVG to PDF
 
@@ -864,7 +870,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 WebKitConverterSettings settings = new WebKitConverterSettings();
 
 //Assign the WebKit binaries path
-settings.WebKitPath = "../../../../QtBinaries/";
+settings.WebKitPath = "/QtBinaries/";
 
 //Assign the WebKit settings
 htmlConverter.ConverterSettings = settings;
@@ -886,7 +892,7 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 Dim settings As New WebKitConverterSettings()
 
 'Assign the WebKit binaries path
-settings.WebKitPath = "../../../../QtBinaries/"
+settings.WebKitPath = "/QtBinaries/"
 
 'Assign the WebKit settings
 htmlConverter.ConverterSettings = settings
@@ -915,7 +921,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.We
 WebKitConverterSettings settings = new WebKitConverterSettings();
 
 //Assign the WebKit binaries path
-settings.WebKitPath = "../../../../QtBinaries/";
+settings.WebKitPath = "/QtBinaries/";
 
 //Assign the WebKit settings
 htmlConverter.ConverterSettings = settings;
@@ -937,7 +943,7 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 Dim settings As New WebKitConverterSettings()
 
 'Assign the WebKit binaries path
-settings.WebKitPath = "../../../../QtBinaries/"
+settings.WebKitPath = "/QtBinaries/"
 
 'Assign the WebKit settings 
 htmlConverter.ConverterSettings = settings
