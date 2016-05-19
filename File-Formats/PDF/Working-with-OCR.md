@@ -73,7 +73,7 @@ processor.PerformOCR(lDoc, "Tessdata\")
 
 You can also download the language packages from below link
 
-[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list# )
+[https://github.com/tesseract-ocr/tessdata](https://github.com/tesseract-ocr/tessdata )
 
 
 ## Performing OCR for an entire document
@@ -333,7 +333,7 @@ End Using
 
 For more details regarding quality improvement, refer to the following link:
 
-[https://code.google.com/p/tesseract-ocr/wiki/ImproveQuality](https://code.google.com/p/tesseract-ocr/wiki/ImproveQuality# )
+[https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality](https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality )
 
 **You can set the different performance level to the OCRProcessor using “Performance” enumeration.**
 
@@ -419,11 +419,11 @@ processor.PerformOCR(lDoc, "Tessdata\")
 
 The dictionary packs for the languages can be downloaded from the following online location:
 
-[https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list# )
+[https://github.com/tesseract-ocr/tessdata](https://github.com/tesseract-ocr/tessdata )
 
 It is also mandatory to change the corresponding language code in the OCRProcessor.Settings.Language property. For example, to perform optical character recognition in German, the property should be set as processor.Settings.Language = "deu";
 
 The following link contains the complete set of languages supported by Tesseract and their language codes.
 
-[http://tesseract-ocr.googlecode.com/svn/trunk/doc/tesseract.1.html#_languages](http://tesseract-ocr.googlecode.com/svn/trunk/doc/tesseract.1.html#_languages)
+[https://rawgit.com/tesseract-ocr/tesseract/master/doc/tesseract.1.html#_languages](https://rawgit.com/tesseract-ocr/tesseract/master/doc/tesseract.1.html#_languages)
 
