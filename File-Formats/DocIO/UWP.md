@@ -562,4 +562,4 @@ End Sub
 
 {% endtabs %}
 
-N> The Image and Pdf conversions are not supported in UWP Platform.
+N> The Image and PDF conversions are not supported in UWP Platform.
