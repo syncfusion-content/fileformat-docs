@@ -617,3 +617,4 @@ End Class
 
 {% endtabs %}
 
+N> The Image and Pdf conversions are not supported in Xamarin Platform.
