@@ -135,9 +135,9 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-N> 1. Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF.
+N> 1. Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF
 N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
-N> 3. The PDF conversion is not supported in UWP, Xamarin.Forms, Xamarin.Android and Xamarin.iOS platforms
+N> 3. The PDF conversion is not supported in UWP and Xamarin platforms
 
 **Customizing** **the** **PowerPoint** **Presentation** **to** **PDF** **conversion**
 
@@ -482,7 +482,7 @@ Next
 
 {% endtabs %}
 
-N> 1. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image.
-N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onward.
-N> 3. The image conversion is not supported in UWP, Xamarin.Forms, Xamarin.Android and Xamarin.iOS platforms
+N> 1. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image
+N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onward
+N> 3. The image conversion is not supported in UWP and Xamarin platforms
 
