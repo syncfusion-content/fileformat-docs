@@ -1,10 +1,10 @@
 ---
 title: Supported and Unsupported Features
-description: Briefs the supported and unsupported features of presentation library for various platforms.
+description: Briefs the supported and unsupported features of Presentation library for various platforms.
 platform: file-formats
 control: Presentation
 documentation: UG
-keywords: Supported and Unsupported Features of presentation library
+keywords: Supported and Unsupported Features of Presentation library
 ---
 
 **Supported and Unsupported Features** 
@@ -287,7 +287,7 @@ Yes
 </tr>
 <tr>
 <td>
-Copy and move presentation elements between presentations
+Copy and move Presentation elements between Presentations
 </td>
 <td>
 Yes
@@ -310,7 +310,7 @@ Yes
 </tr>
 <tr>
 <td>
-Merge multiple PowerPoint presentations
+Merge multiple PowerPoint Presentations
 </td>
 <td>
 Yes
@@ -333,7 +333,7 @@ Yes
 </tr>
 <tr>
 <td>
-Encrypt and open password protected presentations
+Encrypt and open password protected Presentations
 </td>
 <td>
 Yes
@@ -425,7 +425,7 @@ Yes
 </tr>
 <tr>
 <td>
-Convert PowerPoint presentations into PDF
+Convert PowerPoint Presentations into PDF
 </td>
 <td>
 Yes

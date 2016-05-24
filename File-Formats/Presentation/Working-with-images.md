@@ -9,13 +9,13 @@ documentation: UG
 
 ## Adding Images
 
-Essential Presentation library facilitates adding or modifying the images in a PowerPoint presentation. The following code example demonstrates how to add a new image to the presentation.
+Essential Presentation library facilitates adding or modifying the images in a PowerPoint Presentation. The following code example demonstrates how to add a new image to the presentation.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Creates a instance of presentation
+//Creates a instance of Presentation
 
 IPresentation presentation = Presentation.Create();
 
@@ -31,7 +31,7 @@ Stream pictureStream = File.Open("Image.png", FileMode.Open);
 
 IPicture picture = slide.Pictures.AddPicture(pictureStream, 0, 0, 250, 250);
 
-//Saves the presentation to the file system.
+//Saves the Presentation to the file system.
 
 presentation.Save("Output.pptx");
 
@@ -39,7 +39,7 @@ presentation.Save("Output.pptx");
 
 pictureStream.Dispose();
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -47,7 +47,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates a instance of presentation
+'Creates a instance of Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
@@ -63,7 +63,7 @@ Dim pictureStream As Stream = File.Open("Image.png", FileMode.Open)
 
 Dim picture As IPicture = slide.Pictures.AddPicture(pictureStream, 0, 0, 250, 250)
 
-'Saves the presentation to the file system.
+'Saves the Presentation to the file system.
 
 presentationDocument.Save("Result.pptx")
 
@@ -71,7 +71,7 @@ presentationDocument.Save("Result.pptx")
 
 pictureStream.Dispose()
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -87,11 +87,11 @@ The following code example demonstrates how to replace an existing image in a sl
 
 {% highlight c# %}
 
-//Opens an existing presentation.
+//Opens an existing Presentation.
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Retrieves the first slide from the presentation.
+//Retrieves the first slide from the Presentation.
 
 ISlide slide = presentation.Slides[0];
 
@@ -115,11 +115,11 @@ pictureStream.CopyTo(memoryStream);
 
 picture.ImageData = memoryStream.ToArray();
 
-//Saves the presentation to the file system.
+//Saves the Presentation to the file system.
 
 presentation.Save("Output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -127,11 +127,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing presentation.
+'Opens an existing Presentation.
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
-'Retrieves the first slide from the presentation.
+'Retrieves the first slide from the Presentation.
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
@@ -155,11 +155,11 @@ pictureStream.CopyTo(memoryStream)
 
 picture.ImageData = memoryStream.ToArray()
 
-'Saves the presentation to the file system.
+'Saves the Presentation to the file system.
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -175,11 +175,11 @@ The following code example demonstrates how to remove an existing image in a Pow
 
 {% highlight c# %}
 
-//Opens an existing presentation from file system.
+//Opens an existing Presentation from file system.
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Retrieves the first slide from presentation
+//Retrieves the first slide from Presentation
 
 ISlide slide = presentation.Slides[0];
 
@@ -197,11 +197,11 @@ foreach (IPicture picture in slide.Pictures)
 
 }
 
-//Saves the presentation to the file system.
+//Saves the Presentation to the file system.
 
 presentation.Save("Output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -209,11 +209,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing presentation from file system.
+'Opens an existing Presentation from file system.
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
-'Retrieves the first slide from presentation
+'Retrieves the first slide from Presentation
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
@@ -229,11 +229,11 @@ Exit For
 
 Next
 
-'Saves the presentation to the file system.
+'Saves the Presentation to the file system.
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 

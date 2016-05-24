@@ -9,7 +9,7 @@ documentation: UG
 
 ## Creating a simple list
 
-Essential Presentation allows you to create simple and multi-level lists that make the content easier for reading. In PowerPoint, presentation lists consists of the following types 
+Essential Presentation allows you to create simple and multi-level lists that make the content easier for reading. In PowerPoint, Presentation lists consists of the following types 
 
 1. Numbered list
 2. Bulleted list
@@ -23,11 +23,11 @@ The following code example illustrates how to create a numbered list:
 
 {% highlight c# %}
 
-//Creates a new presentation instance.
+//Creates a new Presentation instance.
 
 IPresentation presentation = Presentation.Create();
 
-//Adds a blank slide into the presentation
+//Adds a blank slide into the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -111,13 +111,13 @@ paragraph.FirstLineIndent = -20;
 
 paragraph.ListFormat.Size = 100;
 
-//Saves the presentation to the file system.
+//Saves the Presentation to the file system.
 
 presentation.Save("Sample.pptx");
 
 Process.Start("Sample.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -125,11 +125,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates a new presentation instance.
+'Creates a new Presentation instance.
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds the slide into the presentation
+'Adds the slide into the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -213,13 +213,13 @@ paragraph.FirstLineIndent = -20
 
 paragraph.ListFormat.Size = 100
 
-'Saves the presentation to the file system.
+'Saves the Presentation to the file system.
 
 presentationDocument.Save("Sample.pptx")
 
 Process.Start("Sample.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -235,11 +235,11 @@ The following code example demonstrates how to create a simple bulleted list.
 
 {% highlight c# %}
 
-//Creates a new presentation instance.
+//Creates a new Presentation instance.
 
 IPresentation presentation = Presentation.Create();
 
-//Adds the slide into the presentation
+//Adds the slide into the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -331,13 +331,13 @@ paragraph.ListFormat.FontName = "Symbol";
 
 paragraph.ListFormat.Size = 100;                    
 
-//Saves the presentation to the file system.
+//Saves the Presentation to the file system.
 
 presentation.Save("Result.pptx");
 
 Process.Start("Result.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -345,11 +345,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates a new presentation instance.
+'Creates a new Presentation instance.
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds the slide into the presentation
+'Adds the slide into the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -441,13 +441,13 @@ paragraph.ListFormat.FontName = "Symbol"
 
 paragraph.ListFormat.Size = 100
 
-'Saves the presentation to the file system.
+'Saves the Presentation to the file system.
 
 presentationDocument.Save("Result.pptx")
 
 Process.Start("Result.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -463,11 +463,11 @@ The following code example demonstrates how to create a simple picture list.
 
 {% highlight c# %}
 
-//Creates a new presentation instance.
+//Creates a new Presentation instance.
 
 IPresentation presentation = Presentation.Create();
 
-//Adds the slide into the presentation
+//Adds the slide into the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -523,11 +523,11 @@ paragraph.IndentLevelNumber = 1;
 
 paragraph.FirstLineIndent = -20;
 
-//Saves the presentation to the file system.
+//Saves the Presentation to the file system.
 
 presentation.Save("output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -535,11 +535,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates a new presentation instance.
+'Creates a new Presentation instance.
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds the slide into the presentation
+'Adds the slide into the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -595,11 +595,11 @@ paragraph.IndentLevelNumber = 1
 
 paragraph.FirstLineIndent = -20
 
-'Saves the presentation to the file system.
+'Saves the Presentation to the file system.
 
 presentationDocument.Save("output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -617,11 +617,11 @@ The following code example demonstrates how to create a multilevel list.
 
 {% highlight c# %}
 
-//Creates a new presentation instance.
+//Creates a new Presentation instance.
 
 IPresentation presentation = Presentation.Create();
 
-//Adds the slide into the presentation
+//Adds the slide into the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -711,11 +711,11 @@ paragraph.IndentLevelNumber = 1;
 
 paragraph.FirstLineIndent = -20;         
 
-//Saves the presentation to the file system.
+//Saves the Presentation to the file system.
 
 presentation.Save("MultiLevelList.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -723,11 +723,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates a new presentation instance.
+'Creates a new Presentation instance.
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds the slide into the presentation
+'Adds the slide into the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -817,11 +817,11 @@ paragraph.IndentLevelNumber = 1
 
 paragraph.FirstLineIndent = -20
 
-'Saves the presentation to the file system.
+'Saves the Presentation to the file system.
 
 presentationDocument.Save("MultiLevelList.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -829,7 +829,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-The above code example generates a multi-level list in presentation as follows.
+The above code example generates a multi-level list in Presentation as follows.
 
 ![](Workingwithlist_images/Workingwithlist_img1.jpeg)
 

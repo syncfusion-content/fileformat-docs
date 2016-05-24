@@ -1,10 +1,10 @@
 ---
 title: Working with UWP
-description: Working with presentation library in UWP Platform
+description: Working with Presentation library in UWP Platform
 platform: file-formats
 control: Presentation
 documentation: UG
-keywords: Working with presentation library in UWP Platform
+keywords: Working with Presentation library in UWP Platform
 ---
 
 # Working with UWP
@@ -13,7 +13,7 @@ In your UWP application, please add the required assemblies in order to use Pres
 
 ## Loading the Presentation
 
-You can load and save PowerPoint Presentation asynchrony using Presentation. 
+You can load and save PowerPoint Presentation asynchronously using Presentation. 
 
 The following code example illustrates how to load PowerPoint Presentation by using stream in UWP.
 {% tabs %}
@@ -143,4 +143,4 @@ if (stgFile != null)
 {% endhighlight %}
 {% endtabs %}
 
-N> The Image and Pdf conversions are not supported in UWP Platform.
+N> The image and PDF conversions are not supported in UWP platform.

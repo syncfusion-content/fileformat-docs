@@ -17,7 +17,7 @@ The following code example demonstrates how to add a paragraph in a slide.
 
 {% highlight c# %}
 
-//Creates PowerPoint instance
+//Creates PowerPoint Presentation
 
 IPresentation presentation = Presentation.Create();
 
@@ -41,11 +41,11 @@ ITextPart textPart = paragraph.AddTextPart();
 
 textPart.Text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularized in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -53,7 +53,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates PowerPoint instance
+'Creates PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
@@ -77,11 +77,11 @@ Dim textPart As ITextPart = paragraph.AddTextPart()
 
 textPart.Text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularized in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -97,11 +97,11 @@ Each paragraph in a slide can has its own formatting types such as alignment, in
 
 {% highlight c# %}
 
-//Loads the PowerPoint presentation
+//Loads the PowerPoint Presentation
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Gets the slide from presentation
+//Gets the slide from Presentation
 
 ISlide slide = presentation.Slides[0];
 
@@ -125,11 +125,11 @@ paragraph.HorizontalAlignment = HorizontalAlignmentType.Left;
 
 paragraph.LeftIndent = 8;
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -137,11 +137,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Loads the PowerPoint presentation
+'Loads the PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
-'Gets the slide from presentation
+'Gets the slide from Presentation
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
@@ -165,11 +165,11 @@ paragraph.HorizontalAlignment = HorizontalAlignmentType.Left
 
 paragraph.LeftIndent = 8
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -179,17 +179,17 @@ presentationDocument.Close()
 
 ## Working with text
 
-With Essential Presentation, you can add or modify the text in a presentation. Within the paragraph, textual contents are grouped into one or more child elements as TextParts. Each TextPart represents a region of text with a common set of formatted text. The following code example demonstrates how to add text parts with different formatting into a single paragraph.
+With Essential Presentation, you can add or modify the text in a Presentation. Within the paragraph, textual contents are grouped into one or more child elements as TextParts. Each TextPart represents a region of text with a common set of formatted text. The following code example demonstrates how to add text parts with different formatting into a single paragraph.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Loads the PowerPoint presentation
+//Loads the PowerPoint Presentation
 
 IPresentation presentation = Presentation.Create();
 
-//Gets the slide from presentation
+//Gets the slide from Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -245,11 +245,11 @@ font2.Color.SystemColor = Color.Blue;
 
 font2.Underline = TextUnderlineType.WavyDouble;
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Output.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -257,11 +257,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Loads the PowerPoint presentation
+'Loads the PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Gets the slide from presentation
+'Gets the slide from Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -317,11 +317,11 @@ font2.Color.SystemColor = Color.Blue
 
 font2.Underline = TextUnderlineType.WavyDouble
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Output.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -331,17 +331,17 @@ presentationDocument.Close()
 
 ## Modifying text
 
-You can modify a text by accessing the existing paragraphs in a presentation. The following code example demonstrates how to modify the content in a paragraph.
+You can modify a text by accessing the existing paragraphs in a Presentation. The following code example demonstrates how to modify the content in a paragraph.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens an existing presentation from file system.
+//Opens an existing Presentation from file system.
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Retrieves the first slide from presentation
+//Retrieves the first slide from Presentation
 
 ISlide slide = presentation.Slides[0];
 
@@ -365,7 +365,7 @@ textPart.Text = "Hello Presentation";
 
 presentation.Save("Result.pptx");
 
-//Closes the presentation.
+//Closes the Presentation.
 
 presentation.Close();
 
@@ -373,11 +373,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing presentation from file system.
+'Opens an existing Presentation from file system.
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
-'Retrieves the first slide from presentation
+'Retrieves the first slide from Presentation
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
@@ -401,7 +401,7 @@ textPart.Text = "Hello Presentation"
 
 presentationDocument.Save("Result.pptx")
 
-'Closes the presentation.
+'Closes the Presentation.
 
 presentationDocument.Close()
 
@@ -417,31 +417,31 @@ The following code example demonstrates how to remove a paragraph from a slide.
 
 {% highlight c# %}
 
-//Opens an existing presentation from file system.
+//Opens an existing Presentation from file system.
 
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
-//Retrieves the first slide from presentation
+//Retrieves the first slide from Presentation
 
 ISlide slide = presentation.Slides[0];
 
-//Retrieves the first shape.
+//Retrieves the first shape
 
 IShape shape = slide.Shapes[0] as IShape;
 
-//Retrieves the first paragraph of the shape.
+//Retrieves the first paragraph of the shape
 
 IParagraph paragraph = shape.TextBody.Paragraphs[0];
 
-//Removes the first paragraph from the textbody of the shape.
+//Removes the first paragraph from the textbody of the shape
 
 shape.TextBody.Paragraphs.Remove(paragraph);
 
-//Saves the presenation to the file system.
+//Saves the presenation to the file system
 
 presentation.Save("Result.pptx");
 
-//Closes the presentation.
+//Closes the Presentation
 
 presentation.Close();
 
@@ -449,11 +449,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing presentation from file system.
+'Opens an existing Presentation from file system.
 
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
-'Retrieves the first slide from presentation
+'Retrieves the first slide from Presentation
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
@@ -473,7 +473,7 @@ shape.TextBody.Paragraphs.Remove(paragraph)
 
 presentationDocument.Save("Result.pptx")
 
-'Closes the presentation.
+'Closes the Presentation.
 
 presentationDocument.Close()
 

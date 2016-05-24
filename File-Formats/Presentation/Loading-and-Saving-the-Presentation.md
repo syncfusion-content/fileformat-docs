@@ -1,21 +1,21 @@
 ---
-title: Loading and saving the PowerPoint presentation
-description: Loading and saving the presentation; Modifying the presentation
+title: Loading and saving the PowerPoint Presentation
+description: Loading and saving the Presentation; Modifying the Presentation
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Load and save the presentation
+# Load and save the Presentation
 
-## Opening an existing presentation from file system
+## Opening an existing Presentation from file system
 
-You can open an existing PowerPoint presentation by using the file name and its physical path.
+You can open an existing PowerPoint Presentation by using the file name and its physical path.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens an existing presentation from file system 
+//Opens an existing Presentation from file system 
 
 IPresentation presentation = Presentation.Open(fileName);
 
@@ -23,7 +23,7 @@ IPresentation presentation = Presentation.Open(fileName);
 
 {% highlight vb.net %}
 
-'Opens an existing presentation from file system 
+'Opens an existing Presentation from file system 
 
 Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
@@ -31,15 +31,15 @@ Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 {% endtabs %}
 
-## Opening an existing presentation from stream
+## Opening an existing Presentation from stream
 
-You can open an existing PowerPoint presentation from stream by using the overloads of Open method.
+You can open an existing PowerPoint Presentation from stream by using the overloads of Open method.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens an existing presentation from stream 
+//Opens an existing Presentation from stream 
 
 IPresentation presentation = Presentation.Open(presentationStream);
 
@@ -47,7 +47,7 @@ IPresentation presentation = Presentation.Open(presentationStream);
 
 {% highlight vb.net %}
 
-'Opens an existing presentation from stream 
+'Opens an existing Presentation from stream 
 
 Dim presentationDocument As IPresentation = Presentation.Open(presentationStream)
 
@@ -55,7 +55,7 @@ Dim presentationDocument As IPresentation = Presentation.Open(presentationStream
 
 {% endtabs %}
 
-## Opening an encrypted presentation
+## Opening an encrypted Presentation
 
 You can open an encrypted PowerPoint presentation from either file path or stream by using the following overloads of Open method as follows.
 
@@ -63,7 +63,7 @@ You can open an encrypted PowerPoint presentation from either file path or strea
 
 {% highlight c# %}
 
-//Opens an existing encrypted presentation from stream 
+//Opens an existing encrypted Presentation from stream 
 
 IPresentation presentation = Presentation.Open(presentationStream, password);
 
@@ -71,7 +71,7 @@ IPresentation presentation = Presentation.Open(presentationStream, password);
 
 {% highlight vb.net %}
 
-'Opens an existing encrypted presentation from stream 
+'Opens an existing encrypted Presentation from stream 
 
 Dim presentationDocument As IPresentation = Presentation.Open(presentationStream, password)
 
@@ -83,7 +83,7 @@ Dim presentationDocument As IPresentation = Presentation.Open(presentationStream
 
 {% highlight c# %}
 
-//Opens an existing encrypted presentation from file system 
+//Opens an existing encrypted Presentation from file system 
 
 IPresentation presentation = Presentation.Open(fileName, password);
 
@@ -91,7 +91,7 @@ IPresentation presentation = Presentation.Open(fileName, password);
 
 {% highlight vb.net %}
 
-'Opens an existing encrypted presentation from file system 
+'Opens an existing encrypted Presentation from file system 
 
 Dim presentation As IPresentation = Presentation.Open(fileName, password)
 
@@ -99,15 +99,15 @@ Dim presentation As IPresentation = Presentation.Open(fileName, password)
 
 {% endtabs %}
 
-## Saving a PowerPoint presentation to file system
+## Saving a PowerPoint Presentation to file system
 
-You can save the created or manipulated PowerPoint presentation to file system by using Save() method of **IPresentation** interface. Default format type is *.PPTX.
+You can save the created or manipulated PowerPoint Presentation to file system by using Save() method of **IPresentation** interface. Default format type is *.PPTX.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens an existing PowerPoint presentation 
+//Opens an existing PowerPoint Presentation 
 
 IPresentation presentation = Presentation.Open(fileName);
 
@@ -115,7 +115,7 @@ IPresentation presentation = Presentation.Open(fileName);
 
 //To-Do some manipulation
 
-//Saves the presentation in file system
+//Saves the Presentation in file system
 
 presentation.Save("Output.pptx");
 
@@ -123,7 +123,7 @@ presentation.Save("Output.pptx");
 
 {% highlight vb.net %}
 
-'Opens an existing PowerPoint presentation
+'Opens an existing PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
@@ -131,7 +131,7 @@ Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 'To-Do some manipulation
 
-'Saves the presentation in file system
+'Saves the Presentation in file system
 
 Presentation_1.Save("Output.pptx")
 
@@ -139,15 +139,15 @@ Presentation_1.Save("Output.pptx")
 
 {% endtabs %}
 
-## Saving a PowerPoint presentation to stream
+## Saving a PowerPoint Presentation to stream
 
-You can save the created or manipulated PowerPoint presentation to stream by using overloads of Save method.
+You can save the created or manipulated PowerPoint Presentation to stream by using overloads of Save method.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens an existing PowerPoint presentation 
+//Opens an existing PowerPoint Presentation 
 
 IPresentation presentation = Presentation.Open(fileName);
 
@@ -159,7 +159,7 @@ IPresentation presentation = Presentation.Open(fileName);
 
 MemoryStream stream = new MemoryStream();
 
-//Saves the presentation to stream
+//Saves the Presentation to stream
 
 presentation.Save(stream);
 
@@ -167,7 +167,7 @@ presentation.Save(stream);
 
 {% highlight vb.net %}
 
-'Opens an existing PowerPoint presentation 
+'Opens an existing PowerPoint Presentation 
 
 Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
@@ -179,7 +179,7 @@ Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 Dim stream As New MemoryStream()
 
-'Saves the presentation to stream
+'Saves the Presentation to stream
 
 Presentation_1.Save(stream)
 
@@ -189,13 +189,13 @@ Presentation_1.Save(stream)
 
 ## Sending to a client browser
 
-You can save and send the presentation to a client browser from a website or web application by invoking the overload of Save method. This method explicitly make use of an instance of HttpResponse as its parameter in order to stream the presentation to client browser. So, this overload is suitable for web application that refer to [System.Web](https://msdn.microsoft.com/en-us/library/gg145018(v=vs.110).aspx) assembly.
+You can save and send the Presentation to a client browser from a website or web application by invoking the overload of Save method. This method explicitly make use of an instance of HttpResponse as its parameter in order to stream the presentation to client browser. So, this overload is suitable for web application that refer to [System.Web](https://msdn.microsoft.com/en-us/library/gg145018(v=vs.110).aspx) assembly.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens an existing PowerPoint presentation 
+//Opens an existing PowerPoint Presentation 
 
 IPresentation presentation = Presentation.Open(fileName);
 
@@ -203,7 +203,7 @@ IPresentation presentation = Presentation.Open(fileName);
 
 //To-Do some manipulation
 
-//Saves the presentation to the client browser
+//Saves the Presentation to the client browser
 
 presentation.Save("Output.pptx", FormatType.Pptx, Response);
 
@@ -211,7 +211,7 @@ presentation.Save("Output.pptx", FormatType.Pptx, Response);
 
 {% highlight vb.net %}
 
-'Opens an existing PowerPoint presentation 
+'Opens an existing PowerPoint Presentation 
 
 Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
@@ -219,7 +219,7 @@ Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 'To-Do some manipulation
 
-'Saves the presentation to the client browser
+'Saves the Presentation to the client browser
 
 Presentation_1.Save("Output.pptx", FormatType.Pptx, Response)
 
@@ -227,15 +227,15 @@ Presentation_1.Save("Output.pptx", FormatType.Pptx, Response)
 
 {% endtabs %}
 
-## Closing a PowerPoint presentation
+## Closing a PowerPoint Presentation
 
-When you are done with the presentation instance, you should close the instance of **IPresentation** in order to release the memory consumed by Essential Presentation library. The following code example illustrates how to close an IPresentation instance.
+When you are done with the Presentation instance, you should close the instance of **IPresentation** in order to release the memory consumed by Essential Presentation library. The following code example illustrates how to close an IPresentation instance.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens an existing presentation from file system 
+//Opens an existing Presentation from file system 
 
 IPresentation presentation = Presentation.Open(fileName);
 
@@ -247,11 +247,11 @@ IPresentation presentation = Presentation.Open(fileName);
 
 MemoryStream stream = new MemoryStream();
 
-//Saves the presentation to stream
+//Saves the Presentation to stream
 
 presentation.Save(stream);
 
-//Closes the presentation instance and free the memory consumed.
+//Closes the Presentation instance and free the memory consumed.
 
 presentation.Close();
 
@@ -259,7 +259,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing presentation from file system 
+'Opens an existing Presentation from file system 
 
 Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
@@ -271,11 +271,11 @@ Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 Dim stream As New MemoryStream()
 
-'Saves the presentation to stream
+'Saves the Presentation to stream
 
 presentationDocument.Save(stream)
 
-'Closes the presentation instance and free the memory consumed.
+'Closes the Presentation instance and free the memory consumed.
 
 presentationDocument.Close()
 

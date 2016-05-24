@@ -15,11 +15,11 @@ Essential Presentation facilitates developers to add tables from scratch. The f
 
 {% highlight c# %}
 
-//Creates instance of PowerPoint presentation
+//Creates instance of PowerPoint Presentation
 
 IPresentation presentation = Presentation.Create();
 
-//Adds slide to the presentation
+//Adds slide to the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -49,11 +49,11 @@ cell.TextBody.AddParagraph("Second Row and Second Column");
 
 table.Description = "Table arrangement";
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Table.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -61,11 +61,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates instance of PowerPoint presentation
+'Creates instance of PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds slide to the presentation
+'Adds slide to the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -95,11 +95,11 @@ cell.TextBody.AddParagraph("Second Row and Second Column")
 
 table.Description = "Table arrangement"
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Table.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -115,11 +115,11 @@ You can format a table to change its appearance by customizing the table border,
 
 {% highlight c# %}
 
-//Creates instance of PowerPoint presentation
+//Creates instance of PowerPoint Presentation
 
 IPresentation presentation = Presentation.Create();
 
-//Adds slide to the presentation
+//Adds slide to the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -199,11 +199,11 @@ cell.Fill.SolidFill.Color.SystemColor = Color.Silver;
 
 cell.TextBody.AddParagraph("Second Row and Second Column");
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Table.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -211,11 +211,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates instance of PowerPoint presentation
+'Creates instance of PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds slide to the presentation
+'Adds slide to the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -295,11 +295,11 @@ cell.Fill.SolidFill.Color.SystemColor = Color.Silver
 
 cell.TextBody.AddParagraph("Second Row and Second Column")
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Table.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -315,11 +315,11 @@ You can format a table by applying pre-defined table styles. The following code 
 
 {% highlight c# %}
 
-//Creates instance of PowerPoint presentation
+//Creates instance of PowerPoint Presentation
 
 IPresentation presentation = Presentation.Create();
 
-//Adds slide to the presentation
+//Adds slide to the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -383,11 +383,11 @@ cell.TextBody.AddParagraph("Third Row and Third Column");
 
 table.Description = "Table arrangement";
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Table.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -395,11 +395,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates instance of PowerPoint presentation
+'Creates instance of PowerPoint Presentation
 
 Dim  presentationDocument As IPresentation = Presentation.Create()
 
-'Adds slide to the presentation
+'Adds slide to the Presentation
 
 Dim slide As ISlide =  presentationDocument .Slides.Add(SlideLayoutType.Blank)
 
@@ -463,11 +463,11 @@ cell.TextBody.AddParagraph("Third Row and Third Column")
 
 table.Description = "Table arrangement"
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Table.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -477,17 +477,17 @@ presentationDocument.Close()
 
 ## Modifying the table
 
-The following code example demonstrates how to modify the table in existing PowerPoint presentation.
+The following code example demonstrates how to modify the table in existing PowerPoint Presentation
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Creates instance of PowerPoint presentation
+//Creates instance of PowerPoint Presentation
 
 IPresentation presentation = Presentation.Open("Table.pptx");
 
-//Gets slide from the presentation
+//Gets slide from the Presentation
 
 ISlide slide = presentation.Slides[0];
 
@@ -507,11 +507,11 @@ table.BuiltInStyle = BuiltInTableStyle.DarkStyle1Accent2;
 
 table.Rows[0].Cells[0].TextBody.AddParagraph("Row1 Cell1");           
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("TableModified.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -519,11 +519,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates instance of PowerPoint presentation
+'Creates instance of PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Table.pptx")
 
-'Gets slide from the presentation
+'Gets slide from the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
@@ -543,11 +543,11 @@ table.BuiltInStyle = BuiltInTableStyle.DarkStyle1Accent2
 
 table.Rows(0).Cells(0).TextBody.AddParagraph("Row1 Cell1")
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("TableModified.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -563,11 +563,11 @@ The following code example shows how to merge cells in a table.
 
 {% highlight c# %}
 
-//Creates instance of PowerPoint presentation
+//Creates instance of PowerPoint Presentation
 
 IPresentation presentation = Presentation.Create();
 
-//Adds slide to the presentation
+//Adds slide to the Presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -603,11 +603,11 @@ cell.TextBody.AddParagraph("Second Row and Second Column");
 
 table.Description = "Table arrangement";
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("Table.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -615,11 +615,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates instance of PowerPoint presentation
+'Creates instance of PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds slide to the presentation
+'Adds slide to the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -655,11 +655,11 @@ cell.TextBody.AddParagraph("Second Row and Second Column")
 
 table.Description = "Table arrangement"
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("Table.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 
@@ -675,11 +675,11 @@ You can remove a table from a slide by its instance or by its index position in 
 
 {% highlight c# %}
 
-//Creates instance of PowerPoint presentation
+//Creates instance of PowerPoint Presentation
 
 IPresentation presentation = Presentation.Open("Table.pptx");
 
-//Gets slide from the presentation
+//Gets slide from the Presentation
 
 ISlide slide = presentation.Slides[0];
 
@@ -691,11 +691,11 @@ ITable table = slide.Shapes[0] as ITable;
 
 slide.Shapes.Remove(table);
 
-//Saves the presentation
+//Saves the Presentation
 
 presentation.Save("TableRemoved.pptx");
 
-//Closes the presentation
+//Closes the Presentation
 
 presentation.Close();
 
@@ -703,11 +703,11 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Creates instance of PowerPoint presentation
+'Creates instance of PowerPoint Presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Table.pptx")
 
-'Gets slide from the presentation
+'Gets slide from the Presentation
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
@@ -719,11 +719,11 @@ Dim table As ITable = TryCast(slide.Shapes(0), ITable)
 
 slide.Shapes.Remove(table)
 
-'Saves the presentation
+'Saves the Presentation
 
 presentationDocument.Save("TableRemoved.pptx")
 
-'Closes the presentation
+'Closes the Presentation
 
 presentationDocument.Close()
 

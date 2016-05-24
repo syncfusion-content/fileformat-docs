@@ -9,7 +9,7 @@ keywords: Working with Notes
 
 # Working with Notes
 
-Notes slide helps to keep the key points and reminders in the PowerPoint Presentation. Presentation library provides support for creating, modifying and removing notes in a PowerPoint Slide. 
+Notes are the contents associated with specific slides as a reference to the presenter and visible only to the presenter while presenting. It shows hint for the speaker so it is often called as speaker notes. You can add and modify the notes in your slide using Essential Presentation library. 
 
 ## Adding Notes to a Slide
 
@@ -126,9 +126,9 @@ paragraph.IndentLevelNumber = 1;
 paragraph.FirstLineIndent = -20; 
 // Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400. 
 paragraph.ListFormat.Size = 100; 
-//Saves the presentation to the file system. 
+//Saves the Presentation to the file system. 
 presentation.Save("Sample.pptx"); 
-//Closes the presentation 
+//Closes the Presentation 
 presentation.Close();
 {% endhighlight %}
 {% endtabs %}

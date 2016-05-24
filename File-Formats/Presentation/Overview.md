@@ -9,18 +9,18 @@ documentation: UG
 
 **Essential Presentation** is a native .**NET** class library that can be used by developers to create, read, and write Microsoft PowerPoint files by using C#, VB.NET, and managed C++ code. The library can be used in Windows Forms, WPF, ASP.NET, and ASP.NET MVC.
 
-It is a non-UI component that provides a full-fledged PowerPoint presentation instance that facilitates accessing and manipulating the presentations without any dependency of Microsoft Office COM libraries and Microsoft Office.
+It is a non-UI component that provides a full-fledged PowerPoint Presentation instance that facilitates accessing and manipulating the presentations without any dependency of Microsoft Office COM libraries and Microsoft Office.
 
 ## Key features
 
-* Support to create PowerPoint presentation from scratch.
-* Open, modify, and save existing presentations.
-* Ability to convert PowerPoint presentation to PDF.
+* Support to create PowerPoint Presentation from scratch.
+* Open, modify, and save existing Presentations.
+* Ability to convert PowerPoint Presentation to PDF.
 * Ability to convert PowerPoint slides to images.
 * Ability to create and manipulate charts
 * Ability to convert chart in a slide to image.
-* Ability to clone and merge slides in presentation.
-* Ability to encrypt and decrypt PowerPoint presentation.
+* Ability to clone and merge slides in Presentation.
+* Ability to encrypt and decrypt PowerPoint Presentation.
 * Ability to access the Built-in and Custom document properties.
 
 ## Compatible Microsoft PowerPoint Versions
