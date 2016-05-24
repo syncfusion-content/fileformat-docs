@@ -145,14 +145,10 @@ wordDocument.Close()
 
  {% endtabs %}  
 
-N> 
-Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
-
-> Initializing the ChartToImageConverter is mandatory to convert the charts present in the Word document to PDF. Otherwise, the charts are not exported to the converted PDF.
-
-> ChartToImageConverter is supported from .NET Framework 4.0 onwards
-
-> Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to Word document
+N> 1. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
+N> 2. Creating an instance of `ChartToImageConverter` class is mandatory to convert the charts present in the Word document to PDF. Otherwise, the charts are not preserved in the converted PDF.
+N> 3. `ChartToImageConverter` is supported from .NET Framework 4.0 onwards.
+N> 4. Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.
 
 
 
@@ -538,16 +534,11 @@ wordDocument.Close()
 
  {% endtabs %}  
 
-N> 
-Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, UWP and Xamarin applications
-
-> When the `ChartToImageConverter` object is not initialized, then the charts in Word document get skipped during Word to Image conversion
-
-> `ChartToImageConverter` is supported from .NET Framework 4.0 onwards
-
-> Total number of images may vary based on unsupported elements when compare to Word document
-
-> Word to Image conversion can have same limitations and unsupported elements of Word to PDF conversion
+N> 1. Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, UWP and Xamarin applications.
+N> 2. Creating an instance of `ChartToImageConverter` class is mandatory to convert the charts present in the Word document to Image. Otherwise, the charts are not preserved in the generated image.
+N> 3. `ChartToImageConverter` is supported from .NET Framework 4.0 onwards.
+N> 4. Total number of images may vary based on unsupported elements in the input Word document.
+N> 5. Word to Image conversion has the same limitations and unsupported elements of Word to PDF conversion.
 
 ## RTF conversion 
 
@@ -774,14 +765,10 @@ document.Close()
 
   {% endtabs %}  
 
-N> 
-Inserting XHTML string is not supported in Silverlight and Windows Phone and Xamarin applications.
-
-> XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
-
-> XHTMLValidationType.Transitional - default validation while importing HTML file
-
-> XHTMLValidationType.None - validate the HTML file against XHTML format and it doesn’t perform any schema validation.
+N> 1. Inserting XHTML string is not supported in Silverlight, Windows Phone and Xamarin applications.
+N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
+N> 3. XHTMLValidationType.Transitional - default validation while importing HTML file.
+N> 4. XHTMLValidationType.None - validate the HTML file against XHTML format and it doesn’t perform any schema validation.
 
 
 

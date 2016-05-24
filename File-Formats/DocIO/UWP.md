@@ -188,7 +188,7 @@ End Sub
 
 {% endtabs %}
 
-The following code example illustrates how to load the Word document by using file open picker in WinRT.
+The following code example illustrates how to load the Word document by using file open picker in UWP.
 
 {% tabs %}
 
@@ -204,7 +204,7 @@ picker.FileTypeFilter.Add(".doc");
 
 //Browse and chose the file
 
-StorageFile files = await picker.PickSingleFileAsync();
+StorageFile file = await picker.PickSingleFileAsync();
 
 //Creates an empty Word document instance
 
@@ -212,7 +212,7 @@ WordDocument document = new WordDocument();
 
 //Loads or opens an existing word document through Open method of WordDocument class
 
-await document.OpenAsync(files);
+await document.OpenAsync(file);
 
 MemoryStream stream = new MemoryStream();
 
@@ -302,7 +302,7 @@ picker.FileTypeFilter.Add(".doc")
 
 'Browse and chose the file
 
-Dim files As StorageFile = Await picker.PickSingleFileAsync()
+Dim file As StorageFile = Await picker.PickSingleFileAsync()
 
 'Creates an empty Word document instance
 
@@ -310,7 +310,7 @@ Dim document As New WordDocument()
 
 'Loads or opens an existing word document through Open method of WordDocument class
 
-Await document.OpenAsync(files)
+Await document.OpenAsync(file)
 
 Dim stream As New MemoryStream()
 
@@ -380,7 +380,7 @@ End Sub
 
 ## Save the document 
 
-The following code example illustrates how to save the Word document in WinRT by using file save picker.
+The following code example illustrates how to save the Word document in UWP by using file save picker.
 
 {% tabs %}
 
@@ -561,3 +561,5 @@ End Sub
 {% endhighlight %}
 
 {% endtabs %}
+
+N> The Image and PDF conversions are not supported in UWP Platform.
