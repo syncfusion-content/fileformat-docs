@@ -9,7 +9,7 @@ keywords: Working with Notes
 
 # Working with Notes
 
-PowerPoint Presentation provides an option to add “Notes” to the slides in a Presentation. The “Notes” are a special section that can be optionally added to each slide in a Presentation. You can add any slide elements such as text, numbered or bulleted lists, charts, images and shapes to the "Notes". Presentation library provides support for creating, modifying and removing notes in a PowerPoint Slide. 
+Notes are the contents associated with specific slides as a reference to the presenter and visible only to the presenter while presenting. It shows hint for the speaker so it is often called as speaker notes. You can add and modify the notes in your slide using Essential Presentation library. 
 
 ## Adding Notes to a Slide
 
