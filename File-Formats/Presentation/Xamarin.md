@@ -145,4 +145,4 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("GettingStartedSample.pptx", "
 {% endhighlight %}
 {% endtabs %}
 
-N> The image and PDF conversions are not supported in Xamarin.Forms, Xamarin.Android and Xamarin.iOS platforms.
+N> The image and PDF conversions are not supported in Xamarin platforms.
