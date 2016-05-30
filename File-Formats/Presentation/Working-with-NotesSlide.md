@@ -9,7 +9,7 @@ keywords: Working with Notes
 
 # Working with Notes
 
-Notes are the contents associated with each slide. Adding Notes to a slide is an optional one. It shows hint for the speaker, so it is often called as “Speaker Notes”. The Notes are only visible to the presenter when monitors are shared in “Presenter View”. This is helpful to the presenter to remember the key points. You can add and modify the notes in your slide using Essential Presentation library.
+Notes are the contents associated with each slide and are visible only to the presenter when monitors are shared in “Presenter View”. It shows hint for the speaker, so it is often called as “Speaker Notes”. The presenter can optionally add key points to notes. You can add and modify the notes in your slide using Essential Presentation library.
 
 ## Adding Notes to a Slide
 
