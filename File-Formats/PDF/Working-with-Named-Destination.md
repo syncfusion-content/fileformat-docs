@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Named Destination
 
-Essential PDF provides support to add, remove and modify the named destination in the PDF document. When you open a PDF file in a web browser, the first page of the PDF file will be shown by default. By adding a named destination, you can open the PDF with the desired location and magnification. The following link example shows how to open a PDF document with named destination in a webpage.
+Essential PDF provides support to add, remove and modify the named destination in the PDF document. When you open a PDF file in a web browser, the first page of the PDF file will be shown by default. By adding a named destination, you can open the PDF with the desired location and magnification. The following link example shows how to open a PDF document with named destination in a web page.
 
 \<a href="http://www.syncfusion.com/downloads/support/directtrac/general/pd/mydocument-1524150305.pdf#Chapter3"\>
 
