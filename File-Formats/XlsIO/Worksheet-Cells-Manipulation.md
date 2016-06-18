@@ -534,11 +534,14 @@ excelEngine.Dispose()
 
 ## Find and Replace
 
-You can use [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33) options to replace text, jump right to a specific spot, or pick other ways to narrow your search. ExcelFindType and ExcelFindOptions enumerators are used for effective search results. To know more about FindType, please refer ExcelFindType enumeration in API section.
+You can perform [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33) text and numbers in workbook or worksheet using XlsIO. Also, XlsIO provides the following options:
+*	To search for data in formulas, values or comments.
+*	To search for case-sensitive data and to match entire cell contents of the cell.
 
-You can find all occurrences of a text in worksheet by using FindAll method. To know more about Find and Replace, please refer **WorksheetImpl** in API section.
+To know more about these options, please refer the [ExcelFindType](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.ExcelFindType.html), [ExcelFindOptions](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.ExcelFindOptions.html) in the API documentation section.
 
-The following code illustrates how to find all occurrences of text in worksheet with different find options.
+You can find all the occurrences of a text in worksheet by using [FindAll](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~FindAll.html) method. To know more about Find and Replace, please refer [IWorksheet](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet_members.html) in the API documentation section.
+The following code illustrates how to find all the occurrences of text in worksheet with different find options.
 
 {% tabs %}  
 {% highlight c# %}
@@ -550,14 +553,23 @@ IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
 
 IWorksheet sheet = workbook.Worksheets[0];
 
-//Find All with Text
-IRange[] result = sheet.FindAll("Simple Text", ExcelFindType.Text);
+// Searches for the given value in all text records in the worksheet.
+IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Text);
 
-//Find All with Simple text and Match Case
-IRange[] result = sheet.FindAll("Simple text", ExcelFindType.Text, ExcelFindOptions.MatchCase);
+// Searches for the given value in formula records in the worksheet.
+IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Formula);
 
-//Find All with Simple Text and MatchEntireCellContent
-IRange[] result = sheet.FindAll("Simple text", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent);
+// Searches for the given value in calculated value, number and text records in the worksheet.
+IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Values);
+
+// Searches for the given value in text of the comments.
+IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Comments);
+
+// Searches for the given value in all text records in the worksheet with case matched.
+IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchCase);
+
+// Searches for the given value in all text records in the worksheet with the entire cell content matching to search word.
+IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent);
 
 workbook.Version = ExcelVersion.Excel2013;
 
@@ -580,17 +592,23 @@ Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
-'Find All with Text
+' Searches for the given value in all text records in the worksheet.
+Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text)
 
-Dim result() As IRange = sheet.FindAll("Simple Text", ExcelFindType.Text)
+' Searches for the given value in formula records in the worksheet.
+Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Formula)
 
-'Find All with Simple text and Match Case
+' Searches for the given value in calculated value, number and text records in the worksheet.
+Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Values)
 
-Dim result() As IRange = sheet.FindAll("Simple text", ExcelFindType.Text, ExcelFindOptions.MatchCase)
+' Searches for the given value in text of the comments.
+Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Comments)
 
-'Find All with Simple Text and MatchEntireCellContent
+' Searches for the given value in all text records in the worksheet with case matched.
+Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchCase)
 
-Dim result() As IRange = sheet.FindAll("Simple text", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent)
+' Searches for the given value in all text records in the worksheet with the entire cell content matching to search word.
+Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent)
 
 workbook.SaveAs("Find.xlsx")
 
@@ -605,11 +623,10 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-You can replace a text with another text with help of Replace method which searches for text you’d like to change, and replace it with something else. You can replace a string, with the data of various data types and data sources, such as data table, data column and array. 
+You can replace a text with another text with the help of Replace method which searches for text you’d like to change. You can replace a string, with the data of various data types and data sources, such as data table, data column and array.
+To know more about replace overloads, please refer [Replace](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~Replace.html) in the API documentation section.
 
-To know more about replace overloads, please refer **WorksheetImpl** in API section.
-
-Following code example illustrates how to replace strings with various data.
+The following code example illustrates how to replace all occurrences of given string with various data.
 
 {% tabs %}  
 {% highlight c# %}
@@ -621,20 +638,22 @@ IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
 
 IWorksheet sheet = workbook.Worksheets[0];
 
-// Replacing the Text.
+// Replaces the given string with another string.
+sheet.Replace("FindValue", "NewValue");
 
-sheet.Replace("Find and Replace", "New Find and Replace");
+// Replaces the given string with another string on match case.
+sheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchCase);
 
-// Replacing a date value by using datetime.
+// Replaces the given string with another string matching entire cell content to the search word.
+sheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchEntireCellContent);
 
-sheet.Replace("Datevalue", DateTime.Now);
+// Replaces the given string with DateTime value.
+sheet.Replace("DateValue", DateTime.Now);
 
-// Replace using array value.
+// Replaces the given string with Array.
+sheet.Replace("ArrayValue", new string[] { "ArrayValue1", "ArrayValue2", "ArrayValue3" }, true);
 
-sheet.Replace("Arrayvalue", new string[] { "ArrayValue1", "ArrayValue2", "ArrayValue3" }, true);
-
-// Replacing a data table by calling a function SampleDataTable().
-
+// Replaces the given string with DataTable.
 DataTable table = SampleDataTable();
 
 sheet.Replace("DataTable", table, true); 
@@ -660,20 +679,22 @@ Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
-' Replacing the Text.
+' Replaces the given string with another string.
+sheet.Replace("FindValue", "NewValue")
 
-sheet.Replace("Find and Replace", "New Find and Replace")
+' Replaces the given string with another string on match case.
+sheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchCase)
 
-' Replacing a date value by using datetime.
+' Replaces the given string with another string matching entire cell content to the search word.
+sheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchEntireCellContent)
 
-sheet.Replace("Datevalue", DateTime.Now)
+' Replaces the given string with DateTime value.
+sheet.Replace("DateValue", DateTime.Now)
 
-' Replace using array value.
+' Replaces the given string with Array.
+sheet.Replace("ArrayValue", New String() {"ArrayValue1", "ArrayValue2", "ArrayValue3"}, True)
 
-sheet.Replace("Arrayvalue", New String() {"ArrayValue1", "ArrayValue2", "ArrayValue3"}, True)
-
-' Replacing a data table by calling a function SampleDataTable().
-
+' Replaces the given string with DataTable.
 Dim table As DataTable = SampleDataTable()
 
 sheet.Replace("DataTable", table, True)
