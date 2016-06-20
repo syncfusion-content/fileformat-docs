@@ -50,13 +50,7 @@ To convert a PowerPoint Presentation to PDF, include the following assemblies in
                 Syncfusion.SfChart.WPF</td>
             <td>
                 Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF</td>
-        </tr>
-        <tr>
-            <td>
-                Syncfusion.Shared.WPF</td>
-            <td>
-                Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF</td>
-        </tr>
+        </tr>       
         <tr>
             <td>
                 Syncfusion.Compression.Base</td>
@@ -327,19 +321,7 @@ To convert a Presentation or a single slide to image, the following assemblies a
                 
                 
             </td>
-        </tr>
-        <tr>
-            <td>
-                Syncfusion.Shared.WPF
-                
-                
-            </td>
-            <td>
-                Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF
-                
-                
-            </td>
-        </tr>
+        </tr>        
     </tbody>
 </table>
 

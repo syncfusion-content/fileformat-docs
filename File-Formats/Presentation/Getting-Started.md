@@ -410,15 +410,7 @@ Essential Presentation allows you to convert a PowerPoint Presentation into PDF 
             <td>
                 Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF
             </td>
-        </tr>
-        <tr>
-            <td>
-                Syncfusion.Shared.WPF
-            </td>
-            <td>
-                Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF
-            </td>
-        </tr>
+        </tr>        
     </tbody>
 </table>
 
