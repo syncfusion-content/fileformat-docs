@@ -17,7 +17,7 @@ This section describes the support and unsupported elements in the DocIO.
 <th>
 Element<br/><br/></th><th colspan="2">
 DOC, DOT<br/><br/></th><th colspan="2">
-DOCX, DOTX, DOTM, DOCM<br/><br/></th><th colspan="2">
+DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
 </thead>
 <tbody>  
@@ -159,7 +159,7 @@ No<br/><br/></td></tr>
 <th>
 Element<br/><br/></th><th colspan="2">
 DOC, DOT<br/><br/></th><th colspan="2">
-DOCX, DOTX, DOTM, DOCM<br/><br/></th><th colspan="2">
+DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
 </thead>
 <tbody> 
@@ -264,7 +264,7 @@ Yes<br/><br/></td></tr>
 <tr>
 <th>Element<br/><br/></th>
 <th colspan="2">DOC, DOT<br/><br/></th>
-<th colspan="2">DOCX, DOTX, DOTM, DOCM<br/><br/></th>
+<th colspan="2">DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
 </thead>
@@ -593,7 +593,7 @@ Yes<br/><br/></td></tr>
 <tr>
 <th>Element<br/><br/></th>
 <th colspan="2">DOC, DOT<br/><br/></th>
-<th colspan="2">DOCX, DOTX, DOTM, DOCM<br/><br/></th>
+<th colspan="2">DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
 </thead>
@@ -690,7 +690,7 @@ No<br/><br/></td></tr>
 <tr>
 <th>Element<br/><br/></th>
 <th colspan="2">DOC, DOT<br/><br/></th>
-<th colspan="2">DOCX, DOTX, DOTM, DOCM<br/><br/></th>
+<th colspan="2">DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
 </thead>
@@ -930,7 +930,7 @@ Yes<br/><br/></td></tr>
 <th>
 Element<br/><br/></th><th colspan="2">
 DOC, DOT<br/><br/></th><th colspan="2">
-DOCX, DOTX, DOTM, DOCM<br/><br/></th><th colspan="2">
+DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
 <tr>
 <th>

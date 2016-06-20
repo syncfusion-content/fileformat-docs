@@ -276,11 +276,11 @@ wordDocument.Close()
 <tr>
 <td>
 Predefined shapes<br/><br/></td><td>
-Only DOCX format documents are supported<br/><br/></td></tr>
+Only DOCX and WordML format documents are supported<br/><br/></td></tr>
 <tr>
 <td>
 Chart<br/><br/></td><td>
-Only DOCX format documents are supported and it supported from .NET Framework 4.0 onwards<br/><br/></td></tr>
+Only DOCX and WordML format documents are supported and it supported from .NET Framework 4.0 onwards<br/><br/></td></tr>
 <tr>
 <td>
 List - Bulleted, Numbered and Multi-level lists<br/><br/></td><td>
@@ -288,7 +288,7 @@ The image bullets preserved in the  document may be replaced by the disc style b
 <tr>
 <td>
 Table Styles<br/><br/></td><td>
-Only DOCX format documents are supported<br/><br/></td></tr>
+Only DOCX and WordML format documents are supported<br/><br/></td></tr>
 <tr>
 <td>
 Underline<br/><br/></td><td>
@@ -376,7 +376,7 @@ Number formats in Roman, Alphabets and Arabic only supported<br/><br/></td></tr>
 <tr>
 <td>
 Image cropping<br/><br/></td><td>
-Only DOCX format documents are supported<br/><br/></td></tr>
+Only DOCX and WordML format documents are supported<br/><br/></td></tr>
 <tr>
 <td>
 Textbox<br/><br/></td><td>
