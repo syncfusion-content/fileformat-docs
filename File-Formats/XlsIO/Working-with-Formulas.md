@@ -555,6 +555,68 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}   
 
+## Incremental Formula
+
+The relative cell references in the formulas are automatically incremented by 1, when you fill formulas down a column or across a row by enabling the EnableIncrementalFormula property of **IApplication** interface.
+
+The below code snippet shows how to increment the cell references by 1 in the formulas.
+
+{% tabs %}  
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//Enables the incremental formula to updates the reference in cell.
+application.EnableIncrementalFormula = true;
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Formula are automatically increments by one for the range of cells.
+sheet["A1:A5"].Formula = "=B1+C1";
+
+workbook.SaveAs("IncrementalFormula.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();          
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As ExcelEngine = New ExcelEngine
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2013
+
+'Enables the incremental formula to updates the reference in cell.
+application.EnableIncrementalFormula = True
+
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+Dim sheet As IWorkbook = workbook.Worksheets(0)
+
+'Formula are automatically increments by one for the range of cells.
+sheet("A1:A5").Formula = "=B1+C1"
+
+workbook.SaveAs("IncrementalFormula.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
+{% endhighlight %}
+{% endtabs %}   
+
 ## External Formula
 
 XlsIO supports to write and preserve formulas referred to other workbook. These formulas can be evaluated using Microsoft Excel and not by XlsIO.
