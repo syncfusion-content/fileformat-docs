@@ -14,6 +14,8 @@ XlsIO provides support to read and write table which helps to organize and analy
 * **IListObjects** represents a collection of tables in the worksheet. 
 * **IListObject** represent a table in the worksheet
 
+Also, you can create a calculated column in table. For more details, refer [here](/file-formats/xlsio/working-with-formulas#calculated-column).
+
 N> In XlsIO, Tables are supported only for Excel 2007 and later formats (*.xlsx files).
 
 The below code sample explains the creation of a simple table by the range of data from an existing worksheet

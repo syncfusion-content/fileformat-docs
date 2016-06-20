@@ -615,6 +615,51 @@ excelEngine.Dispose()
 
 N> Links are updated automatically in Microsoft Excel to view the result for the preceding code.
 
+## Calculated Column
+
+XlsIO supports to create, access and modify [calculated column](https://support.office.com/en-us/article/Create-edit-or-remove-a-calculated-column-in-an-Excel-table-4507b5aa-8859-407c-b3eb-743a2650af3c) in a table. When you enter a formula in a table column, Excel creates a calculated column. This column uses a single formula that’s automatically extended to additional rows in the column and adjusted for each row. You just enter a formula once, and Excel immediately fills it down to create the calculated column.
+
+Also, XlsIO supports [structured reference](https://support.office.com/en-us/article/Use-structured-references-in-Excel-table-formulas-75fb07d3-826a-449c-b76f-363057e3d16f) in calculated column in table from Excel 2013.
+
+The following code snippet illustrates how to create a calculated column.
+
+{% tabs %}  
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+// Create Table with data in the given range
+IListObject table = worksheet.ListObjects.Create("Table1", worksheet ["A1:D3"]);
+// Create data
+worksheet[1, 1].Text = "Products";
+worksheet[1, 2].Text = "Rate";
+worksheet[1, 3].Text = "Quantity";
+worksheet[1, 4].Text = "Total";
+
+worksheet[2, 1].Text = "Item1";
+worksheet[2, 2].Number = 200;
+worksheet[2, 3].Number = 2;
+
+worksheet[3, 1].Text = "Item2";
+worksheet[3, 2].Number = 200;
+worksheet[3, 3].Number = 2;
+
+//Set table formula
+table.Columns[3].CalculatedFormula = "SUM(20,[Rate]*[Quantity])";
+			
+string fileName = "Output.xlsx";
+workbook.SaveAs(fileName);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+
+{% endhighlight %}
+{% endtabs %}  
+ 
 ## Supported Functions
 
 XlsIO supports all the formulas supported by Excel. Whereas, below is the list of functions that XlsIO performs calculation and returns a calculated value.
