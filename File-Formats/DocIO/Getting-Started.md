@@ -1195,7 +1195,6 @@ For converting a Word document to PDF, the following assemblies are required to 
 * Syncfusion.DocToPdfConverter.Base
 * Syncfusion.OfficeChartToImageConverter.WPF
 * Syncfusion.SfChart.WPF
-* Syncfusion.Shared.WPF
 
 `DocToPDFConverter` class is responsible for converting a Word document into PDF. The following code example illustrates how to convert a Word document into PDF document.
 

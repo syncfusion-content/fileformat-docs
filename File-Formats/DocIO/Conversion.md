@@ -58,10 +58,6 @@ This assembly is used to convert the chart to image.<br/><br/></td></tr>
 <td>
 Syncfusion.SfChart.WPF<br/><br/></td><td>
 This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Shared.WPF<br/><br/></td><td>
-This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
  </tbody>
 </table>
 
@@ -429,10 +425,6 @@ This assembly is used to convert the chart to image.<br/><br/></td></tr>
 <tr>
 <td>
 Syncfusion.SfChart.WPF<br/><br/></td><td>
-This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
-<tr>
-<td>
-Syncfusion.Shared.WPF<br/><br/></td><td>
 This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td></tr>
 </tbody>
 </table>
