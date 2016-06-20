@@ -92,6 +92,6 @@ Assembly<br/></td></tr>
 <tr>
 <td>
 WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/></td><td>
-Syncfusion.OfficeChartToImageConverter.WPF<br/>Syncfusion.SfChart.WPF<br/>Syncfusion.Shared.WPF<br/></td></tr>
+Syncfusion.OfficeChartToImageConverter.WPF<br/>Syncfusion.SfChart.WPF<br/></td></tr>
 </table>
 N> The above mentioned assemblies is supported from .NET Framework 4.0 onwards
