@@ -36,7 +36,7 @@ The library can be used in Windows Forms, WPF, ASP.NET, ASP.NET MVC, WinRT, Wind
 
 **Compatible Microsoft Excel Versions**
 
-* Microsoft Excel 2003
+* Microsoft Excel 97-2003
 * Microsoft Excel 2007
 * Microsoft Excel 2010
 * Microsoft Excel 2013
