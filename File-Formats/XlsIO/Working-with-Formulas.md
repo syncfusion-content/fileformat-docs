@@ -1887,7 +1887,7 @@ Returns the logical value TRUE<br/><br/></td></tr>
 </tbody>
 </table>
 
-## Add-In Functions
+## Add-in Functions
 
 Add-ins are mini-programs or custom functions that enhance the feature set of the Microsoft Excel application. These Add-ins can be accessed by registering it at first from Excel and refer it using XlsIO. For more details on adding AddIn functions, see [Add or remove Add-ins](https://support.office.com/en-ZA/article/add-or-remove-add-ins-64d3d147-98fb-4b82-8833-709d54e3ace1)
 
