@@ -17,7 +17,6 @@ XlsIO allows you to convert an entire workbook or a single worksheet into PDF do
 * Syncfusion.ExcelToPDFConverter.Base.dll
 * Syncfusion.ExcelChartToImageConverter.Wpf.dll
 * Syncfusion.SfChart.Wpf.dll
-* Syncfusion.Shared.Wpf.dll
 * Syncfusion.Pdf.Base.dll
 
 ### Workbook to PDF
@@ -639,4 +638,4 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-
+N> Chart conversion to image and PDF are supported from .NET Framework 4.0 onwards.
