@@ -677,6 +677,51 @@ excelEngine.Dispose()
 
 N> Links are updated automatically in Microsoft Excel to view the result for the preceding code.
 
+## Calculated Column
+
+XlsIO supports to create, access and modify [calculated column](https://support.office.com/en-us/article/Create-edit-or-remove-a-calculated-column-in-an-Excel-table-4507b5aa-8859-407c-b3eb-743a2650af3c) in a table. When you enter a formula in a table column, Excel creates a calculated column. This column uses a single formula that’s automatically extended to additional rows in the column and adjusted for each row. You just enter a formula once, and Excel immediately fills it down to create the calculated column.
+
+Also, XlsIO supports [structured reference](https://support.office.com/en-us/article/Use-structured-references-in-Excel-table-formulas-75fb07d3-826a-449c-b76f-363057e3d16f) in calculated column in table from Excel 2013.
+
+The following code snippet illustrates how to create a calculated column.
+
+{% tabs %}  
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+// Create Table with data in the given range
+IListObject table = worksheet.ListObjects.Create("Table1", worksheet ["A1:D3"]);
+// Create data
+worksheet[1, 1].Text = "Products";
+worksheet[1, 2].Text = "Rate";
+worksheet[1, 3].Text = "Quantity";
+worksheet[1, 4].Text = "Total";
+
+worksheet[2, 1].Text = "Item1";
+worksheet[2, 2].Number = 200;
+worksheet[2, 3].Number = 2;
+
+worksheet[3, 1].Text = "Item2";
+worksheet[3, 2].Number = 200;
+worksheet[3, 3].Number = 2;
+
+//Set table formula
+table.Columns[3].CalculatedFormula = "SUM(20,[Rate]*[Quantity])";
+			
+string fileName = "Output.xlsx";
+workbook.SaveAs(fileName);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+
+{% endhighlight %}
+{% endtabs %}  
+ 
 ## Supported Functions
 
 XlsIO supports all the formulas supported by Excel. Whereas, below is the list of functions that XlsIO performs calculation and returns a calculated value.
@@ -839,6 +884,10 @@ Returns the number of combinations for a given number of objects<br/><br/></td><
 <td>
 COMPLEX<br/><br/></td><td>
 Converts real and imaginary coefficients into a complex number<br/><br/></td></tr>
+<tr>
+<td>
+CONCAT<br/><br/></td><td>
+Combines the text from multiple ranges and/or strings<br/><br/></td></tr>
 <tr>
 <td>
 CONCATENATE<br/><br/></td><td>
@@ -1121,6 +1170,10 @@ IFERROR<br/><br/></td><td>
 Returns a specified value if a formula evaluates to an error.<br/><br/></td></tr>
 <tr>
 <td>
+IFS<br/><br/></td><td>
+Checks whether one or more conditions are met and returns a value that corresponds to the first TRUE condition<br/><br/></td></tr>
+<tr>
+<td>
 IMABS<br/><br/></td><td>
 Returns the absolute value (modulus) of a complex number<br/><br/></td></tr>
 <tr>
@@ -1333,6 +1386,10 @@ MAXA<br/><br/></td><td>
 Returns the maximum value in a list of arguments, including numbers, text, and logical values<br/><br/></td></tr>
 <tr>
 <td>
+MAXIFS<br/><br/></td><td>
+Returns the maximum value among cells specified by a given set of conditions or criteria<br/><br/></td></tr>
+<tr>
+<td>
 MDETERM<br/><br/></td><td>
 Returns the matrix determinant of an array<br/><br/></td></tr>
 <tr>
@@ -1351,6 +1408,10 @@ Returns the minimum value in a list of arguments<br/><br/></td></tr>
 <td>
 MINA<br/><br/></td><td>
 Returns the smallest value in a list of arguments, including numbers, text, and logical values<br/><br/></td></tr>
+<tr>
+<td>
+MINIFS<br/><br/></td><td>
+Returns the minimum value among cells specified by a given set of conditions or criteria<br/><br/></td></tr>
 <tr>
 <td>
 MINUTE<br/><br/></td><td>
@@ -1693,6 +1754,10 @@ SUMXMY2<br/><br/></td><td>
 Returns the sum of squares of differences of corresponding values in two arrays<br/><br/></td></tr>
 <tr>
 <td>
+SWITCH<br/><br/></td><td>
+Evaluates an expression against a list of values and returns the result corresponding to the first matching value. If there is no match, an optional default value may be returned.<br/><br/></td></tr>
+<tr>
+<td>
 SYD<br/><br/></td><td>
 Returns the sum-of-years' digits depreciation of an asset for a specified period<br/><br/></td></tr>
 <tr>
@@ -1711,6 +1776,10 @@ Returns the hyperbolic tangent of a number<br/><br/></td></tr>
 <td>
 TEXT<br/><br/></td><td>
 Formats a number and converts it to text<br/><br/></td></tr>
+<tr>
+<td>
+TEXTJOIN<br/><br/></td><td>
+Combines the text from multiple ranges and/or strings with a delimiter you specify between each text value that will be combined<br/><br/></td></tr>
 <tr>
 <td>
 TIME<br/><br/></td><td>
