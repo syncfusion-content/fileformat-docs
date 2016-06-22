@@ -541,7 +541,7 @@ You can perform [find and replace](https://support.office.com/en-usa/article/Fin
 To know more about these options, please refer the [ExcelFindType](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.ExcelFindType.html), [ExcelFindOptions](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.ExcelFindOptions.html) in the API documentation section.
 
 You can find all the occurrences of a text in worksheet by using [FindAll](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~FindAll.html) method. To know more about Find and Replace, please refer [IWorksheet](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet_members.html) in the API documentation section.
-The following code illustrates how to find all the occurrences of text in worksheet with different find options.
+The following code illustrates how to find all the occurrences of text in a worksheet with different find options.
 
 {% tabs %}  
 {% highlight c# %}
@@ -553,22 +553,22 @@ IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
 
 IWorksheet sheet = workbook.Worksheets[0];
 
-// Searches for the given value in all text records in the worksheet.
+// Searches for the given string within the text of worksheet.
 IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Text);
 
-// Searches for the given value in formula records in the worksheet.
+// Searches for the given string in formulas.
 IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Formula);
 
-// Searches for the given value in calculated value, number and text records in the worksheet.
+// Searches for the given string in calculated value, number and text.
 IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Values);
 
-// Searches for the given value in text of the comments.
+// Searches for the given string in comments.
 IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Comments);
 
-// Searches for the given value in all text records in the worksheet with case matched.
+// Searches for the given string within the text of worksheet and case matched.
 IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchCase);
 
-// Searches for the given value in all text records in the worksheet with the entire cell content matching to search word.
+// Searches for the given string within the text of worksheet and the entire cell content matching to search text.
 IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent);
 
 workbook.Version = ExcelVersion.Excel2013;
@@ -592,22 +592,22 @@ Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
-' Searches for the given value in all text records in the worksheet.
+' Searches for the given string within the text of worksheet.
 Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text)
 
-' Searches for the given value in formula records in the worksheet.
+' Searches for the given string in formulas.
 Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Formula)
 
-' Searches for the given value in calculated value, number and text records in the worksheet.
+' Searches for the given string in calculated value, number and text.
 Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Values)
 
-' Searches for the given value in text of the comments.
+' Searches for the given string in comments.
 Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Comments)
 
-' Searches for the given value in all text records in the worksheet with case matched.
+' Searches for the given string within the text of worksheet and case matched.
 Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchCase)
 
-' Searches for the given value in all text records in the worksheet with the entire cell content matching to search word.
+' Searches for the given string within the text of worksheet and the entire cell content matching to search text.
 Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent)
 
 workbook.SaveAs("Find.xlsx")
