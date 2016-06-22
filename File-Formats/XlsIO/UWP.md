@@ -119,7 +119,7 @@ excelEngine.Dispose()
 
 {% endtabs %}  
 
-The below code snippet illustrates how to load an Xml file in UWP.
+The below code snippet illustrates how to load an XML file in UWP.
 
 {% tabs %}  
 
