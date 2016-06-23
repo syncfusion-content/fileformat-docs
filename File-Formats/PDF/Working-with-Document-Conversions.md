@@ -563,13 +563,13 @@ Please follow the below instructions for manual troubleshooting.
 <th style="font-size:14px">Reason
 </th>
 <td>
-<b>When the webpage (html) is not available/accessible</b>
+<b>When the web page (html) is not available/accessible</b>
 </td>
 </tr>
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>Please check your internet connection and if the html page is available in the mentioned location.
+<td>Please check your Internet connection and if the HTML page is available in the mentioned location.
 </td>
 </tr>
 </table>
@@ -600,7 +600,7 @@ Instead, the required assemblies below can be added in the Windows system folder
 <li>MSVCR100.dll</li>
 </ul>
 
-For converting https sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the below link,
+For converting HTTPS sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the below link,
 <br/><br/>
 <a href="http://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064">OpenSSL</a>
 
@@ -647,7 +647,7 @@ Issue
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>The issue may be due to the slow internet connection or due to the behavior that the conversion completed before the page is loaded completely.
+<td>The issue may be due to the slow Internet connection or due to the behavior that the conversion completed before the page is loaded completely.
 </td>
 </tr>
 <tr>
