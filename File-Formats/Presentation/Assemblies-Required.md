@@ -81,7 +81,6 @@ WPF, Windows Forms, ASP. NET and ASP.NET MVC</br>
 <td>
 Syncfusion.OfficeChartToImageConverter.WPF<br/>
 Syncfusion.SfChart.WPF<br/>
-Syncfusion.Shared.WPF<br/>
 </td>
 </tr>
 </table>
