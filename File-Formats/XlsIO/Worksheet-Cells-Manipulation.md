@@ -535,6 +535,7 @@ excelEngine.Dispose()
 ## Find and Replace
 
 You can perform [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33) text and numbers in workbook or worksheet using XlsIO. Also, XlsIO provides the following options:
+
 *	To search for data in formulas, values or comments.
 *	To search for case-sensitive data and to match entire cell contents of the cell.
 
