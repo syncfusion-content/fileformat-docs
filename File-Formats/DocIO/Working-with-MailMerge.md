@@ -18,7 +18,7 @@ The following data sources are supported by Essential DocIO for performing Mail 
 
 You can create a template document with Merge fields by using the Microsoft Word. The following screenshot shows how to insert a merge filed in the Word document by using the Microsoft Word.
 
-![](MailMerge_images/MailMerge_img1.jpeg)
+![](MailMerge_images/MailMerge_img1.png)
 
 
 You need to add a prefix (“Image:”) to the merge field name for merging an image in the place of a merge field.
