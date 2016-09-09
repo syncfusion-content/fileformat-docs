@@ -1957,332 +1957,377 @@ You can compress and decompress the files with our Compression library. The foll
 {% tabs %}  
 
 {% highlight c# %}
-private static void SubFoldersFiles(string path)
 
-{
+using Syncfusion.Compression.Zip;
 
-DirectoryInfo dInfo = new DirectoryInfo(path);
+class Program
+    {
+        private static List<DirectoryInfo> arrOfItems = new List<DirectoryInfo>();
+        private static ZipArchive zipArchive = new ZipArchive();
+        private static string folderPath = @"..\..\ZipFiles";
 
-foreach (DirectoryInfo d in dInfo.GetDirectories())
+        private static void SubFoldersFiles(string path)
 
-{
+        {
 
-SubFoldersFiles(d.FullName);
+            DirectoryInfo dInfo = new DirectoryInfo(path);
 
-arrOfItems.Add(d);
+            foreach (DirectoryInfo d in dInfo.GetDirectories())
 
-}
+            {
 
-}
+                SubFoldersFiles(d.FullName);
 
-// Zip and save the file.
+                arrOfItems.Add(d);
 
-private static void ZipandSave()
+            }
 
-{
+        }
 
-SubFoldersFiles(folderPath);
+        // Zip and save the file.
 
-if (Directory.Exists(folderPath))
+        private static void ZipandSave()
 
-{
+        {
 
-AddRootFiles();
+            SubFoldersFiles(folderPath);
 
-AddSubFoldersFiles();
+            if (Directory.Exists(folderPath))
 
+            {
 
+                AddRootFiles();
 
-// Saving zipped file.
+                AddSubFoldersFiles();
 
-zipArchive.Save(folderPath);
+                // Saving zipped file.
 
-zipArchive.Close();
+                zipArchive.Save(@"..\..\UnzippedFile.zip");
 
-Console.WriteLine("Files Zipped successfully!");
+                zipArchive.Close();
 
-}
+                Console.WriteLine("Files Zipped successfully!");
 
-}
+            }
 
-private static void AddRootFiles()
+        }
 
-{
+        private static void AddRootFiles()
 
-string fileName = "";
+        {
 
-foreach (string rootfiles in Directory.GetFiles(folderPath))
+            string fileName = "";
 
-{
+            foreach (string rootfiles in Directory.GetFiles(folderPath))
 
-//Creating the stream from file
+            {
 
-FileStream stream = new FileStream(rootfiles, FileMode.Open, FileAccess.ReadWrite);
+                //Creating the stream from file
 
-//Getting the File Name alone and ignoring the directoty path
+                FileStream stream = new FileStream(rootfiles, FileMode.Open, FileAccess.ReadWrite);
 
-fileName=Path.GetFileName(rootfiles);
+                //Getting the File Name alone and ignoring the directoty path
 
-FileAttributes attribute = File.GetAttributes(rootfiles);
+                fileName = Path.GetFileName(rootfiles);
 
-zipArchive.AddItem(fileName,stream,false,attribute);
+                FileAttributes attribute = File.GetAttributes(rootfiles);
 
-}
+                zipArchive.AddItem(fileName, stream, false, attribute);
 
-}
+            }
 
-private static void AddSubFoldersFiles()
+        }
 
-{
+        private static void AddSubFoldersFiles()
 
-foreach (DirectoryInfo dInfo in arrOfItems)
+        {
 
-{
+            foreach (DirectoryInfo dInfo in arrOfItems)
 
-FileInfo[] fInfo = dInfo.GetFiles();
+            {
 
-string mainDirectoryPath = Path.GetFullPath(folderPath);
+                FileInfo[] fInfo = dInfo.GetFiles();
 
-foreach (FileInfo file in fInfo)
+                string mainDirectoryPath = Path.GetFullPath(folderPath);
 
-{
+                foreach (FileInfo file in fInfo)
 
-//Get the File name with its current folder and ignoring the Main Directory
+                {
 
-string fileName = file.FullName.Replace(mainDirectoryPath, "");
+                    //Get the File name with its current folder and ignoring the Main Directory
 
-//Read the file stream by its Full name
+                    string fileName = file.FullName.Replace(mainDirectoryPath, "");
 
-FileStream stream = new FileStream(file.FullName, FileMode.Open, FileAccess.ReadWrite);
+                    //Read the file stream by its Full name
 
-FileAttributes attributes = File.GetAttributes(file.FullName);
+                    FileStream stream = new FileStream(file.FullName, FileMode.Open, FileAccess.ReadWrite);
 
-//Add the item to the zip Archive
+                    FileAttributes attributes = File.GetAttributes(file.FullName);
 
-zipArchive.AddItem(fileName, stream, true, attributes);
+                    //Add the item to the zip Archive
 
-}
+                    zipArchive.AddItem(fileName, stream, true, attributes);
 
-}
+                }
 
-}
+            }
 
-//Unzipping the Folder
+        }
 
-private static void UnZipFiles()
+        //Unzipping the Folder
 
-{
+        private static void UnZipFiles()
 
-ZipArchive zip = new ZipArchive();
+        {
 
-string path = @"..\..\UnzippedFile\";
+            ZipArchive zip = new ZipArchive();
 
-if (!Directory.Exists(path))
+            string path = @"..\..\UnZippedFile";
 
-Directory.CreateDirectory(path);
+            zip.Open(@"..\..\UnzippedFile.zip");
 
-//Saving the contents of zip file to disk.
+            if (!Directory.Exists(path))
 
-for (int i = 0; i < zip.Count; i++)
+                Directory.CreateDirectory(path);
 
-{
+            //Saving the contents of zip file to disk.
 
-ZipArchiveItem item = zip[i];
+            for (int i = 0; i < zip.Count; i++)
 
-string itemName = path + item.ItemName;
+            {
 
-//checking whether the item is root file
+                ZipArchiveItem item = zip[i];
 
-if (itemName.Contains("/"))
+                string itemName = path + item.ItemName;
 
-{
+                //checking whether the item is root file
 
-itemName = itemName.Replace("/", "\\");
+                if (itemName.Contains("/"))
 
-}
+                {
 
-//Check whether the Directory is present or not
+                    itemName = itemName.Replace("/", "\\");
 
-if (!Directory.Exists(itemName) || itemName.Contains("\\"))
+                }
 
-{
+                //Check whether the Directory is present or not
 
-int index = itemName.LastIndexOf("\\");
+                if (!Directory.Exists(itemName) || itemName.Contains("\\"))
 
-string directoryPath = itemName.Remove(index, itemName.Length - index);
+                {
 
-Directory.CreateDirectory(directoryPath);
+                    int index = itemName.LastIndexOf("\\");
 
-}
+                    string directoryPath = itemName.Remove(index, itemName.Length - index);
 
-FileStream fileStream = new FileStream(itemName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                    Directory.CreateDirectory(directoryPath);
 
-MemoryStream memoryStream = item.DataStream as MemoryStream;
+                }
 
-memoryStream.WriteTo(fileStream);
+                FileStream fileStream = new FileStream(itemName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
 
-fileStream.Flush();
+                MemoryStream memoryStream = item.DataStream as MemoryStream;
 
-fileStream.Close();
+                memoryStream.WriteTo(fileStream);
 
-}
+                fileStream.Flush();
 
-Console.WriteLine("File has been Unzipped");
+                fileStream.Close();
 
-}
+            }
+
+            Console.WriteLine("File has been Unzipped");
+
+        }
+
+
+        static void Main(string[] args)
+        {
+            ZipandSave();
+            UnZipFiles();
+        }
+    }
 
 
 
 {% endhighlight %}
 
 {% highlight vb %}
-Private Shared Sub SubFoldersFiles(path As String)
+Imports Syncfusion.Compression.Zip
 
-Dim dInfo As New DirectoryInfo(path)
+Class Program
+	Private Shared arrOfItems As New List(Of DirectoryInfo)()
+	Private Shared zipArchive As New ZipArchive()
+	Private Shared folderPath As String = "..\..\ZipFiles"
 
-For Each d As DirectoryInfo In dInfo.GetDirectories()
+	Private Shared Sub SubFoldersFiles(path As String)
 
-SubFoldersFiles(d.FullName)
 
-arrOfItems.Add(d)
+		Dim dInfo As New DirectoryInfo(path)
 
-Next
+		For Each d As DirectoryInfo In dInfo.GetDirectories()
 
-End Sub
 
-' Zip and save the file.
+			SubFoldersFiles(d.FullName)
 
-Private Shared Sub ZipandSave()
 
-SubFoldersFiles(folderPath)
+			arrOfItems.Add(d)
+		Next
 
-If Directory.Exists(folderPath) Then
+	End Sub
 
-AddRootFiles()
+	' Zip and save the file.
 
-AddSubFoldersFiles()
+	Private Shared Sub ZipandSave()
 
-' Saving zipped file.
 
-zipArchive.Save(folderPath)
+		SubFoldersFiles(folderPath)
 
-zipArchive.Close()
+		If Directory.Exists(folderPath) Then
 
-Console.WriteLine("Files Zipped successfully!")
 
-End If
+			AddRootFiles()
 
-End Sub
+			AddSubFoldersFiles()
 
-Private Shared Sub AddRootFiles()
+			' Saving zipped file.
 
-Dim fileName As String = ""
+			zipArchive.Save("..\..\UnzippedFile.zip")
 
-For Each rootfiles As String In Directory.GetFiles(folderPath)
+			zipArchive.Close()
 
-'Creating the stream from file
 
-Dim stream As New FileStream(rootfiles, FileMode.Open, FileAccess.ReadWrite)
+			Console.WriteLine("Files Zipped successfully!")
+		End If
 
-'Getting the File Name alone and ignoring the directoty path
+	End Sub
 
-fileName = Path.GetFileName(rootfiles)
+	Private Shared Sub AddRootFiles()
 
-Dim attribute As FileAttributes = File.GetAttributes(rootfiles)
 
-zipArchive.AddItem(fileName, stream, False, attribute)
+		Dim fileName As String = ""
 
-Next
+		For Each rootfiles As String In Directory.GetFiles(folderPath)
 
-End Sub
 
-Private Shared Sub AddSubFoldersFiles()
+			'Creating the stream from file
 
-For Each dInfo As DirectoryInfo In arrOfItems
+			Dim stream As New FileStream(rootfiles, FileMode.Open, FileAccess.ReadWrite)
 
-Dim fInfo As FileInfo() = dInfo.GetFiles()
+			'Getting the File Name alone and ignoring the directoty path
 
-Dim mainDirectoryPath As String = Path.GetFullPath(folderPath)
+			fileName = Path.GetFileName(rootfiles)
 
-For Each file__1 As FileInfo In fInfo
+			Dim attribute As FileAttributes = File.GetAttributes(rootfiles)
 
-'Get the File name with its current folder and ignoring the Main Directory
 
-Dim fileName As String = file__1.FullName.Replace(mainDirectoryPath, "")
+			zipArchive.AddItem(fileName, stream, False, attribute)
+		Next
 
-'Read the file stream by its Full name
+	End Sub
 
-Dim stream As New FileStream(file__1.FullName, FileMode.Open, FileAccess.ReadWrite)
+	Private Shared Sub AddSubFoldersFiles()
 
-Dim attributes As FileAttributes = File.GetAttributes(file__1.FullName)
 
-'Add the item to the zip Archive
+		For Each dInfo As DirectoryInfo In arrOfItems
 
-zipArchive.AddItem(fileName, stream, True, attributes)
 
-Next
+			Dim fInfo As FileInfo() = dInfo.GetFiles()
 
-Next
+			Dim mainDirectoryPath As String = Path.GetFullPath(folderPath)
 
-End Sub
+			For Each file__1 As FileInfo In fInfo
 
-'Unzipping the Folder
 
-Private Shared Sub UnZipFiles()
+				'Get the File name with its current folder and ignoring the Main Directory
 
-Dim zip As New ZipArchive()
+				Dim fileName As String = file__1.FullName.Replace(mainDirectoryPath, "")
 
-Dim path As String = "..\..\UnzippedFile\"
+				'Read the file stream by its Full name
 
-If Not Directory.Exists(path) Then
+				Dim stream As New FileStream(file__1.FullName, FileMode.Open, FileAccess.ReadWrite)
 
-Directory.CreateDirectory(path)
+				Dim attributes As FileAttributes = File.GetAttributes(file__1.FullName)
 
-End If
+				'Add the item to the zip Archive
 
-'Saving the contents of zip file to disk.
 
-For i As Integer = 0 To zip.Count - 1
+				zipArchive.AddItem(fileName, stream, True, attributes)
 
-Dim item As ZipArchiveItem = zip(i)
+			Next
+		Next
 
-Dim itemName As String = path + item.ItemName
+	End Sub
 
-'checking whether the item is root file
+	'Unzipping the Folder
 
-If itemName.Contains("/") Then
+	Private Shared Sub UnZipFiles()
 
-itemName = itemName.Replace("/", "\")
 
-End If
+		Dim zip As New ZipArchive()
 
-'Check whether the Directory is present or not
+		Dim path As String = "..\..\UnZippedFile"
 
-If Not Directory.Exists(itemName) OrElse itemName.Contains("\") Then
+		zip.Open("..\..\UnzippedFile.zip")
 
-Dim index As Integer = itemName.LastIndexOf("\")
+		If Not Directory.Exists(path) Then
 
-Dim directoryPath As String = itemName.Remove(index, itemName.Length - index)
+			Directory.CreateDirectory(path)
+		End If
 
-Directory.CreateDirectory(directoryPath)
+		'Saving the contents of zip file to disk.
 
-End If
+		For i As Integer = 0 To zip.Count - 1
 
-Dim fileStream As New FileStream(itemName, FileMode.OpenOrCreate, FileAccess.ReadWrite)
 
-Dim memoryStream As MemoryStream = TryCast(item.DataStream, MemoryStream)
+			Dim item As ZipArchiveItem = zip(i)
 
-memoryStream.WriteTo(fileStream)
+			Dim itemName As String = path + item.ItemName
 
-fileStream.Flush()
+			'checking whether the item is root file
 
-fileStream.Close()
+			If itemName.Contains("/") Then
 
-Next
 
-Console.WriteLine("File has been Unzipped")
 
-End Sub 
+				itemName = itemName.Replace("/", "\")
+			End If
+
+			'Check whether the Directory is present or not
+
+			If Not Directory.Exists(itemName) OrElse itemName.Contains("\") Then
+
+
+				Dim index As Integer = itemName.LastIndexOf("\")
+
+				Dim directoryPath As String = itemName.Remove(index, itemName.Length - index)
+
+
+				Directory.CreateDirectory(directoryPath)
+			End If
+
+			Dim fileStream As New FileStream(itemName, FileMode.OpenOrCreate, FileAccess.ReadWrite)
+
+			Dim memoryStream As MemoryStream = TryCast(item.DataStream, MemoryStream)
+
+			memoryStream.WriteTo(fileStream)
+
+			fileStream.Flush()
+
+
+			fileStream.Close()
+		Next
+
+		Console.WriteLine("File has been Unzipped")
+
+	End Sub
+
+
+	Private Shared Sub Main(args As String())
+		ZipandSave()
+		UnZipFiles()
+	End Sub
+End Class
 
 
 
