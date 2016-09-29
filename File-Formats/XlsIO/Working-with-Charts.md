@@ -1845,10 +1845,875 @@ excelEngine.Dispose()
 
 N> Sparklines are supported only from Excel 2007 onwards and are ignored in the earlier versions.
 
-## Supported Chart Types 
+## Excel 2016 Charts
 
-The following Chart types are supported in XlsIO.
+Essential XlsIO supports creating and manipulating new and modern chart types such as waterfall, histogram, pareto, box and whisker, tree map, and sunburst, all of which are introduced in Microsoft Excel 2016.
 
+### Funnel
+
+[Funnel](https://support.office.com/en-us/article/Create-a-funnel-chart-ba21bcba-f325-4d9f-93df-97074589a70e#) charts show values across multiple stages in a process.
+
+Following code example illustrates how to create Funnel chart.
+
+{% tabs %}
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2016;
+
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Create a chart
+
+IChartShape chart = sheet.Charts.Add();
+
+//Set chart type as Funnel
+
+chart.ChartType = ExcelChartType.Funnel;
+
+//Set data range in the worksheet
+
+chart.DataRange = sheet.Range["A1:B6"];
+
+//Set the chart title
+
+chart.ChartTitle = "Funnel";
+
+//Formatting the legend and data label option
+
+chart.HasLegend = false;
+
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+workbook.SaveAs("Funnel.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As ExcelEngine = New ExcelEngine
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2016
+
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+'Create a chart
+
+Dim chart As IChartShape = sheet.Charts.Add()
+
+'Set chart type as Funnel
+
+chart.ChartType = ExcelChartType.Funnel
+
+'Set data range in the worksheet
+
+chart.DataRange = sheet.Range("A1:B6")
+
+'Set the chart title
+
+chart.ChartTitle = "Funnel"
+
+'Formatting the legend and data label option
+
+chart.HasLegend = False
+
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
+
+workbook.SaveAs("Funnel.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Funnel1191611286.zip#).
+
+
+The following screen shot shows the output of above code.
+
+![](Working-with-Charts_images/funnel.jpeg)
+
+
+
+### Box and Whisker
+
+[Box and Whisker](https://support.office.com/en-us/article/Create-a-box-and-whisker-chart-62f4219f-db4b-4754-aca8-4743f6190f0d#) chart shows distribution of data into quartiles, highlighting the mean and outliers. Box and Whisker charts are most commonly used in statistical analysis.
+
+Following code example illustrates how to create Box and Whisker chart.
+
+{% tabs %}
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2016;
+
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Create a chart
+
+IChartShape chart = sheet.Charts.Add();
+
+//Set the chart title
+
+chart.ChartTitle = "Test Scores";
+
+//Set chart type as Box and Whisker
+
+chart.ChartType = ExcelChartType.BoxAndWhisker;
+
+//Set data range in the worksheet
+
+chart.DataRange = sheet["A1:D16"];
+
+//Box and Whisker settings on first series
+
+IChartSerie seriesA = chart.Series[0];
+
+seriesA.SerieFormat.ShowInnerPoints = false;
+
+seriesA.SerieFormat.ShowOutlierPoints = true;
+
+seriesA.SerieFormat.ShowMeanMarkers = true;
+
+seriesA.SerieFormat.ShowMeanLine = false;
+
+seriesA.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian;
+
+//Box and Whisker settings on second series   
+
+IChartSerie seriesB = chart.Series[1];
+
+seriesB.SerieFormat.ShowInnerPoints = false;
+
+seriesB.SerieFormat.ShowOutlierPoints = true;
+
+seriesB.SerieFormat.ShowMeanMarkers = true;
+
+seriesB.SerieFormat.ShowMeanLine = false;
+
+seriesB.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.InclusiveMedian;
+
+//Box and Whisker settings on third series   
+
+IChartSerie seriesC = chart.Series[2];
+
+seriesC.SerieFormat.ShowInnerPoints = false;
+
+seriesC.SerieFormat.ShowOutlierPoints = true;
+
+seriesC.SerieFormat.ShowMeanMarkers = true;
+
+seriesC.SerieFormat.ShowMeanLine = false;
+
+seriesC.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian; 
+
+workbook.SaveAs("Box and Whisker.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As ExcelEngine = New ExcelEngine
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2016
+
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+
+Dim sheet As IWorksheet= workbook.Worksheets(0)
+
+'Create a chart
+
+Dim chart As IChartShape = sheet.Charts.Add()
+
+'Set the chart title
+
+chart.ChartTitle = "Test Scores"
+
+'Set chart type as Box and Whisker
+
+chart.ChartType = ExcelChartType.BoxAndWhisker
+
+'Set data range in the worksheet
+
+chart.DataRange = sheet("A1:D16")
+
+'Box and Whisker settings on first series
+
+Dim seriesA As IChartSerie = chart.Series(0)
+
+seriesA.SerieFormat.ShowInnerPoints = False
+
+seriesA.SerieFormat.ShowOutlierPoints = True
+
+seriesA.SerieFormat.ShowMeanMarkers = True
+
+seriesA.SerieFormat.ShowMeanLine = False
+
+seriesA.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian 
+
+'Box and Whisker settings on second series          
+
+Dim seriesB As IChartSerie = chart.Series(1)
+
+seriesB.SerieFormat.ShowInnerPoints = False
+
+seriesB.SerieFormat.ShowOutlierPoints = True
+
+seriesB.SerieFormat.ShowMeanMarkers = True
+
+seriesB.SerieFormat.ShowMeanLine = False
+
+seriesB.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.InclusiveMedian
+
+'Box and Whisker settings on third series  
+
+Dim seriesC As IChartSerie = chart.Series(2)
+
+seriesC.SerieFormat.ShowInnerPoints = False
+
+seriesC.SerieFormat.ShowOutlierPoints = True
+
+seriesC.SerieFormat.ShowMeanMarkers = True
+
+seriesC.SerieFormat.ShowMeanLine = False
+
+seriesC.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian
+
+workbook.SaveAs("Box and Whisker.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Box_and_Whisker1075978354.zip#).
+
+
+The following screen shot shows the output of above code.
+
+![](Working-with-Charts_images/boxandwhisker.jpeg)
+
+
+
+
+### Waterfall
+
+[Waterfall](https://support.office.com/en-us/article/Create-a-waterfall-chart-in-Office-2016-8de1ece4-ff21-4d37-acd7-546f5527f185#) chart helps to quickly understand the finances of business owners by viewing profit and loss statements. With a Waterfall chart, you can quickly illustrate the line items in your financial data and get a clear picture of how each item is impacting your bottom line.
+
+Following code example illustrates how to create Waterfall chart.
+
+{% tabs %}
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2016;
+
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Create a chart
+
+IChartShape chart = sheet.Charts.Add();
+
+//Set chart type as Waterfall
+
+chart.ChartType = ExcelChartType.WaterFall;
+
+//Set data range in the worksheet
+
+chart.DataRange = sheet["A2:B8"];
+
+//Data point settings as total in chart
+
+chart.Series[0].DataPoints[3].SetAsTotal = true;
+
+chart.Series[0].DataPoints[6].SetAsTotal = true;
+
+//Showing the connector lines between data points
+
+chart.Series[0].SerieFormat.ShowConnectorLines = true;
+
+//Set the chart title
+
+chart.ChartTitle = "Company Profit (in USD)";
+
+//Formatting data label and legend option
+
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+chart.Legend.Position = ExcelLegendPosition.Right;
+
+workbook.SaveAs("Waterfall.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As ExcelEngine = New ExcelEngine
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2016
+
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+'Create a chart
+
+Dim chart As IChartShape = sheet.Charts.Add()
+
+'Set chart type as Waterfall
+
+chart.ChartType = ExcelChartType.WaterFall
+
+'Set data range in the worksheet
+
+chart.DataRange = sheet("A2:B8")
+
+'Datapoint settings as total in chart
+
+chart.Series(0).DataPoints(3).SetAsTotal = True
+
+chart.Series(0).DataPoints(6).SetAsTotal = True
+
+'Showing the connector lines between data points
+
+chart.Series(0).SerieFormat.ShowConnectorLines = True
+
+'Set the chart title
+
+chart.ChartTitle = "Company Profit (in USD)"
+
+'Formatting data label and legend option
+
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
+
+chart.Legend.Position = ExcelLegendPosition.Right
+
+workbook.SaveAs("Waterfall.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
+{% endhighlight %}
+{% endtabs %}
+
+The input template can be downloaded [here.](http://www.syncfusion.com/downloads/support/directtrac/general/ze/waterfall1416377471.zip#)
+
+The following screen shot shows the output of above code.
+
+![](Working-with-Charts_images/waterfall.jpeg)
+
+
+
+### Histogram
+
+[Histogram](https://support.office.com/en-us/article/Create-a-histogram-85680173-064b-4024-b39d-80f17ff2f4e8# ) shows the frequencies within a distribution. Each column of the chart is called a bin, which can be changed further to analyze the data.
+
+Following code example illustrates how to create Histogram.
+
+{% tabs %}
+{% highlight c# %}
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2016;
+
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Create a chart
+
+IChartShape chart = sheet.Charts.Add();
+
+//Set chart type as Histogram       
+
+chart.ChartType = ExcelChartType.Histogram;
+
+//Set data range in the worksheet   
+
+chart.DataRange = sheet["A1:A15"];
+
+//Category axis bin settings        
+
+chart.PrimaryCategoryAxis.BinWidth = 8;
+
+//Gap width settings
+
+chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+
+//Set the chart title and axis title
+
+chart.ChartTitle = "Height Data";
+
+chart.PrimaryValueAxis.Title = "Number of students";
+
+chart.PrimaryCategoryAxis.Title = "Height";
+
+//Hiding the legend
+
+chart.HasLegend = false;
+
+workbook.SaveAs("Histogram.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As ExcelEngine = New ExcelEngine
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2016
+
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+'Create a chart
+
+Dim chart As IChartShape = sheet.Charts.Add()
+
+'Set chart type as Histogram                 
+
+chart.ChartType = ExcelChartType.Histogram
+
+'Set data range in the worksheet
+
+chart.DataRange = sheet("A1:A15")
+
+'Category axis bin settings     
+
+chart.PrimaryCategoryAxis.BinWidth = 8
+
+'Gap width settings
+
+chart.Series(0).SerieFormat.CommonSerieOptions.GapWidth = 6
+
+'Set the chart title and axis title
+
+chart.ChartTitle = "Height Data"
+
+chart.PrimaryValueAxis.Title = "Number of students"
+
+chart.PrimaryCategoryAxis.Title = "Height"
+
+'Hiding the legend
+
+chart.HasLegend = False
+
+workbook.SaveAs("Histogram.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+{% endhighlight %}
+{% endtabs %}
+
+The input template can be downloaded [here.](http://www.syncfusion.com/downloads/support/directtrac/general/ze/histogram1512012627.zip#)
+
+The following screen shot shows the output of above code.
+
+![](Working-with-Charts_images/histogram.jpeg)
+
+
+### Pareto
+
+[Pareto](https://support.office.com/en-us/article/Create-a-Pareto-chart-a1512496-6dba-4743-9ab1-df5012972856#) is a sorted histogram where columns sorted in descending order and a line representing the cumulative total percentage.
+
+Following code example illustrates how to create Pareto chart.
+
+{% tabs %}
+
+{% highlight c# %}
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2016;
+
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Create a chart
+
+IChartShape chart = sheet.Charts.Add();
+
+//Set chart type as Pareto
+
+chart.ChartType = ExcelChartType.Pareto;
+
+//Set data range in the worksheet   
+
+chart.DataRange = sheet["A2:B8"];
+
+//Set category values as bin values   
+
+chart.PrimaryCategoryAxis.IsBinningByCategory = true;
+
+//Formatting Pareto line      
+
+chart.Series[0].ParetoLineFormat.LineProperties.ColorIndex = ExcelKnownColors.Bright_green;
+
+//Gap width settings
+
+chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+
+//Set the chart title
+
+chart.ChartTitle = "Expenses";
+
+//Hiding the legend
+
+chart.HasLegend = false;
+
+workbook.SaveAs("Pareto.xlsx");
+
+workbook.Close();
+
+{% endhighlight %}
+
+{% highlight vb %}
+
+Dim excelEngine As ExcelEngine = New ExcelEngine
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2016
+
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+'Create a chart
+
+Dim chart As IChartShape = sheet.Charts.Add()
+
+'Set chart type as Pareto
+
+chart.ChartType = ExcelChartType.Pareto
+
+'Set data range in the worksheet
+
+chart.DataRange = sheet("A2:B8")
+
+'Set category axis as bin option
+
+chart.PrimaryCategoryAxis.IsBinningByCategory = True
+
+'Formatting Pareto line
+
+chart.Series(0).ParetoLineFormat.LineProperties.ColorIndex = ExcelKnownColors.Bright_green
+
+'Gap width settings
+
+chart.Series(0).SerieFormat.CommonSerieOptions.GapWidth = 6
+
+'Set the chart title
+
+chart.ChartTitle = "Expenses"
+
+'Hiding the legend
+
+chart.HasLegend = False
+
+workbook.SaveAs("Pareto.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/pareto1141391394.zip# ).
+
+The following screen shot shows the output of above code.
+
+![](Working-with-Charts_images/pareto.jpeg)
+
+
+
+### Treemap
+
+[Treemap](https://support.office.com/en-us/article/Create-a-treemap-chart-in-Office-2016-dfe86d28-a610-4ef5-9b30-362d5c624b68#) provides a hierarchical view of data as clustered rectangle with a specific weighted attribute determining the size of the rectangle. 
+
+Following code example illustrates how to create Treemap chart.
+
+{% tabs %}
+
+{% highlight c# %}
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2016;
+
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Create a chart
+
+IChartShape chart = sheet.Charts.Add();
+
+//Set chart type as TreeMap
+
+chart.ChartType = ExcelChartType.TreeMap;
+
+//Set data range in the worksheet
+
+chart.DataRange = sheet["A2:C11"];
+
+//Set the chart title
+
+chart.ChartTitle = "Area by countries";
+
+//Set the Treemap label option
+
+chart.Series[0].SerieFormat.TreeMapLabelOption = ExcelTreeMapLabelOption.Banner; 
+
+//Formatting data labels      
+
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+workbook.SaveAs("Treemap.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+{% endhighlight %}
+
+{% highlight vb %}
+
+Dim excelEngine As ExcelEngine = New ExcelEngine
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2016
+
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+
+Dim sheet As IWorksheet= workbook.Worksheets(0)
+
+'Create a chart
+
+Dim chart As IChartShape = sheet.Charts.Add()
+
+'Set chart type as TreeMap
+
+chart.ChartType = ExcelChartType.TreeMap
+
+'Set data range in the worksheet
+
+chart.DataRange = sheet("A2:C11")
+
+'Set the chart title
+
+chart.ChartTitle = "Area by countries"
+
+'Set the Treemap label option
+
+chart.Series(0).SerieFormat.TreeMapLabelOption = ExcelTreeMapLabelOption.Banner 
+
+'Formatting data labels        
+
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
+
+workbook.SaveAs("Treemap.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/treemap1366604090.zip#).
+
+The following screen shot shows the output of above code.
+
+![](Working-with-Charts_images/treemap.jpeg)
+
+
+
+### Sunburst
+
+[Sunburst](https://support.office.com/en-us/article/Create-a-sunburst-chart-in-Office-2016-4a127977-62cd-4c11-b8c7-65b84a358e0c#) provides a hierarchical view of data where each level of the hierarchy is represented by one ring or circle with the innermost circle as the top of the hierarchy.
+
+Following code example illustrates how to create Sunburst chart.
+
+{% tabs %}
+
+{% highlight c# %}
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2016;
+
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Create a chart
+
+IChartShape chart = sheet.Charts.Add();
+
+//Set chart type as Sunburst
+
+chart.ChartType = ExcelChartType.SunBurst;
+
+//Set data range in the worksheet
+
+chart.DataRange = sheet["A1:D16"];
+
+//Set the chart title
+
+chart.ChartTitle = "Sales by annual";
+
+//Formatting data labels      
+
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+//Hiding the legend
+
+chart.HasLegend = false;
+
+workbook.SaveAs("Sunburst.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+{% endhighlight %}
+
+{% highlight vb %}
+
+Dim excelEngine As ExcelEngine = New ExcelEngine
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2016
+
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+
+Dim sheet As IWorksheet= workbook.Worksheets(0)
+
+'Create a chart
+
+Dim chart As IChartShape = sheet.Charts.Add()
+
+'Set chart type as Sunburst
+
+chart.ChartType = ExcelChartType.SunBurst
+
+'Set data range in the worksheet
+
+chart.DataRange = sheet("A1:D16")
+
+'Set the chart title
+
+chart.ChartTitle = "Sales by annual" 
+
+'Formatting data labels       
+
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
+
+'Hiding the legend
+
+chart.HasLegend = False
+
+workbook.SaveAs("Sunburst.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+{% endhighlight %}
+
+The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/sunburst1589499118.zip#).
+
+The following screen shot shows the output of above code.
+
+![](Working-with-Charts_images/sunburst.jpeg)
+
+
+N>These Charts are supported only in Excel 2016 and are not visible in the earlier versions.
+
+
+## Supported Chart Types
+
+The following chart types are supported in XlsIO.
 * Area
 * Area_3D
 * Area_Stacked
@@ -1923,4 +2788,10 @@ The following Chart types are supported in XlsIO.
 * Surface_Contour
 * Surface_NoColor_3D
 * Surface_NoColor_Contour
-
+* Funnel 
+* Box and Whisker
+* Waterfall
+* Histogram
+* Pareto
+* Treemap
+* Sunburst
