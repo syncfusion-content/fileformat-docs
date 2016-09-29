@@ -1,14 +1,12 @@
 ---
-title: Conversions
-description: Briefs about conversions supported in XlsIO
+title: Excel to PDF Conversion
+description: Briefs about Excel to PDF conversion in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
 
-# Conversions
-
-## Excel to PDF Conversion
+# Excel to PDF Conversion
 
 XlsIO allows you to convert an entire workbook or a single worksheet into PDF document. For converting an Excel document to PDF, the following assemblies need to be referenced in your application
 
@@ -19,7 +17,7 @@ XlsIO allows you to convert an entire workbook or a single worksheet into PDF do
 * Syncfusion.SfChart.Wpf.dll
 * Syncfusion.Pdf.Base.dll
 
-### Workbook to PDF
+## Workbook to PDF
 
 The following code illustrates how to convert a workbook to PDF Document.
 
@@ -106,7 +104,7 @@ excelEngine.Dispose()
 
 To know more about different conversion settings in Excel to PDF conversion, please refer ExcelToPdfConverterSettings in API section.
 
-### Worksheet to PDF
+## Worksheet to PDF
 
 The following code shows how to convert a particular sheet to PDF Document.
 
@@ -261,9 +259,9 @@ excelEngine.Dispose()
 
 {% endhighlight %}
 
-  {% endtabs %}  
-
-### Excel with Chart to PDF
+  {% endtabs %}
+  
+## Excel with Chart to PDF
 
 To preserve the charts during Excel to PDF conversion, you should initialize the ChartToImageConverter of **IApplication** interface, otherwise the charts present in worksheet will get skipped. The following code illustrate how to convert an Excel with chart to PDF document.
 
@@ -389,253 +387,3 @@ The following list contains unsupported elements that presently will not be pres
 * OLE Objects
 * Text rotations
 * Background images
-
-## Convert Worksheet to Image 
-
-### Convert as Bitmap
-
-The following code shows how to convert the specified range of rows and columns in the worksheet to bitmap.
-
-{% tabs %}  
-
-{% highlight c# %}
-// Convert as bitmap.
-
-Image img = sheet.ConvertToImage(1, 1, 10, 20);
-
-img.Save("Sample.png", ImageFormat.Png);
-
-
-
-
-
-{% endhighlight %}
-
-{% highlight vb %}
-'Convert as bitmap.
-
-Dim img As Image = sheet.ConvertToImage(1, 1, 10, 20)
-
-img.Save("Sample.png", ImageFormat.Png)
-
-
-
-{% endhighlight %}
-
-  {% endtabs %}  
-
-### Save as Stream
-
-The following code snippet shows how to save a sheet as stream.
-
-{% tabs %}  
-
-{% highlight c# %}
-// Converts and save as stream.
-
-MemoryStream stream = new MemoryStream();
-
-sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream);
-
-
-
-
-
-{% endhighlight %}
-
-{% highlight vb %}
-'Converts and save as stream.
-
-Dim stream As MemoryStream = New MemoryStream()
-
-sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
-
-
-
-{% endhighlight %}
-
-  {% endtabs %}  
-
-The complete code snippet of the above options is shown below.
-
-{% tabs %}  
-
-{% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-// Convert as bitmap.
-
-Image img = sheet.ConvertToImage(1, 1, 10, 20);
-
-img.Save("Sample.png", ImageFormat.Png);
-
-// Converts and save as stream.
-
-MemoryStream stream = new MemoryStream();
-
-sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream);
-
-//Save the workbook to disk.
-workbook.SaveAs("Sample.xlsx");
-
-//Close the workbook.
-workbook.Close();
-
-//No exception will be thrown if there are unsaved workbooks.
-excelEngine.ThrowNotSavedOnDestroy = false;
-
-excelEngine.Dispose();
-
-
-
-{% endhighlight %}
-
-{% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-
-Dim application As IApplication = excelEngine.Excel
-
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Open("sample.xlsx", ExcelOpenType.Automatic)
-
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-'Convert as bitmap.
-
-Dim img As Image = sheet.ConvertToImage(1, 1, 10, 20)
-
-img.Save("Sample.png", ImageFormat.Png)
-
-'Converts and save as stream.
-
-Dim stream As MemoryStream = New MemoryStream()
-
-sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
-
-'Save the workbook to disk.
-workbook.SaveAs("Sample.xlsx")
-
-'Close the workbook.
-workbook.Close()
-
-'No exception will be thrown if there are unsaved workbooks.
-excelEngine.ThrowNotSavedOnDestroy = False
-
-excelEngine.Dispose()
-
-
-
-{% endhighlight %}
-
-  {% endtabs %}  
-
-**Non****-****Supported** **Features****:**
-
-* Subscript/Superscript
-* RTF
-* Shrink to fit
-* Shapes (except TextBox shape and Image)
-* Charts and Chart Worksheet
-* Complex conditional formatting
-* Gradient fill is partially supported
-
-## Convert Chart to Image 
-
-The following code snippets shows how to converting an Excel Chart to an image using the **ExcelChartToImageConverter** class.
-
-{% tabs %}  
-
-{% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-
-IApplication application = excelEngine.Excel;
-
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-application.ChartToImageConverter = new ChartToImageConverter();
-
-application.ChartToImageConverter.ScalingMode = ScalingMode.Best;
-
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
-IWorksheet worksheet = workbook.Worksheets[0];
-
-IChart chart = worksheet.Charts[0];
-
-//Creating the memory stream for chart image.
-
-MemoryStream stream = new MemoryStream();
-
-//Saving the chart as image.
-
-chart.SaveAsImage(stream);
-
-Image image = Image.FromStream(stream);
-
-//Saving image stream to file.
-
-image.Save("Output.png");
-
-//Closing the workbook and disposing the Excel Engine.
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
-{% endhighlight %}
-
-{% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-
-Dim application As IApplication = excelEngine.Excel
-
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim ChartToImageConverter As chartToImageConverter = New ChartToImageConverter()
-
-application.ChartToImageConverter = chartToImageConverter
-
-application.ChartToImageConverter.ScalingMode = ScalingMode.Best
-
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-Dim chart As IChart = worksheet.Charts(0)
-
-'Creating the memory stream for chart image.
-
-Dim stream As New MemoryStream()
-
-'Saving the chart as image.
-
-chart.SaveAsImage(stream)
-
-Dim image As Image = Image.FromStream(stream)
-
-'Saving image stream to file.
-
-image.Save("Output.png")
-
-'Closing the workbook and disposing the Excel Engine.
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
-{% endhighlight %}
-
-  {% endtabs %}  
-
-N> Chart conversion to image and PDF are supported from .NET Framework 4.0 onwards.
