@@ -1485,5 +1485,243 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
+### Hyperlinks on Shapes
 
+**Adding** **Hyperlinks** **to** **Shapes**
+
+Hyperlink can be added to the following shapes.
+
+* Picture
+* AutoShape
+* TextBox
+
+The following code example illustrates how to insert hyperlinks to shapes.
+
+{% tabs %}  
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+
+// Adding hyperlink to TextBox 
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+ITextBox textBox = sheet.TextBoxes.AddTextBox(1, 1, 100, 100);
+
+IHyperLink hyperlink = sheet.HyperLinks.Add((textBox as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
+
+// Adding hyperlink to AutoShape
+
+sheet = workbook.Worksheets[1];
+
+IShape autoShape = sheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 1, 1, 100, 100);
+
+hyperlink = sheet.HyperLinks.Add(autoShape, ExcelHyperLinkType.Url, "mailto:Username@syncfusion.com", "Send Mail");
+
+// Adding hyperlink to picture
+
+sheet = workbook.Worksheets[2];
+
+IPictureShape picture = sheet.Pictures.AddPicture(@"Image.png");
+
+hyperlink = sheet.HyperLinks.Add(picture);
+
+hyperlink.Type = ExcelHyperLinkType.Unc;
+
+hyperlink.Address = "C:\\Documents and Settings";
+
+hyperlink.ScreenTip = "Click here for files";
+
+workbook.SaveAs("Hyperlink.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+
+Dim application As IApplication = excelEngine.Excel
+
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+
+'Text box 
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+Dim textBox As ITextBox = sheet.TextBoxes.AddTextBox(1, 1, 100, 100)
+
+Dim hyperlink As IHyperLink = sheet.HyperLinks.Add(TryCast(textBox, IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here")
+
+'AutoShapes 
+
+sheet = workbook.Worksheets(1)
+
+Dim autoShape As IShape = sheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 1, 1, 100, 100)
+
+hyperlink = sheet.HyperLinks.Add(autoShape, ExcelHyperLinkType.Url, "mailto:Username@syncfusion.com", "Send Mail")
+
+'Pictures 
+
+sheet = workbook.Worksheets(2)
+
+Dim picture As IPictureShape = sheet.Pictures.AddPicture("Image.png")
+
+hyperlink = sheet.HyperLinks.Add(picture)
+
+hyperlink.Type = ExcelHyperLinkType.Unc
+
+hyperlink.Address = "C:\Documents and Settings"
+
+hyperlink.ScreenTip = "Click here for files"
+
+workbook.SaveAs("Hyperlink.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
+{% endhighlight %}
+{% endtabs %}  
+
+**Modifying** **Hyperlinks** **on** **Shapes**
+
+Properties of existing hyperlink can be modified by accessing either the Hyperlinks collection of the IWorksheet instance or Hyperlink property in respective IShape instance.
+
+{% tabs %}  
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+// Modifying hyperlink’s screentip through IWorksheet instance.
+
+IHyperLink hyperlink = sheet.HyperLinks[0];
+
+hyperlink.ScreenTip = "Syncfusion";
+
+// Modifying hyperlink’s screentip through IShape instance.
+
+hyperlink = sheet.Shapes[0].Hyperlink;
+
+hyperlink.ScreenTip = "Syncfusion";
+
+workbook.SaveAs("Hyperlink.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+' Modifying hyperlink’s screentip through IWorksheet instance.
+
+Dim hyperlink As IHyperLink = sheet.HyperLinks(0)
+
+hyperlink.ScreenTip = "Syncfusion"
+
+' Modifying hyperlink’s screentip through IShape instance.
+
+hyperlink = sheet.Shapes(0).Hyperlink
+
+hyperlink.ScreenTip = "Syncfusion"
+
+workbook.Version = ExcelVersion.Excel2013
+
+workbook.SaveAs("Hyperlink.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
+{% endhighlight %}
+{% endtabs %}  
+
+**Removing** **Hyperlinks** **from** **Shapes**
+
+Hyperlinks from shapes can be removed by accessing Hyperlinks collection of the worksheet instance.
+
+{% tabs %}  
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+// Removing hyperlink from sheet with Index
+
+sheet.HyperLinks.RemoveAt(0);
+
+workbook.SaveAs("Hyperlink.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+
+Dim application As IApplication = excelEngine.Excel
+
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+' Removing Hyperlink from sheet with Index
+
+sheet.HyperLinks.RemoveAt(0)
+
+workbook.Version = ExcelVersion.Excel2013
+
+workbook.SaveAs("Hyperlink.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
+{% endhighlight %}
+{% endtabs %} 
 
