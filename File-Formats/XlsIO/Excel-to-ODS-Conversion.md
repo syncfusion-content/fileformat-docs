@@ -212,7 +212,7 @@ Return excelEngine.SaveAsActionResult(workbook, "ExcelToODS.ods", HttpContext.Ap
 
 {% endtabs %}
 
-The method SaveAsActionResult() can be referred from [here](https://help.syncfusion.com/file-formats/xlsio/asp-net-mvc# "").
+The method SaveAsActionResult() can be referred from [here](https://help.syncfusion.com/file-formats/xlsio/asp-net-mvc#).
 
 **UWP**
 
@@ -411,9 +411,6 @@ Hyperlinks
 </td>
 <td>
  Yes
-</td>
-<td>
-
 </td>
 </tr>
 <tr>
