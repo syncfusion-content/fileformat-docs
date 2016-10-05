@@ -2716,28 +2716,29 @@ N>These Charts are supported only in Excel 2016 and are not visible in the earli
 ## Supported Chart Types
 
 The following chart types are supported in XlsIO.
+
 * Area
-* Area_3D
+* Area_3D 
 * Area_Stacked
 * Area_Stacked_100
-* Area_Stacked_100_3D
-* Area_Stacked_3D
+* Area_Stacked_100_3D 
+* Area_Stacked_3D 
 * Bar_Clustered
-* Bar_Clustered_3D
+* Bar_Clustered_3D 
 * Bar_Stacked
 * Bar_Stacked_100
-* Bar_Stacked_100_3D
-* Bar_Stacked_3D
+* Bar_Stacked_100_3D 
+* Bar_Stacked_3D 
 * Bubble
 * Bubble_3D
 * Column_3D
 * Column_Clustered
-* Column_Clustered_3D
+* Column_Clustered_3D  
 * Column_Stacked
 * Column_Stacked_100
-* Column_Stacked_100_3D
+* Column_Stacked_100_3D 
 * Column_Stacked_3D
-* Combination_Chart
+* Combination_Chart       
 * Cone_Bar_Clustered
 * Cone_Bar_Stacked
 * Cone_Bar_Stacked_100
@@ -2756,13 +2757,13 @@ The following chart types are supported in XlsIO.
 * Doughnut_Exploded
 * Line
 * Line_3D
-* Line_Markers
+* Line_Markers 
 * Line_Markers_Stacked
 * Line_Markers_Stacked_100
 * Line_Stacked
 * Line_Stacked_100
 * Pie
-* Pie_3D
+* Pie_3D 
 * Pie_Bar
 * Pie_Exploded
 * Pie_Exploded_3D
@@ -2782,10 +2783,10 @@ The following chart types are supported in XlsIO.
 * Scatter_Markers
 * Scatter_SmoothedLine
 * Scatter_SmoothedLine_Markers
-* Stock_HighLowClose
-* Stock_OpenHighLowClose
-* Stock_VolumeHighLowClose
-* Stock_VolumeOpenHighLowClose
+* Stock_HighLowClose 
+* Stock_OpenHighLowClose  
+* Stock_VolumeHighLowClose  
+* Stock_VolumeOpenHighLowClose  
 * Surface_3D
 * Surface_Contour
 * Surface_NoColor_3D
