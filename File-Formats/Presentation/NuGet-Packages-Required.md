@@ -50,6 +50,14 @@ Universal Windows Platform
 Syncfusion.Presentation.UWP46.nupkg
 </td>
 </tr>
+<tr>
+<td>
+ASP.NET Core
+</td>
+<td>
+Syncfusion.Presentation.AspNet.Core.nupkg
+</td>
+</tr>
 </table>
 
 ## Converting Charts in PowerPoint Presentation
