@@ -125,4 +125,4 @@ Syncfusion.AspNet.Mvc.FileFormats.nupkg
 </tr>
 </table>
 
-N> Presentation to PDF/Image conversion is not supported in Xamarin and UWP applications. 
+N> Presentation to PDF/Image conversion is not supported in Xamarin, UWP and ASP.NET Core applications. 
