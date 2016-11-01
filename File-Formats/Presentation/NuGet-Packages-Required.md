@@ -1,4 +1,4 @@
-﻿---
+---
 title: NuGet Packages for Presentation
 description: NuGet Packages for Presentation library
 platform: file-formats
