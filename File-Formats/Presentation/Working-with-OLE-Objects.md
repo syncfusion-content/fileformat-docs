@@ -53,3 +53,4 @@ presentationFile.Save("OleObjectSample.pptx")
 'Close the presentation
 presentationFile.Close()
 {% endhighlight %}
+{% endtabs %}
