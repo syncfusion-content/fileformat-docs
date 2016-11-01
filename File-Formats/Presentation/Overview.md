@@ -32,5 +32,5 @@ It is a non-UI component that provides a full-fledged PowerPoint Presentation in
 
 
 N> 1. The current version of Essential Presentation supports the .PPTX file format only.
-N> 2. The current version of Essential Presentation does not support some features in Microsoft PowerPoint such as Word Art, Notes slide, Animations, Transitions, Comment, Header and Footer, Ole Object, creation and editing of Handouts, equations, built-in themes, and its variants.
+N> 2. The current version of Essential Presentation does not support some features in Microsoft PowerPoint such as Word Art, Animations, Transitions, Comment, Header and Footer, creation and editing of Handouts, equations, built-in themes, and its variants.
 
