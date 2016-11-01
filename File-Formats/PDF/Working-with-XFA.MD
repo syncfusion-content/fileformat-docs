@@ -2956,4 +2956,4 @@ loadedDocument.Close()
 
 {% endtabs %}
 
-N> Removing and modifying the XFA form fields will not support in **static** XFA forms.
+N> Removing and modifying the form fields is not supported in **static** XFA forms.
