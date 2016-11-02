@@ -7,9 +7,13 @@ documentation: UG
 keywords: OLE Object in PowerPoint presentation
 ---
 # Working with OLE Objects
-The OLE Object enables sharing of application objects written in different file formats. In PowerPoint presentation the application data can be inserted into a PowerPoint slide using the [programmatic identifier](https://msdn.microsoft.com/en-us/library/aa171170(v=office.11).aspx# "") of each file format.
+
+The OLE Object enables sharing of application objects written in different file formats. In PowerPoint presentation the application data can be inserted into a PowerPoint slide using the [programmatic identifier](https://msdn.microsoft.com/en-us/library/aa171170(v=office.11).aspx#) of each file format.
+
 ## Inserting OLE Object to a Slide
+
 The below code snippet demonstrates how to add an Excel worksheet into a slide.
+
 {% tabs %}
 {% highlight c# %}
 //Create new instance of PowerPoint presentation. [Equivalent to launching MS PowerPoint with no slides].
