@@ -186,7 +186,7 @@ document.Close()
 
 As in the Microsoft Word, DocIO provides support for all the paragraph formatting options such as line spacing, indentation, spacing before and after, keep follow etc. The following code example illustrates how to apply formatting to a paragraph.
 
-N> `FirstLineIndent` can be used to update or retrieve the behavior of both hanging and first line indents. Negative value for this property denotes the hanging indent and positive value denotes the first line indent of the paragraph.
+N> `FirstLineIndent` can be used to update or retrieve for both hanging and first line indents. Negative value for this property denotes the hanging indent and positive value denotes the first line indent of the paragraph.
 
 {% tabs %} 
 
