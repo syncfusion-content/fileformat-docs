@@ -183,8 +183,7 @@ WPF, Windows Forms, ASP. NET and ASP.NET MVC
 </td>
 <td>
 Syncfusion.ExcelChartToImageConverter.WPF<br/>
-Syncfusion.SfChart.WPF<br/>
-Syncfusion.Shared.WPF
+Syncfusion.SfChart.WPF
 </td>
 </tr>
 </tbody>
