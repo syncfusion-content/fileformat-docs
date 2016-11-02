@@ -93,10 +93,10 @@ For converting PowerPoint Presentation to PDF, the following NuGet packages need
 <table>
 <tr>
 <td>
-Platform(s)
+{{'**Platform(s)**'| markdownify }}
 </td>
 <td>
-NuGet Package
+{{'**NuGet Package**'| markdownify }}
 </td>
 </tr>
 <tr>
