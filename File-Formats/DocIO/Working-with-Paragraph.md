@@ -186,6 +186,8 @@ document.Close()
 
 As in the Microsoft Word, DocIO provides support for all the paragraph formatting options such as line spacing, indentation, spacing before and after, keep follow etc. The following code example illustrates how to apply formatting to a paragraph.
 
+N> `FirstLineIndent` can be used to update or retrieve the behavior of both hanging and first line indents. Negative value for this property denotes the hanging indent and positive value denotes the first line indent of the paragraph.
+
 {% tabs %} 
 
 {% highlight c# %}
@@ -2183,6 +2185,8 @@ document.Close()
 {% endtabs %}  
 
 The following code example illustrates how to create numbered list with prefix from previous level.
+
+N> `NumberPrefix` value for the numbered list should meet the syntax "\u000N" in order to update the previous list level value as prefix to the current list level. For example, it should be represented as (“\u0000.” or “\u0000.\u0001.”).
 
 {% tabs %}  
 
