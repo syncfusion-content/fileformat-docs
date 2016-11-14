@@ -44,6 +44,25 @@ worksheet.Range["B3"].Number = 71550;
 
 worksheet.Range["B5"].Formula = "SUM(B2:B4)";
 
+//Comments
+IComment comment = worksheet.Range["B5"].AddComment();
+
+comment.RichText.Text = "This cell has formula.";
+
+IRichTextString rtf = comment.RichText;
+
+IFont blueFont = workbook.CreateFont();
+
+blueFont.Color = ExcelKnownColors.Blue;
+
+rtf.SetFont(0, 13, blueFont);
+
+IFont redFont = workbook.CreateFont();
+
+redFont.Color = ExcelKnownColors.Red;
+
+rtf.SetFont(14, 20, redFont);
+			
 //Formatting
 IStyle style = workbook.Styles.Add("Style1");
 style.Color = Color.DarkBlue;
@@ -90,6 +109,25 @@ worksheet.Range("B2").Number = 68878
 worksheet.Range("B3").Number = 71550
 
 worksheet.Range("B5").Formula = "SUM(B2:B4)"
+
+'Comments
+Dim comment As IComment = worksheet.Range("B5").AddComment()
+
+comment.RichText.Text = "This cell has formula."
+
+Dim rtf As IRichTextString = comment.RichText
+
+Dim blueFont As IFont = workbook.CreateFont()
+
+blueFont.Color = ExcelKnownColors.Blue
+
+rtf.SetFont(0, 13, blueFont)
+
+Dim redFont As IFont = workbook.CreateFont()
+
+redFont.Color = ExcelKnownColors.Red
+
+rtf.SetFont(14, 20, redFont)
 
 'Formatting
 Dim style As IStyle = workbook.Styles.Add("Style1")
@@ -421,7 +459,7 @@ Cell Comments
 
 </td>
 <td>
-Planned
+Yes
 </td>
 </tr>
 <tr>
