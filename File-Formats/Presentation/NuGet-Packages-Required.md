@@ -62,7 +62,7 @@ Syncfusion.Presentation.AspNet.Core.nupkg
 
 ## Converting Charts in PowerPoint Presentation
 
-In WindowsForms and WPF platforms, the below NuGet package need to be installed additionally to convert the charts present in PowerPoint presentations.
+In Windows Forms and WPF platforms, the below NuGet package need to be installed additionally to convert the charts present in PowerPoint presentations.
 
 <table>
 <tr>
@@ -83,8 +83,8 @@ Syncfusion.OfficeChartToImageConverter.Wpf.nupkg
 </tr>
 </table>
 
-N> 1. The "Syncfusion.AspNet.FileFormats.nupkg" and "Syncfusion.AspNet.Mvc.FileFormats.nupkg" packages already includes the necessary assemblies for chart conversion. So it is not needed to additionally install the “Syncfusion.OfficeChartToImageConverter.Wpf.nupkg” NuGet package in ASP.Net and ASP.Net MVC platforms.
-N> 2. The "Syncfusion.OfficeChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .Net framework onwards.
+N> 1. The "Syncfusion.AspNet.FileFormats.nupkg" and "Syncfusion.AspNet.Mvc.FileFormats.nupkg" packages already includes the necessary assemblies for chart conversion. So it is not needed to additionally install the “Syncfusion.OfficeChartToImageConverter.Wpf.nupkg” NuGet package in ASP.NET and ASP.NET MVC platforms.
+N> 2. The "Syncfusion.OfficeChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards.
 
 ## Converting PowerPoint Presentation to PDF
 
