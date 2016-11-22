@@ -370,12 +370,13 @@ This feature provides support for the following elements:
 * Text Rotations
 * Excel Page Setup Options
 * Unicode Support
-* Background Images
 * Printing Titles when Converting the Excel to PDF
 * Page Break Support
 * Print Area Support
 * Print Order Support
 * Unicode in Headers and Footers
+* 2D Charts
+* 3D Charts
 
 ​
 
@@ -383,7 +384,22 @@ This feature provides support for the following elements:
 
 The following list contains unsupported elements that presently will not be preserved in the generated PDF document. 
 
-* Grouping columns
+* Gradient Fill
+* Sparklines
+* Pivot Chart
+* SmartArt
+* Different First Page
+* Different Odd and Even Pages
+* Conditional Formats
+	* Data Bars
+	* Color Scales
+	* Icon Sets
+* Table
+	* Custom Style
+* Heading
+* Form Controls
+* ActiveX Controls
+* Grouping Columns
 * OLE Objects
-* Text rotations
 * Background images
+* AutoShapes
