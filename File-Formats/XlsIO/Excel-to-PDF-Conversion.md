@@ -358,19 +358,19 @@ N> This section is applicable only to the Windows Forms, ASP.NET, ASP.NET MVC an
 This feature provides support for the following elements:
 
 * Styles
-* Character formatting
-* Headers  and footers
+* Rich Text Formatting
+* Headers and Footers
 * Images
-* Text box
+* Text Boxes
 * Hyperlinks
-* Document properties
+* Document Properties
 * Comments
 * Encryption
 * Table Style Support
 * Text Rotations
 * Excel Page Setup Options
 * Unicode Support
-* Printing Titles when Converting the Excel to PDF
+* Print Titles
 * Page Break Support
 * Print Area Support
 * Print Order Support
@@ -386,20 +386,18 @@ The following list contains unsupported elements that presently will not be pres
 
 * Gradient Fill
 * Sparklines
-* Pivot Chart
-* SmartArt
-* Different First Page
+* Pivot Charts
+* SmartArt Graphics
+* Different First Page Headers
 * Different Odd and Even Pages
 * Conditional Formats
 	* Data Bars
 	* Color Scales
 	* Icon Sets
-* Table
-	* Custom Style
-* Heading
+* Tables
+	* Custom Styles
+* Row and Column Headings
 * Form Controls
 * ActiveX Controls
-* Grouping Columns
 * OLE Objects
-* Background images
 * AutoShapes
