@@ -358,23 +358,20 @@ N> This section is applicable only to the Windows Forms, ASP.NET, ASP.NET MVC an
 This feature provides support for the following elements:
 
 * Styles
-* Rich Text Formatting
+* Rich-Text Formatting
 * Headers and Footers
 * Images
 * Text Boxes
 * Hyperlinks
 * Document Properties
-* Comments
-* Encryption
-* Table Style Support
+* Table Styles
 * Text Rotations
 * Excel Page Setup Options
-* Unicode Support
+* Unicode
 * Print Titles
-* Page Break Support
-* Print Area Support
-* Print Order Support
-* Unicode in Headers and Footers
+* Page Breaks
+* Print Area
+* Print Order
 * 2D Charts
 * 3D Charts
 
@@ -385,6 +382,7 @@ This feature provides support for the following elements:
 The following list contains unsupported elements that presently will not be preserved in the generated PDF document. 
 
 * Gradient Fill
+* Comments
 * Sparklines
 * Pivot Charts
 * SmartArt Graphics
