@@ -57,6 +57,114 @@ presentationDocument.Close()
 
 {% endtabs %}
 
+## Adding Custom layout slide
+
+Slide layouts contain formatting, positioning, and placeholders for all of the content that appears on a slide. You can customize the layout type of slides in PowerPoint presentation. 
+
+The following code example demonstrates how to create and use a slide layout in PowerPoint presentation.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Open the template presentation
+IPresentation presentation = Presentation.Open("Sample.pptx");
+//Add a new custom layout slide to the master collection with a specific layout type and name
+ILayoutSlide layoutSlide = presentation.Masters[0].LayoutSlides.Add(SlideLayoutType.Blank, "CustomLayout");
+//Set background of the layout slide
+layoutSlide.Background.Fill.SolidFill.Color = ColorObject.FromArgb(78, 89, 90);
+//Get the stream of an image
+Stream pictureStream = File.Open("Image.png", FileMode.Open);
+//Add the picture into layout slide
+layoutSlide.Shapes.AddPicture(pictureStream, 100, 100, 100, 100);
+//Add a slide of new designed custom layout to the presentation
+ISlide slide = presentation.Slides.Add(layoutSlide);
+//Save the presntation
+presentation.Save("Output.pptx");
+//Close the presentation
+presentation.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Open the template presentation
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
+'Add a new custom layout slide to the master collection with a specific layout type and name
+Dim layoutSlide As ILayoutSlide = presentationDocument.Masters(0).LayoutSlides.Add(SlideLayoutType.Blank, "CustomLayout")
+'Set background of the layout slide
+layoutSlide.Background.Fill.SolidFill.Color = ColorObject.FromArgb(78, 89, 90)
+'Get the stream of an image
+Dim pictureStream As Stream = File.Open("Image.png", FileMode.Open)
+'Add the picture into layout slide
+layoutSlide.Shapes.AddPicture(pictureStream, 100, 100, 100, 100)
+'Add a slide of new designed custom layout to the presentation
+Dim slide As ISlide = presentationDocument.Slides.Add(layoutSlide)
+'Save the presntation
+presentationDocument.Save("Output.pptx")
+'Close the presentation
+presentationDocument.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code example demonstrates how to add a slide with an existing slide’s layout.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Open the template presentation
+IPresentation presentation = Presentation.Open("Sample.pptx");
+//Get the layout slide collection of the master
+ILayoutSlides layoutSlides = presentation.Masters[0].LayoutSlides;
+ILayoutSlide slideLayout = null;
+//Get each layout slide from the collection
+foreach (ILayoutSlide layout in layoutSlides)
+{
+//Check if the layout slide has desired custom layout name
+if (layout.Name == "CustomSlideLayout")
+{
+slideLayout = layout;
+break;
+}
+}
+//Add slide with the desired layout.
+ISlide slide = presentation.Slides.Add(slideLayout);
+//Save the presentation
+presentation.Save("Output.pptx");
+//Close the presentation
+presentation.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Open the template presentation
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
+'Get the layout slide collection of the master
+Dim layoutSlides As ILayoutSlides = presentationDocument.Masters(0).LayoutSlides
+Dim slideLayout As ILayoutSlide = Nothing
+'Get each layout slide from the collection
+For Each layout As ILayoutSlide In layoutSlides
+	'Check if the layout slide has desired custom layout name
+	If layout.Name = "CustomSlideLayout" Then
+		slideLayout = layout
+		Exit For
+	End If
+Next
+'Add slide with the desired layout.
+Dim slide As ISlide = presentationDocument.Slides.Add(slideLayout)
+'Save the presentation
+presentationDocument.Save("Output.pptx")
+'Close the presentation
+presentationDocument.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Cloning slide
 
 You can create a deep copy of a slide by cloning the slide. The cloned slide is an independent copy of its source slide. This means the changes made in the cloned slide do not affect the source slide.
