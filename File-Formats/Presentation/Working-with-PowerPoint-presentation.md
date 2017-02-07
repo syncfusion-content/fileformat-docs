@@ -611,3 +611,61 @@ presentationDocument.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+## Mark PowerPoint Presentation as Final
+
+PowerPoint presentation can be made read-only to prevent the readers from making inadvertent changes to it. However, making presentation as final is not a security feature. Anyone can disable the final status and edit the presentation.
+
+Below code snippet demonstrates how to create a final non – editable presentation,
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create an instance for PowerPoint presentation
+
+IPresentation presentation = Presentation.Create();
+
+//Add slide to the presentation
+
+ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
+
+//Mark the presentation as final
+
+presentation.Final = true;
+
+//Save the presentation
+
+presentation.Save("MarkAsFinal.pptx");
+
+//Close the presentation
+
+presentation.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create an instance for PowerPoint presentation
+
+Dim presentationDocument As IPresentation = Presentation.Create()
+
+'Add slide to the presentation
+
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+
+'Mark the presentation as final
+
+presentationDocument.Final = True
+
+'Save the presentation
+
+presentationDocument.Save("MarkAsFinal.pptx")
+
+'Close the presentation
+
+presentationDocument.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
