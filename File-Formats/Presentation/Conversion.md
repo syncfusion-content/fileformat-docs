@@ -471,6 +471,99 @@ Next
 
 {% endtabs %}
 
+The following code snippet demonstrates how to convert Presentation slides to images with custom image resolution,
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Open a PowerPoint presentation
+
+IPresentation presentation = Presentation.Open("Output.pptm");
+
+//Iterate through the slide collection to convert as image
+
+foreach (ISlide slide in presentation.Slides)
+
+{
+
+//Convert the slide as image and return as stream
+
+Stream stream = slide.ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf);
+
+//Create a bitmap of specific width and height
+
+Bitmap bitmap = new Bitmap(1500, 1000, PixelFormat.Format32bppPArgb);
+
+//Get graphics from image
+
+Graphics graphics = Graphics.FromImage(bitmap);
+
+//Set the resolution
+
+bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
+
+//Recreate the image from stream using specified width and height
+
+graphics.DrawImage(System.Drawing.Image.FromStream(stream), new Rectangle(0, 0, bitmap.Width, bitmap.Height));
+
+//Save the bitmap
+
+bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg");
+
+}
+
+//Close the presentation
+
+presentation.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Open a PowerPoint presentation
+
+Dim presentationDocument As IPresentation = Presentation.Open("Output.pptm")
+
+'Iterate through the slide collection to convert as images
+
+For Each slide As ISlide In presentationDocument.Slides
+
+'Convert the slide as image and return as stream
+
+Dim stream As Stream = slide.ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf)
+
+'Create a bitmap of specific width and height
+
+Dim bitmap As New Bitmap(1500, 1000, PixelFormat.Format32bppPArgb)
+
+'Get graphics from image
+
+Dim gdiGraphics As Graphics = Graphics.FromImage(bitmap)
+
+'Set the resolution
+
+bitmap.SetResolution(gdiGraphics.DpiX, gdiGraphics.DpiY)
+
+'Recreate the image from stream using specified width and height
+
+gdiGraphics.DrawImage(System.Drawing.Image.FromStream(stream), New Rectangle(0, 0, bitmap.Width, bitmap.Height))
+
+'Save the bitmap
+
+bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg")
+
+Next
+
+'Close the presentation
+
+presentationDocument.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
 N> 1. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image
 N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onward
 N> 3. The image conversion is not supported in UWP and Xamarin platforms

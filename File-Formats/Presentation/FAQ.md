@@ -42,3 +42,7 @@ documentation: UG
 
    Current version of the Essential Presentation library does not provide support for converting 3D charts to PDF or image format.
 
+9. **How to improve the image quality while conversion using Essential Presentation?**
+   
+   You can improvise the quality of converted images by specifying the image resolution. Refer – [Converting PowerPoint presentation to Images](/file-formats/presentation/conversion#converting-powerpoint-presentation-to-images)
+

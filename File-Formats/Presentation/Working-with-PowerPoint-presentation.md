@@ -626,10 +626,6 @@ Below code snippet demonstrates how to create a final non – editable presentat
 
 IPresentation presentation = Presentation.Create();
 
-//Add slide to the presentation
-
-ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
-
 //Mark the presentation as final
 
 presentation.Final = true;
@@ -649,10 +645,6 @@ presentation.Close();
 'Create an instance for PowerPoint presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
-
-'Add slide to the presentation
-
-Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Mark the presentation as final
 
