@@ -45,6 +45,12 @@ To convert a PowerPoint Presentation to PDF, include the following assemblies in
             <td>
                 This assembly is used for PDF file creation. </td>
         </tr>
+		<tr>
+            <td>
+                Syncfusion.PresentationToPDFConverter.Base</td>
+            <td>
+                This assembly is used to convert PowerPoint presentation to PDF document.</td>		   
+        </tr>
         <tr>
             <td>
                 Syncfusion.SfChart.WPF</td>
