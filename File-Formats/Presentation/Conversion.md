@@ -146,7 +146,8 @@ Essential Presentation library provides you the ability to customize the Present
 
 * Allows to include the hidden slide during conversion.
 * Allows to specify the number of slides per PDF page.
-* Allows to determine the quality of the charts in the converted PDF 
+* Allows to determine the quality of the charts in the converted PDF.
+* Allows to convert slides with notes page to PDF.
 
 The following code example shows the customized PDF conversion.
 
@@ -177,6 +178,10 @@ settings.ShowHiddenSlides = false;
 //Sets the slide per page settings; this is optional.
 
 settings.SlidesPerPage = SlidesPerPage.Three;
+
+//Set the conversion settings to notes page option
+
+settings.PublishOptions = PublishOptions.NotesPages;
 
 //Converts the PowerPoint Presentation into PDF document
 
@@ -221,6 +226,10 @@ settings.ShowHiddenSlides = False
 'Sets the slide per page settings; this is optional.
 
 settings.SlidesPerPage = SlidesPerPage.Three
+
+'Set the conversion settings to notes page option
+
+settings.PublishOptions = PublishOptions.NotesPages
 
 'Converts the PowerPoint Presentation into PDF document
 
