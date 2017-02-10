@@ -147,7 +147,7 @@ Essential Presentation library provides you the ability to customize the Present
 * Allows to include the hidden slide during conversion.
 * Allows to specify the number of slides per PDF page.
 * Allows to determine the quality of the charts in the converted PDF.
-* Allows to convert slides with notes page to PDF.
+* Allows to convert slides with notes pages to PDF.
 
 The following code example shows the customized PDF conversion.
 
@@ -179,7 +179,7 @@ settings.ShowHiddenSlides = false;
 
 settings.SlidesPerPage = SlidesPerPage.Three;
 
-//Set the conversion settings to notes page option
+//Set the conversion settings to notes pages option
 
 settings.PublishOptions = PublishOptions.NotesPages;
 
@@ -227,7 +227,7 @@ settings.ShowHiddenSlides = False
 
 settings.SlidesPerPage = SlidesPerPage.Three
 
-'Set the conversion settings to notes page option
+'Set the conversion settings to notes pages option
 
 settings.PublishOptions = PublishOptions.NotesPages
 
@@ -480,7 +480,7 @@ Next
 
 {% endtabs %}
 
-The following code snippet demonstrates how to convert Presentation slides to images with custom image resolution,
+The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution,
 
 {% tabs %}
 
@@ -488,21 +488,19 @@ The following code snippet demonstrates how to convert Presentation slides to im
 
 //Open a PowerPoint presentation
 
-IPresentation presentation = Presentation.Open("Output.pptm");
+IPresentation presentation = Presentation.Open("Output.pptx");
 
-//Iterate through the slide collection to convert as image
-
-foreach (ISlide slide in presentation.Slides)
-
-{
+//Declare variables for custom Width and height
+int customWidth = 1500;
+int customHeight = 1000;
 
 //Convert the slide as image and return as stream
 
-Stream stream = slide.ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf);
+Stream stream = presentation.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf);
 
 //Create a bitmap of specific width and height
 
-Bitmap bitmap = new Bitmap(1500, 1000, PixelFormat.Format32bppPArgb);
+Bitmap bitmap = new Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb);
 
 //Get graphics from image
 
@@ -520,8 +518,6 @@ graphics.DrawImage(System.Drawing.Image.FromStream(stream), new Rectangle(0, 0, 
 
 bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg");
 
-}
-
 //Close the presentation
 
 presentation.Close();
@@ -532,19 +528,19 @@ presentation.Close();
 
 'Open a PowerPoint presentation
 
-Dim presentationDocument As IPresentation = Presentation.Open("Output.pptm")
+Dim presentationDocument As IPresentation = Presentation.Open("Output.pptx")
 
-'Iterate through the slide collection to convert as images
-
-For Each slide As ISlide In presentationDocument.Slides
+'Declare variables for custom Width and height
+Dim customWidth As Integer = 1500
+Dim customHeight As Integer = 1000
 
 'Convert the slide as image and return as stream
 
-Dim stream As Stream = slide.ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf)
+Dim stream As Stream = presentationDocument.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf)
 
 'Create a bitmap of specific width and height
 
-Dim bitmap As New Bitmap(1500, 1000, PixelFormat.Format32bppPArgb)
+Dim bitmap As New Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb)
 
 'Get graphics from image
 
@@ -561,8 +557,6 @@ gdiGraphics.DrawImage(System.Drawing.Image.FromStream(stream), New Rectangle(0, 
 'Save the bitmap
 
 bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg")
-
-Next
 
 'Close the presentation
 

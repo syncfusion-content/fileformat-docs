@@ -68,7 +68,7 @@ ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 INotesSlide notesSlide = slide.AddNotesSlide();
 
 //Adds Paragraph into the text body.
-IParagraph paragraph = notesTextBody.AddParagraph();
+IParagraph paragraph = notesSlide.NotesTextBody.AddParagraph();
 
 //Adds text part into the Paragraph.
 ITextPart textPart = paragraph.AddTextPart();
@@ -99,7 +99,7 @@ Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 Dim notesSlide As INotesSlide = slide.AddNotesSlide()
 
 'Adds Paragraph into the text body.
-Dim paragraph As IParagraph = notesTextBody.AddParagraph()
+Dim paragraph As IParagraph = notesSlide.NotesTextBody.AddParagraph()
 
 'Adds text part into the Paragraph.
 Dim textPart As ITextPart = paragraph.AddTextPart()
@@ -138,10 +138,8 @@ ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
 INotesSlide notesSlide = slide.AddNotesSlide();
 
-// Adds a textbox to hold the list 
-IShape textBoxShape = notesSlide.AddTextBox(65, 140, 410, 270); 
 // Adds a new paragraph with the text in the left hand side textbox. 
-IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."); 
+IParagraph paragraph = notesSlide.NotesTextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."); 
 //Sets the list type as Numbered 
 paragraph.ListFormat.Type = ListType.Numbered;
  //Sets the numbered style (list numbering) as Arabic number following by period. 
@@ -155,7 +153,7 @@ paragraph.FirstLineIndent = -20;
 // Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400. 
 paragraph.ListFormat.Size = 100;
 // Adds another paragraph with the text in the left hand side textbox. 
-paragraph = textBoxShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."); 
+paragraph = notesSlide.NotesTextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."); 
 //Sets the list type as bulleted 
 paragraph.ListFormat.Type = ListType.Numbered; 
 //Sets the numbered style (list numbering) as Arabic number following by period. 
@@ -167,7 +165,7 @@ paragraph.FirstLineIndent = -20;
 // Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400. 
 paragraph.ListFormat.Size = 100; 
 // Adds another paragraph with the text in the left hand side textbox. 
-paragraph = textBoxShape.TextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."); 
+paragraph = notesSlide.NotesTextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."); 
 //Sets the list type as bulleted 
 paragraph.ListFormat.Type = ListType.Numbered; 
 //Sets the numbered style (list numbering) as Arabic number following by period. 
@@ -198,10 +196,8 @@ Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 Dim notesSlide As INotesSlide = slide.AddNotesSlide()
 
-' Adds a textbox to hold the list 
-Dim textBoxShape As IShape = notesSlide.AddTextBox(65, 140, 410, 270)
 ' Adds a new paragraph with the text in the left hand side textbox. 
-Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+Dim paragraph As IParagraph = notesSlide.NotesTextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 'Sets the list type as Numbered 
 paragraph.ListFormat.Type = ListType.Numbered
 'Sets the numbered style (list numbering) as Arabic number following by period. 
@@ -215,7 +211,7 @@ paragraph.FirstLineIndent = -20
 ' Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400. 
 paragraph.ListFormat.Size = 100
 ' Adds another paragraph with the text in the left hand side textbox. 
-paragraph = textBoxShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+paragraph = notesSlide.NotesTextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
 'Sets the list type as bulleted 
 paragraph.ListFormat.Type = ListType.Numbered
 'Sets the numbered style (list numbering) as Arabic number following by period. 
@@ -227,7 +223,7 @@ paragraph.FirstLineIndent = -20
 ' Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400. 
 paragraph.ListFormat.Size = 100
 ' Adds another paragraph with the text in the left hand side textbox. 
-paragraph = textBoxShape.TextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+paragraph = notesSlide.NotesTextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
 'Sets the list type as bulleted 
 paragraph.ListFormat.Type = ListType.Numbered
 'Sets the numbered style (list numbering) as Arabic number following by period. 
