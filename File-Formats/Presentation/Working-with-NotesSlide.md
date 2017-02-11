@@ -248,7 +248,7 @@ presentationDocument.Close()
 The below code example demonstrates how to remove a Notes from a PowerPoint Slide.
 {% tabs %}
 {% highlight c# %}
-//Opens an existing Presentation.
+//Opens an existing PowerPoint presentation.
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
 //Gets instance of the first slide from the Presentation.
@@ -262,7 +262,7 @@ presentation.Save("PresentationWithNotesSlide.pptx");
 {% endhighlight %}
 
 {% highlight vb.net %}
-'Opens an existing Presentation.
+'Opens an existing PowerPoint presentation.
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Gets instance of the first slide from the Presentation.

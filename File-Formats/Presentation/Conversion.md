@@ -502,7 +502,7 @@ Stream stream = presentation.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageFo
 
 Bitmap bitmap = new Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb);
 
-//Gets graphics from image
+//Gets the graphics from image
 
 Graphics graphics = Graphics.FromImage(bitmap);
 
@@ -542,7 +542,7 @@ Dim stream As Stream = presentationDocument.Slides(0).ConvertToImage(Syncfusion.
 
 Dim bitmap As New Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb)
 
-'Gets graphics from image
+'Gets the graphics from image
 
 Dim gdiGraphics As Graphics = Graphics.FromImage(bitmap)
 
