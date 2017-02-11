@@ -31,6 +31,26 @@ notesSlide.NotesTextBody.AddParagraph("Notes content");
 //Saves Presentation with specified file name with extension.
 presentation.Save("PresentationWithNotesSlide.pptx");
 {% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a Presentation without slides.
+Dim presentationDocument As IPresentation = Presentation.Create()
+
+'Adds new slide with blank slide layout type.
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+
+'Adds new notes slide in the specified slide.
+Dim notesSlide As INotesSlide = slide.AddNotesSlide()
+
+'Adds text content into the Notes Slide.
+notesSlide.NotesTextBody.AddParagraph("Notes content")
+
+'Saves Presentation with specified file name with extension.
+presentationDocument.Save("PresentationWithNotesSlide.pptx")
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Adding Text into the Notes 
@@ -48,7 +68,7 @@ ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 INotesSlide notesSlide = slide.AddNotesSlide();
 
 //Adds Paragraph into the text body.
-IParagraph paragraph = notesTextBody.AddParagraph();
+IParagraph paragraph = notesSlide.NotesTextBody.AddParagraph();
 
 //Adds text part into the Paragraph.
 ITextPart textPart = paragraph.AddTextPart();
@@ -66,6 +86,38 @@ textPart.Font.FontSize = 20;
 
 //Saves Presentation with specified file name with extension.
 presentation.Save("PresentationWithNotesSlide.pptx");
+{% endhighlight %}
+{% highlight vb.net %}
+
+'Creates a Presentation without slides.
+Dim presentationDocument As IPresentation = Presentation.Create()
+
+'Adds new slide with blank slide layout type.
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+
+'Adds new notes slide in the specified slide.
+Dim notesSlide As INotesSlide = slide.AddNotesSlide()
+
+'Adds Paragraph into the text body.
+Dim paragraph As IParagraph = notesSlide.NotesTextBody.AddParagraph()
+
+'Adds text part into the Paragraph.
+Dim textPart As ITextPart = paragraph.AddTextPart()
+
+textPart.Text = "The notes slide represents the contents and key notes of the corresponding slide. It is more useful when we use Presenter View while presenting the seminars through slideshow."
+
+'Sets Bold format for text content.
+textPart.Font.Bold = True
+
+'Sets font style using font name.
+textPart.Font.FontName = "Times New Roman"
+
+'Sets text content size using FontSize property.
+textPart.Font.FontSize = 20
+
+'Saves Presentation with specified file name with extension.
+presentationDocument.Save("PresentationWithNotesSlide.pptx")
+
 {% endhighlight %}
 {% endtabs %}
 
@@ -86,10 +138,8 @@ ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
 INotesSlide notesSlide = slide.AddNotesSlide();
 
-// Adds a textbox to hold the list 
-IShape textBoxShape = notesSlide.AddTextBox(65, 140, 410, 270); 
 // Adds a new paragraph with the text in the left hand side textbox. 
-IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."); 
+IParagraph paragraph = notesSlide.NotesTextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."); 
 //Sets the list type as Numbered 
 paragraph.ListFormat.Type = ListType.Numbered;
  //Sets the numbered style (list numbering) as Arabic number following by period. 
@@ -103,7 +153,7 @@ paragraph.FirstLineIndent = -20;
 // Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400. 
 paragraph.ListFormat.Size = 100;
 // Adds another paragraph with the text in the left hand side textbox. 
-paragraph = textBoxShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."); 
+paragraph = notesSlide.NotesTextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."); 
 //Sets the list type as bulleted 
 paragraph.ListFormat.Type = ListType.Numbered; 
 //Sets the numbered style (list numbering) as Arabic number following by period. 
@@ -115,7 +165,7 @@ paragraph.FirstLineIndent = -20;
 // Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400. 
 paragraph.ListFormat.Size = 100; 
 // Adds another paragraph with the text in the left hand side textbox. 
-paragraph = textBoxShape.TextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."); 
+paragraph = notesSlide.NotesTextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."); 
 //Sets the list type as bulleted 
 paragraph.ListFormat.Type = ListType.Numbered; 
 //Sets the numbered style (list numbering) as Arabic number following by period. 
@@ -131,6 +181,66 @@ presentation.Save("Sample.pptx");
 //Closes the Presentation 
 presentation.Close();
 {% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a Presentation without slides.
+
+Dim presentationDocument As IPresentation = Presentation.Create()
+
+'Adds new slide with blank slide layout type.
+
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+
+'Adds new notes slide in the specified slide.
+
+Dim notesSlide As INotesSlide = slide.AddNotesSlide()
+
+' Adds a new paragraph with the text in the left hand side textbox. 
+Dim paragraph As IParagraph = notesSlide.NotesTextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+'Sets the list type as Numbered 
+paragraph.ListFormat.Type = ListType.Numbered
+'Sets the numbered style (list numbering) as Arabic number following by period. 
+paragraph.ListFormat.NumberStyle = NumberedListStyle.ArabicPeriod
+'Sets the starting value as 1 
+paragraph.ListFormat.StartValue = 1
+'Sets the list level as 1 
+paragraph.IndentLevelNumber = 1
+' Sets the hanging value 
+paragraph.FirstLineIndent = -20
+' Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400. 
+paragraph.ListFormat.Size = 100
+' Adds another paragraph with the text in the left hand side textbox. 
+paragraph = notesSlide.NotesTextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+'Sets the list type as bulleted 
+paragraph.ListFormat.Type = ListType.Numbered
+'Sets the numbered style (list numbering) as Arabic number following by period. 
+paragraph.ListFormat.NumberStyle = NumberedListStyle.ArabicPeriod
+'Sets the list level as 1 
+paragraph.IndentLevelNumber = 1
+' Sets the hanging value 
+paragraph.FirstLineIndent = -20
+' Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400. 
+paragraph.ListFormat.Size = 100
+' Adds another paragraph with the text in the left hand side textbox. 
+paragraph = notesSlide.NotesTextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+'Sets the list type as bulleted 
+paragraph.ListFormat.Type = ListType.Numbered
+'Sets the numbered style (list numbering) as Arabic number following by period. 
+paragraph.ListFormat.NumberStyle = NumberedListStyle.ArabicPeriod
+'Sets the list level as 1 
+paragraph.IndentLevelNumber = 1
+' Sets the hanging value 
+paragraph.FirstLineIndent = -20
+' Sets the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400. 
+paragraph.ListFormat.Size = 100
+'Saves the Presentation to the file system. 
+presentationDocument.Save("Sample.pptx")
+'Closes the Presentation 
+presentationDocument.Close()
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Removing Notes from a Slide
@@ -138,7 +248,7 @@ presentation.Close();
 The below code example demonstrates how to remove a Notes from a PowerPoint Slide.
 {% tabs %}
 {% highlight c# %}
-//Opens existing Presentation.
+//Opens an existing PowerPoint presentation.
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
 //Gets instance of the first slide from the Presentation.
@@ -150,4 +260,19 @@ slide.RemoveNotesSlide();
 //Saves Presentation with specified file name with extension.
 presentation.Save("PresentationWithNotesSlide.pptx");
 {% endhighlight %}
+
+{% highlight vb.net %}
+'Opens an existing PowerPoint presentation.
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
+
+'Gets instance of the first slide from the Presentation.
+Dim slide As ISlide = TryCast(presentationDocument.Slides(0), ISlide)
+
+'Removes Notes Slide from a corresponding slide.
+slide.RemoveNotesSlide()
+
+'Saves Presentation with specified file name with extension.
+presentationDocument.Save("PresentationWithNotesSlide.pptx")
+{% endhighlight %}
+
 {% endtabs %}
