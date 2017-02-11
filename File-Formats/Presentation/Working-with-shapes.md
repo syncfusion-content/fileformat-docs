@@ -347,3 +347,252 @@ presentationDocument.Close()
 
 {% endtabs %}
 
+## Working with GroupShape
+
+### Creating a GroupShape
+
+The shapes in a slide can be grouped into a single shape. The following code snippet demonstrates how to group different slide items into a single GroupShape.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Creates an instance for PowerPoint presentation
+
+IPresentation presentation = Presentation.Create();
+
+//Adds a blank slide to presentation
+
+ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
+
+//Adds a groupshape to the slide
+
+IGroupShape groupShape = slide.GroupShapes.AddGroupShape(20, 20, 450, 300);
+
+//Adds a textbox to the groupshape
+
+groupShape.Shapes.AddTextBox(30, 25, 100, 100).TextBody.AddParagraph("My text box");
+
+//Gets the image stream
+
+Stream pictureStream = File.Open("Image.png", FileMode.Open);
+
+//Adds a picture to the groupshape
+
+groupShape.Shapes.AddPicture(pictureStream, 40, 100, 100, 100);
+
+//Adds an autoshape to the groupshape
+
+groupShape.Shapes.AddShape(AutoShapeType.Rectangle, 200, 200, 90, 30);
+
+//Save the presentation
+
+presentation.Save("Output.pptx");
+
+//Close the presentation
+
+presentation.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates an instance for PowerPoint presentation
+
+Dim presentationDocument As IPresentation = Presentation.Create()
+
+'Adds a blank slide to presentation
+
+Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+
+'Adds a groupshape to the slide
+
+Dim groupShape As IGroupShape = slide.GroupShapes.AddGroupShape(20, 20, 450, 300)
+
+'Adds a textbox to the groupshape
+
+groupShape.Shapes.AddTextBox(30, 25, 100, 100).TextBody.AddParagraph("My text box")
+
+'Gets the image stream
+
+Dim pictureStream As Stream = File.Open("Image.png", FileMode.Open)
+
+'Adds a picture to the groupshape
+
+groupShape.Shapes.AddPicture(pictureStream, 40, 100, 100, 100)
+
+'Adds an autoshape to the groupshape
+
+groupShape.Shapes.AddShape(AutoShapeType.Rectangle, 200, 200, 90, 30)
+
+'Saves the presentation
+
+presentationDocument.Save("Output.pptx")
+
+'Closes the presentation
+
+presentationDocument.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Iterating and modifying a particular GroupShape
+
+You can iterate through the shape collection of a GroupShape. Below code snippet demonstrates how to iterate through the shapes of a GroupShape to modify it by removing a specific shape.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Opens a PowerPoint presentation with group shapes
+
+IPresentation presentation = Presentation.Open("Sample.pptx");
+
+//Retrieves the first slide
+
+ISlide slide = presentation.Slides[0];
+
+//Retrieves the first groupshape of the slide
+
+IGroupShape groupShape = slide.GroupShapes[0];
+
+//Creates an instance to hold shape collection
+
+IShapes shapes = groupShape.Shapes;
+
+//Iterates shape collection to remove the picture in a groupshape
+
+foreach (IShape shape in shapes)
+
+{
+
+if (shape.SlideItemType == SlideItemType.Picture)
+
+{
+
+shapes.Remove(shape);
+
+break;
+
+}
+
+}
+
+//Saves the presentation
+
+presentation.Save("Output.pptx");
+
+//Closes the presentation
+
+presentation.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Opens a PowerPoint presentation with group shapes
+
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
+
+'Retrieves the first slide
+
+Dim slide As ISlide = presentationDocument.Slides(0)
+
+'Retrieves the first groupshape of the slide
+
+Dim groupShape As IGroupShape = slide.GroupShapes(0)
+
+'Creates an instance to hold shape collection
+
+Dim shapes As IShapes = groupShape.Shapes
+
+'Iterates shape collection to remove the picture in a groupshape
+
+For Each shape As IShape In shapes
+
+If shape.SlideItemType = SlideItemType.Picture Then
+
+shapes.Remove(shape)
+
+Exit For
+
+End If
+
+Next
+
+'Saves the presentation
+
+presentationDocument.Save("Output.pptx")
+
+'Closes the presentation
+
+presentationDocument.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+###  Removing a GroupShape
+
+GroupShape can be removed from a slide using its instance or by its index position in the GroupShape collection of the slide. Below code snippet explains how to remove a GroupShape from a slide.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Opens a PowerPoint presentation with group shapes
+
+IPresentation presentation = Presentation.Open("Sample.pptx");
+
+//Retrieves the first slide
+
+ISlide slide = presentation.Slides[0];
+
+//Retrieves the first groupshape of the slide
+
+IGroupShape groupShape = slide.GroupShapes[0];
+
+//Removes the groupshape from groupshape collection
+
+slide.GroupShapes.Remove(groupShape);
+
+//Saves the presentation
+
+presentation.Save("Output.pptx");
+
+//Closes the presentation
+
+presentation.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Opens a PowerPoint presentation with group shapes
+
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
+
+'Retrieves the first slide
+
+Dim slide As ISlide = presentationDocument.Slides(0)
+
+'Retrieves the first groupshape of the slide
+
+Dim groupShape As IGroupShape = slide.GroupShapes(0)
+
+'Removes the groupshape from groupshape collection
+
+slide.GroupShapes.Remove(groupShape)
+
+'Saves the presentation
+
+presentationDocument.Save("Output.pptx")
+
+'Closes the presentation
+
+presentationDocument.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
