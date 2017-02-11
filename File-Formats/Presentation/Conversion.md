@@ -179,7 +179,7 @@ settings.ShowHiddenSlides = false;
 
 settings.SlidesPerPage = SlidesPerPage.Three;
 
-//Sets the conversion settings to notes pages option
+//Sets the settings to enable notes pages while conversion.
 
 settings.PublishOptions = PublishOptions.NotesPages;
 
@@ -227,7 +227,7 @@ settings.ShowHiddenSlides = False
 
 settings.SlidesPerPage = SlidesPerPage.Three
 
-'Sets the conversion settings to notes pages option
+'Sets the settings to enable notes pages while conversion.
 
 settings.PublishOptions = PublishOptions.NotesPages
 
@@ -494,7 +494,7 @@ IPresentation presentation = Presentation.Open("Output.pptx");
 int customWidth = 1500;
 int customHeight = 1000;
 
-//Converts the slide as image and return as stream
+//Converts the slide as image and returns the image stream
 
 Stream stream = presentation.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf);
 
@@ -510,11 +510,11 @@ Graphics graphics = Graphics.FromImage(bitmap);
 
 bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
 
-//Recreates the image from stream using specified width and height
+//Recreates the image in custom size
 
 graphics.DrawImage(System.Drawing.Image.FromStream(stream), new Rectangle(0, 0, bitmap.Width, bitmap.Height));
 
-//Saves the bitmap
+//Saves the image as bitmap 
 
 bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg");
 
@@ -534,7 +534,7 @@ Dim presentationDocument As IPresentation = Presentation.Open("Output.pptx")
 Dim customWidth As Integer = 1500
 Dim customHeight As Integer = 1000
 
-'Converts the slide as image and return as stream
+'Converts the slide as image and returns the image stream
 
 Dim stream As Stream = presentationDocument.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf)
 
@@ -550,11 +550,11 @@ Dim gdiGraphics As Graphics = Graphics.FromImage(bitmap)
 
 bitmap.SetResolution(gdiGraphics.DpiX, gdiGraphics.DpiY)
 
-'Recreates the image from stream using specified width and height
+'Recreates the image in custom size
 
 gdiGraphics.DrawImage(System.Drawing.Image.FromStream(stream), New Rectangle(0, 0, bitmap.Width, bitmap.Height))
 
-'Saves the bitmap
+'Saves the image as bitmap
 
 bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg")
 
