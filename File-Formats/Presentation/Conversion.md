@@ -179,7 +179,7 @@ settings.ShowHiddenSlides = false;
 
 settings.SlidesPerPage = SlidesPerPage.Three;
 
-//Set the conversion settings to notes pages option
+//Sets the conversion settings to notes pages option
 
 settings.PublishOptions = PublishOptions.NotesPages;
 
@@ -227,7 +227,7 @@ settings.ShowHiddenSlides = False
 
 settings.SlidesPerPage = SlidesPerPage.Three
 
-'Set the conversion settings to notes pages option
+'Sets the conversion settings to notes pages option
 
 settings.PublishOptions = PublishOptions.NotesPages
 
@@ -486,39 +486,39 @@ The following code snippet demonstrates how to convert a PowerPoint slide to ima
 
 {% highlight c# %}
 
-//Open a PowerPoint presentation
+//Loads the PowerPoint presentation
 
 IPresentation presentation = Presentation.Open("Output.pptx");
 
-//Declare variables for custom Width and height
+//Declare variables to hold custom width and height
 int customWidth = 1500;
 int customHeight = 1000;
 
-//Convert the slide as image and return as stream
+//Converts the slide as image and return as stream
 
 Stream stream = presentation.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf);
 
-//Create a bitmap of specific width and height
+//Creates a bitmap of specific width and height
 
 Bitmap bitmap = new Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb);
 
-//Get graphics from image
+//Gets graphics from image
 
 Graphics graphics = Graphics.FromImage(bitmap);
 
-//Set the resolution
+//Sets the resolution
 
 bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
 
-//Recreate the image from stream using specified width and height
+//Recreates the image from stream using specified width and height
 
 graphics.DrawImage(System.Drawing.Image.FromStream(stream), new Rectangle(0, 0, bitmap.Width, bitmap.Height));
 
-//Save the bitmap
+//Saves the bitmap
 
 bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg");
 
-//Close the presentation
+//Closes the presentation
 
 presentation.Close();
 
@@ -526,39 +526,39 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Open a PowerPoint presentation
+'Loads the PowerPoint presentation
 
 Dim presentationDocument As IPresentation = Presentation.Open("Output.pptx")
 
-'Declare variables for custom Width and height
+'Declare variables to hold custom width and height
 Dim customWidth As Integer = 1500
 Dim customHeight As Integer = 1000
 
-'Convert the slide as image and return as stream
+'Converts the slide as image and return as stream
 
 Dim stream As Stream = presentationDocument.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf)
 
-'Create a bitmap of specific width and height
+'Creates a bitmap of specific width and height
 
 Dim bitmap As New Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb)
 
-'Get graphics from image
+'Gets graphics from image
 
 Dim gdiGraphics As Graphics = Graphics.FromImage(bitmap)
 
-'Set the resolution
+'Sets the resolution
 
 bitmap.SetResolution(gdiGraphics.DpiX, gdiGraphics.DpiY)
 
-'Recreate the image from stream using specified width and height
+'Recreates the image from stream using specified width and height
 
 gdiGraphics.DrawImage(System.Drawing.Image.FromStream(stream), New Rectangle(0, 0, bitmap.Width, bitmap.Height))
 
-'Save the bitmap
+'Saves the bitmap
 
 bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg")
 
-'Close the presentation
+'Closes the presentation
 
 presentationDocument.Close()
 
