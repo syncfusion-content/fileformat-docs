@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Overview
 
-**Essential Presentation** is a native .**NET** class library that can be used by developers to create, read, and write Microsoft PowerPoint files by using C#, VB.NET, and managed C++ code. The library can be used in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP and Xamarin applications.
+**Essential Presentation** is a native .**NET** class library that can be used by developers to create, read, and write Microsoft PowerPoint files by using C#, VB.NET, and managed C++ code. The library can be used in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP and Xamarin platforms.
 
 It is a non-UI component that provides a full-fledged PowerPoint Presentation instance that facilitates accessing and manipulating the presentations without any dependency of Microsoft Office COM libraries and Microsoft Office.
 
@@ -32,6 +32,6 @@ It is a non-UI component that provides a full-fledged PowerPoint Presentation in
 * Microsoft PowerPoint 2016
 
 
-N> 1. The current version of Essential Presentation supports the .PPTX, .POTX and macro enabled presentations - .PPTM and .POTM file formats.
+N> 1. The current version of Essential Presentation supports the .PPTX, .PPTM, .POTX, .POTM file formats only.
 N> 2. The current version of Essential Presentation does not support some features in Microsoft PowerPoint such as Word Art, Animations, Transitions, Comment, Header and Footer, creation and editing of Handouts, equations, built-in themes, and its variants.
 

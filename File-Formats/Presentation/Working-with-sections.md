@@ -13,7 +13,7 @@ Sections helps to manage the slides of a PowerPoint presentation. If a presentat
 
 ### Adding a new slide to a section
 
-The following code snippet demonstrates how to add a blank slide to a section.
+The following code example demonstrates how to add a blank slide to a section.
 
 {% tabs %}
 
@@ -77,7 +77,7 @@ presentationDocument.Save("Section.PPTX")
 
 ### Adding an existing slide to a section
 
-The following code snippet explains how to add an existing slide to a section.
+The following code example demonstrates how to add an existing slide to a section.
 
 {% tabs %}
 
@@ -125,7 +125,7 @@ presentationDocument.Save("Sections.PPTX")
 
 ### Inserting a section
 
-The following code snippet demonstrates how to insert a section in a template PowerPoint presentation that contains sections
+The following code example demonstrates how to insert a section in a template PowerPoint presentation that contains sections
 
 {% tabs %}
 
@@ -181,7 +181,7 @@ presentationDocument.Save("Sections.PPTX")
 
 ## Moving the sections within a PowerPoint presentation
 
-You can move the sections within a PowerPoint presentation. The following code snippet explains how to move a section to a specific position in the navigation pane.
+You can move the sections within a PowerPoint presentation. The following code example demonstrates how to move a section to a specific position in the navigation pane.
 
 {% tabs %}
 
@@ -221,7 +221,7 @@ presentationDocument.Save("Sections.PPTX")
 
 ## Moving a slide within sections
 
-The following code explains how to move a slide from one section to another.
+The following code example demonstrates how to move a slide from one section to another.
 
 {% tabs %}
 
@@ -269,7 +269,7 @@ presentationDocument.Save("Sections.PPTX")
 
 ## Cloning and merging the slides in a section
 
-The following code snippet demonstrates how to clone the slide collection of a section and add those slides to a destination presentation.
+The following code example demonstrates how to clone the slide collection of a section and add those slides to a destination presentation.
 
 {% tabs %}
 
@@ -331,7 +331,7 @@ presentationDocument.Save("Sections.PPTX")
 
 ## Removing a section 
 
-The following code snippet demonstrates how to create remove a particular section from the sections collection of a presentation.
+The following code example demonstrates how to create remove a particular section from the sections collection of a presentation.
 
 {% tabs %}
 
@@ -371,7 +371,7 @@ presentationDocument.Save("Sections.PPTX")
 
 ## Remove all sections 
 
-The following code snippet explains how to remove section collection from an existing PowerPoint presentation.
+The following code example demonstrates how to remove section collection from an existing PowerPoint presentation.
 
 {% tabs %}
 
