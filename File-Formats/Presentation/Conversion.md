@@ -146,7 +146,8 @@ Essential Presentation library provides you the ability to customize the Present
 
 * Allows to include the hidden slide during conversion.
 * Allows to specify the number of slides per PDF page.
-* Allows to determine the quality of the charts in the converted PDF 
+* Allows to determine the quality of the charts in the converted PDF.
+* Allows to convert slides with notes pages to PDF.
 
 The following code example shows the customized PDF conversion.
 
@@ -177,6 +178,10 @@ settings.ShowHiddenSlides = false;
 //Sets the slide per page settings; this is optional.
 
 settings.SlidesPerPage = SlidesPerPage.Three;
+
+//Sets the settings to enable notes pages while conversion.
+
+settings.PublishOptions = PublishOptions.NotesPages;
 
 //Converts the PowerPoint Presentation into PDF document
 
@@ -221,6 +226,10 @@ settings.ShowHiddenSlides = False
 'Sets the slide per page settings; this is optional.
 
 settings.SlidesPerPage = SlidesPerPage.Three
+
+'Sets the settings to enable notes pages while conversion.
+
+settings.PublishOptions = PublishOptions.NotesPages
 
 'Converts the PowerPoint Presentation into PDF document
 
@@ -470,6 +479,93 @@ Next
 {% endhighlight %}
 
 {% endtabs %}
+
+The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution,
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Loads the PowerPoint presentation
+
+IPresentation presentation = Presentation.Open("Output.pptx");
+
+//Declare variables to hold custom width and height
+int customWidth = 1500;
+int customHeight = 1000;
+
+//Converts the slide as image and returns the image stream
+
+Stream stream = presentation.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf);
+
+//Creates a bitmap of specific width and height
+
+Bitmap bitmap = new Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb);
+
+//Gets the graphics from image
+
+Graphics graphics = Graphics.FromImage(bitmap);
+
+//Sets the resolution
+
+bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
+
+//Recreates the image in custom size
+
+graphics.DrawImage(System.Drawing.Image.FromStream(stream), new Rectangle(0, 0, bitmap.Width, bitmap.Height));
+
+//Saves the image as bitmap 
+
+bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg");
+
+//Closes the presentation
+
+presentation.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads the PowerPoint presentation
+
+Dim presentationDocument As IPresentation = Presentation.Open("Output.pptx")
+
+'Declare variables to hold custom width and height
+Dim customWidth As Integer = 1500
+Dim customHeight As Integer = 1000
+
+'Converts the slide as image and returns the image stream
+
+Dim stream As Stream = presentationDocument.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf)
+
+'Creates a bitmap of specific width and height
+
+Dim bitmap As New Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb)
+
+'Gets the graphics from image
+
+Dim gdiGraphics As Graphics = Graphics.FromImage(bitmap)
+
+'Sets the resolution
+
+bitmap.SetResolution(gdiGraphics.DpiX, gdiGraphics.DpiY)
+
+'Recreates the image in custom size
+
+gdiGraphics.DrawImage(System.Drawing.Image.FromStream(stream), New Rectangle(0, 0, bitmap.Width, bitmap.Height))
+
+'Saves the image as bitmap
+
+bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg")
+
+'Closes the presentation
+
+presentationDocument.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
 
 N> 1. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image
 N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onward
