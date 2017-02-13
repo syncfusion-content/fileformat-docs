@@ -30,7 +30,7 @@ Syncfusion.OfficeChart.Base<br/>
 </tr>
 <tr>
 <td>
-Xamarin<br/></td><td>
+Xamarin and ASP.NET Core<br/></td><td>
 Syncfusion.Presentation.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/></td></tr>
 <tr>
 <td>
