@@ -612,7 +612,7 @@ presentationDocument.Close()
 
 {% endtabs %}
 
-## Marking a Presentation as Final
+## Marking a PowerPoint presentation as final
 
 PowerPoint presentation can be made read-only to prevent the readers from making inadvertent changes to it. However, making presentation as final is not a security feature. Anyone can disable the final status and edit the presentation.
 
