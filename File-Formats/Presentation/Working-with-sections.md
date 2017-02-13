@@ -4,6 +4,7 @@ description: Working with sections in PowerPoint Presentation
 platform: file-formats
 control: Presentation
 documentation: UG
+keywords: sections in PowerPoint presentation
 ---
 # Working with Sections
 
