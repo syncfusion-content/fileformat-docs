@@ -11,12 +11,13 @@ keywords: Assemblies
 The following assemblies need to be referenced in your application
 <table>
 <tr>
-<td>
-Platform(s)<br/>
-</td>
-<td>
-Assembly<br/>
-</td>
+<thead>
+<th>
+Platform(s)</th>
+<th>
+Assembly
+</th>
+</thead>
 </tr>
 <tr>
 <td>
@@ -30,7 +31,7 @@ Syncfusion.OfficeChart.Base<br/>
 </tr>
 <tr>
 <td>
-Xamarin<br/></td><td>
+Xamarin and ASP.NET Core<br/></td><td>
 Syncfusion.Presentation.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/></td></tr>
 <tr>
 <td>
@@ -43,12 +44,13 @@ Syncfusion.Presentation.UWP<br/>Syncfusion.OfficeChart.UWP<br/></td></tr>
 For converting a PowerPoint Presentation to PDF, the following assemblies needed to be referenced in your application
 <table>
 <tr>
-<td>
-Platform(s)<br/>
-</td>
-<td>
-Assembly<br/>
-</td>
+<thead>
+<th>
+Platform(s)</th>
+<th>
+Assembly
+</th>
+</thead>
 </tr>
 <tr>
 <td>
@@ -67,12 +69,13 @@ N> Presentation to PDF conversion is not supported in Xamarin and UWP applicatio
 The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the PowerPoint Presentation into PDF.
 <table>
 <tr>
-<td>
-Platform(s)<br/>
-</td>
-<td>
-Assembly<br/>
-</td>
+<thead>
+<th>
+Platform(s)</th>
+<th>
+Assembly
+</th>
+</thead>
 </tr>
 <tr>
 <td>

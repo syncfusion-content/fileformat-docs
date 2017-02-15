@@ -545,3 +545,213 @@ excelEngine.Dispose()
 
 {% endhighlight %}
 {% endtabs %}  
+
+## Importing Data from Microsoft Grid Controls to Worksheet
+
+XlsIO provides support to import data from various Microsoft grid controls with its cell formatting. The supported grid coltrols are: 
+
+* DataGrid
+* GridView
+* DataGridView
+
+### DataGrid
+
+Imports data from Microsoft DataGrid control with its header and cell formatting to Excel worksheet. The following code illustrates how to import data from Microsoft DataGrid control to worksheet.
+ 
+N> GetDataTable() method returns DataTable of applicable data to import.
+
+{% tabs %}
+{% highlight c# %}
+
+//Initialize DataGrid control.
+
+DataGrid dataGrid = new DataGrid();
+
+dataGrid.DataSource = GetDataTable();
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create();
+
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Import data from DataGrid control.
+
+worksheet.ImportDataGrid(dataGrid, 1, 1, true, true);
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+'Initialize DataGrid control.
+
+Dim dataGrid As DataGrid = New DataGrid()
+
+dataGrid.DataSource = GetDataTable()
+
+Dim excelEngine As New ExcelEngine()
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create()
+
+Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+'Import data from DataGrid control.
+
+worksheet.ImportDataGrid(dataGrid, 1, 1, True, True)
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+{% endhighlight %}
+{% endtabs %}
+
+### GridView
+
+Imports data from Microsoft GridView control with its header and cell formatting to Excel worksheet. The following code illustrates how to import data from Microsoft GridView control to worksheet.
+
+{% tabs %}
+{% highlight c# %}
+//Initialize GridView control.
+
+GridView gridView = new GridView();
+
+gridView.DataSource = GetDataTable();
+
+gridView.DataBind();
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create();
+
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Import data from GridView control.
+
+worksheet.ImportGridView(gridView, 1, 1, true, true);
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+'Initialize GridView control.
+
+Dim gridView As GridView = New GridView ()
+
+gridView.DataSource = GetDataTable()
+	
+gridView.DataBind()
+
+Dim excelEngine As New ExcelEngine()
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create()
+
+Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+'Import data from GridView control.
+
+worksheet.ImportGridView(gridView, 1, 1, True, True)
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+{% endhighlight %}
+{% endtabs %}
+
+### DataGridView
+
+Imports data from Microsoft DataGridView control with its header and cell formatting to Excel worksheet. In addition, this API imports sorted data applied in the control. The following code illustrates how to import data from Microsoft DataGridView control to worksheet.
+ 
+{% tabs %}
+{% highlight c# %}
+//Initialize DataGridView control.
+
+DataGridView dataGridView = new DataGridView();
+
+dataGridView.DataSource = GetDataTable();
+
+//Apply sorting.
+
+dataGridView.Sort(dataGridView.Columns[1], System.ComponentModel.ListSortDirection.Ascending);
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create();
+
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Import data from DataGridView control.
+
+worksheet.ImportDataGridView(dataGridView, 1, 1, true, true);
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+	
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+'Initialize DataGridView control.
+
+Dim dataGridView As DataGridView = New DataGridView()
+
+dataGridView.DataSource = GetDataTable()
+
+'Apply sorting.
+
+dataGridView.Sort(dataGridView.Columns(1), System.ComponentModel.ListSortDirection.Ascending)
+
+Dim excelEngine As New ExcelEngine()
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create()
+
+Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+'Import data from DataGridView control.
+
+worksheet.ImportDataGridView(dataGridView, 1, 1, True, True)
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+{% endhighlight %}
+{% endtabs %}
