@@ -9,711 +9,304 @@ documentation: UG
 
 In order to use XlsIO in your Xamarin application, please add the required assemblies in your Xamarin application. Refer [Assemblies Required](/File-Formats/XlsIO/Assemblies-Required).
 
-## Loading the document
-
-The below code snippet illustrates how to load an Excel file using stream in Xamarin.
+## Loading a Document
+The below code illustrates how to load an Excel document using stream in Xamarin.
 
 {% tabs %}  
-
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-
-IApplication application = excelEngine.Excel;
-
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
-
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
-
-//Opens the workbook
-
-IWorkbook workbook = application.Workbooks.Open(fileStream);
-
-MemoryStream stream = new MemoryStream();
-
-workbook.SaveAs(stream);
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-//Save the stream into xlsx file
-
-Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.xlsx","application/msexcel", stream);
-
-public interface ISave
-
+void btnCreate_Click(object sender, System.EventArgs e)
 {
+	ExcelEngine excelEngine = new ExcelEngine();
+	IApplication application = excelEngine.Excel;
+	application.DefaultVersion = ExcelVersion.Excel2013;
 
-void Save(string filename, string contentType, MemoryStream stream);
+	string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
+	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
+	Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
+
+	//Opens the workbook
+	IWorkbook workbook = application.Workbooks.Open(fileStream);
 }
+{% endhighlight %}
+{% endtabs %}  
 
-public interface ISaveWindowsPhone
+## Saving a Document
 
+The below code illustrates how to save an Excel document using stream in Xamarin.
+
+{% tabs %}  
+{% highlight c# %}
+void btnCreate_Click(object sender, System.EventArgs e)
 {
+	ExcelEngine excelEngine = new ExcelEngine();
+	IApplication application = excelEngine.Excel;
+	application.DefaultVersion = ExcelVersion.Excel2013;
 
-Task Save(string filename, string contentType, MemoryStream stream);
+	string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
+	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
 
+	//Opens the workbook 
+	IWorkbook workbook = application.Workbooks.Open(fileStream);
+
+	MemoryStream stream = new MemoryStream();
+	workbook.SaveAs(stream);
+
+	workbook.Close();
+	excelEngine.Dispose();
+
+	//Save the stream into xlsx file
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.xlsx","application/msexcel", stream);
 }
+{% endhighlight %}
+{% endtabs %}
+
+{% tabs %}  
+{% highlight c# %}
+using System.IO;
+using System.Threading.Tasks;
+
+private interface ISave
+{
+	//Method to save document as a file and view the saved document
+	void SaveAndView(string filename, string contentType, MemoryStream stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+N> SaveAndView is helper method to save the stream as a physical file and open the file in default viewer. The operation varies between Windows Phone, Android and iOS platforms as described in the code samples below.
+
+### Windows Phone
+
+{% tabs %}  
+{% highlight c# %}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.Storage;
+using System.IO;
+using Xamarin.Forms;
+
+[assembly: Dependency(typeof(SaveWindowsPhone))]
 
 class SaveWindowsPhone: ISave
-
 {
+	//Method to save document as a file in Windows Phone and view the saved document.
+	public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
+    {
+        //Save the stream to a file. 
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        StorageFile outFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+        using (Stream outStream = await outFile.OpenStreamForWriteAsync())
+        {
+            outStream.Write(stream.ToArray(), 0, (int)stream.Length);
+        }
 
-public async Task Save(string filename, string contentType, MemoryStream stream)
-
-{
-
-StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-StorageFile outFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-
-using (Stream outStream = await outFile.OpenStreamForWriteAsync())
-
-{
-
-outStream.Write(stream.ToArray(), 0, (int)stream.Length);
-
+        //Launch the saved file for viewing in default viewer.
+        await Windows.System.Launcher.LaunchFileAsync(outFile);
+    }
 }
-
-await Windows.System.Launcher.LaunchFileAsync(outFile);
-
-}
-
-}
-
-
-
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine()
-
-Dim application As IApplication = excelEngine.Excel
-
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim resourcePath As String = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx"
-
-Dim assembly As Assembly = Type.GetType(App).GetTypeInfo().Assembly
-
-Dim fileStream As Stream = assembly.GetManifestResourceStream(resourcePath)
-
-'Opens the workbook 
-
-Dim workbook As IWorkbook = application.Workbooks.Open(fileStream)
-
-Dim stream As MemoryStream = New MemoryStream()
-
-workbook.SaveAs(stream)
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-'Save the stream into xlsx file
-
-Xamarin.Forms.DependencyService.Get(Of ISave)().Save("sample.xlsx","application/ msexcel", stream)
-
-Public Interface ISave
-
-Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-End Interface
-
-Public Interface ISaveWindowsPhone
-
-Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As void
-
-End Interface
-
-Friend Class SaveWindowsPhone
-
-Implements ISave
-
-Public async Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-Dim local As StorageFolder = Windows.Storage.ApplicationData.Current.LocalFolder
-
-Dim outFile As StorageFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting)
-
-Using outStream As Stream = await outFile.OpenStreamForWriteAsync()
-
-outStream.Write(stream.ToArray(), 0, CInt(stream.Length))
-
-End Using
-
-await Windows.System.Launcher.LaunchFileAsync(outFile)
-
-End Function
-
-End Class
-
-
-
-{% endhighlight %}
-
-  {% endtabs %}  
-
-## Saving the document
-
-The below code snippet illustrates how to load an Excel file using stream in Xamarin Windows Phone platform.
+### Android
 
 {% tabs %}  
-
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-
-IApplication application = excelEngine.Excel;
-
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
-
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
-
-//Opens the workbook 
-
-IWorkbook workbook = application.Workbooks.Open(fileStream);
-
-MemoryStream stream = new MemoryStream();
-
-workbook.SaveAs(stream);
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-//Save the stream into xlsx file
-
-Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.xlsx","application/msexcel", stream);
-
-public interface ISave
-
-{
-
-void Save(string filename, string contentType, MemoryStream stream);
-
-}
-
-public interface ISaveWindowsPhone
-
-{
-
-Task Save(string filename, string contentType, MemoryStream stream);
-
-}
-
-class SaveWindowsPhone: ISave
-
-{
-
-public async Task Save(string filename, string contentType, MemoryStream stream)
-
-{
-
-StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-StorageFile outFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-
-using (Stream outStream = await outFile.OpenStreamForWriteAsync())
-
-{
-
-outStream.Write(stream.ToArray(), 0, (int)stream.Length);
-
-}
-
-await Windows.System.Launcher.LaunchFileAsync(outFile);
-
-}
-
-}
-
-
-
-{% endhighlight %}
-
-{% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine()
-
-Dim application As IApplication = excelEngine.Excel
-
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim resourcePath As String = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx"
-
-Dim assembly As Assembly = Type.GetType(App).GetTypeInfo().Assembly
-
-Dim fileStream As Stream = assembly.GetManifestResourceStream(resourcePath)
-
-'Opens the workbook
-
-Dim workbook As IWorkbook = application.Workbooks.Open(fileStream)
-
-Dim stream As MemoryStream = New MemoryStream()
-
-workbook.SaveAs(stream)
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-'Save the stream into xlsx file
-
-Xamarin.Forms.DependencyService.Get(Of ISave)().Save("sample.xlsx","application/ msexcel", stream)
-
-Public Interface ISave
-
-Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-End Interface
-
-Public Interface ISaveWindowsPhone
-
-Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As void
-
-End Interface
-
-Friend Class SaveWindowsPhone
-
-Implements ISave
-
-Public async Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-Dim local As StorageFolder = Windows.Storage.ApplicationData.Current.LocalFolder
-
-Dim outFile As StorageFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting)
-
-Using outStream As Stream = await outFile.OpenStreamForWriteAsync()
-
-outStream.Write(stream.ToArray(), 0, CInt(stream.Length))
-
-End Using
-
-await Windows.System.Launcher.LaunchFileAsync(outFile)
-
-End Function
-
-End Class
-
-
-
-{% endhighlight %}
-
-  {% endtabs %}  
-
-The below code snippet illustrates how to load an Excel file using stream in Xamarin.Android platform.
-
-{% tabs %}  
-
-{% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-
-IApplication application = excelEngine.Excel;
-
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
-
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
-
-//Opens the workbook. 
-
-IWorkbook workbook = application.Workbooks.Open(fileStream);
-
-MemoryStream stream = new MemoryStream();
-
-workbook.SaveAs(stream);
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-//Save the stream into xlsx file
-
-Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.xlsx","application/msexcel", stream);
-
-public interface ISave
-
-{
-
-Task Save(string filename, string contentType, MemoryStream stream);
-
-}
+using System;
+using System.IO;
+using GettingStarted.Droid;
+using Android.Content;
+using Java.IO;
+using Xamarin.Forms;
+using System.Threading.Tasks;
+
+[assembly: Dependency(typeof(SaveAndroid))]
 
 class SaveAndroid: ISave
-
 {
+    //Method to save document as a file in Android and view the saved document.
+    public async Task SaveAndView(string fileName, String contentType, MemoryStream stream)
+    {
+        string root = null;
+		
+        //Get the root path of android device.
+        if (Android.OS.Environment.IsExternalStorageEmulated)
+        {
+            root = Android.OS.Environment.ExternalStorageDirectory.ToString();
+        }
+        else
+            root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-public async Task Save(string fileName, String contentType, MemoryStream stream)
+        //Create directory and file.
+        Java.IO.File myDir = new Java.IO.File(root + "/Syncfusion");
+        myDir.Mkdir();
 
-{
+        Java.IO.File file = new Java.IO.File(myDir, fileName);
 
-string root = null;
+        //Remove the file if exists.
+        if (file.Exists()) file.Delete();
 
-if (Android.OS.Environment.IsExternalStorageEmulated)
+        //Write the stream into file.
+        FileOutputStream outs = new FileOutputStream(file);
+        outs.Write(stream.ToArray());
 
-{
+        outs.Flush();
+        outs.Close();
 
-root = Android.OS.Environment.ExternalStorageDirectory.ToString();
-
+        //Launch the saved file for viewing in default viewer.
+        if (file.Exists())
+        {
+            Android.Net.Uri path = Android.Net.Uri.FromFile(file);
+            string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
+            string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
+            Intent intent = new Intent(Intent.ActionView);
+            intent.SetDataAndType(path, mimeType);
+            Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
+        }
+    }
 }
-
-else
-
-root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-Java.IO.File myDir = new Java.IO.File(root + "/Syncfusion");
-
-myDir.Mkdir();
-
-Java.IO.File file = new Java.IO.File(myDir, fileName);
-
-if (file.Exists()) file.Delete();
-
-try
-
-{
-
-FileOutputStream outs = new FileOutputStream(file);
-
-outs.Write(stream.ToArray());
-
-outs.Flush();
-
-outs.Close();
-
-}
-
-catch (Exception e)
-
-{
-
-}
-
-if (file.Exists())
-
-{
-
-Android.Net.Uri path = Android.Net.Uri.FromFile(file);
-
-string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
-
-string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
-
-Intent intent = new Intent(Intent.ActionView);
-
-intent.SetDataAndType(path, mimeType);
-
-Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
-
-}
-
-}
-
-}
-
-
-
 {% endhighlight %}
+{% endtabs %}
 
-{% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine()
-
-Dim application As IApplication = excelEngine.Excel
-
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim resourcePath As String = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx"
-
-Dim assembly As Assembly = Type.GetType(App).GetTypeInfo().Assembly
-
-Dim fileStream As Stream = assembly.GetManifestResourceStream(resourcePath)
-
-'Opens the workbook. 
-
-Dim workbook As IWorkbook = application.Workbooks.Open(fileStream)
-
-Dim stream As MemoryStream = New MemoryStream()
-
-workbook.SaveAs(stream)
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-'Save the stream into xlsx file
-
-Xamarin.Forms.DependencyService.Get(Of ISave)().Save("sample.xlsx","application/ msexcel", stream)
-
-Public Interface ISave
-
-Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-End Interface
-
-Friend Class SaveAndroid
-
-Implements ISave
-
-Public Async Function Save(ByVal fileName As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-Dim root As String = Nothing
-
-If Android.OS.Environment.IsExternalStorageEmulated Then
-
-root = Android.OS.Environment.ExternalStorageDirectory.ToString()
-
-Else
-
-root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-
-End If
-
-Dim myDir As New Java.IO.File(root & "/Syncfusion")
-
-myDir.Mkdir()
-
-Dim file As New Java.IO.File(myDir, fileName)
-
-If file.Exists() Then
-
-file.Delete()
-
-End If
-
-Try
-
-Dim outs As New FileOutputStream(file)
-
-outs.Write(stream.ToArray())
-
-outs.Flush()
-
-outs.Close()
-
-Catch e As Exception
-
-End Try
-
-If file.Exists() Then
-
-Dim path As Android.Net.Uri = Android.Net.Uri.FromFile(file)
-
-Dim extension As String = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString())
-
-Dim mimeType As String = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension)
-
-Dim intent As New Intent(Intent.ActionView)
-
-intent.SetDataAndType(path, mimeType)
-
-Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"))
-
-End If
-
-End Function
-
-End Class
-
-
-
-{% endhighlight %}
-  
-  {% endtabs %}  
-
-The below code snippet illustrates how to load an Excel file using stream in Xamarin.iOS platform.
+### iOS
 
 {% tabs %}  
-
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using Xamarin.Forms;
+using GettingStarted.iOS;
+using UIKit;
+using QuickLook;
 
-IApplication application = excelEngine.Excel;
-
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
-
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
-
-//Opens the workbook. 
-
-IWorkbook workbook = application.Workbooks.Open(fileStream);
-
-MemoryStream stream = new MemoryStream();
-
-workbook.SaveAs(stream);
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-public interface ISave
-
-{
-
-Task Save(string filename, string contentType, MemoryStream stream);
-
-}
+[assembly: Dependency(typeof(SaveIOS))]
 
 class SaveIOS: ISave
-
 {
+    //Method to save document as a file in iOS and view the saved document.
+    public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
+    {
+        //Get the root path of iOS device.
+        string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+        string filePath = Path.Combine(path, filename);
 
-public async Task Save(string filename, string contentType, MemoryStream stream)
+        //Create a file and write the stream into it.
+        FileStream fileStream = File.Open(filePath, FileMode.Create);
+        stream.Position = 0;
+        stream.CopyTo(fileStream);
+        
+		fileStream.Flush();
+        fileStream.Close();
 
+        //Launch the saved file for viewing in default viewer.
+        UIViewController currentController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+        while (currentController.PresentedViewController != null)
+			currentController = currentController.PresentedViewController;
+        UIView currentView = currentController.View;
+
+        QLPreviewController qlPreview = new QLPreviewController();
+        QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
+        qlPreview.DataSource = new PreviewControllerDS(item);
+
+        currentController.PresentViewController(qlPreview, true, null);
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+
+N> Launcing a file in default viewer is different in iOS when compared to Windows Phone and Android. This requires the helper class PreviewControllerDS, which is given below.
+
+{% tabs %}  
+{% highlight c# %}
+using System;
+using QuickLook;
+
+public class PreviewControllerDS : QLPreviewControllerDataSource
 {
+	private QLPreviewItem _item;
 
-string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+	public PreviewControllerDS(QLPreviewItem item)
+	{
+		_item = item;
+	}
 
-string filePath = Path.Combine(path, filename);
+	public override nint PreviewItemCount (QLPreviewController controller)
+	{
+		return (nint)1;
+	}
 
-try
+	public override IQLPreviewItem GetPreviewItem (QLPreviewController controller, nint index)
+	{
+		return _item;
+	}
+}
 
+using System;
+using QuickLook;
+using Foundation;
+using System.IO;
+
+public class QLPreviewItemFileSystem : QLPreviewItem
 {
+	string _fileName, _filePath;
 
-FileStream fileStream = File.Open(filePath, FileMode.Create);
+	public QLPreviewItemFileSystem(string fileName, string filePath)
+	{
+		_fileName = fileName;
+		_filePath = filePath;
+	}
 
-stream.Position = 0;
-
-stream.CopyTo(fileStream);
-
-fileStream.Flush();
-
-fileStream.Close();
-
+	public override string ItemTitle
+	{
+		get
+		{
+			return _fileName;
+		}
+	}
+	public override NSUrl ItemUrl
+	{
+		get
+		{
+			return NSUrl.FromFilename(_filePath);
+		}
+	}
 }
 
-catch (Exception e)
-
+public class QLPreviewItemBundle : QLPreviewItem
 {
+	string _fileName, _filePath;
+	public QLPreviewItemBundle(string fileName, string filePath)
+	{
+		_fileName = fileName;
+		_filePath = filePath;
+	}
 
+	public override string ItemTitle
+	{
+		get
+		{
+			return _fileName;
+		}
+	}
+	public override NSUrl ItemUrl
+	{
+		get
+		{
+			var documents = NSBundle.MainBundle.BundlePath;
+			var lib = Path.Combine(documents, _filePath);
+			var url = NSUrl.FromFilename(lib);
+			return url;
+		}
+	}
 }
-
-UIViewController currentController = UIApplication.SharedApplication.KeyWindow.RootViewController;
-
-while (currentController.PresentedViewController != null)
-
-currentController = currentController.PresentedViewController;
-
-UIView currentView = currentController.View;
-
-QLPreviewController qlPreview = new QLPreviewController();
-
-QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
-
-qlPreview.DataSource = new PreviewControllerDS(item);
-
-currentController.PresentViewController(qlPreview, true, null);
-
-}
-
-}
-
-}
-
-
 
 {% endhighlight %}
-
-{% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine()
-
-Dim application As IApplication = excelEngine.Excel
-
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim resourcePath As String = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx"
-
-Dim assembly As Assembly = Type.GetType(App).GetTypeInfo().Assembly
-
-Dim fileStream As Stream = assembly.GetManifestResourceStream(resourcePath)
-
-'Opens the workbook. 
-
-Dim workbook As IWorkbook = application.Workbooks.Open(fileStream)
-
-Dim stream As MemoryStream = New MemoryStream()
-
-workbook.SaveAs(stream)
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-'Save the stream into xlsx file
-
-Xamarin.Forms.DependencyService.Get(Of ISave)().Save("sample.xlsx","application/ msexcel", stream)
-
-Public Interface ISave
-
-Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-End Interface
-
-Friend Class SaveIOS
-
-Implements ISave
-
-Public async Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-Dim path As String = Environment.GetFolderPath(Environment.SpecialFolder.Personal)
-
-Dim filePath As String = Path.Combine(path, filename)
-
-Try
-
-Dim fileStream As FileStream = File.Open(filePath, FileMode.Create)
-
-stream.Position = 0
-
-stream.CopyTo(fileStream)
-
-fileStream.Flush()
-
-fileStream.Close()
-
-Catch e As Exception
-
-End Try
-
-Dim currentController As UIViewController = UIApplication.SharedApplication.KeyWindow.RootViewController
-
-Do While currentController.PresentedViewController IsNot Nothing
-
-currentController = currentController.PresentedViewController
-
-Loop
-
-Dim currentView As UIView = currentController.View
-
-Dim qlPreview As New QLPreviewController()
-
-Dim item As QLPreviewItem = New QLPreviewItemBundle(filename, filePath)
-
-qlPreview.DataSource = New PreviewControllerDS(item)
-
-currentController.PresentViewController(qlPreview, True, Nothing)
-
-End Function
-
-End Class
-
-
-
-{% endhighlight %}
-
-  {% endtabs %}  
-
+{% endtabs %}
