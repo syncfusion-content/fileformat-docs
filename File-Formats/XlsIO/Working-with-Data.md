@@ -548,7 +548,7 @@ excelEngine.Dispose()
 
 ## Importing Data from Microsoft Grid Controls to Worksheet
 
-XlsIO provides support to import data from various Microsoft grid controls with its cell formatting. The supported grid coltrols are: 
+XlsIO provides support to import data from various Microsoft grid controls with its cell formatting. The supported grid controls are: 
 
 * DataGrid
 * GridView
