@@ -197,65 +197,46 @@ IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Aut
 PdfDocument pdfDocument = new PdfDocument();     
 
 foreach (IWorksheet sheet in workbook.Worksheets)
-
 {
+	ExcelToPdfConverter converter = new ExcelToPdfConverter(sheet);
+	pdfDocument = converter.Convert();
 
-ExcelToPdfConverter converter = new ExcelToPdfConverter(sheet);
+	//Save the pdf file
+	pdfDocument.Save(sheet.Name+".pdf");
 
-pdfDocument = converter.Convert();
-
-//Save the pdf file
-
-pdfDocument.Save(sheet.Name+".pdf");
-
-converter.Dispose();
-
+	converter.Dispose();
 }
 
 //Dispose the objects
-
 pdfDocument.Close();
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
 
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
 Dim pdfDocument As New PdfDocument()
 
 For Each sheet As IWorksheet In workbook.Worksheets
 
-Dim converter As New ExcelToPdfConverter(sheet)
+	Dim converter As New ExcelToPdfConverter(sheet)
+	PdfDocument = converter.Convert()
 
-PdfDocument = converter.Convert()
+	'Save the PDF file
+	PdfDocument.Save(sheet.Name + ".pdf")
 
-'Save the pdf file
-
-PdfDocument.Save(sheet.Name + ".pdf")
-
-converter.Dispose()
+	converter.Dispose()
 
 Next
 
 pdfDocument.Close()
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
 
 {% endhighlight %}
 
@@ -353,7 +334,7 @@ excelEngine.Dispose()
 
 N> This section is applicable only to the Windows Forms, ASP.NET, ASP.NET MVC and WPF platforms.
 
-**Supported** **Elements**
+## Supported Elements
 
 This feature provides support for the following elements:
 
@@ -377,7 +358,7 @@ This feature provides support for the following elements:
 
 ​
 
-**Unsupported** **Elements** 
+## Unsupported Elements
 
 The following list contains unsupported elements that presently will not be preserved in the generated PDF document. 
 
