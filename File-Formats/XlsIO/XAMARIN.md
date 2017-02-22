@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Xamarin
 
-In order to use XlsIO in your Xamarin application, please add the required assemblies in your Xamarin application. Refer [Assemblies Required](/File-Formats/XlsIO/Assemblies-Required).
+In order to use XlsIO in your Xamarin application, please add the required assemblies. Refer [Assemblies Required](/File-Formats/XlsIO/Assemblies-Required).
 
 ## Loading a Document
 The below code illustrates how to load an Excel document using stream in Xamarin.
@@ -21,6 +21,7 @@ void btnCreate_Click(object sender, System.EventArgs e)
 	application.DefaultVersion = ExcelVersion.Excel2013;
 
 	string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
+	//"App" is the class of Portable project.
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
 	Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
@@ -44,6 +45,7 @@ void btnCreate_Click(object sender, System.EventArgs e)
 	application.DefaultVersion = ExcelVersion.Excel2013;
 
 	string resourcePath = "SampleBrowser.Samples.XlsIO.Template.Sample.xlsx";
+	//"App" is the class of Portable project.
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 	Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
 
@@ -57,7 +59,7 @@ void btnCreate_Click(object sender, System.EventArgs e)
 	excelEngine.Dispose();
 
 	//Save the stream into xlsx file
-	Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.xlsx","application/msexcel", stream);
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsx","application/msexcel", stream);
 }
 {% endhighlight %}
 {% endtabs %}
@@ -222,7 +224,7 @@ class SaveIOS: ISave
 {% endhighlight %}
 {% endtabs %}
 
-N> Launcing a file in default viewer is different in iOS when compared to Windows Phone and Android. This requires the helper class PreviewControllerDS, which is given below.
+N> Launcing a file in default viewer is different in iOS when compared to Windows Phone and Android. This requires the helper class PreviewControllerDS, as described in the code samples below.
 
 {% tabs %}  
 {% highlight c# %}
