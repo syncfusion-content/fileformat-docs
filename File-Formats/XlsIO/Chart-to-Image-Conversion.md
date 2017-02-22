@@ -116,10 +116,10 @@ XlsIO supports the following chart types in image conversion.
 Area
 </td>
 <td>
-Area
-Area_Stacked
-Area_Stacked_100
-Area_3D
+* Area<br/>
+* Area_Stacked<br/>
+* Area_Stacked_100<br/>
+* Area_3D
 </td>
 </tr>
 <tr>
@@ -127,12 +127,12 @@ Area_3D
 Bar
 </td>
 <td>
-Bar_Clustered
-Bar_Stacked
-Bar_Stacked_100
-Bar_Clustered_3D
-Bar_Stacked_3D
-Bar_Stacked_100_3D
+* Bar_Clustered<br/>
+* Bar_Stacked<br/>
+* Bar_Stacked_100<br/>
+* Bar_Clustered_3D<br/>
+* Bar_Stacked_3D<br/>
+* Bar_Stacked_100_3D
 </td>
 </tr>
 <tr>
@@ -148,13 +148,13 @@ Bubble
 Column
 </td>
 <td>
-Column_Clustered
-Column_Stacked
-Column_Stacked_100
-Column_3D
-Column_Clustered_3D
-Column_Stacked_3D
-Column_Stacked_100_3D
+* Column_Clustered<br/>
+* Column_Stacked<br/>
+* Column_Stacked_100<br/>
+* Column_3D<br/>
+* Column_Clustered_3D<br/>
+* Column_Stacked_3D<br/>
+* Column_Stacked_100_3D
 </td>
 </tr>
 <tr>
@@ -162,8 +162,8 @@ Column_Stacked_100_3D
 Doughnut
 </td>
 <td>
-Doughnut
-Doughnut_Exploded
+* Doughnut<br/>
+* Doughnut_Exploded
 </td>
 </tr>
 <tr>
@@ -171,9 +171,9 @@ Doughnut_Exploded
 Line
 </td>
 <td>
-Line
-Line_Markers
-Line_3D
+* Line<br/>
+* Line_Markers<br/>
+* Line_3D
 </td>
 </tr>
 <tr>
@@ -181,10 +181,10 @@ Line_3D
 Pie
 </td>
 <td>
-Pie
-Pie_Exploded
-Pie_3D
-Pie_Exploded_3D
+* Pie<br/>
+* Pie_Exploded<br/>
+* Pie_3D<br/>
+* Pie_Exploded_3D
 </td>
 </tr>
 <tr>
@@ -192,9 +192,9 @@ Pie_Exploded_3D
 Radar
 </td>
 <td>
-Radar
-Rader_Filled
-Radar_Markers
+* Radar<br/>
+* Rader_Filled<br/>
+* Radar_Markers
 </td>
 </tr>
 <tr>
@@ -202,11 +202,11 @@ Radar_Markers
 Scatter
 </td>
 <td>
-Scatter_Line
-Scatter_Line_Markers
-Scatter_Markers
-Scatter_SmoothedLine
-Scatter_SmoothedLine_Markers
+* Scatter_Line<br/>
+* Scatter_Line_Markers<br/>
+* Scatter_Markers<br/>
+* Scatter_SmoothedLine<br/>
+* Scatter_SmoothedLine_Markers
 </td>
 </tr>
 <tr>
@@ -214,8 +214,8 @@ Scatter_SmoothedLine_Markers
 Stock
 </td>
 <td>
-Stock_HighLowClose
-Stock_OpenHighLowClose
+* Stock_HighLowClose<br/>
+* Stock_OpenHighLowClose
 </td>
 </tr>
 <tr>
@@ -223,7 +223,7 @@ Stock_OpenHighLowClose
 Excel 2016 Charts
 </td>
 <td>
-Funnel<br/>Waterfall<br/>Histogram<br/>Pareto<br/></td>
+* Funnel<br/>* Waterfall<br/>* Histogram<br/>* Pareto<br/></td>
 </tr>
 </table>
 
