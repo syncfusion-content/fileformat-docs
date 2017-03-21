@@ -69,7 +69,7 @@ Universal (Classic)<br/></td><td>
 Syncfusion.Pdf.Universal<br/></td></tr>
 <tr>
 <td>
-Xamarin, UWP, .Net core and .Net Platforms<br/></td><td>
+Xamarin, UWP, .NET Core and .NET Platforms<br/></td><td>
 Syncfusion.Compression.Portable.dll<br/>
 Syncfusion.Pdf.Portable.dll
 <br/></td></tr>
