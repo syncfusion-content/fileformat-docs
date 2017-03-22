@@ -23,4 +23,4 @@ The following list shows the key features available in the Essential PDF.
 * Ability to encrypt and decrypt PDF files.
 * Support to add, modify and remove interactive elements such as bookmarks, annotations and attachments.
 * Support for PDFX1-A and PDFA1-B conformances.
-
+* Support for .NET Standard 1.2 onwards 
