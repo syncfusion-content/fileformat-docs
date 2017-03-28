@@ -72,12 +72,12 @@ Syncfusion.Pdf.Universal<br/></td></tr>
 Xamarin, UWP, .NET Core and .NET Platforms<br/></td><td>
 Syncfusion.Compression.Portable.dll<br/>
 Syncfusion.Pdf.Portable.dll
+	
 <br/></td></tr>
 </table>
 
 N> The .NET Standard assemblies can be found in the following Essential Studio installation path
 {Installed directory}\Syncfusion\Essential Studio\{Product version}\precompiledassemblies\{Product version}\.NET Standard 1.2\
-
 
 ## Converting HTML to PDF
 
