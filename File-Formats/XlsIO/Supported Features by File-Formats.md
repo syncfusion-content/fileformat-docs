@@ -1,6 +1,6 @@
 ---
-title: Supported and Non- Supported Elements
-description: Briefs about supported and non-supported elements in XlsIO
+title: Supported Features by File-Formats
+description: Briefs about supported and non-supported file format elements in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -9,8 +9,6 @@ documentation: UG
 # Supported and Non-Supported Features
 
 The list of various supported and non-supported Excel elements of Essential XlsIO for different platforms is given in the following table. XLS represents Excel 97 to 2003 format and XLSX represents Excel 2007 and above formats.
-
-
 
 <table>
 <tr>
