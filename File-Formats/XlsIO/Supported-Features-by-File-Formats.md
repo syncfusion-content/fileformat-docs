@@ -1,6 +1,6 @@
 ---
 title: Supported Features by File-Formats
-description: Briefs about supported and non-supported file format elements in XlsIO
+description: Briefs about supported and non-supported file-format elements in XlsIO
 platform: File-formats
 control: XlsIO
 documentation: UG
