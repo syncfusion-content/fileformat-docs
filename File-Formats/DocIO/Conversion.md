@@ -152,6 +152,7 @@ N> 4. Total number of pages in the converted PDF may vary based on unsupported e
 
 Essential DocIO allows you to customize the Word to PDF conversion with the following options:
 
+* Allows to embed the TrueType fonts used in the converted PDF
 * Allows to determine the quality of the charts in the converted PDF 
 * Allows to determine the quality of the JPEG images in the converted PDF
 * Allows to reduce the Main Memory usage in Word to PDF conversion by reusing the identical images.
@@ -177,6 +178,10 @@ wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
 //Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
 
 DocToPDFConverter converter = new DocToPDFConverter();
+
+//Sets true to embed TrueType fonts
+
+converter.Settings.EmbedFonts = true;
 
 //Sets the jpeg image quality to reduce the Pdf file size
 
