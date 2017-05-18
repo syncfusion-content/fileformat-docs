@@ -12,7 +12,7 @@ The below packages are required to create and modify the PowerPoint presentation
 1. Syncfusion.Compression.Portable
 2. Syncfusion.OfficeChart.Portable
 3. Syncfusion.Presentation.Portable
-The below code snippet demonstrates how to create a PowerPoint Presentation in ASP.NET Core platform:
+The below code snippet demonstrates how to create a PowerPoint Presentation in ASP.NET Core platform.
 {% tabs %}
 {% highlight c# %}
 //Creates a new instance of PowerPoint Presentation
@@ -57,12 +57,12 @@ PPTXDocument.Save("Sample.pptx")
 PPTXDocument.Close()
 {% endhighlight %}
 {% endtabs %}
-The below code snippet demonstrates how to load and existing Presentation in ASP.NET Core platform:
+The below code snippet demonstrates how to load and modify an existing Presentation in ASP.NET Core platform.
 {% tabs %}
 {% highlight c# %}
 using (FileStream fileStream = new FileStream("Sample.pptx", FileMode.OpenOrCreate))
 {
- //Creates a new instance of PowerPoint Presentation
+ //Loads the existing PowerPoint Presentation
  IPresentation presentation = Presentation.Open(fileStream);
 //Retrieves the first slide from Presentation
  ISlide slide = presentation.Slides[0];
@@ -82,7 +82,7 @@ presentation.Save("Modified.pptx");
 {% endhighlight %}
 {% highlight vb.net %}
 Using fileStream As New FileStream("Sample.pptx", FileMode.OpenOrCreate)
-	'Creates a new instance of PowerPoint Presentation
+	'Loads the existing PowerPoint Presentation
 	Dim PPTXDocument As IPresentation = Presentation.Open(fileStream)
 	'Retrieves the first slide from Presentation
 	Dim slide As ISlide = PPTXDocument.Slides(0)
@@ -100,3 +100,4 @@ Using fileStream As New FileStream("Sample.pptx", FileMode.OpenOrCreate)
 	PPTXDocument.Close()
 End Using
 {% endhighlight %}
+{% endtabs %}
