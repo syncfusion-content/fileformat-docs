@@ -6,10 +6,14 @@ control: Presentation
 documentation: UG
 keywords: PPTX, ASP.NET Core, Presentation, Modify Presentation, Create Presentation
 ---
-The Presentation component is supported in ASP.NET Core from 1.0 version. For more details about configuring Syncfusion File Format Components in ASP.NET Core application please click [here](https://help.syncfusion.com/aspnet-core/gettingstarted/getting-started-1-1-0#configure-syncfusion-file-format-components-in-aspnet-core-application).
+# ASP.NET Core
 
-# Packages Required
+The Presentation component is supported in ASP.NET Core platfrom from .NET Core 1.0 version. For more details about configuring Syncfusion file-format components in ASP.NET Core application please click [here](https://help.syncfusion.com/aspnet-core/gettingstarted/getting-started-1-1-0#configure-syncfusion-file-format-components-in-aspnet-core-application).
+
+## Packages Required
+
 The below packages are required to create and modify the PowerPoint presentations.
+
 1. Syncfusion.Compression.Portable
 2. Syncfusion.OfficeChart.Portable
 3. Syncfusion.Presentation.Portable
