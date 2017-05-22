@@ -193,7 +193,7 @@ Radar
 </td>
 <td>
 * Radar<br/>
-* Rader_Filled<br/>
+* Radar_Filled<br/>
 * Radar_Markers
 </td>
 </tr>
