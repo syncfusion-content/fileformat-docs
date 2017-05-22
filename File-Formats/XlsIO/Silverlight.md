@@ -22,11 +22,11 @@ ExcelEngine excelEngine = new ExcelEngine();
 
 //Load the file as stream
 
-SaveFileDialog sfd = new SaveFileDialog();
+SaveFileDialog dialog = new SaveFileDialog();
 
-sfd.Filter = "Excel Files(*.xlsx)|*.xlsx|Excel Files(*.xls)|*.xls";
+dialog.Filter = "Excel Files(*.xlsx)|*.xlsx|Excel Files(*.xls)|*.xls";
 
-if (sfd.ShowDialog() == true)
+if (dialog.ShowDialog() == true)
 
 {
 
@@ -34,7 +34,7 @@ Stream fileStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("s
 
 IWorkbook book = excelEngine.Excel.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
 
-using (Stream stream = sfd.OpenFile())
+using (Stream stream = dialog.OpenFile())
 
 {
 
@@ -57,11 +57,11 @@ Dim excelEngine As ExcelEngine = New ExcelEngine()
 
 'Load the file as stream
 
-Dim sfd As SaveFileDialog = New SaveFileDialog()
+Dim dialog As SaveFileDialog = New SaveFileDialog()
 
-sfd.Filter = "Excel Files(*.xlsx)|*.xlsx|Excel Files(*.xls)|*.xls"
+dialog.Filter = "Excel Files(*.xlsx)|*.xlsx|Excel Files(*.xls)|*.xls"
 
-If sfd.ShowDialog() = True Then
+If dialog.ShowDialog() = True Then
 
 Dim fileStream As Stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("sample.Resources.Data.sample.xlsx")
 
@@ -69,7 +69,7 @@ Dim book As IWorkbook = excelEngine.Excel.Workbooks.Open(fileStream, ExcelOpenTy
 
 Dim stream As Stream
 
-Using (stream = sfd.OpenFile())
+Using (stream = dialog.OpenFile())
 
 book.SaveAs(stream)
 
@@ -94,11 +94,11 @@ The following code snippet illustrate how to save an Excel document in Silverlig
 {% tabs %}  
 
 {% highlight c# %}
-SaveFileDialog sfd = new SaveFileDialog();
+SaveFileDialog dialog = new SaveFileDialog();
 
-sfd.Filter = "Excel Files(*.xlsx)|*.xlsx|Excel Files(*.xls)|*.xls";
+dialog.Filter = "Excel Files(*.xlsx)|*.xlsx|Excel Files(*.xls)|*.xls";
 
-if (sfd.ShowDialog() == true)
+if (dialog.ShowDialog() == true)
 
 {
 
@@ -128,7 +128,7 @@ style.Borders.Color = ExcelKnownColors.Violet;
 
 sheet.UsedRange.CellStyle = style;
 
-using (Stream stream = sfd.OpenFile())
+using (Stream stream = dialog.OpenFile())
 
 {
 
@@ -147,11 +147,11 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
-Dim sfd As SaveFileDialog = New SaveFileDialog()
+Dim dialog As SaveFileDialog = New SaveFileDialog()
 
-sfd.Filter = "Excel Files(*.xlsx)|*.xlsx|Excel Files(*.xls)|*.xls"
+dialog.Filter = "Excel Files(*.xlsx)|*.xlsx|Excel Files(*.xls)|*.xls"
 
-If sfd.ShowDialog() = True Then
+If dialog.ShowDialog() = True Then
 
 Dim excelEngine As ExcelEngine = New ExcelEngine()
 
@@ -179,7 +179,7 @@ style.Borders.Color = ExcelKnownColors.Violet
 
 sheet.UsedRange.CellStyle = style
 
-Imports(Stream stream = sfd.OpenFile())
+Imports(Stream stream = dialog.OpenFile())
 
 workbook.SaveAs(stream)
 

@@ -99,9 +99,9 @@ IWorkbook workbook = application.Workbooks.Create(1);
 
 IWorksheet sheet = workbook.Worksheets[0];
 
-object[] Yvalues = new object[] { 2000, 1000, 1000 };
+object[] yValues = new object[] { 2000, 1000, 1000 };
 
-object[] Xvalues = new object[] { "Total Income", "Expenses", "Profit" };
+object[] xValues = new object[] { "Total Income", "Expenses", "Profit" };
 
 // Adding series and values
 
@@ -111,9 +111,9 @@ IChartSerie serie = chart.Series.Add(ExcelChartType.Pie);
 
 // Enters the X and Y values directly
 
-serie.EnteredDirectlyValues = Yvalues;
+serie.EnteredDirectlyValues = yValues;
 
-serie.EnteredDirectlyCategoryLabels = Xvalues;
+serie.EnteredDirectlyCategoryLabels = xValues;
 
 workbook.SaveAs("Chart.xlsx");
 
@@ -136,9 +136,9 @@ Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
 Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim Yvalues As Object() = New Object() {2000, 1000, 1000}
+Dim yValues As Object() = New Object() {2000, 1000, 1000}
 
-Dim Xvalues As Object() = New Object() {"Total Income", "Expenses", "Profit"}
+Dim xValues As Object() = New Object() {"Total Income", "Expenses", "Profit"}
 
 ' Adding series and values
 
@@ -148,9 +148,9 @@ Dim serie As IChartSerie = chart.Series.Add(ExcelChartType.Pie)
 
 ' Enters the X and Y values directly
 
-serie.EnteredDirectlyValues = Yvalues
+serie.EnteredDirectlyValues = yValues
 
-serie.EnteredDirectlyCategoryLabels = Xvalues
+serie.EnteredDirectlyCategoryLabels = xValues
 
 workbook.SaveAs("Chart.xlsx")
 
@@ -1087,7 +1087,7 @@ chart.BackWall.Thickness = 10;
 
 chart.BackWall.Fill.GradientColorType = ExcelGradientColor.TwoColor;
 
-chart.BackWall.Fill.GradientStyle = ExcelGradientStyle.Diagonl_Down;
+chart.BackWall.Fill.GradientStyle = ExcelGradientStyle.Diagonal_Down;
 
 chart.BackWall.Fill.ForeColor = System.Drawing.Color.WhiteSmoke;
 
@@ -1180,7 +1180,7 @@ chart.BackWall.Fill.FillType = ExcelFillType.Gradient
 
 chart.BackWall.Fill.GradientColorType = ExcelGradientColor.TwoColor
 
-chart.BackWall.Fill.GradientStyle = ExcelGradientStyle.Diagonl_Down
+chart.BackWall.Fill.GradientStyle = ExcelGradientStyle.Diagonal_Down
 
 chart.BackWall.Fill.ForeColor = System.Drawing.Color.WhiteSmoke
 

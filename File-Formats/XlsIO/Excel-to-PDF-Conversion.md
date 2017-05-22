@@ -33,7 +33,7 @@ IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Aut
 
 ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
-//Intialize PDF Document
+//Initialize PDF Document
 
 PdfDocument pdfDocument = new PdfDocument();
 
@@ -41,9 +41,9 @@ PdfDocument pdfDocument = new PdfDocument();
 
 pdfDocument = converter.Convert();
 
-//Save the pdf file
+//Save the PDF file
 
-pdfDocument.Save("ExceltoPDF.pdf");
+pdfDocument.Save("ExcelToPDF.pdf");
 
 //Dispose the objects
 
@@ -72,7 +72,7 @@ Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenT
 
 Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
-'Intialize the PDF Document
+'Initialize the PDF Document
 
 Dim pdfDocument As PdfDocument = New PdfDocument()
 
@@ -80,9 +80,9 @@ Dim pdfDocument As PdfDocument = New PdfDocument()
 
 pdfDocument = converter.Convert()
 
-'Save the pdf file
+'Save the PDF file
 
-pdfDocument.Save("ExceltoPDF.pdf")
+pdfDocument.Save("ExcelToPDF.pdf")
 
 'Dispose the objects
 
@@ -119,7 +119,7 @@ IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Aut
 
 IWorksheet sheet = workbook.Worksheets[0];
 
-//convert the sheet to pdf
+//convert the sheet to PDF
 
 ExcelToPdfConverter converter = new ExcelToPdfConverter(sheet);
 
@@ -127,7 +127,7 @@ PdfDocument pdfDocument= new PdfDocument();
 
 pdfDocument = converter.Convert();
 
-pdfDocument.Save("ExceltoPDF.pdf");
+pdfDocument.Save("ExcelToPDF.pdf");
 
 pdfDocument.Close();
 
@@ -159,9 +159,9 @@ Dim pdfDocument As PdfDocument = New PdfDocument()
 
 pdfDocument = converter.Convert()
 
-'Save the pdf file
+'Save the PDF file
 
-pdfDocument.Save("ExceltoPDF.pdf")
+pdfDocument.Save("ExcelToPDF.pdf")
 
 'Dispose the objects
 
@@ -201,7 +201,7 @@ foreach (IWorksheet sheet in workbook.Worksheets)
 	ExcelToPdfConverter converter = new ExcelToPdfConverter(sheet);
 	pdfDocument = converter.Convert();
 
-	//Save the pdf file
+	//Save the PDF file
 	pdfDocument.Save(sheet.Name+".pdf");
 
 	converter.Dispose();
@@ -275,7 +275,7 @@ PdfDocument pdfDocument = new PdfDocument();
 
 pdfDocument = converter.Convert();
 
-pdfDocument.Save("ExceltoPDF.pdf");
+pdfDocument.Save("ExcelToPDF.pdf");
 
 converter.Dispose();
 
@@ -316,7 +316,7 @@ Dim pdfDocument As New PdfDocument()
 
 pdfDocument = converter.Convert()
 
-pdfDocument.Save("ExceltoPDF.pdf")
+pdfDocument.Save("ExcelToPDF.pdf")
 
 converter.Dispose()
 
