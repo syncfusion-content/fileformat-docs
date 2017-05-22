@@ -95,11 +95,11 @@ application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Create(2);
 
-//Accesing via index
+//Accessing via index
 
 IWorksheet sheet = workbook.Worksheets[0];
 
-//Accesing via sheet Name
+//Accessing via sheet Name
 
 IWorksheet NamedSheet = workbook.Worksheets["Sample"];
 
@@ -122,11 +122,11 @@ application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Create(2)
 
-' Accesing via index.
+' Accessing via index.
 
 Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Accesing via Sheet Name.
+' Accessing via Sheet Name.
 
 Dim NamedSheet As IWorksheet = workbook.Worksheets("Sample")
 
@@ -697,7 +697,7 @@ IWorkbook workbook = application.Workbooks.Create(2);
 
 IWorksheet sheet = workbook.Worksheets[0];
 
-sheet.Range["A1:M20"].Text = "visiblity";
+sheet.Range["A1:M20"].Text = "visibility";
 
 //Set visibility.
 

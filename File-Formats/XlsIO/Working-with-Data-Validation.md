@@ -272,31 +272,31 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 //Data Validation for Text Length
 
-IDataValidation txtLengthvalidation = worksheet.Range["A3"].DataValidation;
+IDataValidation txtLengthValidation = worksheet.Range["A3"].DataValidation;
 
 worksheet.Range["A1"].Text = "Enter the Text in A3";
 
 worksheet.Range["A1"].AutofitColumns();
 
-txtLengthvalidation.AllowType = ExcelDataType.TextLength;
+txtLengthValidation.AllowType = ExcelDataType.TextLength;
 
-txtLengthvalidation.CompareOperator = ExcelDataValidationComparisonOperator.Between;
+txtLengthValidation.CompareOperator = ExcelDataValidationComparisonOperator.Between;
 
-txtLengthvalidation.FirstFormula = "0";
+txtLengthValidation.FirstFormula = "0";
 
-txtLengthvalidation.SecondFormula = "5";
+txtLengthValidation.SecondFormula = "5";
 
 //To show the error message
 
-txtLengthvalidation.ShowErrorBox = true;
+txtLengthValidation.ShowErrorBox = true;
 
-txtLengthvalidation.ErrorBoxText = "Text length should be lesser than 5 characters";
+txtLengthValidation.ErrorBoxText = "Text length should be lesser than 5 characters";
 
-txtLengthvalidation.ErrorBoxTitle = "ERROR";
+txtLengthValidation.ErrorBoxTitle = "ERROR";
 
-txtLengthvalidation.PromptBoxText = "Data validation for text length";
+txtLengthValidation.PromptBoxText = "Data validation for text length";
 
-txtLengthvalidation.ShowPromptBox = true;
+txtLengthValidation.ShowPromptBox = true;
 
 //Data Validation for Time
 
@@ -435,33 +435,33 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Data Validation for Text Length
 
-Dim txtLengthvalidation As IDataValidation = worksheet.Range("A3").DataValidation
+Dim txtLengthValidation As IDataValidation = worksheet.Range("A3").DataValidation
 
 worksheet.Range("A1").Text = "Enter the Text in A3"
 
 worksheet.Range("A1").AutofitColumns()
 
-txtLengthvalidation.AllowType = ExcelDataType.TextLength
+txtLengthValidation.AllowType = ExcelDataType.TextLength
 
 'To sets the validation criteria
 
-txtLengthvalidation.CompareOperator = ExcelDataValidationComparisonOperator.Between
+txtLengthValidation.CompareOperator = ExcelDataValidationComparisonOperator.Between
 
-txtLengthvalidation.FirstFormula = "0"
+txtLengthValidation.FirstFormula = "0"
 
-txtLengthvalidation.SecondFormula = "5"
+txtLengthValidation.SecondFormula = "5"
 
 'To show the error message
 
-txtLengthvalidation.ShowErrorBox = True
+txtLengthValidation.ShowErrorBox = True
 
-txtLengthvalidation.ErrorBoxText = "Text length should be lesser than 5 characters"
+txtLengthValidation.ErrorBoxText = "Text length should be lesser than 5 characters"
 
-txtLengthvalidation.ErrorBoxTitle = "ERROR"
+txtLengthValidation.ErrorBoxTitle = "ERROR"
 
-txtLengthvalidation.PromptBoxText = "Data validation for text length"
+txtLengthValidation.PromptBoxText = "Data validation for text length"
 
-txtLengthvalidation.ShowPromptBox = True
+txtLengthValidation.ShowPromptBox = True
 
 'Data Validation for Time
 

@@ -170,7 +170,7 @@ migrantRange.SetValue("Syncfusion");
 
 workbook.Version = ExcelVersion.Excel2013;
 
-workbook.SaveAs("MigirantRange.xlsx");
+workbook.SaveAs("MigrantRange.xlsx");
 
 workbook.Close();
 
@@ -225,7 +225,7 @@ migrantRange.SetValue("Syncfusion")
 
 workbook.Version = ExcelVersion.Excel2013
 
-workbook.SaveAs("MigirantRange.xlsx")
+workbook.SaveAs("MigrantRange.xlsx")
 
 workbook.Close()
 

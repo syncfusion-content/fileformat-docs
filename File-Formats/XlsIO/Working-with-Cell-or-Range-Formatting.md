@@ -209,7 +209,7 @@ worksheet.Range["A4"].Text = "BONAP";
 
 worksheet.Range["A5"].Text = "BSBEV";
 
-worksheet.Range["B2"].Text = "Alfreds Futterkiste";
+worksheet.Range["B2"].Text = "Alfred Futterkiste";
 
 worksheet.Range["B3"].Text = "Ana Trujillo Emparedados y helados";
 
@@ -320,7 +320,7 @@ worksheet.Range("A4").Text = "BONAP"
 
 worksheet.Range("A5").Text = "BSBEV"
 
-worksheet.Range("B2").Text = "Alfreds Futterkiste"
+worksheet.Range("B2").Text = "Alfred Futterkiste"
 
 worksheet.Range("B3").Text = "Ana Trujillo Emparedados y helados"
 
@@ -1888,7 +1888,7 @@ IRange range = worksheet.Range["A1"];
 
 range.Text = "RichText";
 
-IRichTextString rtf = range.RichText;
+IRichTextString richText = range.RichText;
 
 //Formatting first 4 characters.
 
@@ -1900,7 +1900,7 @@ redFont.Italic = true;
 
 redFont.RGBColor = Color.Red;
 
-rtf.SetFont(0, 3, redFont);
+richText.SetFont(0, 3, redFont);
 
 //Formatting last 4 characters.
 
@@ -1912,7 +1912,7 @@ blueFont.Italic = true;
 
 blueFont.RGBColor = Color.Blue;
 
-rtf.SetFont(4, 7, blueFont);
+richText.SetFont(4, 7, blueFont);
 
 workbook.SaveAs("RichText.xlsx");
 
@@ -1944,7 +1944,7 @@ Dim range As IRange = worksheet.Range("A1")
 
 range.Text = "RichText"
 
-Dim rtf As IRichTextString = range.RichText
+Dim richText As IRichTextString = range.RichText
 
 'Formatting first 4 characters.
 
@@ -1956,7 +1956,7 @@ redFont.Italic = True
 
 redFont.RGBColor = Color.Red
 
-rtf.SetFont(0, 3, redFont)
+richText.SetFont(0, 3, redFont)
 
 'Formatting last 4 characters.
 
@@ -1968,7 +1968,7 @@ blueFont.Italic = True
 
 blueFont.RGBColor = Color.Blue
 
-rtf.SetFont(4, 7, blueFont)
+richText.SetFont(4, 7, blueFont)
 
 workbook.SaveAs("RichText.xlsx")
 

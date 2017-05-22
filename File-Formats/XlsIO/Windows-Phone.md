@@ -290,7 +290,7 @@ StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
 
 
 
-//Opens the xml file. 
+//Opens the XML file. 
 
 StorageFile openFile = await local.GetFileAsync("Sample.xm1"); 
 
@@ -331,7 +331,7 @@ Dim local As StorageFolder = Windows.Storage.ApplicationData.Current.LocalFolder
 
 
 
-'Opens the xml file. 
+'Opens the XML file. 
 
 Dim openFile As StorageFile = Await local.GetFileAsync("Sample.xml")
 

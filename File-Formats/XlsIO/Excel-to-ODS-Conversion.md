@@ -49,19 +49,19 @@ IComment comment = worksheet.Range["B5"].AddComment();
 
 comment.RichText.Text = "This cell has formula.";
 
-IRichTextString rtf = comment.RichText;
+IRichTextString richText = comment.RichText;
 
 IFont blueFont = workbook.CreateFont();
 
 blueFont.Color = ExcelKnownColors.Blue;
 
-rtf.SetFont(0, 13, blueFont);
+richText.SetFont(0, 13, blueFont);
 
 IFont redFont = workbook.CreateFont();
 
 redFont.Color = ExcelKnownColors.Red;
 
-rtf.SetFont(14, 20, redFont);
+richText.SetFont(14, 20, redFont);
 			
 //Formatting
 IStyle style = workbook.Styles.Add("Style1");
@@ -115,19 +115,19 @@ Dim comment As IComment = worksheet.Range("B5").AddComment()
 
 comment.RichText.Text = "This cell has formula."
 
-Dim rtf As IRichTextString = comment.RichText
+Dim richText As IRichTextString = comment.RichText
 
 Dim blueFont As IFont = workbook.CreateFont()
 
 blueFont.Color = ExcelKnownColors.Blue
 
-rtf.SetFont(0, 13, blueFont)
+richText.SetFont(0, 13, blueFont)
 
 Dim redFont As IFont = workbook.CreateFont()
 
 redFont.Color = ExcelKnownColors.Red
 
-rtf.SetFont(14, 20, redFont)
+richText.SetFont(14, 20, redFont)
 
 'Formatting
 Dim style As IStyle = workbook.Styles.Add("Style1")
