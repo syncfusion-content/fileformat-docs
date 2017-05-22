@@ -275,7 +275,7 @@ Dim pivotSheet As IWorksheet = workbook.Worksheets(0)
 
 Private workbook.Names("PivotRange").RefersToRange = mySheet.Range("A1:D27")
 
-workbook.SaveAs("PivotTable_DyanamicRange.xlsx")
+workbook.SaveAs("PivotTable_DynamicRange.xlsx")
 
 workbook.Close()
 
@@ -305,7 +305,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 IPivotTable pivotTable = worksheet.PivotTables[0];
 
 
-//Set BuitInStyle
+//Set BuiltInStyle
 
 pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
 
@@ -335,7 +335,7 @@ Dim sheet As IWorksheet = workbook.Worksheets(0)
 
 Dim pivotTable As IPivotTable = sheet.PivotTables(0)
 
-'Set BuitInStyle
+'Set BuiltInStyle
 
 pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12
 
@@ -494,8 +494,8 @@ pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
-IPivotField datafield = pivotSheet.PivotTables[0].Fields[5];
-pivotTable.DataFields.Add(datafield, "Sum of Units", PivotSubtotalTypes.Sum);
+IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
+pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
 
 //Apply page filter
 pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
@@ -977,8 +977,8 @@ pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
-IPivotField datafield = pivotSheet.PivotTables[0].Fields[5];
-pivotTable.DataFields.Add(datafield, "Sum of Units", PivotSubtotalTypes.Sum);
+IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
+pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
 
 pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
 

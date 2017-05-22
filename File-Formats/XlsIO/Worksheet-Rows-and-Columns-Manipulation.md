@@ -647,7 +647,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 worksheet.Range["A1:D1"].Text = "This is the Long Text";
 
-worksheet.Range["A2:A5"].Text = "This is the Long Text using Autofit Columns and Rows";
+worksheet.Range["A2:A5"].Text = "This is the Long Text using AutoFit Columns and Rows";
 
 worksheet.Range["A2:A5"].WrapText = true;
 
@@ -686,7 +686,7 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 worksheet.Range("A1:D1").Text = "This is the Long Text"
 
-worksheet.Range("A2:A5").Text = "This is the Long Text using Autofit Columns and Rows"
+worksheet.Range("A2:A5").Text = "This is the Long Text using AutoFit Columns and Rows"
 
 worksheet.Range("A2:A5").WrapText = true
 

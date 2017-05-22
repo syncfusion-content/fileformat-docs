@@ -58,7 +58,7 @@ void btnCreate_Click(object sender, System.EventArgs e)
 	workbook.Close();
 	excelEngine.Dispose();
 
-	//Save the stream into xlsx file
+	//Save the stream into XLSX file
 	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("sample.xlsx","application/msexcel", stream);
 }
 {% endhighlight %}
@@ -214,17 +214,17 @@ class SaveIOS: ISave
 			currentController = currentController.PresentedViewController;
         UIView currentView = currentController.View;
 
-        QLPreviewController qlPreview = new QLPreviewController();
+        QLPreviewController preview = new QLPreviewController();
         QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
-        qlPreview.DataSource = new PreviewControllerDS(item);
+        preview.DataSource = new PreviewControllerDS(item);
 
-        currentController.PresentViewController(qlPreview, true, null);
+        currentController.PresentViewController(preview, true, null);
     }
 }
 {% endhighlight %}
 {% endtabs %}
 
-N> Launcing a file in default viewer is different in iOS when compared to Windows Phone and Android. This requires the helper class PreviewControllerDS, as described in the code samples below.
+N> Launching a file in default viewer is different in iOS when compared to Windows Phone and Android. This requires the helper class PreviewControllerDS, as described in the code samples below.
 
 {% tabs %}  
 {% highlight c# %}

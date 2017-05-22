@@ -154,33 +154,33 @@ IWorksheet sheet = workbook.Worksheets[0];
 
 //Create a check box with cell link.
 
-ICheckBoxShape chkBoxRed = sheet.CheckBoxes.AddCheckBox(2, 4, 20, 75);
+ICheckBoxShape checkBoxRed = sheet.CheckBoxes.AddCheckBox(2, 4, 20, 75);
 
-chkBoxRed.Text = "Red";
+checkBoxRed.Text = "Red";
 
-chkBoxRed.CheckState = ExcelCheckState.Unchecked;
+checkBoxRed.CheckState = ExcelCheckState.Unchecked;
 
-chkBoxRed.LinkedCell = sheet["B2"];
+checkBoxRed.LinkedCell = sheet["B2"];
 
-ICheckBoxShape chkBoxBlue = sheet.CheckBoxes.AddCheckBox(4, 4, 20, 75);
+ICheckBoxShape checkBoxBlue = sheet.CheckBoxes.AddCheckBox(4, 4, 20, 75);
 
-chkBoxBlue.Text = "Blue";
+checkBoxBlue.Text = "Blue";
 
-chkBoxBlue.CheckState = ExcelCheckState.Checked;
+checkBoxBlue.CheckState = ExcelCheckState.Checked;
 
-chkBoxBlue.LinkedCell = sheet["B4"];
+checkBoxBlue.LinkedCell = sheet["B4"];
 
 //Read a check box.
 
-chkBoxRed = sheet.CheckBoxes[0];
+checkBoxRed = sheet.CheckBoxes[0];
 
-chkBoxRed.CheckState = ExcelCheckState.Checked;
+checkBoxRed.CheckState = ExcelCheckState.Checked;
 
 //Remove a check box
 
-chkBoxBlue = sheet.CheckBoxes[1];
+checkBoxBlue = sheet.CheckBoxes[1];
 
-chkBoxBlue.Remove();
+checkBoxBlue.Remove();
 
 workbook.SaveAs("Checkbox.xlsx");
 
@@ -205,33 +205,33 @@ Dim sheet As IWorksheet = workbook.Worksheets(0)
 
 'Create a check box with cell link.
 
-Dim chkBoxRed As ICheckBoxShape = sheet.CheckBoxes.AddCheckBox(2, 4, 20, 75)
+Dim checkBoxRed As ICheckBoxShape = sheet.CheckBoxes.AddCheckBox(2, 4, 20, 75)
 
-chkBoxRed.Text = "Red"
+checkBoxRed.Text = "Red"
 
-chkBoxRed.CheckState = ExcelCheckState.Unchecked
+checkBoxRed.CheckState = ExcelCheckState.Unchecked
 
-chkBoxRed.LinkedCell = sheet("B2")
+checkBoxRed.LinkedCell = sheet("B2")
 
-Dim chkBoxBlue As ICheckBoxShape = sheet.CheckBoxes.AddCheckBox(4, 4, 20, 75)
+Dim checkBoxBlue As ICheckBoxShape = sheet.CheckBoxes.AddCheckBox(4, 4, 20, 75)
 
-chkBoxBlue.Text = "Blue"
+checkBoxBlue.Text = "Blue"
 
-chkBoxBlue.CheckState = ExcelCheckState.Checked
+checkBoxBlue.CheckState = ExcelCheckState.Checked
 
-chkBoxBlue.LinkedCell = sheet("B4")
+checkBoxBlue.LinkedCell = sheet("B4")
 
 'Read a check box.
 
-chkBoxRed = sheet.CheckBoxes(0)
+checkBoxRed = sheet.CheckBoxes(0)
 
-chkBoxRed.CheckState = ExcelCheckState.Checked
+checkBoxRed.CheckState = ExcelCheckState.Checked
 
 'Remove a check box
 
-chkBoxBlue = sheet.CheckBoxes(1)
+checkBoxBlue = sheet.CheckBoxes(1)
 
-chkBoxBlue.Remove()
+checkBoxBlue.Remove()
 
 workbook.SaveAs("Checkbox.xlsx")
 
@@ -546,7 +546,7 @@ IRange range = sheet.Range["A6"];
 
 range.AddComment().RichText.Text = "RichText";
 
-IRichTextString rtf = range.Comment.RichText;
+IRichTextString richText = range.Comment.RichText;
 
 // Formatting first 4 characters.
 
@@ -556,7 +556,7 @@ redFont.Bold = true;
 
 redFont.Color = ExcelKnownColors.Red;
 
-rtf.SetFont(0, 3, redFont);
+richText.SetFont(0, 3, redFont);
 
 workbook.SaveAs("Comments.xlsx");
 
@@ -589,7 +589,7 @@ Dim range As IRange = sheet.Range("A6")
 
 range.AddComment().RichText.Text = "RichText"
 
-Dim rtf As IRichTextString = range.Comment.RichText
+Dim richText As IRichTextString = range.Comment.RichText
 
 ' Formatting first 4 characters.
 
@@ -599,7 +599,7 @@ redFont.Bold = True
 
 redFont.Color = ExcelKnownColors.Red
 
-rtf.SetFont(0, 3, redFont)
+richText.SetFont(0, 3, redFont)
 
 workbook.SaveAs("Comments.xlsx")
 
@@ -778,7 +778,7 @@ IWorkbook workbook = application.Workbooks.Create(1);
 
 IWorksheet worksheet = workbook.Worksheets[0];
 
-// Adding an autoshape.
+// Adding an AutoShape.
 
 IShape shape1 = worksheet.Shapes.AddAutoShapes(AutoShapeType.RoundedRectangle, 2, 7, 60, 192);
 
@@ -827,7 +827,7 @@ Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-' Adding an autoshape.
+' Adding an AutoShape.
 
 Dim shape1 As IShape = worksheet.Shapes.AddAutoShapes(AutoShapeType.RoundedRectangle, 2, 7, 60, 192)
 
@@ -1051,7 +1051,7 @@ Image image1 = oleObject1.Picture;
 
 // Reads OleObject as a IPictureShape
 
-IPictureShape oleObjectPicture = oleObject1.Shape;
+IPictureShape shape = oleObject1.Shape;
 
 //Set the size of the OleObject
 
@@ -1112,7 +1112,7 @@ Dim image1 As Image = oleObject1.Picture
 
 ' Reads OleObject as a IPictureShape
 
-Dim oleObjectPicture As IPictureShape = oleObject1.Shape
+Dim shape As IPictureShape = oleObject1.Shape
 
 'Set the size of the OleObject
 
