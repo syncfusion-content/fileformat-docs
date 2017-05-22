@@ -422,7 +422,7 @@ document.Close(True)
 
 ## Printing PDF document
 
-To print a PDF document, the following assemblies has to be added as reference to the project.
+To print a PDF document, the following assemblies have to be added as references to the project.
 
 1. Syncfusion.Compression.Base.dll
 2. Syncfusion.Pdf.Base.dll
