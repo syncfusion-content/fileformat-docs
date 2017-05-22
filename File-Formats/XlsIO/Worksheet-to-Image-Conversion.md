@@ -17,9 +17,9 @@ The following code shows how to convert the specified range of rows and columns 
 {% highlight c# %}
 // Convert as bitmap.
 
-Image img = sheet.ConvertToImage(1, 1, 10, 20);
+Image image = sheet.ConvertToImage(1, 1, 10, 20);
 
-img.Save("Sample.png", ImageFormat.Png);
+image.Save("Sample.png", ImageFormat.Png);
 
 
 
@@ -30,9 +30,9 @@ img.Save("Sample.png", ImageFormat.Png);
 {% highlight vb %}
 'Convert as bitmap.
 
-Dim img As Image = sheet.ConvertToImage(1, 1, 10, 20)
+Dim image As Image = sheet.ConvertToImage(1, 1, 10, 20)
 
-img.Save("Sample.png", ImageFormat.Png)
+image.Save("Sample.png", ImageFormat.Png)
 
 
 
@@ -87,9 +87,9 @@ IWorksheet sheet = workbook.Worksheets[0];
 
 // Convert as bitmap.
 
-Image img = sheet.ConvertToImage(1, 1, 10, 20);
+Image image = sheet.ConvertToImage(1, 1, 10, 20);
 
-img.Save("Sample.png", ImageFormat.Png);
+image.Save("Sample.png", ImageFormat.Png);
 
 // Converts and save as stream.
 
@@ -125,9 +125,9 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Convert as bitmap.
 
-Dim img As Image = sheet.ConvertToImage(1, 1, 10, 20)
+Dim image As Image = sheet.ConvertToImage(1, 1, 10, 20)
 
-img.Save("Sample.png", ImageFormat.Png)
+image.Save("Sample.png", ImageFormat.Png)
 
 'Converts and save as stream.
 

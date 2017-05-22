@@ -1048,7 +1048,7 @@ IWorksheet sheet = workbook.Worksheets[0];
 
 sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"]; 
 
-// Column index to which Autofilter must be applied.
+// Column index to which AutoFilter must be applied.
 
 IAutoFilter filter = sheet.AutoFilters[0];
 
@@ -1087,7 +1087,7 @@ Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
 
-' Column index to which Autofilter must be applied.
+' Column index to which AutoFilter must be applied.
 
 Dim filter As IAutoFilter = sheet.AutoFilters(0)
 
@@ -1140,7 +1140,7 @@ firstCondition.ConditionOperator = ExcelFilterCondition.Greater;
 
 firstCondition.Double = 100;
 
-//Specfiying second condtion.
+//Specifying second condition.
 
 IAutoFilterCondition secondCondition = filter.SecondCondition;
 
@@ -1183,7 +1183,7 @@ firstCondition.ConditionOperator = ExcelFilterCondition.Greater
 
 firstCondition.Double = 100
 
-'Specfiying second condtion.
+'Specifying second condition.
 
 Dim secondCondition As IAutoFilterCondition = filter.SecondCondition
 
@@ -1233,7 +1233,7 @@ hyperlink.Type = ExcelHyperLinkType.Url;
 
 hyperlink.Address = "http://www.syncfusion.com";
 
-hyperlink.ScreenTip = "To know more About SYNCFUSION PRODUCTS go through this link";
+hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link.";
 
 // Creating a Hyperlink for e-mail.
 
@@ -1310,7 +1310,7 @@ hyperlink.Type = ExcelHyperLinkType.Url
 
 hyperlink.Address = "http://www.Syncfusion.com"
 
-hyperlink.ScreenTip = "To know more About SYNCFUSION PRODUCTS go through this link"
+hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link."
 
 ' Creating a Hyperlink for e-mail.
 
@@ -1611,13 +1611,13 @@ IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
 
 IWorksheet sheet = workbook.Worksheets[0];
 
-// Modifying hyperlink’s screentip through IWorksheet instance.
+// Modifying hyperlink’s screen tip through IWorksheet instance.
 
 IHyperLink hyperlink = sheet.HyperLinks[0];
 
 hyperlink.ScreenTip = "Syncfusion";
 
-// Modifying hyperlink’s screentip through IShape instance.
+// Modifying hyperlink’s screen tip through IShape instance.
 
 hyperlink = sheet.Shapes[0].Hyperlink;
 
@@ -1644,13 +1644,13 @@ Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
 Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Modifying hyperlink’s screentip through IWorksheet instance.
+' Modifying hyperlink’s screen tip through IWorksheet instance.
 
 Dim hyperlink As IHyperLink = sheet.HyperLinks(0)
 
 hyperlink.ScreenTip = "Syncfusion"
 
-' Modifying hyperlink’s screentip through IShape instance.
+' Modifying hyperlink’s screen tip through IShape instance.
 
 hyperlink = sheet.Shapes(0).Hyperlink
 

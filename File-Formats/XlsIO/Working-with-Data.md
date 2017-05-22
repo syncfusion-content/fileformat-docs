@@ -160,7 +160,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 DataTable table = SampleDataTable();
 
-//Import Dataview to the worksheet.
+//Import DataView to the worksheet.
 
 DataView view = table.DefaultView;
 
@@ -191,7 +191,7 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 Dim table As DataTable = sampleDataTable()
 
-'Import Dataview to the worksheet.
+'Import DataView to the worksheet.
 
 Dim view As DataView = table.DefaultView
 

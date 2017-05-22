@@ -100,7 +100,7 @@ N> PivotChart properties are supported exclusively from Excel 2010 onwards.
 {% tabs %}  
 
 {% highlight c# %}
-//Adding Pivotchart to the workbook.
+//Adding PivotChart to the workbook.
 
 IChart pivotChart = workbook.Charts.Add();
 
@@ -121,7 +121,7 @@ pivotChart.ShowValueFieldButtons = false;
 {% endhighlight %}
 
 {% highlight vb %}
-'Insert the Pivotchart sheet to the workbook
+'Insert the PivotChart sheet to the workbook
 
 Dim pivotChartSheet As IChart = workbook.Charts.Add()
 
