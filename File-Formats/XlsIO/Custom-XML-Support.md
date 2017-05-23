@@ -35,7 +35,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 //Adding CustomXmlData to Workbook
 
-ICustomXmlPart customXmlPart = workbook.CustomXmlparts.Add("SD10003");
+ICustomXmlPart customXmlPart = workbook.CustomXmlParts.Add("SD10003");
 
 //Add XmlData to CustomXmlPart
 
@@ -47,7 +47,7 @@ workbook.SaveAs("CustomXml.xlsx");
 
 workbook.Close();
 
-excelEngine.Dipose();
+excelEngine.Dispose();
 
 
 
@@ -66,7 +66,7 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Adding CustomXmlData to Workbook
 
-Dim customXmlPart As ICustomXmlPart = workbook.CustomXmlparts.Add("SD10003")
+Dim customXmlPart As ICustomXmlPart = workbook.CustomXmlParts.Add("SD10003")
 
 'Add XmlData to CustomXmlPart
 
@@ -78,7 +78,7 @@ workbook.SaveAs("CustomXml.xlsx")
 
 workbook.Close()
 
-excelEngine.Dipose()
+excelEngine.Dispose()
 
 
 
@@ -105,7 +105,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 //Access CustomXmlPart from Workbook
 
-ICustomXmlPart customXmlPart = workbook.CustomXmlparts.GetById("SD10003");
+ICustomXmlPart customXmlPart = workbook.CustomXmlParts.GetById("SD10003");
 
 //Access XmlData from CustomXmlPart
 
@@ -138,7 +138,7 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Access CustomXmlPart from Workbook
 
-Dim customXmlPart As ICustomXmlPart = workbook.CustomXmlparts.GetById("SD10003")
+Dim customXmlPart As ICustomXmlPart = workbook.CustomXmlParts.GetById("SD10003")
 
 'Access XmlData from CustomXmlPart
 

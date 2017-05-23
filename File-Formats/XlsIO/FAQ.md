@@ -81,9 +81,9 @@ application.DefaultVersion = ExcelVersion.Excel2013;
 
 //Opening a File from a Stream
 
-FileStream filestream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
-IWorkbook workbook = application.Workbooks.Open(filestream);
+IWorkbook workbook = application.Workbooks.Open(fileStream);
 
 workbook.SaveAs("Output.xlsx");
 
@@ -104,9 +104,9 @@ application.DefaultVersion = ExcelVersion.Excel2013
 
 'Opening a File from a Stream
 
-Dim filestream As New FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+Dim fileStream As New FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
 
-Dim workbook As IWorkbook = application.Workbooks.Open(filestream)
+Dim workbook As IWorkbook = application.Workbooks.Open(fileStream)
 
 workbook.SaveAs("Output.xlsx")
 
@@ -137,9 +137,9 @@ IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Aut
 
 //Save the workbook to stream.
 
-FileStream filestream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+FileStream fileStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
 
-workbook.SaveAs(filestream);
+workbook.SaveAs(fileStream);
 
 workbook.Close();
 
@@ -160,9 +160,9 @@ Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenT
 
 'Save the workbook to stream.
 
-Dim filestream As New FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite)
+Dim fileStream As New FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite)
 
-workbook.SaveAs(filestream)
+workbook.SaveAs(fileStream)
 
 workbook.Close()
 
@@ -197,13 +197,13 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 workbook.Version = ExcelVersion.Excel97to2003;
 
-workbook.SaveAs("XltFile.xlt", ExcelSaveType.SaveAsTemplate);
+workbook.SaveAs("XLTFile.xlt", ExcelSaveType.SaveAsTemplate);
 
 //Save as XLTX.
 
 workbook.Version = ExcelVersion.Excel2007;
 
-workbook.SaveAs("XltxFile.xltx", ExcelSaveType.SaveAsTemplate);
+workbook.SaveAs("XLTXFile.xltx", ExcelSaveType.SaveAsTemplate);
 
 workbook.Close();
 
@@ -228,13 +228,13 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 workbook.Version = ExcelVersion.Excel97to2003
 
-workbook.SaveAs("XltFile.xlt", ExcelSaveType.SaveAsTemplate)
+workbook.SaveAs("XLTFile.xlt", ExcelSaveType.SaveAsTemplate)
 
 'Save as XLTX.
 
 workbook.Version = ExcelVersion.Excel2007
 
-workbook.SaveAs("XltxFile.xltx", ExcelSaveType.SaveAsTemplate)
+workbook.SaveAs("XLTXFile.xltx", ExcelSaveType.SaveAsTemplate)
 
 workbook.Close()
 
@@ -775,7 +775,7 @@ worksheet.Range["A1:A10"].Text = "UnLocked";
 
 worksheet.Protect("syncfusion", ExcelSheetProtection.All);
 
-workbook.SaveAs("Protectcells.xlsx");
+workbook.SaveAs("ProtectCells.xlsx");
 
 workbook.Close();
 
@@ -808,7 +808,7 @@ worksheet.Range("A1:A10").Text = "UnLocked"
 
 worksheet.Protect("syncfusion", ExcelSheetProtection.All)
 
-workbook.SaveAs("Protectcells.xlsx")
+workbook.SaveAs("ProtectCells.xlsx")
 
 workbook.Close()
 
@@ -845,7 +845,7 @@ worksheet.Range["A1"].CellStyle.WrapText = true;
 
 worksheet.Range["A1"].Text = String.Format("Hello\nworld");
 
-workbook.SaveAs("Linebreak.xlsx");
+workbook.SaveAs("LineBreak.xlsx");
 
 workbook.Close();
 
@@ -872,7 +872,7 @@ worksheet.Range("A1").CellStyle.WrapText = True
 
 worksheet.Range("A1").Text = String.Format("Hello" & vbLf & "world")
 
-workbook.SaveAs("Linebreak.xlsx")
+workbook.SaveAs("LineBreak.xlsx")
 
 workbook.Close()
 
@@ -905,7 +905,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 worksheet.PageSetup.CenterHeader = @"&""Gothic,bold""Center Header Text";
 
-workbook.SaveAs("Headerformat.xlsx");
+workbook.SaveAs("HeaderFormat.xlsx");
 
 workbook.Close();
 
@@ -930,7 +930,7 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 worksheet.PageSetup.CenterHeader = "&""Gothic,bold""Center Header Text"
 
-workbook.SaveAs("Headerformat.xlsx")
+workbook.SaveAs("HeaderFormat.xlsx")
 
 workbook.Close()
 
@@ -1164,11 +1164,11 @@ workBookName.RefersToRange = worksheet.Range["I8"];
 
 //Looping through the Named Ranges in a workbook.
 
-foreach (IName workbookname in workbook.Names)
+foreach (IName workbookName in workbook.Names)
 
 {
 
-MessageBox.Show(workbookname.Name.ToString());
+MessageBox.Show(workbookName.Name.ToString());
 
 }
 
@@ -1182,11 +1182,11 @@ worksheetName.RefersToRange = worksheet.Range["J8"];
 
 //Looping through the Named Ranges in a worksheet.
 
-foreach (IName worksheetname in worksheet.Names)
+foreach (IName name in worksheet.Names)
 
 {
 
-MessageBox.Show(worksheetname.Name.ToString());
+MessageBox.Show(name.Name.ToString());
 
 }
 
@@ -1219,9 +1219,9 @@ workBookName__1.RefersToRange = worksheet.Range("I8")
 
 'Looping through the Named Ranges in a workbook.
 
-For Each workbookname__2 As IName In workbook.Names
+For Each workbookName__2 As IName In workbook.Names
 
-MessageBox.Show(workbookname__2.Name.ToString())
+MessageBox.Show(workbookName__2.Name.ToString())
 
 Next
 
@@ -1233,9 +1233,9 @@ worksheetName__3.RefersToRange = worksheet.Range("J8")
 
 'Looping through the Named Ranges in a worksheet.
 
-For Each worksheetname__4 As IName In worksheet.Names
+For Each worksheetName__4 As IName In worksheet.Names
 
-MessageBox.Show(worksheetname__4.Name.ToString())
+MessageBox.Show(worksheetName__4.Name.ToString())
 
 Next
 
@@ -1284,7 +1284,7 @@ serieOne.DataPoints[0].DataLabels.IsSeriesName = true;
 
 serieOne.DataPoints[0].DataLabels.IsValue = true;
 
-workbook.SaveAs("Chartlabels.xlsx");
+workbook.SaveAs("ChartLabels.xlsx");
 
 workbook.Close();
 
@@ -1321,7 +1321,7 @@ serieOne.DataPoints(0).DataLabels.IsSeriesName = True
 
 serieOne.DataPoints(0).DataLabels.IsValue = True
 
-workbook.SaveAs("Chartlabels.xlsx")
+workbook.SaveAs("ChartLabels.xlsx")
 
 workbook.Close()
 
@@ -1404,7 +1404,7 @@ worksheet.Range["F3"].Number = 45.81;
 
 worksheet.Range["F4"].Number = 12.17;
 
-//Discontiguous range.
+//Discontinuous range.
 
 IRanges rangesOne = worksheet.CreateRangesCollection();
 
@@ -1436,11 +1436,11 @@ serieOne.Name = "Jan";
 
 serieOne.Values = rangesOne;
 
-IChartSerie serietwo = shape.Series.Add();
+IChartSerie serieTwo = shape.Series.Add();
 
-serietwo.Name = "March";
+serieTwo.Name = "March";
 
-serietwo.Values = rangesTwo;
+serieTwo.Values = rangesTwo;
 
 //Setting the (Rows & Columns) Property for the Embedded chart.
 
@@ -1529,7 +1529,7 @@ worksheet.Range("F3").Number = 45.81
 
 worksheet.Range("F4").Number = 12.17
 
-'Discontiguous range.
+'Discontinuous range.
 
 Dim rangesOne As IRanges = worksheet.CreateRangesCollection()
 
@@ -1561,11 +1561,11 @@ serieOne.Name = "Jan"
 
 serieOne.Values = rangesOne
 
-Dim serietwo As IChartSerie = shape.Series.Add()
+Dim serieTwo As IChartSerie = shape.Series.Add()
 
-serietwo.Name = "March"
+serieTwo.Name = "March"
 
-serietwo.Values = rangesTwo
+serieTwo.Values = rangesTwo
 
 'Setting the (Rows & Columns)Property for the Embedded chart.
 
@@ -1686,7 +1686,7 @@ IRange range = worksheet.Range["A1"];
 
 range.Text = "RichText";
 
-IRichTextString rtf = range.RichText;
+IRichTextString richText = range.RichText;
 
 //Formatting first 4 characters.
 
@@ -1698,7 +1698,7 @@ redFont.Italic = true;
 
 redFont.RGBColor = Color.Red;
 
-rtf.SetFont(0, 3, redFont);
+richText.SetFont(0, 3, redFont);
 
 //Formatting last 4 characters.
 
@@ -1710,7 +1710,7 @@ blueFont.Italic = true;
 
 blueFont.RGBColor = Color.Blue;
 
-rtf.SetFont(4, 7, blueFont);
+richText.SetFont(4, 7, blueFont);
 
 workbook.SaveAs("FormattingText.xlsx");
 
@@ -1739,7 +1739,7 @@ Dim range As IRange = worksheet.Range("A1")
 
 range.Text = "RichText"
 
-Dim rtf As IRichTextString = range.RichText
+Dim richText As IRichTextString = range.RichText
 
 'Formatting first 4 characters.
 
@@ -1751,7 +1751,7 @@ redFont.Italic = True
 
 redFont.RGBColor = Color.Red
 
-rtf.SetFont(0, 3, redFont)
+richText.SetFont(0, 3, redFont)
 
 'Formatting last 4 characters.
 
@@ -1763,7 +1763,7 @@ blueFont.Italic = True
 
 blueFont.RGBColor = Color.Blue
 
-rtf.SetFont(4, 7, blueFont)
+richText.SetFont(4, 7, blueFont)
 
 workbook.SaveAs("FormattingText.xlsx")
 
@@ -1802,7 +1802,7 @@ worksheet.PageSetup.IsSummaryRowBelow = false;
 
 worksheet.PageSetup.IsSummaryColumnRight = false;
 
-workbook.SaveAs("Suppressrowscolumns.xlsx");
+workbook.SaveAs("SuppressRowsColumns.xlsx");
 
 workbook.Close();
 
@@ -1831,7 +1831,7 @@ worksheet.PageSetup.IsSummaryRowBelow = False
 
 worksheet.PageSetup.IsSummaryColumnRight = False
 
-workbook.SaveAs("Suppressrowscolumns.xlsx")
+workbook.SaveAs("SuppressRowsColumns.xlsx")
 
 workbook.Close()
 
@@ -1986,7 +1986,7 @@ class Program
 
         // Zip and save the file.
 
-        private static void ZipandSave()
+        private static void ZipAndSave()
 
         {
 
@@ -2018,19 +2018,19 @@ class Program
 
             string fileName = "";
 
-            foreach (string rootfiles in Directory.GetFiles(folderPath))
+            foreach (string rootFiles in Directory.GetFiles(folderPath))
 
             {
 
                 //Creating the stream from file
 
-                FileStream stream = new FileStream(rootfiles, FileMode.Open, FileAccess.ReadWrite);
+                FileStream stream = new FileStream(rootFiles, FileMode.Open, FileAccess.ReadWrite);
 
-                //Getting the File Name alone and ignoring the directoty path
+                //Getting the File Name alone and ignoring the directory path
 
-                fileName = Path.GetFileName(rootfiles);
+                fileName = Path.GetFileName(rootFiles);
 
-                FileAttributes attribute = File.GetAttributes(rootfiles);
+                FileAttributes attribute = File.GetAttributes(rootFiles);
 
                 zipArchive.AddItem(fileName, stream, false, attribute);
 
@@ -2143,7 +2143,7 @@ class Program
 
         static void Main(string[] args)
         {
-            ZipandSave();
+            ZipAndSave();
             UnZipFiles();
         }
     }
@@ -2178,7 +2178,7 @@ Class Program
 
 	' Zip and save the file.
 
-	Private Shared Sub ZipandSave()
+	Private Shared Sub ZipAndSave()
 
 
 		SubFoldersFiles(folderPath)
@@ -2207,18 +2207,18 @@ Class Program
 
 		Dim fileName As String = ""
 
-		For Each rootfiles As String In Directory.GetFiles(folderPath)
+		For Each rootFiles As String In Directory.GetFiles(folderPath)
 
 
 			'Creating the stream from file
 
-			Dim stream As New FileStream(rootfiles, FileMode.Open, FileAccess.ReadWrite)
+			Dim stream As New FileStream(rootFiles, FileMode.Open, FileAccess.ReadWrite)
 
-			'Getting the File Name alone and ignoring the directoty path
+			'Getting the File Name alone and ignoring the directory path
 
-			fileName = Path.GetFileName(rootfiles)
+			fileName = Path.GetFileName(rootFiles)
 
-			Dim attribute As FileAttributes = File.GetAttributes(rootfiles)
+			Dim attribute As FileAttributes = File.GetAttributes(rootFiles)
 
 
 			zipArchive.AddItem(fileName, stream, False, attribute)
@@ -2324,7 +2324,7 @@ Class Program
 
 
 	Private Shared Sub Main(args As String())
-		ZipandSave()
+		ZipAndSave()
 		UnZipFiles()
 	End Sub
 End Class

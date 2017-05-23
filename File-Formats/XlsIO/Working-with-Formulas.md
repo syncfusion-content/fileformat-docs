@@ -1913,7 +1913,7 @@ The following code illustrates on how to include and access Add-ins in XlsIO.
 
 // End Function
 
-// Step2: Register the AddIn in Excel by adding the above file to Excel Application by locating the .xlam file through the menu (Developer -> Addins -> Browse)
+// Step2: Register the AddIn in Excel by adding the above file to Excel Application by locating the .xlam file through the menu (Developer -> Add-ins -> Browse)
 
 ExcelEngine excelEngine = new ExcelEngine();
 
@@ -1927,7 +1927,7 @@ IWorksheet sheet = workbook.Worksheets[0];
 
 IAddInFunctions unknownFunctions = workbook.AddInFunctions; 
 
-// Adding the xlam file reference to AddIn functions.
+// Adding the XLAM file reference to AddIn functions.
 
 // NOTE: The add-in name must be same as the function name
 
@@ -1968,7 +1968,7 @@ excelEngine.Dispose();
 
 ' End Function
 
-' Step2: Register the AddIn in Excel by adding the above file to Excel Application by locating the .xlam file through the menu (Developer -> Addins -> Browse)
+' Step2: Register the AddIn in Excel by adding the above file to Excel Application by locating the .xlam file through the menu (Developer -> Add-ins -> Browse)
 
 Dim excelEngine As New ExcelEngine()
 
@@ -1982,7 +1982,7 @@ Dim sheet As IWorksheet = workbook.Worksheets(0)
 
 Dim unknownFunctions As IAddInFunctions = workbook.AddInFunctions
 
-' Adding the xlam file reference to AddIn functions.
+' Adding the XLAM file reference to AddIn functions.
 
 ' NOTE: The add-in name must be same as the function name
 

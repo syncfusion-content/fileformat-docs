@@ -94,7 +94,7 @@ Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(workbookStream)
 
 ## Saving a Excel workbook to file system
 
-You can save the created or manipulated workbook to file system using Save method of IWorkbook interface. The workbook is saved in the xls/xlsx format based on the application/workbook version specified, whereas saved in Excel 97-2003 (*.xls) format by default.
+You can save the created or manipulated workbook to file system using Save method of IWorkbook interface. The workbook is saved in the XLS/XLSX format based on the application/workbook version specified, whereas saved in Excel 97-2003 (*.xls) format by default.
 
 {% tabs %}  
 {% highlight c# %}
@@ -114,7 +114,7 @@ IWorkbook workbook = excelEngine.Excel.Workbooks.Open(fileName);
 
 workbook.Version = ExcelVersion.Excel2013;
 
-//Save the workbook in file system as xlsx format
+//Save the workbook in file system as XLSX format
 
 workbook.SaveAs(outputFileName);
 
@@ -139,7 +139,7 @@ Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(fileName)
 
 workbook.Version = ExcelVersion.Excel2013
 
-'Save the workbook in file system as xlsx format
+'Save the workbook in file system as XLSX format
 
 workbook.SaveAs(outputFileName)
 
@@ -170,7 +170,7 @@ IWorkbook workbook = excelEngine.Excel.Workbooks.Open(fileName);
 
 workbook.Version=ExcelVersion.Excel2013;
 
-//Save the workbook in file system as xlsx
+//Save the workbook in file system as XLSX
 
 workbook.SaveAs(outputStream);
 
@@ -195,7 +195,7 @@ Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(fileName)
 
 workbook.Version = ExcelVersion.Excel2013
 
-'Save the workbook in file system as xlsx
+'Save the workbook in file system as XLSX
 
 workbook.SaveAs(outputStream)
 

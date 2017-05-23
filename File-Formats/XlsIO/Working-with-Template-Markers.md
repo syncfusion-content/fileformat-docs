@@ -592,7 +592,7 @@ colorScale.Criteria[2].Value = "0";
 
 conditionalFormats = marker.CreateConditionalFormats(worksheet["E5"]);
 
-#region Iconset
+#region IconSet
 
 condition = conditionalFormats.AddCondition();
 
@@ -757,7 +757,7 @@ colorScale.Criteria(2).Value = "0"
 
 conditionalFormats = marker.CreateConditionalFormats(worksheet("E5"))
 
-'Region "Iconset"
+'Region "IconSet"
 
 condition = conditionalFormats.AddCondition()
 

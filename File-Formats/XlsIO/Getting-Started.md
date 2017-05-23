@@ -86,7 +86,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 worksheet.Range["A1"].Text = "Hello World";
 
-//Saving the workbook to disk in xlsx format
+//Saving the workbook to disk in XLSX format.
 
 workbook.SaveAs("Sample.xlsx");
 
@@ -137,7 +137,7 @@ Dim worksheet As IWorksheet = workbook.Worksheets[0]
 
 worksheet.Range("A1").Text = "Hello World"
 
-'Saving the workbook to disk in xlsx format
+'Saving the workbook to disk in XLSX format.
 
 workbook.SaveAs("Sample.xlsx")
 
@@ -371,7 +371,7 @@ Finally, save the document in file system and close/dispose the instance of IWor
 
 {% tabs %}  
 {% highlight c# %}
-// Saving the workbook to disk in xlsx format
+// Saving the workbook to disk in XLSX format
 
 workbook.SaveAs("Sample.xlsx");
 
@@ -388,7 +388,7 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
-'Saving the workbook to disk in xlsx format
+'Saving the workbook to disk in XLSX format
 
 workbook.SaveAs("Sample.xlsx")
 
@@ -492,7 +492,7 @@ worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 
 worksheet.Pictures.AddPicture(10, 2, "image.jpg");
 
-// Saving the workbook to disk in xlsx format
+// Saving the workbook to disk in XLSX format
 
 workbook.SaveAs("Sample.xlsx");
 
@@ -605,7 +605,7 @@ worksheet.Range("B6").Formula = "SUM(B2:B4)"
 
 worksheet.Pictures.AddPicture(10, 2, "image.jpg")
 
-'Saving the workbook to disk in xlsx format
+'Saving the workbook to disk in XLSX format
 
 workbook.SaveAs("Sample.xlsx")
 

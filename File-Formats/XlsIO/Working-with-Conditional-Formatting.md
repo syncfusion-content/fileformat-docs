@@ -191,7 +191,7 @@ workbook.SaveAs("ConditionalFormatting.xlsx");
 
 workbook.Close();
 
-excelEngine.Dispoe();
+excelEngine.Dispose();
 
 
 
@@ -671,7 +671,7 @@ conditionalFormat = conditionalFormats.AddCondition();
 conditionalFormat.FormatType = ExcelCFType.ColorScale;
 IColorScale colorScale = conditionalFormat.ColorScale;
 
-// Sets 3 - color scale and its constarints
+// Sets 3 - color scale and its constraints
 colorScale.SetConditionCount(3);
 colorScale.Criteria[0].FormatColorRGB = Color.FromArgb(230, 197, 218);
 colorScale.Criteria[0].Type = ConditionValueType.LowestValue;

@@ -55,7 +55,7 @@ string fileName = "Output.xlsx";
 
 MemoryStream stream = new MemoryStream();
 
-//Saving the workbook to stream in xlsx format
+//Saving the workbook to stream in XLSX format
 
 workbook.SaveAs(stream);
 
@@ -116,7 +116,7 @@ string fileName = "Output.xlsx";
 
 MemoryStream stream = new MemoryStream();
 
-//Saving the workbook to stream in xlsx format
+//Saving the workbook to stream in XLSX format
 
 workbook.SaveAs(stream);
 
