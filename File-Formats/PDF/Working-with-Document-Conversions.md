@@ -2128,7 +2128,7 @@ Gradient<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-ImageBrush<br/><br/></td><td>
+ImageBrush<br/>(JPG, BMP, GIF, TIFF)<br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
