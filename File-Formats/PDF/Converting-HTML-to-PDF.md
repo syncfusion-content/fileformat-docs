@@ -1,13 +1,11 @@
 ---
-title: Working with HTML Conversion
+title: Working with HTML to PDF Conversion
 description: This section explains converting HTML to PDF
 platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with HTML Conversion
-
-## Converting HTML to PDF
+# Converting HTML to PDF
 
 Essential PDF provides support for converting HTML pages to PDF document. The converter offers full support for HTML tags, HTML5, CSS3, JavaScript, SVG and page breaks. There are two rendering engines available. They are
 
@@ -2498,8 +2496,14 @@ The following table shows the IE and WebKit rendering engines supported features
 </tr>
 
 <tr>
-<td>Conversion through proxy</td>
+<td>System proxy</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
+</tr>
+
+<tr>
+<td>Manual proxy</td>
+<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 </tr>
 
