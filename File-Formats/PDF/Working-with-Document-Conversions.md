@@ -1345,3 +1345,445 @@ documentViewer.Dispose()
 {% endhighlight %}
 
 {% endtabs %}
+
+
+## MHTML to PDF
+
+The MHTML file can be converted to PDF using WebKit rendering engine. Please refer the below code snippet,
+
+
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
+    
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML converter with WebKit rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/"; 
+           
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert MHTML to PDF
+PdfDocument document = htmlConverter.Convert("input.mhtml");  
+    
+//Save the document.
+document.Save("Sample.pdf");
+
+document.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML converter with WebKit rendering engine
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+
+Dim webKitSettings As New WebKitConverterSettings()
+
+'Set WebKit path
+webKitSettings.WebKitPath = "/QtBinaries/"
+
+'Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings
+
+'Convert MHTML to PDF
+Dim document As PdfDocument = htmlConverter.Convert("input.mhtml")
+
+'Save the document.
+document.Save("Sample.pdf")
+
+document.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+## HTML to MHTML
+
+The WebKit HTML Converter provides support for converting the webpage to MHTML. Please refer the below code snippet,
+
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
+    
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML converter with WebKit rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert URL to MHTML
+htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml");
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML converter with WebKit rendering engine
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)      
+  
+Dim webKitSettings As New WebKitConverterSettings()
+
+'Set WebKit path
+webKitSettings.WebKitPath = "/QtBinaries/"
+
+'Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings
+
+'Convert URL to MHTML
+htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml")
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+## HTML to Raster Image
+
+The WebKit HTML Converter provides support for converting webpage to Image. Please refer the below code snippet,
+
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
+    
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML converter with WebKit rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert URL to Image
+Image[] image = htmlConverter.ConvertToImage("http://www.syncfusion.com");
+
+//Save the image.
+image[0].Save("Sample.jpg");
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML converter with WebKit rendering engine
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+
+Dim webKitSettings As New WebKitConverterSettings()
+
+'Set WebKit path
+webKitSettings.WebKitPath = "/QtBinaries/"
+
+'Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings
+
+'Convert URL to Image
+Dim image As Image() = htmlConverter.ConvertToImage("http://www.syncfusion.com ")
+
+'Save the image.
+image(0).Save("Sample.jpg")
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+## HTML string to Raster Image
+
+The WebKit HTML Converter provides support for converting HTML string to Image. Please refer the below code snippet,
+
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
+    
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+
+{% tabs %}
+
+{% highlight c# %}
+
+string htmlString = "<html><body>Hello World!!!</body></html>";
+string baseURL = "";
+
+//Initialize HTML converter with WebKit rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert HTML string to Image
+Image[] image = htmlConverter.ConvertToImage(htmlString, baseURL);
+
+//Save the image.
+image[0].Save("Sample.jpg");
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Dim htmlString As String = "<html><body>Hello World!!!</body></html>"
+Dim baseURL As String = ""
+
+'Initialize HTML converter with WebKit rendering engine
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+
+Dim webKitSettings As New WebKitConverterSettings()
+
+'Set WebKit path
+webKitSettings.WebKitPath = "/QtBinaries/"
+
+'Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings
+
+'Convert HTML string to Image
+Dim image As Image() = htmlConverter.ConvertToImage(htmlString, baseURL)
+
+'Save the image.
+image(0).Save("Sample.jpg")
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+## Partial webpage to Raster Image
+
+The WebKit HTML Converter provides support for converting partial webpage to Image. Please refer the below code snippet,
+
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
+    
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML converter 
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+// WebKit converter settings
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert Partial HTML to Image
+
+Image[] img = htmlConverter.ConvertPartialHtmlToImage("input.html", "pic");
+
+//Save Image
+
+img[0].Save("Output.jpg");
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML converter 
+
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+
+' WebKit converter settings
+
+Dim webKitSettings As New WebKitConverterSettings()
+
+'Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = "/QtBinaries/"
+
+'Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings
+
+'Convert Partial HTML to Image
+
+Dim img As Image() = htmlConverter.ConvertPartialHtmlToImage("input.html", "pic")
+
+'Save Image
+
+img(0).Save("Output.jpg")
+
+{% endhighlight %}
+
+{% highlight html %}
+<html>
+<head>
+</head>
+<body>
+Hello world
+	<div id="pic">
+		<img src=" syncfusion_logo.gif" alt="Smiley face" width="42" height="42"><br>
+		This is a Syncfusion Logo
+	</div>
+	<div>
+		Hello world
+	</div>
+</body>
+</html>
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+
+## HTML to SVG
+
+The WebKit HTML Converter provides support for converting HTML to SVG. Please refer the below code snippet,
+
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
+    
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML converter with WebKit rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert URL to SVG
+htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg");
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML converter with WebKit rendering engine
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+
+Dim webKitSettings As New WebKitConverterSettings()
+
+'Set WebKit path
+webKitSettings.WebKitPath = "/QtBinaries/"
+
+'Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings
+
+'Convert URL to SVG
+htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+## Partial webpage to SVG
+
+The WebKit HTML Converter provides support for converting partial webpage to SVG. Please refer the below code snippet,
+
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
+    
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML converter 
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+// WebKit converter settings
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert Partial HTML to SVG
+
+htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", "Output.svg");
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML converter 
+
+Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+
+' WebKit converter settings
+
+Dim webKitSettings As New WebKitConverterSettings()
+
+'Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = "/QtBinaries/"
+
+'Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings
+
+'Convert Partial HTML to SVG
+
+htmlConverter.ConvertPartialHtmlToSvg("input.html", "pic", "Output.svg")
+
+{% endhighlight %}
+
+{% highlight html %}
+
+<html>
+<head>
+</head>
+<body>
+Hello world
+	<div id="pic">
+		<img src=" syncfusion_logo.gif" alt="Smiley face" width="42" height="42"><br>
+		This is a Syncfusion Logo
+	</div>
+	<div>
+		Hello world
+	</div>
+</body>
+</html>
+
+{% endhighlight %}
+
+{% endtabs %}
