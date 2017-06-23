@@ -1354,7 +1354,7 @@ The MHTML file can be converted to PDF using WebKit rendering engine. Please ref
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
 
 {% tabs %}
 
@@ -1413,7 +1413,7 @@ The WebKit HTML Converter provides support for converting the webpage to MHTML. 
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
 
 {% tabs %}
 
@@ -1462,7 +1462,7 @@ The WebKit HTML Converter provides support for converting webpage to Image. Plea
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
 
 {% tabs %}
 
@@ -1517,7 +1517,7 @@ The WebKit HTML Converter provides support for converting HTML string to Image. 
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
 
 {% tabs %}
 
@@ -1578,7 +1578,7 @@ The WebKit HTML Converter provides support for converting partial webpage to Ima
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
 
 {% tabs %}
 
@@ -1666,7 +1666,7 @@ The WebKit HTML Converter provides support for converting HTML to SVG. Please re
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
 
 {% tabs %}
 
@@ -1715,7 +1715,7 @@ The WebKit HTML Converter provides support for converting partial webpage to SVG
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-and-setting-up-for-webkit#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
 
 {% tabs %}
 
