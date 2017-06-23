@@ -1,5 +1,5 @@
 ---
-title: Working with HTML to PDF Conversion
+title: Converting HTML to PDF
 description: This section explains converting HTML to PDF
 platform: file-formats
 control: PDF
