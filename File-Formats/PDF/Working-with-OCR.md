@@ -425,5 +425,5 @@ It is also mandatory to change the corresponding language code in the OCRProcess
 
 The following link contains the complete set of languages supported by Tesseract and their language codes.
 
-[https://rawgit.com/tesseract-ocr/tesseract/master/doc/tesseract.1.html#_languages](https://rawgit.com/tesseract-ocr/tesseract/master/doc/tesseract.1.html#_languages)
+[https://github.com/tesseract-ocr/tesseract/blob/master/doc/tesseract.1.asc#languages](https://github.com/tesseract-ocr/tesseract/blob/master/doc/tesseract.1.asc#languages)
 
