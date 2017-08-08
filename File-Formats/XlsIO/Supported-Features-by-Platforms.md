@@ -289,6 +289,11 @@ The list of various supported and non-supported Excel features of Essential XlsI
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
+    <td>Auto-Fit Rows and Columns.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
     <td colspan="3"><strong>Insert</strong></td>
   </tr>
   <tr>
