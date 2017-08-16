@@ -109,33 +109,134 @@ document.Close(True)
 
 {% endhighlight %}
 {% endtabs %}
-You can add a digital signature to an existing document as follows.
+
+## Adding a digital signature using stream
+
+The following code example illustrate how to add a digital signature in the PDF document
+using stream as follows.
 
 {% tabs %}
 {% highlight c# %}
 
+//Creates a new PDF document.
 
-//Loads the PDF document with signature field
+PdfDocument document = new PdfDocument();
+
+//Adds a new page.
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Gets a stream from .pfx file.
+
+Stream pfxStream = File.OpenRead("PDF.pfx");
+
+//Creates a certificate instance from a .pfx file stream with private key.
+
+PdfCertificate pdfCert = new PdfCertificate(pfxStream, "syncfusion");
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets an image for signature field.
+
+PdfBitmap signatureimg = new PdfBitmap(@"signature.jpg");
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureimg.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draw the signature image.
+
+graphics.DrawImage(signatureimg, 0, 0);
+
+//Saves and closes the document.
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+{% highlight vb.net %}
+ 
+'Creates a new PDF document.
+
+Dim document As New PdfDocument()
+
+'Adds a new page.
+
+Dim page As PdfPageBase = document.Pages.Add()
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Gets stream from .pfx file.
+
+Dim pfxStream As Stream = File.OpenRead("PDF.pfx")
+
+'Creates a certificate instance from PFX file stream with private key.
+
+Dim pdfCert As New PdfCertificate(pfxStream, "syncfusion")
+
+'Creates a digital signature.
+
+Dim signature As New PdfSignature(document, page, pdfCert, "Signature")
+
+'Sets an image for signature field.
+
+Dim signatureimg As New PdfBitmap("signature.jpg")
+
+'Sets signature information.
+
+signature.Bounds = New RectangleF(New PointF(0, 0), signatureimg.PhysicalDimension)
+
+signature.ContactInfo = "johndoe@owned.us"
+
+signature.LocationInfo = "Honolulu, Hawaii"
+
+signature.Reason = "I am author of this document."
+
+'Draws the signature image.
+
+graphics.DrawImage(signatureimg, 0, 0)
+
+'Saves and closes the document.
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+{% endtabs %}
+You can add a digital signature to an existing document as follows.
+
+{% tabs %}
+{% highlight c# %}
+ 
+//Loads the PDF document with signature field.
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");         
 
-
-
-//Gets the page
+//Gets the page.
 
 PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
 
-
-
-//Creates a signature field
+//Creates a signature field.
 
 PdfSignatureField signatureField = new PdfSignatureField(page, "Signaturefield");
 
 signatureField.Bounds = new RectangleF(0, 0, 100, 100);
 
-signatureField.Signature = new PdfSignature(page);
+signatureField.Signature = new PdfSignature();
 
-//Adds certificate to the signature field
+//Adds certificate to the signature field.
 
 signatureField.Signature.Certificate = new PdfCertificate(@"PDF.pfx", "syncfusion");
 
@@ -147,7 +248,7 @@ signatureField.Signature.Reason = "I am author of this document";
 
 loadedDocument.Form.Fields.Add(signatureField);
 
-//Saves the certified PDF document
+//Saves the certified PDF document.
 
 loadedDocument.Save(@"Output.pdf");
 
@@ -173,19 +274,19 @@ Dim signatureField As New PdfSignatureField(page, "Signaturefield")
 
 signatureField.Bounds = New RectangleF(0, 0, 100, 100)
 
-signatureField.Signature = New PdfSignature(page)
+signatureField.Signature = New PdfSignature()
 
-'Adds certificate to the signature field
+'Adds certificate to the signature field.
 
 signatureField.Signature.Certificate = New PdfCertificate("PDF.pfx", "syncfusion")
 
 signatureField.Signature.Reason = "I am author of this document"
 
-'Adds the field
+'Adds the field.
 
 loadedDocument.Form.Fields.Add(signatureField)
 
-'Saves the certified PDF document
+'Saves the certified PDF document.
 
 loadedDocument.Save("Output.pdf")
 
@@ -202,61 +303,128 @@ You can load the signature field from the existing PDF document and add certific
 {% highlight c# %}
 
 
-//Loads a PDF document
+//Loads a PDF document.
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
-//Gets the first page of the document
+//Gets the first page of the document.
 
 PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
 
-//Gets the first signature field of the PDF document
+//Gets the first signature field of the PDF document.
 
 PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
 
-//Creates a certificate
+//Creates a certificate.
 
 PdfCertificate certificate = new PdfCertificate(@"PDF.pfx", "syncfusion");
 
 field.Signature = new PdfSignature(loadedDocument,page,certificate,"Signature",field);
 
-//Saves the document
+//Saves the document.
 
 loadedDocument.Save("Output.pdf");
 
-//Closes the document
+//Closes the document.
 
 loadedDocument.Close(true);
 
-
-
 {% endhighlight %}
-
 {% highlight vb.net %}
-
-'Loads a PDF document
+ 
+'Loads a PDF document.
 
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
-'Gets the first page of the document
+'Gets the first page of the document.
 
 Dim page As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
-'Gets the first signature field of the PDF document
+'Gets the first signature field of the PDF document.
 
 Dim field As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
 
-'Creates a certificate
+'Creates a certificate.
 
 Dim certificate As New PdfCertificate("PDF.pfx", "syncfusion")
 
 field.Signature = New PdfSignature(loadedDocument, page, certificate, "Signature", field)
 
-'Saves the document
+'Saves the document.
 
 loadedDocument.Save("Output.pdf")
 
-'Closes the document
+'Closes the document.
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+{% endtabs %}
+## Sign an existing document using stream
+
+You can load the signature field from an existing PDF document and add certificate to the document as follows.
+{% tabs %}
+{% highlight c# %}
+ 
+//Loads a PDF document.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Get the first page of the document.
+
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the first signature field of the PDF document.
+
+PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+
+//Get the stream from .pfx file.
+
+Stream pfxStream = File.OpenRead("PDF.pfx");
+
+//Create a certificate instance from PFX file stream with private key.
+
+PdfCertificate certificate = new PdfCertificate(pfxStream, "syncfusion");
+
+field.Signature = new PdfSignature(loadedDocument, page, certificate, "Signature", field);
+
+//Saves the document.
+
+loadedDocument.Save("Output.pdf");
+
+//Closes the document.
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+{% highlight vb.net %}
+ 
+'Loads a PDF document.
+
+Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
+
+'Gets the first page of the document.
+
+Dim page As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
+
+'Gets the first signature field of the PDF document.
+Dim field As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
+
+'Gets the stream from .pfx file.
+
+Dim pfxStream As Stream = File.OpenRead("PDF.pfx")
+
+'Creates a certificate instance from PFX file stream with private key.
+
+Dim certificate As New PdfCertificate(pfxStream, "syncfusion")
+
+field.Signature = New PdfSignature(loadedDocument, page, certificate, "Signature", field)
+
+'Saves the document.
+
+loadedDocument.Save("Output.pdf")
+
+'Closes the document.
 
 loadedDocument.Close(True)
 
@@ -291,7 +459,7 @@ PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
 
 PdfSignature signature = new PdfSignature(page, pdfCert, "Signature");
 
-//Sets an image for signature field
+//Sets an image for signature field.
 
 PdfBitmap bmp = new PdfBitmap(@"syncfusion_logo.gif");
 
@@ -343,7 +511,7 @@ Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
 
 Dim signature As New PdfSignature(page, pdfCert, "Signature")
 
-'Sets an image for signature field
+'Sets an image for signature field.
 
 Dim bmp As New PdfBitmap("syncfusion_logo.gif")
 
