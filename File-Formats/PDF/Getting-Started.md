@@ -219,18 +219,18 @@ The following code example explains how to add an image from disk to a PDF docum
 {% highlight c# %}
 
 //Loads the image from disk
-PdfImage img = PdfImage.FromFile("AdventureCycle.jpg");
+PdfImage image = PdfImage.FromFile("AdventureCycle.jpg");
 //Draws the image to the PDF page
-page.Graphics.DrawImage(img, new RectangleF(176, 0, 390, 130));
+page.Graphics.DrawImage(image, new RectangleF(176, 0, 390, 130));
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Loads the image from disk 
-Dim img As PdfImage = PdfImage.FromFile("AdventureCycle.jpg")
+Dim image As PdfImage = PdfImage.FromFile("AdventureCycle.jpg")
 'Draws the image to the PDF page
-page.Graphics.DrawImage(img, New RectangleF(176, 0, 390, 130))
+page.Graphics.DrawImage(image, New RectangleF(176, 0, 390, 130))
 
 
 {% endhighlight %}
@@ -372,7 +372,7 @@ Dim invoiceDetails As DataTable = GetProductDetails(Integer.Parse(invoiceNumber)
 Dim grid As New PdfGrid()
 'Adds the data source
 grid.DataSource = invoiceDetails
-'creates the grid cell stlyes
+'creates the grid cell styles
 Dim cellStyle As New PdfGridCellStyle()
 cellStyle.Borders.All = PdfPens.White
 Dim header As PdfGridRow = grid.Headers(0)
@@ -459,16 +459,16 @@ PdfLoadedForm form = loadedDocument.Form;
 //Fills the textbox fields by using field name
 (form.Fields["LastName"] as PdfLoadedTextBoxField).Text = "Doe";
 (form.Fields["Address"] as PdfLoadedTextBoxField).Text = " John Doe \n 123 Main St \n Anytown, USA";
-//Loads the radion button group
-PdfLoadedRadioButtonItemCollection radioButtoncollection = (form.Fields["Gender"] as PdfLoadedRadioButtonListField).Items;
+//Loads the radio button group
+PdfLoadedRadioButtonItemCollection radioButtonCollection = (form.Fields["Gender"] as PdfLoadedRadioButtonListField).Items;
 //Checks the 'Male' option
-radioButtoncollection[0].Checked = true;
+radioButtonCollection[0].Checked = true;
 //Checks the 'business' checkbox field
 (form.Fields["Business"] as PdfLoadedCheckBoxField).Checked = true;
 //Checks the 'retiree' checkbox field
 (form.Fields["Retiree"] as PdfLoadedCheckBoxField).Checked = true;
 //Saves and closes the document
-loadedDocument.Save("filledform.pdf");
+loadedDocument.Save("output.pdf");
 loadedDocument.Close(true);
 
 {% endhighlight %}
@@ -485,15 +485,15 @@ TryCast(form.Fields(0), PdfLoadedTextBoxField).Text = "John"
 TryCast(form.Fields("LastName"), PdfLoadedTextBoxField).Text = "Doe"
 TryCast(form.Fields("Address"), PdfLoadedTextBoxField).Text = " John Doe " & vbLf & " 123 Main St " & vbLf & " Anytown, USA"
 'Load the radion button group
-Dim radioButtoncollection As PdfLoadedRadioButtonItemCollection = TryCast(form.Fields("Gender"), PdfLoadedRadioButtonListField).Items
+Dim radioButtonCollection As PdfLoadedRadioButtonItemCollection = TryCast(form.Fields("Gender"), PdfLoadedRadioButtonListField).Items
 'Checks the 'Male' option
-radioButtoncollection(0).Checked = True
+radioButtonCollection(0).Checked = True
 'Checks the 'business' checkbox field
 TryCast(form.Fields("Business"), PdfLoadedCheckBoxField).Checked = True
 'Checks the 'retiree' checkbox field
 TryCast(form.Fields("Retiree"), PdfLoadedCheckBoxField).Checked = True
 'Saves and closes the document
-loadedDocument.Save("filledform.pdf")
+loadedDocument.Save("output.pdf")
 loadedDocument.Close(True)
 
 {% endhighlight %}
@@ -526,7 +526,7 @@ Essential PDF supports converting HTML contents to PDF. To add the HTML to PDF c
   </tr>
 </table>
 
-The QtBinaries available in the WebKitHTMLConverter installed location __**($Systemdrive\Program Files(x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)**__ should be placed in the local machine where the conversion takes place. The physical path of this folder has been set to the **WebKitPath** property of the **WebKitConverterSettings** class, as shown. By default it will search for WebKit assemblies in bin folder.
+The QtBinaries available in the WebKitHTMLConverter installed location __**($System drive\Program Files(x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)**__ should be placed in the local machine where the conversion takes place. The physical path of this folder has been set to the **WebKitPath** property of the **WebKitConverterSettings** class, as shown. By default it will search for WebKit assemblies in bin folder.
 
 {% tabs %}
 {% highlight c# %}
@@ -667,7 +667,7 @@ You can merge the PDF document streams by using the following code example.
 {% tabs %}
 {% highlight c# %}
 
-//Creates the detination document
+//Creates the destination document
 PdfDocument finalDoc = new PdfDocument();
 Stream stream1 = File.OpenRead("file1.pdf");
 Stream stream2 = File.OpenRead("file2.pdf");
@@ -686,7 +686,7 @@ finalDoc.Close(true);
 
 {% highlight vb.net %}
 
-'creates the detination document
+'creates the destination document
 Dim finalDoc As New PdfDocument()
 Dim stream1 As Stream = File.OpenRead("file1.pdf")
 Dim stream2 As Stream = File.OpenRead("file2.pdf")

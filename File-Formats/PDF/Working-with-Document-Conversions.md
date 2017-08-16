@@ -303,7 +303,7 @@ IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Aut
 
 ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
-//Intialize PDF Document
+//Initialize PDF Document
 
 PdfDocument pdfDocument = new PdfDocument();
 
@@ -313,7 +313,7 @@ pdfDocument = converter.Convert();
 
 //Save the pdf file
 
-pdfDocument.Save("ExceltoPDF.pdf");
+pdfDocument.Save("ExcelToPDF.pdf");
 
 //Dispose the objects
 
@@ -344,7 +344,7 @@ Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenT
 
 Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
-'Intialize the PDF Document
+'Initialize the PDF Document
 
 Dim pdfDocument As PdfDocument = New PdfDocument()
 
@@ -354,7 +354,7 @@ pdfDocument = converter.Convert()
 
 'Save the pdf file
 
-pdfDocument.Save("ExceltoPDF.pdf")
+pdfDocument.Save("ExcelToPDF.pdf")
 
 'Dispose the objects
 
@@ -400,7 +400,7 @@ PdfDocument pdfDocument= new PdfDocument();
 
 pdfDocument = converter.Convert();
 
-pdfDocument.Save("ExceltoPDF.pdf");
+pdfDocument.Save("ExcelToPDF.pdf");
 
 pdfDocument.Close();
 
@@ -436,7 +436,7 @@ pdfDocument = converter.Convert()
 
 'Save the pdf file
 
-pdfDocument.Save("ExceltoPDF.pdf")
+pdfDocument.Save("ExcelToPDF.pdf")
 
 'Dispose the objects
 
@@ -576,7 +576,7 @@ PdfDocument pdfDocument = new PdfDocument();
 
 pdfDocument = converter.Convert();
 
-pdfDocument.Save("ExceltoPDF.pdf");
+pdfDocument.Save("ExcelToPDF.pdf");
 
 converter.Dispose();
 
@@ -619,7 +619,7 @@ Dim pdfDocument As New PdfDocument()
 
 pdfDocument = converter.Convert()
 
-pdfDocument.Save("ExceltoPDF.pdf")
+pdfDocument.Save("ExcelToPDF.pdf")
 
 converter.Dispose()
 
@@ -732,7 +732,7 @@ PdfDocument pdfDocument = converter.ConvertToPDF(rtfDocument);
 
 //Save the PDF file
 
-pdfDocument.Save("RTFtoPDF.pdf");
+pdfDocument.Save("RTFToPDF.pdf");
 
 //Close the instance of document objects
 
@@ -761,7 +761,7 @@ Dim pdfDocument As PdfDocument = converter.ConvertToPDF(rtfDocument)
 
 'Save the PDF file
 
-pdfDocument.Save("RTFtoPDF.pdf")
+pdfDocument.Save("RTFToPDF.pdf")
 
 'Close the instance of document objects
 
@@ -820,7 +820,7 @@ PdfDocument pdfDocument = converter.ConvertToPDF(rtfDocument);
 
 //Save the PDF file to file system
 
-pdfDocument.Save("RTFtoPDF.pdf");
+pdfDocument.Save("RTFToPDF.pdf");
 
 //close the instance of document objects
 
@@ -861,7 +861,7 @@ Dim pdfDocument As PdfDocument = converter.ConvertToPDF(rtfDocument)
 
 'Save the PDF file to file system
 
-pdfDocument.Save("RTFtoPDF.pdf")
+pdfDocument.Save("RTFToPDF.pdf")
 
 'close the instance of document objects
 
@@ -906,7 +906,7 @@ PdfPage page;
 
 PdfGraphics graphics;
 
-//Load Multiframe Tiff image
+//Load multi frame TIFF image
 
 PdfBitmap tiffImage = new PdfBitmap("image.tiff");
 
@@ -963,7 +963,7 @@ Dim page As PdfPage
 
 Dim graphics As PdfGraphics
 
-'Load Multiframe Tiff image
+'Load multi frame TIFF image
 
 Dim tiffImage As New PdfBitmap("image.tiff")
 
@@ -1019,7 +1019,7 @@ PdfDocument pdfDocument = new PdfDocument();
 
 PdfPage page = pdfDocument.Pages.Add();
 
-//Load single frame Tiff image
+//Load single frame TIFF image
 
 PdfBitmap tiffImage = PdfImage.FromFile("image.tiff") as PdfBitmap;
 
@@ -1054,7 +1054,7 @@ Dim pdfDocument As New PdfDocument()
 
 Dim page As PdfPage = pdfDocument.Pages.Add()
 
-'Load single frame Tiff image
+'Load single frame TIFF image
 
 Dim tiffImage As PdfBitmap = TryCast(PdfImage.FromFile("image.tiff"), PdfBitmap)
 
@@ -1309,11 +1309,11 @@ documentViewer.Load("Input.pdf");
 
 //Export PDF page to image
 
-Bitmap img = documentViewer.ExportAsImage(0);
+Bitmap image = documentViewer.ExportAsImage(0);
 
 //Save the image.
 
-img.Save("Output.png", ImageFormat.Png);
+image.Save("Output.png", ImageFormat.Png);
 
 documentViewer.Dispose();
 
@@ -1332,11 +1332,11 @@ documentViewer.Load("Input.pdf")
 
 'Export PDF page to image
 
-Dim img As Bitmap = documentViewer.ExportAsImage(0)
+Dim image As Bitmap = documentViewer.ExportAsImage(0)
 
 'Save the image.
 
-img.Save("Sample.png", ImageFormat.Png)
+image.Save("Sample.png", ImageFormat.Png)
 
 documentViewer.Dispose()
 
@@ -1602,11 +1602,11 @@ htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert Partial HTML to Image
 
-Image[] img = htmlConverter.ConvertPartialHtmlToImage("input.html", "pic");
+Image[] image = htmlConverter.ConvertPartialHtmlToImage("input.html", "pic");
 
 //Save Image
 
-img[0].Save("Output.jpg");
+image[0].Save("Output.jpg");
 
 {% endhighlight %}
 
@@ -1630,11 +1630,11 @@ htmlConverter.ConverterSettings = webKitSettings
 
 'Convert Partial HTML to Image
 
-Dim img As Image() = htmlConverter.ConvertPartialHtmlToImage("input.html", "pic")
+Dim image As Image() = htmlConverter.ConvertPartialHtmlToImage("input.html", "pic")
 
 'Save Image
 
-img(0).Save("Output.jpg")
+image(0).Save("Output.jpg")
 
 {% endhighlight %}
 
