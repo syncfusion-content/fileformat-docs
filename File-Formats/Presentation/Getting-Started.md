@@ -489,7 +489,7 @@ presentationDocument.ChartToImageConverter = New ChartToImageConverter ()
 
 'Converts the PowerPoint Presentation into PDF document
 
-Dim pdfdocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
+Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
 
 'Saves the PDF document
 
