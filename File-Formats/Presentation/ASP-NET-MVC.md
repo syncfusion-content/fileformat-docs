@@ -111,7 +111,7 @@ return m_source as IPresentation;
 
 }
 
-//Get the http response
+//Get the HTTP response
 
 public HttpResponse Response
 
@@ -207,7 +207,7 @@ End Get
 
 End Property
 
-'Get the http response information
+'Get the HTTP response information
 
 Public ReadOnly Property Response() As HttpResponse
 

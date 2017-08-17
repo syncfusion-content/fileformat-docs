@@ -41,7 +41,7 @@ SavePPTX(presentation);
 private async void SavePPTX(IPresentation presentation)
 {
 
-StorageFile stgFile;
+StorageFile storageFile;
 
 if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
 {
@@ -57,20 +57,20 @@ if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.
  
   savePicker.SuggestedFileName = "GettingStartedSample";
 
-  stgFile = await savePicker.PickSaveFileAsync();
+  storageFile = await savePicker.PickSaveFileAsync();
 }
 else
 {
   StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
 
-  stgFile = await local.CreateFileAsync("PowerPointPresentation.pptx", CreationCollisionOption.ReplaceExisting);
+  storageFile = await local.CreateFileAsync("PowerPointPresentation.pptx", CreationCollisionOption.ReplaceExisting);
 
 }
-if (stgFile != null)
+if (storageFile != null)
   {
    //Saves as PPTX Format
 
-   await presentation.SaveAsync(stgFile);
+   await presentation.SaveAsync(storageFile);
   }
 {% endhighlight %}
 {% endtabs %}
@@ -88,7 +88,7 @@ IPresentation presentation = Presentation.Create();
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Adds Rectangle auto shape with specified size and positions.
+//Adds a shape with specified size and positions.
 
 IShape shape = slide.Shapes.AddShape(AutoShapeType.Rectangle, 1.92 * 72, 1.51 * 72, 10.85 * 72, 4.12 * 72);
 
@@ -110,7 +110,7 @@ SavePPTX(presentation);
 private async void SavePPTX(IPresentation presentation)
 {
 
-StorageFile stgFile;
+StorageFile storageFile;
 
 if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
 {
@@ -126,19 +126,19 @@ if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.
 
   savePicker.SuggestedFileName = "GettingStartedSample";
 
-  stgFile = await savePicker.PickSaveFileAsync();
+  storageFile = await savePicker.PickSaveFileAsync();
 }
 else
 {
   StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
 
-  stgFile = await local.CreateFileAsync("PowerPointPresentation.pptx", CreationCollisionOption.ReplaceExisting);
+  storageFile = await local.CreateFileAsync("PowerPointPresentation.pptx", CreationCollisionOption.ReplaceExisting);
 
 }
-if (stgFile != null)
+if (storageFile != null)
   {
    //Saves as PPTX Format
-   await presentation.SaveAsync(stgFile);
+   await presentation.SaveAsync(storageFile);
   }
 {% endhighlight %}
 {% endtabs %}
