@@ -17,7 +17,7 @@ Features<br/><br/></th><th>
 Windows Forms /WPF<br/><br/></th><th>
 ASP.NET/ASP.NET MVC<br/><br/>(MediumTrust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps<br/><br/>(WinRT,WindowsPhone and Windows Universal)<br/><br/></th><th>
+UWP<br/><br/></th></tr>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -90,7 +90,7 @@ Features<br/><br/></th><th>
 Windows Forms / WPF <br/><br/></th><th>
 ASP.NET /ASP.NET MVC<br/><br/> (Medium Trust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps <br/><br/> (WinRT ,Windows Phone and Windows Universal )<br/><br/></th><th>
+UWP<br/><br/></th><th>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -164,7 +164,7 @@ Features<br/><br/></th><th>
 Windows Forms / WPF <br/><br/></th><th>
 ASP.NET/ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps <br/><br/> ( WinRT , Windows Phone and Windows Universal )<br/><br/></th><th>
+UWP<br/><br/></th><th>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -229,7 +229,7 @@ Features<br/><br/></th><th>
 Windows Forms /WPF<br/><br/></th><th>
 ASP.NET/ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps<br/><br/>(WinRT,Windows Phone and Windows Universal )<br/><br/></th><th>
+UWP<br/><br/></th><th>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -286,7 +286,7 @@ Features<br/><br/></th><th>
 Windows Forms/WPF<br/><br/></th><th>
 ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+UWP<br/><br/></th><th>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -343,7 +343,7 @@ Features<br/><br/></th><th>
 Windows Forms/WPF<br/><br/></th><th>
 ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+UWP<br/><br/></th><th>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -408,7 +408,7 @@ Features<br/><br/></th><th>
 Windows Forms/WPF<br/><br/></th><th>
 ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+UWP<br/><br/></th><th>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -441,7 +441,7 @@ Features<br/><br/></th><th>
 Windows Forms/WPF<br/><br/></th><th>
 ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+UWP<br/><br/></th><th>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -490,7 +490,7 @@ Features<br/><br/></th><th>
 Windows Forms/WPF<br/><br/></th><th>
 ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+UWP<br/><br/></th><th>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -540,7 +540,7 @@ Features<br/><br/></th><th>
 Windows Forms/WPF<br/><br/></th><th>
 ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+UWP<br/><br/></th><th>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -621,7 +621,7 @@ Features<br/><br/></th><th>
 Windows Forms/WPF<br/><br/></th><th>
 ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+UWP<br/><br/></th><th>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -662,7 +662,7 @@ Features<br/><br/></th><th>
 Windows Forms/WPF<br/><br/></th><th>
 ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+UWP<br/><br/></th><th>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -719,7 +719,7 @@ Features<br/><br/></th><th>
 Windows Forms/WPF<br/><br/></th><th>
 ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-Windows Store Apps<br/><br/>(WinRT, Windows Phone and Windows Universal )<br/><br/></th><th>
+UWP<br/><br/></th><th>
 Xamarin<br/><br/></th></tr>
 </thead>
 <tbody>
@@ -729,8 +729,8 @@ Digital Signature<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td></tr>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td></tr>
 <tr>
 <td>
 Encryption and Decryption<br/><br/></td><td>
