@@ -243,7 +243,7 @@ Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
 
 shape.ShapeName = "Shape1"
 
-'Retrieves the line format instance of the shape.
+'Retrieves the line format of the shape.
 
 Dim lineFormat As ILineFormat = shape.LineFormat
 
@@ -371,7 +371,7 @@ IGroupShape groupShape = slide.GroupShapes.AddGroupShape(20, 20, 450, 300);
 
 //Adds a textbox to the group shape
 
-groupShape.Shapes.AddTextBox(30, 25, 100, 100).TextBody.AddParagraph("My text box");
+groupShape.Shapes.AddTextBox(30, 25, 100, 100).TextBody.AddParagraph("My TextBox");
 
 //Gets the image stream
 
@@ -409,9 +409,9 @@ Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 Dim groupShape As IGroupShape = slide.GroupShapes.AddGroupShape(20, 20, 450, 300)
 
-'Adds a text box to the group shape
+'Adds a TextBox to the group shape
 
-groupShape.Shapes.AddTextBox(30, 25, 100, 100).TextBody.AddParagraph("My text box")
+groupShape.Shapes.AddTextBox(30, 25, 100, 100).TextBody.AddParagraph("My TextBox")
 
 'Gets the image stream
 

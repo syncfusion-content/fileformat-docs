@@ -89,15 +89,15 @@ presentation.ChartToImageConverter = new ChartToImageConverter();
 
 //Converts the PowerPoint Presentation into PDF document
 
-PdfDocument pdfdocument = PresentationToPdfConverter.Convert(presentation);
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation);
 
 //Saves the PDF document
 
-pdfdocument.Save(@"Sample.pdf");
+pdfDocument.Save(@"Sample.pdf");
 
 //Closes the PDF document
 
-pdfdocument.Close(true);
+pdfDocument.Close(true);
 
 //Closes the Presentation
 
@@ -117,15 +117,15 @@ presentationDocument.ChartToImageConverter = New ChartToImageConverter()
 
 'Converts the PowerPoint Presentation into PDF document
 
-Dim pdfdocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
+Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
 
 'Saves the PDF document
 
-pdfdocument.Save("Sample.pdf")
+pdfDocument.Save("Sample.pdf")
 
 'Closes the PDF document
 
-pdfdocument.Close(True)
+pdfDocument.Close(True)
 
 'Closes the Presentation
 
@@ -185,15 +185,15 @@ settings.PublishOptions = PublishOptions.NotesPages;
 
 //Converts the PowerPoint Presentation into PDF document
 
-PdfDocument pdfdocument = PresentationToPdfConverter.Convert(presentation, settings);
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation, settings);
 
 //Saves the PDF document
 
-pdfdocument.Save(@"Sample.pdf");
+pdfDocument.Save(@"Sample.pdf");
 
 //Closes the PDF document
 
-pdfdocument.Close(true);
+pdfDocument.Close(true);
 
 //Closes the Presentation
 
@@ -233,15 +233,15 @@ settings.PublishOptions = PublishOptions.NotesPages
 
 'Converts the PowerPoint Presentation into PDF document
 
-Dim pdfdocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument, settings)
+Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument, settings)
 
 'Saves the PDF document
 
-pdfdocument.Save("Sample.pdf")
+pdfDocument.Save("Sample.pdf")
 
 'Closes the PDF document
 
-pdfdocument.Close(True)
+pdfDocument.Close(True)
 
 'Closes the Presentation
 
