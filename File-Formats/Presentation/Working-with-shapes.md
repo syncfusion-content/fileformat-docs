@@ -369,7 +369,7 @@ ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
 IGroupShape groupShape = slide.GroupShapes.AddGroupShape(20, 20, 450, 300);
 
-//Adds a textbox to the group shape
+//Adds a TextBox to the group shape
 
 groupShape.Shapes.AddTextBox(30, 25, 100, 100).TextBody.AddParagraph("My TextBox");
 
@@ -461,7 +461,7 @@ IGroupShape groupShape = slide.GroupShapes[0];
 
 IShapes shapes = groupShape.Shapes;
 
-//Iterates shape collection to remove the picture in a group shape
+//Iterates the shape collection to remove the picture in a group shape
 
 foreach (IShape shape in shapes)
 
