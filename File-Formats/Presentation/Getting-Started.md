@@ -461,15 +461,15 @@ presentation.ChartToImageConverter = new ChartToImageConverter();
 
 //Converts the PowerPoint Presentation into PDF document
 
-PdfDocument PDFdocument = PresentationToPdfConverter.Convert(presentation);
+PdfDocument pdfdocument = PresentationToPdfConverter.Convert(presentation);
 
 //Saves the PDF document
 
-PDFdocument.Save(@"SampleWithoutSetting.pdf");
+pdfdocument.Save(@"SampleWithoutSetting.pdf");
 
 //Closes the PDF document
 
-PDFdocument.Close(true);
+pdfdocument.Close(true);
 
 //Closes the Presentation
 
@@ -489,15 +489,15 @@ presentationDocument.ChartToImageConverter = New ChartToImageConverter ()
 
 'Converts the PowerPoint Presentation into PDF document
 
-Dim PDFdocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
+Dim pdfdocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
 
 'Saves the PDF document
 
-PDFdocument.Save("SampleWithoutSetting.pdf")
+pdfdocument.Save("SampleWithoutSetting.pdf")
 
 'Closes the PDF document
 
-PDFdocument.Close(True)
+pdfdocument.Close(True)
 
 'Closes the Presentation
 

@@ -73,7 +73,7 @@ IParagraph paragraph = notesSlide.NotesTextBody.AddParagraph();
 //Adds text part into the Paragraph.
 ITextPart textPart = paragraph.AddTextPart();
 
-textPart.Text = "The notes slide represents the contents and key notes of the corresponding slide. It is more useful when we use Presenter View while presenting the seminars through slideshow.";
+textPart.Text = "The notes slide represents the contents and key notes of the corresponding slide. It is more useful when we use Presenter View while presenting the seminars through SlideShow.";
 
 //Sets Bold format for text content.
 textPart.Font.Bold=true;
@@ -104,7 +104,7 @@ Dim paragraph As IParagraph = notesSlide.NotesTextBody.AddParagraph()
 'Adds text part into the Paragraph.
 Dim textPart As ITextPart = paragraph.AddTextPart()
 
-textPart.Text = "The notes slide represents the contents and key notes of the corresponding slide. It is more useful when we use Presenter View while presenting the seminars through slideshow."
+textPart.Text = "The notes slide represents the contents and key notes of the corresponding slide. It is more useful when we use Presenter View while presenting the seminars through SlideShow."
 
 'Sets Bold format for text content.
 textPart.Font.Bold = True
