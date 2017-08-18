@@ -70,7 +70,7 @@ The list of various supported and non-supported Excel features of Essential XlsI
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>  
   <tr>
-    <td>Import data into a preformatted template using Template Markers.</td>
+    <td>Import data into a pre-formatted template using Template Markers.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
@@ -256,7 +256,7 @@ The list of various supported and non-supported Excel features of Essential XlsI
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
-    <td>Apply or modify autofilters to filter worksheet data.</td>
+    <td>Apply or modify AutoFilters to filter worksheet data.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
@@ -436,7 +436,7 @@ The list of various supported and non-supported Excel features of Essential XlsI
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
   </tr>
   <tr>
-    <td>Converts Excel charts to images (.NET framework 4.0 and above).</td>
+    <td>Converts Excel charts to images (.NET Framework 4.0 and above).</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
   </tr>
