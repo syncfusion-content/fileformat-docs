@@ -186,15 +186,15 @@ IShape shape = slide.Shapes[0] as IShape;
 
 shape.ShapeName = "Shape1";
 
-//Retrieves the lineformat instance of the shape.
+//Retrieves the line format of the shape.
 
 ILineFormat lineFormat = shape.LineFormat;
 
-//Sets the dashstyle of the lineformat.
+//Sets the dash style of the line format.
 
 lineFormat.DashStyle = LineDashStyle.DashDotDot;
 
-//Sets the weight of the lineformat.
+//Sets the weight of the line format.
 
 lineFormat.Weight = 3;
 
@@ -243,7 +243,7 @@ Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
 
 shape.ShapeName = "Shape1"
 
-'Retrieves the lineformat instance of the shape.
+'Retrieves the line format of the shape.
 
 Dim lineFormat As ILineFormat = shape.LineFormat
 
@@ -251,7 +251,7 @@ Dim lineFormat As ILineFormat = shape.LineFormat
 
 lineFormat.DashStyle = LineDashStyle.DashDotDot
 
-'Sets the weight of the lineformat.
+'Sets the weight of the line format.
 
 lineFormat.Weight = 3
 
@@ -365,23 +365,23 @@ IPresentation presentation = Presentation.Create();
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Adds a groupshape to the slide
+//Adds a group shape to the slide
 
 IGroupShape groupShape = slide.GroupShapes.AddGroupShape(20, 20, 450, 300);
 
-//Adds a textbox to the groupshape
+//Adds a TextBox to the group shape
 
-groupShape.Shapes.AddTextBox(30, 25, 100, 100).TextBody.AddParagraph("My text box");
+groupShape.Shapes.AddTextBox(30, 25, 100, 100).TextBody.AddParagraph("My TextBox");
 
 //Gets the image stream
 
 Stream pictureStream = File.Open("Image.png", FileMode.Open);
 
-//Adds a picture to the groupshape
+//Adds a picture to the group shape
 
 groupShape.Shapes.AddPicture(pictureStream, 40, 100, 100, 100);
 
-//Adds an autoshape to the groupshape
+//Adds a shape to the group shape
 
 groupShape.Shapes.AddShape(AutoShapeType.Rectangle, 200, 200, 90, 30);
 
@@ -405,23 +405,23 @@ Dim presentationDocument As IPresentation = Presentation.Create()
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
-'Adds a groupshape to the slide
+'Adds a group shape to the slide
 
 Dim groupShape As IGroupShape = slide.GroupShapes.AddGroupShape(20, 20, 450, 300)
 
-'Adds a textbox to the groupshape
+'Adds a TextBox to the group shape
 
-groupShape.Shapes.AddTextBox(30, 25, 100, 100).TextBody.AddParagraph("My text box")
+groupShape.Shapes.AddTextBox(30, 25, 100, 100).TextBody.AddParagraph("My TextBox")
 
 'Gets the image stream
 
 Dim pictureStream As Stream = File.Open("Image.png", FileMode.Open)
 
-'Adds a picture to the groupshape
+'Adds a picture to the group shape
 
 groupShape.Shapes.AddPicture(pictureStream, 40, 100, 100, 100)
 
-'Adds an autoshape to the groupshape
+'Adds a shape to the group shape
 
 groupShape.Shapes.AddShape(AutoShapeType.Rectangle, 200, 200, 90, 30)
 
@@ -453,7 +453,7 @@ IPresentation presentation = Presentation.Open("Sample.pptx");
 
 ISlide slide = presentation.Slides[0];
 
-//Retrieves the first groupshape of the slide
+//Retrieves the first group shape of the slide
 
 IGroupShape groupShape = slide.GroupShapes[0];
 
@@ -461,7 +461,7 @@ IGroupShape groupShape = slide.GroupShapes[0];
 
 IShapes shapes = groupShape.Shapes;
 
-//Iterates shape collection to remove the picture in a groupshape
+//Iterates the shape collection to remove the picture in a group shape
 
 foreach (IShape shape in shapes)
 
@@ -499,7 +499,7 @@ Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
-'Retrieves the first groupshape of the slide
+'Retrieves the first group shape of the slide
 
 Dim groupShape As IGroupShape = slide.GroupShapes(0)
 
@@ -507,7 +507,7 @@ Dim groupShape As IGroupShape = slide.GroupShapes(0)
 
 Dim shapes As IShapes = groupShape.Shapes
 
-'Iterates shape collection to remove the picture in a groupshape
+'Iterates shape collection to remove the picture in a group shape
 
 For Each shape As IShape In shapes
 
@@ -549,11 +549,11 @@ IPresentation presentation = Presentation.Open("Sample.pptx");
 
 ISlide slide = presentation.Slides[0];
 
-//Retrieves the first groupshape of the slide
+//Retrieves the first group shape of the slide
 
 IGroupShape groupShape = slide.GroupShapes[0];
 
-//Removes the groupshape from groupshape collection
+//Removes the group shape from group shape collection
 
 slide.GroupShapes.Remove(groupShape);
 
@@ -577,11 +577,11 @@ Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
-'Retrieves the first groupshape of the slide
+'Retrieves the first group shape of the slide
 
 Dim groupShape As IGroupShape = slide.GroupShapes(0)
 
-'Removes the groupshape from groupshape collection
+'Removes the group shape from group shape collection
 
 slide.GroupShapes.Remove(groupShape)
 

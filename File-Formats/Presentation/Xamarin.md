@@ -53,7 +53,7 @@ IPresentation presentation = Presentation.Create();
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Adds Rectangle auto shape with specified size and positions.
+//Adds a shape with specified size and position.
 
 IShape shape = slide.Shapes.AddShape(AutoShapeType.Rectangle, 1.92 * 72, 1.51 * 72, 10.85 * 72, 4.12 * 72);
 
@@ -87,7 +87,7 @@ IPresentation presentation = Presentation.Create();
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Adds Rectangle auto shape with specified size and positions.
+//Adds a shape with specified size and position.
 
 IShape shape = slide.Shapes.AddShape(AutoShapeType.Rectangle, 1.92 * 72, 1.51 * 72, 10.85 * 72, 4.12 * 72);
 
@@ -121,7 +121,7 @@ IPresentation presentation = Presentation.Create();
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Adds Rectangle auto shape with specified size and positions.
+//Adds a shape with specified size and position.
 
 IShape shape = slide.Shapes.AddShape(AutoShapeType.Rectangle, 1.92 * 72, 1.51 * 72, 10.85 * 72, 4.12 * 72);
 

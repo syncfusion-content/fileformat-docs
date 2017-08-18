@@ -579,7 +579,7 @@ ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
 
 ICell cell = table[0, 0];
 
-//Sets the columnspan to merge the cell.
+//Sets the column span value to merge the cell.
 
 cell.ColumnSpan = 2;
 
@@ -631,7 +631,7 @@ Dim table As ITable = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200)
 
 Dim cell As ICell = table(0, 0)
 
-'Sets the columnspan to merge the cell.
+'Sets the column span value to merge the cell.
 
 cell.ColumnSpan = 2
 

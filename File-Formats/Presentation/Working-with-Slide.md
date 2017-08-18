@@ -79,7 +79,7 @@ Stream pictureStream = File.Open("Image.png", FileMode.Open);
 layoutSlide.Shapes.AddPicture(pictureStream, 100, 100, 100, 100);
 //Add a slide of new designed custom layout to the presentation
 ISlide slide = presentation.Slides.Add(layoutSlide);
-//Save the presntation
+//Save the presentation
 presentation.Save("Output.pptx");
 //Close the presentation
 presentation.Close();
@@ -100,7 +100,7 @@ Dim pictureStream As Stream = File.Open("Image.png", FileMode.Open)
 layoutSlide.Shapes.AddPicture(pictureStream, 100, 100, 100, 100)
 'Add a slide of new designed custom layout to the presentation
 Dim slide As ISlide = presentationDocument.Slides.Add(layoutSlide)
-'Save the presntation
+'Save the presentation
 presentationDocument.Save("Output.pptx")
 'Close the presentation
 presentationDocument.Close()
