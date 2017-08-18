@@ -637,15 +637,15 @@ currentController = currentController.PresentedViewController;
 
 UIView currentView = currentController.View;
 
-QLPreviewController qlPreview = new QLPreviewController();
+QLPreviewController preview = new QLPreviewController();
 
 QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
 
-qlPreview.DataSource = new PreviewControllerDS(item);
+preview.DataSource = new PreviewControllerDS(item);
 
 //UIViewController uiView = currentView as UIViewController;
 
-currentController.PresentViewController(qlPreview, true, null);
+currentController.PresentViewController(preview, true, null);
 
 }
 
@@ -741,15 +741,15 @@ Loop
 
 Dim currentView As UIView = currentController.View
 
-Dim qlPreview As New QLPreviewController()
+Dim preview As New QLPreviewController()
 
 Dim item As QLPreviewItem = New QLPreviewItemBundle(filename, filePath)
 
-qlPreview.DataSource = New PreviewControllerDS(item)
+preview.DataSource = New PreviewControllerDS(item)
 
 'UIViewController uiView = currentView as UIViewController;
 
-currentController.PresentViewController(qlPreview, True, Nothing)
+currentController.PresentViewController(preview, True, Nothing)
 
 End Function
 

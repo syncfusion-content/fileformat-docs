@@ -22,7 +22,7 @@ To create a portfolio and attach a variety of documents, please refer the below 
 
 PdfDocument document = new PdfDocument();
 
-//Creat a new portfolio
+//Create a new portfolio
 
 document.PortfolioInformation = new PdfPortfolioInformation();
 
@@ -148,7 +148,7 @@ Dim document As New PdfLoadedDocument("Sample.pdf")
 
 For Each attachment As PdfAttachment In document.Attachments
 
-'Extarting the attachment and saving into the loacl disk
+'Extrating the attachment and saving into the local disk
 
 Dim s As New FileStream(attachment.FileName, FileMode.Create)
 

@@ -79,11 +79,11 @@ string extractedText = string.Empty;
 
 // Extract text from existing PDF document pages
 
-foreach (PdfLoadedPage lpage in loadedPages)
+foreach (PdfLoadedPage loadedPage in loadedPages)
 
 {
 
-extractedText += lpage.ExtractText();
+extractedText += loadedPage.ExtractText();
 
 }
 
@@ -107,11 +107,11 @@ Dim extractedText As String = String.Empty
 
 ' Extract text from existing PDF document pages
 
-For Each lpage As PdfLoadedPage In loadedPages
+For Each loadedPage As PdfLoadedPage In loadedPages
 
-extractedText &= lpage.ExtractText()
+extractedText &= loadedPage.ExtractText()
 
-Next lpage
+Next loadedPage
 
 ' Close the document.
 

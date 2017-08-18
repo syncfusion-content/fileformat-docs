@@ -166,7 +166,7 @@ var picker = new FileOpenPicker();
 
 picker.FileTypeFilter.Add(".pdf");
 
-//Browse the mulitple files
+//Browse the multiple files
 
 IReadOnlyList<StorageFile> files = await picker.PickMultipleFilesAsync();
 
@@ -244,7 +244,7 @@ Dim picker = New FileOpenPicker()
 
 picker.FileTypeFilter.Add(".pdf")
 
-'Browse the mulitple files
+'Browse the multiple files
 
 Dim files As IReadOnlyList(Of StorageFile) = await picker.PickMultipleFilesAsync()
 
