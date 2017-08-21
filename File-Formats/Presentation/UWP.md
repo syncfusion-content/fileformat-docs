@@ -143,4 +143,4 @@ if (storageFile != null)
 {% endhighlight %}
 {% endtabs %}
 
-N> The image and PDF conversions are not supported in UWP platform.
+N> The PDF conversion is not supported in UWP platform.
