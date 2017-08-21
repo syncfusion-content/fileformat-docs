@@ -39,7 +39,7 @@ ITextPart textPart = paragraph.AddTextPart();
 
 //Adds text to the TextPart
 
-textPart.Text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularized in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+textPart.Text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.";
 
 //Saves the Presentation
 
@@ -75,7 +75,7 @@ Dim textPart As ITextPart = paragraph.AddTextPart()
 
 'Adds text to the TextPart
 
-textPart.Text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularized in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+textPart.Text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base."
 
 'Saves the Presentation
 
@@ -207,7 +207,7 @@ ITextPart textPartFormatting = paragraph2.AddTextPart();
 
 //Adds text to the TextPart
 
-textPartFormatting.Text = "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from 'de Finibus Bonorum et Malorum' by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.";
+textPartFormatting.Text = "In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.";
 
 //Sets the underline color
 
@@ -231,7 +231,7 @@ ITextPart textPartFormatting2 = paragraph2.AddTextPart();
 
 //Adds text to the TextPart
 
-textPartFormatting2.Text = "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.";
+textPartFormatting2.Text = "In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico.";
 
 //Retrieves the existing font for modification
 
@@ -279,7 +279,7 @@ Dim textPartFormatting As ITextPart = paragraph2.AddTextPart()
 
 'Adds text to the TextPart
 
-textPartFormatting.Text = "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from 'de Finibus Bonorum et Malorum' by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
+textPartFormatting.Text = "In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group."
 
 'Sets the underline color
 
@@ -303,7 +303,7 @@ Dim textPartFormatting2 As ITextPart = paragraph2.AddTextPart()
 
 'Adds text to the TextPart
 
-textPartFormatting2.Text = "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested."
+textPartFormatting2.Text = "In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico."
 
 'Retrieves the existing font for modification
 

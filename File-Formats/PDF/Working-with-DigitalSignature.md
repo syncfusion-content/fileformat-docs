@@ -113,7 +113,7 @@ document.Close(True)
 ## Adding a digital signature using stream
 
 The following code example illustrates how to add a digital signature in the PDF document
-using stream.
+using stream as follows.
 
 {% tabs %}
 {% highlight c# %}
@@ -128,7 +128,7 @@ PdfPageBase page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Gets stream from .pfx file.
+//Gets a stream from .pfx file.
 
 Stream pfxStream = File.OpenRead("PDF.pfx");
 
@@ -185,7 +185,7 @@ Dim pfxStream As Stream = File.OpenRead("PDF.pfx")
 
 Dim pdfCert As New PdfCertificate(pfxStream, "syncfusion")
 
-'Create a digital signature.
+'Creates a digital signature.
 
 Dim signature As New PdfSignature(document, page, pdfCert, "Signature")
 
@@ -193,7 +193,7 @@ Dim signature As New PdfSignature(document, page, pdfCert, "Signature")
 
 Dim signatureimg As New PdfBitmap("signature.jpg")
 
-'Sets signature information
+'Sets signature information.
 
 signature.Bounds = New RectangleF(New PointF(0, 0), signatureimg.PhysicalDimension)
 
@@ -252,17 +252,21 @@ loadedDocument.Save(@"Output.pdf");
 
 loadedDocument.Close(true);
 
+
+
 {% endhighlight %}
+
 {% highlight vb.net %}
- 
 'Loads the PDF document with signature field.
 
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
 'Gets the page.
+
 Dim page As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
 'Creates a signature field.
+
 Dim signatureField As New PdfSignatureField(page, "Signaturefield")
 
 signatureField.Bounds = New RectangleF(0, 0, 100, 100)
@@ -270,17 +274,22 @@ signatureField.Bounds = New RectangleF(0, 0, 100, 100)
 signatureField.Signature = New PdfSignature()
 
 'Adds certificate to the signature field.
+
 signatureField.Signature.Certificate = New PdfCertificate("PDF.pfx", "syncfusion")
 
 signatureField.Signature.Reason = "I am author of this document"
 
 'Adds the field.
+
 loadedDocument.Form.Fields.Add(signatureField)
 
 'Saves the certified PDF document.
+
 loadedDocument.Save("Output.pdf")
 
 loadedDocument.Close(True)
+
+
 
 {% endhighlight %}
 {% endtabs %}
@@ -289,10 +298,11 @@ loadedDocument.Close(True)
 You can load the signature field from the existing PDF document and add certificate to the document as follows.
 {% tabs %}
 {% highlight c# %}
- 
+
+
 //Loads a PDF document.
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf"); 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
 //Gets the first page of the document.
 
@@ -390,12 +400,11 @@ loadedDocument.Close(true);
 
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
-'Gets the first page of the document
+'Gets the first page of the document.
 
 Dim page As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
-'Gets the first signature field of the PDF document
-
+'Gets the first signature field of the PDF document.
 Dim field As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
 
 'Gets the stream from .pfx file.
@@ -408,14 +417,19 @@ Dim certificate As New PdfCertificate(pfxStream, "syncfusion")
 
 field.Signature = New PdfSignature(loadedDocument, page, certificate, "Signature", field)
 
-'Saves the document
+'Saves the document.
+
 loadedDocument.Save("Output.pdf")
 
-'Closes the document
+'Closes the document.
+
 loadedDocument.Close(True)
+
+
 
 {% endhighlight %}
 {% endtabs %}
+
 ## Adding a timestamp in digital signature
 
 Essential PDF allows you to add timestamp in the digital signature of the PDF document. The following code example illustrates the same.
@@ -442,7 +456,7 @@ PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
 
 PdfSignature signature = new PdfSignature(page, pdfCert, "Signature");
 
-//Sets an image for signature field
+//Sets an image for signature field.
 
 PdfBitmap bmp = new PdfBitmap(@"syncfusion_logo.gif");
 
@@ -494,7 +508,7 @@ Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
 
 Dim signature As New PdfSignature(page, pdfCert, "Signature")
 
-'Sets an image for signature field
+'Sets an image for signature field.
 
 Dim bmp As New PdfBitmap("syncfusion_logo.gif")
 
