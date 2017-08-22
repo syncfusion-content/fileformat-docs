@@ -336,7 +336,7 @@ Presentation_1.Close()
 
 The resultant PowerPoint Presentation looks as follows.
 
-![](GettingStarted_images/GettingStarted_img1.jpeg)
+![](GettingStarted_images/GettingStarted_img1.JPG)
 
 
 ## Converting PowerPoint Presentation to PDF
