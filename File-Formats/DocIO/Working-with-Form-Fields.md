@@ -259,23 +259,23 @@ paragraph.AppendText("Educational Qualification\t");
 
 //Appends Dropdown field
 
-WDropDownFormField dropdownfield = paragraph.AppendDropDownFormField();
+WDropDownFormField field = paragraph.AppendDropDownFormField();
 
 //Adds items to the dropdown items collection
 
-dropdownfield.DropDownItems.Add("Higher");
+field.DropDownItems.Add("Higher");
 
-dropdownfield.DropDownItems.Add("Vocational");
+field.DropDownItems.Add("Vocational");
 
-dropdownfield.DropDownItems.Add("Universal");
+field.DropDownItems.Add("Universal");
 
-dropdownfield.Enabled = true;
+field.Enabled = true;
 
 //Sets the item index for default value
 
-dropdownfield.DropDownSelectedIndex = 1;
+field.DropDownSelectedIndex = 1;
 
-dropdownfield.CalculateOnExit = true;
+field.CalculateOnExit = true;
 
 //Saves the Word document
 
@@ -412,15 +412,15 @@ text.CharacterFormat.Bold = true;
 
 //Appends Text form field 
 
-WTextFormField textfield = paragraph.AppendTextFormField(null);
+WTextFormField field = paragraph.AppendTextFormField(null);
 
 //Sets type of Text form field
 
-textfield.Type = TextFormFieldType.RegularText;
+field.Type = TextFormFieldType.RegularText;
 
-textfield.CharacterFormat.FontName = "Calibri";
+field.CharacterFormat.FontName = "Calibri";
 
-textfield.CalculateOnExit = true;
+field.CalculateOnExit = true;
 
 section.AddParagraph();
 
@@ -432,19 +432,19 @@ text.CharacterFormat.Bold = true;
 
 //Appends Text form field
 
-textfield = paragraph.AppendTextFormField("Date field", DateTime.Now.ToString("MM/DD/YY"));
+field = paragraph.AppendTextFormField("Date field", DateTime.Now.ToString("MM/DD/YY"));
 
-textfield.StringFormat = "MM/DD/YY";
+field.StringFormat = "MM/DD/YY";
 
 //Sets Text form field type
 
-textfield.Type = TextFormFieldType.DateText;
+field.Type = TextFormFieldType.DateText;
 
-textfield.CalculateOnExit = true;
+field.CalculateOnExit = true;
 
 //Saves the Word document
 
-document.Save("Textfield.docx", FormatType.Docx);
+document.Save("field.docx", FormatType.Docx);
 
 //Closes the document
 
@@ -481,15 +481,15 @@ text.CharacterFormat.Bold = True
 
 'Appends Text form field 
 
-Dim textfield As WTextFormField = paragraph.AppendTextFormField(Nothing)
+Dim field As WTextFormField = paragraph.AppendTextFormField(Nothing)
 
 'Sets type of Text form field
 
-textfield.Type = TextFormFieldType.RegularText
+field.Type = TextFormFieldType.RegularText
 
-textfield.CharacterFormat.FontName = "Calibri"
+field.CharacterFormat.FontName = "Calibri"
 
-textfield.CalculateOnExit = True
+field.CalculateOnExit = True
 
 section.AddParagraph()
 
@@ -501,19 +501,19 @@ text.CharacterFormat.Bold = True
 
 'Appends Text form field
 
-textfield = paragraph.AppendTextFormField("Date field", DateTime.Now.ToString("MM/DD/YY"))
+field = paragraph.AppendTextFormField("Date field", DateTime.Now.ToString("MM/DD/YY"))
 
-textfield.StringFormat = "MM/DD/YY"
+field.StringFormat = "MM/DD/YY"
 
 'Sets Text form field type
 
-textfield.Type = TextFormFieldType.DateText
+field.Type = TextFormFieldType.DateText
 
-textfield.CalculateOnExit = True
+field.CalculateOnExit = True
 
 'Saves the Word document
 
-document.Save("Textfield.docx", FormatType.Docx)
+document.Save("Text-field.docx", FormatType.Docx)
 
 'Closes the document
 
@@ -534,7 +534,7 @@ You can add or modify text form field properties such as default text, type in a
 
 //Loads the template document 
 
-WordDocument document = new WordDocument("Textfield.docx");
+WordDocument document = new WordDocument("Text-field.docx");
 
 //Iterates through section
 
@@ -603,7 +603,7 @@ document.Close();
 
 'Loads the template document 
 
-Dim document As New WordDocument("Textfield.docx")
+Dim document As New WordDocument("Text-field.docx")
 
 'Iterates through section
 

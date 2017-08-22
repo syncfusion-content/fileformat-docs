@@ -68,7 +68,7 @@ WordDocument document = new WordDocument();
 
 IWSection section = document.AddSection();
 
-string paraText = "Lorem ipsum dolor sit amet, lacus amet amet ultricies. Quisque mi venenatis morbi libero, orci dis, mi ut et class porta, massa ligula magna enim, aliquam orci vestibulum Turpis facilisis vitae consequat, cum a a,turpis dui consequat massa in dolor per, felis non amet.Auctor eleifend in omnis elit vestibulum, donec non elementum tellus est mauris, id aliquam, at lacus, arcu pretium proin lacus dolor et. Eu tortor, vel ultrices amet dignissim mauris vehicula";
+string paraText = "Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.";
 
 //Adds the paragraph into the created section
 
@@ -90,7 +90,7 @@ paragraph = section.AddParagraph();
 
 paragraph.AppendText("First Chapter");
 
-//Sets a build in heading style.
+//Sets a built-in heading style.
 
 paragraph.ApplyStyle(BuiltinStyle.Heading1);
 
@@ -110,7 +110,7 @@ paragraph = section.AddParagraph();
 
 paragraph.AppendText("Second Chapter");
 
-//Sets a build in heading style.
+//Sets a built-in heading style.
 
 paragraph.ApplyStyle(BuiltinStyle.Heading2);
 
@@ -130,7 +130,7 @@ paragraph = section.AddParagraph();
 
 paragraph.AppendText("Third Chapter");
 
-//Sets a build in heading style
+//Sets a built-in heading style
 
 paragraph.ApplyStyle(BuiltinStyle.Heading3);
 
@@ -163,7 +163,7 @@ Dim document As New WordDocument()
 
 Dim section As IWSection = document.AddSection()
 
-Dim paraText As String = "Lorem ipsum dolor sit amet, lacus amet amet ultricies. Quisque mi venenatis morbi libero, orci dis, mi ut et class porta, massa ligula magna enim, aliquam orci vestibulum Turpis facilisis vitae consequat, cum a a,turpis dui consequat massa in dolor per, felis non amet.Auctor eleifend in omnis elit vestibulum, donec non elementum tellus est mauris, id aliquam, at lacus, arcu pretium proin lacus dolor et. Eu tortor, vel ultrices amet dignissim mauris vehicula"
+Dim paraText As String = "Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company."
 
 'Adds the paragraph into the created section
 
@@ -185,7 +185,7 @@ paragraph = section.AddParagraph()
 
 paragraph.AppendText("First Chapter")
 
-'Sets a build in heading style
+'Sets a built-in heading style
 
 paragraph.ApplyStyle(BuiltinStyle.Heading1)
 
@@ -205,7 +205,7 @@ paragraph = section.AddParagraph()
 
 paragraph.AppendText("Second Chapter")
 
-'Sets a build in heading style
+'Sets a built-in heading style
 
 paragraph.ApplyStyle(BuiltinStyle.Heading2)
 
@@ -225,7 +225,7 @@ paragraph = section.AddParagraph()
 
 paragraph.AppendText("Third Chapter")
 
-'Sets a build in heading style
+'Sets a built-in heading style
 
 paragraph.ApplyStyle(BuiltinStyle.Heading3)
 
@@ -323,7 +323,7 @@ WordDocument document = new WordDocument();
 
 //Creates a new custom styles
 
-Style style = (WParagraphStyle)document.AddParagraphStyle("Mystyle");
+Style style = (WParagraphStyle)document.AddParagraphStyle("My style");
 
 style.CharacterFormat.Bold = true;
 
@@ -335,7 +335,7 @@ style.CharacterFormat.FontSize = 25;
 
 IWSection section = document.AddSection();
 
-string paraText = "Lorem ipsum dolor sit amet, lacus amet amet ultricies. Quisque mi venenatis morbi libero, orci dis, mi ut et class porta, massa ligula magna enim, aliquam orci vestibulum Turpis facilisis vitae consequat, cum a a,turpis dui consequat massa in dolor per, felis non amet.Auctor eleifend in omnis elit vestibulum, donec non elementum tellus est mauris, id aliquam, at lacus, arcu pretium proin lacus dolor et. Eu tortor, vel ultrices amet dignissim mauris vehicula";
+string paraText = "Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.";
 
 //Adds the paragraph into the created section
 
@@ -343,13 +343,13 @@ IWParagraph paragraph = section.AddParagraph();
 
 //Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
 
-TableOfContent toc = paragraph.AppendTOC(1, 3);
+TableOfContent TOC = paragraph.AppendTOC(1, 3);
 
-toc.UseHeadingStyles = false;
+TOC.UseHeadingStyles = false;
 
 //Sets the TOC level style based on the created TOC 
 
-toc.SetTOCLevelStyle(2, "Mystyle");
+TOC.SetTOCLevelStyle(2, "My style");
 
 //Adds the section into the Word document
 
@@ -363,9 +363,9 @@ paragraph = section.AddParagraph();
 
 paragraph.AppendText("First Chapter");
 
-//Sets the build in heading style
+//Sets the built-in heading style
 
-paragraph.ApplyStyle("Mystyle");
+paragraph.ApplyStyle("My style");
 
 //Adds the text into the paragraph
 
@@ -383,7 +383,7 @@ paragraph = section.AddParagraph();
 
 paragraph.AppendText("Second Chapter");
 
-//Sets the build in heading style
+//Sets the built-in heading style
 
 paragraph.ApplyStyle(BuiltinStyle.Heading1);
 
@@ -403,9 +403,9 @@ paragraph = section.AddParagraph();
 
 paragraph.AppendText("Third Chapter");
 
-//Sets the build in heading style
+//Sets the built-in heading style
 
-paragraph.ApplyStyle("Mystyle");
+paragraph.ApplyStyle("My style");
 
 //Adds the text to the paragraph
 
@@ -436,7 +436,7 @@ Dim document As New WordDocument()
 
 'Creates a new custom styles
 
-Dim style As Style = DirectCast(document.AddParagraphStyle("Mystyle"), WParagraphStyle)
+Dim style As Style = DirectCast(document.AddParagraphStyle("My style"), WParagraphStyle)
 
 style.CharacterFormat.Bold = True
 
@@ -448,7 +448,7 @@ style.CharacterFormat.FontSize = 25
 
 Dim section As IWSection = document.AddSection()
 
-Dim paraText As String = "Lorem ipsum dolor sit amet, lacus amet amet ultricies. Quisque mi venenatis morbi libero, orci dis, mi ut et class porta, massa ligula magna enim, aliquam orci vestibulum Turpis facilisis vitae consequat, cum a a,turpis dui consequat massa in dolor per, felis non amet.Auctor eleifend in omnis elit vestibulum, donec non elementum tellus est mauris, id aliquam, at lacus, arcu pretium proin lacus dolor et. Eu tortor, vel ultrices amet dignissim mauris vehicula"
+Dim paraText As String = "Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company."
 
 'Adds the paragraph into the created section
 
@@ -456,13 +456,13 @@ Dim paragraph As IWParagraph = section.AddParagraph()
 
 'Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determine the TOC entries
 
-Dim toc As TableOfContent = paragraph.AppendTOC(1, 3)
+Dim TOC As TableOfContent = paragraph.AppendTOC(1, 3)
 
-toc.UseHeadingStyles = False
+TOC.UseHeadingStyles = False
 
 'Sets the TOC level style based on the created TOC 
 
-toc.SetTOCLevelStyle(2, "Mystyle")
+TOC.SetTOCLevelStyle(2, "My style")
 
 'Adds the section into the Word document
 
@@ -476,9 +476,9 @@ paragraph = section.AddParagraph()
 
 paragraph.AppendText("First Chapter")
 
-'Sets the build in heading style
+'Sets the built-in heading style
 
-paragraph.ApplyStyle("Mystyle")
+paragraph.ApplyStyle("My style")
 
 'Adds the text into the paragraph
 
@@ -496,7 +496,7 @@ paragraph = section.AddParagraph()
 
 paragraph.AppendText("Second Chapter")
 
-'Sets the build in heading style
+'Sets the built-in heading style
 
 paragraph.ApplyStyle(BuiltinStyle.Heading1)
 
@@ -516,9 +516,9 @@ paragraph = section.AddParagraph()
 
 paragraph.AppendText("Third Chapter")
 
-'Sets the build in heading style
+'Sets the built-in heading style
 
-paragraph.ApplyStyle("Mystyle")
+paragraph.ApplyStyle("My style")
 
 'Adds the text to the paragraph
 

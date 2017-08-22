@@ -206,7 +206,7 @@ IWParagraph paragraph = section.AddParagraph();
 
 //Adds new text to the paragraph
 
-IWTextRange firsttext = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.");
+IWTextRange text = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.");
 
 //Applies paragraph formatting
 
@@ -248,7 +248,7 @@ Dim paragraph As IWParagraph = section.AddParagraph()
 
 'Adds new text to the paragraph
 
-Dim firsttext As IWTextRange = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.")
+Dim text As IWTextRange = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.")
 
 'Applies paragraph formatting
 
@@ -300,7 +300,7 @@ IWParagraph firstParagraph = section.AddParagraph();
 
 //Adds new text to the paragraph
 
-IWTextRange firsttext = firstParagraph.AppendText("Built-in styles can be applied to the paragraph. Heading1 style is applied to this paragraph.");
+IWTextRange text = firstParagraph.AppendText("Built-in styles can be applied to the paragraph. Heading1 style is applied to this paragraph.");
 
 //Applies built-in style for the paragraph
 
@@ -332,7 +332,7 @@ Dim firstParagraph As IWParagraph = section.AddParagraph()
 
 'Adds new text to the paragraph
 
-Dim firsttext As IWTextRange = firstParagraph.AppendText("Built-in styles can be applied to the paragraph. Heading1 style is applied to this paragraph.")
+Dim text As IWTextRange = firstParagraph.AppendText("Built-in styles can be applied to the paragraph. Heading1 style is applied to this paragraph.")
 
 'Applies built-in style for the paragraph
 
@@ -566,13 +566,13 @@ IWParagraph firstParagraph = section.AddParagraph();
 
 //Adds new text to the paragraph
 
-IWTextRange firsttext = firstParagraph.AppendText("A new text is added to the paragraph.");
+IWTextRange text = firstParagraph.AppendText("A new text is added to the paragraph.");
 
-firsttext.CharacterFormat.FontSize = 14;
+text.CharacterFormat.FontSize = 14;
 
-firsttext.CharacterFormat.Bold = true;
+text.CharacterFormat.Bold = true;
 
-firsttext.CharacterFormat.TextColor = Color.Green;
+text.CharacterFormat.TextColor = Color.Green;
 
 //Saves the Word document
 
@@ -600,13 +600,13 @@ Dim firstParagraph As IWParagraph = section.AddParagraph()
 
 'Adds new text to the paragraph
 
-Dim firsttext As IWTextRange = firstParagraph.AppendText("A new text is added to the paragraph.")
+Dim text As IWTextRange = firstParagraph.AppendText("A new text is added to the paragraph.")
 
-firsttext.CharacterFormat.FontSize = 14
+text.CharacterFormat.FontSize = 14
 
-firsttext.CharacterFormat.Bold = True
+text.CharacterFormat.Bold = True
 
-firsttext.CharacterFormat.TextColor = Color.Green
+text.CharacterFormat.TextColor = Color.Green
 
 'Saves the Word document
 
@@ -636,7 +636,7 @@ WordDocument document = new WordDocument("Template.docx");
 
 WParagraph lastParagraph = document.LastParagraph;
 
-//Iterates through the paragraph items to get the textrange and modifies its content.
+//Iterates through the paragraph items to get the text range and modifies its content.
 
 for (int i = 0; i < lastParagraph.ChildEntities.Count; i++)
 
@@ -678,7 +678,7 @@ Dim document As New WordDocument("Template.docx")
 
 Dim lastParagraph As WParagraph = document.LastParagraph
 
-'Iterates through the paragraph items to get the textrange and modifies its content
+'Iterates through the paragraph items to get the text range and modifies its content
 
 For i As Integer = 0 To lastParagraph.ChildEntities.Count - 1
 
@@ -730,31 +730,31 @@ IWParagraph firstParagraph = section.AddParagraph();
 
 //Adds new text to the paragraph
 
-IWTextRange firsttext = firstParagraph.AppendText("This is the first text range. ");
+IWTextRange text_1 = firstParagraph.AppendText("This is the first text range. ");
 
 //Applies formatting for first text range
 
-firsttext.CharacterFormat.Bold = true;
+text_1.CharacterFormat.Bold = true;
 
-firsttext.CharacterFormat.FontSize = 14;
+text_1.CharacterFormat.FontSize = 14;
 
-firsttext.CharacterFormat.Shadow = true;
+text_1.CharacterFormat.Shadow = true;
 
-firsttext.CharacterFormat.SmallCaps = true;
+text_1.CharacterFormat.SmallCaps = true;
 
-IWTextRange secondtext = firstParagraph.AppendText("This the second text range");
+IWTextRange text_2 = firstParagraph.AppendText("This the second text range");
 
 //Applies formatting for second text range
 
-secondtext.CharacterFormat.HighlightColor = Color.GreenYellow;
+text_2.CharacterFormat.HighlightColor = Color.GreenYellow;
 
-secondtext.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash;
+text_2.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash;
 
-secondtext.CharacterFormat.Italic = true;
+text_2.CharacterFormat.Italic = true;
 
-secondtext.CharacterFormat.FontName = "Times New Roman";
+text_2.CharacterFormat.FontName = "Times New Roman";
 
-secondtext.CharacterFormat.TextColor = Color.Green;
+text_2.CharacterFormat.TextColor = Color.Green;
 
 //Saves the Word document
 
@@ -782,31 +782,31 @@ Dim firstParagraph As IWParagraph = section.AddParagraph()
 
 'Adds new text to the paragraph
 
-Dim firsttext As IWTextRange = firstParagraph.AppendText("This is the first text range. ")
+Dim text_1 As IWTextRange = firstParagraph.AppendText("This is the first text range. ")
 
 'Applies formatting for first text range
 
-firsttext.CharacterFormat.Bold = True
+text_1.CharacterFormat.Bold = True
 
-firsttext.CharacterFormat.FontSize = 14
+text_1.CharacterFormat.FontSize = 14
 
-firsttext.CharacterFormat.Shadow = True
+text_1.CharacterFormat.Shadow = True
 
-firsttext.CharacterFormat.SmallCaps = True
+text_1.CharacterFormat.SmallCaps = True
 
-Dim secondtext As IWTextRange = firstParagraph.AppendText("This the second text range")
+Dim text_2 As IWTextRange = firstParagraph.AppendText("This the second text range")
 
 'Applies formatting for second text range
 
-secondtext.CharacterFormat.HighlightColor = Color.GreenYellow
+text_2.CharacterFormat.HighlightColor = Color.GreenYellow
 
-secondtext.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash
+text_2.CharacterFormat.UnderlineStyle = UnderlineStyle.DotDash
 
-secondtext.CharacterFormat.Italic = True
+text_2.CharacterFormat.Italic = True
 
-secondtext.CharacterFormat.FontName = "Times New Roman"
+text_2.CharacterFormat.FontName = "Times New Roman"
 
-secondtext.CharacterFormat.TextColor = Color.Green
+text_2.CharacterFormat.TextColor = Color.Green
 
 'Saves the Word document
 
@@ -1121,7 +1121,7 @@ paragraph.AppendText("This paragraph has picture. ");
 
 IWPicture picture = paragraph.AppendPicture(Image.FromFile("Image.png"));
 
-//Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the textrange.
+//Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
 
 picture.TextWrappingStyle = TextWrappingStyle.Square;
 
@@ -1181,7 +1181,7 @@ paragraph.AppendText("This paragraph has picture. ")
 
 Dim picture As IWPicture = paragraph.AppendPicture(Image.FromFile("Image.png"))
 
-'Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the textrange.
+'Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
 
 picture.TextWrappingStyle = TextWrappingStyle.Square
 
@@ -2034,7 +2034,7 @@ IWSection section = document.AddSection();
 
 //Adds new list style to the document          
 
-ListStyle listStyle = document.AddListStyle(ListType.Numbered, "UserdefinedList");
+ListStyle listStyle = document.AddListStyle(ListType.Numbered, "User-defined-List");
 
 WListLevel levelOne = listStyle.Levels[0];
 
@@ -2076,7 +2076,7 @@ paragraph.AppendText("User defined list - Level 0");
 
 //Applies default numbered list style
 
-paragraph.ListFormat.ApplyStyle("UserdefinedList");
+paragraph.ListFormat.ApplyStyle("User-defined-List");
 
 //Adds second paragraph
 
@@ -2114,7 +2114,7 @@ Dim section As IWSection = document.AddSection()
 
 'Adds new list style to the document          
 
-Dim listStyle As ListStyle = document.AddListStyle(ListType.Numbered, "UserdefinedList")
+Dim listStyle As ListStyle = document.AddListStyle(ListType.Numbered, "User-defined-List")
 
 Dim levelOne As WListLevel = listStyle.Levels(0)
 
@@ -2156,7 +2156,7 @@ paragraph.AppendText("User defined list - Level 0")
 
 'Applies default numbered list style
 
-paragraph.ListFormat.ApplyStyle("UserdefinedList")
+paragraph.ListFormat.ApplyStyle("User-defined-List")
 
 'Adds second paragraph
 
@@ -2202,7 +2202,7 @@ IWSection section = document.AddSection();
 
 //Adds new list style to the document          
 
-ListStyle listStyle = document.AddListStyle(ListType.Numbered, "UserdefinedList");
+ListStyle listStyle = document.AddListStyle(ListType.Numbered, "User-defined-List");
 
 WListLevel levelOne = listStyle.Levels[0];
 
@@ -2248,7 +2248,7 @@ paragraph.AppendText("User defined list - Level 0");
 
 //Applies default numbered list style
 
-paragraph.ListFormat.ApplyStyle("UserdefinedList");
+paragraph.ListFormat.ApplyStyle("User-defined-List");
 
 //Adds second paragraph
 
@@ -2300,7 +2300,7 @@ Dim section As IWSection = document.AddSection()
 
 'Adds new list style to the document          
 
-Dim listStyle As ListStyle = document.AddListStyle(ListType.Numbered, "UserdefinedList")
+Dim listStyle As ListStyle = document.AddListStyle(ListType.Numbered, "User-defined-List")
 
 Dim levelOne As WListLevel = listStyle.Levels(0)
 
@@ -2346,7 +2346,7 @@ paragraph.AppendText("User defined list - Level 0")
 
 'Applies default numbered list style
 
-paragraph.ListFormat.ApplyStyle("UserdefinedList")
+paragraph.ListFormat.ApplyStyle("User-defined-List")
 
 'Adds second paragraph
 
@@ -3232,9 +3232,9 @@ WPicture picture = new WPicture(document);
 
 picture.LoadImage(Image.FromFile("Image.png"));
 
-//Appends the Oleobject to the paragraph
+//Appends the OLE object to the paragraph
 
-WOleObject ole = paragraph.AppendOleObject(stream, picture, OleObjectType.ExcelWorksheet);
+WOleObject OLE = paragraph.AppendOleObject(stream, picture, OleObjectType.ExcelWorksheet);
 
 //Saves the Word document
 
@@ -3270,9 +3270,9 @@ Dim picture As New WPicture(document)
 
 picture.LoadImage(Image.FromFile("Image.png"))
 
-'Appends the Oleobject to the paragraph
+'Appends the OLE object to the paragraph
 
-Dim ole As WOleObject = paragraph.AppendOleObject(stream, picture, OleObjectType.ExcelWorksheet)
+Dim OLE As WOleObject = paragraph.AppendOleObject(stream, picture, OleObjectType.ExcelWorksheet)
 
 'Saves the Word document
 
@@ -3672,7 +3672,7 @@ IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
 
 textboxParagraph.AppendText("Text inside text box");
 
-//Sets fillcolor and line width for textbox
+//Sets fill color and line width for textbox
 
 textbox.TextBoxFormat.FillColor = Color.LightGreen;
 
@@ -3736,7 +3736,7 @@ Dim textboxParagraph As IWParagraph = textbox.TextBoxBody.AddParagraph()
 
 textboxParagraph.AppendText("Text inside text box")
 
-'Sets fillcolor and line width for textbox
+'Sets fill color and line width for textbox
 
 textbox.TextBoxFormat.FillColor = Color.LightGreen
 
