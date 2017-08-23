@@ -464,7 +464,7 @@ IConnection Connection = workbook.Connections.Add("Connection1", "Sample connect
 worksheet.ListObjects.AddEx(ExcelListObjectSourceType.SrcQuery, Connection,  worksheet.Range["A1"]);
 
 // Command Text for the Connection
-worksheet.ListObjects[0].QueryTable.CommandText = "Select * from tblTest";
+worksheet.ListObjects[0].QueryTable.CommandText = "Select * from tableTest";
 
 // The Query performs Asynchronous action
 worksheet.ListObjects[0].QueryTable.BackgroundQuery = true;
@@ -517,7 +517,7 @@ Dim Connection As IConnection = workbook.Connections.Add("Connection1", "Sample 
 worksheet.ListObjects.AddEx(ExcelListObjectSourceType.SrcQuery, Connection, worksheet.Range("A1"))
 
 ' Command Text for the Connection
-worksheet.ListObjects(0).QueryTable.CommandText = "Select * from tblTest"
+worksheet.ListObjects(0).QueryTable.CommandText = "Select * from tableTest"
 
 ' The Query performs Asynchronous action
 worksheet.ListObjects(0).QueryTable.BackgroundQuery = True
