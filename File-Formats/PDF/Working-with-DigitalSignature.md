@@ -112,7 +112,7 @@ document.Close(True)
 
 ## Adding a digital signature using stream
 
-The following code example illustrate how to add a digital signature in the PDF document
+The following code example illustrates how to add a digital signature in the PDF document
 using stream as follows.
 
 {% tabs %}
@@ -132,7 +132,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream pfxStream = File.OpenRead("PDF.pfx");
 
-//Creates a certificate instance from a .pfx file stream with private key.
+//Creates a certificate instance from PFX file stream with private key.
 
 PdfCertificate pdfCert = new PdfCertificate(pfxStream, "syncfusion");
 
@@ -154,7 +154,7 @@ signature.LocationInfo = "Honolulu, Hawaii";
 
 signature.Reason = "I am author of this document.";
 
-//Draw the signature image.
+//Draws the signature image.
 
 graphics.DrawImage(signatureimg, 0, 0);
 
@@ -242,9 +242,7 @@ signatureField.Signature.Certificate = new PdfCertificate(@"PDF.pfx", "syncfusio
 
 signatureField.Signature.Reason = "I am author of this document";
 
-
-
-//Adds the field
+//Adds the field.
 
 loadedDocument.Form.Fields.Add(signatureField);
 
@@ -259,16 +257,15 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-
-'Loads the PDF document with signature field
+'Loads the PDF document with signature field.
 
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
-'Gets the page
+'Gets the page.
 
 Dim page As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
-'Creates a signature field
+'Creates a signature field.
 
 Dim signatureField As New PdfSignatureField(page, "Signaturefield")
 
@@ -362,7 +359,7 @@ loadedDocument.Close(True)
 {% endtabs %}
 ## Sign an existing document using stream
 
-You can load the signature field from an existing PDF document and add certificate to the document as follows.
+You can load the signature field from an existing PDF document and add certificate to the document using stream as follows.
 {% tabs %}
 {% highlight c# %}
  
@@ -370,19 +367,19 @@ You can load the signature field from an existing PDF document and add certifica
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
-//Get the first page of the document.
+//Gets the first page of the document.
 
 PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
 
-//Get the first signature field of the PDF document.
+//Gets the first signature field of the PDF document.
 
 PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
 
-//Get the stream from .pfx file.
+//Gets the stream from .pfx file.
 
 Stream pfxStream = File.OpenRead("PDF.pfx");
 
-//Create a certificate instance from PFX file stream with private key.
+//Creates a certificate instance from PFX file stream with private key.
 
 PdfCertificate certificate = new PdfCertificate(pfxStream, "syncfusion");
 
