@@ -33,13 +33,13 @@ IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
 
 IParagraph paragraph = textboxShape.TextBody.AddParagraph();
 
-//Adds textpart to the paragraph
+//Adds a TextPart to the paragraph
 
 ITextPart textPart = paragraph.AddTextPart();
 
-//Adds text to the textpart
+//Adds text to the TextPart
 
-textPart.Text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularized in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+textPart.Text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.";
 
 //Saves the Presentation
 
@@ -69,13 +69,13 @@ Dim textboxShape As IShape = slide.AddTextBox(0, 0, 500, 500)
 
 Dim paragraph As IParagraph = textboxShape.TextBody.AddParagraph()
 
-'Adds textpart to the paragraph
+'Adds a TextPart to the paragraph
 
 Dim textPart As ITextPart = paragraph.AddTextPart()
 
-'Adds text to the textpart
+'Adds text to the TextPart
 
-textPart.Text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularized in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+textPart.Text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base."
 
 'Saves the Presentation
 
@@ -179,7 +179,7 @@ presentationDocument.Close()
 
 ## Working with text
 
-With Essential Presentation, you can add or modify the text in a Presentation. Within the paragraph, textual contents are grouped into one or more child elements as TextParts. Each TextPart represents a region of text with a common set of formatted text. The following code example demonstrates how to add text parts with different formatting into a single paragraph.
+With Essential Presentation, you can add or modify the text in a Presentation. Within the paragraph, textual contents are grouped into one or more child elements as TextParts. Each TextPart represents a region of text with a common set of formatted text. The following code example demonstrates how to add text with different formatting into a single paragraph.
 
 {% tabs %}
 
@@ -201,13 +201,13 @@ IShape textboxShape2 = slide.AddTextBox(500, 0, 400, 500);
 
 IParagraph paragraph2 = textboxShape2.TextBody.AddParagraph();
 
-//Adds textpart to the paragraph
+//Adds a TextPart to the paragraph
 
 ITextPart textPartFormatting = paragraph2.AddTextPart();
 
-//Adds text to the textpart
+//Adds text to the TextPart
 
-textPartFormatting.Text = "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from 'de Finibus Bonorum et Malorum' by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.";
+textPartFormatting.Text = "In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.";
 
 //Sets the underline color
 
@@ -225,13 +225,13 @@ font.Underline = TextUnderlineType.Single;
 
 font.Bold = true;
 
-//Adds textpart to the paragraph
+//Adds a TextPart to the paragraph
 
 ITextPart textPartFormatting2 = paragraph2.AddTextPart();
 
-//Adds text to the textpart
+//Adds text to the TextPart
 
-textPartFormatting2.Text = "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.";
+textPartFormatting2.Text = "In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico.";
 
 //Retrieves the existing font for modification
 
@@ -273,13 +273,13 @@ Dim textboxShape2 As IShape = slide.AddTextBox(500, 0, 400, 500)
 
 Dim paragraph2 As IParagraph = textboxShape2.TextBody.AddParagraph()
 
-'Adds textpart to the paragraph
+'Adds a TextPart to the paragraph
 
 Dim textPartFormatting As ITextPart = paragraph2.AddTextPart()
 
-'Adds text to the textpart
+'Adds text to the TextPart
 
-textPartFormatting.Text = "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from 'de Finibus Bonorum et Malorum' by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
+textPartFormatting.Text = "In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group."
 
 'Sets the underline color
 
@@ -297,13 +297,13 @@ font.Underline = TextUnderlineType.[Single]
 
 font.Bold = True
 
-'Adds textpart to the paragraph
+'Adds a TextPart to the paragraph
 
 Dim textPartFormatting2 As ITextPart = paragraph2.AddTextPart()
 
-'Adds text to the textpart
+'Adds text to the TextPart
 
-textPartFormatting2.Text = "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested."
+textPartFormatting2.Text = "In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico."
 
 'Retrieves the existing font for modification
 
@@ -353,15 +353,15 @@ IShape shape = slide.Shapes[0] as IShape;
 
 IParagraph paragraph = shape.TextBody.Paragraphs[0];
 
-//Retrieves the first text part of the shape.
+//Retrieves the first TextPart of the shape.
 
 ITextPart textPart = paragraph.TextParts[0];
 
-//Modifies the text content of the textpart.
+//Modifies the text content of the TextPart.
 
 textPart.Text = "Hello Presentation";
 
-//Saves the presenation to the file system.
+//Saves the presentation to the file system.
 
 presentation.Save("Result.pptx");
 
@@ -389,15 +389,15 @@ Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
 
 Dim paragraph As IParagraph = shape.TextBody.Paragraphs(0)
 
-'Retrieves the first text part of the shape.
+'Retrieves the first TextPart of the shape.
 
 Dim textPart As ITextPart = paragraph.TextParts(0)
 
-'Modifies the text content of the textpart.
+'Modifies the text content of the TextPart.
 
 textPart.Text = "Hello Presentation"
 
-'Saves the presenation to the file system.
+'Saves the presentation to the file system.
 
 presentationDocument.Save("Result.pptx")
 
@@ -437,7 +437,7 @@ IParagraph paragraph = shape.TextBody.Paragraphs[0];
 
 shape.TextBody.Paragraphs.Remove(paragraph);
 
-//Saves the presenation to the file system
+//Saves the presentation to the file system
 
 presentation.Save("Result.pptx");
 
@@ -469,7 +469,7 @@ Dim paragraph As IParagraph = shape.TextBody.Paragraphs(0)
 
 shape.TextBody.Paragraphs.Remove(paragraph)
 
-'Saves the presenation to the file system.
+'Saves the presentation to the file system.
 
 presentationDocument.Save("Result.pptx")
 

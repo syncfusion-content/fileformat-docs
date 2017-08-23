@@ -24,9 +24,9 @@ ISlide slide = presentationFile.Slides.Add(SlideLayoutType.Blank);
 Stream excelStream = File.Open("OleTemplate.xlsx", FileMode.Open);
 //Image to be displayed, This can be any image
 Stream imageStream = File.Open("OlePicture.png", FileMode.Open);
-//Add ole object to the slide
+//Add an OLE object to the slide
 IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Excel.Sheet.12", excelStream);
-//Set size and position of the ole object
+//Set size and position of the OLE object
 oleObject.Left = 10;
 oleObject.Top = 10;
 oleObject.Width = 400;
@@ -45,9 +45,9 @@ Dim slide As ISlide = presentationFile.Slides.Add(SlideLayoutType.Blank)
 Dim excelStream As Stream = File.Open("OleTemplate.xlsx", FileMode.Open)
 'Image to be displayed, This can be any image
 Dim imageStream As Stream = File.Open("OlePicture.png", FileMode.Open)
-'Add ole object to the slide
+'Add an OLE object to the slide
 Dim oleObject As IOleObject = slide.Shapes.AddOleObject(imageStream, "Excel.Sheet.12", excelStream)
-'Set size and position of the ole object
+'Set size and position of the OLE object
 oleObject.Left = 10
 oleObject.Top = 10
 oleObject.Width = 400

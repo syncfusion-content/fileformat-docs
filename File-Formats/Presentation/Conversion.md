@@ -89,15 +89,15 @@ presentation.ChartToImageConverter = new ChartToImageConverter();
 
 //Converts the PowerPoint Presentation into PDF document
 
-PdfDocument PDFdocument = PresentationToPdfConverter.Convert(presentation);
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation);
 
 //Saves the PDF document
 
-PDFdocument.Save(@"Sample.pdf");
+pdfDocument.Save(@"Sample.pdf");
 
 //Closes the PDF document
 
-PDFdocument.Close(true);
+pdfDocument.Close(true);
 
 //Closes the Presentation
 
@@ -117,15 +117,15 @@ presentationDocument.ChartToImageConverter = New ChartToImageConverter()
 
 'Converts the PowerPoint Presentation into PDF document
 
-Dim PDFdocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
+Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
 
 'Saves the PDF document
 
-PDFdocument.Save("Sample.pdf")
+pdfDocument.Save("Sample.pdf")
 
 'Closes the PDF document
 
-PDFdocument.Close(True)
+pdfDocument.Close(True)
 
 'Closes the Presentation
 
@@ -185,15 +185,15 @@ settings.PublishOptions = PublishOptions.NotesPages;
 
 //Converts the PowerPoint Presentation into PDF document
 
-PdfDocument PDFdocument = PresentationToPdfConverter.Convert(presentation, settings);
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation, settings);
 
 //Saves the PDF document
 
-PDFdocument.Save(@"Sample.pdf");
+pdfDocument.Save(@"Sample.pdf");
 
 //Closes the PDF document
 
-PDFdocument.Close(true);
+pdfDocument.Close(true);
 
 //Closes the Presentation
 
@@ -233,15 +233,15 @@ settings.PublishOptions = PublishOptions.NotesPages
 
 'Converts the PowerPoint Presentation into PDF document
 
-Dim PDFdocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument, settings)
+Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument, settings)
 
 'Saves the PDF document
 
-PDFdocument.Save("Sample.pdf")
+pdfDocument.Save("Sample.pdf")
 
 'Closes the PDF document
 
-PDFdocument.Close(True)
+pdfDocument.Close(True)
 
 'Closes the Presentation
 
@@ -569,6 +569,6 @@ presentationDocument.Close()
 
 N> 1. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image
 N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onward
-N> 3. The image conversion is not supported in UWP and Xamarin platforms
+N> 3. The image conversion is not supported in Xamarin platforms
 N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
 

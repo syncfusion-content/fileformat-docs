@@ -23,7 +23,7 @@ IPresentation presentation = Presentation.Create();
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Adds chart to the slide with postion and size
+//Adds chart to the slide with position and size
 
 IPresentationChart chart = slide.Charts.AddChart(100, 10, 700, 500);
 
@@ -73,7 +73,7 @@ chart.ChartData.SetValue(4, 4, 80);
 
 IOfficeChartSerie serieJan = chart.Series.Add("Jan");
 
-//Sets the data range of chart serie – start row, start column, end row, end column
+//Sets the data range of chart series – start row, start column, end row, end column
 
 serieJan.Values = chart.ChartData[2, 2, 4, 2];
 
@@ -81,7 +81,7 @@ serieJan.Values = chart.ChartData[2, 2, 4, 2];
 
 IOfficeChartSerie serieFeb = chart.Series.Add("Feb");
 
-//Sets the data range of chart serie – start row, start column, end row, end column
+//Sets the data range of chart series – start row, start column, end row, end column
 
 serieFeb.Values = chart.ChartData[2, 3, 4, 3];
 
@@ -121,7 +121,7 @@ Dim presentationDocument As IPresentation = Presentation.Create()
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
-'Adds chart to the slide with postion and size
+'Adds chart to the slide with position and size
 
 Dim chart As IPresentationChart = slide.Charts.AddChart(100, 10, 700, 500)
 
@@ -171,7 +171,7 @@ chart.ChartData.SetValue(4, 4, 80)
 
 Dim serieJan As IOfficeChartSerie = chart.Series.Add("Jan")
 
-'Sets the data range of chart serie – start row, start column, end row, end column
+'Sets the data range of chart series – start row, start column, end row, end column
 
 serieJan.Values = chart.ChartData(2, 2, 4, 2)
 
@@ -179,7 +179,7 @@ serieJan.Values = chart.ChartData(2, 2, 4, 2)
 
 Dim serieFeb As IOfficeChartSerie = chart.Series.Add("Feb")
 
-'Sets the data range of chart serie – start row, start column, end row, end column
+'Sets the data range of chart series – start row, start column, end row, end column
 
 serieFeb.Values = chart.ChartData(2, 3, 4, 3)
 
@@ -365,7 +365,7 @@ chart.ChartData.SetValue(7, 4, 30);
 
 IOfficeChartSerie serie2013 = chart.Series.Add("2013");
 
-//Sets the data range of chart serie start row, start column, end row, end column
+//Sets the data range of chart series start row, start column, end row, end column
 
 serie2013.Values = chart.ChartData[2, 2, 7, 2];
 
@@ -467,7 +467,7 @@ chart.ChartData.SetValue(7, 4, 30)
 
 Dim serie2013 As IOfficeChartSerie = chart.Series.Add("2013")
 
-'Sets the data range of chart serie start row, start column, end row, end column
+'Sets the data range of chart series start row, start column, end row, end column
 
 serie2013.Values = chart.ChartData(2, 2, 7, 2)
 
@@ -713,9 +713,9 @@ chart.Width = 700;
 
 chart.ChartTitle = "New title";
 
-//Changes the serie name of first chart serie
+//Changes the series name of first chart series
 
-chart.Series[0].Name = "Modified serie name";
+chart.Series[0].Name = "Modified series name";
 
 //Hides the category labels
 
@@ -833,7 +833,7 @@ chart__2.ChartTitle = "New title"
 
 'Changes the series name of first chart series
 
-chart__2.Series(0).Name = "Modified serie name"
+chart__2.Series(0).Name = "Modified series name"
 
 'Hides the category labels
 
@@ -969,7 +969,7 @@ chart.PlotArea.Fill.FillType = OfficeFillType.SolidColor;
 
 chart.PlotArea.Fill.ForeColor = Color.LightPink;
 
-//Sets the plot area shodow presence
+//Sets the plot area shadow presence
 
 chart.PlotArea.Shadow.ShadowInnerPresets = Office2007ChartPresetsInner.InsideDiagonalTopLeft;
 
@@ -1001,19 +1001,19 @@ chart.Legend.FrameFormat.Border.LinePattern = OfficeChartLinePattern.DashDot;
 
 chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide;
 
-//Sets the text area font weight
+//Sets the font weight for legend text
 
 chart.Legend.TextArea.Bold = true;
 
-//Sets the legend text area forecolor
+//Sets the fore color to legend text
 
 chart.Legend.TextArea.Color = OfficeKnownColors.Bright_green;
 
-//Sets the legend text area font name
+//Sets the font name for legend text
 
 chart.Legend.TextArea.FontName = "Times New Roman";
 
-//Sets the legend text area font size
+//Sets the font size for legend text
 
 chart.Legend.TextArea.Size = 20;
 
@@ -1381,7 +1381,7 @@ chart.Rotation = 80;
 
 chart.SideWall.Shadow.Angle = 60;
 
-//Sets the backwall border weight
+//Sets the back wall border weight
 
 chart.BackWall.Border.LineWeight = OfficeChartLineWeight.Narrow;
 
@@ -1421,7 +1421,7 @@ chart.Rotation = 80
 
 chart.SideWall.Shadow.Angle = 60
 
-'Sets the backwall border weight
+'Sets the back wall border weight
 
 chart.BackWall.Border.LineWeight = OfficeChartLineWeight.Narrow
 

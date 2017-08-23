@@ -41,7 +41,7 @@ SavePPTX(presentation);
 private async void SavePPTX(IPresentation presentation)
 {
 
-StorageFile stgFile;
+StorageFile storageFile;
 
 if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
 {
@@ -57,20 +57,20 @@ if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.
  
   savePicker.SuggestedFileName = "GettingStartedSample";
 
-  stgFile = await savePicker.PickSaveFileAsync();
+  storageFile = await savePicker.PickSaveFileAsync();
 }
 else
 {
   StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
 
-  stgFile = await local.CreateFileAsync("PowerPointPresentation.pptx", CreationCollisionOption.ReplaceExisting);
+  storageFile = await local.CreateFileAsync("PowerPointPresentation.pptx", CreationCollisionOption.ReplaceExisting);
 
 }
-if (stgFile != null)
+if (storageFile != null)
   {
    //Saves as PPTX Format
 
-   await presentation.SaveAsync(stgFile);
+   await presentation.SaveAsync(storageFile);
   }
 {% endhighlight %}
 {% endtabs %}
@@ -88,13 +88,13 @@ IPresentation presentation = Presentation.Create();
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Adds Rectangle auto shape with specified size and positions.
+//Adds a shape with specified size and positions.
 
 IShape shape = slide.Shapes.AddShape(AutoShapeType.Rectangle, 1.92 * 72, 1.51 * 72, 10.85 * 72, 4.12 * 72);
 
 //Adds text into the shape.
 
-shape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, lacus amet amet ultricies. Quisque mi venenatis morbi libero, orci dis, mi ut et class porta, massa ligula magna enim, aliquam orci vestibulum Turpis facilisis vitae consequat, cum a a,turpis dui consequat massa in dolor per, felis non amet.Auctor eleifend in omnis elit vestibulum, donec non elementum tellus est mauris, id aliquam, at lacus, arcu pretium proin lacus dolor et. Eu tortor, vel ultrices amet dignissim mauris vehicula");
+shape.TextBody.AddParagraph("In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.");
 
 //Creates new memory stream to save Presentation.
 
@@ -110,7 +110,7 @@ SavePPTX(presentation);
 private async void SavePPTX(IPresentation presentation)
 {
 
-StorageFile stgFile;
+StorageFile storageFile;
 
 if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
 {
@@ -126,21 +126,21 @@ if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.
 
   savePicker.SuggestedFileName = "GettingStartedSample";
 
-  stgFile = await savePicker.PickSaveFileAsync();
+  storageFile = await savePicker.PickSaveFileAsync();
 }
 else
 {
   StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
 
-  stgFile = await local.CreateFileAsync("PowerPointPresentation.pptx", CreationCollisionOption.ReplaceExisting);
+  storageFile = await local.CreateFileAsync("PowerPointPresentation.pptx", CreationCollisionOption.ReplaceExisting);
 
 }
-if (stgFile != null)
+if (storageFile != null)
   {
    //Saves as PPTX Format
-   await presentation.SaveAsync(stgFile);
+   await presentation.SaveAsync(storageFile);
   }
 {% endhighlight %}
 {% endtabs %}
 
-N> The image and PDF conversions are not supported in UWP platform.
+N> The PDF conversion is not supported in UWP platform.

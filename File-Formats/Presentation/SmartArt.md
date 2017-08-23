@@ -74,7 +74,7 @@ IPresentation presentation = Presentation.Create();
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Add an Alternatinghexagons SmartArt to slide at the specified size and position
+//Add a SmartArt to the slide at the specified size and position
 
 ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 0, 0, 640, 426);
 
@@ -107,7 +107,7 @@ Dim presentationDocument As IPresentation = Presentation.Create()
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
-'Add an Alternatinghexagons SmartArt to slide at the specified size and position
+'Add a SmartArt to the slide at the specified size and position
 
 Dim smartArt As ISmartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 0, 0, 640, 426)
 
@@ -142,7 +142,7 @@ IPresentation presentation = Presentation.Create();
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Add an Alternatinghexagons SmartArt to slide at the specified size and position.
+//Add a SmartArt to the slide at the specified size and position.
 
 ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 0, 0, 640, 426);
 
@@ -179,7 +179,7 @@ Dim presentationDocument As IPresentation = Presentation.Create()
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
-'Add an Alternatinghexagons SmartArt to slide at the specified size and position.
+'Add a SmartArt to the slide at the specified size and position.
 
 Dim smartArt As ISmartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 0, 0, 640, 426)
 
@@ -466,7 +466,7 @@ IPresentation presentation = Presentation.Create();
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
-//Add an OrganizationChart SmartArt to slide at the specified size and position
+//Add a SmartArt to the slide at the specified size and position
 
 ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.OrganizationChart, 0, 0, 640, 426.96);
 
@@ -507,7 +507,7 @@ Dim presentationDocument As IPresentation = Presentation.Create()
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
-'Add an OrganizationChart SmartArt to slide at the specified size and position
+'Add a SmartArt to the slide at the specified size and position
 
 Dim smartArt As ISmartArt = slide.Shapes.AddSmartArt(SmartArtType.OrganizationChart, 0, 0, 640, 426.96)
 
