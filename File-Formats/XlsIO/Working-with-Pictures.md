@@ -153,40 +153,50 @@ The following code snippet illustrates adding linked images to a worksheet.
 {% tabs %}
 {% highlight c# %}
 ExcelEngine engine = new ExcelEngine();
+
 IApplication application = engine.Excel;
+
 application.DefaultVersion = ExcelVersion.Excel2013;
+
 IWorkbook workbook = application.Workbooks.Create(1);
+
 IWorksheet worksheet = workbook.Worksheets[0];
 
 // The first worksheet object in the worksheets collection is accessed.
 IWorksheet worksheet = workbook.Worksheets[0];
  
 // Add image from the specified url at the specified location in the worksheet.
-worksheet.Pictures.AddPictureAsLink(1, 1, 5, 7, https://cdn.syncfusion.com/content/images/company-logos/Syncfusion_Logo_Image.png);
+worksheet.Pictures.AddPictureAsLink(1, 1, 5, 7, "https://cdn.syncfusion.com/content/images/company-logos/Syncfusion_Logo_Image.png");
 
 // Save workbook
 workbook.SaveAs("ExternalImage.xlsx");      
 
 workbook.Close();
+
 engine.Dispose();
 {% endhighlight %}
 {% highlight vb %}
 Dim engine As New ExcelEngine()
+
 Dim application As IApplication = engine.Excel
+
 application.DefaultVersion = ExcelVersion.Excel2013
+
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
  
 ' The first worksheet object in the worksheets collection is accessed.
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
  
 ' Add image from the specified url at the specified location in the worksheet.
-worksheet.Pictures.AddPictureAsLink(1, 1, 5, 7, https://cdn.syncfusion.com/content/images/company-logos/Syncfusion_Logo_Image.png)
- 
+worksheet.Pictures.AddPictureAsLink(1, 1, 5, 7, "https://cdn.syncfusion.com/content/images/company-logos/Syncfusion_Logo_Image.png")
+
 ' Save workbook
 workbook.SaveAs("ExternalImage.xlsx")
  
 workbook.Close()
+
 engine.Dispose()
 
 {% endhighlight %}
@@ -199,12 +209,17 @@ SVG images can be inserted in Excel documents for displaying images with accurac
 {% tabs %}
 {% highlight c# %}
 ExcelEngine engine = new ExcelEngine();
+
 IApplication application = engine.Excel;
+
 application.DefaultVersion = ExcelVersion.Excel2013;
+
 IWorkbook workbook = application.Workbooks.Create(1);
+
 IWorksheet worksheet = workbook.Worksheets[0];
 
 FileStream svgStream = new FileStream("Sample.svg", FileMode.Open);
+
 FileStream pngStream = new FileStream("Sample.png", FileMode.Open);
  
 // Add svg image with given svg and png streams
@@ -214,18 +229,22 @@ worksheet.Pictures.AddPicture(1, 1, svgStream, imageStream);
 workbook.SaveAs("Svg.xlsx");      
 
 workbook.Close();
+
 engine.Dispose();
 {% endhighlight %}
-{% endtabs %}
-{% tabs %}
 {% highlight vb %}
 Dim engine As New ExcelEngine()
+
 Dim application As IApplication = engine.Excel
+
 application.DefaultVersion = ExcelVersion.Excel2013
+
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
  
 Dim svgStream As New FileStream("Sample.svg", FileMode.Open)
+
 Dim pngStream As New FileStream("Sample.png", FileMode.Open)
  
 ' Add svg image with given svg and png streams
@@ -235,6 +254,7 @@ worksheet.Pictures.AddPicture(1, 1, svgStream, imageStream)
 workbook.SaveAs("Svg.xlsx")
  
 workbook.Close()
+
 engine.Dispose()
 
 {% endhighlight %}
