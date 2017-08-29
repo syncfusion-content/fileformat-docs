@@ -33,7 +33,7 @@ It does not require external dependencies like browsers, printer drivers, or vie
     * Syncfusion.Pdf.Base.dll
     * Syncfusion.HtmlConverter.Base.dll
 
-* The QtBinaries folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
+* The QtBinaries folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($System drive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
 
 * WebKit HTML conversion also requires VC++ 2010 redistributable, this should to be installed in the machine where the conversion takes place. Please use below download link to get the installer.
     
@@ -41,7 +41,7 @@ It does not require external dependencies like browsers, printer drivers, or vie
     
     X64 - [https://www.microsoft.com/en-in/download/details.aspx?id=14632](https://www.microsoft.com/en-in/download/details.aspx?id=14632)
 
-	Instead, the required assemblies can be placed in the Windows system folder (for 64-bit machine, it should be place in  <span style="color:gray;font-size:14px"><i>$Systemdrive\Windows\SysWOW64</i></span> and for 32-bit machine, it should be place in  <span style="color:gray;font-size:14px"><i>$Systemdrive\Windows\System32</i></span>),
+	Instead, the required assemblies can be placed in the Windows system folder (for 64-bit machine, it should be place in  <span style="color:gray;font-size:14px"><i>$System drive\Windows\SysWOW64</i></span> and for 32-bit machine, it should be place in  <span style="color:gray;font-size:14px"><i>$System drive\Windows\System32</i></span>),
 
 	1. MSVCP100.dll
 	2. MSVCR100.dll
@@ -124,9 +124,9 @@ WebKit HTML converter provides support for converting HTML string to PDF. While 
 
 For the below HTML string, the baseURL will be the path of the <font color="blue"><i>syncfusion_logo.gif</i></font> image.
 
-For example, if the above image is in <i>“C:/Temp/ HTMLfiles/syncfusion_logo.gif”</i> location then the baseURL will be as below,
+For example, if the above image is in <i>“C:/Temp/ HTMLFiles/syncfusion_logo.gif”</i> location then the baseURL will be as below,
 
-<b>baseURL:</b> C:/Temp/HTMLfiles/
+<b>baseURL:</b> C:/Temp/HTMLFiles/
 
 To convert the HTML string to PDF, please refer the below code snippet.
  
@@ -143,7 +143,7 @@ WebKitConverterSettings settings = new WebKitConverterSettings();
 //HTML string and Base URL 
 string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
 
-string baseUrl = @"C:/Temp/HTMLfiles/";
+string baseUrl = @"C:/Temp/HTMLFiles/";
 
 //Set WebKit path
 settings.WebKitPath = @"/QtBinaries/";
@@ -171,7 +171,7 @@ Dim settings As New WebKitConverterSettings()
 'HTML string and Base URL 
 Dim htmlText As String = "<html><body><img src=""syncfusion_logo.gif"" alt=""Syncfusion_logo"" width=""200"" height=""70""><p> Hello World</p></body></html>"
 
-Dim baseUrl As String = "C:/Temp/HTMLfiles/"
+Dim baseUrl As String = "C:/Temp/HTMLFiles/"
 
 'Set WebKit path
 settings.WebKitPath = "/QtBinaries/"
@@ -218,7 +218,7 @@ WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 //Set WebKit path
 webKitSettings.WebKitPath = @"/QtBinaries/";
 
-//Disable javascript; By default - true
+//Disable JavaScript; By default - true
 webKitSettings.EnableJavaScript = false;
 
 //Assign WebKit settings to HTML converter
@@ -244,7 +244,7 @@ Dim webKitSettings As New WebKitConverterSettings()
 'Set WebKit path
 webKitSettings.WebKitPath = "/QtBinaries/"
 
-'Disable javascript; By default True
+'Disable JavaScript; By default True
 webKitSettings.EnableJavaScript = False
 
 'Assign WebKit settings to HTML converter
@@ -481,7 +481,7 @@ padding-left: 5px;
 <h1>Syncfusion</h1>
 
 <h2>Introduction</h2>
-	Syncfusion is the enterprise technology partner of choice for software development, delivering a broad range of web, mobile, and desktop controls coupled with a service-oriented approach throughout the entire application lifecycle. 
+	Syncfusion is the enterprise technology partner of choice for software development, delivering a broad range of web, mobile, and desktop controls coupled with a service-oriented approach throughout the entire application life cycle. 
 <h2>Products</h2>
 	<h4>WEB</h4>
 		The most comprehensive suite for enterprise web development.
@@ -605,7 +605,7 @@ padding-left: 5px;
 <h1>Syncfusion</h1>
 
 <h2>Introduction</h2>
-	Syncfusion is the enterprise technology partner of choice for software development, delivering a broad range of web, mobile, and desktop controls coupled with a service-oriented approach throughout the entire application lifecycle. 
+	Syncfusion is the enterprise technology partner of choice for software development, delivering a broad range of web, mobile, and desktop controls coupled with a service-oriented approach throughout the entire application life cycle. 
 <h2>Products</h2>
 	<h4>WEB</h4>
 		The most comprehensive suite for enterprise web development.
@@ -653,7 +653,7 @@ WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 webKitSettings.WebKitPath = @"/QtBinaries/";
 
-//Enable Toc
+//Enable TOC
 
 webKitSettings.EnableToc = true;
 
@@ -689,7 +689,7 @@ document.Close(true);
 
 {% highlight vb.net %}
 
-'Initialize HTML to PDF converter with Webkit Rendering Engine.
+'Initialize HTML to PDF converter with WebKit Rendering Engine.
 
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 
@@ -701,7 +701,7 @@ Dim webKitSettings As New WebKitConverterSettings()
 
 webKitSettings.WebKitPath = "/QtBinaries/"
 
-'Enable Toc
+'Enable TOC
 
 webKitSettings.EnableToc = True
 
@@ -1023,7 +1023,7 @@ document.Close()
 
 ## Offline conversion
 
-WebKit HTML converter provides support for converting HTML to PDF in offline mode. While converting HTML to PDF in offline mode, the converter does not access the resources from the internet. This may increase the performance in slow internet connection. 
+WebKit HTML converter provides support for converting HTML to PDF in offline mode. While converting HTML to PDF in offline mode, the converter does not access the resources from the Internet. This may increase the performance in slow internet connection. 
 
 <b>Note:</b> If an online URL is tried to convert in offline mode, the converter will generate empty PDF as it will not try to load any resource from online.
 
@@ -1185,7 +1185,7 @@ document.Close(True)
 <table border = 3>
 <thead>
     <tr>
-        <th>Emp ID</th>
+        <th>Employee ID</th>
         <th>Salary</th>
     </tr>
 </thead>
@@ -1792,7 +1792,7 @@ Set the path of the QtBinaries folder to the WebKitPath property of WebKitConver
 <br/><br/>
 Place the QtBinaries folder in bin folder of the project.
 <br/><br/>
-The QtBinaries will be available in the WebKitHTMLConverter installed location <span style="color:gray;font-size:14px"><i>($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i> </span>
+The QtBinaries will be available in the WebKitHTMLConverter installed location <span style="color:gray;font-size:14px"><i>($System drive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i> </span>
 
 </td>
 </tr>
@@ -1836,8 +1836,8 @@ X86 - <a href="https://www.microsoft.com/en-in/download/details.aspx?id=5555#">h
 X64 - <a href="https://www.microsoft.com/en-in/download/details.aspx?id=14632#">https://www.microsoft.com/en-in/download/details.aspx?id=14632</a>
 <br/><br/>
 Instead, the required assemblies can be added in the Windows system folder.
-(for 64-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$Systemdrive\Windows\SysWOW64</i></span> and 
- for 32-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$Systemdrive\Windows\System32</i></span>), 
+(for 64-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$System drive\Windows\SysWOW64</i></span> and 
+ for 32-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$System drive\Windows\System32</i></span>), 
 <br/><br/>
 <ul>
 <li>MSVCP100.dll</li>
@@ -1848,7 +1848,7 @@ Instead, the required assemblies can be added in the Windows system folder.
 </tr>
 </table>
 
-Syncfusion provides troubleshooting tool to find out the missing prerequisites. The tool is available in the location: <span style="color:gray;font-size:14px"><i>($Systemdrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\WebKitUtility)</i></span>
+Syncfusion provides troubleshooting tool to find out the missing prerequisites. The tool is available in the location: <span style="color:gray;font-size:14px"><i>($System drive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\WebKitUtility)</i></span>
 
 ![](DocumentConversion_images/TroubleShootingTool.png)
 
@@ -1894,7 +1894,7 @@ For converting HTTPS sites, it requires OPENSSL libraries to be installed in the
 <a href="http://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064">OpenSSL</a>
 
 <br/><br/>
-Instead, the required assemblies can added in the Windows system folder (for 64 bit machine, it should be place in <p style="color:gray;font-size:14px"><i>$Systemdrive\Windows\SysWOW64</i></p> and for 32 bit machine, it should be place in <p style="color:gray;font-size:14px"><i>$Systemdrive\Windows\System32</i></p>),
+Instead, the required assemblies can added in the Windows system folder (for 64 bit machine, it should be place in <p style="color:gray;font-size:14px"><i>$System drive\Windows\SysWOW64</i></p> and for 32 bit machine, it should be place in <p style="color:gray;font-size:14px"><i>$System drive\Windows\System32</i></p>),
 <br/><br/>
 <ul>
 <li>libeay32.dll</li>
@@ -2029,9 +2029,9 @@ To convert the HTML string to PDF, use the following the code snippet.
 
 For the below HTML string, the baseURL will be the path of the <font color="blue"><i>syncfusion_logo.gif</i></font> image.
 
-For example, if the above image is in <i>“C:\Temp\HTMLfiles\syncfusion_logo.gif”</i> location then the baseURL will be as below,
+For example, if the above image is in <i>“C:\Temp\HTMLFiles\syncfusion_logo.gif”</i> location then the baseURL will be as below,
 
-<b>baseURL:</b> C:\Temp\HTMLfiles\
+<b>baseURL:</b> C:\Temp\HTMLFiles\
 
 {% tabs %}
 
@@ -2045,7 +2045,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
 
-string baseUrl = @"C:/Temp/HTMLfiles/";
+string baseUrl = @"C:/Temp/HTMLFiles/";
 
 //Convert HTML to PDF document 
 
@@ -2069,7 +2069,7 @@ Dim htmlConverter As New HtmlToPdfConverter()
 
 Dim htmlText As String = "<html><body><img src=""syncfusion_logo.gif"" alt=""Syncfusion_logo"" width=""200"" height=""70""><p> Hello World</p></body></html>"
 
-Dim baseUrl As String = "C:/Temp/HTMLfiles/"
+Dim baseUrl As String = "C:/Temp/HTMLFiles/"
 
 'Convert HTML to PDF document 
 
@@ -2223,8 +2223,8 @@ document.Close(True)
 
 Syncfusion’s IE HTML to PDF converter relied on Microsoft’s MSHTML library to do the conversion from HTML to PDF. The actual conversion happens in two steps.
 
-* Convert HTML into a metafile. 
-* Rendering the metafile to PDF. 
+* Convert HTML into a Metafile. 
+* Rendering the Metafile to PDF. 
 
 The main advantage of this kind of conversion is that the text rendered remains searchable in PDF. 
 With version 9 of Internet Explorer, Microsoft started using hardware acceleration to produce bitmap images instead of metafiles, completely removing the ability to render selectable or searchable text within PDF. Users can work around the problem by making some registry changes, but may not be satisfied with the result, so a better alternative was needed. Hence a new converter based on the <b>WebKit renderer</b> was created. 
@@ -2352,7 +2352,7 @@ The following table shows the IE and WebKit rendering engines supported features
 </tr>
 
 <tr>
-<td>ActiveX plugins</td>
+<td>ActiveX plugin</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 </tr>
