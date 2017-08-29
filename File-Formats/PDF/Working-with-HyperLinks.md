@@ -42,7 +42,7 @@ textLink.Url = "http://www.syncfusion.com";
 
 //Set the link text
 
-textLink.Text = "Syncfusion .Net components and controls";
+textLink.Text = "Syncfusion .NET components and controls";
 
 //Set the font
 
@@ -92,7 +92,7 @@ textLink.Url = "http://www.syncfusion.com"
 
 'Set the link text
 
-textLink.Text = "Syncfusion .Net components and controls"
+textLink.Text = "Syncfusion .NET components and controls"
 
 'Set the font
 
@@ -148,7 +148,7 @@ textLink.Url = "http://www.syncfusion.com";
 
 //Set the link text
 
-textLink.Text = "Syncfusion .Net components and controls";
+textLink.Text = "Syncfusion .NET components and controls";
 
 //Set the font
 
@@ -198,7 +198,7 @@ textLink.Url = "http://www.syncfusion.com"
 
 'Set the link text
 
-textLink.Text = "Syncfusion .Net components and controls"
+textLink.Text = "Syncfusion .NET components and controls"
 
 'Set the font
 
@@ -269,7 +269,7 @@ PdfPage navigationPage = document.Pages.Add();
 
 documentLinkAnnotation.Destination = new PdfDestination(navigationPage);
 
-//Set the documentlink annotation location.
+//Set the document link annotation location.
 
 documentLinkAnnotation.Destination.Location = new Point(10, 0);
 
@@ -597,7 +597,7 @@ document.Form.Fields.Add(submitButton);
 
 //Save the document to disk.
 
-document.Save("FileLinkforRelativePath.pdf");
+document.Save("output.pdf");
 
 //close the document
 
@@ -643,7 +643,7 @@ document.Form.Fields.Add(submitButton)
 
 'Save the document to disk.
 
-document.Save("FileLinkforRelativePath.pdf")
+document.Save("output.pdf")
 
 'close the document
 

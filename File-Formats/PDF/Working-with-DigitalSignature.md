@@ -35,11 +35,11 @@ PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
 //Sets an image for signature field.
 
-PdfBitmap signatureimg = new PdfBitmap(@"signature.jpg");
+PdfBitmap signatureImage = new PdfBitmap(@"signature.jpg");
 
 //Sets signature information
 
-signature.Bounds = new RectangleF(new PointF(0, 0), signatureimg.PhysicalDimension);
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
 
 signature.ContactInfo = "johndoe@owned.us";
 
@@ -49,7 +49,7 @@ signature.Reason = "I am author of this document.";
 
 //Draws the signature image.
 
-graphics.DrawImage(signatureimg, 0, 0);
+graphics.DrawImage(signatureImage, 0, 0);
 
 //Saves and closes the document.
 
@@ -83,11 +83,11 @@ Dim signature As New PdfSignature(document, page, pdfCert, "Signature")
 
 'Sets an image for signature field.
 
-Dim signatureimg As New PdfBitmap("signature.jpg")
+Dim signatureImage As New PdfBitmap("signature.jpg")
 
 'Sets signature info.
 
-signature.Bounds = New RectangleF(New PointF(0, 0), signatureimg.PhysicalDimension)
+signature.Bounds = New RectangleF(New PointF(0, 0), signatureImage.PhysicalDimension)
 
 signature.ContactInfo = "johndoe@owned.us"
 
@@ -97,7 +97,7 @@ signature.Reason = "I am author of this document."
 
 'Draws the signature image.
 
-graphics.DrawImage(signatureimg, 0, 0)
+graphics.DrawImage(signatureImage, 0, 0)
 
 'Saves and closes the document.
 
@@ -230,7 +230,7 @@ PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
 
 //Creates a signature field.
 
-PdfSignatureField signatureField = new PdfSignatureField(page, "Signaturefield");
+PdfSignatureField signatureField = new PdfSignatureField(page, "SignatureField");
 
 signatureField.Bounds = new RectangleF(0, 0, 100, 100);
 
@@ -267,7 +267,7 @@ Dim page As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
 'Creates a signature field.
 
-Dim signatureField As New PdfSignatureField(page, "Signaturefield")
+Dim signatureField As New PdfSignatureField(page, "SignatureField")
 
 signatureField.Bounds = New RectangleF(0, 0, 100, 100)
 
@@ -458,7 +458,7 @@ PdfSignature signature = new PdfSignature(page, pdfCert, "Signature");
 
 //Sets an image for signature field.
 
-PdfBitmap bmp = new PdfBitmap(@"syncfusion_logo.gif");
+PdfBitmap image = new PdfBitmap(@"syncfusion_logo.gif");
 
 //Adds time stamp by using the server URI and credentials.
 
@@ -466,7 +466,7 @@ signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digis
 
 //Sets signature info.
 
-signature.Bounds = new RectangleF(new PointF(0, 0), bmp.PhysicalDimension);
+signature.Bounds = new RectangleF(new PointF(0, 0), image.PhysicalDimension);
 
 signature.ContactInfo = "johndoe@owned.us";
 
@@ -476,7 +476,7 @@ signature.Reason = "I am author of this document.";
 
 //Draws the signature image.
 
-graphics.DrawImage(bmp, 0, 0);
+graphics.DrawImage(image, 0, 0);
 
 //Saves and closes the document.
 
@@ -510,7 +510,7 @@ Dim signature As New PdfSignature(page, pdfCert, "Signature")
 
 'Sets an image for signature field.
 
-Dim bmp As New PdfBitmap("syncfusion_logo.gif")
+Dim image As New PdfBitmap("syncfusion_logo.gif")
 
 'Adds time stamp by using the server URI and credentials.
 
@@ -518,7 +518,7 @@ signature.TimeStampServer = New TimeStampServer(New Uri("http://syncfusion.digis
 
 'Sets signature info.
 
-signature.Bounds = New RectangleF(New PointF(0, 0), bmp.PhysicalDimension)
+signature.Bounds = New RectangleF(New PointF(0, 0), image.PhysicalDimension)
 
 signature.ContactInfo = "johndoe@owned.us"
 
@@ -528,7 +528,7 @@ signature.Reason = "I am author of this document."
 
 'Draws the signature image.
 
-graphics.DrawImage(bmp, 0, 0)
+graphics.DrawImage(image, 0, 0)
 
 'Saves and closes the document.
 

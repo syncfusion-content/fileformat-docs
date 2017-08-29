@@ -102,7 +102,7 @@ You can insert an empty page at any location of the existing PDF document. The b
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
-//Insert a new page in the begining of the document
+//Insert a new page in the beginning of the document
 
 loadedDocument.Pages.Insert(0);
 
@@ -123,7 +123,7 @@ loadedDocument.Close(true);
 
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
-'Insert a new page in the begining of the document
+'Insert a new page in the beginning of the document
 
 loadedDocument.Pages.Insert(0)
 

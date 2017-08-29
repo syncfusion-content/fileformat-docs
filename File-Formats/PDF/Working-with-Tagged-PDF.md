@@ -34,10 +34,10 @@ doc.DocumentInformation.Title = "PdfTextElement";
 PdfPage page = doc.Pages.Add();
 
 //Initialize the structure element with tag type paragraph.
-PdfStructureElement structElement = new PdfStructureElement(PdfTagType.Paragraph);
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
 
 //represents the text that is exact replacement for PdfTextElement
-structElement.ActualText = "Simple paragraph element";
+structureElement.ActualText = "Simple paragraph element";
 
 string text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
 
@@ -45,7 +45,7 @@ string text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
 PdfTextElement element = new PdfTextElement(text);
 
 //Adding tag to the text element.
-element.PdfTag = structElement;
+element.PdfTag = structureElement;
 
 //Creates font for the text element
 element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
@@ -73,10 +73,10 @@ doc.DocumentInformation.Title = "PdfTextElement"
 Dim page As PdfPage = doc.Pages.Add()
 
 'Initialize the structure element with tag type paragraph.
-Dim structElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Paragraph)
+Dim structureElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Paragraph)
 
 'represents the text that is exact replacement for PdfTextElement
-structElement.ActualText = "Simple paragraph element"
+structureElement.ActualText = "Simple paragraph element"
 
 Dim text As String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
 
@@ -84,7 +84,7 @@ Dim text As String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, s
 Dim element As PdfTextElement = New PdfTextElement(text)
 
 'Adding tag to the text element.
-element.PdfTag = structElement
+element.PdfTag = structureElement
 
 'Creates font for the text element
 element.Font = New PdfStandardFont(PdfFontFamily.TimesRoman, 12)
@@ -362,16 +362,16 @@ doc.DocumentInformation.Title = "LineShape";
 PdfPage page = doc.Pages.Add();
 
 //Initialize the structure element with tag type as annotation
-PdfStructureElement annotTag = new PdfStructureElement(PdfTagType.Annotation);
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Annotation);
 
-annotTag.AlternateText = "Popup Annotation";
+structureElement.AlternateText = "Popup Annotation";
 
 RectangleF rectangle = new RectangleF(10, 40, 30, 30);
 
 PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
 
 //Adding tag for the annotation
-popupAnnotation.PdfTag = annotTag;
+popupAnnotation.PdfTag = structureElement;
 
 popupAnnotation.Border.Width = 4;
 
@@ -404,16 +404,16 @@ doc.DocumentInformation.Title = "LineShape"
 Dim page As PdfPage = doc.Pages.Add()
 
 'Initialize the structure element with tag type as annotation
-Dim annotTag As PdfStructureElement = New PdfStructureElement(PdfTagType.Annotation)
+Dim structureElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Annotation)
 
-annotTag.AlternateText = "Popup Annotation"
+structureElement.AlternateText = "Popup Annotation"
 
 Dim rectangle As RectangleF = New RectangleF(10, 40, 30, 30)
 
 Dim popupAnnotation As PdfPopupAnnotation = New PdfPopupAnnotation(rectangle, "Test popup annotation")
 
 'Adding tag for the annotation
-popupAnnotation.PdfTag = annotTag
+popupAnnotation.PdfTag = structureElement
 
 popupAnnotation.Border.Width = 4
 
@@ -454,7 +454,7 @@ document.DocumentInformation.Title = "Link";
 PdfPage page = document.Pages.Add();
 
 //Creates new pdf structure element with tag type link.
-PdfStructureElement linkStructElement = new PdfStructureElement(PdfTagType.Link);
+PdfStructureElement linkStructureElement = new PdfStructureElement(PdfTagType.Link);
 
 //Create the font.
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
@@ -463,13 +463,13 @@ PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
 PdfTextWebLink textLink = new PdfTextWebLink();
 
 //Adding tag to text web link.
-textLink.PdfTag = linkStructElement;
+textLink.PdfTag = linkStructureElement;
 
 //Set the hyperlink
 textLink.Url = "http://www.syncfusion.com";
 
 //Set the link text
-textLink.Text = "Syncfusion .Net components and controls";
+textLink.Text = "Syncfusion .NET components and controls";
 
 //Set the font
 textLink.Font = font;
@@ -497,7 +497,7 @@ document.DocumentInformation.Title = "Link"
 Dim page As PdfPage = document.Pages.Add()
 
 'Creates new pdf structure element with tag type link.
-Dim linkStructElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Link)
+Dim linkStructureElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Link)
 
 'Create the font.
 Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 12.0F)
@@ -506,13 +506,13 @@ Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 12.0F)
 Dim textLink As PdfTextWebLink = New PdfTextWebLink()
 
 'Adding tag to text web link.
-textLink.PdfTag = linkStructElement
+textLink.PdfTag = linkStructureElement
 
 'Set the hyperlink
 textLink.Url = "http://www.syncfusion.com"
 
 'Set the link text
-textLink.Text = "Syncfusion .Net components and controls"
+textLink.Text = "Syncfusion .NET components and controls"
 
 'Set the font
 textLink.Font = font
@@ -554,13 +554,13 @@ pdfPage.Graphics.DrawString("Rectangle:", new PdfStandardFont(PdfFontFamily.Helv
 PdfTemplate template = new PdfTemplate(100, 50);
 
 //Initialize the structure element with tag type figure.
-PdfStructureElement structElement = new PdfStructureElement(PdfTagType.Figure);
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Figure);
 
 //Set alternative description for figure.
-structElement.AlternateText = "Template Figure";
+structureElement.AlternateText = "Template Figure";
 
 //Adding tag to the template element.
-template.PdfTag = structElement;
+template.PdfTag = structureElement;
 
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
 
@@ -594,13 +594,13 @@ pdfPage.Graphics.DrawString("Rectangle:", New PdfStandardFont(PdfFontFamily.Helv
 Dim template As PdfTemplate = New PdfTemplate(100, 50)
 
 'Initialize the structure element with tag type figure.
-Dim structElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Figure)
+Dim structureElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Figure)
 
 'Set alternative description for figure.
-structElement.AlternateText = "Template Figure"
+structureElement.AlternateText = "Template Figure"
 
 'Adding tag to the template element.
-template.PdfTag = structElement
+template.PdfTag = structureElement
 
 Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 14)
 
@@ -805,7 +805,7 @@ PdfPage page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-SizeF sizef = page.Graphics.ClientSize;
+SizeF size = page.Graphics.ClientSize;
 
 //Create font
 PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Italic);
@@ -846,7 +846,7 @@ pdfList.Items[i].PdfTag = new PdfStructureElement(PdfTagType.ListItem);
 }
 
 //Draw the list
-pdfList.Draw(page, new RectangleF(0, 20, sizef.Width, sizef.Height));
+pdfList.Draw(page, new RectangleF(0, 20, size.Width, size.Height));
 
 // Save and close the document.
 document.Save("Output.pdf");
@@ -867,7 +867,7 @@ Dim page As PdfPage = document.Pages.Add()
 
 Dim graphics As PdfGraphics = page.Graphics
 
-Dim sizef As SizeF = page.Graphics.ClientSize
+Dim size As SizeF = page.Graphics.ClientSize
 
 'Create font
 Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Italic)
@@ -911,7 +911,7 @@ pdfList.Items(i).PdfTag = New PdfStructureElement(PdfTagType.ListItem)
 Next
 
 'Draw the list
-pdfList.Draw(page, New RectangleF(0, 20, sizef.Width, sizef.Height))
+pdfList.Draw(page, New RectangleF(0, 20, size.Width, size.Height))
 
 ' Save and close the document.
 document.Save("Output.pdf")
@@ -1080,17 +1080,17 @@ document.DocumentInformation.Title = "Order";
 PdfPage page = document.Pages.Add();
 
 //Initialize the structure element with tag type paragraph.
-PdfStructureElement paraStruct = new PdfStructureElement(PdfTagType.Paragraph);
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
 
 //Order the tag in third position.
-paraStruct.Order = 3;
+structureElement.Order = 3;
 
 PdfTextElement element = new PdfTextElement("This is paragraph ONE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
 
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 
 //Adding tag to the text element
-element.PdfTag = paraStruct;
+element.PdfTag = structureElement;
 
 element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200));
 
@@ -1144,17 +1144,17 @@ document.DocumentInformation.Title = "Order"
 Dim page As PdfPage = document.Pages.Add()
 
 'Initialize the structure element with tag type paragraph.
-Dim paraStruct As PdfStructureElement = New PdfStructureElement(PdfTagType.Paragraph)
+Dim structureElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Paragraph)
 
 'Order the tag in third position.
-paraStruct.Order = 3
+structureElement.Order = 3
 
 Dim element As PdfTextElement = New PdfTextElement("This is paragraph ONE.", New PdfStandardFont(PdfFontFamily.Helvetica, 12))
 
 element.Brush = New PdfSolidBrush(New PdfColor(89, 89, 93))
 
 'Adding tag to the text element
-element.PdfTag = paraStruct
+element.PdfTag = structureElement
 
 element.Draw(page, New RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200))
 
