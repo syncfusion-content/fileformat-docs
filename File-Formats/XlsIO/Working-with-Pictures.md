@@ -145,7 +145,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-## Adding images from external link
+## Adding Images from External Link
 
 An image can be added to a worksheet as an external link without downloading the original image. The picture will be downloaded every time the spreadsheet is opened in Microsoft Excel. The image is not physically embedded into the Excel document, but points to a web resource. 
 The following code snippet illustrates adding linked images to a worksheet.
@@ -202,7 +202,7 @@ engine.Dispose()
 {% endhighlight %}
 {% endtabs %}
 
-## Adding SVG images
+## Adding SVG Images
 
 SVG images can be inserted in Excel documents for displaying images with accuracy while scaling/zooming page. Adding SVG images is now supported in XlsIO with SVG and its fallback raster image data as parameters as in the below code snippet.
 
