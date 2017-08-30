@@ -35,7 +35,7 @@ PdfDocument pdfDoc = new PdfDocument();
 
 PdfPage page = pdfDoc.Pages.Add();
 
-// Get xmp object.
+// Get XMP object.
 
 XmpMetadata xmp = pdfDoc.DocumentInformation.XmpMetadata;
 
@@ -86,7 +86,7 @@ Dim pdfDoc As New PdfDocument()
 
 Dim page As PdfPage = pdfDoc.Pages.Add()
 
-' Get xmp object.
+' Get XMP object.
 
 Dim xmp As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
 

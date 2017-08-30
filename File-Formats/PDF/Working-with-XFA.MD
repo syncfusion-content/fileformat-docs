@@ -432,9 +432,9 @@ The below code snippet illustrates how to add a textbox field to an existing PDF
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a textbox field and add the properties.
 PdfXfaTextBoxField textBoxField = new PdfXfaTextBoxField("FirstName", new SizeF(200, 20));
 //Set the caption text.
@@ -442,20 +442,20 @@ textBoxField.Caption.Text = "First Name";
 //Set the tool tip.
 textBoxField.ToolTip = "First Name";
 //Add the field to the existing XFA form.
-lform.Fields.Add(textBoxField);
+loadedForm.Fields.Add(textBoxField);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a textbox field and add the properties.
 Dim textBoxField As New PdfXfaTextBoxField("FirstName", New SizeF(200, 20))
 'Set the caption text.
@@ -463,11 +463,11 @@ textBoxField.Caption.Text = "First Name"
 'Set the tool tip.
 textBoxField.ToolTip = "First Name"
 'Add the field to the existing XFA form.
-lform.Fields.Add(textBoxField)
+loadedForm.Fields.Add(textBoxField)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -534,38 +534,38 @@ The below code snippet illustrates how to add the numeric field to an existing P
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a numeric field and add the properties.
 PdfXfaNumericField numericField = new PdfXfaNumericField("nfield",new SizeF(200,20));
 //Set the caption text.
 numericField.Caption.Text = "Numeric Field";
 //Add the field to the existing XFA form.
-lform.Fields.Add(numericField);
+loadedForm.Fields.Add(numericField);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a numeric field and add the properties.
 Dim numericField As New PdfXfaNumericField("nfield",New SizeF(200,20))
 'Set the caption text.
 numericField.Caption.Text = "Numeric Field"
 'Add the field to the existing XFA form.
-lform.Fields.Add(numericField)
+loadedForm.Fields.Add(numericField)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -640,9 +640,9 @@ The below code snippet illustrates how to add the combo box field to an existing
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a combo box field and add the properties.
 PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("comboField", new SizeF(200, 20));
 //Set the caption text.
@@ -652,20 +652,20 @@ comboBoxField.Items.Add("Development.");
 comboBoxField.Items.Add("Support.");
 comboBoxField.Items.Add("Documentation.");
 //Add the field to the existing XFA form.
-lform.Fields.Add(comboBoxField);
+loadedForm.Fields.Add(comboBoxField);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a combo box field and add the properties.
 Dim comboBoxField As New PdfXfaComboBoxField("comboField", New SizeF(200, 20))
 'Set the caption text.
@@ -675,11 +675,11 @@ comboBoxField.Items.Add("Development.")
 comboBoxField.Items.Add("Support.")
 comboBoxField.Items.Add("Documentation.")
 'Add the field to the existing XFA form.
-lform.Fields.Add(comboBoxField)
+loadedForm.Fields.Add(comboBoxField)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -759,9 +759,9 @@ The below code snippet illustrates how to add the list box field to an existing 
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a list box field and add the properties.
 PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("lfield", new SizeF(150, 50));
 //Set the caption text.
@@ -773,20 +773,20 @@ listBoxField.Items.Add("English");
 listBoxField.Items.Add("French");
 listBoxField.Items.Add("German");
 //Add the field to the existing XFA form.
-lform.Fields.Add(comboBoxField);
+loadedForm.Fields.Add(comboBoxField);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a list box field and add the properties.
 Dim listBoxField As New PdfXfaListBoxField("lfield", New SizeF(150, 50))
 'Set the caption text.
@@ -798,11 +798,11 @@ listBoxField.Items.Add("English")
 listBoxField.Items.Add("French")
 listBoxField.Items.Add("German")
 'Add the field to the existing XFA form.
-lform.Fields.Add(comboBoxField)
+loadedForm.Fields.Add(comboBoxField)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -871,40 +871,40 @@ The below code snippet illustrates how to add the check box field to an existing
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a check box field and add the properties.
 PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkfld", new SizeF(100, 20));
 //Set the caption text.
 checkBoxField.Caption.Text = "Check box Field";
 checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross;
 //Add the field to the existing XFA form.
-lform.Fields.Add(checkBoxField);
+loadedForm.Fields.Add(checkBoxField);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a check box field and add the properties.
 Dim checkBoxField As New PdfXfaCheckBoxField("checkfld", New SizeF(100, 20))
 'Set the caption text.
 checkBoxField.Caption.Text = "Check box Field"
 checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross
 'Add the field to the existing XFA form.
-lform.Fields.Add(checkBoxField)
+loadedForm.Fields.Add(checkBoxField)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -987,9 +987,9 @@ The below code snippet illustrates how to add the radio button field to an exist
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a radio button group
 PdfXfaRadioButtonGroup group = new PdfXfaRadioButtonGroup("radioGroup");
 group.FlowDirection = PdfXfaFlowDirection.Vertical;
@@ -1003,20 +1003,20 @@ radioButtonField2.Caption.Text = "Female";
 group.Items.Add(radioButtonField1);
 group.Items.Add(radioButtonField2);
 //Add the field to the existing XFA form.
-lform.Fields.Add(group);
+loadedForm.Fields.Add(group);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a radio button group 
 Dim group As New PdfXfaRadioButtonGroup("radioGroup")
 group.FlowDirection = PdfXfaFlowDirection.Vertical
@@ -1030,11 +1030,11 @@ radioButtonField2.Caption.Text = "Female"
 group.Items.Add(radioButtonField1)
 group.Items.Add(radioButtonField2)
 'Add the field to the existing XFA form.
-lform.Fields.Add(group)
+loadedForm.Fields.Add(group)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -1105,9 +1105,9 @@ The below code snippet illustrates how to add the date time field to an existing
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a date time field and add the properties.
 PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("date", new SizeF(200, 20));
 //Set the caption text.
@@ -1115,20 +1115,20 @@ dateTimeField.Caption.Text = "Date Time Field";
 //Set the tool tip.
 dateTimeField.ToolTip = "Date Time";
 //Add the field to the existing XFA form.
-lform.Fields.Add(dateTimeField);
+loadedForm.Fields.Add(dateTimeField);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a date time field and add the properties.
 Dim dateTimeField As New PdfXfaDateTimeField("date", New SizeF(200, 20))
 'Set the caption text.
@@ -1136,11 +1136,11 @@ dateTimeField.Caption.Text = "Date Time Field"
 'Set the tool tip.
 dateTimeField.ToolTip = "Date Time"
 'Add the field to the existing XFA form.
-lform.Fields.Add(dateTimeField)
+loadedForm.Fields.Add(dateTimeField)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -1207,38 +1207,38 @@ The below code snippet illustrates how to add the button field to an existing PD
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a button field and add the properties.
 PdfXfaButtonField buttonField = new PdfXfaButtonField("btn", new SizeF(70, 20));
 //Set the caption text.
 buttonField.Content = "Click";
 //Add the field to the existing XFA form.
-lform.Fields.Add(buttonField);
+loadedForm.Fields.Add(buttonField);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a button field and add the properties.
 Dim buttonField As New PdfXfaButtonField("btn", New SizeF(70, 20))
 'Set the caption text.
 buttonField.Content = "Click"
 'Add the field to the existing XFA form.
-lform.Fields.Add(buttonField)
+loadedForm.Fields.Add(buttonField)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -1306,38 +1306,38 @@ The below code snippet illustrates how to add a text element to an existing PDF 
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a text element and add the properties.
 PdfXfaTextElement textElement  = new PdfXfaTextElement("Hello World!");
 //Set font
 textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
 //Add the text element to the existing XFA form.
-lform.Fields.Add(textElement);
+loadedForm.Fields.Add(textElement);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a text element and add the properties.
 Dim textElement As New PdfXfaTextElement("Hello World!")
 'Set font
 textElement.Font = New PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold)
 'Add the text element to the existing XFA form.
-lform.Fields.Add(textElement)
+loadedForm.Fields.Add(textElement)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -1405,38 +1405,38 @@ The below code snippet illustrates how to add the rectangle field to an existing
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a rectangle field and add the properties.
 PdfXfaRectangleField rectangle = new PdfXfaRectangleField("rect1", new SizeF(100, 50));
 //Set the fill color
 rectangle.Border.FillColor = new PdfXfaSolidBrush(Color.Red);
 //Add the rectangle to the existing XFA form.
-lform.Fields.Add(rectangle);
+loadedForm.Fields.Add(rectangle);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a rectangle field and add the properties.
 Dim rectangle As New PdfXfaRectangleField("rect1", New SizeF(100, 50))
 'Set the fill color
 rectangle.Border.FillColor = New PdfXfaSolidBrush(Color.Red)
 'Add the rectangle to the existing XFA form.
-lform.Fields.Add(rectangle)
+loadedForm.Fields.Add(rectangle)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -1503,38 +1503,38 @@ The below code snippet illustrates how to add the circle field to an existing PD
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a circle field and add the properties.
 PdfXfaCircleField circle = new PdfXfaCircleField("circle", new SizeF(100, 100));
 //Set the fill color
 circle.Border.FillColor = new PdfXfaSolidBrush(Color.Red);
 //Add the circle to the existing XFA form.
-lform.Fields.Add(circle);
+loadedForm.Fields.Add(circle);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a circle field and add the properties.
 Dim circle As New PdfXfaCircleField("circle", New SizeF(100, 100))
 'Set the fill color
 circle.Border.FillColor = New PdfXfaSolidBrush(Color.Red)
 'Add the circle to the existing XFA form.
-lform.Fields.Add(circle)
+loadedForm.Fields.Add(circle)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -1601,38 +1601,38 @@ The below code snippet illustrates how to add a line to an existing PDF document
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a line and add the properties.
 PdfXfaLine line = new PdfXfaLine(new PointF(0, 0), new PointF(200, 0), 3);
 //Set the line color
 line.Color = new PdfColor(Color.Red);
 //Add the line to the existing XFA form.
-lform.Fields.Add(line);
+loadedForm.Fields.Add(line);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a line and add the properties.
 Dim line As New PdfXfaLine(New PointF(0, 0), New PointF(200, 0), 3)
 'Set the line color
 line.Color = New PdfColor(Color.Red)
 'Add the line to the existing XFA form.
-lform.Fields.Add(line)
+loadedForm.Fields.Add(line)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -1696,34 +1696,34 @@ The below code snippet illustrates how to add an image to an existing PDF docume
 {% highlight c# %}
 
 //Load the existing XFA document
-PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("XfaForm1.pdf");
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm1.pdf");
 //Load the existing XFA form.
-PdfLoadedXfaForm lform = ldoc.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a image and add the properties.
 PdfXfaImage image = new PdfXfaImage("imgage1", "image.jpg");            
 //Add the image to the existing XFA form.
-lform.Fields.Add(image);
+loadedForm.Fields.Add(image);
 //Save the document
-ldoc.Save("XfaForm.pdf");
+loadedDocument.Save("XfaForm.pdf");
 //Close the document
-ldoc.Close();
+loadedDocument.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Load the existing XFA document
-Dim ldoc As New PdfLoadedXfaDocument("XfaForm1.pdf")
+Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm1.pdf")
 'Load the existing XFA form.
-Dim lform As PdfLoadedXfaForm = ldoc.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a image and add the properties.
 Dim image As New PdfXfaImage("imgage1", "image.jpg")
 'Add the image to the existing XFA form.
-lform.Fields.Add(image)
+loadedForm.Fields.Add(image)
 'Save the document
-ldoc.Save("XfaForm.pdf")
+loadedDocument.Save("XfaForm.pdf")
 'Close the document
-ldoc.Close()
+loadedDocument.Close()
 
 {% endhighlight %}
 
@@ -1947,7 +1947,7 @@ PdfXfaForm mainForm = new PdfXfaForm(xfaPage,PdfXfaFlowDirection.Horizontal, xfa
 //Create a date time field and add the properties.
 PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("dob", new SizeF(200, 20));
 //Set the caption text.
-dateTimeField.Caption.Text = "Date of Birdth";
+dateTimeField.Caption.Text = "Date of Birth";
 //Set the date pattern
 dateTimeField.DatePattern = PdfXfaDatePattern.DDMMMMYYYY;
 //Enable the validation
@@ -1974,7 +1974,7 @@ Dim mainForm As New PdfXfaForm(xfaPage,PdfXfaFlowDirection.Horizontal, xfaPage.G
 'Create a date time field and add the properties.
 Dim dateTimeField As New PdfXfaDateTimeField("dob", New SizeF(200, 20))
 'Set the caption text.
-dateTimeField.Caption.Text = "Date of Birdth"
+dateTimeField.Caption.Text = "Date of Birth"
 'Set the date pattern
 dateTimeField.DatePattern = PdfXfaDatePattern.DDMMMMYYYY
 'Enable the validation
@@ -2443,9 +2443,9 @@ Please refer the below sample for filling the XFA text box field.
 //Load the existing PDF document
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
-PdfLoadedXfaForm lform = loadedDocument.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded text box field.
-PdfLoadedXfaTextBoxField ltext = (lform.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
+PdfLoadedXfaTextBoxField ltext = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
 //fill the text box
 ltext.Text = "First Name";
 //Save the document
@@ -2460,9 +2460,9 @@ loadedDocument.Close();
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
-Dim lform As PdfLoadedXfaForm = loadedDocument.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded text box field.
-Dim ltext As PdfLoadedXfaTextBoxField = TryCast((TryCast(lform.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("text[0]"), PdfLoadedXfaTextBoxField)
+Dim ltext As PdfLoadedXfaTextBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("text[0]"), PdfLoadedXfaTextBoxField)
 'fill the text box
 ltext.Text = "First Name"
 'Save the document 
@@ -2485,9 +2485,9 @@ You can fill the XFA numeric field by using the below code snippet.
 //Load the existing PDF document
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
-PdfLoadedXfaForm lform = loadedDocument.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded numeric field.
-PdfLoadedXfaNumericField lnumericField = (lform.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["numericField[0]"] as PdfLoadedXfaNumericField;
+PdfLoadedXfaNumericField lnumericField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["numericField[0]"] as PdfLoadedXfaNumericField;
 //fill the numeric field
 lnumericField.NumericValue = 945322;
 //Save the document
@@ -2502,9 +2502,9 @@ loadedDocument.Close();
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
-Dim lform As PdfLoadedXfaForm = loadedDocument.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded numeric field.
-Dim lnumericField As PdfLoadedXfaNumericField = TryCast((TryCast(lform.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("numericField[0]"), PdfLoadedXfaNumericField)
+Dim lnumericField As PdfLoadedXfaNumericField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("numericField[0]"), PdfLoadedXfaNumericField)
 'fill the numeric field
 lnumericField.NumericValue = 945322
 'Save the document 
@@ -2527,9 +2527,9 @@ You can fill the XFA combo box field by using the below code snippet.
 //Load the existing PDF document
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
-PdfLoadedXfaForm lform = loadedDocument.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded combo box field.
-PdfLoadedXfaComboBoxField lcomboBoxField = (lform.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["comboBoxField[0]"] as PdfLoadedXfaComboBoxField;
+PdfLoadedXfaComboBoxField lcomboBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["comboBoxField[0]"] as PdfLoadedXfaComboBoxField;
 //Set the combo box selected index
 lcomboBoxField.SelectedIndex = 1;
 //Save the document
@@ -2544,9 +2544,9 @@ loadedDocument.Close();
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
-Dim lform As PdfLoadedXfaForm = loadedDocument.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded combo box field.
-Dim lcomboBoxField As PdfLoadedXfaComboBoxField = TryCast((TryCast(lform.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("comboBoxField[0]"), PdfLoadedXfaComboBoxField)
+Dim lcomboBoxField As PdfLoadedXfaComboBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("comboBoxField[0]"), PdfLoadedXfaComboBoxField)
 'Set the combo box selected index
 lcomboBoxField.SelectedIndex = 1
 'Save the document 
@@ -2569,9 +2569,9 @@ You can fill the XFA list box field by using the below code snippet.
 //Load the existing PDF document
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
-PdfLoadedXfaForm lform = loadedDocument.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded list box field.
-PdfLoadedXfaListBoxField llistBoxField = (lform.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
+PdfLoadedXfaListBoxField llistBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
 //Set the list box selected index
 llistBoxField.SelectedIndex = 1;
 //Save the document
@@ -2586,9 +2586,9 @@ loadedDocument.Close();
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
-Dim lform As PdfLoadedXfaForm = loadedDocument.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded list box field.
-Dim llistBoxField As PdfLoadedXfaListBoxField = TryCast((TryCast(lform.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("listBoxField[0]"), PdfLoadedXfaListBoxField)
+Dim llistBoxField As PdfLoadedXfaListBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("listBoxField[0]"), PdfLoadedXfaListBoxField)
 'Set the list box selected index
 llistBoxField.SelectedIndex = 1
 'Save the document 
@@ -2609,9 +2609,9 @@ You can also select the multiple values by using the below code snippet.
 //Load the existing PDF document
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
-PdfLoadedXfaForm lform = loadedDocument.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded list box field.
-PdfLoadedXfaListBoxField llistBoxField = (lform.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
+PdfLoadedXfaListBoxField llistBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
 //Set the list box selected items
 llistBoxField .SelectedItems =new string[] {"English","Spanish"};
 //Save the document
@@ -2626,9 +2626,9 @@ loadedDocument.Close();
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
-Dim lform As PdfLoadedXfaForm = loadedDocument.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded list box field.
-Dim llistBoxField As PdfLoadedXfaListBoxField = TryCast((TryCast(lform.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("listBoxField[0]"), PdfLoadedXfaListBoxField)
+Dim llistBoxField As PdfLoadedXfaListBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("listBoxField[0]"), PdfLoadedXfaListBoxField)
 'Set the list box selected items           
 llistBoxField.SelectedItems = New String() {"English","Spanish"}
 'Save the document 
@@ -2651,9 +2651,9 @@ You can fill the XFA date time field by using the below code snippet.
 //Load the existing PDF document
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
-PdfLoadedXfaForm lform = loadedDocument.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded date time field.
-PdfLoadedXfaDateTimeField ldateTimeField = (lform.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["dateTimeField[0]"] as PdfLoadedXfaDateTimeField;
+PdfLoadedXfaDateTimeField ldateTimeField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["dateTimeField[0]"] as PdfLoadedXfaDateTimeField;
 //Set the value
 ldateTimeField.Value = DateTime.Now;
 //Save the document
@@ -2668,9 +2668,9 @@ loadedDocument.Close();
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
-Dim lform As PdfLoadedXfaForm = loadedDocument.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded date time field.
-Dim ldateTimeField As PdfLoadedXfaDateTimeField = TryCast((TryCast(lform.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("dateTimeField[0]"), PdfLoadedXfaDateTimeField)
+Dim ldateTimeField As PdfLoadedXfaDateTimeField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("dateTimeField[0]"), PdfLoadedXfaDateTimeField)
 'Set the value           
 ldateTimeField.Value = Date.Now
 'Save the document 
@@ -2693,9 +2693,9 @@ You can fill the XFA check box field by using the below code snippet.
 //Load the existing PDF document
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
-PdfLoadedXfaForm lform = loadedDocument.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded check box field.
-PdfLoadedXfaCheckBoxField lcheckBox = (lform.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["checkBox[0]"] as PdfLoadedXfaCheckBoxField;
+PdfLoadedXfaCheckBoxField lcheckBox = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["checkBox[0]"] as PdfLoadedXfaCheckBoxField;
  //Check the check box          
 lcheckBox.IsChecked = true;
 //Save the document
@@ -2710,9 +2710,9 @@ loadedDocument.Close();
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
-Dim lform As PdfLoadedXfaForm = loadedDocument.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded check box field.
-Dim lcheckBox As PdfLoadedXfaCheckBoxField = TryCast((TryCast(lform.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("checkBox[0]"), PdfLoadedXfaCheckBoxField)
+Dim lcheckBox As PdfLoadedXfaCheckBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("checkBox[0]"), PdfLoadedXfaCheckBoxField)
  'Check the check box          
 lcheckBox.IsChecked = True
 'Save the document 
@@ -2735,9 +2735,9 @@ You can fill the XFA radio button field by using the below code snippet.
 //Load the existing PDF document
 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
-PdfLoadedXfaForm lform = loadedDocument.XfaForm;
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the radio button group
-PdfLoadedXfaRadioButtonGroup lgroup = (lform.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["radioButtonGroup[0]"] as PdfLoadedXfaRadioButtonGroup;
+PdfLoadedXfaRadioButtonGroup lgroup = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["radioButtonGroup[0]"] as PdfLoadedXfaRadioButtonGroup;
 //Get the radio button field
 PdfLoadedXfaRadioButtonField lradio = lgroup.Fields[0] as PdfLoadedXfaRadioButtonField;
 //Check the radio button
@@ -2754,9 +2754,9 @@ loadedDocument.Close();
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
-Dim lform As PdfLoadedXfaForm = loadedDocument.XfaForm
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the radio button group
-Dim lgroup As PdfLoadedXfaRadioButtonGroup = TryCast((TryCast(lform.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("radioButtonGroup[0]"), PdfLoadedXfaRadioButtonGroup)
+Dim lgroup As PdfLoadedXfaRadioButtonGroup = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("radioButtonGroup[0]"), PdfLoadedXfaRadioButtonGroup)
 'Get the radio button field
 Dim lradio As PdfLoadedXfaRadioButtonField = TryCast(lgroup.Fields(0), PdfLoadedXfaRadioButtonField)
 'Check the radio button          
@@ -2879,7 +2879,7 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the existing field
-PdfLoadedXfaTextBoxField loadedText = (lform.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
+PdfLoadedXfaTextBoxField loadedText = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
 //Remove the field
 loadedForm.Fields.Remove(loadedText);
 //Save the document
@@ -2896,7 +2896,7 @@ Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the existing field
-Dim loadedText As PdfLoadedXfaTextBoxField = TryCast((TryCast(lform.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("text[0]"), PdfLoadedXfaTextBoxField)
+Dim loadedText As PdfLoadedXfaTextBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("text[0]"), PdfLoadedXfaTextBoxField)
 'Remove the field
 loadedForm.Fields.Remove(loadedText)
 'Save the document 
@@ -2921,7 +2921,7 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the existing field
-PdfLoadedXfaTextBoxField loadedText = (lform.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
+PdfLoadedXfaTextBoxField loadedText = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
 //Set the width and height of the field
 loadedText.Width = 200;
 loadedText.Height = 30;
@@ -2941,7 +2941,7 @@ Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the existing field
-Dim loadedText As PdfLoadedXfaTextBoxField = TryCast((TryCast(lform.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("text[0]"), PdfLoadedXfaTextBoxField)
+Dim loadedText As PdfLoadedXfaTextBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("text[0]"), PdfLoadedXfaTextBoxField)
 'Set the width and height of the field
 loadedText.Width = 200
 loadedText.Height = 30

@@ -37,7 +37,7 @@ IShape textBoxShape = slide.AddTextBox(65, 140, 410, 270);
 
 // Adds a new paragraph with the text in the left hand side textbox.
 
-IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Sets the list type as Numbered
 
@@ -65,7 +65,7 @@ paragraph.ListFormat.Size = 100;
 
 // Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
+paragraph = textBoxShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
 
 //Sets the list type as bulleted
 
@@ -89,7 +89,7 @@ paragraph.ListFormat.Size = 100;
 
 // Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.");
 
 //Sets the list type as bulleted
 
@@ -139,7 +139,7 @@ Dim textBoxShape As IShape = slide.AddTextBox(65, 140, 410, 270)
 
 'Adds a new paragraph with the text in the left hand side textbox.
 
-Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Sets the list type as Numbered
 
@@ -167,7 +167,7 @@ paragraph.ListFormat.Size = 100
 
 ' Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+paragraph = textBoxShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.")
 
 'Sets the list type as bulleted
 
@@ -191,7 +191,7 @@ paragraph.ListFormat.Size = 100
 
 ' Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.")
 
 'Sets the list type as bulleted
 
@@ -249,7 +249,7 @@ IShape textBoxShape = slide.AddTextBox(65, 140, 410, 250);
 
 // Adds a new paragraph with the text in the left hand side textbox.
 
-IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Sets the list type as bulleted
 
@@ -277,7 +277,7 @@ paragraph.ListFormat.Size = 100;
 
 // Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
+paragraph = textBoxShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
 
 //Sets the list type as bulleted
 
@@ -305,7 +305,7 @@ paragraph.ListFormat.Size = 100;
 
 // Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.");
 
 //Sets the list type as bulleted
 
@@ -359,7 +359,7 @@ Dim textBoxShape As IShape = slide.AddTextBox(65, 140, 410, 250)
 
 ' Adds a new paragraph with the text in the left hand side textbox.
 
-Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Sets the list type as bulleted
 
@@ -387,7 +387,7 @@ paragraph.ListFormat.Size = 100
 
 ' Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+paragraph = textBoxShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.")
 
 'Sets the list type as bulleted
 
@@ -415,7 +415,7 @@ paragraph.ListFormat.Size = 100
 
 ' Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.")
 
 'Sets the list type as bulleted
 
@@ -477,7 +477,7 @@ IShape textBoxShape = slide.AddTextBox(65, 140, 410, 270);
 
 // Adds a new paragraph with the text in the left hand side textbox.
 
-IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Sets the list type as Numbered
 
@@ -501,7 +501,7 @@ paragraph.FirstLineIndent = -20;
 
 // Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
+paragraph = textBoxShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
 
 //Sets the list type as picture
 
@@ -549,7 +549,7 @@ Dim textBoxShape As IShape = slide.AddTextBox(65, 140, 410, 270)
 
 ' Adds a new paragraph with the text in the left hand side textbox.
 
-Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Sets the list type as Numbered
 
@@ -573,7 +573,7 @@ paragraph.FirstLineIndent = -20
 
 ' Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+paragraph = textBoxShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.")
 
 'Sets the list type as picture
 
@@ -631,7 +631,7 @@ IShape textBoxShape = slide.AddTextBox(65, 140, 410, 250);
 
 //Adds paragraph to the textbox
 
-IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Sets the list type as Numbered list
 
@@ -655,7 +655,7 @@ paragraph.FirstLineIndent = -20;
 
 //Adds paragraph to the textbox
 
-paragraph = textBoxShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
+paragraph = textBoxShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
 
 //Sets the list type as Numbered list
 
@@ -675,7 +675,7 @@ paragraph.FirstLineIndent = -20;
 
 //Add paragraph to the textbox
 
-paragraph = textBoxShape.TextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.");
 
 //Sets the list type as Numbered list
 
@@ -695,7 +695,7 @@ paragraph.FirstLineIndent = -20;
 
 //Adds paragraph to the textbox
 
-paragraph = textBoxShape.TextBody.AddParagraph("Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+paragraph = textBoxShape.TextBody.AddParagraph("These subcomponents are shipped to the Bothell location for final product assembly");
 
 //Sets the list type as Numbered list
 
@@ -737,7 +737,7 @@ Dim textBoxShape As IShape = slide.AddTextBox(65, 140, 410, 250)
 
 'Adds paragraph to the textbox
 
-Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Sets the list type as Numbered list
 
@@ -761,7 +761,7 @@ paragraph.FirstLineIndent = -20
 
 'Adds paragraph to the textbox
 
-paragraph = textBoxShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+paragraph = textBoxShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.")
 
 'Sets the list type as Numbered list
 
@@ -781,7 +781,7 @@ paragraph.FirstLineIndent = -20
 
 'Adds paragraph to the textbox
 
-paragraph = textBoxShape.TextBody.AddParagraph("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.")
 
 'Sets the list type as Numbered list
 
@@ -831,5 +831,5 @@ presentationDocument.Close()
 
 The above code example generates a multi-level list in Presentation as follows.
 
-![](Workingwithlist_images/Workingwithlist_img1.jpeg)
+![](Workingwithlist_images/Workingwithlist_img1.JPG)
 

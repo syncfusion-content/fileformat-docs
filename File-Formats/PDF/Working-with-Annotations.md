@@ -193,10 +193,10 @@ Please refer the sample for flattening all the annotations in the PDF document.
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
 //Get all the pages
-foreach (PdfLoadedPage loadedpage in loadedDocument.Pages)
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
 {
 //Flatten all the annotations in the page
-loadedpage.Annotations.Flatten = true;
+loadedPage.Annotations.Flatten = true;
 }
 //Save and close the PDF document instance
 loadedDocument.Save("output.pdf");
@@ -209,9 +209,9 @@ loadedDocument.Close(true);
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("input.pdf")
 'Get all the pages
-For Each loadedpage As PdfLoadedPage In loadedDocument.Pages
+For Each loadedPage As PdfLoadedPage In loadedDocument.Pages
 'Flatten all the annotations in the page
-loadedpage.Annotations.Flatten = True
+loadedPage.Annotations.Flatten = True
 Next
 'Save and close the PDF document instance
 loadedDocument.Save("output.pdf")
@@ -227,10 +227,10 @@ To flatten the specific annotation in the PDF document, use the below code examp
 //Load the existing PDF document
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
 //Get all the pages
-foreach (PdfLoadedPage loadedpage in loadedDocument.Pages)
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
 {
 //Flatten all the annotations in the page
-foreach (PdfLoadedAnnotation annotation in loadedpage.Annotations)
+foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
 {
 //Check for the circle annotation
 if (annotation is PdfLoadedCircleAnnotation)
@@ -251,12 +251,12 @@ loadedDocument.Close(true);
 'Load the existing PDF document
 Dim loadedDocument As New PdfLoadedDocument("input.pdf")
 'Get all the pages
-For Each loadedpage As PdfLoadedPage In loadedDocument.Pages
+For Each loadedPage As PdfLoadedPage In loadedDocument.Pages
 	'Flatten all the annotations in the page
-	For Each annotation As PdfLoadedAnnotation In loadedpage.Annotations
+	For Each annotation As PdfLoadedAnnotation In loadedPage.Annotations
 		'Check for the circle annotation
 		If TypeOf annotation Is PdfLoadedCircleAnnotation Then
-			'Flatten the circle annoation
+			'Flatten the circle annotation
 			annotation.Flatten = True
 		End If
 	Next
@@ -454,7 +454,7 @@ PdfFreeTextAnnotation freeText = new PdfFreeTextAnnotation(new RectangleF(50, 10
 
 //Sets properties to the annotation
 
-freeText.MarkupText = "Free Text with Callouts";
+freeText.MarkupText = "Free Text with Callout";
 
 freeText.TextMarkupColor = new PdfColor(Color.Black);
 
@@ -508,7 +508,7 @@ Dim freeText As New PdfFreeTextAnnotation(New RectangleF(50, 100, 100, 50))
 
 'Sets properties to the annotation
 
-freeText.MarkupText = "Free Text with Callouts"
+freeText.MarkupText = "Free Text with Callout"
 
 freeText.TextMarkupColor = New PdfColor(Color.Black)
 
@@ -572,7 +572,7 @@ int[] points = new int[] { 80, 420, 150, 420 };
 
 //Creates a new line annotation.
 
-PdfLineAnnotation lineAnnotation = new PdfLineAnnotation(points, "Line Annoation");
+PdfLineAnnotation lineAnnotation = new PdfLineAnnotation(points, "Line Annotation");
 
 //Creates pdf line border
 
@@ -642,7 +642,7 @@ Dim points As Integer() = New Integer() {80, 420, 150, 420}
 
 'Creates a new line annotation.
 
-Dim lineAnnotation As New PdfLineAnnotation(points, "Line Annoation")
+Dim lineAnnotation As New PdfLineAnnotation(points, "Line Annotation")
 
 'Creates pdf line border
 
@@ -722,15 +722,15 @@ PdfPage page = document.Pages.Add();
 
 RectangleF rectangle = new RectangleF(40, 60, 80, 20);
 
-PdfRubberStampAnnotation rubberstampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
 
-rubberstampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
+rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
 
-rubberstampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
 
 //Adds annotation to the page
 
-page.Annotations.Add(rubberstampAnnotation);
+page.Annotations.Add(rubberStampAnnotation);
 
 //Saves the document to disk.
 
@@ -756,19 +756,19 @@ Dim page As PdfPage = document.Pages.Add()
 
 Dim rectangle As New RectangleF(40, 60, 80, 20)
 
-Dim rubberstampAnnotation As New PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation")
+Dim rubberStampAnnotation As New PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation")
 
-rubberstampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft
+rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft
 
-rubberstampAnnotation.Text = "Text Properties Rubber Stamp Annotation"
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation"
 
 'Adds annotation to the page
 
-page.Annotations.Add(rubberstampAnnotation)
+page.Annotations.Add(rubberStampAnnotation)
 
 'Saves the document to disk.
 
-document.Save("Rubberstamp.pdf")
+document.Save("RubberStamp.pdf")
 
 document.Close(True)
 
@@ -812,7 +812,7 @@ page.Annotations.Add(inkAnnotation);
 
 //Saves the document to disk.
 
-document.Save("InkAnnot.pdf");
+document.Save("InkAnnotation.pdf");
 
 document.Close(true);
 
@@ -846,7 +846,7 @@ page.Annotations.Add(inkAnnotation)
 
 'Saves the document to disk.
 
-document.Save("InkAnnot.pdf")
+document.Save("InkAnnotation.pdf")
 
 document.Close(True)
 

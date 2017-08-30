@@ -960,7 +960,7 @@ string text = reader.ReadToEnd();
 
 reader.Close();
 
-//Convert it to metafile.
+//Convert it to Metafile.
 
 PdfMetafile metafile = (PdfMetafile)PdfImage.FromRtf(text, bounds.Width, PdfImageType.Metafile);
 
@@ -1002,7 +1002,7 @@ Dim text As String = reader.ReadToEnd()
 
 reader.Close()
 
-'Convert it to metafile.
+'Convert it to Metafile.
 
 Dim metafile As PdfMetafile = DirectCast(PdfImage.FromRtf(text, bounds.Width, PdfImageType.Metafile), PdfMetafile)
 
@@ -1048,7 +1048,7 @@ PdfPage page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-SizeF sizef = page.Graphics.ClientSize;
+SizeF size = page.Graphics.ClientSize;
 
 //Create font 
 
@@ -1086,7 +1086,7 @@ pdfList.Items.Add(string.Concat("Essential ", s));
 
 }
 
-pdfList.Draw(page, new RectangleF(0, 20, sizef.Width, sizef.Height));  
+pdfList.Draw(page, new RectangleF(0, 20, size.Width, size.Height));  
 
 // Save and close the document.
 
@@ -1110,7 +1110,7 @@ Dim page As PdfPage = document.Pages.Add()
 
 Dim graphics As PdfGraphics = page.Graphics
 
-Dim sizef As SizeF = page.Graphics.ClientSize
+Dim size As SizeF = page.Graphics.ClientSize
 
 'Create font 
 
@@ -1148,7 +1148,7 @@ pdfList.Items.Add(String.Concat("Essential ", s))
 
 Next
 
-pdfList.Draw(page, New RectangleF(0, 20, sizef.Width, sizef.Height))
+pdfList.Draw(page, New RectangleF(0, 20, size.Width, size.Height))
 
 ' Save and close the document.
 
@@ -1178,7 +1178,7 @@ PdfPage page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-SizeF sizef = page.Graphics.ClientSize;
+SizeF size = page.Graphics.ClientSize;
 
 //Create an unordered list
 
@@ -1224,7 +1224,7 @@ list.TextIndent = 10;
 
 //Draw list
 
-list.Draw(page, new RectangleF(0, 10, sizef.Width, sizef.Height));
+list.Draw(page, new RectangleF(0, 10, size.Width, size.Height));
 
 // Save and close the document.
 
@@ -1246,7 +1246,7 @@ Dim page As PdfPage = document.Pages.Add()
 
 Dim graphics As PdfGraphics = page.Graphics
 
-Dim sizef As SizeF = page.Graphics.ClientSize
+Dim size As SizeF = page.Graphics.ClientSize
 
 'Create an unordered list
 
@@ -1292,7 +1292,7 @@ list.TextIndent = 10
 
 'Draw list
 
-list.Draw(page, New RectangleF(0, 10, sizef.Width, sizef.Height))
+list.Draw(page, New RectangleF(0, 10, size.Width, size.Height))
 
 'Save and close the document.
 

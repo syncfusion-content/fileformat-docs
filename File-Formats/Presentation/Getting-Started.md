@@ -188,7 +188,7 @@ Essential Presentation allows you to create simple and multi-level lists that ma
 
 //Adds a new paragraph with text.
 
-paragraph = textShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+paragraph = textShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Sets the list type as bullet
 
@@ -212,7 +212,7 @@ paragraph.FirstLineIndent = -20;
 
 'Adds a new paragraph with text.
 
-paragraph = textShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+paragraph = textShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Sets the list type as bullet
 
@@ -243,7 +243,7 @@ In PowerPoint Presentation, the multilevel lists are used for presenting the con
 
 //Adds a new paragraph  
 
-paragraph = textShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
+paragraph = textShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
 
 //Sets the list type as bullet
 
@@ -259,7 +259,7 @@ paragraph.IndentLevelNumber = 2;
 
 'Adds a new paragraph  
 
-paragraph = textShape.TextBody.AddParagraph("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+paragraph = textShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.")
 
 'Sets the list type as bullet
 
@@ -336,7 +336,7 @@ Presentation_1.Close()
 
 The resultant PowerPoint Presentation looks as follows.
 
-![](GettingStarted_images/GettingStarted_img1.jpeg)
+![](GettingStarted_images/GettingStarted_img1.JPG)
 
 
 ## Converting PowerPoint Presentation to PDF
