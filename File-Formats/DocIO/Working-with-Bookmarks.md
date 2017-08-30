@@ -138,7 +138,7 @@ WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
 
 Syncfusion.DocIO.DLS.Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
 
-//Accessess the bookmark start’s owner paragraph by using bookmark and changes its back color
+//Accesses the bookmark start’s owner paragraph by using bookmark and changes its back color
 
 bookmark.BookmarkStart.OwnerParagraph.ParagraphFormat.BackColor = Color.AliceBlue;
 
@@ -161,7 +161,7 @@ Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
 
 Dim bookmark As Syncfusion.DocIO.DLS.Bookmark = document.Bookmarks.FindByName("Northwind")
 
-'Accessess the bookmark start’s owner paragraph by using bookmark and changes its back color
+'Accesses the bookmark start’s owner paragraph by using bookmark and changes its back color
 
 bookmark.BookmarkStart.OwnerParagraph.ParagraphFormat.BackColor = Color.AliceBlue
 
@@ -705,13 +705,13 @@ paragraph.AppendText("Northwind Database is a set of tables containing data fitt
 
 //Adds the new bookmark into Word document
 
-paragraph.AppendBookmarkStart("bm_empty");
+paragraph.AppendBookmarkStart("bookmark_empty");
 
-paragraph.AppendBookmarkEnd("bm_empty");
+paragraph.AppendBookmarkEnd("bookmark_empty");
 
-//Moves the virtual cursor to the location after the start of the bookmark "bm_empty"
+//Moves the virtual cursor to the location after the start of the bookmark "bookmark_empty"
 
-bookmarkNavigator.MoveToBookmark("bm_empty", true, true);
+bookmarkNavigator.MoveToBookmark("bookmark_empty", true, true);
 
 //Inserts the text body part after the bookmark start
 
@@ -750,13 +750,13 @@ paragraph.AppendText("Northwind Database is a set of tables containing data fitt
 
 'Adds the new bookmark into Word document
 
-paragraph.AppendBookmarkStart("bm_empty")
+paragraph.AppendBookmarkStart("bookmark_empty")
 
-paragraph.AppendBookmarkEnd("bm_empty")
+paragraph.AppendBookmarkEnd("bookmark_empty")
 
-'Moves the virtual cursor to the location after the start of the bookmark "bm_empty"
+'Moves the virtual cursor to the location after the start of the bookmark "bookmark_empty"
 
-bookmarkNavigator.MoveToBookmark("bm_empty", True, True)
+bookmarkNavigator.MoveToBookmark("bookmark_empty", True, True)
 
 'Inserts the text body part after the bookmark start
 
@@ -877,13 +877,13 @@ paragraph.AppendText("Northwind Database is a set of tables containing data fitt
 
 //Adds the new bookmark into Word document
 
-paragraph.AppendBookmarkStart("bm_empty");
+paragraph.AppendBookmarkStart("bookmark_empty");
 
-paragraph.AppendBookmarkEnd("bm_empty");
+paragraph.AppendBookmarkEnd("bookmark_empty");
 
-//Moves the virtual cursor to the location before the end of the bookmark "bm_empty"
+//Moves the virtual cursor to the location before the end of the bookmark "bookmark_empty"
 
-bookmarkNavigator.MoveToBookmark("bm_empty");
+bookmarkNavigator.MoveToBookmark("bookmark_empty");
 
 //Replaces the bookmark content with text body part
 
@@ -922,13 +922,13 @@ paragraph.AppendText("Northwind Database is a set of tables containing data fitt
 
 'Adds the new bookmark into Word document
 
-paragraph.AppendBookmarkStart("bm_empty")
+paragraph.AppendBookmarkStart("bookmark_empty")
 
-paragraph.AppendBookmarkEnd("bm_empty")
+paragraph.AppendBookmarkEnd("bookmark_empty")
 
-'Moves the virtual cursor to the location before the end of the bookmark "bm_empty"
+'Moves the virtual cursor to the location before the end of the bookmark "bookmark_empty"
 
-bookmarkNavigator.MoveToBookmark("bm_empty")
+bookmarkNavigator.MoveToBookmark("bookmark_empty")
 
 'Replaces the bookmark content with text body part
 
