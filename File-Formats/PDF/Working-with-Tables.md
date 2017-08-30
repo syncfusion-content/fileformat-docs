@@ -402,7 +402,7 @@ table.Columns.Add("Age")
 
 table.Columns.Add("Sex")
 
-'Include rows to the DataTable.//you can add mutiple rows
+'Include rows to the DataTable.//you can add multiple rows
 
 table.Rows.Add(New String() {"abc", "21", "Male"})
 
@@ -1236,7 +1236,7 @@ private void pdfLightTable_BeginRowLayout(object sender, BeginRowLayoutEventArgs
 
 {
 
-//Apply cloumn span
+//Apply coloumn span
 
 if(args.RowIndex==1)
 
@@ -1330,7 +1330,7 @@ End Sub
 
 Private Sub pdfLightTable_BeginRowLayout(ByVal sender As Object, ByVal args As BeginRowLayoutEventArgs)
 
-'Apply cloumn span
+'Apply coloumn span
 
 If args.RowIndex=1 Then
 
@@ -1534,9 +1534,9 @@ dataTable.Columns.Add("Name");
 
 dataTable.Rows.Add(new object[] { "E01", "John" });
 
-dataTable.Rows.Add(new object[] { "E02", "thomas" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas" });
 
-dataTable.Rows.Add(new object[] { "E03", "peter" });
+dataTable.Rows.Add(new object[] { "E03", "Peter" });
 
 //Assign data source.
 
@@ -1602,9 +1602,9 @@ dataTable.Columns.Add("Name")
 
 dataTable.Rows.Add(New Object() {"E01", "John"})
 
-dataTable.Rows.Add(New Object() {"E02", "thomas"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas"})
 
-dataTable.Rows.Add(New Object() {"E03", "peter"})
+dataTable.Rows.Add(New Object() {"E03", "Peter"})
 
 'Assign data source.
 

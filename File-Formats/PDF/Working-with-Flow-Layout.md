@@ -52,18 +52,18 @@ You can create a PDF document with multiple paragraph text using flow model with
 {% tabs %}
 {% highlight c# %}
 //Creates a new Word document 
-WordDocument worddocument = new WordDocument();
+WordDocument wordDocument = new WordDocument();
 //Adds new section with single paragraph to the document
-worddocument.EnsureMinimal();
-worddocument.LastSection.PageSetup.Margins.All = 15;
+wordDocument.EnsureMinimal();
+wordDocument.LastSection.PageSetup.Margins.All = 15;
 //Get Last paragraph of the document
-IWParagraph paragraph = worddocument.LastParagraph;
+IWParagraph paragraph = wordDocument.LastParagraph;
 //Create a custom style
-WParagraphStyle paragraphStyle = worddocument.Styles.FindByName("Normal") as WParagraphStyle;
+WParagraphStyle paragraphStyle = wordDocument.Styles.FindByName("Normal") as WParagraphStyle;
 paragraphStyle.CharacterFormat.Font = new Font("Times New Roman", 12);
 paragraphStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify;
 paragraphStyle.ParagraphFormat.AfterSpacing = 15f;
-WSection section = worddocument.LastSection;
+WSection section = wordDocument.LastSection;
 string text = "Lorem ipsum dolor sit amet, etiam venenatis purus, vulputate sed consectetuer, et mi egestas, mauris nibh dolor parturient nostra vitae. Ipsum vehicula at commodo quam id, mauris aliquam morbi libero quis, posuere ultricies consequat dolor, ipsum wisi at, quia dictum vel non. Sapien sem elit integer ac adipisci adipiscing, purus quam tempus dolor dolor nec tortor, velit culpa urna, id mattis diam. Sociis molestie proin et, laoreet urna proin a justo quam, metus venenatis auctor magna habitasse donec, ipsum at a at, hendrerit vivamus nunc luctus. Est vitae consequat diam, dolor eu viverra dictum dignissim, at id facilisi quisque interdum ligula, est semper dictum ac lacus nec, per arcu proin.";
 //Adds new text to the paragraph
 paragraph.AppendText(text);
@@ -76,28 +76,28 @@ paragraph.AppendText(text);
 //Creates an instance of the DocToPDFConverter
 DocToPDFConverter converter = new DocToPDFConverter();
 //Converts Word document into PDF document
-PdfDocument pdfDocument = converter.ConvertToPDF(worddocument);
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
 //Save and close the PDF document 
 pdfDocument.Save("Output.pdf");
 pdfDocument.Close(true);
 //Close the document
-worddocument.Close();
+wordDocument.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Creates a new Word document 
-Dim worddocument As New WordDocument()
+Dim wordDocument As New WordDocument()
 'Adds new section with single paragraph to the document
-worddocument.EnsureMinimal()
-worddocument.LastSection.PageSetup.Margins.All = 15
+wordDocument.EnsureMinimal()
+wordDocument.LastSection.PageSetup.Margins.All = 15
 'Get Last paragraph of the document
-Dim paragraph As IWParagraph = worddocument.LastParagraph
+Dim paragraph As IWParagraph = wordDocument.LastParagraph
 'Create a custom style
-Dim paragraphStyle As WParagraphStyle = TryCast(worddocument.Styles.FindByName("Normal"), WParagraphStyle)
+Dim paragraphStyle As WParagraphStyle = TryCast(wordDocument.Styles.FindByName("Normal"), WParagraphStyle)
 paragraphStyle.CharacterFormat.Font = New Font("Times New Roman", 12)
 paragraphStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify
 paragraphStyle.ParagraphFormat.AfterSpacing = 15F
-Dim section As WSection = worddocument.LastSection
+Dim section As WSection = wordDocument.LastSection
 Dim text As String = "Lorem ipsum dolor sit amet, etiam venenatis purus, vulputate sed consectetuer, et mi egestas, mauris nibh dolor parturient nostra vitae. Ipsum vehicula at commodo quam id, mauris aliquam morbi libero quis, posuere ultricies consequat dolor, ipsum wisi at, quia dictum vel non. Sapien sem elit integer ac adipisci adipiscing, purus quam tempus dolor dolor nec tortor, velit culpa urna, id mattis diam. Sociis molestie proin et, laoreet urna proin a justo quam, metus venenatis auctor magna habitasse donec, ipsum at a at, hendrerit vivamus nunc luctus. Est vitae consequat diam, dolor eu viverra dictum dignissim, at id facilisi quisque interdum ligula, est semper dictum ac lacus nec, per arcu proin."
 'Adds new text to the paragraph
 paragraph.AppendText(text)
@@ -110,12 +110,12 @@ paragraph.AppendText(text)
 'Creates an instance of the DocToPDFConverter
 Dim converter As New DocToPDFConverter()
 'Converts Word document into PDF document
-Dim pdfDocument As PdfDocument = converter.ConvertToPDF(worddocument)
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
 'Save and close the PDF document 
 pdfDocument.Save("Output.pdf")
 pdfDocument.Close(True)
 'Close the document
-worddocument.Close()
+wordDocument.Close()
 {% endhighlight %}
 {% endtabs %}
 

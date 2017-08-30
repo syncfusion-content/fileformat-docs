@@ -317,11 +317,11 @@ format.SplitImages = true;
 
 format.SplitTextLines = true;
 
-//Create a metafile instance
+//Create a Metafile instance
 
 PdfMetafile metafile = new PdfMetafile("metachart.emf");
 
-//Draw the metafile in the page
+//Draw the Metafile in the page
 
 metafile.Draw(page, PointF.Empty, format);
 
@@ -364,11 +364,11 @@ format.SplitImages = True
 
 format.SplitTextLines = True
 
-'Create a metafile instance
+'Create a Metafile instance
 
 Dim metafile As New PdfMetafile("metachart.emf")
 
-'Draw the metafile in the page
+'Draw the Metafile in the page
 
 metafile.Draw(page, PointF.Empty, format)
 
@@ -413,7 +413,7 @@ PdfPage page = doc.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the Tiff image
+//Load the TIFF image
 
 PdfBitmap image = new PdfBitmap("image.tif");
 
@@ -454,7 +454,7 @@ Dim page As PdfPage = doc.Pages.Add()
 
 Dim graphics As PdfGraphics = page.Graphics
 
-'Load the Tiff image
+'Load the TIFF image
 
 Dim image As New PdfBitmap("image.tif")
 
@@ -498,11 +498,11 @@ PdfLoadedDocument doc = new PdfLoadedDocument(@"image.pdf");
 
 //Create an image instance
 
-PdfBitmap bmp = new PdfBitmap(@"Autumn Leaves.jpg");
+PdfBitmap image = new PdfBitmap(@"Autumn Leaves.jpg");
 
 //Replace the first image in the page.
 
-doc.Pages[0].ReplaceImage(0, bmp);
+doc.Pages[0].ReplaceImage(0, image);
 
 //Save the document
 
@@ -531,11 +531,11 @@ Dim doc As New PdfLoadedDocument("image.pdf")
 
 'Create an image instance
 
-Dim bmp As New PdfBitmap("Autumn Leaves.jpg")
+Dim image As New PdfBitmap("Autumn Leaves.jpg")
 
 'Replace the first image in the page.
 
-doc.Pages(0).ReplaceImage(0, bmp)
+doc.Pages(0).ReplaceImage(0, image)
 
 'Save the document
 

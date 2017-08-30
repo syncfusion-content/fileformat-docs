@@ -364,15 +364,15 @@ The following code shows how to split the PDF document
 
 //Loads the PDF document
 
-PdfLoadedDocument ldocument = new PdfLoadedDocument("large.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("large.pdf");
 
 //Splits the document
 
-ldocument.Split("splited.pdf");
+loadedDocument.Split("split.pdf");
 
 //Closes the document
 
-ldocument.Close(true);
+loadedDocument.Close(true);
 
 
 
@@ -384,15 +384,15 @@ ldocument.Close(true);
 
 'Loads the PDF document
 
-Dim ldocument As New PdfLoadedDocument("large.pdf")
+Dim loadedDocument As New PdfLoadedDocument("large.pdf")
 
 'Splits the document
 
-ldocument.Split("splited.pdf")
+loadedDocument.Split("split.pdf")
 
 'Closes the document
 
-ldocument.Close(True)
+loadedDocument.Close(True)
 
 
 

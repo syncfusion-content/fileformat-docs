@@ -367,12 +367,12 @@ PdfPage page = document.Pages.Add();
 //Create PDF graphics for the page.
 PdfGraphics graphics = page.Graphics;
 
-PdfBitmap img = new PdfBitmap("Input.jpg");
+PdfBitmap image = new PdfBitmap("Input.jpg");
 
 //Reduce the quality of the image
-img.Quality = 50;
+image.Quality = 50;
 
-img.Draw(page, new PointF(0, 0));
+image.Draw(page, new PointF(0, 0));
 
 //Save the document.
 document.Save("Output.pdf");
@@ -392,12 +392,12 @@ Dim page As PdfPage = document.Pages.Add()
 'Create PDF graphics for the page.
 Dim graphics As PdfGraphics = page.Graphics
 
-Dim img As New PdfBitmap("Input.jpg")
+Dim image As New PdfBitmap("Input.jpg")
 
 'Reduce the quality of the image
-img.Quality = 50
+image.Quality = 50
 
-img.Draw(page, New PointF(0, 0))
+image.Draw(page, New PointF(0, 0))
 
 'Save the document.
 document.Save("Output.pdf")
@@ -428,13 +428,13 @@ Image[] extractedImages = page.ExtractImages();
 //Iterate all the image
 for (int j = 0; j < extractedImages.Count(); j++)
 {
-PdfBitmap img = new PdfBitmap(extractedImages[j]);
+PdfBitmap image = new PdfBitmap(extractedImages[j]);
 
 //reduce the quality of the image
-img.Quality = 50;
+image.Quality = 50;
 
 //replace the compressed image with old image in the PDF document
-page.ReplaceImage(j, img);
+page.ReplaceImage(j, image);
 }
 
 }
@@ -463,13 +463,13 @@ Dim extractedImages As Image() = page.ExtractImages()
 'Iterate all the image
 For j As Integer = 0 To extractedImages.Count() - 1
 
-Dim img As New PdfBitmap(extractedImages(j))
+Dim image As New PdfBitmap(extractedImages(j))
 
 'reduce the quality of the image
-img.Quality = 50
+image.Quality = 50
 
 'replace the compressed image with old image in the PDF document
-page.ReplaceImage(j, img)
+page.ReplaceImage(j, image)
 
 Next
 Next

@@ -283,27 +283,27 @@ calRgbCS.WhitePoint = new double[] { 0.7, 1, 0.8 };
 
 //Reads the ICC profile.
 
-FileStream fs = new FileStream(@"input.icc", FileMode.Open, FileAccess.Read);
+FileStream fileStream = new FileStream(@"input.icc", FileMode.Open, FileAccess.Read);
 
-byte[] profileData = new byte[fs.Length];
+byte[] profileData = new byte[fileStream.Length];
 
-fs.Read(profileData, 0, profileData.Length);
+fileStream.Read(profileData, 0, profileData.Length);
 
-fs.Close();
+fileStream.Close();
 
 //Instantiates ICC color space.
 
-PdfICCColorSpace IccBasedCS = new PdfICCColorSpace();
+PdfICCColorSpace iccBasedCS = new PdfICCColorSpace();
 
-IccBasedCS.ProfileData = profileData;
+iccBasedCS.ProfileData = profileData;
 
-IccBasedCS.AlternateColorSpace = calRgbCS;
+iccBasedCS.AlternateColorSpace = calRgbCS;
 
-IccBasedCS.ColorComponents = 3;
+iccBasedCS.ColorComponents = 3;
 
-IccBasedCS.Range = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 };
+iccBasedCS.Range = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 };
 
-PdfICCColor red = new PdfICCColor(IccBasedCS);
+PdfICCColor red = new PdfICCColor(iccBasedCS);
 
 red.ColorComponents = new double[] { 1, 0, 1 };
 
@@ -353,27 +353,27 @@ calRgbCS.WhitePoint = New Double() {0.7, 1, 0.8}
 
 'Reads the ICC profile.
 
-Dim fs As New FileStream("input.icc", FileMode.Open, FileAccess.Read)
+Dim fileStream As New FileStream("input.icc", FileMode.Open, FileAccess.Read)
 
-Dim profileData(fs.Length - 1) As Byte
+Dim profileData(fileStream.Length - 1) As Byte
 
-fs.Read(profileData, 0, profileData.Length)
+fileStream.Read(profileData, 0, profileData.Length)
 
-fs.Close()
+fileStream.Close()
 
 'Instantiates ICC color space.
 
-Dim IccBasedCS As New PdfICCColorSpace()
+Dim iccBasedCS As New PdfICCColorSpace()
 
-IccBasedCS.ProfileData = profileData
+iccBasedCS.ProfileData = profileData
 
-IccBasedCS.AlternateColorSpace = calRgbCS
+iccBasedCS.AlternateColorSpace = calRgbCS
 
-IccBasedCS.ColorComponents = 3
+iccBasedCS.ColorComponents = 3
 
-IccBasedCS.Range = New Double() {0.0, 1.0, 0.0, 1.0, 0.0, 1.0}
+iccBasedCS.Range = New Double() {0.0, 1.0, 0.0, 1.0, 0.0, 1.0}
 
-Dim red As New PdfICCColor(IccBasedCS)
+Dim red As New PdfICCColor(iccBasedCS)
 
 red.ColorComponents = New Double() {1, 0, 1}
 
@@ -428,27 +428,27 @@ calRgbCS.WhitePoint = new double[] { 0.7, 1, 0.8 };
 
 //Reads the ICC profile.
 
-FileStream fs = new FileStream(@"input.icc", FileMode.Open, FileAccess.Read);
+FileStream fileStream = new FileStream(@"input.icc", FileMode.Open, FileAccess.Read);
 
-byte[] profileData = new byte[fs.Length];
+byte[] profileData = new byte[fileStream.Length];
 
-fs.Read(profileData, 0, profileData.Length);
+fileStream.Read(profileData, 0, profileData.Length);
 
-fs.Close();
+fileStream.Close();
 
 //Instantiates ICC color space.
 
-PdfICCColorSpace IccBasedCS = new PdfICCColorSpace();
+PdfICCColorSpace iccBasedCS = new PdfICCColorSpace();
 
-IccBasedCS.ProfileData = profileData;
+iccBasedCS.ProfileData = profileData;
 
-IccBasedCS.AlternateColorSpace = calRgbCS;
+iccBasedCS.AlternateColorSpace = calRgbCS;
 
-IccBasedCS.ColorComponents = 3;
+iccBasedCS.ColorComponents = 3;
 
-IccBasedCS.Range = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 };
+iccBasedCS.Range = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 };
 
-PdfICCColor red = new PdfICCColor(IccBasedCS);
+PdfICCColor red = new PdfICCColor(iccBasedCS);
 
 red.ColorComponents = new double[] { 1, 0, 1 };
 
@@ -544,23 +544,23 @@ PdfPage page = document.Pages.Add();
 
 PdfExponentialInterpolationFunction function = new PdfExponentialInterpolationFunction(true);
 
-float[] numArray = new float[4];
+float[] numberArray = new float[4];
 
-numArray[0] = 0.38f;
+numberArray[0] = 0.38f;
 
-numArray[1] = 0.88f;
+numberArray[1] = 0.88f;
 
-function.C1 = numArray;
+function.C1 = numberArray;
 
 // Creates SeparationColorSpace
 
-PdfSeparationColorSpace colorspace = new PdfSeparationColorSpace();
+PdfSeparationColorSpace colorSpace = new PdfSeparationColorSpace();
 
-colorspace.TintTransform = function;
+colorSpace.TintTransform = function;
 
-colorspace.Colorant = "PANTONE Orange 021 C";
+colorSpace.Colorant = "PANTONE Orange 021 C";
 
-PdfSeparationColor color = new PdfSeparationColor(colorspace);
+PdfSeparationColor color = new PdfSeparationColor(colorSpace);
 
 color.Tint = 0.7;
 
@@ -590,33 +590,33 @@ document.Close(true);
 
 ' Creates a new document
 
-Dim docuemnt As PdfDocument = New PdfDocument()
+Dim document As PdfDocument = New PdfDocument()
 
 ' Creates a page
 
-Dim page As PdfPage = docuemnt.Pages.Add()
+Dim page As PdfPage = document.Pages.Add()
 
 ' Creates exponential interpolation function 
 
 Dim [function] As PdfExponentialInterpolationFunction = New PdfExponentialInterpolationFunction(True)
 
-Dim numArray() As Single = New Single(4) {}
+Dim numberArray() As Single = New Single(4) {}
 
-numArray(0) = 0.38F
+numberArray(0) = 0.38F
 
-numArray(1) = 0.88F
+numberArray(1) = 0.88F
 
-[function].C1 = numArray
+[function].C1 = numberArray
 
 ' Creates SeparationColorSpace
 
-Dim colorspace As PdfSeparationColorSpace = New PdfSeparationColorSpace()
+Dim colorSpace As PdfSeparationColorSpace = New PdfSeparationColorSpace()
 
-colorspace.TintTransform = [function]
+colorSpace.TintTransform = [function]
 
-colorspace.Colorant = "PANTONE Orange 021 C"
+colorSpace.Colorant = "PANTONE Orange 021 C"
 
-Dim color As PdfSeparationColor = New PdfSeparationColor(colorspace)
+Dim color As PdfSeparationColor = New PdfSeparationColor(colorSpace)
 
 color.Tint = 0.7
 
@@ -630,11 +630,11 @@ page.Graphics.DrawRectangle(pen, bounds)
 
 'Saves the document
 
-docuemnt.Save("SeparationColor.pdf")
+document.Save("SeparationColor.pdf")
 
 'Closes the document
 
-docuemnt.Close(True)
+document.Close(True)
 
 
 
@@ -649,31 +649,31 @@ The following code example illustrates how to draw the graphics elements by usin
 
 //Loads the document.
 
-PdfLoadedDocument loadeddocument = new PdfLoadedDocument(fileName);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
 
-PdfLoadedPage loadedPage = loadeddocument.Pages[0] as PdfLoadedPage;
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 // Creates exponential interpolation function 
 
 PdfExponentialInterpolationFunction function = new PdfExponentialInterpolationFunction(true);
 
-float[] numArray = new float[4];
+float[] numberArray = new float[4];
 
-numArray[0] = 0.38f;
+numberArray[0] = 0.38f;
 
-numArray[1] = 0.88f;
+numberArray[1] = 0.88f;
 
-function.C1 = numArray;
+function.C1 = numberArray;
 
 // Creates SeparationColorSpace
 
-PdfSeparationColorSpace colorspace = new PdfSeparationColorSpace();
+PdfSeparationColorSpace colorSpace = new PdfSeparationColorSpace();
 
-colorspace.TintTransform = function;
+colorSpace.TintTransform = function;
 
-colorspace.Colorant = "PANTONE Orange 021 C";
+colorSpace.Colorant = "PANTONE Orange 021 C";
 
-PdfSeparationColor color = new PdfSeparationColor(colorspace);
+PdfSeparationColor color = new PdfSeparationColor(colorSpace);
 
 color.Tint = 0.7;
 
@@ -687,11 +687,11 @@ loadedPage.Graphics.DrawRectangle(pen, bounds);
 
 //Saves the document
 
-loadeddocument.Save("SeparationColor.pdf");
+loadedDocument.Save("SeparationColor.pdf");
 
 //Closes the document
 
-loadeddocument.Close(true);
+loadedDocument.Close(true);
 
 
 
@@ -702,31 +702,31 @@ loadeddocument.Close(true);
 
 'Loads the document.
 
-Dim loadeddocument As New PdfLoadedDocument(fileName)
+Dim loadedDocument As New PdfLoadedDocument(fileName)
 
-Dim loadedPage As PdfLoadedPage = TryCast(loadeddocument.Pages(0), PdfLoadedPage)
+Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
 
 ' Creates exponential interpolation function
 
 Dim [function] As PdfExponentialInterpolationFunction = New PdfExponentialInterpolationFunction(True)
 
-Dim numArray() As Single = New Single(3) {}
+Dim numberArray() As Single = New Single(3) {}
 
-numArray(0) = 0.38F
+numberArray(0) = 0.38F
 
-numArray(1) = 0.88F
+numberArray(1) = 0.88F
 
-[function].C1 = numArray
+[function].C1 = numberArray
 
 ' Creates SeparationColorSpace
 
-Dim colorspace As PdfSeparationColorSpace = New PdfSeparationColorSpace()
+Dim colorSpace As PdfSeparationColorSpace = New PdfSeparationColorSpace()
 
-colorspace.TintTransform = [function]
+colorSpace.TintTransform = [function]
 
-colorspace.Colorant = "PANTONE Orange 021 C"
+colorSpace.Colorant = "PANTONE Orange 021 C"
 
-Dim color As PdfSeparationColor = New PdfSeparationColor(colorspace)
+Dim color As PdfSeparationColor = New PdfSeparationColor(colorSpace)
 
 color.Tint = 0.7
 
@@ -740,11 +740,11 @@ loadedPage.Graphics.DrawRectangle(pen, bounds)
 
 'Saves the document
 
-loadeddocument.Save("SeparationColor.pdf")
+loadedDocument.Save("SeparationColor.pdf")
 
 'Closes the document
 
-loadeddocument.Close(True)
+loadedDocument.Close(True)
 
 
 

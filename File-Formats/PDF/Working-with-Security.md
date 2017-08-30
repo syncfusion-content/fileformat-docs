@@ -295,7 +295,7 @@ security.Algorithm = PdfEncryptionAlgorithm.AES;
 
 security.OwnerPassword = "syncfusion";
 
-//It allows priting and accessibility copy content
+//It allows printing and accessibility copy content
 
 security.Permissions = PdfPermissionsFlags.Print | PdfPermissionsFlags.AccessibilityCopyContent;
 
