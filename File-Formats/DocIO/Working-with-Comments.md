@@ -36,7 +36,7 @@ IWParagraph paragraph = document.LastParagraph;
 
 paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
 
-//Adds comment to a parahraph
+//Adds comment to a paragraph
 
 WComment comment = paragraph.AppendComment("comment test");
 

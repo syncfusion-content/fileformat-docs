@@ -49,11 +49,11 @@ document.LastSection.PageSetup.Margins.All = 72;
 
 //Appends text to the last paragraph.
 
-document.LastParagraph.AppendText("Employee_Id: ");
+document.LastParagraph.AppendText("EmployeeId: ");
 
 //Appends merge field to the last paragraph.
 
-document.LastParagraph.AppendField("Employee_Id", FieldType.FieldMergeField);
+document.LastParagraph.AppendField("EmployeeId", FieldType.FieldMergeField);
 
 document.LastParagraph.AppendText("\nName: ");
 
@@ -91,11 +91,11 @@ document.LastSection.PageSetup.Margins.All = 72
 
 'Appends text to the last paragraph.
 
-document.LastParagraph.AppendText("Employee_Id: ")
+document.LastParagraph.AppendText("EmployeeId: ")
 
 'Appends merge field to the last paragraph.
 
-document.LastParagraph.AppendField("Employee_Id", FieldType.FieldMergeField)
+document.LastParagraph.AppendField("EmployeeId", FieldType.FieldMergeField)
 
 document.LastParagraph.AppendText(vbLf & "Name: ")
 
@@ -133,7 +133,7 @@ The following code example shows how to perform a simple Mail merge in the gener
 
 WordDocument document = new WordDocument("Template.docx");
 
-string[] fieldNames = new string[] { "Employee_Id", "Name", "Phone", "City" };
+string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City" };
 
 string[] fieldValues = new string[] { "1001", "Peter", "+122-2222222", "London" };
 
@@ -155,7 +155,7 @@ document.Close();
 
 Dim document As New WordDocument("Template.docx")
 
-Dim fieldNames As String() = New String() {"Employee_Id", "Name", "Phone", "City"}
+Dim fieldNames As String() = New String() {"EmployeeId", "Name", "Phone", "City"}
 
 Dim fieldValues As String() = New String() {"1001", "Peter", "+122-2222222", "London"}
 
@@ -339,7 +339,7 @@ OleDbConnection conn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Dat
 
 conn.Open();
 
-//Array list contains the list of commands.
+//ArrayList contains the list of commands.
 
 ArrayList commands = GetCommands();
 
@@ -367,7 +367,7 @@ Dim conn As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" 
 
 conn.Open()
 
-'Array list contains the list of commands.
+'ArrayList contains the list of commands.
 
 Dim commands As ArrayList = GetCommands()
 
@@ -395,7 +395,7 @@ private ArrayList GetCommands()
 
 {
 
-//Array list contains the list of commands.
+//ArrayList contains the list of commands.
 
 ArrayList commands = new ArrayList();
 
@@ -427,7 +427,7 @@ return commands;
 
 Private Function GetCommands() As ArrayList
 
-'Array list contains the list of commands.
+'ArrayList contains the list of commands.
 
 Dim commands As New ArrayList()
 
@@ -599,15 +599,15 @@ private dynamic GetDynamicCustomer(int customerID,string customerName, string co
 
 {
 
-dynamic dynamic_Customer = new ExpandoObject();
+dynamic dynamicCustomer = new ExpandoObject();
 
-dynamic_Customer.CustomerID = customerID;
+dynamicCustomer.CustomerID = customerID;
 
-dynamic_Customer.CustomerName = customerName;
+dynamicCustomer.CustomerName = customerName;
 
-dynamic_Customer.CompanyName = companyName;
+dynamicCustomer.CompanyName = companyName;
 
-return dynamic_Customer;
+return dynamicCustomer;
 
 }
 
@@ -661,15 +661,15 @@ End Function
 
 Private Function GetDynamicCustomer(customerID As Integer, customerName As String, companyName As String) As Object
 
-Dim dynamic_Customer As Object = New ExpandoObject()
+Dim dynamicCustomer As Object = New ExpandoObject()
 
-dynamic_Customer.CustomerID = customerID
+dynamicCustomer.CustomerID = customerID
 
-dynamic_Customer.CustomerName = customerName
+dynamicCustomer.CustomerName = customerName
 
-dynamic_Customer.CompanyName = companyName
+dynamicCustomer.CompanyName = companyName
 
-Return dynamic_Customer
+Return dynamicCustomer
 
 End Function
 
@@ -1678,9 +1678,9 @@ Private Function GetDataTable() As DataTable
 
 Dim dataTable As New DataTable("Employee")
 
-dataTable.Columns.Add("Employee_Name")
+dataTable.Columns.Add("EmployeeName")
 
-dataTable.Columns.Add("Employee_Number")
+dataTable.Columns.Add("EmployeeNumber")
 
 For i As Integer = 0 To 19
 
@@ -1714,9 +1714,9 @@ private static DataTable GetDataTable()
 
 DataTable dataTable = new DataTable("Employee");
 
-dataTable.Columns.Add("Employee_Name");
+dataTable.Columns.Add("EmployeeName");
 
-dataTable.Columns.Add("Employee_Number");
+dataTable.Columns.Add("EmployeeNumber");
 
 for (int i = 0; i < 20; i++)
 
@@ -1744,9 +1744,9 @@ Private Function GetDataTable() As DataTable
 
 Dim dataTable As New DataTable("Employee")
 
-dataTable.Columns.Add("Employee_Name")
+dataTable.Columns.Add("EmployeeName")
 
-dataTable.Columns.Add("Employee_Number")
+dataTable.Columns.Add("EmployeeNumber")
 
 For i As Integer = 0 To 19
 
@@ -1970,7 +1970,7 @@ The following code example shows how to retrieve the merge field names in the Wo
 
 //Gets the merge field names from the document.
 
-string[] fieldnames = document.MailMerge.GetMergeFieldNames()
+string[] fieldNames = document.MailMerge.GetMergeFieldNames()
 
 {% endhighlight %}
 
@@ -1978,7 +1978,7 @@ string[] fieldnames = document.MailMerge.GetMergeFieldNames()
 
 'Gets the merge field names from the document.
 
-Dim fieldnames As String() = document.MailMerge.GetMergeFieldNames()
+Dim fieldNames As String() = document.MailMerge.GetMergeFieldNames()
 
 {% endhighlight %} 
 
@@ -2014,7 +2014,7 @@ The following code example shows how to retrieve the merge field names for a spe
 
 //Gets the fields from the specified groups. 
 
-string[] fieldnames = document.MailMerge.GetMergeFieldNames(groupName);
+string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 
 {% endhighlight %}
 
@@ -2022,7 +2022,7 @@ string[] fieldnames = document.MailMerge.GetMergeFieldNames(groupName);
 
 'Gets the fields from the specified groups. 
 
-Dim fieldnames As String() = document.MailMerge.GetMergeFieldNames(groupName)
+Dim fieldNames As String() = document.MailMerge.GetMergeFieldNames(groupName)
 
 {% endhighlight %} 
 
@@ -2044,7 +2044,7 @@ WordDocument document = new WordDocument("Template.docx");
 
 document.MailMerge.RemoveEmptyParagraphs = true;
 
-string[] fieldNames = new string[] { "Employee_Id", "Phone", "City" };
+string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
 
 string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
 
@@ -2070,7 +2070,7 @@ Dim document As New WordDocument("Template.docx")
 
 document.MailMerge.RemoveEmptyParagraphs = True
 
-Dim fieldNames As String() = New String() {"Employee_Id", "Phone", "City"}
+Dim fieldNames As String() = New String() {"EmployeeId", "Phone", "City"}
 
 Dim fieldValues As String() = New String() {"1001", "+91-9999999999", "London"}
 
@@ -2102,7 +2102,7 @@ WordDocument document = new WordDocument("Template.docx");
 
 document.MailMerge.ClearFields = false;
 
-string[] fieldNames = new string[] { "Employee_Id", "Phone", "City" };
+string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
 
 string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
 
@@ -2128,7 +2128,7 @@ Dim document As New WordDocument("Template.docx")
 
 document.MailMerge.ClearFields = False
 
-Dim fieldNames As String() = New String() {"Employee_Id", "Phone", "City"}
+Dim fieldNames As String() = New String() {"EmployeeId", "Phone", "City"}
 
 Dim fieldValues As String() = New String() {"1001", "+91-9999999999", "London"}
 

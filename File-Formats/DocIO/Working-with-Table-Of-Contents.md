@@ -323,7 +323,7 @@ WordDocument document = new WordDocument();
 
 //Creates a new custom styles
 
-Style style = (WParagraphStyle)document.AddParagraphStyle("My style");
+Style style = (WParagraphStyle)document.AddParagraphStyle("MyStyle");
 
 style.CharacterFormat.Bold = true;
 
@@ -343,13 +343,13 @@ IWParagraph paragraph = section.AddParagraph();
 
 //Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
 
-TableOfContent TOC = paragraph.AppendTOC(1, 3);
+TableOfContent tableofContent = paragraph.AppendTOC(1, 3);
 
-TOC.UseHeadingStyles = false;
+tableofContent.UseHeadingStyles = false;
 
 //Sets the TOC level style based on the created TOC 
 
-TOC.SetTOCLevelStyle(2, "My style");
+tableofContent.SetTOCLevelStyle(2, "MyStyle");
 
 //Adds the section into the Word document
 
@@ -365,7 +365,7 @@ paragraph.AppendText("First Chapter");
 
 //Sets the built-in heading style
 
-paragraph.ApplyStyle("My style");
+paragraph.ApplyStyle("MyStyle");
 
 //Adds the text into the paragraph
 
@@ -436,7 +436,7 @@ Dim document As New WordDocument()
 
 'Creates a new custom styles
 
-Dim style As Style = DirectCast(document.AddParagraphStyle("My style"), WParagraphStyle)
+Dim style As Style = DirectCast(document.AddParagraphStyle("MyStyle"), WParagraphStyle)
 
 style.CharacterFormat.Bold = True
 
@@ -456,13 +456,13 @@ Dim paragraph As IWParagraph = section.AddParagraph()
 
 'Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determine the TOC entries
 
-Dim TOC As TableOfContent = paragraph.AppendTOC(1, 3)
+Dim tableofContent As TableOfContent = paragraph.AppendTOC(1, 3)
 
-TOC.UseHeadingStyles = False
+tableofContent.UseHeadingStyles = False
 
 'Sets the TOC level style based on the created TOC 
 
-TOC.SetTOCLevelStyle(2, "My style")
+tableofContent.SetTOCLevelStyle(2, "MyStyle")
 
 'Adds the section into the Word document
 
@@ -478,7 +478,7 @@ paragraph.AppendText("First Chapter")
 
 'Sets the built-in heading style
 
-paragraph.ApplyStyle("My style")
+paragraph.ApplyStyle("MyStyle")
 
 'Adds the text into the paragraph
 
