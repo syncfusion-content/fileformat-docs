@@ -37,7 +37,7 @@ IShape textBoxShape = slide.AddTextBox(65, 140, 410, 270);
 
 // Adds a new paragraph with the text in the left hand side textbox.
 
-IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+IParagraph paragraph = textBoxShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Sets the list type as Numbered
 
@@ -139,7 +139,7 @@ Dim textBoxShape As IShape = slide.AddTextBox(65, 140, 410, 270)
 
 'Adds a new paragraph with the text in the left hand side textbox.
 
-Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Sets the list type as Numbered
 
@@ -249,7 +249,7 @@ IShape textBoxShape = slide.AddTextBox(65, 140, 410, 250);
 
 // Adds a new paragraph with the text in the left hand side textbox.
 
-IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+IParagraph paragraph = textBoxShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Sets the list type as bulleted
 
@@ -359,7 +359,7 @@ Dim textBoxShape As IShape = slide.AddTextBox(65, 140, 410, 250)
 
 ' Adds a new paragraph with the text in the left hand side textbox.
 
-Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Sets the list type as bulleted
 
@@ -477,7 +477,7 @@ IShape textBoxShape = slide.AddTextBox(65, 140, 410, 270);
 
 // Adds a new paragraph with the text in the left hand side textbox.
 
-IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+IParagraph paragraph = textBoxShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Sets the list type as Numbered
 
@@ -549,7 +549,7 @@ Dim textBoxShape As IShape = slide.AddTextBox(65, 140, 410, 270)
 
 ' Adds a new paragraph with the text in the left hand side textbox.
 
-Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Sets the list type as Numbered
 
@@ -631,7 +631,7 @@ IShape textBoxShape = slide.AddTextBox(65, 140, 410, 250);
 
 //Adds paragraph to the textbox
 
-IParagraph paragraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+IParagraph paragraph = textBoxShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Sets the list type as Numbered list
 
@@ -737,7 +737,7 @@ Dim textBoxShape As IShape = slide.AddTextBox(65, 140, 410, 250)
 
 'Adds paragraph to the textbox
 
-Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+Dim paragraph As IParagraph = textBoxShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Sets the list type as Numbered list
 

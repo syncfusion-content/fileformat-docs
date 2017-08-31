@@ -59,7 +59,7 @@ IShape shape = slide.Shapes.AddShape(AutoShapeType.Rectangle, 1.92 * 72, 1.51 * 
 
 //Adds text into the shape.
 
-shape.TextBody.AddParagraph("In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico. It manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the another location for final product assembly. In 2001, the plant became the sole manufacturer and distributor of the touring bicycle product group.");
+shape.TextBody.AddParagraph("In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico. It manufactures several critical subcomponents for the AdventureWorks Cycles product line. These subcomponents are shipped to the another location for final product assembly. In 2001, the plant became the sole manufacturer and distributor of the touring bicycle product group.");
 
 //Creates new memory stream to save Presentation.
 
@@ -127,7 +127,7 @@ IShape shape = slide.Shapes.AddShape(AutoShapeType.Rectangle, 1.92 * 72, 1.51 * 
 
 //Adds text into the shape.
 
-shape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.");
+shape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.");
 
 //Creates new memory stream to save Presentation.
 
