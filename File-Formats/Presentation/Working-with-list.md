@@ -89,7 +89,7 @@ paragraph.ListFormat.Size = 100;
 
 // Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.");
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.");
 
 //Sets the list type as bulleted
 
@@ -191,7 +191,7 @@ paragraph.ListFormat.Size = 100
 
 ' Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.")
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located Washington with 290 employees, several regional sales teams are located throughout their market base.")
 
 'Sets the list type as bulleted
 
@@ -305,7 +305,7 @@ paragraph.ListFormat.Size = 100;
 
 // Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.");
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.");
 
 //Sets the list type as bulleted
 
@@ -415,7 +415,7 @@ paragraph.ListFormat.Size = 100
 
 ' Adds another paragraph with the text in the left hand side textbox.
 
-paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.")
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.")
 
 'Sets the list type as bulleted
 
@@ -675,7 +675,7 @@ paragraph.FirstLineIndent = -20;
 
 //Add paragraph to the textbox
 
-paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.");
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located Washington with 290 employees, several regional sales teams are located throughout their market base.");
 
 //Sets the list type as Numbered list
 
@@ -695,7 +695,7 @@ paragraph.FirstLineIndent = -20;
 
 //Adds paragraph to the textbox
 
-paragraph = textBoxShape.TextBody.AddParagraph("These subcomponents are shipped to the Bothell location for final product assembly");
+paragraph = textBoxShape.TextBody.AddParagraph("These subcomponents are shipped to another location for final product assembly");
 
 //Sets the list type as Numbered list
 
@@ -781,7 +781,7 @@ paragraph.FirstLineIndent = -20
 
 'Adds paragraph to the textbox
 
-paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.")
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located Washington with 290 employees, several regional sales teams are located throughout their market base.")
 
 'Sets the list type as Numbered list
 
@@ -801,7 +801,7 @@ paragraph.FirstLineIndent = -20
 
 'Adds paragraph to the textbox
 
-paragraph = textBoxShape.TextBody.AddParagraph("Excepteur sint occaecat upidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+paragraph = textBoxShape.TextBody.AddParagraph("While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.")
 
 'Sets the list type as Numbered list
 

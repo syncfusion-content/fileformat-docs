@@ -8,7 +8,7 @@ keywords: PPTX, ASP.NET Core, Presentation, Modify Presentation, Create Presenta
 ---
 # ASP.NET Core
 
-The Presentation component is supported in ASP.NET Core platfrom from .NET Core 1.0 version. For more details about configuring Syncfusion file-format components in ASP.NET Core application please click [here](https://help.syncfusion.com/aspnet-core/gettingstarted/getting-started-1-1-0#configure-syncfusion-file-format-components-in-aspnet-core-application).
+The Presentation component is supported in ASP.NET Core platform from .NET Core 1.0 version. For more details about configuring Syncfusion file-format components in ASP.NET Core application please click [here](https://help.syncfusion.com/aspnet-core/gettingstarted/getting-started-1-1-0#configure-syncfusion-file-format-components-in-aspnet-core-application).
 
 ## Packages Required
 
@@ -60,9 +60,9 @@ using (FileStream fileStream = new FileStream("Sample.pptx", FileMode.OpenOrCrea
  IParagraph paragraph = shape.TextBody.Paragraphs[0];
 //Retrieves the first text part of the shape.
  ITextPart textPart = paragraph.TextParts[0];
-//Modifies the text content of the textpart.
+//Modifies the text content of the TextPart instance.
 textPart.Text = "Hello Presentation";
- //Saves the presenation to the file system.
+ //Saves the presentation to the file system.
 presentation.Save("Modified.pptx");
 //Closes the Presentation.
  presentation.Close();
