@@ -831,5 +831,5 @@ presentationDocument.Close()
 
 The above code example generates a multi-level list in Presentation as follows.
 
-![](Workingwithlist_images/Workingwithlist_img1.jpeg)
+![](Workingwithlist_images/Workingwithlist_img1.JPG)
 

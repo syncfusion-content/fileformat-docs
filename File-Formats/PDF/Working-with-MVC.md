@@ -58,11 +58,11 @@ return new PdfResult(PdfDoc, filename, response, type);
 
 }
 
-public static PdfResult ExportAsActionResult(this PdfLoadedDocument pdfdoc, string filename, HttpResponse response, HttpReadType type)
+public static PdfResult ExportAsActionResult(this PdfLoadedDocument pdfDocument, string filename, HttpResponse response, HttpReadType type)
 
 {
 
-return new PdfResult(pdfdoc, filename, response, type);
+return new PdfResult(pdfDocument, filename, response, type);
 
 }
 
@@ -176,7 +176,7 @@ m_readType = value;
 
 }
 
-public PdfResult(PdfDocument pdfDocument, string filename, HttpResponse respone, HttpReadType type)
+public PdfResult(PdfDocument pdfDocument, string filename, HttpResponse response, HttpReadType type)
 
 {
 
@@ -186,13 +186,13 @@ this.m_pdfLoadedDocument = null;
 
 this.FileName = filename;
 
-this.m_response = respone;
+this.m_response = response;
 
 this.ReadType = type;
 
 }
 
-public PdfResult(PdfLoadedDocument pdfLoadedDocument, string filename, HttpResponse respone, HttpReadType type)
+public PdfResult(PdfLoadedDocument pdfLoadedDocument, string filename, HttpResponse response, HttpReadType type)
 
 {
 
@@ -202,7 +202,7 @@ this.m_pdfLoadedDocument = pdfLoadedDocument;
 
 this.FileName = filename;
 
-this.m_response = respone;
+this.m_response = response;
 
 this.ReadType = type;
 
@@ -279,9 +279,9 @@ End Function
 
 <System.Runtime.CompilerServices.Extension> _
 
-Public Function ExportAsActionResult(ByVal pdfdoc As PdfLoadedDocument, ByVal filename As String, ByVal response As HttpResponse, ByVal type As HttpReadType) As PdfResult
+Public Function ExportAsActionResult(ByVal pdfDocument As PdfLoadedDocument, ByVal filename As String, ByVal response As HttpResponse, ByVal type As HttpReadType) As PdfResult
 
-Return New PdfResult(pdfdoc, filename, response, type)
+Return New PdfResult(pdfDocument, filename, response, type)
 
 End Function
 
@@ -375,7 +375,7 @@ End Set
 
 End Property
 
-Public Sub New(ByVal pdfDocument As PdfDocument, ByVal filename As String, ByVal respone As HttpResponse, ByVal type As HttpReadType)
+Public Sub New(ByVal pdfDocument As PdfDocument, ByVal filename As String, ByVal response As HttpResponse, ByVal type As HttpReadType)
 
 Me.m_pdfDocument = pdfDocument
 
@@ -383,13 +383,13 @@ Me.m_pdfLoadedDocument = Nothing
 
 Me.FileName = filename
 
-Me.m_response = respone
+Me.m_response = response
 
 Me.ReadType = type
 
 End Sub
 
-Public Sub New(ByVal pdfLoadedDocument As PdfLoadedDocument, ByVal filename As String, ByVal respone As HttpResponse, ByVal type As HttpReadType)
+Public Sub New(ByVal pdfLoadedDocument As PdfLoadedDocument, ByVal filename As String, ByVal response As HttpResponse, ByVal type As HttpReadType)
 
 Me.m_pdfDocument = Nothing
 
@@ -397,7 +397,7 @@ Me.m_pdfLoadedDocument = pdfLoadedDocument
 
 Me.FileName = filename
 
-Me.m_response = respone
+Me.m_response = response
 
 Me.ReadType = type
 

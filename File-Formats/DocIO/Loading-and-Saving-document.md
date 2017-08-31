@@ -99,7 +99,7 @@ document.Open(wordDocumentStream, FormatType.Automatic);
 
 {% highlight vb.net %}
 
-'Creates an empty Wordocument instance
+'Creates an empty WordDocument instance
 
 Dim document As New WordDocument()
 

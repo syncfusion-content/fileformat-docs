@@ -742,7 +742,7 @@ listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
 
 listBoxField.SelectedIndex = 2;
 
-//Set the multiselect option.
+//Set the multi select option.
 
 listBoxField.MultiSelect = true;
 
@@ -801,7 +801,7 @@ listBoxField.Items.Add(New PdfListFieldItem("German", "German"))
 
 listBoxField.SelectedIndex = 2
 
-'Set the multiselect option.
+'Set the multi select option.
 
 listBoxField.MultiSelect = True
 
@@ -1835,7 +1835,7 @@ loadedSignatureField.Signature.Reason = "Reason";
 
 //Save the modified document.
 
-loadedDocument.Save("formfill.pdf");
+loadedDocument.Save("output.pdf");
 
 //Close the document
 
@@ -1874,7 +1874,7 @@ loadedSignatureField.Signature.Reason = "Reason"
 
 'Save the modified document.
 
-loadedDocument.Save("formfill.pdf")
+loadedDocument.Save("output.pdf")
 
 'Close the document
 
@@ -2013,7 +2013,7 @@ if (fieldCollection.TryGetField("f1-1", out loadedField))
 
 //Save and close the modified document.
 
-doc.Save(Outputfilename);
+doc.Save("output.pdf");
 
 doc.Close(true);
 
@@ -2048,7 +2048,7 @@ End If
 
 'Save and close the modified document.
 
-loadedDocument.Save(Outputfilename)
+loadedDocument.Save("output.pdf")
 
 loadedDocument.Close(True)
 
@@ -2089,7 +2089,7 @@ fieldCollection.TryGetValue("f1-2", out fieldValue);
 
 //Save and close the modified document.
 
-loadedDocument.Save(Outputfilename);
+loadedDocument.Save("output.pdf");
 
 loadedDocument.Close(true);
 
@@ -2120,7 +2120,7 @@ fieldCollection.TryGetValue("f1-2", fieldValue)
 
 'Save and close the modified document.
 
-loadedDocument.Save(Outputfilename)
+loadedDocument.Save("output.pdf")
 
 loadedDocument.Close(True)
 
@@ -2243,7 +2243,7 @@ PdfLoadedFormFieldCollection fields = loadedForm.Fields;
 
 PdfLoadedTextBoxField loadedTextBoxField = fields[0] as PdfLoadedTextBoxField;
 
-loadedTextBoxFied.Text = "Text";
+loadedTextBoxField.Text = "Text";
 
 //Flatten the whole form.
 
@@ -2251,7 +2251,7 @@ loadedForm.Flatten = true;
 
 //Save and close the modified document.
 
-loadedDocument.Save(Outputfilename);
+loadedDocument.Save("output.pdf");
 
 loadedDocument.Close(true);
 
@@ -2278,15 +2278,15 @@ Dim fields As PdfLoadedFormFieldCollection = loadedForm.Fields
 
 Dim loadedTextBoxField As PdfLoadedTextBoxField = TryCast(fields(0), PdfLoadedTextBoxField)
 
-loadedTextBoxFied.Text = "Text"
+loadedTextBoxField.Text = "Text"
 
 'Flatten the whole form.
 
 loadedForm.Flatten = True
 
-'Save and closethe modified document.
+'Save and close the modified document.
 
-loadedDocument.Save(Outputfilename)
+loadedDocument.Save("output.pdf")
 
 loadedDocument.Close(True)
 
