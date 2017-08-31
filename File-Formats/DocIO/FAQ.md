@@ -908,7 +908,7 @@ DataTable datatable = new DataTable();
 
 datatable = dataset.Tables[0];
 
-//Adds new setion
+//Adds new section
 
 IWSection section = document.AddSection();
 
@@ -986,7 +986,7 @@ Dim datatable As New DataTable()
 
 datatable = dataset.Tables(0)
 
-'Adds new setion
+'Adds new section
 
 Dim section As IWSection = document.AddSection()
 
@@ -1501,13 +1501,13 @@ Image image;
 
 int i = 1;
 
-//Iterates througth the paragraphs
+//Iterates through the paragraphs
 
 foreach (WParagraph paragraph in textbody.Paragraphs)
 
 {
 
-//Iterates througth the paragraph items 
+//Iterates through the paragraph items 
 
 foreach (ParagraphItem item in paragraph.ChildEntities)
 

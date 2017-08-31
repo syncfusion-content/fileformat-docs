@@ -50,7 +50,7 @@ IWTable table = section.AddTable();
 
 table.ResetCells(3, 2);
 
-//Accessess the instance of the cell (first row, first cell) and adds the content into cell
+//Accesses the instance of the cell (first row, first cell) and adds the content into cell
 
 textRange = table[0, 0].AddParagraph().AppendText("Item");
 
@@ -60,7 +60,7 @@ textRange.CharacterFormat.FontSize = 12;
 
 textRange.CharacterFormat.Bold = true;
 
-//Accessess the instance of the cell (first row, second cell) and adds the content into cell
+//Accesses the instance of the cell (first row, second cell) and adds the content into cell
 
 textRange = table[0, 1].AddParagraph().AppendText("Price($)");
 
@@ -70,7 +70,7 @@ textRange.CharacterFormat.FontSize = 12;
 
 textRange.CharacterFormat.Bold = true;
 
-//Accessess the instance of the cell (second row, first cell) and adds the content into cell
+//Accesses the instance of the cell (second row, first cell) and adds the content into cell
 
 textRange = table[1, 0].AddParagraph().AppendText("Apple");
 
@@ -78,7 +78,7 @@ textRange.CharacterFormat.FontName = "Arial";
 
 textRange.CharacterFormat.FontSize = 10;
 
-//Accessess the instance of the cell (second row, second cell) and adds the content into cell
+//Accesses the instance of the cell (second row, second cell) and adds the content into cell
 
 textRange = table[1, 1].AddParagraph().AppendText("50");
 
@@ -86,7 +86,7 @@ textRange.CharacterFormat.FontName = "Arial";
 
 textRange.CharacterFormat.FontSize = 10;
 
-//Accessess the instance of the cell (third row, first cell) and adds the content into cell
+//Accesses the instance of the cell (third row, first cell) and adds the content into cell
 
 textRange = table[2, 0].AddParagraph().AppendText("Orange");
 
@@ -94,7 +94,7 @@ textRange.CharacterFormat.FontName = "Arial";
 
 textRange.CharacterFormat.FontSize = 10;
 
-//Accessess the instance of the cell (third row, second cell) and adds the content into cell
+//Accesses the instance of the cell (third row, second cell) and adds the content into cell
 
 textRange = table[2, 1].AddParagraph().AppendText("30");
 
@@ -142,7 +142,7 @@ Dim table As IWTable = section.AddTable()
 
 table.ResetCells(3, 2)
 
-'Accessess the instance of the cell (first row, first cell) and adds the content into cell
+'Accesses the instance of the cell (first row, first cell) and adds the content into cell
 
 textRange = table(0, 0).AddParagraph().AppendText("Item")
 
@@ -152,7 +152,7 @@ textRange.CharacterFormat.FontSize = 12
 
 textRange.CharacterFormat.Bold = True
 
-'Accessess the instance of the cell (first row, second cell) and adds the content into cell
+'Accesses the instance of the cell (first row, second cell) and adds the content into cell
 
 textRange = table(0, 1).AddParagraph().AppendText("Price($)")
 
@@ -162,7 +162,7 @@ textRange.CharacterFormat.FontSize = 12
 
 textRange.CharacterFormat.Bold = True
 
-'Accessess the instance of the cell (second row, first cell) and adds the content into cell
+'Accesses the instance of the cell (second row, first cell) and adds the content into cell
 
 textRange = table(1, 0).AddParagraph().AppendText("Apple")
 
@@ -170,7 +170,7 @@ textRange.CharacterFormat.FontName = "Arial"
 
 textRange.CharacterFormat.FontSize = 10
 
-'Accessess the instance of the cell (second row, second cell) and adds the content into cell
+'Accesses the instance of the cell (second row, second cell) and adds the content into cell
 
 textRange = table(1, 1).AddParagraph().AppendText("50")
 
@@ -178,7 +178,7 @@ textRange.CharacterFormat.FontName = "Arial"
 
 textRange.CharacterFormat.FontSize = 10
 
-'Accessess the instance of the cell (third row, first cell) and adds the content into cell
+'Accesses the instance of the cell (third row, first cell) and adds the content into cell
 
 textRange = table(2, 0).AddParagraph().AppendText("Orange")
 
@@ -186,7 +186,7 @@ textRange.CharacterFormat.FontName = "Arial"
 
 textRange.CharacterFormat.FontSize = 10
 
-'Accessess the instance of the cell (third row, second cell) and adds the content into cell
+'Accesses the instance of the cell (third row, second cell) and adds the content into cell
 
 textRange = table(2, 1).AddParagraph().AppendText("30")
 
@@ -534,7 +534,7 @@ IWTable nestTable = table[1, 0].AddTable();
 
 nestTable.ResetCells(3, 1);
 
-//Accessess the instance of the nested table cell (first row, first cell)
+//Accesses the instance of the nested table cell (first row, first cell)
 
 WTableCell nestedCell = nestTable.Rows[0].Cells[0];
 
@@ -546,7 +546,7 @@ nestedCell.Width = 200;
 
 nestedCell.AddParagraph().AppendText("Apple");
 
-//Accessess the instance of the nested table cell (second row, first cell)
+//Accesses the instance of the nested table cell (second row, first cell)
 
 nestedCell = nestTable.Rows[1].Cells[0];
 
@@ -558,7 +558,7 @@ nestedCell.Width = 200;
 
 nestedCell.AddParagraph().AppendText("Orange");
 
-//Accessess the instance of the nested table cell (third row, first cell)
+//Accesses the instance of the nested table cell (third row, first cell)
 
 nestedCell = nestTable.Rows[2].Cells[0];
 
@@ -570,7 +570,7 @@ nestedCell.Width = 200;
 
 nestedCell.AddParagraph().AppendText("Mango");
 
-//Accessess the instance of the cell (second row, second cell)
+//Accesses the instance of the cell (second row, second cell)
 
 nestedCell = table.Rows[1].Cells[1];
 
@@ -616,7 +616,7 @@ Dim nestTable As IWTable = table(1, 0).AddTable()
 
 nestTable.ResetCells(3, 1)
 
-'Accessess the instance of the nested table cell (first row, first cell)
+'Accesses the instance of the nested table cell (first row, first cell)
 
 Dim nestedCell As WTableCell = nestTable.Rows(0).Cells(0)
 
@@ -628,7 +628,7 @@ nestedCell.Width = 200
 
 nestedCell.AddParagraph().AppendText("Apple")
 
-'Accessess the instance of the nested table cell (second row, first cell)
+'Accesses the instance of the nested table cell (second row, first cell)
 
 nestedCell = nestTable.Rows(1).Cells(0)
 
@@ -640,7 +640,7 @@ nestedCell.Width = 200
 
 nestedCell.AddParagraph().AppendText("Orange")
 
-'Accessess the instance of the nested table cell (third row, first cell)
+'Accesses the instance of the nested table cell (third row, first cell)
 
 nestedCell = nestTable.Rows(2).Cells(0)
 
@@ -652,7 +652,7 @@ nestedCell.Width = 200
 
 nestedCell.AddParagraph().AppendText("Mango")
 
-'Accessess the instance of the cell (second row, second cell)
+'Accesses the instance of the cell (second row, second cell)
 
 nestedCell = table.Rows(1).Cells(1)
 
@@ -688,11 +688,11 @@ WordDocument document = new WordDocument();
 
 document.Open("Table.docx", FormatType.Docx);
 
-//Accessess the instance of the first section in the Word document
+//Accesses the instance of the first section in the Word document
 
 WSection section = document.Sections[0];
 
-//Accessess the instance of the first table in the section
+//Accesses the instance of the first table in the section
 
 WTable table = section.Tables[0] as WTable;
 
@@ -752,7 +752,7 @@ table.TableFormat.Borders.Vertical.Color = Color.Red;
 
 table.TableFormat.Borders.BorderType = BorderStyle.Double;
 
-//Accessess the instance of the first row in the table
+//Accesses the instance of the first row in the table
 
 WTableRow row = table.Rows[0];
 
@@ -782,11 +782,11 @@ Dim document As New WordDocument()
 
 document.Open("Table.docx", FormatType.Docx)
 
-'Accessess the instance of the first section in the Word document
+'Accesses the instance of the first section in the Word document
 
 Dim section As WSection = document.Sections(0)
 
-'Accessess the instance of the first table in the section
+'Accesses the instance of the first table in the section
 
 Dim table As WTable = TryCast(section.Tables(0), WTable)
 
@@ -884,7 +884,7 @@ WSection section = document.Sections[0];
 
 WTable table = section.Tables[0] as WTable;
 
-//Accessess the instance of the first row in the table
+//Accesses the instance of the first row in the table
 
 WTableRow row = table.Rows[0];
 
@@ -896,7 +896,7 @@ row.Height = 20;
 
 row.HeightType = TableRowHeightType.AtLeast;
 
-//Accessess the instance of the first cell in the row
+//Accesses the instance of the first cell in the row
 
 WTableCell cell = row.Cells[0];
 
@@ -922,7 +922,7 @@ cell.CellFormat.Paddings.Bottom = 5;
 
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 
-//Accessess the instance of the second cell in the row
+//Accesses the instance of the second cell in the row
 
 cell = row.Cells[1];
 
@@ -956,7 +956,7 @@ Dim section As WSection = document.Sections(0)
 
 Dim table As WTable = TryCast(section.Tables(0), WTable)
 
-'Accessess the instance of the first row in the table
+'Accesses the instance of the first row in the table
 
 Dim row As WTableRow = table.Rows(0)
 
@@ -968,7 +968,7 @@ row.Height = 20
 
 row.HeightType = TableRowHeightType.AtLeast
 
-'Accessess the instance of the first cell in the row
+'Accesses the instance of the first cell in the row
 
 Dim cell As WTableCell = row.Cells(0)
 
@@ -994,7 +994,7 @@ cell.CellFormat.Paddings.Bottom = 5
 
 cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle
 
-'Accessess the instance of the second cell in the row
+'Accesses the instance of the second cell in the row
 
 cell = row.Cells(1)
 

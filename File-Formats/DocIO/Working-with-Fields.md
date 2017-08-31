@@ -235,7 +235,7 @@ paragraph = section.AddParagraph()
 
 field = TryCast(paragraph.AppendField("If", FieldType.FieldIf), WIfField)
 
-'Specify the expession, true and false statement in field code
+'Specify the expression, true and false statement in field code
 
 field.FieldCode = "IF 100 >= 1000 ""The given statement is Correct"" ""The given statement is Wrong"""
 

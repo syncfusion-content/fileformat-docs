@@ -34,9 +34,9 @@ IWParagraph paragraph = document.LastParagraph;
 
 //Appends text to the paragraph
 
-paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua");
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
 
-//Adds comment to a parahraph
+//Adds comment to a paragraph
 
 WComment comment = paragraph.AppendComment("comment test");
 
@@ -73,9 +73,9 @@ Dim paragraph As IWParagraph = document.LastParagraph
 
 'Appends text to the paragraph
 
-paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua")
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
 
-'Adds comment to a parahraph
+'Adds comment to a paragraph
 
 Dim comment As WComment = paragraph.AppendComment("comment test")
 

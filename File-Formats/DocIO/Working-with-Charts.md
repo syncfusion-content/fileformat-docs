@@ -65,19 +65,19 @@ chart.ChartData.SetValue(1, 1, "");
 
 chart.ChartData.SetValue(1, 2, "Sales");
 
-chart.ChartData.SetValue(2, 1, "Cote de Blaye");
+chart.ChartData.SetValue(2, 1, "Phyllis Lapin");
 
 chart.ChartData.SetValue(2, 2, 141.396);
 
-chart.ChartData.SetValue(3, 1, "Thuringer Rostbratwurst");
+chart.ChartData.SetValue(3, 1, "Stanley Hudson");
 
 chart.ChartData.SetValue(3, 2, 80.368);
 
-chart.ChartData.SetValue(4, 1, "Raclette Courdavault");
+chart.ChartData.SetValue(4, 1, "Bernard Shah");
 
 chart.ChartData.SetValue(4, 2, 71.155);
 
-chart.ChartData.SetValue(5, 1, "Tarte au sucre");
+chart.ChartData.SetValue(5, 1, "Patricia McKenna");
 
 chart.ChartData.SetValue(5, 2, 47.234);
 
@@ -85,11 +85,11 @@ chart.ChartData.SetValue(6, 1, "Camembert Pierrot");
 
 chart.ChartData.SetValue(6, 2, 46.825);
 
-chart.ChartData.SetValue(7, 1, "Gnocchi di nonna Alice");
+chart.ChartData.SetValue(7, 1, "Thomas Hardy");
 
 chart.ChartData.SetValue(7, 2, 42.593);
 
-chart.ChartData.SetValue(8, 1, "Manjimup Dried Apples");
+chart.ChartData.SetValue(8, 1, "Hanna Moos");
 
 chart.ChartData.SetValue(8, 2, 41.819);
 
@@ -97,11 +97,11 @@ chart.ChartData.SetValue(9, 1, "Alice Mutton");
 
 chart.ChartData.SetValue(9, 2, 32.698);
 
-chart.ChartData.SetValue(10, 1, "Carnarvon Tigers");
+chart.ChartData.SetValue(10, 1, "Christina Berglund");
 
 chart.ChartData.SetValue(10, 2, 29.171);
 
-chart.ChartData.SetValue(11, 1, "Rössle Sauerkraut.");
+chart.ChartData.SetValue(11, 1, "Elizabeth Lincoln");
 
 chart.ChartData.SetValue(11, 2, 25.696);
 
@@ -178,19 +178,19 @@ chart.ChartData.SetValue(1, 1, "")
 
 chart.ChartData.SetValue(1, 2, "Sales")
 
-chart.ChartData.SetValue(2, 1, "Cote de Blaye")
+chart.ChartData.SetValue(2, 1, "Phyllis Lapin")
 
 chart.ChartData.SetValue(2, 2, 141.396)
 
-chart.ChartData.SetValue(3, 1, "Thuringer Rostbratwurst")
+chart.ChartData.SetValue(3, 1, "Stanley Hudson")
 
 chart.ChartData.SetValue(3, 2, 80.368)
 
-chart.ChartData.SetValue(4, 1, "Raclette Courdavault")
+chart.ChartData.SetValue(4, 1, "Bernard Shah")
 
 chart.ChartData.SetValue(4, 2, 71.155)
 
-chart.ChartData.SetValue(5, 1, "Tarte au sucre")
+chart.ChartData.SetValue(5, 1, "Patricia McKenna")
 
 chart.ChartData.SetValue(5, 2, 47.234)
 
@@ -198,11 +198,11 @@ chart.ChartData.SetValue(6, 1, "Camembert Pierrot")
 
 chart.ChartData.SetValue(6, 2, 46.825)
 
-chart.ChartData.SetValue(7, 1, "Gnocchi di nonna Alice")
+chart.ChartData.SetValue(7, 1, "Thomas Hardy")
 
 chart.ChartData.SetValue(7, 2, 42.593)
 
-chart.ChartData.SetValue(8, 1, "Manjimup Dried Apples")
+chart.ChartData.SetValue(8, 1, "Hanna Moos")
 
 chart.ChartData.SetValue(8, 2, 41.819)
 
@@ -210,11 +210,13 @@ chart.ChartData.SetValue(9, 1, "Alice Mutton")
 
 chart.ChartData.SetValue(9, 2, 32.698)
 
-chart.ChartData.SetValue(10, 1, "Carnarvon Tigers")
+chart.ChartData.SetValue(10, 1, "Christina Berglund")
 
 chart.ChartData.SetValue(10, 2, 29.171)
 
-chart.ChartData.SetValue(11, 1, "Rössle Sauerkraut.")
+chart.ChartData.SetValue(11, 1, "Elizabeth Lincoln")
+
+chart.ChartData.SetValue(11, 2, 25.696)
 
 'Creates a new chart series with the name “Sales”
 
@@ -247,8 +249,6 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 
 document.Close()
-
-
 
 {% endhighlight %}
 
@@ -420,15 +420,15 @@ data[i] = new object[3];
 
 data[0][0] = "";
 
-data[1][0] = "Gravad lax";
+data[1][0] = "Camembert Pierrot";
 
-data[2][0] = "Louisiana Hot spiced Okara";
+data[2][0] = "Alice Mutton";
 
-data[3][0] = "Mascarpone Fabioli";
+data[3][0] = "Carnarvon Tigers";
 
-data[4][0] = "Wimmers gute SemmelKnodel";
+data[4][0] = "SemmelKnodel";
 
-data[5][0] = "Maxilaku";
+data[5][0] = "Dried Apples";
 
 data[0][1] = "Sum of Purchases";
 
@@ -521,15 +521,15 @@ Next
 
 data(0)(0) = ""
 
-data(1)(0) = "Gravad lax"
-
-data(2)(0) = "Louisiana Hot spiced Okara"
-
-data(3)(0) = "Mascarpone Fabioli"
-
-data(4)(0) = "Wimmers gute SemmelKnodel"
-
-data(5)(0) = "Maxilaku"
+data(1)(0) = "Camembert Pierrot";
+             
+data(2)(0) = "Alice Mutton";
+             
+data(3)(0) = "Carnarvon Tigers";
+             
+data(4)(0) = "SemmelKnodel";
+             
+data(5)(0) = "Dried Apples";
 
 data(0)(1) = "Sum of Purchases"
 
@@ -798,7 +798,7 @@ chart.ChartTitle = "New title";
 
 //Changes the series name of first chart series
 
-chart.Series[0].Name = "Modified serie name";
+chart.Series[0].Name = "Modified series name";
 
 //Hides the category labels
 
@@ -889,7 +889,7 @@ chart.ChartTitle = "New title"
 
 'Changes the series name of first chart series
 
-chart.Series(0).Name = "Modified serie name"
+chart.Series(0).Name = "Modified series name"
 
 'Hides the category labels
 
@@ -1214,7 +1214,7 @@ dataList.Add(column4);
 
 dataList.Add(column5);
 
-//Sets chart data by using Ienumerable overload
+//Sets chart data by using IEnumerable overload
 
 chart.SetDataRange(dataList, 1, 1);
 
@@ -1230,7 +1230,7 @@ chart.PrimaryCategoryAxis.Title = "Products";
 
 chart.PrimaryValueAxis.Title = "In Dollars";
 
-//Setss position for plot area
+//Sets position for plot area
 
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 
@@ -1303,7 +1303,7 @@ dataList.Add(column4)
 
 dataList.Add(column5)
 
-'Sets chart data by using Ienumerable overload
+'Sets chart data by using IEnumerable overload
 
 chart.SetDataRange(dataList, 1, 1)
 
@@ -1584,7 +1584,7 @@ chart.PrimaryValueAxis.Title = "In Dollars";
 
 chart.Legend.Position = OfficeLegendPosition.Bottom;
 
-//Sets roatation and elevation values
+//Sets rotation and elevation values
 
 chart.Rotation = 20;
 
@@ -1618,7 +1618,7 @@ chart.Floor.Fill.BackColor = System.Drawing.Color.White;
 
 chart.Floor.Thickness = 3;
 
-//Sets the Backwall fill option.
+//Sets the Back wall fill option.
 
 chart.BackWall.Fill.FillType = OfficeFillType.Gradient;
 
@@ -1632,7 +1632,7 @@ chart.BackWall.Fill.ForeColor = Color.WhiteSmoke;
 
 chart.BackWall.Fill.BackColor = Color.LightBlue;
 
-//Sets the Border Linecolor.
+//Sets the Border Line color.
 
 chart.BackWall.Border.LineColor = System.Drawing.Color.Wheat;
 
@@ -1703,7 +1703,7 @@ chart.PrimaryValueAxis.Title = "In Dollars"
 
 chart.Legend.Position = OfficeLegendPosition.Bottom
 
-'Sets roatation and elevation values
+'Sets rotation and elevation values
 
 chart.Rotation = 20
 
@@ -1751,7 +1751,7 @@ chart.BackWall.Fill.ForeColor = Color.WhiteSmoke
 
 chart.BackWall.Fill.BackColor = Color.LightBlue
 
-'Sets the Border Linecolor.
+'Sets the Border Line color.
 
 chart.BackWall.Border.LineColor = System.Drawing.Color.Wheat
 

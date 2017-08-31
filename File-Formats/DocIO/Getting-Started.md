@@ -167,13 +167,13 @@ The following code example explains how to add a Paragraph into a Word document
 
 IWParagraph firstParagraph = section.AddParagraph();
 
-//Sets the paragraph's horizontal aligment as justify
+//Sets the paragraph's horizontal alignment as justify
 
 firstParagraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify;
 
 //Adds a text range into the paragraph
 
-IWTextRange firstTextRange = firstParagraph.AppendText("Lorem");
+IWTextRange firstTextRange = firstParagraph.AppendText("Adventure Works Cycles,");
 
 //sets the font formatting of the text range
 
@@ -185,7 +185,7 @@ firstTextRange.CharacterFormat.FontSize = 14;
 
 //Adds another text range into the paragraph
 
-IWTextRange secondTextRange = firstParagraph.AppendText(" ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ");
+IWTextRange secondTextRange = firstParagraph.AppendText(" the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
 
 //sets the font formatting of the text range
 
@@ -210,7 +210,7 @@ firstParagraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify
 
 'Adds a text range into the paragraph
 
-Dim firstTextRange As IWTextRange = firstParagraph.AppendText("Lorem")
+Dim firstTextRange As IWTextRange = firstParagraph.AppendText("Adventure Works Cycles, ")
 
 'sets the font formatting of the text range
 
@@ -222,7 +222,7 @@ firstTextRange.CharacterFormat.FontSize = 14
 
 'Adds another text range into the paragraph
 
-Dim secondTextRange As IWTextRange = firstParagraph.AppendText(" ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ")
+Dim secondTextRange As IWTextRange = firstParagraph.AppendText("the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
 
 'sets the font formatting of the text range
 
@@ -252,7 +252,7 @@ paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
 
 IWPicture picture = paragraph.AppendPicture(Image.FromFile("DummyProfilePicture.jpg"));
 
-//Specifiea the size of the picture
+//Specify the size of the picture
 
 picture.Height = 100;
 
@@ -300,7 +300,7 @@ IWTable table = section.AddTable();
 
 table.ResetCells(2,2);
 
-//Accessess the instance of the cell (first row, first cell)
+//Accesses the instance of the cell (first row, first cell)
 
 WTableCell firstCell = table.Rows[0].Cells[0];
 
@@ -316,7 +316,7 @@ IWTextRange textRange = paragraph.AppendText("Profile picture");
 
 textRange.CharacterFormat.Bold = true;
 
-//Accessess the instance of cell (first row, second cell)
+//Accesses the instance of cell (first row, second cell)
 
 WTableCell secondCell = table.Rows[0].Cells[1];
 
@@ -346,7 +346,7 @@ secondCell.Width = 330;
 
 paragraph = secondCell.AddParagraph();
 
-textRange = paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ");
+textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
 
 
 
@@ -363,7 +363,7 @@ Dim table As IWTable = section.AddTable()
 
 table.ResetCells(2, 2)
 
-'Accessess the instance of the cell (first row, first cell)
+'Accesses the instance of the cell (first row, first cell)
 
 Dim firstCell As WTableCell = table.Rows(0).Cells(0)
 
@@ -379,7 +379,7 @@ Dim textRange As IWTextRange = paragraph.AppendText("Profile picture")
 
 textRange.CharacterFormat.Bold = True
 
-'Accessess the instance of cell (first row, second cell)
+'Accesses the instance of cell (first row, second cell)
 
 Dim secondCell As WTableCell = table.Rows(0).Cells(1)
 
@@ -409,7 +409,7 @@ secondCell.Width = 330
 
 paragraph = secondCell.AddParagraph()
 
-textRange = paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ")
+textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
 
 
 
@@ -684,11 +684,11 @@ The following code example explains how to search a particular text and highligh
 
 WordDocument document = new WordDocument(@"..\..\Data\Giant Panda.docx");
 
-//Finds the occurence of the Word "panda" in the document
+//Finds the occurrence of the Word "panda" in the document
 
 TextSelection[] textSelection = document.FindAll("panda", false, true);
 
-//Iterates through each occurence and highlights it
+//Iterates through each occurrence and highlights it
 
 foreach (TextSelection selection in textSelection)
 
@@ -714,11 +714,11 @@ document.Close();
 
 Dim document As New WordDocument("..\..\Data\Giant Panda.docx")
 
-'Finds the occurence of the word "panda" in the document
+'Finds the occurrence of the word "panda" in the document
 
 Dim textSelection As TextSelection() = document.FindAll("panda", False, True)
 
-'Iterates through each occurence and highlights it.
+'Iterates through each occurrence and highlights it.
 
 For Each selection As TextSelection In textSelection
 
@@ -775,7 +775,7 @@ string[] fieldNames = new string[] {"FirstName", "LastName", "Email", "Country"}
 
 //Initializes the string array with field values
 
-string[] fieldValues = new string[] {"John", "Smith", "johnsmith@domain.com", "USA"};
+string[] fieldValues = new string[] {"John", "Smith", "john_smith@domain.com", "USA"};
 
 //Executes the mail merge operation that replaces the matching field names with field values respectively.
 
@@ -801,7 +801,7 @@ Dim fieldNames As String() = New String() {"FirstName", "LastName", "Email", "Co
 
 'Initializes the string array with field values
 
-Dim fieldValues As String() = New String() {"John", "Smith", "johnsmith@domain.com", "USA"}
+Dim fieldValues As String() = New String() {"John", "Smith", "john_smith@domain.com", "USA"}
 
 'Executes the mail merge operation that replaces the matching field names with field values respectively.
 
@@ -912,11 +912,11 @@ public List<Employee> GetEmployees()
 
 List<Employee> employees = new List<Employee>();
 
-employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
+employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
 
 employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
 
-employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
 
 employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
 
@@ -1222,7 +1222,7 @@ PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
 
 //Saves the PDF file to file system
 
-pdfDocument.Save("WortoPDF.pdf");
+pdfDocument.Save("Sample.pdf");
 
 //closes the instance of document objects
 
@@ -1254,7 +1254,7 @@ Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
 
 'Saves the PDF file to file system
 
-pdfDocument.Save("WortoPDF.pdf")
+pdfDocument.Save("Sample.pdf")
 
 'closes the instance of document objects
 

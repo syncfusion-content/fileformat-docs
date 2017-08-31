@@ -456,11 +456,11 @@ case EntityType.TextRange:
 
 WTextRange textRange = entity as WTextRange;
 
-if (textRange.Text == "Mayur")
+if (textRange.Text == "Andrew")
 
 {
 
-(entity as WTextRange).Text = "Gerrit";
+(entity as WTextRange).Text = "Fuller";
 
 }
 
@@ -636,9 +636,9 @@ Case EntityType.TextRange
 
 Dim textRange As WTextRange = TryCast(entity, WTextRange)
 
-If textRange.Text = "Mayur" Then
+If textRange.Text = "Andrew" Then
 
-TryCast(entity, WTextRange).Text = "Gerrit"
+TryCast(entity, WTextRange).Text = "Fuller"
 
 End If
 
@@ -758,7 +758,7 @@ destinationDocument.Sections.Add(sourceDocument.Sections[i].Clone());
 
 //Saves and closes the document instance
 
-destionationDocument.Save("Section_" + i + ".docx");
+destinationDocument.Save("Section_" + i + ".docx");
 
 destinationDocument.Close();
 
@@ -790,7 +790,7 @@ destinationDocument.Sections.Add(sourceDocument.Sections(i).Clone())
 
 'Saves and closes the document instance
 
-destionationDocument.Save("Section_" + i + ".docx")
+destinationDocument.Save("Section_" + i + ".docx")
 
 destinationDocument.Close()
 
@@ -880,7 +880,7 @@ WordDocument sourceDocument = new WordDocument(sourceFileName);
 
 WordDocument destinationDocument = new WordDocument(targetFileName);
 
-//Sets the breakcode of First section of source document as NoBreak to avoid imported from a new page
+//Sets the break-code of First section of source document as NoBreak to avoid imported from a new page
 
 sourceDocument.Sections[0].BreakCode = SectionBreakCode.NoBreak; 
 
@@ -910,7 +910,7 @@ Dim sourceDocument As New WordDocument(sourceFileName)
 
 Dim destinationDocument As New WordDocument(targetFileName)
 
-'Sets the breakcode of first section of source document as NoBreak to avoid imported from a new page
+'Sets the break-code of first section of source document as NoBreak to avoid imported from a new page
 
 sourceDocument.Sections(0).BreakCode = SectionBreakCode.NoBreak
 
@@ -1332,7 +1332,7 @@ document.EnsureMinimal();
 
 IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
 
-//Sets the formattings of the style
+//Sets the formatting of the style
 
 myStyle.CharacterFormat.FontSize = 16f;
 
@@ -1342,7 +1342,7 @@ myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
 
 //Appends the contents into the paragraph
 
-document.LastParagraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua");
+document.LastParagraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
 
 //Applies the style to paragraph
 
@@ -1368,7 +1368,7 @@ document.EnsureMinimal()
 
 Dim myStyle As IWParagraphStyle = document.AddParagraphStyle("MyStyle")
 
-'Sets the formattings of the style
+'Sets the formatting of the style
 
 myStyle.CharacterFormat.FontSize = 16.0F
 
@@ -1378,7 +1378,7 @@ myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right
 
 'Appends the content into the paragraph
 
-document.LastParagraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua")
+document.LastParagraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
 
 'Applies the style to paragraph
 
@@ -1412,7 +1412,7 @@ IWParagraph paragraph = document.LastParagraph;
 
 //Appends the content into the paragraph
 
-paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua");
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
 
 //Applies the style to paragraph
 
@@ -1438,7 +1438,7 @@ Dim paragraph As IWParagraph = document.LastParagraph
 
 'Appends the content into the paragraph
 
-paragraph.AppendText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua")
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
 
 'Applies the style to paragraph
 
@@ -1477,7 +1477,7 @@ Console.WriteLine("Title - {0}",document.BuiltinDocumentProperties.Title);
 
 Console.WriteLine("Author - {0}", document.BuiltinDocumentProperties.Author);
 
-//Modifies or sets the category and company Build-in document properties
+//Modifies or sets the category and company Built-in document properties
 
 document.BuiltinDocumentProperties.Category = "Sales reports";
 
@@ -1501,7 +1501,7 @@ Console.WriteLine("Title - {0}", document.BuiltinDocumentProperties.Title)
 
 Console.WriteLine("Author - {0}", document.BuiltinDocumentProperties.Author)
 
-'Modifies or sets the category and company Build-in document properties
+'Modifies or sets the category and company Built-in document properties
 
 document.BuiltinDocumentProperties.Category = "Sales reports"
 
@@ -1532,7 +1532,7 @@ WordDocument document = new WordDocument(inputFileName);
 
 //Adds the custom document properties of various data types
 
-document.CustomDocumentProperties.Add("PropertyA", "ValueofA");
+document.CustomDocumentProperties.Add("PropertyA", "Value of A");
 
 document.CustomDocumentProperties.Add("PropertyB", 12.5);
 
@@ -1556,7 +1556,7 @@ Dim document As New WordDocument(inputFileName)
 
 'Adds the custom document properties of various data types
 
-document.CustomDocumentProperties.Add("PropertyA", "ValueofA")
+document.CustomDocumentProperties.Add("PropertyA", "Value of A")
 
 document.CustomDocumentProperties.Add("PropertyB", 12.5)
 
@@ -1629,7 +1629,7 @@ The following code illustrates how to apply gradient as background to the docume
 
 {% highlight c# %}
 
-//Createss a new Word document
+//Creates a new Word document
 
 WordDocument document = new WordDocument();
 
