@@ -71,27 +71,27 @@ chart.ChartData.SetValue(4, 4, 80);
 
 //Creates a new chart series with the name
 
-IOfficeChartSerie serieJan = chart.Series.Add("Jan");
+IOfficeChartSerie seriesJan = chart.Series.Add("Jan");
 
 //Sets the data range of chart series – start row, start column, end row, end column
 
-serieJan.Values = chart.ChartData[2, 2, 4, 2];
+seriesJan.Values = chart.ChartData[2, 2, 4, 2];
 
 //Creates a new chart series with the name
 
-IOfficeChartSerie serieFeb = chart.Series.Add("Feb");
+IOfficeChartSerie seriesFeb = chart.Series.Add("Feb");
 
 //Sets the data range of chart series – start row, start column, end row, end column
 
-serieFeb.Values = chart.ChartData[2, 3, 4, 3];
+seriesFeb.Values = chart.ChartData[2, 3, 4, 3];
 
 //Creates a new chart series with the name
 
-IOfficeChartSerie serieMarch = chart.Series.Add("March");
+IOfficeChartSerie seriesMarch = chart.Series.Add("March");
 
 //Sets the data range of chart series – start row, start column, end row, end column
 
-serieMarch.Values = chart.ChartData[2, 4, 4, 4];
+seriesMarch.Values = chart.ChartData[2, 4, 4, 4];
 
 //Sets the data range of the category axis
 
@@ -169,27 +169,27 @@ chart.ChartData.SetValue(4, 4, 80)
 
 'Creates a new chart series with the name
 
-Dim serieJan As IOfficeChartSerie = chart.Series.Add("Jan")
+Dim seriesJan As IOfficeChartSerie = chart.Series.Add("Jan")
 
 'Sets the data range of chart series – start row, start column, end row, end column
 
-serieJan.Values = chart.ChartData(2, 2, 4, 2)
+seriesJan.Values = chart.ChartData(2, 2, 4, 2)
 
 'Creates a new chart series with the name
 
-Dim serieFeb As IOfficeChartSerie = chart.Series.Add("Feb")
+Dim seriesFeb As IOfficeChartSerie = chart.Series.Add("Feb")
 
 'Sets the data range of chart series – start row, start column, end row, end column
 
-serieFeb.Values = chart.ChartData(2, 3, 4, 3)
+seriesFeb.Values = chart.ChartData(2, 3, 4, 3)
 
 'Creates a new chart series with the name
 
-Dim serieMarch As IOfficeChartSerie = chart.Series.Add("March")
+Dim seriesMarch As IOfficeChartSerie = chart.Series.Add("March")
 
 'Sets the data range of chart series – start row, start column, end row, end column
 
-serieMarch.Values = chart.ChartData(2, 4, 4, 4)
+seriesMarch.Values = chart.ChartData(2, 4, 4, 4)
 
 'Sets the data range of the category axis
 
@@ -1109,7 +1109,7 @@ chart.PlotArea.Fill.FillType = OfficeFillType.SolidColor
 
 chart.PlotArea.Fill.ForeColor = Color.LightPink
 
-'Sets the plot area shodow presence
+'Sets the plot area shadow presence
 
 chart.PlotArea.Shadow.ShadowInnerPresets = Office2007ChartPresetsInner.InsideDiagonalTopLeft
 
@@ -1145,7 +1145,7 @@ chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide
 
 chart.Legend.TextArea.Bold = True
 
-'Sets the legend text area forecolor
+'Sets the legend text area fore color
 
 chart.Legend.TextArea.Color = OfficeKnownColors.Bright_green
 

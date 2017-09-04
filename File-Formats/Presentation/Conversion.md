@@ -544,15 +544,15 @@ Dim bitmap As New Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb
 
 'Gets the graphics from image
 
-Dim gdiGraphics As Graphics = Graphics.FromImage(bitmap)
+Dim imageGraphics As Graphics = Graphics.FromImage(bitmap)
 
 'Sets the resolution
 
-bitmap.SetResolution(gdiGraphics.DpiX, gdiGraphics.DpiY)
+bitmap.SetResolution(imageGraphics.DpiX, imageGraphics.DpiY)
 
 'Recreates the image in custom size
 
-gdiGraphics.DrawImage(System.Drawing.Image.FromStream(stream), New Rectangle(0, 0, bitmap.Width, bitmap.Height))
+imageGraphics.DrawImage(System.Drawing.Image.FromStream(stream), New Rectangle(0, 0, bitmap.Width, bitmap.Height))
 
 'Saves the image as bitmap
 
