@@ -150,7 +150,7 @@ ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 
 
 ISmartArtNode newNode = smartArt.Nodes.Add();
 
-// Add a child node to the smart art node
+// Add a child node to the SmartArt node
 
 ISmartArtNode childNode = newNode.ChildNodes.Add();
 
@@ -187,7 +187,7 @@ Dim smartArt As ISmartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHex
 
 Dim newNode As ISmartArtNode = smartArt.Nodes.Add()
 
-'Add a child node to the smart art node
+'Add a child node to the SmartArt node
 
 Dim childNode As ISmartArtNode = newNode.ChildNodes.Add()
 
@@ -404,7 +404,7 @@ IPresentation presentation = Presentation.Open("SampleDocument.pptx");
 
 ISlide slide = presentation.Slides[0];
 
-//Get the smart art from slide.
+//Get the SmartArt from slide.
 
 ISmartArt smartArt = slide.Shapes[0] as ISmartArt;
 
@@ -433,7 +433,7 @@ Dim presentationDocument As IPresentation = Presentation.Open("SampleDocument.pp
 
 Dim slide As ISlide = presentationDocument.Slides(0)
 
-'Get the smart art from slide.
+'Get the SmartArt from slide.
 
 Dim smartArt As ISmartArt = TryCast(slide.Shapes(0), ISmartArt)
 
