@@ -30,7 +30,7 @@ IWParagraph paragraph = section.AddParagraph();
 
 //Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Save the document
 
@@ -58,7 +58,7 @@ Dim paragraph As IWParagraph = section.AddParagraph()
 
 'Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Save the document
 
@@ -92,7 +92,7 @@ IWParagraph paragraph = section.AddParagraph();
 
 //Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Save the document
 
@@ -120,7 +120,7 @@ Dim paragraph As IWParagraph = section.AddParagraph()
 
 'Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Save the document
 

@@ -1342,7 +1342,7 @@ myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
 
 //Appends the contents into the paragraph
 
-document.LastParagraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+document.LastParagraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Applies the style to paragraph
 
@@ -1378,7 +1378,7 @@ myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right
 
 'Appends the content into the paragraph
 
-document.LastParagraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+document.LastParagraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Applies the style to paragraph
 
@@ -1412,7 +1412,7 @@ IWParagraph paragraph = document.LastParagraph;
 
 //Appends the content into the paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Applies the style to paragraph
 
@@ -1438,7 +1438,7 @@ Dim paragraph As IWParagraph = document.LastParagraph
 
 'Appends the content into the paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Applies the style to paragraph
 

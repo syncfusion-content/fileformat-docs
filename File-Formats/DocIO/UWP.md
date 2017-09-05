@@ -400,7 +400,7 @@ IWParagraph paragraph = section.AddParagraph();
 
 //Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 MemoryStream stream = new MemoryStream();
 
@@ -494,7 +494,7 @@ Dim paragraph As IWParagraph = section.AddParagraph()
 
 'Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 Dim stream As New MemoryStream()
 

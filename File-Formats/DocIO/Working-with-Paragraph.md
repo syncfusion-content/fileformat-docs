@@ -2493,7 +2493,7 @@ paragraph = section.AddParagraph();
 
 //Appends Email hyperlink to the paragraph
 
-paragraph.AppendHyperlink("mailto:john@gmail.com","John" , HyperlinkType.EMailLink);
+paragraph.AppendHyperlink("mailto:sales@syncfusion.com","Sales" , HyperlinkType.EMailLink);
 
 //Saves the Word document
 
@@ -2525,7 +2525,7 @@ paragraph = section.AddParagraph()
 
 'Appends Email hyperlink to the paragraph
 
-paragraph.AppendHyperlink("mailto:john@gmail.com", "John", HyperlinkType.EMailLink)
+paragraph.AppendHyperlink("mailto:sales@syncfusion.com","Sales" , HyperlinkType.EMailLink)
 
 'Saves the Word document
 

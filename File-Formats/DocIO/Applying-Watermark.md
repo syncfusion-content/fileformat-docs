@@ -32,7 +32,7 @@ document.EnsureMinimal();
 
 IWParagraph paragraph = document.LastParagraph;
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Creates a new text watermark
 
@@ -81,7 +81,7 @@ document.EnsureMinimal()
 
 Dim paragraph As IWParagraph = document.LastParagraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Creates a new text watermark
 
@@ -138,7 +138,7 @@ document.EnsureMinimal();
 
 IWParagraph paragraph = document.LastParagraph;
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Creates a new picture watermark
 
@@ -179,7 +179,7 @@ document.EnsureMinimal()
 
 Dim paragraph As IWParagraph = document.LastParagraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Creates a new picture watermark
 

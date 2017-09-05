@@ -1104,7 +1104,7 @@ CustomerDetails customers = new CustomerDetails("Maria Anders", "Maria Anders", 
 
 List<Employees> employees = new List<Employees>();
 
-employees.Add(new Employees("Nancy", "Davolio", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers));
+employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers));
 
 return employees;
 
@@ -1226,7 +1226,7 @@ Dim customers As New CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "
 
 Dim employees As New List(Of Employees)()
 
-employees.Add(New Employees("Nancy", "Davolio", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", _
+employees.Add(New Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", _
 
 customers))
 
@@ -1938,7 +1938,7 @@ Dim fieldValues As String() = New String() {"101", "John", "+122-2000466", "Hous
 
 'Mapping the required merge field names with data source column names
 
-document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Emp_Id_InDataSource")
+document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource")
 
 document.MailMerge.MappedFields.Add("Name_InDocument", "Name_InDataSource")
 

@@ -3980,13 +3980,13 @@ word.Range rngToc = document.Range(ref tocstart, ref tocend);
 
 //Adds TOC.
 
-word.TableOfContents toc = document.TablesOfContents.Add(rngToc, ref trueobj, ref nullobject, ref nullobject, ref nullobject,
+word.TableOfContents tableOfContents = document.TablesOfContents.Add(rngToc, ref trueobj, ref nullobject, ref nullobject, ref nullobject,
 
 ref nullobject, ref trueobj, ref trueobj, ref trueobj, ref trueobj, ref trueobj, ref trueobj);
 
 //Updates TOC.
 
-toc.Update();
+tableOfContents.Update();
 
 //Saves the document.
 
@@ -4045,13 +4045,13 @@ Dim rngToc As Word.Range = document.Range(tocstart, tocend)
 
 'Adds TOC.
 
-Dim toc As Word.TableOfContents = document.TablesOfContents.Add(rngToc, trueobj, nullobject, nullobject, nullobject, nullobject, _
+Dim tableOfContents As Word.TableOfContents = document.TablesOfContents.Add(rngToc, trueobj, nullobject, nullobject, nullobject, nullobject, _
 
 trueobj, trueobj, trueobj, trueobj, trueobj, trueobj)
 
 'Updates TOC.
 
-toc.Update()
+tableOfContents.Update()
 
 'Saves the document.
 
@@ -4095,7 +4095,7 @@ IWSection section = document.Sections[0];
 
 WParagraph paragraph = new WParagraph(document);
 
-TableOfContent toc = paragraph.AppendTOC(1, 3);
+TableOfContent tableOfContents = paragraph.AppendTOC(1, 3);
 
 section.Paragraphs.Insert(0, paragraph);
 
@@ -4126,7 +4126,7 @@ Dim section As IWSection = document.Sections(0)
 
 Dim paragraph As New WParagraph(document)
 
-Dim toc As TableOfContent = paragraph.AppendTOC(1, 3)
+Dim tableOfContents As TableOfContent = paragraph.AppendTOC(1, 3)
 
 section.Paragraphs.Insert(0, paragraph)
 
