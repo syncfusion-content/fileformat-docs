@@ -173,7 +173,7 @@ firstParagraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify
 
 //Adds a text range into the paragraph
 
-IWTextRange firstTextRange = firstParagraph.AppendText("Adventure Works Cycles,");
+IWTextRange firstTextRange = firstParagraph.AppendText("AdventureWorks Cycles,");
 
 //sets the font formatting of the text range
 
@@ -210,7 +210,7 @@ firstParagraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify
 
 'Adds a text range into the paragraph
 
-Dim firstTextRange As IWTextRange = firstParagraph.AppendText("Adventure Works Cycles, ")
+Dim firstTextRange As IWTextRange = firstParagraph.AppendText("AdventureWorks Cycles, ")
 
 'sets the font formatting of the text range
 
@@ -346,7 +346,7 @@ secondCell.Width = 330;
 
 paragraph = secondCell.AddParagraph();
 
-textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 
 
@@ -409,7 +409,7 @@ secondCell.Width = 330
 
 paragraph = secondCell.AddParagraph()
 
-textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 
 

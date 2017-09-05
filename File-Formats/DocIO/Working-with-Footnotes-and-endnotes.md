@@ -65,7 +65,7 @@ paragraph.AppendText("Sample content for footnotes").CharacterFormat.Bold = true
 
 paragraph = footnote.TextBody.AddParagraph();
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Saves and closes the Word document instance
 
@@ -120,7 +120,7 @@ paragraph.AppendText("Sample content for footnotes").CharacterFormat.Bold = True
 
 paragraph = footnote.TextBody.AddParagraph()
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 ‘Saves and closes the Word document instance
 
@@ -182,7 +182,7 @@ paragraph.AppendText("Sample content for endnotes").CharacterFormat.Bold = true;
 
 paragraph = endnote.TextBody.AddParagraph();
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Saves and closes the Word document instance
 
@@ -237,7 +237,7 @@ paragraph.AppendText("Sample content for endnotes").CharacterFormat.Bold = True
 
 paragraph = endnote.TextBody.AddParagraph()
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 ‘Saves and closes the Word document instance
 
@@ -312,7 +312,7 @@ paragraph.AppendText("Sample content for footnotes").CharacterFormat.Bold = true
 
 paragraph = footnote.TextBody.AddParagraph();
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Saves and closes the Word document instance
 
@@ -373,7 +373,7 @@ paragraph.AppendText("Sample content for footnotes").CharacterFormat.Bold = True
 
 paragraph = footnote.TextBody.AddParagraph()
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 ‘Saves and closes the Word document instance
 
@@ -438,7 +438,7 @@ paragraph.AppendText("Sample content for endnotes").CharacterFormat.Bold = true;
 
 paragraph = endnote.TextBody.AddParagraph();
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Saves and closes the Word document instance
 
@@ -499,7 +499,7 @@ paragraph.AppendText("Sample content for endnotes").CharacterFormat.Bold = True
 
 paragraph = endnote.TextBody.AddParagraph()
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 ‘Saves and closes the Word document instance
 

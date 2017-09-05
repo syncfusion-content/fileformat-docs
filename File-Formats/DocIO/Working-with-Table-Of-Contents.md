@@ -68,7 +68,7 @@ WordDocument document = new WordDocument();
 
 IWSection section = document.AddSection();
 
-string paraText = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
 
 //Adds the paragraph into the created section
 
@@ -163,7 +163,7 @@ Dim document As New WordDocument()
 
 Dim section As IWSection = document.AddSection()
 
-Dim paraText As String = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company."
+Dim paraText As String = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company."
 
 'Adds the paragraph into the created section
 
@@ -335,7 +335,7 @@ style.CharacterFormat.FontSize = 25;
 
 IWSection section = document.AddSection();
 
-string paraText = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
 
 //Adds the paragraph into the created section
 
@@ -448,7 +448,7 @@ style.CharacterFormat.FontSize = 25
 
 Dim section As IWSection = document.AddSection()
 
-Dim paraText As String = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company."
+Dim paraText As String = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company."
 
 'Adds the paragraph into the created section
 
