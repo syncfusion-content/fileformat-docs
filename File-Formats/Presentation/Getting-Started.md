@@ -188,7 +188,7 @@ Essential Presentation allows you to create simple and multi-level lists that ma
 
 //Adds a new paragraph with text.
 
-paragraph = textShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Sets the list type as bullet
 
@@ -212,7 +212,7 @@ paragraph.FirstLineIndent = -20;
 
 'Adds a new paragraph with text.
 
-paragraph = textShape.TextBody.AddParagraph("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Sets the list type as bullet
 

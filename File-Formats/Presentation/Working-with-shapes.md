@@ -27,7 +27,7 @@ ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
 //Adds normal shape to slide
 
-IShape autoShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);          
+slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);          
 
 //Creates an instance for image as stream
 
@@ -63,7 +63,7 @@ Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
 'Adds normal shape to slide
 
-Dim autoShape As IShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300)
+slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300)
 
 'Creates an instance for image as stream
 
@@ -247,7 +247,7 @@ shape.ShapeName = "Shape1"
 
 Dim lineFormat As ILineFormat = shape.LineFormat
 
-'Sets the dashstyle of the lineformat.
+'Sets the dash style of the line format.
 
 lineFormat.DashStyle = LineDashStyle.DashDotDot
 
