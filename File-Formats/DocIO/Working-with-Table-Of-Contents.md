@@ -68,7 +68,7 @@ WordDocument document = new WordDocument();
 
 IWSection section = document.AddSection();
 
-string paraText = "Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.";
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
 
 //Adds the paragraph into the created section
 
@@ -163,7 +163,7 @@ Dim document As New WordDocument()
 
 Dim section As IWSection = document.AddSection()
 
-Dim paraText As String = "Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company."
+Dim paraText As String = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company."
 
 'Adds the paragraph into the created section
 
@@ -335,7 +335,7 @@ style.CharacterFormat.FontSize = 25;
 
 IWSection section = document.AddSection();
 
-string paraText = "Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.";
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
 
 //Adds the paragraph into the created section
 
@@ -343,13 +343,13 @@ IWParagraph paragraph = section.AddParagraph();
 
 //Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determines the TOC entries
 
-TableOfContent tableofContent = paragraph.AppendTOC(1, 3);
+TableOfContent tableOfContents = paragraph.AppendTOC(1, 3);
 
-tableofContent.UseHeadingStyles = false;
+tableOfContents.UseHeadingStyles = false;
 
 //Sets the TOC level style based on the created TOC 
 
-tableofContent.SetTOCLevelStyle(2, "MyStyle");
+tableOfContents.SetTOCLevelStyle(2, "MyStyle");
 
 //Adds the section into the Word document
 
@@ -448,7 +448,7 @@ style.CharacterFormat.FontSize = 25
 
 Dim section As IWSection = document.AddSection()
 
-Dim paraText As String = "Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company."
+Dim paraText As String = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company."
 
 'Adds the paragraph into the created section
 
@@ -456,13 +456,13 @@ Dim paragraph As IWParagraph = section.AddParagraph()
 
 'Appends the TOC field with LowerHeadingLevel and UpperHeadingLevel to determine the TOC entries
 
-Dim tableofContent As TableOfContent = paragraph.AppendTOC(1, 3)
+Dim tableOfContents As TableOfContent = paragraph.AppendTOC(1, 3)
 
-tableofContent.UseHeadingStyles = False
+tableOfContents.UseHeadingStyles = False
 
 'Sets the TOC level style based on the created TOC 
 
-tableofContent.SetTOCLevelStyle(2, "MyStyle")
+tableOfContents.SetTOCLevelStyle(2, "MyStyle")
 
 'Adds the section into the Word document
 
