@@ -1192,7 +1192,7 @@ document.Close(True)
 var count;         
 for(count = 1; count <= 100; count++){
 	document.write("<tr> <td>" + count + "</td>");
-	document.write("<td>" + count * 10000 + "</td></tr>");
+	document.write("<td>" + count + 1000 + "</td></tr>");
 }
 </script>
 <tfoot>
