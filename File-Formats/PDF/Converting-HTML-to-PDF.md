@@ -1190,9 +1190,10 @@ document.Close(True)
 </thead>
 <script>
 var count;         
-for(count = 1; count <= 100; count++){
-	document.write("<tr> <td>" + count + "</td>");
-	document.write("<td>" + count + 1000 + "</td></tr>");
+var i;         
+for(count = 10001,i=1; count <= 10100; count++,i++){
+	document.write("<tr> <td>" + i + "</td>");
+	document.write("<td>" + count + "</td></tr>");
 }
 </script>
 <tfoot>
