@@ -31,7 +31,7 @@ IWParagraph paragraph = section.AddParagraph();
 
 //Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Export the document after saving
 
@@ -169,7 +169,7 @@ Dim paragraph As IWParagraph = section.AddParagraph()
 
 'Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Export the document after saving
 

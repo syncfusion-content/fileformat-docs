@@ -92,7 +92,7 @@ IWParagraph paragraph = section.AddParagraph();
 
 //Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 MemoryStream memoryStream = new MemoryStream();
 
@@ -158,7 +158,7 @@ Dim paragraph As IWParagraph = section.AddParagraph()
 
 'Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 Dim memoryStream As New MemoryStream()
 
@@ -224,7 +224,7 @@ IWParagraph paragraph = section.AddParagraph();
 
 //Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 MemoryStream memoryStream = new MemoryStream();
 
@@ -336,7 +336,7 @@ Dim paragraph As IWParagraph = section.AddParagraph()
 
 'Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 Dim memoryStream As New MemoryStream()
 
@@ -444,7 +444,7 @@ IWParagraph paragraph = section.AddParagraph();
 
 //Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 MemoryStream memoryStream = new MemoryStream();
 
@@ -543,7 +543,7 @@ Dim paragraph As IWParagraph = section.AddParagraph()
 
 'Appends the text to the created paragraph
 
-paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 Dim memoryStream As New MemoryStream()
 
@@ -599,15 +599,15 @@ Loop
 
 Dim currentView As UIView = currentController.View
 
-Dim qlPreview As New QLPreviewController()
+Dim preview As New QLPreviewController()
 
 Dim item As QLPreviewItem = New QLPreviewItemBundle(filename, filePath)
 
-qlPreview.DataSource = New PreviewControllerDS(item)
+preview.DataSource = New PreviewControllerDS(item)
 
 'UIViewController uiView = currentView as UIViewController;
 
-currentController.PresentViewController(qlPreview, True, Nothing)
+currentController.PresentViewController(preview, True, Nothing)
 
 End Function
 

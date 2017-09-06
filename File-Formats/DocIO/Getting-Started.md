@@ -173,7 +173,7 @@ firstParagraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify
 
 //Adds a text range into the paragraph
 
-IWTextRange firstTextRange = firstParagraph.AppendText("Adventure Works Cycles,");
+IWTextRange firstTextRange = firstParagraph.AppendText("AdventureWorks Cycles,");
 
 //sets the font formatting of the text range
 
@@ -185,7 +185,7 @@ firstTextRange.CharacterFormat.FontSize = 14;
 
 //Adds another text range into the paragraph
 
-IWTextRange secondTextRange = firstParagraph.AppendText(" the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+IWTextRange secondTextRange = firstParagraph.AppendText(" the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //sets the font formatting of the text range
 
@@ -204,13 +204,13 @@ secondTextRange.CharacterFormat.FontSize = 11;
 
 Dim firstParagraph As IWParagraph = section.AddParagraph()
 
-'Sets the paragraph's horizontal aligment as justify
+'Sets the paragraph's horizontal alignment as justify
 
 firstParagraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify
 
 'Adds a text range into the paragraph
 
-Dim firstTextRange As IWTextRange = firstParagraph.AppendText("Adventure Works Cycles, ")
+Dim firstTextRange As IWTextRange = firstParagraph.AppendText("AdventureWorks Cycles, ")
 
 'sets the font formatting of the text range
 
@@ -222,7 +222,7 @@ firstTextRange.CharacterFormat.FontSize = 14
 
 'Adds another text range into the paragraph
 
-Dim secondTextRange As IWTextRange = firstParagraph.AppendText("the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+Dim secondTextRange As IWTextRange = firstParagraph.AppendText("the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'sets the font formatting of the text range
 
@@ -346,7 +346,7 @@ secondCell.Width = 330;
 
 paragraph = secondCell.AddParagraph();
 
-textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.");
+textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 
 
@@ -409,7 +409,7 @@ secondCell.Width = 330
 
 paragraph = secondCell.AddParagraph()
 
-textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company.")
+textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 
 
@@ -912,7 +912,7 @@ public List<Employee> GetEmployees()
 
 List<Employee> employees = new List<Employee>();
 
-employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
+employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
 
 employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
 
@@ -979,7 +979,7 @@ Public Function GetEmployees() As List(Of Employee)
 
 Dim employees As New List(Of Employee)()
 
-employees.Add(New Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", _
+employees.Add(New Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", _
 
 "USA", "Nancy.png"))
 
