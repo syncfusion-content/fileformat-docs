@@ -77,7 +77,7 @@ chart.ChartData.SetValue(4, 1, "Bernard Shah");
 
 chart.ChartData.SetValue(4, 2, 71.155);
 
-chart.ChartData.SetValue(5, 1, "Patricia McKenna");
+chart.ChartData.SetValue(5, 1, "Patricia Lincoln");
 
 chart.ChartData.SetValue(5, 2, 47.234);
 
@@ -190,7 +190,7 @@ chart.ChartData.SetValue(4, 1, "Bernard Shah")
 
 chart.ChartData.SetValue(4, 2, 71.155)
 
-chart.ChartData.SetValue(5, 1, "Patricia McKenna")
+chart.ChartData.SetValue(5, 1, "Patricia Lincoln")
 
 chart.ChartData.SetValue(5, 2, 47.234)
 
@@ -424,9 +424,9 @@ data[1][0] = "Camembert Pierrot";
 
 data[2][0] = "Alice Mutton";
 
-data[3][0] = "Carnarvon Tigers";
+data[3][0] = "Roasted Tigers";
 
-data[4][0] = "SemmelKnodel";
+data[4][0] = "Orange Shake";
 
 data[5][0] = "Dried Apples";
 
@@ -525,9 +525,9 @@ data(1)(0) = "Camembert Pierrot";
              
 data(2)(0) = "Alice Mutton";
              
-data(3)(0) = "Carnarvon Tigers";
+data(3)(0) = "Roasted Tigers";
              
-data(4)(0) = "SemmelKnodel";
+data(4)(0) = "Orange Shake";
              
 data(5)(0) = "Dried Apples";
 
