@@ -33,7 +33,7 @@ IParagraph paragraph = slide.Shapes.AddTextBox(100, 100, 300, 80).TextBody.AddPa
 
 //Saves the presentation
 
-presentation.Save("Output.pptm");
+presentation.Save("Output.PPTM");
 
 //Closes the presentation
 
@@ -57,7 +57,7 @@ Dim paragraph As IParagraph = slide.Shapes.AddTextBox(100, 100, 300, 80).TextBod
 
 'Saves the presentation
 
-presentationDocument.Save("Output.pptm")
+presentationDocument.Save("Output.PPTM")
 
 'Closes the presentation
 
