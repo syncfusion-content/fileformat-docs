@@ -1640,7 +1640,7 @@ chart.BackWall.Border.LineColor = System.Drawing.Color.Wheat;
 
 chart.BackWall.PictureUnit = OfficeChartPictureType.stretch;
 
-//Sets the Backwall thickness.
+//Sets the back wall thickness.
 
 chart.BackWall.Thickness = 10;
 
