@@ -1181,7 +1181,6 @@ document.Close(True)
 </head>
 <body>
 <h2>Repeat Table Header and Footer</h2>
-</script>
 <table border = 3>
 <thead>
     <tr>
