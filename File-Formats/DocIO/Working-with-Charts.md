@@ -1618,7 +1618,7 @@ chart.Floor.Fill.BackColor = System.Drawing.Color.White;
 
 chart.Floor.Thickness = 3;
 
-//Sets the Back wall fill option.
+//Sets the back wall fill option.
 
 chart.BackWall.Fill.FillType = OfficeFillType.Gradient;
 
@@ -1737,7 +1737,7 @@ chart.Floor.Fill.BackColor = System.Drawing.Color.White
 
 chart.Floor.Thickness = 3
 
-'Sets the Backwall fill option.
+'Sets the back wall fill option.
 
 chart.BackWall.Fill.FillType = OfficeFillType.Gradient
 
