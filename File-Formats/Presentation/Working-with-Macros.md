@@ -21,7 +21,7 @@ The following code illustrates how to load and save a macro enabled presentation
 
 //Opens an existing macro enabled PowerPoint presentation
 
-IPresentation presentation = Presentation.Open("Test.pptm");
+IPresentation presentation = Presentation.Open("Sample.PPTM");
 
 //Adds a blank slide to the presentation
 
@@ -45,7 +45,7 @@ presentation.Close();
 
 'Opens an existing macro enabled PowerPoint presentation
 
-Dim presentationDocument As IPresentation = Presentation.Open("Test.pptm")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.PPTM")
 
 'Adds a blank slide to the presentation
 
@@ -77,7 +77,7 @@ The following code example illustrates how to remove the macros present in the p
 
 //Opens an existing macro enabled PowerPoint presentation
 
-IPresentation presentation = Presentation.Open("Sample.pptm");
+IPresentation presentation = Presentation.Open("Sample.PPTM");
 
 //Checks whether the presentation has macros and then removes them
 
@@ -99,7 +99,7 @@ presentation.Close();
 
 'Opens an existing macro enabled PowerPoint presentation
 
-Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptm")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.PPTM")
 
 'Checks whether the presentation has macros and then removes them
 
