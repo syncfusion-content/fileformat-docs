@@ -1514,7 +1514,7 @@ document.Close()
   
 ## Word to EPUB
 
-Essential DocIO supports to convert the Word document into EPUB v2.0. It only supports in Windows Forms, WPF, ASP.NET Web and MVC platforms. The following elements are supported in Word to EPUB conversion.
+Essential DocIO supports to convert the Word document into EPUB v2.0. It only supports in Windows Forms,UWP,WPF, ASP.NET Web and MVC platforms. The following elements are supported in Word to EPUB conversion.
 
 * Text and Paragraph Formatting
 * Lists
