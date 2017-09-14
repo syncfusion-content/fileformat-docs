@@ -109,9 +109,9 @@ presentationDocument.Close()
 
 ## Inserting a column to table
 You can insert a new column at any index position of a PowerPoint table. The following code example demonstrates how to insert a new column at the specified index position of the table.
-<table>
-<tr>
-<td>
+{% tabs %}
+
+{% highlight c# %}
 //Create an instance of PowerPoint presentation
 IPresentation presentation = Presentation.Open(fileName);
 //Gets the first slide from the presentation
@@ -126,15 +126,8 @@ table[0, 1].TextBody.AddParagraph("Adding text to the newly inserted column");
 presentation.Save("Sample.pptx");
 //Close the presentation
 presentation.Close();
-</td>
-</tr>
-<tr>
-<td>
+{% endhighlight %}
 
-</td>
-</tr>
-</table>
-{% tabs %}
 {% highlight vb.net %}
 'Create instance of PowerPoint presentation
 Dim presentationDocument As IPresentation = Presentation.Open(fileName)
