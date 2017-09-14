@@ -1869,38 +1869,38 @@ worksheet.Range("C8").CellStyle.Borders.LineStyle = ExcelLineStyle.Thin
 
 'Top Border
 
-worksheet.Range["E2"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Medium
+worksheet.Range("E2").CellStyle.Borders(ExcelBordersIndex.EdgeTop).LineStyle = ExcelLineStyle.Medium
 
 'Left Border
 
-worksheet.Range["E4"].CellStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Double
+worksheet.Range("E4").CellStyle.Borders(ExcelBordersIndex.EdgeLeft).LineStyle = ExcelLineStyle.Double
 
 'Bottom Border
 
-worksheet.Range["E6"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Dashed
+worksheet.Range("E6").CellStyle.Borders(ExcelBordersIndex.EdgeBottom).LineStyle = ExcelLineStyle.Dashed
 
 'Right Border
 
-worksheet.Range["E8"].CellStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thick
+worksheet.Range("E8").CellStyle.Borders(ExcelBordersIndex.EdgeRight).LineStyle = ExcelLineStyle.Thick
 
 'DiagonalUp Border
 
-worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin
+worksheet.Range("E10").CellStyle.Borders(ExcelBordersIndex.DiagonalUp).LineStyle = ExcelLineStyle.Thin
 
 'DiagonalDown Border
 
-worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted
+worksheet.Range("E12").CellStyle.Borders(ExcelBordersIndex.DiagonalDown).LineStyle = ExcelLineStyle.Dotted
 
 
 'Apply border color
 
-worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue
+worksheet.Range("A2").CellStyle.Borders.Color = ExcelKnownColors.Blue
 
 'Setting the Border as Range.
 
-worksheet.Range["G2:I8"].BorderAround();
+worksheet.Range("G2:I8").BorderAround();
 
-worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot,ExcelKnownColors.Red)
+worksheet.Range("G2:I8").BorderInside(ExcelLineStyle.Dash_dot,ExcelKnownColors.Red)
 
 workbook.SaveAs("BorderSettings.xlsx")
 
