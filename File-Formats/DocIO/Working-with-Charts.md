@@ -1737,7 +1737,7 @@ chart.Floor.Fill.BackColor = System.Drawing.Color.White
 
 chart.Floor.Thickness = 3
 
-'Sets the Backwall fill option.
+'Sets the back wall fill option.
 
 chart.BackWall.Fill.FillType = OfficeFillType.Gradient
 
@@ -1759,7 +1759,7 @@ chart.BackWall.Border.LineColor = System.Drawing.Color.Wheat
 
 chart.BackWall.PictureUnit = OfficeChartPictureType.stretch
 
-'Sets the Backwall thickness.
+'Sets the back wall thickness.
 
 chart.BackWall.Thickness = 10
 
