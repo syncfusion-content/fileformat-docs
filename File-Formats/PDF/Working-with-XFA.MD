@@ -488,7 +488,7 @@ PdfXfaPage xfaPage = document.Pages.Add();
 //Create a new PDF XFA form
 PdfXfaForm mainForm = new PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize ().Width);
 //Create a numeric field and add the properties.
-PdfXfaNumericField numericField = new PdfXfaNumericField("nfield",new SizeF(200,20));
+PdfXfaNumericField numericField = new PdfXfaNumericField("numericField",new SizeF(200,20));
 //Set the caption text.
 numericField.Caption.Text = "Numeric Field";
 //Add the field to the XFA form.
@@ -511,7 +511,7 @@ Dim xfaPage As PdfXfaPage = document.Pages.Add()
 'Create a new PDF XFA form
 Dim mainForm As New PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize().Width)
 'Create a numeric field and add the properties.
-Dim numericField As New PdfXfaNumericField("nfield",New SizeF(200,20))
+Dim numericField As New PdfXfaNumericField("numericField",New SizeF(200,20))
 'Set the caption text.
 numericField.Caption.Text = "Numeric Field"
 'Add the field to the XFA form.
@@ -538,7 +538,7 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a numeric field and add the properties.
-PdfXfaNumericField numericField = new PdfXfaNumericField("nfield",new SizeF(200,20));
+PdfXfaNumericField numericField = new PdfXfaNumericField("numericField",new SizeF(200,20));
 //Set the caption text.
 numericField.Caption.Text = "Numeric Field";
 //Add the field to the existing XFA form.
@@ -557,7 +557,7 @@ Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a numeric field and add the properties.
-Dim numericField As New PdfXfaNumericField("nfield",New SizeF(200,20))
+Dim numericField As New PdfXfaNumericField("numericField",New SizeF(200,20))
 'Set the caption text.
 numericField.Caption.Text = "Numeric Field"
 'Add the field to the existing XFA form.
@@ -586,7 +586,7 @@ PdfXfaPage xfaPage = document.Pages.Add();
 //Create a new PDF XFA form
 PdfXfaForm mainForm = new PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize ().Width);
 //Create a combo box field and add the properties.
-PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("cfield", new SizeF(200, 20));
+PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("comboField", new SizeF(200, 20));
 //Set the caption text.
 comboBoxField.Caption.Text = "Job Title";
 //Add the combo box items
@@ -613,7 +613,7 @@ PdfXfaPage xfaPage = document.Pages.Add();
 //Create a new PDF XFA form
 PdfXfaForm mainForm = new PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize ().Width);
 //Create a combo box field and add the properties.
-PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("cfield", new SizeF(200, 20));
+PdfXfaComboBoxField comboBoxField = new PdfXfaComboBoxField("comboField", new SizeF(200, 20));
 //Set the caption text.
 comboBoxField.Caption.Text = "Job Title";
 //Add the combo box items
@@ -701,7 +701,7 @@ PdfXfaPage xfaPage = document.Pages.Add();
 PdfXfaForm mainForm = new PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize ().Width);
 
 //Create a list box field and add the properties.
-PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("lfield", new SizeF(150, 50));
+PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("listBoxField", new SizeF(150, 50));
 //Set the caption text.
 listBoxField.Caption.Text = "Known Languages";
 listBoxField.Caption.Position = PdfXfaPosition.Top;
@@ -730,7 +730,7 @@ Dim xfaPage As PdfXfaPage = document.Pages.Add()
 'Create a new PDF XFA form
 Dim mainForm As New PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize().Width)
 'Create a list box field and add the properties.
-Dim listBoxField As New PdfXfaListBoxField("lfield", New SizeF(150, 50))
+Dim listBoxField As New PdfXfaListBoxField("listBoxField", New SizeF(150, 50))
 'Set the caption text.
 listBoxField.Caption.Text = "Known Languages"
 listBoxField.Caption.Position = PdfXfaPosition.Top
@@ -763,7 +763,7 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a list box field and add the properties.
-PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("lfield", new SizeF(150, 50));
+PdfXfaListBoxField listBoxField = new PdfXfaListBoxField("listBoxField", new SizeF(150, 50));
 //Set the caption text.
 listBoxField.Caption.Text = "Known Languages";
 listBoxField.Caption.Position = PdfXfaPosition.Top;
@@ -788,7 +788,7 @@ Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a list box field and add the properties.
-Dim listBoxField As New PdfXfaListBoxField("lfield", New SizeF(150, 50))
+Dim listBoxField As New PdfXfaListBoxField("listBoxField", New SizeF(150, 50))
 'Set the caption text.
 listBoxField.Caption.Text = "Known Languages"
 listBoxField.Caption.Position = PdfXfaPosition.Top
@@ -823,7 +823,7 @@ PdfXfaPage xfaPage = document.Pages.Add();
 //Create a new PDF XFA form
 PdfXfaForm mainForm = new PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize ().Width);
 //Create a check box field and add the properties.
-PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkfld", new SizeF(100, 20));
+PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkBoxField", new SizeF(100, 20));
 //Set the caption text.
 checkBoxField.Caption.Text = "Check box Field";
 checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross;
@@ -847,7 +847,7 @@ Dim xfaPage As PdfXfaPage = document.Pages.Add()
 'Create a new PDF XFA form
 Dim mainForm As New PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize().Width)
 'Create a check box field and add the properties.
-Dim checkBoxField As New PdfXfaCheckBoxField("checkfld", New SizeF(100, 20))
+Dim checkBoxField As New PdfXfaCheckBoxField("checkBoxField", New SizeF(100, 20))
 'Set the caption text.
 checkBoxField.Caption.Text = "Check box Field"
 checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross
@@ -875,7 +875,7 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a check box field and add the properties.
-PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkfld", new SizeF(100, 20));
+PdfXfaCheckBoxField checkBoxField = new PdfXfaCheckBoxField("checkBoxField", new SizeF(100, 20));
 //Set the caption text.
 checkBoxField.Caption.Text = "Check box Field";
 checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross;
@@ -895,7 +895,7 @@ Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a check box field and add the properties.
-Dim checkBoxField As New PdfXfaCheckBoxField("checkfld", New SizeF(100, 20))
+Dim checkBoxField As New PdfXfaCheckBoxField("checkBoxField", New SizeF(100, 20))
 'Set the caption text.
 checkBoxField.Caption.Text = "Check box Field"
 checkBoxField.CheckedStyle = PdfXfaCheckedStyle.Cross
@@ -1161,7 +1161,7 @@ PdfXfaPage xfaPage = document.Pages.Add();
 //Create a new PDF XFA form
 PdfXfaForm mainForm = new PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize ().Width);
 //Create a button field and add the properties.
-PdfXfaButtonField buttonField = new PdfXfaButtonField("btn", new SizeF(70, 20));
+PdfXfaButtonField buttonField = new PdfXfaButtonField("buttonField", new SizeF(70, 20));
 //Set the caption text.
 buttonField.Content = "Click";
 //Add the field to the XFA form.
@@ -1184,7 +1184,7 @@ Dim xfaPage As PdfXfaPage = document.Pages.Add()
 'Create a new PDF XFA form
 Dim mainForm As New PdfXfaForm("subform1",xfaPage,xfaPage.GetClientSize().Width)
 'Create a button field and add the properties.
-Dim buttonField As New PdfXfaButtonField("btn", New SizeF(70, 20))
+Dim buttonField As New PdfXfaButtonField("buttonField", New SizeF(70, 20))
 'Set the caption text.
 buttonField.Content = "Click"
 'Add the field to the XFA form.
@@ -1211,7 +1211,7 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("XfaForm.pdf");
 //Load the existing XFA form.
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Create a button field and add the properties.
-PdfXfaButtonField buttonField = new PdfXfaButtonField("btn", new SizeF(70, 20));
+PdfXfaButtonField buttonField = new PdfXfaButtonField("buttonField", new SizeF(70, 20));
 //Set the caption text.
 buttonField.Content = "Click";
 //Add the field to the existing XFA form.
@@ -1230,7 +1230,7 @@ Dim loadedDocument As New PdfLoadedXfaDocument("XfaForm.pdf")
 'Load the existing XFA form.
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Create a button field and add the properties.
-Dim buttonField As New PdfXfaButtonField("btn", New SizeF(70, 20))
+Dim buttonField As New PdfXfaButtonField("buttonField", New SizeF(70, 20))
 'Set the caption text.
 buttonField.Content = "Click"
 'Add the field to the existing XFA form.
@@ -1945,7 +1945,7 @@ PdfXfaPage xfaPage = document.Pages.Add();
 //Create a new PDF XFA form with horizontal flow direction
 PdfXfaForm mainForm = new PdfXfaForm(xfaPage,PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize ().Width);
 //Create a date time field and add the properties.
-PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("dob", new SizeF(200, 20));
+PdfXfaDateTimeField dateTimeField = new PdfXfaDateTimeField("dateTimeField", new SizeF(200, 20));
 //Set the caption text.
 dateTimeField.Caption.Text = "Date of Birth";
 //Set the date pattern
@@ -1972,7 +1972,7 @@ Dim xfaPage As PdfXfaPage = document.Pages.Add()
 'Create a new PDF XFA form with horizontal flow direction
 Dim mainForm As New PdfXfaForm(xfaPage,PdfXfaFlowDirection.Horizontal, xfaPage.GetClientSize().Width)
 'Create a date time field and add the properties.
-Dim dateTimeField As New PdfXfaDateTimeField("dob", New SizeF(200, 20))
+Dim dateTimeField As New PdfXfaDateTimeField("dateTimeField", New SizeF(200, 20))
 'Set the caption text.
 dateTimeField.Caption.Text = "Date of Birth"
 'Set the date pattern
@@ -2445,9 +2445,9 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded text box field.
-PdfLoadedXfaTextBoxField ltext = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
+PdfLoadedXfaTextBoxField loadedTextBox = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["text[0]"] as PdfLoadedXfaTextBoxField;
 //fill the text box
-ltext.Text = "First Name";
+loadedTextBox.Text = "First Name";
 //Save the document
 loadedDocument.Save("output.pdf");
 //Close the document
@@ -2462,9 +2462,9 @@ Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded text box field.
-Dim ltext As PdfLoadedXfaTextBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("text[0]"), PdfLoadedXfaTextBoxField)
+Dim loadedTextBox As PdfLoadedXfaTextBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("text[0]"), PdfLoadedXfaTextBoxField)
 'fill the text box
-ltext.Text = "First Name"
+loadedTextBox.Text = "First Name"
 'Save the document 
 loadedDocument.Save("output.pdf")
 'Close the document
@@ -2487,9 +2487,9 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded numeric field.
-PdfLoadedXfaNumericField lnumericField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["numericField[0]"] as PdfLoadedXfaNumericField;
+PdfLoadedXfaNumericField loadedNumericField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["numericField[0]"] as PdfLoadedXfaNumericField;
 //fill the numeric field
-lnumericField.NumericValue = 945322;
+loadedNumericField.NumericValue = 945322;
 //Save the document
 loadedDocument.Save("output.pdf");
 //Close the document
@@ -2504,9 +2504,9 @@ Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded numeric field.
-Dim lnumericField As PdfLoadedXfaNumericField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("numericField[0]"), PdfLoadedXfaNumericField)
+Dim loadedNumericField As PdfLoadedXfaNumericField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("numericField[0]"), PdfLoadedXfaNumericField)
 'fill the numeric field
-lnumericField.NumericValue = 945322
+loadedNumericField.NumericValue = 945322
 'Save the document 
 loadedDocument.Save("output.pdf")
 'Close the document
@@ -2529,9 +2529,9 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded combo box field.
-PdfLoadedXfaComboBoxField lcomboBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["comboBoxField[0]"] as PdfLoadedXfaComboBoxField;
+PdfLoadedXfaComboBoxField loadedComboBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["comboBoxField[0]"] as PdfLoadedXfaComboBoxField;
 //Set the combo box selected index
-lcomboBoxField.SelectedIndex = 1;
+loadedComboBoxField.SelectedIndex = 1;
 //Save the document
 loadedDocument.Save("output.pdf");
 //Close the document
@@ -2546,9 +2546,9 @@ Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded combo box field.
-Dim lcomboBoxField As PdfLoadedXfaComboBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("comboBoxField[0]"), PdfLoadedXfaComboBoxField)
+Dim loadedComboBoxField As PdfLoadedXfaComboBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("comboBoxField[0]"), PdfLoadedXfaComboBoxField)
 'Set the combo box selected index
-lcomboBoxField.SelectedIndex = 1
+loadedComboBoxField.SelectedIndex = 1
 'Save the document 
 loadedDocument.Save("output.pdf")
 'Close the document
@@ -2571,9 +2571,9 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded list box field.
-PdfLoadedXfaListBoxField llistBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
+PdfLoadedXfaListBoxField loadedListBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
 //Set the list box selected index
-llistBoxField.SelectedIndex = 1;
+loadedListBoxField.SelectedIndex = 1;
 //Save the document
 loadedDocument.Save("output.pdf");
 //Close the document
@@ -2588,9 +2588,9 @@ Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded list box field.
-Dim llistBoxField As PdfLoadedXfaListBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("listBoxField[0]"), PdfLoadedXfaListBoxField)
+Dim loadedListBoxField As PdfLoadedXfaListBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("listBoxField[0]"), PdfLoadedXfaListBoxField)
 'Set the list box selected index
-llistBoxField.SelectedIndex = 1
+loadedListBoxField.SelectedIndex = 1
 'Save the document 
 loadedDocument.Save("output.pdf")
 'Close the document
@@ -2611,9 +2611,9 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded list box field.
-PdfLoadedXfaListBoxField llistBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
+PdfLoadedXfaListBoxField loadedListBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["listBoxField[0]"] as PdfLoadedXfaListBoxField;
 //Set the list box selected items
-llistBoxField .SelectedItems =new string[] {"English","Spanish"};
+loadedListBoxField .SelectedItems =new string[] {"English","Spanish"};
 //Save the document
 loadedDocument.Save("output.pdf");
 //Close the document
@@ -2628,9 +2628,9 @@ Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded list box field.
-Dim llistBoxField As PdfLoadedXfaListBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("listBoxField[0]"), PdfLoadedXfaListBoxField)
+Dim loadedListBoxField As PdfLoadedXfaListBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("listBoxField[0]"), PdfLoadedXfaListBoxField)
 'Set the list box selected items           
-llistBoxField.SelectedItems = New String() {"English","Spanish"}
+loadedListBoxField.SelectedItems = New String() {"English","Spanish"}
 'Save the document 
 loadedDocument.Save("output.pdf")
 'Close the document
@@ -2653,9 +2653,9 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded date time field.
-PdfLoadedXfaDateTimeField ldateTimeField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["dateTimeField[0]"] as PdfLoadedXfaDateTimeField;
+PdfLoadedXfaDateTimeField loadedDateTimeField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["dateTimeField[0]"] as PdfLoadedXfaDateTimeField;
 //Set the value
-ldateTimeField.Value = DateTime.Now;
+loadedDateTimeField.Value = DateTime.Now;
 //Save the document
 loadedDocument.Save("output.pdf");
 //Close the document
@@ -2670,9 +2670,9 @@ Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded date time field.
-Dim ldateTimeField As PdfLoadedXfaDateTimeField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("dateTimeField[0]"), PdfLoadedXfaDateTimeField)
+Dim loadedDateTimeField As PdfLoadedXfaDateTimeField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("dateTimeField[0]"), PdfLoadedXfaDateTimeField)
 'Set the value           
-ldateTimeField.Value = Date.Now
+loadedDateTimeField.Value = Date.Now
 'Save the document 
 loadedDocument.Save("output.pdf")
 'Close the document
@@ -2695,9 +2695,9 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the loaded check box field.
-PdfLoadedXfaCheckBoxField lcheckBox = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["checkBox[0]"] as PdfLoadedXfaCheckBoxField;
+PdfLoadedXfaCheckBoxField loadedCheckBox = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["checkBox[0]"] as PdfLoadedXfaCheckBoxField;
  //Check the check box          
-lcheckBox.IsChecked = true;
+loadedCheckBox.IsChecked = true;
 //Save the document
 loadedDocument.Save("output.pdf");
 //Close the document
@@ -2712,9 +2712,9 @@ Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the loaded check box field.
-Dim lcheckBox As PdfLoadedXfaCheckBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("checkBox[0]"), PdfLoadedXfaCheckBoxField)
+Dim loadedCheckBox As PdfLoadedXfaCheckBoxField = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("checkBox[0]"), PdfLoadedXfaCheckBoxField)
  'Check the check box          
-lcheckBox.IsChecked = True
+loadedCheckBox.IsChecked = True
 'Save the document 
 loadedDocument.Save("output.pdf")
 'Close the document
@@ -2737,11 +2737,11 @@ PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("input.pdf");
 //Load the existing XFA form
 PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
 //Get the radio button group
-PdfLoadedXfaRadioButtonGroup lgroup = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["radioButtonGroup[0]"] as PdfLoadedXfaRadioButtonGroup;
+PdfLoadedXfaRadioButtonGroup loadedRadioButtonGroup = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["radioButtonGroup[0]"] as PdfLoadedXfaRadioButtonGroup;
 //Get the radio button field
-PdfLoadedXfaRadioButtonField lradio = lgroup.Fields[0] as PdfLoadedXfaRadioButtonField;
+PdfLoadedXfaRadioButtonField loadedRadioButtonField = loadedRadioButtonGroup.Fields[0] as PdfLoadedXfaRadioButtonField;
 //Check the radio button
-lradio.IsChecked = true;
+loadedRadioButtonField.IsChecked = true;
 //Save the document
 loadedDocument.Save("output.pdf");
 //Close the document
@@ -2756,11 +2756,11 @@ Dim loadedDocument As New PdfLoadedXfaDocument("input.pdf")
 'Load the existing XFA form
 Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
 'Get the radio button group
-Dim lgroup As PdfLoadedXfaRadioButtonGroup = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("radioButtonGroup[0]"), PdfLoadedXfaRadioButtonGroup)
+Dim loadedRadioButtonGroup As PdfLoadedXfaRadioButtonGroup = TryCast((TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm)).Fields("radioButtonGroup[0]"), PdfLoadedXfaRadioButtonGroup)
 'Get the radio button field
-Dim lradio As PdfLoadedXfaRadioButtonField = TryCast(lgroup.Fields(0), PdfLoadedXfaRadioButtonField)
+Dim loadedRadioButtonField As PdfLoadedXfaRadioButtonField = TryCast(loadedRadioButtonGroup.Fields(0), PdfLoadedXfaRadioButtonField)
 'Check the radio button          
-lradio.IsChecked = True
+loadedRadioButtonField.IsChecked = True
 'Save the document 
 loadedDocument.Save("output.pdf")
 'Close the document

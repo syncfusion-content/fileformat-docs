@@ -52,7 +52,7 @@ Dim processor As New OCRProcessor("TesseractBinaries\")
 
 OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\");
 
-processor.PerformOCR(lDoc, @"Tessdata\");
+processor.PerformOCR(lDoc, @"TesseractData\");
 
 
 
@@ -63,7 +63,7 @@ processor.PerformOCR(lDoc, @"Tessdata\");
 
 Dim processor As New OCRProcessor("TesseractBinaries\")
 
-processor.PerformOCR(lDoc, "Tessdata\")
+processor.PerformOCR(lDoc, "TesseractData\")
 
 
 
@@ -101,7 +101,7 @@ processor.Settings.Language = Languages.English;
 
 //Process OCR by providing the PDF document and Tesseract data
 
-processor.PerformOCR(lDoc, @"Tessdata\");
+processor.PerformOCR(lDoc, @"TesseractData\");
 
 //Save the OCR processed PDF document in the disk
 
@@ -136,7 +136,7 @@ processor.Settings.Language = Languages.English
 
 'Process OCR by providing the PDF document and Tesseract data
 
-processor.PerformOCR(lDoc, "Tessdata\")
+processor.PerformOCR(lDoc, "TesseractData\")
 
 'Save the OCR processed PDF document in the disk
 
@@ -195,7 +195,7 @@ processor.Settings.Regions = pageRegions;
 
 //Process OCR by providing the PDF document and Tesseract data
 
-processor.PerformOCR(lDoc, @"Tessdata\");
+processor.PerformOCR(lDoc, @"TesseractData\");
 
 //Save the OCR processed PDF document in the disk
 
@@ -244,7 +244,7 @@ processor.Settings.Regions = pageRegions
 
 'Process OCR by providing the PDF document and Tesseract data
 
-processor.PerformOCR(lDoc, "Tessdata\")
+processor.PerformOCR(lDoc, "TesseractData\")
 
 'Save the OCR processed PDF document in the disk
 
@@ -283,7 +283,7 @@ processor.Settings.Language = Languages.English;
 
 //Process OCR by providing the bitmap image, data dictionary and language
 
-string ocrText= processor.PerformOCR(image, @"Tessdata\");
+string ocrText= processor.PerformOCR(image, @"TesseractData\");
 
 }
 
@@ -310,7 +310,7 @@ processor.Settings.Language = Languages.English
 
 'Process OCR by providing the bitmap image, data dictionary and language
 
-Dim ocrText As String = processor.PerformOCR(image, "Tessdata\")
+Dim ocrText As String = processor.PerformOCR(image, "TesseractData\")
 
 End Using
 
@@ -388,9 +388,9 @@ processor.Settings.Performance = Performance.Fast
 
 OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\");
 
-//Tessdata – path of the folder containing the language pack
+//TesseractData – path of the folder containing the language pack
 
-processor.PerformOCR(lDoc, @"Tessdata\");
+processor.PerformOCR(lDoc, @"TesseractData\");
 
 
 
@@ -403,9 +403,9 @@ processor.PerformOCR(lDoc, @"Tessdata\");
 
 Dim processor As New OCRProcessor("TesseractBinaries\")
 
-'Tessdata – path of the folder containing the language pack
+'TesseractData – path of the folder containing the language pack
 
-processor.PerformOCR(lDoc, "Tessdata\")
+processor.PerformOCR(lDoc, "TesseractData\")
 
 
 

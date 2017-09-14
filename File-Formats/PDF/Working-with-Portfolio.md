@@ -148,7 +148,7 @@ Dim document As New PdfLoadedDocument("Sample.pdf")
 
 For Each attachment As PdfAttachment In document.Attachments
 
-'Extrating the attachment and saving into the local disk
+'Extracting the attachment and saving into the local disk
 
 Dim s As New FileStream(attachment.FileName, FileMode.Create)
 
