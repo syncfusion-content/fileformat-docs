@@ -549,11 +549,11 @@ format.Alignment = PdfTextAlignment.Right;
 
 StreamReader reader = new StreamReader(@"input.txt", Encoding.Unicode);
 
-string hebrewText = reader.ReadToEnd();
+string textWithHebrew = reader.ReadToEnd();
 
 reader.Close();
 
-graphics.DrawString(hebrewText, pdfFont, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
+graphics.DrawString(textWithHebrew, pdfFont, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
 
 //Save the document.
 
@@ -601,11 +601,11 @@ format.Alignment = PdfTextAlignment.Right
 
 Dim reader As New StreamReader("input.txt", Encoding.Unicode)
 
-Dim hebrewText As String = reader.ReadToEnd()
+Dim textWithHebrew As String = reader.ReadToEnd()
 
 reader.Close()
 
-graphics.DrawString(hebrewText, pdfFont, PdfBrushes.Black, New RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format)
+graphics.DrawString(textWithHebrew, pdfFont, PdfBrushes.Black, New RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format)
 
 'Save the document.
 
@@ -962,7 +962,7 @@ reader.Close();
 
 //Convert it to Metafile.
 
-PdfMetafile metafile = (PdfMetafile)PdfImage.FromRtf(text, bounds.Width, PdfImageType.Metafile);
+PdfMetafile imageMetafile = (PdfMetafile)PdfImage.FromRtf(text, bounds.Width, PdfImageType.Metafile);
 
 PdfMetafileLayoutFormat format = new PdfMetafileLayoutFormat();
 
@@ -972,7 +972,7 @@ format.SplitTextLines = true;
 
 //Draws image.
 
-metafile.Draw(page, 0, 0, format);
+imageMetafile.Draw(page, 0, 0, format);
 
 //Save the document.
 
@@ -1004,7 +1004,7 @@ reader.Close()
 
 'Convert it to Metafile.
 
-Dim metafile As PdfMetafile = DirectCast(PdfImage.FromRtf(text, bounds.Width, PdfImageType.Metafile), PdfMetafile)
+Dim imageMetafile As PdfMetafile = DirectCast(PdfImage.FromRtf(text, bounds.Width, PdfImageType.Metafile), PdfMetafile)
 
 Dim format As New PdfMetafileLayoutFormat()
 
@@ -1014,7 +1014,7 @@ format.SplitTextLines = True
 
 'Draws image.
 
-metafile.Draw(page, 0, 0, format)
+imageMetafile.Draw(page, 0, 0, format)
 
 'Save the document.
 

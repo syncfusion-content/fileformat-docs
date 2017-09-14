@@ -235,7 +235,7 @@ foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
 //Check for the circle annotation
 if (annotation is PdfLoadedCircleAnnotation)
 {
-//Flatten the circle annoation
+//Flatten the circle annotation
 annotation.Flatten = true;
 }
 }
@@ -734,7 +734,7 @@ page.Annotations.Add(rubberStampAnnotation);
 
 //Saves the document to disk.
 
-document.Save("Rubberstamp.pdf");
+document.Save("RubberStamp.pdf");
 
 document.Close(true);
 

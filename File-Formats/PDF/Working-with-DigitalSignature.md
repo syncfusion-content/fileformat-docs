@@ -142,11 +142,11 @@ PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
 //Sets an image for signature field.
 
-PdfBitmap signatureimg = new PdfBitmap(@"signature.jpg");
+PdfBitmap signatureImage = new PdfBitmap(@"signature.jpg");
 
 //Sets signature information
 
-signature.Bounds = new RectangleF(new PointF(0, 0), signatureimg.PhysicalDimension);
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
 
 signature.ContactInfo = "johndoe@owned.us";
 
@@ -156,7 +156,7 @@ signature.Reason = "I am author of this document.";
 
 //Draws the signature image.
 
-graphics.DrawImage(signatureimg, 0, 0);
+graphics.DrawImage(signatureImage, 0, 0);
 
 //Saves and closes the document.
 
@@ -191,11 +191,11 @@ Dim signature As New PdfSignature(document, page, pdfCert, "Signature")
 
 'Sets an image for signature field.
 
-Dim signatureimg As New PdfBitmap("signature.jpg")
+Dim signatureImage As New PdfBitmap("signature.jpg")
 
 'Sets signature information.
 
-signature.Bounds = New RectangleF(New PointF(0, 0), signatureimg.PhysicalDimension)
+signature.Bounds = New RectangleF(New PointF(0, 0), signatureImage.PhysicalDimension)
 
 signature.ContactInfo = "johndoe@owned.us"
 
@@ -205,7 +205,7 @@ signature.Reason = "I am author of this document."
 
 'Draws the signature image.
 
-graphics.DrawImage(signatureimg, 0, 0)
+graphics.DrawImage(signatureImage, 0, 0)
 
 'Saves and closes the document.
 

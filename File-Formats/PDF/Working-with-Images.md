@@ -319,11 +319,11 @@ format.SplitTextLines = true;
 
 //Create a Metafile instance
 
-PdfMetafile metafile = new PdfMetafile("metachart.emf");
+PdfMetafile metaChart = new PdfMetafile("MetaChart.emf");
 
 //Draw the Metafile in the page
 
-metafile.Draw(page, PointF.Empty, format);
+metaChart.Draw(page, PointF.Empty, format);
 
 //Save the document
 
@@ -366,11 +366,11 @@ format.SplitTextLines = True
 
 'Create a Metafile instance
 
-Dim metafile As New PdfMetafile("metachart.emf")
+Dim metaChart As New PdfMetafile("MetaChart.emf")
 
 'Draw the Metafile in the page
 
-metafile.Draw(page, PointF.Empty, format)
+metaChart.Draw(page, PointF.Empty, format)
 
 'Save the document
 

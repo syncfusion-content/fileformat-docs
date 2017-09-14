@@ -162,7 +162,7 @@ Dim document As New PdfDocument(PdfConformanceLevel.Pdf_X1A2001)
 
 Dim page As PdfPage = document.Pages.Add()
 
-'set colorspace
+'set ColorSpace
 
 document.ColorSpace = PdfColorSpace.CMYK
 
