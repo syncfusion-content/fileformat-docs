@@ -242,9 +242,9 @@ You can create PDF document with simple table using the following code snippet.
 {% tabs %}
 {% highlight c# %}
 //Creates a new Word document 
-WordDocument worddocument = new WordDocument();
+WordDocument wordDocument = new WordDocument();
 //Adding a new section to the document.
-WSection section = worddocument.AddSection() as WSection;
+WSection section = wordDocument.AddSection() as WSection;
 //Set Margin of the section
 section.PageSetup.Margins.All = 20;
 // Adding a new Table
@@ -307,19 +307,19 @@ table.ApplyStyle(BuiltinTableStyle.MediumShading1Accent1);
 //Creates an instance of the DocToPDFConverter
 DocToPDFConverter converter = new DocToPDFConverter();
 //Converts Word document into PDF document
-PdfDocument pdfDocument = converter.ConvertToPDF(worddocument);
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
 //Save and close the PDF document 
 pdfDocument.Save("Output.pdf");
 pdfDocument.Close(true);
 //Close the document
-worddocument.Close();
+wordDocument.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Creates a new Word document 
-Dim worddocument As New WordDocument()
+Dim wordDocument As New WordDocument()
 'Adding a new section to the document.
-Dim section As WSection = TryCast(worddocument.AddSection(), WSection)
+Dim section As WSection = TryCast(wordDocument.AddSection(), WSection)
 'Set Margin of the section
 section.PageSetup.Margins.All = 20
 ' Adding a new Table
@@ -379,12 +379,12 @@ table.ApplyStyle(BuiltinTableStyle.MediumShading1Accent1)
 'Creates an instance of the DocToPDFConverter
 Dim converter As New DocToPDFConverter()
 'Converts Word document into PDF document
-Dim pdfDocument As PdfDocument = converter.ConvertToPDF(worddocument)
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
 'Save and close the PDF document 
 pdfDocument.Save("Output.pdf")
 pdfDocument.Close(True)
 'Close the document
-worddocument.Close()
+wordDocument.Close()
 {% endhighlight %}
 {% endtabs %}
 

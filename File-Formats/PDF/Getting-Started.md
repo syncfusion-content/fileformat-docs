@@ -484,7 +484,7 @@ TryCast(form.Fields(0), PdfLoadedTextBoxField).Text = "John"
 'Fills the textbox fields by using field name
 TryCast(form.Fields("LastName"), PdfLoadedTextBoxField).Text = "Doe"
 TryCast(form.Fields("Address"), PdfLoadedTextBoxField).Text = " John Doe " & vbLf & " 123 Main St " & vbLf & " Anytown, USA"
-'Load the radion button group
+'Load the radio button group
 Dim radioButtonCollection As PdfLoadedRadioButtonItemCollection = TryCast(form.Fields("Gender"), PdfLoadedRadioButtonListField).Items
 'Checks the 'Male' option
 radioButtonCollection(0).Checked = True

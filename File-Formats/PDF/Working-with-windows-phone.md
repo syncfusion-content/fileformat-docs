@@ -52,7 +52,7 @@ Save(stream, "Booklet.pdf");
 
 'Load the document as stream
 
-Dim docStream As Stream = GetType(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("windowsphonesample.Data.Sample.pdf ")
+Dim docStream As Stream = GetType(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("windowsPhoneSample.Data.Sample.pdf")
 
 Dim loadedDocument As New PdfLoadedDocument()
 

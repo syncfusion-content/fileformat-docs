@@ -167,11 +167,11 @@ PdfPage page = document.Pages.Add();
 
 //Create JavaScript action
 
-PdfJavaScriptAction javaScriptAction = new PdfJavaScriptAction("app.alert(\"Hello World!!!\")");
+PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"Hello World!!!\")");
 
 //Add the JavaScript action
 
-document.Actions.AfterOpen = javaScriptAction;
+document.Actions.AfterOpen = scriptAction;
 
 //Save and close the PDF document
 
@@ -196,11 +196,11 @@ Dim page As PdfPage = document.Pages.Add()
 
 'Create JavaScript action
 
-Dim javaScriptAction As New PdfJavaScriptAction("app.alert(""Hello World!!!"")")
+Dim scriptAction As New PdfJavaScriptAction("app.alert(""Hello World!!!"")")
 
 'Add the JavaScript action
 
-document.Actions.AfterOpen = javaScriptAction
+document.Actions.AfterOpen = scriptAction
 
 'Save and close the PDF document
 
@@ -700,11 +700,11 @@ submitButton.BackColor = new PdfColor(181, 191, 203);
 
 //Create a new PdfJavaScriptAction
 
-PdfJavaScriptAction javaAction = new PdfJavaScriptAction("app.alert(\"You are looking at Form field action of PDF \")");
+PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"You are looking at Form field action of PDF \")");
 
-//Set the javaAction to submitButton
+//Set the scriptAction to submitButton
 
-submitButton.Actions.MouseDown = javaAction;
+submitButton.Actions.MouseDown = scriptAction;
 
 //Add the submit button to the new document.
 
@@ -743,11 +743,11 @@ submitButton.BackColor = New PdfColor(181, 191, 203)
 
 'Create a new PdfJavaScriptAction
 
-Dim javaAction As New PdfJavaScriptAction("app.alert(""You are looking at Form field action of PDF "")")
+Dim scriptAction As New PdfJavaScriptAction("app.alert(""You are looking at Form field action of PDF "")")
 
-'Set the javaAction to submitButton
+'Set the scriptAction to submitButton
 
-submitButton.Actions.MouseDown = javaAction
+submitButton.Actions.MouseDown = scriptAction
 
 'Add the submit button to the new document.
 

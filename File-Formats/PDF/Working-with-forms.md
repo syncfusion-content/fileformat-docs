@@ -188,7 +188,7 @@ comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
 
 comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
 
-comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "agri"));
+comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
 
 //Add combo box to the form.
 
@@ -235,7 +235,7 @@ comboBoxField.Items.Add(New PdfListFieldItem("Development", "accounts"))
 
 comboBoxField.Items.Add(New PdfListFieldItem("Support", "advertise"))
 
-comboBoxField.Items.Add(New PdfListFieldItem("Documentation", "agri"))
+comboBoxField.Items.Add(New PdfListFieldItem("Documentation", "content"))
 
 'Add combo box to the form.
 
@@ -294,7 +294,7 @@ comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
 
 comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
 
-comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "agri"));
+comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
 
 //Add combo box to the form.
 
@@ -349,7 +349,7 @@ comboBoxField.Items.Add(New PdfListFieldItem("Development", "accounts"))
 
 comboBoxField.Items.Add(New PdfListFieldItem("Support", "advertise"))
 
-comboBoxField.Items.Add(New PdfListFieldItem("Documentation", "agri"))
+comboBoxField.Items.Add(New PdfListFieldItem("Documentation", "content"))
 
 'Add combo box to the form.
 
