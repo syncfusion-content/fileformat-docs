@@ -273,6 +273,14 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+<tr>
+<td>
+Tagged PDF with section 508 compliant<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td></tr>
 </tbody>
 </table>
 
@@ -333,6 +341,39 @@ Yes<br/><br/></td></tr>
 </tbody>
 </table>
 
+XFA Forms:
+
+<table>
+<thead>
+<tr>
+<th>
+Features<br/><br/></th><th>
+Windows Forms/WPF<br/><br/></th><th>
+ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
+Silverlight<br/><br/></th><th>
+UWP<br/><br/></th><th>
+Xamarin and ASP.NET Core <br/><br/></th></tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Fields<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+No<br/><br/></td></tr>
+<tr>
+<td>
+Form Filling<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+No<br/><br/></td></tr>
+</tbody>
+</table>
+
 Document Conversion:
 
 <table>
@@ -390,6 +431,30 @@ No<br/><br/></td></tr>
 <tr>
 <td>
 PDF OCR<br/><br/></td><td>
+Yes<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td></tr>
+<tr>
+<td>
+XPS to PDF<br/><br/></td><td>
+Yes<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td></tr>
+<tr>
+<td>
+SVG to PDF<br/><br/></td><td>
+Yes<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td></tr>
+<tr>
+<td>
+EMF to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
@@ -701,6 +766,14 @@ Yes<br/><br/></td></tr>
 <tr>
 <td>
 Hyperlink<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td></tr>
+<tr>
+<td>
+Portfolio<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
