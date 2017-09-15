@@ -317,7 +317,7 @@ Not supported<br/><br/></td></tr>
 <tr>
 <td>
 Right to Left Paragraphs and Tables<br/><br/></td><td>
-Not supported<br/><br/></td></tr>
+Supported<br/><br/></td></tr>
 <tr>
 <td>
 Allow AutoFit<br/><br/></td><td>
