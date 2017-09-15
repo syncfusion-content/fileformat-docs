@@ -37,11 +37,11 @@ PdfPage page = pdfDoc.Pages.Add();
 
 // Get XMP object.
 
-XmpMetadata xmp = pdfDoc.DocumentInformation.XmpMetadata;
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
 
 // XMP Basic Schema.
 
-BasicSchema basic = xmp.BasicSchema;
+BasicSchema basic = metaData.BasicSchema;
 
 //set the basic details of the document
 
@@ -88,11 +88,11 @@ Dim page As PdfPage = pdfDoc.Pages.Add()
 
 ' Get XMP object.
 
-Dim xmp As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
+Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
 
 ' XMP Basic Schema.
 
-Dim basic As BasicSchema = xmp.BasicSchema
+Dim basic As BasicSchema = metaData.BasicSchema
 
 'set the basic details of the document
 
@@ -144,11 +144,11 @@ PdfLoadedDocument pdfDoc = new PdfLoadedDocument("input.pdf");
 
 // Get XMP object.
 
-XmpMetadata xmp = pdfDoc.DocumentInformation.XmpMetadata;
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
 
 // XMP Basic Schema.
 
-BasicSchema basic = xmp.BasicSchema;
+BasicSchema basic = metaData.BasicSchema;
 
 //set the basic details of the document
 
@@ -189,13 +189,13 @@ pdfDoc.Close(true);
 
 Dim pdfDoc As New PdfLoadedDocument("input.pdf")
 
-' Get xmp object.
+' Get metaData object.
 
-Dim xmp As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
+Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
 
 ' XMP Basic Schema.
 
-Dim basic As BasicSchema = xmp.BasicSchema
+Dim basic As BasicSchema = metaData.BasicSchema
 
 'set the basic details of the document
 
@@ -273,13 +273,13 @@ PdfDocument pdfDoc = new PdfDocument();
 
 PdfPage page = pdfDoc.Pages.Add();
 
-// Get xmp object.
+// Get metaData object.
 
-XmpMetadata xmp = pdfDoc.DocumentInformation.XmpMetadata;
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
 
 // XMP Basic Schema.
 
-BasicSchema basic = xmp.BasicSchema;
+BasicSchema basic = metaData.BasicSchema;
 
 //set the basic details of the document
 
@@ -324,13 +324,13 @@ Dim pdfDoc As New PdfDocument()
 
 Dim page As PdfPage = pdfDoc.Pages.Add()
 
-' Get xmp object.
+' Get metaData object.
 
-Dim xmp As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
+Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
 
 ' XMP Basic Schema.
 
-Dim basic As BasicSchema = xmp.BasicSchema
+Dim basic As BasicSchema = metaData.BasicSchema
 
 'set the basic details of the document
 
@@ -395,11 +395,11 @@ PdfPage page = pdfDoc.Pages.Add();
 
 //Gets XMP object.
 
-XmpMetadata xmp = pdfDoc.DocumentInformation.XmpMetadata;
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
 
-//XMP Dublincore Schema.
+//XMP Dublin core Schema.
 
-DublinCoreSchema dublin = xmp.DublinCoreSchema;
+DublinCoreSchema dublin = metaData.DublinCoreSchema;
 
 //Set the Dublin Core Schema details of the document.
 
@@ -434,11 +434,11 @@ Dim page As PdfPage = pdfDoc.Pages.Add()
 
 'Gets XMP object.
 
-Dim xmp As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
+Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
 
-'XMP Dublincore Schema.
+'XMP Dublin core Schema.
 
-Dim dublin As DublinCoreSchema = xmp.DublinCoreSchema
+Dim dublin As DublinCoreSchema = metaData.DublinCoreSchema
 
 'Set the Dublin Core Schema details of the document.
 
@@ -488,11 +488,11 @@ PdfPage page = pdfDoc.Pages.Add();
 
 //Gets XMP object.
 
-XmpMetadata xmp = pdfDoc.DocumentInformation.XmpMetadata;
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
 
 //XMP Rights Management Schema.
 
-RightsManagementSchema rights = xmp.RightsManagementSchema;
+RightsManagementSchema rights = metaData.RightsManagementSchema;
 
 //Set the Rights Management Schema details of the document.
 
@@ -523,11 +523,11 @@ Dim page As PdfPage = pdfDoc.Pages.Add()
 
 'Gets XMP object.
 
-Dim xmp As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
+Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
 
 'XMP Rights Management Schema.
 
-Dim rights As RightsManagementSchema = xmp.RightsManagementSchema
+Dim rights As RightsManagementSchema = metaData.RightsManagementSchema
 
 'Set the Rights Management Schema details of the document.
 
@@ -571,11 +571,11 @@ PdfPage page = pdfDoc.Pages.Add();
 
 // Gets XMP object.
 
-XmpMetadata xmp = pdfDoc.DocumentInformation.XmpMetadata;
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
 
 // XMP Rights Management Schema.
 
-BasicJobTicketSchema basicJob = xmp.BasicJobTicketSchema;
+BasicJobTicketSchema basicJob = metaData.BasicJobTicketSchema;
 
 //Set the Rights Management Schema details of the document.
 
@@ -604,11 +604,11 @@ Dim page As PdfPage = pdfDoc.Pages.Add()
 
 ' Gets XMP object.
 
-Dim xmp As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
+Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
 
 ' XMP Rights Management Schema.
 
-Dim basicJob As BasicJobTicketSchema = xmp.BasicJobTicketSchema
+Dim basicJob As BasicJobTicketSchema = metaData.BasicJobTicketSchema
 
 'Set the Rights Management Schema details of the document.
 
@@ -651,11 +651,11 @@ PdfPage page = pdfDoc.Pages.Add();
 
 //Gets XMP object.
 
-XmpMetadata xmp = pdfDoc.DocumentInformation.XmpMetadata;
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
 
 //XMP Page text Schema.
 
-PagedTextSchema pagedText = xmp.PagedTextSchema;
+PagedTextSchema pagedText = metaData.PagedTextSchema;
 
 //Sets the Page text Schema details of the document.
 
@@ -690,11 +690,11 @@ Dim page As PdfPage = pdfDoc.Pages.Add()
 
 'Gets XMP object.
 
-Dim xmp As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
+Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
 
 'XMP Page text Schema.
 
-Dim pagedText As PagedTextSchema = xmp.PagedTextSchema
+Dim pagedText As PagedTextSchema = metaData.PagedTextSchema
 
 'Sets the Page text Schema details of the document.
 
@@ -740,11 +740,11 @@ PdfPage page = pdfDoc.Pages.Add();
 
 //Gets XMP object.
 
-XmpMetadata xmp = pdfDoc.DocumentInformation.XmpMetadata;
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
 
 //XMP PDF Schema.
 
-PDFSchema pdfSchema = xmp.PDFSchema;
+PDFSchema pdfSchema = metaData.PDFSchema;
 
 //Set the PDF Schema details of the document.
 
@@ -777,11 +777,11 @@ Dim page As PdfPage = pdfDoc.Pages.Add()
 
 'Gets XMP object.
 
-Dim xmp As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
+Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
 
 'XMP PDF Schema.
 
-Dim pdfSchema As PDFSchema = xmp.PDFSchema
+Dim pdfSchema As PDFSchema = metaData.PDFSchema
 
 'Set the PDF Schema details of the document.
 
@@ -823,13 +823,13 @@ PdfDocument pdfDoc = new PdfDocument();
 
 PdfPage page = pdfDoc.Pages.Add();
 
-// Get xmp object.
+// Get metaData object.
 
-XmpMetadata xmp = pdfDoc.DocumentInformation.XmpMetadata;
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
 
 //Create custom schema field
 
-CustomSchema customSchema = new CustomSchema(xmp, "custom", "http://www.syncfusion.com");
+CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
 
 customSchema["Author"] = "Syncfusion";
 
@@ -860,13 +860,13 @@ Dim pdfDoc As New PdfDocument()
 
 Dim page As PdfPage = pdfDoc.Pages.Add()
 
-' Get xmp object.
+' Get metaData object.
 
-Dim xmp As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
+Dim metaData As XmpMetadata = pdfDoc.DocumentInformation.XmpMetadata
 
 'Create custom schema field
 
-Dim customSchema As New CustomSchema(xmp, "custom", "http://www.syncfusion.com")
+Dim customSchema As New CustomSchema(metaData, "custom", "http://www.syncfusion.com")
 
 customSchema("Author") = "Syncfusion"
 
@@ -910,11 +910,11 @@ PdfPage page = pdfDoc.Pages.Add();
 
 //Create XML Document container.
 
-XmpMetadata xmp = new XmpMetadata(pdfDoc.DocumentInformation.XmpMetadata.XmlData);
+XmpMetadata metaData = new XmpMetadata(pdfDoc.DocumentInformation.XmpMetadata.XmlData);
 
 //Create custom schema.
 
-CustomSchema customSchema = new CustomSchema(xmp, "custom", "http://www.syncfusion.com");
+CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
 
 customSchema["Author"] = "Syncfusion";
 
@@ -943,11 +943,11 @@ Dim page As PdfPage = pdfDoc.Pages.Add()
 
 'Create XML Document container.
 
-Dim xmp As New XmpMetadata(pdfDoc.DocumentInformation.XmpMetadata.XmlData)
+Dim metaData As New XmpMetadata(pdfDoc.DocumentInformation.XmpMetadata.XmlData)
 
 'Create custom schema.
 
-Dim customSchema As New CustomSchema(xmp, "custom", "http://www.syncfusion.com")
+Dim customSchema As New CustomSchema(metaData, "custom", "http://www.syncfusion.com")
 
 customSchema("Author") = "Syncfusion"
 

@@ -181,7 +181,7 @@ PdfGraphics graphics = pdfPage.Graphics;
 
 //Image watermark.
 
-PdfImage image = new PdfBitmap("Ani.gif");
+PdfImage image = new PdfBitmap("GifImage.gif");
 
 PdfGraphicsState state = graphics.Save();
 
@@ -211,7 +211,7 @@ Dim graphics As PdfGraphics = pdfPage.Graphics
 
 'Image watermark.
 
-Dim image As PdfImage = New PdfBitmap("Ani.gif")
+Dim image As PdfImage = New PdfBitmap("GifImage.gif")
 
 Dim state As PdfGraphicsState = graphics.Save()
 
@@ -245,7 +245,7 @@ PdfGraphics graphics = loadedPage.Graphics;
 
 //Image watermark.
 
-PdfImage image = new PdfBitmap("Ani.gif");
+PdfImage image = new PdfBitmap("GifImage.gif");
 
 PdfGraphicsState state = graphics.Save();
 
@@ -273,7 +273,7 @@ Dim graphics As PdfGraphics = loadedPage.Graphics
 
 'Image watermark.
 
-Dim image As PdfImage = New PdfBitmap("Ani.gif")
+Dim image As PdfImage = New PdfBitmap("GifImage.gif")
 
 Dim state As PdfGraphicsState = graphics.Save()
 

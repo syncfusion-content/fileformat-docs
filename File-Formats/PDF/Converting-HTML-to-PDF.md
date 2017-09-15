@@ -33,7 +33,7 @@ It does not require external dependencies like browsers, printer drivers, or vie
     * Syncfusion.Pdf.Base.dll
     * Syncfusion.HtmlConverter.Base.dll
 
-* The QtBinaries folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($System drive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
+* The QtBinaries folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
 
 * WebKit HTML conversion also requires VC++ 2010 redistributable, this should to be installed in the machine where the conversion takes place. Please use below download link to get the installer.
     
@@ -41,7 +41,7 @@ It does not require external dependencies like browsers, printer drivers, or vie
     
     X64 - [https://www.microsoft.com/en-in/download/details.aspx?id=14632](https://www.microsoft.com/en-in/download/details.aspx?id=14632)
 
-	Instead, the required assemblies can be placed in the Windows system folder (for 64-bit machine, it should be place in  <span style="color:gray;font-size:14px"><i>$System drive\Windows\SysWOW64</i></span> and for 32-bit machine, it should be place in  <span style="color:gray;font-size:14px"><i>$System drive\Windows\System32</i></span>),
+	Instead, the required assemblies can be placed in the Windows system folder (for 64-bit machine, it should be place in  <span style="color:gray;font-size:14px"><i>$SystemDrive\Windows\SysWOW64</i></span> and for 32-bit machine, it should be place in  <span style="color:gray;font-size:14px"><i>$SystemDrive\Windows\System32</i></span>),
 
 	1. MSVCP100.dll
 	2. MSVCR100.dll
@@ -50,7 +50,7 @@ It does not require external dependencies like browsers, printer drivers, or vie
 
     [http://files2.syncfusion.com/dtsupport/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064.zip](http://files2.syncfusion.com/dtsupport/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064.zip) 
 
-	Instead, the below mentioned assemblies can be placed in the Windows system folder (for 64-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$Systemdrive\Windows\SysWOW64</i></span> and for 32-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$Systemdrive\Windows\System32</i></span>),
+	Instead, the below mentioned assemblies can be placed in the Windows system folder (for 64-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$SystemDrive\Windows\SysWOW64</i></span> and for 32-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$SystemDrive\Windows\System32</i></span>),
 
 	1. libeay32.dll
 	2. libssl32.dll
@@ -1023,7 +1023,7 @@ document.Close()
 
 ## Offline conversion
 
-WebKit HTML converter provides support for converting HTML to PDF in offline mode. While converting HTML to PDF in offline mode, the converter does not access the resources from the Internet. This may increase the performance in slow internet connection. 
+WebKit HTML converter provides support for converting HTML to PDF in offline mode. While converting HTML to PDF in offline mode, the converter does not access the resources from the Internet. This may increase the performance in slow Internet connection. 
 
 <b>Note:</b> If an online URL is tried to convert in offline mode, the converter will generate empty PDF as it will not try to load any resource from online.
 
@@ -1752,7 +1752,7 @@ Set the path of the QtBinaries folder to the WebKitPath property of WebKitConver
 <br/><br/>
 Place the QtBinaries folder in bin folder of the project.
 <br/><br/>
-The QtBinaries will be available in the WebKitHTMLConverter installed location <span style="color:gray;font-size:14px"><i>($System drive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i> </span>
+The QtBinaries will be available in the WebKitHTMLConverter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i> </span>
 
 </td>
 </tr>
@@ -1796,8 +1796,8 @@ X86 - <a href="https://www.microsoft.com/en-in/download/details.aspx?id=5555#">h
 X64 - <a href="https://www.microsoft.com/en-in/download/details.aspx?id=14632#">https://www.microsoft.com/en-in/download/details.aspx?id=14632</a>
 <br/><br/>
 Instead, the required assemblies can be added in the Windows system folder.
-(for 64-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$System drive\Windows\SysWOW64</i></span> and 
- for 32-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$System drive\Windows\System32</i></span>), 
+(for 64-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$SystemDrive\Windows\SysWOW64</i></span> and 
+ for 32-bit machine, it should be place in <span style="color:gray;font-size:14px"><i>$SystemDrive\Windows\System32</i></span>), 
 <br/><br/>
 <ul>
 <li>MSVCP100.dll</li>
@@ -1808,7 +1808,7 @@ Instead, the required assemblies can be added in the Windows system folder.
 </tr>
 </table>
 
-Syncfusion provides troubleshooting tool to find out the missing prerequisites. The tool is available in the location: <span style="color:gray;font-size:14px"><i>($System drive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\WebKitUtility)</i></span>
+Syncfusion provides troubleshooting tool to find out the missing prerequisites. The tool is available in the location: <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\WebKitUtility)</i></span>
 
 ![](DocumentConversion_images/TroubleShootingTool.png)
 
@@ -1854,7 +1854,7 @@ For converting HTTPS sites, it requires OPENSSL libraries to be installed in the
 <a href="http://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064">OpenSSL</a>
 
 <br/><br/>
-Instead, the required assemblies can added in the Windows system folder (for 64 bit machine, it should be place in <p style="color:gray;font-size:14px"><i>$System drive\Windows\SysWOW64</i></p> and for 32 bit machine, it should be place in <p style="color:gray;font-size:14px"><i>$System drive\Windows\System32</i></p>),
+Instead, the required assemblies can added in the Windows system folder (for 64 bit machine, it should be place in <p style="color:gray;font-size:14px"><i>$SystemDrive\Windows\SysWOW64</i></p> and for 32 bit machine, it should be place in <p style="color:gray;font-size:14px"><i>$SystemDrive\Windows\System32</i></p>),
 <br/><br/>
 <ul>
 <li>libeay32.dll</li>
@@ -2070,13 +2070,13 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
  
 //IE Converter settings 
 
-IEConverterSettings ieConverterSettings = new IEConverterSettings(); 
+IEConverterSettings converterSettings = new IEConverterSettings(); 
 
-ieConverterSettings.Username = "username";
+converterSettings.Username = "username";
 
-ieConverterSettings.Password = "password";
+converterSettings.Password = "password";
 
-htmlConverter.ConverterSettings = ieConverterSettings; 
+htmlConverter.ConverterSettings = converterSettings; 
 
 //Convert HTML to PDF document 
 
@@ -2098,13 +2098,13 @@ Dim htmlConverter As New HtmlToPdfConverter()
 
 'IE Converter settings 
 
-Dim ieConverterSettings As New IEConverterSettings() 
+Dim converterSettings As New IEConverterSettings() 
 
-ieConverterSettings.Username = "username" 
+converterSettings.Username = "username" 
 
-ieConverterSettings.Password = "password" 
+converterSettings.Password = "password" 
 
-htmlConverter.ConverterSettings = ieConverterSettings 
+htmlConverter.ConverterSettings = converterSettings 
 
 'Convert HTML to PDF document 
 
@@ -2134,13 +2134,13 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 //IE Converter settings 
 
-IEConverterSettings ieConverterSettings = new IEConverterSettings();
+IEConverterSettings converterSettings = new IEConverterSettings();
  
 //PDFA1B conformance 
 
-ieConverterSettings.IsPDFA1B = true; 
+converterSettings.IsPDFA1B = true; 
 
-htmlConverter.ConverterSettings = ieConverterSettings; 
+htmlConverter.ConverterSettings = converterSettings; 
 
 //Convert HTML to PDF document 
 
@@ -2160,12 +2160,12 @@ document.Close(true);
 Dim htmlConverter As New HtmlToPdfConverter() 
 
 'IE Converter settings 
-Dim ieConverterSettings As New IEConverterSettings()
+Dim converterSettings As New IEConverterSettings()
  
 'PDFA1B conformance 
-ieConverterSettings.IsPDFA1B = True 
+converterSettings.IsPDFA1B = True 
 
-htmlConverter.ConverterSettings = ieConverterSettings 
+htmlConverter.ConverterSettings = converterSettings 
 
 'Convert HTML to PDF document 
 Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com") 
@@ -2223,7 +2223,7 @@ To overcome this issue, the key FEATURE_IVIEWOBJECTDRAW_DMLT9_WITH_GDI should be
 <a href="http://msdn.microsoft.com/en-us/library/ee330732(v=vs.85).aspx#iviewobject_draw">http://msdn.microsoft.com/en-us/library/ee330732(v=vs.85).aspx#iviewobject_draw</a>
 <br/><br/>
 <ul>
-<li>Run the legacy drawing utility placed in <span style="color:gray;font-size:14px">($system drive: \Program Files\Syncfusion\Essential Studio\$Version # \Utilities\PDF\Legacy Drawing)</span> to perform the above changes automatically.</li>
+<li>Run the legacy drawing utility placed in <span style="color:gray;font-size:14px">($SystemDrive: \Program Files\Syncfusion\Essential Studio\$Version # \Utilities\PDF\Legacy Drawing)</span> to perform the above changes automatically.</li>
 <li>While manually changing the registry key, the changes should be done on both HKEY_LOCAL_MACHINE and HKEY_CURRENT_USER as below.</li>
 </ul>
 <table>

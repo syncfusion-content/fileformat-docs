@@ -522,11 +522,11 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument("OutputE.pdf");
 
 //Sets pattern.
 
-const string destFilePattern = "Output" + "{0}.pdf";
+const string destinationFilePattern = "Output" + "{0}.pdf";
 
 //Split the pages into separate documents.
 
-loadedDocument.Split(destFilePattern);
+loadedDocument.Split(destinationFilePattern);
 
 //close the document
 
@@ -545,11 +545,11 @@ Dim loadedDocument As New PdfLoadedDocument("OutputE.pdf")
 
 'Sets pattern.
 
-Const destFilePattern As String = "Output" + "{0}.pdf"
+Const destinationFilePattern As String = "Output" + "{0}.pdf"
 
 'Split the pages into separate documents.
 
-loadedDocument.Split(destFilePattern)
+loadedDocument.Split(destinationFilePattern)
 
 'close the document
 
