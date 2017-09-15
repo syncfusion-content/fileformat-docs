@@ -17,8 +17,8 @@ Features<br/><br/></th><th>
 Windows Forms /WPF<br/><br/></th><th>
 ASP.NET/ASP.NET MVC<br/><br/>(MediumTrust)<br/><br/></th><th>
 Silverlight<br/><br/></th><th>
-UWP<br/><br/></th></tr>
-Xamarin<br/><br/></th></tr>
+UWP<br/><br/></th><th>
+Xamarin<br/><br/> ASP.NET Core <br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
