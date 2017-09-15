@@ -113,7 +113,7 @@ You can insert a new column at any index position of a PowerPoint table. The fol
 
 {% highlight c# %}
 //Create an instance of PowerPoint presentation
-IPresentation presentation = Presentation.Open(“Table.pptx”);
+IPresentation presentation = Presentation.Open("Table.pptx");
 //Gets the first slide from the presentation
 ISlide slide = presentation.Slides[0];
 //Gets the table from the shape collection to insert a column
@@ -130,7 +130,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 'Create instance of PowerPoint presentation
-Dim presentationDocument As IPresentation = Presentation.Open(“Table.pptx”)
+Dim presentationDocument As IPresentation = Presentation.Open("Table.pptx")
 'Gets the first slide from the presentation
 Dim slide As ISlide = presentationDocument.Slides(0)
 'Gets the table from the shape collection to insert a column
@@ -149,7 +149,7 @@ The following code example demonstrates how to insert a new column as the last 
 {% tabs %}
 {% highlight c# %}
 //Creates an instance of PowerPoint presentation
-IPresentation presentation = Presentation.Open(“Table.pptx”);
+IPresentation presentation = Presentation.Open("Table.pptx");
 //Gets the first slide from the presentation
 ISlide slide = presentation.Slides[0];
 //Gets the table from the shape collection to insert a column
@@ -165,7 +165,7 @@ presentation.Close();
 {% endhighlight %}
 {% highlight vb.net %}
 'Create an instance of PowerPoint presentation
-Dim presentationDocument As IPresentation = Presentation.Open(“Table.pptx”)
+Dim presentationDocument As IPresentation = Presentation.Open("Table.pptx")
 'Gets the first slide from the presentation
 Dim slide As ISlide = presentationDocument.Slides(0)
 'Gets the table from the shape collection to insert a column
