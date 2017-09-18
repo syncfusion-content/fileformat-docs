@@ -2533,11 +2533,11 @@ Dim loadedForm As PdfLoadedForm = loadedDocument.Form
 
 'Load the textbox field
 
-Dim loadedTextBoxfield As PdfLoadedTextBoxField = TryCast(loadedForm.Fields(0), PdfLoadedTextBoxField)
+Dim loadedTextBoxField As PdfLoadedTextBoxField = TryCast(loadedForm.Fields(0), PdfLoadedTextBoxField)
 
 'Remove the field
 
-loadedForm.Fields.Remove(loadedTextBoxfield)
+loadedForm.Fields.Remove(loadedTextBoxField)
 
 'Remove the field at index 0 
 
