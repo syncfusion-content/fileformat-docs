@@ -308,16 +308,12 @@ Embedded fonts<br/><br/></td><td>
 Not supported<br/><br/></td></tr>
 <tr>
 <td>
-Rotation – Textbox, Picture and predefined shape<br/><br/></td><td>
+Rotation – predefined shape<br/><br/></td><td>
 Not supported<br/><br/></td></tr>
 <tr>
 <td>
-Fit Text – Table cell and Textbox<br/><br/></td><td>
+Fit Text – Table cell<br/><br/></td><td>
 Not supported<br/><br/></td></tr>
-<tr>
-<td>
-Right to Left Paragraphs and Tables<br/><br/></td><td>
-Supported<br/><br/></td></tr>
 <tr>
 <td>
 Allow AutoFit<br/><br/></td><td>
