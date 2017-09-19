@@ -39,7 +39,7 @@ PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragr
 //represents the text that is exact replacement for PdfTextElement
 structureElement.ActualText = "Simple paragraph element";
 
-string text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.";
+string text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
 
 //Initialize the PDF text element
 PdfTextElement element = new PdfTextElement(text);
@@ -78,7 +78,7 @@ Dim structureElement As PdfStructureElement = New PdfStructureElement(PdfTagType
 'represents the text that is exact replacement for PdfTextElement
 structureElement.ActualText = "Simple paragraph element"
 
-Dim text As String = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base."
+Dim text As String = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base."
 
 'Initialize the PDF text element
 Dim element As PdfTextElement = New PdfTextElement(text)
