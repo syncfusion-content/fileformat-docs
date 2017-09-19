@@ -87,7 +87,7 @@ PdfPageBase pageBase = loadedDocument.Pages[0];
 
 //Extracts all the images info from first page.
 
-PdfImageInfo[]imagesInfo= pageBase.ImagesInfo;
+PdfImageInfo[] imagesInfo= pageBase.ImagesInfo;
 
 //Close the document
 
