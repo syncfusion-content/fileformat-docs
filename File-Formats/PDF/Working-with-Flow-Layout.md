@@ -64,7 +64,7 @@ paragraphStyle.CharacterFormat.Font = new Font("Times New Roman", 12);
 paragraphStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify;
 paragraphStyle.ParagraphFormat.AfterSpacing = 15f;
 WSection section = wordDocument.LastSection;
-string text = "Lorem ipsum dolor sit amet, etiam venenatis purus, vulputate sed consectetuer, et mi egestas, mauris nibh dolor parturient nostra vitae. Ipsum vehicula at commodo quam id, mauris aliquam morbi libero quis, posuere ultricies consequat dolor, ipsum wisi at, quia dictum vel non. Sapien sem elit integer ac adipisci adipiscing, purus quam tempus dolor dolor nec tortor, velit culpa urna, id mattis diam. Sociis molestie proin et, laoreet urna proin a justo quam, metus venenatis auctor magna habitasse donec, ipsum at a at, hendrerit vivamus nunc luctus. Est vitae consequat diam, dolor eu viverra dictum dignissim, at id facilisi quisque interdum ligula, est semper dictum ac lacus nec, per arcu proin.";
+string text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
 //Adds new text to the paragraph
 paragraph.AppendText(text);
 //Adds first text to the paragraph
@@ -98,7 +98,7 @@ paragraphStyle.CharacterFormat.Font = New Font("Times New Roman", 12)
 paragraphStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Justify
 paragraphStyle.ParagraphFormat.AfterSpacing = 15F
 Dim section As WSection = wordDocument.LastSection
-Dim text As String = "Lorem ipsum dolor sit amet, etiam venenatis purus, vulputate sed consectetuer, et mi egestas, mauris nibh dolor parturient nostra vitae. Ipsum vehicula at commodo quam id, mauris aliquam morbi libero quis, posuere ultricies consequat dolor, ipsum wisi at, quia dictum vel non. Sapien sem elit integer ac adipisci adipiscing, purus quam tempus dolor dolor nec tortor, velit culpa urna, id mattis diam. Sociis molestie proin et, laoreet urna proin a justo quam, metus venenatis auctor magna habitasse donec, ipsum at a at, hendrerit vivamus nunc luctus. Est vitae consequat diam, dolor eu viverra dictum dignissim, at id facilisi quisque interdum ligula, est semper dictum ac lacus nec, per arcu proin."
+Dim text As String = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base."
 'Adds new text to the paragraph
 paragraph.AppendText(text)
 'Adds first text to the paragraph
@@ -157,7 +157,7 @@ WTextRange textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRa
 textRange.CharacterFormat.FontSize = 18f;
 textRange.CharacterFormat.FontName = "Calibri";
 string text =
-"Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.";
+"Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
 //Appends paragraph.
 paragraph = section.AddParagraph();
 textRange = paragraph.AppendText(text) as WTextRange;
@@ -209,7 +209,7 @@ paragraph.ParagraphFormat.AfterSpacing = 10
 Dim textRange As WTextRange = TryCast(paragraph.AppendText("Adventure Works Cycles"), WTextRange)
 textRange.CharacterFormat.FontSize = 18F
 textRange.CharacterFormat.FontName = "Calibri"
-Dim text As String = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base."
+Dim text As String = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base."
 'Appends paragraph.
 paragraph = section.AddParagraph()
 textRange = TryCast(paragraph.AppendText(text), WTextRange)
