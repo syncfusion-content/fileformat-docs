@@ -107,6 +107,80 @@ presentationDocument.Close()
 
 {% endtabs %}
 
+## Inserting a column to table
+You can insert a new column at any index position of a PowerPoint table. The following code example demonstrates how to insert a new column at the specified index position of the table.
+{% tabs %}
+
+{% highlight c# %}
+//Create an instance of PowerPoint presentation
+IPresentation presentation = Presentation.Open("Table.pptx");
+//Gets the first slide from the presentation
+ISlide slide = presentation.Slides[0];
+//Gets the table from the shape collection to insert a column
+ITable table = (ITable)slide.Shapes[0];
+//Insert the column at the specified index position.
+table.InsertColumn(1);
+//Adds a paragraph in the inserted column.
+table[0, 1].TextBody.AddParagraph("Adding text to the newly inserted column");
+//Saves the presentation
+presentation.Save("Sample.pptx");
+//Close the presentation
+presentation.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create instance of PowerPoint presentation
+Dim presentationDocument As IPresentation = Presentation.Open("Table.pptx")
+'Gets the first slide from the presentation
+Dim slide As ISlide = presentationDocument.Slides(0)
+'Gets the table from the shape collection to insert a column
+Dim table As ITable = DirectCast(slide.Shapes(0), ITable)
+'Insert the column at the specified index position.
+table.InsertColumn(1)
+'Adds a paragraph in the inserted column.
+table(0, 1).TextBody.AddParagraph("Adding text to the newly inserted column")
+'Saves the presentation
+presentationDocument.Save("Sample.pptx")
+'Close the presentation
+presentationDocument.Close()
+{% endhighlight %}
+{% endtabs %}
+The following code example demonstrates how to insert a new column as the last column in the table.	
+{% tabs %}
+{% highlight c# %}
+//Creates an instance of PowerPoint presentation
+IPresentation presentation = Presentation.Open("Table.pptx");
+//Gets the first slide from the presentation
+ISlide slide = presentation.Slides[0];
+//Gets the table from the shape collection to insert a column
+ITable table = (ITable)slide.Shapes[0];
+//Inserts a column after the last index of the table.
+table.InsertColumn(table.ColumnsCount);
+//Adds a paragraph into inserted column.
+table[0, 2].TextBody.AddParagraph("Adding paragraph to the newly inserted column");
+//Saves the presentation
+presentation.Save("Sample.pptx");
+//Close the presentation
+presentation.Close();
+{% endhighlight %}
+{% highlight vb.net %}
+'Create an instance of PowerPoint presentation
+Dim presentationDocument As IPresentation = Presentation.Open("Table.pptx")
+'Gets the first slide from the presentation
+Dim slide As ISlide = presentationDocument.Slides(0)
+'Gets the table from the shape collection to insert a column
+Dim table As ITable = DirectCast(slide.Shapes(0), ITable)
+'Inserts a column after the last index of the table.
+table.InsertColumn(table.ColumnsCount)
+'Adds a paragraph into inserted column.
+table(0, 2).TextBody.AddParagraph("Adding Paragraph to the inserted column")
+'Saves the presentation
+presentationDocument.Save("Sample.pptx")
+'Close the presentation
+presentationDocument.Close()
+{% endhighlight %}
+{% endtabs %}
+
 ## Applying table formatting
 
 You can format a table to change its appearance by customizing the table border, cell background, cell margins etc. The following code example demonstrates how to apply the custom table formatting.
