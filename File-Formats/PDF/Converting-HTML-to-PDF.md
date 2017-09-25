@@ -1168,6 +1168,44 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight html %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+    table {font-family: Helvetica, Arial, Verdana; font-size: 14pt
+    }
+</style>
+</head>
+<body>
+<h2>Repeat Table Header and Footer</h2>
+<table border = 3>
+<thead>
+    <tr>
+        <th>Employee ID</th>
+        <th>Salary</th>
+    </tr>
+</thead>
+<script>
+var count;         
+for(count = 1; count <= 100; count++){
+	document.write("<tr> <td>" + count + "</td>");
+	document.write("<td>" + count * 10000 + "</td></tr>");
+}
+</script>
+<tfoot>
+    <tr>
+        <th>EOL</th>
+        <th>EOL</th>
+    </tr>
+</tfoot>
+</table>
+</body>
+</html> 
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
