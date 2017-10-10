@@ -52,9 +52,9 @@ Syncfusion.Xamarin.XlsIO.nupkg
 </tr>
 </table>
 
-## Converting Excel docuemnt into PDF
+## Converting Excel document into PDF
 
-For converting Excel docuemnt into PDF, the following NuGet packages need to be installed in your application.
+For converting Excel document into PDF, the following NuGet packages need to be installed in your application.
 
 <table>
 <tr>
@@ -104,7 +104,7 @@ N> The "Syncfusion.ExcelChartToImageConverter.Wpf.nupkg" NuGet package is only s
 
 ## NuGet Package Installation and Uninstallation
 
-To use NuGet package in your project, please refer the Nuget Package [Installation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-install-and-configuration) and [Uninstallation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-uninstallation-process) sections.
+To use NuGet package in your project, please refer the NuGet Package [Installation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-install-and-configuration) and [Uninstallation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-uninstallation-process) sections.
 
 XlsIO NuGet packages can be installed and uninstalled using Package Manager Console. In Visual Studio, select Tools > NuGet Package Manager > Package Manager Console and execute the below commands in respective platforms.
 
