@@ -75,7 +75,7 @@ Syncfusion.ExcelToPDFConverter.Base.nupkg
 </tr>
 </table>
 
-N> XlsIO to PDF/Image conversion is not supported in Xamarin, UWP and ASP.NET Core applications.
+N> Excel to PDF/Image conversion is not supported in Xamarin, UWP and ASP.NET Core applications.
 
 ## Converting Charts in XlsIO
 
