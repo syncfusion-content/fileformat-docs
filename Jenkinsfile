@@ -1,5 +1,8 @@
 node('content')
 { 
+timestamps
+  {
+     timeout(time: 7200000, unit: 'MILLISECONDS') {
 String platform='File Formats';
    try
 	{   
@@ -48,7 +51,8 @@ if(currentBuild.result != 'FAILURE')
     { 		
          archiveArtifacts artifacts: 'cireports/', excludes: null 	 
     }
-	    step([$class: 'WsCleanup'])	
+	    step([$class: 'WsCleanup'])	}
+	    }
 }
 @NonCPS
 def changeLogs(){
