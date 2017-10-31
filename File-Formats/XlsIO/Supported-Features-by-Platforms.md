@@ -177,6 +177,33 @@ The list of various supported and non-supported Excel features of Essential XlsI
 
 <table>
   <tr>
+    <th>Security</th>
+    <th>Windows Forms, WPF, ASP.NET ASP.NET MVC and ASP.NET Core</th>
+    <th>UWP, Xamarin </th>
+  </tr>
+  <tr>
+    <td>Open and save encrypted and decrypted documents.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+  </tr>
+  <tr>
+    <td>Protect and unprotect workbook.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+  </tr>
+  <tr>
+    <td>Protect and unprotect worksheets.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+  </tr>
+  <tr>
+    <td>Lock and unlock cells for write protection.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+  </tr>
+</table>
+<table>
+  <tr>
     <th>Worksheet Features</th>
     <th>Windows Forms, WPF, ASP.NET and ASP.NET MVC</th>
     <th>UWP, Xamarin and ASP.NET Core</th>
@@ -325,29 +352,6 @@ The list of various supported and non-supported Excel features of Essential XlsI
     <td>Addition and deletion of OLE objects.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-  </tr>
-  <tr>
-    <td colspan="3"><strong>Security</strong></td>
-  </tr>
-  <tr>
-    <td>Open and save encrypted and decrypted documents.</td>
-    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
-  </tr>
-  <tr>
-    <td>Protect and unprotect workbook.</td>
-    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
-  </tr>
-  <tr>
-    <td>Protect and unprotect worksheets.</td>
-    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
-  </tr>
-  <tr>
-    <td>Lock and unlock cells for write protection.</td>
-    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
   </tr>
   <tr>
     <td colspan="3"><strong>Page Setup</strong></td>
