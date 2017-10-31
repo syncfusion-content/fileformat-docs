@@ -115,14 +115,14 @@ XlsIO NuGet packages can be installed and uninstalled using Package Manager Cons
 Windows Forms, WPF, ASP.NET Web and MVC
 </td>
 <td>
-* Install-package Syncfusion.XlsIO.Base45 -source [http://nuget.syncfusion.com/windows-forms/](http://nuget.syncfusion.com/windows-forms/)<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.Base45 -source [http://nuget.syncfusion.com/windows-forms/](http://nuget.syncfusion.com/windows-forms/)<br/><br/>
-* Install-package Syncfusion.ExcelChartToImageConverter.WPF45 -source [http://nuget.syncfusion.com/windows-forms/](http://nuget.syncfusion.com/windows-forms/)
+* Install-package Syncfusion.XlsIO.Base45 -source {{'<http://nuget.syncfusion.com/windows-forms/>'| markdownify }}<br/><br/>
+* Install-package Syncfusion.ExcelToPdfConverter.Base45 -source {{'<http://nuget.syncfusion.com/windows-forms/>'| markdownify }}<br/><br/>
+* Install-package Syncfusion.ExcelChartToImageConverter.WPF45 -source {{'<http://nuget.syncfusion.com/windows-forms/>'| markdownify }}
 </td>
 <td>
-* Uninstall-package Syncfusion.XlsIO.Base45 -RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.ExcelToPdfConverter.Base45 -RemoveDependencies<br/><br/>
-* Uninstall-package Syncfusion.ExcelChartToImageConverter.WPF45 -RemoveDependencies
+* Uninstall-package Syncfusion.XlsIO.Base45 -RemoveDependencies                             <br/><br/>
+* Uninstall-package Syncfusion.ExcelToPdfConverter.Base45 -RemoveDependencies                             <br/><br/>
+* Uninstall-package Syncfusion.ExcelChartToImageConverter.WPF45 -RemoveDependencies                             
 </td>
 </tr>
 <tr>
@@ -130,7 +130,7 @@ Windows Forms, WPF, ASP.NET Web and MVC
 UWP
 </td>
 <td>
-Install-package Syncfusion.XlsIO.UWP46 –source [http://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows](http://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows)
+Install-package Syncfusion.XlsIO.UWP46 –source {{'<http://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows>'| markdownify }}
 </td>
 <td>
 Uninstall-package Syncfusion.XlsIO.UWP46 –RemoveDependencies
@@ -141,7 +141,7 @@ Uninstall-package Syncfusion.XlsIO.UWP46 –RemoveDependencies
 ASP.NET Core
 </td>
 <td>
-Install-package Syncfusion.XlsIO.NETStandard12 -source [http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore)
+Install-package Syncfusion.XlsIO.NETStandard12 -source {{'<http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore>'| markdownify }}
 </td>
 <td>
 Uninstall-package Syncfusion.XlsIO.NETStandard12 –RemoveDependencies
@@ -152,7 +152,7 @@ Uninstall-package Syncfusion.XlsIO.NETStandard12 –RemoveDependencies
 Xamarin
 </td>
 <td>
-Install-package Syncfusion.Xamarin.XlsIO –source [http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin](http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin)
+Install-package Syncfusion.Xamarin.XlsIO –source {{'<http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin>'| markdownify }}
 </td>
 <td>
 Uninstall-package Syncfusion.Xamarin.XlsIO –RemoveDependencies
