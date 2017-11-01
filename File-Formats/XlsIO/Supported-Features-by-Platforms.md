@@ -178,8 +178,8 @@ The list of various supported and non-supported Excel features of Essential XlsI
 <table>
   <tr>
     <th>Security</th>
-    <th>Windows Forms, WPF, ASP.NET ASP.NET MVC and ASP.NET Core</th>
-    <th>UWP, Xamarin </th>
+    <th>Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core</th>
+    <th>UWP and Xamarin </th>
   </tr>
   <tr>
     <td>Open and save encrypted and decrypted documents.</td>
