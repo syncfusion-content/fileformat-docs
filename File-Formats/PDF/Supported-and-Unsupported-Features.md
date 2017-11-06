@@ -811,7 +811,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td></tr>
+Yes<br/><br/></td></tr>
 </tbody>
 </table>
 
