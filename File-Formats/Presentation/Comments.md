@@ -17,9 +17,9 @@ The following code example demonstrates how to add a comment in a slide.
 //Create a PowerPoint Presentation
 IPresentation presentationDoc = Presentation.Create();
 //Add a slide to the Presentation
-ISlide slide1 = presentationDoc.Slides.Add(SlideLayoutType.Blank);
+ISlide slide = presentationDoc.Slides.Add(SlideLayoutType.Blank);
 //Add a comment to the slide
-IComment comment = slide1.Comments.Add(10, 10, "Author1", "A1", "Can we change the font size to 20?", DateTime.Now);
+slide.Comments.Add(10, 10, "Author1", "A1", "Can we change the font size to 20?", DateTime.Now);
 //Save the Presentation
 presentationDoc.Save("Comment.pptx");
 //Close the Presentation
@@ -29,9 +29,9 @@ presentationDoc.Close();
 'Create a PowerPoint Presentation
 Dim presentationDoc As IPresentation = Presentation.Create()
 'Add a slide to the Presentation
-Dim slide1 As ISlide = presentationDoc.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = presentationDoc.Slides.Add(SlideLayoutType.Blank)
 'Add a comment to the slide
-Dim comment As IComment = slide1.Comments.Add(10, 10, "Author1", "A1", "Can we change the font size to 20?", DateTime.Now)
+slide.Comments.Add(10, 10, "Author1", "A1", "Can we change the font size to 20?", DateTime.Now)
 'Save the Presentation
 presentationDoc.Save("Comment.pptx")
 'Close the Presentation
@@ -79,9 +79,9 @@ IPresentation presentationDoc = Presentation.Open("Sample.pptx");
 //Open a slide to the Presentation
 ISlide slide = presentationDoc.Slides[0];
 //Get the comment from the slide
-IComment comment1 = slide.Comments[0] as IComment;
+IComment comment = slide.Comments[0] as IComment;
 //Modify the comment text
-presentationDoc.Slides[0].Comments[0].Text = "The comment text content is changed";
+comment.Text = "The comment text content is changed";
 //Save the presentation
 presentationDoc.Save("ModifyCommentText.pptx");
 //Close the Presentation
@@ -93,9 +93,9 @@ Dim presentationDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Open a slide to the Presentation
 Dim slide As ISlide = presentationDoc.Slides(0)
 'Get the comment from the slide
-Dim comment1 As IComment = TryCast(slide.Comments(0), IComment)
+Dim comment As IComment = TryCast(slide.Comments(0), IComment)
 'Modify the comment text
-presentationDoc.Slides(0).Comments(0).Text = "The comment text content is changed"
+comment.Text = "The comment text content is changed"
 'Save the presentation
 presentationDoc.Save("ModifyCommentText.pptx")
 'Close the Presentation
@@ -110,9 +110,9 @@ IPresentation presentationDoc = Presentation.Open("Sample.pptx");
 //Open a slide to the Presentation
 ISlide slide = presentationDoc.Slides[0];
 //Get the comment from the slide
-IComment comment1 = slide.Comments[0] as IComment;
+IComment comment = slide.Comments[0] as IComment;
 //Modify the comment text
-presentationDoc.Slides[0].Comments[0].AuthorName = "NewAuthor";
+comment.AuthorName = "NewAuthor";
 //Save the presentation
 presentationDoc.Save("ModifyCommentAuthor.pptx");
 //Close the Presentation
@@ -124,9 +124,9 @@ Dim presentationDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Open a slide to the Presentation
 Dim slide As ISlide = presentationDoc.Slides(0)
 'Get the comment from the slide
-Dim comment1 As IComment = TryCast(slide.Comments(0), IComment)
+Dim comment As IComment = TryCast(slide.Comments(0), IComment)
 'Modify the comment text
-presentationDoc.Slides(0).Comments(0).AuthorName = "NewAuthor"
+comment.AuthorName = "NewAuthor"
 'Save the presentation
 presentationDoc.Save("ModifyCommentAuthor.pptx")
 'Close the Presentation
