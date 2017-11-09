@@ -1,5 +1,11 @@
 ---
 
+title: Working with comments in PowerPoint presentation
+description: Working with comments in PowerPoint presentation.
+platform: file-formats
+control: Presentation
+documentation: UG
+keywords: comments
 ---
 # Working with Comments
 A comment is a text note attached to a location on a slide. Each comment contains an unformatted text string, information about its author and the time it was added.
@@ -63,7 +69,7 @@ presentationDoc.Save("ReplyComment.pptx")
 presentationDoc.Close()
 {% endhighlight %}
 {% endtabs %}
-## Modifying a comment
+## Modifying the comment
 The following code example demonstrates how to modify the content of a comment.
 {% tabs %}
 {% highlight c# %}
@@ -111,10 +117,7 @@ presentationDoc.Save("ModifyCommentAuthor.pptx");
 //Close the Presentation
 presentationDoc.Close();
 {% endhighlight %}
-{% endtabs %}
-<table>
-<tr>
-<td>
+{% highlight vb.net %}
 'Create a PowerPoint Presentation
 Dim presentationDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Open a slide to the Presentation
@@ -127,10 +130,9 @@ presentationDoc.Slides(0).Comments(0).AuthorName = "NewAuthor"
 presentationDoc.Save("ModifyCommentAuthor.pptx")
 'Close the Presentation
 presentationDoc.Close()
-</td>
-</tr>
-</table>
-## Deleting the comments
+{% endhighlight %}
+{% endtabs %}
+## Deleting the comment
 Deleting a comment will remove all its replies from the PowerPoint slide. You can also delete a particular reply comment from a slide. You can delete a comment by specifying its reference or by specifying its position. The parent comment will be at index 0 and the reply comments will hold the incremental index positions. 
 The following code example demonstrates how to delete a comment from a slide.
 {% tabs %}
@@ -177,10 +179,7 @@ presentationDoc.Save("DeleteReplyComment.pptx");
 //Close the Presentation
 presentationDoc.Close();
 {% endhighlight %}
-{% endtabs %}
-<table>
-<tr>
-<td>
+{% highlight vb.net %}
 'Open a PowerPoint Presentation
 Dim presentationDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Get the first slide from the Presentation
@@ -191,6 +190,5 @@ slide.Comments.RemoveAt(1)
 presentationDoc.Save("DeleteReplyComment.pptx")
 'Close the Presentation
 presentationDoc.Close()
-</td>
-</tr>
-</table>
+{% endhighlight %}
+{% endtabs %}
