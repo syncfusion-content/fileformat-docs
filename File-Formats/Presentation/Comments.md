@@ -19,7 +19,7 @@ IPresentation presentationDoc = Presentation.Create();
 //Add a slide to the Presentation
 ISlide slide = presentationDoc.Slides.Add(SlideLayoutType.Blank);
 //Add a comment to the slide
-IComment comment = slide.Comments.Add(10, 10, "Author1", "A1", "Can we change the font size to 20?", DateTime.Now);
+slide.Comments.Add(10, 10, "Author1", "A1", "Can we change the font size to 20?", DateTime.Now);
 //Save the Presentation
 presentationDoc.Save("Comment.pptx");
 //Close the Presentation
@@ -31,7 +31,7 @@ Dim presentationDoc As IPresentation = Presentation.Create()
 'Add a slide to the Presentation
 Dim slide As ISlide = presentationDoc.Slides.Add(SlideLayoutType.Blank)
 'Add a comment to the slide
-Dim comment As IComment = slide.Comments.Add(10, 10, "Author1", "A1", "Can we change the font size to 20?", DateTime.Now)
+slide.Comments.Add(10, 10, "Author1", "A1", "Can we change the font size to 20?", DateTime.Now)
 'Save the Presentation
 presentationDoc.Save("Comment.pptx")
 'Close the Presentation
