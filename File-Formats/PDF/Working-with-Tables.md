@@ -1881,7 +1881,7 @@ doc.Close(True)
 
 {% endtabs %}
 
-The following image shows the PDF document with ```PdfGridBuiltinStyle GridTable4Accent1```.
+The following image shows the PDF document with ```PdfGridBuiltinStyle.GridTable4Accent1```.
 ![](Table_images/Gridtable4Accent1.png)
 
 The below code example illustrates how to apply built-in table styles to the PdfLightTable.
@@ -1971,7 +1971,7 @@ doc.Close(True)
 
 {% endtabs %}
 
-The following image shows the PDF document with ```PdfGridBuiltinStyle Gridtable4Accent2```.
+The following image shows the PDF document with ```PdfGridBuiltinStyle.Gridtable4Accent2```.
 ![](Table_images/Gridtable4Accent2.png)
 
 The below code example illustrates how to apply built-in table styles with table options to the PdfGrid.
@@ -2066,7 +2066,7 @@ doc.Close(True)
 
 {% endtabs %}
 
-The following image shows the PDF document with ```PdfGridBuiltinStyle Gridtable4Accent4```.
+The following image shows the PDF document with `PdfGridBuiltinStyle.Gridtable4Accent4`.
 ![](Table_images/Gridtable4Accent4.png)
 
 ## Pagination
