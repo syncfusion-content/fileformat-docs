@@ -1821,6 +1821,8 @@ dataTable.Columns.Add("Name");
 dataTable.Rows.Add(new object[] { "E01", "Clay" });
 dataTable.Rows.Add(new object[] { "E02", "Thomas" });
 dataTable.Rows.Add(new object[] { "E03", "George" });
+dataTable.Rows.Add(new object[] { "E04", "Stefan" });
+dataTable.Rows.Add(new object[] { "E05", "Mathew" });
             
 //Assign data source.
 pdfGrid.DataSource = dataTable;
@@ -1859,6 +1861,8 @@ dataTable.Columns.Add("Name")
 dataTable.Rows.Add(New Object() {"E01", "Clay"})
 dataTable.Rows.Add(New Object() {"E02", "Thomas"})
 dataTable.Rows.Add(New Object() {"E03", "George"})
+dataTable.Rows.Add(new object[] {"E04", "Stefan"})
+dataTable.Rows.Add(new object[] {"E05", "Mathew"})
 
 'Assign data source.
 pdfGrid.DataSource = dataTable
@@ -1876,6 +1880,9 @@ doc.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+The following image shows the PDF document with PdfGridBuiltinStyle GridTable4Accent1.
+![](Table_images/Gridtable4Accent1.png)
 
 The below code example illustrates how to apply built-in table styles to the PdfLightTable.
 
@@ -1902,6 +1909,8 @@ dataTable.Columns.Add("Name");
 dataTable.Rows.Add(new object[] { "E01", "Clay" });
 dataTable.Rows.Add(new object[] { "E02", "Thomas" });
 dataTable.Rows.Add(new object[] { "E03", "George" });
+dataTable.Rows.Add(new object[] { "E04", "Stefan" });
+dataTable.Rows.Add(new object[] { "E05", "Mathew" });
 
 //Assign data source.
 pdfLightTable.DataSource = dataTable;
@@ -1941,6 +1950,8 @@ dataTable.Columns.Add("Name")
 dataTable.Rows.Add(New Object() {"E01", "Clay"})
 dataTable.Rows.Add(New Object() {"E02", "Thomas"})
 dataTable.Rows.Add(New Object() {"E03", "George"})
+dataTable.Rows.Add(new object[] { "E04", "Stefan"})
+dataTable.Rows.Add(new object[] { "E05", "Mathew"})
 
 'Assign data source.
 pdfLightTable.DataSource = dataTable
@@ -1959,6 +1970,9 @@ doc.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+The following image shows the PDF document with PdfGridBuiltinStyle Gridtable4Accent2.
+![](Table_images/Gridtable4Accent2.png)
 
 The below code example illustrates how to apply built-in table styles with table options to the PdfGrid.
 
@@ -1985,6 +1999,8 @@ dataTable.Columns.Add("Name");
 dataTable.Rows.Add(new object[] { "E01", "Clay" });
 dataTable.Rows.Add(new object[] { "E02", "Thomas" });
 dataTable.Rows.Add(new object[] { "E03", "George" });
+dataTable.Rows.Add(new object[] { "E04", "Stefan" });
+dataTable.Rows.Add(new object[] { "E05", "Mathew" });
 
 //Assign data source.
 pdfGrid.DataSource = dataTable;
@@ -2026,6 +2042,8 @@ dataTable.Columns.Add("Name")
 dataTable.Rows.Add(New Object() {"E01", "Clay"})
 dataTable.Rows.Add(New Object() {"E02", "Thomas"})
 dataTable.Rows.Add(New Object() {"E03", "George"})
+dataTable.Rows.Add(new object[] { "E04", "Stefan"})
+dataTable.Rows.Add(new object[] { "E05", "Mathew"})
 
 'Assign data source.
 pdfGrid.DataSource = dataTable
@@ -2047,6 +2065,9 @@ doc.Close(True)
 {% endhighlight %}
 
 {% endtabs %}
+
+The following image shows the PDF document with PdfGridBuiltinStyle Gridtable4Accent4.
+![](Table_images/Gridtable4Accent4.png)
 
 ## Pagination
 
