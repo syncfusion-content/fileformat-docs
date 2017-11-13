@@ -589,3 +589,4 @@ excelEngine.Dispose()
   {% endtabs %}  
 
 
+N> Security features are now supported in NetStandard 1.4 onwards.
