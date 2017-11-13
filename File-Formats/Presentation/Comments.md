@@ -8,7 +8,7 @@ documentation: UG
 keywords: comments
 ---
 # Working with Comments
-A comment is a text note attached to a location on a slide. Each comment contains an unformatted text string, information about its author and the time it was added.
+A comment is a text note attached to a location on a slide. Each comment contains an unformatted text string, information about its author and the time it was added. In a PowerPoint slide, the comments and the reply comments are sequentially maintained in a single collection. The top most comment will have the index position 0 and the other comments and replies in that slide will have the incremental index positions.
 
 ## Adding a comment
 The following code example demonstrates how to add a comment in a slide.
@@ -134,7 +134,7 @@ presentationDoc.Close()
 {% endhighlight %}
 {% endtabs %}
 ## Deleting the comment
-Deleting a comment will remove all its replies from the PowerPoint slide. You can also delete a particular reply comment from a slide. You can delete a comment by specifying its reference or by specifying its position. The parent comment will be at index 0 and the reply comments will hold the incremental index positions. 
+Deleting a comment will remove all its replies from the PowerPoint slide. You can also delete a particular reply comment from a slide. You can delete a comment by specifying its reference or by specifying its position.
 The following code example demonstrates how to delete a comment from a slide.
 {% tabs %}
 {% highlight c# %}
