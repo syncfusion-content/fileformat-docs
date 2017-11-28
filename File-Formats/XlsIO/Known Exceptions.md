@@ -1,13 +1,13 @@
 ---
-title: Known exceptions throwns in XlsIO
-description: Known exceptions throwns in XlsIO
+title: Known exceptions thrown in XlsIO
+description: Known exception throwns in XlsIO
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 # Known Exceptions Details
 
-The list of known exceptions throwns in Essential XlsIO is listed in the following table.
+The list of known exceptions thrown in Essential XlsIO is listed in the following table.
 <table>
 <tr>
 <td>
@@ -745,7 +745,7 @@ Quantity of worksheets must be greater than zero
 </tr>
 <tr>
 <td>
-string.Format( "index is {0}, Count is {1}", index, List.Count
+string.Format( "index is {0}, Count is {1}", index, List.Count)
 </td>
 <td>
 Index value is not less than 0 and not greater than equal to list count
@@ -753,7 +753,7 @@ Index value is not less than 0 and not greater than equal to list count
 </tr>
 <tr>
 <td>
-string.Format("index is {0}, Count is {1}", index, coun
+string.Format("index is {0}, Count is {1}", index, coun)
 </td>
 <td>
 Index value is not less than 0 and not greater than equal to list count
@@ -764,10 +764,10 @@ Index value is not less than 0 and not greater than equal to list count
 ExcelWorkbookNotSavedException
 </td>
 <td>
-"Object cannot be disposed." + " Save workbook or set property ThrowNotSavedOnDestoy to false.
+"Object cannot be disposed." + " Save workbook or set property ThrowNotSavedOnDestroy to false.
 </td>
 <td>
-Save workbook or set property ThrowNotSavedOnDestoy to false
+Save workbook or set property ThrowNotSavedOnDestroy to false
 </td>
 </tr>
 <tr>
