@@ -1517,7 +1517,4 @@ The list of known exceptions thrown in Essential XlsIO is listed in the followin
           Name of worksheet must be unique in a workbook
         </td>
       </tr>
-      <tr>
-        <td />
-      </tr>
     </table>
