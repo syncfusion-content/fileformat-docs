@@ -753,7 +753,7 @@ Index value is not less than 0 and not greater than equal to list count
 </tr>
 <tr>
 <td>
-string.Format("index is {0}, Count is {1}", index, coun)
+string.Format("index is {0}, Count is {1}", index, count)
 </td>
 <td>
 Index value is not less than 0 and not greater than equal to list count
