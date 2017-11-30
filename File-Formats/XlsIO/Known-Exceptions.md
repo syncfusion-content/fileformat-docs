@@ -7,20 +7,20 @@ documentation: UG
 ---
 # Known Exceptions Details
 
-The list of known exceptions thrown in Essential XlsIO is listed in the following table.
+The list of known exceptions thrown in Essential XlsIO is listed below.
 
 ## ApplicationException
 
 <table>
   <tr>
     <td>
-      Class
+      {{'**Class**'| markdownify }}
     </td>
     <td>
-      Message
+      {{'**Message**'| markdownify }}
     </td>
     <td>
-      Reason
+      {{'**Reason**'| markdownify }}
     </td>
   </tr>
   <tr>
@@ -76,13 +76,13 @@ The list of known exceptions thrown in Essential XlsIO is listed in the followin
  <table>
   <tr>
     <td>
-      Class
+      {{'**Class**'| markdownify }}
     </td>
     <td>
-      Message
+      {{'**Message**'| markdownify }}
     </td>
     <td>
-      Reason
+      {{'**Reason**'| markdownify }}
     </td>
   </tr>
   <tr>
@@ -475,13 +475,13 @@ The list of known exceptions thrown in Essential XlsIO is listed in the followin
 <table>
   <tr>
     <td>
-      Class
+      {{'**Class**'| markdownify }}
     </td>
     <td>
-      Message
+      {{'**Message**'| markdownify }}
     </td>
     <td>
-      Reason
+      {{'**Reason**'| markdownify }}
     </td>
   </tr>
   <tr>
@@ -527,7 +527,7 @@ The list of known exceptions thrown in Essential XlsIO is listed in the followin
        "Conditions"
     </td>
     <td>
-      The condition property is not null and CFexRecords property is not equal to null
+      The condition property is not null and CFExRecords property is not equal to null
     </td>
   </tr>
   <tr>
@@ -569,13 +569,13 @@ The list of known exceptions thrown in Essential XlsIO is listed in the followin
 <table>
   <tr>
     <td>
-      Class
+      {{'**Class**'| markdownify }}
     </td>
     <td>
-      Message
+      {{'**Message**'| markdownify }}
     </td>
     <td>
-      Reason
+      {{'**Reason**'| markdownify }}
     </td>
   </tr>
   <tr>
@@ -1332,16 +1332,16 @@ The list of known exceptions thrown in Essential XlsIO is listed in the followin
 
  <table>
    <tr>
-     <td>
-       Class
-     </td>
-     <td>
-       Message
-     </td>
-     <td>
-       Reason
-     </td>
-   </tr>
+    <td>
+      {{'**Class**'| markdownify }}
+    </td>
+    <td>
+      {{'**Message**'| markdownify }}
+    </td>
+    <td>
+      {{'**Reason**'| markdownify }}
+    </td>
+  </tr>
    <tr>
      <td>
        Workbook
@@ -1360,13 +1360,13 @@ The list of known exceptions thrown in Essential XlsIO is listed in the followin
 <table>
   <tr>
     <td>
-      Class
+      {{'**Class**'| markdownify }}
     </td>
     <td>
-      Message
+      {{'**Message**'| markdownify }}
     </td>
     <td>
-      Reason
+      {{'**Reason**'| markdownify }}
     </td>
   </tr>
   <tr>
@@ -1406,24 +1406,24 @@ The list of known exceptions thrown in Essential XlsIO is listed in the followin
 <table>
   <tr>
     <td>
-      <span>Class</span>
+      {{'**Class**'| markdownify }}
     </td>
     <td>
-      <span>Message</span>
+      {{'**Message**'| markdownify }}
     </td>
     <td>
-      <span>Reason</span>
+      {{'**Reason**'| markdownify }}
     </td>
   </tr>
   <tr>
     <td>
-      <span>Worksheet</span>
+      Worksheet
     </td>
     <td>
-      <span>Can't copy to destination range</span>
+      Can't copy to destination range
     </td>
     <td>
-      <span>The destination array formula not separator the cannot copy to destination range</span>
+      The destination array formula not separator the cannot copy to destination range
     </td>
   </tr>
 </table>
@@ -1433,13 +1433,13 @@ The list of known exceptions thrown in Essential XlsIO is listed in the followin
 <table>
   <tr>
     <td>
-      Class
+      {{'**Class**'| markdownify }}
     </td>
     <td>
-      Message
+      {{'**Message**'| markdownify }}
     </td>
     <td>
-      Reason
+      {{'**Reason**'| markdownify }}
     </td>
   </tr>
   <tr>
