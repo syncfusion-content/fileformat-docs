@@ -102,6 +102,96 @@ excelEngine.Dispose()
 
 T> You can use of GetText, SetText, GetNumber and SetNumber methods from worksheet object that enable users to get/set values without range object.
 
+## Accessing a Relative Cell or Range ##
+
+By default, the range is accessed from worksheet with given row and column index. You can access the range relatively to the existing range object by using ExcelRangeIndexerMode options. 
+
+
+Following code example illustrates how to access the range relatively to the existing range object in XlsIO.
+
+N> Here row and column indexes in the range are "one based".
+
+{% tabs %}  
+{% highlight c# %}
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+// Setting range index mode to relative.
+ 
+application.RangeIndexerMode = ExcelRangeIndexerMode.Relative;
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+// Creating a range by specifying cells address. 
+
+IRange range1 = sheet.Range["A3:C5"];
+
+// Accessing a range relatively to the existing range by specifying cell row and column index.
+
+range1[2, 2].Text = "Returns B4 cell";
+
+// Creating a Range of cells specifying cell row and column index.
+
+IRange range2 = sheet.Range[5, 1, 10, 3];
+
+// Accessing a range relatively to the existing range of cells by specifying cell row and column index.
+
+range1[2, 2, 3, 3].Text = "Returns range of cells B6 to C7";
+
+workbook.SaveAs("Range.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+
+Dim excelEngine As ExcelEngine = New ExcelEngine
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2013
+
+' Setting range index mode to relative.
+
+application.RangeIndexerMode = ExcelRangeIndexerMode.Relative
+
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+Dim range1 As IRange = sheet.Range("A3:C5")
+
+' Accessing a range relatively to the existing range by specifying cell row and column index.
+
+range1(2, 2).Text = "Returns B4 cell"
+
+Dim range2 As IRange = sheet.Range(5, 1, 10, 3)
+
+' Accessing a range relatively to the existing range of cells by specifying cell row and column index.
+
+range1(2, 2, 3, 3).Text = "Returns range of cells B6 to C7"
+
+workbook.SaveAs("Range.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+{% endhighlight %}
+{% endtabs %} 
+
+
 ### Accessing Discontinuous Ranges
 
 You can also access discontinuous ranges and add them to the **RangesCollection**.  You can modify the contents or applying formatting of discontinuous range through RangeCollection instance. 
