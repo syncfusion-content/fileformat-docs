@@ -18,9 +18,11 @@ The following raster images are supported in Essential PDF.
 
 * BMP
 * JPEG
+* JPEG with Exif standard
 * GIF
 * PNG
 * TIFF
+* ICO and ICON
 
 You can load image streams, files on disk, and use System.Drawing.Bitmap objects to draw the images through the DrawImage method of the PdfGraphics class.
 
@@ -283,6 +285,7 @@ Essential PDF supports adding Metafile vector image. During the insertion, Metaf
 * EMF only 
 * EMF plus
 * EMF plus dual
+* WMF
 
 PdfMetafile class is used to load EMF images. Additionally the PdfMetafileLayoutFormat class allows you to prevent text and image split across pages in the PDF document.
 
