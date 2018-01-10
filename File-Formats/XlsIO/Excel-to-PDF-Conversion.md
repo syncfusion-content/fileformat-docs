@@ -332,6 +332,250 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
+## Print Excel Document
+
+XlsIO supports Excel printing option by converting Excel to PDF and then print that PDF document. The Excel can be print with specified page setup and printer settings in XlsIO.
+
+The following printer settings can be applied to print Excel in XlsIO. 
+
+![]( Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img1.jpeg)
+
+ 
+### Print Excel Document 
+
+The following code snippet illustrates how to print the Excel document in XlsIO.
+
+{% tabs %}  
+{% highlight c# %}
+
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+IWorkbook workbook = application.Workbooks.Open("Excel.xlsx"));
+
+// Convert the workbook.
+ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
+           
+// Print the converted PDF document.
+converter.Print();
+
+converter.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+
+{% endhighlight %}
+{% highlight vb %}
+
+Dim excelEngine As ExcelEngine = New ExcelEngine
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
+
+' Convert the workbook.
+Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+
+' Print the converted PDF document.
+converter.Print()
+converter.Dispose()
+workbook.Close()
+excelEngine.Dispose()
+
+{% endhighlight %}
+{% endtabs %}
+
+### Print with printer settings.
+
+The following code snippet illustrates how to print the Excel document with printer settings in XlsIO.
+
+{% tabs %}  
+{% highlight c# %}
+
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+IWorkbook workbook = application.Workbooks.Open("Excel.xlsx"));
+
+// Convert the workbook.
+ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
+
+// Initialize the printer settings.
+PrinterSettings printerSettings = new PrinterSettings();
+
+// customizing the printer settings.
+printerSettings.PrinterName = "HP LaserJet Pro MFP M127-M128 PCLmS";
+printerSettings.Copies = 2;
+printerSettings.FromPage = 2;
+printerSettings.ToPage = 3;
+printerSettings.DefaultPageSettings.Color = false;
+printerSettings.Duplex = Duplex.Vertical;
+
+// Print the converted PDF document with printer settings.
+converter.Print(printerSettings);
+
+converter.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+
+{% endhighlight %}
+{% highlight vb %}
+
+Dim excelEngine As ExcelEngine = New ExcelEngine
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
+
+' Convert the workbook.
+Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+
+' Initialize the printer settings.
+Dim printerSettings As PrinterSettings = New PrinterSettings
+
+' customizing the printer settings.
+printerSettings.PrinterName = "HP LaserJet Pro MFP M127-M128 PCLmS"
+printerSettings.Copies = 2
+printerSettings.FromPage = 2
+printerSettings.ToPage = 3
+printerSettings.DefaultPageSettings.Color = false
+printerSettings.Duplex = Duplex.Vertical
+
+' Print the converted PDF document with printer settings.
+converter.Print(printerSettings)
+
+converter.Dispose()
+workbook.Close()
+excelEngine.Dispose()
+
+{% endhighlight %}
+{% endtabs %}
+
+### Print with Excel to PDF converter settings.
+
+The following code snippet illustrates how to print the Excel document with Excel to PDF converter settings in XlsIO.
+
+{% tabs %}  
+{% highlight c# %}
+
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+IWorkbook workbook = application.Workbooks.Open("Excel.xlsx");
+
+// Convert the workbook.
+ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
+
+// Initializes the Excel to PDF converter setting class.
+ExcelToPdfConverterSettings converterSettings = new ExcelToPdfConverterSettings();
+
+// Layout the page using FitAllColumnsOnOnePage options.
+converterSettings.DisplayGridLines = GridLinesDisplayStyle.Visible;
+converterSettings.LayoutOptions = LayoutOptions.FitAllColumnsOnOnePage;
+
+// Print the converted PDF document with converter settings.
+converter.Print(converterSettings);
+
+converter.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+
+{% endhighlight %}
+{% highlight vb %}
+
+Dim excelEngine As ExcelEngine = New ExcelEngine
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
+
+' Convert the workbook.
+Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+
+' Initialize the Excel to PDF converter setting class.
+Dim converterSettings As ExcelToPdfConverterSettings = New ExcelToPdfConverterSettings
+
+' Layout the page using FitAllColumnsOnOnePage options.
+converterSettings.DisplayGridLines = GridLinesDisplayStyle.Visible
+converterSettings.LayoutOptions = LayoutOptions.FitAllColumnsOnOnePage
+
+' Print the converted PDF document with converter settings.
+converter.Print(converterSettings)
+
+converter.Dispose()
+workbook.Close()
+excelEngine.Dispose()
+
+{% endhighlight %}
+{% endtabs %}
+
+### Print with printer settings and Excel to PDF converter settings.
+
+The following code snippet illustrates how to print the Excel document with Excel to PDF converter settings and printer settings in XlsIO.
+
+{% tabs %}  
+{% highlight c# %}
+
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+IWorkbook workbook = application.Workbooks.Open("Excel.xlsx"));
+
+ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
+
+// Initialize the printer settings.
+PrinterSettings printerSettings = new PrinterSettings();
+
+// customizing the printer settings.
+printerSettings.PrinterName = "HP LaserJet Pro MFP M127-M128 PCLmS";
+printerSettings.Copies = 2;
+printerSettings.FromPage = 2;
+printerSettings.ToPage = 3;
+printerSettings.DefaultPageSettings.Color = true;
+printerSettings.Duplex = Duplex.Vertical;
+printerSettings.Collate = true;
+
+// Initializes the Excel to PDF converter setting class.
+ExcelToPdfConverterSettings converterSettings = new ExcelToPdfConverterSettings();
+
+// Layout the page using FitAllColumnsOnOnePage options.
+converterSettings.DisplayGridLines = GridLinesDisplayStyle.Visible;
+converterSettings.LayoutOptions = LayoutOptions.FitAllColumnsOnOnePage;
+
+// Print the converted PDF document with printer settings and converter settings.
+converter.Print(printerSettings, converterSettings);
+
+converter.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+
+{% endhighlight %}
+{% highlight vb %}
+
+Dim excelEngine As ExcelEngine = New ExcelEngine
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
+Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+
+' Initialize the printer settings.
+Dim printerSettings As PrinterSettings = New PrinterSettings
+
+' customizing the printer settings.
+printerSettings.PrinterName = "HP LaserJet Pro MFP M127-M128 PCLmS"
+printerSettings.Copies = 2
+printerSettings.FromPage = 2
+printerSettings.ToPage = 3
+printerSettings.DefaultPageSettings.Color = true
+printerSettings.Duplex = Duplex.Vertical
+printerSettings.Collate = true
+
+' Initialize the Excel to PDF converter setting class.
+Dim converterSettings As ExcelToPdfConverterSettings = New ExcelToPdfConverterSettings
+
+' Layout the page using FitAllColumnsOnOnePage options.
+converterSettings.DisplayGridLines = GridLinesDisplayStyle.Visible
+converterSettings.LayoutOptions = LayoutOptions.FitAllColumnsOnOnePage
+
+' Print the converted PDF document with printer settings and converter settings.
+converter.Print(printerSettings, converterSettings)
+
+converter.Dispose()
+workbook.Close()
+excelEngine.Dispose()
+
+{% endhighlight %}
+{% endtabs %}
+
+  
 N> This section is applicable only to the Windows Forms, ASP.NET, ASP.NET MVC and WPF platforms.
 
 ## Supported Elements
