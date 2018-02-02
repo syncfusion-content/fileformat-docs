@@ -636,7 +636,7 @@ Essential PDF provides support to render simple HTML string in a PDF document th
    * BR
    
 2. The PdfMetafileLayoutFormat class enables to break the HTML text into multiple pages.
-3. Complex HTML with CSS are not supported in this class. Please use [HTML to PDF](/file-formats/pdf/working-with-document-conversions#converting-html-documents-to-pdf "Converting HTML documents To PDF") section for complex HTML with CSS and URL's
+3. Complex HTML with CSS are not supported in this class. Please use [HTML to PDF](/file-formats/pdf/converting-html-to-pdf "Converting HTML documents To PDF") section for complex HTML with CSS and URL's
 
 The following code example illustrates how to render the HTML string in a PDF document.   
 
