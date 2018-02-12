@@ -19,258 +19,177 @@ N> Here row and column indexes in the range are "one based".
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Access a range by specifying cell address. 
-
 sheet.Range["A7"].Text = "Accessing a Range by specify cell address ";
 
 // Access a range by specifying cell row and column index. 
-
 sheet.Range[9, 1].Text = "Accessing a Range by specify cell row and column index ";
 
 // Access a Range by specifying using defined name.
-
 sheet.Range["Name"].Text = "Accessing a Range by specifying using defined name.";
 
 // Accessing a Range of cells by specifying cells address.
-
 sheet.Range["A13:C13"].Text = "Accessing a Range of Cells (Method 1)";
 
 // Accessing a Range of cells specifying cell row and column index.
-
 sheet.Range[15, 1, 15, 3].Text = "Accessing a Range of Cells (Method 2)";
 
 workbook.SaveAs("Range.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' Access a range by specify cell address. 
-
 sheet.Range("A7").Text = "Accessing a Range by specify cell address "
 
 ' Access a range by specify cell row and column index. 
-
 sheet.Range(9, 1).Text = "Accessing a Range by specify cell row and column index "
 
 ' Access a Range by specifying using defined name.
-
 sheet.Range("Name").Text = "Accessing a Range by specifying using defined name."
 
 ' Accessing a Range of cells by specify cells address.
-
 sheet.Range("A13:C13").Text = "Accessing a Range of Cells (Method 1)"
 
 ' Accessing a Range of cells specify cell row and column index.
-
 sheet.Range(15, 1, 15, 3).Text = "Accessing a Range of Cells (Method 2)"
 
 workbook.SaveAs("Range.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
 T> You can use of GetText, SetText, GetNumber and SetNumber methods from worksheet object that enable users to get/set values without range object.
 
-## Accessing a Relative Cell or Range ##
+## Accessing Relative Range
 
-By default, the range is accessed from worksheet with given row and column index. You can access the range relatively to the existing range object by using ExcelRangeIndexerMode options. 
+By default, accessing a range by index will return the cell or range from worksheet level. To get a relative range for the indexes provided, it is recommended to set the **ExcelRangeIndexerMode** option. Here, the RowIdex and ColumnIndex arguments are relative offsets, where specifying a RowIndex of 1 returns cells in the first row of the range not the first  row of the worksheet.
 
+For example, if a range is mentioned as "B3:D5", then accessing a range with the index [1,1] will return the cell "A1" from worksheet. If the **ExcelRangeIndexerMode** is set to **Relative** then it returns "B3".
 
 Following code example illustrates how to access the range relatively to the existing range object in XlsIO.
 
-N> Here row and column indexes in the range are "one based".
+N> Here row and column indexes in the range are "one-based".
 
 {% tabs %}  
 {% highlight c# %}
-
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 // Setting range index mode to relative.
- 
 application.RangeIndexerMode = ExcelRangeIndexerMode.Relative;
 
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Creating a range by specifying cells address. 
-
-IRange range1 = sheet.Range["A3:C5"];
+IRange range1 = sheet.Range["B3:D5"];
 
 // Accessing a range relatively to the existing range by specifying cell row and column index.
-
-range1[2, 2].Text = "Returns B4 cell";
+range1[2, 2].Text = "Returns C4 cell";
+range1[0, 0].Text = "Returns A2 cell";
 
 // Creating a Range of cells specifying cell row and column index.
-
 IRange range2 = sheet.Range[5, 1, 10, 3];
 
 // Accessing a range relatively to the existing range of cells by specifying cell row and column index.
-
 range1[2, 2, 3, 3].Text = "Returns range of cells B6 to C7";
 
 workbook.SaveAs("Range.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
 {% endhighlight %}
 
 {% highlight vb %}
-
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
 
 ' Setting range index mode to relative.
-
 application.RangeIndexerMode = ExcelRangeIndexerMode.Relative
 
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim range1 As IRange = sheet.Range("A3:C5")
-
+Dim range1 As IRange = sheet.Range("B3:D5")
 ' Accessing a range relatively to the existing range by specifying cell row and column index.
-
 range1(2, 2).Text = "Returns B4 cell"
+range1(0, 0).Text = "Returns A2 cell"
 
 Dim range2 As IRange = sheet.Range(5, 1, 10, 3)
-
 ' Accessing a range relatively to the existing range of cells by specifying cell row and column index.
-
 range1(2, 2, 3, 3).Text = "Returns range of cells B6 to C7"
 
 workbook.SaveAs("Range.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
 {% endhighlight %}
 {% endtabs %} 
 
 
 ### Accessing Discontinuous Ranges
 
-You can also access discontinuous ranges and add them to the **RangesCollection**.  You can modify the contents or applying formatting of discontinuous range through RangeCollection instance. 
+You can access discontinuous ranges and add them to the **RangesCollection**.  You can modify the contents or applying formatting of discontinuous range through RangeCollection instance. 
 
 Following code snippet illustrates how to access discontinuous range.
 
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // range1 and range2 are discontinuous ranges.
-
 IRange range1 = sheet.Range[ "A1:A2" ];
-
 IRange range2 = sheet.Range["C1:C2" ];
-
 IRanges ranges = sheet.CreateRangesCollection();
 
 // range1 and range2 are considered as a single range
-
 ranges.Add( range1 );
-
 ranges.Add( range2 );
-
 ranges.Text = "Test";
 
 workbook.SaveAs("Range.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' range1 and range2 are discontinuous ranges.
-
 Dim range1 As IRange = sheet.Range("A1:A2")
-
 Dim range2 As IRange = sheet.Range("C1:C2")
-
 Dim ranges As IRanges = sheet.CreateRangesCollection()
 
 ' range1 and range2 are considered as a single range
-
 ranges.Add(range1)
-
 ranges.Add(range2)
-
 ranges.Text = "Test"
 
 workbook.SaveAs("Range.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -281,88 +200,55 @@ The **IMigrantRange** interface can also be used to access a single cell or grou
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet sheet = workbook.Worksheets[0];
-
 IMigrantRange migrantRange = sheet.MigrantRange;
 
 // Writing Data.
-
 for (int row = 1; row <= rowCount; row++)
-
 {
-
-for (int column = 1; column <= colCount; column++)
-
-{
-
-// Writing values.
-
-migrantRange.ResetRowColumn(row, column);
-
-migrantRange.Text = "Test";
-
-}
-
+    for (int column = 1; column <= colCount; column++)
+    {
+        // Writing values.
+        migrantRange.ResetRowColumn(row, column);
+        migrantRange.Text = "Test";
+    }
 }
 
 workbook.SaveAs("Range.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
-
 Dim migrantRange As IMigrantRange = sheet.MigrantRange
 
 ' Writing Data.
-
 Dim row As Integer
 
 For  row = 1 To  rowCount Step  row + 1
 
-Dim column As Integer
+    Dim column As Integer
 
-For  column = 1 To  colCount Step  column + 1
+    For  column = 1 To  colCount Step  column + 1
 
-' Writing values.
+    ' Writing values.
+    migrantRange.ResetRowColumn(row, column)
+    migrantRange.Text = "Test"
 
-migrantRange.ResetRowColumn(row, column)
-
-migrantRange.Text = "Test"
-
-Next
-
+	Next
 Next
 
 workbook.SaveAs("Range.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -375,64 +261,40 @@ N> By default, XlsIO considers a cell as used, even if there exists some formatt
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // UsedRange excludes the blank cell which has formatting
-
 sheet.UsedRangeIncludesFormatting = false;
 
 // Modifying the column width and row height of the used range
-
 sheet.UsedRange.ColumnWidth = 20;
-
 sheet.UsedRange.RowHeight = 20;
 
 workbook.SaveAs("Range.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' UsedRange excludes the blank cell which has formatting
-
 sheet.UsedRangeIncludesFormatting = false
 
 ' Modifying only the Used Ranges.
-
 sheet.UsedRange.ColumnWidth = 20
-
 sheet.UsedRange.RowHeight = 20
 
 workbook.SaveAs("Range.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -443,52 +305,32 @@ You can delete everything in the cell, or just remove the formatting, contents, 
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Clearing a Range “A4” and its formatting.
-
 sheet.Range["A4"].Clear(true);
 
 workbook.SaveAs("ClearRange.xlsx");
-
 workbook.Version = ExcelVersion.Excel2013;
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' Clearing a Range “A4” and its formatting.
-
 sheet.Range("A4").Clear(True)
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("ClearRange.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -501,60 +343,38 @@ Following code example illustrates how to copy a range of cells from the source 
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Copying a Range “A1” to “A5”.
-
 IRange source = sheet.Range["A1"];
-
 IRange destination = sheet.Range["A5"];
 
 source.CopyTo(destination,ExcelCopyRangeOptions.All);
 
 workbook.Version = ExcelVersion.Excel2013;
-
 workbook.SaveAs("CopyRange.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' Copying a Range “A1” to “A5”.
-
 Dim source As IRange = sheet.Range("A1")
-
 Dim destination As IRange = sheet.Range("A5")
 
 source.CopyTo(destination,ExcelCopyRangeOptions.All)
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("CopyRange.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -565,60 +385,38 @@ N> MoveTo method does not update formulas.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx"); 
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Moving a Range “A1” to “A5”.
-
 IRange source = sheet.Range["A1"];
-
 IRange destination = sheet.Range["A5"];
 
 source.MoveTo(destination);
 
 workbook.Version = ExcelVersion.Excel2013;
-
 workbook.SaveAs("MoveRange.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' Moving a Range “A1” to “A5”.
-
 Dim source As IRange = sheet.Range("A1")
-
 Dim destination As IRange = sheet.Range("A5")
 
 source.MoveTo(destination)
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("MoveRange.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -637,11 +435,8 @@ The following code illustrates how to find all the occurrences of text in a work
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Searches for the given string within the text of worksheet.
@@ -663,24 +458,15 @@ IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOption
 IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent);
 
 workbook.Version = ExcelVersion.Excel2013;
-
 workbook.SaveAs("Find.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' Searches for the given string within the text of worksheet.
@@ -702,15 +488,9 @@ Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFin
 Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent)
 
 workbook.SaveAs("Find.xlsx")
-
 workbook.Close()
-
 workbook.Version = ExcelVersion.Excel2013
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -722,11 +502,8 @@ The following code example illustrates how to replace all occurrences of given s
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Replaces the given string with another string.
@@ -746,28 +523,18 @@ sheet.Replace("ArrayValue", new string[] { "ArrayValue1", "ArrayValue2", "ArrayV
 
 // Replaces the given string with DataTable.
 DataTable table = SampleDataTable();
-
 sheet.Replace("DataTable", table, true); 
 
 workbook.Version = ExcelVersion.Excel2013;
-
 workbook.SaveAs("Replace.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' Replaces the given string with another string.
@@ -787,19 +554,12 @@ sheet.Replace("ArrayValue", New String() {"ArrayValue1", "ArrayValue2", "ArrayVa
 
 ' Replaces the given string with DataTable.
 Dim table As DataTable = SampleDataTable()
-
 sheet.Replace("DataTable", table, True)
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("Replace.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -820,86 +580,56 @@ The following code snippet explains how to sort a range of cells by values
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Creates the data sorter
-
 IDataSort sorter = workbook.CreateDataSorter();
 
 // Range to sort
-
 sorter.SortRange = sheet.Range["D3:D16"];
 
 // Adds the sort field with the column index, sort based on and order by attribute
-
 ISortField sortField = sorter.SortFields.Add(0, SortOn.Values, OrderBy.Ascending);
 
 // Adds another sort field
-
 ISortField sortField2 = sorter.SortFields.Add(1, SortOn.Values, OrderBy.Ascending);
 
 // Sort based on the sort Field attribute
-
 sorter.Sort();
 
 workbook.Version = ExcelVersion.Excel2013;
-
 workbook.SaveAs("Sort.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' Creates the Data sorter
-
 Dim sorter As IDataSort = workbook.CreateDataSorter()
 
 ' Specifies the sort range
-
 sorter.SortRange = sheet.Range("D3:D16")
 
 ' Adds the sort field with column index, sort based on and order by attribute
-
 Dim field As ISortField = sorter.SortFields.Add(2, SortOn.Values, OrderBy.OnTop)
 
 ' Adds the second sort field
-
 field = sorter.SortFields.Add(2,SortOn.Values,OrderBy.OnTop)
 
 ' Sorts the data with the sort field attribute
-
 sorter.Sort()
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("Sort.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -910,104 +640,70 @@ The following code snippet explains how to move a range of cells with the specif
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Creates the data sorter
-
 IDataSort sorter = workbook.CreateDataSorter();
 
 // Range to sort
-
 sorter.SortRange = sheet.Range["A2:D16"];
 
 // Creates the sort field with the column index, sort based on and order by attribute
-
 ISortField sortField1 = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop);
 
 // Specifies the color to sort the data
-
 sortField1.Color = Color.Red;
 
 // Creates another sort field with the column index, sort based on and order by attribute
-
 ISortField sortField2 = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop);
 
 // Specifies the color to sort the data
-
 sortField2.Color = Color.Green;
 
 // Sort based on the sort Field attribute
-
 sorter.Sort();
 
 workbook.Version = ExcelVersion.Excel2013;
-
 workbook.SaveAs("Sort.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' Creates the Data sorter
-
 Dim sorter As IDataSort = workbook.CreateDataSorter()
 
 ' Specifies the sort range
-
 sorter.SortRange = sheet.Range("A2:D16")
-
 Dim field1 As ISortField
 
 ' Adds the sort field with column index, sort based on and order by attribute
-
 field1 = sorter.SortFields.Add(2, SortOn.FontColor,OrderBy.OnTop)
 
 ' Sorts the data based on this color
-
 Field1.Color = Color.Red
-
 Dim field2 As ISortField
 
 ' Adds another sort field with column index, sort based on and order by attribute
-
 Field2 = sorter.SortFields.Add(2, SortOn.FontColor,OrderBy.OnTop)
 
 ' Sorts the data based on this color
-
 Field2.Color = Color.Green
 
 ' Sorts the data with the sort field attribute.
-
 sorter.Sort()
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("Sort.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1018,103 +714,68 @@ The following code snippet explains how to move a range of cells with the specif
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Creates the data sorter
-
 IDataSort sorter = workbook.CreateDataSorter();
 
 // Range to sort
-
 sorter.SortRange = sheet.Range["A2:D16"];
 
 // Creates the sort field with the column index, sort based on and order by attribute
-
 ISortField sortField1 = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop);
 
 // Specifies the color to sort the data
-
 sortField1.Color = Color.Red;
 
 // Creates the sort field with the column index, sort based on and order by attribute
-
 ISortField sortField2 = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop);
 
 // Specifies the color to sort the data
-
 sortField2.Color = Color.Green;
 
 // Sort based on the sort field attribute
-
 sorter.Sort();
 
 workbook.Version = ExcelVersion.Excel2013;
-
 workbook.SaveAs("Sort.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
-
 Dim sorter As IDataSort = book.CreateDataSorter()
 
 ' Specifies the sort range.
-
 sorter.SortRange = sheet.Range("A2:D16")
 
 ' Adds the sort field with column index, sort based on and order by attribute
-
 Dim field1 As ISortField
-
 Field1 = sorter.SortFields.Add(2, SortOn.CellColor,OrderBy.OnTop)
 
 ' Sorts the data based on this color
-
 Field1.Color = Color.Red
 
 ' Adds the sort field with column index, sort based on and order by attribute
-
 Dim field2 As ISortField
-
 Field2 = sorter.SortFields.Add(2, SortOn.CellColor,OrderBy.OnTop)
 
 ' Sorts the data based on this color
-
 Field2.Color = Color.Green
 
 ' Sorts the data with the sort field attribute
-
 sorter.Sort()
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("Sort.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1127,80 +788,52 @@ The following code illustrates how to apply simple auto filters.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
-
 sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"]; 
 
 // Column index to which AutoFilter must be applied.
-
 IAutoFilter filter = sheet.AutoFilters[0];
 
 // To apply Top10Number filter, IsTop and IsTop10 must be enabled.
-
 filter.IsTop = true;
-
 filter.IsTop10 = true;
 
 // Setting Top10 filter with number of cell to be filtered from top
-
 filter.Top10Number = 5;
 
 workbook.Version = ExcelVersion.Excel2013;
-
 workbook.SaveAs("Filter.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks. ("Sample.xlsx")
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
-
 sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
 
 ' Column index to which AutoFilter must be applied.
-
 Dim filter As IAutoFilter = sheet.AutoFilters(0)
 
 ' To apply Top10Number filter, IsTop and IsTop10 must be enabled.
-
 filter.IsTop = True
-
 filter.IsTop10 = True
 
 ' Setting Top10 filter with number of cell to be filtered from top
-
 filter.Top10Number = 5
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("Filter.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1209,86 +842,54 @@ You can also apply data filtering based on conditions. Following code snippets i
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
-
 sheet.AutoFilters.FilterRange = sheet.Range["A1:B323"];
-
 IAutoFilter filter = sheet.AutoFilters[1];
 
 // Specifying first condition.
-
 IAutoFilterCondition firstCondition = filter.FirstCondition;
-
 firstCondition.ConditionOperator = ExcelFilterCondition.Greater;
-
 firstCondition.Double = 100;
 
 //Specifying second condition.
-
 IAutoFilterCondition secondCondition = filter.SecondCondition;
-
 secondCondition.ConditionOperator = ExcelFilterCondition.Less;
-
 secondCondition.Double = 200;
 
-
-
 workbook.Version = ExcelVersion.Excel2013;
-
 workbook.SaveAs("Filter.xlsx");
-
 workbook.Close();
-
-
-
+excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorksheet = workbook.Worksheets(0)
 
 ' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
-
 sheet.AutoFilters.FilterRange = sheet.Range("A1:B323")
-
 Dim filter As IAutoFilter = sheet.AutoFilters(1)
 
 ' Specifying first condition.
-
 Dim firstCondition As IAutoFilterCondition = filter.FirstCondition
-
 firstCondition.ConditionOperator = ExcelFilterCondition.Greater
-
 firstCondition.Double = 100
 
 'Specifying second condition.
-
 Dim secondCondition As IAutoFilterCondition = filter.SecondCondition
-
 secondCondition.ConditionOperator = ExcelFilterCondition.Less
-
 secondCondition.Double = 200
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("Filter.xlsx")
-
 workbook.Close()
-
-
-
+excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1306,156 +907,92 @@ The following code example illustrates how to insert various hyperlinks.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Creating a Hyperlink for a Website.
-
 IHyperLink hyperlink = sheet.HyperLinks.Add(sheet.Range["C5"]);
-
 hyperlink.Type = ExcelHyperLinkType.Url;
-
 hyperlink.Address = "http://www.syncfusion.com";
-
 hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link.";
 
 // Creating a Hyperlink for e-mail.
-
 IHyperLink hyperlink1 = sheet.HyperLinks.Add(sheet.Range["C7"]);
-
 hyperlink1.Type = ExcelHyperLinkType.Url;
-
 hyperlink1.Address = "mailto:Username@syncfusion.com";
-
 hyperlink1.ScreenTip = "Send Mail";
 
 // Creating a Hyperlink for Opening Files using type as File.
-
 IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
-
 hyperlink2.Type = ExcelHyperLinkType.File;
-
 hyperlink2.Address = @"C:\Program files";
-
 hyperlink2.ScreenTip = "File path";
-
 hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
 
 // Creating a Hyperlink for Opening Files using type as Unc.
-
 IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
-
 hyperlink3.Type = ExcelHyperLinkType.Unc;
-
 hyperlink3.Address = @"C:\Documents and Settings";
-
 hyperlink3.ScreenTip = "Click here for files";
-
 hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
 
 // Creating a Hyperlink to another cell using type as Workbook.
-
 IHyperLink hyperlink4 = sheet.HyperLinks.Add(sheet.Range["C13"]);
-
 hyperlink4.Type = ExcelHyperLinkType.Workbook;
-
 hyperlink4.Address = "Sheet1!A15";
-
 hyperlink4.ScreenTip = "Click here";
-
 hyperlink4.TextToDisplay = "Hyperlink to cell A15";
 
 workbook.SaveAs("Hyperlink.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 ' Creating a Hyperlink for a Website.
-
 Dim hyperlink As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C5"))
-
 hyperlink.Type = ExcelHyperLinkType.Url
-
 hyperlink.Address = "http://www.Syncfusion.com"
-
 hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link."
 
 ' Creating a Hyperlink for e-mail.
-
 Dim hyperlink1 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C7"))
-
 hyperlink1.Type = ExcelHyperLinkType.Url
-
 hyperlink1.Address = "mailto:Username@syncfusion.com"
-
 hyperlink1.ScreenTip = "Send Mail"
 
 ' Creating a Hyperlink for Opening Files using type as File.
-
 Dim hyperlink2 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C9"))
-
 hyperlink2.Type = ExcelHyperLinkType.File
-
 hyperlink2.Address = "C:\Program files"
-
 hyperlink2.ScreenTip = "File path"
-
 hyperlink2.TextToDisplay = "Hyperlink for files using File as type"
 
 ' Creating a Hyperlink for Opening Files using type as Unc.
-
 Dim hyperlink3 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C11"))
-
 hyperlink3.Type = ExcelHyperLinkType.Unc
-
 hyperlink3.Address = "C:\Documents and Settings"
-
 hyperlink3.ScreenTip = "Click here for files"
-
 hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type"
 
 ' Creating a Hyperlink to another cell using type as Workbook.
-
 Dim hyperlink4 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C13"))
-
 hyperlink4.Type = ExcelHyperLinkType.Workbook
-
 hyperlink4.Address = "Sheet1!A15"
-
 hyperlink4.ScreenTip = "Click here"
-
 hyperlink4.TextToDisplay = "Hyperlink to cell A15"
 
 workbook.SaveAs("Hyperlink.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1466,56 +1003,34 @@ You can modify the properties of existing hyperlink by accessing the Hyperlinks 
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Modifying hyperlink’s text to display.
-
 IHyperLink hyperlink = sheet.Range["C5"].Hyperlinks[0];
-
 hyperlink.TextToDisplay = "Syncfusion";
 
 workbook.Version = ExcelVersion.Excel2013;
-
 workbook.SaveAs("Hyperlink.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorksheet = workbook.Worksheets(0)
 
 ' Modifying hyperlink’s text to display.
-
 Dim hyperlink As IHyperLink = sheet.Range("C5").Hyperlinks(0)
-
 hyperlink.TextToDisplay = "Syncfusion"
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("Hyperlink.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1526,52 +1041,32 @@ You can remove a hyperlink from a range by accessing the Hyperlinks collection o
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Removing Hyperlink from Range "C7"
-
 sheet.Range["C7"].Hyperlinks.RemoveAt(0);
 
 workbook.Version = ExcelVersion.Excel2013;
-
 workbook.SaveAs("Hyperlink.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorksheet = workbook.Worksheets(0)
 
 ' Removing Hyperlink from Range "C7"
-
 sheet.Range("C7").Hyperlinks.RemoveAt(0)
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("Hyperlink.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1590,98 +1085,59 @@ The following code example illustrates how to insert hyperlinks to shapes.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
 
 // Adding hyperlink to TextBox 
-
 IWorksheet sheet = workbook.Worksheets[0];
-
 ITextBox textBox = sheet.TextBoxes.AddTextBox(1, 1, 100, 100);
-
 IHyperLink hyperlink = sheet.HyperLinks.Add((textBox as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
 
 // Adding hyperlink to AutoShape
-
 sheet = workbook.Worksheets[1];
-
 IShape autoShape = sheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 1, 1, 100, 100);
-
 hyperlink = sheet.HyperLinks.Add(autoShape, ExcelHyperLinkType.Url, "mailto:Username@syncfusion.com", "Send Mail");
 
 // Adding hyperlink to picture
-
 sheet = workbook.Worksheets[2];
-
 IPictureShape picture = sheet.Pictures.AddPicture(@"Image.png");
-
 hyperlink = sheet.HyperLinks.Add(picture);
-
 hyperlink.Type = ExcelHyperLinkType.Unc;
-
 hyperlink.Address = "C:\\Documents and Settings";
-
 hyperlink.ScreenTip = "Click here for files";
 
 workbook.SaveAs("Hyperlink.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
 'Text box 
-
 Dim sheet As IWorksheet = workbook.Worksheets(0)
-
 Dim textBox As ITextBox = sheet.TextBoxes.AddTextBox(1, 1, 100, 100)
-
 Dim hyperlink As IHyperLink = sheet.HyperLinks.Add(TryCast(textBox, IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here")
 
 'AutoShapes 
-
 sheet = workbook.Worksheets(1)
-
 Dim autoShape As IShape = sheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 1, 1, 100, 100)
-
 hyperlink = sheet.HyperLinks.Add(autoShape, ExcelHyperLinkType.Url, "mailto:Username@syncfusion.com", "Send Mail")
 
 'Pictures 
-
 sheet = workbook.Worksheets(2)
-
 Dim picture As IPictureShape = sheet.Pictures.AddPicture("Image.png")
-
 hyperlink = sheet.HyperLinks.Add(picture)
-
 hyperlink.Type = ExcelHyperLinkType.Unc
-
 hyperlink.Address = "C:\Documents and Settings"
-
 hyperlink.ScreenTip = "Click here for files"
 
 workbook.SaveAs("Hyperlink.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1692,70 +1148,43 @@ Properties of existing hyperlink can be modified by accessing either the Hyperli
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Modifying hyperlink’s screen tip through IWorksheet instance.
-
 IHyperLink hyperlink = sheet.HyperLinks[0];
-
 hyperlink.ScreenTip = "Syncfusion";
 
 // Modifying hyperlink’s screen tip through IShape instance.
-
 hyperlink = sheet.Shapes[0].Hyperlink;
-
 hyperlink.ScreenTip = "Syncfusion";
 
 workbook.SaveAs("Hyperlink.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorksheet = workbook.Worksheets(0)
 
 ' Modifying hyperlink’s screen tip through IWorksheet instance.
-
 Dim hyperlink As IHyperLink = sheet.HyperLinks(0)
-
 hyperlink.ScreenTip = "Syncfusion"
 
 ' Modifying hyperlink’s screen tip through IShape instance.
-
 hyperlink = sheet.Shapes(0).Hyperlink
-
 hyperlink.ScreenTip = "Syncfusion"
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("Hyperlink.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1766,52 +1195,32 @@ Hyperlinks from shapes can be removed by accessing Hyperlinks collection of the 
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Removing hyperlink from sheet with Index
-
 sheet.HyperLinks.RemoveAt(0);
 
 workbook.SaveAs("Hyperlink.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim sheet As IWorksheet = workbook.Worksheets(0)
 
 ' Removing Hyperlink from sheet with Index
-
 sheet.HyperLinks.RemoveAt(0)
 
 workbook.Version = ExcelVersion.Excel2013
-
 workbook.SaveAs("Hyperlink.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %} 
 
