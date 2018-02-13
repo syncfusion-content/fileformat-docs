@@ -355,7 +355,7 @@ document.Close(True)
 
 {% endtabs %}
 
-## Protect existing document
+## Protect an existing document
 
 You can protect an existing PDF document with both owner and user password by using the following code snippet.
 
