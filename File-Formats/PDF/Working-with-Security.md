@@ -355,6 +355,78 @@ document.Close(True)
 
 {% endtabs %}
 
+## Protect an existing document
+
+You can protect an existing PDF document with both owner and user password by using the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PDF document
+
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+
+//PDF document security 
+
+PdfSecurity security = document.Security;
+
+//Specifies encryption key size, algorithm and permission. 
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+ //Provide owner and user password.
+
+ security.OwnerPassword = "ownerPassword256";
+
+ security.UserPassword = "userPassword256";
+
+ //Save the document.
+
+ document.Save("Output.pdf");
+
+//Close the document.
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load an existing document.
+
+ Dim document As New PdfLoadedDocument("Input.pdf")
+
+'Document Security
+
+Dim security As PdfSecurity = document.Security
+
+'Specifies key size and encryption algorithm
+
+ security.KeySize = PdfEncryptionKeySize.Key128Bit
+
+security.Algorithm = PdfEncryptionAlgorithm.RC4
+
+'Provide owner and user password.
+
+security.OwnerPassword = "ownerPassword256"
+
+security.UserPassword = "userPassword256"
+
+'Save the document.
+
+document.Save("Output.pdf")
+
+'Close the document.
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Changing the password of the PDF document
 
 You can change the user password of the existing PDF document by using following code snippet.
