@@ -307,7 +307,7 @@ Accessing list of precedent and dependent cells can be obtained:
 *	from a worksheet
 *	from a workbook
 
-Following code example illustrates how to get precedents cells.
+Following code example illustrates how to get precedent cells from a worksheet and entire workbook.
 
 {% tabs %}  
 {% highlight c# %}
@@ -347,7 +347,7 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %} 
 
-Following code example illustrates how to get dependent cells.
+Following code example illustrates how to get dependent cells from a worksheet and entire workbook.
 
 {% tabs %}  
 {% highlight c# %}
