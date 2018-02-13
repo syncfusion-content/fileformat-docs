@@ -76,7 +76,7 @@ T> You can use of GetText, SetText, GetNumber and SetNumber methods from workshe
 
 ## Accessing Relative Range
 
-By default, accessing a range by index will return the cell or range from worksheet level. To get a relative range for the indexes provided, it is recommended to set the **ExcelRangeIndexerMode** option. Here, the RowIdex and ColumnIndex arguments are relative offsets, where specifying a RowIndex of 1 returns cells in the first row of the range not the first  row of the worksheet.
+By default, accessing a range by index will return the cell or range from worksheet level. To get a relative range for the indexes provided, it is recommended to set the **ExcelRangeIndexerMode** option. Here, the RowIndex and ColumnIndex arguments are relative offsets, where specifying a RowIndex of 1 returns cells in the first row of the range not the first  row of the worksheet.
 
 For example, if a range is mentioned as "B3:D5", then accessing a range with the index [1,1] will return the cell "A1" from worksheet. If the **ExcelRangeIndexerMode** is set to **Relative** then it returns "B3".
 
