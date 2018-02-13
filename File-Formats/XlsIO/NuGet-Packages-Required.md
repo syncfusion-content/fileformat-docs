@@ -115,9 +115,9 @@ XlsIO NuGet packages can be installed and uninstalled using Package Manager Cons
 Windows Forms, WPF, ASP.NET Web and MVC
 </td>
 <td>
-* Install-package Syncfusion.XlsIO.Base45 -source {{'<http://nuget.syncfusion.com/windows-forms/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.Base45 -source {{'<http://nuget.syncfusion.com/windows-forms/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelChartToImageConverter.WPF45 -source {{'<http://nuget.syncfusion.com/windows-forms/>'| markdownify }}
+* Install-package Syncfusion.XlsIO.Base45 -source {{'<http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms/>'| markdownify }}<br/><br/>
+* Install-package Syncfusion.ExcelToPdfConverter.Base45 -source {{'<http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms/>'| markdownify }}<br/><br/>
+* Install-package Syncfusion.ExcelChartToImageConverter.WPF45 -source {{'<http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms/>'| markdownify }}
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.Base45 -RemoveDependencies                             <br/><br/>
