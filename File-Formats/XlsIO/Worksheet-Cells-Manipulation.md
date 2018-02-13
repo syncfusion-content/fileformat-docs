@@ -298,6 +298,95 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
+## Get Precedent and Dependent Cells or Range
+
+Precedent cells are cells that are referred to by a formula in another cell. Dependent cells contain formulas that refer to other cells. XlsIO allows to trace the relationship between cells and formulas in Excel workbooks and returns the list of cells or range that are precedent and dependent.
+
+Accessing list of precedent and dependent cells can be obtained:
+
+*	from a worksheet
+*	from a workbook
+
+Following code example illustrates how to get precedents cells.
+
+{% tabs %}  
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+IWorkbook workbook = application.Workbooks.Open("FormulaExcel.xlsx");
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Getting precedent cells from the worksheet.
+IRange[] results = sheet["A1"].GetPrecedents();
+
+//Getting precedent cells from the workbook.
+IRange[] results = sheet["A1"].GetPrecedents(true);
+
+string fileName = "Precedents.xlsx";
+workbook.SaveAs(fileName);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As ExcelEngine = New ExcelEngine
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+‘Getting precedent cells from the worksheet.
+Dim results() As IRange = sheet("A1").GetPrecedents()
+
+‘Getting precedent cells from the workbook.
+Dim results() As IRange = sheet("A1").GetPrecedents(true)
+
+Dim fileName As String = "Precedents.xlsx"
+workbook.SaveAs(fileName)
+workbook.Close()
+excelEngine.Dispose()
+{% endhighlight %}
+{% endtabs %} 
+
+Following code example illustrates how to get dependent cells.
+
+{% tabs %}  
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+IWorkbook workbook = application.Workbooks.Open("FormulaExcel.xlsx");
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Getting dependent cells from the worksheet.
+IRange[] results = sheet["A1"].GetDependents();
+
+//Getting dependent cells from the workbook.
+IRange[] results = sheet["A1"].GetDependents(true);
+
+string fileName = "Dependents.xlsx";
+workbook.SaveAs(fileName);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As ExcelEngine = New ExcelEngine
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+‘Getting dependent cells from the worksheet.
+Dim results() As IRange = sheet("A1").GetDependents()
+
+‘Getting dependent cells from the workbook.
+Dim results() As IRange = sheet("A1").GetDependents(true)
+
+Dim fileName As String = "Dependents.xlsx"
+workbook.SaveAs(fileName)
+workbook.Close()
+excelEngine.Dispose()
+{% endhighlight %}
+{% endtabs %}
+
 ## Clearing a Cell Content
 
 You can delete everything in the cell, or just remove the formatting, contents, comments. The following code example illustrates how to clear a range along with its formatting.
