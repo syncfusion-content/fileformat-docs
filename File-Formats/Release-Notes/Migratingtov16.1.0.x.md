@@ -25,15 +25,15 @@ Simple field (Field code preserved as single paragraph item)
 
 </td>
 <td>
-The following items are added in DOM.<br/><br/><br/>
+The following items are added in DOM.<br/><br/>
 WField (Field start)<br/>
 WFieldMark (Field separator)<br/>
 ParagraphItem (Field result)<br/>
-WFieldMark (Field end)<br/><br/><br/>
+WFieldMark (Field end)<br/><br/>
 {{'**Note:**'| markdownify }}Field code is internally maintained by `WField` instance. 
 </td>
 <td>
-The following items are added in DOM.<br/><br/><br/>
+The following items are added in DOM.<br/><br/>
 WField (Field start)<br/>
 ParagraphItem (field code)<br/>
 WFieldMark (Field separator)<br/>
@@ -46,7 +46,7 @@ WFieldMark (Field end)<br/>
 Complex field (Field code preserved as multiple paragraph items)
 </td>
 <td>
-The following items are added in DOM.<br/><br/><br/>
+The following items are added in DOM.<br/><br/>
 WField (Field start)<br/>
 ParagraphItem 2 (field code)<br/>
 ...<br/>
@@ -54,11 +54,11 @@ ParagraphItem 2 (field code)<br/>
 ParagraphItem N (field code)<br/>
 WFieldMark (Field separator)<br/>
 ParagraphItem (Field result)<br/>
-WFieldMark (Field end)<br/><br/><br/>
+WFieldMark (Field end)<br/><br/>
 {{'**Note:**'| markdownify }}First paragraph item of field code is internally maintained by `WField` instance. 
 </td>
 <td>
-The following items are added in DOM.<br/><br/><br/>
+The following items are added in DOM.<br/><br/>
 WField (Field start)<br/>
 ParagraphItem 1 (field code)<br/>
 ParagraphItem 2 (field code)<br/>
@@ -73,7 +73,7 @@ WFieldMark (Field end)
 </tr>
 </table>
 
-###Behavioral changes
+###Behavior Changes
 * Complete field code is now included in Text property of WParagraph class. Whereas in v15.4.0.20 and earlier versions, the partial field code is included (i.e., the first paragraph item after field start is not included in Text property).
 * Complete field code is now considered in Find and replace functionality. Whereas in v15.4.0.20 and earlier versions, the partial field code is considered (i.e., the first paragraph item after field start is not considered in Find and replace functionality).
 
