@@ -2,7 +2,7 @@
 title: Essential Studio File Formats 2018 volume 1 Migration document
 description: Essential Studio File Formats 2018 volume 1 Migration document
 platform: file-formats
-keywords: migration, upgrade-changes, 2018vol1-changes, docio
+keywords: migration, upgrade-changes, 2018vol1-changes
 ---
 ## DocIO
  
@@ -49,8 +49,8 @@ Complex field (Field code preserved as multiple paragraph items)
 The following items are added in DOM.
 WField (Field start)
 ParagraphItem 2 (field code)
-.
-.
+...
+...
 ParagraphItem N (field code)
 WFieldMark (Field separator) 
 ParagraphItem (Field result)
@@ -62,8 +62,8 @@ The following items are added in DOM.
 WField (Field start)
 ParagraphItem 1 (field code)
 ParagraphItem 2 (field code)
-.
-.
+...
+...
 ParagraphItem N (field code)
 WFieldMark (Field separator) 
 ParagraphItem (Field result)
@@ -73,7 +73,7 @@ WFieldMark (Field end)
 </tr>
 </table>
 
-* Complete field code is now included in Text property of WParagraph class. Whereas in v15.4.0.20 and earlier versions, the partial field code is included. i.e., the first paragraph item after field start is not included in Text property.
+* Complete field code is now included in Text property of WParagraph class. Whereas in v15.4.0.20 and earlier versions, the partial field code is included (i.e., the first paragraph item after field start is not included in Text property).
 
-* Complete field code is now included in Find and replace functionality. Whereas in v15.4.0.20 and earlier versions, the partial field code is included. i.e., the first paragraph item after field start is not included in Find and replace functionality.
+* Complete field code is now considered in Find and replace functionality. Whereas in v15.4.0.20 and earlier versions, the partial field code is considered (i.e., the first paragraph item after field start is not considered in Find and replace functionality).
 
