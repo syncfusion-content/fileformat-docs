@@ -73,7 +73,7 @@ WFieldMark (Field end)
 </tr>
 </table>
 
-###Behavior Changes
+**Behavior Changes**<br/>
 * Complete field code is now included in Text property of WParagraph class. Whereas in v15.4.0.20 and earlier versions, the partial field code is included (i.e., the first paragraph item after field start is not included in Text property).
 * Complete field code is now considered in Find and replace functionality. Whereas in v15.4.0.20 and earlier versions, the partial field code is considered (i.e., the first paragraph item after field start is not considered in Find and replace functionality).
 
