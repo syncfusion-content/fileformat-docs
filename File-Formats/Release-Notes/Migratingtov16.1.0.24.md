@@ -14,7 +14,7 @@ Complete field code is now included in Document Object Model(DOM). Whereas in v1
 <tr valign="top">
 <th>Field type</th>
 <th>v15.4.0.20 and earlier versions</th>
-<th>v16.1.x.x and later versions</th>
+<th>v16.1.0.24 and later versions</th>
 </tr>
 <tr valign="top">
 <td>Simple field (Field code preserved as single paragraph item)</td>
