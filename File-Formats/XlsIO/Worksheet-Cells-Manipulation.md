@@ -507,52 +507,7 @@ workbook.SaveAs("MoveRange.xlsx")
 workbook.Close()
 excelEngine.Dispose()
 {% endhighlight %}
-{% endtabs %} 
-
-## Copy and Paste As Link
-
-You can copy a range and paste the range as link to another range using a bool parameter in CopyTo method.
-
-Following code example illustrates how to paste a range of cells as link.
-
-{% tabs %}  
-{% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
-
-// Copy range as link from Range “A1” to “A5”.
-IRange source = sheet.Range["A1"];
-IRange destination = sheet.Range["A5"];
-
-source.CopyTo(destination, true);
-
-workbook.Version = ExcelVersion.Excel2016;
-workbook.SaveAs("PasteLink.xlsx");
-workbook.Close();
-excelEngine.Dispose();
-{% endhighlight %}
-
-{% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-' Copy range as link from Range “A1” to “A5”.
-Dim source As IRange = sheet.Range("A1")
-Dim destination As IRange = sheet.Range("A5")
-
-source.CopyTo(destination, true)
-
-workbook.Version = ExcelVersion.Excel2016
-workbook.SaveAs("PasteLink.xlsx")
-workbook.Close()
-excelEngine.Dispose()
-{% endhighlight %}
-{% endtabs %}   
-
+{% endtabs %}  
 
 ## Find and Replace
 
