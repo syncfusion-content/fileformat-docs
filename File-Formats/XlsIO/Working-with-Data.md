@@ -25,56 +25,36 @@ The following code snippet illustrates on how to import a DataTable into a works
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 DataTable table = SampleDataTable();
 
 //Import DataTable to the worksheet.
-
 worksheet.ImportDataTable(table, true, 1, 1);
 
 workbook.SaveAs("ImportFromDT.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 Dim table As DataTable = sampleDataTable()
 
 'Import DataTable to the worksheet.
-
 worksheet.ImportDataTable(table, True, 1, 1)
 
 workbook.SaveAs("ImportFromDT.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -85,60 +65,39 @@ The following code snippet illustrates how to import DataColumn into a worksheet
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 DataTable table = SampleDataTable();
 
 //Import Data Column to the worksheet.
-
 DataColumn column = table.Columns[0];
 
 worksheet.ImportDataColumn(column, true, 1, 1);
-
 workbook.SaveAs("ImportFromDT.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 Dim table As DataTable = sampleDataTable()
 
 'Import DataColumn to the worksheet.
-
 Dim column As DataColumn = table.Columns(0)
 
 worksheet.ImportDataColumn(column, True, 1, 1)
 
 workbook.SaveAs("ImportFromDT.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -149,62 +108,40 @@ The following code snippet illustrates how to import DataView into a worksheet u
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 DataTable table = SampleDataTable();
 
 //Import DataView to the worksheet.
-
 DataView view = table.DefaultView;
 
 worksheet.ImportDataView(view, true, 1, 1);
 
 workbook.SaveAs("ImportFromDT.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Initialize the DataTable.
-
 Dim table As DataTable = sampleDataTable()
 
 'Import DataView to the worksheet.
-
 Dim view As DataView = table.DefaultView
 
 worksheet.ImportDataView(view, True, 1, 1)
-
 workbook.SaveAs("ImportFromDT.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -215,54 +152,36 @@ Essential XlsIO allows you to import data directly from Business Objects as show
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Import the data to worksheet.
 IList<Customer> reports = GetSalesReports();
+
 worksheet.ImportData(reports, 2, 1, false);
 
 workbook.SaveAs("ImportFromDT.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Import the data to worksheet.
-
 Dim reports As IList(Of Customer) = GetSalesReports()
 
 worksheet.ImportData(reports, 2, 1, False)
 
 workbook.SaveAs("ImportFromDT.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -271,144 +190,93 @@ The following code snippet provides supporting methods & class for the above cod
 {% tabs %}  
 {% highlight c# %}
 public static List<Report> GetSalesReports()
-
 {
+    List<Report> reports = new List<Report>();
 
-List<Report> reports = new List<Report>();
+    reports.Add(new Report("Andy Bernard", "45000", "58000"));
+    reports.Add(new Report("Jim Halpert", "34000", "65000"));
+    reports.Add(new Report("Karen Fillippelli", "75000", "64000"));
+    reports.Add(new Report("Phyllis Lapin", "56500", "33600" ));
+    reports.Add(new Report("Stanley Hudson", "46500", "52000"));
 
-reports.Add(new Report("Andy Bernard", "45000", "58000"));
-
-reports.Add(new Report("Jim Halpert", "34000", "65000"));
-
-reports.Add(new Report("Karen Fillippelli", "75000", "64000"));
-
-reports.Add(new Report("Phyllis Lapin", "56500", "33600" ));
-
-reports.Add(new Report("Stanley Hudson", "46500", "52000"));
-
-return reports;
-
+    return reports;
 }
 
 public class Report
-
 {
+    public string SalesPerson { get; set; }
+	public string SalesJanJun { get; set; }
+	public string SalesJulDec { get; set; }
 
-public string SalesPerson { get; set; }
-
-public string SalesJanJun { get; set; }
-
-public string SalesJulDec { get; set; }
-
-public Report(string name, string janToJun, string julToDec)
-
-{
-
-SalesPerson = name;
-
-SalesJanJun = janToJun;
-
-SalesJulDec = julToDec;
-
+	public Report(string name, string janToJun, string julToDec)
+	{
+		SalesPerson = name;
+		SalesJanJun = janToJun;
+		SalesJulDec = julToDec;
+	}
 }
-
-}
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Public Shared Function GetSalesReports() As List(Of Report)
 
-Dim reports As New List(Of Report)()
+	Dim reports As New List(Of Report)()
 
-reports.Add(New Report("Andy Bernard", "45000", "58000"))
+	reports.Add(New Report("Andy Bernard", "45000", "58000"))
+	reports.Add(New Report("Jim Halpert", "34000", "65000"))
+	reports.Add(New Report("Karen Fillippelli", "75000", "64000"))
+	reports.Add(New Report("Phyllis Lapin", "56500", "33600"))
+	reports.Add(New Report("Stanley Hudson", "46500", "52000"))
 
-reports.Add(New Report("Jim Halpert", "34000", "65000"))
-
-reports.Add(New Report("Karen Fillippelli", "75000", "64000"))
-
-reports.Add(New Report("Phyllis Lapin", "56500", "33600"))
-
-reports.Add(New Report("Stanley Hudson", "46500", "52000"))
-
-Return reports
+	Return reports
 
 End Function
 
-
-
 Public Class Report
 
-Public Property SalesPerson() As String
+	Private m_SalesPerson As String
+	Private m_SalesJanJun As String	
+	Private m_SalesJulDec As String
+	
+	Public Property SalesPerson() As String
+	Get
+		Return m_SalesPerson
+	End Get
+	
+	Set(value As String)
+		m_SalesPerson = Value
+	End Set
+	End Property
 
-Get
+	Public Property SalesJanJun() As String
+	Get
+		Return m_SalesJanJun
+	End Get
 
-Return m_SalesPerson
+	Set(value As String)
+		m_SalesJanJun = Value
+	End Set
+	End Property
 
-End Get
+	Public Property SalesJulDec() As String
+	Get
+		Return m_SalesJulDec
+	End Get
 
-Set(value As String)
+	Set(value As String)
+		m_SalesJulDec = Value
+	End Set
+	End Property
 
-m_SalesPerson = Value
+	Public Sub New(name As String, janToJun As String, julToDec As String)
 
-End Set
+		SalesPerson = name
+		SalesJanJun = janToJun
+		SalesJulDec = julToDec
 
-End Property
-
-Private m_SalesPerson As String
-
-Public Property SalesJanJun() As String
-
-Get
-
-Return m_SalesJanJun
-
-End Get
-
-Set(value As String)
-
-m_SalesJanJun = Value
-
-End Set
-
-End Property
-
-Private m_SalesJanJun As String
-
-Public Property SalesJulDec() As String
-
-Get
-
-Return m_SalesJulDec
-
-End Get
-
-Set(value As String)
-
-m_SalesJulDec = Value
-
-End Set
-
-End Property
-
-Private m_SalesJulDec As String
-
-Public Sub New(name As String, janToJun As String, julToDec As String)
-
-SalesPerson = name
-
-SalesJanJun = janToJun
-
-SalesJulDec = julToDec
-
-End Sub
+	End Sub
 
 End Class
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -419,60 +287,38 @@ The following code snippet shows how to import array of data into a worksheet us
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Initialize the Object Array.
-
 object[] array = new object[4]{"Total Income", "Actual Expense", "Expected Expenses", "Profit"};
 
 //Import the Object Array to Sheet
-
 worksheet.ImportArray(array, 1, 1, false);
 
 workbook.SaveAs("ImportFromDT.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Initialize the Array Object.
-
 Dim array() As Object = New Object(4) {"Total Income", "Actual Expense", "Expected Expenses", "Profit"}
 
 'Import the Array Object to Sheet.
-
 worksheet.ImportArray(array, 1, 1, False)
 
 workbook.SaveAs("ImportFromDT.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -485,66 +331,145 @@ The following code snippet illustrates on how to export data from worksheet to D
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 // Read data from the worksheet and Export to the DataTable.
-
 DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
 
-//binding exported DataTable to data grid, likewise it can binded to any 
-
-//User interface control which supports binding.
-
+//Binding exported DataTable to data grid, likewise it can binded to any 
+//user interface control which supports binding.
 this.dataGrid1.DataSource = customersTable;
 
 workbook.SaveAs("ExportToGrid.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
 'Read data from the worksheet and Export to the DataTable.
-
 Dim customersTable As DataTable = sheet.ExportDataTable(sheet.UsedRange, ExcelExportDataTableOptions.ColumnNames)
 
-'binding exported DataTable to data grid, likewise it can binded to any 
-
-'User interface control which supports binding.
+'Binding exported DataTable to data grid, likewise it can binded to any 
+'user interface control which supports binding.
 
 Me.dataGrid1.DataSource = customersTable
 
 workbook.SaveAs("ExportToGrid.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
-
-
 {% endhighlight %}
 {% endtabs %}  
+
+## Exporting from Worksheet to Business Objects
+
+XlsIO allows to export worksheet data to **Business Objects** by using the **ExportData<T>****()** method. This method Exports Excel data into business objects from existing or newly created Excel document by matching set of properties and [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1).
+
+The following code sample illustrates how to export worksheet data to business objects using **ExportData<T>**.
+
+{% tabs %}  
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2016;
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Export worksheet data into Business Objects
+List<Report> businessObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
+
+workbook.SaveAs("BusinessObjects.xlsx");
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As ExcelEngine = New ExcelEngine
+Dim application As IApplication = excelEngine.Excel
+application.DefaultVersion = ExcelVersion.Excel2016
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+Dim worksheet As IWorkbook = workbook.Worksheets(0)
+
+'Export worksheet data into Business Objects
+Dim businessObjects As List(Of Report) =worksheet.ExportData<Report>(1, 1, 10, 3)
+
+workbook.SaveAs("BusinessObjects.xlsx")
+workbook.Close()
+excelEngine.Dispose()
+{% endhighlight %}
+{% endtabs %}  
+
+The following code sample provides supporting class for the above code.
+
+{% tabs %}  
+{% highlight c# %}
+public class Report
+{
+    [DisplayNameAttribute("Sales Person Name")]
+	public string SalesPerson { get; set; }
+	public string SalesJanJun { get; set; }
+	public string SalesJulDec { get; set; }
+
+	public Report()
+	{
+
+	}
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Public Class Report
+
+	Private m_SalesPerson As String
+	Private m_SalesJanJun As String	
+	Private m_SalesJulDec As String
+	
+	<DisplayNameAttribute("Sales Person Name")>
+	Public Property SalesPerson() As String
+	Get
+		Return m_SalesPerson
+	End Get
+
+	Set(value As String)
+		m_SalesPerson = Value
+	End Set
+	End Property
+
+	Public Property SalesJanJun() As String
+	Get
+		Return m_SalesJanJun
+	End Get
+
+	Set(value As String)
+		m_SalesJanJun = Value
+	End Set
+	End Property
+
+	Public Property SalesJulDec() As String
+	Get
+		Return m_SalesJulDec
+	End Get
+
+	Set(value As String)
+		m_SalesJulDec = Value
+	End Set
+	End Property
+
+	Public Sub New()
+
+	End Sub
+
+End Class
+{% endhighlight %}
+{% endtabs %} 
 
 ## Importing Data from Microsoft Grid Controls to Worksheet
 
@@ -562,59 +487,41 @@ N> GetDataTable() method returns DataTable of applicable data to import.
 
 {% tabs %}
 {% highlight c# %}
-
 //Initialize DataGrid control.
-
 DataGrid dataGrid = new DataGrid();
-
 dataGrid.DataSource = GetDataTable();
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create();
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Import data from DataGrid control.
-
 worksheet.ImportDataGrid(dataGrid, 1, 1, true, true);
 
 workbook.SaveAs("Output.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
 'Initialize DataGrid control.
-
 Dim dataGrid As DataGrid = New DataGrid()
-
 dataGrid.DataSource = GetDataTable()
 
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create()
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Import data from DataGrid control.
-
 worksheet.ImportDataGrid(dataGrid, 1, 1, True, True)
 
 workbook.SaveAs("Output.xlsx")
 
 workbook.Close()
-
 excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}
@@ -626,61 +533,41 @@ Imports data from Microsoft GridView control with its header and cell formatting
 {% tabs %}
 {% highlight c# %}
 //Initialize GridView control.
-
 GridView gridView = new GridView();
-
 gridView.DataSource = GetDataTable();
-
 gridView.DataBind();
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create();
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Import data from GridView control.
-
 worksheet.ImportGridView(gridView, 1, 1, true, true);
 
 workbook.SaveAs("Output.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
 'Initialize GridView control.
-
 Dim gridView As GridView = New GridView ()
-
 gridView.DataSource = GetDataTable()
-	
 gridView.DataBind()
 
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create()
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Import data from GridView control.
-
 worksheet.ImportGridView(gridView, 1, 1, True, True)
 
 workbook.SaveAs("Output.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}
@@ -692,66 +579,45 @@ Imports data from Microsoft DataGridView control with its header and cell format
 {% tabs %}
 {% highlight c# %}
 //Initialize DataGridView control.
-
 DataGridView dataGridView = new DataGridView();
-
 dataGridView.DataSource = GetDataTable();
 
 //Apply sorting.
-
 dataGridView.Sort(dataGridView.Columns[1], System.ComponentModel.ListSortDirection.Ascending);
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create();
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Import data from DataGridView control.
-
 worksheet.ImportDataGridView(dataGridView, 1, 1, true, true);
 
 workbook.SaveAs("Output.xlsx");
-
 workbook.Close();
-	
 excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
 'Initialize DataGridView control.
-
 Dim dataGridView As DataGridView = New DataGridView()
-
 dataGridView.DataSource = GetDataTable()
 
 'Apply sorting.
-
 dataGridView.Sort(dataGridView.Columns(1), System.ComponentModel.ListSortDirection.Ascending)
 
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create()
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Import data from DataGridView control.
-
 worksheet.ImportDataGridView(dataGridView, 1, 1, True, True)
 
 workbook.SaveAs("Output.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
-
 {% endhighlight %}
 {% endtabs %}
