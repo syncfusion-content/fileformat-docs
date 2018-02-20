@@ -431,7 +431,7 @@ presentation.Close();
 
 {% endtabs %}
 
-The following code snippet demonstrates how to convert a PowerPoint slide to image by passing ‘CancelationToken’.
+The following code snippet demonstrates how to convert a PowerPoint slide to image by passing ‘CancellationToken’.
 
 {% tabs %}
 
@@ -453,7 +453,7 @@ folderPicker.ViewMode = PickerViewMode.Thumbnail;
 folderPicker.FileTypeFilter.Add("*");
 StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
 
-//Create a cancelation token to cancel the image rendering instantly.
+//Create a cancellation token to cancel the image rendering instantly.
 CancellationTokenSource cancellationToken = new CancellationTokenSource();
 
 //Convert the slide to image.
