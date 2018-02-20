@@ -457,10 +457,10 @@ StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
 CancellationTokenSource cancellationToken = new CancellationTokenSource();
 
 //Convert the slide to image.
-int i = 1;
+int slideNumber = 1;
 foreach (ISlide slide in presentation.Slides)
 {
-   StorageFile imageFile = await storageFolder.CreateFileAsync("Slide" + i++ + ".jpg", CreationCollisionOption.ReplaceExisting);
+   StorageFile imageFile = await storageFolder.CreateFileAsync("Slide" + slideNumber++ + ".jpg", CreationCollisionOption.ReplaceExisting);
    await slide.SaveAsImageAsync(imageFile, cancellationToken.Token);
 }
 
