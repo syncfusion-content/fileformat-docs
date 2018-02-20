@@ -476,5 +476,5 @@ N> 1. Instance of **ChartToImageConverter** class is mandatory to convert the ch
 N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onward
 N> 3. The image conversion is not supported in Xamarin platforms
 N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
-N> 5. EMF images are not supported in UWP conversion due to platform limitation.
+N> 5. EMF images in the PowerPoint slides will not be converted in UWP due to platform limitation.
 N> 6. Radial gradient, rectangular gradient and path gradient brushes are not supported in UWP due to platform limitation. These brushes are rendered as linear gradient brush in our UWP slide to image conversion.
