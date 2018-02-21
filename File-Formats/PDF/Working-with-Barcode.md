@@ -5,14 +5,14 @@ platform: file-formats
 control: PDF
 documentation: 
 ---
-## Working with Barcode
+# Working with Barcode
 
 Essential PDF provides support to add barcodes to the PDF document. The following barcode types are supported.
 
 * 10 one-dimensional barcodes including Code 39 and Code 32 barcodes.
 * 2 two-dimensional barcodes such as QR and DataMatrix barcode
 
-### Adding a one dimensional barcode to the PDF document
+## Adding a one dimensional barcode to the PDF document
 
 
 The below code snippet shows how to add Code39 barcode to a PDF document.
@@ -86,7 +86,7 @@ doc.Save("CODE39.pdf")
 
 {% endtabs %}
 
-### Adding a two dimensional barcode to a PDF document
+## Adding a two dimensional barcode to a PDF document
 
 The below code snippet shows how to add a QR code to the PDF document.
 {% tabs %}
@@ -171,13 +171,99 @@ doc.Save("QRBarcode.pdf")
 
 {% endtabs %}
 
-### Customizing the barcode appearance
+
+## Set location and size to the barcode
+
+
+The following code snippets show how to set size and location for Codabar barcode to a PDF document.
+{% tabs %}
+{% highlight c# %}
+
+//Creating new PDF Document
+
+PdfDocument doc = new PdfDocument();
+
+//Adding new page to PDF document
+
+PdfPage page = doc.Pages.Add();
+
+//Create new instance for Codabar barcode
+
+PdfCodabarBarcode barcode = new PdfCodabarBarcode();
+
+//Setting location of the barcode 
+
+barcode.Location = new PointF(100, 100);
+
+//Setting size of the barcode
+
+barcode.Size = new SizeF(200, 100);
+
+barcode.Text = "123456789$";
+
+//Printing barcode on to the Pdf. 
+
+barcode.Draw(page);
+
+//Save and close the Document
+
+doc.Save("CODABAR.pdf");
+
+doc.Close(true);
+
+
+
+{% endhighlight %}
+
+
+
+{% highlight vb.net %}
+
+'Creating new PDF Document
+
+Dim doc As New PdfDocument()
+
+'Adding new page to PDF document
+
+Dim page As PdfPage = doc.Pages.Add()
+
+'Create new instance for Codabar barcode
+
+Dim barcode As PdfCodabarBarcode = New PdfCodabarBarcode()
+
+'Setting location of the barcode 
+
+barcode.Location = New PointF(100, 100)
+
+'Setting size of the barcode
+
+barcode.Size = New SizeF(200, 100)
+
+barcode.Text = "123456789$"
+
+'Printing barcode on to the Pdf. 
+
+barcode.Draw(page)
+
+'Save and close the Document
+
+doc.Save("CODABAR.pdf")
+
+doc.Close(True)      
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+## Customizing the barcode appearance
 
 The height of the barcode can be changed using the **BarHeight** property. The equivalent property to change the block size for two dimensional barcode is **XDimension**. You can also customize the barcode color by changing the DarkBarColor and LightBarColor properties.
 
 N> This color customization is possible only for one dimensional barcodes and it is not supported for two dimensional barcodes.
 
-### Supported barcode types
+## Supported barcode types
 
 The following table contains the supported types and associated valid characters.
 
