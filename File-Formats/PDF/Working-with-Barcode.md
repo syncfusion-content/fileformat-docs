@@ -5,14 +5,14 @@ platform: file-formats
 control: PDF
 documentation: 
 ---
-## Working with Barcode
+# Working with Barcode
 
 Essential PDF provides support to add barcodes to the PDF document. The following barcode types are supported.
 
 * 10 one-dimensional barcodes including Code 39 and Code 32 barcodes.
 * 2 two-dimensional barcodes such as QR and DataMatrix barcode
 
-### Adding a one dimensional barcode to the PDF document
+## Adding a one dimensional barcode to the PDF document
 
 
 The below code snippet shows how to add Code39 barcode to a PDF document.
@@ -86,7 +86,7 @@ doc.Save("CODE39.pdf")
 
 {% endtabs %}
 
-### Adding a two dimensional barcode to a PDF document
+## Adding a two dimensional barcode to a PDF document
 
 The below code snippet shows how to add a QR code to the PDF document.
 {% tabs %}
@@ -172,7 +172,7 @@ doc.Save("QRBarcode.pdf")
 {% endtabs %}
 
 
-### Set location and size to the barcode
+## Set location and size to the barcode
 
 
 The following code snippets show how to set size and location for Codabar barcode to a PDF document.
@@ -257,13 +257,13 @@ doc.Close(True)
 {% endtabs %}
 
 
-### Customizing the barcode appearance
+## Customizing the barcode appearance
 
 The height of the barcode can be changed using the **BarHeight** property. The equivalent property to change the block size for two dimensional barcode is **XDimension**. You can also customize the barcode color by changing the DarkBarColor and LightBarColor properties.
 
 N> This color customization is possible only for one dimensional barcodes and it is not supported for two dimensional barcodes.
 
-### Supported barcode types
+## Supported barcode types
 
 The following table contains the supported types and associated valid characters.
 
