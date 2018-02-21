@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with Data
 description: Briefs about working with data in XlsIO
 platform: File-Formats
