@@ -338,7 +338,7 @@ XlsIO supports Excel printing option by converting Excel to PDF and then print t
 
 The following printer settings can be applied to print Excel in XlsIO. 
 
-![]( Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img1.jpeg)
+![](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img1.jpg)
 
  
 ### Print Excel Document 
@@ -576,7 +576,7 @@ excelEngine.Dispose()
 {% endtabs %}
 
   
-N> This section is applicable only to the Windows Forms, ASP.NET, ASP.NET MVC and WPF platforms.
+N> This section is applicable only to the Windows Forms and WPF platforms.
 
 ## Supported Elements
 
