@@ -371,9 +371,9 @@ excelEngine.Dispose()
 
 ## Exporting from Worksheet to Business Objects 
 
-XlsIO allows to export the sheet data to a **Business Objects** by using the **ExportData<T>****()** method. This method Exports Excel data into business objects from existing or newly created Excel document by matching set of properties and [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1).
+XlsIO allows to export the sheet data to a **Business Objects** by using the **ExportData&lt;T&gt;()** method. This method Exports Excel data into business objects from existing or newly created Excel document by matching set of properties and [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1).
 
-The following code snippet illustrates on how to export worksheet data into Business Objects using **ExportData<T>**.
+The following code snippet illustrates on how to export worksheet data into Business Objects using **ExportData&lt;T&gt;**.
 
 {% tabs %}  
 {% highlight c# %}
