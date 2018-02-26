@@ -9,7 +9,7 @@ documentation: UG
 
 **Essential** **XlsIO** is a native **.****NET** class library that can be used to create and modify **Microsoft** **Excel** files by using C#, VB.NET and managed C++ code. It is a non-UI component that provides a full-fledged object model that facilitates accessing & manipulating the spreadsheets without any dependency of Microsoft Office COM libraries & Microsoft Office.
 
-The library can be used in Windows Forms, WPF, ASP.NET, ASP.NET MVC, WinRT, Windows Phone 8/8.1, Xamarin, UWP and Silverlight application.
+The library can be used in Windows Forms, WPF, UWP, ASP.NET Web, ASP.NET MVC, ASP.NET Core and Xamarin application.
 
 **Key Features**
 
