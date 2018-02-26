@@ -304,7 +304,7 @@ PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfC
 //Set the image resolution
 pdfConverterSettings.ImageResolution = 100;
  
-//Set the image qualtiy
+//Set the image quality
 pdfConverterSettings.ImageQuality = 100;
  
 //Convert the documents by passing the settings as parameter.
