@@ -68,10 +68,10 @@ To convert a PowerPoint Presentation to PDF, include the following assemblies in
 
 The following namespaces are required to compile the code in this topic.
 
-1. Syncfusion.OfficeChartToImageConverter;
-2. Syncfusion.Presentation;
-3. Syncfusion.PresentationToPdfConverter;
-4. Syncfusion.Pdf;
+1. Syncfusion.OfficeChartToImageConverter
+2. Syncfusion.Presentation
+3. Syncfusion.PresentationToPdfConverter
+4. Syncfusion.Pdf
 
 **PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert a PowerPoint presentation to PDF.
 
@@ -81,7 +81,7 @@ The following namespaces are required to compile the code in this topic.
 
 //Opens a PowerPoint Presentation
 
-IPresentation presentation = Presentation.Open(fileName);
+IPresentation presentation = Presentation.Open("Sample.pptx");
 
 //Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
@@ -109,7 +109,7 @@ presentation.Close();
 
 'Opens a PowerPoint Presentation
 
-Dim presentationDocument As IPresentation = Presentation.Open("ClonedPresentation.pptx")
+Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
@@ -144,114 +144,181 @@ N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal 
 
 Essential Presentation library provides you the ability to customize the Presentation to PDF conversion with the following options:
 
-* Allows to include the hidden slide during conversion.
-* Allows to specify the number of slides per PDF page.
-* Allows to determine the quality of the charts in the converted PDF.
+* Allows to specify the number of slides per PDF page with 'Handouts' option. 
 * Allows to convert slides with notes pages to PDF.
+* Allows to include the hidden slide during conversion. 
+* Allows to convert slides with optimizing the size of the images in the PowerPoint slides, to optimize the converted PDF document size.
+* Allows to determine the quality of the charts in the converted PDF.
 
-The following code example shows the customized PDF conversion.
+## Handouts
+
+The Presentation library allows you to convert a PowerPoint presentation to PDF document with 'Handouts' option. Thus, the library allows selecting the number of slides to be included per PDF page. This helps converting multiple PowerPoint slides within a single PDF page. 
+ 
+The following code sample demonstrates how to convert a PowerPoint presentation to PDF document with 'Handouts' property.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens a PowerPoint Presentation
-
-IPresentation presentation = Presentation.Open(fileName);
-
-//Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
-
-presentation.ChartToImageConverter = new ChartToImageConverter();
-
-//Sets the scaling mode of the chart to best.
-
-presentation.ChartToImageConverter.ScalingMode = ScalingMode.Best;
-
-//Instantiates the Presentation to pdf converter settings instance.
-
-PresentationToPdfConverterSettings settings = new PresentationToPdfConverterSettings();
-
-//Sets the option for adding hidden slides to converted pdf
-
-settings.ShowHiddenSlides = false;
-
-//Sets the slide per page settings; this is optional.
-
-settings.SlidesPerPage = SlidesPerPage.Three;
-
-//Sets the settings to enable notes pages while conversion.
-
-settings.PublishOptions = PublishOptions.NotesPages;
-
-//Converts the PowerPoint Presentation into PDF document
-
-PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation, settings);
-
-//Saves the PDF document
-
-pdfDocument.Save(@"Sample.pdf");
-
-//Closes the PDF document
-
-pdfDocument.Close(true);
-
-//Closes the Presentation
-
+//Load the PowerPoint presentation to convert.
+IPresentation presentation = Presentation.Open("Sample.pptx");
+ 
+//Enable the handouts and number of pages per slide options in converter settings.
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+pdfConverterSettings.PublishOptions = PublishOptions.Handouts;
+pdfConverterSettings.SlidesPerPage = SlidesPerPage.Nine;
+            
+//Convert the documents by passing the PDF conversion settings as parameter.
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation, pdfConverterSettings);
+ 
+//Save the converted PDF document.
+pdfDoc.Save("Sample.pdf");
+ 
+//Close the presentation instance
 presentation.Close();
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Opens a PowerPoint Presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open(fileName)
-
-'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
-
-presentationDocument.ChartToImageConverter = New ChartToImageConverter()
-
-'Sets the scaling mode of the chart to best.
-
-presentationDocument.ChartToImageConverter.ScalingMode = ScalingMode.Best
-
-'Instantiates the Presentation to pdf converter settings instance.
-
-Dim settings As New PresentationToPdfConverterSettings()
-
-'Sets the hiding slides to false; this is optional.
-
-settings.ShowHiddenSlides = False
-
-'Sets the slide per page settings; this is optional.
-
-settings.SlidesPerPage = SlidesPerPage.Three
-
-'Sets the settings to enable notes pages while conversion.
-
-settings.PublishOptions = PublishOptions.NotesPages
-
-'Converts the PowerPoint Presentation into PDF document
-
-Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument, settings)
-
-'Saves the PDF document
-
-pdfDocument.Save("Sample.pdf")
-
-'Closes the PDF document
-
-pdfDocument.Close(True)
-
-'Closes the Presentation
-
-presentationDocument.Close()
+ 
+//Close the PDF instance
+pdfDoc.Close();
 
 {% endhighlight %}
 
 {% endtabs %}
 
-N> 1. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image
-N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onward
-N> 3. The image conversion is not supported in Xamarin platforms
-N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
+## Notes pages
+
+The Presentation library allows you to convert a PowerPoint presentation to PDF document with 'notes pages' option, which will includes the notes content while PDF conversion. 
+
+The following code sample demonstrates how to convert a PowerPoint presentation to PDF with 'notes pages'.
+
+{% tabs %}
+
+{% highlight c# %}
+
+ //Load the PowerPoint presentation to convert.
+IPresentation presentation = Presentation.Open("Sample.pptx");
+ 
+//Enable the include hidden slides option in converter settings.
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+pdfConverterSettings.PublishOptions = PublishOptions.NotesPages;
+ 
+//Convert the documents by passing the settings as parameter.
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation, pdfConverterSettings);
+ 
+//Save the converted PDF file.
+pdfDoc.Save("Sample.pdf");
+ 
+//Close the presentation instance
+presentation.Close();
+ 
+//Close the PDF instance
+pdfDoc.Close();
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Include hidden slides
+ 
+ The PowerPoint presentation supports hiding the slides in a presentation document. The hidden slides will not be included in the converted PDF document, by default. The Presentation library provides support to include or exclude the hidden slides while converting a PowerPoint presentation to PDF document.
+ 
+The following code sample demonstrates how to include the hidden slides while converting a PowerPoint presentation to PDF document. 
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PowerPoint presentation to convert.
+IPresentation presentation = Presentation.Open("Sample.pptx");
+ 
+//Enable or disable including the hidden slides option in converter settings.
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+pdfConverterSettings.ShowHiddenSlides = true;
+ 
+//Convert the documents by passing the settings as parameter.
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation, pdfConverterSettings);
+ 
+//Save the converted PDF file.
+pdfDoc.Save("Sample.pdf");
+ 
+//Close the presentation instance
+presentation.Close();
+ 
+//Close the PDF instance
+pdfDoc.Close();
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Optimizing the identical images
+
+The presentation library allows you to optimize the memory usage for the duplicate images while converting the PowerPoint presentation to PDF document to reduce the document size.
+ 
+The following code sample demonstrates how to optimize the duplicate images while converting a PowerPoint presentation to PDF document. 
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PowerPoint presentation to convert.
+IPresentation presentation = Presentation.Open("Sample.pptx");
+ 
+//Enable the include hidden slides option in converter settings.
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+ 
+//Set the flag to optimize the identical images
+pdfConverterSettings.OptimizeIdenticalImages = true;
+ 
+//Convert the documents by passing the settings as parameter.
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation, pdfConverterSettings);
+ 
+//Save the converted PDF file.
+pdfDoc.Save("Sample.pdf");
+ 
+//Close the presentation instance
+presentation.Close();
+ 
+//Close the PDF instance
+pdfDoc.Close();
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Optimizing the identical images
+
+You may have high resolution images in the PowerPoint slides which will impact the size of the converted PDF document. The Presentation library allows you to optimize the document size, by increasing or decreasing the quality and resolution of the images while converting the PowerPoint presentation to PDF document.
+ 
+The following code sample demonstrates how to optimize the image quality and resolution while converting a PowerPoint presentation to PDF document. 
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PowerPoint presentation to convert.
+IPresentation presentation = Presentation.Open("Sample.pptx");
+ 
+//Enable the include hidden slides option in converter settings.
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+ 
+//Set the image resolution
+pdfConverterSettings.ImageResolution = 100;
+ 
+//Set the image qualtiy
+pdfConverterSettings.ImageQuality = 100;
+ 
+//Convert the documents by passing the settings as parameter.
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation, pdfConverterSettings);
+ 
+//Save the converted PDF file.
+pdfDoc.Save("Sample.pdf");
+ 
+//Close the presentation instance
+presentation.Close();
+ 
+//Close the PDF instance
+pdfDoc.Close();
+
+{% endhighlight %}
+
+{% endtabs %}
