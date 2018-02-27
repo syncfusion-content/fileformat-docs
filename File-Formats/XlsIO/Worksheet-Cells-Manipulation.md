@@ -1,4 +1,4 @@
-﻿---
+---
 title: Worksheet Cells Manipulation
 description: Briefs about worksheet cells manipulation in XlsIO
 platform: File-formats
