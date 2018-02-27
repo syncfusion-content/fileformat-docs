@@ -1,4 +1,4 @@
----
+﻿---
 title: Worksheet Cells Manipulation
 description: Briefs about worksheet cells manipulation in XlsIO
 platform: File-formats
@@ -914,11 +914,20 @@ excelEngine.Dispose()
 
 ## Data Filtering 
 
-Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e) , you can filter data to enable quick and easy way to find and work with a subset of data in a range of cells. When you filter data, entire rows are hidden if values in one or more columns don't meet the filtering criteria.
+Using [AutoFilters](https://support.office.com/en-US/article/Filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e), you can filter data to enable quick and easy way to find and work with a subset of data in a range of cells. When you filter data, entire rows are hidden if values in one or more columns don't meet the filtering criteria. The following are the types of filters that can be used in XlsIO.
+
+* Custom Filter (Conditional)
+* Combination Filter (Text and DateTime filter)
+* Dynamic Filter
+* Color Filter
+* Icon Filter
+* Advanced Filter
+
+### Applying Filter
 
 The following code illustrates how to apply simple auto filters.
 
-{% tabs %}  
+{% tabs %}
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
@@ -968,11 +977,13 @@ workbook.SaveAs("Filter.xlsx")
 workbook.Close()
 excelEngine.Dispose()
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %}
 
-You can also apply data filtering based on conditions. Following code snippets illustrates how to apply filter condition based on first and second condition.
+### Custom Filter
 
-{% tabs %}  
+Following code snippets illustrates how to apply custom filter, based on first and second condition.
+
+{% tabs %}
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
@@ -1020,11 +1031,428 @@ secondCondition.ConditionOperator = ExcelFilterCondition.Less
 secondCondition.Double = 200
 
 workbook.Version = ExcelVersion.Excel2013
+
 workbook.SaveAs("Filter.xlsx")
 workbook.Close()
 excelEngine.Dispose()
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %}
+
+### Combination Filter
+
+This filter contains both Text filter and DateTime filter, it filters the data based on multiple criteria. Following code snippets illustrates how to apply combination filter with multiple of Text filter and DateTime filter.
+
+{% tabs %}
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;	
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+IWorksheet sheet = workbook.Worksheets[0];
+
+// Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
+sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
+
+// Column index to which AutoFilter must be applied.
+IAutoFilter filter = sheet.AutoFilters[2];
+
+//Applying Text filter to filter multiple text to get filter.
+filter.AddTextFilter(new string[] { "London", "Paris", "New York City"});
+
+//Applying DateTime filter to filter the date based on DateTimeGroupingType.
+filter.AddDateFilter(new DateTime(2013, 1, 29, 0, 0, 0), DateTimeGroupingType.day);
+filter.AddDateFilter(2014, 12, 2, 10, 30, 0, DateTimeGroupingType.minute);
+
+workbook.Version = ExcelVersion.Excel2013;
+workbook.SaveAs("Filter.xlsx");
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
+sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
+
+' Column index to which AutoFilter must be applied.
+Dim filter As IAutoFilter = sheet.AutoFilters(2)
+
+'Applying Text filter to filter multiple text to get filter.
+filter.AddTextFilter(New String() {"London", "Paris", "New York City"})
+
+'Applying DateTime filter to filter the date based on DateTimeGroupingType.
+filter.AddDateFilter(New DateTime(2013, 1, 29, 0, 0, 0), DateTimeGroupingType.day)
+filter.AddDateFilter(2014, 12, 2, 10, 30, 0, DateTimeGroupingType.minute)
+
+workbook.Version = ExcelVersion.Excel2013
+workbook.SaveAs("Filter.xlsx")
+workbook.Close()
+excelEngine.Dispose()
+{% endhighlight %}
+{% endtabs %}
+
+### Dynamic Filter
+
+Dynamic filter is a relative date filter, which filters data based on DynamicFilterType enum. Following code snippets illustrates how to apply Dynamic filter.
+
+{% tabs %}
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+IWorksheet sheet = workbook.Worksheets[0];
+
+// Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
+
+// Column index to which AutoFilter must be applied.
+IAutoFilter filter = sheet.AutoFilters[3];
+
+//Applying dynamic filter to filter the date based on DynamicFilterType.
+filter.AddDynamicFilter(DynamicFilterType.NextQuarter);
+
+workbook.Version = ExcelVersion.Excel2013;
+workbook.SaveAs("Filter.xlsx");
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
+
+' Column index to which AutoFilter must be applied.
+Dim filter As IAutoFilter = sheet.AutoFilters(3)
+
+'Applying dynamic filter to filter the date based on DynamicFilterType.
+filter.AddDynamicFilter(DynamicFilterType.NextQuarter)
+
+workbook.Version = ExcelVersion.Excel2013
+workbook.SaveAs("Filter.xlsx")
+workbook.Close()
+excelEngine.Dispose()
+{% endhighlight %}
+{% endtabs %}
+
+### Color Filter
+
+Color Filter can be used to filter data based on the color applied to the cell or the color applied to the text in the cell. The following code snippets show how to apply Color Filter based on Cell Color (fill color applied to the cell).
+
+{% tabs %}
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+IWorksheet sheet = workbook.Worksheets[0];
+
+// Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
+
+// Column index to which AutoFilter must be applied.
+IAutoFilter filter = sheet.AutoFilters[3];
+
+//Applying color filter to filter based on Cell Color.
+filter.AddColorFilter(Color.Red, ExcelColorFilterType.CellColor);
+
+workbook.Version = ExcelVersion.Excel2013;
+workbook.SaveAs("Filter.xlsx");
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
+
+' Column index to which AutoFilter must be applied.
+Dim filter As IAutoFilter = sheet.AutoFilters(3)
+
+'Applying color filter to filter based on Cell Color.
+filter.AddColorFilter(Color.Red, ExcelColorFilterType.CellColor)
+
+workbook.Version = ExcelVersion.Excel2013
+workbook.SaveAs("Filter.xlsx")
+workbook.Close()
+excelEngine.Dispose()
+{% endhighlight %}
+{% endtabs %}
+
+To filter cells based on Font color of the text inside cells just change the ExcelColorFilterType to Font Color. The following snippets show how to filter the cells based on font color.
+
+{% tabs %}
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+IWorksheet sheet = workbook.Worksheets[0];
+
+// Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
+
+// Column index to which AutoFilter must be applied.
+IAutoFilter filter = sheet.AutoFilters[3];
+
+//Applying color filter to filter based on Cell Color.
+filter.AddColorFilter(Color.Red, ExcelColorFilterType.FontColor);
+
+workbook.Version = ExcelVersion.Excel2013;
+workbook.SaveAs("Filter.xlsx");
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
+
+' Column index to which AutoFilter must be applied.
+Dim filter As IAutoFilter = sheet.AutoFilters(3)
+
+'Applying color filter to filter based on Cell Color.
+filter.AddColorFilter(Color.Red, ExcelColorFilterType.FontColor)
+
+workbook.Version = ExcelVersion.Excel2013
+workbook.SaveAs("Filter.xlsx")
+workbook.Close()
+excelEngine.Dispose()
+{% endhighlight %}
+{% endtabs %}
+
+### Icon Filter
+
+Icon filter can be used to filter data that has conditional formatting with Icon Sets applied. Applying Icon Sets for numeric data adds icons to each cell based on the value present in that cell. Using Icon Filter, we can easily filter the data that has only a specific Icon in it.
+
+{% tabs %}
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+IWorksheet sheet = workbook.Worksheets[0];
+
+// Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
+
+// Column index to which AutoFilter must be applied.
+IAutoFilter filter = sheet.AutoFilters[3];
+
+// Applying Icon filter to filter based on applied icon set.
+filter.AddIconFilter(ExcelIconSetType.ThreeFlags, 2);
+
+workbook.Version = ExcelVersion.Excel2013;
+workbook.SaveAs("Filter.xlsx");
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
+
+' Column index to which AutoFilter must be applied.
+Dim filter As IAutoFilter = sheet.AutoFilters(3)
+
+'Applying Icon filter to filter based on applied icon set.
+filter.AddIconFilter(ExcelIconSetType.ThreeFlags, 2)
+
+workbook.Version = ExcelVersion.Excel2013
+workbook.SaveAs("Filter.xlsx")
+workbook.Close()
+excelEngine.Dispose()
+{% endhighlight %}
+{% endtabs %}
+
+### Advanced Filter
+
+Advanced Filter can be used to perform more complex filtering other than basic filters. You can filter a data with custom defined criteria range.
+
+Advanced Filter support two types of filter action.
+
+1. Filter In Place
+2. Filter Copy
+
+**Filter In Place**: Filter data in same location.
+**Filter Copy**: Filter and copy data into new location within a worksheet.
+
+Advanced Filter also provides an option to filter the unique records. This will remove the duplicate record from filtered data.
+
+The following code illustrates how to apply Advanced Filter in worksheet.
+
+{% tabs %}
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+IWorkbook workbook = application.Workbooks.Open("InputData.xlsx");
+IWorksheet sheet = workbook.Worksheets[0];
+
+IRange filterRange = sheet.Range["A1:C6"];
+IRange criteriaRange = sheet.Range["A10:C12"];
+IRange copyToRange = sheet.Range["K5:N5"];
+
+// Apply the Advanced Filter with enable of unique value and copy to another place.
+sheet.AdvancedFilter(ExcelFilterAction.FilterCopy, filterRange, criteriaRange, copyToRange, true);
+
+workbook.Version = ExcelVersion.Excel2013;
+workbook.SaveAs("AdvancedFilter.xlsx");
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("InputData.xlsx")
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+Dim filterRange  As IRange = sheet.Range("A1:C6")
+Dim criteriaRange As IRange = sheet.Range("A10:C12")
+Dim copyToRange As IRange = sheet.Range("K5:N5")
+
+‘Apply the Advanced filter with enable of unique value and copy to another place.
+sheet.AdvancedFilter(ExcelFilterAction.FilterCopy, filterRange, criteriaRange, copyToRange, true)
+
+workbook.Version = ExcelVersion.Excel2013
+workbook.SaveAs("AdvancedFilter.xlsx")
+workbook.Close()
+excelEngine.Dispose()
+{% endhighlight %}
+{% endtabs %}
+
+### Accessing Filter
+
+We can access the filter and its criteria, based on its column index. Following code snippets illustrates how to apply access different types of filters using XlsIO.
+
+{% tabs %}
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//selecting the filter by column index
+IAutoFilter filter = worksheet.AutoFilters[0];
+
+switch (filter.FilterType)
+{
+    case ExcelFilterType.CombinationFilter:
+        CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
+
+        for (int index = 0; index < filterItems.Count; index++)
+        {
+            if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
+            {
+                string textValue = (filterItems[index] as TextFilter).Text;
+            }
+            else
+            {
+                DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
+            }
+        }
+	    break;
+
+    case ExcelFilterType.DynamicFilter:
+        DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
+        DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
+        break;
+
+    case ExcelFilterType.CustomFilter:
+	    IAutoFilterCondition firstCondition = filter.FirstCondition;
+	    ExcelFilterDataType types = firstCondition.DataType;
+	    break;
+
+    case ExcelFilterType.ColorFilter:
+	    ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
+	    Color color = colorFilter.Color;
+	    ColorFilterType filterType = colorFilter.ColorFilterType;
+		break;
+
+    case ExcelFilterType.IconFilter:
+		IconFilter iconFilter = (filter.FilteredItems as IconFilter);    
+		Int iconId = iconFilter.IconId;
+		ExcelIconSetType iconSetType = iconFilter.IconSetType;		
+		break;
+}
+
+workbook.SaveAs("Output.xlsx");
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As New ExcelEngine()
+Dim application As IApplication = excelEngine.Excel
+application.DefaultVersion = ExcelVersion.Excel2013
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+'selecting the filter by column index
+Dim filter As IAutoFilter = worksheet.AutoFilters(0)
+
+Select Case filter.FilterType
+
+	Case ExcelFilterType.CombinationFilter
+		Dim filterItems As CombinationFilter = TryCast(filter.FilteredItems, CombinationFilter)
+
+		For index As Integer = 0 To filterItems.Count - 1
+
+			If filterItems(index).CombinationFilterType = ExcelCombinationFilterType.TextFilter Then
+				Dim textValue As String = TryCast(filterItems(index), TextFilter).Text
+			Else
+				Dim groupType As DateTimeGroupingType = TryCast(filterItems(index), DateTimeFilter).GroupingType
+			End If
+		Next
+		Exit Select
+
+	Case ExcelFilterType.DynamicFilter
+		Dim dateFilter As DynamicFilter = TryCast(filter.FilteredItems, DynamicFilter)
+		Dim dynamicFilterType As DynamicFilterType = dateFilter.DateFilterType
+		Exit Select
+
+	Case ExcelFilterType.CustomFilter
+		Dim firstCondition As IAutoFilterCondition = filter.FirstCondition
+		Dim types As ExcelFilterDataType = firstCondition.DataType
+		Exit Select
+
+	Case ExcelFilterType.ColorFilter
+		Dim colorFilter As ColorFilter = TryCast (filter.FilteredItems, ColorFilter);
+        Dim color As Color = iconFilter.Color;
+        Dim filterType As ColorFilterType = colorFilter.ColorFilterType;
+		Exit Select
+
+	Case ExcelFilterType.IconFilter
+		Dim iconFilter As IconFilter = TryCast (filter.FilteredItems, IconFilter);
+        Dim iconId As Int32 = iconFilter.IconId;
+        Dim iconSetType As ExcelIconSetType = iconFilter.IconSetType;
+		Exit Select
+End Select
+
+workbook.SaveAs("Output.xlsx")
+workbook.Close()
+excelEngine.Dispose()
+{% endhighlight %}
 
 ## Hyperlinks
 
