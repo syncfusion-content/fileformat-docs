@@ -285,7 +285,7 @@ pdfDoc.Close();
 
 {% endtabs %}
 
-## Optimizing the identical images
+## Optimizing the image quality and resolution
 
 You may have high resolution images in the PowerPoint slides which will impact the size of the converted PDF document. The Presentation library allows you to optimize the document size, by increasing or decreasing the quality and resolution of the images while converting the PowerPoint presentation to PDF document.
  
@@ -311,6 +311,43 @@ pdfConverterSettings.ImageQuality = 100;
 PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation, pdfConverterSettings);
  
 //Save the converted PDF file.
+pdfDoc.Save("Sample.pdf");
+ 
+//Close the presentation instance
+presentation.Close();
+ 
+//Close the PDF instance
+pdfDoc.Close();
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Chart quality
+
+The Presentation library provides an option to determine the quality of the charts to optimize the size of the converted PDF document.
+
+The following code sample demonstrates how to set the quality of the charts while PowerPoint presentation to PDF conversion
+
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PowerPoint presentation to convert.
+IPresentation presentation = Presentation.Open("Sample.pptx");
+
+//Create an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
+
+presentation.ChartToImageConverter = new ChartToImageConverter();
+
+//Sets the scaling mode of the chart to best.
+presentation.ChartToImageConverter.ScalingMode = ScalingMode.Best;
+ 
+//Convert the documents by passing the PDF conversion settings as parameter.
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation);          
+ 
+//Save the converted PDF document.
 pdfDoc.Save("Sample.pdf");
  
 //Close the presentation instance
