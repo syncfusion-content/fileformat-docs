@@ -131,7 +131,7 @@ Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
 'Access first worksheet from workbook.
 
-Dim worksheet As IWorksheet = workbook.Worksheets[0]
+Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Adding text to a cell
 
