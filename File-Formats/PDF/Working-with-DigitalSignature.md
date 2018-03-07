@@ -9,7 +9,7 @@ documentation: UG
 
 ## Adding a digital signature
 
-Essential PDF allows you to add digital signature to the PDF document. In order to add digital signature, you can need a certificate with private keys. Essential PDF provides support for digital signature by using PFX files.
+Essential PDF allows you to add digital signature to the PDF document. In order to add digital signature, you can need a certificate with private keys. Essential PDF provides support for digital signature by using PFX files, Hardware Security Module(HSM), Online Certificate Status Protocol (OCSP), Certificate Revocation List (CRL) and Windows Certificate Store.
 
 The following code example illustrates how to add a digital signature in the PDF document.
 {% tabs %}
