@@ -377,7 +377,7 @@ processor.Settings.Performance = Performance.Fast
 
 **Issue:** You can get the exception “Tesseract has not been initialized” while performing OCR process. 
 
-**Solution:** To resolve this, make sure the path of the Tesseract binaries and Tesseract data are properly provided as shown below.
+**Solution 1:** To resolve this, make sure the path of the Tesseract binaries and Tesseract data are properly provided as shown below.
 
 {% tabs %}  
 
@@ -413,13 +413,15 @@ processor.PerformOCR(lDoc, "TessData\")
 
 {% endtabs %}  
 
+**Solution 2:** Make sure that your data file version is 3.02, since the OCR processor is built with Tesseract version 3.02.
+
 **Issue:** OCR processor doesn’t process languages other than English.
 
 **Solution:** Essential PDF supports all the languages supported by Tesseract engine.
 
 The dictionary packs for the languages can be downloaded from the following online location:
 
-[https://github.com/tesseract-ocr/tessdata](https://github.com/tesseract-ocr/tessdata )
+[https://github.com/tesseract-ocr/tesseract/wiki/Data-Files#data-files-for-version-302](https://github.com/tesseract-ocr/tesseract/wiki/Data-Files#data-files-for-version-302)
 
 It is also mandatory to change the corresponding language code in the OCRProcessor.Settings.Language property. For example, to perform optical character recognition in German, the property should be set as processor.Settings.Language = "deu";
 
