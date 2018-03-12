@@ -137,7 +137,7 @@ presentationDocument.Close()
 
 N> 1. Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF
 N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
-N> 3. The PDF conversion is not supported in UWP and Xamarin platforms
+N> 3. The PDF conversion is not supported in UWP, ASP.NET Core and Xamarin platforms
 N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
 
 **Customizing** **the** **PowerPoint** **Presentation** **to** **PDF** **conversion**
@@ -147,8 +147,8 @@ Essential Presentation library provides you the ability to customize the Present
 * Allows to specify the number of slides per PDF page with 'Handouts' option. 
 * Allows to convert slides with notes pages to PDF.
 * Allows to include the hidden slide during conversion. 
-* Allows to convert slides with optimizing the size of the images in the PowerPoint slides, to optimize the converted PDF document size.
-* Allows to determine the quality of the charts in the converted PDF.
+* Allows to optimize the images in the PowerPoint slides to reduce the converted PDF document size.
+* Allows to decide the quality of the charts in the converted PDF.
 
 ## Handouts
 
@@ -341,7 +341,7 @@ IPresentation presentation = Presentation.Open("Sample.pptx");
 
 presentation.ChartToImageConverter = new ChartToImageConverter();
 
-//Sets the scaling mode of the chart to best.
+//Sets the scaling mode of the chart to best. The default will be ScalingMode.Normal
 presentation.ChartToImageConverter.ScalingMode = ScalingMode.Best;
  
 //Convert the documents by passing the PDF conversion settings as parameter.
