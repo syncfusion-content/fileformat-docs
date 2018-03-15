@@ -373,6 +373,9 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
+N> After calling the ShowColumn(int columnIndex, bool isVisible) or HideColumn(int columnIndex) method, the column width should not be set to hidden columns. It will make hidden columns visible.
+N> After calling the ShowRow(int rowIndex, bool isVisible) or HideRow(int rowIndex) method, the row height should not be set to hidden rows. It will make hidden rows visible.
+
 ## Adjust Row Height and Column Width 
 
 Rows and columns can be [resized](https://support.office.com/en-ca/article/Change-the-column-width-and-row-height-72f5e3cc-994d-43e8-ae58-9774a0905f46) based on its contents. XlsIO allows to resize rows and columns in the following ways.
