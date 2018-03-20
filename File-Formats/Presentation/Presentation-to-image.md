@@ -7,9 +7,9 @@ documentation: UG
 ---
 # Presentation to image conversion
 
-## Windows Forms, WPF, ASP.NET and ASP.NET MVC
+## .NET Framework
 
-An entire Presentation or a single slide can be converted to image by using Essential Presentation library. The supported image formats are listed as follows.
+This section covers converting an entire Presentation or a single slide to image in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. The supported image formats are listed as follows.
 
 * BMP
 * Emf
@@ -97,7 +97,7 @@ To convert a Presentation or a single slide to image, the following assemblies a
     </tbody>
 </table>
 
-T> When converting a slide to image, use Metafile format for good image resolution.
+T> When converting a slide to image, use 'Metafile' format for good image resolution.
 
 The following code example demonstrates how to convert a slide to image.
 
@@ -201,8 +201,6 @@ foreach (Image image in images)
 image.Save("ImageOutput" + Guid.NewGuid().ToString()+ ".png");
 
 }
-
-
 
 {% endhighlight %}
 
