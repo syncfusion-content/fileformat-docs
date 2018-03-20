@@ -17,7 +17,7 @@ Essential PDF provides support for Optical Character Recognition with the help o
 2. Syncfusion.Pdf.Base.dll
 3. Syncfusion.OCRProcessor.Base.dll
 
-* Place the SyncfusionTesseract.dll and liblept168.dll Tesseract assemblies (available in the installed location Installation Location>>\Syncfusion\Essential Studio\<<Version Number>>\OCRProcessor) in the local system and provide the assembly path to the OCR processor.
+* Place the SyncfusionTesseract.dll and liblept168.dll Tesseract assemblies in the local system and provide the assembly path to the OCR processor.
 
 {% tabs %}  
 
@@ -42,7 +42,7 @@ Dim processor As New OCRProcessor("TesseractBinaries\")
 
 {% endtabs %}  
 
-* Place the Tesseract language data {E.g eng.traineddata} (available in the installed location <<Installation Location>>\Syncfusion\Essential Studio\<<Version Number>>\OCRProcessor) in the local system and provide a path to the OCR processor 
+* Place the Tesseract language data {E.g eng.traineddata} in the local system and provide a path to the OCR processor 
 
 {% tabs %}  
 
@@ -75,6 +75,7 @@ You can also download the language packages from below link
 
 [https://github.com/tesseract-ocr/tessdata](https://github.com/tesseract-ocr/tessdata )
 
+N> From 16.1.0.24 OCR is not a part of Essential Studio and is available as separate package (OCR Processor) under the Add-On section in the below link [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version).
 
 ## Performing OCR for an entire document
 
