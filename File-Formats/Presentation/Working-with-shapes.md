@@ -596,3 +596,5 @@ presentationDocument.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+N> The Presentation library do not have support for converting the auto-shapes with modified adjustment values in PowerPoint presentation to image or PDF conversion. To know more about adjustment values in PowerPoint shapes please click [here](https://msdn.microsoft.com/en-us/library/office/aa220882(v=office.11).aspx).
