@@ -46,7 +46,7 @@ For creating and manipulating a PowerPoint Presentation, include the following a
                 Syncfusion.OfficeChart.Base
             </td>
             <td>
-                This assembly contains the Office Chart Object model and core features needed for chart creation.
+                This assembly contains the office chart object model and core features needed for chart creation.
             </td>
         </tr>
     </tbody>
@@ -70,15 +70,15 @@ Imports Syncfusion.Presentation
 
 {% endtabs %}
 
-An entire PowerPoint Presentation is represented by an instance of IPresentation interface and it is the root element of Essential Presentation’s DOM.
+An entire PowerPoint Presentation is represented by an instance of 'IPresentation' interface and it is the root element of Essential Presentation’s DOM.
 
-The following code example demonstrates how to create an instance of IPresentation interface.
+The following code example demonstrates how to create an instance of 'IPresentation' interface.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Creates a new instance of PowerPoint Presentation
+//Creates a new instance of PowerPoint presentation
 
 IPresentation presentation = Presentation.Create();
 
@@ -86,7 +86,7 @@ IPresentation presentation = Presentation.Create();
 
 {% highlight vb.net %}
 
-'Creates a new instance of PowerPoint Presentation
+'Creates a new instance of PowerPoint presentation
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
@@ -94,7 +94,7 @@ Dim presentationDocument As IPresentation = Presentation.Create()
 
 {% endtabs %}
 
-IPresentation instance has a slide collection that represents the individual slides present within PowerPoint Presentation. A slide may contain textual and other graphics contents like shapes, images, charts etc.
+'IPresentation' instance has a slide collection that represents the individual slides present within PowerPoint presentation. A slide may contain textual and other graphics contents like shapes, images, charts etc.
 
 The following code example demonstrates how to add a blank slide to a PowerPoint Presentation.
 
@@ -118,11 +118,11 @@ Dim firstSlide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank
 
 {% endtabs %}
 
-N> The “Point” typographic units are used to add or manipulate any element in a Presentation. 
+N> The 'Point' typographic units are used to add or manipulate any element in a Presentation. 
 
-All the textual contents in a Presentation document are represented by Paragraphs. Within the paragraph, textual contents are grouped into one or more child elements as TextParts. Each TextPart represents a region of text with a common set of formatted text.
+All the textual contents in a Presentation document are represented by paragraphs. Within the paragraph, textual contents are grouped into one or more child elements as 'TextParts'. Each 'TextPart' represents a region of text with a common set of formatted text.
 
-The following code example demonstrates how to add text into a Presentation.
+The following code example demonstrates how to add text into a presentation.
 
 {% tabs %}
 
@@ -376,7 +376,7 @@ Essential Presentation allows you to convert a PowerPoint Presentation into PDF 
                 Syncfusion.OfficeChart.Base
             </td>
             <td>
-                This assembly contains the Office Chart Object model and core features needed for chart creation.
+                This assembly contains the office chart object model and core features needed for chart creation.
             </td>
         </tr>
         <tr>
@@ -508,8 +508,8 @@ presentationDocument.Close()
 {% endtabs %}
 
 
-N> * Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to PDF conversion. Otherwise, the charts are not exported to the converted PDF.
+N> * Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts in the PowerPoint presentation to PDF/Image format. Otherwise, the charts are not exported to the converted PDF/Image.
 N> * **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
 
-**PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF document. For more information about this, see [Conversion](/file-formats/presentation/conversion).
+**PresentationToPdfConverterSettings** can be used to customize the conversion of Presentation to PDF document. **ChartToImageConverter** class can be further used to improve the quality of converted charts in the PDF/Image. For more information about this, see [Conversion](/file-formats/presentation/conversion).
 

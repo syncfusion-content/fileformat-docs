@@ -65,7 +65,6 @@ Syncfusion.PresentationToPDFConverter.Base<br/>
 </td>
 </tr>
 </table>
-N> Presentation to PDF conversion is not supported in Xamarin and UWP applications.
 
 The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the PowerPoint Presentation into PDF.
 <table>
@@ -88,4 +87,5 @@ Syncfusion.SfChart.WPF<br/>
 </td>
 </tr>
 </table>
-N> The above mentioned “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards
+N> Presentation to PDF/Image conversion is not supported in Xamarin, UWP and ASP.NET Core applications.
+N> The “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards
