@@ -17,7 +17,18 @@ String platform='File Formats';
            {
 		     checkout scm
 			 
-			 //get the changelog by using git difference command
+			 def branchCommit = '"' + 'https://gitlab.syncfusion.com/api/v4/projects/' + env.projectId + '/merge_requests/' + env.MergeRequestId + '/changes'
+            String branchCommitDetails = bat returnStdout: true, script: 'curl -s --request GET --header PRIVATE-TOKEN:' + env.BuildAutomation_PrivateToken + " " + branchCommit
+
+            def ChangeFiles= branchCommitDetails.split('\n')[2];
+            ChangeFiles = ChangeFiles.split('"new_path":')
+
+            for (int i= 1; i < ChangeFiles.size();i++)
+            {
+            def ChangeFile= ChangeFiles[i].split(',')[0].replace('"', '')
+            Content += env.WORKSPACE + "\\Spell-Checker\\" + ChangeFile + "\r\n";
+            }
+
 			 
 			 String ChangeDetails = bat returnStdout: true, script: 'git diff --name-only '+env.gitlabSourceBranch+'..origin/'+env.gitlabTargetBranch
 			 
