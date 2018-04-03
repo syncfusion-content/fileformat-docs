@@ -1142,7 +1142,7 @@ The following code snippet provides supporting methods and class for the above c
 
 {% tabs %}  
 {% highlight c# %}
-//Gets a list of employees with details
+//Gets a list of Employee details
 private static IList<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -1179,7 +1179,7 @@ public class Employee
 {% endhighlight %}
 
 {% highlight vb %}
-'Gets a list of employees with details
+'Gets a list Employee details
 Private Function GetEmployees() As List(Of Employee)
 	Dim employees As New List(Of Employee)()
 	employees.Add(New Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"))
@@ -1276,7 +1276,7 @@ End Class
 {% endhighlight %}
 
 {% highlight UWP %}
-//Gets a list of employees with details
+//Gets a list of Employee details
 private static List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -1313,7 +1313,7 @@ public class Employee
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//Gets a list of employees with details
+//Gets a list of Employee details
 private static List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -1350,7 +1350,7 @@ public class Employee
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Gets a list of employees with details
+//Gets a list of Employee details
 private static List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
