@@ -1,15 +1,15 @@
 ---
-title: Working with slides in PowerPoint Presentation
-description: Working with slides in PowerPoint Presentation; Adding and modifying the slides in PowerPoint Presentation
+title: Working with slides in PowerPoint presentation
+description: Working with slides in PowerPoint presentation; Adding and modifying the slides in PowerPoint presentation
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
 # Working with Slide
 
-## Adding slide to the PowerPoint Presentation
+## Adding slide to the PowerPoint presentation
 
-In Presentation, a slide is a container for the elements like shapes, images, charts, text box etc. The slides may inherit the formatting and layout properties from its Master and Layout slides that reside in the PowerPoint presentation.
+In PowerPoint presentation, a slide is a container for the elements like shapes, images, charts, text box etc. The slides may inherit the formatting and layout properties from its 'Master' and 'Layout' slides.
 
 The following code example demonstrates how to add a blank slide to the Presentation.
 
@@ -21,7 +21,7 @@ The following code example demonstrates how to add a blank slide to the Presenta
 
 IPresentation presentation = Presentation.Create();
 
-//Adds a slide to the PowerPoint Presentation
+//Adds a slide to the PowerPoint presentation
 
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
 
@@ -41,7 +41,7 @@ presentation.Close();
 
 Dim presentationDocument As IPresentation = Presentation.Create()
 
-'Adds a slide to the PowerPoint Presentation
+'Adds a slide to the PowerPoint presentation
 
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
 
@@ -59,9 +59,9 @@ presentationDocument.Close()
 
 ## Adding Custom layout slide
 
-Slide layouts contain formatting, positioning, and placeholders for all of the content that appears on a slide. You can customize the layout type of slides in PowerPoint presentation. 
+The slide layout are template design for the PowerPoint slides. Slide layout can contains formatting, positioning, and placeholders for a slide. There are 9 predefined layouts and custom slide layouts can also be designed.
 
-The following code example demonstrates how to create and use a slide layout in PowerPoint presentation.
+The following code example demonstrates how to create and use a customized slide layout in PowerPoint presentation.
 
 {% tabs %}
 
@@ -69,18 +69,25 @@ The following code example demonstrates how to create and use a slide layout in 
 
 //Open the template presentation
 IPresentation presentation = Presentation.Open("Sample.pptx");
+
 //Add a new custom layout slide to the master collection with a specific layout type and name
 ILayoutSlide layoutSlide = presentation.Masters[0].LayoutSlides.Add(SlideLayoutType.Blank, "CustomLayout");
+
 //Set background of the layout slide
 layoutSlide.Background.Fill.SolidFill.Color = ColorObject.FromArgb(78, 89, 90);
+
 //Get the stream of an image
 Stream pictureStream = File.Open("Image.png", FileMode.Open);
+
 //Add the picture into layout slide
 layoutSlide.Shapes.AddPicture(pictureStream, 100, 100, 100, 100);
+
 //Add a slide of new designed custom layout to the presentation
 ISlide slide = presentation.Slides.Add(layoutSlide);
+
 //Save the presentation
 presentation.Save("Output.pptx");
+
 //Close the presentation
 presentation.Close();
 
@@ -90,18 +97,25 @@ presentation.Close();
 
 'Open the template presentation
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
+
 'Add a new custom layout slide to the master collection with a specific layout type and name
 Dim layoutSlide As ILayoutSlide = presentationDocument.Masters(0).LayoutSlides.Add(SlideLayoutType.Blank, "CustomLayout")
+
 'Set background of the layout slide
 layoutSlide.Background.Fill.SolidFill.Color = ColorObject.FromArgb(78, 89, 90)
+
 'Get the stream of an image
 Dim pictureStream As Stream = File.Open("Image.png", FileMode.Open)
+
 'Add the picture into layout slide
 layoutSlide.Shapes.AddPicture(pictureStream, 100, 100, 100, 100)
+
 'Add a slide of new designed custom layout to the presentation
 Dim slide As ISlide = presentationDocument.Slides.Add(layoutSlide)
+
 'Save the presentation
 presentationDocument.Save("Output.pptx")
+
 'Close the presentation
 presentationDocument.Close()
 
@@ -389,7 +403,7 @@ You can convert a presentation slide to image with Essential Presentation. The f
 
 {% highlight c# %}
 
-//Opens a PowerPoint Presentation file
+//Opens a PowerPoint presentation file
 
 IPresentation presentation = Presentation.Open(fileName); 
 
@@ -413,7 +427,7 @@ presentation.Close();
 
 {% highlight vb.net %}
 
-'Opens a PowerPoint Presentation file
+'Opens a PowerPoint presentation file
 
 Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
@@ -439,7 +453,7 @@ presentationDocument.Close()
 
 For more details on assemblies required for converting a slide to image,  see [Conversion](/file-formats/presentation/conversion)
 
-N> You can print the PowerPoint presentations by using its ability to convert the slides as images. For more details, refer to [Printing a PowerPoint Presentation](/file-formats/presentation/working-with-powerpoint-presentation#printing-a-powerpoint-presentation)
+N> You can print the PowerPoint presentations by using its ability to convert the slides as images. For more details, refer to [Printing a PowerPoint presentation](/file-formats/presentation/working-with-powerpoint-presentation#printing-a-powerpoint-presentation)
 
 ## Changing Slide background
 
