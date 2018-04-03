@@ -13,9 +13,9 @@ The following assemblies need to be referenced in your application based on the 
 <table>
 <thead>
 <tr>
-<td>
-Platform(s)<br/></td><td>
-Assembly<br/></td></tr></thead>
+<th>
+Platform(s)<br/></th><th>
+Assembly<br/></th></tr></thead>
 <tr>
 <td>
 WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/></td><td>
@@ -72,9 +72,9 @@ For converting a Word document to PDF, the following assemblies need to be refer
 <table>
 <thead>
 <tr>
-<td>
-Platform(s)<br/></td><td>
-Assembly<br/></td></tr></thead>
+<th>
+Platform(s)<br/></th><th>
+Assembly<br/></th></tr></thead>
 <tr>
 <td>
 WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/></td><td>
@@ -94,9 +94,9 @@ The following assemblies are required to be referred in addition to the above me
 <table>
 <thead>
 <tr>
-<td>
-Platform(s)<br/></td><td>
-Assembly<br/></td></tr></thead>
+<th>
+Platform(s)<br/></th><th>
+Assembly<br/></th></tr></thead>
 <tr>
 <td>
 WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/></td><td>
