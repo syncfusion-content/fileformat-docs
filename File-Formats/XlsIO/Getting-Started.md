@@ -1138,7 +1138,7 @@ else
 {% endhighlight %}
 {% endtabs %}  
 
-The following code snippet provides supporting methods & class for the above code.
+The following code snippet provides supporting methods and class for the above code.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1499,7 +1499,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 //Create template marker processor for the workbook
 ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
 
-//GetSalesReports method returns list of sales persons and theirs reports
+//GetSalesReports method returns list of sales persons and their reports
 IList<Report> reports = GetSalesReports();
 
 //Adding reports collection to marker variables
@@ -1524,7 +1524,7 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 'Create template marker processor for the workbook
 Dim marker As ITemplateMarkersProcessor = workbook.CreateTemplateMarkersProcessor()
 
-'GetSalesReports method returns list of sales persons and theirs reports
+'GetSalesReports method returns list of sales persons and their reports
 Dim reports As IList(Of Report) = GetSalesReports()
 
 'Adding reports collection to marker variables
@@ -1558,7 +1558,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 //Create template marker processor for the workbook
 ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
 
-//GetSalesReports method returns list of sales persons and theirs reports
+//GetSalesReports method returns list of sales persons and their reports
 IList<Report> reports = GetSalesReports();
 
 //Adding reports collection to marker variables
@@ -1593,7 +1593,7 @@ IWorkbook workbook = application.Workbooks.Open(inputStream);
 //Create template marker processor for the workbook
 ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
 
-//GetSalesReports method returns list of sales persons and theirs reports
+//GetSalesReports method returns list of sales persons and their reports
 IList<Report> reports = GetSalesReports();
 
 //Adding reports collection to marker variables
@@ -1615,13 +1615,13 @@ ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 application.DefaultVersion = ExcelVersion.Excel2013;
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream("TemplateMarker.xlsx");
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.TemplateMarker.xlsx");
 IWorkbook workbook = application.Workbooks.Open(inputStream);
 
 //Create template marker processor for the workbook
 ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
 
-//GetSalesReports method returns list of sales persons and theirs reports
+//GetSalesReports method returns list of sales persons and their reports
 IList<Report> reports = GetSalesReports();
 
 //Adding reports collection to marker variables
@@ -1646,7 +1646,7 @@ else
 {% endhighlight %}
 {% endtabs %}  
 
-The following code snippet provides supporting methods & class for the above code.
+The following code snippet provides supporting methods and class for the above code.
 
 {% tabs %}  
 {% highlight c# %}
