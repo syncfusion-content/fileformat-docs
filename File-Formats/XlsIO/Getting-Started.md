@@ -28,7 +28,7 @@ Syncfusion.Compression.Base<br/><br/></td><td>
 This assembly is used to package the Workbook contents.<br/><br/></td></tr>
 </tbody>
 </table>
-Include the following namespaces in your .cs, .vb, UWP, ASP.NET Core, Xamarin files respectively as shown below
+Include the following namespaces in your .cs or .vb files as shown below
 
 {% tabs %}  
 {% highlight c# %}
