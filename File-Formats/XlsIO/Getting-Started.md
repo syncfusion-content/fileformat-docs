@@ -28,7 +28,7 @@ Syncfusion.Compression.Base<br/><br/></td><td>
 This assembly is used to package the Workbook contents.<br/><br/></td></tr>
 </tbody>
 </table>
-Include the following namespaces in your .cs or .vb files as shown below
+Include the following namespaces in your .cs or .vb file shown below
 
 {% tabs %}  
 {% highlight c# %}
@@ -540,7 +540,7 @@ worksheet.Pictures.AddPicture(10, 2, "image.jpg")
 {% highlight UWP %}
 //Inserting image
 Assembly assembly = typeof(Program).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("image.jpg");
+Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.jpg");
 worksheet.Pictures.AddPicture(10, 2, imageStream);
 {% endhighlight %}
 
@@ -554,7 +554,7 @@ worksheet.Pictures.AddPicture(10, 2, imageStream);
 //Inserting image
 //"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream imageStream = assembly.GetManifestResourceStream("image.jpg");
+Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.image.jpg");
 worksheet.Pictures.AddPicture(10, 2, imageStream);
 {% endhighlight %}
 {% endtabs %}  
@@ -828,7 +828,7 @@ namespace ExcelCreation
 			//Inserting image
 			//"App" is the class of Portable project
 			Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-			Stream imageStream = assembly.GetManifestResourceStream("image.jpg");
+			Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.jpg");
 			worksheet.Pictures.AddPicture(10, 2, imageStream);
 
 			//Initializes FileSavePicker
@@ -1472,14 +1472,14 @@ LINK- Template marker section for argument.
 <table>
 <tr>
 <td>
-%&lt;MarkerVariable&gt;.&lt;Property&gt; <br/><br/>For example: %Report.SalesPerson<br/><br/></td></tr>
+%&lt;MarkerVariable&gt;.&lt;Property&gt; <br/><br/>For example: %Reports.SalesPerson<br/><br/></td></tr>
 </table>
 To maintain row formats while filling data, you can use the following syntax.
 
 <table>
 <tr>
 <td>
-%&lt;MarkerVariable&gt;.&lt;Property&gt;;insert:copystyles<br/><br/>For example: %Report.SalesPerson;insert:copystyles<br/><br/></td></tr>
+%&lt;MarkerVariable&gt;.&lt;Property&gt;;insert:copystyles<br/><br/>For example: %Reports.SalesPerson;insert:copystyles<br/><br/></td></tr>
 </table>
 For example – let’s consider that you have a template document as shown below.
 
@@ -1754,14 +1754,14 @@ End Class
 {% endhighlight %}
 
 {% highlight UWP %}
-private List<Report> GetSalesReports()
+private static List<Report> GetSalesReports()
 {
 	List<Report> reports = new List<Report>();
-	reports.Add(new Report("Andy Bernard", "45000", "58000", 29));
-	reports.Add(new Report("Jim Halpert", "34000", "65000", 91));
-	reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14));
-	reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40));
-	reports.Add(new Report("Stanley Hudson", "46500", "52000", 12));
+	reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
+	reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
+	reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
+	reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
+	reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
 	return reports;
 }
 
@@ -1783,14 +1783,14 @@ public class Report
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-private List<Report> GetSalesReports()
+private static List<Report> GetSalesReports()
 {
 	List<Report> reports = new List<Report>();
-	reports.Add(new Report("Andy Bernard", "45000", "58000", 29));
-	reports.Add(new Report("Jim Halpert", "34000", "65000", 91));
-	reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14));
-	reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40));
-	reports.Add(new Report("Stanley Hudson", "46500", "52000", 12));
+	reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
+	reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
+	reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
+	reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
+	reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
 	return reports;
 }
 
@@ -1800,26 +1800,38 @@ public class Report
 	public string SalesJanJun { get; set; }
 	public string SalesJulDec { get; set; }
 	public int Change { get; set; }
+	public byte[] Image { get; set; }
 
-	public Report(string name, string janToJun, string julToDec, int change)
+	public Report(string name, string janToJun, string julToDec, int change, string imagePath)
 	{
 		SalesPerson = name;
 		SalesJanJun = janToJun;
 		SalesJulDec = julToDec;
 		Change = change;
+		Image = GetImage(imagePath);			
+	}
+
+	private byte[] GetImage(string imagePath)
+	{
+		Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+		Stream imageStream = assembly.GetManifestResourceStream("UWP.Data." + imagePath);
+		using (BinaryReader br = new BinaryReader(imageStream))
+		{
+			return br.ReadBytes((int)imageStream.Length);
+		}
 	}
 }
 {% endhighlight %}
 
 {% highlight Xamarin %}
-private List<Report> GetSalesReports()
+private static List<Report> GetSalesReports()
 {
 	List<Report> reports = new List<Report>();
-	reports.Add(new Report("Andy Bernard", "45000", "58000", 29));
-	reports.Add(new Report("Jim Halpert", "34000", "65000", 91));
-	reports.Add(new Report("Karen Fillippelli", "75000", "64000"));
-	reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40));
-	reports.Add(new Report("Stanley Hudson", "46500", "52000", 12));
+	reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
+	reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
+	reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
+	reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
+	reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
 	return reports;
 }
 
@@ -1829,13 +1841,26 @@ public class Report
 	public string SalesJanJun { get; set; }
 	public string SalesJulDec { get; set; }
 	public int Change { get; set; }
+	public byte[] Image { get; set; }
 
-	public Report(string name, string janToJun, string julToDec, int change)
+	public Report(string name, string janToJun, string julToDec, int change, string imagePath)
 	{
 		SalesPerson = name;
 		SalesJanJun = janToJun;
 		SalesJulDec = julToDec;
 		Change = change;
+		Image = GetImage(imagePath);
+		}
+	}
+
+	private byte[] GetImage(string imagePath)
+	{
+		Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+		Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template." + imagePath);
+		using (BinaryReader reader = new BinaryReader(imageStream))
+		{
+			return reader.ReadBytes((int)imageStream.Length);
+		}
 	}
 }
 {% endhighlight %}
