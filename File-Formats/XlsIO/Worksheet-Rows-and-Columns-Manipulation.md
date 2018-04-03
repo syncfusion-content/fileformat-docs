@@ -18,60 +18,126 @@ The following code snippet illustrates on how to insert row and column in a work
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
-// Insert a row
-
+//Insert a row
 worksheet.InsertRow(3, 1, ExcelInsertOptions.FormatAsBefore);
-
-// Inserting a column
-
+//Inserting a column
 worksheet.InsertColumn(2, 1, ExcelInsertOptions.FormatAsAfter);
 
 workbook.SaveAs("Book1.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Inserting a row
-
 worksheet.InsertRow(3, 1, ExcelInsertOptions.FormatAsBefore)
-
 'Inserting a column
-
 worksheet.InsertColumn(2, 1, ExcelInsertOptions.FormatAsAfter)
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
 
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".xlsx");
+openPicker.FileTypeFilter.Add(".xls");
+StorageFile file = await openPicker.PickSingleFileAsync();
 
+//Opens the workbook
+IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Insert a row
+worksheet.InsertRow(3, 1, ExcelInsertOptions.FormatAsBefore);
+//Inserting a column
+worksheet.InsertColumn(2, 1, ExcelInsertOptions.FormatAsAfter);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Insert a row
+worksheet.InsertRow(3, 1, ExcelInsertOptions.FormatAsBefore);
+//Inserting a column
+worksheet.InsertColumn(2, 1, ExcelInsertOptions.FormatAsAfter);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Insert a row
+worksheet.InsertRow(3, 1, ExcelInsertOptions.FormatAsBefore);
+//Inserting a column
+worksheet.InsertColumn(2, 1, ExcelInsertOptions.FormatAsAfter);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -86,60 +152,126 @@ The following code shows how to delete rows/columns.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Delete a row
-
 worksheet.DeleteRow(3);
-
 //Delete a column
-
 worksheet.DeleteColumn(2);
 
 workbook.SaveAs(Book1.xlsx);
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Delete a row
-
 worksheet.DeleteRow(3)
-
 'Delete a column
-
 worksheet.DeleteColumn(2)
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
 
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".xlsx");
+openPicker.FileTypeFilter.Add(".xls");
+StorageFile file = await openPicker.PickSingleFileAsync();
 
+//Opens the workbook
+IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Delete a row
+worksheet.DeleteRow(3);
+//Delete a column
+worksheet.DeleteColumn(2);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Delete a row
+worksheet.DeleteRow(3);
+//Delete a column
+worksheet.DeleteColumn(2);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Delete a row
+worksheet.DeleteRow(3);
+//Delete a column
+worksheet.DeleteColumn(2);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -149,81 +281,150 @@ T>To extract values little faster or to delete a larger number of rows and colum
 
 {% highlight c# %}
 application.DataProviderType = ExcelDataProviderType.Unsafe;
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 application.DataProviderType = ExcelDataProviderType.Unsafe
-
-
-
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+application.DataProviderType = ExcelDataProviderType.Unsafe;
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+N> XlsIO supports DataProviderType of IApplication in Windows Forms, WPF and UWP platforms alone.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+N> XlsIO supports DataProviderType of IApplication in Windows Forms, WPF and UWP platforms alone.
+{% endhighlight %}
+{% endtabs %}  
   
 In addition, cells can be deleted by shifting other cells in a row/column towards up/left by one step. This can be done by using **Clear** method as shown in the below code.
 
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Shifts cells towards Left after deletion
-
 worksheet.Range["A1:E1"].Clear(ExcelMoveDirection.MoveLeft);
-
 //Shifts cells toward Up after deletion
-
 worksheet.Range["A1:A6"].Clear(ExcelMoveDirection.MoveUp);
 
 workbook.SaveAs("Book1.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Shifts cells towards Left after deletion
-
 worksheet.Range("A1:E1").Clear(ExcelMoveDirection.MoveLeft)
-
-
-
 'Shifts cells towards Up after deletion
-
 worksheet.Range("A1:A6").Clear(ExcelMoveDirection.MoveUp)
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
 
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".xlsx");
+openPicker.FileTypeFilter.Add(".xls");
+StorageFile file = await openPicker.PickSingleFileAsync();
 
+//Opens the workbook
+IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Shifts cells towards Left after deletion
+worksheet.Range["A1:E1"].Clear(ExcelMoveDirection.MoveLeft);
+//Shifts cells toward Up after deletion
+worksheet.Range["A1:A6"].Clear(ExcelMoveDirection.MoveUp);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Shifts cells towards Left after deletion
+worksheet.Range["A1:E1"].Clear(ExcelMoveDirection.MoveLeft);
+//Shifts cells toward Up after deletion
+worksheet.Range["A1:A6"].Clear(ExcelMoveDirection.MoveUp);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Shifts cells towards Left after deletion
+worksheet.Range["A1:E1"].Clear(ExcelMoveDirection.MoveLeft);
+//Shifts cells toward Up after deletion
+worksheet.Range["A1:A6"].Clear(ExcelMoveDirection.MoveUp);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -237,56 +438,121 @@ Visibility of rows and columns can be set by using **ShowRow** and **ShowColumn*
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Hiding the first column and second row
-
 worksheet.ShowColumn( 1, false );
-
 worksheet.ShowRow( 2, false );
 
 workbook.SaveAs("Book1.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Hiding the first column and second row
-
 worksheet.ShowColumn(1, False)
-
 worksheet.ShowRow(2, False)
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
 
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".xlsx");
+openPicker.FileTypeFilter.Add(".xls");
+StorageFile file = await openPicker.PickSingleFileAsync();
 
+//Opens the workbook
+IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Hiding the first column and second row
+worksheet.ShowColumn(1, false);
+worksheet.ShowRow(2, false);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Hiding the first column and second row
+worksheet.ShowColumn(1, false);
+worksheet.ShowRow(2, false);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Hiding the first column and second row
+worksheet.ShowColumn(1, false);
+worksheet.ShowRow(2, false);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -298,78 +564,146 @@ Essential XlsIO allows to set visibility for a specific range. The following cod
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
-
 IRange range = worksheet[1, 4];
 
 //Hiding the range ‘D1’
 worksheet.ShowRange(range, false);
-
 IRange firstRange = worksheet [1, 1, 3, 3];
 IRange secondRange = worksheet [5, 5, 7, 7];
-RangesCollection rangeCollection = new RangesCollection(application, sheet);
-rangCollection.Add(firstRange);
+RangesCollection rangeCollection = new RangesCollection(application, worksheet);
+rangeCollection.Add(firstRange);
 rangeCollection.Add(secondRange);
 
 //Hiding a collection of ranges
 worksheet.ShowRange(rangeCollection, false);
 
 workbook.SaveAs("Book1.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
 Dim range As IRange = worksheet (1, 4)
 
 'Hiding the range ‘D1’
-
 worksheet.ShowRange(range, False)
-
 Dim firstRange As IRange = worksheet (1, 1, 3, 3)
-
 Dim secondRange As IRange = worksheet (5, 5, 7, 7)
-
-Dim rangeCollection As RangesCollection = New RangesCollection(app, sheet)
-
-rangCollection.Add(firstRange)
-
+Dim rangeCollection As RangesCollection = New RangesCollection(application, worksheet)
+rangeCollection.Add(firstRange)
 rangeCollection.Add(secondRange)
 
 'Hiding a collection of ranges
-
 worksheet.ShowRange(rangeCollection, False)
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+IRange range = worksheet[1, 4];
 
+//Hiding the range ‘D1’
+worksheet.ShowRange(range, false);
+IRange firstRange = worksheet[1, 1, 3, 3];
+IRange secondRange = worksheet[5, 5, 7, 7];
+RangesCollection rangeCollection = new RangesCollection(application, worksheet);
+rangeCollection.Add(firstRange);
+rangeCollection.Add(secondRange);
 
+//Hiding a collection of ranges
+worksheet.ShowRange(rangeCollection, false);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+IRange range = worksheet[1, 4];
+
+//Hiding the range ‘D1’
+worksheet.ShowRange(range, false);
+IRange firstRange = worksheet[1, 1, 3, 3];
+IRange secondRange = worksheet[5, 5, 7, 7];
+RangesCollection rangeCollection = new RangesCollection(application, worksheet);
+rangeCollection.Add(firstRange);
+rangeCollection.Add(secondRange);
+
+//Hiding a collection of ranges
+worksheet.ShowRange(rangeCollection, false);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+IRange range = worksheet[1, 4];
+
+//Hiding the range ‘D1’
+worksheet.ShowRange(range, false);
+IRange firstRange = worksheet[1, 1, 3, 3];
+IRange secondRange = worksheet[5, 5, 7, 7];
+RangesCollection rangeCollection = new RangesCollection(application, worksheet);
+rangeCollection.Add(firstRange);
+rangeCollection.Add(secondRange);
+
+//Hiding a collection of ranges
+worksheet.ShowRange(rangeCollection, false);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -389,60 +723,111 @@ The following code snippet shows how to resize a single row and column.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Modifying the row height
-
 worksheet.SetRowHeight(2, 25);
-
 //Modifying the column width
-
 worksheet.SetColumnWidth(1, 20);
 
 workbook.SaveAs("Book1.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Modifying the row height
-
 worksheet.SetRowHeight(2, 25)
-
 'Modifying the column width
-
 Worksheet.SetColumnWidth(1, 20)
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+//Modifying the row height
+worksheet.SetRowHeight(2, 25);
+//Modifying the column width
+worksheet.SetColumnWidth(1, 20);
 
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Modifying the row height
+worksheet.SetRowHeight(2, 25);
+//Modifying the column width
+worksheet.SetColumnWidth(1, 20);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Modifying the row height
+worksheet.SetRowHeight(2, 25);
+//Modifying the column width
+worksheet.SetColumnWidth(1, 20);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -453,60 +838,111 @@ Multiple rows or columns can be resized and accessed by using **RowHeight** and 
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Modifying the row height
-
 worksheet.Range["A2:A6"].RowHeight = 25;
-
 //Modifying the column width
-
 worksheet.Range["A1:D1"].ColumnWidth = 20;
 
 workbook.SaveAs("Book1.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Modifying the row height
-
 worksheet.Range("A2:A6").RowHeight = 25
-
 'Modifying the column width
-
 worksheet.Range("A1:D1").ColumnWidth = 20
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+//Modifying the row height
+worksheet.Range["A2:A6"].RowHeight = 25;
+//Modifying the column width
+worksheet.Range["A1:D1"].ColumnWidth = 20;
 
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Modifying the row height
+worksheet.Range["A2:A6"].RowHeight = 25;
+//Modifying the column width
+worksheet.Range["A1:D1"].ColumnWidth = 20;
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Modifying the row height
+worksheet.Range["A2:A6"].RowHeight = 25;
+//Modifying the column width
+worksheet.Range["A1:D1"].ColumnWidth = 20;
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -524,72 +960,136 @@ The following code snippet shows how a row and a column is re-sized to its conte
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 worksheet.Range["A1"].Text = "This is a long text";
-
 worksheet.Range["A1"].WrapText = true;
 
 //AutoFit applied to a single row
-
 worksheet.AutofitRow(1); 
-
 worksheet.Range["A3"].Text = "This is a long text";
 
 //AutoFit applied to a single column
-
 worksheet.AutofitColumn(3);
 
 workbook.SaveAs("Book1.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 worksheet.Range("A1").Text = "This is a long text"
-
 worksheet.Range("A1").WrapText = true
 
 'AutoFit applied to a single row
-
-worksheet.AutofitRow(1) 
-
+worksheet.AutofitRow(1)
 worksheet.Range("A3").Text = "This is a long text"
 
 'AutoFit applied to a single column
-
 worksheet.AutofitColumn(3)
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+worksheet.Range["A1"].Text = "This is a long text";
+worksheet.Range["A1"].WrapText = true;
 
+//AutoFit applied to a single row
+worksheet.AutofitRow(1);
+worksheet.Range["A3"].Text = "This is a long text";
+
+//AutoFit applied to a single column
+worksheet.AutofitColumn(3);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+worksheet.Range["A1"].Text = "This is a long text";
+worksheet.Range["A1"].WrapText = true;
+
+//AutoFit applied to a single row
+worksheet.AutofitRow(1);
+worksheet.Range["A3"].Text = "This is a long text";
+
+//AutoFit applied to a single column
+worksheet.AutofitColumn(3);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+worksheet.Range["A1"].Text = "This is a long text";
+worksheet.Range["A1"].WrapText = true;
+
+//AutoFit applied to a single row
+worksheet.AutofitRow(1);
+worksheet.Range["A3"].Text = "This is a long text";
+
+//AutoFit applied to a single column
+worksheet.AutofitColumn(3);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -600,28 +1100,37 @@ There is an alternative way to auto-fit row or column is by accessing the row or
 {% tabs %}  
 {% highlight c# %}
 //AutoFit applied to first row
-
 worksheet.Rows[0].AutofitRows();
-
 //AutoFit applied to first column
-
 worksheet.Columns[0].AutofitColumns();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'AutoFit applied to first row
-
 worksheet.Rows(0).AutofitRows()
-
 'AutoFit applied to first column
-
 worksheet.Columns(0).AutofitColumns()
+{% endhighlight %}
 
+{% highlight UWP %}
+//AutoFit applied to first row
+worksheet.Rows[0].AutofitRows();
+//AutoFit applied to first column
+worksheet.Columns[0].AutofitColumns();
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//AutoFit applied to first row
+worksheet.Rows[0].AutofitRows();
+//AutoFit applied to first column
+worksheet.Columns[0].AutofitColumns();
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//AutoFit applied to first row
+worksheet.Rows[0].AutofitRows();
+//AutoFit applied to first column
+worksheet.Columns[0].AutofitColumns();
 {% endhighlight %}
 {% endtabs %}  
 
@@ -634,80 +1143,145 @@ Multiple rows/column can be auto fitted based on the range specified. This is de
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Assigning text to cells
-
 worksheet.Range["A1:D1"].Text = "This is the Long Text";
-
 worksheet.Range["A2:A5"].Text = "This is the Long Text using AutoFit Columns and Rows";
-
 worksheet.Range["A2:A5"].WrapText = true;
 
 //Auto-Fit the range
-
 worksheet.Range["A1:C1"].AutofitColumns();
-
 worksheet.Range["A2:A5"].AutofitRows();
 
 //Auto-fits all the columns used in the worksheet
-
 worksheet.UsedRange.AutofitColumns();
 
 workbook.SaveAs("Book1.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Assigning text to cells
-
 worksheet.Range("A1:D1").Text = "This is the Long Text"
-
 worksheet.Range("A2:A5").Text = "This is the Long Text using AutoFit Columns and Rows"
-
 worksheet.Range("A2:A5").WrapText = true
 
 'Auto-Fit the range
-
 worksheet.Range("A1:C1").AutofitColumns()
-
 worksheet.Range("A2:A5").AutofitRows()
-
 'Auto-fits all the columns used in the worksheet
-
 worksheet.UsedRange.AutofitColumns()
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+//Assigning text to cells
+worksheet.Range["A1:D1"].Text = "This is the Long Text";
+worksheet.Range["A2:A5"].Text = "This is the Long Text using AutoFit Columns and Rows";
+worksheet.Range["A2:A5"].WrapText = true;
 
+//Auto-Fit the range
+worksheet.Range["A1:C1"].AutofitColumns();
+worksheet.Range["A2:A5"].AutofitRows();
+
+//Auto-fits all the columns used in the worksheet
+worksheet.UsedRange.AutofitColumns();
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Assigning text to cells
+worksheet.Range["A1:D1"].Text = "This is the Long Text";
+worksheet.Range["A2:A5"].Text = "This is the Long Text using AutoFit Columns and Rows";
+worksheet.Range["A2:A5"].WrapText = true;
+
+//Auto-Fit the range
+worksheet.Range["A1:C1"].AutofitColumns();
+worksheet.Range["A2:A5"].AutofitRows();
+
+//Auto-fits all the columns used in the worksheet
+worksheet.UsedRange.AutofitColumns();
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Assigning text to cells
+worksheet.Range["A1:D1"].Text = "This is the Long Text";
+worksheet.Range["A2:A5"].Text = "This is the Long Text using AutoFit Columns and Rows";
+worksheet.Range["A2:A5"].WrapText = true;
+
+//Auto-Fit the range
+worksheet.Range["A1:C1"].AutofitColumns();
+worksheet.Range["A2:A5"].AutofitRows();
+
+//Auto-fits all the columns used in the worksheet
+worksheet.UsedRange.AutofitColumns();
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -722,86 +1296,161 @@ Rows and columns can be grouped or ungrouped to summarize the data. The followin
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx")
-
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
 IWorksheet worksheet = workbook.Worksheets[0];
 
-
-
 //Group Rows
-
 worksheet.Range["A1:A3"].Group(ExcelGroupBy.ByRows, true);
-
 worksheet.Range["A4:A6"].Group(ExcelGroupBy.ByRows);
-
 //Group Columns
-
 worksheet.Range["A1:B1"].Group(ExcelGroupBy.ByColumns, false);
-
 worksheet.Range["C1:F1"].Group(ExcelGroupBy.ByColumns);
 
 //Ungroup Rows
-
-worksheet.Range["A1:A3"].UnGroup(ExcelGroupBy.ByRows);
-
+worksheet.Range["A1:A3"].Ungroup(ExcelGroupBy.ByRows);
 //Ungroup Columns
-
-worksheet.Range["C1:F1"].UnGroup(ExcelGroupBy.ByColumns);
+worksheet.Range["C1:F1"].Ungroup(ExcelGroupBy.ByColumns);
 
 workbook.SaveAs("Book1.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Group Rows
-
-worksheet.Range( "A1:A3" ).Group(ExcelGroupBy.ByRows, True)        
-
+worksheet.Range( "A1:A3" ).Group(ExcelGroupBy.ByRows, True)
 worksheet.Range( "A4:A6" ).Group(ExcelGroupBy.ByRows)
-
 'Group Columns
-
-worksheet.Range( "A1:B1" ).Group(ExcelGroupBy.ByColumns, False)       
-
+worksheet.Range( "A1:B1" ).Group(ExcelGroupBy.ByColumns, False)
 worksheet.Range( "C1:F1" ).Group(ExcelGroupBy.ByColumns)
 
 'Ungroup Rows
-
-worksheet.Range( "A1:A3" ).UnGroup(ExcelGroupBy.ByRows)       
-
+worksheet.Range( "A1:A3" ).Ungroup(ExcelGroupBy.ByRows)
 'Ungroup Columns
-
-worksheet.Range( "C1:F1" ).UnGroup(ExcelGroupBy.ByColumns)
+worksheet.Range( "C1:F1" ).Ungroup(ExcelGroupBy.ByColumns)
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
 
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".xlsx");
+openPicker.FileTypeFilter.Add(".xls");
+StorageFile file = await openPicker.PickSingleFileAsync();
 
+//Opens the workbook
+IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Group Rows
+worksheet.Range["A1:A3"].Group(ExcelGroupBy.ByRows, true);
+worksheet.Range["A4:A6"].Group(ExcelGroupBy.ByRows);
+//Group Columns
+worksheet.Range["A1:B1"].Group(ExcelGroupBy.ByColumns, false);
+worksheet.Range["C1:F1"].Group(ExcelGroupBy.ByColumns);
+
+//Ungroup Rows
+worksheet.Range["A1:A3"].Ungroup(ExcelGroupBy.ByRows);
+//Ungroup Columns
+worksheet.Range["C1:F1"].Ungroup(ExcelGroupBy.ByColumns);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Group Rows
+worksheet.Range["A1:A3"].Group(ExcelGroupBy.ByRows, true);
+worksheet.Range["A4:A6"].Group(ExcelGroupBy.ByRows);
+//Group Columns
+worksheet.Range["A1:B1"].Group(ExcelGroupBy.ByColumns, false);
+worksheet.Range["C1:F1"].Group(ExcelGroupBy.ByColumns);
+
+//Ungroup Rows
+worksheet.Range["A1:A3"].Ungroup(ExcelGroupBy.ByRows);
+//Ungroup Columns
+worksheet.Range["C1:F1"].Ungroup(ExcelGroupBy.ByColumns);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Group Rows
+worksheet.Range["A1:A3"].Group(ExcelGroupBy.ByRows, true);
+worksheet.Range["A4:A6"].Group(ExcelGroupBy.ByRows);
+//Group Columns
+worksheet.Range["A1:B1"].Group(ExcelGroupBy.ByColumns, false);
+worksheet.Range["C1:F1"].Group(ExcelGroupBy.ByColumns);
+
+//Ungroup Rows
+worksheet.Range["A1:A3"].Ungroup(ExcelGroupBy.ByRows);
+//Ungroup Columns
+worksheet.Range["C1:F1"].Ungroup(ExcelGroupBy.ByColumns);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -812,62 +1461,131 @@ Groups can be expanded and collapsed using **ExpandGroups** and **CollapseGroups
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
-
-
 //Expand group with flag set to expand parent
-
 worksheet.Range["A5:A15"].ExpandGroup(ExcelGroupBy.ByRows, ExpandCollapseFlags.ExpandParent);
 
 //Collapse group
-
 worksheet.Range["A5:A15"].CollapseGroup(ExcelGroupBy.ByRows);
 
 workbook.SaveAs("Book1.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Expand group with flag set to expand parent
-
 worksheet.Range("A5:A15").ExpandGroup(ExcelGroupBy.ByRows, ExpandCollapseFlags.ExpandParent)
 
 'Collapse group
-
 worksheet.Range("A5:A15").CollapseGroup(ExcelGroupBy.ByRows)
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
 
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".xlsx");
+openPicker.FileTypeFilter.Add(".xls");
+StorageFile file = await openPicker.PickSingleFileAsync();
 
+//Opens the workbook
+IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Expand group with flag set to expand parent
+worksheet.Range["A5:A15"].ExpandGroup(ExcelGroupBy.ByRows, ExpandCollapseFlags.ExpandParent);
+
+//Collapse group
+worksheet.Range["A5:A15"].CollapseGroup(ExcelGroupBy.ByRows);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Expand group with flag set to expand parent
+worksheet.Range["A5:A15"].ExpandGroup(ExcelGroupBy.ByRows, ExpandCollapseFlags.ExpandParent);
+
+//Collapse group
+worksheet.Range["A5:A15"].CollapseGroup(ExcelGroupBy.ByRows);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Expand group with flag set to expand parent
+worksheet.Range["A5:A15"].ExpandGroup(ExcelGroupBy.ByRows, ExpandCollapseFlags.ExpandParent);
+
+//Collapse group
+worksheet.Range["A5:A15"].CollapseGroup(ExcelGroupBy.ByRows);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -882,64 +1600,136 @@ The following code shows how to add subtotal for a given range.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Set the range for subtotaling
-
 IRange range = worksheet.Range["C3:G12"];
 
 //Perform subtotals for the range with every change in first column
-
 //and subtotals to be included for specified list of columns
-
 range.SubTotal(0, ConsolidationFunction.Sum, new int[] { 2, 3, 4 });
 
 workbook.SaveAs("Book1.xlsx");
-
 workbook.Close();
-
-excelEngine.Dispose();          
-
-
-
+excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks. Open("Sample.xlsx")
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Set the range for subtotaling
-
 Dim range As IRange = worksheet ("C3:G12")
 
-'Perform subtotals for the range with every change in first column 
-
+'Perform subtotals for the range with every change in first column
 'and subtotals to be included for specified list of columns
-
 range.SubTotal(0, ConsolidationFunction.Sum, New Integer() {4})
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
 
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".xlsx");
+openPicker.FileTypeFilter.Add(".xls");
+StorageFile file = await openPicker.PickSingleFileAsync();
 
+//Opens the workbook
+IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Set the range for subtotaling
+IRange range = worksheet.Range["C3:G12"];
+
+//Perform subtotals for the range with every change in first column
+//and subtotals to be included for specified list of columns
+range.SubTotal(0, ConsolidationFunction.Sum, new int[] { 2, 3, 4 });
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Set the range for subtotaling
+IRange range = worksheet.Range["C3:G12"];
+
+//Perform subtotals for the range with every change in first column
+//and subtotals to be included for specified list of columns
+range.SubTotal(0, ConsolidationFunction.Sum, new int[] { 2, 3, 4 });
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Set the range for subtotaling
+IRange range = worksheet.Range["C3:G12"];
+
+//Perform subtotals for the range with every change in first column
+//and subtotals to be included for specified list of columns
+range.SubTotal(0, ConsolidationFunction.Sum, new int[] { 2, 3, 4 });
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
