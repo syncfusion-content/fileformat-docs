@@ -139,6 +139,169 @@ excelEngine.Dispose()
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+//Gets assembly
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Gets input Excel document from embedded resource collection
+
+Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStream);
+
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Create Template Marker Processor
+
+ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+//Insert Array Horizontally
+
+string[] names = new string[] { "Mickey", "Donald", "Tom", "Jerry" };
+
+string[] descriptions = new string[] { "Mouse", "Duck", "Cat", "Mouse" };
+
+marker.AddVariable("Names", names);
+
+marker.AddVariable("Descriptions", descriptions);
+
+//Process the markers in the template
+
+marker.ApplyMarkers();
+
+//Initializes FileSavePicker
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+
+savePicker.SuggestedFileName = "TemplateMarker";
+
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+
+await workbook.SaveAsAsync(storageFile);
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+{% endhighlight %}
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+
+IWorkbook workbook = application.Workbooks.Open(fileStream);
+
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Create Template Marker Processor
+
+ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+//Insert Array Horizontally
+
+string[] names = new string[] { "Mickey", "Donald", "Tom", "Jerry" };
+
+string[] descriptions = new string[] { "Mouse", "Duck", "Cat", "Mouse" };
+
+marker.AddVariable("Names", names);
+
+marker.AddVariable("Descriptions", descriptions);
+
+//Process the markers in the template
+
+marker.ApplyMarkers();
+
+//Saving the workbook as stream
+
+workbook.Version = ExcelVersion.Excel2013;
+
+FileStream stream = new FileStream("TemplateMarker.xlsx", FileMode.Create, FileAccess.ReadWrite);
+
+workbook.SaveAs(stream);
+
+stream.Dispose();
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+{% endhighlight %}
+{% highlight Xamarin}
+//Gets assembly
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+           
+//Gets input Excel document from embedded resource collection
+
+Stream inputStream = null;
+
+inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+IWorkbook workbook = application.Workbooks.Open(inputStream);
+
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Create Template Marker Processor
+
+ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+//Insert Array Horizontally
+
+string[] names = new string[] { "Mickey", "Donald", "Tom", "Jerry" };
+
+string[] descriptions = new string[] { "Mouse", "Duck", "Cat", "Mouse" };
+
+marker.AddVariable("Names", names);
+
+marker.AddVariable("Descriptions", descriptions);
+
+//Process the markers in the template
+
+marker.ApplyMarkers();
+
+//Saving the workbook as stream
+
+workbook.Version = ExcelVersion.Excel2013;
+
+MemoryStream outputStream = new MemoryStream();
+
+workbook.SaveAs(outputStream);
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+//Open in default system viewer
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    await DependencyService.Get<ISaveWindowsPhone>().Save("TemplateMarker.xlsx", "application/msexcel", outputStream);
+else
+    DependencyService.Get<ISave>().Save("TemplateMarker.xlsx", "application/msexcel", outputStream);
+
+//Dispose the input and output stream instances
+
+inputStream.Dispose();
+
+outputStream.Dispose();
+{% endhighlight %}
 {% endtabs %}  
 
 Here is the screen shot of generated excel in which array of data is bounded. 
@@ -231,6 +394,188 @@ excelEngine.Dispose()
 
 
 
+{% endhighlight %}
+
+{% highlight UWP %}
+//Gets assembly
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Gets input Excel document from embedded resource collection
+
+Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IWorkbook workbook = await excelEngine.Excel.Workbooks.OpenAsync(inputStream);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Insert Simple marker
+
+sheet.Range["B2"].Text = "%Marker";
+
+//Insert marker which gets value of Author name
+
+sheet.Range["C2"].Text = "%Marker2.Worksheet.Workbook.Author";
+
+//Insert marker which gets cell address
+
+sheet.Range["H2"].Text = "%ArrayProperty.Cells.Address";
+
+ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+marker.AddVariable("Marker", "First test of markers");
+
+marker.AddVariable("Marker2", sheet.Range["B2"]);
+
+marker.AddVariable("ArrayProperty", sheet.Range["B2:G2"]);
+
+//Process the markers in the template
+
+marker.ApplyMarkers();
+
+workbook.Version = ExcelVersion.Excel2013;
+
+//Initializes FileSavePicker
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+
+savePicker.SuggestedFileName = "TemplateMarker";
+
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+
+await workbook.SaveAsAsync(storageFile);
+
+workbook.Close();
+
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+
+IWorkbook workbook = application.Workbooks.Open(fileStream);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Insert Simple marker
+
+sheet.Range["B2"].Text = "%Marker";
+
+//Insert marker which gets value of Author name
+
+sheet.Range["C2"].Text = "%Marker2.Worksheet.Workbook.Author";
+
+//Insert marker which gets cell address
+
+sheet.Range["H2"].Text = "%ArrayProperty.Cells.Address";
+
+ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+marker.AddVariable("Marker", "First test of markers");
+
+marker.AddVariable("Marker2", sheet.Range["B2"]);
+
+marker.AddVariable("ArrayProperty", sheet.Range["B2:G2"]);
+
+//Process the markers in the template
+
+marker.ApplyMarkers();
+
+//Saving the workbook as stream
+
+workbook.Version = ExcelVersion.Excel2013;
+
+FileStream stream = new FileStream("TemplateMarker.xlsx", FileMode.Create, FileAccess.ReadWrite);
+
+workbook.SaveAs(stream);
+
+stream.Dispose();
+
+workbook.Close();
+
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin}
+//Gets assembly
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+           
+//Gets input Excel document from embedded resource collection
+
+Stream inputStream = null;
+
+inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+IWorkbook workbook = application.Workbooks.Open(inputStream);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Insert Simple marker
+
+sheet.Range["B2"].Text = "%Marker";
+
+//Insert marker which gets value of Author name
+
+sheet.Range["C2"].Text = "%Marker2.Worksheet.Workbook.Author";
+
+//Insert marker which gets cell address
+
+sheet.Range["H2"].Text = "%ArrayProperty.Cells.Address";
+
+ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+marker.AddVariable("Marker", "First test of markers");
+
+marker.AddVariable("Marker2", sheet.Range["B2"]);
+
+marker.AddVariable("ArrayProperty", sheet.Range["B2:G2"]);
+
+//Process the markers in the template
+
+marker.ApplyMarkers();
+
+//Saving the workbook as stream
+
+workbook.Version = ExcelVersion.Excel2013;
+
+MemoryStream outputStream = new MemoryStream();
+
+workbook.SaveAs(outputStream);
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+//Open in default system viewer
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    await DependencyService.Get<ISaveWindowsPhone>().Save("TemplateMarker.xlsx", "application/msexcel", outputStream);
+else
+    DependencyService.Get<ISave>().Save("TemplateMarker.xlsx", "application/msexcel", outputStream);
+
+//Dispose the input and output stream instances
+
+inputStream.Dispose();
+
+outputStream.Dispose();
 {% endhighlight %}
 {% endtabs %}  
 
@@ -347,6 +692,66 @@ excelEngine.Dispose()
 
 
 
+{% endhighlight %}
+{% highlight UWP %}
+N> XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+{% endhighlight %}
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+FileStream fileStream = new FileStream("TemplateMarker.xlsx", FileMode.Open, FileAccess.Read);
+
+IWorkbook workbook = application.Workbooks.Open(fileStream);
+
+//Create Template Marker Processor
+
+ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+DataTable reports = new DataTable();
+
+reports.Columns.Add("SalesPerson");
+
+reports.Columns.Add("FromDate", typeof(DateTime));
+
+reports.Columns.Add("ToDate", typeof(DateTime));
+
+reports.Rows.Add("Andy Bernard", new DateTime(2014, 09, 08), new DateTime(2014, 09, 11));
+
+reports.Rows.Add("Jim Halpert", new DateTime(2014, 09, 11), new DateTime(2014, 09, 15));
+
+reports.Rows.Add("Karen Fillippelli", new DateTime(2014, 09, 15), new DateTime(2014, 09, 20));
+
+reports.Rows.Add("Phyllis Lapin", new DateTime(2014, 09, 21), new DateTime(2014, 09, 25));
+
+reports.Rows.Add("Stanley Hudson", new DateTime(2014, 09, 26), new DateTime(2014, 09, 30));
+            
+
+//Detects number format in DateTable values.
+
+marker.AddVariable("Reports", reports, VariableTypeAction.DetectNumberFormat);
+
+//Process the markers and detect the number format along with the data type in the template.
+
+marker.ApplyMarkers();
+
+//Saving the workbook as stream
+
+workbook.Version = ExcelVersion.Excel2013;
+
+FileStream stream = new FileStream("TemplateMarkerWithFormat.xlsx", FileMode.Create, FileAccess.ReadWrite);
+
+workbook.SaveAs(stream);
+
+stream.Dispose();
+
+workbook.Close();
+
+excelEngine.Dispose();
+{% endhighlight %}
+{% highlight Xamarin}
+N> XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
@@ -801,6 +1206,174 @@ excelEngine.Dispose()
 
 
 
+{% endhighlight %}
+{% highlight UWP %}
+N> XlsIO supports applying conditional formats to template markers data range from data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+#region Initialize Workbook
+
+ExcelEngine excelEngine = new ExcelEngine();
+
+IApplication application = excelEngine.Excel;
+
+FileStream fileStream = new FileStream("TemplateMarker.xlsx", FileMode.Open, FileAccess.Read);
+
+IWorkbook workbook = application.Workbooks.Open(fileStream);
+
+IWorksheet worksheet = workbook.Worksheets[0];
+
+#endregion
+
+#region Create Template Marker
+
+//Create Template Marker Processor
+
+ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+IConditionalFormats conditionalFormats = marker.CreateConditionalFormats(worksheet["C5"]);
+
+#endregion
+
+#region Data Bar
+
+//Apply markers using Formula
+
+IConditionalFormat condition = conditionalFormats.AddCondition();
+
+//Set Data bar and icon set for the same cell
+
+//Set the format type
+
+condition.FormatType = ExcelCFType.DataBar;
+
+IDataBar dataBar = condition.DataBar;
+
+//Set the constraint
+
+dataBar.MinPoint.Type = ConditionValueType.LowestValue;
+
+dataBar.MinPoint.Value = "0";
+
+dataBar.MaxPoint.Type = ConditionValueType.HighestValue;
+
+dataBar.MaxPoint.Value = "0";
+
+//Set color for Bar
+
+dataBar.BarColor = Color.FromArgb(156, 208, 243);
+
+//Hide the value in data bar
+
+dataBar.ShowValue = false;
+
+#endregion
+
+#region IconSet
+
+condition = conditionalFormats.AddCondition();
+
+condition.FormatType = ExcelCFType.IconSet;
+
+IIconSet iconSet = condition.IconSet;
+
+iconSet.IconSet = ExcelIconSetType.FourRating;
+
+iconSet.IconCriteria[0].Type = ConditionValueType.LowestValue;
+
+iconSet.IconCriteria[0].Value = "0";
+
+iconSet.IconCriteria[1].Type = ConditionValueType.HighestValue;
+
+iconSet.IconCriteria[1].Value = "0";
+
+iconSet.ShowIconOnly = true;
+
+#endregion
+
+conditionalFormats = marker.CreateConditionalFormats(worksheet["D5"]);
+
+#region Color Scale
+
+condition = conditionalFormats.AddCondition();
+
+condition.FormatType = ExcelCFType.ColorScale;
+
+IColorScale colorScale = condition.ColorScale;
+
+//Sets 3 - color scale.
+
+colorScale.SetConditionCount(3);
+
+colorScale.Criteria[0].FormatColorRGB = Color.FromArgb(230, 197, 218);
+
+colorScale.Criteria[0].Type = ConditionValueType.LowestValue;
+
+colorScale.Criteria[0].Value = "0";
+
+colorScale.Criteria[1].FormatColorRGB = Color.FromArgb(244, 210, 178);
+
+colorScale.Criteria[1].Type = ConditionValueType.Percentile;
+
+colorScale.Criteria[1].Value = "50";
+
+colorScale.Criteria[2].FormatColorRGB = Color.FromArgb(245, 247, 171);
+
+colorScale.Criteria[2].Type = ConditionValueType.HighestValue;
+
+colorScale.Criteria[2].Value = "0";
+
+#endregion
+
+conditionalFormats = marker.CreateConditionalFormats(worksheet["E5"]);
+
+#region IconSet
+
+condition = conditionalFormats.AddCondition();
+
+condition.FormatType = ExcelCFType.IconSet;
+
+iconSet = condition.IconSet;
+
+iconSet.IconSet = ExcelIconSetType.ThreeSymbols;
+
+iconSet.IconCriteria[0].Type = ConditionValueType.LowestValue;
+
+iconSet.IconCriteria[0].Value = "0";
+
+iconSet.IconCriteria[1].Type = ConditionValueType.HighestValue;
+
+iconSet.IconCriteria[1].Value = "0";
+
+iconSet.ShowIconOnly = false;
+
+#endregion
+
+marker.AddVariable("Reports", GetDataTable());
+
+//Process the markers in the template.
+
+marker.ApplyMarkers();
+
+//Saving the workbook as stream
+
+workbook.Version = ExcelVersion.Excel2013;
+
+FileStream stream = new FileStream("TemplateMarkerCF.xlsx", FileMode.Create, FileAccess.ReadWrite);
+
+workbook.SaveAs(stream);
+
+stream.Dispose();
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+{% endhighlight %}
+
+{% highlight Xamarin}
+N> XlsIO supports applying conditional formats to template markers data range from data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
