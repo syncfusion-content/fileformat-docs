@@ -1,6 +1,6 @@
 ---
 layout: post
-title: File Format NuGet Packages | Syncfusion
+title: File Formats NuGet Packages | Syncfusion
 description: NuGet Packages
 platform: file-formats
 control: NuGet Packages
