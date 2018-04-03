@@ -14,7 +14,6 @@ Essential PDF Currently supports following PDF conformances.
 
 N> 1. To know more details about PDF/A standard refer [https://en.wikipedia.org/wiki/PDF/A#Description](https://en.wikipedia.org/wiki/PDF/A#Description )
 N> 2. To know more details about PDF/X standard refer [https://en.wikipedia.org/wiki/PDF/X](https://en.wikipedia.org/wiki/PDF/X)
-N> 3. Conformances can be added only to documents created from scratch. Currently, Essential PDF do not support converting normal PDF documents to PDF/A-1b or PDF/X-1a conformance documents.
 
 ## Adding support for PDF/A-1b conformance.
 
@@ -52,7 +51,7 @@ PdfFont pdfFont = new PdfTrueTypeFont(font, FontStyle.Regular, 12, false, true);
 
 graphics.DrawString("Hello world!", pdfFont, brush, new PointF(20, 20));
 
-//Save and close the document
+//Save and close the document.
 
 document.Save("Output.pdf");
 
@@ -91,7 +90,7 @@ Dim pdfFont As PdfFont = New PdfTrueTypeFont(font, FontStyle.Regular, 12, False,
 
 graphics.DrawString("Hello world!", pdfFont, brush, New PointF(20, 20))
 
-'Save and close the document
+'Save and close the document.
 
 document.Save("Output.pdf")
 
@@ -141,7 +140,7 @@ PdfFont pdfFont = new PdfTrueTypeFont(font, FontStyle.Regular, 12, false, true);
 
 graphics.DrawString("Hello world!", pdfFont, brush, new PointF(20, 20));
 
-//Save and close the document
+//Save and close the document.
 
 document.Save("Output.pdf");
 
@@ -184,7 +183,7 @@ Dim pdfFont As PdfFont = New PdfTrueTypeFont(font, FontStyle.Regular, 12, False,
 
 graphics.DrawString("Hello world!", font, brush, New PointF(20, 20))
 
-'Save and close the document
+'Save and close the document.
 
 document.Save("Output.pdf")
 
@@ -195,3 +194,57 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}  
+
+
+## Converting PDF to PDF/A-1b.
+
+An existing PDF document can be converted to PDF/A-1b conformance document, by setting the ```Conformance``` value in the ```PdfLoadedDocument``` to ```Pdf_A1B```. Refer the below code snippet to achieve the same.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+
+//Load an existing PDF.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Set the conformance for PDF/A-1b conversion.
+
+loadedDocument.Conformance = PdfConformanceLevel.Pdf_A1B;
+
+//Save and close the document.
+
+loadedDocument.Save("Output.pdf");
+
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Load an existing PDF.
+
+Dim document As New PdfLoadedDocument("Input.pdf")
+
+'Set the conformance for PDF/A-1b conversion.
+
+loadedDocument.Conformance = PdfConformanceLevel.Pdf_A1B
+
+'Save and close the document.
+
+loadedDocument.Save("Output.pdf")
+
+loadedDocument.Close(True)
+
+
+
+{% endhighlight %}
+
+{% endtabs %}  
+
+N> 1. Converting PDF to PDF/X-1a conformance document is not supported.
+N> 2. CMYK color space images and symbolic fonts are not supported.
