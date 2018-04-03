@@ -373,8 +373,8 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-N> Setting column width to the columns hidden using `[ShowColumn](https://help.syncfusion.com/cr/cref_files/winrt/xlsio/Syncfusion.XlsIO.WinRT~Syncfusion.XlsIO.IWorksheet~ShowColumn.html)/[HideColumn](https://help.syncfusion.com/cr/cref_files/winrt/xlsio/Syncfusion.XlsIO.WinRT~Syncfusion.XlsIO.IWorksheet~HideColumn.html)` methods will make the hidden columns visible.
-N> Setting row height to the rows hidden using `[ShowRow](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~ShowRow.html) /[HideRow](https://help.syncfusion.com/cr/cref_files/winrt/xlsio/Syncfusion.XlsIO.WinRT~Syncfusion.XlsIO.IWorksheet~HideRow.html)` methods will make the hidden rows visible.
+N> Resetting column width manually or through AutoFit, for the columns hidden using [ShowColumn](https://help.syncfusion.com/cr/cref_files/winrt/xlsio/Syncfusion.XlsIO.WinRT~Syncfusion.XlsIO.IWorksheet~ShowColumn.html)/[HideColumn](https://help.syncfusion.com/cr/cref_files/winrt/xlsio/Syncfusion.XlsIO.WinRT~Syncfusion.XlsIO.IWorksheet~HideColumn.html) methods will make the hidden columns visible.
+N> Resetting row height manually or through AutoFit,  for the rows hidden using [ShowRow](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~ShowRow.html) /[HideRow](https://help.syncfusion.com/cr/cref_files/winrt/xlsio/Syncfusion.XlsIO.WinRT~Syncfusion.XlsIO.IWorksheet~HideRow.html) methods will make the hidden rows visible.
 
 ## Adjust Row Height and Column Width 
 
