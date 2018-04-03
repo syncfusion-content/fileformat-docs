@@ -1142,6 +1142,7 @@ The following code snippet provides supporting methods and class for the above c
 
 {% tabs %}  
 {% highlight c# %}
+//Gets a list of employees with details
 private static IList<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -1153,6 +1154,7 @@ private static IList<Employee> GetEmployees()
 	return employees;
 }
 
+//Employee details
 public class Employee
 {
 	public string FirstName { get; set; }
@@ -1177,6 +1179,7 @@ public class Employee
 {% endhighlight %}
 
 {% highlight vb %}
+'Gets a list of employees with details
 Private Function GetEmployees() As List(Of Employee)
 	Dim employees As New List(Of Employee)()
 	employees.Add(New Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"))
@@ -1187,6 +1190,7 @@ Private Function GetEmployees() As List(Of Employee)
 	Return employees
 End Function
 
+'Employee details
 Public Class Employee
 
 	Public Property FirstName() As String
@@ -1272,6 +1276,7 @@ End Class
 {% endhighlight %}
 
 {% highlight UWP %}
+//Gets a list of employees with details
 private static List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -1283,6 +1288,7 @@ private static List<Employee> GetEmployees()
 	return employees;
 }
 
+//Employee details
 public class Employee
 {
 	public string FirstName { get; set; }
@@ -1307,6 +1313,7 @@ public class Employee
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
+//Gets a list of employees with details
 private static List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -1318,6 +1325,7 @@ private static List<Employee> GetEmployees()
 	return employees;
 }
 
+//Employee details
 public class Employee
 {
 	public string FirstName { get; set; }
@@ -1342,6 +1350,7 @@ public class Employee
 {% endhighlight %}
 
 {% highlight Xamarin %}
+//Gets a list of employees with details
 private static List<Employee> GetEmployees()
 {
 	List<Employee> employees = new List<Employee>();
@@ -1353,6 +1362,7 @@ private static List<Employee> GetEmployees()
 	return employees;
 }
 
+//Employee details
 public class Employee
 {
 	public string FirstName { get; set; }
@@ -1650,6 +1660,7 @@ The following code snippet provides supporting methods and class for the above c
 
 {% tabs %}  
 {% highlight c# %}
+//Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {
 	List<Report> reports = new List<Report>();
@@ -1661,6 +1672,7 @@ private static List<Report> GetSalesReports()
 	return reports;
 }
 
+//Sales report
 public class Report
 {
 	public string SalesPerson { get; set; }
@@ -1681,6 +1693,7 @@ public class Report
 {% endhighlight %}
 
 {% highlight vb %}
+'Gets a list of sales reports
 Private Function GetSalesReports() As List(Of Report)
 	Dim reports As New List(Of Report)()
 	reports.Add(New Report("Andy Bernard", "45000", "58000", 29, "Andy.jpg"))
@@ -1691,6 +1704,7 @@ Private Function GetSalesReports() As List(Of Report)
 	Return reports
 End Function
 
+'Sales report
 Public Class Report
 	
 	Public Property SalesPerson() As String
@@ -1754,6 +1768,7 @@ End Class
 {% endhighlight %}
 
 {% highlight UWP %}
+//Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {
 	List<Report> reports = new List<Report>();
@@ -1765,6 +1780,7 @@ private static List<Report> GetSalesReports()
 	return reports;
 }
 
+//Sales report
 public class Report
 {
 	public string SalesPerson { get; set; }
@@ -1783,6 +1799,7 @@ public class Report
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
+//Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {
 	List<Report> reports = new List<Report>();
@@ -1794,6 +1811,7 @@ private static List<Report> GetSalesReports()
 	return reports;
 }
 
+//Sales report
 public class Report
 {
 	public string SalesPerson { get; set; }
@@ -1824,6 +1842,7 @@ public class Report
 {% endhighlight %}
 
 {% highlight Xamarin %}
+//Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {
 	List<Report> reports = new List<Report>();
@@ -1835,6 +1854,7 @@ private static List<Report> GetSalesReports()
 	return reports;
 }
 
+//Sales report
 public class Report
 {
 	public string SalesPerson { get; set; }
@@ -1850,7 +1870,6 @@ public class Report
 		SalesJulDec = julToDec;
 		Change = change;
 		Image = GetImage(imagePath);
-		}
 	}
 
 	private byte[] GetImage(string imagePath)
