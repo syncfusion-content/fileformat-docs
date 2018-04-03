@@ -373,8 +373,8 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
 
-N> After calling the ShowColumn(int columnIndex, bool isVisible) or HideColumn(int columnIndex) method, the column width should not be set to hidden columns. It will make hidden columns visible.
-N> After calling the ShowRow(int rowIndex, bool isVisible) or HideRow(int rowIndex) method, the row height should not be set to hidden rows. It will make hidden rows visible.
+N> After calling the "ShowColumn(int columnIndex, bool isVisible)" or "HideColumn(int columnIndex)" method, the column width should not be set to hidden columns. It will make hidden columns visible.
+N> After calling the "ShowRow(int rowIndex, bool isVisible)" or "HideRow(int rowIndex)" method, the row height should not be set to hidden rows. It will make hidden rows visible.
 
 ## Adjust Row Height and Column Width 
 
