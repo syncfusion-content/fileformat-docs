@@ -16,70 +16,121 @@ The following code shows how a cell style can be created & applied.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
-
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a new style with cell back color, fill pattern and font attribute
-
 IStyle style = workbook.Styles.Add("NewStyle");
-
 style.Color = Color.LightGreen;
-
 style.FillPattern = ExcelPattern.DarkUpwardDiagonal;
-
 style.Font.Bold = true;
-
 worksheet.Range["B2"].CellStyle = style;
 
 workbook.SaveAs("Style.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Creating a new style with cell back color, fill pattern and font attribute
-
 Dim style As IStyle = workbook.Styles.Add("NewStyle")
-
 style.Color = Color.LightGreen
-
 style.FillPattern = ExcelPattern.DarkUpwardDiagonal
-
 style.Font.Bold = True
-
 worksheet.Range("B2").CellStyle = style
 
 workbook.SaveAs("Style.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+//Creating a new style with cell back color, fill pattern and font attribute
+IStyle style = workbook.Styles.Add("NewStyle");
+style.Color = Color.FromArgb(255,144,238,144);
+style.FillPattern = ExcelPattern.DarkUpwardDiagonal;
+style.Font.Bold = true;
+worksheet.Range["B2"].CellStyle = style;
 
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Style";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Creating a new style with cell back color, fill pattern and font attribute
+IStyle style = workbook.Styles.Add("NewStyle");
+style.Color = Color.LightGreen;
+style.FillPattern = ExcelPattern.DarkUpwardDiagonal;
+style.Font.Bold = true;
+worksheet.Range["B2"].CellStyle = style;
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Style.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Creating a new style with cell back color, fill pattern and font attribute
+IStyle style = workbook.Styles.Add("NewStyle");
+style.Color = Color.LightGreen;
+style.FillPattern = ExcelPattern.DarkUpwardDiagonal;
+style.Font.Bold = true;
+worksheet.Range["B2"].CellStyle = style;
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Style.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Style.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -92,80 +143,141 @@ The following code snippet illustrates how to set default styles in a range.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
-//Define new styles to apply in rows and columns.
-
+//Define new styles to apply in rows and columns
 IStyle rowStyle = workbook.Styles.Add("RowStyle");
-
 rowStyle.Color = Color.LightGreen;
-
 IStyle columnStyle = workbook.Styles.Add("ColumnStyle");
-
 columnStyle.Color = Color.Orange;
 
 //Set default row style for entire row
-
 worksheet.SetDefaultRowStyle(1, 2, rowStyle);
-
 //Set default column style for entire column
-
 worksheet.SetDefaultColumnStyle(1, 2, columnStyle);
 
 workbook.SaveAs("DefaultStyles.xlsx");
-
 workbook.Close();
-
-excelEngine.Dispose(); 
-
-
-
+excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-'Define new styles to apply in rows and columns.
-
+'Define new styles to apply in rows and columns
 Dim rowStyle As IStyle = workbook.Styles.Add("RowStyle")
-
 rowStyle.Color = Color.LightGreen
-
 Dim columnStyle As IStyle = workbook.Styles.Add("ColumnStyle")
-
 columnStyle.Color = Color.Orange
 
 'Set default row style for entire row
-
 worksheet.SetDefaultRowStyle(1, 2, rowStyle)
-
 'Set default column style for entire column
-
 worksheet.SetDefaultColumnStyle(1, 2, columnStyle)
 
 workbook.SaveAs("DefaultStyles.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+//Define new styles to apply in rows and columns
+IStyle rowStyle = workbook.Styles.Add("RowStyle");
+rowStyle.Color = Color.FromArgb(255,144,238,144);
+IStyle columnStyle = workbook.Styles.Add("ColumnStyle");
+columnStyle.Color = Color.FromArgb(255,255,165,0);
 
+//Set default row style for entire row
+worksheet.SetDefaultRowStyle(1, 2, rowStyle);
+//Set default column style for entire column
+worksheet.SetDefaultColumnStyle(1, 2, columnStyle);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "DefaultStyles";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Define new styles to apply in rows and columns
+IStyle rowStyle = workbook.Styles.Add("RowStyle");
+rowStyle.Color = Color.LightGreen;
+IStyle columnStyle = workbook.Styles.Add("ColumnStyle");
+columnStyle.Color = Color.Orange;
+
+//Set default row style for entire row
+worksheet.SetDefaultRowStyle(1, 2, rowStyle);
+//Set default column style for entire column
+worksheet.SetDefaultColumnStyle(1, 2, columnStyle);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("DefaultStyles.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Define new styles to apply in rows and columns
+IStyle rowStyle = workbook.Styles.Add("RowStyle");
+rowStyle.Color = Color.LightGreen;
+IStyle columnStyle = workbook.Styles.Add("ColumnStyle");
+columnStyle.Color = Color.Orange;
+
+//Set default row style for entire row
+worksheet.SetDefaultRowStyle(1, 2, rowStyle);
+//Set default column style for entire column
+worksheet.SetDefaultColumnStyle(1, 2, columnStyle);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DefaultStyles.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("DefaultStyles.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}    
 
@@ -184,224 +296,340 @@ The following code snippet illustrate to setting header style and body style to 
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(2);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Adding values to a worksheet range
-
 worksheet.Range["A1"].Text = "CustomerID";
-
 worksheet.Range["B1"].Text = "CompanyName";
-
 worksheet.Range["C1"].Text = "ContactName";
-
 worksheet.Range["A2"].Text = "ALFKI";
-
 worksheet.Range["A3"].Text = "ANATR";
-
 worksheet.Range["A4"].Text = "BONAP";
-
 worksheet.Range["A5"].Text = "BSBEV";
-
 worksheet.Range["B2"].Text = "Alfred Futterkiste";
-
 worksheet.Range["B3"].Text = "Ana Trujillo Emparedados y helados";
-
 worksheet.Range["B4"].Text = "Bon App";
-
 worksheet.Range["B5"].Text = "B's Beverages";
-
 worksheet.Range["C2"].Text = "Maria Anders";
-
 worksheet.Range["C3"].Text = "Ana Trujillo";
-
 worksheet.Range["C4"].Text = "Laurence Lebihan";
-
-worksheet.Range["C5"].Text = "Victoria Ashworth"; 
+worksheet.Range["C5"].Text = "Victoria Ashworth";
 
 //Formatting
-
 //Global styles should be used when the same style needs to be applied to more than one cell. This usage of a global style reduces memory usage.
-
-//Add custom colors to the palette.
-
+//Add custom colors to the palette
 workbook.SetPaletteColor(8, Color.FromArgb(255, 174, 33));
 
 //Defining header style
-
 IStyle headerStyle = workbook.Styles.Add("HeaderStyle");
-
 headerStyle.BeginUpdate();
-
 headerStyle.Color = Color.FromArgb(255, 174, 33);
-
 headerStyle.Font.Bold = true;
-
 headerStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Thin;
-
 headerStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
-
 headerStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
-
 headerStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
-
 headerStyle.EndUpdate();
 
-//Add custom colors to the palette.
-
+//Add custom colors to the palette
 workbook.SetPaletteColor(9, Color.FromArgb(239, 243, 247));
 
 //Defining body style
-
 IStyle bodyStyle = workbook.Styles.Add("BodyStyle");
-
 bodyStyle.BeginUpdate();
-
 bodyStyle.Color = Color.FromArgb(239, 243, 247);
-
 bodyStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Thin;
-
 bodyStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
-
 bodyStyle.EndUpdate();
 
-//Apply Header style.
-
-worksheet.Rows[0].CellStyle = headerStyle; 
-
-//Apply Body Style.
-
+//Apply Header style
+worksheet.Rows[0].CellStyle = headerStyle;
+//Apply Body Style
 worksheet.Range["A2:C5"].CellStyle = bodyStyle;
-
 //Auto-fit the columns
-
 worksheet.UsedRange.AutofitColumns();
 
 workbook.SaveAs("GlobalStyles.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(2)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Adding values to a worksheet range
-
 worksheet.Range("A1").Text = "CustomerID"
-
 worksheet.Range("B1").Text = "CompanyName"
-
 worksheet.Range("C1").Text = "ContactName"
-
 worksheet.Range("A2").Text = "ALFKI"
-
 worksheet.Range("A3").Text = "ANATR"
-
 worksheet.Range("A4").Text = "BONAP"
-
 worksheet.Range("A5").Text = "BSBEV"
-
 worksheet.Range("B2").Text = "Alfred Futterkiste"
-
 worksheet.Range("B3").Text = "Ana Trujillo Emparedados y helados"
-
 worksheet.Range("B4").Text = "Bon App"
-
 worksheet.Range("B5").Text = "B's Beverages"
-
 worksheet.Range("C2").Text = "Maria Anders"
-
 worksheet.Range("C3").Text = "Ana Trujillo"
-
 worksheet.Range("C4").Text = "Laurence Lebihan"
-
 worksheet.Range("C5").Text = "Victoria Ashworth"
 
 'Formatting
-
 'Global styles should be used when the same style needs to be applied to more than one cell. This usage of a global style reduces memory usage.
-
-'Add custom colors to the palette.
-
+'Add custom colors to the palette
 workbook.SetPaletteColor(8, Color.FromArgb(255, 174, 33))
 
 'Defining header style
-
 Dim headerStyle As IStyle = workbook.Styles.Add("HeaderStyle")
-
 headerStyle.BeginUpdate()
-
 headerStyle.Color = Color.FromArgb(255, 174, 33)
-
 headerStyle.Font.Bold = True
-
 headerStyle.Borders(ExcelBordersIndex.EdgeLeft).LineStyle = ExcelLineStyle.Thin
-
 headerStyle.Borders(ExcelBordersIndex.EdgeRight).LineStyle = ExcelLineStyle.Thin
-
 headerStyle.Borders(ExcelBordersIndex.EdgeTop).LineStyle = ExcelLineStyle.Thin
-
 headerStyle.Borders(ExcelBordersIndex.EdgeBottom).LineStyle = ExcelLineStyle.Thin
-
 headerStyle.EndUpdate()
 
-'Add custom colors to the palette.
-
+'Add custom colors to the palette
 workbook.SetPaletteColor(9, Color.FromArgb(239, 243, 247))
 
 'Defining body style
-
 Dim bodyStyle As IStyle = workbook.Styles.Add("BodyStyle")
-
 bodyStyle.BeginUpdate()
-
 bodyStyle.Color = Color.FromArgb(239, 243, 247)
-
 bodyStyle.Borders(ExcelBordersIndex.EdgeLeft).LineStyle = ExcelLineStyle.Thin
-
 bodyStyle.Borders(ExcelBordersIndex.EdgeRight).LineStyle = ExcelLineStyle.Thin
-
 bodyStyle.EndUpdate()
 
-'Apply Header style.
-
+'Apply Header style
 worksheet.Rows(0).CellStyle = headerStyle
-
-'Apply Body Style.
-
+'Apply Body Style
 worksheet.Range("A2:C5").CellStyle = bodyStyle
-
 'Auto-fit the columns
-
 worksheet.UsedRange.AutofitColumns()
 
 workbook.SaveAs("GlobalStyles.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(2);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+//Adding values to a worksheet range
+worksheet.Range["A1"].Text = "CustomerID";
+worksheet.Range["B1"].Text = "CompanyName";
+worksheet.Range["C1"].Text = "ContactName";
+worksheet.Range["A2"].Text = "ALFKI";
+worksheet.Range["A3"].Text = "ANATR";
+worksheet.Range["A4"].Text = "BONAP";
+worksheet.Range["A5"].Text = "BSBEV";
+worksheet.Range["B2"].Text = "Alfred Futterkiste";
+worksheet.Range["B3"].Text = "Ana Trujillo Emparedados y helados";
+worksheet.Range["B4"].Text = "Bon App";
+worksheet.Range["B5"].Text = "B's Beverages";
+worksheet.Range["C2"].Text = "Maria Anders";
+worksheet.Range["C3"].Text = "Ana Trujillo";
+worksheet.Range["C4"].Text = "Laurence Lebihan";
+worksheet.Range["C5"].Text = "Victoria Ashworth";
 
+//Formatting
+//Global styles should be used when the same style needs to be applied to more than one cell. This usage of a global style reduces memory usage.
+//Add custom colors to the palette
+workbook.SetPaletteColor(8, Color.FromArgb(255,255, 174, 33));
+
+//Defining header style
+IStyle headerStyle = workbook.Styles.Add("HeaderStyle");
+headerStyle.BeginUpdate();
+headerStyle.Color = Color.FromArgb(255,255, 174, 33);
+headerStyle.Font.Bold = true;
+headerStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Thin;
+headerStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
+headerStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
+headerStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
+headerStyle.EndUpdate();
+
+//Add custom colors to the palette
+workbook.SetPaletteColor(9, Color.FromArgb(255,239, 243, 247));
+
+//Defining body style
+IStyle bodyStyle = workbook.Styles.Add("BodyStyle");
+bodyStyle.BeginUpdate();
+bodyStyle.Color = Color.FromArgb(255,239, 243, 247);
+bodyStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Thin;
+bodyStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
+bodyStyle.EndUpdate();
+
+//Apply Header style
+worksheet.Rows[0].CellStyle = headerStyle;
+//Apply Body Style
+worksheet.Range["A2:C5"].CellStyle = bodyStyle;
+//Auto-fit the columns
+worksheet.UsedRange.AutofitColumns();
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "GlobalStyles";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(2);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Adding values to a worksheet range
+worksheet.Range["A1"].Text = "CustomerID";
+worksheet.Range["B1"].Text = "CompanyName";
+worksheet.Range["C1"].Text = "ContactName";
+worksheet.Range["A2"].Text = "ALFKI";
+worksheet.Range["A3"].Text = "ANATR";
+worksheet.Range["A4"].Text = "BONAP";
+worksheet.Range["A5"].Text = "BSBEV";
+worksheet.Range["B2"].Text = "Alfred Futterkiste";
+worksheet.Range["B3"].Text = "Ana Trujillo Emparedados y helados";
+worksheet.Range["B4"].Text = "Bon App";
+worksheet.Range["B5"].Text = "B's Beverages";
+worksheet.Range["C2"].Text = "Maria Anders";
+worksheet.Range["C3"].Text = "Ana Trujillo";
+worksheet.Range["C4"].Text = "Laurence Lebihan";
+worksheet.Range["C5"].Text = "Victoria Ashworth";
+
+//Formatting
+//Global styles should be used when the same style needs to be applied to more than one cell. This usage of a global style reduces memory usage.
+//Add custom colors to the palette
+workbook.SetPaletteColor(8, Color.FromArgb(255, 174, 33));
+
+//Defining header style
+IStyle headerStyle = workbook.Styles.Add("HeaderStyle");
+headerStyle.BeginUpdate();
+headerStyle.Color = Color.FromArgb(255, 174, 33);
+headerStyle.Font.Bold = true;
+headerStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Thin;
+headerStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
+headerStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
+headerStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
+headerStyle.EndUpdate();
+
+//Add custom colors to the palette
+workbook.SetPaletteColor(9, Color.FromArgb(239, 243, 247));
+
+//Defining body style
+IStyle bodyStyle = workbook.Styles.Add("BodyStyle");
+bodyStyle.BeginUpdate();
+bodyStyle.Color = Color.FromArgb(239, 243, 247);
+bodyStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Thin;
+bodyStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
+bodyStyle.EndUpdate();
+
+//Apply Header style
+worksheet.Rows[0].CellStyle = headerStyle;
+//Apply Body Style
+worksheet.Range["A2:C5"].CellStyle = bodyStyle;
+//Auto-fit the columns
+worksheet.UsedRange.AutofitColumns();
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("GlobalStyles.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(2);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Adding values to a worksheet range
+worksheet.Range["A1"].Text = "CustomerID";
+worksheet.Range["B1"].Text = "CompanyName";
+worksheet.Range["C1"].Text = "ContactName";
+worksheet.Range["A2"].Text = "ALFKI";
+worksheet.Range["A3"].Text = "ANATR";
+worksheet.Range["A4"].Text = "BONAP";
+worksheet.Range["A5"].Text = "BSBEV";
+worksheet.Range["B2"].Text = "Alfred Futterkiste";
+worksheet.Range["B3"].Text = "Ana Trujillo Emparedados y helados";
+worksheet.Range["B4"].Text = "Bon App";
+worksheet.Range["B5"].Text = "B's Beverages";
+worksheet.Range["C2"].Text = "Maria Anders";
+worksheet.Range["C3"].Text = "Ana Trujillo";
+worksheet.Range["C4"].Text = "Laurence Lebihan";
+worksheet.Range["C5"].Text = "Victoria Ashworth";
+
+//Formatting
+//Global styles should be used when the same style needs to be applied to more than one cell. This usage of a global style reduces memory usage.
+//Add custom colors to the palette
+workbook.SetPaletteColor(8, Color.FromArgb(255, 174, 33));
+//Defining header style
+IStyle headerStyle = workbook.Styles.Add("HeaderStyle");
+headerStyle.BeginUpdate();
+headerStyle.Color = Color.FromArgb(255, 174, 33);
+headerStyle.Font.Bold = true;
+headerStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Thin;
+headerStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
+headerStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
+headerStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
+headerStyle.EndUpdate();
+
+//Add custom colors to the palette
+workbook.SetPaletteColor(9, Color.FromArgb(255,239, 243, 247));
+
+//Defining body style
+IStyle bodyStyle = workbook.Styles.Add("BodyStyle");
+bodyStyle.BeginUpdate();
+bodyStyle.Color = Color.FromArgb(255,239, 243, 247);
+bodyStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Thin;
+bodyStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
+bodyStyle.EndUpdate();
+
+//Apply Header style
+worksheet.Rows[0].CellStyle = headerStyle;
+//Apply Body Style
+worksheet.Range["A2:C5"].CellStyle = bodyStyle;
+//Auto-fit the columns
+worksheet.UsedRange.AutofitColumns();
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("GlobalStyles.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("GlobalStyles.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}    
 
@@ -597,260 +825,391 @@ The following code snippet illustrates how to set different number formats in a 
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 worksheet.Range["A1"].Text = "DATA";
-
 worksheet.Range["B1"].Text = "NUMBER FORMAT APPLIED";
-
 worksheet.Range["C1"].Text = "RESULT";
-
 IStyle headingStyle = workbook.Styles.Add("HeadingStyle");
-
 headingStyle.Font.Bold = true;
-
 headingStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-
 worksheet.Range["A1:C1"].CellStyle = headingStyle;
 
 //Applying different number formats
-
 worksheet.Range["A2"].Text = "1000000.00075";
-
 worksheet.Range["B2"].Text = "0.00";
-
 worksheet.Range["C2"].NumberFormat = "0.00";
-
 worksheet.Range["C2"].Number = 1000000.00075;
-
 worksheet.Range["A3"].Text = "1000000.500";
-
 worksheet.Range["B3"].Text = "###,##";
-
 worksheet.Range["C3"].NumberFormat = "###,##";
-
 worksheet.Range["C3"].Number = 1000000.500;
-
 worksheet.Range["A5"].Text = "10000";
-
 worksheet.Range["B5"].Text = "0.00";
-
 worksheet.Range["C5"].NumberFormat = "0.00";
-
 worksheet.Range["C5"].Number = 10000;
-
 worksheet.Range["A6"].Text = "-500";
-
 worksheet.Range["B6"].Text = "[Blue]#,##0";
-
 worksheet.Range["C6"].NumberFormat = "[Blue]#,##0";
-
 worksheet.Range["C6"].Number = -500;
-
 worksheet.Range["A7"].Text = "0.000000000000000000001234567890";
-
 worksheet.Range["B7"].Text = "0.000000000000000000000000000000";
-
 worksheet.Range["C7"].NumberFormat = "0.000000000000000000000000000000";
-
 worksheet.Range["C7"].Number = 0.000000000000000000001234567890;
-
 worksheet.Range["A9"].Text = "1.20";
-
 worksheet.Range["B9"].Text = "0.00E+00";
-
 worksheet.Range["C9"].NumberFormat = "0.00E+00";
-
 worksheet.Range["C9"].Number = 1.20;
 
 //Applying percentage format
-
 worksheet.Range["A10"].Text = "1.20";
-
 worksheet.Range["B10"].Text = "0.00%";
-
 worksheet.Range["C10"].NumberFormat = "0.00%";
-
 worksheet.Range["C10"].Number = 1.20;
 
 //Applying date format
-
 worksheet.Range["A11"].Text = new DateTime(2005, 12, 25).ToString();
-
 worksheet.Range["B11"].Text = "m/d/yyyy";
-
 worksheet.Range["C11"].NumberFormat = "m/d/yyyy";
-
 worksheet.Range["C11"].DateTime = new DateTime(2005, 12, 25);
 
 //Applying currency format
-
 worksheet.Range["A12"].Text = "1.20";
-
 worksheet.Range["B12"].Text = "$#,##0.00";
-
 worksheet.Range["C12"].NumberFormat = "$#,##0.00";
-
 worksheet.Range["C12"].Number = 1.20;
 
 //Applying accounting format
-
 worksheet.Range["A12"].Text = "234";
-
 worksheet.Range["B12"].Text = "_($* #,##0_)";
-
 worksheet.Range["C12"].NumberFormat = "_($* #,##0_)";
-
 worksheet.Range["C12"].Number = 234;
 
 //Fit column width to data
-
 worksheet.UsedRange.AutofitColumns();
 
 workbook.SaveAs("NumberFormats.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
 worksheet.Range("A1").Text = "DATA"
-
 worksheet.Range("B1").Text = "NUMBER FORMAT APPLIED"
-
 worksheet.Range("C1").Text = "RESULT"
-
 Dim headingStyle As IStyle = workbook.Styles.Add("HeadingStyle")
-
 headingStyle.Font.Bold = True
-
 headingStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter
-
 worksheet.Range("A1:C1").CellStyle = headingStyle
 
 'Applying different number formats
-
 worksheet.Range("A2").Text = "1000000.00075"
-
 worksheet.Range("B2").Text = "0.00"
-
 worksheet.Range("C2").NumberFormat = "0.00"
-
 worksheet.Range("C2").Number = 1000000.00075
-
 worksheet.Range("A3").Text = "1000000.500"
-
 worksheet.Range("B3").Text = "###,##"
-
 worksheet.Range("C3").NumberFormat = "###,##"
-
 worksheet.Range("C3").Number = 1000000.5
-
 worksheet.Range("A5").Text = "10000"
-
 worksheet.Range("B5").Text = "0.00"
-
 worksheet.Range("C5").NumberFormat = "0.00"
-
 worksheet.Range("C5").Number = 10000
-
 worksheet.Range("A6").Text = "-500"
-
 worksheet.Range("B6").Text = "[Blue]#,##0"
-
 worksheet.Range("C6").NumberFormat = "[Blue]#,##0"
-
 worksheet.Range("C6").Number = -500
-
 worksheet.Range("A7").Text = "0.000000000000000000001234567890"
-
 worksheet.Range("B7").Text = "0.000000000000000000000000000000"
-
 worksheet.Range("C7").NumberFormat = "0.000000000000000000000000000000"
-
 worksheet.Range("C7").Number = 1.23456789E-21
-
 worksheet.Range("A9").Text = "1.20"
-
 worksheet.Range("B9").Text = "0.00E+00"
-
 worksheet.Range("C9").NumberFormat = "0.00E+00"
-
 worksheet.Range("C9").Number = 1.2
 
 'Applying percentage format
-
 worksheet.Range("A10").Text = "1.20"
-
 worksheet.Range("B10").Text = "0.00%"
-
 worksheet.Range("C10").NumberFormat = "0.00%"
-
 worksheet.Range("C10").Number = 1.2
 
 'Applying date format
-
 worksheet.Range("A11").Text = New DateTime(2005, 12, 25).ToString()
-
 worksheet.Range("B11").Text = "m/d/yyyy"
-
 worksheet.Range("C11").NumberFormat = "m/d/yyyy"
-
 worksheet.Range("C11").DateTime = New DateTime(2005, 12, 25)
 
 'Applying currency format
-
 worksheet.Range("A12").Text = "1.20"
-
 worksheet.Range("B12").Text = "$#,##0.00"
-
 worksheet.Range("C12").NumberFormat = "$#,##0.00"
-
 worksheet.Range("C12").Number = 1.2
 
 'Applying accounting format
-
 worksheet.Range("A12").Text = "234"
-
 worksheet.Range("B12").Text = "_($* #,##0_)"
-
 worksheet.Range("C12").NumberFormat = "_($* #,##0_)"
-
 worksheet.Range("C12").Number = 234
 
 'Fit column width to data
-
 worksheet.UsedRange.AutofitColumns()
 
 workbook.SaveAs("NumberFormats.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+worksheet.Range["A1"].Text = "DATA";
+worksheet.Range["B1"].Text = "NUMBER FORMAT APPLIED";
+worksheet.Range["C1"].Text = "RESULT";
+IStyle headingStyle = workbook.Styles.Add("HeadingStyle");
+headingStyle.Font.Bold = true;
+headingStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+worksheet.Range["A1:C1"].CellStyle = headingStyle;
 
+//Applying different number formats
+worksheet.Range["A2"].Text = "1000000.00075";
+worksheet.Range["B2"].Text = "0.00";
+worksheet.Range["C2"].NumberFormat = "0.00";
+worksheet.Range["C2"].Number = 1000000.00075;
+worksheet.Range["A3"].Text = "1000000.500";
+worksheet.Range["B3"].Text = "###,##";
+worksheet.Range["C3"].NumberFormat = "###,##";
+worksheet.Range["C3"].Number = 1000000.500;
+worksheet.Range["A5"].Text = "10000";
+worksheet.Range["B5"].Text = "0.00";
+worksheet.Range["C5"].NumberFormat = "0.00";
+worksheet.Range["C5"].Number = 10000;
+worksheet.Range["A6"].Text = "-500";
+worksheet.Range["B6"].Text = "[Blue]#,##0";
+worksheet.Range["C6"].NumberFormat = "[Blue]#,##0";
+worksheet.Range["C6"].Number = -500;
+worksheet.Range["A7"].Text = "0.000000000000000000001234567890";
+worksheet.Range["B7"].Text = "0.000000000000000000000000000000";
+worksheet.Range["C7"].NumberFormat = "0.000000000000000000000000000000";
+worksheet.Range["C7"].Number = 0.000000000000000000001234567890;
+worksheet.Range["A9"].Text = "1.20";
+worksheet.Range["B9"].Text = "0.00E+00";
+worksheet.Range["C9"].NumberFormat = "0.00E+00";
+worksheet.Range["C9"].Number = 1.20;
+
+//Applying percentage format
+worksheet.Range["A10"].Text = "1.20";
+worksheet.Range["B10"].Text = "0.00%";
+worksheet.Range["C10"].NumberFormat = "0.00%";
+worksheet.Range["C10"].Number = 1.20;
+
+//Applying date format
+worksheet.Range["A11"].Text = new DateTime(2005, 12, 25).ToString();
+worksheet.Range["B11"].Text = "m/d/yyyy";
+worksheet.Range["C11"].NumberFormat = "m/d/yyyy";
+worksheet.Range["C11"].DateTime = new DateTime(2005, 12, 25);
+
+//Applying currency format
+worksheet.Range["A12"].Text = "1.20";
+worksheet.Range["B12"].Text = "$#,##0.00";
+worksheet.Range["C12"].NumberFormat = "$#,##0.00";
+worksheet.Range["C12"].Number = 1.20;
+
+//Applying accounting format
+worksheet.Range["A12"].Text = "234";
+worksheet.Range["B12"].Text = "_($* #,##0_)";
+worksheet.Range["C12"].NumberFormat = "_($* #,##0_)";
+worksheet.Range["C12"].Number = 234;
+
+//Fit column width to data
+worksheet.UsedRange.AutofitColumns();
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "NumberFormats";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+worksheet.Range["A1"].Text = "DATA";
+worksheet.Range["B1"].Text = "NUMBER FORMAT APPLIED";
+worksheet.Range["C1"].Text = "RESULT";
+IStyle headingStyle = workbook.Styles.Add("HeadingStyle");
+headingStyle.Font.Bold = true;
+headingStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+worksheet.Range["A1:C1"].CellStyle = headingStyle;
+
+//Applying different number formats
+worksheet.Range["A2"].Text = "1000000.00075";
+worksheet.Range["B2"].Text = "0.00";
+worksheet.Range["C2"].NumberFormat = "0.00";
+worksheet.Range["C2"].Number = 1000000.00075;
+worksheet.Range["A3"].Text = "1000000.500";
+worksheet.Range["B3"].Text = "###,##";
+worksheet.Range["C3"].NumberFormat = "###,##";
+worksheet.Range["C3"].Number = 1000000.500;
+worksheet.Range["A5"].Text = "10000";
+worksheet.Range["B5"].Text = "0.00";
+worksheet.Range["C5"].NumberFormat = "0.00";
+worksheet.Range["C5"].Number = 10000;
+worksheet.Range["A6"].Text = "-500";
+worksheet.Range["B6"].Text = "[Blue]#,##0";
+worksheet.Range["C6"].NumberFormat = "[Blue]#,##0";
+worksheet.Range["C6"].Number = -500;
+worksheet.Range["A7"].Text = "0.000000000000000000001234567890";
+worksheet.Range["B7"].Text = "0.000000000000000000000000000000";
+worksheet.Range["C7"].NumberFormat = "0.000000000000000000000000000000";
+worksheet.Range["C7"].Number = 0.000000000000000000001234567890;
+worksheet.Range["A9"].Text = "1.20";
+worksheet.Range["B9"].Text = "0.00E+00";
+worksheet.Range["C9"].NumberFormat = "0.00E+00";
+worksheet.Range["C9"].Number = 1.20;
+
+//Applying percentage format
+worksheet.Range["A10"].Text = "1.20";
+worksheet.Range["B10"].Text = "0.00%";
+worksheet.Range["C10"].NumberFormat = "0.00%";
+worksheet.Range["C10"].Number = 1.20;
+
+//Applying date format
+worksheet.Range["A11"].Text = new DateTime(2005, 12, 25).ToString();
+worksheet.Range["B11"].Text = "m/d/yyyy";
+worksheet.Range["C11"].NumberFormat = "m/d/yyyy";
+worksheet.Range["C11"].DateTime = new DateTime(2005, 12, 25);
+
+//Applying currency format
+worksheet.Range["A12"].Text = "1.20";
+worksheet.Range["B12"].Text = "$#,##0.00";
+worksheet.Range["C12"].NumberFormat = "$#,##0.00";
+worksheet.Range["C12"].Number = 1.20;
+
+//Applying accounting format
+worksheet.Range["A12"].Text = "234";
+worksheet.Range["B12"].Text = "_($* #,##0_)";
+worksheet.Range["C12"].NumberFormat = "_($* #,##0_)";
+worksheet.Range["C12"].Number = 234;
+
+//Fit column width to data
+worksheet.UsedRange.AutofitColumns();
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("NumberFormats.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+worksheet.Range["A1"].Text = "DATA";
+worksheet.Range["B1"].Text = "NUMBER FORMAT APPLIED";
+worksheet.Range["C1"].Text = "RESULT";
+IStyle headingStyle = workbook.Styles.Add("HeadingStyle");
+headingStyle.Font.Bold = true;
+headingStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+worksheet.Range["A1:C1"].CellStyle = headingStyle;
+
+//Applying different number formats
+worksheet.Range["A2"].Text = "1000000.00075";
+worksheet.Range["B2"].Text = "0.00";
+worksheet.Range["C2"].NumberFormat = "0.00";
+worksheet.Range["C2"].Number = 1000000.00075;
+worksheet.Range["A3"].Text = "1000000.500";
+worksheet.Range["B3"].Text = "###,##";
+worksheet.Range["C3"].NumberFormat = "###,##";
+worksheet.Range["C3"].Number = 1000000.500;
+worksheet.Range["A5"].Text = "10000";
+worksheet.Range["B5"].Text = "0.00";
+worksheet.Range["C5"].NumberFormat = "0.00";
+worksheet.Range["C5"].Number = 10000;
+worksheet.Range["A6"].Text = "-500";
+worksheet.Range["B6"].Text = "[Blue]#,##0";
+worksheet.Range["C6"].NumberFormat = "[Blue]#,##0";
+worksheet.Range["C6"].Number = -500;
+worksheet.Range["A7"].Text = "0.000000000000000000001234567890";
+worksheet.Range["B7"].Text = "0.000000000000000000000000000000";
+worksheet.Range["C7"].NumberFormat = "0.000000000000000000000000000000";
+worksheet.Range["C7"].Number = 0.000000000000000000001234567890;
+worksheet.Range["A9"].Text = "1.20";
+worksheet.Range["B9"].Text = "0.00E+00";
+worksheet.Range["C9"].NumberFormat = "0.00E+00";
+worksheet.Range["C9"].Number = 1.20;
+
+//Applying percentage format
+worksheet.Range["A10"].Text = "1.20";
+worksheet.Range["B10"].Text = "0.00%";
+worksheet.Range["C10"].NumberFormat = "0.00%";
+worksheet.Range["C10"].Number = 1.20;
+
+//Applying date format
+worksheet.Range["A11"].Text = new DateTime(2005, 12, 25).ToString();
+worksheet.Range["B11"].Text = "m/d/yyyy";
+worksheet.Range["C11"].NumberFormat = "m/d/yyyy";
+worksheet.Range["C11"].DateTime = new DateTime(2005, 12, 25);
+
+//Applying currency format
+worksheet.Range["A12"].Text = "1.20";
+worksheet.Range["B12"].Text = "$#,##0.00";
+worksheet.Range["C12"].NumberFormat = "$#,##0.00";
+worksheet.Range["C12"].Number = 1.20;
+
+//Applying accounting format
+worksheet.Range["A12"].Text = "234";
+worksheet.Range["B12"].Text = "_($* #,##0_)";
+worksheet.Range["C12"].NumberFormat = "_($* #,##0_)";
+worksheet.Range["C12"].Number = 234;
+
+//Fit column width to data
+worksheet.UsedRange.AutofitColumns();
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("NumberFormats.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("NumberFormats.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -869,68 +1228,131 @@ The following code example illustrates how to get display text of a cell.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Set value to the cell
-
 worksheet.Range["C4"].Number = 1.20;
 
 //Set value to a cell
-
 worksheet.Range["B4"].Text = "$#,##0.00";
 
 //Get display text of the cell
+string text = worksheet.Range["B4"].DisplayText;
 
-MessageBox.Show(worksheet.Range["B4"].DisplayText);
-
-workbook.SaveAs(fileName);
-
+workbook.SaveAs("Output.xlsx");
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Set value to the cell
-
 worksheet.Range("C4").Number = 1.2
 
 'Set value to a cell
-
 worksheet.Range("B4").Text = "$#,##0.00"
 
 'Get display text of the cell
+Dim text As String = worksheet.Range("B4").DisplayText
 
-MessageBox.Show(worksheet.Range("B4").DisplayText)
-
-workbook.SaveAs(fileName)
-
+workbook.SaveAs("Output.xlsx")
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+//Set value to the cell
+worksheet.Range["C4"].Number = 1.20;
 
+//Set value to a cell
+worksheet.Range["B4"].Text = "$#,##0.00";
+
+//Get display text of the cell
+string text = worksheet.Range["B4"].DisplayText;
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Set value to the cell
+worksheet.Range["C4"].Number = 1.20;
+
+//Set value to a cell
+worksheet.Range["B4"].Text = "$#,##0.00";
+
+//Get display text of the cell
+string text = worksheet.Range["B4"].DisplayText;
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Set value to the cell
+worksheet.Range["C4"].Number = 1.20;
+
+//Set value to a cell
+worksheet.Range["B4"].Text = "$#,##0.00";
+
+//Get display text of the cell
+string text = worksheet.Range["B4"].DisplayText;
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}    
 
@@ -940,19 +1362,24 @@ You can set **IWorkbook**.**DetectDateTimeInValue** property as ‘false’ with
 
 {% highlight c# %}
 workbook.DetectDateTimeInValue = false;
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 workbook.DetectDateTimeInValue = False
-
-
-
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+workbook.DetectDateTimeInValue = false;
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+workbook.DetectDateTimeInValue = false;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+workbook.DetectDateTimeInValue = false;
+{% endhighlight %}
+{% endtabs %}  
   
 ## Apply Cell Text Alignment
 
@@ -970,21 +1397,28 @@ This code snippet aligns the cell content horizontally.
 
 {% tabs %}  
 {% highlight c# %}
-//Text Alignment Setting (Horizontal Alignment).
-
-worksheet.Range["A2"].CellStyle.HorizontalAlignment= ExcelHAlign.HAlignCenter;
-
-
-
+//Text Alignment Setting (Horizontal Alignment)
+worksheet.Range["A2"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
 {% endhighlight %}
 
 {% highlight vb %}
-'Text Alignment Setting (Horizontal Alignment).
+'Text Alignment Setting (Horizontal Alignment)
+worksheet.Range("A2").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter
+{% endhighlight %}
 
-worksheet.Range("A2").CellStyle.HorizontalAlignment= ExcelHAlign.HAlignCenter
+{% highlight UWP %}
+//Text Alignment Setting (Horizontal Alignment)
+worksheet.Range["A2"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Text Alignment Setting (Horizontal Alignment)
+worksheet.Range["A2"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+{% endhighlight %}
 
-
+{% highlight Xamarin %}
+//Text Alignment Setting (Horizontal Alignment)
+worksheet.Range["A2"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
 {% endhighlight %}
 {% endtabs %}    
 
@@ -994,23 +1428,28 @@ This code snippet aligns the cell content vertically.
 
 {% tabs %}  
 {% highlight c# %}
-//Text Alignment Setting (Vertical Alignment).
-
-worksheet.Range["B2"].CellStyle.VerticalAlignment =
-
-ExcelVAlign.VAlignBottom;
-
-
-
+//Text Alignment Setting (Vertical Alignment)
+worksheet.Range["B2"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
 {% endhighlight %}
 
 {% highlight vb %}
-'Text Alignment Setting (Vertical Alignment).
-
+'Text Alignment Setting (Vertical Alignment)
 worksheet.Range("B2").CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom
+{% endhighlight %}
 
+{% highlight UWP %}
+//Text Alignment Setting (Vertical Alignment)
+worksheet.Range["B2"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Text Alignment Setting (Vertical Alignment)
+worksheet.Range["B2"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Text Alignment Setting (Vertical Alignment)
+worksheet.Range["B2"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1020,21 +1459,28 @@ This allows to set the cell content either to move it closer to the cell border 
 
 {% tabs %}  
 {% highlight c# %}
-//Text Indent Setting.
-
+//Text Indent Setting
 worksheet.Range["C6"].CellStyle.IndentLevel = 6;
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
-'Text Indent Setting.
-
+'Text Indent Setting
 worksheet.Range("C6").CellStyle.IndentLevel = 6
+{% endhighlight %}
 
+{% highlight UWP %}
+//Text Indent Setting
+worksheet.Range["C6"].CellStyle.IndentLevel = 6;
+{% endhighlight %}
 
+{ % highlight ASP.NET Core %}
+//Text Indent Setting
+worksheet.Range["C6"].CellStyle.IndentLevel = 6;
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Text Indent Setting
+worksheet.Range["C6"].CellStyle.IndentLevel = 6;
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1044,21 +1490,28 @@ This helps to rotate the cell text diagonally or vertically. The text orientatio
 
 {% tabs %}  
 {% highlight c# %}
-//Text Orientation Settings.
-
+//Text Orientation Settings
 worksheet.Range["C2"].CellStyle.Rotation = 60;
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
-'Text Orientation Settings.
-
+'Text Orientation Settings
 worksheet.Range("C2").CellStyle.Rotation = 60
+{% endhighlight %}
 
+{% highlight UWP %}
+//Text Orientation Settings
+worksheet.Range["C2"].CellStyle.Rotation = 60;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Text Orientation Settings
+worksheet.Range["C2"].CellStyle.Rotation = 60;
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Text Orientation Settings
+worksheet.Range["C2"].CellStyle.Rotation = 60;
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1068,21 +1521,28 @@ You can specify the text direction by using the **ReadingOrder** property as sho
 
 {% tabs %}  
 {% highlight c# %}
-//Text Direction Setting.
-
+//Text Direction Setting
 worksheet.Range["D2"].CellStyle.ReadingOrder = ExcelReadingOrderType.LeftToRight;
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
-'Text Direction Setting.
-
+'Text Direction Setting
 worksheet.Range("D2").CellStyle.ReadingOrder = ExcelReadingOrderType.LeftToRight
+{% endhighlight %}
 
+{% highlight UWP %}
+//Text Direction Setting
+worksheet.Range["D2"].CellStyle.ReadingOrder = ExcelReadingOrderType.LeftToRight;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Text Direction Setting
+worksheet.Range["D2"].CellStyle.ReadingOrder = ExcelReadingOrderType.LeftToRight;
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Text Direction Setting
+worksheet.Range["D2"].CellStyle.ReadingOrder = ExcelReadingOrderType.LeftToRight;
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1091,184 +1551,291 @@ The complete code snippet illustrating the above options is shown below.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 worksheet.Range["A2"].Text = "HAlignCenter";
-
 worksheet.Range["A4"].Text = "HAlignFill";
-
 worksheet.Range["A6"].Text = "HAlignRight";
-
 worksheet.Range["A8"].Text = "HAlignCenterAcrossSelection";
-
 worksheet.Range["B2"].Text = "VAlignCenter";
-
 worksheet.Range["B4"].Text = "VAlignFill";
-
 worksheet.Range["B6"].Text = "VAlignTop";
-
 worksheet.Range["B8"].Text = "VAlignCenterAcrossSelection";
-
 worksheet.Range["C2"].Text = "Text Rotation to 60 degree";
-
 worksheet.Range["C4"].Text = "Text Rotation to 90 degree";
-
 worksheet.Range["C6"].Text = "Indent level is 6";
-
 worksheet.Range["D2"].Text = "Text Direction(LeftToRight)";
-
 worksheet.Range["D3"].Text = "Text Direction(RightToLeft)";
-
 worksheet.Range["D4"].Text = "Text Direction(Context)";
 
-//Text Alignment Setting (Horizontal Alignment).
-
+//Text Alignment Setting (Horizontal Alignment)
 worksheet.Range["A2"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-
 worksheet.Range["A4"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignFill;
-
 worksheet.Range["A6"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
-
 worksheet.Range["A8"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenterAcrossSelection;
 
-//Text Alignment Setting (Vertical Alignment).
-
+//Text Alignment Setting (Vertical Alignment)
 worksheet.Range["B2"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
-
 worksheet.Range["B4"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
-
 worksheet.Range["B6"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
-
 worksheet.Range["B8"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignDistributed;
 
-//Text Orientation Settings.
-
+//Text Orientation Settings
 worksheet.Range["C2"].CellStyle.Rotation = 60;
-
 worksheet.Range["C4"].CellStyle.Rotation = 90;
 
-//Text Indent Setting.
-
+//Text Indent Setting
 worksheet.Range["C6"].CellStyle.IndentLevel = 6;
 
-//Text Direction Setting.
-
+//Text Direction Setting
 worksheet.Range["D2"].CellStyle.ReadingOrder = ExcelReadingOrderType.LeftToRight;
-
 worksheet.Range["D3"].CellStyle.ReadingOrder = ExcelReadingOrderType.RightToLeft;
-
 worksheet.Range["D4"].CellStyle.ReadingOrder = ExcelReadingOrderType.Context;
-
 worksheet.UsedRange.AutofitColumns();
-
 worksheet.UsedRange.AutofitRows();
 
 workbook.SaveAs("Book1.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 worksheet.Range("A2").Text = "HAlignCenter"
-
 worksheet.Range("A4").Text = "HAlignFill"
-
 worksheet.Range("A6").Text = "HAlignRight"
-
 worksheet.Range("A8").Text = "HAlignCenterAcrossSelection"
-
 worksheet.Range("B2").Text = "VAlignCenter"
-
 worksheet.Range("B4").Text = "VAlignFill"
-
 worksheet.Range("B6").Text = "VAlignTop"
-
 worksheet.Range("B8").Text = "VAlignCenterAcrossSelection"
-
 worksheet.Range("C2").Text = "Text Rotation to 60 degree"
-
 worksheet.Range("C4").Text = "Text Rotation to 90 degree"
-
 worksheet.Range("C6").Text = "Indent level is 6"
-
 worksheet.Range("D2").Text = "Text Direction(LeftToRight)"
-
 worksheet.Range("D3").Text = "Text Direction(RightToLeft)"
-
 worksheet.Range("D4").Text = "Text Direction(Context)"
 
-'Text Alignment Setting (Horizontal Alignment).
-
+'Text Alignment Setting (Horizontal Alignment)
 worksheet.Range("A2").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter
-
 worksheet.Range("A4").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignFill
-
 worksheet.Range("A6").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight
-
 worksheet.Range("A8").CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenterAcrossSelection
 
-'Text Alignment Setting (Vertical Alignment).
-
+'Text Alignment Setting (Vertical Alignment)
 worksheet.Range("B2").CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom
-
 worksheet.Range("B4").CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter
-
 worksheet.Range("B6").CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop
-
 worksheet.Range("B8").CellStyle.VerticalAlignment = ExcelVAlign.VAlignDistributed
 
-'Text Orientation Settings.
-
+'Text Orientation Settings
 worksheet.Range("C2").CellStyle.Rotation = 60
-
 worksheet.Range("C4").CellStyle.Rotation = 90
 
-'Text Indent Setting.
-
+'Text Indent Setting
 worksheet.Range("C6").CellStyle.IndentLevel = 6
 
-'Text Direction Setting.
-
+'Text Direction Setting
 worksheet.Range("D2").CellStyle.ReadingOrder = ExcelReadingOrderType.LeftToRight
-
 worksheet.Range("D3").CellStyle.ReadingOrder = ExcelReadingOrderType.RightToLeft
-
 worksheet.Range("D4").CellStyle.ReadingOrder = ExcelReadingOrderType.Context
-
 worksheet.UsedRange.AutofitColumns()
-
 worksheet.UsedRange.AutofitRows()
 
 workbook.SaveAs("Book1.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+worksheet.Range["A2"].Text = "HAlignCenter";
+worksheet.Range["A4"].Text = "HAlignFill";
+worksheet.Range["A6"].Text = "HAlignRight";
+worksheet.Range["A8"].Text = "HAlignCenterAcrossSelection";
+worksheet.Range["B2"].Text = "VAlignCenter";
+worksheet.Range["B4"].Text = "VAlignFill";
+worksheet.Range["B6"].Text = "VAlignTop";
+worksheet.Range["B8"].Text = "VAlignCenterAcrossSelection";
+worksheet.Range["C2"].Text = "Text Rotation to 60 degree";
+worksheet.Range["C4"].Text = "Text Rotation to 90 degree";
+worksheet.Range["C6"].Text = "Indent level is 6";
+worksheet.Range["D2"].Text = "Text Direction(LeftToRight)";
+worksheet.Range["D3"].Text = "Text Direction(RightToLeft)";
+worksheet.Range["D4"].Text = "Text Direction(Context)";
 
+//Text Alignment Setting (Horizontal Alignment)
+worksheet.Range["A2"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+worksheet.Range["A4"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignFill;
+worksheet.Range["A6"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
+worksheet.Range["A8"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenterAcrossSelection;
+
+//Text Alignment Setting (Vertical Alignment)
+worksheet.Range["B2"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
+worksheet.Range["B4"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
+worksheet.Range["B6"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
+worksheet.Range["B8"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignDistributed;
+
+//Text Orientation Settings
+worksheet.Range["C2"].CellStyle.Rotation = 60;
+worksheet.Range["C4"].CellStyle.Rotation = 90;
+
+//Text Indent Setting
+worksheet.Range["C6"].CellStyle.IndentLevel = 6;
+
+//Text Direction Setting
+worksheet.Range["D2"].CellStyle.ReadingOrder = ExcelReadingOrderType.LeftToRight;
+worksheet.Range["D3"].CellStyle.ReadingOrder = ExcelReadingOrderType.RightToLeft;
+worksheet.Range["D4"].CellStyle.ReadingOrder = ExcelReadingOrderType.Context;
+worksheet.UsedRange.AutofitColumns();
+worksheet.UsedRange.AutofitRows();
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Book1";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+worksheet.Range["A2"].Text = "HAlignCenter";
+worksheet.Range["A4"].Text = "HAlignFill";
+worksheet.Range["A6"].Text = "HAlignRight";
+worksheet.Range["A8"].Text = "HAlignCenterAcrossSelection";
+worksheet.Range["B2"].Text = "VAlignCenter";
+worksheet.Range["B4"].Text = "VAlignFill";
+worksheet.Range["B6"].Text = "VAlignTop";
+worksheet.Range["B8"].Text = "VAlignCenterAcrossSelection";
+worksheet.Range["C2"].Text = "Text Rotation to 60 degree";
+worksheet.Range["C4"].Text = "Text Rotation to 90 degree";
+worksheet.Range["C6"].Text = "Indent level is 6";
+worksheet.Range["D2"].Text = "Text Direction(LeftToRight)";
+worksheet.Range["D3"].Text = "Text Direction(RightToLeft)";
+worksheet.Range["D4"].Text = "Text Direction(Context)";
+
+//Text Alignment Setting (Horizontal Alignment)
+worksheet.Range["A2"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+worksheet.Range["A4"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignFill;
+worksheet.Range["A6"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
+worksheet.Range["A8"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenterAcrossSelection;
+
+//Text Alignment Setting (Vertical Alignment)
+worksheet.Range["B2"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
+worksheet.Range["B4"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
+worksheet.Range["B6"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
+worksheet.Range["B8"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignDistributed;
+
+//Text Orientation Settings
+worksheet.Range["C2"].CellStyle.Rotation = 60;
+worksheet.Range["C4"].CellStyle.Rotation = 90;
+
+//Text Indent Setting
+worksheet.Range["C6"].CellStyle.IndentLevel = 6;
+
+//Text Direction Setting
+worksheet.Range["D2"].CellStyle.ReadingOrder = ExcelReadingOrderType.LeftToRight;
+worksheet.Range["D3"].CellStyle.ReadingOrder = ExcelReadingOrderType.RightToLeft;
+worksheet.Range["D4"].CellStyle.ReadingOrder = ExcelReadingOrderType.Context;
+worksheet.UsedRange.AutofitColumns();
+worksheet.UsedRange.AutofitRows();
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+worksheet.Range["A2"].Text = "HAlignCenter";
+worksheet.Range["A4"].Text = "HAlignFill";
+worksheet.Range["A6"].Text = "HAlignRight";
+worksheet.Range["A8"].Text = "HAlignCenterAcrossSelection";
+worksheet.Range["B2"].Text = "VAlignCenter";
+worksheet.Range["B4"].Text = "VAlignFill";
+worksheet.Range["B6"].Text = "VAlignTop";
+worksheet.Range["B8"].Text = "VAlignCenterAcrossSelection";
+worksheet.Range["C2"].Text = "Text Rotation to 60 degree";
+worksheet.Range["C4"].Text = "Text Rotation to 90 degree";
+worksheet.Range["C6"].Text = "Indent level is 6";
+worksheet.Range["D2"].Text = "Text Direction(LeftToRight)";
+worksheet.Range["D3"].Text = "Text Direction(RightToLeft)";
+worksheet.Range["D4"].Text = "Text Direction(Context)";
+
+//Text Alignment Setting (Horizontal Alignment)
+worksheet.Range["A2"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+worksheet.Range["A4"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignFill;
+worksheet.Range["A6"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
+worksheet.Range["A8"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenterAcrossSelection;
+
+//Text Alignment Setting (Vertical Alignment)
+worksheet.Range["B2"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
+worksheet.Range["B4"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
+worksheet.Range["B6"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
+worksheet.Range["B8"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignDistributed;
+
+//Text Orientation Settings
+worksheet.Range["C2"].CellStyle.Rotation = 60;
+worksheet.Range["C4"].CellStyle.Rotation = 90;
+
+//Text Indent Setting
+worksheet.Range["C6"].CellStyle.IndentLevel = 6;
+
+//Text Direction Setting
+worksheet.Range["D2"].CellStyle.ReadingOrder = ExcelReadingOrderType.LeftToRight;
+worksheet.Range["D3"].CellStyle.ReadingOrder = ExcelReadingOrderType.RightToLeft;
+worksheet.Range["D4"].CellStyle.ReadingOrder = ExcelReadingOrderType.Context;
+worksheet.UsedRange.AutofitColumns();
+worksheet.UsedRange.AutofitRows();
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Book1.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Book1.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1284,20 +1851,27 @@ The cells can be merged using the **Merge****()** method in __IRange__ as shown 
 {% tabs %}  
 {% highlight c# %}
 //Merging Cells from A16 to C16
-
 worksheet.Range["A16:C16"].Merge();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Merging Cells from A16 to C16
-
 worksheet.Range("A16:C16").Merge()
+{% endhighlight %}
 
+{% highlight UWP %}
+//Merging Cells from A16 to C16
+worksheet.Range["A16:C16"].Merge();
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Merging Cells from A16 to C16
+worksheet.Range["A16:C16"].Merge();
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Merging Cells from A16 to C16
+worksheet.Range["A16:C16"].Merge();
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1306,20 +1880,27 @@ Merged cells can be unmerged using the **UnMerge****()** method in __IRange__ as
 {% tabs %}  
 {% highlight c# %}
 //Un-Merging merged cells from A16 to C16
-
 worksheet.Range["A16:C16"].UnMerge();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Un-Merging merged cells from A16 to C16
-
 worksheet.Range("A16:C16").UnMerge()
+{% endhighlight %}
 
+{% highlight UWP %}
+//Un-Merging merged cells from A16 to C16
+worksheet.Range["A16:C16"].UnMerge();
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Un-Merging merged cells from A16 to C16
+worksheet.Range["A16:C16"].UnMerge();
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Un-Merging merged cells from A16 to C16
+worksheet.Range["A16:C16"].UnMerge();
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1328,59 +1909,111 @@ The below code shows merging and unmerging worksheet cells.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
-
-
 //Merging cells
-
 worksheet.Range["A16:C16"].Merge();
-
 //Un-Merging merged cells
-
 worksheet.Range["A16:C16"].UnMerge();
 
 workbook.SaveAs("MergingUnMerging.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
 Dim workbook As IWorkbook = application.Workbooks.Create()
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Merging cells
-
 worksheet.Range("A16:C16").Merge()
-
 'Un-Merging merged cells
-
 worksheet.Range("A16:C16").UnMerge()
 
 workbook.SaveAs("MergingUnMerging.xlsx")
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+//Merging cells
+worksheet.Range["A16:C16"].Merge();
+//Un-Merging merged cells
+worksheet.Range["A16:C16"].UnMerge();
 
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "MergingUnMerging";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Merging cells
+worksheet.Range["A16:C16"].Merge();
+//Un-Merging merged cells
+worksheet.Range["A16:C16"].UnMerge();
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("MergingUnMerging.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Merging cells
+worksheet.Range["A16:C16"].Merge();
+//Un-Merging merged cells
+worksheet.Range["A16:C16"].UnMerge();
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("MergingUnMerging.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("MergingUnMerging.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1393,13 +2026,9 @@ N> Applying wrap-text will not auto-fit the rows by default. It is recommended t
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 worksheet.Range["A2"].Text = "First Sentence is wrapped";
@@ -1407,46 +2036,111 @@ worksheet.Range["B2"].Text = "Second Sentence is wrapped";
 worksheet.Range["C2"].Text = "Third Sentence is wrapped";
 
 //Applying Wrap-text
-
 worksheet.Range["A2:C2"].WrapText = true;
 
 workbook.SaveAs("WrapText.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 worksheet.Range("A2").Text = "First Sentence is wrapped"
-
 worksheet.Range("B2").Text = "Second Sentence is wrapped"
-
 worksheet.Range("C2").Text = "Third Sentence is wrapped"
 
 'Applying wrap-text
-
 worksheet.Range("A2:C2").WrapText = True
 
 workbook.SaveAs("WrapText.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+worksheet.Range["A2"].Text = "First Sentence is wrapped";
+worksheet.Range["B2"].Text = "Second Sentence is wrapped";
+worksheet.Range["C2"].Text = "Third Sentence is wrapped";
 
+//Applying Wrap-text
+worksheet.Range["A2:C2"].WrapText = true;
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "WrapText";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+worksheet.Range["A2"].Text = "First Sentence is wrapped";
+worksheet.Range["B2"].Text = "Second Sentence is wrapped";
+worksheet.Range["C2"].Text = "Third Sentence is wrapped";
+
+//Applying Wrap-text
+worksheet.Range["A2:C2"].WrapText = true;
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("WrapText.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+worksheet.Range["A2"].Text = "First Sentence is wrapped";
+worksheet.Range["B2"].Text = "Second Sentence is wrapped";
+worksheet.Range["C2"].Text = "Third Sentence is wrapped";
+
+//Applying Wrap-text
+worksheet.Range["A2:C2"].WrapText = true;
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("WrapText.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("WrapText.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1459,76 +2153,131 @@ The following code shows how to auto-size row height and column width to its cel
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Auto-fit rows
-
 worksheet.Range["A2"].Text = "Fit the content to row";
-
 worksheet.Range["A2"].WrapText = true;
-
 worksheet.Range["A2"].AutofitRows();
 
-
-
 //Auto-fit columns
-
 worksheet.Range["B4"].Text = "Fit the content to column";
-
 worksheet.Range["B4"].AutofitColumns();
 
 workbook.SaveAs("AutoFit.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Auto-fit rows
-
 worksheet.Range("A2").Text = "Fit the content to row"
-
 worksheet.Range("A2").WrapText = True
-
 worksheet.Range("A2").AutofitRows()
 
 'Auto-fit columns
-
 worksheet.Range("B4").Text = "Fit the content to column"
-
 worksheet.Range("B4").AutofitColumns()
 
 workbook.SaveAs("AutoFit.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+//Auto-fit rows
+worksheet.Range["A2"].Text = "Fit the content to row";
+worksheet.Range["A2"].WrapText = true;
+worksheet.Range["A2"].AutofitRows();
 
+//Auto-fit columns
+worksheet.Range["B4"].Text = "Fit the content to column";
+worksheet.Range["B4"].AutofitColumns();
 
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "AutoFit";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Auto-fit rows
+worksheet.Range["A2"].Text = "Fit the content to row";
+worksheet.Range["A2"].WrapText = true;
+worksheet.Range["A2"].AutofitRows();
+
+//Auto-fit columns
+worksheet.Range["B4"].Text = "Fit the content to column";
+worksheet.Range["B4"].AutofitColumns();
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("AutoFit.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Auto-fit rows
+worksheet.Range["A2"].Text = "Fit the content to row";
+worksheet.Range["A2"].WrapText = true;
+worksheet.Range["A2"].AutofitRows();
+
+//Auto-fit columns
+worksheet.Range["B4"].Text = "Fit the content to column";
+worksheet.Range["B4"].AutofitColumns();
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("AutoFit.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("AutoFit.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1541,136 +2290,236 @@ The appearance of a text can be controlled by font settings of a cell. These set
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Adding text for a range
-
 worksheet.Range["A1:B6"].Text = "Hello World";
 
-//Setting Font Type.
-
+//Setting Font Type
 worksheet.Range["A1"].CellStyle.Font.FontName = "Arial Black";
-
 worksheet.Range["A3"].CellStyle.Font.FontName = "Castellar";
 
-//Setting Font Styles.
-
+//Setting Font Styles
 worksheet.Range["A2"].CellStyle.Font.Bold = true;
-
 worksheet.Range["A4"].CellStyle.Font.Italic = true;
 
-//Setting Font Size.
-
+//Setting Font Size
 worksheet.Range["A5"].CellStyle.Font.Size = 18;
 
-//Setting Font Effects.
-
+//Setting Font Effects
 worksheet.Range["A6"].CellStyle.Font.Strikethrough = true;
-
 worksheet.Range["B3"].CellStyle.Font.Subscript = true;
-
 worksheet.Range["B5"].CellStyle.Font.Superscript = true;
 
-//Setting UnderLine Types.
-
+//Setting UnderLine Types
 worksheet.Range["B1"].CellStyle.Font.Underline = ExcelUnderline.Double;
-
 worksheet.Range["B2"].CellStyle.Font.Underline = ExcelUnderline.Single;
-
 worksheet.Range["B4"].CellStyle.Font.Underline = ExcelUnderline.DoubleAccounting;
-
 worksheet.Range["B6"].CellStyle.Font.Underline = ExcelUnderline.SingleAccounting;
 
-//Setting Font Color.
-
+//Setting Font Color
 worksheet.Range["B6"].CellStyle.Font.Color = ExcelKnownColors.Green;
-
 worksheet.UsedRange.AutofitColumns();
-
 worksheet.UsedRange.AutofitRows();
 
 workbook.SaveAs("FontSettings.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Adding text for a range
-
 worksheet.Range("A1:B6").Text = "Hello World"
 
-'Setting Font Type.
-
+'Setting Font Type
 worksheet.Range("A1").CellStyle.Font.FontName = "Arial Black"
-
 worksheet.Range("A3").CellStyle.Font.FontName = "Castellar"
 
-'Setting Font Styles.
-
+'Setting Font Styles
 worksheet.Range("A2").CellStyle.Font.Bold = True
-
 worksheet.Range("A4").CellStyle.Font.Italic = True
 
-'Setting Font Size.
-
+'Setting Font Size
 worksheet.Range("A5").CellStyle.Font.Size = 18
 
-'Setting Font Effects.
-
+'Setting Font Effects
 worksheet.Range("A6").CellStyle.Font.Strikethrough = True
-
 worksheet.Range("B3").CellStyle.Font.Subscript = True
-
 worksheet.Range("B5").CellStyle.Font.Superscript = True
 
-'Setting UnderLine Types.
-
+'Setting UnderLine Types
 worksheet.Range("B1").CellStyle.Font.Underline = ExcelUnderline.Double
-
 worksheet.Range("B2").CellStyle.Font.Underline = ExcelUnderline.Single
-
 worksheet.Range("B4").CellStyle.Font.Underline = ExcelUnderline.DoubleAccounting
-
 worksheet.Range("B6").CellStyle.Font.Underline = ExcelUnderline.SingleAccounting
 
-'Setting Font Color.
-
+'Setting Font Color
 worksheet.Range("B6").CellStyle.Font.Color = ExcelKnownColors.Green
-
 worksheet.UsedRange.AutofitColumns()
-
 worksheet.UsedRange.AutofitRows()
 
 workbook.SaveAs("FontSettings.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+//Adding text for a range
+worksheet.Range["A1:B6"].Text = "Hello World";
 
+//Setting Font Type
+worksheet.Range["A1"].CellStyle.Font.FontName = "Arial Black";
+worksheet.Range["A3"].CellStyle.Font.FontName = "Castellar";
+
+//Setting Font Styles
+worksheet.Range["A2"].CellStyle.Font.Bold = true;
+worksheet.Range["A4"].CellStyle.Font.Italic = true;
+
+//Setting Font Size
+worksheet.Range["A5"].CellStyle.Font.Size = 18;
+
+//Setting Font Effects
+worksheet.Range["A6"].CellStyle.Font.Strikethrough = true;
+worksheet.Range["B3"].CellStyle.Font.Subscript = true;
+worksheet.Range["B5"].CellStyle.Font.Superscript = true;
+
+//Setting UnderLine Types
+worksheet.Range["B1"].CellStyle.Font.Underline = ExcelUnderline.Double;
+worksheet.Range["B2"].CellStyle.Font.Underline = ExcelUnderline.Single;
+worksheet.Range["B4"].CellStyle.Font.Underline = ExcelUnderline.DoubleAccounting;
+worksheet.Range["B6"].CellStyle.Font.Underline = ExcelUnderline.SingleAccounting;
+
+//Setting Font Color
+worksheet.Range["B6"].CellStyle.Font.Color = ExcelKnownColors.Green;
+worksheet.UsedRange.AutofitColumns();
+worksheet.UsedRange.AutofitRows();
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "FontSettings";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Adding text for a range
+worksheet.Range["A1:B6"].Text = "Hello World";
+
+//Setting Font Type
+worksheet.Range["A1"].CellStyle.Font.FontName = "Arial Black";
+worksheet.Range["A3"].CellStyle.Font.FontName = "Castellar";
+
+//Setting Font Styles
+worksheet.Range["A2"].CellStyle.Font.Bold = true;
+worksheet.Range["A4"].CellStyle.Font.Italic = true;
+
+//Setting Font Size
+worksheet.Range["A5"].CellStyle.Font.Size = 18;
+
+//Setting Font Effects
+worksheet.Range["A6"].CellStyle.Font.Strikethrough = true;
+worksheet.Range["B3"].CellStyle.Font.Subscript = true;
+worksheet.Range["B5"].CellStyle.Font.Superscript = true;
+
+//Setting UnderLine Types
+worksheet.Range["B1"].CellStyle.Font.Underline = ExcelUnderline.Double;
+worksheet.Range["B2"].CellStyle.Font.Underline = ExcelUnderline.Single;
+worksheet.Range["B4"].CellStyle.Font.Underline = ExcelUnderline.DoubleAccounting;
+worksheet.Range["B6"].CellStyle.Font.Underline = ExcelUnderline.SingleAccounting;
+
+//Setting Font Color
+worksheet.Range["B6"].CellStyle.Font.Color = ExcelKnownColors.Green;
+worksheet.UsedRange.AutofitColumns();
+worksheet.UsedRange.AutofitRows();
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("FontSettings.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Adding text for a range
+worksheet.Range["A1:B6"].Text = "Hello World";
+
+//Setting Font Type
+worksheet.Range["A1"].CellStyle.Font.FontName = "Arial Black";
+worksheet.Range["A3"].CellStyle.Font.FontName = "Castellar";
+
+//Setting Font Styles
+worksheet.Range["A2"].CellStyle.Font.Bold = true;
+worksheet.Range["A4"].CellStyle.Font.Italic = true;
+
+//Setting Font Size
+worksheet.Range["A5"].CellStyle.Font.Size = 18;
+
+//Setting Font Effects
+worksheet.Range["A6"].CellStyle.Font.Strikethrough = true;
+worksheet.Range["B3"].CellStyle.Font.Subscript = true;
+worksheet.Range["B5"].CellStyle.Font.Superscript = true;
+
+//Setting UnderLine Types
+worksheet.Range["B1"].CellStyle.Font.Underline = ExcelUnderline.Double;
+worksheet.Range["B2"].CellStyle.Font.Underline = ExcelUnderline.Single;
+worksheet.Range["B4"].CellStyle.Font.Underline = ExcelUnderline.DoubleAccounting;
+worksheet.Range["B6"].CellStyle.Font.Underline = ExcelUnderline.SingleAccounting;
+
+//Setting Font Color
+worksheet.Range["B6"].CellStyle.Font.Color = ExcelKnownColors.Green;
+worksheet.UsedRange.AutofitColumns();
+worksheet.UsedRange.AutofitRows();
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("FontSettings.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("FontSettings.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1690,20 +2539,27 @@ Back color of a cell can be set using **ColorIndex** property of __CellStyle__ a
 {% tabs %}  
 {% highlight c# %}
 //Apply cell back color
-
 worksheet.Range["A"].CellStyle.ColorIndex = ExcelKnownColors.Aqua;
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Apply cell back color
-
 worksheet.Range("A").CellStyle.ColorIndex = ExcelKnownColors.Aqua
+{% endhighlight %}
 
+{% highlight UWP %}
+//Apply cell back color
+worksheet.Range["A"].CellStyle.ColorIndex = ExcelKnownColors.Aqua;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Apply cell back color
+worksheet.Range["A"].CellStyle.ColorIndex = ExcelKnownColors.Aqua;
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Apply cell back color
+worksheet.Range["A"].CellStyle.ColorIndex = ExcelKnownColors.Aqua;
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1714,20 +2570,27 @@ Fore color of a cell can be set using **PatternColorIndex** property of __CellSt
 {% tabs %}  
 {% highlight c# %}
 //Apply cell fore color
-
 worksheet.Range["A2"].CellStyle.PatternColorIndex = ExcelKnownColors.Green;
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Apply cell fore color
-
 worksheet.Range("A2").CellStyle.PatternColorIndex = ExcelKnownColors.Green
+{% endhighlight %}
 
+{% highlight UWP %}
+//Apply cell fore color
+worksheet.Range["A2"].CellStyle.PatternColorIndex = ExcelKnownColors.Green;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Apply cell fore color
+worksheet.Range["A2"].CellStyle.PatternColorIndex = ExcelKnownColors.Green;
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Apply cell fore color
+worksheet.Range["A2"].CellStyle.PatternColorIndex = ExcelKnownColors.Green;
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1738,20 +2601,27 @@ Excel provides various pattern styles for highlighting cells. These patterns can
 {% tabs %}  
 {% highlight c# %}
 //Apply cell pattern
-
 worksheet.Range["A2"].CellStyle.FillPattern = ExcelPattern.Angle;
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Apply cell pattern
-
 worksheet.Range("A2").CellStyle.FillPattern = ExcelPattern.Angle
+{% endhighlight %}
 
+{% highlight UWP %}
+//Apply cell pattern
+worksheet.Range["A2"].CellStyle.FillPattern = ExcelPattern.Angle;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Apply cell pattern
+worksheet.Range["A2"].CellStyle.FillPattern = ExcelPattern.Angle;
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Apply cell pattern
+worksheet.Range["A2"].CellStyle.FillPattern = ExcelPattern.Angle;
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1762,154 +2632,241 @@ XlsIO provides support to apply cell borders and format it through **IBorder** i
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Apply borders
-
 worksheet.Range["A2"].CellStyle.Borders.LineStyle = ExcelLineStyle.Medium;
-
 worksheet.Range["A4"].CellStyle.Borders.LineStyle = ExcelLineStyle.Double;
-
 worksheet.Range["A6"].CellStyle.Borders.LineStyle = ExcelLineStyle.Dash_dot;
-
 worksheet.Range["A8"].CellStyle.Borders.LineStyle = ExcelLineStyle.Thick;
-
 worksheet.Range["C2"].CellStyle.Borders.LineStyle = ExcelLineStyle.Slanted_dash_dot;
-
 worksheet.Range["C4"].CellStyle.Borders.LineStyle = ExcelLineStyle.Hair;
-
 worksheet.Range["C6"].CellStyle.Borders.LineStyle = ExcelLineStyle.Medium_dash_dot_dot;
-
 worksheet.Range["C8"].CellStyle.Borders.LineStyle = ExcelLineStyle.Thin;
 
 //Apply Border using Border Index
-
 //Top Border
-
 worksheet.Range["E2"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Medium;
-
 //Left Border
-
 worksheet.Range["E4"].CellStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Double;
-
 //Bottom Border
-
 worksheet.Range["E6"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Dashed;
-
 //Right Border
-
 worksheet.Range["E8"].CellStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thick;
-
 //DiagonalUp Border
-
 worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin;
-
 //DiagonalDown Border
-
 worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted;
 
-
 //Apply border color
-
 worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue;
 
-//Setting the Border as Range.
-
+//Setting the Border as Range
 worksheet.Range["G2:I8"].BorderAround();
-
 worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot,ExcelKnownColors.Red);
 
 workbook.SaveAs("BorderSettings.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Apply borders
-
 worksheet.Range("A2").CellStyle.Borders.LineStyle = ExcelLineStyle.Medium
-
 worksheet.Range("A4").CellStyle.Borders.LineStyle = ExcelLineStyle.Double
-
 worksheet.Range("A6").CellStyle.Borders.LineStyle = ExcelLineStyle.Dash_dot
-
 worksheet.Range("A8").CellStyle.Borders.LineStyle = ExcelLineStyle.Thick
-
 worksheet.Range("C2").CellStyle.Borders.LineStyle = ExcelLineStyle.Slanted_dash_dot
-
 worksheet.Range("C4").CellStyle.Borders.LineStyle = ExcelLineStyle.Hair
-
 worksheet.Range("C6").CellStyle.Borders.LineStyle = ExcelLineStyle.Medium_dash_dot_dot
-
 worksheet.Range("C8").CellStyle.Borders.LineStyle = ExcelLineStyle.Thin
 
 'Apply Border using Border Index
-
 'Top Border
-
 worksheet.Range("E2").CellStyle.Borders(ExcelBordersIndex.EdgeTop).LineStyle = ExcelLineStyle.Medium
-
 'Left Border
-
 worksheet.Range("E4").CellStyle.Borders(ExcelBordersIndex.EdgeLeft).LineStyle = ExcelLineStyle.Double
-
 'Bottom Border
-
 worksheet.Range("E6").CellStyle.Borders(ExcelBordersIndex.EdgeBottom).LineStyle = ExcelLineStyle.Dashed
-
 'Right Border
-
 worksheet.Range("E8").CellStyle.Borders(ExcelBordersIndex.EdgeRight).LineStyle = ExcelLineStyle.Thick
-
 'DiagonalUp Border
-
 worksheet.Range("E10").CellStyle.Borders(ExcelBordersIndex.DiagonalUp).LineStyle = ExcelLineStyle.Thin
-
 'DiagonalDown Border
-
 worksheet.Range("E12").CellStyle.Borders(ExcelBordersIndex.DiagonalDown).LineStyle = ExcelLineStyle.Dotted
 
-
 'Apply border color
-
 worksheet.Range("A2").CellStyle.Borders.Color = ExcelKnownColors.Blue
 
-'Setting the Border as Range.
-
-worksheet.Range("G2:I8").BorderAround();
-
+'Setting the Border as Range
+worksheet.Range("G2:I8").BorderAround()
 worksheet.Range("G2:I8").BorderInside(ExcelLineStyle.Dash_dot,ExcelKnownColors.Red)
 
 workbook.SaveAs("BorderSettings.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+//Apply borders
+worksheet.Range["A2"].CellStyle.Borders.LineStyle = ExcelLineStyle.Medium;
+worksheet.Range["A4"].CellStyle.Borders.LineStyle = ExcelLineStyle.Double;
+worksheet.Range["A6"].CellStyle.Borders.LineStyle = ExcelLineStyle.Dash_dot;
+worksheet.Range["A8"].CellStyle.Borders.LineStyle = ExcelLineStyle.Thick;
+worksheet.Range["C2"].CellStyle.Borders.LineStyle = ExcelLineStyle.Slanted_dash_dot;
+worksheet.Range["C4"].CellStyle.Borders.LineStyle = ExcelLineStyle.Hair;
+worksheet.Range["C6"].CellStyle.Borders.LineStyle = ExcelLineStyle.Medium_dash_dot_dot;
+worksheet.Range["C8"].CellStyle.Borders.LineStyle = ExcelLineStyle.Thin;
 
+//Apply Border using Border Index
+//Top Border
+worksheet.Range["E2"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Medium;
+//Left Border
+worksheet.Range["E4"].CellStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Double;
+//Bottom Border
+worksheet.Range["E6"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Dashed;
+//Right Border
+worksheet.Range["E8"].CellStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thick;
+//DiagonalUp Border
+worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin;
+//DiagonalDown Border
+worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted;
+
+//Apply border color
+worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue;
+
+//Setting the Border as Range
+worksheet.Range["G2:I8"].BorderAround();
+worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "BorderSettings";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Apply borders
+worksheet.Range["A2"].CellStyle.Borders.LineStyle = ExcelLineStyle.Medium;
+worksheet.Range["A4"].CellStyle.Borders.LineStyle = ExcelLineStyle.Double;
+worksheet.Range["A6"].CellStyle.Borders.LineStyle = ExcelLineStyle.Dash_dot;
+worksheet.Range["A8"].CellStyle.Borders.LineStyle = ExcelLineStyle.Thick;
+worksheet.Range["C2"].CellStyle.Borders.LineStyle = ExcelLineStyle.Slanted_dash_dot;
+worksheet.Range["C4"].CellStyle.Borders.LineStyle = ExcelLineStyle.Hair;
+worksheet.Range["C6"].CellStyle.Borders.LineStyle = ExcelLineStyle.Medium_dash_dot_dot;
+worksheet.Range["C8"].CellStyle.Borders.LineStyle = ExcelLineStyle.Thin;
+
+//Apply Border using Border Index
+//Top Border
+worksheet.Range["E2"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Medium;
+//Left Border
+worksheet.Range["E4"].CellStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Double;
+//Bottom Border
+worksheet.Range["E6"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Dashed;
+//Right Border
+worksheet.Range["E8"].CellStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thick;
+//DiagonalUp Border
+worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin;
+//DiagonalDown Border
+worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted;
+
+//Apply border color
+worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue;
+
+//Setting the Border as Range
+worksheet.Range["G2:I8"].BorderAround();
+worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("BorderSettings.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Apply borders
+worksheet.Range["A2"].CellStyle.Borders.LineStyle = ExcelLineStyle.Medium;
+worksheet.Range["A4"].CellStyle.Borders.LineStyle = ExcelLineStyle.Double;
+worksheet.Range["A6"].CellStyle.Borders.LineStyle = ExcelLineStyle.Dash_dot;
+worksheet.Range["A8"].CellStyle.Borders.LineStyle = ExcelLineStyle.Thick;
+worksheet.Range["C2"].CellStyle.Borders.LineStyle = ExcelLineStyle.Slanted_dash_dot;
+worksheet.Range["C4"].CellStyle.Borders.LineStyle = ExcelLineStyle.Hair;
+worksheet.Range["C6"].CellStyle.Borders.LineStyle = ExcelLineStyle.Medium_dash_dot_dot;
+worksheet.Range["C8"].CellStyle.Borders.LineStyle = ExcelLineStyle.Thin;
+
+//Apply Border using Border Index
+//Top Border
+worksheet.Range["E2"].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Medium;
+//Left Border
+worksheet.Range["E4"].CellStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Double;
+//Bottom Border
+worksheet.Range["E6"].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Dashed;
+//Right Border
+worksheet.Range["E8"].CellStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thick;
+//DiagonalUp Border
+worksheet.Range["E10"].CellStyle.Borders[ExcelBordersIndex.DiagonalUp].LineStyle = ExcelLineStyle.Thin;
+//DiagonalDown Border
+worksheet.Range["E12"].CellStyle.Borders[ExcelBordersIndex.DiagonalDown].LineStyle = ExcelLineStyle.Dotted;
+
+//Apply border color
+worksheet.Range["A2"].CellStyle.Borders.Color = ExcelKnownColors.Blue;
+
+//Setting the Border as Range
+worksheet.Range["G2:I8"].BorderAround();
+worksheet.Range["G2:I8"].BorderInside(ExcelLineStyle.Dash_dot, ExcelKnownColors.Red);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("BorderSettings.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("BorderSettings.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}    
 
@@ -1927,111 +2884,181 @@ N> Currently XlsIO cannot process and write RTF codes to cells.
 {% tabs %}  
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
-
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Add Text
-
 IRange range = worksheet.Range["A1"];
-
 range.Text = "RichText";
-
 IRichTextString richText = range.RichText;
 
-//Formatting first 4 characters.
-
+//Formatting first 4 characters
 IFont redFont = workbook.CreateFont();
-
 redFont.Bold = true;
-
 redFont.Italic = true;
-
 redFont.RGBColor = Color.Red;
-
 richText.SetFont(0, 3, redFont);
 
-//Formatting last 4 characters.
-
+//Formatting last 4 characters
 IFont blueFont = workbook.CreateFont();
-
 blueFont.Bold = true;
-
 blueFont.Italic = true;
-
 blueFont.RGBColor = Color.Blue;
-
 richText.SetFont(4, 7, blueFont);
 
 workbook.SaveAs("RichText.xlsx");
-
 workbook.Close();
-
 excelEngine.Dispose();
-
-
-
 {% endhighlight %}
-
-
-
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
-
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Add Text
-
 Dim range As IRange = worksheet.Range("A1")
-
 range.Text = "RichText"
-
 Dim richText As IRichTextString = range.RichText
 
-'Formatting first 4 characters.
-
+'Formatting first 4 characters
 Dim redFont As IFont = workbook.CreateFont()
-
 redFont.Bold = True
-
 redFont.Italic = True
-
 redFont.RGBColor = Color.Red
-
 richText.SetFont(0, 3, redFont)
 
-'Formatting last 4 characters.
-
+'Formatting last 4 characters
 Dim blueFont As IFont = workbook.CreateFont()
-
 blueFont.Bold = True
-
 blueFont.Italic = True
-
 blueFont.RGBColor = Color.Blue
-
 richText.SetFont(4, 7, blueFont)
 
 workbook.SaveAs("RichText.xlsx")
-
 workbook.Close()
-
 excelEngine.Dispose()
+{% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
 
+//Add Text
+IRange range = worksheet.Range["A1"];
+range.Text = "RichText";
+IRichTextString richText = range.RichText;
 
+//Formatting first 4 characters.
+IFont redFont = workbook.CreateFont();
+redFont.Bold = true;
+redFont.Italic = true;
+redFont.RGBColor = Color.FromArgb(255,255,0,0);
+richText.SetFont(0, 3, redFont);
+
+//Formatting last 4 characters.
+IFont blueFont = workbook.CreateFont();
+blueFont.Bold = true;
+blueFont.Italic = true;
+blueFont.RGBColor = Color.FromArgb(255,0,0,255);
+richText.SetFont(4, 7, blueFont);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "RichText";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Add Text
+IRange range = worksheet.Range["A1"];
+range.Text = "RichText";
+IRichTextString richText = range.RichText;
+
+//Formatting first 4 characters.
+IFont redFont = workbook.CreateFont();
+redFont.Bold = true;
+redFont.Italic = true;
+redFont.RGBColor = Color.Red;
+richText.SetFont(0, 3, redFont);
+
+//Formatting last 4 characters.
+IFont blueFont = workbook.CreateFont();
+blueFont.Bold = true;
+blueFont.Italic = true;
+blueFont.RGBColor = Color.Blue;
+richText.SetFont(4, 7, blueFont);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("RichText.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Add Text
+IRange range = worksheet.Range["A1"];
+range.Text = "RichText";
+IRichTextString richText = range.RichText;
+
+//Formatting first 4 characters.
+IFont redFont = workbook.CreateFont();
+redFont.Bold = true;
+redFont.Italic = true;
+redFont.RGBColor = Syncfusion.Drawing.Color.Red;
+richText.SetFont(0, 3, redFont);
+
+//Formatting last 4 characters.
+IFont blueFont = workbook.CreateFont();
+blueFont.Bold = true;
+blueFont.Italic = true;
+blueFont.RGBColor = Syncfusion.Drawing.Color.Blue;
+richText.SetFont(4, 7, blueFont);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("RichText.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("RichText.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}    
 
