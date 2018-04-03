@@ -207,9 +207,9 @@ An existing PDF document can be converted to PDF/A-1b conformance document, by s
 
 //Load an existing PDF.
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 
-//Set the conformance for PDF/A1B conversion.
+//Set the conformance for PDF/A-1b conversion.
 
 loadedDocument.Conformance = PdfConformanceLevel.Pdf_A1B;
 
@@ -228,9 +228,9 @@ loadedDocument.Close(true);
 
 'Load an existing PDF.
 
-Dim document As New PdfLoadedDocument(fileName)
+Dim document As New PdfLoadedDocument("Input.pdf")
 
-'Set the conformance for PDF/A1B conversion.
+'Set the conformance for PDF/A-1b conversion.
 
 loadedDocument.Conformance = PdfConformanceLevel.Pdf_A1B
 
