@@ -183,7 +183,7 @@ workbook.Close();
 excelEngine.Dispose();
 
 {% endhighlight %}
-{% highlight ASP.NET Core %}
+{% highlight .netcore %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -421,7 +421,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight .netcore %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -635,7 +635,7 @@ excelEngine.Dispose()
 {% highlight UWP %}
 N> XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
-{% highlight ASP.NET Core %}
+{% highlight .netcore %}
 ExcelEngine excelEngine = new ExcelEngine();
 
 IApplication application = excelEngine.Excel;
@@ -1122,7 +1122,7 @@ excelEngine.Dispose()
 N> XlsIO supports applying conditional formats to template markers data range from data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight .netcore %}
 #region Initialize Workbook
 
 ExcelEngine excelEngine = new ExcelEngine();
