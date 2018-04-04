@@ -141,7 +141,7 @@ wordDocument.Close()
 
  {% endtabs %}  
 
-N> 1. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin, Azure Web Service, Azure APP Service, ASP.NET Core and Universal Windows applications.
+N> 1. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and Universal Windows applications.
 N> 2. Creating an instance of `ChartToImageConverter` class is mandatory to convert the charts present in the Word document to PDF. Otherwise, the charts are not preserved in the converted PDF.
 N> 3. `ChartToImageConverter` is supported from .NET Framework 4.0 onwards.
 N> 4. Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.
