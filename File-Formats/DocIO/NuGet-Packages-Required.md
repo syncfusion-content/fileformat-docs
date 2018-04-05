@@ -8,7 +8,7 @@ documentation: UG
 
 # Installing Syncfusion DocIO through NuGet Packages 
 
-NuGet is the one of the easiest way to download and install DocIO to work with Word documents. The following NuGet packages need to be installed in your application.
+NuGet is the one of the easiest way to download and install DocIO library to work with Word documents. The following NuGet packages need to be installed in your application.
 <table>
 <thead>
 <tr>
@@ -25,13 +25,24 @@ Package manager console command
 </thead>
 <tr>
 <td>
-Windows Forms, WPF, ASP.NET Web and MVC
+.NET Frameworks (Windows Forms, WPF, ASP.NET and ASP.NET MVC)
 </td>
 <td>
 Syncfusion.DocIO.Base.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIO.Base -Source &lt;Source Location&gt;
+Install-Package Syncfusion.DocIO.Base -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET and ASP.NET MVC
+</td>
+<td>
+Syncfusion.Web.FileFormatsBase.nupkg
+</td>
+<td>
+Install-Package Syncfusion.Web.FileFormatsBase -Source http://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet
 </td>
 </tr>
 <tr>
@@ -42,7 +53,7 @@ ASP.NET Core
 Syncfusion.DocIO.NETStandard.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIO.NETStandard -Source &lt;Source Location&gt;
+Install-Package Syncfusion.DocIO.NETStandard -Source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore
 </td>
 </tr>
 <tr>
@@ -53,7 +64,7 @@ Xamarin
 Syncfusion.Xamarin.DocIO.nupkg
 </td>
 <td>
-Install-Package Syncfusion.Xamarin.DocIO -Source &lt;Source Location&gt;
+Install-Package Syncfusion.Xamarin.DocIO -Source http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin
 </td>
 </tr>
 <tr>
@@ -64,7 +75,7 @@ UWP
 Syncfusion.DocIO.UWP.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIO.UWP -Source &lt;Source Location&gt;
+Install-Package Syncfusion.DocIO.UWP -Source http://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows
 </td>
 </tr>
 </table>
@@ -89,13 +100,35 @@ Package manager console command
 </thead>
 <tr>
 <td>
-Windows Forms, WPF, ASP.NET Web and MVC
+.NET Frameworks (Windows Forms, WPF, ASP.NET and ASP.NET MVC)
 </td>
 <td>
-Syncfusion. DocToPdfConverter.Base.nupkg
+Syncfusion.DocToPdfConverter.Base.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocToPdfConverter.Base -Source &lt;Source Location&gt;
+Install-Package Syncfusion.DocToPdfConverter.Base -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET
+</td>
+<td>
+Syncfusion.AspNet.FileFormats.nupkg
+</td>
+<td>
+Install-Package Syncfusion.AspNet.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC
+</td>
+<td>
+Syncfusion.AspNet.Mvc.FileFormats.nupkg
+</td>
+<td>
+Install-Package Syncfusion.AspNet.Mvc.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
 </td>
 </tr>
 <tr>
@@ -106,7 +139,7 @@ ASP.NET Core
 Syncfusion.DocIORenderer.NetStandard.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIORenderer.NetStandard -Source &lt;Source Location&gt;
+Install-Package Syncfusion.DocIORenderer.NetStandard -Source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore
 </td>
 </tr>
 <tr>
@@ -117,12 +150,13 @@ Xamarin
 Syncfusion.Xamarin.DocIORenderer.nupkg
 </td>
 <td>
-Install-Package Syncfusion.Xamarin.DocIORenderer -Source &lt;Source Location&gt;
+Install-Package Syncfusion.Xamarin.DocIORenderer -Source http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin
 </td>
 </tr>
 </table>
 
-N> DocToPdf conversion is not supported in Universal Windows Platform.
+N> Word to PDF conversion is not supported in Universal Windows Platform.
+
 
 ## Converting Charts in DocIO
 
@@ -144,18 +178,19 @@ Package manager console command
 </thead>
 <tr>
 <td>
-Windows Forms, WPF, ASP.NET Web and MVC
+.NET Frameworks (Windows Forms, WPF, ASP.NET and ASP.NET MVC)
 </td>
 <td>
-Syncfusion. OfficeChartToImageConverter.WPF.nupkg
+Syncfusion.OfficeChartToImageConverter.WPF.nupkg
 </td>
 <td>
-Install-Package Syncfusion.OfficeChartToImageConverter.Base -Source &lt;Source Location&gt;
+Install-Package Syncfusion.OfficeChartToImageConverter.Base -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms
 </td>
 </tr>
 </table>
-Note:
-`ChartToImageConverter` is supported from .NET Framework 4.0 onwards.
+
+N> 1. The “Syncfusion. OfficeChartToImageConverter.WPF.nupkg” NuGet package is only supported from 4.0 .NET Framework onwards and also it not supported in the Universal Windows platforms.
+N> 2. The “Syncfusion.AspNet.FileFormats.nupkg” and “Syncfusion.AspNet.Mvc.FileFormats.nupkg” packages already includes the necessary assemblies for chart conversion. So it is not necessary to install the “Syncfusion.OfficeChartToImageConverter.Wpf.nupkg” NuGet package additionally in ASP.NET and ASP.NET MVC platforms.
 
 
 ## NuGet Package Installation and Uninstallation
@@ -164,7 +199,7 @@ To use Syncfusion NuGet packages in your project, please refer the NuGet Package
 
 DocIO NuGet packages can be installed and uninstalled using Package Manager Console. In Visual Studio, select Tools > NuGet Package Manager > Package Manager Console and execute the below commands in respective platforms.
 
-### Platforms: Windows Forms, WPF, ASP.NET Web and MVC
+### Platforms: .NET Frameworks (Windows Forms, WPF, ASP.NET and ASP.NET MVC)
 
 **NuGet Package Name:** Syncfusion.DocIO.Base
 
@@ -205,6 +240,63 @@ Install-Package Syncfusion.OfficeChartToImageConverter.WPF -Source http://nuget.
 Uninstall-Package Syncfusion.OfficeChartToImageConverter.WPF -RemoveDependencies 
 ~~~
 
+### Platform: ASP.NET
+
+**NuGet Package Name:** Syncfusion.Web.FileFormatsBase
+
+Commands:
+
+~~~
+// Install package
+Install-Package Syncfusion.Web.FileFormatsBase -Source http://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet 
+~~~
+~~~
+// Un Install package
+Uninstall-Package Syncfusion.Web.FileFormatsBase -RemoveDependencies 
+~~~
+
+**NuGet Package Name:** Syncfusion.AspNet.FileFormats
+
+Commands:
+
+~~~
+// Install package
+Install-Package Syncfusion.AspNet.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet
+~~~
+~~~
+// Un Install package
+Uninstall-Package Syncfusion.AspNet.FileFormats -RemoveDependencies 
+~~~
+
+### Platform: ASP.NET MVC
+
+**NuGet Package Name:** Syncfusion.Web.FileFormatsBase
+
+Commands:
+
+~~~
+// Install package
+Install-Package Syncfusion.Web.FileFormatsBase -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
+~~~
+~~~
+// Un Install package
+Uninstall-Package Syncfusion.Web.FileFormatsBase -RemoveDependencies 
+~~~
+
+**NuGet Package Name:** Syncfusion.AspNet.Mvc.FileFormats
+
+Commands:
+
+~~~
+// Install package
+Install-Package Syncfusion.AspNet.Mvc5.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
+~~~
+~~~
+// Un Install package
+Uninstall-Package Syncfusion.AspNet.Mvc5.FileFormats -RemoveDependencies 
+~~~
+
+N> The number at the end of MVC denotes ASP.MVC version.
 
 ### Platform: ASP.NET Core
 
