@@ -29,22 +29,18 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 IChart chart = worksheet.Charts[0];
 
-//Creating the memory stream for chart image.
-
+//Creating the memory stream for chart image
 MemoryStream stream = new MemoryStream();
 
-//Saving the chart as image.
-
+//Saving the chart as image
 chart.SaveAsImage(stream);
 
 Image image = Image.FromStream(stream);
 
-//Saving image stream to file.
-
+//Saving image stream to file
 image.Save("Output.png");
 
-//Closing the workbook and disposing the Excel Engine.
-
+//Closing the workbook and disposing the Excel Engine
 workbook.Close();
 
 excelEngine.Dispose();
@@ -72,31 +68,34 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 Dim chart As IChart = worksheet.Charts(0)
 
-'Creating the memory stream for chart image.
-
+'Creating the memory stream for chart image
 Dim stream As New MemoryStream()
 
-'Saving the chart as image.
-
+'Saving the chart as image
 chart.SaveAsImage(stream)
 
 Dim image As Image = Image.FromStream(stream)
 
-'Saving image stream to file.
-
+'Saving image stream to file
 image.Save("Output.png")
 
-'Closing the workbook and disposing the Excel Engine.
-
+'Closing the workbook and disposing the Excel Engine
 workbook.Close()
 
 excelEngine.Dispose()
 
-
-
+{% endhighlight %}
+{% highlight UWP %}
+N> XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+{% highlight .netcore %}
+N> XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+{% highlight Xamarin %}
+N> XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
-  {% endtabs %}  
+{% endtabs %}  
 
 N> Chart conversion to image and PDF are supported from .NET Framework 4.0 onwards.
 
