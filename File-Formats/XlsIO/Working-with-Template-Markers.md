@@ -224,7 +224,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight Xamarin}
+{% highlight Xamarin %}
 //Gets assembly
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
            
@@ -466,7 +466,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight Xamarin}
+{% highlight Xamarin %}
 //Gets assembly
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
            
@@ -685,7 +685,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight Xamarin}
+{% highlight Xamarin %}
 N> XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
@@ -1273,7 +1273,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight Xamarin}
+{% highlight Xamarin %}
 N> XlsIO supports applying conditional formats to template markers data range from data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
