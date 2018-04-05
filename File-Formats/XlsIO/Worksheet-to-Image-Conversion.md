@@ -37,7 +37,15 @@ image.Save("Sample.png", ImageFormat.Png)
 
 
 {% endhighlight %}
-
+{% highlight UWP %}
+N>XlsIO supports Worksheet to Image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+{% highlight .netcore %}
+N>XlsIO supports Worksheet to Image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+{% highlight Xamarin %}
+N>XlsIO supports Worksheet to Image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
   {% endtabs %}  
 
 ## Save as Stream
@@ -68,6 +76,16 @@ sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
 
 
 
+{% endhighlight %}
+
+{% highlight UWP %}
+N>XlsIO supports Worksheet to Image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+{% highlight .netcore %}
+N>XlsIO supports Worksheet to Image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+{% highlight Xamarin %}
+N>XlsIO supports Worksheet to Image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
   {% endtabs %}  
@@ -148,6 +166,15 @@ excelEngine.Dispose()
 
 
 
+{% endhighlight %}
+{% highlight UWP %}
+N> XlsIO supports Worksheet to Image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+{% highlight .netcore %}
+N>XlsIO supports Worksheet to Image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+{% highlight Xamarin %}
+N>XlsIO supports Worksheet to Image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
   {% endtabs %}  
