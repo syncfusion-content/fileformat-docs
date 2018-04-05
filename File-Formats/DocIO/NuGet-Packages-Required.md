@@ -189,8 +189,8 @@ Install-Package Syncfusion.OfficeChartToImageConverter.Base -Source http://nuget
 </tr>
 </table>
 
-N> 1. The “Syncfusion. OfficeChartToImageConverter.WPF.nupkg” NuGet package is only supported from 4.0 .NET Framework onwards and also it not supported in the Universal Windows platforms.
-N> 2. The “Syncfusion.AspNet.FileFormats.nupkg” and “Syncfusion.AspNet.Mvc.FileFormats.nupkg” packages already includes the necessary assemblies for chart conversion. So it is not necessary to install the “Syncfusion.OfficeChartToImageConverter.Wpf.nupkg” NuGet package additionally in ASP.NET and ASP.NET MVC platforms.
+N> 1. The "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards and also it not supported in the Universal Windows platforms.
+N> 2. The "Syncfusion.AspNet.FileFormats.nupkg" and "Syncfusion.AspNet.Mvc.FileFormats.nupkg" packages already includes the necessary assemblies for chart conversion. So it is not necessary to install the "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package additionally in ASP.NET and ASP.NET MVC platforms.
 
 
 ## NuGet Package Installation and Uninstallation
@@ -370,4 +370,169 @@ Install-Package Syncfusion.DocIO.UWP -Source http://nuget.syncfusion.com/nuget_u
 // Un Install package
 Uninstall-Package Syncfusion.DocIO.UWP -RemoveDependencies 
 ~~~
+
+## NuGet Package details
+
+Please find the NuGet package details from the following table. The table contains the assemblies list present in the NuGet package and dependent NuGet package details.
+
+<table>
+<thead>
+<tr>
+<th>
+Package name
+</th>
+<th>
+Description
+</th>
+<th>
+Assemblies list
+</th>
+<th>
+Dependent NuGet packages
+</th>
+</tr>
+</thead>
+<tr>
+<td>
+Syncfusion.DocIO.Base.nupkg
+</td>
+<td>
+Essential DocIO is a .NET Word library that allows you to create, read and edit Word documents in any .NET application without Microsoft Office dependency.
+</td>
+<td>
+Syncfusion.DocIO.Base.dll
+</td>
+<td>
+Syncfusion.Compression.Base.nupkg<br/>Syncfusion.OfficeChart.Base.nupkg<br/><br/></td>
+</tr>
+<tr>
+<td>
+Syncfusion.DocToPdfConverter.Base.nupkg
+</td>
+<td>
+The DocToPdfConverter is a .NET library that allows you to convert the Word documents to PDF in any .NET Framework application without Microsoft Office dependency.
+</td>
+<td>
+Syncfusion.DocToPDFConverter.Base.dll
+</td>
+<td>
+Syncfusion.DocIO.Base.nupkg<br/>Syncfusion.Pdf.Base.nupkg<br/>Syncfusion.Compression.Base.nupkg<br/><br/></td>
+</tr>
+<tr>
+<td>
+Syncfusion.OfficeChartToImageConverter.WPF.nupkg
+</td>
+<td>
+The OfficeChartToImageConverter is a .NET class library for converting Word and Presentation chart to image without using Microsoft Office.
+</td>
+<td>
+Syncfusion.OfficeChartToImageConverter.Wpf.dll
+</td>
+<td>
+Syncfusion.SfChart.WPF.nupkg<br/>Syncfusion.OfficeChart.Base.nupkg<br/>Syncfusion.Compression.Base.nupkg<br/><br/></td>
+</tr>
+<tr>
+<td>
+Syncfusion.Web.FileFormatsBase.nupkg
+</td>
+<td>
+Syncfusion File formats provides the ability to create, read, and edit PDF, Excel, Word, and PowerPoint files.
+</td>
+<td>
+Syncfusion.Compression.Base.dll<br/>Syncfusion.DocIO.Base.dll<br/>Syncfusion.OfficeChart.Base.dll<br/>Syncfusion.Pdf.Base.dll<br/>Syncfusion.Presentation.Base.dll<br/>Syncfusion.XlsIO.Base.dll<br/><br/></td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+Syncfusion.AspNet.FileFormats.nupkg
+</td>
+<td>
+Syncfusion File formats provides the ability to create, read, edit, and convert PDF, Excel, Word, and PowerPoint files.
+</td>
+<td>
+Syncfusion.DocToPDFConverter.Base.dll<br/>Syncfusion.ExcelChartToImageConverter.WPF.dll<br/>Syncfusion.ExcelToPDFConverter.Base.dll<br/>Syncfusion.HtmlConverter.Base.dll<br/>Syncfusion.OfficeChartToImageConverter.WPF.dll<br/>Syncfusion.PresentationToPDFConverter.Base.dll<br/>Syncfusion.SfChart.WPF.dll<br/><br/></td>
+<td>
+Syncfusion.Web.FileFormatsBase.nupkg
+</td>
+</tr>
+<tr>
+<td>
+Syncfusion.AspNet.Mvc.FileFormats.nupkg
+</td>
+<td>
+Syncfusion File formats provides the ability to create, read, edit, and convert PDF, Excel, Word, and PowerPoint files.
+</td>
+<td>
+Syncfusion.DocToPDFConverter.Base.dll<br/>Syncfusion.ExcelChartToImageConverter.WPF.dll<br/>Syncfusion.ExcelToPDFConverter.Base.dll<br/>Syncfusion.HtmlConverter.Base.dll<br/>Syncfusion.OfficeChartToImageConverter.WPF.dll<br/>Syncfusion.PresentationToPDFConverter.Base.dll<br/>Syncfusion.SfChart.WPF.dll<br/><br/></td>
+<td>
+Syncfusion.Web.FileFormatsBase.nupkg
+</td>
+</tr>
+<tr>
+<td>
+Syncfusion.DocIO.NETStandard.nupkg
+</td>
+<td>
+Essential DocIO is a .NET Word library that allows you to create, read and edit Word documents in .NET Core application without Microsoft Office dependency.
+</td>
+<td>
+Syncfusion.DocIO.Portable.dll
+</td>
+<td>
+Microsoft.NETCore.Portable.Compatibility.nupkg<br/>NETStandard.Library.nupkg<br/>Syncfusion.Compression.NETStandard.nupkg<br/>Syncfusion.OfficeChart.NETStandard.nupkg<br/><br/></td>
+</tr>
+<tr>
+<td>
+Syncfusion.DocIORenderer.NetStandard.nupkg
+</td>
+<td>
+The DocIORenderer is a .NET library that allows you to convert the Word documents to PDF in .NET Core application without Microsoft Office dependency.
+</td>
+<td>
+Syncfusion.DocIORenderer.Portable.dll
+</td>
+<td>
+Microsoft.NETCore.Portable.Compatibility.nupkg<br/>NETStandard.Library.nupkg<br/>SkiaSharp.nupkg<br/>Syncfusion.Compression.NETStandard.nupkg<br/>Syncfusion.OfficeChart.NETStandard.nupkg<br/>Syncfusion.DocIO.NETStandard.nupkg<br/>Syncfusion.Pdf.NETStandard.nupkg<br/><br/></td>
+</tr>
+<tr>
+<td>
+Syncfusion.Xamarin.DocIO.nupkg
+</td>
+<td>
+Essential DocIO is a .NET Word library that allows you to create, read and edit Word documents in Xamarin application without Microsoft Office dependency.
+</td>
+<td>
+Syncfusion.DocIO.Portable.dll
+</td>
+<td>
+Syncfusion.Xamarin.Compression.nupkg<br/>Syncfusion.Xamarin.OfficeChart.nupkg<br/><br/></td>
+</tr>
+<tr>
+<td>
+Syncfusion.Xamarin.DocIORenderer.nupkg
+</td>
+<td>
+The DocIORenderer is a .NET library that allows you to convert the Word documents to PDF in Xamarin application without Microsoft Office dependency.
+</td>
+<td>
+Syncfusion.Compression.Portable.dll<br/>Syncfusion.DocIO.Portable.dll<br/>Syncfusion.DocIORenderer.Portable.dll<br/>Syncfusion.OfficeChart.Portable.dll<br/>Syncfusion.Pdf.Portable.dll<br/><br/></td>
+<td>
+SkiaSharp.nupkg<br/><br/></td>
+</tr>
+<tr>
+<td>
+Syncfusion.DocIO.UWP.nupkg
+</td>
+<td>
+Essential DocIO is a .NET Word library that allows you to create, read and edit Word documents in Universal Windows apps without Microsoft Office dependency.
+</td>
+<td>
+Syncfusion.DocIO.UWP.dll
+</td>
+<td>
+Syncfusion.OfficeChart.UWP.nupkg<br/><br/></td>
+</tr>
+</table>
 
