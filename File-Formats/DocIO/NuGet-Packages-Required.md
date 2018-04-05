@@ -189,7 +189,7 @@ Install-Package Syncfusion.OfficeChartToImageConverter.Base -Source http://nuget
 </tr>
 </table>
 
-N> 1. The "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards and also it not supported in the Universal Windows platforms.
+N> 1. The "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards and also it not supported in the Universal Windows Platform.
 N> 2. The "Syncfusion.AspNet.FileFormats.nupkg" and "Syncfusion.AspNet.Mvc.FileFormats.nupkg" packages already includes the necessary assemblies for chart conversion. So it is not necessary to install the "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package additionally in ASP.NET and ASP.NET MVC platforms.
 
 
@@ -526,7 +526,7 @@ SkiaSharp.nupkg<br/><br/></td>
 Syncfusion.DocIO.UWP.nupkg
 </td>
 <td>
-Essential DocIO is a .NET Word library that allows you to create, read and edit Word documents in Universal Windows apps without Microsoft Office dependency.
+Essential DocIO is a .NET Word library that allows you to create, read and edit Word documents in Universal Windows Platform apps without Microsoft Office dependency.
 </td>
 <td>
 Syncfusion.DocIO.UWP.dll
