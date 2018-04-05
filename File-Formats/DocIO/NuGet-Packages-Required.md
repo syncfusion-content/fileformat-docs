@@ -64,7 +64,7 @@ Xamarin
 Syncfusion.Xamarin.DocIO.nupkg
 </td>
 <td>
-Install-Package Syncfusion.Xamarin.DocIO -Source http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin
+Install-Package Syncfusion.Xamarin.DocIO -Source https://api.nuget.org/v3/index.json
 </td>
 </tr>
 <tr>
@@ -150,7 +150,7 @@ Xamarin
 Syncfusion.Xamarin.DocIORenderer.nupkg
 </td>
 <td>
-Install-Package Syncfusion.Xamarin.DocIORenderer -Source http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin
+Install-Package Syncfusion.Xamarin.DocIORenderer -Source https://api.nuget.org/v3/index.json
 </td>
 </tr>
 </table>
@@ -190,7 +190,7 @@ Install-Package Syncfusion.OfficeChartToImageConverter.Base -Source http://nuget
 </table>
 
 N> 1. The "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards and also it not supported in the Universal Windows Platform.
-N> 2. The "Syncfusion.AspNet.FileFormats.nupkg" and "Syncfusion.AspNet.Mvc.FileFormats.nupkg" packages already includes the necessary assemblies for chart conversion. So it is not necessary to install the "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package additionally in ASP.NET and ASP.NET MVC platforms.
+N> 2. The "Syncfusion.AspNet.FileFormats.nupkg" and "Syncfusion.AspNet.Mvc.FileFormats.nupkg" internally includes the assemblies, necessary for the preservation of chart as image in Word to PDF, and Image conversions. So it is not necessary to install the "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package in addition to these packages.
 
 
 ## NuGet Package Installation and Uninstallation
@@ -334,7 +334,7 @@ Commands:
 
 ~~~
 // Install package
-Install-Package Syncfusion.Xamarin.DocIO -Source http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin 
+Install-Package Syncfusion.Xamarin.DocIO -Source https://api.nuget.org/v3/index.json
 ~~~
 ~~~
 // Un Install package
@@ -347,7 +347,7 @@ Commands:
 
 ~~~
 // Install package
-Install-Package Syncfusion.Xamarin.DocIORenderer -Source http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin 
+Install-Package Syncfusion.Xamarin.DocIORenderer -Source https://api.nuget.org/v3/index.json
 ~~~
 ~~~
 // Un Install package
