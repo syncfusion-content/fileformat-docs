@@ -24,24 +24,19 @@ The below code sample explains the creation of a simple table by the range of da
 
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Create Table with data in the given range
 IListObject table = worksheet.ListObjects.Create("Table1", worksheet ["A1:C8"]);
 
 string fileName = "Output.xlsx";
-
 workbook.SaveAs(fileName);
 
 workbook.Close();
-
 excelEngine.Dispose();         
 
 
@@ -49,25 +44,20 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As 
-
+Dim excelEngine As As ExcelEngine = New ExcelEngine
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Create Table with data in the given range
 Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet ("A1:C8"))
 
 Dim fileName As String = "Output.xlsx"
-
 workbook.SaveAs(fileName)
 
 workbook.Close()
-
 excelEngine.Dispose()
 
 
@@ -82,13 +72,10 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Create Table with data in the given range
@@ -96,11 +83,8 @@ IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
-
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
 savePicker.SuggestedFileName = "Output";
-
 savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
 //Creates a storage file from FileSavePicker
@@ -110,23 +94,18 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await workbook.SaveAsAsync(storageFile);
 
 inputStream.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight .netcore %}
+{% highlight asp.netcore %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
 
 IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Create Table with data in the given range
@@ -136,14 +115,12 @@ string fileName = "Output.xlsx";
 
 //Saving the workbook as stream
 FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-
 workbook.SaveAs(stream);
 
 stream.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
+
 {% endhighlight %}
 
 {% highlight Xamarin %}
@@ -154,13 +131,10 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Create Table with data in the given range
@@ -170,11 +144,9 @@ string fileName = "Output.xlsx";
 
 //Saving the workbook as stream
 MemoryStream outputStream = new MemoryStream();
-
 workbook.SaveAs(outputStream);
 
 workbook.Close();
-
 excelEngine.Dispose();
 
 //Save the Excel file
@@ -185,8 +157,8 @@ else
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
-
 outputStream.Dispose();
+
 {% endhighlight %}
 
 {% endtabs %}  
@@ -199,13 +171,10 @@ Existing tables in the worksheet can be accessed, as shown below.
 
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Accessing first table in the sheet
@@ -215,11 +184,9 @@ IListObject table = worksheet.ListObjects[0];
 table.Name = "SalesTable";
 
 string fileName = "Output.xlsx";
-
 workbook.SaveAs(fileName);
 
 workbook.Close();
-
 excelEngine.Dispose();         
 
 
@@ -228,13 +195,10 @@ excelEngine.Dispose();
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Accessing first table in the sheet
@@ -244,11 +208,9 @@ Dim table As IListObject = worksheet.ListObjects(0)
 table.Name = "SalesTable"
 
 Dim fileName As String = "Output.xlsx"
-
 workbook.SaveAs(fileName)
 
 workbook.Close()
-
 excelEngine.Dispose()
 
 
@@ -263,13 +225,10 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Accessing first table in the sheet
@@ -280,11 +239,8 @@ table.Name = "SalesTable";
 
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
-
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
 savePicker.SuggestedFileName = "Output";
-
 savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
 //Creates a storage file from FileSavePicker
@@ -294,23 +250,18 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await workbook.SaveAsAsync(storageFile);
 
 inputStream.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight .netcore %}
+{% highlight asp.netcore %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
 
 IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Accessing first table in the sheet
@@ -323,14 +274,12 @@ string fileName = "Output.xlsx";
 
 //Saving the workbook as stream
 FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-
 workbook.SaveAs(stream);
 
 stream.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
+
 {% endhighlight %}
 
 {% highlight Xamarin %}
@@ -341,13 +290,10 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Accessing first table in the sheet
@@ -360,11 +306,9 @@ string fileName = "Output.xlsx";
 
 //Saving the workbook as stream
 MemoryStream outputStream = new MemoryStream();
-
 workbook.SaveAs(outputStream);
 
 workbook.Close();
-
 excelEngine.Dispose();
 
 //Save the Excel file
@@ -375,7 +319,6 @@ else
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
-
 outputStream.Dispose();
 {% endhighlight %}
 {% endtabs %}  
@@ -390,13 +333,10 @@ The below code snippet illustrates how to apply built-in table style.
 
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a table
@@ -406,11 +346,9 @@ IListObject table = worksheet.ListObjects.Create("Table1", worksheet ["A1:C8"]);
 table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
 
 string fileName = "Output.xlsx";
-
 workbook.SaveAs(fileName);
 
 workbook.Close();
-
 excelEngine.Dispose();         
 
 
@@ -419,13 +357,10 @@ excelEngine.Dispose();
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Creating a table
@@ -435,11 +370,9 @@ Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet ("A1
 table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9
 
 Dim fileName As String = "Output.xlsx"
-
 workbook.SaveAs(fileName)
 
 workbook.Close()
-
 excelEngine.Dispose()
 
 
@@ -454,13 +387,10 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a table
@@ -471,11 +401,8 @@ table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
 
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
-
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
 savePicker.SuggestedFileName = "Output";
-
 savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
 //Creates a storage file from FileSavePicker
@@ -485,23 +412,18 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await workbook.SaveAsAsync(storageFile);
 
 inputStream.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight .netcore %}
+{% highlight asp.netcore %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
 
 IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a table
@@ -514,13 +436,10 @@ string fileName = "Output.xlsx";
 
 //Saving the workbook as stream
 FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-
 workbook.SaveAs(stream);
 
 stream.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
 {% endhighlight %}
 
@@ -532,13 +451,10 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a table
@@ -551,11 +467,9 @@ string fileName = "Output.xlsx";
 
 //Saving the workbook as stream
 MemoryStream outputStream = new MemoryStream();
-
 workbook.SaveAs(outputStream);
 
 workbook.Close();
-
 excelEngine.Dispose();
 
 //Save the Excel file
@@ -566,8 +480,8 @@ else
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
-
 outputStream.Dispose();
+
 {% endhighlight %}
 {% endtabs %}  
 ## Insert/Remove Columns in a Table
@@ -578,13 +492,10 @@ IListObject is a collection of columns, whereas a single column is represented b
 
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a table
@@ -597,26 +508,19 @@ worksheet.InsertColumn(2, 2);
 worksheet.DeleteColumn(2, 1);
 
 string fileName = "Output.xlsx";
-
 workbook.SaveAs(fileName);
 
 workbook.Close();
-
-excelEngine.Dispose();         
-
-
+excelEngine.Dispose();      
 
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Creating Table
@@ -629,11 +533,9 @@ worksheet.InsertColumn(2, 2)
 worksheet.DeleteColumn(2, 1)
 
 Dim fileName As String = "Output.xlsx"
-
 workbook.SaveAs(fileName)
 
 workbook.Close()
-
 excelEngine.Dispose()
 
 
@@ -648,13 +550,10 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a table
@@ -668,11 +567,8 @@ worksheet.DeleteColumn(2, 1);
 
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
-
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
 savePicker.SuggestedFileName = "Output";
-
 savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
 //Creates a storage file from FileSavePicker
@@ -682,23 +578,18 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await workbook.SaveAsAsync(storageFile);
 
 inputStream.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight .netcore %}
+{% highlight asp.netcore %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
 
 IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a table
@@ -714,13 +605,10 @@ string fileName = "Output.xlsx";
 
 //Saving the workbook as stream
 FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-
 workbook.SaveAs(stream);
 
 stream.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
 {% endhighlight %}
 
@@ -732,13 +620,10 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a table
@@ -754,11 +639,9 @@ string fileName = "Output.xlsx";
 
 //Saving the workbook as stream
 MemoryStream outputStream = new MemoryStream();
-
 workbook.SaveAs(outputStream);
 
 workbook.Close();
-
 excelEngine.Dispose();
 
 //Save the Excel file
@@ -769,7 +652,6 @@ else
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
-
 outputStream.Dispose();
 {% endhighlight %}
 {% endtabs %}  
@@ -784,13 +666,10 @@ The "Total Row" is added to a table by accessing the **Table** **Columns**. It i
 
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a table
@@ -798,34 +677,24 @@ IListObject table = worksheet.ListObjects.Create("Table1", worksheet ["A1:C8"]);
 
 //Adding Total Row
 table.ShowTotals = true;
-
 table.Columns[0].TotalsRowLabel = "Total";
-
 table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
-
 table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
 
 string fileName = "Output.xlsx";
-
 workbook.SaveAs(fileName);
 
 workbook.Close();
-
 excelEngine.Dispose();         
-
-
 
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Creating a table
@@ -833,19 +702,14 @@ Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet ("A1
 
 'Adding Total Row
 table.ShowTotals = True
-
 table.Columns(0).TotalsRowLabel = "Total"
-
 table.Columns(1).TotalsCalculation = ExcelTotalsCalculation.Sum
-
 table.Columns(2).TotalsCalculation = ExcelTotalsCalculation.Sum
 
 Dim fileName As String = "Output.xlsx"
-
 workbook.SaveAs(fileName)
 
 workbook.Close()
-
 excelEngine.Dispose()
 
 
@@ -860,13 +724,10 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream,ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a table
@@ -874,20 +735,14 @@ IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
 //Adding Total Row
 table.ShowTotals = true;
-
 table.Columns[0].TotalsRowLabel = "Total";
-
 table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
-
 table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
 
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
-
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
 savePicker.SuggestedFileName = "Output";
-
 savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
 //Creates a storage file from FileSavePicker
@@ -897,23 +752,19 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await workbook.SaveAsAsync(storageFile);
 
 inputStream.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
+
 {% endhighlight %}
 
-{% highlight .netcore %}
+{% highlight asp.netcore %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
 
 IWorkbook workbook = application.Workbooks.Open(fileStream,ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a table
@@ -921,25 +772,20 @@ IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
 //Adding Total Row
 table.ShowTotals = true;
-
 table.Columns[0].TotalsRowLabel = "Total";
-
 table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
-
 table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
 
 string fileName = "Output.xlsx";
 
 //Saving the workbook as stream
 FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-
 workbook.SaveAs(stream);
 
 stream.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
+
 {% endhighlight %}
 
 {% highlight Xamarin %}
@@ -950,13 +796,10 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open(inputStream,ExcelOpenType.Automatic);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 //Creating a table
@@ -964,22 +807,17 @@ IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
 //Adding Total Row
 table.ShowTotals = true;
-
 table.Columns[0].TotalsRowLabel = "Total";
-
 table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
-
 table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
 
 string fileName = "Output.xlsx";
 
 //Saving the workbook as stream
 MemoryStream outputStream = new MemoryStream();
-
 workbook.SaveAs(outputStream);
 
 workbook.Close();
-
 excelEngine.Dispose();
 
 //Save the Excel file
@@ -990,8 +828,8 @@ else
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
-
 outputStream.Dispose();
+
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1053,13 +891,10 @@ The following code snippet explains the method of importing data through an exte
 
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Create(1);
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 // Database path
@@ -1093,11 +928,9 @@ worksheet.ListObjects[0].Refresh();
 worksheet.UsedRange.AutofitColumns();
 
 string fileName = "Output.xlsx";
-
 workbook.SaveAs(fileName);
 
 workbook.Close();
-
 excelEngine.Dispose();         
 
 
@@ -1106,13 +939,10 @@ excelEngine.Dispose();
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 ' Database path
@@ -1146,11 +976,9 @@ worksheet.ListObjects(0).Refresh()
 worksheet.UsedRange.AutofitColumns()
 
 Dim fileName As String = "Output.xlsx"
-
 workbook.SaveAs(fileName)
 
 workbook.Close()
-
 excelEngine.Dispose()
 
 
@@ -1158,7 +986,7 @@ excelEngine.Dispose()
 {% highlight UWP %}
 N> XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
-{% highlight .netcore %}
+{% highlight asp.netcore %}
 N> XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% highlight Xamarin %}
