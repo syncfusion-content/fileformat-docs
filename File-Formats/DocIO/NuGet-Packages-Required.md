@@ -6,7 +6,9 @@ control: DocIO
 documentation: UG
 ---
 
-# Installing Syncfusion DocIO through NuGet Packages 
+# NuGet Packages Required
+
+## Installing Syncfusion DocIO through NuGet Packages 
 
 NuGet is the one of the easiest way to download and install DocIO library to work with Word documents. The following NuGet packages need to be installed in your application.
 <table>
@@ -436,7 +438,7 @@ Syncfusion.SfChart.WPF.nupkg<br/>Syncfusion.OfficeChart.Base.nupkg<br/>Syncfusio
 Syncfusion.Web.FileFormatsBase.nupkg
 </td>
 <td>
-Syncfusion File formats provides the ability to create, read, and edit PDF, Excel, Word, and PowerPoint files.
+Syncfusion File formats provides the ability to create, read, and edit Word, PDF, Excel, and PowerPoint files.
 </td>
 <td>
 Syncfusion.Compression.Base.dll<br/>Syncfusion.DocIO.Base.dll<br/>Syncfusion.OfficeChart.Base.dll<br/>Syncfusion.Pdf.Base.dll<br/>Syncfusion.Presentation.Base.dll<br/>Syncfusion.XlsIO.Base.dll<br/><br/></td>
@@ -449,7 +451,7 @@ Syncfusion.Compression.Base.dll<br/>Syncfusion.DocIO.Base.dll<br/>Syncfusion.Off
 Syncfusion.AspNet.FileFormats.nupkg
 </td>
 <td>
-Syncfusion File formats provides the ability to create, read, edit, and convert PDF, Excel, Word, and PowerPoint files.
+Syncfusion File formats provides the ability to create, read, edit, and convert Word, PDF, Excel, and PowerPoint files.
 </td>
 <td>
 Syncfusion.DocToPDFConverter.Base.dll<br/>Syncfusion.ExcelChartToImageConverter.WPF.dll<br/>Syncfusion.ExcelToPDFConverter.Base.dll<br/>Syncfusion.HtmlConverter.Base.dll<br/>Syncfusion.OfficeChartToImageConverter.WPF.dll<br/>Syncfusion.PresentationToPDFConverter.Base.dll<br/>Syncfusion.SfChart.WPF.dll<br/><br/></td>
@@ -462,7 +464,7 @@ Syncfusion.Web.FileFormatsBase.nupkg
 Syncfusion.AspNet.Mvc.FileFormats.nupkg
 </td>
 <td>
-Syncfusion File formats provides the ability to create, read, edit, and convert PDF, Excel, Word, and PowerPoint files.
+Syncfusion File formats provides the ability to create, read, edit, and convert Word, PDF, Excel, and PowerPoint files.
 </td>
 <td>
 Syncfusion.DocToPDFConverter.Base.dll<br/>Syncfusion.ExcelChartToImageConverter.WPF.dll<br/>Syncfusion.ExcelToPDFConverter.Base.dll<br/>Syncfusion.HtmlConverter.Base.dll<br/>Syncfusion.OfficeChartToImageConverter.WPF.dll<br/>Syncfusion.PresentationToPDFConverter.Base.dll<br/>Syncfusion.SfChart.WPF.dll<br/><br/></td>
