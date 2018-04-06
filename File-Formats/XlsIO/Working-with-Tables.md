@@ -98,7 +98,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 application.DefaultVersion = ExcelVersion.Excel2013;
@@ -254,7 +254,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 application.DefaultVersion = ExcelVersion.Excel2013;
@@ -416,7 +416,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 application.DefaultVersion = ExcelVersion.Excel2013;
@@ -582,7 +582,7 @@ workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
 
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 application.DefaultVersion = ExcelVersion.Excel2013;
@@ -757,7 +757,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 application.DefaultVersion = ExcelVersion.Excel2013;
@@ -986,7 +986,7 @@ excelEngine.Dispose()
 {% highlight UWP %}
 N> XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 N> XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% highlight Xamarin %}
