@@ -20,15 +20,11 @@ The following code snippet illustrates how to create a PivotChart.
 
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
-
 IWorksheet worksheet = workbook.Worksheets[0];
-
 IPivotTable pivotTable = worksheet.PivotTables[0];
 
 //Adding a chart to workbook
@@ -43,7 +39,6 @@ pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
 workbook.SaveAs("PivotChart.xlsx");
 
 workbook.Close();
-
 excelEngine.Dispose();
 
 
@@ -52,15 +47,11 @@ excelEngine.Dispose();
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
 Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
 
 'Adding a chart to workbook
@@ -73,8 +64,8 @@ pivotChart.PivotSource = pivotTable
 pivotChart.PivotChartType = ExcelChartType.Column_Clustered
 
 workbook.SaveAs("PivotChart.xlsx")
-workbook.Close()
 
+workbook.Close()
 excelEngine.Dispose()
 
 
@@ -88,15 +79,11 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("PivotChart.PivotTable.xlsx");
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
-
 IWorksheet worksheet = workbook.Worksheets[0];
-
 IPivotTable pivotTable = workbook.Worksheets[1].PivotTables[0];
 
 //Adding a chart to workbook
@@ -110,11 +97,8 @@ pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
 
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
-
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
 savePicker.SuggestedFileName = "PivotChart";
-
 savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
 //Creates a storage file from FileSavePicker
@@ -124,22 +108,18 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await workbook.SaveAsAsync(storageFile);
 
 workbook.Close();
-
 excelEngine.Dispose();
+
 {% endhighlight %}
-{% highlight .netcore %}
+{% highlight asp.netcore %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
 
-IWorkbook workbook = application.Workbooks.Open(fileStream);            
-
+IWorkbook workbook = application.Workbooks.Open(fileStream); 
 IWorksheet worksheet = workbook.Worksheets[0];
-
 IPivotTable pivotTable = worksheet.PivotTables[0];
 
 //Adding a chart to workbook
@@ -155,14 +135,12 @@ string fileName = "PivotChart.xlsx";
 
 //Saving the workbook as stream
 FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-
 workbook.SaveAs(stream);
 
 stream.Dispose();
-
 workbook.Close();
-
 excelEngine.Dispose();
+
 {% endhighlight %}
 {% highlight Xamarin %}
 //Gets assembly
@@ -172,15 +150,11 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("PivotChart.PivotTable.xlsx");
 
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open(inputStream);
-
 IWorksheet worksheet = workbook.Worksheets[0];
-
 IPivotTable pivotTable = worksheet.PivotTables[0];
 
 //Adding a chart to workbook
@@ -196,11 +170,9 @@ string fileName = "PivotChart.xlsx";
 
 //Saving the workbook as stream
 MemoryStream outputStream = new MemoryStream();
-
 workbook.SaveAs(outputStream);
 
 workbook.Close();
-
 excelEngine.Dispose();
 
 //Save the Excel file
@@ -212,6 +184,7 @@ else
 //Dispose the input and output stream instances
 inputStream.Dispose();
 outputStream.Dispose();
+
 {% endhighlight %}
 
   {% endtabs %}  
@@ -230,16 +203,10 @@ IChart pivotChart = workbook.Charts.Add();
 
 //Set Field Buttons
 pivotChart.ShowAllFieldButtons = false;
-
 pivotChart.ShowAxisFieldButtons = false;
-
 pivotChart.ShowLegendFieldButtons = false;
-
 pivotChart.ShowReportFilterFieldButtons = false;
-
 pivotChart.ShowValueFieldButtons = false;   
-
-
 
 {% endhighlight %}
 
@@ -249,16 +216,10 @@ Dim pivotChartSheet As IChart = workbook.Charts.Add()
 
 'Set Field Buttons
 pivotChartSheet.ShowAllFieldButtons = False
-
 pivotChartSheet.ShowAxisFieldButtons = False
-
 pivotChartSheet.ShowLegendFieldButtons = False
-
 pivotChartSheet.ShowReportFilterFieldButtons = False
-
 pivotChartSheet.ShowValueFieldButtons = False
-
-
 
 {% endhighlight %}
 
@@ -268,29 +229,21 @@ IChart pivotChart = workbook.Charts.Add();
 
 //Set Field Buttons
 pivotChart.ShowAllFieldButtons = false;
-
 pivotChart.ShowAxisFieldButtons = false;
-
 pivotChart.ShowLegendFieldButtons = false;
-
 pivotChart.ShowReportFilterFieldButtons = false;
-
 pivotChart.ShowValueFieldButtons = false;  
 
 {% endhighlight %}
-{% highlight .netcore %}
+{% highlight asp.netcore %}
 //Adding PivotChart to the workbook
 IChart pivotChart = workbook.Charts.Add();
 
 //Set Field Buttons
 pivotChart.ShowAllFieldButtons = false;
-
 pivotChart.ShowAxisFieldButtons = false;
-
 pivotChart.ShowLegendFieldButtons = false;
-
 pivotChart.ShowReportFilterFieldButtons = false;
-
 pivotChart.ShowValueFieldButtons = false;  
 
 {% endhighlight %}
@@ -300,13 +253,9 @@ IChart pivotChart = workbook.Charts.Add();
 
 //Set Field Buttons
 pivotChart.ShowAllFieldButtons = false;
-
 pivotChart.ShowAxisFieldButtons = false;
-
 pivotChart.ShowLegendFieldButtons = false;
-
 pivotChart.ShowReportFilterFieldButtons = false;
-
 pivotChart.ShowValueFieldButtons = false;   
 
 {% endhighlight %}
