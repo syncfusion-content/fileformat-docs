@@ -1144,7 +1144,7 @@ End Function
 
 {% endhighlight %}
 {% highlight UWP %}
-N> DataTable is supported in Windows forms,WPF,ASP.NET,ASP.NET MVC and ASP.NET Core platforms alone.
+N> DataTable is supported in Windows forms,WPF,ASP.NET,ASP.NET MVC and ASP.NET Core(2.0 onwards) platforms alone.
 {% endhighlight %}
 {% highlight asp.netcore %}
 private DataTable GetDataTable()
@@ -1172,7 +1172,7 @@ return reports;
 
 {% endhighlight %}
 {% highlight Xamarin %}
-N> DataTable is supported in Windows forms,WPF,ASP.NET, ASP.NET MVC and ASP.NET Core platforms alone.
+N> DataTable is supported in Windows forms,WPF,ASP.NET, ASP.NET MVC and ASP.NET Core(2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
