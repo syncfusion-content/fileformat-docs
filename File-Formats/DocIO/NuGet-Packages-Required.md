@@ -130,11 +130,11 @@ ASP.NET MVC
 Syncfusion.AspNet.Mvc.FileFormats.nupkg
 </td>
 <td>
-// MVC 3 version
+// MVC 3 version <br/>
 Install-Package Syncfusion.AspNet.Mvc3.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc <br/>
-// MVC 4 version
+// MVC 4 version <br/>
 Install-Package Syncfusion.AspNet.Mvc4.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc <br/>
-// MVC 5 version
+// MVC 5 version <br/>
 Install-Package Syncfusion.AspNet.Mvc5.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
 </td>
 </tr>
