@@ -11,10 +11,11 @@ documentation: UG
 The following assemblies need to be referenced in your application based on the platform.
 
 <table>
+<thead>
 <tr>
-<td>
-Platform(s)<br/></td><td>
-Assembly<br/></td></tr>
+<th>
+Platform(s)<br/></th><th>
+Assembly<br/></th></tr></thead>
 <tr>
 <td>
 WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/></td><td>
@@ -25,12 +26,12 @@ Windows Forms and WPF (Client Profile)<br/></td><td>
 Syncfusion.DocIO.ClientProfile<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/></td></tr>
 <tr>
 <td>
-Universal Windows Platform<br/></td><td>
-Syncfusion.DocIO.UWP<br/></td></tr>
+ASP.NET Core and Xamarin<br/></td><td>
+Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/></td></tr>
 <tr>
 <td>
-Xamarin<br/></td><td>
-Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/></td></tr>
+Universal Windows Platform<br/></td><td>
+Syncfusion.DocIO.UWP<br/>Syncfusion.OfficeChart.UWP<br/></td></tr>
 <tr>
 <td>
 WinRT (Windows Store applications)<br/></td><td>
@@ -69,10 +70,11 @@ Syncfusion.DocIO.Universal<br/></td></tr>
 
 For converting a Word document to PDF, the following assemblies need to be referenced in your application
 <table>
+<thead>
 <tr>
-<td>
-Platform(s)<br/></td><td>
-Assembly<br/></td></tr>
+<th>
+Platform(s)<br/></th><th>
+Assembly<br/></th></tr></thead>
 <tr>
 <td>
 WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/></td><td>
@@ -81,17 +83,26 @@ Syncfusion.DocIO.Base<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart
 <td>
 Windows Forms and WPF (Client Profile)<br/></td><td>
 Syncfusion.DocIO.ClientProfile<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/>Syncfusion.Pdf.ClientProfile<br/>Syncfusion.DocToPdfConverter.ClientProfile<br/></td></tr>
-</table>
-N> Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
-The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the Word document into PDF.
-<table>
 <tr>
 <td>
-Platform(s)<br/></td><td>
-Assembly<br/></td></tr>
+ASP.NET Core and Xamarin<br/></td><td>
+Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>SkiaSharp</td></tr>
+</table>
+
+N> Word to PDF conversion is supported in ASP.NET Core and Xamarin from 2018 Volume 1 release (v16.1.0.24) using SkiaSharp library.
+N> Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal and UWP applications
+
+The following assemblies are required to be referred in addition to the above mentioned assemblies for converting the chart present in the Word document into PDF.
+<table>
+<thead>
+<tr>
+<th>
+Platform(s)<br/></th><th>
+Assembly<br/></th></tr></thead>
 <tr>
 <td>
 WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/></td><td>
 Syncfusion.OfficeChartToImageConverter.WPF<br/>Syncfusion.SfChart.WPF<br/></td></tr>
 </table>
-N> The above mentioned assemblies is supported from .NET Framework 4.0 onwards
+N> 1. The above mentioned assemblies is supported from .NET Framework 4.0 onwards.
+N> 2. Chart conversion is not supported in ASP.NET Core and Xamarin platforms.
