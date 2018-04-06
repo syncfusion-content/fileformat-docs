@@ -707,6 +707,9 @@ else
 {% endhighlight %}
 {% endtabs %}  
 
+N> Resetting column width manually or through AutoFit, for the columns hidden using [ShowColumn](https://help.syncfusion.com/cr/cref_files/winrt/xlsio/Syncfusion.XlsIO.WinRT~Syncfusion.XlsIO.IWorksheet~ShowColumn.html)/[HideColumn](https://help.syncfusion.com/cr/cref_files/winrt/xlsio/Syncfusion.XlsIO.WinRT~Syncfusion.XlsIO.IWorksheet~HideColumn.html) methods will make the hidden columns visible.
+N> Resetting row height manually or through AutoFit,  for the rows hidden using [ShowRow](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~ShowRow.html) /[HideRow](https://help.syncfusion.com/cr/cref_files/winrt/xlsio/Syncfusion.XlsIO.WinRT~Syncfusion.XlsIO.IWorksheet~HideRow.html) methods will make the hidden rows visible.
+
 ## Adjust Row Height and Column Width 
 
 Rows and columns can be [resized](https://support.office.com/en-ca/article/Change-the-column-width-and-row-height-72f5e3cc-994d-43e8-ae58-9774a0905f46) based on its contents. XlsIO allows to resize rows and columns in the following ways.
