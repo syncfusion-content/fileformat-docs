@@ -106,7 +106,7 @@ workbook.Close();
 excelEngine.Dispose();
 
 {% endhighlight %}
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 application.DefaultVersion = ExcelVersion.Excel2013;
@@ -264,7 +264,7 @@ await workbook.SaveAsAsync(storageFile);
 workbook.Close();
 excelEngine.Dispose();
 {% endhighlight %}
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 application.DefaultVersion = ExcelVersion.Excel2013;
