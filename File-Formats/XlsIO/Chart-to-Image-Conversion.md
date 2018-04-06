@@ -78,7 +78,7 @@ excelEngine.Dispose()
 {% highlight UWP %}
 N> XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 N> XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% highlight Xamarin %}
