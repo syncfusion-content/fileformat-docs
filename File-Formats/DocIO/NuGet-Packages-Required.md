@@ -14,7 +14,7 @@ NuGet is the one of the easiest way to download and install DocIO library to rea
 <table>
 <thead>
 <tr>
-<th>
+<th style="width:25%">
 Platform(s)
 </th>
 <th>
@@ -89,7 +89,7 @@ For converting Word document into PDF, the following NuGet packages need to be i
 <table>
 <thead>
 <tr>
-<th>
+<th style="width:25%">
 Platform(s)
 </th>
 <th>
@@ -174,7 +174,7 @@ The following NuGet package need to be installed additionally to preserve chart 
 <table>
 <thead>
 <tr>
-<th>
+<th style="width:25%">
 Platform(s)
 </th>
 <th>
@@ -538,8 +538,8 @@ Syncfusion.Web.FileFormatsBase.nupkg
 </tr>
 <tr>
 <td>
-Syncfusion.AspNet.Mvc3.FileFormats.nupkg or <br/>
-Syncfusion.AspNet.Mvc4.FileFormats.nupkg or <br/>
+Syncfusion.AspNet.Mvc3.FileFormats.nupkg <br/>
+Syncfusion.AspNet.Mvc4.FileFormats.nupkg <br/>
 Syncfusion.AspNet.Mvc5.FileFormats.nupkg <br/>
 </td>
 <td>
