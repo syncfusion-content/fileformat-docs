@@ -162,7 +162,7 @@ workbook.Close();
 excelEngine.Dispose();
 
 {% endhighlight %}
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 
@@ -362,7 +362,7 @@ excelEngine.Dispose();
 
 {% endhighlight %}
 
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 
@@ -535,7 +535,7 @@ excelEngine.Dispose()
 {% highlight UWP %}
 N> XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 FileStream fileStream = new FileStream("TemplateMarker.xlsx", FileMode.Open, FileAccess.Read);
@@ -959,7 +959,7 @@ excelEngine.Dispose()
 N> XlsIO supports applying conditional formats to template markers data range from data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 #region Initialize Workbook
 
 ExcelEngine excelEngine = new ExcelEngine();
@@ -1146,7 +1146,7 @@ End Function
 {% highlight UWP %}
 N> DataTable is supported in Windows forms,WPF,ASP.NET,ASP.NET MVC and ASP.NET Core(2.0 onwards) platforms alone.
 {% endhighlight %}
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 private DataTable GetDataTable()
 
 {
