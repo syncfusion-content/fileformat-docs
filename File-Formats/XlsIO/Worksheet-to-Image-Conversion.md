@@ -38,7 +38,7 @@ image.Save("Sample.png", ImageFormat.Png)
 {% highlight UWP %}
 N> XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
-{% highlight .netcore %}
+{% highlight asp.netcore %}
 N> XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% highlight Xamarin %}
@@ -55,7 +55,6 @@ The following code snippet shows how to save a sheet as stream.
 {% highlight c# %}
 // Converts and save as stream
 MemoryStream stream = new MemoryStream();
-
 sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream);
 
 {% endhighlight %}
@@ -63,7 +62,6 @@ sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream);
 {% highlight vb %}
 'Converts and save as stream
 Dim stream As MemoryStream = New MemoryStream()
-
 sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
 
 
@@ -73,7 +71,7 @@ sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
 {% highlight UWP %}
 N> XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
-{% highlight .netcore %}
+{% highlight asp.netcore %}
 N> XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% highlight Xamarin %}
@@ -92,7 +90,6 @@ IApplication application = excelEngine.Excel;
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
 IWorksheet sheet = workbook.Worksheets[0];
 
 // Convert as bitmap
@@ -102,7 +99,6 @@ image.Save("Sample.png", ImageFormat.Png);
 
 // Converts and save as stream
 MemoryStream stream = new MemoryStream();
-
 sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream);
 
 //Save the workbook to disk
@@ -122,13 +118,10 @@ excelEngine.Dispose();
 
 {% highlight vb %}
 Dim excelEngine As ExcelEngine = New ExcelEngine
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim workbook As IWorkbook = application.Workbooks.Open("sample.xlsx", ExcelOpenType.Automatic)
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Convert as bitmap
@@ -138,7 +131,6 @@ image.Save("Sample.png", ImageFormat.Png)
 
 'Converts and save as stream
 Dim stream As MemoryStream = New MemoryStream()
-
 sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
 
 'Save the workbook to disk
@@ -158,7 +150,7 @@ excelEngine.Dispose()
 {% highlight UWP %}
 N> XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
-{% highlight .netcore %}
+{% highlight asp.netcore %}
 N> XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% highlight Xamarin %}
