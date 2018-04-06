@@ -14,17 +14,13 @@ The following code snippets shows how to convert an Excel chart to an image usin
 
 {% highlight c# %}
 ExcelEngine excelEngine = new ExcelEngine();
-
 IApplication application = excelEngine.Excel;
-
 application.DefaultVersion = ExcelVersion.Excel2013;
 
 application.ChartToImageConverter = new ChartToImageConverter();
-
 application.ChartToImageConverter.ScalingMode = ScalingMode.Best;
 
 IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
 IWorksheet worksheet = workbook.Worksheets[0];
 
 IChart chart = worksheet.Charts[0];
@@ -42,7 +38,6 @@ image.Save("Output.png");
 
 //Closing the workbook and disposing the Excel Engine
 workbook.Close();
-
 excelEngine.Dispose();
 
 
@@ -51,19 +46,15 @@ excelEngine.Dispose();
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
-
 Dim application As IApplication = excelEngine.Excel
-
 application.DefaultVersion = ExcelVersion.Excel2013
 
 Dim ChartToImageConverter As chartToImageConverter = New ChartToImageConverter()
 
 application.ChartToImageConverter = chartToImageConverter
-
 application.ChartToImageConverter.ScalingMode = ScalingMode.Best
 
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 Dim chart As IChart = worksheet.Charts(0)
@@ -81,14 +72,13 @@ image.Save("Output.png")
 
 'Closing the workbook and disposing the Excel Engine
 workbook.Close()
-
 excelEngine.Dispose()
 
 {% endhighlight %}
 {% highlight UWP %}
 N> XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
-{% highlight .netcore %}
+{% highlight asp.netcore %}
 N> XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% highlight Xamarin %}
