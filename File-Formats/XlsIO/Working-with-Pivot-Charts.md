@@ -111,7 +111,7 @@ workbook.Close();
 excelEngine.Dispose();
 
 {% endhighlight %}
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 application.DefaultVersion = ExcelVersion.Excel2013;
@@ -235,7 +235,7 @@ pivotChart.ShowReportFilterFieldButtons = false;
 pivotChart.ShowValueFieldButtons = false;  
 
 {% endhighlight %}
-{% highlight asp.netcore %}
+{% highlight asp.net core %}
 //Adding PivotChart to the workbook
 IChart pivotChart = workbook.Charts.Add();
 
