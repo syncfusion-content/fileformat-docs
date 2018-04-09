@@ -7,12 +7,18 @@ documentation: UG
 ---
 
 # Word document to PDF Conversion
+
 The Word document files are converted as a PDF document with a few lines of code by using Essential DocIO. It works perfectly when you create an input Word document from scratch or load an existing Word document and then easily convert them into PDF. 
+
 Kindly refer the following links for assemblies required based on platforms to convert the word document to PDF.
+
 * [Assemblies required](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) 
 * [NuGet details](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf)
+
 The following code example illustrates how to convert a Word document into PDF document.
-C#:
+
+
+
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
@@ -41,9 +47,7 @@ pdfDocument.Close(true);
 
 wordDocument.Close();
 {% endhighlight %}
-{% endtabs %}
-VB:
-{% tabs %}
+
 {% highlight vb.net %}
 'Loads an existing Word document
 
@@ -71,10 +75,8 @@ pdfDocument.Close(True)
 
 wordDocument.Close()
 {% endhighlight %}
-{% endtabs %}
-ASP.NET core:
-{% tabs %}
-{% highlight asp.net %}
+
+{% highlight .netcore %}
 //Creates an instance of WordDocument Instance (Empty Word Document)
 WordDocument wordDocument = new WordDocument();
 //Add a section & a paragraph in the empty document
@@ -95,9 +97,7 @@ pdfDocument.Save(outputStream);
 //Closes the instance of PDF document object
 pdfDocument.Close();
 {% endhighlight %}
-{% endtabs %}
-Xamarin:
-{% tabs %}
+
 {% highlight xamarin %}
 private void OnButtonClicked(object sender, EventArgs e)
 {
@@ -123,15 +123,18 @@ pdfDocument.Close();
 }
 {% endhighlight %}
 {% endtabs %}
+
 For more information about converting the Word to PDF in ASP.NET Core, kindly refer the KB article [here](https://www.syncfusion.com/kb/8472#). Similarly, for Xamarin refer [here](https://www.syncfusion.com/kb/8496#).
-## Special options:
+
+## Customization settings:
 Essential DocIO provides special options while performing Word to PDF conversion mentioned below, 
+
 * Allows to convert PDF faster by using direct PDF rendering approach. As default, it uses EMF rendering approach.
 * Allows to embed the TrueType fonts used in the converted PDF.
 * Allows to determine the quality of the charts in the converted PDF.
 * Allows to determine the quality of the JPEG images in the converted PDF.
 * Allows to reduce the Main Memory usage in Word to PDF conversion by reusing the identical images.
-C#:
+
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
@@ -180,9 +183,7 @@ pdfDocument.Close(true);
 
 wordDocument.Close();
 {% endhighlight %}
-{% endtabs %}
-VB:
-{% tabs %}
+
 {% highlight vb.net %}
 'Loads an existing Word document
 
@@ -227,21 +228,21 @@ pdfDocument.Close(True)
 wordDocument.Close()
 {% endhighlight %}
 {% endtabs %}
-Note
-* Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal and Universal Windows Platform applications.
-* Creating an instance of ChartToImageConverter class is mandatory to convert the charts present in the Word document to PDF. Otherwise, the charts are not preserved in the converted PDF.
-* ChartToImageConverter is supported from .NET Framework 4.0 onwards.
-* Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.
+
+N> 1. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT and Universal applications.
+N> 2. Creating an instance of ChartToImageConverter class is mandatory to convert the charts present in the Word document to PDF. Otherwise, the charts are not preserved in the converted PDF.
+N> 3. ChartToImageConverter is supported from .NET Framework 4.0 onwards.
+N> 4. Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.
+
 ## Unsupported elements and Limitations in Word to PDF conversion:
 <table>
 <tr>
-<td>
-{{'**Element**'| markdownify }}
-</td>
-<td>
-{{'**Limitations or Unsupported elements**'| markdownify }}
-</td>
+<thead> 
+<tr>
+<th>Element</th>
+<th>Limitations or Unsupported elements</th>
 </tr>
+</thead>
 <tr>
 <td>
 Predefined shapes

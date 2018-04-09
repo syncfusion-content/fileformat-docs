@@ -7,9 +7,11 @@ documentation: UG
 ---
 
 # Word Document to HTML conversion
+
 Essential DocIO supports converting the HTML file into Word document and vice versa. It supports only the HTML files that meet the validation either against XHTML 1.0 strict or XHTML 1.0 Transitional schema.
+
 The following code example shows how to convert the HTML file into Word document.
-C#:
+
 {% tabs %}
 {% highlight c# %}
 //Loads the HTML document against transitional schema validation
@@ -24,9 +26,7 @@ document.Save("HTMLtoWord.docx", FormatType.Docx);
 
 document.Close();
 {% endhighlight %}
-{% endtabs %}
-VB:
-{% tabs %}
+
 {% highlight vb.net %}
 ' Loads the HTML document against transitional schema validation 
 
@@ -41,13 +41,17 @@ document.Save("HTMLtoWord.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 {% endtabs %}
-## Special options:
+
+## Customization settings:
+
 Essential DocIO provides special options while performing HTML to Word conversion mentioned below,
+
 * Validate the HTML string against XHTML 1.0 Strict and Transitional schema
 * Insert the HTML string at the specified position of the document body contents
 * Append HTML string to the specified paragraph
+
 The following Code example shows how to customize the HTML to Word conversion.
-C#:
+
 {% tabs %}
 {% highlight c# %}
 //Loads the template document
@@ -84,9 +88,7 @@ document.Save("Sample.docx");
 
 document.Close();
 {% endhighlight %}
-{% endtabs %}
-VB:
-{% tabs %}
+
 {% highlight vb.net %}
 'Loads the template document
 
@@ -121,28 +123,25 @@ document.Save("Sample.docx")
 document.Close()
 {% endhighlight %}
 {% endtabs %}
-NOTE
-* Inserting XHTML string is not supported in Silverlight, Windows Phone and Xamarin applications.
-* XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
-* XHTMLValidationType.Transitional - default validation while importing HTML file.
-* XHTMLValidationType.None - validate the HTML file against XHTML format and it doesn’t perform any schema validation.
+
+N> 1. Inserting XHTML string is not supported in Silverlight, Windows Phone and Xamarin applications.
+N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
+N> 3. XHTMLValidationType.Transitional - default validation while importing HTML file.
+N> 4. XHTMLValidationType.None - validate the HTML file against XHTML format and it doesn’t perform any schema validation.
+
 ## Supported and unsupported items
+
 The following document elements and attributes are supported by DocIO in Word to HTML and HTML to Word conversions.
+
 <table>
+<thead> 
 <tr>
-<td>
-{{'**Document Element**'| markdownify }}
-</td>
-<td>
-{{'**Attribute**'| markdownify }}
-</td>
-<td>
-{{'**Support Status**'| markdownify }}
-</td>
-<td>
-{{'**Notes**'| markdownify }}
-</td>
+<th>Document Element</th>
+<th>Attribute</th>
+<th>Support Status</th>
+<th>Notes</th>
 </tr>
+</thead>
 <tr>
 <td>
 Bookmark<br/><br/></td>
