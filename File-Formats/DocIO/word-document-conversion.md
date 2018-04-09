@@ -8,6 +8,8 @@ documentation: UG
 
 # Word native conversions
 
+## Word document native conversions.
+
 The [Microsoft Word's](https://en.wikipedia.org/wiki/Microsoft_Word#) native file formats are DOC, DOCX, RTF, DOT, DOTX, DOCM, DOTM. Essential DocIO supports 3 major native file formats.
 
 1. Word Open XML formats (2007 & later)
@@ -71,7 +73,101 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
-### Word Processing XML conversion(.xml)
+### Templates and macros
+
+Dotx is a word document template. The following code snippet shows how to create the word document template with few lines of code,
+
+{% tabs %}
+{% highlight c# %}
+//Creates an instance of WordDocument Instance (Empty Word Document)
+
+WordDocument document = new WordDocument();
+
+//Add a section & a paragraph in the empty document
+
+document.EnsureMinimal();
+
+//Append text to the last paragraph of the document
+
+document.LastParagraph.AppendText("Hello World");
+
+//Save and close the Word document
+
+document.Save("Result.dotx");
+
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Creates an instance of WordDocument Instance (Empty Word Document)
+
+Dim document As New WordDocument()
+
+'Add a section & a paragraph in the empty document
+
+document.EnsureMinimal()
+
+'Append text to the last paragraph of the document
+
+document.LastParagraph.AppendText("Hello World")
+
+'Save and close the Word document
+
+document.Save("Result.dotx")
+
+document.Close()
+{% endhighlight %}
+{% endtabs %}
+
+Docm is macro enabled word document. It is same as Docx document contains macros and scripts. The following code illustrates how to load and save a macro enabled document using DocIO library.
+
+{% tabs %}
+{% highlight c# %}
+// Loads the macro-enabled template.
+
+WordDocument document = new WordDocument("Template.dotm");
+
+// Gets the table
+
+DataTable table = GetDataTable();
+
+// Executes Mail Merge with groups.
+
+document.MailMerge.ExecuteGroup(table);
+
+//Saves and closes the document
+
+document.Save("Sample.docm", FormatType.Word2013Docm);
+
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads the macro-enabled template.
+
+Dim document As New WordDocument("Template.dotm")
+
+'Gets the table
+
+Dim table As DataTable = GetDataTable()
+
+'Executes Mail Merge with groups.
+
+document.MailMerge.ExecuteGroup(table)
+
+'Saves and closes the document
+
+document.Save("Sample.docm", FormatType.Word2013Docm)
+
+document.Close()
+{% endhighlight %}
+{% endtabs %}
+
+
+
+
+## Word Processing XML conversion(.xml)
+
 Essential DocIO supports converting the Word document into Word Processing XML document and vice versa.
 
 Note:
@@ -121,7 +217,7 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
-### Unsupported elements and Limitations in Word to Word Processing XML conversion:
+## Unsupported elements and Limitations in Word to Word Processing XML conversion:
 
 <table>
 <tr>
