@@ -173,7 +173,7 @@ Additionally, we required SkiaSharp.Linux helper NuGet package which can be gene
 # Create a nuspec file with name SkiaSharp.Linux.nuspec using following metadata information and place it inside SkiaSharp.Linux folder. The nuspec file can be customized as per your need.
 
 {% tabs %}
-{% highlight xml %}
+{% highlight XML %}
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
@@ -193,7 +193,6 @@ Additionally, we required SkiaSharp.Linux helper NuGet package which can be gene
     </metadata>
 </package>
 {% endhighlight %}
-
 {% endtabs %}
 
 # Make sure the nuget.exe file is present along with SkiaSharp.Linux folder (in the parent folder of SkiaSharp.Linux folder). If not download it from here.
