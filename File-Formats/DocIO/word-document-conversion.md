@@ -16,8 +16,7 @@ The [Microsoft Word's](https://en.wikipedia.org/wiki/Microsoft_Word#) native fil
 2. Word Binary (97-2003) format (classic)
 3. RTF (classic)
 
-N>
-We recommend you use DOCX file formats since Microsoft corporation stopped their development in DOC file format and new features inclusion, lot of stability improvement will be included in DOCX file format alone. 
+N> We recommend you use DOCX file formats since Microsoft corporation stopped their development in DOC file format and new features inclusion, lot of stability improvement will be included in DOCX file format alone. 
 
 ## Word Open XML formats (2007 & later)
 
@@ -75,7 +74,7 @@ document.Close()
 
 ### Templates and macros
 
-Dotx is a word document template. The following code snippet shows how to create the word document template with few lines of code,
+DOTX is a word document template. The following code snippet shows how to create the word document template with few lines of code,
 
 {% tabs %}
 {% highlight c# %}
@@ -119,7 +118,7 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
-Docm is macro enabled word document. It is same as Docx document contains macros and scripts. The following code illustrates how to load and save a macro enabled document using DocIO library.
+DOCM is macro enabled word document. It is same as DOCX document contains macros and scripts. The following code illustrates how to load and save a macro enabled document using DocIO library.
 
 {% tabs %}
 {% highlight c# %}
