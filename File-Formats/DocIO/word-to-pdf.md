@@ -1,8 +1,16 @@
+---
+title: Word document to PDF Conversion
+description: Converting Word document to PDF using DocIO
+platform: file-formats
+control: DocIO
+documentation: UG
+---
+
 # Word document to PDF Conversion
 The Word document files are converted as a PDF document with a few lines of code by using Essential DocIO. It works perfectly when you create an input Word document from scratch or load an existing Word document and then easily convert them into PDF. 
 Kindly refer the following links for assemblies required based on platforms to convert the word document to PDF.
-* [Assemblies required](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf "") 
-* [NuGet details](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf "")
+* [Assemblies required](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) 
+* [NuGet details](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf)
 The following code example illustrates how to convert a Word document into PDF document.
 C#:
 {% tabs %}
@@ -115,7 +123,7 @@ pdfDocument.Close();
 }
 {% endhighlight %}
 {% endtabs %}
-For more information about converting the Word to PDF in ASP.NET Core, kindly refer the KB article [here](https://www.syncfusion.com/kb/8472# ""). Similarly, for Xamarin refer [here](https://www.syncfusion.com/kb/8496# "").
+For more information about converting the Word to PDF in ASP.NET Core, kindly refer the KB article [here](https://www.syncfusion.com/kb/8472#). Similarly, for Xamarin refer [here](https://www.syncfusion.com/kb/8496#).
 ## Special options:
 Essential DocIO provides special options while performing Word to PDF conversion mentioned below, 
 * Allows to convert PDF faster by using direct PDF rendering approach. As default, it uses EMF rendering approach.
@@ -220,7 +228,7 @@ wordDocument.Close()
 {% endhighlight %}
 {% endtabs %}
 Note
-* Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal and Universal Windows applications.
+* Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal and Universal Windows Platform applications.
 * Creating an instance of ChartToImageConverter class is mandatory to convert the charts present in the Word document to PDF. Otherwise, the charts are not preserved in the converted PDF.
 * ChartToImageConverter is supported from .NET Framework 4.0 onwards.
 * Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.

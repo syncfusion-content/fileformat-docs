@@ -1,3 +1,11 @@
+---
+title: Word document to Text Conversion
+description: Converting Word document to Text using DocIO
+platform: file-formats
+control: DocIO
+documentation: UG
+---
+
 # Text conversion.
 Essential DocIO supports to convert the Word document into Text file and vice versa. The following code example shows how to convert the Word document into text file.
 C#:

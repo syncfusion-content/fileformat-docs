@@ -1,5 +1,13 @@
+---
+title: Converting Word document to ODT
+description: Converting Word document to ODT using DocIO
+platform: file-formats
+control: DocIO
+documentation: UG
+---
+
 # Converting Word document to ODT
-The [OpenDocument format (ODF)](http://en.wikipedia.org/wiki/OpenDocument# "") is an open file format for office documents originally developed for Open Office suite by Sun Microsystem. OpenDocument Text (ODT) is the file format for word processing documents and is currently an OASIS and ISO standard.
+The [OpenDocument format (ODF)](http://en.wikipedia.org/wiki/OpenDocument# "") is an open file format for office documents originally developed for Open Office suite by Sun Microsystems. OpenDocument Text (ODT) is the file format for word processing documents and is currently an OASIS and ISO standard.
 Essential DocIO supports converting the Word document into ODT file. The following code example shows how to convert the Word document into ODT file.
 C#:
 {% tabs %}

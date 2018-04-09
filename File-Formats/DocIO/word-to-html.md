@@ -1,4 +1,12 @@
-# HTML conversion.
+---
+title: Word Document to HTML conversion
+description: Converting Word document to HTML using DocIO
+platform: file-formats
+control: DocIO
+documentation: UG
+---
+
+# Word Document to HTML conversion
 Essential DocIO supports converting the HTML file into Word document and vice versa. It supports only the HTML files that meet the validation either against XHTML 1.0 strict or XHTML 1.0 Transitional schema.
 The following code example shows how to convert the HTML file into Word document.
 C#:
