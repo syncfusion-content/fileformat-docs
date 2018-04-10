@@ -244,7 +244,7 @@ else
 {% endhighlight %}
 {% endtabs %}  
 
-The operation in SaveAndView varies between Windows Phone, Android and iOS platforms.Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 ## Create a simple Excel Document
 
@@ -623,7 +623,7 @@ else
 {% endhighlight %}
 {% endtabs %}  
 
-The operation in SaveAndView varies between Windows Phone, Android and iOS platforms.Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 The complete code to create a simple Excel document.
 
@@ -632,126 +632,126 @@ The complete code to create a simple Excel document.
 using Syncfusion.XlsIO;
 namespace ExcelCreation
 {
-	class Program
+  class Program
+  {
+	static void Main(string[] args)
 	{
-		static void Main(string[] args)
-		{
-			//New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
-			//Instantiate the spreadsheet creation engine
-			ExcelEngine excelEngine = new ExcelEngine();
+	  //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
+	  //Instantiate the spreadsheet creation engine
+	  ExcelEngine excelEngine = new ExcelEngine();
 
-			//Instantiate the Excel application object
-			IApplication application = excelEngine.Excel;
+	  //Instantiate the Excel application object
+	  IApplication application = excelEngine.Excel;
 
-			//Assigns default application version
-			application.DefaultVersion = ExcelVersion.Excel2013;
+	  //Assigns default application version
+	  application.DefaultVersion = ExcelVersion.Excel2013;
 
-			//A new workbook is created equivalent to creating a new workbook in Excel
-			//Create a workbook with 1 worksheet
-			IWorkbook workbook = application.Workbooks.Create(1);
+	  //A new workbook is created equivalent to creating a new workbook in Excel
+	  //Create a workbook with 1 worksheet
+	  IWorkbook workbook = application.Workbooks.Create(1);
 
-			//Access a worksheet from workbook
-			IWorksheet worksheet = workbook.Worksheets[0];
+	  //Access a worksheet from workbook
+	  IWorksheet worksheet = workbook.Worksheets[0];
 
-			//Adding text data
-			worksheet.Range["A1"].Text = "Month";
-			worksheet.Range["B1"].Text = "Sales";
-			worksheet.Range["A6"].Text = "Total";
+	  //Adding text data
+	  worksheet.Range["A1"].Text = "Month";
+	  worksheet.Range["B1"].Text = "Sales";
+	  worksheet.Range["A6"].Text = "Total";
 
-			//Adding DateTime data
-			worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-			worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-			worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
+	  //Adding DateTime data
+	  worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
+	  worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
+	  worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
 
-			//Applying number format for date value cells A2 to A4
-			worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
+	  //Applying number format for date value cells A2 to A4
+	  worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
 
-			//Auto-size the first column to fit the content
-			worksheet.AutofitColumn(1);
+	  //Auto-size the first column to fit the content
+	  worksheet.AutofitColumn(1);
 
-			//Adding numeric data
-			worksheet.Range["B2"].Number = 68878;
-			worksheet.Range["B3"].Number = 71550;
-			worksheet.Range["B4"].Number = 72808;
+	  //Adding numeric data
+	  worksheet.Range["B2"].Number = 68878;
+	  worksheet.Range["B3"].Number = 71550;
+	  worksheet.Range["B4"].Number = 72808;
 
-			//Adding formula
-			worksheet.Range["B6"].Formula = "SUM(B2:B4)";
+	  //Adding formula
+	  worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 
-			//Inserting image
-			worksheet.Pictures.AddPicture(10, 2, "image.jpg");
+	  //Inserting image
+	  worksheet.Pictures.AddPicture(10, 2, "image.jpg");
 
-			//Saving the workbook to disk in XLSX format
-			workbook.SaveAs("Sample.xlsx");
+	  //Saving the workbook to disk in XLSX format
+	  workbook.SaveAs("Sample.xlsx");
 
-			//Closing the workbook
-			workbook.Close();
+	  //Closing the workbook
+	  workbook.Close();
 
-			//Dispose the Excel engine
-			excelEngine.Dispose();
-		}
+	  //Dispose the Excel engine
+	  excelEngine.Dispose();
 	}
+  }
 }
 {% endhighlight %}
 
 {% highlight vb %}
 Imports Syncfusion.XlsIO
 Namespace ExcelCreation
-	Module Program
-		Sub Main(args As String())
-			'New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
-			'Instantiate the spreadsheet creation engine
-			Dim excelEngine As ExcelEngine = New ExcelEngine()
+  Module Program
+	Sub Main(args As String())
+	  'New instance of ExcelEngine is created equivalent to launching Microsoft Excel with no workbooks open
+	  'Instantiate the spreadsheet creation engine
+	  Dim excelEngine As ExcelEngine = New ExcelEngine()
 
-			'Instantiate the Excel application object
-			Dim application As IApplication = excelEngine.Excel
+	  'Instantiate the Excel application object
+	  Dim application As IApplication = excelEngine.Excel
 
-			'Assigns default application version
-			application.DefaultVersion = ExcelVersion.Excel2013
+	  'Assigns default application version
+	  application.DefaultVersion = ExcelVersion.Excel2013
+ 
+	  'A new workbook is created equivalent to creating a new workbook in Excel
+	  'Create a workbook with 1 worksheet
+	  Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-			'A new workbook is created equivalent to creating a new workbook in Excel
-			'Create a workbook with 1 worksheet
-			Dim workbook As IWorkbook = application.Workbooks.Create(1)
+	  'Access a worksheet from workbook
+	  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-			'Access a worksheet from workbook
-			Dim worksheet As IWorksheet = workbook.Worksheets(0)
+	  'Adding text data
+	  worksheet.Range("A1").Text = "Month"
+	  worksheet.Range("B1").Text = "Sales"
+	  worksheet.Range("A6").Text = "Total"
 
-			'Adding text data
-			worksheet.Range("A1").Text = "Month"
-			worksheet.Range("B1").Text = "Sales"
-			worksheet.Range("A6").Text = "Total"
+	  'Adding DateTime data
+	  worksheet.Range("A2").DateTime = new DateTime(2015, 1, 10)
+	  worksheet.Range("A3").DateTime = new DateTime(2015, 2, 10)
+	  worksheet.Range("A4").DateTime = new DateTime(2015, 3, 10)
 
-			'Adding DateTime data
-			worksheet.Range("A2").DateTime = new DateTime(2015, 1, 10)
-			worksheet.Range("A3").DateTime = new DateTime(2015, 2, 10)
-			worksheet.Range("A4").DateTime = new DateTime(2015, 3, 10)
+	  'Applying number format for date value cells A2 to A4
+	  worksheet.Range("A2:A4").NumberFormat = "mmmm, yyyy"
 
-			'Applying number format for date value cells A2 to A4
-			worksheet.Range("A2:A4").NumberFormat = "mmmm, yyyy"
+	  'Auto-size the first column to fit the content
+	  worksheet.AutofitColumn(1)
 
-			'Auto-size the first column to fit the content
-			worksheet.AutofitColumn(1)
+	  'Adding numeric data
+	  worksheet.Range("B2").Number = 68878
+	  worksheet.Range("B3").Number = 71550
+	  worksheet.Range("B4").Number = 72808
 
-			'Adding numeric data
-			worksheet.Range("B2").Number = 68878
-			worksheet.Range("B3").Number = 71550
-			worksheet.Range("B4").Number = 72808
+	  'Adding formula
+	  worksheet.Range("B6").Formula = "SUM(B2:B4)"
 
-			'Adding formula
-			worksheet.Range("B6").Formula = "SUM(B2:B4)"
+	  'Inserting image
+	  worksheet.Pictures.AddPicture(10, 2, "image.jpg")
 
-			'Inserting image
-			worksheet.Pictures.AddPicture(10, 2, "image.jpg")
+	  'Saving the workbook to disk in XLSX format
+	  workbook.SaveAs("Sample.xlsx")
 
-			'Saving the workbook to disk in XLSX format
-			workbook.SaveAs("Sample.xlsx")
+	  'Closing the workbook
+	  workbook.Close()
 
-			'Closing the workbook
-			workbook.Close()
-
-			'Dispose the Excel engine
-			excelEngine.Dispose()
-		End Sub
-	End Module
+	  'Dispose the Excel engine
+	  excelEngine.Dispose()
+	End Sub
+  End Module
 End Namespace
 {% endhighlight %}
 
@@ -759,80 +759,80 @@ End Namespace
 using Syncfusion.XlsIO;
 namespace ExcelCreation
 {
-	public sealed partial class MainPage : Page
+  public sealed partial class MainPage : Page
+  {
+	public MainPage()
 	{
-		public MainPage()
-		{
-			this.InitializeComponent();
-		}
-		private async void OnButtonClicked(object sender, RoutedEventArgs e)
-		{
-			//New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
-			//Instantiate the spreadsheet creation engine
-			ExcelEngine excelEngine = new ExcelEngine();
-
-			//Instantiate the Excel application object
-			IApplication application = excelEngine.Excel;
-
-			//Assigns default application version
-			application.DefaultVersion = ExcelVersion.Excel2013;
-
-			//A new workbook is created equivalent to creating a new workbook in Excel
-			//Create a workbook with 1 worksheet
-			IWorkbook workbook = application.Workbooks.Create(1);
-
-			//Access a worksheet from workbook
-			IWorksheet worksheet = workbook.Worksheets[0];
-
-			//Adding text data
-			worksheet.Range["A1"].Text = "Month";
-			worksheet.Range["B1"].Text = "Sales";
-			worksheet.Range["A6"].Text = "Total";
-
-			//Adding DateTime data
-			worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-			worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-			worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
-
-			//Applying number format for date value cells A2 to A4
-			worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
-
-			//Auto-size the first column to fit the content
-			worksheet.AutofitColumn(1);
-
-			//Adding numeric data
-			worksheet.Range["B2"].Number = 68878;
-			worksheet.Range["B3"].Number = 71550;
-			worksheet.Range["B4"].Number = 72808;
-
-			//Adding formula
-			worksheet.Range["B6"].Formula = "SUM(B2:B4)";
-
-			//Inserting image
-			//"App" is the class of Portable project
-			Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-			Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.jpg");
-			worksheet.Pictures.AddPicture(10, 2, imageStream);
-
-			//Initializes FileSavePicker
-			FileSavePicker savePicker = new FileSavePicker();
-			savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-			savePicker.SuggestedFileName = "Sample";
-			savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-			//Creates a storage file from FileSavePicker
-			StorageFile storageFile = await savePicker.PickSaveFileAsync();
-	
-			//Saves changes to the specified storage file
-			await workbook.SaveAsAsync(storageFile);
-
-			//Closing the workbook
-			workbook.Close();
-
-			//Dispose the Excel engine
-			excelEngine.Dispose();
-		}
+	this.InitializeComponent();
 	}
+	private async void OnButtonClicked(object sender, RoutedEventArgs e)
+	{
+	  //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
+	  //Instantiate the spreadsheet creation engine
+	  ExcelEngine excelEngine = new ExcelEngine();
+
+	  //Instantiate the Excel application object
+	  IApplication application = excelEngine.Excel;
+
+	  //Assigns default application version
+	  application.DefaultVersion = ExcelVersion.Excel2013;
+
+	  //A new workbook is created equivalent to creating a new workbook in Excel
+	  //Create a workbook with 1 worksheet
+	  IWorkbook workbook = application.Workbooks.Create(1);
+
+	  //Access a worksheet from workbook
+	  IWorksheet worksheet = workbook.Worksheets[0];
+
+	  //Adding text data
+	  worksheet.Range["A1"].Text = "Month";
+	  worksheet.Range["B1"].Text = "Sales";
+	  worksheet.Range["A6"].Text = "Total";
+
+	  //Adding DateTime data
+	  worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
+	  worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
+	  worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
+
+	  //Applying number format for date value cells A2 to A4
+	  worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
+
+	  //Auto-size the first column to fit the content
+	  worksheet.AutofitColumn(1);
+
+	  //Adding numeric data
+	  worksheet.Range["B2"].Number = 68878;
+	  worksheet.Range["B3"].Number = 71550;
+	  worksheet.Range["B4"].Number = 72808;
+
+	  //Adding formula
+	  worksheet.Range["B6"].Formula = "SUM(B2:B4)";
+
+	  //Inserting image
+	  //"App" is the class of Portable project
+	  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	  Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.jpg");
+	  worksheet.Pictures.AddPicture(10, 2, imageStream);
+
+	  //Initializes FileSavePicker
+	  FileSavePicker savePicker = new FileSavePicker();
+	  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+	  savePicker.SuggestedFileName = "Sample";
+	  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+	  //Creates a storage file from FileSavePicker
+	  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+	
+	  //Saves changes to the specified storage file
+	  await workbook.SaveAsAsync(storageFile);
+
+	  //Closing the workbook
+	  workbook.Close();
+
+	  //Dispose the Excel engine
+	  excelEngine.Dispose();
+	}
+  }
 }
 {% endhighlight %}
 
@@ -840,69 +840,69 @@ namespace ExcelCreation
 using Syncfusion.XlsIO;
 namespace ExcelCreation
 {
-	class Program
+  class Program
+  {
+	static void Main(string[] args)
 	{
-		static void Main(string[] args)
-		{
-			//New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
-			//Instantiate the spreadsheet creation engine
-			ExcelEngine excelEngine = new ExcelEngine();
+	  //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
+	  //Instantiate the spreadsheet creation engine
+	  ExcelEngine excelEngine = new ExcelEngine();
 
-			//Instantiate the Excel application object
-			IApplication application = excelEngine.Excel;
+	  //Instantiate the Excel application object
+	  IApplication application = excelEngine.Excel;
 
-			//Assigns default application version
-			application.DefaultVersion = ExcelVersion.Excel2013;
+	  //Assigns default application version
+	  application.DefaultVersion = ExcelVersion.Excel2013;
 
-			//A new workbook is created equivalent to creating a new workbook in Excel
-			//Create a workbook with 1 worksheet
-			IWorkbook workbook = application.Workbooks.Create(1);
+	  //A new workbook is created equivalent to creating a new workbook in Excel
+	  //Create a workbook with 1 worksheet
+	  IWorkbook workbook = application.Workbooks.Create(1);
 
-			//Access a worksheet from workbook
-			IWorksheet worksheet = workbook.Worksheets[0];
+	  //Access a worksheet from workbook
+	  IWorksheet worksheet = workbook.Worksheets[0];
 
-			//Adding text data
-			worksheet.Range["A1"].Text = "Month";
-			worksheet.Range["B1"].Text = "Sales";
-			worksheet.Range["A6"].Text = "Total";
+	  //Adding text data
+	  worksheet.Range["A1"].Text = "Month";
+	  worksheet.Range["B1"].Text = "Sales";
+	  worksheet.Range["A6"].Text = "Total";
 
-			//Adding DateTime data
-			worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-			worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-			worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
+	  //Adding DateTime data
+	  worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
+	  worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
+	  worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
 
-			//Applying number format for date value cells A2 to A4
-			worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
+	  //Applying number format for date value cells A2 to A4
+	  worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
 
-			//Auto-size the first column to fit the content
-			worksheet.AutofitColumn(1);
+	  //Auto-size the first column to fit the content
+	  worksheet.AutofitColumn(1);
 
-			//Adding numeric data
-			worksheet.Range["B2"].Number = 68878;
-			worksheet.Range["B3"].Number = 71550;
-			worksheet.Range["B4"].Number = 72808;
+	  //Adding numeric data
+	  worksheet.Range["B2"].Number = 68878;
+	  worksheet.Range["B3"].Number = 71550;
+	  worksheet.Range["B4"].Number = 72808;
 
-			//Adding formula
-			worksheet.Range["B6"].Formula = "SUM(B2:B4)";
+	  //Adding formula
+	  worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 
-			//Inserting image
-			FileStream imageStream = new FileStream("image.jpg", FileMode.Open, FileAccess.Read);
-			worksheet.Pictures.AddPicture(10, 2, imageStream); 
+	  //Inserting image
+	  FileStream imageStream = new FileStream("image.jpg", FileMode.Open, FileAccess.Read);
+	  worksheet.Pictures.AddPicture(10, 2, imageStream); 
 
-			//Saving the workbook to disk in XLSX format
-			FileStream stream = new FileStream("Sample.xlsx", FileMode.Create, FileAccess.ReadWrite);
-			workbook.SaveAs(stream);
+	  //Saving the workbook to disk in XLSX format
+	  FileStream stream = new FileStream("Sample.xlsx", FileMode.Create, FileAccess.ReadWrite);
+	  workbook.SaveAs(stream);
 
-			//Dispose stream
-			stream.Dispose();
+	  //Dispose stream
+	  stream.Dispose();
 
-			//Closing the workbook
-			workbook.Close();
+	  //Closing the workbook
+	  workbook.Close();
 
-			//Dispose the Excel engine
-			excelEngine.Dispose();
-		}
+	  //Dispose the Excel engine
+      excelEngine.Dispose();
 	}
+  }
 }
 {% endhighlight %}
 
@@ -910,84 +910,84 @@ namespace ExcelCreation
 using Syncfusion.XlsIO;
 namespace ExcelCreation
 {
-	class Program
+  class Program
+  {
+	static void Main(string[] args)
 	{
-		static void Main(string[] args)
-		{
-			//New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
-			//Instantiate the spreadsheet creation engine
-			ExcelEngine excelEngine = new ExcelEngine();
+	  //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
+	  //Instantiate the spreadsheet creation engine
+	  ExcelEngine excelEngine = new ExcelEngine();
 
-			//Instantiate the Excel application object
-			IApplication application = excelEngine.Excel;
+	  //Instantiate the Excel application object
+	  IApplication application = excelEngine.Excel;
 
-			//Assigns default application version
-			application.DefaultVersion = ExcelVersion.Excel2013;
+	  //Assigns default application version
+	  application.DefaultVersion = ExcelVersion.Excel2013;
 
-			//A new workbook is created equivalent to creating a new workbook in Excel
-			//Create a workbook with 1 worksheet
-			IWorkbook workbook = application.Workbooks.Create(1);
+	  //A new workbook is created equivalent to creating a new workbook in Excel
+	  //Create a workbook with 1 worksheet
+	  IWorkbook workbook = application.Workbooks.Create(1);
 
-			//Access a worksheet from workbook
-			IWorksheet worksheet = workbook.Worksheets[0];
+	  //Access a worksheet from workbook
+	  IWorksheet worksheet = workbook.Worksheets[0];
 
-			//Adding text data
-			worksheet.Range["A1"].Text = "Month";
-			worksheet.Range["B1"].Text = "Sales";
-			worksheet.Range["A6"].Text = "Total";
+   	  //Adding text data
+	  worksheet.Range["A1"].Text = "Month";
+	  worksheet.Range["B1"].Text = "Sales";
+	  worksheet.Range["A6"].Text = "Total";
 
-			//Adding DateTime data
-			worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-			worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-			worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
+	  //Adding DateTime data
+	  worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
+	  worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
+	  worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
 
-			//Applying number format for date value cells A2 to A4
-			worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
+	  //Applying number format for date value cells A2 to A4
+	  worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
 
-			//Auto-size the first column to fit the content
-			worksheet.AutofitColumn(1);
+	  //Auto-size the first column to fit the content
+	  worksheet.AutofitColumn(1);
 
-			//Adding numeric data
-			worksheet.Range["B2"].Number = 68878;
-			worksheet.Range["B3"].Number = 71550;
-			worksheet.Range["B4"].Number = 72808;
+	  //Adding numeric data
+	  worksheet.Range["B2"].Number = 68878;
+	  worksheet.Range["B3"].Number = 71550;
+	  worksheet.Range["B4"].Number = 72808;
 
-			//Adding formula
-			worksheet.Range["B6"].Formula = "SUM(B2:B4)";
+	  //Adding formula
+	  worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 
-			//Inserting image
-			//"App" is the class of Portable project
-			Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-			Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.image.jpg");
-			worksheet.Pictures.AddPicture(10, 2, imageStream);
+	  //Inserting image
+	  //"App" is the class of Portable project
+	  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	  Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.image.jpg");
+	  worksheet.Pictures.AddPicture(10, 2, imageStream);
 
-			//Saving the workbook to stream
-			MemoryStream stream = new MemoryStream();
-			workbook.SaveAs(stream);
+	  //Saving the workbook to stream
+	  MemoryStream stream = new MemoryStream();
+	  workbook.SaveAs(stream);
 
-			//Closing the workbook
-			workbook.Close();
+	  //Closing the workbook
+	  workbook.Close();
 
-			//Dispose the Excel engine
-			excelEngine.Dispose();
-			
-			stream.Position = 0;
-			//Save the document as file and view the saved document
-			if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-			{
-				Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-			}
-			else
-			{
-				Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
-			}
-		}
+	  //Dispose the Excel engine
+	  excelEngine.Dispose();
+	
+	  stream.Position = 0;
+	  //Save the document as file and view the saved document
+	  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+	  {
+		Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
+	  }
+	  else
+	  {
+		Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
+	  }
 	}
+  }
 }
 {% endhighlight %}
 {% endtabs %}  
 
-The operation in SaveAndView varies between Windows Phone, Android and iOS platforms.Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 The output screen-shot of the above code.
 
@@ -1123,7 +1123,7 @@ else
 {% endhighlight %}
 {% endtabs %}  
 
-The operation in SaveAndView varies between Windows Phone, Android and iOS platforms.Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 The following code snippet provides supporting methods and class for the above code.
 
@@ -1644,9 +1644,9 @@ else
     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarkerResult.xlsx", "application/msexcel", stream);
 }
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %}
 
-The operation in SaveAndView varies between Windows Phone, Android and iOS platforms.Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 The following code snippet provides supporting methods and class for the above code.
 
