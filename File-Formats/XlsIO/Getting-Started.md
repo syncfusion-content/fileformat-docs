@@ -157,7 +157,11 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await workbook.SaveAsAsync(storageFile);
+
+//Closing the workbook
 workbook.Close();
+
+//Dispose Excel engine
 excelEngine.Dispose();
 {% endhighlight %}
 
@@ -235,11 +239,11 @@ stream.Position = 0;
 //Save the document as file and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
+  Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
 }
 else
 {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
 }
 {% endhighlight %}
 {% endtabs %}  
@@ -373,7 +377,7 @@ IWorkbook workbook = application.Workbooks.Create(1);
 //Access a worksheet from workbook
 IWorksheet worksheet = workbook.Worksheets[0];
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %} 
 
 
 {% tabs %}  
@@ -614,11 +618,11 @@ stream.Position = 0;
 //Save the document as file and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
+  Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
 }
 else
 {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
 }
 {% endhighlight %}
 {% endtabs %}  
@@ -900,7 +904,7 @@ namespace ExcelCreation
 	  workbook.Close();
 
 	  //Dispose the Excel engine
-      excelEngine.Dispose();
+	  excelEngine.Dispose();
 	}
   }
 }
@@ -1114,11 +1118,11 @@ stream.Position = 0;
 //Save the document as file and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Spreadsheet.xlsx", "application/msexcel", stream);
+  Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Spreadsheet.xlsx", "application/msexcel", stream);
 }
 else
 {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Spreadsheet.xlsx", "application/msexcel", stream);
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Spreadsheet.xlsx", "application/msexcel", stream);
 }
 {% endhighlight %}
 {% endtabs %}  
@@ -1132,133 +1136,133 @@ The following code snippet provides supporting methods and class for the above c
 //Gets a list of Employee details
 private static IList<Employee> GetEmployees()
 {
-	List<Employee> employees = new List<Employee>();
-	employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
-	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-	employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
-	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-	return employees;
+  List<Employee> employees = new List<Employee>();
+  employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
+  employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+  employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+  employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+  employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+  return employees;
 }
 
 //Employee details
 public class Employee
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Region { get; set; }
-	public string Country { get; set; }
-	public string Title { get; set; }
-
-	public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Title = title;
-		Address = address;
-		City = city;
-		Region = region;
-		Country = country;
-	}
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+  public string Address { get; set; }
+  public string City { get; set; }
+  public string Region { get; set; }
+  public string Country { get; set; }
+  public string Title { get; set; }
+  
+  public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+  {
+	FirstName = firstName;
+	LastName = lastName;
+	Title = title;
+	Address = address;
+	City = city;
+	Region = region;
+	Country = country;
+  }
 }
 {% endhighlight %}
 
 {% highlight vb %}
 'Gets a list Employee details
 Private Function GetEmployees() As List(Of Employee)
-	Dim employees As New List(Of Employee)()
-	employees.Add(New Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"))
-	employees.Add(New Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"))
-	employees.Add(New Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"))
-	employees.Add(New Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"))
-	employees.Add(New Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", String.Empty, "UK", "Steven.png"))
-	Return employees
+  Dim employees As New List(Of Employee)()
+  employees.Add(New Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"))
+  employees.Add(New Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"))
+  employees.Add(New Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"))
+  employees.Add(New Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"))
+  employees.Add(New Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", String.Empty, "UK", "Steven.png"))
+  Return employees
 End Function
 
 'Employee details
 Public Class Employee
 
-	Public Property FirstName() As String
-		Get
-			Return m_FirstName
-		End Get
-		Set(value As String)
-			m_FirstName = Value
-		End Set
-	End Property
-	Private m_FirstName As String
+  Public Property FirstName() As String
+	Get
+	  Return m_FirstName
+	End Get
+	Set(value As String)
+	  m_FirstName = Value
+	End Set
+  End Property
+  Private m_FirstName As String
 
-	Public Property LastName() As String
-		Get
-			Return m_LastName
-		End Get
-		Set(value As String)
-			m_LastName = Value
-		End Set
-	End Property
-	Private m_LastName As String
+  Public Property LastName() As String
+	Get
+	  Return m_LastName
+	End Get
+	Set(value As String)
+	  m_LastName = Value
+	End Set
+  End Property
+  Private m_LastName As String
 
-	Public Property Address() As String
-		Get
-			Return m_Address
-		End Get
-		Set(value As String)
-			m_Address = Value
-		End Set
-	End Property
-	Private m_Address As String
+  Public Property Address() As String
+	Get
+	  Return m_Address
+	End Get
+	Set(value As String)
+	  m_Address = Value
+	End Set
+  End Property
+  Private m_Address As String
 
-	Public Property City() As String
-		Get
-			Return m_City
-		End Get
-		Set(value As String)
-			m_City = Value
-		End Set
-	End Property
-	Private m_City As String
+  Public Property City() As String
+	Get
+	  Return m_City
+	End Get
+	Set(value As String)
+	  m_City = Value
+	End Set
+  End Property
+  Private m_City As String
 
-	Public Property Region() As String
-		Get
-			Return m_Region
-		End Get
-		Set(value As String)
-			m_Region = Value
-		End Set
-	End Property
-	Private m_Region As String
+  Public Property Region() As String
+	Get
+	  Return m_Region
+	End Get
+	Set(value As String)
+	  m_Region = Value
+	End Set
+  End Property
+  Private m_Region As String
 
-	Public Property Country() As String
-		Get
-			Return m_Country
-		End Get
-		Set(value As String)
-			m_Country = Value
-		End Set
-	End Property
-	Private m_Country As String
+  Public Property Country() As String
+	Get
+	  Return m_Country
+	End Get
+	Set(value As String)
+	  m_Country = Value
+	End Set
+  End Property
+  Private m_Country As String
 
-	Public Property Title() As String
-		Get
-			Return m_Title
-		End Get
-		Set(value As String)
-			m_Title = Value
-		End Set
-	End Property
-	Private m_Title As String
+  Public Property Title() As String
+	Get
+	  Return m_Title
+	End Get
+	Set(value As String)
+	  m_Title = Value
+	End Set
+  End Property
+  Private m_Title As String
 
-	Public Sub New(firstName As String, lastName As String, title As String, address As String, city As String, region As String, country As String, photoFilePath As String)
-		firstName = firstName
-		lastName = lastName
-		title = title
-		address = address
-		city = city
-		region = region
-		country = country
-	End Sub
+  Public Sub New(firstName As String, lastName As String, title As String, address As String, city As String, region As String, country As String, photoFilePath As String)
+	firstName = firstName
+	lastName = lastName
+	title = title
+	address = address
+	city = city
+	region = region
+	country = country
+  End Sub
 End Class
 {% endhighlight %}
 
@@ -1266,36 +1270,36 @@ End Class
 //Gets a list of Employee details
 private static List<Employee> GetEmployees()
 {
-	List<Employee> employees = new List<Employee>();
-	employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
-	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-	employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
-	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-	return employees;
+  List<Employee> employees = new List<Employee>();
+  employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
+  employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+  employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+  employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+  employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+  return employees;
 }
 
 //Employee details
 public class Employee
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Region { get; set; }
-	public string Country { get; set; }
-	public string Title { get; set; }
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+  public string Address { get; set; }
+  public string City { get; set; }
+  public string Region { get; set; }
+  public string Country { get; set; }
+  public string Title { get; set; }
 
-	public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Title = title;
-		Address = address;
-		City = city;
-		Region = region;
-		Country = country;
-	}
+  public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+  {
+	FirstName = firstName;
+	LastName = lastName;
+	Title = title;
+	Address = address;
+	City = city;
+	Region = region;
+	Country = country;
+  }
 }
 {% endhighlight %}
 
@@ -1303,36 +1307,36 @@ public class Employee
 //Gets a list of Employee details
 private static List<Employee> GetEmployees()
 {
-	List<Employee> employees = new List<Employee>();
-	employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
-	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-	employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
-	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-	return employees;
+  List<Employee> employees = new List<Employee>();
+  employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
+  employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+  employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+  employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+  employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+  return employees;
 }
 
 //Employee details
 public class Employee
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Region { get; set; }
-	public string Country { get; set; }
-	public string Title { get; set; }
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+  public string Address { get; set; }
+  public string City { get; set; }
+  public string Region { get; set; }
+  public string Country { get; set; }
+  public string Title { get; set; }
 
-	public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Title = title;
-		Address = address;
-		City = city;
-		Region = region;
-		Country = country;
-	}
+  public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+  {
+	FirstName = firstName;
+	LastName = lastName;
+	Title = title;
+	Address = address;
+	City = city;
+	Region = region;
+	Country = country;
+  }
 }
 {% endhighlight %}
 
@@ -1340,36 +1344,36 @@ public class Employee
 //Gets a list of Employee details
 private static List<Employee> GetEmployees()
 {
-	List<Employee> employees = new List<Employee>();
-	employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
-	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-	employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
-	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-	return employees;
+  List<Employee> employees = new List<Employee>();
+  employees.Add(new Employee("Nancy", "Davolio", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Nancy.png"));
+  employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+  employees.Add(new Employee("Janet", "Leverling", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+  employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+  employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+  return employees;
 }
 
 //Employee details
 public class Employee
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Region { get; set; }
-	public string Country { get; set; }
-	public string Title { get; set; }
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+  public string Address { get; set; }
+  public string City { get; set; }
+  public string Region { get; set; }
+  public string Country { get; set; }
+  public string Title { get; set; }
 
-	public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Title = title;
-		Address = address;
-		City = city;
-		Region = region;
-		Country = country;
-	}
+  public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+  {
+	FirstName = firstName;
+	LastName = lastName;
+	Title = title;
+	Address = address;
+	City = city;
+	Region = region;
+	Country = country;
+  }
 }
 {% endhighlight %}
 {% endtabs %}  
@@ -1637,11 +1641,11 @@ stream.Position = 0;
 //Save the document as file and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarkerResult.xlsx", "application/msexcel", stream);
+  Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarkerResult.xlsx", "application/msexcel", stream);
 }
 else
 {
-    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarkerResult.xlsx", "application/msexcel", stream);
+  Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarkerResult.xlsx", "application/msexcel", stream);
 }
 {% endhighlight %}
 {% endtabs %}
@@ -1655,107 +1659,107 @@ The following code snippet provides supporting methods and class for the above c
 //Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {
-	List<Report> reports = new List<Report>();
-	reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
-	reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
-	reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
-	reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
-	reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
-	return reports;
+  List<Report> reports = new List<Report>();
+  reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
+  reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
+  reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
+  reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
+  reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
+  return reports;
 }
 
 //Sales report
 public class Report
 {
-	public string SalesPerson { get; set; }
-	public string SalesJanJun { get; set; }
-	public string SalesJulDec { get; set; }
-	public int Change { get; set; }
-	public byte[] Image { get; set; }
+  public string SalesPerson { get; set; }
+  public string SalesJanJun { get; set; }
+  public string SalesJulDec { get; set; }
+  public int Change { get; set; }
+  public byte[] Image { get; set; }
 
-	public Report(string name, string janToJun, string julToDec, int change, string imagePath)
-	{
-		SalesPerson = name;
-		SalesJanJun = janToJun;
-		SalesJulDec = julToDec;
-		Change = change;
-		Image = File.ReadAllBytes(imagePath);
-	}
+  public Report(string name, string janToJun, string julToDec, int change, string imagePath)
+  {
+	SalesPerson = name;
+	SalesJanJun = janToJun;
+	SalesJulDec = julToDec;
+	Change = change;
+	Image = File.ReadAllBytes(imagePath);
+  }
 }
 {% endhighlight %}
 
 {% highlight vb %}
 'Gets a list of sales reports
 Private Function GetSalesReports() As List(Of Report)
-	Dim reports As New List(Of Report)()
-	reports.Add(New Report("Andy Bernard", "45000", "58000", 29, "Andy.jpg"))
-	reports.Add(New Report("Jim Halpert", "34000", "65000", 91, "Jim.png"))
-	reports.Add(New Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"))
-	reports.Add(New Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"))
-	reports.Add(New Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"))
-	Return reports
+  Dim reports As New List(Of Report)()
+  reports.Add(New Report("Andy Bernard", "45000", "58000", 29, "Andy.jpg"))
+  reports.Add(New Report("Jim Halpert", "34000", "65000", 91, "Jim.png"))
+  reports.Add(New Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"))
+  reports.Add(New Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"))
+  reports.Add(New Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"))
+  Return reports
 End Function
 
 'Sales report
 Public Class Report
 	
-	Public Property SalesPerson() As String
-		Get
-			Return m_SalesPerson
-		End Get
-		Set(value As String)
-			m_SalesPerson = Value
-		End Set
-	End Property
-	Private m_SalesPerson As String
+  Public Property SalesPerson() As String
+	Get
+	  Return m_SalesPerson
+	End Get
+	Set(value As String)
+	  m_SalesPerson = Value
+	End Set
+  End Property
+  Private m_SalesPerson As String
 
-	Public Property SalesJanJun() As String
-		Get
-			Return m_SalesJanJun
-		End Get
-		Set(value As String)
-			m_SalesJanJun = Value
-		End Set
-	End Property
-	Private m_SalesJanJun As String
+  Public Property SalesJanJun() As String
+	Get
+	  Return m_SalesJanJun
+	End Get
+	Set(value As String)
+	  m_SalesJanJun = Value
+	End Set
+  End Property
+  Private m_SalesJanJun As String
 
-	Public Property SalesJulDec() As String
-		Get
-			Return m_SalesJulDec
-		End Get
-		Set(value As String)
-			m_SalesJulDec = Value
-		End Set
-	End Property
-	Private m_SalesJulDec As String
+  Public Property SalesJulDec() As String
+	Get
+	  Return m_SalesJulDec
+	End Get
+	Set(value As String)
+	  m_SalesJulDec = Value
+	End Set
+  End Property
+  Private m_SalesJulDec As String
 
-	Public Property Change() As Integer
-		Get
-			Return m_Change
-		End Get
-		Set(value As Integer)
-			m_Change = Value
-		End Set
-	End Property
-	Private m_Change As Integer
+  Public Property Change() As Integer
+	Get
+	  Return m_Change
+	End Get
+	Set(value As Integer)
+	  m_Change = Value
+	End Set
+  End Property
+  Private m_Change As Integer
 
-	Public Property Image() As Byte()
-		Get
-			Return m_Image
-		End Get
-		Set(value As Byte())
-			m_Image = Value
-		End Set
-	End Property
-	Private m_Image As Byte()
+  Public Property Image() As Byte()
+	Get
+	  Return m_Image
+	End Get
+	Set(value As Byte())
+	  m_Image = Value
+	End Set
+  End Property
+  Private m_Image As Byte()
 
-	Public Sub New(name As String, janToJun As String, julToDec As String, change As Integer, imagePath As String)
-		SalesPerson = name
-		SalesJanJun = janToJun
-		SalesJulDec = julToDec
-		change = change
-		Image = File.ReadAllBytes(imagePath)
-	End Sub
+  Public Sub New(name As String, janToJun As String, julToDec As String, change As Integer, imagePath As String)
+	SalesPerson = name
+	SalesJanJun = janToJun
+	SalesJulDec = julToDec
+	change = change
+	Image = File.ReadAllBytes(imagePath)
+  End Sub
 End Class
 {% endhighlight %}
 
@@ -1763,30 +1767,42 @@ End Class
 //Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {
-	List<Report> reports = new List<Report>();
-	reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
-	reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
-	reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
-	reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
-	reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
-	return reports;
+  List<Report> reports = new List<Report>();
+  reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
+  reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
+  reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
+  reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
+  reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
+  return reports;
 }
 
 //Sales report
 public class Report
 {
-	public string SalesPerson { get; set; }
-	public string SalesJanJun { get; set; }
-	public string SalesJulDec { get; set; }
-	public int Change { get; set; }
+  public string SalesPerson { get; set; }
+  public string SalesJanJun { get; set; }
+  public string SalesJulDec { get; set; }
+  public int Change { get; set; }
+  public byte[] Image { get; set; }
 
-	public Report(string name, string janToJun, string julToDec, int change)
+  public Report(string name, string janToJun, string julToDec, int change, string imagePath)
+  {
+	SalesPerson = name;
+	SalesJanJun = janToJun;
+	SalesJulDec = julToDec;
+	Change = change;
+	Image = GetImage(imagePath);			
+  }
+
+  private byte[] GetImage(string imagePath)
+  {
+	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	Stream imageStream = assembly.GetManifestResourceStream("UWP.Data." + imagePath);
+	using (BinaryReader br = new BinaryReader(imageStream))
 	{
-		SalesPerson = name;
-		SalesJanJun = janToJun;
-		SalesJulDec = julToDec;
-		Change = change;
+	  return br.ReadBytes((int)imageStream.Length);
 	}
+  }
 }
 {% endhighlight %}
 
@@ -1794,42 +1810,32 @@ public class Report
 //Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {
-	List<Report> reports = new List<Report>();
-	reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
-	reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
-	reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
-	reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
-	reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
-	return reports;
+  List<Report> reports = new List<Report>();
+  reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
+  reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
+  reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
+  reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
+  reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
+  return reports;
 }
 
 //Sales report
 public class Report
 {
-	public string SalesPerson { get; set; }
-	public string SalesJanJun { get; set; }
-	public string SalesJulDec { get; set; }
-	public int Change { get; set; }
-	public byte[] Image { get; set; }
-
-	public Report(string name, string janToJun, string julToDec, int change, string imagePath)
-	{
-		SalesPerson = name;
-		SalesJanJun = janToJun;
-		SalesJulDec = julToDec;
-		Change = change;
-		Image = GetImage(imagePath);			
-	}
-
-	private byte[] GetImage(string imagePath)
-	{
-		Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-		Stream imageStream = assembly.GetManifestResourceStream("UWP.Data." + imagePath);
-		using (BinaryReader br = new BinaryReader(imageStream))
-		{
-			return br.ReadBytes((int)imageStream.Length);
-		}
-	}
+  public string SalesPerson { get; set; }
+  public string SalesJanJun { get; set; }
+  public string SalesJulDec { get; set; }
+  public int Change { get; set; }
+  public byte[] Image { get; set; }
+  
+  public Report(string name, string janToJun, string julToDec, int change, string imagePath)
+  {
+	SalesPerson = name;
+	SalesJanJun = janToJun;
+	SalesJulDec = julToDec;
+	Change = change;
+	Image = File.ReadAllBytes(imagePath);
+  }
 }
 {% endhighlight %}
 
@@ -1837,42 +1843,42 @@ public class Report
 //Gets a list of sales reports
 private static List<Report> GetSalesReports()
 {
-	List<Report> reports = new List<Report>();
-	reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
-	reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
-	reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
-	reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
-	reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
-	return reports;
+  List<Report> reports = new List<Report>();
+  reports.Add(new Report("Andy Bernard", "45000", "58000", 29 , "Andy.jpg"));
+  reports.Add(new Report("Jim Halpert", "34000", "65000", 91, "Jim.png"));
+  reports.Add(new Report("Karen Fillippelli", "75000", "64000", -14, "Karen.jpg"));
+  reports.Add(new Report("Phyllis Lapin", "56500", "33600", -40, "Phyllis.png"));
+  reports.Add(new Report("Stanley Hudson", "46500", "52000", 12, "Stanley.jpg"));
+  return reports;
 }
 
 //Sales report
 public class Report
 {
-	public string SalesPerson { get; set; }
-	public string SalesJanJun { get; set; }
-	public string SalesJulDec { get; set; }
-	public int Change { get; set; }
-	public byte[] Image { get; set; }
+  public string SalesPerson { get; set; }
+  public string SalesJanJun { get; set; }
+  public string SalesJulDec { get; set; }
+  public int Change { get; set; }
+  public byte[] Image { get; set; }
 
-	public Report(string name, string janToJun, string julToDec, int change, string imagePath)
-	{
-		SalesPerson = name;
-		SalesJanJun = janToJun;
-		SalesJulDec = julToDec;
-		Change = change;
-		Image = GetImage(imagePath);
-	}
+  public Report(string name, string janToJun, string julToDec, int change, string imagePath)
+  {
+	SalesPerson = name;
+	SalesJanJun = janToJun;
+	SalesJulDec = julToDec;
+	Change = change;
+	Image = GetImage(imagePath);
+  }
 
-	private byte[] GetImage(string imagePath)
+  private byte[] GetImage(string imagePath)
+  {
+	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template." + imagePath);
+	using (BinaryReader reader = new BinaryReader(imageStream))
 	{
-		Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-		Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template." + imagePath);
-		using (BinaryReader reader = new BinaryReader(imageStream))
-		{
-			return reader.ReadBytes((int)imageStream.Length);
-		}
+	  return reader.ReadBytes((int)imageStream.Length);
 	}
+  }
 }
 {% endhighlight %}
 {% endtabs %}  
