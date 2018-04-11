@@ -159,11 +159,11 @@ excelEngine.Dispose();
 
 string fileName = "CustomXml.xlsx";
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
@@ -171,6 +171,7 @@ outputStream.Dispose();
 {% endhighlight %}
 
   {% endtabs %}  
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 **Read** **Custom** **XML** 
 
@@ -321,11 +322,11 @@ excelEngine.Dispose();
 
 string fileName = "CustomXml.xlsx";
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
@@ -333,6 +334,7 @@ outputStream.Dispose();
 {% endhighlight %}
 
   {% endtabs %}  
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 N> Custom XML cannot be modified when the file is saved in Excel 97-2003 (\*.xls) format.
 N> Custom XML can be created and modified when the file is saved in Excel 2007 and later versions (\*.xlsx).
