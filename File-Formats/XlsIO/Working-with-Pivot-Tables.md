@@ -353,17 +353,19 @@ excelEngine.Dispose();
 
 string fileName = "PivotTable.xlsx";
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
 outputStream.Dispose();
 {% endhighlight %}
   {% endtabs %}  
+
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 ## Editing and Formatting a Pivot Table
 
@@ -495,17 +497,19 @@ excelEngine.Dispose();
 
 string fileName = "PivotTable_DynamicRange.xlsx";
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
 outputStream.Dispose();
 {% endhighlight %}
   {% endtabs %}  
+
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 XlsIO supports 85 built-in styles of Excel 2007, enabling users to create a table with rich formatting through PivotBuiltInStyles property as follows. To know more about various built-in styles supported, please refer **PivotBuiltInStyles** enumeration in API section.
 
@@ -641,17 +645,19 @@ excelEngine.Dispose();
 
 string fileName = "PivotTable_Style.xlsx";
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
 outputStream.Dispose();
 {% endhighlight %}
   {% endtabs %}  
+
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 ## Applying Pivot Table Filters 
 
@@ -1130,11 +1136,11 @@ excelEngine.Dispose();
 
 string fileName = "PivotTable.xlsx";
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
@@ -1142,6 +1148,8 @@ outputStream.Dispose();
 {% endhighlight %}
   {% endtabs %}  
 
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+  
 ## Applying Pivot Table Settings  
 
 Excel provides various options through the PivotTableOptions dialog box to customize the appearance of the pivot table.
@@ -1537,17 +1545,19 @@ excelEngine.Dispose();
 
 string fileName = "PivotTableCalculate.xlsx";
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
 outputStream.Dispose();
 {% endhighlight %}
   {% endtabs %}  
+
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 The formula can be also be set to the formula property of the IPivotField as below.
 
@@ -1694,11 +1704,11 @@ excelEngine.Dispose();
 
 string fileName = "PivotTableCalculate.xlsx";
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
@@ -1706,6 +1716,8 @@ outputStream.Dispose();
 {% endhighlight %}
   {% endtabs %}  
 
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+ 
 ### Layout the Pivot Table as Excel
 
 A Pivot Table can be created similar to Excel layout. 
@@ -1781,13 +1793,13 @@ excelEngine.Dispose()
 {% endhighlight %}
 
 {% highlight UWP %}
-N> XlsIO supports layout pivot table in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports layout pivot table in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% highlight asp.net core %}
-N> XlsIO supports layout pivot table in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports layout pivot table in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% highlight Xamarin %}
-N> XlsIO supports layout pivot table in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports layout pivot table in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
   {% endtabs %}  
 
