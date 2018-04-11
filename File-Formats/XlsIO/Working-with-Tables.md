@@ -149,7 +149,7 @@ workbook.SaveAs(outputStream);
 workbook.Close();
 excelEngine.Dispose();
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
@@ -313,7 +313,7 @@ workbook.SaveAs(outputStream);
 workbook.Close();
 excelEngine.Dispose();
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
@@ -476,7 +476,7 @@ workbook.SaveAs(outputStream);
 workbook.Close();
 excelEngine.Dispose();
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
@@ -650,7 +650,7 @@ workbook.SaveAs(outputStream);
 workbook.Close();
 excelEngine.Dispose();
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
@@ -828,7 +828,7 @@ workbook.SaveAs(outputStream);
 workbook.Close();
 excelEngine.Dispose();
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
