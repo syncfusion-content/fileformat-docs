@@ -231,9 +231,9 @@ excelEngine.Dispose();
 
 //Save the Excel file
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save("TemplateMarker.xlsx", "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save("TemplateMarker.xlsx", "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
@@ -242,6 +242,8 @@ outputStream.Dispose();
 {% endhighlight %}
 
 {% endtabs %}  
+
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 Here is the screen shot of generated excel in which array of data is bounded. 
 
@@ -440,9 +442,9 @@ excelEngine.Dispose();
 
 //Save the Excel file
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save("TemplateMarker.xlsx", "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save("TemplateMarker.xlsx", "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
@@ -450,6 +452,8 @@ outputStream.Dispose();
 
 {% endhighlight %}
 {% endtabs %}  
+
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 ## Bind from DataTable
 
@@ -533,9 +537,11 @@ excelEngine.Dispose()
 {% endhighlight %}
 
 {% highlight UWP %}
-N> XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+//XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% highlight asp.net core %}
+
+//Binding data from data table is supported only from ASP.NET Core 2.0
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 FileStream fileStream = new FileStream("TemplateMarker.xlsx", FileMode.Open, FileAccess.Read);
@@ -573,7 +579,7 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight Xamarin %}
-N> XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+//XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
@@ -956,10 +962,12 @@ excelEngine.Dispose()
 
 {% endhighlight %}
 {% highlight UWP %}
-N> XlsIO supports applying conditional formats to template markers data range from data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+//XlsIO supports applying conditional formats to template markers data range from data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 
 {% highlight asp.net core %}
+
+//Applying conditional formats to template markers data range from data table is supported only from ASP.NET Core 2.0
 #region Initialize Workbook
 
 ExcelEngine excelEngine = new ExcelEngine();
@@ -1087,7 +1095,7 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight Xamarin %}
-N> XlsIO supports applying conditional formats to template markers data range from data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+//XlsIO supports applying conditional formats to template markers data range from data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1144,9 +1152,10 @@ End Function
 
 {% endhighlight %}
 {% highlight UWP %}
-N> DataTable is supported in Windows forms,WPF,ASP.NET,ASP.NET MVC and ASP.NET Core(2.0 onwards) platforms alone.
+//DataTable is supported in Windows forms,WPF,ASP.NET,ASP.NET MVC and ASP.NET Core(2.0 onwards) platforms alone.
 {% endhighlight %}
 {% highlight asp.net core %}
+//DataTable is supported only from ASP.NET Core 2.0
 private DataTable GetDataTable()
 
 {
@@ -1172,7 +1181,7 @@ return reports;
 
 {% endhighlight %}
 {% highlight Xamarin %}
-N> DataTable is supported in Windows forms,WPF,ASP.NET, ASP.NET MVC and ASP.NET Core(2.0 onwards) platforms alone.
+//DataTable is supported in Windows forms,WPF,ASP.NET, ASP.NET MVC and ASP.NET Core(2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
