@@ -151,9 +151,9 @@ excelEngine.Dispose();
 
 //Save the Excel file
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
@@ -162,6 +162,8 @@ outputStream.Dispose();
 {% endhighlight %}
 
 {% endtabs %}  
+
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 ## Accessing a Table
 
@@ -313,15 +315,17 @@ excelEngine.Dispose();
 
 //Save the Excel file
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
 outputStream.Dispose();
 {% endhighlight %}
 {% endtabs %}  
+
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 ## Formatting a Table
 
@@ -474,9 +478,9 @@ excelEngine.Dispose();
 
 //Save the Excel file
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
@@ -484,6 +488,8 @@ outputStream.Dispose();
 
 {% endhighlight %}
 {% endtabs %}  
+
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 ## Insert/Remove Columns in a Table
 
 IListObject is a collection of columns, whereas a single column is represented by an instance of **IListObjectColumn**. XlsIO provides support to insert or remove columns in a table through worksheet, as below.
@@ -646,15 +652,17 @@ excelEngine.Dispose();
 
 //Save the Excel file
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
 outputStream.Dispose();
 {% endhighlight %}
 {% endtabs %}  
+
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 N> Inserting rows/columns in a worksheet within table range also modifies table structure.
 
@@ -822,9 +830,9 @@ excelEngine.Dispose();
 
 //Save the Excel file
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
@@ -832,6 +840,8 @@ outputStream.Dispose();
 
 {% endhighlight %}
 {% endtabs %}  
+
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 ## Create a Table from External Connection 
 
@@ -984,13 +994,13 @@ excelEngine.Dispose()
 
 {% endhighlight %}
 {% highlight UWP %}
-N> XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% highlight asp.net core %}
-N> XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% highlight Xamarin %}
-N> XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
