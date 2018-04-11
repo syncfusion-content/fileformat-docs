@@ -276,11 +276,11 @@ excelEngine.Dispose();
 
 string fileName = "Output.ods";
 
-//Save the Excel file
+//Save the stream as Excel document and view the saved document
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save(fileName, "application/msexcel", outputStream);
+    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
 else
-    DependencyService.Get<ISave>().Save(fileName, "application/msexcel", outputStream);
+    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
 //Dispose the input and output stream instances
 inputStream.Dispose();
@@ -288,6 +288,8 @@ outputStream.Dispose();
 {% endhighlight %}
 
 {% endtabs %}
+
+The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 ## Supported and Unsupported Elements in ODS Conversion
 
