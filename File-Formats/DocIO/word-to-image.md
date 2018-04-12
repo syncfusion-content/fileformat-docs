@@ -8,7 +8,7 @@ documentation: UG
 
 # Rendering / Converting Word document to Image
 
-Essential DocIO supports to convert the Word document to images using `RenderAsImages` method. The following assemblies are need to be referred for converting Word to image.
+The Essential DocIO convertsthe Word document to images using the `RenderAsImages` method. The following assemblies are referred for converting Word to image:
 
 <table>
 <thead> 
@@ -27,7 +27,7 @@ This assembly has the core features for creating and manipulating Word documents
 <td>
 Syncfusion.Compression.Base<br/><br/></td>
 <td>
-This assembly is used to package the Word documents<br/><br/></td>
+This assembly is used to package the Word documents.<br/><br/></td>
 </tr>
 <tr>
 <td>
@@ -36,7 +36,9 @@ Syncfusion.OfficeChart.Base<br/><br/></td>
 This assembly has features to work with chart in Word document.<br/><br/></td>
 </tr>
 </table>
-The following assemblies are need to be referred additionally for converting charts during Word to image conversion:
+
+The following assemblies are referred additionally for converting charts during Word to image conversion:
+
 <table>
 <thead> 
 <tr>
@@ -58,7 +60,7 @@ This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><
 </tr>
 </table>
 
-The following namespaces are required to compile the code in this topic.
+The following namespaces are required to compile the code in this topic:
 
 * using Syncfusion.DocIO
 * using Syncfusion.DocIO.DLS
@@ -66,7 +68,7 @@ The following namespaces are required to compile the code in this topic.
 * using Syncfusion.OfficeChartToImageConverter
 
 
-T> 1. You can get the converted images in good quality by specifying the image type as Metafile.
+T> 1. You can get the good quality converted images by specifying the image type as Metafile.
 T> 2. You can specify the quality of the converted charts by setting the scaling mode.
 
 The following code illustrates how to convert the Word document to image.
@@ -144,8 +146,8 @@ wordDocument.Close()
 {% endhighlight %}
 {% endtabs %}
 
-N> 1. Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin, Azure Web Service, Azure APP Service, ASP.NET Core and Universal Windows Platform applications.
-N> 2. Creating an instance of ChartToImageConverter class is mandatory to convert the charts present in the Word document to Image. Otherwise, the charts are not preserved in the generated image.
-N> 3. ChartToImageConverter is supported from .NET Framework 4.0 onwards.
+N> 1. Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin, Azure Web Service, Azure APP Service, ASP.NET Core, and Universal Windows Platform applications.
+N> 2. Creating an instance of the ChartToImageConverter class is mandatory to convert the charts present in the Word document to Image. Otherwise, the charts are not preserved in the generated image.
+N> 3. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
 N> 4. Total number of images may vary based on unsupported elements in the input Word document.
 N> 5. Word to Image conversion has the same limitations and unsupported elements of Word to PDF conversion.
