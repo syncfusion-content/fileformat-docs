@@ -236,7 +236,11 @@ workbook.Close();
 excelEngine.Dispose();
 
 stream.Position = 0;
+
 //Save the document as file and view the saved document
+
+//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
@@ -246,9 +250,7 @@ else
   Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
 }
 {% endhighlight %}
-{% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+{% endtabs %}
 
 ## Create a simple Excel Document
 
@@ -615,7 +617,11 @@ workbook.Close();
 excelEngine.Dispose();
 
 stream.Position = 0;
+
 //Save the document as file and view the saved document
+
+//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
@@ -626,8 +632,6 @@ else
 }
 {% endhighlight %}
 {% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 The complete code to create a simple Excel document.
 
@@ -974,9 +978,13 @@ namespace ExcelCreation
 
 	  //Dispose the Excel engine
 	  excelEngine.Dispose();
-	
+	  
 	  stream.Position = 0;
+
 	  //Save the document as file and view the saved document
+
+	  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
 	  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 	  {
 		Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.xlsx", "application/msexcel", stream);
@@ -990,8 +998,6 @@ namespace ExcelCreation
 }
 {% endhighlight %}
 {% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 The output screen-shot of the above code.
 
@@ -1115,7 +1121,11 @@ workbook.Close();
 excelEngine.Dispose();
 
 stream.Position = 0;
+
 //Save the document as file and view the saved document
+
+//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Spreadsheet.xlsx", "application/msexcel", stream);
@@ -1126,8 +1136,6 @@ else
 }
 {% endhighlight %}
 {% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 The following code snippet provides supporting methods and class for the above code.
 
@@ -1427,6 +1435,8 @@ excelEngine.Dispose()
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
+//XlsIO supports exporting of data from worksheet to data table in ASP.NET Core only from 2.0
+
 ExcelEngine excelEngine = new ExcelEngine();
 IApplication application = excelEngine.Excel;
 application.DefaultVersion = ExcelVersion.Excel2013;
@@ -1638,7 +1648,11 @@ workbook.Close();
 excelEngine.Dispose();
 
 stream.Position = 0;
+
 //Save the document as file and view the saved document
+
+//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarkerResult.xlsx", "application/msexcel", stream);
@@ -1649,8 +1663,6 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 The following code snippet provides supporting methods and class for the above code.
 
