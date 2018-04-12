@@ -12,9 +12,12 @@ documentation: UG
 
 NuGet is the one of the easiest way to download and install DocIO library to read, write and edit the Word documents. The following NuGet packages need to be installed in your application.
 <table>
+<col width="20%">
+<col width="40%">
+<col width="40%">
 <thead>
 <tr>
-<th style="width:25%">
+<th>
 Platform(s)
 </th>
 <th>
@@ -87,9 +90,12 @@ Install-Package Syncfusion.DocIO.UWP -Source http://nuget.syncfusion.com/nuget_u
 For converting Word document into PDF, the following NuGet packages need to be installed in your application.
 
 <table>
+<col width="20%">
+<col width="40%">
+<col width="40%">
 <thead>
 <tr>
-<th style="width:25%">
+<th>
 Platform(s)
 </th>
 <th>
@@ -171,9 +177,12 @@ N> 2. Please refer the procedure to deploy your .NET Core application in Linux O
 The following NuGet package need to be installed additionally to preserve chart as image in Word to PDF, and Image conversions.
 
 <table>
+<col width="20%">
+<col width="40%">
+<col width="40%">
 <thead>
 <tr>
-<th style="width:25%">
+<th>
 Platform(s)
 </th>
 <th>
