@@ -6,10 +6,10 @@ control: DocIO
 documentation: UG
 ---
 
-# RTF conversions
+# RTF Conversions
 
-## RTF (classic)
-The [Rich Text Format (RTF)](http://en.wikipedia.org/wiki/Rich_Text_Format# "") is one of the document formats supported by Microsoft Word and many other word processing applications. RTF is human readable file format invented for interchanging formatted text between applications, is an optional format for Word that retains most formatting and all content of the original document.
+## RTF
+The [Rich Text Format (RTF)](http://en.wikipedia.org/wiki/Rich_Text_Format#) is one of the document formats supported by Microsoft Word and many other word processing applications. RTF is human readable file format invented for interchanging formatted text between applications, is an optional format for Word that retains most formatting and all content of the original document.
 
 Now, most of the word processor's (including Microsoft Word) uses the XML-based file format Microsoft has discontinued enhancements to the RTF and still supporting it. The last version was 1.9.1 released in 2008.
 

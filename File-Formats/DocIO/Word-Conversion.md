@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Working with Document Conversion
+# Working with Document Conversions
 
 Essential DocIO provides a support to convert documents from one format to another format. Each file format document can be categorized as flow layout document or fixed layout document. 
 
@@ -27,10 +27,11 @@ Essential DocIO provides a support to convert documents from one format to anoth
 
 Essential DocIO can convert various flow document as fixed document by using our layout engine. Following conversions are supported by Essential DocIO.
 
-* Microsoft Word native conversions.
-* Converting Word document to PDF.
-* Rendering Word document to Image.
-* Text conversion.
-* HTML conversion.
-* Converting Word document to ODT.
-* Converting Word document to EPUB.
+* Microsoft Word file format Conversions.
+* Word document to PDF.
+* Word document to Image.
+* RTF Conversions.
+* Text Conversions.
+* HTML Conversions.
+* Word document to ODT.
+* Word document to EPUB.

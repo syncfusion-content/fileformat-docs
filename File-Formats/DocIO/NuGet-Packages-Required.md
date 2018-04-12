@@ -162,9 +162,8 @@ Install-Package Syncfusion.Xamarin.DocIORenderer -Source https://api.nuget.org/v
 </tr>
 </table>
 
-N> Install SkiaSharp package version 1.59.3 in addition to DocIORenderer package.
-N> Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
-N> Word to PDF conversion is not supported in Universal Windows Platform.
+N> 1. Install SkiaSharp package version 1.59.3 in addition to DocIORenderer package.
+N> 2. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
 
 
 ## Converting Charts

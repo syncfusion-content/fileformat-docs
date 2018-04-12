@@ -38,12 +38,12 @@ This assembly has features to work with chart in Word document.<br/><br/></td>
 </table>
 The following assemblies are need to be referred additionally for converting charts during Word to image conversion:
 <table>
+<thead> 
 <tr>
-<thead>
-{{'**Assembly Name**'| markdownify }}<br/><br/></thead>
-<thead>
-{{'**Description**'| markdownify }}<br/><br/></thead>
+<th>Assembly Name</th>
+<th>Description</th>
 </tr>
+</thead>
 <tr>
 <td>
 Syncfusion.OfficeChartToImageConverter.WPF<br/><br/></td>
@@ -59,6 +59,7 @@ This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><
 </table>
 
 The following namespaces are required to compile the code in this topic.
+
 * using Syncfusion.DocIO
 * using Syncfusion.DocIO.DLS
 * using Syncfusion.OfficeChart
