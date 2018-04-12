@@ -8,7 +8,7 @@ documentation: UG
 
 # Rendering / Converting Word document to Image
 
-The Essential DocIO convertsthe Word document to images using the `RenderAsImages` method. The following assemblies are referred for converting Word to image:
+The Essential DocIO converts the Word document to images using the `RenderAsImages` method. The following assemblies are referred for converting Word to image:
 
 <table>
 <thead> 
