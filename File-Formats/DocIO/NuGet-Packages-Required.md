@@ -14,13 +14,13 @@ NuGet is the one of the easiest way to download and install DocIO library to rea
 <table>
 <thead>
 <tr>
-<th style="width:25%">
+<th width="20%">
 Platform(s)
 </th>
-<th>
+<th width="40%">
 Package name
 </th>
-<th>
+<th width="40%">
 Package manager console command
 </th>
 </tr>
@@ -89,13 +89,13 @@ For converting Word document into PDF, the following NuGet packages need to be i
 <table>
 <thead>
 <tr>
-<th style="width:25%">
+<th width="20%">
 Platform(s)
 </th>
-<th>
+<th width="40%">
 Package name
 </th>
-<th>
+<th width="40%">
 Package manager console command
 </th>
 </tr>
@@ -173,13 +173,13 @@ The following NuGet package need to be installed additionally to preserve chart 
 <table>
 <thead>
 <tr>
-<th style="width:25%">
+<th width="20%">
 Platform(s)
 </th>
-<th>
+<th width="40%">
 Package name
 </th>
-<th>
+<th width="40%">
 Package manager console command
 </th>
 </tr>
