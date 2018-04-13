@@ -2870,9 +2870,9 @@ loadedDocument.Close()
 
 The form field editing or filling capabilities can be removed by flattening the PDF document.
 
-Essential PDF provides support to flatten a form field by removing the existing form field and replacing it with graphical objects that would resemble the form field and cannot be edited.
+The Essential PDF flattens a form field by removing the existing form field and replacing it with graphical objects that will resemble the form field and cannot be edited.
 
-The below code snippet illustrate how to flatten the XFA form field.
+The following code snippet illustrates how to flatten the XFA form field.
 
 {% tabs %}  
 
@@ -3002,15 +3002,15 @@ loadedDocument.Close()
 
 ## Supported fields for XFA form
 
-The following XFA fields are supported in creation, filling and flattening.
+The following XFA fields are supported in creating, filling, and flattening the PDF document.
 
-* Text Box Field
+* Text box Field
 * Numeric Field
 * DateTime field
-* Combo Box Field
+* Combo box Field
 * Radio button Field
-* List Box field
-* Check Box field
+* List box field
+* Check box field
 * Text Element
 * Button
 * Line
