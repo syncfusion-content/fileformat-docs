@@ -1558,7 +1558,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	 Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("CreateSheet.xlsx", "application/msexcel", stream);
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("CreateSheet.xlsx", "application/msexcel", stream);
   }
   else
   {
