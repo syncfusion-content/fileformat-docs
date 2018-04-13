@@ -200,7 +200,7 @@ document.Close()
 
 The Essential DocIO supports converting the Word document into Word Processing XML document and vice versa.
 
-N> Currently importing and exporting the Word Processing 2003 (Importing alone) and 2007 XML documents is supported.
+N> Currently importing and exporting the Word Processing 2003 (importing alone) and 2007 XML documents is supported.
 
 The following code example shows how to convert the Word document into Word Processing XML document.
 
