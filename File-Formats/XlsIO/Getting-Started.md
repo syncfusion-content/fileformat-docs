@@ -8,7 +8,7 @@ documentation: UG
 
 # Getting Started
 
-This section explains how to create a simple Excel document using XlsIO. The following assemblies must be referred in your application to create and manipulate Excel document.
+This section explains how to create a simple Excel document using XlsIO. The following assemblies must be referred in your application to create and manipulate the Excel document.
 
 <table>
 <thead>
@@ -21,7 +21,7 @@ Description<br/><br/></th></tr>
 <tr>
 <td>
 Syncfusion.XlsIO.Base<br/><br/></td><td>
-This assembly contains the core features needed for creating, reading, manipulating an Excel file.<br/><br/></td></tr>
+This assembly contains the core features for creating, reading, and manipulating an Excel file.<br/><br/></td></tr>
 <tr>
 <td>
 Syncfusion.Compression.Base<br/><br/></td><td>
@@ -243,7 +243,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Create a simple Excel Document
 
-An instance of ExcelEngine gives access to create an application instance which will be similar to launching Microsoft Excel application. The following code snippet shows how to initialize the application object for creating or manipulating Excel documents.
+An instance of the ExcelEngine gives access to create an application instance that is similar to launching Microsoft Excel application. The following code snippet shows how to initialize the application object for creating or manipulating Excel documents.
 
 {% tabs %}  
 {% highlight c# %}
@@ -292,7 +292,7 @@ IApplication application = excelEngine.Excel;
 {% endhighlight %}
 {% endtabs %}  
 
-By default, Excel version associated with application object is Excel 97 to 2003 (*.xls). XlsIO writes the excel file in the respective format depending upon this excel version. You can modify the default Excel version to Excel 2013 as shown below.
+By default, the Excel version 97 to 2003 (*.xls) is associated with application object. XlsIO writes the excel files in the respective format depending on this excel version. You can modify the default Excel version to Excel 2013 as shown as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -321,7 +321,7 @@ application.DefaultVersion = ExcelVersion.Excel2013;
 {% endhighlight %}
 {% endtabs %}  
 
-Workbook contains a collection of worksheets and various workbook-level properties. Each worksheet contains cells, which in turn, can contain text, numbers, dates, formula etc. The code snippet illustrates how to create a workbook and access worksheet instance.
+The workbook contains a collection of worksheets and various workbook-level properties. Each worksheet has cells, which can contain text, numbers, dates, formulas and more. The following code snippet illustrates how to create a workbook and access worksheet instance.
 
 {% tabs %}  
 {% highlight c# %}
@@ -539,7 +539,7 @@ worksheet.Pictures.AddPicture(10, 2, imageStream);
 {% endhighlight %}
 {% endtabs %}  
 
-Finally, save the document in file system and close the instance of IWorkbook.
+Save the document in file system and close the IWorkbook instance. 
 
 {% tabs %}  
 {% highlight c# %}
@@ -974,9 +974,9 @@ The output screen-shot of the above code.
 ![](Getting-Started_images/Getting-Started_img1.jpeg)
 
 
-## Importing Data to Worksheets 
+## Importing Data to Worksheets
 
-XlsIO helps to import data from various data sources into a worksheet. The following data sources can be imported using XlsIO.
+XlsIO helps to import data from various data sources into a worksheet. The following data sources can be imported using XlsIO:
 
 * Business Objects
 * Data Table
@@ -1114,7 +1114,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-The following code snippet provides supporting methods and class for the above code.
+The following code snippet provides supporting methods and classes for the previous code.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1363,13 +1363,13 @@ public class Employee
 {% endhighlight %}
 {% endtabs %}  
 
-You can refer various importing options in “Importing Data to Worksheet” section.
+You can refer various importing options in the “Importing Data to Worksheet” section.
 
 ## Exporting Data from Worksheets 
 
-Worksheet data can be exported to a data table using the **ExportDataTable****()** method. This method provides various options that allows to export data as required through ExcelExportDataTableOptions. 
+The worksheet data can be exported to a data table using the **ExportDataTable****()** method. This method provides various options that allows to export data through ExcelExportDataTableOptions. 
 
-The following code demonstrates how to export data from a worksheet to a data table with __ColumnNames__ and __DetectColumnTypes__ options.
+The following code demonstrates how to export data from a worksheet to a data table with the __ColumnNames__ and __DetectColumnTypes__ options.
 
 
 {% tabs %}  
@@ -1625,16 +1625,16 @@ public class Sales
 {% endhighlight %}
 {% endtabs %}  
 
-The below screen-shot shows the DataTable of above code.
+The following screenshot shows the DataTable of previous code.
 
 ![](Getting-Started_images/Getting-Started_img2.jpeg)
 
 
-You can refer various exporting options in “Exporting from Worksheet to Data Table” section.
+You can refer various exporting options in the “Exporting from Worksheet to Data Table” section.
 
 ## Template based data filling using Template Markers
 
-A template marker is a special marker symbol which allows to generate document by filling data in an Excel template from data source. This marker automatically maps the column name in the data source and names of the marker fields in the Excel template document and fills the data (text or image).
+A template marker is a special marker symbol that allows to generate a document by filling data in an Excel template from data source. This marker automatically maps the column name in the data source and names of the marker fields in the Excel template document and fills the data (text or image).
 
 This functionality supports the following data sources.
 
@@ -1651,7 +1651,7 @@ LINK- Template marker section for argument.
 <td>
 %&lt;MarkerVariable&gt;.&lt;Property&gt; <br/><br/>For example: %Reports.SalesPerson<br/><br/></td></tr>
 </table>
-To maintain row formats while filling data, you can use the following syntax.
+Use the following syntax to maintain row formats while filling data.
 
 <table>
 <tr>
@@ -1838,7 +1838,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The following code snippet provides supporting methods and class for the above code.
+The following code snippet provides supporting methods and classes for the previous code.
 
 {% tabs %}  
 {% highlight c# %}
@@ -2069,7 +2069,7 @@ public class Report
 {% endhighlight %}
 {% endtabs %}  
 
-The resultant document will look like as shown below.
+The resultant document looks as follows:
 
 ![](Getting-Started_images/Getting-Started_img4.jpeg)
 
