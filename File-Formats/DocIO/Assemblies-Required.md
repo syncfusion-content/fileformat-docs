@@ -34,6 +34,14 @@ Universal Windows Platform<br/></td><td>
 Syncfusion.DocIO.UWP<br/>Syncfusion.OfficeChart.UWP<br/></td></tr>
 <tr>
 <td>
+ASP.NET (Classic)<br/></td><td>
+Syncfusion.DocIO.Web<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/></td></tr>
+<tr>
+<td>
+ASP.NET MVC (Classic)<br/></td><td>
+Syncfusion.DocIO.MVC<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/></td></tr>
+<tr>
+<td>
 WinRT (Windows Store applications)<br/></td><td>
 Syncfusion.DocIO.winrt<br/></td></tr>
 <tr>
@@ -52,14 +60,6 @@ Syncfusion.DocIO.WP<br/>Syncfusion.Compression.WP<br/></td></tr>
 <td>
 Silverlight<br/></td><td>
 Syncfusion.DocIO.Silverlight<br/>Syncfusion.Compression.Silverlight<br/></td></tr>
-<tr>
-<td>
-ASP.NET (Classic)<br/></td><td>
-Syncfusion.DocIO.Web<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/></td></tr>
-<tr>
-<td>
-ASP.NET MVC (Classic)<br/></td><td>
-Syncfusion.DocIO.MVC<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/></td></tr>
 <tr>
 <td>
 Universal (Classic)<br/></td><td>
@@ -90,7 +90,7 @@ Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.Off
 </table>
 
 N> 1. Word to PDF conversion is supported in ASP.NET Core and Xamarin from 2018 Volume 1 release (v16.1.0.24) using SkiaSharp graphics library.
-N> 2. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal and UWP applications
+N> 2. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal applications
 
 ## Converting Charts
 
