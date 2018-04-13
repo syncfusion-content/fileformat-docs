@@ -3004,11 +3004,11 @@ loadedDocument.Close()
 
 The following XFA fields are supported in creating, filling, and flattening the PDF document.
 
-* Text box Field
-* Numeric Field
+* Text box field
+* Numeric field
 * DateTime field
-* Combo box Field
-* Radio button Field
+* Combo box field
+* Radio button field
 * List box field
 * Check box field
 * Text Element
