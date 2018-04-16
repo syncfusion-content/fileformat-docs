@@ -8,11 +8,11 @@ documentation: UG
 
 # Worksheet Rows and Columns Manipulation
 
-Essential XlsIO provides rows and columns manipulation options equivalent to Excel such as insertion, deletion, hiding, adjusting dimensions, grouping, sub-totaling etc., through **IWorksheet** interface. The following sections illustrate these manipulating techniques in detail.
+The Essential XlsIO provides rows and columns manipulation options equivalent to Excel such as insertion, deletion, hiding, adjusting dimensions, grouping, sub-totaling and more through **IWorksheet** interface.
 
 ## Insert Rows and Columns 
 
-The following code snippet illustrates on how to insert row and column in a worksheet.
+The following code snippet illustrates how to insert rows and columns in a worksheet.
 
 
 {% tabs %}  
@@ -152,11 +152,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 N> Row and Column index of Insert methods are "one based".
 
-To know more about insert rows and columns, please refer **WorksheetImpl** in API section.
+To know more about insert rows and columns, refer to the **WorksheetImpl** in API section.
 
 ## Delete Rows and Columns 
 
-The following code shows how to delete rows/columns.
+The following code shows how to delete rows and columns.
 
 {% tabs %}  
 {% highlight c# %}
@@ -318,7 +318,7 @@ application.DataProviderType = ExcelDataProviderType.Unsafe;
 {% endhighlight %}
 {% endtabs %}  
   
-In addition, cells can be deleted by shifting other cells in a row/column towards up/left by one step. This can be done by using **Clear** method as shown in the below code.
+In addition, cells can be deleted by shifting other cells in a row or column towards up/left by one step. This can be done by using the **Clear** method as shown in the following code.
 
 {% tabs %}  
 {% highlight c# %}
@@ -460,7 +460,7 @@ N> Row/Column index of these methods are "one based".
 
 ## Show or Hide Rows and Columns 
 
-Visibility of rows and columns can be set by using **ShowRow** and **ShowColumn** methods as shown below.
+Visibility of rows and columns can be set by using the **ShowRow** and **ShowColumn** methods as shown as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -594,7 +594,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Show or Hide Specific Range
 
-Essential XlsIO allows to set visibility for a specific range. The following code snippet shows on how to set the visibility of a range.
+The Essential XlsIO allows to set visibility for a specific range. The following code snippet shows how to set the visibility of a range.
 
 {% tabs %}  
 {% highlight c# %}
@@ -759,14 +759,14 @@ N> Resetting row height manually or through AutoFit,  for the rows hidden using 
 
 ## Adjust Row Height and Column Width 
 
-Rows and columns can be [resized](https://support.office.com/en-ca/article/Change-the-column-width-and-row-height-72f5e3cc-994d-43e8-ae58-9774a0905f46) based on its contents. XlsIO allows to resize rows and columns in the following ways.
+Rows and columns can be [resized](https://support.office.com/en-ca/article/Change-the-column-width-and-row-height-72f5e3cc-994d-43e8-ae58-9774a0905f46) based on its contents. The XlsIO allows to resize rows and columns in the following ways:
 
 * Resize a specific row or column
 * Resize a range of rows or columns
 
 ### Resize a specific row or column
 
-A single row or column can be resized by **SetRowHeight** and **SetColumnWidth** methods of __IWorksheet__. Similarly, the height and width of a single row or column can be accessed using **GetRowHeight** or **GetColumnWidth** methods of __IWorksheet__. 
+A single row or column can be resized by the **SetRowHeight** and **SetColumnWidth** methods of __IWorksheet__. Similarly, the height and width of a single row or column can be accessed using the **GetRowHeight** or **GetColumnWidth** methods of __IWorksheet__. 
 
 The following code snippet shows how to resize a single row and column.
 
@@ -893,7 +893,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Resize a range of rows or columns
 
-Multiple rows or columns can be resized and accessed by using **RowHeight** and **ColumnWidth** properties of __IRange__. The following code snippet shows how to resize multiple rows and columns.
+Multiple rows or columns can be resized and accessed by using the **RowHeight** and **ColumnWidth** properties of __IRange__. The following code snippet shows how to resize multiple rows and columns.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1016,12 +1016,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-N> If a column width or a row height is 0, then the column/row is hidden.
+N> If a column width or a row height is 0, then the column or row is hidden.
 N> Column width and row height can also be set in pixels, by using the IWorksheet.SetColumnWidthInPixel and IWorksheet.SetRowHeightInPixel methods respectively.
 
 ## Auto-Fit Rows and Columns
 
-XlsIO allows to auto-size the width and height of a cell to fit its content. This section demonstrates various methods to auto-fit rows and columns of a worksheet.
+The XlsIO allows to auto-size the width and height of a cell to fit its content. This section demonstrates various methods to auto-fit rows and columns of a worksheet.
 
 ### Auto-Fit a Single Row or Column
 
@@ -1175,7 +1175,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 N> Row and Column indexes are "one based".
 
-There is an alternative way to auto-fit row or column is by accessing the row or column, which is shown in the below code snippet.
+There is an alternative way to auto-fit row or column is by accessing the row or column, which is shown in the following code snippet.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1218,7 +1218,7 @@ N> Here column and row indexes are "zero based".
 
 ### Auto-Fit Multiple Rows or Columns
 
-Multiple rows/column can be auto fitted based on the range specified. This is depicted in the below code.
+Multiple rows or columns can be auto fitted based on the range specified. This is depicted in the following code.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1375,13 +1375,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-N> 1) If a Range is text wrapped, AutoFitColumn method will not be applied on it.
-N> 2) If a Range is merged, Auto-Fit methods will not be applied on it. Note that this is the behavior of Excel as well.
-N> 3) Auto fitting is a time consuming process so it might cause performance issues when used excessively.
+N> 1) If a Range is text wrapped, the AutoFitColumn method will not be applied on it.
+N> 2) If a Range is merged, the Auto-Fit methods will not be applied on it. Note that this is the behavior of Excel as well.
+N> 3) Auto fitting is a time consuming process so, it might cause performance issues when used excessively.
 
 ## Group or Ungroup Rows and Columns 
 
-Rows and columns can be grouped or ungrouped to summarize the data. The following code snippet shows how rows and columns can be grouped or ungrouped.
+Rows and columns can be grouped or ungrouped to summarize the data, which is given in the following code snippet.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1555,7 +1555,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Expand or Collapse Groups
 
-Groups can be expanded and collapsed using **ExpandGroups** and **CollapseGroups** methods of __IRange__. The following code shows how to expand and collapse groups.
+Groups can be expanded and collapsed using the **ExpandGroups** and **CollapseGroups** methods of __IRange__, which is given in the following code snippet.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1699,7 +1699,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Subtotal
 
-XlsIO supports subtotaling a group to quickly calculate rows of related data by inserting subtotals and totals. 
+The XlsIO supports subtotaling a group to quickly calculate rows of related data by inserting subtotals and totals. 
 
 Various Subtotal options like __Summary__ __below__ __data__, __Replace__ __current__ __subtotals__, __Page__ __break__ __between__ __groups__ can be used to customize data.
 
@@ -1852,10 +1852,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 N> Here column and row indexes are "zero based".
 
-The screenshot of the output with SubTotal generated from the above code.
+The screenshot of the output with SubTotal generated from the previous code.
 
 ![](Worksheet-Rows-and-Columns-Manipulation_images/Worksheet-Rows-and-Columns-Manipulation_img1.jpeg)
 
 
-N> Summary of a group can be shown above rows and left of column using the IsSummaryRowBelow and IsSummaryColumnRight properties of IPageSetup interface. By default, these properties were set to TRUE.
+N> Summary of a group can be shown above the rows and left of the column using the IsSummaryRowBelow and IsSummaryColumnRight properties of IPageSetup interface. By default, these properties are set to TRUE.
 
