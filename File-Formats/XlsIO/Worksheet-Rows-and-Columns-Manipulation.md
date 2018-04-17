@@ -30,7 +30,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.InsertColumn(2, 1, ExcelInsertOptions.FormatAsAfter);
 
   workbook.SaveAs("Book1.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -47,7 +46,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.InsertColumn(2, 1, ExcelInsertOptions.FormatAsAfter)
 
   workbook.SaveAs("Book1.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -84,7 +82,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -106,7 +103,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -130,7 +126,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -173,7 +168,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.DeleteColumn(2);
 
   workbook.SaveAs("Book1.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -190,7 +184,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.DeleteColumn(2)
 
   workbook.SaveAs("Book1.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -227,7 +220,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -249,7 +241,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -273,7 +264,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -335,7 +325,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.Range["A1:A6"].Clear(ExcelMoveDirection.MoveUp);
 
   workbook.SaveAs("Book1.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -352,7 +341,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.Range("A1:A6").Clear(ExcelMoveDirection.MoveUp)
 
   workbook.SaveAs("Book1.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -389,7 +377,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -411,7 +398,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -435,7 +421,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -476,7 +461,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.ShowRow(2, false);
 
   workbook.SaveAs("Book1.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -492,7 +476,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.ShowRow(2, False)
 
   workbook.SaveAs("Book1.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -528,7 +511,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -549,7 +531,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -572,7 +553,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -618,7 +598,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.ShowRange(rangeCollection, false);
 
   workbook.SaveAs("Book1.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -642,7 +621,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.ShowRange(rangeCollection, False)
 
   workbook.SaveAs("Book1.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -678,7 +656,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -706,7 +683,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -733,8 +709,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
-  excelEngine.Dispose();
 
   stream.Position = 0;
 
@@ -785,7 +759,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.SetColumnWidth(1, 20);
 
   workbook.SaveAs("Book1.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -802,7 +775,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.SetColumnWidth(1, 20)
 
   workbook.SaveAs("Book1.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -830,7 +802,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -851,7 +822,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -871,7 +841,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -910,7 +879,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.Range["A1:D1"].ColumnWidth = 20;
 
   workbook.SaveAs("Book1.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -927,7 +895,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.Range("A1:D1").ColumnWidth = 20
 
   workbook.SaveAs("Book1.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -955,7 +922,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -976,7 +942,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -996,7 +961,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -1047,7 +1011,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.AutofitColumn(3);
 
   workbook.SaveAs("Book1.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1069,7 +1032,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.AutofitColumn(3)
 
   workbook.SaveAs("Book1.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -1102,7 +1064,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1128,7 +1089,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1153,7 +1113,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -1242,7 +1201,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.UsedRange.AutofitColumns();
 
   workbook.SaveAs("Book1.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1265,7 +1223,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.UsedRange.AutofitColumns()
 
   workbook.SaveAs("Book1.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -1300,7 +1257,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1328,7 +1284,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1355,7 +1310,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -1405,7 +1359,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.Range["C1:F1"].Ungroup(ExcelGroupBy.ByColumns);
 
   workbook.SaveAs("Book1.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1429,7 +1382,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.Range("C1:F1").Ungroup(ExcelGroupBy.ByColumns)
 
   workbook.SaveAs("Book1.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -1473,7 +1425,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1502,7 +1453,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1533,7 +1483,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -1573,7 +1522,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   worksheet.Range["A5:A15"].CollapseGroup(ExcelGroupBy.ByRows);
 
   workbook.SaveAs("Book1.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1591,7 +1539,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   worksheet.Range("A5:A15").CollapseGroup(ExcelGroupBy.ByRows)
 
   workbook.SaveAs("Book1.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -1629,7 +1576,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1652,7 +1598,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1677,7 +1622,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -1722,7 +1666,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   range.SubTotal(0, ConsolidationFunction.Sum, new int[] { 2, 3, 4 });
 
   workbook.SaveAs("Book1.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1741,7 +1684,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   range.SubTotal(0, ConsolidationFunction.Sum, New Integer() {4})
 
   workbook.SaveAs("Book1.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -1780,7 +1722,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1804,7 +1745,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream stream = new FileStream("Book1.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1830,7 +1770,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
