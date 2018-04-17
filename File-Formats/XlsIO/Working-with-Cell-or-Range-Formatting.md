@@ -11,7 +11,7 @@ This section covers the various formatting options in a cell or a range.
 
 ## Create a Style
 
-The following code shows how a cell style can be created & applied.
+The following code shows how to create and apply cell style.
 
 {% tabs %}
 {% highlight c# %}
@@ -125,7 +125,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -139,11 +139,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-## Set Default Style for row/column
+## Set Default Style for row or column
 
-It is the recommended and optimized approach to format entire row or column with same styles instead of formatting each and every cell individually.
+It is the recommended and optimized approach to format entire row or column with same styles instead of formatting each and every cell individually. Use the following code to set default style.
 
-The following code snippet illustrates how to set default styles in a range.
 
 {% tabs %}  
 {% highlight c# %}
@@ -277,7 +276,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -293,15 +292,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 N> Applying custom styles will override original styles.
 
-T> You can use default styles, to apply styles for a whole column instead of applying in each cell.
+T> To apply styles for whole column instead of applying in each cell, use default styles.
 
 ## Apply Global Style
 
-XlsIO supports to add styles globally that can be applied to one or more cells in a workbook. This is a recommended approach to apply single style in different rows and columns, which improves memory and performance considerably.
+The XlsIO adds styles globally that can be applied to one or more cells in a workbook. This is a recommended approach to apply single style in different rows and columns, which improves memory and performance considerably.
 
-To know more about performance, please refer [Improving Performing section for better performance in XlsIO](/file-formats/xlsio/improving-performance).
+To learn more about performance, refer to the [Improving Performing section for better performance in XlsIO](/file-formats/xlsio/improving-performance).
 
-The following code snippet illustrate to setting header style and body style to the cells.
+The following code snippet illustrates how to set header style and body style to the cells.
 
 {% tabs %}  
 {% highlight c# %}
@@ -635,7 +634,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -667,16 +666,16 @@ Number Formats are codes that helps to control the appearance of cell values esp
 * Fraction and
 * Text
 
-This number format can be of maximum 4 parts, separated by semicolons. They are,
+This number format can be of maximum 4 parts, separated by semicolons. They are:
 
 * Positive Numbers
 * Negative Numbers
 * Zeros
 * Text
 
-Each part is an individual number format.  Default format is “General”, which basically means anything that will fit. 
+Each part is an individual number format.  Default format is “General”, it means anything that will fit. 
 
-The following table shows various custom formatting codes.
+The following table shows various custom formatting codes:
 
 <table>
 <tr>
@@ -1220,7 +1219,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1234,16 +1233,16 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The screen-shot of the above code is shown below.
+The screenshot of the previous code is shown as follows:
 
 ![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img2.jpeg)
 
 
 **Access** **number** **format** **applied** **results** **at** **runtime**
 
-Cell values can be accessed as __Text__, __Number__, __DateTime__ and __Formula__ of __IRange__ interface. In addition to this, there is another property __DisplayText__ in __IRange__, which returns a resultant value of a cell with its number format applied.
+Cell values can be accessed as __Text__, __Number__, __DateTime__ and __Formula__ of __IRange__ interface. In addition to this, there is an another property __DisplayText__ in __IRange__, which returns a resultant value of a cell with its number format applied.
 
-The following code example illustrates how to get display text of a cell.
+The following code example illustrates how to display the text of a cell.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1367,7 +1366,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to he xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1408,7 +1407,7 @@ workbook.DetectDateTimeInValue = false;
   
 ## Apply Cell Text Alignment
 
-The following are the alignment options that XlsIO supports.
+The XlsIO supports the following alignment options:
 
 * Horizontal Alignment
 * Vertical Alignment
@@ -1511,7 +1510,7 @@ worksheet.Range["C6"].CellStyle.IndentLevel = 6;
 
 **Orientation**
 
-This helps to rotate the cell text diagonally or vertically. The text orientation can be set by using the **Rotation** property as shown below. 
+This helps to rotate the cell text diagonally or vertically. The text orientation can be set by using the **Rotation** property as shown as follows. 
 
 {% tabs %}  
 {% highlight c# %}
@@ -1542,7 +1541,7 @@ worksheet.Range["C2"].CellStyle.Rotation = 60;
 
 **Text** **Direction**
 
-You can specify the text direction by using the **ReadingOrder** property as shown below.
+You can specify the text direction by using the **ReadingOrder** property as shown as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1571,7 +1570,7 @@ worksheet.Range["D2"].CellStyle.ReadingOrder = ExcelReadingOrderType.LeftToRight
 {% endhighlight %}
 {% endtabs %}    
 
-The complete code snippet illustrating the above options is shown below.
+The following is the complete code snippet illustrating the previous options.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1855,7 +1854,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1869,14 +1868,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The below screen-shot shows the output of the above code.
+The following screenshot is the output of previous code:
 
 ![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img3.jpeg)
 
 
 ## Merging and Un-Merging Cells
 
-The cells can be merged using the **Merge****()** method in __IRange__ as shown below. 
+The cells can be merged using the **Merge****()** method in __IRange__ as shown as follows. 
 
 {% tabs %}  
 {% highlight c# %}
@@ -2038,7 +2037,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -2054,7 +2053,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Apply Wrap Text
 
-If a cell content is too wide to fit a column and don’t want to split over into adjacent cells, you can use the **WrapText** property. This will set the content within the cell border. The following code snippet illustrates this behavior.
+If a cell content is too wide to fit a column and do not want to split over into adjacent cells, you can use the **WrapText** property. This will set the content within the cell border. The following code snippet illustrates this behavior.
 
 N> Applying wrap-text will not auto-fit the rows by default. It is recommended to [auto-fit](#_AutoFit_Rows_or "") manually.
 
@@ -2170,7 +2169,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -2312,7 +2311,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -2326,11 +2325,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The output of the above code is shown below.
+The output of the previous code is shown as follows.
 
 ## Apply Font Settings 
 
-The appearance of a text can be controlled by font settings of a cell. These settings can be done by using **Font** property in __CellStyle__. The below code illustrates application of various font settings.
+The appearance of a text can be controlled by font settings of a cell. These settings can be done by using the **Font** property in __CellStyle__. Refer to the following code.
 
 {% tabs %}  
 {% highlight c# %}
@@ -2559,7 +2558,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -2573,18 +2572,18 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The output of the above code is shown below.
+The output of the previous code is shown as follows.
 
 ![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img4.jpeg)
 
 
 ## Apply Color Settings
 
-Colors gives enhancement to cell values to highlight data. These color settings in a cell are differentiated as BackColor, ForeColor and PatternColor.
+Colors give enhancement to cell values to highlight the data. These color settings in a cell are differentiated as BackColor, ForeColor, and PatternColor.
 
 **Back** **Color** **settings**
 
-Back color of a cell can be set using **ColorIndex** property of __CellStyle__ as shown below.
+Back color of a cell can be set using the **ColorIndex** property of __CellStyle__ as shown as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -2615,7 +2614,7 @@ worksheet.Range["A1"].CellStyle.ColorIndex = ExcelKnownColors.Aqua;
 
 **Fore** **Color** **Settings**
 
-Fore color of a cell can be set using **PatternColorIndex** property of __CellStyle__ as shown below.
+Fore color of a cell can be set using the **PatternColorIndex** property of __CellStyle__ as shown as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -2646,7 +2645,7 @@ worksheet.Range["A2"].CellStyle.PatternColorIndex = ExcelKnownColors.Green;
 
 **Pattern** **Settings**
 
-Excel provides various pattern styles for highlighting cells. These patterns can be applied using **FillPattern** property of __CellStyle__ as shown below.
+Excel provides various pattern styles for highlighting the cells. These patterns can be applied using the **FillPattern** property of __CellStyle__ as shown as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -2677,7 +2676,7 @@ worksheet.Range["A2"].CellStyle.FillPattern = ExcelPattern.Angle;
 
 ## Apply Border Settings
 
-XlsIO provides support to apply cell borders and format it through **IBorder** interface as shown below. 
+The XlsIO applies cell borders and format it through **IBorder** interface as shown as follows. 
 
 {% tabs %}  
 {% highlight c# %}
@@ -2911,7 +2910,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -2925,14 +2924,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The output of the above code is shown in the below screen-shot.
+The output of the previous code is shown in the following screenshot:
 
 ![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img5.jpeg)
 
 
 ## Rich-Text Formatting 
 
-You can format each character in a cell with different font styles. XlsIO provides support for reading and writing rich text by using the **IRichTextString** interface. 
+You can format each character in a cell with different font styles. XlsIO reads and writes rich text by using the **IRichTextString** interface. 
 
 N> Currently XlsIO cannot process and write RTF codes to cells.
 
@@ -3108,7 +3107,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -3122,7 +3121,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The output of the above code is shown below.
+The output of the previous code is shown as follows:
 
 ![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img6.jpeg)
 
