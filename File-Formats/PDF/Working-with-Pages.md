@@ -230,6 +230,53 @@ document.Close(True)
 {% endtabs %}  
 
 
+## Get number of pages from a PDF document 
+
+You can get page count from the existing PDF document as shown in the following code snippet.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+
+//Load the PDF document.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Get the page count.
+
+int pageCount = loadedDocument.Pages.Count;
+
+//Close the document.   
+                     
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Load the PDF document.
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get the page count.
+
+Dim pageCount As Integer = loadedDocument.Pages.Count
+
+'Close the document.
+
+loadedDocument.Close(True)
+
+
+
+{% endhighlight %}
+
+{% endtabs %}  
+
+
 ## Importing pages from an existing document.
 
 Essential PDF allows you to import a page or import a range of pages from one document to the other. The following code sample illustrates how to import a page from an existing document
@@ -307,7 +354,7 @@ document.Close(True)
 
 ## Rearranging pages in an existing document
 
-You can rearrange the pages in an existing PDF document using ReArrange method. The following code snippet illustrates the same.
+You can rearrange the pages in an existing PDF document using ReArrange method. This method uses zero based start index. The following code snippet illustrates the same.
 
 {% tabs %}  
 
