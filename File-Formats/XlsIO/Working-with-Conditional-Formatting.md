@@ -7,11 +7,11 @@ documentation: UG
 ---
 # Working with Conditional Formatting
 
-Conditional formatting allows the contents of a cell to be dynamically formatted. This can be defined and applied in XlsIO through  **IConditionalFormat** interface.
+Conditional formatting allows to format the contents of a cell dynamically. This can be defined and applied in XlsIO through the **IConditionalFormat** interface.
 
 ## Create a Conditional Format 
 
-IConditionalFormats represents a collection of conditional formats for a single IRange. One or more conditional formats can be added to the range as below.
+The IConditionalFormats represents a collection of conditional formats for a single IRange. One or more conditional formats can be added to the range as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -45,7 +45,7 @@ IConditionalFormat condition1 = condition.AddCondition();
 {% endhighlight %}
 {% endtabs %}  
 
-The criteria or rules that the target range should meet is set through  **IConditionalFormat** interface. The  desired format type is set through **ExcelCFType** enumerator, which are the supported conditional format types in XlsIO. The below piece of code sets a basic conditional formatting rule.
+The target range should meet the criteria, which is set using the **IConditionalFormat** interface. The  desired format type is set through the **ExcelCFType** enumerator, which are the supported conditional format types in XlsIO. Refer to the following code.
 
 {% tabs %}  
 {% highlight c# %}
@@ -94,7 +94,7 @@ worksheet.Range["A1"].Text = "Enter a number between 10 and 20";
 {% endhighlight %}
 {% endtabs %}  
 
-When the criteria set for the target range is satisfied, the defined formats (like the one below) are applied in the order of priority. For more details on conditional format priority, see [Manage conditional formatting rule precedence](https://support.office.com/en-us/article/Manage-conditional-formatting-rule-precedence-063cde21-516e-45ca-83f5-8e8126076249)
+When the criteria set for the target range is satisfied, the defined formats (like the one below) are applied in the order of priority. For more details about conditional format priority, see [Manage conditional formatting rule precedence](https://support.office.com/en-us/article/Manage-conditional-formatting-rule-precedence-063cde21-516e-45ca-83f5-8e8126076249).
 
 {% tabs %}  
 {% highlight c# %}
@@ -427,7 +427,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -441,18 +441,18 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-N> Excel allows the addition of a maximum of three conditions for the same cell in the Biff8 format and hence XlsIO. However, this restriction is removed from Excel 2007 formats.
+N> Excel allows the addition of a maximum of three conditions for the same cell in the Biff8 format and XlsIO. However, this restriction is removed from the Excel 2007 formats.
 
-N> The conditional formats for a single range should be added in descending order of priority in XlsIO.
+N> The conditional formats for a single range should be added in descending order in XlsIO.
 
-When proper criteria are met, the output file looks like the below one.
+When proper criteria is met, the output file looks as follows:
 
 ![](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img1.jpeg)
 
 
 ## Reading Conditional Formats in XlsIO
 
-XlsIO also provides support for reading conditional formats from existing excel workbook. Following code example illustrates this.
+XlsIO also reads conditional formats from existing excel workbook. The following code example illustrates this.
 
 {% tabs %}  
 {% highlight c# %}
@@ -571,7 +571,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -587,7 +587,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Removing Conditional Formats
 
-All the conditional format for a specified range can be removed through **Remove** method. This is illustrated below.
+All the conditional formats for a specified range can be removed using the **Remove** method. This is illustrated as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -696,7 +696,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -712,7 +712,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Removing Conditional Formats at specified index value
 
-A particular conditional format at the specified range can be removed by using **RemoveAt** Method, as below.
+A particular conditional format at the specified range can be removed by using the *RemoveAt** method as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -821,7 +821,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -837,7 +837,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Removing Conditional Formats from entire sheet
 
-The entire conditional formats from the worksheet can be removed as below.
+The entire conditional formats from the worksheet can be removed as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -946,7 +946,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -962,7 +962,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Using FormulaR1C1 property in Conditional Formats
 
-Moreover XlsIO supports setting the formula for the conditional format in R1C1-style notation. Following code example illustrates this.
+XlsIO sets the formula for the conditional format in R1C1-style notation. The following code example illustrates this.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1071,7 +1071,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1093,7 +1093,7 @@ In conjunction with basic conditional formatting, the new formatting visualizati
 
 Here, the values in each of the selected cells are compared, and a data bar is drawn in each cell representing the value of that cell relative to the other cells in the selected range. This bar provides a clear visual cue for users, making it easier to pick out larger and smaller values in a range.
 
-This can be set and manipulated through IDataBar interface as below.
+This can be set and manipulated using the IDataBar interface as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1194,9 +1194,9 @@ dataBar.BarColor = Color.Aqua;
 
 ### Color Scales
 
-Color Scales let you create visual effects in your data, to see how the value of a cell is compared with the values in a range of cells. A color scale uses cell shading, as opposed to bars, to communicate relative values, beyond the relative size of the value of a cell.
+Color Scales let you create visual effects in your data to see how the value of a cell is compared with the values in a range of cells. A color scale uses cell shading, as opposed to bars, to communicate relative values, beyond the relative size of the value of a cell.
 
-Creation of color scales and its formatting rules through **IColorScale** interface in XlsIO is illustrated below.
+Creation of color scales and its formatting rules using the **IColorScale** interface in XlsIO is illustrated as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1410,7 +1410,7 @@ iconSet.ShowIconOnly = true;
 {% endhighlight %}
 {% endtabs %}  
 
-The application of these visualizations to a sample data and its output file are represented in the below code example.
+The application of these visualizations to a sample data and its output file is represented in the following code example.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1773,7 +1773,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
