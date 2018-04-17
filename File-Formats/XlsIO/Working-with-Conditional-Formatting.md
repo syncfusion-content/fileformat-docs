@@ -1338,10 +1338,10 @@ IIconSet iconSet = conditionalFormat.IconSet;
 
 //Apply three symbols icon and hide the data in the specified range
 iconSet.IconSet = ExcelIconSetType.ThreeSymbols;
-iconSet.IconCriteria[0].Type = ConditionValueType.Percent;
-iconSet.IconCriteria[0].Value = "50";
 iconSet.IconCriteria[1].Type = ConditionValueType.Percent;
 iconSet.IconCriteria[1].Value = "50";
+iconSet.IconCriteria[2].Type = ConditionValueType.Percent;
+iconSet.IconCriteria[2].Value = "50";
 iconSet.ShowIconOnly = true;
 {% endhighlight %}
 
@@ -1354,10 +1354,10 @@ Dim iconSet As IIconSet = format.IconSet
 
 'Apply three symbols icon and hide the data in the specified range
 iconSet.IconSet = ExcelIconSetType.ThreeSymbols
-iconSet.IconCriteria(0).Type = ConditionValueType.Percent
-iconSet.IconCriteria(0).Value = "50"
 iconSet.IconCriteria(1).Type = ConditionValueType.Percent
 iconSet.IconCriteria(1).Value = "50"
+iconSet.IconCriteria(2).Type = ConditionValueType.Percent
+iconSet.IconCriteria(2).Value = "50"
 iconSet.ShowIconOnly = True
 {% endhighlight %}
 
@@ -1370,10 +1370,10 @@ IIconSet iconSet = conditionalFormat.IconSet;
 
 //Apply three symbols icon and hide the data in the specified range
 iconSet.IconSet = ExcelIconSetType.ThreeSymbols;
-iconSet.IconCriteria[0].Type = ConditionValueType.Percent;
-iconSet.IconCriteria[0].Value = "50";
 iconSet.IconCriteria[1].Type = ConditionValueType.Percent;
 iconSet.IconCriteria[1].Value = "50";
+iconSet.IconCriteria[2].Type = ConditionValueType.Percent;
+iconSet.IconCriteria[2].Value = "50";
 iconSet.ShowIconOnly = true;
 {% endhighlight %}
 
@@ -1386,10 +1386,10 @@ IIconSet iconSet = conditionalFormat.IconSet;
 
 //Apply three symbols icon and hide the data in the specified range
 iconSet.IconSet = ExcelIconSetType.ThreeSymbols;
-iconSet.IconCriteria[0].Type = ConditionValueType.Percent;
-iconSet.IconCriteria[0].Value = "50";
 iconSet.IconCriteria[1].Type = ConditionValueType.Percent;
 iconSet.IconCriteria[1].Value = "50";
+iconSet.IconCriteria[2].Type = ConditionValueType.Percent;
+iconSet.IconCriteria[2].Value = "50";
 iconSet.ShowIconOnly = true;
 {% endhighlight %}
 
@@ -1402,10 +1402,10 @@ IIconSet iconSet = conditionalFormat.IconSet;
 
 //Apply three symbols icon and hide the data in the specified range
 iconSet.IconSet = ExcelIconSetType.ThreeSymbols;
-iconSet.IconCriteria[0].Type = ConditionValueType.Percent;
-iconSet.IconCriteria[0].Value = "50";
 iconSet.IconCriteria[1].Type = ConditionValueType.Percent;
 iconSet.IconCriteria[1].Value = "50";
+iconSet.IconCriteria[2].Type = ConditionValueType.Percent;
+iconSet.IconCriteria[2].Value = "50";
 iconSet.ShowIconOnly = true;
 {% endhighlight %}
 {% endtabs %}  
@@ -1469,10 +1469,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Apply three symbols icon and hide the data in the specified range
   iconSet.IconSet = ExcelIconSetType.ThreeSymbols;
-  iconSet.IconCriteria[0].Type = ConditionValueType.Percent;
-  iconSet.IconCriteria[0].Value = "50";
   iconSet.IconCriteria[1].Type = ConditionValueType.Percent;
   iconSet.IconCriteria[1].Value = "50";
+  iconSet.IconCriteria[2].Type = ConditionValueType.Percent;
+  iconSet.IconCriteria[2].Value = "50";
   iconSet.ShowIconOnly = true;
 
   string fileName = "ConditionalFormatting.xlsx";
@@ -1532,10 +1532,10 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   'Apply three symbols icon and hide the data in the specified range
   iconSet.IconSet = ExcelIconSetType.ThreeSymbols
-  iconSet.IconCriteria(0).Type = ConditionValueType.Percent
-  iconSet.IconCriteria(0).Value = "50"
   iconSet.IconCriteria(1).Type = ConditionValueType.Percent
   iconSet.IconCriteria(1).Value = "50"
+  iconSet.IconCriteria(2).Type = ConditionValueType.Percent
+  iconSet.IconCriteria(2).Value = "50"
   iconSet.ShowIconOnly = True
 
   Dim fileName As String = "ConditionalFormatting.xlsx"
@@ -1608,11 +1608,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Apply three symbols icon and hide the data in the specified range
   iconSet.IconSet = ExcelIconSetType.ThreeSymbols;
-  iconSet.IconCriteria[0].Type = ConditionValueType.Percent;
-  iconSet.IconCriteria[0].Value = "50";
-
   iconSet.IconCriteria[1].Type = ConditionValueType.Percent;
   iconSet.IconCriteria[1].Value = "50";
+  iconSet.IconCriteria[2].Type = ConditionValueType.Percent;
+  iconSet.IconCriteria[2].Value = "50";
   iconSet.ShowIconOnly = true;
 
   //Initializes FileSavePicker
@@ -1687,10 +1686,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Apply three symbols icon and hide the data in the specified range
   iconSet.IconSet = ExcelIconSetType.ThreeSymbols;
-  iconSet.IconCriteria[0].Type = ConditionValueType.Percent;
-  iconSet.IconCriteria[0].Value = "50";
   iconSet.IconCriteria[1].Type = ConditionValueType.Percent;
   iconSet.IconCriteria[1].Value = "50";
+  iconSet.IconCriteria[2].Type = ConditionValueType.Percent;
+  iconSet.IconCriteria[2].Value = "50";
   iconSet.ShowIconOnly = true;
 
   //Saving the workbook as stream
@@ -1759,10 +1758,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Apply three symbols icon and hide the data in the specified range
   iconSet.IconSet = ExcelIconSetType.ThreeSymbols;
-  iconSet.IconCriteria[0].Type = ConditionValueType.Percent;
-  iconSet.IconCriteria[0].Value = "50";
   iconSet.IconCriteria[1].Type = ConditionValueType.Percent;
   iconSet.IconCriteria[1].Value = "50";
+  iconSet.IconCriteria[2].Type = ConditionValueType.Percent;
+  iconSet.IconCriteria[2].Value = "50";
   iconSet.ShowIconOnly = true;
 
   //Saving the workbook as stream
