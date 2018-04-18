@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Data Validation 
 
-Data Validation is a list of rules to the data that can be entered in a cell. This can be applied by using **IDataValidation** interface. Following are some validation types that XlsIO supports
+Data Validation is a list of rules to the data that can be entered in a cell. This can be applied by using **IDataValidation** interface. XlsIO supports following validation types.
 
 * **Text** **Length** **Validation**
 * **Time** **Validation**
@@ -18,7 +18,7 @@ Data Validation is a list of rules to the data that can be entered in a cell. Th
 
 ## Text Length Validation
 
-The following code snippet illustrate on how to set text length validation.
+The following code snippet illustrates how to set text length validation.
 
 {% tabs %}  
 {% highlight c# %}
@@ -79,7 +79,7 @@ validation.SecondFormula = "5";
 
 ## Time Validation
 
-The following code snippet illustrate on how to set time validation.
+The following code snippet illustrates how to set time validation.
 
 {% tabs %}  
 {% highlight c# %}
@@ -140,7 +140,7 @@ validation.SecondFormula = "12.00";
 
 ## List Validation
 
-The following code snippet illustrate on how to set list validation.
+The following code snippet illustrates how to set list validation.
 
 {% tabs %}  
 {% highlight c# %}
@@ -174,11 +174,11 @@ validation.ListOfValues = new string[] { "ListItem1", "ListItem2", "ListItem3" }
 {% endhighlight %}
 {% endtabs %}   
 
-N> ListOfValues property should be used when the values in the Data Validation list are entered manually whose limit is only 255 characters including separators.
+N> The ListOfValues property should be used when the values in the Data Validation list are entered manually whose limit is only 255 characters including separators.
 
 ## Number Validation
 
-The following code snippet illustrate on how to set number validation.
+The following code snippet illustrates  how to set number validation.
 
 {% tabs %}  
 {% highlight c# %}
@@ -239,7 +239,7 @@ validation.SecondFormula = "10";
 
 ## Date Validation
 
-The following code snippet illustrate on how to set date validation.
+The following code snippet illustrates how to set date validation.
 
 {% tabs %}  
 {% highlight c# %}
@@ -339,7 +339,7 @@ validation.FirstFormula = "=A1>10";
 {% endhighlight %}
 {% endtabs %}   
 
-The following code snippet shows all the data validation supports discussed above.
+The following code snippet shows all the data validation supports discussed previously.
 
 {% tabs %}  
 {% highlight c# %}
@@ -857,7 +857,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
