@@ -1,34 +1,64 @@
 ---
-title: Word native conversions
-description: Word native conversions supported in DocIO
+title: Word file format conversions
+description: Word file format conversions supported in DocIO
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Word native conversions
+# Working with Document Conversions
 
-## Word document native conversions.
+The Essential DocIO converts documents from one format to another format. Each file format document can be categorized as flow layout document or fixed layout document.
 
-The [Microsoft Word's](https://en.wikipedia.org/wiki/Microsoft_Word#) native file formats are DOC, DOCX, RTF, DOT, DOTX, DOCM, DOTM. Essential DocIO supports 3 major native file formats.
+**Flow layout document**
+
+* A flow document is designed to "reflow content" depending on the application.
+* Does not contain any information about the position of its content.
+* Dynamically renders the content by application at run time.
+* Example: DOC, DOCX, HTML, EPUB, RTF, and TEXT file formats.
+
+**Fixed layout document**
+
+* This format of fixed document is like "what you see is what you get".
+* Maintains the fixed position for each content.
+* Statically preserves the content in specified position.
+* Example: Image and PDF.
+
+
+Essential DocIO can convert various flow document as fixed document by using our layout engine. Following conversions are supported by Essential DocIO.
+
+* Microsoft Word file format Conversions
+* Word document to PDF
+* Word document to Image
+* RTF Conversions
+* Text Conversions
+* HTML Conversions
+* Word document to ODT
+* Word document to EPUB
+
+## Word file format Conversions
+
+The [Microsoft Word's](https://en.wikipedia.org/wiki/Microsoft_Word#) native file formats are DOC, DOCX, RTF, DOT, DOTX, DOCM, and DOTM. The Essential DocIO supports 3 major native file formats.
 
 1. Word Open XML formats (2007 & later)
 2. Word Binary (97-2003) format (classic)
 3. RTF (classic)
 
-N> We recommend you use DOCX file formats since Microsoft corporation stopped their development in DOC file format and new features inclusion, lot of stability improvement will be included in DOCX file format alone. 
+N> Use DOCX file formats, because Microsoft corporation stopped their development in DOC file format and new features inclusion done in DOCX file format alone.  
 
 ## Word Open XML formats (2007 & later)
 
 The XML format introduced in Microsoft Word 2003 was a simple, XML-based format called WordprocessingML or WordML.
-[Office Open XML](http://en.wikipedia.org/wiki/Office_Open_XML# "") (OOXML or Microsoft Open XML (MOX)) is a zipped, new XML-based file format introduced by Microsoft in Office 2007 applications. WordprocessingML is the markup language used by Microsoft Office Word to store its DOCX documents.
-DocIO supports the following WordprocessingML,
+[Office Open XML](http://en.wikipedia.org/wiki/Office_Open_XML#) (OOXML or Microsoft Open XML (MOX)) is a zipped, new XML-based file format introduced by Microsoft in Office 2007 applications. WordprocessingML is the markup language used by Microsoft Office Word to store its DOCX documents.
+
+DocIO supports the following WordprocessingML:
+
 * Microsoft Word 2007
 * Microsoft Word 2010
 * Microsoft Word 2013
 * Microsoft Word 2016
 
-The following code example explains how to create a new Word document with few lines of code
+The following code example explains how to create a new Word document with few lines of code.
 
 {% tabs %}
 {% highlight c# %}
@@ -72,9 +102,9 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
-### Templates and macros
+### Templates
 
-DOTX is a word document template. The following code snippet shows how to create the word document template with few lines of code,
+DOTX is a word document template. The following code snippet shows how to create the word document template with few lines of code.
 
 {% tabs %}
 {% highlight c# %}
@@ -118,7 +148,9 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
-DOCM is macro enabled word document. It is same as DOCX document contains macros and scripts. The following code illustrates how to load and save a macro enabled document using DocIO library.
+### Macros
+
+DOCM is a macro enabled word document. It is same as DOCX document contains macros and scripts. The DocIO provides only preservation support for macros. The following code illustrates how to load and save a macro enabled document using the DocIO library.
 
 {% tabs %}
 {% highlight c# %}
@@ -164,32 +196,40 @@ document.Close()
 
 
 
-
 ## Word Processing XML conversion(.xml)
 
-Essential DocIO supports converting the Word document into Word Processing XML document and vice versa.
+The Essential DocIO supports converting the Word document into Word Processing XML document and vice versa.
 
-Note:
-Currently we support importing for Word Processing 2003 XML documents. Import and export support for Word Processing 2007 XML documents.
+N> Currently importing and exporting the Word Processing 2003 (importing alone) and 2007 XML documents is supported.
 
 The following code example shows how to convert the Word document into Word Processing XML document.
 
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
+
 WordDocument document = new WordDocument("Template.docx");
+
 //Saves the document as Word Processing ML document
+
 document.Save("WordToWordML.xml", FormatType.WordML);
+
 //Closes the document
+
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Loads an existing Word document 
+
 Dim document As New WordDocument("Template.docx")
+
 'Saves the document as Word Processing ML document
+
 document.Save("WordToWordML.xml", FormatType.WordML)
+
 'Closes the document
+
 document.Close()
 {% endhighlight %}
 {% endtabs %}
@@ -199,34 +239,44 @@ The following code example shows how to convert the Word Processing XML document
 {% tabs %}
 {% highlight c# %}
 // Loads an existing Word document 
+
 WordDocument document = new WordDocument("Template.xml");
+
 //Saves the Word Processing ML document as docx
+
 document.Save("WordMLToWord.docx", FormatType.Docx);
+
 //Closes the document
+
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 ' Loads an existing Word document 
+
 Dim document As New WordDocument("Template.xml")
+
 'Saves the Word Processing ML document as docx 
+
 document.Save("WordMLToWord.docx", FormatType.Docx)
+
 'Closes the document
+
 document.Close()
 {% endhighlight %}
 {% endtabs %}
 
-## Unsupported elements and Limitations in Word to Word Processing XML conversion:
+### Unsupported elements in Word to Word Processing XML conversion:
+
+The following table contains list of unsupported elements in Word to Word Processing XML conversion.
 
 <table>
+<thead> 
 <tr>
-<thead>
-{{'**Element**'| markdownify }}
-</thead>
-<thead>
-{{'**Limitations or Unsupported elements**'| markdownify }}
-</thead>
+<th>Element</th>
+<th>Limitations or Unsupported elements</th>
 </tr>
+</thead>
 <tr>
 <td>
 Custom Shapes and Grouped Shapes<br/><br/></td>
@@ -275,11 +325,11 @@ Unparsed in Word Processing 2003 XML document.
 </tr>
 </table>
 
-## Word Binary (97-2003) format (classic)
+## Word Binary (97-2003) format
 
-DOC is one of the popular file format of word processing document. It is a proprietary binary format of Microsoft used in all the Microsoft Word versions.
+DOC is one of the classic file format of word processing document. It is a proprietary binary format of Microsoft used in all the Microsoft Word versions.
 
-DocIO library supports importing/exporting of DOC format and please find the code snippet below, for the same.
+The DocIO library supports importing or exporting of DOC format and refer to the following code sample.
 
 {% tabs %}
 {% highlight c# %}

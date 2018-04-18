@@ -6,9 +6,9 @@ control: DocIO
 documentation: UG
 ---
 
-# Word Document to HTML conversion
+# Word Document to HTML Conversion
 
-Essential DocIO supports converting the HTML file into Word document and vice versa. It supports only the HTML files that meet the validation either against XHTML 1.0 strict or XHTML 1.0 Transitional schema.
+The Essential DocIO converts the HTML file into Word document and vice versa. It supports only the HTML files that meets the validation either against XHTML 1.0 strict or XHTML 1.0 Transitional schema.
 
 The following code example shows how to convert the HTML file into Word document.
 
@@ -42,15 +42,15 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
-## Customization settings:
+## Customization settings
 
-Essential DocIO provides special options while performing HTML to Word conversion mentioned below,
+The Essential DocIO provides settings while performing HTML to Word conversion as mentioned as follows: 
 
-* Validate the HTML string against XHTML 1.0 Strict and Transitional schema
-* Insert the HTML string at the specified position of the document body contents
-* Append HTML string to the specified paragraph
+* Validate the HTML string against XHTML 1.0 Strict and Transitional schema.
+* Insert the HTML string at the specified position of the document body contents.
+* Append HTML string to the specified paragraph.
 
-The following Code example shows how to customize the HTML to Word conversion.
+The following code example shows how to customize the HTML to Word conversion.
 
 {% tabs %}
 {% highlight c# %}
@@ -124,10 +124,10 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
-N> 1. Inserting XHTML string is not supported in Silverlight, Windows Phone and Xamarin applications.
+N> 1. Inserting XHTML string is not supported in Silverlight, Windows Phone, and Xamarin applications.
 N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
-N> 3. XHTMLValidationType.Transitional - default validation while importing HTML file.
-N> 4. XHTMLValidationType.None - validate the HTML file against XHTML format and it doesn’t perform any schema validation.
+N> 3. XHTMLValidationType.Transitional: Default validation while importing HTML file.
+N> 4. XHTMLValidationType.None: Validates the HTML file against XHTML format and it doesn’t perform any schema validation.
 
 ## Supported and unsupported items
 

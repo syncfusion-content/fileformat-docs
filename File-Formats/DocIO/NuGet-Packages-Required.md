@@ -14,13 +14,13 @@ NuGet is the one of the easiest way to download and install DocIO library to rea
 <table>
 <thead>
 <tr>
-<th style="width:25%">
+<th width="20%">
 Platform(s)
 </th>
-<th>
+<th width="40%">
 Package name
 </th>
-<th>
+<th width="40%">
 Package manager console command
 </th>
 </tr>
@@ -89,13 +89,13 @@ For converting Word document into PDF, the following NuGet packages need to be i
 <table>
 <thead>
 <tr>
-<th style="width:25%">
+<th width="20%">
 Platform(s)
 </th>
-<th>
+<th width="40%">
 Package name
 </th>
-<th>
+<th width="40%">
 Package manager console command
 </th>
 </tr>
@@ -162,9 +162,8 @@ Install-Package Syncfusion.Xamarin.DocIORenderer -Source https://api.nuget.org/v
 </tr>
 </table>
 
-N> Install SkiaSharp package version 1.59.3 in addition to DocIORenderer package.
-N> Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
-N> Word to PDF conversion is not supported in Universal Windows Platform.
+N> 1. Install SkiaSharp package version 1.59.3 in addition to DocIORenderer package.
+N> 2. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
 
 
 ## Converting Charts
@@ -174,13 +173,13 @@ The following NuGet package need to be installed additionally to preserve chart 
 <table>
 <thead>
 <tr>
-<th style="width:25%">
+<th width="20%">
 Platform(s)
 </th>
-<th>
+<th width="40%">
 Package name
 </th>
-<th>
+<th width="40%">
 Package manager console command
 </th>
 </tr>

@@ -6,9 +6,10 @@ control: DocIO
 documentation: UG
 ---
 
-# Text conversion.
-Essential DocIO supports to convert the Word document into Text file and vice versa. The following code example shows how to convert the Word document into text file.
-C#:
+# Text Conversion.
+
+The Essential DocIO converts the Word document into Text file and vice versa. The following code example shows how to convert the Word document into text file.
+
 {% tabs %}
 {% highlight c# %}
 //Loads a template document
@@ -23,9 +24,7 @@ document.Save("WordToText.txt", FormatType.Txt);
 
 document.Close();
 {% endhighlight %}
-{% endtabs %}
-VB:
-{% tabs %}
+
 {% highlight vb.net %}
 'Loads a text file
 
@@ -40,8 +39,9 @@ document.Save("WordToText.txt", FormatType.Txt)
 document.Close()
 {% endhighlight %}
 {% endtabs %}
+
 The following code example shows how to convert a Text file into Word document.
-C#:
+
 {% tabs %}
 {% highlight c# %}
 //Loads a text file
@@ -56,9 +56,7 @@ document.Save("TextToWord.docx", FormatType.Docx);
 
 document.Close();
 {% endhighlight %}
-{% endtabs %}
-VB:
-{% tabs %}
+
 {% highlight vb.net %}
 'Loads a text file
 
@@ -73,8 +71,9 @@ document.Save("TextToWord.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 {% endtabs %}
+
 The following code example shows how to retrieve the Word document contents as a plain text.
-C#:
+
 {% tabs %}
 {% highlight c# %}
 //Loads a template document
@@ -109,9 +108,7 @@ newdocument.Close();
 
 document.Close();
 {% endhighlight %}
-{% endtabs %}
-VB:
-{% tabs %}
+
 {% highlight vb.net %}
 'Loads a template document
 
