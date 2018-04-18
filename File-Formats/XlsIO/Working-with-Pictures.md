@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with Pictures 
 
-XlsIO allows to insert Pictures into a worksheet. The following code snippet shows how to insert picture using XlsIO. 
+XlsIO allows to insert Pictures into a worksheet. Refer to the following code snippet. 
 
 {% tabs %}
 {% highlight c# %}
@@ -122,7 +122,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Positioning and Re-Sizing Pictures
 
-Pictures can be re-sized, positioned and formatted using various properties of **IPictureShape** interface. The following code snippet shows how to apply picture settings.
+Pictures can be re-sized, positioned, and formatted using various properties of **IPictureShape** interface. Refer to the following code snippet.
 
 {% tabs %}
 {% highlight c# %}
@@ -261,7 +261,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -277,8 +277,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Adding Images from External Link
 
-An image can be added to a worksheet as an external link without downloading the original image. The picture will be downloaded every time the spreadsheet is opened in Microsoft Excel. The image is not physically embedded into the Excel document, but points to a web resource. 
-The following code snippet illustrates adding linked images to a worksheet.
+An image can be added to a worksheet as an external link without downloading the original image. The picture will be downloaded every time the spreadsheet is opened in Microsoft Excel. The image is not physically embedded into the Excel document, but points to a web resource. Refer to the following code snippet.
 
 {% tabs %}
 {% highlight c# %}
@@ -374,7 +373,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -390,7 +389,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Adding SVG Images
 
-SVG images can be inserted in Excel documents for displaying images with accuracy while scaling/zooming page. Adding SVG images is now supported in XlsIO with SVG and its fallback raster image data as parameters as in the below code snippet.
+SVG images can be inserted in Excel documents for displaying images with accuracy when scaling or zooming page. Adding SVG images is now supported in XlsIO with SVG and its fallback raster image data as parameters as in the following code snippet.
 
 {% tabs %}
 {% highlight c# %}
@@ -505,7 +504,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
