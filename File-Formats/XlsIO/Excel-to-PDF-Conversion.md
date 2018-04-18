@@ -332,6 +332,87 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
+## Excel with Autoshapes to PDF
+
+XlsIO supports rendering Autoshapes in excel workbooks to PDF. The following code illustrates how to convert excel with autoshapes to PDF document.
+
+{% tabs %}  
+
+{% highlight c# %}
+ExcelEngine excelEngine =  new ExcelEngine();
+
+IApplication application = excelEngine.Excel; 
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet worksheet = workbook.Worksheets[0]; 
+
+// Add autoshapes
+
+IShape shape = worksheet.Shapes.AddAutoShapes(AutoShapeType.Rectangle, 2, 2, 50, 100);
+
+shape.Fill.ForeColor = Color.Red;
+
+IShape shape2 = worksheet.Shapes.AddAutoShapes(AutoShapType.Cloud, 5, 5, 50, 50);
+
+// Convert to PDF
+
+ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
+
+PdfDocument pdfDocument = new PdfDocument();
+
+pdfDocument = converter.Convert(); 
+
+pdfDocument.Save("ExcelToPDF.pdf");
+
+converter.Dispose();
+
+pdfDocument.Close();
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+{% endhighlight %}
+
+{% highlight vb %}
+Dim excelEngine As ExcelEngine = New ExcelEngine
+
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+Dim shape As IShape = worksheet.Shapes.AddAutoShapes(AutoShapeType.Rectangle, 2, 2, 50, 100)
+
+shape.Fill.ForeColor = Color.Red
+
+Dim shape2 As IShape = worksheet.Shapes.AddAutoShapes(AutoShapType.Cloud, 5, 5, 50, 50)
+
+Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+
+Dim pdfDocument As PdfDocument = New PdfDocument
+
+pdfDocument = converter.Convert
+
+pdfDocument.Save("ExcelToPDF.pdf")
+
+converter.Dispose
+
+pdfDocument.Close
+
+workbook.Close
+
+excelEngine.Dispose
+{% endhighlight %}
+
+  {% endtabs %}  
+
 ## Print Excel Document
 
 XlsIO supports Excel printing option by converting Excel to PDF and then print that PDF document. The Excel can be print with specified page setup and printer settings in XlsIO.
@@ -599,7 +680,7 @@ This feature provides support for the following elements:
 * Print Order
 * 2D Charts
 * 3D Charts
-
+* AutoShapes
 ​
 
 ## Unsupported Elements
@@ -623,4 +704,3 @@ The following list contains unsupported elements that presently will not be pres
 * Form Controls
 * ActiveX Controls
 * OLE Objects
-* AutoShapes
