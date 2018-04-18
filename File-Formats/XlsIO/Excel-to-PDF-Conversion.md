@@ -332,9 +332,9 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-## Excel with Autoshapes to PDF
+## Excel with AutoShapes to PDF
 
-XlsIO supports rendering Autoshapes in excel workbooks to PDF. The following code illustrates how to convert excel with autoshapes to PDF document.
+XlsIO supports rendering AutoShapes in excel workbooks to PDF. The following code illustrates how to convert excel with autoshapes to PDF document.
 
 {% tabs %}  
 
@@ -355,7 +355,7 @@ IShape shape = worksheet.Shapes.AddAutoShapes(AutoShapeType.Rectangle, 2, 2, 50,
 
 shape.Fill.ForeColor = Color.Red;
 
-IShape shape2 = worksheet.Shapes.AddAutoShapes(AutoShapType.Cloud, 5, 5, 50, 50);
+IShape shape2 = worksheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 5, 5, 50, 50);
 
 // Convert to PDF
 
@@ -392,7 +392,7 @@ Dim shape As IShape = worksheet.Shapes.AddAutoShapes(AutoShapeType.Rectangl
 
 shape.Fill.ForeColor = Color.Red
 
-Dim shape2 As IShape = worksheet.Shapes.AddAutoShapes(AutoShapType.Cloud, 5, 5, 50, 50)
+Dim shape2 As IShape = worksheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 5, 5, 50, 50)
 
 Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
