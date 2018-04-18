@@ -332,7 +332,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
-## Excel with AutoShapes to PDF
+### Excel with AutoShapes to PDF
 
 XlsIO supports rendering AutoShapes in excel workbooks to PDF. The following code illustrates how to convert excel with autoshapes to PDF document.
 

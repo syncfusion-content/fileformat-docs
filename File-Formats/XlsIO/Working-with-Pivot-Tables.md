@@ -800,6 +800,50 @@ pivotTable.RepeatItemsOnEachPrintedPage = True
 
   {% endtabs %}  
 
+### Set Repeated labels for all the pivot fields
+
+You can set repeated repeated labels to all the pivot fields if the pivot table’s layout is set to either Tabular or Outline. The following code example illustrates how to do this.
+
+{% tabs %}
+
+{% highlight c# %}
+//Show repeated labels in all pivot fields.
+
+pivotTable.Options.RepeatAllLabels(true);
+
+{% endhighlight %}
+
+{% highlight vb %}
+‘Show repeated labels in all pivot fields.
+
+pivotTable.Options.RepeatAllLabels(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Set Repeated labels for specific pivot field
+
+Similar to setting repeated labels in all the pivot fields, you can set repeated labels for only a specific pivot field. The following code illustrates how to do this.
+{% tabs %}
+
+{% highlight c# %}
+//Show repeated labels in a specific pivot field.
+
+pivotTable.Fields[0].RepeatLabels = true;
+
+{% endhighlight %}
+
+{% highlight vb %}
+‘Show repeated labels in a specific pivot field.
+
+pivotTable.Fields(0).RepeatLabels = True
+
+{% endhighlight %}
+
+{% endtabs %}
+  
+  
 ## Other Pivot Table Operations
 
 ### Adding Calculated Field in the existing Pivot Table

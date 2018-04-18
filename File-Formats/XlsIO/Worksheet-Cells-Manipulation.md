@@ -553,6 +553,51 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}   
 
+## Skip blanks while copying
+
+You can copy a range that contain blank cells and paste them to a destination without overwriting the non-blank cells in the destination by passing a Boolean parameter additionally in the CopyTo method. If a Boolean value of “true” is passed then blank cells in the source range are not copied to the destination else normal copy operation is performed.
+
+The following code illustrates how to skip blank cells while copying.
+
+{% tabs %}
+{% highlight c# %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+IWorksheet sheet = workbook.Worksheets[0];
+
+// Copy range as link from Range “A1” to “A5”.
+IRange source = sheet.Range["A1:A7"];
+IRange destination = sheet.Range["C3"];
+
+//Skip blanks while copying
+source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
+
+//Save and dispose
+workbook.SaveAs("SkipBlank.xlsx");
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+{% highlight vb %}
+Dim excelEngine As ExcelEngine = New ExcelEngine
+Dim application As IApplication = excelEngine.Excel
+Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+Dim sheet As IWorkbook = workbook.Worksheets(0)
+
+' Copy range as link from Range “A1” to “A5”.
+Dim source As IRange = sheet.Range("A1:A7")
+Dim destination As IRange = sheet.Range("C3")
+
+' Skip blanks while copying
+source.CopyTo(destination, ExcelCopyRangeOptions.All, true)
+
+' Save and dispose
+workbook.SaveAs("SkipBlank.xlsx")
+workbook.Close()
+excelEngine.Dispose()
+{% endhighlight %}
+{% endtabs %}  
+
 ## Find and Replace
 
 You can perform [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33) text and numbers in workbook or worksheet using XlsIO. Also, XlsIO provides the following options:
