@@ -10,7 +10,7 @@ documentation: UG
 
 ## Form Controls 
 
-You can add and manipulate the text Box, option button, check box and combo box controls into the worksheet. These controls enable to create forms which are very user friendly.
+You can add and manipulate the text Box, option button, check box, and combo box controls into the worksheet. Enable these controls to create forms which are very user friendly.
 
 N> Support for Active X Form controls is not yet available.
 
@@ -23,7 +23,7 @@ This section explains the usage of the following [Form Controls](https://support
 
 ### Text Box
 
-The **ITextBoxShape** interface represents a text box in a worksheet. Various properties like Horizontal and Vertical Alignment, Alternative Text, Text Rotation, and so on, are also supported.
+The **ITextBoxShape** interface represents a text box in a worksheet. Various properties like Horizontal and Vertical Alignment, Alternative Text, Text Rotation, and so on are also supported.
 
 The following code example illustrates how to add and manipulate a text box control.
 
@@ -199,7 +199,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -624,7 +624,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -642,7 +642,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 **IOptionButtonShape** object represents an option button in a worksheet. The following code example illustrates how to insert and manipulate an option button control.
 
-N> XlsIO provides Option button support for only XLSX format.
+N> XlsIO provides Option button support only for XLSX format.
 
 {% tabs %}
 {% highlight c# %}
@@ -841,7 +841,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1006,7 +1006,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1164,7 +1164,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1286,7 +1286,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1304,7 +1304,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The **IShape** interface represents an [AutoShape](https://support.office.com/en-ca/article/Add-change-or-delete-shapes-4f7931c3-7794-440e-820e-9469ad756f05) in an Excel workbook. 
 
-To know more about various AutoShape types supported in XlsIO, please refer **AutoShapeType** enumeration in API section.
+To learn more about various AutoShape types supported in XlsIO, refer to the **AutoShapeType** enumeration in API section.
 
 The following code example illustrates how to insert and format AutoShapes.
 
@@ -1480,7 +1480,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1498,18 +1498,18 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 **IOleObject** object represents an [OLE Object](https://support.office.com/en-US/article/Create-change-or-delete-an-OLE-object-F767F0F1-4170-4850-9B96-0B6C07EC6EA4) in a worksheet. 
 
-N> XlsIO provides OLE Objects support for XLSX format in Windows, ASP.NET and WPF platforms only.
+N> XlsIO supports OLE Objects for XLSX format in Windows, ASP.NET, and WPF platforms only.
 
 **OLE** **Objects** **and** **Linking** **Types**
 
-XlsIO supports two types of association of objects:
+XlsIO supports two types of association of the objects:
 
-* Linked objects.
-* Embedded objects. 
+* Linked objects
+* Embedded objects 
 
 **1****.** **Linked** **Objects** 
 
-Linked objects remain as a separate files. When the file is opened in another machine, then linked object should be in the same location as created.
+Linked objects remains as a separate files. When the file is opened in another machine, then the linked object should be in the same location as created.
 
 The following sample code illustrates how to link an OLE Object to an Excel document.
 
@@ -1624,7 +1624,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1760,7 +1760,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1776,7 +1776,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The following code example illustrates how to insert and manipulate OLEObjects with their properties. 
 
-To know more about OLEObjects, refer **IOleObjects** in API section.
+To learn more about OLEObjects, refer to the **IOleObjects** in API section.
 
 {% tabs %}
 {% highlight c# %}
@@ -2005,7 +2005,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
