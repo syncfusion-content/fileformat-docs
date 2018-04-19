@@ -553,10 +553,9 @@ excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}   
 
-## Skip blanks while copying
+## Skip Blanks While Copying
 
-Usually the [CopyTo](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CopyTo(IRange,ExcelCopyRangeOptions).html) method copies and pastes blank cells as well. 
-To copy and paste only non-blank cells an additional boolean value can be passed to the [CopyTo](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CopyTo(IRange,ExcelCopyRangeOptions,Boolean).html) method to skip blank cells being copied to the destination. 
+You can skip the bank cells while coping data from source to destination range by passing the argument [skip blanks](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CopyTo(IRange,ExcelCopyRangeOptions).html) method copies and pastes blank cells as well. To copy and paste only non-blank cells an additional boolean value can be passed to the [CopyTo](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CopyTo(IRange,ExcelCopyRangeOptions,Boolean).html) as TRUE.
 
 The following code illustrates how to skip blank cells while copying.
 
