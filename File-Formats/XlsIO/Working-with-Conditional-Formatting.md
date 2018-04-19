@@ -790,7 +790,7 @@ iconValue1.IconSet = ExcelIconSetType.FiveBoxes;
 iconValue1.Index = 3;
 iconValue1.Type = ConditionValueType.Percent;
 iconValue1.Value = "25";
-iconValue1.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+iconValue1.Operator = ConditionalFormatOperator.GreaterThan;
 
 IIconConditionValue iconValue2 = iconSet.IconCriteria[1] as IIconConditionValue;
 iconValue2.IconSet = ExcelIconSetType.ThreeSigns;
@@ -804,7 +804,7 @@ iconValue3.IconSet = ExcelIconSetType.FourRating;
 iconValue3.Index = 0;
 iconValue3.Type = ConditionValueType.Percent;
 iconValue3.Value = "75";
-iconValue3.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+iconValue3.Operator = ConditionalFormatOperator.GreaterThan;
 
 {% endhighlight %}
 
@@ -820,7 +820,7 @@ iconValue1.IconSet = ExcelIconSetType.FiveBoxes
 iconValue1.Index = 3
 iconValue1.Type = ConditionValueType.Percent
 iconValue1.Value = "25"
-iconValue1.Operator = ConditionalFormatOperator.GreaterThanorEqualTo
+iconValue1.Operator = ConditionalFormatOperator.GreaterThan
 
 Dim iconValue2 As IIconConditionValue = CType(iconSet.IconCriteria(1),IIconConditionValue)
 iconValue2.IconSet = ExcelIconSetType.ThreeSigns
@@ -834,7 +834,7 @@ iconValue3.IconSet = ExcelIconSetType.FourRating
 iconValue3.Index = 0
 iconValue3.Type = ConditionValueType.Percent
 iconValue3.Value = "75"
-iconValue3.Operator = ConditionalFormatOperator.GreaterThanorEqualTo
+iconValue3.Operator = ConditionalFormatOperator.GreaterThan
 
 
 
@@ -853,7 +853,7 @@ iconValue1.IconSet = ExcelIconSetType.FiveBoxes;
 iconValue1.Index = 3;
 iconValue1.Type = ConditionValueType.Percent;
 iconValue1.Value = "25";
-iconValue1.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+iconValue1.Operator = ConditionalFormatOperator.GreaterThan;
 
 IIconConditionValue iconValue2 = iconSet.IconCriteria[1] as IIconConditionValue;
 iconValue2.IconSet = ExcelIconSetType.ThreeSigns;
@@ -867,7 +867,7 @@ iconValue3.IconSet = ExcelIconSetType.FourRating;
 iconValue3.Index = 0;
 iconValue3.Type = ConditionValueType.Percent;
 iconValue3.Value = "75";
-iconValue3.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+iconValue3.Operator = ConditionalFormatOperator.GreaterThan;
 
 {% endhighlight %}
 
@@ -884,7 +884,7 @@ iconValue1.IconSet = ExcelIconSetType.FiveBoxes;
 iconValue1.Index = 3;
 iconValue1.Type = ConditionValueType.Percent;
 iconValue1.Value = "25";
-iconValue1.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+iconValue1.Operator = ConditionalFormatOperator.GreaterThan;
 
 IIconConditionValue iconValue2 = iconSet.IconCriteria[1] as IIconConditionValue;
 iconValue2.IconSet = ExcelIconSetType.ThreeSigns;
@@ -898,7 +898,7 @@ iconValue3.IconSet = ExcelIconSetType.FourRating;
 iconValue3.Index = 0;
 iconValue3.Type = ConditionValueType.Percent;
 iconValue3.Value = "75";
-iconValue3.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+iconValue3.Operator = ConditionalFormatOperator.GreaterThan;
 
 {% endhighlight %}
 
@@ -915,7 +915,7 @@ iconValue1.IconSet = ExcelIconSetType.FiveBoxes;
 iconValue1.Index = 3;
 iconValue1.Type = ConditionValueType.Percent;
 iconValue1.Value = "25";
-iconValue1.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+iconValue1.Operator = ConditionalFormatOperator.GreaterThan;
 
 IIconConditionValue iconValue2 = iconSet.IconCriteria[1] as IIconConditionValue;
 iconValue2.IconSet = ExcelIconSetType.ThreeSigns;
@@ -929,7 +929,7 @@ iconValue3.IconSet = ExcelIconSetType.FourRating;
 iconValue3.Index = 0;
 iconValue3.Type = ConditionValueType.Percent;
 iconValue3.Value = "75";
-iconValue3.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+iconValue3.Operator = ConditionalFormatOperator.GreaterThan;
 
 {% endhighlight %}
 {% endtabs %}  
