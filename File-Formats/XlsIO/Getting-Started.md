@@ -82,9 +82,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook to disk in XLSX format
   workbook.SaveAs("Sample.xlsx");
-
-  //Closing the workbook
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -112,9 +109,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   'Saving the workbook to disk in XLSX format
   workbook.SaveAs("Sample.xlsx")
-
-  'Closing the workbook
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -152,9 +146,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-
-  //Closing the workbook
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -187,9 +178,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Dispose stream
   stream.Dispose();
-
-  //Closing the workbook
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -219,9 +207,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-
-  //Closing the workbook
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -539,7 +524,7 @@ worksheet.Pictures.AddPicture(10, 2, imageStream);
 {% endhighlight %}
 {% endtabs %}  
 
-Save the document in file system and close the IWorkbook instance. 
+Finally, save the document in file system and close/dispose the instance of IWorkbook and ExcelEngine.
 
 {% tabs %}  
 {% highlight c# %}
@@ -548,6 +533,9 @@ workbook.SaveAs("Sample.xlsx");
 
 //Closing the workbook
 workbook.Close();
+
+//Dispose the Excel engine
+excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
@@ -556,6 +544,9 @@ workbook.SaveAs("Sample.xlsx")
 
 'Closing the workbook
 workbook.Close()
+
+'Dispose the Excel engine
+excelEngine.Dispose()
 {% endhighlight %}
 
 {% highlight  UWP %}
@@ -573,6 +564,9 @@ await workbook.SaveAsAsync(storageFile);
 
 //Closing the workbook
 workbook.Close();
+
+//Dispose the Excel engine
+excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -585,6 +579,9 @@ stream.Dispose();
 
 //Closing the workbook
 workbook.Close();
+
+//Dispose the Excel engine
+excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight Xamarin %}
@@ -594,6 +591,9 @@ workbook.SaveAs(stream);
 
 //Closing the workbook
 workbook.Close();
+
+//Dispose the Excel engine
+excelEngine.Dispose();
 
 stream.Position = 0;
 
@@ -669,9 +669,6 @@ namespace ExcelCreation
 
 		//Saving the workbook to disk in XLSX format
 		workbook.SaveAs("Sample.xlsx");
-
-		//Closing the workbook
-		workbook.Close();
 	  }
 	}
   }
@@ -728,9 +725,6 @@ Namespace ExcelCreation
 
 		'Saving the workbook to disk in XLSX format
 		workbook.SaveAs("Sample.xlsx")
-
-		'Closing the workbook
-		workbook.Close()
 	  End Using
 	End Sub
   End Module
@@ -751,68 +745,63 @@ namespace ExcelCreation
 	{
 	  //New instance of ExcelEngine is created equivalent to launching Excel with no workbooks open
 	  //Instantiate the spreadsheet creation engine
-	  ExcelEngine excelEngine = new ExcelEngine();
+	  using (ExcelEngine excelEngine = new ExcelEngine())
+	  {
+		//Instantiate the Excel application object
+		IApplication application = excelEngine.Excel;
 
-	  //Instantiate the Excel application object
-	  IApplication application = excelEngine.Excel;
+		//Assigns default application version
+		application.DefaultVersion = ExcelVersion.Excel2013;
 
-	  //Assigns default application version
-	  application.DefaultVersion = ExcelVersion.Excel2013;
+		//A new workbook is created equivalent to creating a new workbook in Excel
+		//Create a workbook with 1 worksheet
+		IWorkbook workbook = application.Workbooks.Create(1);
 
-	  //A new workbook is created equivalent to creating a new workbook in Excel
-	  //Create a workbook with 1 worksheet
-	  IWorkbook workbook = application.Workbooks.Create(1);
+		//Access a worksheet from workbook
+		IWorksheet worksheet = workbook.Worksheets[0];
 
-	  //Access a worksheet from workbook
-	  IWorksheet worksheet = workbook.Worksheets[0];
+		//Adding text data
+		worksheet.Range["A1"].Text = "Month";
+		worksheet.Range["B1"].Text = "Sales";
+		worksheet.Range["A6"].Text = "Total";
 
-	  //Adding text data
-	  worksheet.Range["A1"].Text = "Month";
-	  worksheet.Range["B1"].Text = "Sales";
-	  worksheet.Range["A6"].Text = "Total";
+		//Adding DateTime data
+		worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
+		worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
+		worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
 
-	  //Adding DateTime data
-	  worksheet.Range["A2"].DateTime = new DateTime(2015, 1, 10);
-	  worksheet.Range["A3"].DateTime = new DateTime(2015, 2, 10);
-	  worksheet.Range["A4"].DateTime = new DateTime(2015, 3, 10);
+		//Applying number format for date value cells A2 to A4
+		worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
 
-	  //Applying number format for date value cells A2 to A4
-	  worksheet.Range["A2:A4"].NumberFormat = "mmmm, yyyy";
+		//Auto-size the first column to fit the content
+		worksheet.AutofitColumn(1);
 
-	  //Auto-size the first column to fit the content
-	  worksheet.AutofitColumn(1);
+		//Adding numeric data
+		worksheet.Range["B2"].Number = 68878;
+		worksheet.Range["B3"].Number = 71550;
+		worksheet.Range["B4"].Number = 72808;
 
-	  //Adding numeric data
-	  worksheet.Range["B2"].Number = 68878;
-	  worksheet.Range["B3"].Number = 71550;
-	  worksheet.Range["B4"].Number = 72808;
+		//Adding formula
+		worksheet.Range["B6"].Formula = "SUM(B2:B4)";
 
-	  //Adding formula
-	  worksheet.Range["B6"].Formula = "SUM(B2:B4)";
+		//Inserting image
+		//"App" is the class of Portable project
+		Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+		Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.jpg");
+		worksheet.Pictures.AddPicture(10, 2, imageStream);
 
-	  //Inserting image
-	  //"App" is the class of Portable project
-	  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	  Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.image.jpg");
-	  worksheet.Pictures.AddPicture(10, 2, imageStream);
+		//Initializes FileSavePicker
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+		savePicker.SuggestedFileName = "Sample";
+		savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-	  //Initializes FileSavePicker
-	  FileSavePicker savePicker = new FileSavePicker();
-	  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-	  savePicker.SuggestedFileName = "Sample";
-	  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+		//Creates a storage file from FileSavePicker
+		StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-	  //Creates a storage file from FileSavePicker
-	  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-	
-	  //Saves changes to the specified storage file
-	  await workbook.SaveAsAsync(storageFile);
-
-	  //Closing the workbook
-	  workbook.Close();
-
-	  //Dispose the Excel engine
-	  excelEngine.Dispose();
+		//Saves changes to the specified storage file
+		await workbook.SaveAsAsync(storageFile);
+	  }
 	}
   }
 }
@@ -877,9 +866,6 @@ namespace ExcelCreation
 
 		//Dispose stream
 		stream.Dispose();
-
-		//Closing the workbook
-		workbook.Close();
 	  }
 	}
   }
@@ -945,9 +931,6 @@ namespace ExcelCreation
 		MemoryStream stream = new MemoryStream();
 		workbook.SaveAs(stream);
 
-		//Closing the workbook
-		workbook.Close();
-
 		stream.Position = 0;
 
 		//Save the document as file and view the saved document
@@ -1003,7 +986,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook
   workbook.SaveAs("Spreadsheet.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1022,7 +1004,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   'Saving the workbook
   workbook.SaveAs("Spreadsheet.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -1051,7 +1032,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1073,7 +1053,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream file = new FileStream("Spreadsheet.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(file);
   file.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1094,7 +1073,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -1387,7 +1365,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook
   string fileName = "Output.xlsx";
   workbook.SaveAs(fileName);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1404,7 +1381,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Saving the workbook
   Dim fileName As String = "Output.xlsx"
   workbook.SaveAs(fileName)
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -1445,7 +1421,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 
 //Sales details
@@ -1524,7 +1499,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream file = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(file);
   file.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1548,7 +1522,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
@@ -1689,7 +1662,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saving the workbook
   workbook.SaveAs("TemplateMarkerResult.xlsx");
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1715,7 +1687,6 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   'Saving the workbook
   workbook.SaveAs("TemplateMarkerResult.xlsx")
-  workbook.Close()
 End Using
 {% endhighlight %}
 
@@ -1760,7 +1731,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Saves changes to the specified storage file
   await workbook.SaveAsAsync(storageFile);
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1789,7 +1759,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream file = new FileStream("TemplateMarkerResult.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(file);
   file.Dispose();
-  workbook.Close();
 }
 {% endhighlight %}
 
@@ -1818,7 +1787,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
-  workbook.Close();
 
   stream.Position = 0;
 
