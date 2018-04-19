@@ -766,7 +766,6 @@ iconSet.IconCriteria(1).Value = "50"
 iconSet.ShowIconOnly = True
 
 
-
 {% endhighlight %}
 {% endtabs %}  
 
@@ -838,6 +837,99 @@ iconValue3.Value = "75"
 iconValue3.Operator = ConditionalFormatOperator.GreaterThanorEqualTo
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+// Create icon sets for the data in specified range
+IConditionalFormats conditionalFormats = sheet.Range["H1:K6"].ConditionalFormats;
+IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
+conditionalFormat.FormatType = ExcelCFType.IconSet;
+IIconSet iconSet = conditionalFormat.IconSet;
+iconSet.IconSet = ExcelIconSetType.ThreeFlags;
+
+IIconConditionValue iconValue1 = iconSet.IconCriteria[0] as IIconConditionValue;
+iconValue1.IconSet = ExcelIconSetType.FiveBoxes;
+iconValue1.Index = 3;
+iconValue1.Type = ConditionValueType.Percent;
+iconValue1.Value = "25";
+iconValue1.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+
+IIconConditionValue iconValue2 = iconSet.IconCriteria[1] as IIconConditionValue;
+iconValue2.IconSet = ExcelIconSetType.ThreeSigns;
+iconValue2.Index = 2;
+iconValue2.Type = ConditionValueType.Percent;
+iconValue2.Value = "50";
+iconValue2.Operator = ConditionalFormatOperator.GreaterThan;
+
+IIconConditionValue iconValue3 = iconSet.IconCriteria[2] as IIconConditionValue;
+iconValue3.IconSet = ExcelIconSetType.FourRating;
+iconValue3.Index = 0;
+iconValue3.Type = ConditionValueType.Percent;
+iconValue3.Value = "75";
+iconValue3.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+// Create icon sets for the data in specified range
+IConditionalFormats conditionalFormats = sheet.Range["H1:K6"].ConditionalFormats;
+IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
+conditionalFormat.FormatType = ExcelCFType.IconSet;
+IIconSet iconSet = conditionalFormat.IconSet;
+iconSet.IconSet = ExcelIconSetType.ThreeFlags;
+
+IIconConditionValue iconValue1 = iconSet.IconCriteria[0] as IIconConditionValue;
+iconValue1.IconSet = ExcelIconSetType.FiveBoxes;
+iconValue1.Index = 3;
+iconValue1.Type = ConditionValueType.Percent;
+iconValue1.Value = "25";
+iconValue1.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+
+IIconConditionValue iconValue2 = iconSet.IconCriteria[1] as IIconConditionValue;
+iconValue2.IconSet = ExcelIconSetType.ThreeSigns;
+iconValue2.Index = 2;
+iconValue2.Type = ConditionValueType.Percent;
+iconValue2.Value = "50";
+iconValue2.Operator = ConditionalFormatOperator.GreaterThan;
+
+IIconConditionValue iconValue3 = iconSet.IconCriteria[2] as IIconConditionValue;
+iconValue3.IconSet = ExcelIconSetType.FourRating;
+iconValue3.Index = 0;
+iconValue3.Type = ConditionValueType.Percent;
+iconValue3.Value = "75";
+iconValue3.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+// Create icon sets for the data in specified range
+IConditionalFormats conditionalFormats = sheet.Range["H1:K6"].ConditionalFormats;
+IConditionalFormat conditionalFormat = conditionalFormats.AddCondition();
+conditionalFormat.FormatType = ExcelCFType.IconSet;
+IIconSet iconSet = conditionalFormat.IconSet;
+iconSet.IconSet = ExcelIconSetType.ThreeFlags;
+
+IIconConditionValue iconValue1 = iconSet.IconCriteria[0] as IIconConditionValue;
+iconValue1.IconSet = ExcelIconSetType.FiveBoxes;
+iconValue1.Index = 3;
+iconValue1.Type = ConditionValueType.Percent;
+iconValue1.Value = "25";
+iconValue1.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
+
+IIconConditionValue iconValue2 = iconSet.IconCriteria[1] as IIconConditionValue;
+iconValue2.IconSet = ExcelIconSetType.ThreeSigns;
+iconValue2.Index = 2;
+iconValue2.Type = ConditionValueType.Percent;
+iconValue2.Value = "50";
+iconValue2.Operator = ConditionalFormatOperator.GreaterThan;
+
+IIconConditionValue iconValue3 = iconSet.IconCriteria[2] as IIconConditionValue;
+iconValue3.IconSet = ExcelIconSetType.FourRating;
+iconValue3.Index = 0;
+iconValue3.Type = ConditionValueType.Percent;
+iconValue3.Value = "75";
+iconValue3.Operator = ConditionalFormatOperator.GreaterThanorEqualTo;
 
 {% endhighlight %}
 {% endtabs %}  

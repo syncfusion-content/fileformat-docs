@@ -890,14 +890,13 @@ The following code snippet illustrates how to enable LeaderLines and how to form
 //Get the serie
 IChartSerie serie = chart.Series[0];
 
-//Set the leaderlines
+//Set the leader lines
 serie.HasLeaderLines = true;
 
-//Format the leaderlines
+//Format the leader lines
 serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
 serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
 serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
-
 
 
 {% endhighlight %}
@@ -906,16 +905,55 @@ serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
 'Get the serie
 Dim serie As IChartSerie = chart.Series(0)
 
-'Set the leaderlines
+'Set the leader lines
 serie.HasLeaderLines = true
 
-'Format the leaderlines
+'Format the leader lines
 serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide
 serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot
 serie.LeaderLines.ColorIndex = ExcelKnownColors.Red
 
 
 
+{% endhighlight %}
+
+{% highlight UWP %}
+//Get the serie
+IChartSerie serie = chart.Series[0];
+
+//Set the leader lines
+serie.HasLeaderLines = true;
+
+//Format the leader lines
+serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
+serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
+serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Get the serie
+IChartSerie serie = chart.Series[0];
+
+//Set the leader lines
+serie.HasLeaderLines = true;
+
+//Format the leader lines
+serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
+serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
+serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Get the serie
+IChartSerie serie = chart.Series[0];
+
+//Set the leader lines
+serie.HasLeaderLines = true;
+
+//Format the leader lines
+serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
+serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
+serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
 {% endhighlight %}
 {% endtabs %}  
 
