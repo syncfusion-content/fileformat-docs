@@ -803,10 +803,9 @@ pivotTable.RepeatItemsOnEachPrintedPage = True
 
 ### Repeat Labels For Specific Pivot Field
 
-In [Excel Version](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.ExcelVersion.html) 2010 and above to improve readability Repeat Labels can be used.
-If [Pivot Table Row Layout](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.PivotTableRowLayout.html) is set to Compact only Column fields can have repeated labels.
-If Tabular or Outline is set then both row and column fields will have repeated labels. 
-Repeat labels can be turned on or off for specific row/column pivot field in a pivot table. The following code illustrates how to do this.
+You can repeat labels for row/column field when the [pivot table layout](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.PivotTableRowLayout.html) is set tabular or outline.
+
+The following code illustrates how to set the repeat labels for a pivot field.
 {% tabs %}
 
 {% highlight c# %}
@@ -849,7 +848,7 @@ pivotTable.Fields[0].RepeatLabels = true;
   
 ### Repeat Labels For All The Pivot Fields
 
-The following code example illustrates how Repeat Labels can be set for all the row and column fields of the Pivot table.
+The following code example illustrates how repeat labels can be set for all the row and column fields of the pivot table.
 
 {% tabs %}
 
