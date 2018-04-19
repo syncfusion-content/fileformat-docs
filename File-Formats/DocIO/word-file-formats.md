@@ -6,14 +6,14 @@ control: DocIO
 documentation: UG
 ---
 
-# Working with Document Conversions
 
-## Word File Format Conversions
+## Word File Formats
 
 The [Microsoft Word's](https://en.wikipedia.org/wiki/Microsoft_Word#) native file formats are DOC, DOCX, RTF, DOT, DOTX, DOCM, and DOTM. The Essential DocIO supports the following major native file formats.
 
 1. Word Open XML formats (2007 & later)
-2. Word Binary (97-2003) format (classic)
+2. Word Processing XML (.xml)
+3. Word Binary (97-2003) format (classic)
 
 N> Use DOCX file formats, because Microsoft corporation stopped their development in DOC file format and new features inclusion done in DOCX file format alone.  
 
@@ -166,7 +166,7 @@ document.Close()
 
 
 
-## Word Processing XML conversion(.xml)
+## Word Processing XML (.xml)
 
 The XML format introduced in Microsoft Word 2003 was a simple, XML-based format called WordprocessingML or WordML.
 The Essential DocIO supports converting the Word document into Word Processing XML document and vice versa.

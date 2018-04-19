@@ -327,7 +327,7 @@ wordDocument.Close()
 
 You can customize the TrueType fonts embedding in two ways as follows:
 
-#### Embed Fonts
+#### Embed Subset Fonts
 
 This setting allows you to embed the particular font information (glyphs) from the TrueType fonts used for the rendered characters in converted PDF document.
 
