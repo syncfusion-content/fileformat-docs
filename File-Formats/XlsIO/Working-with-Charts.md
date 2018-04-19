@@ -881,6 +881,44 @@ serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = True
 {% endhighlight %}
 {% endtabs %}  
 
+### LeaderLines Data Labels Appearance
+
+The following code snippet illustrates how to enable LeaderLines and how to format leader lines. LeaderLines are appear between the Serie and DataLabel. LeaderLines are always true by default.
+
+{% tabs %}  
+{% highlight c# %}
+//Get the serie
+IChartSerie serie = chart.Series[0];
+
+//Set the leaderlines
+serie.HasLeaderLines = true;
+
+//Format the leaderlines
+serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
+serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
+serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+'Get the serie
+Dim serie As IChartSerie = chart.Series(0)
+
+'Set the leaderlines
+serie.HasLeaderLines = true
+
+'Format the leaderlines
+serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide
+serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot
+serie.LeaderLines.ColorIndex = ExcelKnownColors.Red
+
+
+
+{% endhighlight %}
+{% endtabs %}  
+
 ### Series Appearance
 
 The following code snippet illustrates how to modify the appearance of chart series.
