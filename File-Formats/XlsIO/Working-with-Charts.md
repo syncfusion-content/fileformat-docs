@@ -881,9 +881,9 @@ serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = True
 {% endhighlight %}
 {% endtabs %}  
 
-### LeaderLines Data Labels Appearance
+### LeaderLines Appearance
 
-The following code snippet illustrates how to enable LeaderLines and how to format leader lines. LeaderLines are appear between the Serie and DataLabel. LeaderLines are always true by default.
+Leader lines are appear between the Series and DataLabels. The following code snippet illustrates how to enable and format leader lines.
 
 {% tabs %}  
 {% highlight c# %}
