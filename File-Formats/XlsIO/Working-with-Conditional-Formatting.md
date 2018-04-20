@@ -771,8 +771,7 @@ iconSet.ShowIconOnly = True
 
 ### Custom Icon Sets
 
-Custom Icon Sets allow to customize the own icon sets. Custom Icon Sets used to creating new icon set from the existing icons.
-By default, icon sets with three icons are applied based on the top, middle, and bottom third of the values within the range. You can change the individual icon set using it's index value.
+You can customize the icon set by changing the IconSet and Index properties for each icon criteria.
 
 Custom Icon sets can be created and customized in XlsIO as follows.
 
