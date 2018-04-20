@@ -19,177 +19,171 @@ The following code snippet illustrates how to create a PivotChart.
 {% tabs %}  
 
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
 
-IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
-IWorksheet worksheet = workbook.Worksheets[0];
-IPivotTable pivotTable = worksheet.PivotTables[0];
+    IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+    IWorksheet worksheet = workbook.Worksheets[0];
+    IPivotTable pivotTable = worksheet.PivotTables[0];
 
-//Adding a chart to workbook
-IChart pivotChart = workbook.Charts.Add();
+    //Adding a chart to workbook
+    IChart pivotChart = workbook.Charts.Add();
 
-//Set PivotTable as PivotSource to the chart
-pivotChart.PivotSource = pivotTable;
+    //Set PivotTable as PivotSource to the chart
+    pivotChart.PivotSource = pivotTable;
 
-//Set PivotChart type
-pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
+    //Set PivotChart type
+    pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
 
-workbook.SaveAs("PivotChart.xlsx");
-
-workbook.Close();
-excelEngine.Dispose();
-
-
+    workbook.SaveAs("PivotChart.xlsx");
+}
 
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using Dim excelEngine As New ExcelEngine()
+  Dim application As IApplication = ExcelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
-Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
 
-'Adding a chart to workbook
-Dim pivotChart As IChart = workbook.Charts.Add()
+  'Adding a chart to workbook
+  Dim pivotChart As IChart = workbook.Charts.Add()
 
-'Set PivotTable as PivotSource to the chart
-pivotChart.PivotSource = pivotTable
+  'Set PivotTable as PivotSource to the chart
+  pivotChart.PivotSource = pivotTable
 
-'Set PivotChart type
-pivotChart.PivotChartType = ExcelChartType.Column_Clustered
+  'Set PivotChart type
+  pivotChart.PivotChartType = ExcelChartType.Column_Clustered
 
-workbook.SaveAs("PivotChart.xlsx")
-
-workbook.Close()
-excelEngine.Dispose()
+  workbook.SaveAs("PivotChart.xlsx")
+End Using
 
 
 
 {% endhighlight %}
 {% highlight UWP %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotChart.PivotTable.xlsx");
+    //Gets input Excel document from embedded resource collection
+    Stream inputStream = assembly.GetManifestResourceStream("PivotChart.PivotTable.xlsx");
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
 
-IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
-IWorksheet worksheet = workbook.Worksheets[0];
-IPivotTable pivotTable = workbook.Worksheets[1].PivotTables[0];
+    IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+    IPivotTable pivotTable = workbook.Worksheets[1].PivotTables[0];
 
-//Adding a chart to workbook
-IChart pivotChart = workbook.Charts.Add();
+    //Adding a chart to workbook
+    IChart pivotChart = workbook.Charts.Add();
 
-//Set PivotTable as PivotSource to the chart
-pivotChart.PivotSource = pivotTable;
+    //Set PivotTable as PivotSource to the chart
+    pivotChart.PivotSource = pivotTable;
 
-//Set PivotChart type
-pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
+    //Set PivotChart type
+    pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "PivotChart";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+    //Initializes FileSavePicker
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "PivotChart";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
+    //Creates a storage file from FileSavePicker
+    StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-workbook.Close();
-excelEngine.Dispose();
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(storageFile);
+}
 
 {% endhighlight %}
 {% highlight asp.net core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
 
-FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+    FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
 
-IWorkbook workbook = application.Workbooks.Open(fileStream); 
-IWorksheet worksheet = workbook.Worksheets[0];
-IPivotTable pivotTable = worksheet.PivotTables[0];
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+    IPivotTable pivotTable = worksheet.PivotTables[0];
 
-//Adding a chart to workbook
-IChart pivotChart = workbook.Charts.Add();
+    //Adding a chart to workbook
+    IChart pivotChart = workbook.Charts.Add();
 
-//Set PivotTable as PivotSource to the chart
-pivotChart.PivotSource = pivotTable;
+    //Set PivotTable as PivotSource to the chart
+    pivotChart.PivotSource = pivotTable;
 
-//Set PivotChart type
-pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
+    //Set PivotChart type
+    pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
 
-string fileName = "PivotChart.xlsx";
+    string fileName = "PivotChart.xlsx";
 
-//Saving the workbook as stream
-FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+    //Saving the workbook as stream
+    FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
 
 {% endhighlight %}
 {% highlight Xamarin %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-           
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotChart.PivotTable.xlsx");
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+    //Gets input Excel document from embedded resource collection
+    Stream inputStream = assembly.GetManifestResourceStream("PivotChart.PivotTable.xlsx");
 
-IWorkbook workbook = application.Workbooks.Open(inputStream);
-IWorksheet worksheet = workbook.Worksheets[0];
-IPivotTable pivotTable = worksheet.PivotTables[0];
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Adding a chart to workbook
-IChart pivotChart = workbook.Charts.Add();
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+    IPivotTable pivotTable = worksheet.PivotTables[0];
 
-//Set PivotTable as PivotSource to the chart
-pivotChart.PivotSource = pivotTable;
+    //Adding a chart to workbook
+    IChart pivotChart = workbook.Charts.Add();
 
-//Set PivotChart type
-pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
+    //Set PivotTable as PivotSource to the chart
+    pivotChart.PivotSource = pivotTable;
 
-string fileName = "PivotChart.xlsx";
+    //Set PivotChart type
+    pivotChart.PivotChartType = ExcelChartType.Column_Clustered;
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream);
+    string fileName = "PivotChart.xlsx";
 
-workbook.Close();
-excelEngine.Dispose();
+    //Saving the workbook as stream
+    MemoryStream outputStream = new MemoryStream();
+    workbook.SaveAs(outputStream);
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+    workbook.Close();
+    excelEngine.Dispose();
 
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+    //Save the stream as Excel document and view the saved document
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+        await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+    else
+        DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
 
+    //Dispose the input and output stream instances
+    inputStream.Dispose();
+    outputStream.Dispose();
+}
 {% endhighlight %}
 
   {% endtabs %}  
 
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 ## PivotChart Options
 
