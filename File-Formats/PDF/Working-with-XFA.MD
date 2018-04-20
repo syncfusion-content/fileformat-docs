@@ -2866,6 +2866,50 @@ loadedDocument.Close()
 
 {% endtabs %}
 
+## Flattening XFA Form fields
+
+The form field editing or filling capabilities can be removed by flattening the PDF document.
+
+The Essential PDF flattens a form field by removing the existing form field and replacing it with graphical objects that will resemble the form field and cannot be edited.
+
+The following code snippet illustrates how to flatten the XFA form field.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Load the existing document. 
+PdfLoadedXfaDocument ldoc = new PdfLoadedXfaDocument("input.pdf");
+
+//Set flatten. 
+ldoc.Flatten = true;
+
+//Save the document. 
+ldoc.Save("output.pdf");
+
+//Close the document. 
+ldoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing document. 
+Dim ldoc As New PdfLoadedXfaDocument("input.pdf")
+
+'Set flatten. 
+ ldoc.Flatten = True
+
+'Save the document. 
+ldoc.Save("output.pdf")
+
+'Close the document. 
+ldoc.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Removing the dynamic form fields from an existing XFA document
 
 You can remove the dynamic XFA form fields by using the below code snippet.
@@ -2955,5 +2999,23 @@ loadedDocument.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+## Supported fields for XFA form
+
+The following XFA fields are supported in creating, filling, and flattening the PDF document.
+
+* Text box field
+* Numeric field
+* DateTime field
+* Combo box field
+* Radio button field
+* List box field
+* Check box field
+* Text Element
+* Button
+* Line
+* Rectangle
+* Circle
+* Image 
 
 N> Removing and modifying the form fields is not supported in **static** XFA forms.
