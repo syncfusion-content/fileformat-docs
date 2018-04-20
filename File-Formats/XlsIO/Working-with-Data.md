@@ -57,7 +57,7 @@ workbook.Close()
 excelEngine.Dispose()
 {% endhighlight %}
 
-{ % highlight UWP %}
+{% highlight UWP %}
 N> XlsIO supports importing of data from data table to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 
