@@ -32,7 +32,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 DataTable table = SampleDataTable();
 
-//Import DataTable to the worksheet.
+//Import DataTable to the worksheet
 worksheet.ImportDataTable(table, true, 1, 1);
 
 workbook.SaveAs("ImportFromDT.xlsx");
@@ -49,12 +49,40 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 Dim table As DataTable = sampleDataTable()
 
-'Import DataTable to the worksheet.
+'Import DataTable to the worksheet
 worksheet.ImportDataTable(table, True, 1, 1)
 
 workbook.SaveAs("ImportFromDT.xlsx")
 workbook.Close()
 excelEngine.Dispose()
+{% endhighlight %}
+
+{% highlight UWP %}
+N> XlsIO supports importing of data from data table to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+DataTable table = SampleDataTable();
+
+//Import DataTable to the worksheet
+worksheet.ImportDataTable(table, true, 1, 1);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("ImportFromDT.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+N> XlsIO supports importing of data from data table to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
@@ -72,7 +100,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 DataTable table = SampleDataTable();
 
-//Import Data Column to the worksheet.
+//Import Data Column to the worksheet
 DataColumn column = table.Columns[0];
 
 worksheet.ImportDataColumn(column, true, 1, 1);
@@ -90,7 +118,7 @@ Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 Dim table As DataTable = sampleDataTable()
 
-'Import DataColumn to the worksheet.
+'Import DataColumn to the worksheet
 Dim column As DataColumn = table.Columns(0)
 
 worksheet.ImportDataColumn(column, True, 1, 1)
@@ -98,6 +126,36 @@ worksheet.ImportDataColumn(column, True, 1, 1)
 workbook.SaveAs("ImportFromDT.xlsx")
 workbook.Close()
 excelEngine.Dispose()
+{% endhighlight %}
+
+{% highlight UWP %}
+N> XlsIO supports importing of data from data column to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+DataTable table = SampleDataTable();
+
+//Import Data Column to the worksheet
+DataColumn column = table.Columns[0];
+
+worksheet.ImportDataColumn(column, true, 1, 1);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("ImportFromDT.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+N> XlsIO supports importing of data from data column to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
@@ -115,7 +173,7 @@ IWorksheet worksheet = workbook.Worksheets[0];
 
 DataTable table = SampleDataTable();
 
-//Import DataView to the worksheet.
+//Import DataView to the worksheet
 DataView view = table.DefaultView;
 
 worksheet.ImportDataView(view, true, 1, 1);
@@ -132,16 +190,46 @@ application.DefaultVersion = ExcelVersion.Excel2013
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-'Initialize the DataTable.
+'Initialize the DataTable
 Dim table As DataTable = sampleDataTable()
 
-'Import DataView to the worksheet.
+'Import DataView to the worksheet
 Dim view As DataView = table.DefaultView
 
 worksheet.ImportDataView(view, True, 1, 1)
 workbook.SaveAs("ImportFromDT.xlsx")
 workbook.Close()
 excelEngine.Dispose()
+{% endhighlight %}
+
+{% highlight UWP %}
+N> XlsIO supports importing of data from data view to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+DataTable table = SampleDataTable();
+
+//Import DataView to the worksheet
+DataView view = table.DefaultView;
+
+worksheet.ImportDataView(view, true, 1, 1);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("ImportFromDT.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+N> XlsIO supports importing of data from data view to worksheet in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
@@ -157,7 +245,7 @@ application.DefaultVersion = ExcelVersion.Excel2013;
 IWorkbook workbook = application.Workbooks.Create(1);
 IWorksheet worksheet = workbook.Worksheets[0];
 
-//Import the data to worksheet.
+//Import the data to worksheet
 IList<Customer> reports = GetSalesReports();
 
 worksheet.ImportData(reports, 2, 1, false);
@@ -174,7 +262,7 @@ application.DefaultVersion = ExcelVersion.Excel2013
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-'Import the data to worksheet.
+'Import the data to worksheet
 Dim reports As IList(Of Customer) = GetSalesReports()
 
 worksheet.ImportData(reports, 2, 1, False)
@@ -183,32 +271,107 @@ workbook.SaveAs("ImportFromDT.xlsx")
 workbook.Close()
 excelEngine.Dispose()
 {% endhighlight %}
+
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Import the data to worksheet
+IList<Customer> reports = GetSalesReports();
+
+worksheet.ImportData(reports, 2, 1, false);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "ImportFromDT";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Import the data to worksheet
+IList<Customer> reports = GetSalesReports();
+
+worksheet.ImportData(reports, 2, 1, false);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("ImportFromDT.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Import the data to worksheet
+IList<Customer> reports = GetSalesReports();
+
+worksheet.ImportData(reports, 2, 1, false);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ImportFromDT.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("ImportFromDT.xlsx", "application/msexcel", stream);
+}
+{% endhighlight %}
 {% endtabs %}  
 
 The following code snippet provides supporting methods & class for the above code.
 
 {% tabs %}  
 {% highlight c# %}
-public static List<Report> GetSalesReports()
+public static List<Customer> GetSalesReports()
 {
-    List<Report> reports = new List<Report>();
+    List<Customer> reports = new List<Customer>();
 
-    reports.Add(new Report("Andy Bernard", "45000", "58000"));
-    reports.Add(new Report("Jim Halpert", "34000", "65000"));
-    reports.Add(new Report("Karen Fillippelli", "75000", "64000"));
-    reports.Add(new Report("Phyllis Lapin", "56500", "33600" ));
-    reports.Add(new Report("Stanley Hudson", "46500", "52000"));
+    reports.Add(new Customer("Andy Bernard", "45000", "58000"));
+    reports.Add(new Customer("Jim Halpert", "34000", "65000"));
+    reports.Add(new Customer("Karen Fillippelli", "75000", "64000"));
+    reports.Add(new Customer("Phyllis Lapin", "56500", "33600" ));
+    reports.Add(new Customer("Stanley Hudson", "46500", "52000"));
 
     return reports;
 }
 
-public class Report
+public class Customer
 {
     public string SalesPerson { get; set; }
 	public string SalesJanJun { get; set; }
 	public string SalesJulDec { get; set; }
 
-	public Report(string name, string janToJun, string julToDec)
+	public Customer(string name, string janToJun, string julToDec)
 	{
 		SalesPerson = name;
 		SalesJanJun = janToJun;
@@ -218,21 +381,21 @@ public class Report
 {% endhighlight %}
 
 {% highlight vb %}
-Public Shared Function GetSalesReports() As List(Of Report)
+Public Function GetSalesReports() As List(Of Customer)
 
-	Dim reports As New List(Of Report)()
+	Dim reports As New List(Of Customer)()
 
-	reports.Add(New Report("Andy Bernard", "45000", "58000"))
-	reports.Add(New Report("Jim Halpert", "34000", "65000"))
-	reports.Add(New Report("Karen Fillippelli", "75000", "64000"))
-	reports.Add(New Report("Phyllis Lapin", "56500", "33600"))
-	reports.Add(New Report("Stanley Hudson", "46500", "52000"))
+	reports.Add(New Customer("Andy Bernard", "45000", "58000"))
+	reports.Add(New Customer("Jim Halpert", "34000", "65000"))
+	reports.Add(New Customer("Karen Fillippelli", "75000", "64000"))
+	reports.Add(New Customer("Phyllis Lapin", "56500", "33600"))
+	reports.Add(New Customer("Stanley Hudson", "46500", "52000"))
 
 	Return reports
 
 End Function
 
-Public Class Report
+Public Class Customer
 
 	Private m_SalesPerson As String
 	Private m_SalesJanJun As String	
@@ -278,6 +441,93 @@ Public Class Report
 
 End Class
 {% endhighlight %}
+
+{% highlight UWP %}
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    reports.Add(new Customer("Andy Bernard", "45000", "58000"));
+    reports.Add(new Customer("Jim Halpert", "34000", "65000"));
+    reports.Add(new Customer("Karen Fillippelli", "75000", "64000"));
+    reports.Add(new Customer("Phyllis Lapin", "56500", "33600" ));
+    reports.Add(new Customer("Stanley Hudson", "46500", "52000"));
+
+    return reports;
+}
+
+public class Customer
+{
+    public string SalesPerson { get; set; }
+	public string SalesJanJun { get; set; }
+	public string SalesJulDec { get; set; }
+
+	public Customer(string name, string janToJun, string julToDec)
+	{
+		SalesPerson = name;
+		SalesJanJun = janToJun;
+		SalesJulDec = julToDec;
+	}
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    reports.Add(new Customer("Andy Bernard", "45000", "58000"));
+    reports.Add(new Customer("Jim Halpert", "34000", "65000"));
+    reports.Add(new Customer("Karen Fillippelli", "75000", "64000"));
+    reports.Add(new Customer("Phyllis Lapin", "56500", "33600" ));
+    reports.Add(new Customer("Stanley Hudson", "46500", "52000"));
+
+    return reports;
+}
+
+public class Customer
+{
+    public string SalesPerson { get; set; }
+	public string SalesJanJun { get; set; }
+	public string SalesJulDec { get; set; }
+
+	public Customer(string name, string janToJun, string julToDec)
+	{
+		SalesPerson = name;
+		SalesJanJun = janToJun;
+		SalesJulDec = julToDec;
+	}
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    reports.Add(new Customer("Andy Bernard", "45000", "58000"));
+    reports.Add(new Customer("Jim Halpert", "34000", "65000"));
+    reports.Add(new Customer("Karen Fillippelli", "75000", "64000"));
+    reports.Add(new Customer("Phyllis Lapin", "56500", "33600" ));
+    reports.Add(new Customer("Stanley Hudson", "46500", "52000"));
+
+    return reports;
+}
+
+public class Customer
+{
+    public string SalesPerson { get; set; }
+	public string SalesJanJun { get; set; }
+	public string SalesJulDec { get; set; }
+
+	public Customer(string name, string janToJun, string julToDec)
+	{
+		SalesPerson = name;
+		SalesJanJun = janToJun;
+		SalesJulDec = julToDec;
+	}
+}
+{% endhighlight %}
 {% endtabs %}  
 
 ### Import Data from Array
@@ -292,7 +542,7 @@ application.DefaultVersion = ExcelVersion.Excel2013;
 IWorkbook workbook = application.Workbooks.Create(1);
 IWorksheet worksheet = workbook.Worksheets[0];
 
-//Initialize the Object Array.
+//Initialize the Object Array
 object[] array = new object[4]{"Total Income", "Actual Expense", "Expected Expenses", "Profit"};
 
 //Import the Object Array to Sheet
@@ -310,15 +560,93 @@ application.DefaultVersion = ExcelVersion.Excel2013
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-'Initialize the Array Object.
-Dim array() As Object = New Object(4) {"Total Income", "Actual Expense", "Expected Expenses", "Profit"}
+'Initialize the Array Object
+Dim array() As Object = New Object() {"Total Income", "Actual Expense", "Expected Expenses", "Profit"}
 
-'Import the Array Object to Sheet.
+'Import the Array Object to Sheet
 worksheet.ImportArray(array, 1, 1, False)
 
 workbook.SaveAs("ImportFromDT.xlsx")
 workbook.Close()
 excelEngine.Dispose()
+{% endhighlight %}
+
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Initialize the Object Array
+object[] array = new object[4] { "Total Income", "Actual Expense", "Expected Expenses", "Profit" };
+
+//Import the Object Array to Sheet
+worksheet.ImportArray(array, 1, 1, false);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "ImportFromDT";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Initialize the Object Array
+object[] array = new object[4] { "Total Income", "Actual Expense", "Expected Expenses", "Profit" };
+
+//Import the Object Array to Sheet
+worksheet.ImportArray(array, 1, 1, false);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("ImportFromDT.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Initialize the Object Array
+object[] array = new object[4] { "Total Income", "Actual Expense", "Expected Expenses", "Profit" };
+
+//Import the Object Array to Sheet
+worksheet.ImportArray(array, 1, 1, false);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ImportFromDT.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("ImportFromDT.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -336,12 +664,13 @@ application.DefaultVersion = ExcelVersion.Excel2013;
 IWorkbook workbook = application.Workbooks.Create(1);
 IWorksheet worksheet = workbook.Worksheets[0];
 
-// Read data from the worksheet and Export to the DataTable.
+//Read data from the worksheet and Export to the DataTable
 DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
 
 //Binding exported DataTable to data grid, likewise it can binded to any 
-//user interface control which supports binding.
-this.dataGrid1.DataSource = customersTable;
+//user interface control which supports binding
+DataGrid dataGrid = new DataGrid();
+dataGrid.DataSource = customersTable;
 
 workbook.SaveAs("ExportToGrid.xlsx");
 workbook.Close();
@@ -355,17 +684,45 @@ application.DefaultVersion = ExcelVersion.Excel2013
 Dim workbook As IWorkbook = application.Workbooks.Create(1)
 Dim sheet As IWorkbook = workbook.Worksheets(0)
 
-'Read data from the worksheet and Export to the DataTable.
+'Read data from the worksheet and Export to the DataTable
 Dim customersTable As DataTable = sheet.ExportDataTable(sheet.UsedRange, ExcelExportDataTableOptions.ColumnNames)
 
 'Binding exported DataTable to data grid, likewise it can binded to any 
-'user interface control which supports binding.
-
-Me.dataGrid1.DataSource = customersTable
+'user interface control which supports binding
+Dim dataGrid As DataGrid = New DataGrid
+dataGrid.DataSource = customersTable
 
 workbook.SaveAs("ExportToGrid.xlsx")
 workbook.Close()
 excelEngine.Dispose()
+{% endhighlight %}
+
+{% highlight UWP %}
+N> XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
+IWorkbook workbook = application.Workbooks.Create(1);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Read data from the worksheet and Export to the DataTable
+DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("ExportToDT.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+
+N> XlsIO supports binding of exported data table to data grid in Windows Forms and WPF platforms alone.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+N> XlsIO supports exporting of data from worksheet to data table in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
@@ -396,14 +753,94 @@ Dim excelEngine As ExcelEngine = New ExcelEngine
 Dim application As IApplication = excelEngine.Excel
 application.DefaultVersion = ExcelVersion.Excel2016
 Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim worksheet As IWorkbook = workbook.Worksheets(0)
+Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
 'Export worksheet data into Business Objects
-Dim businessObjects As List(Of Report) =worksheet.ExportData<Report>(1, 1, 10, 3)
+Dim businessObjects As List(Of Report) = worksheet.ExportData(Of Report)(1, 1, 10, 3)
 
 workbook.SaveAs("BusinessObjects.xlsx")
 workbook.Close()
 excelEngine.Dispose()
+{% endhighlight %}
+
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".xlsx");
+openPicker.FileTypeFilter.Add(".xls");
+StorageFile file = await openPicker.PickSingleFileAsync();
+
+//Opens the workbook
+IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Export worksheet data into Business Objects
+List<Report> businessObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "BusinessObjects";
+savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await workbook.SaveAsAsync(storageFile);
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Export worksheet data into Business Objects
+List<Report> businessObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("BusinessObjects.xlsx", FileMode.Create, FileAccess.ReadWrite);
+workbook.SaveAs(stream);
+stream.Dispose();
+workbook.Close();
+excelEngine.Dispose();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+IWorksheet worksheet = workbook.Worksheets[0];
+
+//Export worksheet data into Business Objects
+List<Report> businessObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
+
+//Saving the workbook as stream
+MemoryStream stream = new MemoryStream();
+workbook.SaveAs(stream);
+workbook.Close();
+excelEngine.Dispose();
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("BusinessObjects.xlsx", "application/msexcel", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("BusinessObjects.xlsx", "application/msexcel", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -469,6 +906,51 @@ Public Class Report
 
 End Class
 {% endhighlight %}
+
+{% highlight UWP %}
+public class Report
+{
+    [DisplayNameAttribute("Sales Person Name")]
+	public string SalesPerson { get; set; }
+	public string SalesJanJun { get; set; }
+	public string SalesJulDec { get; set; }
+
+	public Report()
+	{
+
+	}
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+public class Report
+{
+    [DisplayNameAttribute("Sales Person Name")]
+	public string SalesPerson { get; set; }
+	public string SalesJanJun { get; set; }
+	public string SalesJulDec { get; set; }
+
+	public Report()
+	{
+
+	}
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+public class Report
+{
+    [DisplayNameAttribute("Sales Person Name")]
+	public string SalesPerson { get; set; }
+	public string SalesJanJun { get; set; }
+	public string SalesJulDec { get; set; }
+
+	public Report()
+	{
+
+	}
+}
+{% endhighlight %}
 {% endtabs %} 
 
 ## Importing Data from Microsoft Grid Controls to Worksheet
@@ -487,7 +969,7 @@ N> GetDataTable() method returns DataTable of applicable data to import.
 
 {% tabs %}
 {% highlight c# %}
-//Initialize DataGrid control.
+//Initialize DataGrid control
 DataGrid dataGrid = new DataGrid();
 dataGrid.DataSource = GetDataTable();
 
@@ -497,7 +979,7 @@ application.DefaultVersion = ExcelVersion.Excel2013;
 IWorkbook workbook = application.Workbooks.Create();
 IWorksheet worksheet = workbook.Worksheets[0];
 
-//Import data from DataGrid control.
+//Import data from DataGrid control
 worksheet.ImportDataGrid(dataGrid, 1, 1, true, true);
 
 workbook.SaveAs("Output.xlsx");
@@ -506,7 +988,7 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
-'Initialize DataGrid control.
+'Initialize DataGrid control
 Dim dataGrid As DataGrid = New DataGrid()
 dataGrid.DataSource = GetDataTable()
 
@@ -516,13 +998,24 @@ application.DefaultVersion = ExcelVersion.Excel2013
 Dim workbook As IWorkbook = application.Workbooks.Create()
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-'Import data from DataGrid control.
+'Import data from DataGrid control
 worksheet.ImportDataGrid(dataGrid, 1, 1, True, True)
 
 workbook.SaveAs("Output.xlsx")
-
 workbook.Close()
 excelEngine.Dispose()
+{% endhighlight %}
+
+{% highlight UWP %}
+N> XlsIO supports importing of data from data grid to worksheet in Windows Forms and WPF platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+N> XlsIO supports importing of data from data grid to worksheet in Windows Forms and WPF platforms alone.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+N> XlsIO supports importing of data from data grid to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 {% endtabs %}
 
@@ -532,7 +1025,7 @@ Imports data from Microsoft GridView control with its header and cell formatting
 
 {% tabs %}
 {% highlight c# %}
-//Initialize GridView control.
+//Initialize GridView control
 GridView gridView = new GridView();
 gridView.DataSource = GetDataTable();
 gridView.DataBind();
@@ -543,7 +1036,7 @@ application.DefaultVersion = ExcelVersion.Excel2013;
 IWorkbook workbook = application.Workbooks.Create();
 IWorksheet worksheet = workbook.Worksheets[0];
 
-//Import data from GridView control.
+//Import data from GridView control
 worksheet.ImportGridView(gridView, 1, 1, true, true);
 
 workbook.SaveAs("Output.xlsx");
@@ -552,7 +1045,7 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
-'Initialize GridView control.
+'Initialize GridView control
 Dim gridView As GridView = New GridView ()
 gridView.DataSource = GetDataTable()
 gridView.DataBind()
@@ -563,12 +1056,24 @@ application.DefaultVersion = ExcelVersion.Excel2013
 Dim workbook As IWorkbook = application.Workbooks.Create()
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-'Import data from GridView control.
+'Import data from GridView control
 worksheet.ImportGridView(gridView, 1, 1, True, True)
 
 workbook.SaveAs("Output.xlsx")
 workbook.Close()
 excelEngine.Dispose()
+{% endhighlight %}
+
+{% highlight UWP %}
+N> XlsIO supports importing of data from data view to worksheet in Windows Forms and WPF platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+N> XlsIO supports importing of data from data view to worksheet in Windows Forms and WPF platforms alone.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+N> XlsIO supports importing of data from data view to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 {% endtabs %}
 
@@ -578,7 +1083,7 @@ Imports data from Microsoft DataGridView control with its header and cell format
  
 {% tabs %}
 {% highlight c# %}
-//Initialize DataGridView control.
+//Initialize DataGridView control
 DataGridView dataGridView = new DataGridView();
 dataGridView.DataSource = GetDataTable();
 
@@ -591,7 +1096,7 @@ application.DefaultVersion = ExcelVersion.Excel2013;
 IWorkbook workbook = application.Workbooks.Create();
 IWorksheet worksheet = workbook.Worksheets[0];
 
-//Import data from DataGridView control.
+//Import data from DataGridView control
 worksheet.ImportDataGridView(dataGridView, 1, 1, true, true);
 
 workbook.SaveAs("Output.xlsx");
@@ -600,7 +1105,7 @@ excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
-'Initialize DataGridView control.
+'Initialize DataGridView control
 Dim dataGridView As DataGridView = New DataGridView()
 dataGridView.DataSource = GetDataTable()
 
@@ -613,11 +1118,23 @@ application.DefaultVersion = ExcelVersion.Excel2013
 Dim workbook As IWorkbook = application.Workbooks.Create()
 Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-'Import data from DataGridView control.
+'Import data from DataGridView control
 worksheet.ImportDataGridView(dataGridView, 1, 1, True, True)
 
 workbook.SaveAs("Output.xlsx")
 workbook.Close()
 excelEngine.Dispose()
+{% endhighlight %}
+
+{% highlight UWP %}
+N> XlsIO supports importing of data from data grid view to worksheet in Windows Forms and WPF platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+N> XlsIO supports importing of data from data grid view to worksheet in Windows Forms and WPF platforms alone.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+N> XlsIO supports importing of data from data grid view to worksheet in Windows Forms and WPF platforms alone.
 {% endhighlight %}
 {% endtabs %}
