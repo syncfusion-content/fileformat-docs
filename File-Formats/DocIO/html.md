@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Word Document to HTML Conversion
+# HTML Conversion
 
 The Essential DocIO converts the HTML file into Word document and vice versa. It supports only the HTML files that meets the validation either against XHTML 1.0 strict or XHTML 1.0 Transitional schema.
 
