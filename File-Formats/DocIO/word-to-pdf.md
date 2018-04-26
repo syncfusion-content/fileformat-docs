@@ -120,9 +120,6 @@ pdfDocument.Close();
 {% endhighlight %}
 
 {% highlight xamarin %}
-private void OnButtonClicked(object sender, EventArgs e)
-{
-
 //Load the Word document as stream
 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
@@ -154,8 +151,6 @@ pdfDocument.Save(outputStream);
 //Closes the instance of PDF document object
 
 pdfDocument.Close();
-
-}
 {% endhighlight %}
 {% endtabs %}
 
