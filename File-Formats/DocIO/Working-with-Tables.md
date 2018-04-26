@@ -672,6 +672,91 @@ document.Close()
 
 {% endtabs %}  
 
+## Align text within a table
+
+You can iterate the cells within a table and align text for each cell. Find more information about iterating the cells from [here](https://help.syncfusion.com/file-formats/docio/working-with-tables#iterating-through-table-elements)
+
+The following code example illustrates how to align text within a table.
+
+{% tabs %}
+
+{% highlight c# %}
+
+private void AlignCellContent(WTableCell tableCell, VerticalAlignment verticalAlignment, HorizontalAlignment horizontalAlignment)
+
+{
+    //Sets vertical alignment to the cell.
+	
+    tableCell.CellFormat.VerticalAlignment = verticalAlignment;
+
+    //Iterates body items in table cell and set horizontal alignment.
+	
+    IterateTextBody(tableCell, horizontalAlignment);
+    
+}
+
+private void IterateTextBody(WTextBody textBody, HorizontalAlignment horizontalAlignment)
+
+{
+
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    
+	{
+
+	//IEntity is the basic unit in DocIO DOM. 
+
+	//Accesses the body items as IEntity
+
+	IEntity bodyItemEntity = textBody.ChildEntities[i];
+
+
+	//A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+
+	//Decides the element type by using EntityType
+
+	switch (bodyItemEntity.EntityType)
+
+	{
+	
+	case EntityType.Paragraph:
+
+	WParagraph paragraph = bodyItemEntity as WParagraph;
+
+	//Sets horizontal alignment for paragraph.
+
+	paragraph.ParagraphFormat.HorizontalAlignment = horizontalAlignment;
+
+	break;
+
+    case EntityType.Table:
+
+	//Table is a collection of rows and cells
+
+	//Iterates through table's DOM
+
+	IterateTable(bodyItemEntity as WTable, horizontalAlignment);
+
+	break;
+
+	case EntityType.BlockContentControl:
+
+	BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+
+	
+	//Iterates to the body items of Block Content Control.
+
+	IterateTextBody(blockContentControl.TextBody, horizontalAlignment);
+
+	break;
+	
+}
+
+    }
+	
+}
+{% endhighlight %}
+
+{% endtabs %}
 ## Apply formatting to Table, Row and Cell
 
 The following code example illustrates how to load an existing document and apply table formatting options such as Borders, LeftIndent, Paddings, IsAutoResize, etc.
