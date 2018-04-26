@@ -421,7 +421,7 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports chartsheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//XlsIO supports chart sheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -444,7 +444,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports chartsheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//XlsIO supports chart sheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
 {% endhighlight %}
 {% endtabs %}
 
@@ -545,7 +545,7 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports chartsheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//XlsIO supports chart sheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -568,7 +568,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports chartsheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//XlsIO supports chart sheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
 {% endhighlight %}
 {% endtabs %}
 
