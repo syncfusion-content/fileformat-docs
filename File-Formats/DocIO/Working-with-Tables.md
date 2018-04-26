@@ -685,13 +685,14 @@ The following code example illustrates how to align text within a table.
 private void AlignCellContent(WTableCell tableCell, VerticalAlignment verticalAlignment, HorizontalAlignment horizontalAlignment)
 
 {
-    //Sets vertical alignment to the cell.
-	
-    tableCell.CellFormat.VerticalAlignment = verticalAlignment;
 
-    //Iterates body items in table cell and set horizontal alignment.
+//Sets vertical alignment to the cell.
 	
-    IterateTextBody(tableCell, horizontalAlignment);
+tableCell.CellFormat.VerticalAlignment = verticalAlignment;
+
+//Iterates body items in table cell and set horizontal alignment.
+	
+IterateTextBody(tableCell, horizontalAlignment);
     
 }
 
@@ -699,64 +700,65 @@ private void IterateTextBody(WTextBody textBody, HorizontalAlignment horizontalA
 
 {
 
-    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+for (int i = 0; i < textBody.ChildEntities.Count; i++)
     
-	{
+{
 
-	//IEntity is the basic unit in DocIO DOM. 
+//IEntity is the basic unit in DocIO DOM. 
 
-	//Accesses the body items as IEntity
+//Accesses the body items as IEntity
 
-	IEntity bodyItemEntity = textBody.ChildEntities[i];
+IEntity bodyItemEntity = textBody.ChildEntities[i];
 
 
-	//A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+//A Text body has 3 types of elements - Paragraph, Table and Block Content Control
 
-	//Decides the element type by using EntityType
+//Decides the element type by using EntityType
 
-	switch (bodyItemEntity.EntityType)
+switch (bodyItemEntity.EntityType)
 
-	{
+{
 	
-	case EntityType.Paragraph:
+case EntityType.Paragraph:
 
-	WParagraph paragraph = bodyItemEntity as WParagraph;
+WParagraph paragraph = bodyItemEntity as WParagraph;
 
-	//Sets horizontal alignment for paragraph.
+//Sets horizontal alignment for paragraph.
 
-	paragraph.ParagraphFormat.HorizontalAlignment = horizontalAlignment;
+paragraph.ParagraphFormat.HorizontalAlignment = horizontalAlignment;
 
-	break;
+break;
 
-    case EntityType.Table:
+case EntityType.Table:
 
-	//Table is a collection of rows and cells
+//Table is a collection of rows and cells
 
-	//Iterates through table's DOM
+//Iterates through table's DOM and set horizontal alignment.
 
-	IterateTable(bodyItemEntity as WTable, horizontalAlignment);
+IterateTable(bodyItemEntity as WTable, horizontalAlignment);
 
-	break;
+break;
 
-	case EntityType.BlockContentControl:
+case EntityType.BlockContentControl:
 
-	BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
 
 	
-	//Iterates to the body items of Block Content Control.
+//Iterates to the body items of Block Content Control and set horizontal alignment.
 
-	IterateTextBody(blockContentControl.TextBody, horizontalAlignment);
+IterateTextBody(blockContentControl.TextBody, horizontalAlignment);
 
-	break;
+break;
 	
 }
 
-    }
+}
 	
 }
 {% endhighlight %}
 
 {% endtabs %}
+
 ## Apply formatting to Table, Row and Cell
 
 The following code example illustrates how to load an existing document and apply table formatting options such as Borders, LeftIndent, Paddings, IsAutoResize, etc.
