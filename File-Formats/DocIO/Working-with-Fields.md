@@ -13,6 +13,20 @@ To know various types of Microsoft Word supported fields and its syntax,refer [M
 
 ## Adding fields
 
+From v16.1.0.24, the entire field code is included in Document Object Model(DOM). Hence the adding a field will automatically include below elements in DOM,
+
+1. `WField` -- represents the starting of Field.
+
+2. `ParagraphItem` – represents the Field code.
+
+3. `WFieldMark` –represents the Field separator.
+
+4. `ParagraphItem` – represents the Field result.
+
+5. `WFieldMark` – represents the end of Field.
+
+Find more information about migration changes from [here](https://help.syncfusion.com/file-formats/release-notes/migratingtov16.1.0.24#). 
+
 You can add a field in a Word document by using `AppendField` method of `WParagraph` class.
 
 The following code example illustrates how to add a field in Word document.
@@ -88,6 +102,48 @@ document.Close()
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Formatting Fields:
+
+You can set format for the fields by applying formats to `ParagraphItem` in the `WField` .
+
+The following code example illustrates how to set formats for a field in Word document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+IWField field = paragraph.AppendField("Page", FieldType.FieldPage);
+
+
+
+IEntity entity = field;
+
+//Iterates to sibling items until Field End 
+
+while (entity.NextSibling != null)
+
+{
+
+if (entity is WTextRange)
+
+//Sets character format for text ranges. 
+
+(entity as WTextRange).CharacterFormat.FontSize = 6;
+
+else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+
+break;
+
+//Gets next sibling item.
+
+entity = entity.NextSibling;
+
+}
+
+{% endhighlight %}
+
+{% endtabs %}
    
 ## Updating fields
 
