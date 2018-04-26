@@ -692,11 +692,11 @@ tableCell.CellFormat.VerticalAlignment = verticalAlignment;
 
 //Iterates body items in table cell and set horizontal alignment.
 	
-IterateTextBody(tableCell, horizontalAlignment);
+AlignCellContentForTextBody(tableCell, horizontalAlignment);
     
 }
 
-private void IterateTextBody(WTextBody textBody, HorizontalAlignment horizontalAlignment)
+private void AlignCellContentForTextBody(WTextBody textBody, HorizontalAlignment horizontalAlignment)
 
 {
 
@@ -735,7 +735,7 @@ case EntityType.Table:
 
 //Iterates through table's DOM and set horizontal alignment.
 
-IterateTable(bodyItemEntity as WTable, horizontalAlignment);
+AlignCellContentForTable(bodyItemEntity as WTable, horizontalAlignment);
 
 break;
 
@@ -746,7 +746,7 @@ BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
 	
 //Iterates to the body items of Block Content Control and set horizontal alignment.
 
-IterateTextBody(blockContentControl.TextBody, horizontalAlignment);
+AlignCellContentForTextBody(blockContentControl.TextBody, horizontalAlignment);
 
 break;
 	
@@ -754,6 +754,32 @@ break;
 
 }
 	
+}
+
+private void AlignCellContentForTable(WTable table, Syncfusion.DocIO.DLS.HorizontalAlignment horizontalAlignment)
+
+{
+
+//Iterates the row collection in a table
+
+foreach (WTableRow row in table.Rows)
+            
+{
+
+//Iterates the cell collection in a table row
+
+foreach (WTableCell cell in row.Cells)
+
+{
+
+//Iterate items in cell and set horizontal alignment
+                    
+AlignCellContentForTextBody(cell, horizontalAlignment);
+
+}
+
+}
+
 }
 {% endhighlight %}
 
