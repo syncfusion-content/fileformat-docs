@@ -3219,7 +3219,7 @@ text = new WTextRange(document1);
 
 text.ApplyCharacterFormat(inlineCC.BreakCharacterFormat);
 
-text.Text = "stevejobs@gmail.com";
+text.Text = "steve123@email.com";
 
 inlineCC.ParagraphItems.Add(text);
 
@@ -3394,7 +3394,7 @@ text = New WTextRange(document1)
 
 text.ApplyCharacterFormat(inlineCC.BreakCharacterFormat)
 
-text.Text = "stevejobs@gmail.com"
+text.Text = "steve123@email.com"
 
 inlineCC.ParagraphItems.Add(text)
 
@@ -3569,7 +3569,7 @@ text = new WTextRange(document1);
 
 text.ApplyCharacterFormat(inlineCC.BreakCharacterFormat);
 
-text.Text = "stevejobs@gmail.com";
+text.Text = "steve123@email.com";
 
 inlineCC.ParagraphItems.Add(text);
 
@@ -3752,7 +3752,7 @@ text = new WTextRange(document1);
 
 text.ApplyCharacterFormat(inlineCC.BreakCharacterFormat);
 
-text.Text = "stevejobs@gmail.com";
+text.Text = "steve123@email.com";
 
 inlineCC.ParagraphItems.Add(text);
 
@@ -3859,7 +3859,7 @@ CustomXMLPart xmlPart = new CustomXMLPart(document);
 
 // Loads the xml code.
 
-xmlPart.LoadXML(@"<books><book><author>Matt Hink new</author><title>New Migration Paths of the Red Breasted Robin</title><genre>New non-fiction</genre><price>29.95</price><pub_datee>12/1/2007</pub_datee> <abstract>New You see them in the spring outside your windows.</abstract></book></books>");
+xmlPart.LoadXML(@"<books><book><author>Matt Hank</author><title>New Migration Paths of the Red Breasted Robin</title><genre>New non-fiction</genre><price>29.95</price><pub_datee>12/1/2007</pub_datee> <abstract>New You see them in the spring outside your windows.</abstract></book></books>");
 
 // Adds the text
 
@@ -3919,7 +3919,7 @@ Dim xmlPart As CustomXMLPart = New CustomXMLPart(document)
 
 ' Loads the xml code.
 
-xmlPart.LoadXML("<books><book><author>Matt Hink new</author><title>New Migration Paths of the Red Breasted Robin</title><genre>New non-fiction</genre><price>29.95</price><pub_datee>12/1/2007</pub_datee> <abstract>New You see them in the spring outside your windows.</abstract></book></books>")
+xmlPart.LoadXML("<books><book><author>Matt Hank</author><title>New Migration Paths of the Red Breasted Robin</title><genre>New non-fiction</genre><price>29.95</price><pub_datee>12/1/2007</pub_datee> <abstract>New You see them in the spring outside your windows.</abstract></book></books>")
 
 ' Adds text
 
@@ -3979,7 +3979,7 @@ CustomXMLPart xmlPart = new CustomXMLPart(document);
 
 // Loads the xml code.
 
-xmlPart.LoadXML(@"<books><book><author>Matt Hink new</author><title>New Migration Paths of the Red Breasted Robin</title><genre>New non-fiction</genre><price>29.95</price><pub_datee>12/1/2007</pub_datee> <abstract>New You see them in the spring outside your windows.</abstract></book></books>");
+xmlPart.LoadXML(@"<books><book><author>Matt Hank</author><title>New Migration Paths of the Red Breasted Robin</title><genre>New non-fiction</genre><price>29.95</price><pub_datee>12/1/2007</pub_datee> <abstract>New You see them in the spring outside your windows.</abstract></book></books>");
 
 // Adds text
 
@@ -4044,7 +4044,7 @@ CustomXMLPart xmlPart = new CustomXMLPart(document);
 
 // Loads the xml code.
 
-xmlPart.LoadXML(@"<books><book><author>Matt Hink new</author><title>New Migration Paths of the Red Breasted Robin</title><genre>New non-fiction</genre><price>29.95</price><pub_datee>12/1/2007</pub_datee> <abstract>New You see them in the spring outside your windows.</abstract></book></books>");
+xmlPart.LoadXML(@"<books><book><author>Matt Hank</author><title>New Migration Paths of the Red Breasted Robin</title><genre>New non-fiction</genre><price>29.95</price><pub_datee>12/1/2007</pub_datee> <abstract>New You see them in the spring outside your windows.</abstract></book></books>");
 
 // Adds new content control to the paragraph.
 
