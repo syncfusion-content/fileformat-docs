@@ -208,7 +208,7 @@ paragraph = blockContentControl.TextBody.AddParagraph() as WParagraph;
 
 // Adds image to the paragraph
 
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assests.Image.png");
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.png");
 
 // Adds image from stream.
 
@@ -1051,7 +1051,7 @@ row.Cells[1].CellFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.Ha
 
 #endregion
 
-// Adds a new pargraph.
+// Adds a new paragraph.
 
 section.AddParagraph();
 
@@ -1241,7 +1241,7 @@ row = table.Rows[0];
 
 row.Height = 20;
 
-// Sets width, border type, color, backgroud and vertical alignment for cell.
+// Sets width, border type, color, background and vertical alignment for cell.
 
 row.Cells[0].Width = 500;
 
@@ -1267,7 +1267,7 @@ txt.CharacterFormat.FontSize = 11f;
 
 row = table.Rows[1];
 
-// Sets width, border type, color, and backgroud for cell.
+// Sets width, border type, color, and background for cell.
 
 row.Cells[0].Width = 500;
 
@@ -1305,7 +1305,7 @@ ContentControlListItem item = new ContentControlListItem();
 
 item.DisplayText = "Higher";
 
-// Sets the vaue to the list item
+// Sets the value to the list item
 
 item.Value = "1";
 
@@ -1393,7 +1393,7 @@ item = new ContentControlListItem();
 
 item.DisplayText = "Perfect";
 
-// Sets the vaue to the list item
+// Sets the value to the list item
 
 item.Value = "1";
 
@@ -1451,7 +1451,7 @@ item = new ContentControlListItem();
 
 item.DisplayText = "Perfect";
 
-// Sets the vaue to the list item
+// Sets the value to the list item
 
 item.Value = "1";
 
@@ -1489,7 +1489,7 @@ dropdown.BreakCharacterFormat.FontSize = 11f;
 
 // Saves and closes the Word document instance
 
-document.Save("formcreation.docx");
+document.Save("Form_Template.docx");
 
 document.Close();
 {% endhighlight %}
@@ -1587,7 +1587,7 @@ row.Cells(1).CellFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.Ha
 
 #End Region
 
-' Adds a new pargraph.
+' Adds a new paragraph.
 
 section.AddParagraph()
 
@@ -1777,7 +1777,7 @@ row = table.Rows(0)
 
 row.Height = 20
 
-' Sets width, border type, color, backgroud and vertical alignment for cell.
+' Sets width, border type, color, background and vertical alignment for cell.
 
 row.Cells(0).Width = 500
 
@@ -1803,7 +1803,7 @@ txt.CharacterFormat.FontSize = 11.0F
 
 row = table.Rows(1)
 
-' Sets width, border type, color, and backgroud for cell.
+' Sets width, border type, color, and background for cell.
 
 row.Cells(0).Width = 500
 
@@ -1841,7 +1841,7 @@ Dim item As ContentControlListItem = New ContentControlListItem()
 
 item.DisplayText = "Higher"
 
-' Sets the vaue to the list item
+' Sets the value to the list item
 
 item.Value = "1"
 
@@ -1929,7 +1929,7 @@ item = New ContentControlListItem()
 
 item.DisplayText = "Perfect"
 
-' Sets the vaue to the list item
+' Sets the value to the list item
 
 item.Value = "1"
 
@@ -1987,7 +1987,7 @@ item = New ContentControlListItem
 
 item.DisplayText = "Perfect"
 
-' Sets the vaue to the list item
+' Sets the value to the list item
 
 item.Value = "1"
 
@@ -2025,7 +2025,7 @@ dropdown.BreakCharacterFormat.FontSize = 11.0F
 
 ' Saves and closes the Word document instance
 
-document.Save("formcreation.docx")
+document.Save("Form_Template.docx")
 
 document.Close()
 {% endhighlight %}
@@ -2123,7 +2123,7 @@ row.Cells[1].CellFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.Ha
 
 #endregion
 
-// Adds a new pargraph.
+// Adds a new paragraph.
 
 section.AddParagraph();
 
@@ -2313,7 +2313,7 @@ row = table.Rows[0];
 
 row.Height = 20;
 
-// Sets width, border type, color, backgroud and vertical alignment for cell.
+// Sets width, border type, color, background and vertical alignment for cell.
 
 row.Cells[0].Width = 500;
 
@@ -2339,7 +2339,7 @@ txt.CharacterFormat.FontSize = 11f;
 
 row = table.Rows[1];
 
-// Sets width, border type, color, and backgroud for cell.
+// Sets width, border type, color, and background for cell.
 
 row.Cells[0].Width = 500;
 
@@ -2377,7 +2377,7 @@ ContentControlListItem item = new ContentControlListItem();
 
 item.DisplayText = "Higher";
 
-// Sets the vaue to the list item
+// Sets the value to the list item
 
 item.Value = "1";
 
@@ -2465,7 +2465,7 @@ item = new ContentControlListItem();
 
 item.DisplayText = "Perfect";
 
-// Sets the vaue to the list item
+// Sets the value to the list item
 
 item.Value = "1";
 
@@ -2523,7 +2523,7 @@ item = new ContentControlListItem();
 
 item.DisplayText = "Perfect";
 
-// Sets the vaue to the list item
+// Sets the value to the list item
 
 item.Value = "1";
 
@@ -2626,7 +2626,7 @@ IWParagraph cellPara = row.Cells[0].AddParagraph();
 
 // Appends new picture.
 
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assests.Image.jpg");
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.jpg");
 
 IWPicture pic = cellPara.AppendPicture(imageStream);
 
@@ -2666,7 +2666,7 @@ row.Cells[1].CellFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.Ha
 
 #endregion
 
-// Adds a new pargraph.
+// Adds a new paragraph.
 
 section.AddParagraph();
 
@@ -2856,7 +2856,7 @@ row = table.Rows[0];
 
 row.Height = 20;
 
-// Sets width, border type, color, backgroud and vertical alignment for cell.
+// Sets width, border type, color, background and vertical alignment for cell.
 
 row.Cells[0].Width = 500;
 
@@ -2882,7 +2882,7 @@ txt.CharacterFormat.FontSize = 11f;
 
 row = table.Rows[1];
 
-// Sets width, border type, color, and backgroud for cell.
+// Sets width, border type, color, and background for cell.
 
 row.Cells[0].Width = 500;
 
@@ -2920,7 +2920,7 @@ ContentControlListItem item = new ContentControlListItem();
 
 item.DisplayText = "Higher";
 
-// Sets the vaue to the list item
+// Sets the value to the list item
 
 item.Value = "1";
 
@@ -3008,7 +3008,7 @@ item = new ContentControlListItem();
 
 item.DisplayText = "Perfect";
 
-// Sets the vaue to the list item
+// Sets the value to the list item
 
 item.Value = "1";
 
@@ -3066,7 +3066,7 @@ item = new ContentControlListItem();
 
 item.DisplayText = "Perfect";
 
-// Sets the vaue to the list item
+// Sets the value to the list item
 
 item.Value = "1";
 
@@ -3123,7 +3123,7 @@ Form filling:
 {% highlight c# %}
 // Open the created form document.
 
-WordDocument document1 = new WordDocument("formcreation.docx");
+WordDocument document1 = new WordDocument("Form_Template.docx");
 
 IWSection sec = document1.LastSection;
 
@@ -3292,7 +3292,7 @@ dropDownCC.ParagraphItems.Add(text);
 
 // Saves and closes the Word document instance
 
-document1.Save("formfill.docx");
+document1.Save("Form_Filled.docx");
 
 document1.Close();
 {% endhighlight %}
@@ -3300,7 +3300,7 @@ document1.Close();
 {% highlight vb.net %}
 ' Open the created form document.
 
-Dim document1 As WordDocument = New WordDocument("formcreation.docx")
+Dim document1 As WordDocument = New WordDocument("Form_Template.docx")
 
 Dim sec As IWSection = document1.LastSection
 
@@ -3465,7 +3465,7 @@ dropDownCC.ParagraphItems.Add(text)
 
 #End Region
 
-document1.Save("formfill.docx")
+document1.Save("Form_Filled.docx")
 
 document1.Close()
 {% endhighlight %}
@@ -3654,7 +3654,7 @@ document1.Close();
 {% highlight xamarin %}
 // Open the created form document.
 
-Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assests.JobForm.docx");
+Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Form_Template.docx");
 
 WordDocument document1 = new WordDocument(inputStream, FormatType.Automatic);
 
@@ -4287,7 +4287,7 @@ richTextControl.ParagraphItems.Add(textRange);
 
 WPicture picture = new WPicture(document);
 
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assests.Image.png");
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.png");
 
 // Adds image from stream.
 
@@ -4476,7 +4476,7 @@ document.Close();
 
 ### Check Box
 
-A check box content control provides a UI that represents a binary state: checked or uncheked. Default state for checkbox is unchecked. Refer to the following code to add check box content control.
+A check box content control provides a UI that represents a binary state: checked or unchecked. Default state for check box is unchecked. Refer to the following code to add check box content control.
 
 {% tabs %}
 {% highlight c# %}
@@ -4856,7 +4856,7 @@ ContentControlListItem item = new ContentControlListItem();
 
 item.DisplayText = "ASP.NET MVC";
 
-// Sets the vaue to the list item
+// Sets the value to the list item
 
 item.Value = "1";
 
@@ -4904,7 +4904,7 @@ item = new ContentControlListItem();
 
 item.DisplayText = "Word to HTML";
 
-// Sets the vaue to the list item
+// Sets the value to the list item
 
 item.Value = "1";
 
@@ -4966,7 +4966,7 @@ Dim item As ContentControlListItem = New ContentControlListItem
 
 item.DisplayText = "ASP.NET MVC"
 
-' Sets the vaue to the list item
+' Sets the value to the list item
 
 item.Value = "1"
 
@@ -5443,7 +5443,7 @@ InlineContentControl pictureContentControl = paragraph.AppendInlineContentContro
 
 WPicture picture = new WPicture(document);
 
-Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assests.Image.png");
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.png");
 
 // Adds image from stream.
 
