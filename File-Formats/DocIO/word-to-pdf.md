@@ -15,7 +15,7 @@ The Word document files are converted as a PDF document with a few lines of code
 Refer to the following links for assemblies required based on platforms to convert the Word document to PDF.
 
 * [Assemblies Information](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf) 
-* [NuGet Information](https://help.syncfusion.com/file-formats/docio/assemblies-required#converting-word-document-to-pdf)
+* [NuGet Information](https://help.syncfusion.com/file-formats/docio/nuget-packages-required#converting-word-document-to-pdf)
 
 The following namespaces are required to compile the code: 
 
@@ -87,19 +87,13 @@ wordDocument.Close()
 {% endhighlight %}
 
 {% highlight asp.net core %}
-//Creates an instance of WordDocument Instance (Empty Word Document)
+// Open the file as Stream
+FileStream docStream = new FileStream(@"D:\Template.docx", FileMode.Open, FileAccess.Read);
 
-WordDocument wordDocument = new WordDocument();
+//Loads file stream into Word document
 
-//Add a section & a paragraph in the empty document
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 
-wordDocument.EnsureMinimal();
-
-//Append text to the last paragraph of the document
-
-wordDocument.LastParagraph.Text = "Adventure Works Cycles, the fictitious company on which the" +
-    " AdventureWorks sample databases are based, is a large, multinational manufacturing company. ";
-	
 //Instantiation of DocIORenderer for Word to PDF conversion
 
 DocIORenderer render = new DocIORenderer();
@@ -126,21 +120,13 @@ pdfDocument.Close();
 {% endhighlight %}
 
 {% highlight xamarin %}
-private void OnButtonClicked(object sender, EventArgs e)
-{
+//Load the Word document as stream
 
-//Creates an instance of WordDocument Instance (Empty Word Document)
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
 
-WordDocument wordDocument = new WordDocument();
+// Loads the stream into Word Document.
 
-//Add a section & a paragraph in the empty document
-
-wordDocument.EnsureMinimal();
-
-//Append text to the last paragraph of the document
-
-wordDocument.LastParagraph.Text = "Adventure Works Cycles, the fictitious company on which the" +
-    " AdventureWorks sample databases are based, is a large, multinational manufacturing company. ";
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 	
 //Instantiation of DocIORenderer for Word to PDF conversion
 
@@ -165,8 +151,6 @@ pdfDocument.Save(outputStream);
 //Closes the instance of PDF document object
 
 pdfDocument.Close();
-
-}
 {% endhighlight %}
 {% endtabs %}
 
@@ -338,7 +322,7 @@ wordDocument.Close()
 
 You can customize the TrueType fonts embedding in two ways as follows:
 
-#### EmbedFonts
+#### Embed Subset Fonts
 
 This setting allows you to embed the particular font information (glyphs) from the TrueType fonts used for the rendered characters in converted PDF document.
 
@@ -418,7 +402,7 @@ wordDocument.Close()
 {% endhighlight %}
 {% endtabs %}
 
-#### EmbedCompleteFonts
+#### Embed Complete Fonts
 
 This setting allows you to embed the complete font information (glyphs) from the TrueType fonts used in converted PDF document.
 
@@ -670,7 +654,7 @@ wordDocument.Close()
 {% endhighlight %}
 {% endtabs %}
 
-### PdfConformanceLevel
+### PDF Conformance Level
 
 This setting allows you to set the PDF conformance level.
 
