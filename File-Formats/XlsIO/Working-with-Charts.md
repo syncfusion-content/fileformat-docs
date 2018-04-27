@@ -1225,7 +1225,33 @@ excelEngine.Dispose()
 
 
 {% endhighlight %}
+{% endtabs %}
+
+### Chart Style Setting
+
+You can quickly change the chart apprance instead of manually changing chart elements by using chart style property. The following code example explains how to set style for a chart.
+
+{% tabs %}  
+{% highlight c# %}
+//Set chart style
+
+chart.Style = 25;
+
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+'Set chart style
+
+chart.Style = 25
+
+
+
+{% endhighlight %}
 {% endtabs %}  
+
+N>Style value must be between 1 to 48, otherwise argument exception will be thrown. Style value changes will not affect 2016 charts.
 
 ## Customizing chart and Chart Elements
 
@@ -1417,32 +1443,6 @@ chart.ChartArea.Fill.Transparency = 0.9
 
 {% endhighlight %}
 {% endtabs %}  
-
-### Chart Style Setting
-
-The following code example explains how to set style for a chart.
-
-{% tabs %}  
-{% highlight c# %}
-//Set chart style
-
-chart.Style = 25;
-
-
-
-{% endhighlight %}
-
-{% highlight vb %}
-'Set chart style
-
-chart.Style = 25
-
-
-
-{% endhighlight %}
-{% endtabs %}  
-
-N>Style value must be between 1 to 48, otherwise argument exception will be thrown. Style value changes will not affect 2016 charts.
 
 The complete code snippet illustrating the above options is shown below.
 
