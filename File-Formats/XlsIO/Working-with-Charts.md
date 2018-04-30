@@ -1229,7 +1229,7 @@ excelEngine.Dispose()
 
 ### Chart Style Setting
 
-You can quickly change the chart apprance instead of manually changing chart elements by using chart style property. The following code example explains how to set style for a chart.
+You can quickly change the chart appearance instead of manually changing chart elements by using chart style property. The following code example explains how to set style for a chart.
 
 {% tabs %}  
 {% highlight c# %}
