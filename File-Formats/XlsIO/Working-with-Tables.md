@@ -20,312 +20,280 @@ N> In XlsIO, Tables are supported only for Excel 2007 and later formats (*.xlsx 
 
 The below code sample explains the creation of a simple table by the range of data from an existing worksheet
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Create Table with data in the given range
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-//Create Table with data in the given range
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet ["A1:C8"]);
-
-string fileName = "Output.xlsx";
-workbook.SaveAs(fileName);
-
-workbook.Close();
-excelEngine.Dispose();         
-
-
-
+  string fileName = "Output.xlsx";
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  'Create Table with data in the given range
+  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
 
-'Create Table with data in the given range
-Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet ("A1:C8"))
-
-Dim fileName As String = "Output.xlsx"
-workbook.SaveAs(fileName)
-
-workbook.Close()
-excelEngine.Dispose()
-
-
-
+  Dim fileName As String = "Output.xlsx"
+  workbook.SaveAs(fileName)
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
 
-IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-//Create Table with data in the given range
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+  //Create Table with data in the given range
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "Output";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-inputStream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
 {% endhighlight %}
 
 {% highlight asp.net core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  //Create Table with data in the given range
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  string fileName = "Output.xlsx";
 
-//Create Table with data in the given range
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
-
-string fileName = "Output.xlsx";
-
-//Saving the workbook as stream
-FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
-
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-           
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
 
-//Create Table with data in the given range
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-string fileName = "Output.xlsx";
+  //Create Table with data in the given range
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream);
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
 
-workbook.Close();
-excelEngine.Dispose();
+  string fileName = "Output.xlsx";
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  outputStream.Position = 0;
 
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+  //Save the document as file and view the saved document
 
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
 {% endhighlight %}
-
-{% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+{% endtabs %}
 
 ## Accessing a Table
 
 Existing tables in the worksheet can be accessed, as shown below. 
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-//Accessing first table in the sheet
-IListObject table = worksheet.ListObjects[0];
+  //Accessing first table in the sheet
+  IListObject table = worksheet.ListObjects[0];
 
-//Modifying table name
-table.Name = "SalesTable";
+  //Modifying table name
+  table.Name = "SalesTable";
 
-string fileName = "Output.xlsx";
-workbook.SaveAs(fileName);
-
-workbook.Close();
-excelEngine.Dispose();         
-
-
-
+  string fileName = "Output.xlsx";
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-'Accessing first table in the sheet
-Dim table As IListObject = worksheet.ListObjects(0)
+  'Accessing first table in the sheet
+  Dim table As IListObject = worksheet.ListObjects(0)
 
-'Modifying table name
-table.Name = "SalesTable"
+  'Modifying table name
+  table.Name = "SalesTable"
 
-Dim fileName As String = "Output.xlsx"
-workbook.SaveAs(fileName)
-
-workbook.Close()
-excelEngine.Dispose()
-
-
-
+  Dim fileName As String = "Output.xlsx"
+  workbook.SaveAs(fileName)
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
-IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-//Accessing first table in the sheet
-IListObject table = worksheet.ListObjects[0];
+  //Accessing first table in the sheet
+  IListObject table = worksheet.ListObjects[0];
 
-//Modifying table name
-table.Name = "SalesTable";
+  //Modifying table name
+  table.Name = "SalesTable";
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "Output";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-inputStream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
 {% endhighlight %}
 
 {% highlight asp.net core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  //Accessing first table in the sheet
+  IListObject table = worksheet.ListObjects[0];
 
-IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Modifying table name
+  table.Name = "SalesTable";
 
-//Accessing first table in the sheet
-IListObject table = worksheet.ListObjects[0];
+  string fileName = "Output.xlsx";
 
-//Modifying table name
-table.Name = "SalesTable";
-
-string fileName = "Output.xlsx";
-
-//Saving the workbook as stream
-FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
-
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-           
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
-//Accessing first table in the sheet
-IListObject table = worksheet.ListObjects[0];
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-//Modifying table name
-table.Name = "SalesTable";
+  //Accessing first table in the sheet
+  IListObject table = worksheet.ListObjects[0];
 
-string fileName = "Output.xlsx";
+  //Modifying table name
+  table.Name = "SalesTable";
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream);
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
 
-workbook.Close();
-excelEngine.Dispose();
+  string fileName = "Output.xlsx";
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  outputStream.Position = 0;
 
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 ## Formatting a Table
 
@@ -336,333 +304,306 @@ The below code snippet illustrates how to apply built-in table style.
 {% tabs %}  
 
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-//Creating a table
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet ["A1:C8"]);
+  //Formatting table with a built-in style
+  table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
 
-//Formatting table with a built-in style
-table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
-
-string fileName = "Output.xlsx";
-workbook.SaveAs(fileName);
-
-workbook.Close();
-excelEngine.Dispose();         
-
-
-
+  string fileName = "Output.xlsx";
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  'Creating a table
+  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
 
-'Creating a table
-Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet ("A1:C8"))
+  'Formatting table with a built-in style
+  table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9
 
-'Formatting table with a built-in style
-table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9
-
-Dim fileName As String = "Output.xlsx"
-workbook.SaveAs(fileName)
-
-workbook.Close()
-excelEngine.Dispose()
-
-
-
+  Dim fileName As String = "Output.xlsx"
+  workbook.SaveAs(fileName)
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
-IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-//Creating a table
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-//Formatting table with a built-in style
-table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
+  //Formatting table with a built-in style
+  table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "Output";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-inputStream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
 {% endhighlight %}
 
 {% highlight asp.net core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Formatting table with a built-in style
+  table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
 
-//Creating a table
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+  string fileName = "Output.xlsx";
 
-//Formatting table with a built-in style
-table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
-
-string fileName = "Output.xlsx";
-
-//Saving the workbook as stream
-FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-           
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
-//Creating a table
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-//Formatting table with a built-in style
-table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-string fileName = "Output.xlsx";
+  //Formatting table with a built-in style
+  table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium9;
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream);
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
 
-workbook.Close();
-excelEngine.Dispose();
+  string fileName = "Output.xlsx";
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  outputStream.Position = 0;
 
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+  //Save the document as file and view the saved document
 
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 ## Insert/Remove Columns in a Table
 
 IListObject is a collection of columns, whereas a single column is represented by an instance of **IListObjectColumn**. XlsIO provides support to insert or remove columns in a table through worksheet, as below.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-//Creating a table
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet ["A1:C8"]);
+  //Inserting a column in the table
+  worksheet.InsertColumn(2, 2);
 
-//Inserting a column in the table
-worksheet.InsertColumn(2, 2);
+  // Removing a column from the table
+  worksheet.DeleteColumn(2, 1);
 
-// Removing a column from the table
-worksheet.DeleteColumn(2, 1);
-
-string fileName = "Output.xlsx";
-workbook.SaveAs(fileName);
-
-workbook.Close();
-excelEngine.Dispose();      
-
+  string fileName = "Output.xlsx";
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  'Creating Table
+  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
 
-'Creating Table
-Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet ("A1:C8"))
+  'Inserting a column in the table
+  worksheet.InsertColumn(2, 2)
 
-'Inserting a column in the table
-worksheet.InsertColumn(2, 2)
+  'Removing a column from the table
+  worksheet.DeleteColumn(2, 1)
 
-'Removing a column from the table
-worksheet.DeleteColumn(2, 1)
-
-Dim fileName As String = "Output.xlsx"
-workbook.SaveAs(fileName)
-
-workbook.Close()
-excelEngine.Dispose()
-
-
-
+  Dim fileName As String = "Output.xlsx"
+  workbook.SaveAs(fileName)
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
-IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-//Creating a table
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-//Inserting a column in the table
-worksheet.InsertColumn(2, 2);
+  //Inserting a column in the table
+  worksheet.InsertColumn(2, 2);
 
-//Removing a column from the table
-worksheet.DeleteColumn(2, 1);
+  //Removing a column from the table
+  worksheet.DeleteColumn(2, 1);
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "Output";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-inputStream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
 {% endhighlight %}
 
 {% highlight asp.net core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Inserting a column in the table
+  worksheet.InsertColumn(2, 2);
 
-//Creating a table
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+  //Removing a column from the table
+  worksheet.DeleteColumn(2, 1);
 
-//Inserting a column in the table
-worksheet.InsertColumn(2, 2);
+  string fileName = "Output.xlsx";
 
-//Removing a column from the table
-worksheet.DeleteColumn(2, 1);
-
-string fileName = "Output.xlsx";
-
-//Saving the workbook as stream
-FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-           
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
-//Creating a table
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-//Inserting a column in the table
-worksheet.InsertColumn(2, 2);
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-//Removing a column from the table
-worksheet.DeleteColumn(2, 1);
+  //Inserting a column in the table
+  worksheet.InsertColumn(2, 2);
 
-string fileName = "Output.xlsx";
+  //Removing a column from the table
+  worksheet.DeleteColumn(2, 1);
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream);
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
 
-workbook.Close();
-excelEngine.Dispose();
+  string fileName = "Output.xlsx";
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  outputStream.Position = 0;
 
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 N> Inserting rows/columns in a worksheet within table range also modifies table structure.
 
@@ -673,181 +614,164 @@ The "Total Row" is added to a table by accessing the **Table** **Columns**. It i
 {% tabs %}  
 
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-//Creating a table
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet ["A1:C8"]);
+  //Adding Total Row
+  table.ShowTotals = true;
+  table.Columns[0].TotalsRowLabel = "Total";
+  table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
+  table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
 
-//Adding Total Row
-table.ShowTotals = true;
-table.Columns[0].TotalsRowLabel = "Total";
-table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
-table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
-
-string fileName = "Output.xlsx";
-workbook.SaveAs(fileName);
-
-workbook.Close();
-excelEngine.Dispose();         
-
+  string fileName = "Output.xlsx";
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  'Creating a table
+  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
 
-'Creating a table
-Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet ("A1:C8"))
+  'Adding Total Row
+  table.ShowTotals = True
+  table.Columns(0).TotalsRowLabel = "Total"
+  table.Columns(1).TotalsCalculation = ExcelTotalsCalculation.Sum
+  table.Columns(2).TotalsCalculation = ExcelTotalsCalculation.Sum
 
-'Adding Total Row
-table.ShowTotals = True
-table.Columns(0).TotalsRowLabel = "Total"
-table.Columns(1).TotalsCalculation = ExcelTotalsCalculation.Sum
-table.Columns(2).TotalsCalculation = ExcelTotalsCalculation.Sum
-
-Dim fileName As String = "Output.xlsx"
-workbook.SaveAs(fileName)
-
-workbook.Close()
-excelEngine.Dispose()
-
-
-
+  Dim fileName As String = "Output.xlsx"
+  workbook.SaveAs(fileName)
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
-IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream,ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-//Creating a table
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-//Adding Total Row
-table.ShowTotals = true;
-table.Columns[0].TotalsRowLabel = "Total";
-table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
-table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
+  //Adding Total Row
+  table.ShowTotals = true;
+  table.Columns[0].TotalsRowLabel = "Total";
+  table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
+  table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "Output";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-inputStream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
-
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
 {% endhighlight %}
 
 {% highlight asp.net core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-IWorkbook workbook = application.Workbooks.Open(fileStream,ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Adding Total Row
+  table.ShowTotals = true;
+  table.Columns[0].TotalsRowLabel = "Total";
+  table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
+  table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
 
-//Creating a table
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+  string fileName = "Output.xlsx";
 
-//Adding Total Row
-table.ShowTotals = true;
-table.Columns[0].TotalsRowLabel = "Total";
-table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
-table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
-
-string fileName = "Output.xlsx";
-
-//Saving the workbook as stream
-FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
-
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-           
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-IWorkbook workbook = application.Workbooks.Open(inputStream,ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
-//Creating a table
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-//Adding Total Row
-table.ShowTotals = true;
-table.Columns[0].TotalsRowLabel = "Total";
-table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
-table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
+  //Creating a table
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-string fileName = "Output.xlsx";
+  //Adding Total Row
+  table.ShowTotals = true;
+  table.Columns[0].TotalsRowLabel = "Total";
+  table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
+  table.Columns[2].TotalsCalculation = ExcelTotalsCalculation.Sum;
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream);
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
 
-workbook.Close();
-excelEngine.Dispose();
+  string fileName = "Output.xlsx";
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  outputStream.Position = 0;
 
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+  //Save the document as file and view the saved document
 
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 ## Create a Table from External Connection 
 
 External connection support allows to work with most recent data right in the workbook. Once the data is imported, only refresh operations are performed thereafter to retrieve the updated data.
-
-The following table shows different data sources and its connection string formats which are supported in XlsIO.
 
 <table>
 <thead>
@@ -897,110 +821,103 @@ Stars with ODBC<br/><br/></td></tr>
 
 The following code snippet explains the method of importing data through an external connection in the workbook.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-IWorkbook workbook = application.Workbooks.Create(1);
-IWorksheet worksheet = workbook.Worksheets[0];
+  //Database path
+  string dataPath = Path.GetFullPath(@"c:\company\DB\TestDB.mdb");
 
-// Database path
-string dataPath = Path.GetFullPath(@"c:\company\DB\TestDB.mdb");
+  //Connection string for DataSource
+  string ConnectionString = "OLEDB;Provider=Microsoft.JET.OLEDB.4.0;Password=\"\";User ID=Admin;Data Source=" + dataPath;
 
-// Connection string for DataSource
-string ConnectionString = "OLEDB;Provider=Microsoft.JET.OLEDB.4.0;Password=\"\";User ID=Admin;Data Source=" + dataPath;
+  //Adding a connection to the workbook
+  IConnection Connection = workbook.Connections.Add("Connection1", "Sample connection with MsAccess", ConnectionString, "", ExcelCommandType.Sql);
 
-// Adding a connection to the workbook
-IConnection Connection = workbook.Connections.Add("Connection1", "Sample connection with MsAccess", ConnectionString, "", ExcelCommandType.Sql);
+  //Adding a QueryTable to sheet object
+  worksheet.ListObjects.AddEx(ExcelListObjectSourceType.SrcQuery, Connection, worksheet.Range["A1"]);
 
-// Adding a QueryTable to sheet object
-worksheet.ListObjects.AddEx(ExcelListObjectSourceType.SrcQuery, Connection,  worksheet.Range["A1"]);
+  //Command Text for the Connection
+  worksheet.ListObjects[0].QueryTable.CommandText = "Select * from tableTest";
 
-// Command Text for the Connection
-worksheet.ListObjects[0].QueryTable.CommandText = "Select * from tableTest";
+  //The Query performs Asynchronous action
+  worksheet.ListObjects[0].QueryTable.BackgroundQuery = true;
 
-// The Query performs Asynchronous action
-worksheet.ListObjects[0].QueryTable.BackgroundQuery = true;
+  //The Query Table is refreshed when the Workbook is opened
+  worksheet.ListObjects[0].QueryTable.RefreshOnFileOpen = true;
 
-// The Query Table is refreshed when the Workbook is opened
-worksheet.ListObjects[0].QueryTable.RefreshOnFileOpen = true;
+  //Represents the connection description
+  Connection.Description = "Sample Connection";
 
-// Represents the connection description
-Connection.Description = "Sample Connection";
+  //Import data to the sheet from the database
+  worksheet.ListObjects[0].Refresh();
 
-// Import data to the sheet from the database
-worksheet.ListObjects[0].Refresh();
+  //Auto-fits the columns
+  worksheet.UsedRange.AutofitColumns();
 
-// Auto-fits the columns
-worksheet.UsedRange.AutofitColumns();
-
-string fileName = "Output.xlsx";
-workbook.SaveAs(fileName);
-
-workbook.Close();
-excelEngine.Dispose();         
-
-
-
+  string fileName = "Output.xlsx";
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  'Database path
+  Dim dataPath As String = Path.GetFullPath("c:\company\DB\TestDB.mdb")
 
-' Database path
-Dim dataPath As String = Path.GetFullPath("c:\company\DB\TestDB.mdb")
+  'Connection string for DataSource
+  Dim ConnectionString As String = "OLEDB;Provider=Microsoft.JET.OLEDB.4.0;Password="""";User ID=Admin;Data Source=" + dataPath
 
-' Connection string for DataSource
-Dim ConnectionString As String ="OLEDB;Provider=Microsoft.JET.OLEDB.4.0;Password="""";User ID=Admin;Data Source=" + dataPath
+  'Adding a connection to the workbook 
+  Dim Connection As IConnection = workbook.Connections.Add("Connection1", "Sample   connection with MsAccess", ConnectionString, "", ExcelCommandType.Sql)
 
-' Adding a connection to the workbook 
-Dim Connection As IConnection = workbook.Connections.Add("Connection1", "Sample   connection with MsAccess", ConnectionString, "", ExcelCommandType.Sql)
+  'Adding a QueryTable to sheet object
+  worksheet.ListObjects.AddEx(ExcelListObjectSourceType.SrcQuery, Connection, worksheet.Range("A1"))
 
-' Adding a QueryTable to sheet object
-worksheet.ListObjects.AddEx(ExcelListObjectSourceType.SrcQuery, Connection, worksheet.Range("A1"))
+  'Command Text for the Connection
+  worksheet.ListObjects(0).QueryTable.CommandText = "Select * from tableTest"
 
-' Command Text for the Connection
-worksheet.ListObjects(0).QueryTable.CommandText = "Select * from tableTest"
+  'The Query performs Asynchronous action
+  worksheet.ListObjects(0).QueryTable.BackgroundQuery = True
 
-' The Query performs Asynchronous action
-worksheet.ListObjects(0).QueryTable.BackgroundQuery = True
+  'The Query Table is refreshed when the Workbook is opened
+  worksheet.ListObjects(0).QueryTable.RefreshOnFileOpen = True
 
-' The Query Table is refreshed when the Workbook is opened
-worksheet.ListObjects(0).QueryTable.RefreshOnFileOpen = True
+  'Represents the connection description
+  Connection.Description = "Sample Connection"
 
-' Represents the connection description
-Connection.Description = "Sample Connection"
+  'Import data to the sheet from the database
+  worksheet.ListObjects(0).Refresh()
 
-' Import data to the sheet from the database
-worksheet.ListObjects(0).Refresh()
+  'Auto-fits the columns
+  worksheet.UsedRange.AutofitColumns()
 
-' Auto-fits the columns
-worksheet.UsedRange.AutofitColumns()
-
-Dim fileName As String = "Output.xlsx"
-workbook.SaveAs(fileName)
-
-workbook.Close()
-excelEngine.Dispose()
-
-
+  Dim fileName As String = "Output.xlsx"
+  workbook.SaveAs(fileName)
+End Using
 {% endhighlight %}
+
 {% highlight UWP %}
 //XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
+
 {% highlight asp.net core %}
 //XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %}
 
+The following table shows different data sources and its connection string formats which are supported in XlsIO.
