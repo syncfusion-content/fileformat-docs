@@ -43,7 +43,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight vb %}
-Using Dim excelEngine As New ExcelEngine()
+Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = ExcelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
 
@@ -69,14 +69,14 @@ End Using
 {% highlight UWP %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Gets input Excel document from embedded resource collection
     Stream inputStream = assembly.GetManifestResourceStream("PivotChart.PivotTable.xlsx");
-
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
 
     IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
     IWorksheet worksheet = workbook.Worksheets[0];
@@ -138,15 +138,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% highlight Xamarin %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Gets input Excel document from embedded resource collection
     Stream inputStream = assembly.GetManifestResourceStream("PivotChart.PivotTable.xlsx");
-
-    IApplication application = excelEngine.Excel;
-    application.DefaultVersion = ExcelVersion.Excel2013;
-
+    
     IWorkbook workbook = application.Workbooks.Open(inputStream);
     IWorksheet worksheet = workbook.Worksheets[0];
     IPivotTable pivotTable = worksheet.PivotTables[0];
@@ -166,10 +166,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     MemoryStream outputStream = new MemoryStream();
     workbook.SaveAs(outputStream);
 
-    workbook.Close();
-    excelEngine.Dispose();
-
     //Save the stream as Excel document and view the saved document
+    
     //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
     if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
         await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
