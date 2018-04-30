@@ -22,18 +22,15 @@ Pivot tables do not take data directly from the source data, but rather from the
 
 The data in worksheet is added to pivot cache as below.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 //Create Pivot cache with the given data range
 IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Create Pivot cache with the given data range
 Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:H50"))
-
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -50,22 +47,19 @@ IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 //Create Pivot cache with the given data range
 IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
 **IPivotTable** represents a single pivot table object created from the cache. It has properties that allow to customize pivot table. The following code creates a blank pivot table. 
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 //Create "PivotTable1" with the cache at the specified range
 IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet ["A1"], cache);
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Create "PivotTable1" with the cache at the specified range
 Dim pivotTable As IPivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet ("A1"), cache)
-
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -82,19 +76,16 @@ IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet ["A1
 //Create "PivotTable1" with the cache at the specified range
 IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet ["A1"], cache);
 {% endhighlight %}
-
-  {% endtabs %}  
+{% endtabs %}  
 
 Now the pivot table should be populated with required fields. **IPivotField** represents a single field in the pivot table which includes row, column and data field axes. 
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 //Add Pivot table fields (Row and Column fields)
 pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
-
 {% endhighlight %}
 
 {% highlight vb %}
@@ -102,7 +93,6 @@ pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 pivotTable.Fields(2).Axis = PivotAxisTypes.Row
 pivotTable.Fields(6).Axis = PivotAxisTypes.Row
 pivotTable.Fields(3).Axis = PivotAxisTypes.Column
-
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -125,13 +115,11 @@ pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 {% endhighlight %}
-
-  {% endtabs %}  
+{% endtabs %}  
 
 **IPivotDataFields** represents a collection of data fields in the pivot table. The data field is added with the required subtotal function using **PivotSubtotalTypes** enumeration. To know more about different subtotal types supported in Pivot Tables, please refer **PivotSubtotalTypes** in API section. Following is the code to configure a pivot field as a data field.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 //Add data field
 IPivotField field = pivotTable.Fields[5];
@@ -155,217 +143,206 @@ pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 IPivotField field = pivotTable.Fields[5];
 pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //Add data field
 IPivotField field = pivotTable.Fields[5];
 pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
 Following code example illustrates how to create a pivot table with existing data in the worksheet, using XlsIO.
 
-{% tabs %}  
+{% tabs %}
 
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("PivotData.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet pivotsheet = workbook.Worksheets[1];
 
-IWorkbook workbook = application.Workbooks.Open("PivotData.xlsx");
-IWorksheet worksheet = workbook.Worksheets[0];
-IWorksheet pivotsheet = workbook.Worksheets[0];
+  //Create Pivot cache with the given data range
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
-//Create Pivot cache with the given data range
-IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
+  //Create "PivotTable1" with the cache at the specified range
+  IPivotTable pivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet["A1"], cache);
 
-//Create "PivotTable1" with the cache at the specified range
-IPivotTable pivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet["A1"], cache);
+  //Add Pivot table fields (Row and Column fields)
+  pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
-//Add Pivot table fields (Row and Column fields)
-pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
-
-//Add data field
-IPivotField field = pivotTable.Fields[2];
-
-pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
-
-workbook.SaveAs("PivotTable.xlsx");
-
-workbook.Close();
-excelEngine.Dispose();
-
+  //Add data field
+  IPivotField field = pivotTable.Fields[2];
+  pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
+  
+  workbook.SaveAs("PivotTable.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim workbook As IWorkbook = application.Workbooks.Open("PivotData.xlsx")
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
-Dim pivotsheet As IWorksheet = workbook.Worksheets(1)
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotData.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim pivotsheet As IWorksheet = workbook.Worksheets(1)
 
-'Create Pivot cache with the given data range
-Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:H50"))
+  'Create Pivot cache with the given data range
+  Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:H50"))
 
-'Create "PivotTable1" with the cache at the specified range
-Dim pivotTable As IPivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet("A1"), cache)
+  'Create "PivotTable1" with the cache at the specified range
+  Dim pivotTable As IPivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet("A1"), cache)
 
-'Add Pivot table fields (Row and Column fields)
-pivotTable.Fields(2).Axis = PivotAxisTypes.Row
-pivotTable.Fields(6).Axis = PivotAxisTypes.Row
-pivotTable.Fields(3).Axis = PivotAxisTypes.Column
+  'Add Pivot table fields (Row and Column fields)
+  pivotTable.Fields(2).Axis = PivotAxisTypes.Row
+  pivotTable.Fields(6).Axis = PivotAxisTypes.Row
+  pivotTable.Fields(3).Axis = PivotAxisTypes.Column
 
-'Add data field
-Dim field As IPivotField = pivotTable.Fields(5)
+  'Add data field
+  Dim field As IPivotField = pivotTable.Fields(2)
+  pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum)
 
-pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum)
-
-workbook.SaveAs("PivotTable.xlsx")
-
-workbook.Close()
-excelEngine.Dispose()
-
+  workbook.SaveAs("PivotTable.xlsx")
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{  	
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotData.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotData.xlsx");
 
-IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
-IWorksheet worksheet = workbook.Worksheets[0];
-IWorksheet pivotsheet = workbook.Worksheets[1];
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet pivotsheet = workbook.Worksheets[1];
 
-//Create Pivot cache with the given data range
-IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
+  //Create Pivot cache with the given data range
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
-//Create "PivotTable1" with the cache at the specified range
-IPivotTable pivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet["A1"], cache);
+  //Create "PivotTable1" with the cache at the specified range
+  IPivotTable pivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet["A1"], cache);
 
-//Add Pivot table fields (Row and Column fields)
-pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
+  //Add Pivot table fields (Row and Column fields)
+  pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
-//Add data field
-IPivotField field = pivotTable.Fields[2];
+  //Add data field
+  IPivotField field = pivotTable.Fields[2];
+  pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 
-pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotTable";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "PivotTable";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-workbook.Close();
-excelEngine.Dispose();
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
 {% endhighlight %}
 
 {% highlight asp.net core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-FileStream fileStream = new FileStream("PivotData.xlsx", FileMode.Open, FileAccess.Read);
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("PivotData.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet pivotsheet = workbook.Worksheets[1];
 
-IWorkbook workbook = application.Workbooks.Open(fileStream);
-IWorksheet worksheet = workbook.Worksheets[0];
-IWorksheet pivotsheet = workbook.Worksheets[1];
+  //Create Pivot cache with the given data range
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
-//Create Pivot cache with the given data range
-IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
+  //Create "PivotTable1" with the cache at the specified range
+  IPivotTable pivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet["A1"], cache);
 
-//Create "PivotTable1" with the cache at the specified range
-IPivotTable pivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet["A1"], cache);
+  //Add Pivot table fields (Row and Column fields)
+  pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
-//Add Pivot table fields (Row and Column fields)
-pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
+  //Add data field
+  IPivotField field = pivotTable.Fields[2];
+  pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 
-//Add data field
-IPivotField field = pivotTable.Fields[2];
-
-pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
-
-string fileName = "PivotTable.xlsx";
-
-//Saving the workbook as stream
-FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  string fileName = "PivotTable.xlsx";
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-           
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotData.xlsx");
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-IWorkbook workbook = application.Workbooks.Open(inputStream);
-IWorksheet worksheet = workbook.Worksheets[0];
-IWorksheet pivotsheet = workbook.Worksheets[1];
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotData.xlsx");
 
-//Create Pivot cache with the given data range
-IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet pivotsheet = workbook.Worksheets[1];
 
-//Create "PivotTable1" with the cache at the specified range
-IPivotTable pivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet["A1"], cache);
+  //Create Pivot cache with the given data range
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
-//Add Pivot table fields (Row and Column fields)
-pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
+  //Create "PivotTable1" with the cache at the specified range
+  IPivotTable pivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet["A1"], cache);
 
-//Add data field
-IPivotField field = pivotTable.Fields[2];
+  //Add Pivot table fields (Row and Column fields)
+  pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
-pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
+  //Add data field
+  IPivotField field = pivotTable.Fields[2];
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream);
+  pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 
-workbook.Close();
-excelEngine.Dispose();
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
 
-string fileName = "PivotTable.xlsx";
+  string fileName = "PivotTable.xlsx";
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  outputStream.Position = 0;
 
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
 {% endhighlight %}
-  {% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+{% endtabs %}  
 
 ## Editing and Formatting a Pivot Table
 
@@ -376,301 +353,280 @@ A Pivot table can be accessed from **IPivotTables** interface which holds the co
 * Make sure that the "Refresh on Open" option of the pivot table is selected.
 * Dynamically refresh the data in the Named Range.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+  IWorksheet pivotSheet = workbook.Worksheets[0];
 
-IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
-IWorksheet pivotSheet = workbook.Worksheets[0];
+  //Change the range values that the Pivot Tables range refers to
+  workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
 
-//Change the range values that the Pivot Tables range refers to
-workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
-
-workbook.SaveAs("PivotTable_DynamicRange.xlsx");
-
-workbook.Close();
-excelEngine.Dispose();
-
+  workbook.SaveAs("PivotTable_DynamicRange.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim pivotSheet As IWorksheet = workbook.Worksheets(0)
 
-Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
-Dim pivotSheet As IWorksheet = workbook.Worksheets(0)
+  'Change the range values that the Pivot Tables range refers to
+  workbook.Names("PivotRange").RefersToRange = pivotSheet.Range("A1:D27")
 
-'Change the range values that the Pivot Tables range refers to
-Private workbook.Names("PivotRange").RefersToRange = mySheet.Range("A1:D27")
-
-workbook.SaveAs("PivotTable_DynamicRange.xlsx")
-
-workbook.Close()
-excelEngine.Dispose()
-
+  workbook.SaveAs("PivotTable_DynamicRange.xlsx")
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
 
-IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
-IWorksheet pivotSheet = workbook.Worksheets[0];
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet pivotSheet = workbook.Worksheets[0];
 
-//Change the range values that the Pivot Tables range refers to
-workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
+  //Change the range values that the Pivot Tables range refers to
+  workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "PivotTable_DynamicRange";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotTable_DynamicRange";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-workbook.Close();
-excelEngine.Dispose();
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
 {% endhighlight %}
 
 {% highlight asp.net core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet pivotSheet = workbook.Worksheets[0];
 
-FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+  //Change the range values that the Pivot Tables range refers to
+  workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
 
-IWorkbook workbook = application.Workbooks.Open(fileStream);
-IWorksheet pivotSheet = workbook.Worksheets[0];
-
-//Change the range values that the Pivot Tables range refers to
-workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
-
-string fileName = "PivotTable_DynamicRange.xlsx";
-
-//Saving the workbook as stream
-FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  string fileName = "PivotTable_DynamicRange.xlsx";
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-           
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-IWorkbook workbook = application.Workbooks.Open(inputStream);
-IWorksheet pivotSheet = workbook.Worksheets[0];
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
 
-//Change the range values that the Pivot Tables range refers to
-workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet pivotSheet = workbook.Worksheets[0];
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream);
+  //Change the range values that the Pivot Tables range refers to
+  workbook.Names["PivotRange"].RefersToRange = pivotSheet.Range["A1:D27"];
 
-workbook.Close();
-excelEngine.Dispose();
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
 
-string fileName = "PivotTable_DynamicRange.xlsx";
+  string fileName = "PivotTable_DynamicRange.xlsx";
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  outputStream.Position = 0;
 
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
 {% endhighlight %}
-  {% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+{% endtabs %}  
 
 XlsIO supports 85 built-in styles of Excel 2007, enabling users to create a table with rich formatting through PivotBuiltInStyles property as follows. To know more about various built-in styles supported, please refer **PivotBuiltInStyles** enumeration in API section.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
-IWorksheet worksheet = workbook.Worksheets[1];
-IPivotTable pivotTable = worksheet.PivotTables[0];
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
 
-//Set BuiltInStyle
-pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
+  //Set BuiltInStyle
+  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
 
-workbook.SaveAs("PivotTable_Style.xlsx");
+  workbook.SaveAs("PivotTable_Style.xlsx");
 
-workbook.Close();
-
-//No exception will be thrown if there are unsaved workbooks
-excelEngine.ThrowNotSavedOnDestroy = false;
-excelEngine.Dispose();
-
+  //No exception will be thrown if there are unsaved workbooks
+  excelEngine.ThrowNotSavedOnDestroy = false;
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(1)
-Dim pivotTable As IPivotTable = sheet.PivotTables(0)
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(1)
+  Dim pivotTable As IPivotTable = sheet.PivotTables(0)
 
-'Set BuiltInStyle
-pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12
+  'Set BuiltInStyle
+  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12
 
-workbook.SaveAs("PivotTable_Style.xlsx")
+  workbook.SaveAs("PivotTable_Style.xlsx")
 
-workbook.Close()
-
-'No exception will be thrown if there are unsaved workbooks
-excelEngine.ThrowNotSavedOnDestroy = False
-excelEngine.Dispose()
-
+  'No exception will be thrown if there are unsaved workbooks
+  excelEngine.ThrowNotSavedOnDestroy = False
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
 
-IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
-IWorksheet worksheet = workbook.Worksheets[1];
-IPivotTable pivotTable = worksheet.PivotTables[0];
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
 
-//Set BuiltInStyle
-pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
+  //Set BuiltInStyle
+  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "PivotTable_Style";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotTable_Style";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-workbook.Close();
-excelEngine.Dispose();
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
 {% endhighlight %}
 
 {% highlight asp.net core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
 
-FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
 
-IWorkbook workbook = application.Workbooks.Open(fileStream);
-IWorksheet worksheet = workbook.Worksheets[1];
-IPivotTable pivotTable = worksheet.PivotTables[0];
+  //Set BuiltInStyle
+  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
 
-//Set BuiltInStyle
-pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
+  string fileName = "PivotTable_Style.xlsx";
 
-string fileName = "PivotTable_Style.xlsx";
-
-//Saving the workbook as stream
-FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-           
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-IWorkbook workbook = application.Workbooks.Open(inputStream);
-IWorksheet worksheet = workbook.Worksheets[1];
-IPivotTable pivotTable = worksheet.PivotTables[0];
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
 
-//Set BuiltInStyle
-pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = worksheet.PivotTables[0];
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream);
+  //Set BuiltInStyle
+  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
 
-workbook.Close();
-excelEngine.Dispose();
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
 
-string fileName = "PivotTable_Style.xlsx";
+  string fileName = "PivotTable_Style.xlsx";
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  outputStream.Position = 0;
 
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
 {% endhighlight %}
-  {% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+{% endtabs %}  
 
 ## Applying Pivot Table Filters 
 
 The filtered data of a pivot table displays only the subset of data that meet the specified criteria. This can be achieved in XlsIO using the **IPivotFilters** interface.
 
-
-
 ### Applying Page Filters
 
 The page field filter or report filter, filters the pivot table based on page field items. The following code example illustrates how to apply multiple filters to the page field items.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 //Set field axis to page
 pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
@@ -680,8 +636,7 @@ IPivotField pageField = pivotTable.Fields[4];
 
 //Select multiple items in page field to filter
 pageField.Items[1].Visible = false;
-pageField.Items[2].Visible = false; 
-
+pageField.Items[2].Visible = false;
 {% endhighlight %}
 
 {% highlight vb %}
@@ -694,7 +649,6 @@ Dim pageField As IPivotField = pivotTable.Fields(4)
 'Select multiple items in page field to filter
 pageField.Items(1).Visible = False
 pageField.Items(2).Visible = False
-
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -732,7 +686,7 @@ IPivotField pageField = pivotTable.Fields[4];
 pageField.Items[1].Visible = false;
 pageField.Items[2].Visible = false; 
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
 ![](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img1.jpeg)
 
@@ -743,15 +697,13 @@ The row field and column field filters, filter the pivot table based on labels, 
 
 **Label** **Filter** 
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 //Apply row field filter
 IPivotField rowField = pivotTable.Fields[2];
 
 //Applying Label based row field filter
 rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "Central", null);
-
 {% endhighlight %}
 
 {% highlight vb %}
@@ -760,7 +712,6 @@ Dim rowField As IPivotField = pivotTable.Fields(2)
 
 'Applying Label based row field filter
 rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, Nothing, "Central", Nothing)
-
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -786,21 +737,18 @@ IPivotField rowField = pivotTable.Fields[2];
 //Applying Label based row field filter
 rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "Central", null);
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
 ![](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img2.jpeg)
 
-
 **Value** **Filter** 
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 IPivotField field = pivotTable.Fields[2];
 
 //Apply value filter
 field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
-
 {% endhighlight %}
 
 {% highlight vb %}
@@ -809,7 +757,6 @@ Dim field As IPivotField = pivotTable.Fields(2)
 
 'Applying value filter
 field.PivotFilters.Add(PivotFilterType. ValueLessThan, field, "1341", Nothing)
-
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -832,323 +779,310 @@ IPivotField field = pivotTable.Fields[2];
 //Apply value filter
 field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
 ![](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img3.jpeg)
 
-
-
 **Multiple** **filter**
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-IWorkbook workbook = application.Workbooks.Open("PivotData.xlsx");
-IWorksheet worksheet = workbook.Worksheets[0];
-IWorksheet pivotSheet = workbook.Worksheets[1];
+  IWorkbook workbook = application.Workbooks.Open("PivotData.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet pivotSheet = workbook.Worksheets[1];
 
-IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
-IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
-pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
-pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
+  IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
+  pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
+  pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
-IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
-pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
+  IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
+  pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
 
-//Apply page filter
-pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
+  //Apply page filter
+  pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
 
-IPivotField pageField = pivotTable.Fields[4];
+  IPivotField pageField = pivotTable.Fields[4];
 
-pageField.Items[1].Visible = false;
-pageField.Items[2].Visible = false;
+  pageField.Items[1].Visible = false;
+  pageField.Items[2].Visible = false;
 
-//Apply label filter
-IPivotField rowField = pivotTable.Fields[2];
-rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "East", null);
+  //Apply label filter
+  IPivotField rowField = pivotTable.Fields[2];
+  rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "East", null);
 
-//Apply item filter
-IPivotField colField = pivotTable.Fields[3];
-colField.Items[0].Visible = false;
-colField.Items[1].Visible = false;
+  //Apply item filter
+  IPivotField colField = pivotTable.Fields[3];
+  colField.Items[0].Visible = false;
+  colField.Items[1].Visible = false;
 
-//Apply value filter
-IPivotField field = pivotTable.Fields[2];
-field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
+  //Apply value filter
+  IPivotField field = pivotTable.Fields[2];
+  field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 
-pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleMedium2;
+  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleMedium2;
+  pivotSheet.Activate();
 
-pivotSheet.Activate();
+  workbook.SaveAs("PivotTable.xlsx");
 
-workbook.SaveAs("PivotTable.xlsx");
-
-workbook.Close();
-
-//No exception will be thrown if there are unsaved workbooks.
-excelEngine.ThrowNotSavedOnDestroy = false;
-excelEngine.Dispose();
-
+  //No exception will be thrown if there are unsaved workbooks.
+  excelEngine.ThrowNotSavedOnDestroy = false;
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim workbook As IWorkbook = application.Workbooks.Open("PivotData.xlsx")
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
-Dim pivotSheet As IWorksheet = workbook.Worksheets(1)
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotData.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim pivotSheet As IWorksheet = workbook.Worksheets(1)
 
-Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:H50"))
+  Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:H50"))
 
-Dim pivotTable As IPivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet("A1"), cache)
-pivotTable.Fields(4).Axis = PivotAxisTypes.Page
-pivotTable.Fields(2).Axis = PivotAxisTypes.Row
-pivotTable.Fields(6).Axis = PivotAxisTypes.Row
-pivotTable.Fields(3).Axis = PivotAxisTypes.Column
+  Dim pivotTable As IPivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet("A1"), cache)
+  pivotTable.Fields(4).Axis = PivotAxisTypes.Page
+  pivotTable.Fields(2).Axis = PivotAxisTypes.Row
+  pivotTable.Fields(6).Axis = PivotAxisTypes.Row
+  pivotTable.Fields(3).Axis = PivotAxisTypes.Column
 
-Dim dataField As IPivotField = pivotSheet.PivotTables(0).Fields(5)
-pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum)
+  Dim dataField As IPivotField = pivotSheet.PivotTables(0).Fields(5)
+  pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum)
 
-'Applying page filter
-pivotTable.Fields(4).Axis = PivotAxisTypes.Page
+  'Applying page filter
+  pivotTable.Fields(4).Axis = PivotAxisTypes.Page
 
-Dim pageField As IPivotField = pivotTable.Fields(4)
+  Dim pageField As IPivotField = pivotTable.Fields(4)
 
-pageField.Items(1).Visible = False
-pageField.Items(2).Visible = False
+  pageField.Items(1).Visible = False
+  pageField.Items(2).Visible = False
 
-'Apply label filter
-Dim rowField As IPivotField = pivotTable.Fields(2)
-rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, Nothing, "East", Nothing)
+  'Apply label filter
+  Dim rowField As IPivotField = pivotTable.Fields(2)
+  rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, Nothing, "East", Nothing)
 
-'Apply item filter
-Dim colField As IPivotField = pivotTable.Fields(3)
-colField.Items(0).Visible = False
-colField.Items(1).Visible = False
+  'Apply item filter
+  Dim colField As IPivotField = pivotTable.Fields(3)
+  colField.Items(0).Visible = False
+  colField.Items(1).Visible = False
 
-'Applying value filter
-Dim field As IPivotField = pivotTable.Fields(2)
-field.PivotFilters.Add(PivotFilterType. ValueLessThan, field, "1341", Nothing)
+  'Applying value filter
+  Dim field As IPivotField = pivotTable.Fields(2)
+  field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", Nothing)
 
-pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleMedium2
+  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleMedium2
+  pivotSheet.Activate()
 
-pivotSheet.Activate()
+  workbook.SaveAs("PivotTable.xlsx")
 
-workbook.SaveAs("PivotTable.xlsx")
-
-workbook.Close()
-
-'No exception will be thrown if there are unsaved workbooks.
-excelEngine.ThrowNotSavedOnDestroy = False
-excelEngine.Dispose()
-
-
+  'No exception will be thrown if there are unsaved workbooks.
+  excelEngine.ThrowNotSavedOnDestroy = False
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotData.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotData.xlsx");
+  
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet pivotSheet = workbook.Worksheets[1];
 
-IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
-IWorksheet worksheet = workbook.Worksheets[0];
-IWorksheet pivotSheet = workbook.Worksheets[1];
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
-IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
+  IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
+  pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
+  pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
-IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
-pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
-pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
+  IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
+  pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
 
-IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
-pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
+  //Apply page filter
+  pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
 
-//Apply page filter
-pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
+  IPivotField pageField = pivotTable.Fields[4];
 
-IPivotField pageField = pivotTable.Fields[4];
+  pageField.Items[1].Visible = false;
+  pageField.Items[2].Visible = false;
 
-pageField.Items[1].Visible = false;
-pageField.Items[2].Visible = false;
+  //Apply label filter
+  IPivotField rowField = pivotTable.Fields[2];
+  rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "East", null);
 
-//Apply label filter
-IPivotField rowField = pivotTable.Fields[2];
-rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "East", null);
+  //Apply item filter
+  IPivotField colField = pivotTable.Fields[3];
+  colField.Items[0].Visible = false;
+  colField.Items[1].Visible = false;
 
-//Apply item filter
-IPivotField colField = pivotTable.Fields[3];
-colField.Items[0].Visible = false;
-colField.Items[1].Visible = false;
+  //Apply value filter
+  IPivotField field = pivotTable.Fields[2];
+  field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 
-//Apply value filter
-IPivotField field = pivotTable.Fields[2];
-field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
+  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleMedium2;
+  pivotSheet.Activate();
 
-pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleMedium2;
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotTable";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-pivotSheet.Activate();
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "PivotTable";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-workbook.Close();
-excelEngine.Dispose();
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
 {% endhighlight %}
 
 {% highlight asp.net core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-FileStream fileStream = new FileStream("PivotData.xlsx", FileMode.Open, FileAccess.Read);
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("PivotData.xlsx", FileMode.Open, FileAccess.Read);
 
-IWorkbook workbook = application.Workbooks.Open(fileStream);
-IWorksheet worksheet = workbook.Worksheets[0];
-IWorksheet pivotSheet = workbook.Worksheets[1];
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet pivotSheet = workbook.Worksheets[1];
 
-IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
-IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
-pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
-pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
+  IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
+  pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
+  pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
-IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
-pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
+  IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
+  pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
 
-//Apply page filter
-pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
+  //Apply page filter
+  pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
 
-IPivotField pageField = pivotTable.Fields[4];
+  IPivotField pageField = pivotTable.Fields[4];
 
-pageField.Items[1].Visible = false;
-pageField.Items[2].Visible = false;
+  pageField.Items[1].Visible = false;
+  pageField.Items[2].Visible = false;
 
-//Apply label filter
-IPivotField rowField = pivotTable.Fields[2];
-rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "East", null);
+  //Apply label filter
+  IPivotField rowField = pivotTable.Fields[2];
+  rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "East", null);
 
-//Apply item filter
-IPivotField colField = pivotTable.Fields[3];
-colField.Items[0].Visible = false;
-colField.Items[1].Visible = false;
+  //Apply item filter
+  IPivotField colField = pivotTable.Fields[3];
+  colField.Items[0].Visible = false;
+  colField.Items[1].Visible = false;
 
-//Apply value filter
-IPivotField field = pivotTable.Fields[2];
-field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
+  //Apply value filter
+  IPivotField field = pivotTable.Fields[2];
+  field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 
-pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleMedium2;
+  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleMedium2;
+  pivotSheet.Activate();
 
-pivotSheet.Activate();
+  string fileName = "PivotTable.xlsx";
 
-string fileName = "PivotTable.xlsx";
-
-//Saving the workbook as stream
-FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotData.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotData.xlsx");
+    
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet pivotSheet = workbook.Worksheets[1];
 
-IWorkbook workbook = application.Workbooks.Open(inputStream);
-IWorksheet worksheet = workbook.Worksheets[0];
-IWorksheet pivotSheet = workbook.Worksheets[1];
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
-IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
+  IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
+  pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
+  pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
-IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
-pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
-pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
+  IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
+  pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
 
-IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
-pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
+  //Apply page filter
+  pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
 
-//Apply page filter
-pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
+  IPivotField pageField = pivotTable.Fields[4];
 
-IPivotField pageField = pivotTable.Fields[4];
+  pageField.Items[1].Visible = false;
+  pageField.Items[2].Visible = false;
 
-pageField.Items[1].Visible = false;
-pageField.Items[2].Visible = false;
+  //Apply label filter
+  IPivotField rowField = pivotTable.Fields[2];
+  rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "East", null);
 
-//Apply label filter
-IPivotField rowField = pivotTable.Fields[2];
-rowField.PivotFilters.Add(PivotFilterType.CaptionEqual, null, "East", null);
+  //Apply item filter
+  IPivotField colField = pivotTable.Fields[3];
+  colField.Items[0].Visible = false;
+  colField.Items[1].Visible = false;
 
-//Apply item filter
-IPivotField colField = pivotTable.Fields[3];
-colField.Items[0].Visible = false;
-colField.Items[1].Visible = false;
+  //Apply value filter
+  IPivotField field = pivotTable.Fields[2];
+  field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
 
-//Apply value filter
-IPivotField field = pivotTable.Fields[2];
-field.PivotFilters.Add(PivotFilterType.ValueLessThan, field, "1341", null);
+  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleMedium2;
 
-pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleMedium2;
+  pivotSheet.Activate();
 
-pivotSheet.Activate();
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream);
+  string fileName = "PivotTable.xlsx";
 
-workbook.Close();
-excelEngine.Dispose();
+  outputStream.Position = 0;
 
-string fileName = "PivotTable.xlsx";
+  //Save the document as file and view the saved document
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
 
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
 {% endhighlight %}
-  {% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+{% endtabs %}  
   
 ## Applying Pivot Table Settings  
 
@@ -1156,65 +1090,51 @@ Excel provides various options through the PivotTableOptions dialog box to custo
 
 XlsIO supports these pivot table options using IPivotTableOptions interface to control various settings for the existing Pivot table.  To know more about various pivot table options, please refer **IPivotTableOptions** in API section. Following code illustrates how to access PivotTableOptions object. 
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 //Enable ColumnHeaderCaption
 IPivotTable pivotTable = worksheet.PivotTables[0];
-
 IPivotTableOptions options = pivotTable.Options;
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Enable ColumnHeaderCaption
 Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
-
 Dim options As IPivotTableOptions = pivotTable.Options
-
-
-
 {% endhighlight %}
 
 {% highlight UWP %}
 //Enable ColumnHeaderCaption
 IPivotTable pivotTable = worksheet.PivotTables[0];
-
 IPivotTableOptions options = pivotTable.Options;
 {% endhighlight %}
 
 {% highlight asp.net core %}
 //Enable ColumnHeaderCaption
 IPivotTable pivotTable = worksheet.PivotTables[0];
-
 IPivotTableOptions options = pivotTable.Options;
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //Enable ColumnHeaderCaption
 IPivotTable pivotTable = worksheet.PivotTables[0];
-
 IPivotTableOptions options = pivotTable.Options;
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
 ### Show or Hide the Field List
 
 To show or hide the pivot table field list pane, the ShowFieldList property is used as below.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 //Enable ShowFieldList
 options.ShowFieldList = false;
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Enable ShowFieldList
 options.ShowFieldList = False
-
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -1231,26 +1151,23 @@ options.ShowFieldList = false;
 //Enable ShowFieldList
 options.ShowFieldList = false;
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
 ### Header Caption
 
 The **RowHeaderCaption** and **ColumnHeaderCaption** properties allow to edit the respective pivot table headers. The header caption can be enabled or disabled through **DisplayFieldCaption** property.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 //Enable header captions
 options.RowHeaderCaption = "Payment Dates";
-options.ColumnHeaderCaption = "Payments"; 
-
+options.ColumnHeaderCaption = "Payments";
 {% endhighlight %}
 
 {% highlight vb %}
 'Enable header captions
 options.RowHeaderCaption = "Payment Dates"
 options.ColumnHeaderCaption = "Payments"
-
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -1270,76 +1187,74 @@ options.ColumnHeaderCaption = "Payments";
 options.RowHeaderCaption = "Payment Dates";
 options.ColumnHeaderCaption = "Payments"; 
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
 ### Grand Total
 
 XlsIO provides an equivalent API to perform grand totals with simple properties as follows.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 //Enable GrandTotals
 pivotTable.ColumnGrand = false;
 pivotTable.RowGrand = true;
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Enable GrandTotals
 pivotTable.ColumnGrand = False
 pivotTable.RowGrand = False
-
 {% endhighlight %}
+
 {% highlight UWP %}
 //Enable GrandTotals
 pivotTable.ColumnGrand = false;
 pivotTable.RowGrand = true;
 {% endhighlight %}
+
 {% highlight asp.net core %}
 //Enable GrandTotals
 pivotTable.ColumnGrand = false;
 pivotTable.RowGrand = true;
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //Enable GrandTotals
 pivotTable.ColumnGrand = false;
 pivotTable.RowGrand = true;
 {% endhighlight %}
-
-  {% endtabs %}  
+{% endtabs %}  
 
 ### Show/Hide Collapse Button
 
 You can also show/hide the **Collapse** button that appears in the fields of the pivot table, when there exists more than one item in a field. The following code example illustrates how to do this.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 //Enable ShowDrillIndicators
 pivotTable.ShowDrillIndicators = true;
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Enable ShowDrillIndicators
 pivotTable.ShowDrillIndicators = True
-
 {% endhighlight %}
 
 {% highlight UWP %}
 //Enable ShowDrillIndicators
 pivotTable.ShowDrillIndicators = true;
 {% endhighlight %}
+
 {% highlight asp.net core %}
 //Enable ShowDrillIndicators
 pivotTable.ShowDrillIndicators = true;
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //Enable ShowDrillIndicators
 pivotTable.ShowDrillIndicators = true;
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
 ### Display Field Caption and Filter Option
 
@@ -1350,60 +1265,59 @@ The Filter buttons and field names in the pivot table can be shown or hidden, as
 {% highlight c# %}
 //Enable DisplayFieldCaption
 pivotTable.DisplayFieldCaptions = true;
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Enable DisplayFieldCaption
 pivotTable.DisplayFieldCaptions = True
-
 {% endhighlight %}
 
 {% highlight UWP %}
 //Enable DisplayFieldCaption
 pivotTable.DisplayFieldCaptions = true;
 {% endhighlight %}
+
 {% highlight asp.net core %}
 //Enable DisplayFieldCaption
 pivotTable.DisplayFieldCaptions = true;
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //Enable DisplayFieldCaption
 pivotTable.DisplayFieldCaptions = true;
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
 ### Repeating Row Label on Each Page
 
 You can set the row label on each page, while printing, allowing users to view the header on each page.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 //Enable RepeatItemsOnEachPrintedPage
 pivotTable.RepeatItemsOnEachPrintedPage = true;
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Enable RepeatItemsOnEachPrintedPage
 pivotTable.RepeatItemsOnEachPrintedPage = True
-
 {% endhighlight %}
 
 {% highlight UWP %}
 //Enable RepeatItemsOnEachPrintedPage
 pivotTable.RepeatItemsOnEachPrintedPage = true;
 {% endhighlight %}
+
 {% highlight asp.net core %}
 //Enable RepeatItemsOnEachPrintedPage
 pivotTable.RepeatItemsOnEachPrintedPage = true;
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //Enable RepeatItemsOnEachPrintedPage
 pivotTable.RepeatItemsOnEachPrintedPage = true;
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
 ## Other Pivot Table Operations
 
@@ -1419,387 +1333,372 @@ You can read and create the Calculated Fields in the existing pivot table. The f
 
 The calculated field In XlsIO can be achieved with following code sample.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
-IWorksheet sheet = workbook.Worksheets[1];
-IPivotTable pivotTable = sheet.PivotTables[0];
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
 
-//Add calculated field to the first pivot table
-IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
+  //Add calculated field to the first pivot table
+  IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
 
-workbook.SaveAs("PivotTableCalculate.xlsx");
-
-workbook.Close();
-excelEngine.ThrowNotSavedOnDestroy = false;
-excelEngine.Dispose();
-
+  workbook.SaveAs("PivotTableCalculate.xlsx");
+  excelEngine.ThrowNotSavedOnDestroy = false;
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(1)
-Dim pivotTable As IPivotTable = sheet.PivotTables(0)
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(1)
+  Dim pivotTable As IPivotTable = sheet.PivotTables(0)
 
-' Add calculated field to the first pivot table
-Dim field As IPivotField = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100")
+  ' Add calculated field to the first pivot table
+  Dim field As IPivotField = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100")
 
-workbook.SaveAs("PivotTableCalculate.xlsx")
-
-workbook.Close()
-excelEngine.ThrowNotSavedOnDestroy = False
-excelEngine.Dispose()
-
+  workbook.SaveAs("PivotTableCalculate.xlsx")
+  excelEngine.ThrowNotSavedOnDestroy = False
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
 
-IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
-IWorksheet sheet = workbook.Worksheets[1];
-IPivotTable pivotTable = sheet.PivotTables[0];
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
 
-//Add calculated field to the first pivot table
-IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
+  //Add calculated field to the first pivot table
+  IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "PivotTableCalculate";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotTableCalculate";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-workbook.Close();
-excelEngine.Dispose();
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
 {% endhighlight %}
+
 {% highlight asp.net core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+  FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
 
-IWorkbook workbook = application.Workbooks.Open(fileStream);
-IWorksheet sheet = workbook.Worksheets[1];
-IPivotTable pivotTable = sheet.PivotTables[0];
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
 
-//Add calculated field to the first pivot table
-IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
+  //Add calculated field to the first pivot table
+  IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
 
-string fileName = "PivotTableCalculate.xlsx";
+  string fileName = "PivotTableCalculate.xlsx";
 
-//Saving the workbook as stream
-FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
 {% endhighlight %}
+
 {% highlight Xamarin %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-           
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-IWorkbook workbook = application.Workbooks.Open(inputStream);
-IWorksheet sheet = workbook.Worksheets[1];
-IPivotTable pivotTable = sheet.PivotTables[0];
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
 
-//Add calculated field to the first pivot table
-IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream);
+  //Add calculated field to the first pivot table
+  IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
 
-workbook.Close();
-excelEngine.Dispose();
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
 
-string fileName = "PivotTableCalculate.xlsx";
+  string fileName = "PivotTableCalculate.xlsx";
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  outputStream.Position = 0;
 
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
 {% endhighlight %}
-  {% endtabs %}  
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
+{% endtabs %}  
 
 The formula can be also be set to the formula property of the IPivotField as below.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
-IPivotTable pivotTable = sheet.PivotTables[0];
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
+  IPivotTable pivotTable = sheet.PivotTables[0];
 
-//Add calculated field to the first pivot table
-IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
+  //Add calculated field to the first pivot table
+  IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
 
-//Set Field Formula
-field.Formula = "Sales/Total*200";
+  //Set Field Formula
+  field.Formula = "Sales/Total*200";
 
-workbook.SaveAs("PivotTable.xlsx");
-
-workbook.Close();
-excelEngine.ThrowNotSavedOnDestroy = false;
-excelEngine.Dispose();
-
+  workbook.SaveAs("PivotTable.xlsx");
+  excelEngine.ThrowNotSavedOnDestroy = false;
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
-Dim pivotTable As IPivotTable = sheet.PivotTables(0)
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+  Dim pivotTable As IPivotTable = sheet.PivotTables(0)
 
-Dim field As IPivotField = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100")
+  Dim field As IPivotField = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100")
 
-'Set Field Formula
-field.Formula = "Sales/Total*200"
+  'Set Field Formula
+  field.Formula = "Sales/Total*200"
 
-workbook.SaveAs("PivotTable.xlsx")
-
-workbook.Close()
-excelEngine.ThrowNotSavedOnDestroy = False
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("PivotTable.xlsx")
+  excelEngine.ThrowNotSavedOnDestroy = False
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
 
-IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
-IWorksheet sheet = workbook.Worksheets[1];
-IPivotTable pivotTable = sheet.PivotTables[0];
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
 
-//Add calculated field to the first pivot table
-IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
+  //Add calculated field to the first pivot table
+  IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
 
-//Set Field Formula
-field.Formula = "Sales/Total*200";
+  //Set Field Formula
+  field.Formula = "Sales/Total*200";
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "PivotTableCalculate";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotTableCalculate";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile);
-
-workbook.Close();
-excelEngine.Dispose();
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
 {% endhighlight %}
 
 {% highlight asp.net core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+  FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
 
-IWorkbook workbook = application.Workbooks.Open(fileStream);
-IWorksheet sheet = workbook.Worksheets[1];
-IPivotTable pivotTable = sheet.PivotTables[0];
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
 
-//Add calculated field to the first pivot table
-IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
+  //Add calculated field to the first pivot table
+  IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
 
-//Set Field Formula
-field.Formula = "Sales/Total*200";
+  //Set Field Formula
+  field.Formula = "Sales/Total*200";
 
-string fileName = "PivotTableCalculate.xlsx";
+  string fileName = "PivotTableCalculate.xlsx";
 
-//Saving the workbook as stream
-FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
 {% endhighlight %}
+
 {% highlight Xamarin %}
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-           
-//Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-IWorkbook workbook = application.Workbooks.Open(inputStream);
-IWorksheet sheet = workbook.Worksheets[1];
-IPivotTable pivotTable = sheet.PivotTables[0];
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
 
-//Add calculated field to the first pivot table
-IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
 
-//Set Field Formula
-field.Formula = "Sales/Total*200";
+  //Add calculated field to the first pivot table
+  IPivotField field = pivotTable.CalculatedFields.Add("Percent", "Sales/Total*100");
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream);
+  //Set Field Formula
+  field.Formula = "Sales/Total*200";
 
-workbook.Close();
-excelEngine.Dispose();
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
 
-string fileName = "PivotTableCalculate.xlsx";
+  string fileName = "PivotTableCalculate.xlsx";
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  outputStream.Position = 0;
 
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
- 
 ### Layout the Pivot Table as Excel
 
 A Pivot Table can be created similar to Excel layout. 
 
 The following code example illustrates how to enable Essential XlsIO to layout the pivot table like Excel. 
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-IWorkbook workbook = application.Workbooks.Open("PivotData.xlsx");
-IWorksheet worksheet = workbook.Worksheets[0];
-IWorksheet pivotSheet = workbook.Worksheets[1];
+  IWorkbook workbook = application.Workbooks.Open("PivotData.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+  IWorksheet pivotSheet = workbook.Worksheets[1];
 
-IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
-IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
-pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
-pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
-pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
+  IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
+  pivotTable.Fields[4].Axis = PivotAxisTypes.Page;
+  pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 
-IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
-pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
+  IPivotField dataField = pivotSheet.PivotTables[0].Fields[5];
+  pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum);
 
-pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
+  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
 
-//The following code sample must be included to XlsIO layout the pivot table like Excel
-pivotTable.Layout();
+  //The following code sample must be included to XlsIO layout the pivot table like Excel
+  pivotTable.Layout();
 
-workbook.SaveAs("PivotTable.xlsx");
-
-workbook.Close();
-excelEngine.ThrowNotSavedOnDestroy = false;
-excelEngine.Dispose();
-
+  workbook.SaveAs("PivotTable.xlsx");
+  excelEngine.ThrowNotSavedOnDestroy = false;
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim workbook As IWorkbook = application.Workbooks.Open("PivotData.xlsx")
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
-Dim pivotSheet As IWorksheet = workbook.Worksheets(1)
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotData.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim pivotSheet As IWorksheet = workbook.Worksheets(1)
 
-Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:H50"))
+  Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:H50"))
 
-Dim pivotTable As IPivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet("A1"), cache)
-pivotTable.Fields(4).Axis = PivotAxisTypes.Page
-pivotTable.Fields(2).Axis = PivotAxisTypes.Row
-pivotTable.Fields(6).Axis = PivotAxisTypes.Row
-pivotTable.Fields(3).Axis = PivotAxisTypes.Column
+  Dim pivotTable As IPivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet("A1"), cache)
+  pivotTable.Fields(4).Axis = PivotAxisTypes.Page
+  pivotTable.Fields(2).Axis = PivotAxisTypes.Row
+  pivotTable.Fields(6).Axis = PivotAxisTypes.Row
+  pivotTable.Fields(3).Axis = PivotAxisTypes.Column
 
-Dim dataField As IPivotField = pivotSheet.PivotTables(0).Fields(5)
-pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum)
+  Dim dataField As IPivotField = pivotSheet.PivotTables(0).Fields(5)
+  pivotTable.DataFields.Add(dataField, "Sum of Units", PivotSubtotalTypes.Sum)
 
-pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12
+  pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12
 
-'The following code sample must be included to XlsIO layout the pivot table like Excel
-pivotTable.Layout()
+  'The following code sample must be included to XlsIO layout the pivot table like Excel
+  pivotTable.Layout()
 
-workbook.SaveAs("PivotTable.xlsx")
-
-workbook.Close()
-excelEngine.ThrowNotSavedOnDestroy = False
-excelEngine.Dispose()
-
+  workbook.SaveAs("PivotTable.xlsx")
+  excelEngine.ThrowNotSavedOnDestroy = False
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
 //XlsIO supports layout pivot table in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
+
 {% highlight asp.net core %}
 //XlsIO supports layout pivot table in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //XlsIO supports layout pivot table in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
