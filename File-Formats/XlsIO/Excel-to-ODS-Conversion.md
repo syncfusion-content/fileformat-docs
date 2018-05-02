@@ -15,281 +15,268 @@ The Open Document Format for Office Applications (ODF), also known as OpenDocume
 The following code snippet illustrates the creation of simple Excel file and exporting the same to ODS format.
 
 {% tabs %}
-
 {% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+  worksheet.Range["A1"].Text = "Month";
+  worksheet.Range["B1"].Text = "Sales";
+  worksheet.Range["A5"].Text = "Total";
+  worksheet.Range["A2"].Text = "January";
+  worksheet.Range["A3"].Text = "February";
 
-IWorkbook workbook = application.Workbooks.Create(1);
-IWorksheet worksheet = workbook.Worksheets[0];
+  worksheet.AutofitColumn(1);
 
-worksheet.Range["A1"].Text = "Month";
-worksheet.Range["B1"].Text = "Sales";
-worksheet.Range["A5"].Text = "Total";
-worksheet.Range["A2"].Text = "January";
-worksheet.Range["A3"].Text = "February";
+  worksheet.Range["B2"].Number = 68878;
+  worksheet.Range["B3"].Number = 71550;
+  worksheet.Range["B5"].Formula = "SUM(B2:B4)";
 
-worksheet.AutofitColumn(1);
+  //Comments
+  IComment comment = worksheet.Range["B5"].AddComment();
+  comment.RichText.Text = "This cell has formula.";
 
-worksheet.Range["B2"].Number = 68878;
-worksheet.Range["B3"].Number = 71550;
-worksheet.Range["B5"].Formula = "SUM(B2:B4)";
+  IRichTextString richText = comment.RichText;
 
-//Comments
-IComment comment = worksheet.Range["B5"].AddComment();
-comment.RichText.Text = "This cell has formula.";
+  IFont blueFont = workbook.CreateFont();
+  blueFont.Color = ExcelKnownColors.Blue;
+  richText.SetFont(0, 13, blueFont);
 
-IRichTextString richText = comment.RichText;
+  IFont redFont = workbook.CreateFont();
+  redFont.Color = ExcelKnownColors.Red;
+  richText.SetFont(14, 20, redFont);
 
-IFont blueFont = workbook.CreateFont();
-blueFont.Color = ExcelKnownColors.Blue;
-richText.SetFont(0, 13, blueFont);
+  //Formatting
+  IStyle style = workbook.Styles.Add("Style1");
+  style.Color = Color.DarkBlue;
+  style.Font.Color = ExcelKnownColors.WhiteCustom;
 
-IFont redFont = workbook.CreateFont();
-redFont.Color = ExcelKnownColors.Red;
-richText.SetFont(14, 20, redFont);
-			
-//Formatting
-IStyle style = workbook.Styles.Add("Style1");
-style.Color = Color.DarkBlue;
-style.Font.Color = ExcelKnownColors.WhiteCustom;
+  worksheet.Range["A1:B1"].CellStyleName = "Style1";
+  worksheet.Range["A5:B5"].CellStyleName = "Style1";
 
-worksheet.Range["A1:B1"].CellStyleName = "Style1";
-worksheet.Range["A5:B5"].CellStyleName = "Style1";
-
-//Save in ODS format
-workbook.SaveAs("Output.ods");
-
-workbook.Close();
-excelEngine.Dispose();
-
+  //Save in ODS format
+  workbook.SaveAs("Output.ods");
+}
 {% endhighlight %}
 
 {% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+  worksheet.Range("A1").Text = "Month"
+  worksheet.Range("B1").Text = "Sales"
+  worksheet.Range("A5").Text = "Total"
+  worksheet.Range("A2").Text = "January"
+  worksheet.Range("A3").Text = "February"
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  worksheet.AutofitColumn(1)
 
-worksheet.Range("A1").Text = "Month"
-worksheet.Range("B1").Text = "Sales"
-worksheet.Range("A5").Text = "Total"
-worksheet.Range("A2").Text = "January"
-worksheet.Range("A3").Text = "February"
+  worksheet.Range("B2").Number = 68878
+  worksheet.Range("B3").Number = 71550
+  worksheet.Range("B5").Formula = "SUM(B2:B4)"
 
-worksheet.AutofitColumn(1)
+  'Comments
+  Dim comment As IComment = worksheet.Range("B5").AddComment()
+  comment.RichText.Text = "This cell has formula."
 
-worksheet.Range("B2").Number = 68878
-worksheet.Range("B3").Number = 71550
-worksheet.Range("B5").Formula = "SUM(B2:B4)"
+  Dim richText As IRichTextString = comment.RichText
 
-'Comments
-Dim comment As IComment = worksheet.Range("B5").AddComment()
-comment.RichText.Text = "This cell has formula."
+  Dim blueFont As IFont = workbook.CreateFont()
+  blueFont.Color = ExcelKnownColors.Blue
+  richText.SetFont(0, 13, blueFont)
 
-Dim richText As IRichTextString = comment.RichText
+  Dim redFont As IFont = workbook.CreateFont()
+  redFont.Color = ExcelKnownColors.Red
+  richText.SetFont(14, 20, redFont)
 
-Dim blueFont As IFont = workbook.CreateFont()
-blueFont.Color = ExcelKnownColors.Blue
-richText.SetFont(0, 13, blueFont)
+  'Formatting
+  Dim style As IStyle = workbook.Styles.Add("Style1")
+  style.Color = Color.DarkBlue
+  style.Font.Color = ExcelKnownColors.WhiteCustom
 
-Dim redFont As IFont = workbook.CreateFont()
-redFont.Color = ExcelKnownColors.Red
-richText.SetFont(14, 20, redFont)
+  worksheet.Range("A1:B1").CellStyleName = "Style1"
+  worksheet.Range("A5:B5").CellStyleName = "Style1"
 
-'Formatting
-Dim style As IStyle = workbook.Styles.Add("Style1")
-style.Color = Color.DarkBlue
-style.Font.Color = ExcelKnownColors.WhiteCustom
-
-worksheet.Range("A1:B1").CellStyleName = "Style1"
-worksheet.Range("A5:B5").CellStyleName = "Style1"
-
-'Save in ODS format
-workbook.SaveAs("Output.ods")
-
-workbook.Close()
-excelEngine.Dispose()
-
+  'Save in ODS format
+  workbook.SaveAs("Output.ods")
+End Using
 {% endhighlight %}
+
 {% highlight UWP %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-IWorkbook workbook = application.Workbooks.Create(1);
-IWorksheet worksheet = workbook.Worksheets[0];
+  worksheet.Range["A1"].Text = "Month";
+  worksheet.Range["B1"].Text = "Sales";
+  worksheet.Range["A5"].Text = "Total";
+  worksheet.Range["A2"].Text = "January";
+  worksheet.Range["A3"].Text = "February";
 
-worksheet.Range["A1"].Text = "Month";
-worksheet.Range["B1"].Text = "Sales";
-worksheet.Range["A5"].Text = "Total";
-worksheet.Range["A2"].Text = "January";
-worksheet.Range["A3"].Text = "February";
+  worksheet.AutofitColumn(1);
 
-worksheet.AutofitColumn(1);
+  worksheet.Range["B2"].Number = 68878;
+  worksheet.Range["B3"].Number = 71550;
+  worksheet.Range["B5"].Formula = "SUM(B2:B4)";
 
-worksheet.Range["B2"].Number = 68878;
-worksheet.Range["B3"].Number = 71550;
-worksheet.Range["B5"].Formula = "SUM(B2:B4)";
+  //Comments
+  IComment comment = worksheet.Range["B5"].AddComment();
+  comment.RichText.Text = "This cell has formula.";
 
-//Comments
-IComment comment = worksheet.Range["B5"].AddComment();
-comment.RichText.Text = "This cell has formula.";
+  IRichTextString richText = comment.RichText;
 
-IRichTextString richText = comment.RichText;
+  IFont blueFont = workbook.CreateFont();
+  blueFont.Color = ExcelKnownColors.Blue;
+  richText.SetFont(0, 13, blueFont);
 
-IFont blueFont = workbook.CreateFont();
-blueFont.Color = ExcelKnownColors.Blue;
-richText.SetFont(0, 13, blueFont);
+  IFont redFont = workbook.CreateFont();
+  redFont.Color = ExcelKnownColors.Red;
+  richText.SetFont(14, 20, redFont);
 
-IFont redFont = workbook.CreateFont();
-redFont.Color = ExcelKnownColors.Red;
-richText.SetFont(14, 20, redFont);
+  //Formatting
+  IStyle style = workbook.Styles.Add("Style1");
+  style.Color = Color.FromArgb(255, 72, 61, 139);
+  style.Font.Color = ExcelKnownColors.WhiteCustom;
 
-//Formatting
-IStyle style = workbook.Styles.Add("Style1");
-style.Color = Color.FromArgb(255, 72, 61, 139);
-style.Font.Color = ExcelKnownColors.WhiteCustom;
+  worksheet.Range["A1:B1"].CellStyleName = "Style1";
+  worksheet.Range["A5:B5"].CellStyleName = "Style1";
 
-worksheet.Range["A1:B1"].CellStyleName = "Style1";
-worksheet.Range["A5:B5"].CellStyleName = "Style1";
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".ods" });
 
-//Initializes FileSavePicker
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "Output";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".ods" });
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Creates a storage file from FileSavePicker
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-//Saves changes to the specified storage file
-await workbook.SaveAsAsync(storageFile,ExcelSaveType.SaveAsODS);
-
-workbook.Close();
-excelEngine.Dispose();
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsODS);
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-IWorkbook workbook = application.Workbooks.Create(1);
-IWorksheet worksheet = workbook.Worksheets[0];
+  worksheet.Range["A1"].Text = "Month";
+  worksheet.Range["B1"].Text = "Sales";
+  worksheet.Range["A5"].Text = "Total";
+  worksheet.Range["A2"].Text = "January";
+  worksheet.Range["A3"].Text = "February";
 
-worksheet.Range["A1"].Text = "Month";
-worksheet.Range["B1"].Text = "Sales";
-worksheet.Range["A5"].Text = "Total";
-worksheet.Range["A2"].Text = "January";
-worksheet.Range["A3"].Text = "February";
+  worksheet.AutofitColumn(1);
 
-worksheet.AutofitColumn(1);
+  worksheet.Range["B2"].Number = 68878;
+  worksheet.Range["B3"].Number = 71550;
+  worksheet.Range["B5"].Formula = "SUM(B2:B4)";
 
-worksheet.Range["B2"].Number = 68878;
-worksheet.Range["B3"].Number = 71550;
-worksheet.Range["B5"].Formula = "SUM(B2:B4)";
+  //Comments
+  IComment comment = worksheet.Range["B5"].AddComment();
+  comment.RichText.Text = "This cell has formula.";
 
-//Comments
-IComment comment = worksheet.Range["B5"].AddComment();
-comment.RichText.Text = "This cell has formula.";
+  IRichTextString richText = comment.RichText;
 
-IRichTextString richText = comment.RichText;
+  IFont blueFont = workbook.CreateFont();
+  blueFont.Color = ExcelKnownColors.Blue;
+  richText.SetFont(0, 13, blueFont);
 
-IFont blueFont = workbook.CreateFont();
-blueFont.Color = ExcelKnownColors.Blue;
-richText.SetFont(0, 13, blueFont);
+  IFont redFont = workbook.CreateFont();
+  redFont.Color = ExcelKnownColors.Red;
+  richText.SetFont(14, 20, redFont);
 
-IFont redFont = workbook.CreateFont();
-redFont.Color = ExcelKnownColors.Red;
-richText.SetFont(14, 20, redFont);
+  //Formatting
+  IStyle style = workbook.Styles.Add("Style1");
+  style.Color = Color.DarkBlue;
+  style.Font.Color = ExcelKnownColors.WhiteCustom;
 
-//Formatting
-IStyle style = workbook.Styles.Add("Style1");
-style.Color = Color.DarkBlue;
-style.Font.Color = ExcelKnownColors.WhiteCustom;
+  worksheet.Range["A1:B1"].CellStyleName = "Style1";
+  worksheet.Range["A5:B5"].CellStyleName = "Style1";
 
-worksheet.Range["A1:B1"].CellStyleName = "Style1";
-worksheet.Range["A5:B5"].CellStyleName = "Style1";
-
-//Saving the workbook as stream
-FileStream stream = new FileStream("Output.ods", FileMode.Create, FileAccess.ReadWrite);
-workbook.SaveAs(stream,ExcelSaveType.SaveAsODS);
-
-stream.Dispose();
-workbook.Close();
-excelEngine.Dispose();
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.ods", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream, ExcelSaveType.SaveAsODS);
+  stream.Dispose();
+}
 {% endhighlight %}
+
 {% highlight Xamarin %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-IWorkbook workbook = application.Workbooks.Create(1);
-IWorksheet worksheet = workbook.Worksheets[0];
+  worksheet.Range["A1"].Text = "Month";
+  worksheet.Range["B1"].Text = "Sales";
+  worksheet.Range["A5"].Text = "Total";
+  worksheet.Range["A2"].Text = "January";
+  worksheet.Range["A3"].Text = "February";
 
-worksheet.Range["A1"].Text = "Month";
-worksheet.Range["B1"].Text = "Sales";
-worksheet.Range["A5"].Text = "Total";
-worksheet.Range["A2"].Text = "January";
-worksheet.Range["A3"].Text = "February";
+  worksheet.AutofitColumn(1);
 
-worksheet.AutofitColumn(1);
+  worksheet.Range["B2"].Number = 68878;
+  worksheet.Range["B3"].Number = 71550;
+  worksheet.Range["B5"].Formula = "SUM(B2:B4)";
 
-worksheet.Range["B2"].Number = 68878;
-worksheet.Range["B3"].Number = 71550;
-worksheet.Range["B5"].Formula = "SUM(B2:B4)";
+  //Comments
+  IComment comment = worksheet.Range["B5"].AddComment();
+  comment.RichText.Text = "This cell has formula.";
 
-//Comments
-IComment comment = worksheet.Range["B5"].AddComment();
-comment.RichText.Text = "This cell has formula.";
+  IRichTextString richText = comment.RichText;
 
-IRichTextString richText = comment.RichText;
+  IFont blueFont = workbook.CreateFont();
+  blueFont.Color = ExcelKnownColors.Blue;
+  richText.SetFont(0, 13, blueFont);
 
-IFont blueFont = workbook.CreateFont();
-blueFont.Color = ExcelKnownColors.Blue;
-richText.SetFont(0, 13, blueFont);
+  IFont redFont = workbook.CreateFont();
+  redFont.Color = ExcelKnownColors.Red;
+  richText.SetFont(14, 20, redFont);
 
-IFont redFont = workbook.CreateFont();
-redFont.Color = ExcelKnownColors.Red;
-richText.SetFont(14, 20, redFont);
+  //Formatting
+  IStyle style = workbook.Styles.Add("Style1");
+  style.Color = Syncfusion.Drawing.Color.DarkBlue;
+  style.Font.Color = ExcelKnownColors.WhiteCustom;
 
-//Formatting
-IStyle style = workbook.Styles.Add("Style1");
-style.Color = Syncfusion.Drawing.Color.DarkBlue;
-style.Font.Color = ExcelKnownColors.WhiteCustom;
+  worksheet.Range["A1:B1"].CellStyleName = "Style1";
+  worksheet.Range["A5:B5"].CellStyleName = "Style1";
 
-worksheet.Range["A1:B1"].CellStyleName = "Style1";
-worksheet.Range["A5:B5"].CellStyleName = "Style1";
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream, ExcelSaveType.SaveAsODS);
 
-//Saving the workbook as stream
-MemoryStream outputStream = new MemoryStream();
-workbook.SaveAs(outputStream,ExcelSaveType.SaveAsODS);
+  string fileName = "Output.ods";
+  outputStream.Position = 0;
 
-workbook.Close();
-excelEngine.Dispose();
+  //Save the document as file and view the saved document
 
-string fileName = "Output.ods";
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
 
-//Save the stream as Excel document and view the saved document
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
-else
-    DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
-
-//Dispose the input and output stream instances
-inputStream.Dispose();
-outputStream.Dispose();
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
 {% endhighlight %}
-
 {% endtabs %}
-
-The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer [SaveAndView](https://help.syncfusion.com/file-formats/xlsio/xamarin#saving-a-document) for respective code samples.
 
 ## Supported and Unsupported Elements in ODS Conversion
 
