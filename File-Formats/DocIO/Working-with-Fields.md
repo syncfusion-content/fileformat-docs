@@ -11,6 +11,20 @@ Fields in Word document are placeholders for data that might change on field upd
 
 To know various types of Microsoft Word supported fields and its syntax,refer [MSDN article](https://support.office.com/en-US/article/Field-codes-in-Word-1ad6d91a-55a7-4a8d-b535-cf7888659a51#)
 
+From v16.1.0.24, the entire field code is included in Document Object Model(DOM). Hence the adding a field will automatically include below elements in DOM,
+
+1. `WField` -- represents the starting of Field.
+
+2. `ParagraphItem` – represents the Field code.
+
+3. `WFieldMark` –represents the Field separator.
+
+4. `ParagraphItem` – represents the Field result.
+
+5. `WFieldMark` – represents the end of Field.
+
+Find more information about migration changes from [here](https://help.syncfusion.com/file-formats/release-notes/migratingtov16.1.0.24#). 
+
 ## Adding fields
 
 You can add a field in a Word document by using `AppendField` method of `WParagraph` class.
@@ -88,6 +102,62 @@ document.Close()
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Formatting Fields:
+
+You can format the field instances added to the Word document, by iterating items from field start to end.
+
+The following code example illustrates how to format the field in Word document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Creates an instance of a WordDocument 
+
+WordDocument document = new WordDocument();
+
+//Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+//Adds the new Page field in Word document with field name and its type.
+
+IWField field = document.LastParagraph.AppendField("Page", FieldType.FieldPage);
+
+IEntity entity = field;
+
+//Iterates to sibling items until Field End 
+
+while (entity.NextSibling != null)
+
+{
+
+if (entity is WTextRange)
+
+//Sets character format for text ranges. 
+
+(entity as WTextRange).CharacterFormat.FontSize = 6;
+
+else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+
+break;
+
+//Gets next sibling item.
+
+entity = entity.NextSibling;
+
+}
+
+//Saves and closes the WordDocument instance.
+
+document.Save("Template.docx", FormatType.Docx);
+
+document.Close();
+
+{% endhighlight %}
+
+{% endtabs %}
    
 ## Updating fields
 
