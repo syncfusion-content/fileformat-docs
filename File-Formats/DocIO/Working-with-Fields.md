@@ -103,7 +103,7 @@ document.Close()
 
 {% endtabs %}  
 
-## Formatting Fields:
+## Formatting Fields
 
 You can format the field instances added to the Word document, by iterating items from field start to end.
 
