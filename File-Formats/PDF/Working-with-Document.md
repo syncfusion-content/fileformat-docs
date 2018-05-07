@@ -660,6 +660,64 @@ document.Close(True)
 
 {% endtabs %}
 
+## Performing incremental update for PDF document
+
+The Essential PDF supports an incremental update for PDF document. The content of a PDF file can be updated incrementally without rewriting the entire file. Changes are appended to the end of the file, leaving its original contents intact. Disabling the incremental update will rewrite the entire file, which results in a smaller PDF. This is illustrated in the following code sample.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Disable the incremental update
+
+loadedDocument.FileStructure.IncrementalUpdate = false;
+
+//Set the compression level
+
+loadedDocument.Compression = PdfCompressionLevel.Best;
+
+//Save the document
+
+loadedDocument.Save("Output.pdf");
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document
+
+Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
+
+'Disable the incremental update
+
+loadedDocument.FileStructure.IncrementalUpdate = False
+
+'Set the compression level
+
+loadedDocument.Compression = PdfCompressionLevel.Best
+
+'Save the document
+
+loadedDocument.Save("Output.pdf")
+
+'Close the document
+
+loadedDocument.Close(True)
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Choosing the viewer preferences
 
 Essential PDF allows you to set various PDF viewer preferences to be used when the generated PDF document is displayed in a PDF reader application.

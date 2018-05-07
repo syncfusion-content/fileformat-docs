@@ -221,6 +221,78 @@ loadedDocument.Close(True)
 {% endhighlight %}
 
  {% endtabs %}  
+
+ ## Removing layers from an existing PDF document
+
+You can remove the layers from layer collection, represented by the PdfPageLayerCollection of the loaded page. This is illustrated in the following code sample.
+
+{% tabs %} 
+
+{% highlight c# %}
+
+
+//Load the existing PDF document
+
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+
+//Gets the first page from the document
+
+PdfLoadedPage loadedPage = document.Pages[0] as PdfLoadedPage;
+
+//Get the layer collection
+
+PdfPageLayerCollection layers = loadedPage.Layers;
+
+//Remove the layer
+
+layers.RemoveAt(0);
+
+//Save the document
+
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Load the existing PDF document
+
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Gets the first page from the document
+
+Dim loadedPage As PdfLoadedPage = TryCast(document.Pages(0), PdfLoadedPage)
+
+'Get the layer collection
+
+Dim layers As PdfPageLayerCollection = loadedPage.Layers
+
+'Remove the layer.
+
+layers.RemoveAt(0)
+
+'Save the document.
+
+document.Save("Output.pdf")
+
+'Close the docuemnt.
+
+document.Close(True)
+
+
+
+
+{% endhighlight %}
+
+ {% endtabs %}  
  
 
 ## Toggling the visibility of layers
@@ -331,6 +403,65 @@ document.Save("Sample.pdf")
 
 document.Close(True)
 
+
+
+{% endhighlight %}
+
+{% endtabs %}  
+
+The following code illustrates how to toggle the visibility of layers in an existing PDF document.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+
+//Load the existing PDF document
+
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+
+//Gets the first layer from the layer collection
+
+PdfLayer layer = document.Layers[0];
+
+//Disable the visibility
+
+layer.Visible = false;
+
+//Save the document
+
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+
+
+{% highlight vb.net %}
+
+
+'Load the existing PDF document
+
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get the first layer from the layer collection
+
+Dim layer As PdfLayer = document.Layers(0)
+
+'Disable the visibility
+
+layer.Visible = False
+
+'Save the document
+
+document.Save("Output.pdf")
+
+'Close the document
+
+document.Close(True)
 
 
 {% endhighlight %}
