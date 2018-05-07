@@ -283,7 +283,7 @@ layers.RemoveAt(0)
 
 document.Save("Output.pdf")
 
-'Close the docuemnt.
+'Close the document.
 
 document.Close(True)
 
