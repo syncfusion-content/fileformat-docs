@@ -321,7 +321,7 @@ End Using
 
  {% endtabs %}  
 
- ## Performing OCR for large PDF documents
+## Performing OCR for large PDF documents
 
 You can optimize the memory to perform OCR for large PDF documents by enabling the isMemoryOptimized property. Optimization will be effective only with Multithreading environment or PDF document with more images. This is demonstrated in the following code sample. 
 
