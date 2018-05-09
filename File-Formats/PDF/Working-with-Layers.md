@@ -222,7 +222,7 @@ loadedDocument.Close(True)
 
  {% endtabs %}  
 
- ## Removing layers from an existing PDF document
+## Removing layers from an existing PDF document
 
 You can remove the layers from layer collection, represented by the PdfPageLayerCollection of the loaded page. This is illustrated in the following code sample.
 
