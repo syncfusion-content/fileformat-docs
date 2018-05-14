@@ -31,12 +31,12 @@ If you are unable to find the information you are looking for in the self-help r
 
 <table>
 <tr>
-<td>
+<th>
 File Format library
-</td>
-<td>
+</th>
+<th>
 Description
-</td>
+</th>
 </tr>
 <tr>
 <td>
