@@ -11,23 +11,23 @@ keywords: PDF, Excel, Word, PowerPoint, Office, SDK, Automation, API, create, ed
 
 Essential File Formats is a collection of .NET class libraries to create, edit, write, and convert PDF, Excel, Word, and PowerPoint file formats in .NET Framework [C#, VB.NET], .NET Core, UWP, and Xamarin applications without Microsoft Office or Adobe dependencies.
 
-# How to best read this user guide
+## How to best read this user guide
 
 * The best way to get started would be to read the “Getting Started” section for the component you would like to start first. The “Getting Started” and “Assemblies required” sections gives enough information, so it is recommended to read these sections end-to-end before starting to write a code. All other information can be referred as needed. 
 * After learning the basics about the component, integrate the component into your application. A good starting point is to refer to the code examples in the sample browser and in this user guide. It is very likely that you can find a code example that resembles your intended usage scenario. 
 * Another valuable resource is available in the [API reference](https://help.syncfusion.com/cr/file-formats) that provides detailed information on the object hierarchy as well as the settings available on every object.
 
-# Additional help resources
+## Additional help resources
 
 The [Knowledge Base](http://www.syncfusion.com/kb/) section contains responses for common questions asked by the customers. This would be a good place to search for the topics that are not covered in the User Guide.
 
 Similar to the Knowledge Base, the [Forum](http://www.syncfusion.com/forums/) section also contains responses to the questions that are asked by other customers.
 
-# Create a support incident
+## Create a support incident
 
 If you are unable to find the information you are looking for in the self-help resources mentioned above, please contact us by creating a [support ticket](https://www.syncfusion.com/support/directtrac/incidents).
 
-# List of File Format libraries:
+## List of File Format libraries:
 
 <table>
 <tr>
@@ -72,7 +72,7 @@ Essential Presentation
 </tr>
 </table>
 
-Quick Start links:
+## Quick Start links:
 
 [Create a PDF file in C# without Adobe](https://help.syncfusion.com/file-formats/pdf/getting-started)
 [Create Excel file in C# without Microsoft Office](https://help.syncfusion.com/file-formats/xlsio/getting-started)
