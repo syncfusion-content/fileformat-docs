@@ -49,7 +49,6 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
-
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
   'Open the Excel Document to Convert
@@ -63,96 +62,95 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   'Save the PDF file
   pdfDocument.Save("ExcelToPDF.pdf")
-End Using   
-
+End Using
 {% endhighlight %}
+
 {% highlight UWP %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.This below code shows how to achieve excel to pdf conversion using a web service.
-#region Excel to PDF
 
-// Gets assembly.
+#region Excel to PDF
+//Gets assembly
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-// Gets input Excel document from embedded resource collection.
+//Gets input Excel document from embedded resource collection
 Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.Data.ExceltoPDF.xlsx");
 
-// Output stream to save PDF.
+//Output stream to save PDF
 MemoryStream outputStream = null;
 
-// Creates new instance of HttpClient to access service.
+//Creates new instance of HttpClient to access service
 HttpClient client = new HttpClient();
 
-// Gets Uri 
+//Gets Uri 
 string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
 
-// Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
+//Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
 HttpResponseMessage response = null;
 try
 {
-    response = await client.PostAsync(requestUri, new StreamContent(inputStream));
+  response = await client.PostAsync(requestUri, new StreamContent(inputStream));
 
-    //Dispose the input stream and client instances.
-    inputStream.Dispose();
-    client.Dispose();
+  //Dispose the input stream and client instances
+  inputStream.Dispose();
+  client.Dispose();
 }
 catch (Exception ex)
 {
-    error.Text = ex.Message.ToString();
-    return;
+  error.Text = ex.Message.ToString();
+  return;
 }
 
-// Gets PDF from content stream if service got success.
+//Gets PDF from content stream if service got success
 if (response.IsSuccessStatusCode)
 {
-    var responseHeaders = response.Headers;
-    outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
+  var responseHeaders = response.Headers;
+  outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
 
-    // Dispose the response instance.
-    response.Dispose();
+  //Dispose the response instance
+  response.Dispose();
 }
 
-// Pop ups the result of service failure with details.
+//Pop ups the result of service failure with details
 else
 {
-    error.Text = "The input document could not be processed, Could you please email the document to support@syncfusion.com for troubleshooting";
-    return;
+  error.Text = "The input document could not be processed, Could you please email the document to support@syncfusion.com for troubleshooting";
+  return;
 }
 #endregion
 
 #region Setting output location
-
 StorageFile storageFile;
 if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
 {
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "ExcelToPDF";
-    savePicker.FileTypeChoices.Add("PDF File", new List<string>() { ".pdf", });
-    storageFile = await savePicker.PickSaveFileAsync();
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "ExcelToPDF";
+  savePicker.FileTypeChoices.Add("PDF File", new List<string>() { ".pdf", });
+  storageFile = await savePicker.PickSaveFileAsync();
 }
 else
 {
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("ExcelToPDF.xlsx", CreationCollisionOption.ReplaceExisting);
+  StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+  storageFile = await local.CreateFileAsync("ExcelToPDF.xlsx", CreationCollisionOption.ReplaceExisting);
 }
 
 if (storageFile == null)
-    return;
+  return;
 
 using (Stream storageStream = await storageFile.OpenStreamForWriteAsync())
 {
     if (storageStream.CanSeek)
-        storageStream.SetLength(0);
+      storageStream.SetLength(0);
     storageStream.Write(outputStream.ToArray(), 0, (int)outputStream.Length);
     outputStream.Dispose();
 }
 #endregion
-
 {% endhighlight %}
+
 {% highlight ASP.NET Core %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.This below code shows how to achieve excel to pdf conversion using a web service.
-@using Syncfusion.JavaScript.DataVisualization
 
+@using Syncfusion.JavaScript.DataVisualization
 
 @section SampleHeading{<span class="sampleName">XlsIO / ExcelToPDF</span>}
 
@@ -180,8 +178,10 @@ using (Stream storageStream = await storageFile.OpenStreamForWriteAsync())
 </form>
      }
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.This below code shows how to achieve excel to pdf conversion using a web service.
+
 //Gets assembly
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
@@ -207,58 +207,66 @@ MemoryStream outputStream = null;
 //Gets PDF from content stream if service got success
 if (response.IsSuccessStatusCode)
 {
-    var responseHeaders = response.Headers;
-    outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
-    //Dispose the response instance.
-    response.Dispose();
+  var responseHeaders = response.Headers;
+  outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
+  //Dispose the response instance.
+  response.Dispose();
 }
 else
 {
-    return;
+  return;
 }
 
 //Save the stream as Excel document and view the saved document
+
 //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    await DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", outputStream);
+{
+  await DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", outputStream);
+}
 else
-    DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", outputStream);
+{
+  DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", outputStream);
+}
 
 //Dispose the output stream instance
 outputStream.Dispose();
-
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
 
-## Web Service 
+## Web Service
+
 {% tabs %}
 {% highlight c# %}
 HttpFileCollection files = HttpContext.Current.Request.Files;
 if (files.Count == 0)
     return;
+	
 using (Stream stream = files[0].InputStream)
 {
-    //Loads an existing Excel document stream
-    using (ExcelEngine engine = new ExcelEngine())
+  //Loads an existing Excel document stream
+  using (ExcelEngine engine = new ExcelEngine())
+  {
+    IApplication application = engine.Excel;
+	
+    //Initializes the ChartToImageConverter for converting charts during Excel to PDF conversion
+    application.ChartToImageConverter = new ChartToImageConverter();
+    application.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
+	
+    //Creates an instance of the ExcelToPDFConverter
+    using (ExcelToPdfConverter excelToPDFConverter = new ExcelToPdfConverter(stream))
     {
-        IApplication application = engine.Excel;
-        //Initializes the ChartToImageConverter for converting charts during Excel to PDF conversion
-        application.ChartToImageConverter = new ChartToImageConverter();
-        application.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
-        //Creates an instance of the ExcelToPDFConverter
-        using (ExcelToPdfConverter excelToPDFConverter = new ExcelToPdfConverter(stream))
-        {
-            //Converts Excel document into PDF document
-            using (PdfDocument pdfDocument = excelToPDFConverter.Convert())
-            {
-                //Saves the PDF document to response stream
-                pdfDocument.Save("ExcelToPDF.pdf", HttpContext.Current.Response, HttpReadType.Save);
-                pdfDocument.Close(true);
-            }
-        }
- 
-   }
+      //Converts Excel document into PDF document
+      using (PdfDocument pdfDocument = excelToPDFConverter.Convert())
+      {
+        //Saves the PDF document to response stream
+        pdfDocument.Save("ExcelToPDF.pdf", HttpContext.Current.Response, HttpReadType.Save);
+        pdfDocument.Close(true);
+      }
+    } 
+  }
 }
 {% endhighlight %}
 {% endtabs %}
@@ -269,8 +277,7 @@ To know more about different conversion settings in Excel to PDF conversion, ple
 
 The following code shows how to convert a particular sheet to PDF Document.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -308,30 +315,30 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   pdfDocument.Save("ExcelToPDF.pdf")
 End Using
 {% endhighlight %}
+
 {% highlight UWP %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight ASP.NET Core %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
-
 {% endtabs %}  
 
 **Creating** **individual** **PDF** **document** **for** **each** **worksheet**
 
 The following code snippet shows how to create an individual PDF document for each worksheet in a workbook.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   application.DefaultVersion = ExcelVersion.Excel2013;
-
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
   PdfDocument pdfDocument = new PdfDocument();     
@@ -366,23 +373,25 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Next
 End Using
 {% endhighlight %}
+
 {% highlight UWP %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight ASP.NET Core %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
-  {% endtabs %}
+{% endtabs %}
   
 ## Excel with Chart to PDF
 
 To preserve the charts during Excel to PDF conversion, you should initialize the ChartToImageConverter of **IApplication** interface, otherwise the charts present in worksheet will get skipped. The following code illustrate how to convert an Excel with chart to PDF document.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -412,10 +421,10 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   application.DefaultVersion = ExcelVersion.Excel2013
 
-  ' Instantiating the ChartToImageConverter and assigning the ChartToImageConverter instance of XlsIO application
+  'Instantiating the ChartToImageConverter and assigning the ChartToImageConverter instance of XlsIO application
   application.ChartToImageConverter = New ChartToImageConverter()
 
-  ' Tuning Chart Image Quality
+  'Tuning Chart Image Quality
   application.ChartToImageConverter.ScalingMode = ScalingMode.Best
 
   Dim workbook As IWorkbook = application.Workbooks.Open("chart.xlsx")
@@ -428,16 +437,19 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   pdfDocument.Save("ExcelToPDF.pdf")
 End Using
 {% endhighlight %}
+
 {% highlight UWP %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight ASP.NET Core %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
-  {% endtabs %}  
+{% endtabs %}  
 
 ## Print Excel Document
 
@@ -446,15 +458,13 @@ XlsIO supports Excel printing option by converting Excel to PDF and then print t
 The following printer settings can be applied to print Excel in XlsIO. 
 
 ![](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img1.jpg)
-
  
 ### Print Excel Document 
 
 The following code snippet illustrates how to print the Excel document in XlsIO.
 
-{% tabs %}  
+{% tabs %}
 {% highlight c# %}
-
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -462,32 +472,34 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 
   // Convert the workbook.
   ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
-             
+
   // Print the converted PDF document.
   converter.Print();
 }
-
 {% endhighlight %}
+
 {% highlight vb %}
 
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
 
-  ' Convert the workbook.
+  'Convert the workbook.
   Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
-  ' Print the converted PDF document.
+  'Print the converted PDF document.
   converter.Print()
 End Using
-
 {% endhighlight %}
+
 {% highlight UWP %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight ASP.NET Core %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
@@ -497,21 +509,20 @@ End Using
 
 The following code snippet illustrates how to print the Excel document with printer settings in XlsIO.
 
-{% tabs %}  
+{% tabs %}
 {% highlight c# %}
-
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   IWorkbook workbook = application.Workbooks.Open("Excel.xlsx"));
 
-  // Convert the workbook.
+  //Convert the workbook
   ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
-  // Initialize the printer settings.
+  //Initialize the printer settings
   PrinterSettings printerSettings = new PrinterSettings();
 
-  // customizing the printer settings.
+  //customizing the printer settings
   printerSettings.PrinterName = "HP LaserJet Pro MFP M127-M128 PCLmS";
   printerSettings.Copies = 2;
   printerSettings.FromPage = 2;
@@ -519,43 +530,43 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
   printerSettings.DefaultPageSettings.Color = false;
   printerSettings.Duplex = Duplex.Vertical;
 
-  // Print the converted PDF document with printer settings.
+  //Print the converted PDF document with printer settings.
   converter.Print(printerSettings);
 }
-
 {% endhighlight %}
+
 {% highlight vb %}
-
 Using excelEngine As ExcelEngine = New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
 
-' Convert the workbook.
-Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+  'Convert the workbook
+  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
-' Initialize the printer settings.
-Dim printerSettings As PrinterSettings = New PrinterSettings
+  'Initialize the printer settings
+  Dim printerSettings As PrinterSettings = New PrinterSettings
 
-' customizing the printer settings.
-printerSettings.PrinterName = "HP LaserJet Pro MFP M127-M128 PCLmS"
-printerSettings.Copies = 2
-printerSettings.FromPage = 2
-printerSettings.ToPage = 3
-printerSettings.DefaultPageSettings.Color = false
-printerSettings.Duplex = Duplex.Vertical
+  'customizing the printer settings
+  printerSettings.PrinterName = "HP LaserJet Pro MFP M127-M128 PCLmS"
+  printerSettings.Copies = 2
+  printerSettings.FromPage = 2
+  printerSettings.ToPage = 3
+  printerSettings.DefaultPageSettings.Color = false
+  printerSettings.Duplex = Duplex.Vertical
 
-' Print the converted PDF document with printer settings.
-converter.Print(printerSettings)
-
+  'Print the converted PDF document with printer settings
+  converter.Print(printerSettings)
 End Using
-
 {% endhighlight %}
+
 {% highlight UWP %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight ASP.NET Core %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
@@ -567,53 +578,54 @@ The following code snippet illustrates how to print the Excel document with Exce
 
 {% tabs %}  
 {% highlight c# %}
-
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
   IWorkbook workbook = application.Workbooks.Open("Excel.xlsx");
 
-  // Convert the workbook.
+  //Convert the workbook
   ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
-  // Initializes the Excel to PDF converter setting class.
+  //Initializes the Excel to PDF converter setting class
   ExcelToPdfConverterSettings converterSettings = new ExcelToPdfConverterSettings();
 
-  // Layout the page using FitAllColumnsOnOnePage options.
+  //Layout the page using FitAllColumnsOnOnePage options
   converterSettings.DisplayGridLines = GridLinesDisplayStyle.Visible;
   converterSettings.LayoutOptions = LayoutOptions.FitAllColumnsOnOnePage;
 
-  // Print the converted PDF document with converter settings.
+  //Print the converted PDF document with converter settings
   converter.Print(converterSettings);
 }
-
 {% endhighlight %}
-{% highlight vb %}
 
+{% highlight vb %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
 
-  ' Convert the workbook.
+  'Convert the workbook
   Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
-  ' Initialize the Excel to PDF converter setting class.
+  'Initialize the Excel to PDF converter setting class
   Dim converterSettings As ExcelToPdfConverterSettings = New ExcelToPdfConverterSettings
 
-  ' Layout the page using FitAllColumnsOnOnePage options.
+  'Layout the page using FitAllColumnsOnOnePage options
   converterSettings.DisplayGridLines = GridLinesDisplayStyle.Visible
   converterSettings.LayoutOptions = LayoutOptions.FitAllColumnsOnOnePage
 
-  ' Print the converted PDF document with converter settings.
+  'Print the converted PDF document with converter settings
   converter.Print(converterSettings)
 End Using
 {% endhighlight %}
+
 {% highlight UWP %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight ASP.NET Core %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
@@ -625,7 +637,6 @@ The following code snippet illustrates how to print the Excel document with Exce
 
 {% tabs %}  
 {% highlight c# %}
-
 Using(ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -633,10 +644,10 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
 
   ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
-  // Initialize the printer settings.
+  //Initialize the printer settings
   PrinterSettings printerSettings = new PrinterSettings();
 
-  // customizing the printer settings.
+  //customizing the printer settings
   printerSettings.PrinterName = "HP LaserJet Pro MFP M127-M128 PCLmS";
   printerSettings.Copies = 2;
   printerSettings.FromPage = 2;
@@ -645,29 +656,28 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
   printerSettings.Duplex = Duplex.Vertical;
   printerSettings.Collate = true;
 
-  // Initializes the Excel to PDF converter setting class.
+  //Initializes the Excel to PDF converter setting class
   ExcelToPdfConverterSettings converterSettings = new ExcelToPdfConverterSettings();
 
-  // Layout the page using FitAllColumnsOnOnePage options.
+  //Layout the page using FitAllColumnsOnOnePage options
   converterSettings.DisplayGridLines = GridLinesDisplayStyle.Visible;
   converterSettings.LayoutOptions = LayoutOptions.FitAllColumnsOnOnePage;
 
-  // Print the converted PDF document with printer settings and converter settings.
+  //Print the converted PDF document with printer settings and converter settings
   converter.Print(printerSettings, converterSettings);
 }
-
 {% endhighlight %}
-{% highlight vb %}
 
+{% highlight vb %}
 Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
   Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
-  ' Initialize the printer settings.
+  'Initialize the printer settings
   Dim printerSettings As PrinterSettings = New PrinterSettings
 
-  ' customizing the printer settings.
+  'customizing the printer settings
   printerSettings.PrinterName = "HP LaserJet Pro MFP M127-M128 PCLmS"
   printerSettings.Copies = 2
   printerSettings.FromPage = 2
@@ -676,24 +686,26 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   printerSettings.Duplex = Duplex.Vertical
   printerSettings.Collate = true
 
-  ' Initialize the Excel to PDF converter setting class.
+  'Initialize the Excel to PDF converter setting class
   Dim converterSettings As ExcelToPdfConverterSettings = New ExcelToPdfConverterSettings
 
-  ' Layout the page using FitAllColumnsOnOnePage options.
+  'Layout the page using FitAllColumnsOnOnePage options
   converterSettings.DisplayGridLines = GridLinesDisplayStyle.Visible
   converterSettings.LayoutOptions = LayoutOptions.FitAllColumnsOnOnePage
 
-  ' Print the converted PDF document with printer settings and converter settings.
+  'Print the converted PDF document with printer settings and converter settings
   converter.Print(printerSettings, converterSettings)
 End Using
-
 {% endhighlight %}
+
 {% highlight UWP %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight ASP.NET Core %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
+
 {% highlight Xamarin %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
@@ -724,9 +736,7 @@ This feature provides support for the following elements:
 * 2D Charts
 * 3D Charts
 
-​
-
-## Unsupported Elements
+​## Unsupported Elements
 
 The following list contains unsupported elements that presently will not be preserved in the generated PDF document. 
 
