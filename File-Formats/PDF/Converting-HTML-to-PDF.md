@@ -1805,6 +1805,67 @@ document.Close(true)
 
 {% endtabs %}
 
+## PdfLayoutResult
+
+Getting last line of the HTML content in the PDF document is possible using PdfLayoutResult. Using that result, we can add contents after converting HTML to PDF with the continuation. Please refer below code snippet,
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//Set WebKit path
+settings.WebKitPath = @"/QtBinaries/";
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+PdfLayoutResult layoutResult = null;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com", out layoutResult);
+
+//Draw the text at the end of HTML content
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 11);
+
+document.Pages[document.Pages.Count - 1].Graphics.DrawString("End of HTML content", font, PdfBrushes.Red, new PointF(0, layoutResult.Bounds.Bottom));
+
+//Save and close the PDF document 
+document.Save("Output.pdf");
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML converter
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+Dim settings As WebKitConverterSettings = New WebKitConverterSettings
+
+'Set WebKit path
+settings.WebKitPath = "/QtBinaries/"
+
+'Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings
+
+Dim layoutResult As PdfLayoutResult = Nothing
+
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com", layoutResult)
+
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 11)
+document.Pages((document.Pages.Count - 1)).Graphics.DrawString("End of HTML content", font, PdfBrushes.Red, New PointF(0, layoutResult.Bounds.Bottom))
+
+'Save and close the PDF document 
+document.Save("Output.pdf")
+document.Close(true)
+
+{% endhighlight %}
+
+{% endtabs %}
+
 
 ## Windows status
 
