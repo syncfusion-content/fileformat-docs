@@ -22,18 +22,41 @@ Qt WebKit rendering is accurate, and the result preserves all the graphics, imag
 It does not require external dependencies like browsers, printer drivers, or viewers.
 
 
-## Prerequisites and setting up for WebKit
+## Prerequisites and set up for HTML to PDF conversion in Windows
 
 * Latest WebKit HTML converter can be download from the below link,
 
     [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
-
-* To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies needs to be added as reference to the project.
+<table>
+<tr>
+<thead>
+<th>
+Platforms</th>
+<th>
+Assemblies and QtBinaries
+</th>
+</thead>
+</tr>
+<tr>
+<td> .NET Framwork </td>
+<td>
+* To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies needs to be added as reference to the .NET Framework project.
     * Syncfusion.Compression.Base.dll
     * Syncfusion.Pdf.Base.dll
     * Syncfusion.HtmlConverter.Base.dll
 
 * The QtBinaries folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
+</td></tr>
+<tr>
+<td> .NET Core </td>
+<td>
+* To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies needs to be added as reference to the .NET Core project.
+    * Syncfusion.Compression.Portable.dll
+    * Syncfusion.Pdf.Portable.dll
+    * Syncfusion.HtmlConverter.Portable.dll
+
+* The QtBinariesDotNetCore folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinariesDotNetCore)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
+</td></tr>
 
 * WebKit HTML conversion also requires VC++ 2010 redistributable, this should to be installed in the machine where the conversion takes place. Please use below download link to get the installer.
     
@@ -56,9 +79,54 @@ It does not require external dependencies like browsers, printer drivers, or vie
 	2. libssl32.dll
 	3. ssleay32.dll
 
+	
+## Prerequisites and set up for HTML to PDF conversion in Linux
 
+* [.NET Core 2.0](https://www.microsoft.com/net/download/linux-package-manager/ubuntu16-04/sdk-current) should be installed in the Linux machine where the conversion takes place. 
 
+* The latest WebKit HTML converter for Linux can be downloaded as ZIP file from the following link,
 
+	[https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
+	
+* To convert HTML to PDF in the ASP.NET application using WebKit rendering engine, add the following assemblies or NuGet packages as reference to the project.  
+
+	<b>Assemblies</b>
+		1. Syncfusion.Compression.Portable.dll
+		2. Syncfusion.Pdf.Portable.dll
+		3. Syncfusion.HtmlConverter.Portable.dll
+	<b>NuGet</b>
+		1. Syncfusion.HtmlConverter.NETStandard
+		   [http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore)
+
+* The QtBinaries folder is available in the WebKit HTML Converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. 
+
+* To convert HTML to PDF in Linux using the WebKit rendering engine, the following packages should be installed in the Linux machine where the conversion takes place.
+	1. $ sudo apt-get update 
+	2. $ sudo apt-get install xvfb 
+	3. $ sudo apt-get install libssl-dev 
+	4. $ sudo apt-get install libx11-dev libx11-xcb-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-shm0-dev libxcb-util0-dev libxcb-xfixes0-dev libxcb-xkb-dev libxcb1-dev libxfixes-dev libxrandr-dev libxrender-dev
+
+## Prerequisites and set up for HTML to PDF conversion in Mac
+
+* .NET Core 2.0 should be installed in the machine where the conversion takes place. 
+
+* The latest WebKit HTML converter for Mac can be downloaded as PKG file from the following link,
+
+	[https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
+  
+* To convert HTML to PDF in the ASP.NET application using WebKit rendering engine, add the following assemblies or NuGet packages as reference to the project.  
+
+	<b>Assemblies</b>
+		1. Syncfusion.Compression.Portable.dll
+		2. Syncfusion.Pdf.Portable.dll
+		3. Syncfusion.HtmlConverter.Portable.dll
+	<b>NuGet</b>
+		1. Syncfusion.HtmlConverter.NETStandard
+		   [http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore)
+	
+* The QtBinaries folder is available in the WebKit HTML Converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings.
+	
+	
 ## URL to PDF
 
 To convert website URL or local HTML file to PDF using WebKit rendering engine, please refer the below code snippet.
@@ -109,7 +177,29 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//Set WebKit path
+settings.WebKitPath = @"\QtBinariesDotNetCore\";
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+            
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
 
 {% endhighlight %}
 
