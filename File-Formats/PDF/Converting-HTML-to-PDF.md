@@ -2013,7 +2013,7 @@ Dim settings As WebKitConverterSettings = New WebKitConverterSettings
 'Set WebKit path
 settings.WebKitPath = "/QtBinaries/"
 
-'Set Temporary Path to generate temporary files.
+'Set Temporary Path to generate temporary files
 settings.TempPath = "C:/HtmlConversion/Temp/"
 
 'Assign WebKit settings to HTML converter
