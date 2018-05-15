@@ -1741,7 +1741,7 @@ Hello world
 
 ## HTML to Single PDF page
 
-By using this option, we can render the whole HTML content into a single PDF page. The PDF page size is limited to 14400 points. There are two options to enable this feature, by default this feature is disable.
+By using this option, it is possible to render the whole HTML content into a single PDF page. The PDF page size is limited to 14400 points. There are two options to enable this feature, by default this feature is disable.
 
 	1. FitWidth
 	2. FitHeight
@@ -1805,9 +1805,9 @@ document.Close(true)
 
 {% endtabs %}
 
-## PdfLayoutResult
+## Getting HTML content height in PDF
 
-Getting last line of the HTML content in the PDF document is possible using PdfLayoutResult. Using that result, we can add contents after converting HTML to PDF with the continuation. Please refer below code snippet,
+Getting height of the HTML content in PDF document is possible using PdfLayoutResult. Using that result, it is possible to add contents after converting HTML to PDF with continuation. Please refer below code snippet,
 
 {% tabs %}
 
@@ -1974,7 +1974,7 @@ WebKit HTML converter internally creates temporary files in the temporary folder
 
 By default, HTML converter takes system temporary path (C:\Users\<<username>>\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. If the temporary folder does not have the required permission, then the converter may throw access denied exception. 
 
-The temporary path can be changed by using TempPath property of WebKitConverterSettings. If we set the TempPath then the converter, make use of the provided path to perform the conversion. Please refer below code snippet,
+The temporary path can be changed by using TempPath property of WebKitConverterSettings. If TempPath property has been set, then the converter make use of the provided path to perform the conversion. Please refer below code snippet,
 
 {% tabs %}
 
