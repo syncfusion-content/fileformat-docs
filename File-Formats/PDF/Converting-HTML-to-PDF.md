@@ -38,7 +38,7 @@ Assemblies and QtBinaries
 </thead>
 </tr>
 <tr>
-<td> .NET Framwork </td>
+<td> .NET Framework </td>
 <td>
 * To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies needs to be added as reference to the .NET Framework project.
     * Syncfusion.Compression.Base.dll
