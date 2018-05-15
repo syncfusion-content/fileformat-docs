@@ -1021,9 +1021,9 @@ document.Close()
 {% endtabs %}
 
 
-## Token Based Authentication
+## Token based authentication
 
-The WebKit HTML Converter provides support for token-based authentication by using HTTP request headers. The token values will be send to web server for token-based authentication when the HTML page is requested. Please refer the below code snippet,
+The WebKit HTML Converter supports token-based authentication by using the HTTP request headers. The token values will be send to web server when the HTML page is requested. Refer to the following code snippet.
 
 {% tabs %}
 
@@ -1039,7 +1039,7 @@ WebKitConverterSettings settings = new WebKitConverterSettings();
 
 settings.WebKitPath = @"/QtBinaries/";
 
-//Add a bearer token to login a webpage.
+//Add a bearer token to login a webpage
 
 settings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>");
 
@@ -1071,7 +1071,7 @@ Dim settings As WebKitConverterSettings = New WebKitConverterSettings
 
 settings.WebKitPath = "/QtBinaries/"
 
-'Add a bearer token to login a webpage.
+'Add a bearer token to login a webpage
 
 settings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>")
 
@@ -1739,17 +1739,17 @@ Hello world
 
 {% endtabs %}
 
-## HTML to Single PDF page
+## HTML to single PDF page
 
-By using this option, it is possible to render the whole HTML content into a single PDF page. The PDF page size is limited to 14400 points. There are two options to enable this feature, by default this feature is disable.
+By using this option, you can render the whole HTML content into a single PDF page. The PDF page size is limited to 14400 points. There are two options to enable this feature, since this is disabled by default.
 
 	1. FitWidth
 	2. FitHeight
 
-<b>Fit Width Option:</b> Using this option HTML converter adjust the PDF page height based on the HTML content height. PDF page width remains constant for this option. 
-<b>Fit Height Option:</b> Using this option HTML converter scale the HTML content and PDF page width to render the whole HTML content within the height. PDF page height remains constant for this option. 
+<b>Fit width option:</b> Using this option HTML converter adjust the PDF page height based on the HTML content height. PDF page width remains constant for this option. 
+<b>Fit height option:</b> Using this option HTML converter scale the HTML content and PDF page width to render the whole HTML content within the height. PDF page height remains constant for this option. 
 
-Please refer below code snippet to convert a whole HTML content into a single PDF page.
+Refer to the following code snippet.
 
 {% tabs %}
 
@@ -1763,7 +1763,7 @@ WebKitConverterSettings settings = new WebKitConverterSettings();
 //Set WebKit path
 settings.WebKitPath = @"/QtBinaries/";
 
-//Set singlePageLayout option to render the whole HTML content in a single PDF page.
+//Set singlePageLayout option to render the whole HTML content in a single PDF page
 settings.SinglePageLayout = SinglePageLayout.FitWidth;
 
 //Assign WebKit settings to HTML converter
@@ -1788,7 +1788,7 @@ Dim settings As WebKitConverterSettings = New WebKitConverterSettings
 'Set WebKit path
 settings.WebKitPath = "/QtBinaries/"
 
-'Set singlePageLayout option to render the whole HTML content in a single PDF page.
+'Set singlePageLayout option to render the whole HTML content in a single PDF page
 settings.SinglePageLayout = SinglePageLayout.FitWidth
 
 'Assign WebKit settings to HTML converter
@@ -1807,7 +1807,7 @@ document.Close(true)
 
 ## Layout Result
 
-Getting height of the HTML content in PDF document is possible using PdfLayoutResult. Using that result, it is possible to add contents after converting HTML to PDF with continuation. Please refer below code snippet,
+Getting height of the HTML content in PDF document is possible by using the PdfLayoutResult. Using this result, you can add contents after converting HTML to PDF. Refer to the following code snippet.
 
 {% tabs %}
 
@@ -1970,11 +1970,11 @@ document.Close()
 
 ## Temporary Path
 
-WebKit HTML converter internally creates temporary files in the temporary folder to perform the conversion. So, the temporary folder requires read/write/execute permission for the respective user group.
+The WebKit HTML converter internally creates temporary files in the temporary folder to perform the conversion. So, the temporary folder requires read/write/execute permission for the respective user group.
 
-By default, HTML converter takes system temporary path (C:\Users\<<username>>\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. If the temporary folder does not have the required permission, then the converter may throw access denied exception. 
+By default, HTML converter takes system temporary path (C:\Users\<<username>>\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. If the temporary folder does not have the required permission, then the converter may throw access denied exception. . 
 
-The temporary path can be changed by using TempPath property of WebKitConverterSettings. If TempPath property has been set, then the converter make use of the provided path to perform the conversion. Please refer below code snippet,
+The temporary path can be changed by using the TempPath property of WebKitConverterSettings. If this property has been set, then the converter use the provided path to perform the conversion. Refer to the following code snippet.
 
 {% tabs %}
 
@@ -1988,7 +1988,7 @@ WebKitConverterSettings settings = new WebKitConverterSettings();
 //Set WebKit path
 settings.WebKitPath = @"/QtBinaries/";
 
-//Set Temporary Path to generate temporary files.
+//Set Temporary Path to generate temporary files
 settings.TempPath = @"C:/HtmlConversion/Temp/";
 
 //Assign WebKit settings to HTML converter
