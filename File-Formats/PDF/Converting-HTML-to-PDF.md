@@ -1739,6 +1739,72 @@ Hello world
 
 {% endtabs %}
 
+## HTML to Single PDF page
+
+By using this option, we can render the whole HTML content into a single PDF page. The PDF page size is limited to 14400 points. There are two options to enable this feature, by default this feature is disable.
+
+	1. FitWidth
+	2. FitHeight
+
+<b>Fit Width Option:</b> Using this option HTML converter adjust the PDF page height based on the HTML content height. PDF page width remains constant for this option. 
+<b>Fit Height Option:</b> Using this option HTML converter scale the HTML content and PDF page width to render the whole HTML content within the height. PDF page height remains constant for this option. 
+
+Please refer below code snippet to convert a whole HTML content into a single PDF page.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//Set WebKit path
+settings.WebKitPath = @"/QtBinaries/";
+
+//Set singlePageLayout option to render the whole HTML content in a single PDF page.
+settings.SinglePageLayout = SinglePageLayout.FitWidth;
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+
+//Save and close the PDF document 
+document.Save("Output.pdf");
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML converter
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+
+Dim settings As WebKitConverterSettings = New WebKitConverterSettings
+
+'Set WebKit path
+settings.WebKitPath = "/QtBinaries/"
+
+'Set singlePageLayout option to render the whole HTML content in a single PDF page.
+settings.SinglePageLayout = SinglePageLayout.FitWidth
+
+'Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
+
+'Save and close the PDF document 
+document.Save("Output.pdf")
+document.Close(true)
+
+{% endhighlight %}
+
+{% endtabs %}
+
 
 ## Windows status
 
