@@ -1021,6 +1021,77 @@ document.Close()
 {% endtabs %}
 
 
+## Token Based Authentication
+
+The WebKit HTML Converter provides support for token-based authentication by using HTTP request headers. The token values will be send to web server for token-based authentication when the HTML page is requested. Please refer the below code snippet,
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML to PDF converter 
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//Set WebKit path
+
+settings.WebKitPath = @"/QtBinaries/";
+
+//Add a bearer token to login a webpage.
+
+settings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>");
+
+//Assign WebKit settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+
+PdfDocument document = htmlConverter.Convert("https://www.example.com");
+
+//Save and close the PDF document 
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML to PDF converter 
+
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+
+Dim settings As WebKitConverterSettings = New WebKitConverterSettings
+
+'Set WebKit path
+
+settings.WebKitPath = "/QtBinaries/"
+
+'Add a bearer token to login a webpage.
+
+settings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>")
+
+'Assign WebKit settings to HTML converter
+
+htmlConverter.ConverterSettings = settings
+
+Dim document As PdfDocument = htmlConverter.Convert("https://www.example.com")
+
+'Save and close the PDF document 
+
+document.Save("Output.pdf")
+
+document.Close(true)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
 ## Offline conversion
 
 WebKit HTML converter provides support for converting HTML to PDF in offline mode. While converting HTML to PDF in offline mode, the converter does not access the resources from the Internet. This may increase the performance in slow Internet connection. 
