@@ -79,7 +79,7 @@ settings.WebKitPath = @"/QtBinaries/";
 htmlConverter.ConverterSettings = settings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com");
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
 
 //Save and close the PDF document 
 document.Save("Output.pdf");
@@ -102,7 +102,7 @@ settings.WebKitPath = "/QtBinaries/"
 htmlConverter.ConverterSettings = settings
 
 'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com")
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
 
 'Save and close the PDF document 
 document.Save("Output.pdf")
@@ -225,7 +225,7 @@ webKitSettings.EnableJavaScript = false;
 htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com");
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
 
 //Save the document.
 document.Save("Sample.pdf");
@@ -251,7 +251,7 @@ webKitSettings.EnableJavaScript = False
 htmlConverter.ConverterSettings = webKitSettings
 
 'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com")
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
 
 'Save the document.
 document.Save("Sample.pdf")
@@ -286,7 +286,7 @@ webKitSettings.AdditionalDelay = 3000;
 htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com");
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
 
 //Save the document.
 document.Save("Sample.pdf");
@@ -312,7 +312,7 @@ webKitSettings.AdditionalDelay = 3000
 htmlConverter.ConverterSettings = webKitSettings
 
 'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com")
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
 
 'Save the document.
 document.Save("Sample.pdf")
@@ -347,7 +347,7 @@ webKitSettings.EnableHyperLink = false;
 htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com");  
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");  
     
 //Save the document.
 document.Save("Sample.pdf");
@@ -373,7 +373,7 @@ webKitSettings.EnableHyperLink = False
 htmlConverter.ConverterSettings = webKitSettings
 
 'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com")
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
 
 'Save the document.
 document.Save("Sample.pdf")
@@ -762,7 +762,7 @@ webKitSettings.MediaType = MediaType.Print;
 htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com");  
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");  
     
 //Save the document.
 document.Save("Sample.pdf");
@@ -788,7 +788,7 @@ webKitSettings.MediaType = MediaType.Print
 htmlConverter.ConverterSettings = webKitSettings
 
 'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com")
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
 
 'Save the document.
 document.Save("Sample.pdf")
@@ -972,7 +972,7 @@ htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert url to pdf
 
-PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com");
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
 
 //Save and close the PDF document
 
@@ -1008,7 +1008,7 @@ htmlConverter.ConverterSettings = webKitSettings
 
 'Convert HTML to PDF 
 
-Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com ")
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com ")
 
 'Save and close the document
 
@@ -1487,7 +1487,7 @@ webKitSettings.ProxySettings.UseSystemProxy = true;
 htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com");
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
 
 //Save the document.
 document.Save("Sample.pdf");
@@ -1513,7 +1513,7 @@ webKitSettings.ProxySettings.UseSystemProxy = True
 htmlConverter.ConverterSettings = webKitSettings
 
 'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com")
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
 
 'Save the document.
 document.Save("Sample.pdf")
@@ -1556,7 +1556,7 @@ webKitSettings.ProxySettings.Password = "password";
 htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com");
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
 
 //Save the document.
 document.Save("Sample.pdf");
@@ -1590,7 +1590,7 @@ webKitSettings.ProxySettings.Password = "password"
 htmlConverter.ConverterSettings = webKitSettings
 
 'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com")
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
 
 'Save the document.
 document.Save("Sample.pdf")
@@ -1626,7 +1626,7 @@ webKitSettings.WebKitViewPort = new Size(800,0);
 htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com");  
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");  
     
 //Save the document.
 document.Save("Sample.pdf");
@@ -1652,7 +1652,7 @@ webKitSettings.WebKitViewPort = New Size(800, 0)
 htmlConverter.ConverterSettings = webKitSettings
 
 'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com")
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
 
 'Save the document.
 document.Save("Sample.pdf")
@@ -2248,7 +2248,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 
 //Convert HTML to PDF document 
 
-PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com");
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
  
 //Save and close the PDF document 
 
@@ -2266,7 +2266,7 @@ Dim htmlConverter As New HtmlToPdfConverter()
 
 'Convert HTML to PDF document 
 
-Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com") 
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com") 
 
 'Save and close the PDF document 
 
@@ -2379,7 +2379,7 @@ htmlConverter.ConverterSettings = converterSettings;
 
 //Convert HTML to PDF document 
 
-PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com"); 
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com"); 
 
 //Save and close the PDF document 
 
@@ -2407,7 +2407,7 @@ htmlConverter.ConverterSettings = converterSettings
 
 'Convert HTML to PDF document 
 
-Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com")
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
  
 'Save and close the PDF document 
 
@@ -2443,7 +2443,7 @@ htmlConverter.ConverterSettings = converterSettings;
 
 //Convert HTML to PDF document 
 
-PdfDocument document = htmlConverter.Convert("http://www.syncfusion.com"); 
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com"); 
 
 //Save and close the PDF document 
 
@@ -2467,7 +2467,7 @@ converterSettings.IsPDFA1B = True
 htmlConverter.ConverterSettings = converterSettings 
 
 'Convert HTML to PDF document 
-Dim document As PdfDocument = htmlConverter.Convert("http://www.syncfusion.com") 
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com") 
 
 'Save and close the PDF document 
 document.Save("Output.pdf") 
