@@ -1841,6 +1841,69 @@ document.Close()
 
 {% endtabs %}
 
+## Temporary Path
+
+WebKit HTML converter internally creates temporary files in the temporary folder to perform the conversion. So, the temporary folder requires read/write/execute permission for the respective user group.
+
+By default, HTML converter takes system temporary path (C:\Users\<<username>>\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. If the temporary folder does not have the required permission, then the converter may throw access denied exception. 
+
+The temporary path can be changed by using TempPath property of WebKitConverterSettings. If we set the TempPath then the converter, make use of the provided path to perform the conversion. Please refer below code snippet,
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//Set WebKit path
+settings.WebKitPath = @"/QtBinaries/";
+
+//Set Temporary Path to generate temporary files.
+settings.TempPath = @"C:/HtmlConversion/Temp/";
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+
+//Save and close the PDF document 
+document.Save("Output.pdf");
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML converter with WebKit rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+
+Dim settings As WebKitConverterSettings = New WebKitConverterSettings
+
+'Set WebKit path
+settings.WebKitPath = "/QtBinaries/"
+
+'Set Temporary Path to generate temporary files.
+settings.TempPath = "C:/HtmlConversion/Temp/"
+
+'Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
+
+'Save and close the PDF document 
+document.Save("Output.pdf")
+document.Close(true)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
 ## Troubleshooting
 
 <table>
