@@ -1805,7 +1805,7 @@ document.Close(true)
 
 {% endtabs %}
 
-## Getting HTML content height in PDF
+## Layout Result
 
 Getting height of the HTML content in PDF document is possible using PdfLayoutResult. Using that result, it is possible to add contents after converting HTML to PDF with continuation. Please refer below code snippet,
 
