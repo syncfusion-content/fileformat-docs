@@ -117,7 +117,7 @@ pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 {% endhighlight %}
 {% endtabs %}  
 
-**IPivotDataFields** represents a collection of data fields in the pivot table. The data field is added with the required subtotal function using **PivotSubtotalTypes** enumeration. To know more about different subtotal types supported in Pivot Tables, please refer **PivotSubtotalTypes** in API section. Following is the code to configure a pivot field as a data field.
+**IPivotDataFields** represents a collection of data fields in the pivot table. The data field is added with the required subtotal function using **PivotSubtotalTypes** enumeration. To know more about different subtotal types supported in Pivot Tables, please refer **PivotSubtotalTypes** in API section. The following code explains how to configure a pivot field as a data field.
 
 {% tabs %}
 {% highlight c# %}
@@ -151,7 +151,7 @@ pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 {% endhighlight %}
 {% endtabs %}  
 
-Following code example illustrates how to create a pivot table with existing data in the worksheet, using XlsIO.
+The following complete code snippet illustrates how to create a pivot table with existing data in the worksheet, using XlsIO.
 
 {% tabs %}
 
@@ -624,7 +624,7 @@ The filtered data of a pivot table displays only the subset of data that meet th
 
 ### Applying Page Filters
 
-The page field filter or report filter, filters the pivot table based on page field items. The following code example illustrates how to apply multiple filters to the page field items.
+The page field filter or report filter, filters the pivot table based on page field items. The following code snippet illustrates how to apply multiple filters to the page field items.
 
 {% tabs %}
 {% highlight c# %}
@@ -1651,7 +1651,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12;
 
-  //The following code sample must be included to XlsIO layout the pivot table like Excel
+  //pivot table layout
   pivotTable.Layout();
 
   workbook.SaveAs("PivotTable.xlsx");
@@ -1681,7 +1681,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   pivotTable.BuiltInStyle = PivotBuiltInStyles.PivotStyleDark12
 
-  'The following code sample must be included to XlsIO layout the pivot table like Excel
+  'pivot table layout
   pivotTable.Layout()
 
   workbook.SaveAs("PivotTable.xlsx")
