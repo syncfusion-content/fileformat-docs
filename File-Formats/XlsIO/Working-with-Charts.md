@@ -881,6 +881,82 @@ serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = True
 {% endhighlight %}
 {% endtabs %}  
 
+### LeaderLines Appearance
+
+Leader lines are appear between the Series and DataLabels. The following code snippet illustrates how to enable and format leader lines.
+
+{% tabs %}  
+{% highlight c# %}
+//Get the serie
+IChartSerie serie = chart.Series[0];
+
+//Set the leader lines
+serie.HasLeaderLines = true;
+
+//Format the leader lines
+serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
+serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
+serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
+
+
+{% endhighlight %}
+
+{% highlight vb %}
+'Get the serie
+Dim serie As IChartSerie = chart.Series(0)
+
+'Set the leader lines
+serie.HasLeaderLines = true
+
+'Format the leader lines
+serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide
+serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot
+serie.LeaderLines.ColorIndex = ExcelKnownColors.Red
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+//Get the serie
+IChartSerie serie = chart.Series[0];
+
+//Set the leader lines
+serie.HasLeaderLines = true;
+
+//Format the leader lines
+serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
+serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
+serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Get the serie
+IChartSerie serie = chart.Series[0];
+
+//Set the leader lines
+serie.HasLeaderLines = true;
+
+//Format the leader lines
+serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
+serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
+serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Get the serie
+IChartSerie serie = chart.Series[0];
+
+//Set the leader lines
+serie.HasLeaderLines = true;
+
+//Format the leader lines
+serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
+serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
+serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
+{% endhighlight %}
+{% endtabs %}  
+
 ### Series Appearance
 
 The following code snippet illustrates how to modify the appearance of chart series.
