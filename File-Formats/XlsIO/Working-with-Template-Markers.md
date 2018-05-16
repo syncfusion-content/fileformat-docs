@@ -79,7 +79,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Insert Array Horizontally
   string[] names = new string[] { "Mickey", "Donald", "Tom", "Jerry" };
   string[] descriptions = new string[] { "Mouse", "Duck", "Cat", "Mouse" };
-
+  
+  //Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Names", names);
   marker.AddVariable("Descriptions", descriptions);
 
@@ -106,6 +107,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim names As String() = New String() {"Mickey", "Donald", "Tom", "Jerry"}
   Dim descriptions As String() = New String() {"Mouse", "Duck", "Cat", "Mouse"}
 
+  'Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Names", names)
   marker.AddVariable("Descriptions", descriptions)
 
@@ -139,6 +141,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   string[] names = new string[] { "Mickey", "Donald", "Tom", "Jerry" };
   string[] descriptions = new string[] { "Mouse", "Duck", "Cat", "Mouse" };
 
+  //Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Names", names);
   marker.AddVariable("Descriptions", descriptions);
 
@@ -176,6 +179,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   string[] names = new string[] { "Mickey", "Donald", "Tom", "Jerry" };
   string[] descriptions = new string[] { "Mouse", "Duck", "Cat", "Mouse" };
 
+  //Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Names", names);
   marker.AddVariable("Descriptions", descriptions);
 
@@ -211,6 +215,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   string[] names = new string[] { "Mickey", "Donald", "Tom", "Jerry" };
   string[] descriptions = new string[] { "Mouse", "Duck", "Cat", "Mouse" };
 
+  //Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Names", names);
   marker.AddVariable("Descriptions", descriptions);
 
@@ -262,7 +267,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Insert marker which gets cell address
   sheet.Range["H2"].Text = "%ArrayProperty.Cells.Address";
 
+  //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+  
+  //Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Marker", "First test of markers");
   marker.AddVariable("Marker2", sheet.Range["B2"]);
   marker.AddVariable("ArrayProperty", sheet.Range["B2:G2"]);
@@ -292,7 +300,10 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Insert marker which gets cell address
   sheet.Range("H2").Text = "%ArrayProperty.Cells.Address"
 
+  'Create Template Marker Processor
   Dim marker As ITemplateMarkersProcessor = workbook.CreateTemplateMarkersProcessor()
+  
+  'Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Marker", "First test of markers")
   marker.AddVariable("Marker2", sheet.Range("B2"))
   marker.AddVariable("ArrayProperty", sheet.Range("B2:G2"))
@@ -329,7 +340,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Insert marker which gets cell address
   sheet.Range["H2"].Text = "%ArrayProperty.Cells.Address";
 
+  //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+  
+  //Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Marker", "First test of markers");
   marker.AddVariable("Marker2", sheet.Range["B2"]);
   marker.AddVariable("ArrayProperty", sheet.Range["B2:G2"]);
@@ -373,7 +387,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Insert marker which gets cell address
   sheet.Range["H2"].Text = "%ArrayProperty.Cells.Address";
 
+  //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+  
+  //Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Marker", "First test of markers");
   marker.AddVariable("Marker2", sheet.Range["B2"]);
   marker.AddVariable("ArrayProperty", sheet.Range["B2:G2"]);
@@ -413,7 +430,10 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   //Insert marker which gets cell address
   sheet.Range["H2"].Text = "%ArrayProperty.Cells.Address";
 
+  //Create Template Marker Processor
   ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+  
+  //Add collections to the marker variables where the name should match with input template
   marker.AddVariable("Marker", "First test of markers");
   marker.AddVariable("Marker2", sheet.Range["B2"]);
   marker.AddVariable("ArrayProperty", sheet.Range["B2:G2"]);
@@ -426,7 +446,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   MemoryStream outputStream = new MemoryStream();
   workbook.SaveAs(outputStream);
 
-  //Save the stream as Excel document and view the saved document
+  //Save the stream as Excel document and view the saved document  
   
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -480,7 +500,8 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   reports.Rows.Add("Phyllis Lapin", new DateTime(2014, 09, 21), new DateTime(2014, 09, 25));
   reports.Rows.Add("Stanley Hudson", new DateTime(2014, 09, 26), new DateTime(2014, 09, 30));
 
-  // Detects number format in DateTable values
+  //Add collection to the marker variables where the name should match with input template
+  //Detects number format in DateTable values
   marker.AddVariable("Reports", reports,VariableTypeAction.DetectNumberFormat);
 
   //Process the markers and detect the number format along with the data type in the template
@@ -509,6 +530,7 @@ using excelEngine As ExcelEngine = new ExcelEngine()
   reports.Rows.Add("Phyllis Lapin", New DateTime(2014, 9, 21), New DateTime(2014, 9, 25))
   reports.Rows.Add("Stanley Hudson", New DateTime(2014, 9, 26), New DateTime(2014, 9, 30))
 
+  'Add collection to the marker variables where the name should match with input template
   'Detects number format in DateTable values
   marker.AddVariable("Reports", reports, VariableTypeAction.DetectNumberFormat)
 
@@ -545,7 +567,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   reports.Rows.Add("Karen Fillippelli", new DateTime(2014, 09, 15), new DateTime(2014, 09, 20));
   reports.Rows.Add("Phyllis Lapin", new DateTime(2014, 09, 21), new DateTime(2014, 09, 25));
   reports.Rows.Add("Stanley Hudson", new DateTime(2014, 09, 26), new DateTime(2014, 09, 30));
-              
+  
+  //Add collection to the marker variables where the name should match with input template  
   //Detects number format in DateTable values
   marker.AddVariable("Reports", reports, VariableTypeAction.DetectNumberFormat);
 
@@ -801,6 +824,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   #endregion
 
+  //Add collection to the marker variables where the name should match with input template
   marker.AddVariable("Reports", GetSalesReports());
 
   //Process the markers in the template
@@ -924,6 +948,7 @@ using excelEngine As ExcelEngine = new ExcelEngine()
 
   'End Region
 
+  'Add collection to the marker variables where the name should match with input template
   marker.AddVariable("Reports", GetSalesReports())
 
   'Process the markers in the template
@@ -981,7 +1006,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   dataBar.MaxPoint.Value = "0";
 
   //Set color for Bar
-  dataBar.BarColor = Color.FromArgb(156, 208, 243,255);
+  dataBar.BarColor = Color.FromArgb(156, 208, 243, 255);
 
   //Hide the value in data bar
   dataBar.ShowValue = false;
@@ -1015,15 +1040,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Sets 3 - color scale
   colorScale.SetConditionCount(3);
 
-  colorScale.Criteria[0].FormatColorRGB = Color.FromArgb(230, 197, 218,255);
+  colorScale.Criteria[0].FormatColorRGB = Color.FromArgb(230, 197, 218, 255);
   colorScale.Criteria[0].Type = ConditionValueType.LowestValue;
   colorScale.Criteria[0].Value = "0";
 
-  colorScale.Criteria[1].FormatColorRGB = Color.FromArgb(244, 210, 178,255);
+  colorScale.Criteria[1].FormatColorRGB = Color.FromArgb(244, 210, 178, 255);
   colorScale.Criteria[1].Type = ConditionValueType.Percentile;
   colorScale.Criteria[1].Value = "50";
 
-  colorScale.Criteria[2].FormatColorRGB = Color.FromArgb(245, 247, 171,255);
+  colorScale.Criteria[2].FormatColorRGB = Color.FromArgb(245, 247, 171, 255);
   colorScale.Criteria[2].Type = ConditionValueType.HighestValue;
   colorScale.Criteria[2].Value = "0";
 
@@ -1049,6 +1074,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   #endregion
 
+  //Add collection to the marker variables where the name should match with input template
   marker.AddVariable("Reports", GetSalesReports());
 
   //Process the markers in the template
@@ -1187,6 +1213,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   #endregion
 
+  //Add collection to the marker variables where the name should match with input template
   marker.AddVariable("Reports", GetSalesReports());
 
   //Process the markers in the template
@@ -1312,6 +1339,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   #endregion
 
+  //Add collection to the marker variables where the name should match with input template
   marker.AddVariable("Reports", GetSalesReports());
 
   //Process the markers in the template
@@ -1323,6 +1351,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   workbook.SaveAs(outputStream);
 
   //Save the stream as Excel document and view the saved document
+  
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
       await DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarker.xlsx", "application/msexcel", outputStream);
@@ -1337,90 +1366,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}  
 
 The following code snippet provides supporting methods & class for the above code.
-
-{% tabs %}  
-{% highlight c# %}
-private DataTable GetDataTable()
-
-{
-
-DataTable reports = new DataTable();
-
-reports.Columns.Add("SalesPerson");
-reports.Columns.Add("SalesJanJun", typeof(int));
-reports.Columns.Add("SalesJulDec", typeof(int));
-reports.Columns.Add("Change", typeof(int));
-
-reports.Rows.Add("Andy Bernard", 45000, 58000, 29);
-reports.Rows.Add("Jim Halpert", 34000, 65000, 91);
-reports.Rows.Add("Karen Fillippelli", 75000, 64000, -15);
-reports.Rows.Add("Phyllis Lapin", 56500, 33600, -40);
-reports.Rows.Add("Stanley Hudson", 46500, 52000, 12);
-
-return reports;
-
-}
-
-
-
-{% endhighlight %}
-
-{% highlight vb %}
-Private Function GetDataTable() As DataTable
-
-Dim reports As New DataTable()
-
-reports.Columns.Add("SalesPerson")
-reports.Columns.Add("SalesJanJun", GetType(Integer))
-reports.Columns.Add("SalesJulDec", GetType(Integer))
-reports.Columns.Add("Change", GetType(Integer))
-
-reports.Rows.Add("Andy Bernard", 45000, 58000, 29)
-reports.Rows.Add("Jim Halpert", 34000, 65000, 91)
-reports.Rows.Add("Karen Fillippelli", 75000, 64000, -15)
-reports.Rows.Add("Phyllis Lapin", 56500, 33600, -40)
-reports.Rows.Add("Stanley Hudson", 46500, 52000, 12)
-
-Return reports
-
-End Function
-
-
-
-{% endhighlight %}
-{% highlight UWP %}
-//DataTable is supported in Windows forms,WPF,ASP.NET,ASP.NET MVC and ASP.NET Core(2.0 onwards) platforms alone.
-{% endhighlight %}
-{% highlight asp.net core %}
-//DataTable is supported only from ASP.NET Core 2.0
-private DataTable GetDataTable()
-
-{
-
-DataTable reports = new DataTable();
-
-reports.Columns.Add("SalesPerson");
-reports.Columns.Add("SalesJanJun", typeof(int));
-reports.Columns.Add("SalesJulDec", typeof(int));
-reports.Columns.Add("Change", typeof(int));
-
-reports.Rows.Add("Andy Bernard", 45000, 58000, 29);
-reports.Rows.Add("Jim Halpert", 34000, 65000, 91);
-reports.Rows.Add("Karen Fillippelli", 75000, 64000, -15);
-reports.Rows.Add("Phyllis Lapin", 56500, 33600, -40);
-reports.Rows.Add("Stanley Hudson", 46500, 52000, 12);
-
-return reports;
-
-}
-
-
-
-{% endhighlight %}
-{% highlight Xamarin %}
-//DataTable is supported in Windows forms,WPF,ASP.NET, ASP.NET MVC and ASP.NET Core(2.0 onwards) platforms alone.
-{% endhighlight %}
-{% endtabs %}  
 
 **GetSalesReports** **Method****:**
 {% tabs %}
@@ -1448,7 +1393,7 @@ public class Sales
     public int SalesJulDec { get; set; }
     public int Change { get; set; }
 
-    public Sales(string name,int salesJanJun,int salesJulDec,int change)
+    public Sales(string name, int salesJanJun, int salesJulDec, int change)
     {
         SalesPerson = name;
         SalesJanJun = salesJanJun;
@@ -1506,7 +1451,7 @@ public class Sales
     public int SalesJulDec { get; set; }
     public int Change { get; set; }
 
-    public Sales(string name,int salesJanJun,int salesJulDec,int change)
+    public Sales(string name, int salesJanJun, int salesJulDec, int change)
     {
         SalesPerson = name;
         SalesJanJun = salesJanJun;
@@ -1539,7 +1484,7 @@ public class Sales
     public int SalesJulDec { get; set; }
     public int Change { get; set; }
 
-    public Sales(string name,int salesJanJun,int salesJulDec,int change)
+    public Sales(string name, int salesJanJun, int salesJulDec, int change)
     {
         SalesPerson = name;
         SalesJanJun = salesJanJun;
@@ -1572,7 +1517,7 @@ public class Sales
     public int SalesJulDec { get; set; }
     public int Change { get; set; }
 
-    public Sales(string name,int salesJanJun,int salesJulDec,int change)
+    public Sales(string name, int salesJanJun, int salesJulDec, int change)
     {
         SalesPerson = name;
         SalesJanJun = salesJanJun;
