@@ -1666,7 +1666,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight vb %}
-using excelEngine As ExcelEngine = New ExcelEngine()
+Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
   Dim sheet As IWorkbook = workbook.Worksheets(0)
@@ -1680,7 +1680,7 @@ using excelEngine As ExcelEngine = New ExcelEngine()
   
   ' Save workbook
   workbook.SaveAs("SkipBlank.xlsx")
-End using
+End Using
 {% endhighlight %}
 
 {% highlight UWP %}
