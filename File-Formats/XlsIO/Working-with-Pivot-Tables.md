@@ -801,90 +801,70 @@ pivotTable.RepeatItemsOnEachPrintedPage = True
   {% endtabs %}  
 
 
-### Repeat Labels For Specific Pivot Field
+### Repeat Labels
 
-You can repeat labels for row/column field when the [pivot table layout](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.PivotTableRowLayout.html) is set tabular or outline.
+You can repeat labels for row/column fields when the [pivot table layout](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.PivotTableRowLayout.html) is set to tabular or outline layout forms.
 
-The following code illustrates how to set the repeat labels for a pivot field.
+**Specific Pivot Field**
+
+The following code illustrates how to set the repeat labels option to a specific pivot field.
 {% tabs %}
 
 {% highlight c# %}
-//Show repeated labels in a specific pivot field.
-
+//Set repeat labels option to a specific pivot field.
 pivotTable.Fields[0].RepeatLabels = true;
-
 {% endhighlight %}
 
 {% highlight vb %}
-‘Show repeated labels in a specific pivot field.
-
+‘Set repeat labels option to a specific pivot field.
 pivotTable.Fields(0).RepeatLabels = True
-
 {% endhighlight %}
 
 {% highlight UWP %}
-//Show repeated labels in a specific pivot field.
-
+//Set repeat labels option to a specific pivot field.
 pivotTable.Fields[0].RepeatLabels = true;
-
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//Show repeated labels in a specific pivot field.
-
+//Set repeat labels option to a specific pivot field.
 pivotTable.Fields[0].RepeatLabels = true;
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Show repeated labels in a specific pivot field.
-
+//Set repeat labels option to a specific pivot field.
 pivotTable.Fields[0].RepeatLabels = true;
-
 {% endhighlight %}
 
 {% endtabs %}
   
   
-### Repeat Labels For All The Pivot Fields
+**All Pivot Fields**
 
-The following code example illustrates how repeat labels can be set for all the row and column fields of the pivot table.
-
+The following code illustrates how to set the repeat labels option to all the pivot fields.
 {% tabs %}
-
 {% highlight c# %}
-//Show repeated labels in all pivot fields.
-
+//Set repeat labels option to all the pivot fields.
 pivotTable.Options.RepeatAllLabels(true);
-
 {% endhighlight %}
 
 {% highlight vb %}
-‘Show repeated labels in all pivot fields.
-
+‘Set repeat labels option to all the pivot fields.
 pivotTable.Options.RepeatAllLabels(True)
-
 {% endhighlight %}
 
 {% highlight UWP %}
-//Show repeated labels in all pivot fields.
-
+//Set repeat labels option to all the pivot fields.
 pivotTable.Options.RepeatAllLabels(true);
-
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//Show repeated labels in all pivot fields.
-
+//Set repeat labels option to all the pivot fields.
 pivotTable.Options.RepeatAllLabels(true);
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Show repeated labels in all pivot fields.
-
+//Set repeat labels option to all the pivot fields.
 pivotTable.Options.RepeatAllLabels(true);
-
 {% endhighlight %}
 
 {% endtabs %}

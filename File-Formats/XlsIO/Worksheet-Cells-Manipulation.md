@@ -1640,123 +1640,108 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Skip Blanks While Copying
 
-You can skip the bank cells while coping data from source to destination range by passing the argument [skip blanks](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CopyTo(IRange,ExcelCopyRangeOptions).html) as TRUE.
+Blank cells can be skipped while copying from source to destination range by setting the parameter [skip blanks](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CopyTo(IRange,ExcelCopyRangeOptions).html) to TRUE.
 
 The following code illustrates how to skip blank cells while copying.
 
 {% tabs %}
+
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
-
-// Copy range as link from Range “A1” to “A5”.
-IRange source = sheet.Range["A1:A7"];
-IRange destination = sheet.Range["C3"];
-
-//Skip blanks while copying
-source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
-
-//Save and dispose
-workbook.SaveAs("SkipBlank.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
+  
+  // Copy range as link from Range “A1” to “A5”.
+  IRange source = sheet.Range["A1:A7"];
+  IRange destination = sheet.Range["C3"];
+  
+  //Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
+  
+  //Save workbook
+  workbook.SaveAs("SkipBlank.xlsx");
+}
 {% endhighlight %}
+
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-' Copy range as link from Range “A1” to “A5”.
-Dim source As IRange = sheet.Range("A1:A7")
-Dim destination As IRange = sheet.Range("C3")
-
-' Skip blanks while copying
-source.CopyTo(destination, ExcelCopyRangeOptions.All, true)
-
-' Save and dispose
-workbook.SaveAs("SkipBlank.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorkbook = workbook.Worksheets(0)
+  
+  ' Copy range as link from Range “A1” to “A5”.
+  Dim source As IRange = sheet.Range("A1:A7")
+  Dim destination As IRange = sheet.Range("C3")
+  
+  ' Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true)
+  
+  ' Save workbook
+  workbook.SaveAs("SkipBlank.xlsx")
+End using
 {% endhighlight %}
+
 {% highlight UWP %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-
-//Instantiates the File Picker. 
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-openPicker.FileTypeFilter.Add(".xlsx");
-openPicker.FileTypeFilter.Add(".xls");
-StorageFile openFile = await openPicker.PickSingleFileAsync();
-
-//Opens the workbook. 
-IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
-IWorksheet sheet = workbook.Worksheets[0];
-
-// Copy range as link from Range “A1” to “A5”.
-IRange source = sheet.Range["A1:A7"];
-IRange destination = sheet.Range["C3"];
-
-//Skip blanks while copying
-source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
-
-//Initializes FileSavePicker.
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-savePicker.SuggestedFileName = "CreateSpreadsheet";
-savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-//Creates a storage file from FileSavePicker.
-StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-//Saves changes to the specified storage file.
-await workbook.SaveAsAsync(storageFile);
-
-workbook.Close();
-excelEngine.Dispose();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker. 
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile openFile = await openPicker.PickSingleFileAsync();
+  
+  //Opens the workbook. 
+  IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
+  IWorksheet sheet = workbook.Worksheets[0];
+  
+  // Copy range as link from Range “A1” to “A5”.
+  IRange source = sheet.Range["A1:A7"];
+  IRange destination = sheet.Range["C3"];
+  
+  //Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
+  
+  //Initializes FileSavePicker.
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "CreateSpreadsheet";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  
+  //Creates a storage file from FileSavePicker.
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  
+  //Saves changes to the specified storage file.
+  await workbook.SaveAsAsync(storageFile);
+}
 {% endhighlight %}
+
 {% highlight ASP.NET Core %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  string basePath = _hostingEnvironment.WebRootPath + @"\XlsIO\Sample.xlsx";              
+  FileStream sampleFile = new FileStream(basePath, FileMode.Open);
+  IWorkbook workbook = application.Workbooks.Open(sampleFile);
+  IWorksheet sheet = workbook.Worksheets[0];             
+  
+  // Copy range as link from Range “A1” to “A5”.
+  IRange source = sheet.Range["A1:A7"];
+  IRange destination = sheet.Range["C3"];
+  
+  //Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
 
-//A existing workbook is opened.              
-string basePath = _hostingEnvironment.WebRootPath + @"\XlsIO\Sample.xlsx";              
-FileStream sampleFile = new FileStream(basePath, FileMode.Open);
-IWorkbook workbook = application.Workbooks.Open(sampleFile);
-IWorksheet sheet = workbook.Worksheets[0];             
-
-// Copy range as link from Range “A1” to “A5”.
-IRange source = sheet.Range["A1:A7"];
-IRange destination = sheet.Range["C3"];
-
-//Skip blanks while copying
-source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
-
-//Defining the ContentType for excel file.
-string ContentType = "Application/msexcel";
-
-//Define the file name.
-string fileName = "Output.xlsx";
-
-//Creating stream object.
-MemoryStream stream = new MemoryStream();
-
-//Saving the workbook to stream in XLSX format
-workbook.SaveAs(stream);
-stream.Position = 0;
-
-//Closing the workbook.
-workbook.Close();
-
-//Dispose the Excel engine
-excelEngine.Dispose();
-
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, ContentType, fileName);
+  //Saving the workbook to stream in XLSX format
+  FileStream stream = new FileStream("SkipBlank.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+}
 {% endhighlight %}
+
 {% highlight Xamarin %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1778,7 +1763,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   MemoryStream stream = new MemoryStream();
   workbook.SaveAs(stream);
   workbook.Close();
-  stream.Position = 0;
 
   //Save the document as file and view the saved document
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
