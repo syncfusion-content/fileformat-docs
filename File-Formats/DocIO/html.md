@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Word Document to HTML Conversion
+# HTML Conversion
 
 The Essential DocIO converts the HTML file into Word document and vice versa. It supports only the HTML files that meets the validation either against XHTML 1.0 strict or XHTML 1.0 Transitional schema.
 
@@ -42,7 +42,43 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
+The following code example shows how to convert the Word document into HTML.
+
+{% tabs %}
+{% highlight c# %}
+//Loads the template document
+
+WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
+
+//Saves the document as Html file
+
+document.Save("WordToHtml.html", FormatType.Html);
+
+//Closes the document 
+
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads the template document
+
+Dim document As New WordDocument("Template.docx", FormatType.Docx)
+
+'Saves the document as Html file
+
+document.Save("WordToHtml.html", FormatType.Html)
+
+'Closes the document 
+
+document.Close()
+{% endhighlight %}
+{% endtabs %}
+
 ## Customization settings
+
+The Essential DocIO provides settings while performing HTML to Word conversion and vice versa.
+
+### Customizing the HTML to Word conversion
 
 The Essential DocIO provides settings while performing HTML to Word conversion as mentioned as follows: 
 
@@ -128,6 +164,89 @@ N> 1. Inserting XHTML string is not supported in Silverlight, Windows Phone, and
 N> 2. XHTML validation against XHTML 1.0 Strict and Transitional schema is not supported in Windows Store applications.
 N> 3. XHTMLValidationType.Transitional: Default validation while importing HTML file.
 N> 4. XHTMLValidationType.None: Validates the HTML file against XHTML format and it doesn’t perform any schema validation.
+
+### Customizing the Word to HTML conversion
+
+You can customize the Word to HTML conversion with the following options:
+
+* Extract the images used in the HTML document at the specified file directory
+* Specify to export the header and footer of the Word document in the HTML
+* Specify to consider Text Input field as a editable fields or text
+* Specify the CSS style sheet type and its name
+
+N> While exporting header and footer, DocIO exports the first section header content at the top of the HTML file and first section footer content at the end of the HTML file.
+
+The following code sample shows how to customize Word to HTML conversion.
+
+{% tabs %}
+{% highlight c# %}
+//Loads an existing document
+
+WordDocument document = new WordDocument("Template.docx");
+
+HTMLExport export = new HTMLExport();
+
+//The images in the input document are copied to this folder
+
+document.SaveOptions.HtmlExportImagesFolder = @"D:\Data\";
+
+//The headers and footers in the input are exported
+
+document.SaveOptions.HtmlExportHeadersFooters = true;
+
+//Exports the text form fields as editable
+
+document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
+
+//Sets the style sheet type
+
+document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External;
+
+//Sets name for style sheet
+
+document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css";
+
+//Saves the document as html file
+
+export.SaveAsXhtml(document, "WordtoHtml.html");
+
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads an existing document
+
+Dim document As New WordDocument("Template.docx")
+
+Dim export As New HTMLExport()
+
+'The images in the input document are copied to this folder
+
+document.SaveOptions.HtmlExportImagesFolder = "D:\Data\"
+
+'The headers and footers in the input are exported
+
+document.SaveOptions.HtmlExportHeadersFooters = True
+
+'Exports the text form fields as editable
+
+document.SaveOptions.HtmlExportTextInputFormFieldAsText = False
+
+'Sets the style sheet type
+
+document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External
+
+'Sets name for style sheet
+
+document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css"
+
+'Saves the document as html file
+
+export.SaveAsXhtml(document, "WordtoHtml.html")
+
+document.Close()
+{% endhighlight %}
+{% endtabs %}
 
 ## Supported and unsupported items
 

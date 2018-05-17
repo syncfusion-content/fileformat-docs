@@ -617,7 +617,6 @@ The following list contains unsupported elements that presently will not be pres
 * Conditional Formats
 	* Data Bars
 	* Color Scales
-	* Icon Sets
 * Tables
 	* Custom Styles
 * Row and Column Headings
