@@ -1638,6 +1638,146 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+## Skip Blanks While Copying
+
+Blank cells can be skipped while copying from source to destination range by setting the parameter [skip blanks](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CopyTo(IRange,ExcelCopyRangeOptions).html) to TRUE.
+
+The following code illustrates how to skip blank cells while copying.
+
+{% tabs %}
+
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
+  
+  // Copy range as link from Range “A1” to “A5”.
+  IRange source = sheet.Range["A1:A7"];
+  IRange destination = sheet.Range["C3"];
+  
+  //Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
+  
+  //Save workbook
+  workbook.SaveAs("SkipBlank.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorkbook = workbook.Worksheets(0)
+  
+  ' Copy range as link from Range “A1” to “A5”.
+  Dim source As IRange = sheet.Range("A1:A7")
+  Dim destination As IRange = sheet.Range("C3")
+  
+  ' Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true)
+  
+  ' Save workbook
+  workbook.SaveAs("SkipBlank.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker. 
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile openFile = await openPicker.PickSingleFileAsync();
+  
+  //Opens the workbook. 
+  IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
+  IWorksheet sheet = workbook.Worksheets[0];
+  
+  // Copy range as link from Range “A1” to “A5”.
+  IRange source = sheet.Range["A1:A7"];
+  IRange destination = sheet.Range["C3"];
+  
+  //Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
+  
+  //Initializes FileSavePicker.
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "CreateSpreadsheet";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  
+  //Creates a storage file from FileSavePicker.
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  
+  //Saves changes to the specified storage file.
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  string basePath = _hostingEnvironment.WebRootPath + @"\XlsIO\Sample.xlsx";              
+  FileStream sampleFile = new FileStream(basePath, FileMode.Open);
+  IWorkbook workbook = application.Workbooks.Open(sampleFile);
+  IWorksheet sheet = workbook.Worksheets[0];             
+  
+  // Copy range as link from Range “A1” to “A5”.
+  IRange source = sheet.Range["A1:A7"];
+  IRange destination = sheet.Range["C3"];
+  
+  //Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
+
+  //Saving the workbook to stream in XLSX format
+  FileStream stream = new FileStream("SkipBlank.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+  
+  // Copy range as link from Range “A1” to “A5”.
+  IRange source = sheet.Range["A1:A7"];
+  IRange destination = sheet.Range["C3"];
+  
+  //Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+  workbook.Close();
+
+  //Save the document as file and view the saved document
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("SkipBlanks.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("SkipBlanks.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
 ## Find and Replace
 
 You can perform [find and replace](https://support.office.com/en-usa/article/Find-or-replace-text-and-numbers-on-a-worksheet-3a2c910f-01b9-4263-8db2-333dead6ae33) text and numbers in workbook or worksheet using XlsIO. Also, XlsIO provides the following options:
