@@ -149,6 +149,7 @@ using (Stream storageStream = await storageFile.OpenStreamForWriteAsync())
 
 {% highlight ASP.NET Core %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.This below code shows how to achieve excel to pdf conversion using a web service.
+//.cshtml file for excel to pdf conversion
 
 @using Syncfusion.JavaScript.DataVisualization
 
@@ -268,6 +269,23 @@ using (Stream stream = files[0].InputStream)
     } 
   }
 }
+{% endhighlight %}
+{% highlight vb %}
+Dim files As HttpFileCollection = HttpContext.Current.Request.Files
+If files.Count = 0 Then Return
+Using stream As Stream = files(0).InputStream
+      Using engine As ExcelEngine = New ExcelEngine()
+          Dim application As IApplication = engine.Excel
+          application.ChartToImageConverter = New ChartToImageConverter()
+          application.ChartToImageConverter.ScalingMode = ScalingMode.Normal
+          Using excelToPDFConverter As ExcelToPdfConverter = New ExcelToPdfConverter(stream)
+              Using pdfDocument As PdfDocument = excelToPDFConverter.Convert()
+                  pdfDocument.Save("ExcelToPDF.pdf", HttpContext.Current.Response, HttpReadType.Save)
+                  pdfDocument.Close(True)
+              End Using
+          End Using
+      End Using
+End Using
 {% endhighlight %}
 {% endtabs %}
 
