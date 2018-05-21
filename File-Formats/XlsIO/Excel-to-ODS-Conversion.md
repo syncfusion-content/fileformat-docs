@@ -8,11 +8,11 @@ documentation: UG
 
 # Excel to ODS Conversion
 
-The Open Document Format for Office Applications (ODF), also known as OpenDocument, is an XML-based file format for spreadsheets, charts, presentations and word processing documents. It was developed with the aim of providing an open, XML-based file format specification for office applications. OpenOffice uses ODF format as its default document format. OpenDocument Spreadsheet (ODS) is the file format for Excel documents. XlsIO supports conversion of XLS/XLSX documents to ODS.
+The Open Document Format for Office Applications (ODF) is also known as OpenDocument. It is an XML-based file format for spreadsheets, charts, presentations, and word processing documents. It was developed with the aim of providing an open and XML-based file format specification for office applications. OpenOffice uses ODF format as its default document format. The OpenDocument Spreadsheet (ODS) is the file format for Excel documents. XlsIO supports conversion of XLS/XLSX documents to ODS.
 
 ## Saving ODS in different platforms
 
-The following code snippet illustrates the creation of simple Excel file and exporting the same to ODS format.
+The following code snippet illustrates the creation of an Excel file and exporting it to ODS format.
 
 {% tabs %}
 {% highlight c# %}
@@ -264,7 +264,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -278,7 +278,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-## Supported and Unsupported Elements in ODS Conversion
+## Supported and unsupported elements in ODS conversion
 
 <table>
 <tr>
