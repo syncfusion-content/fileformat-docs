@@ -8,7 +8,7 @@ documentation: UG
 
 # Worksheet to Image conversion
 
-## Convert as Bitmap
+## Convert as bitmap
 
 The following code shows how to convert the specified range of rows and columns in the worksheet to bitmap.
 
@@ -26,19 +26,19 @@ image.Save("Sample.png", ImageFormat.Png)
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 
 {% highlight asp.net core %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 {% endtabs %}  
 
-## Save as Stream
+## Save as stream
 
 The following code snippet shows how to save a sheet as stream.
 
@@ -56,19 +56,19 @@ sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 
 {% highlight asp.net core %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 {% endtabs %}  
 
-The complete code snippet of the above options is shown below.
+The complete code snippet of the previous options is shown as follows.
 
 {% tabs %}
 {% highlight c# %}
@@ -121,15 +121,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 
 {% highlight asp.net core %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 {% endtabs %}  
 
