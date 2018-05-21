@@ -17,69 +17,151 @@ The following code example illustrates how to create a chart through the existin
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Create a Chart
+  IChartShape chart = sheet.Charts.Add();
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Set Chart Type
+  chart.ChartType = ExcelChartType.Column_Clustered;
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Set data range in the worksheet
+  chart.DataRange = sheet.Range["A1:E5"];
 
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Create a Chart
-
-IChartShape chart = sheet.Charts.Add();
-
-//Set Chart Type
-
-chart.ChartType = ExcelChartType.Column_Clustered;
-
-//Set data range in the worksheet
-
-chart.DataRange = sheet.Range["A1:E5"];
-
-workbook.SaveAs("Chart.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
+  workbook.SaveAs("Chart.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Create a Chart
+  Dim chart As IChartShape = sheet.Charts.Add()
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Set Chart Type
+  chart.ChartType = ExcelChartType.Column_Clustered
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Set data range in the worksheet
+  chart.DataRange = sheet.Range("A1:E5")
 
-Dim sheet As IWorksheet= workbook.Worksheets(0)
+  workbook.SaveAs("Chart.xlsx")
+End Using
+{% endhighlight %}
 
-'Create a Chart
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-Dim chart As IChartShape = sheet.Charts.Add()
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-'Set Chart Type
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-chart.ChartType = ExcelChartType.Column_Clustered
+  //Create a Chart
+  IChartShape chart = sheet.Charts.Add();
 
-'Set data range in the worksheet
+  //Set Chart Type
+  chart.ChartType = ExcelChartType.Column_Clustered;
 
-chart.DataRange = sheet.Range("A1:E5")
+  //Set data range in the worksheet
+  chart.DataRange = sheet.Range["A1:E5"];
 
-workbook.SaveAs("Chart.xlsx")
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Chart";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-workbook.Close()
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-excelEngine.Dispose()
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
+  //Create a Chart
+  IChartShape chart = sheet.Charts.Add();
 
+  //Set Chart Type
+  chart.ChartType = ExcelChartType.Column_Clustered;
+
+  //Set data range in the worksheet
+  chart.DataRange = sheet.Range["A1:E5"];
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Chart.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a Chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set Chart Type
+  chart.ChartType = ExcelChartType.Column_Clustered;
+
+  //Set data range in the worksheet
+  chart.DataRange = sheet.Range["A1:E5"];
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -89,77 +171,147 @@ A chart in XlsIO can also be created from directly entered values. The Following
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  object[] yValues = new object[] { 2000, 1000, 1000 };
+  object[] xValues = new object[] { "Total Income", "Expenses", "Profit" };
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Adding series and values
+  IChartShape chart = sheet.Charts.Add();
+  IChartSerie serie = chart.Series.Add(ExcelChartType.Pie);
 
-IWorkbook workbook = application.Workbooks.Create(1);
+  //Enters the X and Y values directly
+  serie.EnteredDirectlyValues = yValues;
+  serie.EnteredDirectlyCategoryLabels = xValues;
 
-IWorksheet sheet = workbook.Worksheets[0];
-
-object[] yValues = new object[] { 2000, 1000, 1000 };
-
-object[] xValues = new object[] { "Total Income", "Expenses", "Profit" };
-
-// Adding series and values
-
-IChart chart = sheet.Charts.Add();
-
-IChartSerie serie = chart.Series.Add(ExcelChartType.Pie);
-
-// Enters the X and Y values directly
-
-serie.EnteredDirectlyValues = yValues;
-
-serie.EnteredDirectlyCategoryLabels = xValues;
-
-workbook.SaveAs("Chart.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
+  workbook.SaveAs("Chart.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  Dim yValues As Object() = New Object() {2000, 1000, 1000}
+  Dim xValues As Object() = New Object() {"Total Income", "Expenses", "Profit"}
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Adding series and values
+  Dim chart As IChartShape = sheet.Charts.Add()
+  Dim serie As IChartSerie = chart.Series.Add(ExcelChartType.Pie)
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  'Enters the X and Y values directly
+  serie.EnteredDirectlyValues = yValues
+  serie.EnteredDirectlyCategoryLabels = xValues
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  workbook.SaveAs("Chart.xlsx")
+End Using
+{% endhighlight %}
 
-Dim yValues As Object() = New Object() {2000, 1000, 1000}
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-Dim xValues As Object() = New Object() {"Total Income", "Expenses", "Profit"}
+  object[] yValues = new object[] { 2000, 1000, 1000 };
+  object[] xValues = new object[] { "Total Income", "Expenses", "Profit" };
 
-' Adding series and values
+  //Adding series and values
+  IChartShape chart = sheet.Charts.Add();
+  IChartSerie serie = chart.Series.Add(ExcelChartType.Pie);
 
-Dim chart As IChart = sheet.Charts.Add()
+  //Enters the X and Y values directly
+  serie.EnteredDirectlyValues = yValues;
+  serie.EnteredDirectlyCategoryLabels = xValues;
 
-Dim serie As IChartSerie = chart.Series.Add(ExcelChartType.Pie)
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Chart";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-' Enters the X and Y values directly
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-serie.EnteredDirectlyValues = yValues
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-serie.EnteredDirectlyCategoryLabels = xValues
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-workbook.SaveAs("Chart.xlsx")
+  object[] yValues = new object[] { 2000, 1000, 1000 };
+  object[] xValues = new object[] { "Total Income", "Expenses", "Profit" };
 
-workbook.Close()
+  //Adding series and values
+  IChartShape chart = sheet.Charts.Add();
+  IChartSerie serie = chart.Series.Add(ExcelChartType.Pie);
 
-excelEngine.Dispose()
+  //Enters the X and Y values directly
+  serie.EnteredDirectlyValues = yValues;
+  serie.EnteredDirectlyCategoryLabels = xValues;
 
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Chart.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
 
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
+  object[] yValues = new object[] { 2000, 1000, 1000 };
+  object[] xValues = new object[] { "Total Income", "Expenses", "Profit" };
+
+  //Adding series and values
+  IChartShape chart = sheet.Charts.Add();
+  IChartSerie serie = chart.Series.Add(ExcelChartType.Pie);
+
+  //Enters the X and Y values directly
+  serie.EnteredDirectlyValues = yValues;
+  serie.EnteredDirectlyCategoryLabels = xValues;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
  
@@ -169,169 +321,286 @@ A chart can also be created by adding series one by one. The following code illu
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-
-IApplication application = excelEngine.Excel;
-
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Create(1);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Inserts the sample data for the chart
-
-sheet.Range["A1"].Text = "Month";
-
-sheet.Range["B1"].Text = "Product A";
-
-sheet.Range["C1"].Text = "Product B";
-
-//Months
-
-sheet.Range["A2"].Text = "Jan";
-
-sheet.Range["A3"].Text = "Feb";
-
-sheet.Range["A4"].Text = "Mar";
-
-sheet.Range["A5"].Text = "Apr";
-
-sheet.Range["A6"].Text = "May";
-
-//Create a random Data
-
-Random r = new Random();
-
-for (int i = 2; i <= 6; i++)
-
+using (ExcelEngine excelEngine = new ExcelEngine())
 {
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-for (int j = 2; j <= 3; j++)
+  //Inserts the sample data for the chart
+  sheet.Range["A1"].Text = "Month";
+  sheet.Range["B1"].Text = "Product A";
+  sheet.Range["C1"].Text = "Product B";
 
-{
+  //Months
+  sheet.Range["A2"].Text = "Jan";
+  sheet.Range["A3"].Text = "Feb";
+  sheet.Range["A4"].Text = "Mar";
+  sheet.Range["A5"].Text = "Apr";
+  sheet.Range["A6"].Text = "May";
 
-sheet.Range[i, j].Number = r.Next(0, 500);
+  //Create a random Data
+  Random r = new Random();
+  for (int i = 2; i <= 6; i++)
+  {
+	for (int j = 2; j <= 3; j++)
+	{
+	  sheet.Range[i, j].Number = r.Next(0, 500);
+	}
+  }
+  IChartShape chart = sheet.Charts.Add();
 
+  //Set chart type
+  chart.ChartType = ExcelChartType.Line;
+
+  //Set Chart Title
+  chart.ChartTitle = "Product Sales comparison";
+
+  //Set first serie
+  IChartSerie productA = chart.Series.Add("ProductA");
+  productA.Values = sheet.Range["B2:B6"];
+  productA.CategoryLabels = sheet.Range["A2:A6"];
+
+  //Set second serie
+  IChartSerie productB = chart.Series.Add("ProductB");
+  productB.Values = sheet.Range["C2:C6"];
+  productB.CategoryLabels = sheet.Range["A2:A6"];
+
+  workbook.SaveAs("Chart.xlsx");
 }
-
-}
-
-IChartShape chart = sheet.Charts.Add();
-
-//Set chart type
-
-chart.ChartType = ExcelChartType.Line;
-
-//Set Chart Title
-
-chart.ChartTitle = "Product Sales comparison";
-
-//Set first serie
-
-IChartSerie productA = chart.Series.Add("ProductA");
-
-productA.Values = sheet.Range["B2:B6"];
-
-productA.CategoryLabels = sheet.Range["A2:A6"];
-
-//Set second serie
-
-IChartSerie productB = chart.Series.Add("ProductB");
-
-productB.Values = sheet.Range["C2:C6"];
-
-productB.CategoryLabels = sheet.Range["A2:A6"];
-
-workbook.SaveAs("chart.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Inserting sample data for the chart
+  sheet.Range("A1").Text = "Month"
+  sheet.Range("B1").Text = "Product A"
+  sheet.Range("C1").Text = "Product B"
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Months
+  sheet.Range("A2").Text = "Jan"
+  sheet.Range("A3").Text = "Feb"
+  sheet.Range("A4").Text = "Mar"
+  sheet.Range("A5").Text = "Apr"
+  sheet.Range("A6").Text = "May"
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  'Create a random data
+  Dim r As Random = New Random
+  For i As Integer = 2 To 6
+    For j As Integer = 2 To 3
+	  sheet.Range(i, j).Number = r.Next(0, 500)
+	Next j
+  Next i
+  
+  Dim chart As IChartShape = sheet.Charts.Add()
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  'Set chart type
+  chart.ChartType = ExcelChartType.Line
 
-'Inserting sample data for the chart
+  'Set Chart Title
+  chart.ChartTitle = "Product Sales comparison"
 
-sheet.Range("A1").Text = "Month"
+  'Set first serie
+  Dim productA As IChartSerie = chart.Series.Add("ProductA")
+  productA.Values = sheet.Range("B2:B6")
+  productA.CategoryLabels = sheet.Range("A2:A6")
 
-sheet.Range("B1").Text = "Product A"
+  'set second serie
+  Dim productB As IChartSerie = chart.Series.Add("ProductB")
+  productB.Values = sheet.Range("C2:C6")
+  productB.CategoryLabels = sheet.Range("A2:A6")
 
-sheet.Range("C1").Text = "Product B"
+  workbook.SaveAs("Chart.xlsx")
+End Using
+{% endhighlight %}
 
-'Months
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-sheet.Range("A2").Text = "Jan"
+  //Inserts the sample data for the chart
+  sheet.Range["A1"].Text = "Month";
+  sheet.Range["B1"].Text = "Product A";
+  sheet.Range["C1"].Text = "Product B";
 
-sheet.Range("A3").Text = "Feb"
+  //Months
+  sheet.Range["A2"].Text = "Jan";
+  sheet.Range["A3"].Text = "Feb";
+  sheet.Range["A4"].Text = "Mar";
+  sheet.Range["A5"].Text = "Apr";
+  sheet.Range["A6"].Text = "May";
 
-sheet.Range("A4").Text = "Mar"
+  //Create a random Data
+  Random r = new Random();
+  for (int i = 2; i <= 6; i++)
+  {
+	for (int j = 2; j <= 3; j++)
+	{
+	  sheet.Range[i, j].Number = r.Next(0, 500);
+	}
+  }  
+  IChartShape chart = sheet.Charts.Add();
 
-sheet.Range("A5").Text = "Apr"
+  //Set chart type
+  chart.ChartType = ExcelChartType.Line;
 
-sheet.Range("A6").Text = "May"
+  //Set Chart Title
+  chart.ChartTitle = "Product Sales comparison";
 
-'Create a random data
+  //Set first serie
+  IChartSerie productA = chart.Series.Add("ProductA");
+  productA.Values = sheet.Range["B2:B6"];
+  productA.CategoryLabels = sheet.Range["A2:A6"];
 
-Dim r As Random = New Random
+  //Set second serie
+  IChartSerie productB = chart.Series.Add("ProductB");
+  productB.Values = sheet.Range["C2:C6"];
+  productB.CategoryLabels = sheet.Range["A2:A6"];
 
-For i As Integer = 2 To 6
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Chart";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-For j As Integer = 2 To 3
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-sheet.Range(i, j).Number = r.Next(0, 500)
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-Next j
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-Next i
+  //Inserts the sample data for the chart
+  sheet.Range["A1"].Text = "Month";
+  sheet.Range["B1"].Text = "Product A";
+  sheet.Range["C1"].Text = "Product B";
 
-Dim chart As IChartShape = sheet.Charts.Add()
+  //Months
+  sheet.Range["A2"].Text = "Jan";
+  sheet.Range["A3"].Text = "Feb";
+  sheet.Range["A4"].Text = "Mar";
+  sheet.Range["A5"].Text = "Apr";
+  sheet.Range["A6"].Text = "May";
 
-'Set chart type
+  //Create a random Data
+  Random r = new Random();
+  for (int i = 2; i <= 6; i++)
+  {
+	for (int j = 2; j <= 3; j++)
+	{
+	  sheet.Range[i, j].Number = r.Next(0, 500);
+	}
+  }
+  IChartShape chart = sheet.Charts.Add();
 
-chart.ChartType = ExcelChartType.Line
+  //Set chart type
+  chart.ChartType = ExcelChartType.Line;
 
-'Set Chart Title
+  //Set Chart Title
+  chart.ChartTitle = "Product Sales comparison";
 
-chart.ChartTitle = "Product Sales comparison"
+  //Set first serie
+  IChartSerie productA = chart.Series.Add("ProductA");
+  productA.Values = sheet.Range["B2:B6"];
+  productA.CategoryLabels = sheet.Range["A2:A6"];
 
-'Set first serie
+  //Set second serie
+  IChartSerie productB = chart.Series.Add("ProductB");
+  productB.Values = sheet.Range["C2:C6"];
+  productB.CategoryLabels = sheet.Range["A2:A6"];
 
-Dim productA As IChartSerie = chart.Series.Add("ProductA")
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Chart.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
 
-productA.Values = sheet.Range("B2:B6")
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-productA.CategoryLabels = sheet.Range("A2:A6")
+  //Inserts the sample data for the chart
+  sheet.Range["A1"].Text = "Month";
+  sheet.Range["B1"].Text = "Product A";
+  sheet.Range["C1"].Text = "Product B";
 
-'set second serie
+  //Months
+  sheet.Range["A2"].Text = "Jan";
+  sheet.Range["A3"].Text = "Feb";
+  sheet.Range["A4"].Text = "Mar";
+  sheet.Range["A5"].Text = "Apr";
+  sheet.Range["A6"].Text = "May";
 
-Dim productB As IChartSerie = chart.Series.Add("ProductB")
+  //Create a random Data
+  Random r = new Random();
+  for (int i = 2; i <= 6; i++)
+  {
+	for (int j = 2; j <= 3; j++)
+	{
+	  sheet.Range[i, j].Number = r.Next(0, 500);
+	}
+  }
+  IChartShape chart = sheet.Charts.Add();
 
-productB.Values = sheet.Range("C2:C6")
+  //Set chart type
+  chart.ChartType = ExcelChartType.Line;
 
-productB.CategoryLabels = sheet.Range("A2:A6")
+  //Set Chart Title
+  chart.ChartTitle = "Product Sales comparison";
 
-workbook.SaveAs("Chart.xlsx")
+  //Set first serie
+  IChartSerie productA = chart.Series.Add("ProductA");
+  productA.Values = sheet.Range["B2:B6"];
+  productA.CategoryLabels = sheet.Range["A2:A6"];
 
-workbook.Close()
+  //Set second serie
+  IChartSerie productB = chart.Series.Add("ProductB");
+  productB.Values = sheet.Range["C2:C6"];
+  productB.CategoryLabels = sheet.Range["A2:A6"];
 
-excelEngine.Dispose()
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
 
+  stream.Position = 0;
 
+  //Save the document as file and view the saved document
 
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
  
@@ -341,61 +610,131 @@ The following code snippet shows how to create a chart sheet (separate sheet).
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Add the chart sheet
+  IChart chart = workbook.Charts.Add();
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.DataRange = sheet.Range["A1:E5"];
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Add the chart sheet
-
-IChart chart = workbook.Charts.Add();
-
-chart.ChartType = ExcelChartType.Column_Clustered;
-
-chart.DataRange = sheet.Range["A1:E5"];
-
-workbook.SaveAs("Chart.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Chart.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Add the chart sheet
+  Dim chart As IChart = workbook.Charts.Add()
+  chart.ChartType = ExcelChartType.Column_Clustered
+  chart.DataRange = sheet.Range("A1:E5")
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  workbook.SaveAs("Chart.xlsx")
+End Using
+{% endhighlight %}
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-'Add the chart sheet
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-Dim chart As IChart = workbook.Charts.Add()
+  //Add the chart sheet
+  IChart chart = workbook.Charts.Add();
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.DataRange = sheet.Range["A1:E5"];
 
-chart.ChartType = ExcelChartType.Column_Clustered
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Chart";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-chart.DataRange = sheet.Range("A1:E5")
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-workbook.SaveAs("Chart.xlsx")
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-workbook.Close()
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-excelEngine.Dispose()
+  //Add the chart sheet
+  IChart chart = workbook.Charts.Add();
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.DataRange = sheet.Range["A1:E5"];
 
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Chart.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
 
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Add the chart sheet
+  IChart chart = workbook.Charts.Add();
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.DataRange = sheet.Range["A1:E5"];
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -405,277 +744,1007 @@ A custom chart can be created by using different types of charts for different d
 
 For example, you can use a column chart for the first data series and a line chart for the second series. As a result you will have a column chart, combined with a line chart.
 
-The following code sample demonstrates how to create a custom chart. 
+This sample also explains different chart properties like
+
+### Set Data Range to Chart
+
+{% tabs %}
+{% highlight c# %}
+//Add a new chart with data range
+IChartShape chart = sheet.Charts.Add();
+chart.DataRange = sheet.Range["A3:C6"];
+{% endhighlight %}
+
+{% highlight vb %}
+'Add a new chart with data range
+Dim chart As IChartShape = sheet.Charts.Add()
+chart.DataRange = sheet.Range("A3:C6")
+{% endhighlight %}
+
+{% highlight UWP %}
+//Add a new chart with data range
+IChartShape chart = sheet.Charts.Add();
+chart.DataRange = sheet.Range["A3:C6"];
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Add a new chart with data range
+IChartShape chart = sheet.Charts.Add();
+chart.DataRange = sheet.Range["A3:C6"];
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Add a new chart with data range
+IChartShape chart = sheet.Charts.Add();
+chart.DataRange = sheet.Range["A3:C6"];
+{% endhighlight %}
+{% endtabs %}
+
+### Name the Chart and Set Chart Title
+
+{% tabs %}
+{% highlight c# %}
+//Set chart name and chart title
+chart.Name = "CrescentCity,CA";
+chart.ChartTitle = "Crescent City, CA";
+{% endhighlight %}
+
+{% highlight vb %}
+'Set chart name and chart title
+chart.Name = "CrescentCity,CA"
+chart.ChartTitle = "Crescent City, CA"
+{% endhighlight %}
+
+{% highlight UWP %}
+//Set chart name and chart title
+chart.Name = "CrescentCity,CA";
+chart.ChartTitle = "Crescent City, CA";
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Set chart name and chart title
+chart.Name = "CrescentCity,CA";
+chart.ChartTitle = "Crescent City, CA";
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Set chart name and chart title
+chart.Name = "CrescentCity,CA";
+chart.ChartTitle = "Crescent City, CA";
+{% endhighlight %}
+{% endtabs %}
+
+### Different Primary Value Axis Properties
+
+{% tabs %}
+{% highlight c# %}
+//Axis title
+chart.PrimaryValueAxis.Title = "Precipitation,in.";
+
+//Axis title area text angle rotation
+chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90;
+
+//Maximum value in the axis
+chart.PrimaryValueAxis.MaximumValue = 14.0;
+
+//Number format for axis
+chart.PrimaryValueAxis.NumberFormat = "0.0";
+{% endhighlight %}
+
+{% highlight vb %}
+'Axis title
+chart.PrimaryValueAxis.Title = "Precipitation,in."
+
+'Axis title area text angle rotation
+chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90
+
+'Maximum value in the axis
+chart.PrimaryValueAxis.MaximumValue = 14.0
+
+'Number format for axis
+chart.PrimaryValueAxis.NumberFormat = "0.0"
+{% endhighlight %}
+
+{% highlight UWP %}
+//Axis title
+chart.PrimaryValueAxis.Title = "Precipitation,in.";
+
+//Axis title area text angle rotation
+chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90;
+
+//Maximum value in the axis
+chart.PrimaryValueAxis.MaximumValue = 14.0;
+
+//Number format for axis
+chart.PrimaryValueAxis.NumberFormat = "0.0";
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Axis title
+chart.PrimaryValueAxis.Title = "Precipitation,in.";
+
+//Axis title area text angle rotation
+chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90;
+
+//Maximum value in the axis
+chart.PrimaryValueAxis.MaximumValue = 14.0;
+
+//Number format for axis
+chart.PrimaryValueAxis.NumberFormat = "0.0";
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Axis title
+chart.PrimaryValueAxis.Title = "Precipitation,in.";
+
+//Axis title area text angle rotation
+chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90;
+
+//Maximum value in the axis
+chart.PrimaryValueAxis.MaximumValue = 14.0;
+
+//Number format for axis
+chart.PrimaryValueAxis.NumberFormat = "0.0";
+{% endhighlight %}
+{% endtabs %}
+
+### Different Secondary Value Axis Properties
+
+{% tabs %}
+{% highlight c# %}
+//MaxCross in axis
+chart.SecondaryValueAxis.IsMaxCross = true;
+
+//Axis title
+chart.SecondaryValueAxis.Title = "Temperature,deg.F";
+
+//Axis title area text angle rotation
+chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
+{% endhighlight %}
+
+{% highlight vb %}
+'MaxCross in axis
+chart.SecondaryValueAxis.IsMaxCross = true
+
+'Axis title
+chart.SecondaryValueAxis.Title = "Temperature,deg.F"
+
+'Axis title area text angle rotation
+chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90
+{% endhighlight %}
+
+{% highlight UWP %}
+//MaxCross in axis
+chart.SecondaryValueAxis.IsMaxCross = true;
+
+//Axis title
+chart.SecondaryValueAxis.Title = "Temperature,deg.F";
+
+//Axis title area text angle rotation
+chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//MaxCross in axis
+chart.SecondaryValueAxis.IsMaxCross = true;
+
+//Axis title
+chart.SecondaryValueAxis.Title = "Temperature,deg.F";
+
+//Axis title area text angle rotation
+chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//MaxCross in axis
+chart.SecondaryValueAxis.IsMaxCross = true;
+
+//Axis title
+chart.SecondaryValueAxis.Title = "Temperature,deg.F";
+
+//Axis title area text angle rotation
+chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
+{% endhighlight %}
+{% endtabs %}
+
+### Different Secondary Category Axis Properties
+
+{% tabs %}
+{% highlight c# %}
+//MaxCross in axis
+chart.SecondaryCategoryAxis.IsMaxCross = true;
+
+//Select border line color
+chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent;
+
+//Select major tick mark option
+chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
+
+//Select tick label position
+chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
+{% endhighlight %}
+
+{% highlight vb %}
+'MaxCross in axis
+chart.SecondaryCategoryAxis.IsMaxCross = true
+
+'Select border line color
+chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent
+
+'Select major tick mark option
+chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None
+
+'Select tick label position
+chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None
+{% endhighlight %}
+
+{% highlight UWP %}
+//MaxCross in axis
+chart.SecondaryCategoryAxis.IsMaxCross = true;
+
+//Select border line color
+chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent;
+
+//Select major tick mark option
+chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
+
+//Select tick label position
+chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//MaxCross in axis
+chart.SecondaryCategoryAxis.IsMaxCross = true;
+
+//Select border line color
+chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent;
+
+//Select major tick mark option
+chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
+
+//Select tick label position
+chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//MaxCross in axis
+chart.SecondaryCategoryAxis.IsMaxCross = true;
+
+//Select border line color
+chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent;
+
+//Select major tick mark option
+chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
+
+//Select tick label position
+chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
+{% endhighlight %}
+{% endtabs %}
+
+### Different Chart Series Fill Properties
+
+{% tabs %}
+{% highlight c# %}
+IChartSerie serieOne = chart.Series[0];
+
+//Series name
+serieOne.Name = "Precipitation,in.";
+
+//Series fill type
+serieOne.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
+
+//Series two color gradient
+serieOne.SerieFormat.Fill.TwoColorGradient(ExcelGradientStyle.Vertical, ExcelGradientVariants.ShadingVariants_2);
+
+//Series gradient color type
+serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor;
+
+//Series fore color
+serieOne.SerieFormat.Fill.ForeColor = Color.Plum;
+{% endhighlight %}
+
+{% highlight vb %}
+Dim serieOne As IChartSerie = chart.Series(0)
+
+'Series name
+serieOne.Name = "Precipitation,in."
+
+'Series fill type
+serieOne.SerieFormat.Fill.FillType = ExcelFillType.Gradient
+
+'Series two color gradient
+serieOne.SerieFormat.Fill.TwoColorGradient(ExcelGradientStyle.Vertical, ExcelGradientVariants.ShadingVariants_2)
+
+'Series gradient color type
+serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor
+
+'Series fore color
+serieOne.SerieFormat.Fill.ForeColor = Color.Plum
+{% endhighlight %}
+
+{% highlight UWP %}
+IChartSerie serieOne = chart.Series[0];
+
+//Series name
+serieOne.Name = "Precipitation,in.";
+
+//Series fill type
+serieOne.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
+
+//Series two color gradient
+serieOne.SerieFormat.Fill.TwoColorGradient(ExcelGradientStyle.Vertical, ExcelGradientVariants.ShadingVariants_2);
+
+//Series gradient color type
+serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor;
+
+//Series fore color
+serieOne.SerieFormat.Fill.ForeColor = Color.Plum;
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+IChartSerie serieOne = chart.Series[0];
+
+//Series name
+serieOne.Name = "Precipitation,in.";
+
+//Series fill type
+serieOne.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
+
+//Series two color gradient
+serieOne.SerieFormat.Fill.TwoColorGradient(ExcelGradientStyle.Vertical, ExcelGradientVariants.ShadingVariants_2);
+
+//Series gradient color type
+serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor;
+
+//Series fore color
+serieOne.SerieFormat.Fill.ForeColor = Color.Plum;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+IChartSerie serieOne = chart.Series[0];
+
+//Series name
+serieOne.Name = "Precipitation,in.";
+
+//Series fill type
+serieOne.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
+
+//Series two color gradient
+serieOne.SerieFormat.Fill.TwoColorGradient(ExcelGradientStyle.Vertical, ExcelGradientVariants.ShadingVariants_2);
+
+//Series gradient color type
+serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor;
+
+//Series fore color
+serieOne.SerieFormat.Fill.ForeColor = Color.Plum;
+{% endhighlight %}
+{% endtabs %}
+
+### Different Marker Properties
+
+{% tabs %}
+{% highlight c# %}
+IChartSerie serieTwo = chart.Series[1];
+
+//Marker style
+serieTwo.SerieFormat.MarkerStyle = ExcelChartMarkerType.Diamond;
+
+//Marker size
+serieTwo.SerieFormat.MarkerSize = 8;
+
+//Marker background color
+serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen;
+
+//Marker foreground color
+serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen;
+{% endhighlight %}
+
+{% highlight vb %}
+Dim serieTwo As IChartSerie = chart.Series(1)
+
+'Marker style
+serieTwo.SerieFormat.MarkerStyle = ExcelChartMarkerType.Diamond
+
+'Marker size
+serieTwo.SerieFormat.MarkerSize = 8
+
+'Marker background color
+serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen
+
+'Marker foreground color
+serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen
+{% endhighlight %}
+
+{% highlight UWP %}
+IChartSerie serieTwo = chart.Series[1];
+
+//Marker style
+serieTwo.SerieFormat.MarkerStyle = ExcelChartMarkerType.Diamond;
+
+//Marker size
+serieTwo.SerieFormat.MarkerSize = 8;
+
+//Marker background color
+serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen;
+
+//Marker foreground color
+serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen;
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+IChartSerie serieTwo = chart.Series[1];
+
+//Marker style
+serieTwo.SerieFormat.MarkerStyle = ExcelChartMarkerType.Diamond;
+
+//Marker size
+serieTwo.SerieFormat.MarkerSize = 8;
+
+//Marker background color
+serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen;
+
+//Marker foreground color
+serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+IChartSerie serieTwo = chart.Series[1];
+
+//Marker style
+serieTwo.SerieFormat.MarkerStyle = ExcelChartMarkerType.Diamond;
+
+//Marker size
+serieTwo.SerieFormat.MarkerSize = 8;
+
+//Marker background color
+serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen;
+
+//Marker foreground color
+serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen;
+{% endhighlight %}
+{% endtabs %}
+
+### Different Legend Properties
+
+{% tabs %}
+{% highlight c# %}
+//Legend without overlapping the chart
+chart.Legend.IncludeInLayout = true;
+
+//Legend position
+chart.Legend.Position = ExcelLegendPosition.Bottom;
+
+//View legend horizontally
+chart.Legend.IsVerticalLegend = false;
+{% endhighlight %}
+
+{% highlight vb %}
+'Legend without overlapping the chart
+chart.Legend.IncludeInLayout = true
+
+'Legend position
+chart.Legend.Position = ExcelLegendPosition.Bottom
+
+'View legend horizontally
+chart.Legend.IsVerticalLegend = false
+{% endhighlight %}
+
+{% highlight UWP %}
+//Legend without overlapping the chart
+chart.Legend.IncludeInLayout = true;
+
+//Legend position
+chart.Legend.Position = ExcelLegendPosition.Bottom;
+
+//View legend horizontally
+chart.Legend.IsVerticalLegend = false;
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Legend without overlapping the chart
+chart.Legend.IncludeInLayout = true;
+
+//Legend position
+chart.Legend.Position = ExcelLegendPosition.Bottom;
+
+//View legend horizontally
+chart.Legend.IsVerticalLegend = false;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Legend without overlapping the chart
+chart.Legend.IncludeInLayout = true;
+
+//Legend position
+chart.Legend.Position = ExcelLegendPosition.Bottom;
+
+//View legend horizontally
+chart.Legend.IsVerticalLegend = false;
+{% endhighlight %}
+{% endtabs %}
+
+The complete code snippet illustrating the above options along with creating custom charts is shown below.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-
-IApplication application = excelEngine.Excel;
-
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Create(1);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Insert data for the chart
-
-sheet.Range["A1"].Text = "Crescent City, CA";
-
-sheet.Range["A1:D1"].Merge();
-
-sheet.Range["A1"].CellStyle.Font.Bold = true;
-
-sheet.Range["B3"].Text = "Precipitation,in.";
-
-sheet.Range["C3"].Text = "Temperature,deg.F";
-
-sheet.Range["A4"].Text = "Jan";
-
-sheet.Range["A5"].Text = "Feb";
-
-sheet.Range["A6"].Text = "March";
-
-sheet.Range["B4"].Number = 10.9;
-
-sheet.Range["B5"].Number = 8.9;
-
-sheet.Range["B6"].Number = 8.6;
-
-sheet.Range["C4"].Number = 47.5;
-
-sheet.Range["C5"].Number = 48.7;
-
-sheet.Range["C6"].Number = 48.9;
-
-sheet.UsedRange.AutofitColumns();
-
-// Adding a new chart to the Existing Worksheet
-
-IChart chart = sheet.Charts.Add();
-
-chart.DataRange = sheet.Range["A3:C6"];
-
-chart.Name = "CrescentCity,CA";
-
-chart.ChartTitle = "Crescent City, CA";
-
-chart.IsSeriesInRows = false;
-
-chart.PrimaryValueAxis.Title = "Precipitation,in.";
-
-chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90;
-
-chart.PrimaryValueAxis.MaximumValue = 14.0;
-
-chart.PrimaryValueAxis.NumberFormat = "0.0";
-
-// Format serie
-
-IChartSerie serieOne = chart.Series[0];
-
-serieOne.Name = "Precipitation,in.";
-
-serieOne.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
-
-serieOne.SerieFormat.Fill.TwoColorGradient(ExcelGradientStyle.Vertical, ExcelGradientVariants.ShadingVariants_2);
-
-serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor;
-
-serieOne.SerieFormat.Fill.ForeColor = Color.Plum;
-
-//Format second serie
-
-IChartSerie serieTwo = chart.Series[1];
-
-serieTwo.SerieType = ExcelChartType.Line_Markers;
-
-serieTwo.Name = "Temperature,deg.F";
-
-//Format marker
-
-serieTwo.SerieFormat.MarkerStyle = ExcelChartMarkerType.Diamond;
-
-serieTwo.SerieFormat.MarkerSize = 8;
-
-serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen;
-
-serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen;
-
-serieTwo.SerieFormat.LineProperties.LineColor = Color.DarkGreen;
-
-//Use Secondary Axis
-
-serieTwo.UsePrimaryAxis = false;
-
-//Display secondary axis for the series.
-
-chart.SecondaryCategoryAxis.IsMaxCross = true;
-
-chart.SecondaryValueAxis.IsMaxCross = true;
-
-//Set title
-
-chart.SecondaryValueAxis.Title = "Temperature,deg.F";
-
-chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
-
-//Hide secondary category axis
-
-chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent;
-
-chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
-
-chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
-
-chart.Legend.Position = ExcelLegendPosition.Bottom;
-
-chart.Legend.IsVerticalLegend = false;
-
-workbook.SaveAs("Chart.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];  
+
+  //Merge cells
+  sheet.Range["A1:D1"].Merge();
+
+  //Set Font style as bold
+  sheet.Range["A1"].CellStyle.Font.Bold = true;
+
+  //Insert data for the chart
+  sheet.Range["A1"].Text = "Crescent City, CA";
+  sheet.Range["B3"].Text = "Precipitation,in.";
+  sheet.Range["C3"].Text = "Temperature,deg.F";
+  sheet.Range["A4"].Text = "Jan";
+  sheet.Range["A5"].Text = "Feb";
+  sheet.Range["A6"].Text = "March";
+  sheet.Range["B4"].Number = 10.9;
+  sheet.Range["B5"].Number = 8.9;
+  sheet.Range["B6"].Number = 8.6;
+  sheet.Range["C4"].Number = 47.5;
+  sheet.Range["C5"].Number = 48.7;
+  sheet.Range["C6"].Number = 48.9;
+
+  //Adjust column width in used range
+  sheet.UsedRange.AutofitColumns();
+
+  //Add a new chart with data range
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.Range["A3:C6"];
+
+  //Set chart name and chart title
+  chart.Name = "CrescentCity,CA";
+  chart.ChartTitle = "Crescent City, CA";
+  chart.IsSeriesInRows = false;
+
+  //Set primary value axis properties
+  chart.PrimaryValueAxis.Title = "Precipitation,in.";
+  chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90;
+  chart.PrimaryValueAxis.MaximumValue = 14.0;
+  chart.PrimaryValueAxis.NumberFormat = "0.0";
+
+  //Format first serie fill properties
+  IChartSerie serieOne = chart.Series[0];
+  serieOne.Name = "Precipitation,in.";
+  serieOne.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
+  serieOne.SerieFormat.Fill.TwoColorGradient(ExcelGradientStyle.Vertical, ExcelGradientVariants.ShadingVariants_2);
+  serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor;
+  serieOne.SerieFormat.Fill.ForeColor = Color.Plum;
+
+  //Format second serie properties
+  IChartSerie serieTwo = chart.Series[1];
+  serieTwo.SerieType = ExcelChartType.Line_Markers;
+  serieTwo.Name = "Temperature,deg.F";
+
+  //Format marker properties
+  serieTwo.SerieFormat.MarkerStyle = ExcelChartMarkerType.Diamond;
+  serieTwo.SerieFormat.MarkerSize = 8;
+  serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen;
+  serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen;
+  serieTwo.SerieFormat.LineProperties.LineColor = Color.DarkGreen;
+
+  //Use Secondary Axis
+  serieTwo.UsePrimaryAxis = false;
+
+  //MaxCross for secondary axes
+  chart.SecondaryCategoryAxis.IsMaxCross = true;
+  chart.SecondaryValueAxis.IsMaxCross = true;
+
+  //Set title for secondary value axis
+  chart.SecondaryValueAxis.Title = "Temperature,deg.F";
+  chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
+
+  //Set secondary category axis properties
+  chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent;
+  chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
+  chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
+
+  //Set legend properties
+  chart.Legend.Position = ExcelLegendPosition.Bottom;
+  chart.Legend.IsVerticalLegend = false;
+
+  workbook.SaveAs("Chart.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
 Dim excelEngine As New ExcelEngine()
 
-Dim application As IApplication = excelEngine.Excel
-
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-'Insert data for the chart
-
-sheet.Range("A1").Text = "Crescent City, CA"
-
-sheet.Range("A1:D1").Merge()
-
-sheet.Range("A1").CellStyle.Font.Bold = True
-
-sheet.Range("B3").Text = "Precipitation,in."
-
-sheet.Range("C3").Text = "Temperature,deg.F"
-
-sheet.Range("A4").Text = "Jan"
-
-sheet.Range("A5").Text = "Feb"
-
-sheet.Range("A6").Text = "March"
-
-sheet.Range("B4").Number = 10.9
-
-sheet.Range("B5").Number = 8.9
-
-sheet.Range("B6").Number = 8.6
-
-sheet.Range("C4").Number = 47.5
-
-sheet.Range("C5").Number = 48.7
-
-sheet.Range("C6").Number = 48.9
-
-sheet.UsedRange.AutofitColumns()
-
-' Adding a new chart to the Existing Worksheet
-
-Dim chart As IChart = sheet.Charts.Add()
-
-chart.DataRange = sheet.Range("A3:C6")
-
-chart.Name = "CrescentCity,CA"
-
-chart.ChartTitle = "Crescent City, CA"
-
-chart.IsSeriesInRows = False
-
-chart.PrimaryValueAxis.Title = "Precipitation,in."
-
-chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90
-
-chart.PrimaryValueAxis.MaximumValue = 14.0
-
-chart.PrimaryValueAxis.NumberFormat = "0.0"
-
-' Format serie
-
-Dim serieOne As IChartSerie = chart.Series(0)
-
-serieOne.Name = "Precipitation,in."
-
-serieOne.SerieFormat.Fill.FillType = ExcelFillType.Gradient
-
-serieOne.SerieFormat.Fill.TwoColorGradient(ExcelGradientStyle.Vertical, ExcelGradientVariants.ShadingVariants_2)
-
-serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor
-
-serieOne.SerieFormat.Fill.ForeColor = Color.Plum
-
-'Format second serie
-
-Dim serieTwo As IChartSerie = chart.Series(1)
-
-serieTwo.SerieType = ExcelChartType.Line_Markers
-
-serieTwo.Name = "Temperature,deg.F"
-
-'Format marker
-
-serieTwo.SerieFormat.MarkerStyle = ExcelChartMarkerType.Diamond
-
-serieTwo.SerieFormat.MarkerSize = 8
-
-serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen
-
-serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen
-
-serieTwo.SerieFormat.LineProperties.LineColor = Color.DarkGreen
-
-'Use Secondary Axis
-
-serieTwo.UsePrimaryAxis = False
-
-'Display secondary axis for the series.
-
-chart.SecondaryCategoryAxis.IsMaxCross = True
-
-chart.SecondaryValueAxis.IsMaxCross = True
-
-'Set title
-
-chart.SecondaryValueAxis.Title = "Temperature,deg.F"
-
-chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90
-
-'Hide secondary category axis
-
-chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent
-
-chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None
-
-chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None
-
-chart.Legend.Position = ExcelLegendPosition.Bottom
-
-chart.Legend.IsVerticalLegend = False
-
-workbook.SaveAs("Chart.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Merge cells
+  sheet.Range("A1:D1").Merge()
+
+  'Set Font style as bold
+  sheet.Range("A1").CellStyle.Font.Bold = True
+
+  'Insert data for the chart
+  sheet.Range("A1").Text = "Crescent City, CA"
+  sheet.Range("B3").Text = "Precipitation,in."
+  sheet.Range("C3").Text = "Temperature,deg.F"
+  sheet.Range("A4").Text = "Jan"
+  sheet.Range("A5").Text = "Feb"
+  sheet.Range("A6").Text = "March"
+  sheet.Range("B4").Number = 10.9
+  sheet.Range("B5").Number = 8.9
+  sheet.Range("B6").Number = 8.6
+  sheet.Range("C4").Number = 47.5
+  sheet.Range("C5").Number = 48.7
+  sheet.Range("C6").Number = 48.9
+
+  'Adjust column width in used range
+  sheet.UsedRange.AutofitColumns()
+
+  'Add a new chart with data range
+  Dim chart As IChartShape = sheet.Charts.Add()
+  chart.DataRange = sheet.Range("A3:C6")
+
+  'Set chart name and chart title
+  chart.Name = "CrescentCity,CA"
+  chart.ChartTitle = "Crescent City, CA"
+  chart.IsSeriesInRows = False
+
+  'Set primary value axis properties
+  chart.PrimaryValueAxis.Title = "Precipitation,in."
+  chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90
+  chart.PrimaryValueAxis.MaximumValue = 14.0
+  chart.PrimaryValueAxis.NumberFormat = "0.0"
+
+  'Format first serie fill properties
+  Dim serieOne As IChartSerie = chart.Series(0)
+  serieOne.Name = "Precipitation,in."
+  serieOne.SerieFormat.Fill.FillType = ExcelFillType.Gradient
+  serieOne.SerieFormat.Fill.TwoColorGradient(ExcelGradientStyle.Vertical, ExcelGradientVariants.ShadingVariants_2)
+  serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor
+  serieOne.SerieFormat.Fill.ForeColor = Color.Plum
+
+  'Format second serie properties
+  Dim serieTwo As IChartSerie = chart.Series(1)
+  serieTwo.SerieType = ExcelChartType.Line_Markers
+  serieTwo.Name = "Temperature,deg.F"
+
+  'Format marker properties
+  serieTwo.SerieFormat.MarkerStyle = ExcelChartMarkerType.Diamond
+  serieTwo.SerieFormat.MarkerSize = 8
+  serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen
+  serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen
+  serieTwo.SerieFormat.LineProperties.LineColor = Color.DarkGreen
+
+  'Use Secondary Axis
+  serieTwo.UsePrimaryAxis = False
+
+  'MaxCross for secondary axes
+  chart.SecondaryCategoryAxis.IsMaxCross = True
+  chart.SecondaryValueAxis.IsMaxCross = True
+
+  'Set title for secondary value axis
+  chart.SecondaryValueAxis.Title = "Temperature,deg.F"
+  chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90
+
+  'Set secondary category axis properties
+  chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent
+  chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None
+  chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None
+
+  'Set legend properties
+  chart.Legend.Position = ExcelLegendPosition.Bottom
+  chart.Legend.IsVerticalLegend = False
+
+  workbook.SaveAs("Chart.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Merge cells
+  sheet.Range["A1:D1"].Merge();
+
+  //Set Font style as bold
+  sheet.Range["A1"].CellStyle.Font.Bold = true;
+
+  //Insert data for the chart
+  sheet.Range["A1"].Text = "Crescent City, CA";
+  sheet.Range["B3"].Text = "Precipitation,in.";
+  sheet.Range["C3"].Text = "Temperature,deg.F";
+  sheet.Range["A4"].Text = "Jan";
+  sheet.Range["A5"].Text = "Feb";
+  sheet.Range["A6"].Text = "March";
+  sheet.Range["B4"].Number = 10.9;
+  sheet.Range["B5"].Number = 8.9;
+  sheet.Range["B6"].Number = 8.6;
+  sheet.Range["C4"].Number = 47.5;
+  sheet.Range["C5"].Number = 48.7;
+  sheet.Range["C6"].Number = 48.9;
+
+  //Adjust column width in used range
+  sheet.UsedRange.AutofitColumns();
+
+  //Add a new chart with data range
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.Range["A3:C6"];
+
+  //Set chart name and chart title
+  chart.Name = "CrescentCity,CA";
+  chart.ChartTitle = "Crescent City, CA";
+  chart.IsSeriesInRows = false;
+
+  //Set primary value axis properties
+  chart.PrimaryValueAxis.Title = "Precipitation,in.";
+  chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90;
+  chart.PrimaryValueAxis.MaximumValue = 14.0;
+  chart.PrimaryValueAxis.NumberFormat = "0.0";
+
+  //Format first serie fill properties
+  IChartSerie serieOne = chart.Series[0];
+  serieOne.Name = "Precipitation,in.";
+  serieOne.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
+  serieOne.SerieFormat.Fill.TwoColorGradient(ExcelGradientStyle.Vertical, ExcelGradientVariants.ShadingVariants_2);
+  serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor;
+  serieOne.SerieFormat.Fill.ForeColor = Color.FromArgb(255, 221, 160, 221);
+
+  //Format second serie properties
+  IChartSerie serieTwo = chart.Series[1];
+  serieTwo.SerieType = ExcelChartType.Line_Markers;
+  serieTwo.Name = "Temperature,deg.F";
+
+  //Format marker properties
+  serieTwo.SerieFormat.MarkerStyle = ExcelChartMarkerType.Diamond;
+  serieTwo.SerieFormat.MarkerSize = 8;
+  serieTwo.SerieFormat.MarkerBackgroundColor = Color.FromArgb(255, 0, 100, 0);
+  serieTwo.SerieFormat.MarkerForegroundColor = Color.FromArgb(255, 0, 100, 0);
+  serieTwo.SerieFormat.LineProperties.LineColor = Color.FromArgb(255, 0, 100, 0);
+
+  //Use Secondary Axis
+  serieTwo.UsePrimaryAxis = false;
+
+  //MaxCross for secondary axes
+  chart.SecondaryCategoryAxis.IsMaxCross = true;
+  chart.SecondaryValueAxis.IsMaxCross = true;
+
+  //Set title for secondary value axis
+  chart.SecondaryValueAxis.Title = "Temperature,deg.F";
+  chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
+
+  //Set secondary category axis properties
+  chart.SecondaryCategoryAxis.Border.LineColor = Color.FromArgb(0, 255, 255, 255);
+  chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
+  chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
+
+  //Set legend properties
+  chart.Legend.Position = ExcelLegendPosition.Bottom;
+  chart.Legend.IsVerticalLegend = false;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Chart";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Merge cells
+  sheet.Range["A1:D1"].Merge();
+
+  //Set Font style as bold
+  sheet.Range["A1"].CellStyle.Font.Bold = true;
+
+  //Insert data for the chart
+  sheet.Range["A1"].Text = "Crescent City, CA";
+  sheet.Range["B3"].Text = "Precipitation,in.";
+  sheet.Range["C3"].Text = "Temperature,deg.F";
+  sheet.Range["A4"].Text = "Jan";
+  sheet.Range["A5"].Text = "Feb";
+  sheet.Range["A6"].Text = "March";
+  sheet.Range["B4"].Number = 10.9;
+  sheet.Range["B5"].Number = 8.9;
+  sheet.Range["B6"].Number = 8.6;
+  sheet.Range["C4"].Number = 47.5;
+  sheet.Range["C5"].Number = 48.7;
+  sheet.Range["C6"].Number = 48.9;
+
+  //Adjust column width in used range
+  sheet.UsedRange.AutofitColumns();
+
+  //Add a new chart with data range
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.Range["A3:C6"];
+
+  //Set chart name and chart title
+  chart.Name = "CrescentCity,CA";
+  chart.ChartTitle = "Crescent City, CA";
+  chart.IsSeriesInRows = false;
+
+  //Set primary value axis properties
+  chart.PrimaryValueAxis.Title = "Precipitation,in.";
+  chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90;
+  chart.PrimaryValueAxis.MaximumValue = 14.0;
+  chart.PrimaryValueAxis.NumberFormat = "0.0";
+
+  //Format first serie fill properties
+  IChartSerie serieOne = chart.Series[0];
+  serieOne.Name = "Precipitation,in.";
+  serieOne.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
+  serieOne.SerieFormat.Fill.TwoColorGradient(ExcelGradientStyle.Vertical, ExcelGradientVariants.ShadingVariants_2);
+  serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor;
+  serieOne.SerieFormat.Fill.ForeColor = Color.Plum;
+
+  //Format second serie properties
+  IChartSerie serieTwo = chart.Series[1];
+  serieTwo.SerieType = ExcelChartType.Line_Markers;
+  serieTwo.Name = "Temperature,deg.F";
+
+  //Format marker properties
+  serieTwo.SerieFormat.MarkerStyle = ExcelChartMarkerType.Diamond;
+  serieTwo.SerieFormat.MarkerSize = 8;
+  serieTwo.SerieFormat.MarkerBackgroundColor = Color.DarkGreen;
+  serieTwo.SerieFormat.MarkerForegroundColor = Color.DarkGreen;
+  serieTwo.SerieFormat.LineProperties.LineColor = Color.DarkGreen;
+
+  //Use Secondary Axis
+  serieTwo.UsePrimaryAxis = false;
+
+  //MaxCross for secondary axes
+  chart.SecondaryCategoryAxis.IsMaxCross = true;
+  chart.SecondaryValueAxis.IsMaxCross = true;
+
+  //Set title for secondary value axis
+  chart.SecondaryValueAxis.Title = "Temperature,deg.F";
+  chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
+
+  //Set secondary category axis properties
+  chart.SecondaryCategoryAxis.Border.LineColor = Color.Transparent;
+  chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
+  chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
+
+  //Set legend properties
+  chart.Legend.Position = ExcelLegendPosition.Bottom;
+  chart.Legend.IsVerticalLegend = false;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Chart.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Merge cells
+  sheet.Range["A1:D1"].Merge();
+
+  //Set Font style as bold
+  sheet.Range["A1"].CellStyle.Font.Bold = true;
+
+  //Insert data for the chart
+  sheet.Range["A1"].Text = "Crescent City, CA";
+  sheet.Range["B3"].Text = "Precipitation,in.";
+  sheet.Range["C3"].Text = "Temperature,deg.F";
+  sheet.Range["A4"].Text = "Jan";
+  sheet.Range["A5"].Text = "Feb";
+  sheet.Range["A6"].Text = "March";
+  sheet.Range["B4"].Number = 10.9;
+  sheet.Range["B5"].Number = 8.9;
+  sheet.Range["B6"].Number = 8.6;
+  sheet.Range["C4"].Number = 47.5;
+  sheet.Range["C5"].Number = 48.7;
+  sheet.Range["C6"].Number = 48.9;
+
+  //Adjust column width in used range
+  sheet.UsedRange.AutofitColumns();
+
+  //Add a new chart with data range
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.Range["A3:C6"];
+
+  //Set chart name and chart title
+  chart.Name = "CrescentCity,CA";
+  chart.ChartTitle = "Crescent City, CA";
+  chart.IsSeriesInRows = false;
+
+  //Set primary value axis properties
+  chart.PrimaryValueAxis.Title = "Precipitation,in.";
+  chart.PrimaryValueAxis.TitleArea.TextRotationAngle = 90;
+  chart.PrimaryValueAxis.MaximumValue = 14.0;
+  chart.PrimaryValueAxis.NumberFormat = "0.0";
+
+  //Format first serie fill properties
+  IChartSerie serieOne = chart.Series[0];
+  serieOne.Name = "Precipitation,in.";
+  serieOne.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
+  serieOne.SerieFormat.Fill.TwoColorGradient(ExcelGradientStyle.Vertical, ExcelGradientVariants.ShadingVariants_2);
+  serieOne.SerieFormat.Fill.GradientColorType = ExcelGradientColor.TwoColor;
+  serieOne.SerieFormat.Fill.ForeColor = Syncfusion.Drawing.Color.Plum;
+
+  //Format second serie properties
+  IChartSerie serieTwo = chart.Series[1];
+  serieTwo.SerieType = ExcelChartType.Line_Markers;
+  serieTwo.Name = "Temperature,deg.F";
+
+  //Format marker properties
+  serieTwo.SerieFormat.MarkerStyle = ExcelChartMarkerType.Diamond;
+  serieTwo.SerieFormat.MarkerSize = 8;
+  serieTwo.SerieFormat.MarkerBackgroundColor = Syncfusion.Drawing.Color.DarkGreen;
+  serieTwo.SerieFormat.MarkerForegroundColor = Syncfusion.Drawing.Color.DarkGreen;
+  serieTwo.SerieFormat.LineProperties.LineColor = Syncfusion.Drawing.Color.DarkGreen;
+
+  //Use Secondary Axis
+  serieTwo.UsePrimaryAxis = false;
+
+  //MaxCross for secondary axes
+  chart.SecondaryCategoryAxis.IsMaxCross = true;
+  chart.SecondaryValueAxis.IsMaxCross = true;
+
+  //Set title for secondary value axis
+  chart.SecondaryValueAxis.Title = "Temperature,deg.F";
+  chart.SecondaryValueAxis.TitleArea.TextRotationAngle = 90;
+
+  //Set secondary category axis properties
+  chart.SecondaryCategoryAxis.Border.LineColor = Syncfusion.Drawing.Color.Transparent;
+  chart.SecondaryCategoryAxis.MajorTickMark = ExcelTickMark.TickMark_None;
+  chart.SecondaryCategoryAxis.TickLabelPosition = ExcelTickLabelPosition.TickLabelPosition_None;
+
+  //Set legend properties
+  chart.Legend.Position = ExcelLegendPosition.Bottom;
+  chart.Legend.IsVerticalLegend = false;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -688,59 +1757,126 @@ The following code snippet shows how to remove the chart from the worksheet usin
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+  IChartShape chart = sheet.Charts[0];
 
-IApplication application = excelEngine.Excel;
+  //Remove the chart from the worksheet
+  chart.Remove();
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-
-
-IChartShape chart = sheet.Charts[0];
-
-//Remove the chart from the worksheet
-
-chart.Remove();
-
-workbook.SaveAs("Chart.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
+  workbook.SaveAs("Chart.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+  Dim chart As IChartShape = sheet.Charts(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Remove the chart from the worksheet
+  chart.Remove()
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  workbook.SaveAs("Chart.xlsx")
+End Using
+{% endhighlight %}
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-Dim chart As IChartShape = sheet.Charts(0)
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+  IChartShape chart = sheet.Charts[0];
 
-'Remove the chart from the worksheet
+  //Remove the chart from the worksheet
+  chart.Remove();
 
-chart.Remove()
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Chart";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-workbook.SaveAs("Chart.xlsx")
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-workbook.Close()
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-excelEngine.Dispose()
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+  IChartShape chart = sheet.Charts[0];
 
+  //Remove the chart from the worksheet
+  chart.Remove();
 
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Chart.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
 
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+  IChartShape chart = sheet.Charts[0];
+
+  //Remove the chart from the worksheet
+  chart.Remove();
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
  
@@ -769,41 +1905,63 @@ The following code snippet shows how to modify the appearance of the chart area.
 
 {% tabs %}  
 {% highlight c# %}
-//Format Chart Area.
-
+//Format Chart Area
 IChartFrameFormat chartArea = chart.ChartArea;
 
 //Chart Area Settings
-
 chartArea.Fill.FillType = ExcelFillType.Gradient;
 
-//Set Fill Effects                    
-
+//Set Fill Effects
 chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
-
-chartArea.Fill.ForeColor = Color.White; 
-
-
-
+chartArea.Fill.ForeColor = Color.White;
 {% endhighlight %}
 
 {% highlight vb %}
-'Format Chart Area.
-
+'Format Chart Area
 Dim chartArea As IChartFrameFormat = chart.ChartArea
 
 'Chart Area Settings
-
 chartArea.Fill.FillType = ExcelFillType.Gradient
 
-'Set Fill Effects                    
-
+'Set Fill Effects
 chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
-
 chartArea.Fill.ForeColor = Color.White
+{% endhighlight %}
 
+{% highlight UWP %}
+//Format Chart Area
+IChartFrameFormat chartArea = chart.ChartArea;
 
+//Chart Area Settings
+chartArea.Fill.FillType = ExcelFillType.Gradient;
 
+//Set Fill Effects                    
+chartArea.Fill.BackColor = Color.FromArgb(255, 205, 217, 234);
+chartArea.Fill.ForeColor = Color.FromArgb(255, 255, 255, 255);
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Format Chart Area
+IChartFrameFormat chartArea = chart.ChartArea;
+
+//Chart Area Settings
+chartArea.Fill.FillType = ExcelFillType.Gradient;
+
+//Set Fill Effects                    
+chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+chartArea.Fill.ForeColor = Color.White;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Format Chart Area
+IChartFrameFormat chartArea = chart.ChartArea;
+
+//Chart Area Settings
+chartArea.Fill.FillType = ExcelFillType.Gradient;
+
+//Set Fill Effects                    
+chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
 {% endhighlight %}
 {% endtabs %}  
 
@@ -814,36 +1972,47 @@ The following code snippet shows how to modify the appearance of the plot area.
 {% tabs %}  
 {% highlight c# %}
 //Set Plot Area
-
 IChartFrameFormat  chartPlotArea = chart.PlotArea;
 
-
-
 //Set fill color
-
 chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
-
 chartPlotArea.Fill.ForeColor = Color.White;
-
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Set Plot Area
-
 Dim chartPlotArea As IChartFrameFormat = chart.PlotArea
 
 'Set fill color
-
 chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
-
 chartPlotArea.Fill.ForeColor = Color.White
+{% endhighlight %}
 
+{% highlight UWP %}
+//Set Plot Area
+IChartFrameFormat chartPlotArea = chart.PlotArea;
 
+//Set fill color
+chartPlotArea.Fill.BackColor = Color.FromArgb(255, 205, 217, 234);
+chartPlotArea.Fill.ForeColor = Color.FromArgb(255, 255, 255, 255);
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Set Plot Area
+IChartFrameFormat chartPlotArea = chart.PlotArea;
+
+//Set fill color
+chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+chartPlotArea.Fill.ForeColor = Color.White;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Set Plot Area
+IChartFrameFormat chartPlotArea = chart.PlotArea;
+
+//Set fill color
+chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+chartPlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
 {% endhighlight %}
 {% endtabs %}  
 
@@ -855,105 +2024,41 @@ The following code snippet illustrates how to modify the appearance of data labe
 {% highlight c# %}
 IChartSerie serie =  chart.Series[0];
 
-//Set data labels color             
-
+//Set data labels color
 serie.DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Blue;
-
 serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
-
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim serie As IChartSerie = chart.Series(0)
 
-'Set data labels color             
-
+'Set data labels color
 serie.DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Blue
-
 serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = True
-
-
-
-{% endhighlight %}
-{% endtabs %}  
-
-### LeaderLines Appearance
-
-Leader lines are appear between the Series and DataLabels. The following code snippet illustrates how to enable and format leader lines.
-
-{% tabs %}  
-{% highlight c# %}
-//Get the serie
-IChartSerie serie = chart.Series[0];
-
-//Set the leader lines
-serie.HasLeaderLines = true;
-
-//Format the leader lines
-serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
-serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
-serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
-
-
-{% endhighlight %}
-
-{% highlight vb %}
-'Get the serie
-Dim serie As IChartSerie = chart.Series(0)
-
-'Set the leader lines
-serie.HasLeaderLines = true
-
-'Format the leader lines
-serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide
-serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot
-serie.LeaderLines.ColorIndex = ExcelKnownColors.Red
-
-
-
 {% endhighlight %}
 
 {% highlight UWP %}
-//Get the serie
-IChartSerie serie = chart.Series[0];
+IChartSerie serie =  chart.Series[0];
 
-//Set the leader lines
-serie.HasLeaderLines = true;
-
-//Format the leader lines
-serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
-serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
-serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
+//Set data labels color
+serie.DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Blue;
+serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//Get the serie
-IChartSerie serie = chart.Series[0];
+IChartSerie serie =  chart.Series[0];
 
-//Set the leader lines
-serie.HasLeaderLines = true;
-
-//Format the leader lines
-serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
-serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
-serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
+//Set data labels color
+serie.DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Blue;
+serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Get the serie
-IChartSerie serie = chart.Series[0];
+IChartSerie serie =  chart.Series[0];
 
-//Set the leader lines
-serie.HasLeaderLines = true;
-
-//Format the leader lines
-serie.LeaderLines.LineWeight = ExcelChartLineWeight.Wide;
-serie.LeaderLines.LinePattern = ExcelChartLinePattern.Dot;
-serie.LeaderLines.ColorIndex = ExcelKnownColors.Red;
+//Set data labels color
+serie.DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Blue;
+serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 {% endhighlight %}
 {% endtabs %}  
 
@@ -965,27 +2070,41 @@ The following code snippet illustrates how to modify the appearance of chart ser
 {% highlight c# %}
 IChartSerie serie =  chart.Series[0];
 
-//Fill Effects                    
-
+//Fill Effects
 serie.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
-
 serie.SerieFormat.Fill.ForeColor = Color.Yellow;
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim serie As IChartSerie = chart.Series(0)
 
-'Fill Effects                    
-
+'Fill Effects
 serie.SerieFormat.Fill.FillType = ExcelFillType.Gradient
-
 serie.SerieFormat.Fill.ForeColor = Color.Yellow
+{% endhighlight %}
 
+{% highlight UWP %}
+IChartSerie serie = chart.Series[0];
 
+//Fill Effects
+serie.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
+serie.SerieFormat.Fill.ForeColor = Color.FromArgb(255, 255, 255, 0);
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+IChartSerie serie = chart.Series[0];
+
+//Fill Effects
+serie.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
+serie.SerieFormat.Fill.ForeColor = Color.Yellow;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+IChartSerie serie = chart.Series[0];
+
+//Fill Effects
+serie.SerieFormat.Fill.FillType = ExcelFillType.Gradient;
+serie.SerieFormat.Fill.ForeColor = Syncfusion.Drawing.Color.Yellow;
 {% endhighlight %}
 {% endtabs %}  
 
@@ -993,313 +2112,531 @@ The complete code snippet illustrating the above options is shown below.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.UsedRange;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Format Chart Area
+  IChartFrameFormat chartArea = chart.ChartArea;
+  //Fill Effects
+  chartArea.Fill.FillType = ExcelFillType.Gradient;
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Set chart area fill color
+  chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+  chartArea.Fill.ForeColor = Color.WhiteSmoke;
 
-IWorksheet sheet = workbook.Worksheets[0];
+  //Format Plot Area
+  IChartFrameFormat chartPlotArea = chart.PlotArea;
+  //Fill Effects
+  chartPlotArea.Fill.FillType = ExcelFillType.Gradient;
 
-IChartShape chart = sheet.Charts.Add();
+  //Set plot area fill color
+  chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+  chartPlotArea.Fill.ForeColor = Color.YellowGreen;
 
-chart.DataRange = sheet.UsedRange;
-
-//Format Chart Area
-
-IChartFrameFormat chartArea = chart.ChartArea;
-
-//Fill Effects
-
-chartArea.Fill.FillType = ExcelFillType.Gradient;
-
-//Set chart area fill color
-
-chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
-
-chartArea.Fill.ForeColor = Color.WhiteSmoke;
-
-//Plot Area
-
-IChartFrameFormat chartPlotArea = chart.PlotArea;
-
-//Fill Effects
-
-chartPlotArea.Fill.FillType = ExcelFillType.Gradient;
-
-//Set plot area fill color 
-
-chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
-
-chartPlotArea.Fill.ForeColor = Color.YellowGreen;
-
-workbook.SaveAs("Chart.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
-
-
+  workbook.SaveAs("Chart.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  Dim chart As IChartShape = sheet.Charts.Add()
+  chart.DataRange = sheet.UsedRange
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Format Chart Area
+  Dim chartArea As IChartFrameFormat = chart.ChartArea
+  'Fill Effects
+  chartArea.Fill.FillType = ExcelFillType.Gradient
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Set chart area fill color
+  chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
+  chartArea.Fill.ForeColor = Color.White
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  'Format Plot Area
+  Dim chartPlotArea As IChartFrameFormat = chart.PlotArea
+  'Fill Effects
+  chartPlotArea.Fill.FillType = ExcelFillType.Gradient
 
-Dim chart As IChartShape = sheet.Charts.Add()
+  'Set plot area fill color
+  chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
+  chartPlotArea.Fill.ForeColor = Color.White
 
-chart.DataRange = sheet.UsedRange
+  workbook.SaveAs("Chart.xlsx")
+End Using
+{% endhighlight %}
 
-'Format Chart Area.
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-Dim chartArea As IChartFrameFormat = chart.ChartArea
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-'Fill Effects
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-chartArea.Fill.FillType = ExcelFillType.Gradient
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.UsedRange;
 
-'Set chart area fill color
+  //Format Chart Area
+  IChartFrameFormat chartArea = chart.ChartArea;
+  //Fill Effects
+  chartArea.Fill.FillType = ExcelFillType.Gradient;
 
-chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
+  //Set chart area fill color
+  chartArea.Fill.BackColor = Color.FromArgb(255, 205, 217, 234);
+  chartArea.Fill.ForeColor = Color.FromArgb(255, 245, 245, 245);
 
-chartArea.Fill.ForeColor = Color.White
+  //Format Plot Area
+  IChartFrameFormat chartPlotArea = chart.PlotArea;
+  //Fill Effects
+  chartPlotArea.Fill.FillType = ExcelFillType.Gradient;
 
-'Plot Area
+  //Set plot area fill color 
+  chartPlotArea.Fill.BackColor = Color.FromArgb(255, 205, 217, 234);
+  chartPlotArea.Fill.ForeColor = Color.FromArgb(255, 154, 205, 50);
 
-Dim chartPlotArea As IChartFrameFormat = chart.PlotArea
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Chart";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-'Fill Effects
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-chartPlotArea.Fill.FillType = ExcelFillType.Gradient
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-'Set plot area fill color
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.UsedRange;
 
-chartPlotArea.Fill.ForeColor = Color.White
+  //Format Chart Area
+  IChartFrameFormat chartArea = chart.ChartArea;
+  //Fill Effects
+  chartArea.Fill.FillType = ExcelFillType.Gradient;
 
-workbook.SaveAs("Chart.xlsx")
+  //Set chart area fill color
+  chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+  chartArea.Fill.ForeColor = Color.WhiteSmoke;
 
-workbook.Close()
+  //Format Plot Area
+  IChartFrameFormat chartPlotArea = chart.PlotArea;
+  //Fill Effects
+  chartPlotArea.Fill.FillType = ExcelFillType.Gradient;
 
-excelEngine.Dispose()
+  //Set plot area fill color 
+  chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+  chartPlotArea.Fill.ForeColor = Color.YellowGreen;
 
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Chart.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
 
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.UsedRange;
+
+  //Format Chart Area
+  IChartFrameFormat chartArea = chart.ChartArea;
+  //Fill Effects
+  chartArea.Fill.FillType = ExcelFillType.Gradient;
+
+  //Set chart area fill color
+  chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+  chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.WhiteSmoke;
+
+  //Format Plot Area
+  IChartFrameFormat chartPlotArea = chart.PlotArea;
+  //Fill Effects
+  chartPlotArea.Fill.FillType = ExcelFillType.Gradient;
+
+  //Set plot area fill color 
+  chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+  chartPlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.YellowGreen;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
 ## Applying 3D Formats
 
-The following code example explains how to apply 3D settings such as side wall, back wall, and floor settings.
+The following code example explains how to apply 3D settings such as rotation, side wall, back wall, and floor settings.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(2);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Insert the data in sheet-1
+  sheet.Range["B1"].Text = "Product-A";
+  sheet.Range["C1"].Text = "Product-B";
+  sheet.Range["D1"].Text = "Product-C";
+  sheet.Range["A2"].Text = "Jan";
+  sheet.Range["A3"].Text = "Feb";
+  sheet.Range["B2"].Number = 25;
+  sheet.Range["B3"].Number = 20;
+  sheet.Range["C2"].Number = 35;
+  sheet.Range["C3"].Number = 25;
+  sheet.Range["D2"].Number = 40;
+  sheet.Range["D3"].Number = 55;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.Range["A1:D3"];
+  chart.ChartType = ExcelChartType.Column_Clustered_3D;
 
-IWorkbook workbook = application.Workbooks.Create(2);
+  //Set Rotation of the 3D chart view
+  chart.Rotation = 90;
 
-IWorksheet sheet = workbook.Worksheets[0];
+  //Set Back wall fill option
+  chart.BackWall.Fill.FillType = ExcelFillType.Gradient;
+  //Set Back wall thickness
+  chart.BackWall.Thickness = 10;
+  //Set Texture Type
+  chart.BackWall.Fill.GradientColorType = ExcelGradientColor.TwoColor;
+  chart.BackWall.Fill.GradientStyle = ExcelGradientStyle.Diagonl_Down;
+  chart.BackWall.Fill.ForeColor = Color.WhiteSmoke;
+  chart.BackWall.Fill.BackColor = Color.LightBlue;
 
-//Insert the data in sheet-1.
+  //Set side wall fill option
+  chart.SideWall.Fill.FillType = ExcelFillType.SolidColor;
+  //Set side wall fore and back color
+  chart.SideWall.Fill.BackColor = Color.White;
+  chart.SideWall.Fill.ForeColor = Color.White;
 
-sheet.Range["B1"].Text = "Product-A";
+  //Set floor fill option
+  chart.Floor.Fill.FillType = ExcelFillType.Pattern;
+  chart.Floor.Fill.Pattern = ExcelGradientPattern.Pat_10_Percent.Pat_30_Percent;
+  //Set floor fore and Back color
+  chart.Floor.Fill.ForeColor = Color.Blue;
+  chart.Floor.Fill.BackColor = Color.White;
+  //Set floor thickness
+  chart.Floor.Thickness = 3;
 
-sheet.Range["C1"].Text = "Product-B";
-
-sheet.Range["D1"].Text = "Product-C";
-
-sheet.Range["A2"].Text = "Jan";
-
-sheet.Range["A3"].Text = "Feb";
-
-sheet.Range["B2"].Number = 25;
-
-sheet.Range["B3"].Number = 20;
-
-sheet.Range["C2"].Number = 35;
-
-sheet.Range["C3"].Number = 25;
-
-sheet.Range["D2"].Number = 40;
-
-sheet.Range["D3"].Number = 55;
-
-IChartShape chart = sheet.Charts.Add();
-
-chart.DataRange = sheet.Range["A1:D3"];
-
-chart.ChartType = ExcelChartType.Column_Clustered_3D;
-
-//Set Rotation of the 3D chart view.
-
-chart.Rotation = 90;
-
-//Set Back wall fill option
-
-chart.BackWall.Fill.FillType = ExcelFillType.Gradient;
-
-//Set Back wall thickness
-
-chart.BackWall.Thickness = 10;
-
-//Set Texture Type
-
-chart.BackWall.Fill.GradientColorType = ExcelGradientColor.TwoColor;
-
-chart.BackWall.Fill.GradientStyle = ExcelGradientStyle.Diagonal_Down;
-
-chart.BackWall.Fill.ForeColor = System.Drawing.Color.WhiteSmoke;
-
-chart.BackWall.Fill.BackColor = System.Drawing.Color.LightBlue;
-
-//Set side wall fill option
-
-chart.SideWall.Fill.FillType = ExcelFillType.SolidColor;
-
-//Set side wall fore and back color
-
-chart.SideWall.Fill.BackColor = System.Drawing.Color.White;
-
-chart.SideWall.Fill.ForeColor = System.Drawing.Color.White;
-
-//Set floor fill option
-
-chart.Floor.Fill.FillType = ExcelFillType.Pattern;
-
-//Set floor fore and Back color
-
-chart.Floor.Fill.ForeColor = System.Drawing.Color.Blue;
-
-chart.Floor.Fill.BackColor = System.Drawing.Color.White;
-
-//Set floor thickness
-
-chart.Floor.Thickness = 3;
-
-workbook.SaveAs("Chart.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Chart.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(2)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Insert data in sheet-1
+  sheet.Range("B1").Text = "Product-A"
+  sheet.Range("C1").Text = "Product-B"
+  sheet.Range("D1").Text = "Product-C"
+  sheet.Range("A2").Text = "Jan"
+  sheet.Range("A3").Text = "Feb"
+  sheet.Range("B2").Number = 25
+  sheet.Range("B3").Number = 20
+  sheet.Range("C2").Number = 35
+  sheet.Range("C3").Number = 25
+  sheet.Range("D2").Number = 40
+  sheet.Range("D3").Number = 55
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  Dim chart As IChartShape = sheet.Charts.Add()
+  chart.DataRange = sheet.Range("A1:D3")
+  chart.ChartType = ExcelChartType.Column_Clustered_3D
 
-Dim workbook As IWorkbook = application.Workbooks.Create(2)
+  'Set Rotation of the 3D chart view
+  chart.Rotation = 90
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  'Set Back wall fill option
+  chart.BackWall.Fill.FillType = ExcelFillType.Gradient
+  'Set Texture Type
+  chart.BackWall.Fill.GradientColorType = ExcelGradientColor.TwoColor
+  chart.BackWall.Fill.GradientStyle = ExcelGradientStyle.Diagonl_Down
+  chart.BackWall.Fill.ForeColor = Color.WhiteSmoke
+  chart.BackWall.Fill.BackColor = Color.LightBlue
+  'Set Back wall thickness
+  chart.BackWall.Thickness = 10
 
-'Insert data in sheet-1. 
+  'Set side wall fill option
+  chart.SideWall.Fill.FillType = ExcelFillType.SolidColor
+  'Set sidewall fore and back color
+  chart.SideWall.Fill.BackColor = Color.White
+  chart.SideWall.Fill.ForeColor = Color.White
 
-sheet.Range("B1").Text = "Product-A"
+  'Set floor fill option
+  chart.Floor.Fill.FillType = ExcelFillType.Pattern
+  chart.Floor.Fill.Pattern = ExcelGradientPattern.Pat_10_Percent.Pat_30_Percent
+  'Set floor fore and Back color
+  chart.Floor.Fill.ForeColor = Color.Blue
+  chart.Floor.Fill.BackColor = Color.White
+  'Set floor thickness
+  chart.Floor.Thickness = 3
 
-sheet.Range("C1").Text = "Product-B"
+  workbook.SaveAs("Chart.xlsx")
+End Using
+{% endhighlight %}
 
-sheet.Range("D1").Text = "Product-C"
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(2);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-sheet.Range("A2").Text = "Jan"
+  //Insert the data in sheet-1
+  sheet.Range["B1"].Text = "Product-A";
+  sheet.Range["C1"].Text = "Product-B";
+  sheet.Range["D1"].Text = "Product-C";
+  sheet.Range["A2"].Text = "Jan";
+  sheet.Range["A3"].Text = "Feb";
+  sheet.Range["B2"].Number = 25;
+  sheet.Range["B3"].Number = 20;
+  sheet.Range["C2"].Number = 35;
+  sheet.Range["C3"].Number = 25;
+  sheet.Range["D2"].Number = 40;
+  sheet.Range["D3"].Number = 55;
 
-sheet.Range("A3").Text = "Feb"
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.Range["A1:D3"];
+  chart.ChartType = ExcelChartType.Column_Clustered_3D;
 
-sheet.Range("B2").Number = 25
+  //Set Rotation of the 3D chart view
+  chart.Rotation = 90;
 
-sheet.Range("B3").Number = 20
+  //Set Back wall fill option
+  chart.BackWall.Fill.FillType = ExcelFillType.Gradient;
+  //Set Back wall thickness
+  chart.BackWall.Thickness = 10;
+  //Set Texture Type
+  chart.BackWall.Fill.GradientColorType = ExcelGradientColor.TwoColor;
+  chart.BackWall.Fill.GradientStyle = ExcelGradientStyle.Diagonl_Down;
+  chart.BackWall.Fill.ForeColor = Color.FromArgb(255, 245, 245, 245);
+  chart.BackWall.Fill.BackColor = Color.FromArgb(255, 173, 216, 230);
 
-sheet.Range("C2").Number = 35
+  //Set side wall fill option
+  chart.SideWall.Fill.FillType = ExcelFillType.SolidColor;
+  //Set side wall fore and back color
+  chart.SideWall.Fill.BackColor = Color.FromArgb(255, 255, 255, 255);
+  chart.SideWall.Fill.ForeColor = Color.FromArgb(255, 255, 255, 255);
 
-sheet.Range("C3").Number = 25
+  //Set floor fill option
+  chart.Floor.Fill.FillType = ExcelFillType.Pattern;
+  chart.Floor.Fill.Pattern = ExcelGradientPattern.Pat_10_Percent.Pat_30_Percent;
+  //Set floor fore and Back color
+  chart.Floor.Fill.ForeColor = Color.FromArgb(255, 0, 0, 255);
+  chart.Floor.Fill.BackColor = Color.FromArgb(255, 255, 255, 255);
+  //Set floor thickness
+  chart.Floor.Thickness = 3;
 
-sheet.Range("D2").Number = 40
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Chart";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-sheet.Range("D3").Number = 55
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-Dim chart As IChartShape = sheet.Charts.Add()
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-chart.DataRange = sheet.Range("A1:D3")
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(2);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-chart.ChartType = ExcelChartType.Column_Clustered_3D
+  //Insert the data in sheet-1
+  sheet.Range["B1"].Text = "Product-A";
+  sheet.Range["C1"].Text = "Product-B";
+  sheet.Range["D1"].Text = "Product-C";
+  sheet.Range["A2"].Text = "Jan";
+  sheet.Range["A3"].Text = "Feb";
+  sheet.Range["B2"].Number = 25;
+  sheet.Range["B3"].Number = 20;
+  sheet.Range["C2"].Number = 35;
+  sheet.Range["C3"].Number = 25;
+  sheet.Range["D2"].Number = 40;
+  sheet.Range["D3"].Number = 55;
 
-'Set Rotation of the 3D chart view.
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.Range["A1:D3"];
+  chart.ChartType = ExcelChartType.Column_Clustered_3D;
 
-chart.Rotation = 90
+  //Set Rotation of the 3D chart view
+  chart.Rotation = 90;
 
-'Set Back wall fill option
+  //Set Back wall fill option
+  chart.BackWall.Fill.FillType = ExcelFillType.Gradient;
+  //Set Back wall thickness
+  chart.BackWall.Thickness = 10;
+  //Set Texture Type
+  chart.BackWall.Fill.GradientColorType = ExcelGradientColor.TwoColor;
+  chart.BackWall.Fill.GradientStyle = ExcelGradientStyle.Diagonl_Down;
+  chart.BackWall.Fill.ForeColor = Color.WhiteSmoke;
+  chart.BackWall.Fill.BackColor = Color.LightBlue;
 
-chart.BackWall.Fill.FillType = ExcelFillType.Gradient
+  //Set side wall fill option
+  chart.SideWall.Fill.FillType = ExcelFillType.SolidColor;
+  //Set side wall fore and back color
+  chart.SideWall.Fill.BackColor = Color.White;
+  chart.SideWall.Fill.ForeColor = Color.White;
 
-'Set Texture Type
+  //Set floor fill option
+  chart.Floor.Fill.FillType = ExcelFillType.Pattern;
+  chart.Floor.Fill.Pattern = ExcelGradientPattern.Pat_10_Percent.Pat_30_Percent;
+  //Set floor fore and Back color
+  chart.Floor.Fill.ForeColor = Color.Blue;
+  chart.Floor.Fill.BackColor = Color.White;
+  //Set floor thickness
+  chart.Floor.Thickness = 3;
 
-chart.BackWall.Fill.GradientColorType = ExcelGradientColor.TwoColor
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Chart.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
 
-chart.BackWall.Fill.GradientStyle = ExcelGradientStyle.Diagonal_Down
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(2);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-chart.BackWall.Fill.ForeColor = System.Drawing.Color.WhiteSmoke
+  //Insert the data in sheet-1
+  sheet.Range["B1"].Text = "Product-A";
+  sheet.Range["C1"].Text = "Product-B";
+  sheet.Range["D1"].Text = "Product-C";
+  sheet.Range["A2"].Text = "Jan";
+  sheet.Range["A3"].Text = "Feb";
+  sheet.Range["B2"].Number = 25;
+  sheet.Range["B3"].Number = 20;
+  sheet.Range["C2"].Number = 35;
+  sheet.Range["C3"].Number = 25;
+  sheet.Range["D2"].Number = 40;
+  sheet.Range["D3"].Number = 55;
 
-chart.BackWall.Fill.BackColor = System.Drawing.Color.LightBlue
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.Range["A1:D3"];
+  chart.ChartType = ExcelChartType.Column_Clustered_3D;
 
-'Set Back wall thickness
+  //Set Rotation of the 3D chart view
+  chart.Rotation = 90;
 
-chart.BackWall.Thickness = 10
+  //Set Back wall fill option
+  chart.BackWall.Fill.FillType = ExcelFillType.Gradient;
+  //Set Back wall thickness
+  chart.BackWall.Thickness = 10;
+  //Set Texture Type
+  chart.BackWall.Fill.GradientColorType = ExcelGradientColor.TwoColor;
+  chart.BackWall.Fill.GradientStyle = ExcelGradientStyle.Diagonl_Down;
+  chart.BackWall.Fill.ForeColor = Syncfusion.Drawing.Color.WhiteSmoke;
+  chart.BackWall.Fill.BackColor = Syncfusion.Drawing.Color.LightBlue;
 
-'Set side wall fill option
+  //Set side wall fill option
+  chart.SideWall.Fill.FillType = ExcelFillType.SolidColor;
+  //Set side wall fore and back color
+  chart.SideWall.Fill.BackColor = Syncfusion.Drawing.Color.White;
+  chart.SideWall.Fill.ForeColor = Syncfusion.Drawing.Color.White;
 
-chart.SideWall.Fill.FillType = ExcelFillType.SolidColor
+  //Set floor fill option
+  chart.Floor.Fill.FillType = ExcelFillType.Pattern;
+  chart.Floor.Fill.Pattern = ExcelGradientPattern.Pat_10_Percent.Pat_30_Percent
+  //Set floor fore and Back color
+  chart.Floor.Fill.ForeColor = Syncfusion.Drawing.Color.Blue;
+  chart.Floor.Fill.BackColor = Syncfusion.Drawing.Color.White;
+  //Set floor thickness
+  chart.Floor.Thickness = 3;
 
-'Set sidewall fore and back color
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
 
-chart.SideWall.Fill.BackColor = System.Drawing.Color.White
+  stream.Position = 0;
 
-chart.SideWall.Fill.ForeColor = System.Drawing.Color.White
+  //Save the document as file and view the saved document
 
-'Set floor fill option
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
 
-chart.Floor.Fill.FillType = ExcelFillType.Pattern
-
-'Set floor fore and Back color
-
-chart.Floor.Fill.ForeColor = System.Drawing.Color.Blue
-
-chart.Floor.Fill.BackColor = System.Drawing.Color.White
-
-'Set floor thickness
-
-chart.Floor.Thickness = 3
-
-workbook.SaveAs("Chart.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
-
-
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1312,36 +2649,42 @@ Chart can be positioned by specifying row and column indexes. The following code
 {% tabs %}  
 {% highlight c# %}
 //Positioning chart in a worksheet
-
 chart.TopRow = 5;
-
 chart.LeftColumn = 5;
-
 chart.RightColumn = 10;
-
 chart.BottomRow = 10;
-
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Positioning chart in a worksheet
-
 chart.TopRow = 5
-
 chart.LeftColumn = 5
-
 chart.RightColumn = 10
-
 chart.BottomRow = 10
+{% endhighlight %}
 
+{% highlight UWP %}
+//Positioning chart in a worksheet
+chart.TopRow = 5;
+chart.LeftColumn = 5;
+chart.RightColumn = 10;
+chart.BottomRow = 10;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Positioning chart in a worksheet
+chart.TopRow = 5;
+chart.LeftColumn = 5;
+chart.RightColumn = 10;
+chart.BottomRow = 10;
+{% endhighlight %}
 
-
-
+{% highlight Xamarin %}
+//Positioning chart in a worksheet
+chart.TopRow = 5;
+chart.LeftColumn = 5;
+chart.RightColumn = 10;
+chart.BottomRow = 10;
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1352,44 +2695,57 @@ The following code examples illustrate how to position the chart elements.
 {% tabs %}  
 {% highlight c# %}
 //Manually positioning plot area
-
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner;
-
 chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
-
 chart.PlotArea.Layout.TopMode = LayoutModes.edge;
 
 //Manually positioning chart legend 
-
 chart.Legend.Layout.LeftMode = LayoutModes.edge;
-
 chart.Legend.Layout.TopMode = LayoutModes.edge;
-
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Manually positioning plot area
-
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner
-
 chart.PlotArea.Layout.LeftMode = LayoutModes.edge
-
 chart.PlotArea.Layout.TopMode = LayoutModes.edge
 
 'Manually positioning chart legend
-
 chart.Legend.Layout.LeftMode = LayoutModes.edge
-
 chart.Legend.Layout.TopMode = LayoutModes.edge
+{% endhighlight %}
 
+{% highlight UWP %}
+//Manually positioning plot area
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner;
+chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.TopMode = LayoutModes.edge;
 
+//Manually positioning chart legend 
+chart.Legend.Layout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.TopMode = LayoutModes.edge;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Manually positioning plot area
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner;
+chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.TopMode = LayoutModes.edge;
 
+//Manually positioning chart legend 
+chart.Legend.Layout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.TopMode = LayoutModes.edge;
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Manually positioning plot area
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner;
+chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.TopMode = LayoutModes.edge;
+
+//Manually positioning chart legend 
+chart.Legend.Layout.LeftMode = LayoutModes.edge;
+chart.Legend.Layout.TopMode = LayoutModes.edge;
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1400,31 +2756,53 @@ The following code sample illustrates how to resize a chart in a worksheet.
 
 {% tabs %}  
 {% highlight c# %}
-IShape chart = chartShape as IShape;
+IShape chartShape = chart as IShape;
 
-// Set Height of the chart in pixels
-chart.Height = 300;
+//Set Height of the chart in pixels
+chartShape.Height = 300;
 
-// Set Width of the chart
-chart.Width = 500; 
-
-
-
+//Set Width of the chart
+chartShape.Width = 500;
 {% endhighlight %}
 
 {% highlight vb %}
-Dim chart As IShape = chartShape as IShape
+Dim chartShape As IShape = chart as IShape
 
 'Set Height of the chart
-chart.Height = 300
+chartShape.Height = 300
 
 'Set Width of the chart
-chart.Width = 500
+chartShape.Width = 500
+{% endhighlight %}
 
+{% highlight UWP %}
+IShape chartShape = chart as IShape;
 
+//Set Height of the chart in pixels
+chartShape.Height = 300;
 
+//Set Width of the chart
+chartShape.Width = 500;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+IShape chartShape = chart as IShape;
 
+//Set Height of the chart in pixels
+chartShape.Height = 300;
+
+//Set Width of the chart
+chartShape.Width = 500;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+IShape chartShape = chart as IShape;
+
+//Set Height of the chart in pixels
+chartShape.Height = 300;
+
+//Set Width of the chart
+chartShape.Width = 500;
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1445,11 +2823,6 @@ chart.Legend.Layout.Left = 400;
 chart.Legend.Layout.Top = 150;
 chart.Legend.Layout.Width = 150;
 chart.Legend.Layout.Height = 100;
-
-
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
@@ -1464,9 +2837,48 @@ chart.Legend.Layout.Left = 400
 chart.Legend.Layout.Top = 150           
 chart.Legend.Layout.Width = 150           
 chart.Legend.Layout.Height = 100
+{% endhighlight %}
 
+{% highlight UWP %}
+//Manually resizing chart plot area
+chart.PlotArea.Layout.Left = 50;
+chart.PlotArea.Layout.Top = 75;
+chart.PlotArea.Layout.Width = 300;
+chart.PlotArea.Layout.Height = 200;
 
+//Manually resizing chart legend 
+chart.Legend.Layout.Left = 400;
+chart.Legend.Layout.Top = 150;
+chart.Legend.Layout.Width = 150;
+chart.Legend.Layout.Height = 100;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Manually resizing chart plot area
+chart.PlotArea.Layout.Left = 50;
+chart.PlotArea.Layout.Top = 75;
+chart.PlotArea.Layout.Width = 300;
+chart.PlotArea.Layout.Height = 200;
+
+//Manually resizing chart legend 
+chart.Legend.Layout.Left = 400;
+chart.Legend.Layout.Top = 150;
+chart.Legend.Layout.Width = 150;
+chart.Legend.Layout.Height = 100;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Manually resizing chart plot area
+chart.PlotArea.Layout.Left = 50;
+chart.PlotArea.Layout.Top = 75;
+chart.PlotArea.Layout.Width = 300;
+chart.PlotArea.Layout.Height = 200;
+
+//Manually resizing chart legend 
+chart.Legend.Layout.Left = 400;
+chart.Legend.Layout.Top = 150;
+chart.Legend.Layout.Width = 150;
+chart.Legend.Layout.Height = 100;
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1477,20 +2889,27 @@ The following code example explains how to apply transparency to chart area.
 {% tabs %}  
 {% highlight c# %}
 //Applying transparency to chart area
-
 chart.ChartArea.Fill.Transparency = 0.9;
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Applying transparency to chart area
-
 chart.ChartArea.Fill.Transparency = 0.9
+{% endhighlight %}
 
+{% highlight UWP %}
+//Applying transparency to chart area
+chart.ChartArea.Fill.Transparency = 0.9;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Applying transparency to chart area
+chart.ChartArea.Fill.Transparency = 0.9;
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Applying transparency to chart area
+chart.ChartArea.Fill.Transparency = 0.9;
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1498,165 +2917,299 @@ The complete code snippet illustrating the above options is shown below.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+  IChartShape chart = sheet.Charts[0];
 
-IApplication application = excelEngine.Excel;
+  //Positioning chart in a worksheet
+  chart.TopRow = 5;
+  chart.LeftColumn = 5;
+  chart.RightColumn = 10;
+  chart.BottomRow = 10;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Manually positioning plot area
+  chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner;
+  chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
+  chart.PlotArea.Layout.TopMode = LayoutModes.edge;
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Manually positioning chart legend
+  chart.Legend.Layout.LeftMode = LayoutModes.edge;
+  chart.Legend.Layout.TopMode = LayoutModes.edge;
+  IShape chartShape = chart as IShape;
 
-IWorksheet sheet = workbook.Worksheets[0];
+  //Set Height of the chart in pixels
+  chartShape.Height = 300;
 
-IChartShape chart = sheet.Charts[0];
+  //Set Width of the chart
+  chartShape.Width = 500;
 
-//Positioning chart in a worksheet
+  //Manually resizing chart plot area
+  chart.PlotArea.Layout.Left = 50;
+  chart.PlotArea.Layout.Top = 75;
+  chart.PlotArea.Layout.Width = 300;
+  chart.PlotArea.Layout.Height = 200;
 
-chart.TopRow = 5;
+  //Manually resizing chart legend
+  chart.Legend.Layout.Left = 400;
+  chart.Legend.Layout.Top = 150;
+  chart.Legend.Layout.Width = 200;
+  chart.Legend.Layout.Height = 100;
 
-chart.LeftColumn = 5;
+  //Applying transparency to chart area
+  chart.ChartArea.Fill.Transparency = 0.9;
 
-chart.RightColumn = 10;
-
-chart.BottomRow = 10;
-
-//Manually positioning plot area
-
-chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner;
-
-chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
-
-chart.PlotArea.Layout.TopMode = LayoutModes.edge;
-
-//Manually positioning chart legend
-
-chart.Legend.Layout.LeftMode = LayoutModes.edge;
-
-chart.Legend.Layout.TopMode = LayoutModes.edge;
-
-IShape chartShape = chart as IShape;
-
-// Set Height of the chart in pixels
-
-chartShape.Height = 300;
-
-// Set Width of the chart
-
-chartShape.Width =  500;
-
-//Manually resizing chart plot area
-
-chart.PlotArea.Layout.Left = 50;
-
-chart.PlotArea.Layout.Top = 75;
-
-chart.PlotArea.Layout.Width = 300;
-
-chart.PlotArea.Layout.Height = 200;
-
-//Manually resizing chart legend
-
-chart.Legend.Layout.Left = 400;
-
-chart.Legend.Layout.Top = 150;
-
-chart.Legend.Layout.Width = 200;
-
-chart.Legend.Layout.Height = 100;
-
-//Applying transparency to chart area
-
-chart.ChartArea.Fill.Transparency = 0.9;
-
-workbook.SaveAs("Chart.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Chart.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+  Dim chart As IChartShape = sheet.Charts(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Positioning chart in a worksheet
+  chart.TopRow = 5
+  chart.LeftColumn = 5
+  chart.RightColumn = 10
+  chart.BottomRow = 10
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Manually positioning plot area
+  chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner
+  chart.PlotArea.Layout.LeftMode = LayoutModes.edge
+  chart.PlotArea.Layout.TopMode = LayoutModes.edge
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Manually positioning chart legend
+  chart.Legend.Layout.LeftMode = LayoutModes.edge
+  chart.Legend.Layout.TopMode = LayoutModes.edge
+  Dim chartShape As IShape = TryCast(chart, IShape)
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  'Set Height of the chart in pixels
+  chartShape.Height = 300
 
-Dim chart As IChartShape = sheet.Charts(0)
+  'Set Width of the chart
+  chartShape.Width = 500
 
-'Positioning chart in a worksheet
+  'Manually resizing chart plot area
+  chart.PlotArea.Layout.Left = 50
+  chart.PlotArea.Layout.Top = 75
+  chart.PlotArea.Layout.Width = 300
+  chart.PlotArea.Layout.Height = 200
 
-chart.TopRow = 5
+  'Manually resizing chart legend
+  chart.Legend.Layout.Left = 400
+  chart.Legend.Layout.Top = 150
+  chart.Legend.Layout.Width = 200
+  chart.Legend.Layout.Height = 100
 
-chart.LeftColumn = 5
+  'Applying transparency to chart area
+  chart.ChartArea.Fill.Transparency = 0.9
 
-chart.RightColumn = 10
+  workbook.SaveAs("Chart.xlsx")
+End Using
+{% endhighlight %}
 
-chart.BottomRow = 10
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-'Manually positioning plot area
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-chart.PlotArea.Layout.LeftMode = LayoutModes.edge
+  IChartShape chart = sheet.Charts[0];
 
-chart.PlotArea.Layout.TopMode = LayoutModes.edge
+  //Positioning chart in a worksheet
+  chart.TopRow = 5;
+  chart.LeftColumn = 5;
+  chart.RightColumn = 10;
+  chart.BottomRow = 10;
 
-'Manually positioning chart legend
+  //Manually positioning plot area
+  chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner;
+  chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
+  chart.PlotArea.Layout.TopMode = LayoutModes.edge;
 
-chart.Legend.Layout.LeftMode = LayoutModes.edge
+  //Manually positioning chart legend
+  chart.Legend.Layout.LeftMode = LayoutModes.edge;
+  chart.Legend.Layout.TopMode = LayoutModes.edge;
+  IShape chartShape = chart as IShape;
 
-chart.Legend.Layout.TopMode = LayoutModes.edge
+  //Set Height of the chart in pixels
+  chartShape.Height = 300;
 
-Dim chartShape As IShape = TryCast(chart, IShape)
+  //Set Width of the chart
+  chartShape.Width = 500;
 
-' Set Height of the chart in pixels
+  //Manually resizing chart plot area
+  chart.PlotArea.Layout.Left = 50;
+  chart.PlotArea.Layout.Top = 75;
+  chart.PlotArea.Layout.Width = 300;
+  chart.PlotArea.Layout.Height = 200;
 
-chartShape.Height = 300
+  //Manually resizing chart legend
+  chart.Legend.Layout.Left = 400;
+  chart.Legend.Layout.Top = 150;
+  chart.Legend.Layout.Width = 200;
+  chart.Legend.Layout.Height = 100;
 
-' Set Width of the chart
+  //Applying transparency to chart area
+  chart.ChartArea.Fill.Transparency = 0.9;
 
-chartShape.Width = 500
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Chart";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-'Manually resizing chart plot area
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-chart.PlotArea.Layout.Left = 50
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-chart.PlotArea.Layout.Top = 75
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-chart.PlotArea.Layout.Width = 300
+  IChartShape chart = sheet.Charts[0];
 
-chart.PlotArea.Layout.Height = 200
+  //Positioning chart in a worksheet
+  chart.TopRow = 5;
+  chart.LeftColumn = 5;
+  chart.RightColumn = 10;
+  chart.BottomRow = 10;
 
-'Manually resizing chart legend
+  //Manually positioning plot area
+  chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner;
+  chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
+  chart.PlotArea.Layout.TopMode = LayoutModes.edge;
 
-chart.Legend.Layout.Left = 400
+  //Manually positioning chart legend
+  chart.Legend.Layout.LeftMode = LayoutModes.edge;
+  chart.Legend.Layout.TopMode = LayoutModes.edge;
+  IShape chartShape = chart as IShape;
 
-chart.Legend.Layout.Top = 150
+  //Set Height of the chart in pixels
+  chartShape.Height = 300;
 
-chart.Legend.Layout.Width = 200
+  //Set Width of the chart
+  chartShape.Width = 500;
 
-chart.Legend.Layout.Height = 100
+  //Manually resizing chart plot area
+  chart.PlotArea.Layout.Left = 50;
+  chart.PlotArea.Layout.Top = 75;
+  chart.PlotArea.Layout.Width = 300;
+  chart.PlotArea.Layout.Height = 200;
 
-'Applying transparency to chart area
+  //Manually resizing chart legend
+  chart.Legend.Layout.Left = 400;
+  chart.Legend.Layout.Top = 150;
+  chart.Legend.Layout.Width = 200;
+  chart.Legend.Layout.Height = 100;
 
-chart.ChartArea.Fill.Transparency = 0.9
+  //Applying transparency to chart area
+  chart.ChartArea.Fill.Transparency = 0.9;
 
-workbook.SaveAs("Chart.xlsx")
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Chart.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
 
-workbook.Close()
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-excelEngine.Dispose()
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
 
+  IChartShape chart = sheet.Charts[0];
 
+  //Positioning chart in a worksheet
+  chart.TopRow = 5;
+  chart.LeftColumn = 5;
+  chart.RightColumn = 10;
+  chart.BottomRow = 10;
 
+  //Manually positioning plot area
+  chart.PlotArea.Layout.LayoutTarget = LayoutTargets.inner;
+  chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
+  chart.PlotArea.Layout.TopMode = LayoutModes.edge;
+
+  //Manually positioning chart legend
+  chart.Legend.Layout.LeftMode = LayoutModes.edge;
+  chart.Legend.Layout.TopMode = LayoutModes.edge;
+  IShape chartShape = chart as IShape;
+
+  //Set Height of the chart in pixels
+  chartShape.Height = 300;
+
+  //Set Width of the chart
+  chartShape.Width = 500;
+
+  //Manually resizing chart plot area
+  chart.PlotArea.Layout.Left = 50;
+  chart.PlotArea.Layout.Top = 75;
+  chart.PlotArea.Layout.Width = 300;
+  chart.PlotArea.Layout.Height = 200;
+
+  //Manually resizing chart legend
+  chart.Legend.Layout.Left = 400;
+  chart.Legend.Layout.Top = 150;
+  chart.Legend.Layout.Width = 200;
+  chart.Legend.Layout.Height = 100;
+
+  //Applying transparency to chart area
+  chart.ChartArea.Fill.Transparency = 0.9;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Chart.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1679,91 +3232,173 @@ Following code example illustrates how to create Sparklines by using XlsIO.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("spark.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Add SparklineGroups
+  ISparklineGroup sparklineGroup = sheet.SparklineGroups.Add();
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Add SparkLineType
+  sparklineGroup.SparklineType = SparklineType.Line;
+  sparklineGroup.MarkersColor = Color.BlueViolet;
 
-IWorkbook workbook = application.Workbooks.Open("spark.xlsx", ExcelOpenType.Automatic);
+  //Add sparklines
+  ISparklines sparklines = sparklineGroup.Add();
+  IRange dataRange = sheet.Range["B2:F4"];
+  IRange referenceRange = sheet.Range["G2:G4"];
+  sparklines.Add(dataRange, referenceRange);
 
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Add SparklineGroups
-
-ISparklineGroup sparklineGroup = sheet.SparklineGroups.Add();
-
-//Add SparkLineType
-
-sparklineGroup.SparklineType = SparklineType.Line;
-
-sparklineGroup.MarkersColor = Color.BlueViolet;
-
-//Add sparklines
-
-ISparklines sparklines = sparklineGroup.Add();
-
-IRange dataRange = sheet.Range["B2:F4"];
-
-IRange referenceRange = sheet.Range["G2:G4"];
-
-sparklines.Add(dataRange, referenceRange);
-
-string fileName = "Sparkline.xlsx";
-
-workbook.SaveAs(fileName);
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
-
-
+  string fileName = "Sparkline.xlsx";
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("spark.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Add SparklineGroups
+  Dim sparklineGroup As ISparklineGroup = sheet.SparklineGroups.Add()
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Add SparkLineType
+  sparklineGroup.SparklineType = SparklineType.Line
+  sparklineGroup.MarkersColor = Color.BlueViolet
 
-Dim workbook As IWorkbook = application.Workbooks.Open("spark.xlsx", ExcelOpenType.Automatic)
+  'Add sparklines
+  Dim sparklines As ISparklines = sparklineGroup.Add()
+  Dim dataRange As IRange = sheet.Range("B2:F4")
+  Dim referenceRange As IRange = sheet.Range("G2:G4")
+  sparklines.Add(dataRange, referenceRange)
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  Dim fileName As String = "Sparkline.xlsx"
+  workbook.SaveAs(fileName)
+End Using
+{% endhighlight %}
 
-'Add SparklineGroups
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-Dim sparklineGroup As ISparklineGroup = sheet.SparklineGroups.Add()
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-'Add SparkLineType
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-sparklineGroup.SparklineType = SparklineType.Line
+  //Add SparklineGroups
+  ISparklineGroup sparklineGroup = sheet.SparklineGroups.Add();
 
-sparklineGroup.MarkersColor = Color.BlueViolet
+  //Add SparkLineType
+  sparklineGroup.SparklineType = SparklineType.Line;
+  sparklineGroup.MarkersColor = Color.FromArgb(255, 138, 43, 226);
 
-'Add sparklines
+  //Add sparklines
+  ISparklines sparklines = sparklineGroup.Add();
+  IRange dataRange = sheet.Range["B2:F4"];
+  IRange referenceRange = sheet.Range["G2:G4"];
+  sparklines.Add(dataRange, referenceRange);
 
-Dim sparklines As ISparklines = sparklineGroup.Add()
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Sparkline";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-Dim dataRange As IRange = sheet.Range("B2:F4")
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-Dim referenceRange As IRange = sheet.Range("G2:G4")
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-sparklines.Add(dataRange, referenceRange)
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("spark.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-Dim fileName As String = "Sparkline.xlsx"
+  //Add SparklineGroups
+  ISparklineGroup sparklineGroup = sheet.SparklineGroups.Add();
 
-workbook.SaveAs(fileName)
+  //Add SparkLineType
+  sparklineGroup.SparklineType = SparklineType.Line;
+  sparklineGroup.MarkersColor = Color.BlueViolet;
 
-workbook.Close()
+  //Add sparklines
+  ISparklines sparklines = sparklineGroup.Add();
+  IRange dataRange = sheet.Range["B2:F4"];
+  IRange referenceRange = sheet.Range["G2:G4"];
+  sparklines.Add(dataRange, referenceRange);
 
-excelEngine.Dispose()
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Sparkline.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
 
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.spark.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
+  //Add SparklineGroups
+  ISparklineGroup sparklineGroup = sheet.SparklineGroups.Add();
+
+  //Add SparkLineType
+  sparklineGroup.SparklineType = SparklineType.Line;
+  sparklineGroup.MarkersColor = Syncfusion.Drawing.Color.BlueViolet;
+
+  //Add sparklines
+  ISparklines sparklines = sparklineGroup.Add();
+  IRange dataRange = sheet.Range["B2:F4"];
+  IRange referenceRange = sheet.Range["G2:G4"];
+  sparklines.Add(dataRange, referenceRange);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sparkline.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sparkline.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1773,69 +3408,144 @@ XlsIO provides an option to edit the data of existing Sparklines. The following 
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sparkline.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  ISparklineGroup sparklineGroup = sheet.SparklineGroups[0];
+  ISparklines sparklines = sparklineGroup[0];
+  IRange dataRange = sheet["A1:C4"];
+  IRange referenceRange = sheet["D1:D4"];
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Open("Sparkline.xlsx", ExcelOpenType.Automatic);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-ISparklineGroup sparklineGroup = sheet.SparklineGroups[0];
-
-ISparklines sparklines = sparklineGroup[0];
-
-IRange dataRange = sheet["A1:C4"];
-
-IRange referenceRange = sheet["D1:D4"];
-
-//Edit the existing sparklines data
-
-sparklines.RefreshRanges(dataRange, referenceRange);
-
-workbook.SaveAs("Output.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  //Edit the existing sparklines data
+  sparklines.RefreshRanges(dataRange, referenceRange);
+  workbook.SaveAs("Output.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sparkline.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  Dim sparklineGroup As ISparklineGroup = sheet.SparklineGroups(0)
+  Dim sparklines As ISparklines = sparklineGroup(0)
+  Dim dataRange As IRange = sheet("A1:C4")
+  Dim referenceRange As IRange = sheet("D1:D4")
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Edit the existing sparklines data
+  sparklines.RefreshRanges(dataRange, referenceRange)
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sparkline.xlsx", ExcelOpenType.Automatic)
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-Dim sparklineGroup As ISparklineGroup = sheet.SparklineGroups(0)
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-Dim sparklines As ISparklines = sparklineGroup(0)
+  ISparklineGroup sparklineGroup = sheet.SparklineGroups[0];
+  ISparklines sparklines = sparklineGroup[0];
+  IRange dataRange = sheet["A1:C4"];
+  IRange referenceRange = sheet["D1:D4"];
 
-Dim dataRange As IRange = sheet("A1:C4")
+  //Edit the existing sparklines data
+  sparklines.RefreshRanges(dataRange, referenceRange);
 
-Dim referenceRange As IRange = sheet("D1:D4")
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-'Edit the existing sparklines data
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-sparklines.RefreshRanges(dataRange, referenceRange)
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-workbook.SaveAs("Output.xlsx")
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sparkline.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-workbook.Close()
+  ISparklineGroup sparklineGroup = sheet.SparklineGroups[0];
+  ISparklines sparklines = sparklineGroup[0];
+  IRange dataRange = sheet["A1:C4"];
+  IRange referenceRange = sheet["D1:D4"];
 
-excelEngine.Dispose()
+  //Edit the existing sparklines data
+  sparklines.RefreshRanges(dataRange, referenceRange);
 
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
 
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.spark.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  ISparklineGroup sparklineGroup = sheet.SparklineGroups[0];
+  ISparklines sparklines = sparklineGroup[0];
+  IRange dataRange = sheet["A1:C4"];
+  IRange referenceRange = sheet["D1:D4"];
+
+  //Edit the existing sparklines data
+  sparklines.RefreshRanges(dataRange, referenceRange);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1845,77 +3555,166 @@ XlsIO provides an API to remove sparklines from the sparkline group and also the
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sparkline.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  ISparklineGroup sparklineGroup = sheet.SparklineGroups[0];
+  ISparklines sparklines = sparklineGroup[0];
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Remove sparkline specified by index from the sparklines
+  sparklines.Remove(sparklines[1]);
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Remove sparklines from the sparkline group
+  sparklineGroup.Remove(sparklines);
 
-IWorksheet sheet = workbook.Worksheets[0];
+  //Remove sparkline group from the sheet
+  sheet.SparklineGroups.Remove(sparklineGroup);
 
-ISparklineGroup sparklineGroup = sheet.SparklineGroups[0];
-
-ISparklines sparklines = sparklineGroup[0];
-
-//Remove sparkline specified by index from the sparklines.
-
-sparklines.Remove(sparklines[1]);
-
-//Remove sparklines from the sparkline group.
-
-sparklineGroup.Remove(sparklines);
-
-//Remove sparkline group from the sheet.
-
-sheet.SparklineGroups.Remove(sparklineGroup);
-
-workbook.SaveAs("Output.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Output.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  Dim sparklineGroup As ISparklineGroup = sheet.SparklineGroups(0)
+  Dim sparklines As ISparklines = sparklineGroup(0)
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Remove sparkline specified by index from the sparklines
+  sparklines.Remove(sparklines(1))
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Remove sparklines from the sparkline group
+  sparklineGroup.Remove(sparklines)
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  'Remove sparkline group from the sheet
+  sheet.SparklineGroups.Remove(sparklineGroup)
 
-Dim sparklineGroup As ISparklineGroup = sheet.SparklineGroups(0)
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
 
-Dim sparklines As ISparklines = sparklineGroup(0)
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-'Remove sparkline specified by index from the sparklines.
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-sparklines.Remove(sparklines(1))
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-'Remove sparklines from the sparkline group.
+  ISparklineGroup sparklineGroup = sheet.SparklineGroups[0];
+  ISparklines sparklines = sparklineGroup[0];
 
-sparklineGroup.Remove(sparklines)
+  //Remove sparkline specified by index from the sparklines
+  sparklines.Remove(sparklines[1]);
 
-'Remove sparkline group from the sheet.
+  //Remove sparklines from the sparkline group
+  sparklineGroup.Remove(sparklines);
 
-sheet.SparklineGroups.Remove(sparklineGroup)
+  //Remove sparkline group from the sheet
+  sheet.SparklineGroups.Remove(sparklineGroup);
 
-workbook.SaveAs("Output.xlsx")
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-workbook.Close()
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-excelEngine.Dispose()
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sparkline.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
+  ISparklineGroup sparklineGroup = sheet.SparklineGroups[0];
+  ISparklines sparklines = sparklineGroup[0];
 
+  //Remove sparkline specified by index from the sparklines
+  sparklines.Remove(sparklines[1]);
+
+  //Remove sparklines from the sparkline group
+  sparklineGroup.Remove(sparklines);
+
+  //Remove sparkline group from the sheet
+  sheet.SparklineGroups.Remove(sparklineGroup);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.spark.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  ISparklineGroup sparklineGroup = sheet.SparklineGroups[0];
+  ISparklines sparklines = sparklineGroup[0];
+
+  //Remove sparkline specified by index from the sparklines
+  sparklines.Remove(sparklines[1]);
+
+  //Remove sparklines from the sparkline group
+  sparklineGroup.Remove(sparklines);
+
+  //Remove sparkline group from the sheet
+  sheet.SparklineGroups.Remove(sparklineGroup);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1933,104 +3732,199 @@ Following code example illustrates how to create Funnel chart.
 
 {% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-application.DefaultVersion = ExcelVersion.Excel2016;
+  //Set chart type as Funnel
+  chart.ChartType = ExcelChartType.Funnel;
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Set data range in the worksheet
+  chart.DataRange = sheet.Range["A1:B6"];
 
-IWorksheet sheet = workbook.Worksheets[0];
+  //Set the chart title
+  chart.ChartTitle = "Funnel";
 
-//Create a chart
+  //Formatting the legend and data label option
+  chart.HasLegend = false;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
 
-IChartShape chart = sheet.Charts.Add();
-
-//Set chart type as Funnel
-
-chart.ChartType = ExcelChartType.Funnel;
-
-//Set data range in the worksheet
-
-chart.DataRange = sheet.Range["A1:B6"];
-
-//Set the chart title
-
-chart.ChartTitle = "Funnel";
-
-//Formatting the legend and data label option
-
-chart.HasLegend = false;
-
-chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
-
-chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-
-workbook.SaveAs("Funnel.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Funnel.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Create a chart
+  Dim chart As IChartShape = sheet.Charts.Add()
 
-application.DefaultVersion = ExcelVersion.Excel2016
+  'Set chart type as Funnel
+  chart.ChartType = ExcelChartType.Funnel
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Set data range in the worksheet
+  chart.DataRange = sheet.Range("A1:B6")
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  'Set the chart title
+  chart.ChartTitle = "Funnel"
 
-'Create a chart
+  'Formatting the legend and data label option
+  chart.HasLegend = False
+  chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+  chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
 
-Dim chart As IChartShape = sheet.Charts.Add()
+  workbook.SaveAs("Funnel.xlsx")
+End Using
+{% endhighlight %}
 
-'Set chart type as Funnel
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
 
-chart.ChartType = ExcelChartType.Funnel
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-'Set data range in the worksheet
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-chart.DataRange = sheet.Range("A1:B6")
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-'Set the chart title
+  //Set chart type as Funnel
+  chart.ChartType = ExcelChartType.Funnel;
 
-chart.ChartTitle = "Funnel"
+  //Set data range in the worksheet
+  chart.DataRange = sheet.Range["A1:B6"];
 
-'Formatting the legend and data label option
+  //Set the chart title
+  chart.ChartTitle = "Funnel";
 
-chart.HasLegend = False
+  //Formatting the legend and data label option
+  chart.HasLegend = false;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
 
-chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Funnel1";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-workbook.SaveAs("Funnel.xlsx")
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-workbook.Close()
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-excelEngine.Dispose()
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
+  //Set chart type as Funnel
+  chart.ChartType = ExcelChartType.Funnel;
 
+  //Set data range in the worksheet
+  chart.DataRange = sheet.Range["A1:B6"];
 
+  //Set the chart title
+  chart.ChartTitle = "Funnel";
+
+  //Formatting the legend and data label option
+  chart.HasLegend = false;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Funnel.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set chart type as Funnel
+  chart.ChartType = ExcelChartType.Funnel;
+
+  //Set data range in the worksheet
+  chart.DataRange = sheet.Range["A1:B6"];
+
+  //Set the chart title
+  chart.ChartTitle = "Funnel";
+
+  //Formatting the legend and data label option
+  chart.HasLegend = false;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Funnel.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Funnel.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
 The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Funnel1191611286.zip#).
 
-
 The following screen shot shows the output of above code.
 
 ![](Working-with-Charts_images/funnel.jpeg)
-
-
 
 ### Box and Whisker
 
@@ -2040,173 +3934,294 @@ Following code example illustrates how to create Box and Whisker chart.
 
 {% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-application.DefaultVersion = ExcelVersion.Excel2016;
+  //Set the chart title
+  chart.ChartTitle = "Test Scores";
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Set chart type as Box and Whisker
+  chart.ChartType = ExcelChartType.BoxAndWhisker;
 
-IWorksheet sheet = workbook.Worksheets[0];
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A1:D16"];
 
-//Create a chart
+  //Box and Whisker settings on first series
+  IChartSerie seriesA = chart.Series[0];
+  seriesA.SerieFormat.ShowInnerPoints = false;
+  seriesA.SerieFormat.ShowOutlierPoints = true;
+  seriesA.SerieFormat.ShowMeanMarkers = true;
+  seriesA.SerieFormat.ShowMeanLine = false;
+  seriesA.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian;
 
-IChartShape chart = sheet.Charts.Add();
+  //Box and Whisker settings on second series
+  IChartSerie seriesB = chart.Series[1];
+  seriesB.SerieFormat.ShowInnerPoints = false;
+  seriesB.SerieFormat.ShowOutlierPoints = true;
+  seriesB.SerieFormat.ShowMeanMarkers = true;
+  seriesB.SerieFormat.ShowMeanLine = false;
+  seriesB.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.InclusiveMedian;
 
-//Set the chart title
+  //Box and Whisker settings on third series
+  IChartSerie seriesC = chart.Series[2];
+  seriesC.SerieFormat.ShowInnerPoints = false;
+  seriesC.SerieFormat.ShowOutlierPoints = true;
+  seriesC.SerieFormat.ShowMeanMarkers = true;
+  seriesC.SerieFormat.ShowMeanLine = false;
+  seriesC.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian;
 
-chart.ChartTitle = "Test Scores";
-
-//Set chart type as Box and Whisker
-
-chart.ChartType = ExcelChartType.BoxAndWhisker;
-
-//Set data range in the worksheet
-
-chart.DataRange = sheet["A1:D16"];
-
-//Box and Whisker settings on first series
-
-IChartSerie seriesA = chart.Series[0];
-
-seriesA.SerieFormat.ShowInnerPoints = false;
-
-seriesA.SerieFormat.ShowOutlierPoints = true;
-
-seriesA.SerieFormat.ShowMeanMarkers = true;
-
-seriesA.SerieFormat.ShowMeanLine = false;
-
-seriesA.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian;
-
-//Box and Whisker settings on second series   
-
-IChartSerie seriesB = chart.Series[1];
-
-seriesB.SerieFormat.ShowInnerPoints = false;
-
-seriesB.SerieFormat.ShowOutlierPoints = true;
-
-seriesB.SerieFormat.ShowMeanMarkers = true;
-
-seriesB.SerieFormat.ShowMeanLine = false;
-
-seriesB.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.InclusiveMedian;
-
-//Box and Whisker settings on third series   
-
-IChartSerie seriesC = chart.Series[2];
-
-seriesC.SerieFormat.ShowInnerPoints = false;
-
-seriesC.SerieFormat.ShowOutlierPoints = true;
-
-seriesC.SerieFormat.ShowMeanMarkers = true;
-
-seriesC.SerieFormat.ShowMeanLine = false;
-
-seriesC.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian; 
-
-workbook.SaveAs("Box and Whisker.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Box and Whisker.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Create a chart
+  Dim chart As IChartShape = sheet.Charts.Add()
 
-application.DefaultVersion = ExcelVersion.Excel2016
+  'Set the chart title
+  chart.ChartTitle = "Test Scores"
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Set chart type as Box and Whisker
+  chart.ChartType = ExcelChartType.BoxAndWhisker
 
-Dim sheet As IWorksheet= workbook.Worksheets(0)
+  'Set data range in the worksheet
+  chart.DataRange = sheet("A1:D16")
 
-'Create a chart
+  'Box and Whisker settings on first series
+  Dim seriesA As IChartSerie = chart.Series(0)
+  seriesA.SerieFormat.ShowInnerPoints = False
+  seriesA.SerieFormat.ShowOutlierPoints = True
+  seriesA.SerieFormat.ShowMeanMarkers = True
+  seriesA.SerieFormat.ShowMeanLine = False
+  seriesA.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian
 
-Dim chart As IChartShape = sheet.Charts.Add()
+  'Box and Whisker settings on second series
+  Dim seriesB As IChartSerie = chart.Series(1)
+  seriesB.SerieFormat.ShowInnerPoints = False
+  seriesB.SerieFormat.ShowOutlierPoints = True
+  seriesB.SerieFormat.ShowMeanMarkers = True
+  seriesB.SerieFormat.ShowMeanLine = False
+  seriesB.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.InclusiveMedian
 
-'Set the chart title
+  'Box and Whisker settings on third series
+  Dim seriesC As IChartSerie = chart.Series(2)
+  seriesC.SerieFormat.ShowInnerPoints = False
+  seriesC.SerieFormat.ShowOutlierPoints = True
+  seriesC.SerieFormat.ShowMeanMarkers = True
+  seriesC.SerieFormat.ShowMeanLine = False
+  seriesC.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian
 
-chart.ChartTitle = "Test Scores"
+  workbook.SaveAs("Box and Whisker.xlsx")
+End Using
+{% endhighlight %}
 
-'Set chart type as Box and Whisker
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
 
-chart.ChartType = ExcelChartType.BoxAndWhisker
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-'Set data range in the worksheet
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-chart.DataRange = sheet("A1:D16")
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+  
+  //Set the chart title
+  chart.ChartTitle = "Test Scores";
 
-'Box and Whisker settings on first series
+  //Set chart type as Box and Whisker
+  chart.ChartType = ExcelChartType.BoxAndWhisker;
 
-Dim seriesA As IChartSerie = chart.Series(0)
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A1:D16"];
 
-seriesA.SerieFormat.ShowInnerPoints = False
+  //Box and Whisker settings on first series
+  IChartSerie seriesA = chart.Series[0];
+  seriesA.SerieFormat.ShowInnerPoints = false;
+  seriesA.SerieFormat.ShowOutlierPoints = true;
+  seriesA.SerieFormat.ShowMeanMarkers = true;
+  seriesA.SerieFormat.ShowMeanLine = false;
+  seriesA.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian;
 
-seriesA.SerieFormat.ShowOutlierPoints = True
+  //Box and Whisker settings on second series   
+  IChartSerie seriesB = chart.Series[1];
+  seriesB.SerieFormat.ShowInnerPoints = false;
+  seriesB.SerieFormat.ShowOutlierPoints = true;
+  seriesB.SerieFormat.ShowMeanMarkers = true;
+  seriesB.SerieFormat.ShowMeanLine = false;
+  seriesB.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.InclusiveMedian;
 
-seriesA.SerieFormat.ShowMeanMarkers = True
+  //Box and Whisker settings on third series   
+  IChartSerie seriesC = chart.Series[2];
+  seriesC.SerieFormat.ShowInnerPoints = false;
+  seriesC.SerieFormat.ShowOutlierPoints = true;
+  seriesC.SerieFormat.ShowMeanMarkers = true;
+  seriesC.SerieFormat.ShowMeanLine = false;
+  seriesC.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian;
 
-seriesA.SerieFormat.ShowMeanLine = False
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Box and Whisker";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-seriesA.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian 
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-'Box and Whisker settings on second series          
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-Dim seriesB As IChartSerie = chart.Series(1)
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-seriesB.SerieFormat.ShowInnerPoints = False
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-seriesB.SerieFormat.ShowOutlierPoints = True
+  //Set the chart title
+  chart.ChartTitle = "Test Scores";
 
-seriesB.SerieFormat.ShowMeanMarkers = True
+  //Set chart type as Box and Whisker
+  chart.ChartType = ExcelChartType.BoxAndWhisker;
 
-seriesB.SerieFormat.ShowMeanLine = False
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A1:D16"];
 
-seriesB.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.InclusiveMedian
+  //Box and Whisker settings on first series
+  IChartSerie seriesA = chart.Series[0];
+  seriesA.SerieFormat.ShowInnerPoints = false;
+  seriesA.SerieFormat.ShowOutlierPoints = true;
+  seriesA.SerieFormat.ShowMeanMarkers = true;
+  seriesA.SerieFormat.ShowMeanLine = false;
+  seriesA.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian;
 
-'Box and Whisker settings on third series  
+  //Box and Whisker settings on second series   
+  IChartSerie seriesB = chart.Series[1];
+  seriesB.SerieFormat.ShowInnerPoints = false;
+  seriesB.SerieFormat.ShowOutlierPoints = true;
+  seriesB.SerieFormat.ShowMeanMarkers = true;
+  seriesB.SerieFormat.ShowMeanLine = false;
+  seriesB.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.InclusiveMedian;
 
-Dim seriesC As IChartSerie = chart.Series(2)
+  //Box and Whisker settings on third series   
+  IChartSerie seriesC = chart.Series[2];
+  seriesC.SerieFormat.ShowInnerPoints = false;
+  seriesC.SerieFormat.ShowOutlierPoints = true;
+  seriesC.SerieFormat.ShowMeanMarkers = true;
+  seriesC.SerieFormat.ShowMeanLine = false;
+  seriesC.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian;
 
-seriesC.SerieFormat.ShowInnerPoints = False
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Box and Whisker.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
 
-seriesC.SerieFormat.ShowOutlierPoints = True
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
 
-seriesC.SerieFormat.ShowMeanMarkers = True
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.ParseWorksheetsOnDemand);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-seriesC.SerieFormat.ShowMeanLine = False
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-seriesC.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian
+  //Set the chart title
+  chart.ChartTitle = "Test Scores";
 
-workbook.SaveAs("Box and Whisker.xlsx")
+  //Set chart type as Box and Whisker
+  chart.ChartType = ExcelChartType.BoxAndWhisker;
 
-workbook.Close()
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A1:D16"];
 
-excelEngine.Dispose()
+  //Box and Whisker settings on first series
+  IChartSerie seriesA = chart.Series[0];
+  seriesA.SerieFormat.ShowInnerPoints = false;
+  seriesA.SerieFormat.ShowOutlierPoints = true;
+  seriesA.SerieFormat.ShowMeanMarkers = true;
+  seriesA.SerieFormat.ShowMeanLine = false;
+  seriesA.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian;
 
+  //Box and Whisker settings on second series   
+  IChartSerie seriesB = chart.Series[1];
+  seriesB.SerieFormat.ShowInnerPoints = false;
+  seriesB.SerieFormat.ShowOutlierPoints = true;
+  seriesB.SerieFormat.ShowMeanMarkers = true;
+  seriesB.SerieFormat.ShowMeanLine = false;
+  seriesB.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.InclusiveMedian;
 
+  //Box and Whisker settings on third series   
+  IChartSerie seriesC = chart.Series[2];
+  seriesC.SerieFormat.ShowInnerPoints = false;
+  seriesC.SerieFormat.ShowOutlierPoints = true;
+  seriesC.SerieFormat.ShowMeanMarkers = true;
+  seriesC.SerieFormat.ShowMeanLine = false;
+  seriesC.SerieFormat.QuartileCalculationType = ExcelQuartileCalculation.ExclusiveMedian;
 
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Box and Whisker.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Box and Whisker.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
 The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Box_and_Whisker1075978354.zip#).
 
-
 The following screen shot shows the output of above code.
 
 ![](Working-with-Charts_images/boxandwhisker.jpeg)
-
-
-
 
 ### Waterfall
 
@@ -2216,113 +4231,226 @@ Following code example illustrates how to create Waterfall chart.
 
 {% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-application.DefaultVersion = ExcelVersion.Excel2016;
+  //Set chart type as Waterfall
+  chart.ChartType = ExcelChartType.WaterFall;
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A2:B8"];
 
-IWorksheet sheet = workbook.Worksheets[0];
+  //Data point settings as total in chart
+  chart.Series[0].DataPoints[3].SetAsTotal = true;
+  chart.Series[0].DataPoints[6].SetAsTotal = true;
 
-//Create a chart
+  //Showing the connector lines between data points
+  chart.Series[0].SerieFormat.ShowConnectorLines = true;
 
-IChartShape chart = sheet.Charts.Add();
+  //Set the chart title
+  chart.ChartTitle = "Company Profit (in USD)";
 
-//Set chart type as Waterfall
+  //Formatting data label and legend option
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+  chart.Legend.Position = ExcelLegendPosition.Right;
 
-chart.ChartType = ExcelChartType.WaterFall;
-
-//Set data range in the worksheet
-
-chart.DataRange = sheet["A2:B8"];
-
-//Data point settings as total in chart
-
-chart.Series[0].DataPoints[3].SetAsTotal = true;
-
-chart.Series[0].DataPoints[6].SetAsTotal = true;
-
-//Showing the connector lines between data points
-
-chart.Series[0].SerieFormat.ShowConnectorLines = true;
-
-//Set the chart title
-
-chart.ChartTitle = "Company Profit (in USD)";
-
-//Formatting data label and legend option
-
-chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
-
-chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-
-chart.Legend.Position = ExcelLegendPosition.Right;
-
-workbook.SaveAs("Waterfall.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Waterfall.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Create a chart
+  Dim chart As IChartShape = sheet.Charts.Add()
 
-application.DefaultVersion = ExcelVersion.Excel2016
+  'Set chart type as Waterfall
+  chart.ChartType = ExcelChartType.WaterFall
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Set data range in the worksheet
+  chart.DataRange = sheet("A2:B8")
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  'Datapoint settings as total in chart
+  chart.Series(0).DataPoints(3).SetAsTotal = True
+  chart.Series(0).DataPoints(6).SetAsTotal = True
 
-'Create a chart
+  'Showing the connector lines between data points
+  chart.Series(0).SerieFormat.ShowConnectorLines = True
 
-Dim chart As IChartShape = sheet.Charts.Add()
+  'Set the chart title
+  chart.ChartTitle = "Company Profit (in USD)"
 
-'Set chart type as Waterfall
+  'Formatting data label and legend option
+  chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+  chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
+  chart.Legend.Position = ExcelLegendPosition.Right
 
-chart.ChartType = ExcelChartType.WaterFall
+  workbook.SaveAs("Waterfall.xlsx")
+End Using
+{% endhighlight %}
 
-'Set data range in the worksheet
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
 
-chart.DataRange = sheet("A2:B8")
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-'Datapoint settings as total in chart
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-chart.Series(0).DataPoints(3).SetAsTotal = True
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-chart.Series(0).DataPoints(6).SetAsTotal = True
+  //Set chart type as Waterfall
+  chart.ChartType = ExcelChartType.WaterFall;
 
-'Showing the connector lines between data points
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A2:B8"];
 
-chart.Series(0).SerieFormat.ShowConnectorLines = True
+  //Data point settings as total in chart
+  chart.Series[0].DataPoints[3].SetAsTotal = true;
+  chart.Series[0].DataPoints[6].SetAsTotal = true;
 
-'Set the chart title
+  //Showing the connector lines between data points
+  chart.Series[0].SerieFormat.ShowConnectorLines = true;
 
-chart.ChartTitle = "Company Profit (in USD)"
+  //Set the chart title
+  chart.ChartTitle = "Company Profit (in USD)";
 
-'Formatting data label and legend option
+  //Formatting data label and legend option
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+  chart.Legend.Position = ExcelLegendPosition.Right;
 
-chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Waterfall";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-chart.Legend.Position = ExcelLegendPosition.Right
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-workbook.SaveAs("Waterfall.xlsx")
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream,ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-workbook.Close()
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-excelEngine.Dispose()
+  //Set chart type as Waterfall
+  chart.ChartType = ExcelChartType.WaterFall;
 
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A2:B8"];
 
+  //Data point settings as total in chart
+  chart.Series[0].DataPoints[3].SetAsTotal = true;
+  chart.Series[0].DataPoints[6].SetAsTotal = true;
 
+  //Showing the connector lines between data points
+  chart.Series[0].SerieFormat.ShowConnectorLines = true;
+
+  //Set the chart title
+  chart.ChartTitle = "Company Profit (in USD)";
+
+  //Formatting data label and legend option
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+  chart.Legend.Position = ExcelLegendPosition.Right;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Waterfall.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream,ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set chart type as Waterfall
+  chart.ChartType = ExcelChartType.WaterFall;
+
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A2:B8"];
+
+  //Data point settings as total in chart
+  chart.Series[0].DataPoints[3].SetAsTotal = true;
+  chart.Series[0].DataPoints[6].SetAsTotal = true;
+
+  //Showing the connector lines between data points
+  chart.Series[0].SerieFormat.ShowConnectorLines = true;
+
+  //Set the chart title
+  chart.ChartTitle = "Company Profit (in USD)";
+
+  //Formatting data label and legend option
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+  chart.Legend.Position = ExcelLegendPosition.Right;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Waterfall.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Waterfall.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -2332,8 +4460,6 @@ The following screen shot shows the output of above code.
 
 ![](Working-with-Charts_images/waterfall.jpeg)
 
-
-
 ### Histogram
 
 [Histogram](https://support.office.com/en-us/article/Create-a-histogram-85680173-064b-4024-b39d-80f17ff2f4e8# ) shows the frequencies within a distribution. Each column of the chart is called a bin, which can be changed further to analyze the data.
@@ -2342,109 +4468,221 @@ Following code example illustrates how to create Histogram.
 
 {% tabs %}
 {% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-ExcelEngine excelEngine = new ExcelEngine();
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-IApplication application = excelEngine.Excel;
+  //Set chart type as Histogram
+  chart.ChartType = ExcelChartType.Histogram;
 
-application.DefaultVersion = ExcelVersion.Excel2016;
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A1:A15"];
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Category axis bin settings
+  chart.PrimaryCategoryAxis.BinWidth = 8;
 
-IWorksheet sheet = workbook.Worksheets[0];
+  //Gap width settings
+  chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
 
-//Create a chart
+  //Set the chart title and axis title
+  chart.ChartTitle = "Height Data";
+  chart.PrimaryValueAxis.Title = "Number of students";
+  chart.PrimaryCategoryAxis.Title = "Height";
 
-IChartShape chart = sheet.Charts.Add();
+  //Hiding the legend
+  chart.HasLegend = false;
 
-//Set chart type as Histogram       
-
-chart.ChartType = ExcelChartType.Histogram;
-
-//Set data range in the worksheet   
-
-chart.DataRange = sheet["A1:A15"];
-
-//Category axis bin settings        
-
-chart.PrimaryCategoryAxis.BinWidth = 8;
-
-//Gap width settings
-
-chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
-
-//Set the chart title and axis title
-
-chart.ChartTitle = "Height Data";
-
-chart.PrimaryValueAxis.Title = "Number of students";
-
-chart.PrimaryCategoryAxis.Title = "Height";
-
-//Hiding the legend
-
-chart.HasLegend = false;
-
-workbook.SaveAs("Histogram.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Histogram.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Create a chart
+  Dim chart As IChartShape = sheet.Charts.Add()
 
-application.DefaultVersion = ExcelVersion.Excel2016
+  'Set chart type as Histogram
+  chart.ChartType = ExcelChartType.Histogram
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Set data range in the worksheet
+  chart.DataRange = sheet("A1:A15")
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  'Category axis bin settings
+  chart.PrimaryCategoryAxis.BinWidth = 8
 
-'Create a chart
+  'Gap width settings
+  chart.Series(0).SerieFormat.CommonSerieOptions.GapWidth = 6
 
-Dim chart As IChartShape = sheet.Charts.Add()
+  'Set the chart title and axis title
+  chart.ChartTitle = "Height Data"
+  chart.PrimaryValueAxis.Title = "Number of students"
+  chart.PrimaryCategoryAxis.Title = "Height"
 
-'Set chart type as Histogram                 
+  'Hiding the legend
+  chart.HasLegend = False
 
-chart.ChartType = ExcelChartType.Histogram
+  workbook.SaveAs("Histogram.xlsx")
+End Using
+{% endhighlight %}
 
-'Set data range in the worksheet
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
 
-chart.DataRange = sheet("A1:A15")
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-'Category axis bin settings     
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-chart.PrimaryCategoryAxis.BinWidth = 8
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-'Gap width settings
+  //Set chart type as Histogram       
+  chart.ChartType = ExcelChartType.Histogram;
 
-chart.Series(0).SerieFormat.CommonSerieOptions.GapWidth = 6
+  //Set data range in the worksheet   
+  chart.DataRange = sheet["A1:A15"];
 
-'Set the chart title and axis title
+  //Category axis bin settings        
+  chart.PrimaryCategoryAxis.BinWidth = 8;
 
-chart.ChartTitle = "Height Data"
+  //Gap width settings
+  chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
 
-chart.PrimaryValueAxis.Title = "Number of students"
+  //Set the chart title and axis title
+  chart.ChartTitle = "Height Data";
+  chart.PrimaryValueAxis.Title = "Number of students";
+  chart.PrimaryCategoryAxis.Title = "Height";
 
-chart.PrimaryCategoryAxis.Title = "Height"
+  //Hiding the legend
+  chart.HasLegend = false;
 
-'Hiding the legend
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Histogram";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-chart.HasLegend = False
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-workbook.SaveAs("Histogram.xlsx")
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-workbook.Close()
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-excelEngine.Dispose()
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
+  //Set chart type as Histogram       
+  chart.ChartType = ExcelChartType.Histogram;
 
+  //Set data range in the worksheet   
+  chart.DataRange = sheet["A1:A15"];
+
+  //Category axis bin settings        
+  chart.PrimaryCategoryAxis.BinWidth = 8;
+
+  //Gap width settings
+  chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+
+  //Set the chart title and axis title
+  chart.ChartTitle = "Height Data";
+  chart.PrimaryValueAxis.Title = "Number of students";
+  chart.PrimaryCategoryAxis.Title = "Height";
+
+  //Hiding the legend
+  chart.HasLegend = false;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Histogram.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set chart type as Histogram       
+  chart.ChartType = ExcelChartType.Histogram;
+
+  //Set data range in the worksheet   
+  chart.DataRange = sheet["A1:A15"];
+
+  //Category axis bin settings        
+  chart.PrimaryCategoryAxis.BinWidth = 8;
+
+  //Gap width settings
+  chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+
+  //Set the chart title and axis title
+  chart.ChartTitle = "Height Data";
+  chart.PrimaryValueAxis.Title = "Number of students";
+  chart.PrimaryCategoryAxis.Title = "Height";
+
+  //Hiding the legend
+  chart.HasLegend = false;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Histogram.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Histogram.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -2454,7 +4692,6 @@ The following screen shot shows the output of above code.
 
 ![](Working-with-Charts_images/histogram.jpeg)
 
-
 ### Pareto
 
 [Pareto](https://support.office.com/en-us/article/Create-a-Pareto-chart-a1512496-6dba-4743-9ab1-df5012972856#) is a sorted histogram where columns sorted in descending order and a line representing the cumulative total percentage.
@@ -2462,109 +4699,229 @@ The following screen shot shows the output of above code.
 Following code example illustrates how to create Pareto chart.
 
 {% tabs %}
-
 {% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-ExcelEngine excelEngine = new ExcelEngine();
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-IApplication application = excelEngine.Excel;
+  //Set chart type as Pareto
+  chart.ChartType = ExcelChartType.Pareto;
 
-application.DefaultVersion = ExcelVersion.Excel2016;
+  //Set data range in the worksheet   
+  chart.DataRange = sheet["A2:B8"];
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Set category values as bin values   
+  chart.PrimaryCategoryAxis.IsBinningByCategory = true;
 
-IWorksheet sheet = workbook.Worksheets[0];
+  //Formatting Pareto line      
+  chart.Series[0].ParetoLineFormat.LineProperties.ColorIndex = ExcelKnownColors.Bright_green;
+	
+  //Gap width settings
+  chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
 
-//Create a chart
+  //Set the chart title
+  chart.ChartTitle = "Expenses";
 
-IChartShape chart = sheet.Charts.Add();
+  //Hiding the legend
+  chart.HasLegend = false;
 
-//Set chart type as Pareto
-
-chart.ChartType = ExcelChartType.Pareto;
-
-//Set data range in the worksheet   
-
-chart.DataRange = sheet["A2:B8"];
-
-//Set category values as bin values   
-
-chart.PrimaryCategoryAxis.IsBinningByCategory = true;
-
-//Formatting Pareto line      
-
-chart.Series[0].ParetoLineFormat.LineProperties.ColorIndex = ExcelKnownColors.Bright_green;
-
-//Gap width settings
-
-chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
-
-//Set the chart title
-
-chart.ChartTitle = "Expenses";
-
-//Hiding the legend
-
-chart.HasLegend = false;
-
-workbook.SaveAs("Pareto.xlsx");
-
-workbook.Close();
-
+  workbook.SaveAs("Pareto.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim excelEngine As ExcelEngine = New ExcelEngine
+  'Create a chart
+  Dim chart As IChartShape = sheet.Charts.Add()
 
-Dim application As IApplication = excelEngine.Excel
+  'Set chart type as Pareto
+  chart.ChartType = ExcelChartType.Pareto
 
-application.DefaultVersion = ExcelVersion.Excel2016
+  'Set data range in the worksheet
+  chart.DataRange = sheet("A2:B8")
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Set category axis as bin option
+  chart.PrimaryCategoryAxis.IsBinningByCategory = True
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  'Formatting Pareto line
+  chart.Series(0).ParetoLineFormat.LineProperties.ColorIndex = ExcelKnownColors.Bright_green
 
-'Create a chart
+  'Gap width settings
+  chart.Series(0).SerieFormat.CommonSerieOptions.GapWidth = 6
 
-Dim chart As IChartShape = sheet.Charts.Add()
+  'Set the chart title
+  chart.ChartTitle = "Expenses"
 
-'Set chart type as Pareto
+  'Hiding the legend
+  chart.HasLegend = False
 
-chart.ChartType = ExcelChartType.Pareto
-
-'Set data range in the worksheet
-
-chart.DataRange = sheet("A2:B8")
-
-'Set category axis as bin option
-
-chart.PrimaryCategoryAxis.IsBinningByCategory = True
-
-'Formatting Pareto line
-
-chart.Series(0).ParetoLineFormat.LineProperties.ColorIndex = ExcelKnownColors.Bright_green
-
-'Gap width settings
-
-chart.Series(0).SerieFormat.CommonSerieOptions.GapWidth = 6
-
-'Set the chart title
-
-chart.ChartTitle = "Expenses"
-
-'Hiding the legend
-
-chart.HasLegend = False
-
-workbook.SaveAs("Pareto.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
+  workbook.SaveAs("Pareto.xlsx")
+End Using
 {% endhighlight %}
 
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set chart type as Pareto
+  chart.ChartType = ExcelChartType.Pareto;
+
+  //Set data range in the worksheet   
+  chart.DataRange = sheet["A2:B8"];
+
+  //Set category values as bin values   
+  chart.PrimaryCategoryAxis.IsBinningByCategory = true;
+
+  //Formatting Pareto line      
+  chart.Series[0].ParetoLineFormat.LineProperties.ColorIndex = ExcelKnownColors.Bright_green;
+
+  //Gap width settings
+  chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+
+  //Set the chart title
+  chart.ChartTitle = "Expenses";
+
+  //Hiding the legend
+  chart.HasLegend = false;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Pareto";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set chart type as Pareto
+  chart.ChartType = ExcelChartType.Pareto;
+
+  //Set data range in the worksheet   
+  chart.DataRange = sheet["A2:B8"];
+
+  //Set category values as bin values   
+  chart.PrimaryCategoryAxis.IsBinningByCategory = true;
+
+  //Formatting Pareto line      
+  chart.Series[0].ParetoLineFormat.LineProperties.ColorIndex = ExcelKnownColors.Bright_green;
+
+  //Gap width settings
+  chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+
+  //Set the chart title
+  chart.ChartTitle = "Expenses";
+
+  //Hiding the legend
+  chart.HasLegend = false;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Pareto.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set chart type as Pareto
+  chart.ChartType = ExcelChartType.Pareto;
+
+  //Set data range in the worksheet   
+  chart.DataRange = sheet["A2:B8"];
+
+  //Set category values as bin values   
+  chart.PrimaryCategoryAxis.IsBinningByCategory = true;
+
+  //Formatting Pareto line
+  chart.Series[0].ParetoLineFormat.LineProperties.ColorIndex = ExcelKnownColors.Bright_green;
+
+  //Gap width settings
+  chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+
+  //Set the chart title
+  chart.ChartTitle = "Expenses";
+
+  //Hiding the legend
+  chart.HasLegend = false;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Pareto.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Pareto.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
 {% endtabs %}
 
 The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/pareto1141391394.zip# ).
@@ -2573,8 +4930,6 @@ The following screen shot shows the output of above code.
 
 ![](Working-with-Charts_images/pareto.jpeg)
 
-
-
 ### Treemap
 
 [Treemap](https://support.office.com/en-us/article/Create-a-treemap-chart-in-Office-2016-dfe86d28-a610-4ef5-9b30-362d5c624b68#) provides a hierarchical view of data as clustered rectangle with a specific weighted attribute determining the size of the rectangle. 
@@ -2582,95 +4937,198 @@ The following screen shot shows the output of above code.
 Following code example illustrates how to create Treemap chart.
 
 {% tabs %}
-
 {% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-ExcelEngine excelEngine = new ExcelEngine();
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-IApplication application = excelEngine.Excel;
+  //Set chart type as TreeMap
+  chart.ChartType = ExcelChartType.TreeMap;
 
-application.DefaultVersion = ExcelVersion.Excel2016;
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A2:C11"];
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Set the chart title
+  chart.ChartTitle = "Area by countries";
 
-IWorksheet sheet = workbook.Worksheets[0];
+  //Set the Treemap label option
+  chart.Series[0].SerieFormat.TreeMapLabelOption = ExcelTreeMapLabelOption.Banner;
 
-//Create a chart
+  //Formatting data labels
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
 
-IChartShape chart = sheet.Charts.Add();
-
-//Set chart type as TreeMap
-
-chart.ChartType = ExcelChartType.TreeMap;
-
-//Set data range in the worksheet
-
-chart.DataRange = sheet["A2:C11"];
-
-//Set the chart title
-
-chart.ChartTitle = "Area by countries";
-
-//Set the Treemap label option
-
-chart.Series[0].SerieFormat.TreeMapLabelOption = ExcelTreeMapLabelOption.Banner; 
-
-//Formatting data labels      
-
-chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-
-workbook.SaveAs("Treemap.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
+  workbook.SaveAs("Treemap.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim excelEngine As ExcelEngine = New ExcelEngine
+  'Create a chart
+  Dim chart As IChartShape = sheet.Charts.Add()
 
-Dim application As IApplication = excelEngine.Excel
+  'Set chart type as TreeMap
+  chart.ChartType = ExcelChartType.TreeMap
 
-application.DefaultVersion = ExcelVersion.Excel2016
+  'Set data range in the worksheet
+  chart.DataRange = sheet("A2:C11")
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Set the chart title
+  chart.ChartTitle = "Area by countries"
 
-Dim sheet As IWorksheet= workbook.Worksheets(0)
+  'Set the Treemap label option
+  chart.Series(0).SerieFormat.TreeMapLabelOption = ExcelTreeMapLabelOption.Banner
 
-'Create a chart
+  'Formatting data labels
+  chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
 
-Dim chart As IChartShape = sheet.Charts.Add()
-
-'Set chart type as TreeMap
-
-chart.ChartType = ExcelChartType.TreeMap
-
-'Set data range in the worksheet
-
-chart.DataRange = sheet("A2:C11")
-
-'Set the chart title
-
-chart.ChartTitle = "Area by countries"
-
-'Set the Treemap label option
-
-chart.Series(0).SerieFormat.TreeMapLabelOption = ExcelTreeMapLabelOption.Banner 
-
-'Formatting data labels        
-
-chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
-
-workbook.SaveAs("Treemap.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
+  workbook.SaveAs("Treemap.xlsx")
+End Using
 {% endhighlight %}
 
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set chart type as TreeMap
+  chart.ChartType = ExcelChartType.TreeMap;
+
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A2:C11"];
+
+  //Set the chart title
+  chart.ChartTitle = "Area by countries";
+
+  //Set the Treemap label option
+  chart.Series[0].SerieFormat.TreeMapLabelOption = ExcelTreeMapLabelOption.Banner;
+
+  //Formatting data labels      
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Treemap";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set chart type as TreeMap
+  chart.ChartType = ExcelChartType.TreeMap;
+
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A2:C11"];
+
+  //Set the chart title
+  chart.ChartTitle = "Area by countries";
+
+  //Set the Treemap label option
+  chart.Series[0].SerieFormat.TreeMapLabelOption = ExcelTreeMapLabelOption.Banner;
+
+  //Formatting data labels      
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Treemap.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set chart type as TreeMap
+  chart.ChartType = ExcelChartType.TreeMap;
+
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A2:C11"];
+
+  //Set the chart title
+  chart.ChartTitle = "Area by countries";
+
+  //Set the Treemap label option
+  chart.Series[0].SerieFormat.TreeMapLabelOption = ExcelTreeMapLabelOption.Banner;
+
+  //Formatting data labels      
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Treemap.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Treemap.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
 {% endtabs %}
 
 The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/treemap1366604090.zip#).
@@ -2679,8 +5137,6 @@ The following screen shot shows the output of above code.
 
 ![](Working-with-Charts_images/treemap.jpeg)
 
-
-
 ### Sunburst
 
 [Sunburst](https://support.office.com/en-us/article/Create-a-sunburst-chart-in-Office-2016-4a127977-62cd-4c11-b8c7-65b84a358e0c#) provides a hierarchical view of data where each level of the hierarchy is represented by one ring or circle with the innermost circle as the top of the hierarchy.
@@ -2688,95 +5144,198 @@ The following screen shot shows the output of above code.
 Following code example illustrates how to create Sunburst chart.
 
 {% tabs %}
-
 {% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-ExcelEngine excelEngine = new ExcelEngine();
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
 
-IApplication application = excelEngine.Excel;
+  //Set chart type as Sunburst
+  chart.ChartType = ExcelChartType.SunBurst;
 
-application.DefaultVersion = ExcelVersion.Excel2016;
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A1:D16"];
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //Set the chart title
+  chart.ChartTitle = "Sales by annual";
 
-IWorksheet sheet = workbook.Worksheets[0];
+  //Formatting data labels
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
 
-//Create a chart
+  //Hiding the legend
+  chart.HasLegend = false;
 
-IChartShape chart = sheet.Charts.Add();
-
-//Set chart type as Sunburst
-
-chart.ChartType = ExcelChartType.SunBurst;
-
-//Set data range in the worksheet
-
-chart.DataRange = sheet["A1:D16"];
-
-//Set the chart title
-
-chart.ChartTitle = "Sales by annual";
-
-//Formatting data labels      
-
-chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
-
-//Hiding the legend
-
-chart.HasLegend = false;
-
-workbook.SaveAs("Sunburst.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
+  workbook.SaveAs("Sunburst.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2016
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim excelEngine As ExcelEngine = New ExcelEngine
+  'Create a chart
+  Dim chart As IChartShape = sheet.Charts.Add()
 
-Dim application As IApplication = excelEngine.Excel
+  'Set chart type as Sunburst
+  chart.ChartType = ExcelChartType.SunBurst
 
-application.DefaultVersion = ExcelVersion.Excel2016
+  'Set data range in the worksheet
+  chart.DataRange = sheet("A1:D16")
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  'Set the chart title
+  chart.ChartTitle = "Sales by annual"
 
-Dim sheet As IWorksheet= workbook.Worksheets(0)
+  'Formatting data labels
+  chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
 
-'Create a chart
+  'Hiding the legend
+  chart.HasLegend = False
 
-Dim chart As IChartShape = sheet.Charts.Add()
-
-'Set chart type as Sunburst
-
-chart.ChartType = ExcelChartType.SunBurst
-
-'Set data range in the worksheet
-
-chart.DataRange = sheet("A1:D16")
-
-'Set the chart title
-
-chart.ChartTitle = "Sales by annual" 
-
-'Formatting data labels       
-
-chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
-
-'Hiding the legend
-
-chart.HasLegend = False
-
-workbook.SaveAs("Sunburst.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
+  workbook.SaveAs("Sunburst.xlsx")
+End Using
 {% endhighlight %}
 
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set chart type as Sunburst
+  chart.ChartType = ExcelChartType.SunBurst;
+
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A1:D16"];
+
+  //Set the chart title
+  chart.ChartTitle = "Sales by annual";
+
+  //Formatting data labels      
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+  //Hiding the legend
+  chart.HasLegend = false;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Sunburst";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set chart type as Sunburst
+  chart.ChartType = ExcelChartType.SunBurst;
+
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A1:D16"];
+
+  //Set the chart title
+  chart.ChartTitle = "Sales by annual";
+
+  //Formatting data labels      
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+  //Hiding the legend
+  chart.HasLegend = false;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Sunburst.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2016;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create a chart
+  IChartShape chart = sheet.Charts.Add();
+
+  //Set chart type as Sunburst
+  chart.ChartType = ExcelChartType.SunBurst;
+
+  //Set data range in the worksheet
+  chart.DataRange = sheet["A1:D16"];
+
+  //Set the chart title
+  chart.ChartTitle = "Sales by annual";
+
+  //Formatting data labels      
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+  //Hiding the legend
+  chart.HasLegend = false;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sunburst.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sunburst.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
 {% endtabs %}
 
 The input template can be downloaded [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/sunburst1589499118.zip#).
