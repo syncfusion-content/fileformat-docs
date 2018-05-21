@@ -62,7 +62,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
   //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
@@ -115,7 +115,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
   //Gets input Excel document from embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
@@ -133,7 +133,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -281,7 +281,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -430,7 +430,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -591,7 +591,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -755,7 +755,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
