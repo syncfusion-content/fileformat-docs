@@ -149,14 +149,10 @@ using (Stream storageStream = await storageFile.OpenStreamForWriteAsync())
 
 {% highlight ASP.NET Core %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.This below code shows how to achieve excel to pdf conversion using a web service.
+
 //.cshtml file for excel to pdf conversion
 
 @using Syncfusion.JavaScript.DataVisualization
-
-@section SampleHeading{<span class="sampleName">XlsIO / ExcelToPDF</span>}
-
- @section ControlsSection{                                
-          @{ViewBag.Title = "    Essential XlsIO (Excel) :Excel To PDF Conversion : Syncfusion";}
 
 <form name="form1" method="post" action="https://js.syncfusion.com/ejservices/api/xlsio/converttopdf" enctype="multipart/form-data">
     <div class="Common">
@@ -177,11 +173,11 @@ using (Stream storageStream = await storageFile.OpenStreamForWriteAsync())
         </div>
     </div>
 </form>
-     }
+
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.This below code shows how to achieve excel to pdf conversion using a web service.
+//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. This below code shows how to achieve excel to pdf conversion using a web service.
 
 //Gets assembly
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -220,7 +216,7 @@ else
 
 //Save the stream as Excel document and view the saved document
 
-//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -346,15 +342,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 {% endtabs %}  
 
@@ -404,15 +400,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 {% endtabs %}
   
@@ -468,15 +464,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 {% endtabs %}  
 
@@ -522,15 +518,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 {% endtabs %}
 
@@ -589,15 +585,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 {% endtabs %}
 
@@ -648,15 +644,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 {% endtabs %}
 
@@ -728,15 +724,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.Please refer the Workbook to PDF section to use a web service for Excel to PDF conversion.
+//XlsIO supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer to the Workbook to PDF section to use a web service for Excel to PDF conversion.
 {% endhighlight %}
 {% endtabs %}
 
