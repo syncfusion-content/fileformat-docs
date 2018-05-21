@@ -273,15 +273,26 @@ using (Stream stream = files[0].InputStream)
 {% highlight vb %}
 Dim files As HttpFileCollection = HttpContext.Current.Request.Files
 If files.Count = 0 Then Return
+
+'Loads an existing Excel document stream
 Using stream As Stream = files(0).InputStream
       Using engine As ExcelEngine = New ExcelEngine()
           Dim application As IApplication = engine.Excel
+          
+          'Initializes the ChartToImageConverter for converting charts during Excel to PDF conversion
           application.ChartToImageConverter = New ChartToImageConverter()
           application.ChartToImageConverter.ScalingMode = ScalingMode.Normal
+          
+          'Creates an instance of the ExcelToPDFConverter
           Using excelToPDFConverter As ExcelToPdfConverter = New ExcelToPdfConverter(stream)
+          
+             'Converts Excel document into PDF document
               Using pdfDocument As PdfDocument = excelToPDFConverter.Convert()
+              
+                 'Saves the PDF document to response stream
                   pdfDocument.Save("ExcelToPDF.pdf", HttpContext.Current.Response, HttpReadType.Save)
                   pdfDocument.Close(True)
+                  
               End Using
           End Using
       End Using
