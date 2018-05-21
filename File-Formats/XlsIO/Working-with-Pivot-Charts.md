@@ -12,7 +12,7 @@ PivotCharts are interactive graphical representations of PivotTable data that al
 
 N> XlsIO provides PivotCharts support only for XLSX format.
 
-To create a pivot table refer [Create Pivot Table](/file-formats/xlsio/working-with-pivot-tables#create-a-pivot-table). 
+To create a pivot table, refer [Create Pivot Table](/file-formats/xlsio/working-with-pivot-tables#create-a-pivot-table). 
 
 The following code snippet illustrates how to create a PivotChart.
 
@@ -166,7 +166,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     MemoryStream outputStream = new MemoryStream();
     workbook.SaveAs(outputStream);
 
-    //Save the stream as Excel document and view the saved document
+    //Save the stream as an Excel document and view the saved document
     
     //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
     if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
