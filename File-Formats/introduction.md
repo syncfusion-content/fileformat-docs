@@ -31,10 +31,10 @@ If you are unable to find the information you are looking for in the self-help r
 
 <table>
 <tr>
-<th>
+<th width="25%">
 File Format library
 </th>
-<th>
+<th width="75%">
 Description
 </th>
 </tr>
