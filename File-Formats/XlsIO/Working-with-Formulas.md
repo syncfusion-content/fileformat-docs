@@ -19,21 +19,36 @@ The following code sample illustrates on how to enable worksheet formula calcula
 {% highlight c# %}
 IWorksheet sheet = workbook.Worksheets[0];
 
-//Formula calculation is enabled for the sheet.
-sheet.EnableSheetCalculations(); 
-
-
-
+//Formula calculation is enabled for the sheet
+sheet.EnableSheetCalculations();
 {% endhighlight %}
 
 {% highlight vb %}
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-'Formula calculation is enabled for the sheet.
+'Formula calculation is enabled for the sheet
 sheet.EnableSheetCalculations()
+{% endhighlight %}
 
+{% highlight UWP %}
+IWorksheet sheet = workbook.Worksheets[0];
 
+//Formula calculation is enabled for the sheet
+sheet.EnableSheetCalculations();
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Formula calculation is enabled for the sheet
+sheet.EnableSheetCalculations();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Formula calculation is enabled for the sheet
+sheet.EnableSheetCalculations();
 {% endhighlight %}
 {% endtabs %}   
 
@@ -45,21 +60,36 @@ The following code sample illustrates on how to disable worksheet formula calcul
 {% highlight c# %}
 IWorksheet sheet = workbook.Worksheets[0];
 
-//Formula calculation is disabled for the sheet.
-sheet.DisableSheetCalculations();  
-
-
-
+//Formula calculation is disabled for the sheet
+sheet.DisableSheetCalculations();
 {% endhighlight %}
 
 {% highlight vb %}
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-'Formula calculation is disabled for the sheet.
+'Formula calculation is disabled for the sheet
 sheet.DisableSheetCalculations()
+{% endhighlight %}
 
+{% highlight UWP %}
+IWorksheet sheet = workbook.Worksheets[0];
 
+//Formula calculation is disabled for the sheet
+sheet.DisableSheetCalculations();
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Formula calculation is disabled for the sheet
+sheet.DisableSheetCalculations();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Formula calculation is disabled for the sheet
+sheet.DisableSheetCalculations();
 {% endhighlight %}
 {% endtabs %}   
 
@@ -69,67 +99,129 @@ In a worksheet, formulas can be entered by using the **Formula** property of IRa
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Setting values to the cells
+  sheet.Range["A1"].Number = 10;
+  sheet.Range["B1"].Number = 10;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Setting formula in the cell
+  sheet.Range["C1"].Formula = "=SUM(A1,B1)";
 
-IWorkbook workbook = application.Workbooks.Create(1);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Setting values to the cells
-
-sheet.Range["A1"] = 10;
-
-sheet.Range["B1"] = 10;
-
-//Setting formula in the cell
-
-sheet.Range["C1"].Formula = "=SUM(A1,B1)";
-
-workbook.SaveAs("Formula.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
+  workbook.SaveAs("Formula.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Setting values to the cells
+  sheet.Range("A1").Number = 10
+  sheet.Range("B1").Number = 10
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Setting formula for the range
+  sheet.Range("C1").Formula = "=SUM(A1,B1)"
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-'Setting values to the cells
-
-sheet.Range("A1") = 10
-
-sheet.Range("B1") = 10
-
-'Setting formula for the range
-
-sheet.Range("C1").Formula = "=SUM(A1,B1)"
-
-workbook.SaveAs("Formula.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Formula.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}   
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Setting values to the cells
+  sheet.Range["A1"].Number = 10;
+  sheet.Range["B1"].Number = 10;
+
+  //Setting formula in the cell
+  sheet.Range["C1"].Formula = "=SUM(A1,B1)";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Formula";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Setting values to the cells
+  sheet.Range["A1"].Number = 10;
+  sheet.Range["B1"].Number = 10;
+
+  //Setting formula in the cell
+  sheet.Range["C1"].Formula = "=SUM(A1,B1)";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Formula.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Setting values to the cells
+  sheet.Range["A1"].Number = 10;
+  sheet.Range["B1"].Number = 10;
+ 
+  //Setting formula in the cell
+  sheet.Range["C1"].Formula = "=SUM(A1,B1)";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ### Formula with Cross-sheet References
 
@@ -137,55 +229,109 @@ XlsIO supports using formulas across worksheets. The following code shows how to
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create();
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Setting formula for the range with cross-sheet reference
+  sheet.Range["C2"].Formula = "=SUM(Sheet2!B2,Sheet1!A2)";
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Create(1);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Setting formula for the range with cross-sheet reference.
-
-sheet.Range["C2"].Formula = "=SUM(Sheet2!B2,Sheet1!A2)";
-
-workbook.SaveAs("Formula.xlsx";);
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
+  workbook.SaveAs("Formula.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create()
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Setting formula for the range with cross-sheet reference
+  sheet.Range("C2").Formula = "=SUM(Sheet2!B2,Sheet1!A2)"
 
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-'Setting formula for the range with cross-sheet reference.
-
-sheet.Range("C2").Formula = "=SUM(Sheet2!B2,Sheet1!A2)"
-
-workbook.SaveAs("Formula.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Formula.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}   
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create();
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Setting formula for the range with cross-sheet reference
+  sheet.Range["C2"].Formula = "=SUM(Sheet2!B2,Sheet1!A2)";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Formula";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create();
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Setting formula for the range with cross-sheet reference
+  sheet.Range["C2"].Formula = "=SUM(Sheet2!B2,Sheet1!A2)";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Formula.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create();
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Setting formula for the range with cross-sheet reference
+  sheet.Range["C2"].Formula = "=SUM(Sheet2!B2,Sheet1!A2)";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Reading a Formula
 
@@ -196,20 +342,27 @@ The following code shows how to read a formula.
 {% tabs %}  
 {% highlight c# %}
 //Returns the formula in C1 style notation
-
-string formula = sheet["C1"].Formula; 
-
-
-
+string formula = sheet["C1"].Formula;
 {% endhighlight %}
 
 {% highlight vb %}
 'Returns the formula in C1 style notation
-
 Dim formula as String = sheet("C1").Formula
+{% endhighlight %}
 
+{% highlight UWP %}
+//Returns the formula in C1 style notation
+string formula = sheet["C1"].Formula;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Returns the formula in C1 style notation
+string formula = sheet["C1"].Formula;
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Returns the formula in C1 style notation
+string formula = sheet["C1"].Formula;
 {% endhighlight %}
 {% endtabs %}   
 
@@ -219,69 +372,145 @@ To evaluate formula, it is must to [enable sheet calculation](/file-formats/xlsi
 
 The following code shows how to access a calculated value.
 
-{% tabs %}  
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  sheet.EnableSheetCalculations();
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Returns the calculated value of a formula using the most current inputs
+  string calculatedValue = sheet["A1"].CalculatedValue;
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  sheet.DisableSheetCalculations();
 
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Initializes Calculate Engine to perform calculation
-
-sheet.EnableSheetCalculations();
-
-//Returns the calculated value of a formula using the most current inputs
-
-string calculatedValue = sheet["C1"].CalculatedValue;
-
-sheet.DisableSheetCalculations();
-
-workbook.SaveAs("Formula.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
+  workbook.SaveAs("Formula.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  sheet.EnableSheetCalculations()
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Returns the calculated value of a formula using the most current inputs
+  Dim calculatedValue As String = sheet("C1").CalculatedValue
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  sheet.DisableSheetCalculations()
 
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-'Initializes Calculate Engine to perform calculation
-
-sheet.EnableSheetCalculations()
-
-'Returns the calculated value of a formula using the most current inputs
-
-Dim calculatedValue As String = sheet("C1").CalculatedValue
-
-sheet.DisableSheetCalculations()
-
-workbook.SaveAs("Formula.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Formula.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}   
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  sheet.EnableSheetCalculations();
+
+  //Returns the calculated value of a formula using the most current inputs
+  string calculatedValue = sheet["C1"].CalculatedValue;
+
+  sheet.DisableSheetCalculations();
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Formula";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  sheet.EnableSheetCalculations();
+
+  //Returns the calculated value of a formula using the most current inputs
+  string calculatedValue = sheet["C1"].CalculatedValue;
+
+  sheet.DisableSheetCalculations();
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Formula.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  sheet.EnableSheetCalculations();
+
+  //Returns the calculated value of a formula using the most current inputs
+  string calculatedValue = sheet["C1"].CalculatedValue;
+
+  sheet.DisableSheetCalculations();
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 Apart from __CalculatedValue__ property, the evaluated values can be accessed as **bool**, **DateTime** and **double** data types. To obtain updated values of these types, **CalculatedValue** property must be called in prior.
 
@@ -291,135 +520,263 @@ The following code shows how to access calculated values in different types.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Previous Value '2'
+  sheet["E1"].Number = 3;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  sheet.EnableSheetCalculations();
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  //It has formula 'ISEVEN(E1)'
+  //Returns the calculated value of a formula as Boolean
+  bool B1_PreviousValue = sheet["B1"].FormulaBoolValue;
+  string value = sheet.Range["B1"].CalculatedValue;
+  bool B1_LatestValue = sheet["B1"].FormulaBoolValue;
 
-IWorksheet sheet = workbook.Worksheets[0];
+  //It has formula 'TODAY()'
+  //Returns the calculated value of a formula as DateTime
+  DateTime C1_PreviousValue = sheet["C1"].FormulaDateTime;
+  value = sheet.Range["C1"].CalculatedValue;
+  DateTime C1_LatestValue = sheet["C1"].FormulaDateTime;
 
-//Previous Value '2'
+  //It has formula '=E1'
+  //Returns the calculated value of a formula as double
+  double D1_PreviousValue = sheet["D1"].FormulaNumberValue;
+  value = sheet.Range["D1"].CalculatedValue;
+  double D1_LatestValue = sheet["D1"].FormulaNumberValue;
 
-sheet["E1"].Number = 3;
+  sheet.DisableSheetCalculations();
 
-sheet.EnableSheetCalculations();
-
-//It has formula 'ISEVEN(E1)'
-
-//Returns the calculated value of a formula as Boolean
-
-bool B1_PreviousValue = sheet["B1"].FormulaBoolValue;
-
-string value = sheet.Range["B1"].CalculatedValue;
-
-bool B1_LatestValue = sheet["B1"].FormulaBoolValue;
-
-//It has formula 'TODAY()'
-
-//Returns the calculated value of a formula as DateTime
-
-DateTime C1_PreviousValue = sheet["C1"].FormulaDateTime;
-
-value = sheet.Range["C1"].CalculatedValue;
-
-DateTime C1_LatestValue= sheet["C1"].FormulaDateTime;
-
-//It has formula '=E1'
-
-//Returns the calculated value of a formula as double
-
-double D1_PreviousValue = sheet["D1"].FormulaNumberValue; 
-
-value = sheet.Range["D1"].CalculatedValue;
-
-double D1_LatestValue = sheet["D1"].FormulaNumberValue; 
-
-
-
-sheet.DisableSheetCalculations();
-
-workbook.SaveAs("Formula.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose(); 
+  workbook.SaveAs("Formula.xlsx");
+} 
 
 //Output
 
-//B1_PreviousValue - true                     B1_LatestValue - false
-
-//C1_PreviousValue - {10/21/2015 12:00:00 AM} C1_LatestValue - {10/22/2015 12:00:00 AM}
-
-//D1_PreviousValue - 2.0                        D1_LatestValue - 3.0        
-
-
-
+//B1_PreviousValue - true                     	B1_LatestValue - false
+//C1_PreviousValue - {3/27/2018 12:00:00 AM} 	C1_LatestValue - {3/28/2018 12:00:00 AM}
+//D1_PreviousValue - 2.0                        D1_LatestValue - 3.0
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Previous Value '2'
+  sheet("E1").Number = 3
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  sheet.EnableSheetCalculations()
 
-Dim workbook As IWorkbook = application.Workbooks.Open("..\..\Data\Book1.xlsx", ExcelOpenType.Automatic)
+  'It has formula 'ISEVEN(E1)'
+  'Returns the calculated value of a formula as Boolean
+  Dim B1_PreviousValue As Boolean = sheet("B1").FormulaBoolValue
+  Dim value As String = sheet.Range("B1").CalculatedValue
+  Dim B1_LatestValue As Boolean = sheet("B1").FormulaBoolValue
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  'It has formula 'TODAY()'
+  'Returns the calculated value of a formula as DateTime
+  Dim C1_PreviousValue As DateTime = sheet("C1").FormulaDateTime
+  value = sheet.Range("C1").CalculatedValue
+  Dim C1_LatestValue As DateTime = sheet("C1").FormulaDateTime
 
-'Previous Value '2'
+  'It has formula '=E1'
+  'Returns the calculated value of a formula as double
+  Dim D1_PreviousValue As Double = sheet("D1").FormulaNumberValue
+  value = sheet.Range("D1").CalculatedValue
+  Dim D1_LatestValue As Double = sheet("D1").FormulaNumberValue
 
-sheet("E1").Number = 3
+  sheet.DisableSheetCalculations()
 
-sheet.EnableSheetCalculations()
+  workbook.SaveAs("Formula.xlsx")
+End Using
 
-'It has formula 'ISEVEN(E1)'
+'Output
 
-'Returns the calculated value of a formula as Boolean
+'B1_PreviousValue - true                     	B1_LatestValue - false
+'C1_PreviousValue - {3/27/2018 12:00:00 AM} 	C1_LatestValue - {3/28/2018 12:00:00 AM}
+'D1_PreviousValue - 2.0                        	D1_LatestValue - 3.0
+{% endhighlight %}
 
-Dim B1_PreviousValue As Boolean = sheet("B1").FormulaBoolValue
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-Dim value As String = sheet.Range("B1").CalculatedValue
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
 
-Dim B1_LatestValue As Boolean = sheet("B1").FormulaBoolValue
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-'It has formula 'TODAY()'
+  //Previous Value '2'
+  sheet["E1"].Number = 3;
 
-'Returns the calculated value of a formula as DateTime
+  sheet.EnableSheetCalculations();
 
-Dim C1_PreviousValue As DateTime = sheet("C1").FormulaDateTime
+  //It has formula 'ISEVEN(E1)'
+  //Returns the calculated value of a formula as Boolean
+  bool B1_PreviousValue = sheet["B1"].FormulaBoolValue;
+  string value = sheet.Range["B1"].CalculatedValue;
+  bool B1_LatestValue = sheet["B1"].FormulaBoolValue;
 
-value = sheet.Range("C1").CalculatedValue
+  //It has formula 'TODAY()'
+  //Returns the calculated value of a formula as DateTime
+  DateTime C1_PreviousValue = sheet["C1"].FormulaDateTime;
+  value = sheet.Range["C1"].CalculatedValue;
+  DateTime C1_LatestValue = sheet["C1"].FormulaDateTime;
 
-Dim C1_LatestValue As DateTime = sheet("C1").FormulaDateTime
+  //It has formula '=E1'
+  //Returns the calculated value of a formula as double
+  double D1_PreviousValue = sheet["D1"].FormulaNumberValue;
+  value = sheet.Range["D1"].CalculatedValue;
+  double D1_LatestValue = sheet["D1"].FormulaNumberValue;
 
-'It has formula '=E1'
+  sheet.DisableSheetCalculations();
 
-'Returns the calculated value of a formula as double
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Formula";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-Dim D1_PreviousValue As Double = sheet("D1").FormulaNumberValue
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-value = sheet.Range("D1").CalculatedValue
-
-Dim D1_LatestValue As Double = sheet("D1").FormulaNumberValue
-
-sheet.DisableSheetCalculations()
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
 
 //Output
 
-//B1_PreviousValue - true                     B1_LatestValue - false
-
-//C1_PreviousValue - {10/21/2015 12:00:00 AM} C1_LatestValue - {10/22/2015 12:00:00 AM}
-
-//D1_PreviousValue - 2.0                        D1_LatestValue - 3.0        
-
-
-
+//B1_PreviousValue - true                     	B1_LatestValue - false
+//C1_PreviousValue - {3/27/2018 12:00:00 AM} 	C1_LatestValue - {3/28/2018 12:00:00 AM}
+//D1_PreviousValue - 2.0                        D1_LatestValue - 3.0
 {% endhighlight %}
-{% endtabs %}   
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Previous Value '2'
+  sheet["E1"].Number = 3;
+
+  sheet.EnableSheetCalculations();
+
+  //It has formula 'ISEVEN(E1)'
+  //Returns the calculated value of a formula as Boolean
+  bool B1_PreviousValue = sheet["B1"].FormulaBoolValue;
+  string value = sheet.Range["B1"].CalculatedValue;
+  bool B1_LatestValue = sheet["B1"].FormulaBoolValue;
+
+  //It has formula 'TODAY()'
+  //Returns the calculated value of a formula as DateTime
+  DateTime C1_PreviousValue = sheet["C1"].FormulaDateTime;
+  value = sheet.Range["C1"].CalculatedValue;
+  DateTime C1_LatestValue = sheet["C1"].FormulaDateTime;
+
+  //It has formula '=E1'
+  //Returns the calculated value of a formula as double
+  double D1_PreviousValue = sheet["D1"].FormulaNumberValue;
+  value = sheet.Range["D1"].CalculatedValue;
+  double D1_LatestValue = sheet["D1"].FormulaNumberValue;
+
+  sheet.DisableSheetCalculations();
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Formula.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+
+//Output
+
+//B1_PreviousValue - true                     	B1_LatestValue - false
+//C1_PreviousValue - {3/27/2018 12:00:00 AM} 	C1_LatestValue - {3/28/2018 12:00:00 AM}
+//D1_PreviousValue - 2.0                        D1_LatestValue - 3.0
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Previous Value '2'
+  sheet["E1"].Number = 3;
+
+  sheet.EnableSheetCalculations();
+
+  //It has formula 'ISEVEN(E1)'
+  //Returns the calculated value of a formula as Boolean
+  bool B1_PreviousValue = sheet["B1"].FormulaBoolValue;
+  string value = sheet.Range["B1"].CalculatedValue;
+  bool B1_LatestValue = sheet["B1"].FormulaBoolValue;
+
+  //It has formula 'TODAY()'
+  //Returns the calculated value of a formula as DateTime
+  DateTime C1_PreviousValue = sheet["C1"].FormulaDateTime;
+  value = sheet.Range["C1"].CalculatedValue;
+  DateTime C1_LatestValue = sheet["C1"].FormulaDateTime;
+
+  //It has formula '=E1'
+  //Returns the calculated value of a formula as double
+  double D1_PreviousValue = sheet["D1"].FormulaNumberValue;
+  value = sheet.Range["D1"].CalculatedValue;
+  double D1_LatestValue = sheet["D1"].FormulaNumberValue;
+
+  sheet.DisableSheetCalculations();
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+}
+
+//Output
+
+//B1_PreviousValue - true                     	B1_LatestValue - false
+//C1_PreviousValue - {3/27/2018 12:00:00 AM} 	C1_LatestValue - {3/28/2018 12:00:00 AM}
+//D1_PreviousValue - 2.0                        D1_LatestValue - 3.0
+{% endhighlight %}
+{% endtabs %}
 
 ## Applying Argument Separators Based on Cultures
 
@@ -429,51 +786,105 @@ Following code illustrates on how to change the formula separators.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Setting the argument separator
+  workbook.SetSeparators(';', ',');
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Create(1);
-
-//Setting the argument separator
-
-workbook.SetSeparators(";", ",");
-
-workbook.SaveAs("Formula.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
+  workbook.SaveAs("Formula.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-Dim application As IApplication = excelEngine.Excel
+  'Setting the argument separator
+  workbook.SetSeparators(";", ",")
 
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-' Setting the argument separator
-
-workbook.SetSeparators(";", ",")
-
-workbook.SaveAs("Formula.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Formula.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}   
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+
+  //Setting the argument separator
+  workbook.SetSeparators(';', ',');
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Formula";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+
+  //Setting the argument separator
+  workbook.SetSeparators(';', ',');
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Formula.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+
+  //Setting the argument separator
+  workbook.SetSeparators(';', ',');
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Array of Formula
 
@@ -483,77 +894,140 @@ Following code shows how an array of values from [Named Range](/file-formats/xls
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Assign array formula
+  sheet.Range["A1:D1"].FormulaArray = "{1,2,3,4}";
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Adding a named range for the range A1 to D1
+  sheet.Names.Add("ArrayRange", sheet.Range["A1:D1"]);
 
-IWorkbook workbook = application.Workbooks.Create(1);
+  //Assign formula array with named range
+  sheet.Range["A2:D2"].FormulaArray = "ArrayRange+100";
 
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Assign array formula
-
-sheet.Range["A1:D1"].FormulaArray = "{1,2,3,4}";
-
-
-
-//Adding a named range for the range A1 to D1
-
-sheet.Names.Add("ArrayRange", sheet.Range["A1:D1"]);
-
-
-
-//Assign formula array with named range
-
-sheet.Range["A2:D2"].FormulaArray = "ArrayRange+100"; 
-
-string fileName = "FormulaArray.xlsx";
-
-workbook.SaveAs(fileName);
-
-workbook.Close();
-
-excelEngine.Dispose();          
-
-
-
+  string fileName = "FormulaArray.xlsx";
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Assign array formula
+  sheet.Range("A1:D1").FormulaArray = "{1,2,3,4}"
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Adding a named range for the range A1 to D1
+  sheet.Names.Add("ArrayRange", sheet.Range("A1:D1"))
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  'Assign formula array with named range
+  sheet.Range("A2:D2").FormulaArray = "ArrayRange+100"
 
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-'Assign array formula
-
-sheet.Range("A1:D1").FormulaArray = "{1,2,3,4}"
-
-'Adding a named range for the range A1 to D1
-
-sheet.Names.Add("ArrayRange", sheet.Range("A1:D1"))
-
-'Assign formula array with named range
-
-sheet.Range("A2:D2").FormulaArray = "ArrayRange+100"
-
-workbook.SaveAs("FormulaArray.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("FormulaArray.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}   
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Assign array formula
+  sheet.Range["A1:D1"].FormulaArray = "{1,2,3,4}";
+
+  //Adding a named range for the range A1 to D1
+  sheet.Names.Add("ArrayRange", sheet.Range["A1:D1"]);
+
+  //Assign formula array with named range
+  sheet.Range["A2:D2"].FormulaArray = "ArrayRange+100";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "FormulaArray";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Assign array formula
+  sheet.Range["A1:D1"].FormulaArray = "{1,2,3,4}";
+
+  //Adding a named range for the range A1 to D1
+  sheet.Names.Add("ArrayRange", sheet.Range["A1:D1"]);
+
+  //Assign formula array with named range
+  sheet.Range["A2:D2"].FormulaArray = "ArrayRange+100";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("FormulaArray.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Assign array formula
+  sheet.Range["A1:D1"].FormulaArray = "{1,2,3,4}";
+
+  //Adding a named range for the range A1 to D1
+  sheet.Names.Add("ArrayRange", sheet.Range["A1:D1"]);
+
+  //Assign formula array with named range
+  sheet.Range["A2:D2"].FormulaArray = "ArrayRange+100";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("FormulaArray.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("FormulaArray.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Incremental Formula
 
@@ -563,59 +1037,129 @@ The below code snippet shows how to increment the cell references by 1 in the fo
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-IApplication application = excelEngine.Excel;
+  //Enables the incremental formula to updates the reference in cell
+  application.EnableIncrementalFormula = true;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-//Enables the incremental formula to updates the reference in cell.
-application.EnableIncrementalFormula = true;
+  //Formula are automatically increments by one for the range of cells
+  sheet["A1:A5"].Formula = "=B1+C1";
 
-IWorkbook workbook = application.Workbooks.Create(1);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Formula are automatically increments by one for the range of cells.
-sheet["A1:A5"].Formula = "=B1+C1";
-
-workbook.SaveAs("IncrementalFormula.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();          
-
-
-
+  workbook.SaveAs("IncrementalFormula.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim application As IApplication = excelEngine.Excel
+  'Enables the incremental formula to updates the reference in cell
+  application.EnableIncrementalFormula = True
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-'Enables the incremental formula to updates the reference in cell.
-application.EnableIncrementalFormula = True
+  'Formula are automatically increments by one for the range of cells
+  sheet("A1:A5").Formula = "=B1+C1"
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-'Formula are automatically increments by one for the range of cells.
-sheet("A1:A5").Formula = "=B1+C1"
-
-workbook.SaveAs("IncrementalFormula.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("IncrementalFormula.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}   
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Enables the incremental formula to updates the reference in cell
+  application.EnableIncrementalFormula = true;
+
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Formula are automatically increments by one for the range of cells
+  sheet["A1:A5"].Formula = "=B1+C1";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "IncrementalFormula";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Enables the incremental formula to updates the reference in cell
+  application.EnableIncrementalFormula = true;
+
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Formula are automatically increments by one for the range of cells
+  sheet["A1:A5"].Formula = "=B1+C1";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("IncrementalFormula.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Enables the incremental formula to updates the reference in cell
+  application.EnableIncrementalFormula = true;
+
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Formula are automatically increments by one for the range of cells
+  sheet["A1:A5"].Formula = "=B1+C1";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("IncrementalFormula.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("IncrementalFormula.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## External Formula
 
@@ -625,55 +1169,109 @@ Following code illustrates the insertion of a formula that refers to a value in 
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Write an external formula value
+  sheet.Range["C1"].Formula = "[One.xlsx]Sheet1!$A$1*5";
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Create(1);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Write an external formula value. 
-
-sheet.Range["C1"].Formula = "[One.xls]Sheet1!$A$1*5";
-
-workbook.SaveAs("Formula.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
+  workbook.SaveAs("Formula.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Write an external formula value
+  sheet.Range("C1").Formula = "[One.xlsx]Sheet1!$A$1*5"
 
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-'Write an external formula value. 
-
-sheet.Range("C1").Formula = "[One.xls]Sheet1!$A$1*5"
-
-workbook.SaveAs("Formula.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Formula.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}   
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Write an external formula value
+  sheet.Range["C1"].Formula = "[One.xlsx]Sheet1!$A$1*5";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Formula";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Write an external formula value
+  sheet.Range["C1"].Formula = "[One.xlsx]Sheet1!$A$1*5";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Formula.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Write an external formula value
+  sheet.Range["C1"].Formula = "[One.xlsx]Sheet1!$A$1*5";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 N> Links are updated automatically in Microsoft Excel to view the result for the preceding code.
 
@@ -687,41 +1285,197 @@ The following code snippet illustrates how to create a calculated column.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
-IWorkbook workbook = application.Workbooks.Create(1);
-IWorksheet worksheet = workbook.Worksheets[0];
-// Create Table with data in the given range
-IListObject table = worksheet.ListObjects.Create("Table1", worksheet ["A1:D3"]);
-// Create data
-worksheet[1, 1].Text = "Products";
-worksheet[1, 2].Text = "Rate";
-worksheet[1, 3].Text = "Quantity";
-worksheet[1, 4].Text = "Total";
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-worksheet[2, 1].Text = "Item1";
-worksheet[2, 2].Number = 200;
-worksheet[2, 3].Number = 2;
+  //Create Table with data in the given range
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:D3"]);
 
-worksheet[3, 1].Text = "Item2";
-worksheet[3, 2].Number = 200;
-worksheet[3, 3].Number = 2;
+  //Create data
+  worksheet[1, 1].Text = "Products";
+  worksheet[1, 2].Text = "Rate";
+  worksheet[1, 3].Text = "Quantity";
+  worksheet[1, 4].Text = "Total";
 
-//Set table formula
-table.Columns[3].CalculatedFormula = "SUM(20,[Rate]*[Quantity])";
-			
-string fileName = "Output.xlsx";
-workbook.SaveAs(fileName);
-workbook.Close();
-excelEngine.Dispose();
+  worksheet[2, 1].Text = "Item1";
+  worksheet[2, 2].Number = 200;
+  worksheet[2, 3].Number = 2;
+
+  worksheet[3, 1].Text = "Item2";
+  worksheet[3, 2].Number = 200;
+  worksheet[3, 3].Number = 2;
+
+  //Set table formula
+  table.Columns[3].CalculatedFormula = "SUM(20,[Rate]*[Quantity])";
+
+  string fileName = "Output.xlsx";
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
+  'Create Table with data in the given range
+  Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:D3"))
+
+  'Create data
+  worksheet(1, 1).Text = "Products"
+  worksheet(1, 2).Text = "Rate"
+  worksheet(1, 3).Text = "Quantity"
+  worksheet(1, 4).Text = "Total"
+
+  worksheet(2, 1).Text = "Item1"
+  worksheet(2, 2).Number = 200
+  worksheet(2, 3).Number = 2
+
+  worksheet(3, 1).Text = "Item2"
+  worksheet(3, 2).Number = 200
+  worksheet(3, 3).Number = 2
+
+  'Set table formula
+  table.Columns(3).CalculatedFormula = "SUM(20,[Rate]*[Quantity])"
+
+  Dim fileName As String = "Output.xlsx"
+  workbook.SaveAs(fileName)
+End Using
 {% endhighlight %}
-{% endtabs %}  
- 
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Create Table with data in the given range
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:D3"]);
+
+  //Create data
+  worksheet[1, 1].Text = "Products";
+  worksheet[1, 2].Text = "Rate";
+  worksheet[1, 3].Text = "Quantity";
+  worksheet[1, 4].Text = "Total";
+
+  worksheet[2, 1].Text = "Item1";
+  worksheet[2, 2].Number = 200;
+  worksheet[2, 3].Number = 2;
+
+  worksheet[3, 1].Text = "Item2";
+  worksheet[3, 2].Number = 200;
+  worksheet[3, 3].Number = 2;
+
+  //Set table formula
+  table.Columns[3].CalculatedFormula = "SUM(20,[Rate]*[Quantity])";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Create Table with data in the given range
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:D3"]);
+
+  //Create data
+  worksheet[1, 1].Text = "Products";
+  worksheet[1, 2].Text = "Rate";
+  worksheet[1, 3].Text = "Quantity";
+  worksheet[1, 4].Text = "Total";
+
+  worksheet[2, 1].Text = "Item1";
+  worksheet[2, 2].Number = 200;
+  worksheet[2, 3].Number = 2;
+
+  worksheet[3, 1].Text = "Item2";
+  worksheet[3, 2].Number = 200;
+  worksheet[3, 3].Number = 2;
+
+  //Set table formula
+  table.Columns[3].CalculatedFormula = "SUM(20,[Rate]*[Quantity])";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Create Table with data in the given range
+  IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:D3"]);
+
+  //Create data
+  worksheet[1, 1].Text = "Products";
+  worksheet[1, 2].Text = "Rate";
+  worksheet[1, 3].Text = "Quantity";
+  worksheet[1, 4].Text = "Total";
+
+  worksheet[2, 1].Text = "Item1";
+  worksheet[2, 2].Number = 200;
+  worksheet[2, 3].Number = 2;
+
+  worksheet[3, 1].Text = "Item2";
+  worksheet[3, 2].Number = 200;
+  worksheet[3, 3].Number = 2;
+
+  //Set table formula
+  table.Columns[3].CalculatedFormula = "SUM(20,[Rate]*[Quantity])";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+	
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
 ## Supported Functions
 
 XlsIO supports all the formulas supported by Excel. Whereas, below is the list of functions that XlsIO performs calculation and returns a calculated value.
@@ -1759,7 +2513,7 @@ Evaluates an expression against a list of values and returns the result correspo
 <tr>
 <td>
 SYD<br/><br/></td><td>
-Returns the sum-of-years' digits depreciation of an asset for a specified period<br/><br/></td></tr>
+Returns the sum-of-years'digits depreciation of an asset for a specified period<br/><br/></td></tr>
 <tr>
 <td>
 T<br/><br/></td><td>
@@ -1895,115 +2649,163 @@ The following code illustrates on how to include and access Add-ins in XlsIO.
 
 {% tabs %}  
 {% highlight c# %}
-// Step1: Create AddIn (AddIn.xlam)
-
-// AddIn.xlam file has the below custom function
-
-// Function AddInFunction(firstValue As Integer, secondValue As Integer) As Integer
-
+//Step1: Create AddIn (AddIn.xlam)
+//AddIn.xlam file has the below custom function
+//Function AddInFunction(firstValue As Integer, secondValue As Integer) As Integer
 //
-
-// Dim result As Integer
-
-// result = firstValue + secondValue
-
-// AddInFunction = result
-
+//Dim result As Integer
+//result = firstValue + secondValue
+//AddInFunction = result
 //
+//End Function
+//Step2: Register the AddIn in Excel by adding the above file to Excel Application by locating the .xlam file through the menu (Developer -> Add-ins -> Browse)
 
-// End Function
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Step2: Register the AddIn in Excel by adding the above file to Excel Application by locating the .xlam file through the menu (Developer -> Add-ins -> Browse)
+  IAddInFunctions unknownFunctions = workbook.AddInFunctions;
 
-ExcelEngine excelEngine = new ExcelEngine();
+  //Adding the XLAM file reference to AddIn functions
+  //NOTE: The add-in name must be same as the function name
+  unknownFunctions.Add(@"D:\AddIn.xlam", "AddInFunction");
 
-IApplication application = excelEngine.Excel;
+  //Use the function. The expected result is 30
+  sheet.Range["A3"].Formula = "AddInFunction(10,20)";
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Create(1);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-IAddInFunctions unknownFunctions = workbook.AddInFunctions; 
-
-// Adding the XLAM file reference to AddIn functions.
-
-// NOTE: The add-in name must be same as the function name
-
-unknownFunctions.Add(@"D:\AddIn.xlam", "AddInFunction"); 
-
-// Use the function. The expected result is 30.
-
-sheet.Range["A3"].Formula = "AddInFunction(10,20)";
-
-string fileName = "AddIn.xlsx";
-
-workbook.Version = ExcelVersion.Excel2010;
-
-workbook.SaveAs(fileName);
-
-workbook.Close();
-
-excelEngine.Dispose();      
-
-
-
+  string fileName = "AddIn.xlsx";
+  workbook.Version = ExcelVersion.Excel2010;
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
-' Step1: Create AddIn (AddIn.xlam)
-
-' AddIn.xlam file has the below custom function
-
-' Function AddInFunction(firstValue As Integer, secondValue As Integer) As Integer
-
-' Dim result As Integer
-
-' result = firstValue + secondValue
-
-' AddInFunction = result
-
+'Step1: Create AddIn (AddIn.xlam)
+'AddIn.xlam file has the below custom function
+'Function AddInFunction(firstValue As Integer, secondValue As Integer) As Integer
 '
+'Dim result As Integer
+'result = firstValue + secondValue
+'AddInFunction = result
+'
+'End Function
+'Step2: Register the AddIn in Excel by adding the above file to Excel Application by locating the .xlam file through the menu (Developer -> Add-ins -> Browse)
 
-' End Function
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Step2: Register the AddIn in Excel by adding the above file to Excel Application by locating the .xlam file through the menu (Developer -> Add-ins -> Browse)
+  Dim unknownFunctions As IAddInFunctions = workbook.AddInFunctions
 
-Dim excelEngine As New ExcelEngine()
+  'Adding the XLAM file reference to AddIn functions
+  'NOTE: The add-in name must be same as the function name
+  unknownFunctions.Add("D:\AddIn.xlam", "AddInFunction")
 
-Dim application As IApplication = excelEngine.Excel
+  'Use the function. The expected result is 30
+  sheet.Range("A3").Formula = "AddInFunction(10,20)"
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  Dim fileName As String = "AddIn.xlsx"
+  workbook.Version = ExcelVersion.Excel2010
+  workbook.SaveAs(fileName)
+End Using
+{% endhighlight %}
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  IAddInFunctions unknownFunctions = workbook.AddInFunctions;
 
-Dim unknownFunctions As IAddInFunctions = workbook.AddInFunctions
+  //Adding the XLAM file reference to AddIn functions
+  //NOTE: The add-in name must be same as the function name
+  unknownFunctions.Add("AddInFunction");
 
-' Adding the XLAM file reference to AddIn functions.
+  //Use the function. The expected result is 30
+  sheet.Range["A3"].Formula = "AddInFunction(10,20)";
 
-' NOTE: The add-in name must be same as the function name
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "AddIn";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-unknownFunctions.Add("D:\AddIn.xlam", "AddInFunction")
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-' Use the function. The expected result is 30.
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-sheet.Range("A3").Formula = "AddInFunction(10,20)"
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-Dim fileName As String = "AddIn.xlsx"
+  IAddInFunctions unknownFunctions = workbook.AddInFunctions;
 
-workbook.Version = ExcelVersion.Excel2010
+  //Adding the XLAM file reference to AddIn functions
+  //NOTE: The add-in name must be same as the function name
+  unknownFunctions.Add("AddInFunction");
 
-workbook.SaveAs(fileName)
+  //Use the function. The expected result is 30
+  sheet.Range["A3"].Formula = "AddInFunction(10,20)";
 
-workbook.Close()
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("AddIn.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
 
-excelEngine.Dispose()
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
+  IAddInFunctions unknownFunctions = workbook.AddInFunctions;
 
+  //Adding the XLAM file reference to AddIn functions
+  //NOTE: The add-in name must be same as the function name
+  unknownFunctions.Add("AddInFunction");
 
+  //Use the function. The expected result is 30
+  sheet.Range["A3"].Formula = "AddInFunction(10,20)";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("AddIn.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("AddIn.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}   
 
@@ -2018,24 +2820,32 @@ The following code shows how to define a named range from workbook level.
 {% tabs %}  
 {% highlight c# %}
 //Defining a name in workbook level for the cell A1
-
 IName name = workbook.Names.Add("BookLevelName"); 
-
 name.RefersToRange = worksheet.Range["A1"];
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Defining a name in workbook level for the cell A1
-
 Dim name As IName = workbook.Names.Add("BookLevelName")
-
 name.RefersToRange = worksheet.Range("A1")
+{% endhighlight %}
 
+{% highlight UWP %}
+//Defining a name in workbook level for the cell A1
+IName name = workbook.Names.Add("BookLevelName"); 
+name.RefersToRange = worksheet.Range["A1"];
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Defining a name in workbook level for the cell A1
+IName name = workbook.Names.Add("BookLevelName"); 
+name.RefersToRange = worksheet.Range["A1"];
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Defining a name in workbook level for the cell A1
+IName name = workbook.Names.Add("BookLevelName"); 
+name.RefersToRange = worksheet.Range["A1"];
 {% endhighlight %}
 {% endtabs %}   
 
@@ -2044,24 +2854,32 @@ The following code shows how to define a named range from worksheet level.
 {% tabs %}  
 {% highlight c# %}
 //Defining a name in worksheet level for the cell B1
-
-IName name = worksheet.Names.Add("SheetLevelName"); 
-
+IName name = worksheet.Names.Add("SheetLevelName");
 name.RefersToRange = worksheet.Range["B1"];
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Defining a name in worksheet level for the cell B1
-
 Dim name As IName = worksheet.Names.Add("SheetLevelName")
-
 name.RefersToRange = worksheet.Range("B1")
+{% endhighlight %}
 
+{% highlight UWP %}
+//Defining a name in worksheet level for the cell B1
+IName name = worksheet.Names.Add("SheetLevelName");
+name.RefersToRange = worksheet.Range["B1"];
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Defining a name in worksheet level for the cell B1
+IName name = worksheet.Names.Add("SheetLevelName");
+name.RefersToRange = worksheet.Range["B1"];
+{% endhighlight %}
 
+{% highlight Xamarin %}
+//Defining a name in worksheet level for the cell B1
+IName name = worksheet.Names.Add("SheetLevelName");
+name.RefersToRange = worksheet.Range["B1"];
 {% endhighlight %}
 {% endtabs %}   
 
@@ -2071,79 +2889,149 @@ Following code example illustrates how to create workbook-level named ranges and
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Defining a name in workbook level for the cell A1
+  IName name1 = workbook.Names.Add("One");
+  name1.RefersToRange = sheet.Range["A1"];
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Defining a name in workbook level for the cell B1
+  IName name2 = workbook.Names.Add("Two");
+  name2.RefersToRange = sheet.Range["B1"];
 
-IWorkbook workbook = application.Workbooks.Create(1);
+  //Formula using defined names
+  sheet.Range["C1"].Formula = "=SUM(One,Two)";
 
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Defining a name in workbook level for the cell A1
-
-IName name1 = workbook.Names.Add("One");
-
-name1.RefersToRange = sheet.Range["A1"];
-
-//Defining a name in workbook level for the cell B1
-
-IName name2 = workbook.Names.Add("Two");
-
-name2.RefersToRange = sheet.Range["B1"];
-
-//Formula using defined names.
-
-sheet.Range["C1"].Formula = "=SUM(One,Two)";
-
-workbook.SaveAs("Formula.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
+  workbook.SaveAs("Formula.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Defining a name in workbook level for the cell A1
+  Dim name1 As IName = workbook.Names.Add("One")
+  name1.RefersToRange = sheet.Range("A1")
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Defining a name in workbook level for the cell B1
+  Dim name2 As IName = workbook.Names.Add("Two")
+  name2.RefersToRange = sheet.Range("B1")
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  'Formula using defined names
+  sheet.Range("C1").Formula = "=SUM(One,Two)"
 
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-'Defining a name in workbook level for the cell A1
-
-Dim name1 As IName = workbook.Names.Add("One")
-
-name1.RefersToRange = sheet.Range("A1")
-
-'Defining a name in workbook level for the cell B1
-
-Dim name2 As IName = workbook.Names.Add("Two")
-
-name2.RefersToRange = sheet.Range("B1")
-
-'Formula using defined names.
-
-sheet.Range("C1").Formula = "=SUM(One,Two)"
-
-workbook.SaveAs("Formula.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Formula.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}   
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Defining a name in workbook level for the cell A1
+  IName name1 = workbook.Names.Add("One");
+  name1.RefersToRange = sheet.Range["A1"];
+
+  //Defining a name in workbook level for the cell B1
+   IName name2 = workbook.Names.Add("Two");
+  name2.RefersToRange = sheet.Range["B1"];
+
+  //Formula using defined names
+  sheet.Range["C1"].Formula = "=SUM(One,Two)";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Formula";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Defining a name in workbook level for the cell A1
+  IName name1 = workbook.Names.Add("One");
+  name1.RefersToRange = sheet.Range["A1"];
+
+  //Defining a name in workbook level for the cell B1
+  IName name2 = workbook.Names.Add("Two");
+  name2.RefersToRange = sheet.Range["B1"];
+
+  //Formula using defined names
+  sheet.Range["C1"].Formula = "=SUM(One,Two)";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Formula.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Defining a name in workbook level for the cell A1
+  IName name1 = workbook.Names.Add("One");
+  name1.RefersToRange = sheet.Range["A1"];
+
+  //Defining a name in workbook level for the cell B1
+  IName name2 = workbook.Names.Add("Two");
+  name2.RefersToRange = sheet.Range["B1"];
+
+  //Formula using defined names
+  sheet.Range["C1"].Formula = "=SUM(One,Two)";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Formula.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ### Deleting Named Ranges
 
@@ -2152,40 +3040,57 @@ Named ranges defined in workbook and worksheet levels can be deleted in differen
 {% tabs %}  
 {% highlight c# %}
 //Deleting named range object
-
 IName name = workbook.Names[0];
-
 name.Delete();
 
 //Deleting named range from workbook
-
 workbook.Names["BookLevelName"].Delete();
-
 //Deleting named range from worksheet
-
 sheet.Names["SheetLevelName"].Delete();
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 'Deleting named range object
-
 Dim name As IName = workbook.Names(0)
-
 name.Delete()
 
 'Deleting named range from workbook
-
 workbook.Names("BookLevelName").Delete()
-
 'Deleting named range from worksheet
-
 sheet.Names("SheetLevelName").Delete()
+{% endhighlight %}
 
+{% highlight UWP %}
+//Deleting named range object
+IName name = workbook.Names[0];
+name.Delete();
 
+//Deleting named range from workbook
+workbook.Names["BookLevelName"].Delete();
+//Deleting named range from worksheet
+sheet.Names["SheetLevelName"].Delete();
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+//Deleting named range object
+IName name = workbook.Names[0];
+name.Delete();
+
+//Deleting named range from workbook
+workbook.Names["BookLevelName"].Delete();
+//Deleting named range from worksheet
+sheet.Names["SheetLevelName"].Delete();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Deleting named range object
+IName name = workbook.Names[0];
+name.Delete();
+
+//Deleting named range from workbook
+workbook.Names["BookLevelName"].Delete();
+//Deleting named range from worksheet
+sheet.Names["SheetLevelName"].Delete();
 {% endhighlight %}
 {% endtabs %}   
 
@@ -2201,63 +3106,138 @@ Following code illustrates on how to ignore or set error indicators.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Sets warning if number is entered as text
+  sheet.Range["A2:D2"].IgnoreErrorOptions = ExcelIgnoreError.NumberAsText;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Ignores all the error warnings
+  sheet.Range["A3"].IgnoreErrorOptions = ExcelIgnoreError.None;
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Sets warning if number is entered as text.
-
-sheet.Range["A2:D2"].IgnoreErrorOptions = ExcelIgnoreError.NumberAsText;
-
-//Ignores all the error warnings.
-
-sheet.Range["A3"].IgnoreErrorOptions = ExcelIgnoreError.None;
-
-workbook.SaveAs("FormulaAuditing.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
+  workbook.SaveAs("FormulaAuditing.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Sets warning if number is entered as text
+  sheet.Range("A2:D2").IgnoreErrorOptions = ExcelIgnoreError.NumberAsText
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Ignores all the error warnings
+  sheet.Range("A3").IgnoreErrorOptions = ExcelIgnoreError.None
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-'Sets warning if number is entered as text.
-
-sheet.Range("A2:D2").IgnoreErrorOptions = ExcelIgnoreError.NumberAsText
-
-'Ignores all the error warnings.
-
-sheet.Range("A3").IgnoreErrorOptions = ExcelIgnoreError.None
-
-workbook.SaveAs("FormulaAuditing.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("FormulaAuditing.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}   
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Sets warning if number is entered as text
+  sheet.Range["A2:D2"].IgnoreErrorOptions = ExcelIgnoreError.NumberAsText;
+
+  //Ignores all the error warnings
+  sheet.Range["A3"].IgnoreErrorOptions = ExcelIgnoreError.None;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "FormulaAuditing";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Sets warning if number is entered as text.
+  sheet.Range["A2:D2"].IgnoreErrorOptions = ExcelIgnoreError.NumberAsText;
+
+  //Ignores all the error warnings.
+  sheet.Range["A3"].IgnoreErrorOptions = ExcelIgnoreError.None;
+
+  //Saving the workbook as stream
+  FileStream file = new FileStream("FormulaAuditing.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(file);
+  file.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Sets warning if number is entered as text
+  sheet.Range["A2:D2"].IgnoreErrorOptions = ExcelIgnoreError.NumberAsText;
+
+  //Ignores all the error warnings
+  sheet.Range["A3"].IgnoreErrorOptions = ExcelIgnoreError.None;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("FormulaAuditing.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("FormulaAuditing.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Calculation Engine
 
@@ -2283,57 +3263,109 @@ Following code illustrates on how to set calculation mode in XlsIO.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Setting calculation mode for a workbook
+  workbook.CalculationOptions.CalculationMode = ExcelCalculationMode.Manual;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Create(1);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Setting calculation mode for a workbook.
-
-workbook.CalculationOptions.CalculationMode = ExcelCalculationMode.Manual;
-
-workbook.SaveAs("CalculationMode.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
+  workbook.SaveAs("CalculationMode.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Setting calculation mode for a workbook
+  workbook.CalculationOptions.CalculationMode = ExcelCalculationMode.Manual
 
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-'Setting calculation mode for a workbook.
-
-workbook.CalculationOptions.CalculationMode = ExcelCalculationMode.Manual
-
-Dim fileName As String = "CalculationMode.xlsx"
-
-workbook.SaveAs(fileName)
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("CalculationMode.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}   
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Setting calculation mode for a workbook
+  workbook.CalculationOptions.CalculationMode = ExcelCalculationMode.Manual;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "CalculationMode";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Setting calculation mode for a workbook
+  workbook.CalculationOptions.CalculationMode = ExcelCalculationMode.Manual;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("CalculationMode.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Setting calculation mode for a workbook
+  workbook.CalculationOptions.CalculationMode = ExcelCalculationMode.Manual;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("CalculationMode.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("CalculationMode.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ### Recalculate Before Save
 
@@ -2343,19 +3375,36 @@ In Manual mode, this option controls whether Microsoft Excel should recalculate 
 {% highlight c# %}
 ICalculationOptions calcOptions = workbook.CalculationOptions;
 
+//Set RecalcOnSave to false to avoid re calculation of workbook while saving
 calcOptions.RecalcOnSave = false;
-
-
-
 {% endhighlight %}
 
 {% highlight vb %}
 Dim calcOptions As ICalculationOptions = workbook.CalculationOptions
 
+'Set RecalcOnSave to false to avoid re calculation of workbook while saving
 calcOptions.RecalcOnSave = False
+{% endhighlight %}
 
+{% highlight UWP %}
+ICalculationOptions calcOptions = workbook.CalculationOptions;
 
+//Set RecalcOnSave to false to avoid re calculation of workbook while saving
+calcOptions.RecalcOnSave = false;
+{% endhighlight %}
 
+{% highlight ASP.NET Core %}
+ICalculationOptions calcOptions = workbook.CalculationOptions;
+
+//Set RecalcOnSave to false to avoid re calculation of workbook while saving
+calcOptions.RecalcOnSave = false;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ICalculationOptions calcOptions = workbook.CalculationOptions;
+
+//Set RecalcOnSave to false to avoid re calculation of workbook while saving
+calcOptions.RecalcOnSave = false;
 {% endhighlight %}
 {% endtabs %}   
 
@@ -2369,68 +3418,136 @@ Following code snippet illustrates how to set the Iterations.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Setting iteration
+  workbook.CalculationOptions.IsIterationEnabled = true;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Number of times to recalculate
+  workbook.CalculationOptions.MaximumIteration = 99;
 
-IWorkbook workbook = application.Workbooks.Create(1);
+  //Number of acceptable changes
+  workbook.CalculationOptions.MaximumChange = 40;
 
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Setting iteration 
-
-workbook.CalculationOptions.IsIterationEnabled = true;
-
-//Number of times to recalculate
-
-workbook.CalculationOptions.MaximumIteration = 99;
-
-//Number of acceptable changes
-
-workbook.CalculationOptions.MaximumChange = 40;
-
-workbook.SaveAs("Iteration.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();         
-
-
-
+  workbook.SaveAs("Iteration.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorkbook = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Setting Iteration
+  workbook.CalculationOptions.IsIterationEnabled = True
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Number of times to recalculate
+  workbook.CalculationOptions.MaximumIteration = 99
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  'Number of acceptable changes
+  workbook.CalculationOptions.MaximumChange = 40
 
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+  workbook.SaveAs("Iteration.xlsx")
+End Using
+{% endhighlight %}
 
-'Setting Iteration 
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-workbook.CalculationOptions.IsIterationEnabled = True
+  //Setting iteration
+  workbook.CalculationOptions.IsIterationEnabled = true;
 
-'Number of times to recalculate
+  //Number of times to recalculate
+  workbook.CalculationOptions.MaximumIteration = 99;
 
-workbook.CalculationOptions.MaximumIteration = 99
+  //Number of acceptable changes
+  workbook.CalculationOptions.MaximumChange = 40;
 
-'Number of acceptable changes
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Iteration";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-workbook.CalculationOptions.MaximumChange = 40
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-workbook.SaveAs("Iteration.xlsx")
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
 
-workbook.Close()
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-excelEngine.Dispose()
+  //Setting iteration
+  workbook.CalculationOptions.IsIterationEnabled = true;
 
+  //Number of times to recalculate
+  workbook.CalculationOptions.MaximumIteration = 99;
 
+  //Number of acceptable changes
+  workbook.CalculationOptions.MaximumChange = 40;
 
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Iteration.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Setting iteration
+  workbook.CalculationOptions.IsIterationEnabled = true;
+
+  //Number of times to recalculate
+  workbook.CalculationOptions.MaximumIteration = 99;
+
+  //Number of acceptable changes
+  workbook.CalculationOptions.MaximumChange = 40;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Iteration.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Iteration.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  

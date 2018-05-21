@@ -18,59 +18,179 @@ N> Here row and column indexes in the range are "one based".
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
-IWorkbook workbook = application.Workbooks.Create(1);
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Access a range by specifying cell address. 
-sheet.Range["A7"].Text = "Accessing a Range by specify cell address ";
+  //Access a range by specifying cell address
+  sheet.Range["A7"].Text = "Accessing a Range by specify cell address ";
 
-// Access a range by specifying cell row and column index. 
-sheet.Range[9, 1].Text = "Accessing a Range by specify cell row and column index ";
+  //Access a range by specifying cell row and column index
+  sheet.Range[9, 1].Text = "Accessing a Range by specify cell row and column index ";
 
-// Access a Range by specifying using defined name.
-sheet.Range["Name"].Text = "Accessing a Range by specifying using defined name.";
+  //Access a Range by specifying using defined name
+  IName name = workbook.Names.Add("Name");
+  name.RefersToRange = sheet.Range["A11"];
+  sheet.Range["Name"].Text = "Accessing a Range by specifying using defined name.";
 
-// Accessing a Range of cells by specifying cells address.
-sheet.Range["A13:C13"].Text = "Accessing a Range of Cells (Method 1)";
+  //Accessing a Range of cells by specifying cells address
+  sheet.Range["A13:C13"].Text = "Accessing a Range of Cells (Method 1)";
 
-// Accessing a Range of cells specifying cell row and column index.
-sheet.Range[15, 1, 15, 3].Text = "Accessing a Range of Cells (Method 2)";
+  //Accessing a Range of cells specifying cell row and column index
+  sheet.Range[15, 1, 15, 3].Text = "Accessing a Range of Cells (Method 2)";
 
-workbook.SaveAs("Range.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.SaveAs("Range.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Access a range by specify cell address. 
-sheet.Range("A7").Text = "Accessing a Range by specify cell address "
+  'Access a range by specify cell address
+  sheet.Range("A7").Text = "Accessing a Range by specify cell address "
 
-' Access a range by specify cell row and column index. 
-sheet.Range(9, 1).Text = "Accessing a Range by specify cell row and column index "
+  'Access a range by specify cell row and column index
+  sheet.Range(9, 1).Text = "Accessing a Range by specify cell row and column index "
 
-' Access a Range by specifying using defined name.
-sheet.Range("Name").Text = "Accessing a Range by specifying using defined name."
+  'Access a Range by specifying using defined name
+  Dim name As IName = workbook.Names.Add("Name")
+  name.RefersToRange = sheet.Range("A11")
+  sheet.Range("Name").Text = "Accessing a Range by specifying using defined name"
 
-' Accessing a Range of cells by specify cells address.
-sheet.Range("A13:C13").Text = "Accessing a Range of Cells (Method 1)"
+  'Accessing a Range of cells by specify cells address
+  sheet.Range("A13:C13").Text = "Accessing a Range of Cells (Method 1)"
 
-' Accessing a Range of cells specify cell row and column index.
-sheet.Range(15, 1, 15, 3).Text = "Accessing a Range of Cells (Method 2)"
+  'Accessing a Range of cells specify cell row and column index
+  sheet.Range(15, 1, 15, 3).Text = "Accessing a Range of Cells (Method 2)"
 
-workbook.SaveAs("Range.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.SaveAs("Range.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Access a range by specifying cell address
+  sheet.Range["A7"].Text = "Accessing a Range by specify cell address ";
+
+  //Access a range by specifying cell row and column index
+  sheet.Range[9, 1].Text = "Accessing a Range by specify cell row and column index ";
+
+  //Access a Range by specifying using defined name
+  IName name = workbook.Names.Add("Name");
+  name.RefersToRange = sheet.Range["A11"];
+  sheet.Range["Name"].Text = "Accessing a Range by specifying using defined name";
+
+  //Accessing a Range of cells by specifying cells address
+  sheet.Range["A13:C13"].Text = "Accessing a Range of Cells (Method 1)";
+
+  //Accessing a Range of cells specifying cell row and column index
+  sheet.Range[15, 1, 15, 3].Text = "Accessing a Range of Cells (Method 2)";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Range";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Access a range by specifying cell address
+  sheet.Range["A7"].Text = "Accessing a Range by specify cell address ";
+
+  //Access a range by specifying cell row and column index
+  sheet.Range[9, 1].Text = "Accessing a Range by specify cell row and column index ";
+
+  //Access a Range by specifying using defined name
+  IName name = workbook.Names.Add("Name");
+  name.RefersToRange = sheet.Range["A11"];
+  sheet.Range["Name"].Text = "Accessing a Range by specifying using defined name";
+
+  //Accessing a Range of cells by specifying cells address
+  sheet.Range["A13:C13"].Text = "Accessing a Range of Cells (Method 1)";
+
+  //Accessing a Range of cells specifying cell row and column index
+  sheet.Range[15, 1, 15, 3].Text = "Accessing a Range of Cells (Method 2)";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Range.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Access a range by specifying cell address 
+  sheet.Range["A7"].Text = "Accessing a Range by specify cell address ";
+
+  //Access a range by specifying cell row and column index
+  sheet.Range[9, 1].Text = "Accessing a Range by specify cell row and column index ";
+
+  //Access a Range by specifying using defined name
+  IName name = workbook.Names.Add("Name");
+  name.RefersToRange = sheet.Range["A11"];
+  sheet.Range["Name"].Text = "Accessing a Range by specifying using defined name";
+
+  //Accessing a Range of cells by specifying cells address
+  sheet.Range["A13:C13"].Text = "Accessing a Range of Cells (Method 1)";
+
+  //Accessing a Range of cells specifying cell row and column index
+  sheet.Range[15, 1, 15, 3].Text = "Accessing a Range of Cells (Method 2)";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 T> You can use of GetText, SetText, GetNumber and SetNumber methods from worksheet object that enable users to get/set values without range object.
 
@@ -86,60 +206,177 @@ N> Here row and column indexes in the range are "one-based".
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-// Setting range index mode to relative.
-application.RangeIndexerMode = ExcelRangeIndexerMode.Relative;
+  //Setting range index mode to relative
+  application.RangeIndexerMode = ExcelRangeIndexerMode.Relative;
 
-IWorkbook workbook = application.Workbooks.Create(1);
-IWorksheet sheet = workbook.Worksheets[0];
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Creating a range by specifying cells address. 
-IRange range1 = sheet.Range["B3:D5"];
+  //Creating a range by specifying cells address
+  IRange range1 = sheet.Range["B3:D5"];
 
-// Accessing a range relatively to the existing range by specifying cell row and column index.
-range1[2, 2].Text = "Returns C4 cell";
-range1[0, 0].Text = "Returns A2 cell";
+  //Accessing a range relatively to the existing range by specifying cell row and column index
+  range1[2, 2].Text = "Returns C4 cell";
+  range1[0, 0].Text = "Returns A2 cell";
 
-// Creating a Range of cells specifying cell row and column index.
-IRange range2 = sheet.Range[5, 1, 10, 3];
+  //Creating a Range of cells specifying cell row and column index
+  IRange range2 = sheet.Range[5, 1, 10, 3];
 
-// Accessing a range relatively to the existing range of cells by specifying cell row and column index.
-range1[2, 2, 3, 3].Text = "Returns range of cells B6 to C7";
+  //Accessing a range relatively to the existing range of cells by specifying cell row and column index
+  range2[2, 2, 3, 3].Text = "Returns range of cells B6 to C7";
 
-workbook.SaveAs("Range.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.SaveAs("Range.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-' Setting range index mode to relative.
-application.RangeIndexerMode = ExcelRangeIndexerMode.Relative
+  'Setting range index mode to relative
+  application.RangeIndexerMode = ExcelRangeIndexerMode.Relative
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim range1 As IRange = sheet.Range("B3:D5")
-' Accessing a range relatively to the existing range by specifying cell row and column index.
-range1(2, 2).Text = "Returns B4 cell"
-range1(0, 0).Text = "Returns A2 cell"
+  'Creating a range by specifying cells address
+  Dim range1 As IRange = sheet.Range("B3:D5")
 
-Dim range2 As IRange = sheet.Range(5, 1, 10, 3)
-' Accessing a range relatively to the existing range of cells by specifying cell row and column index.
-range1(2, 2, 3, 3).Text = "Returns range of cells B6 to C7"
+  'Accessing a range relatively to the existing range by specifying cell row and column index
+  range1(2, 2).Text = "Returns B4 cell"
+  range1(0, 0).Text = "Returns A2 cell"
 
-workbook.SaveAs("Range.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  Dim range2 As IRange = sheet.Range(5, 1, 10, 3)
+  'Accessing a range relatively to the existing range of cells by specifying cell row and column index
+  range2(2, 2, 3, 3).Text = "Returns range of cells B6 to C7"
+
+  workbook.SaveAs("Range.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %} 
 
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Setting range index mode to relative
+  application.RangeIndexerMode = ExcelRangeIndexerMode.Relative;
+
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating a range by specifying cells address
+  IRange range1 = sheet.Range["B3:D5"];
+
+  //Accessing a range relatively to the existing range by specifying cell row and column index
+  range1[2, 2].Text = "Returns C4 cell";
+  range1[0, 0].Text = "Returns A2 cell";
+
+  //Creating a Range of cells specifying cell row and column index
+  IRange range2 = sheet.Range[5, 1, 10, 3];
+
+  //Accessing a range relatively to the existing range of cells by specifying cell row and column index
+  range2[2, 2, 3, 3].Text = "Returns range of cells B6 to C7";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Range";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Setting range index mode to relative
+  application.RangeIndexerMode = ExcelRangeIndexerMode.Relative;
+
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating a range by specifying cells address
+  IRange range1 = sheet.Range["B3:D5"];
+
+  //Accessing a range relatively to the existing range by specifying cell row and column index
+  range1[2, 2].Text = "Returns C4 cell";
+  range1[0, 0].Text = "Returns A2 cell";
+
+  //Creating a Range of cells specifying cell row and column index
+  IRange range2 = sheet.Range[5, 1, 10, 3];
+
+  //Accessing a range relatively to the existing range of cells by specifying cell row and column index
+  range2[2, 2, 3, 3].Text = "Returns range of cells B6 to C7";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Range.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Setting range index mode to relative
+  application.RangeIndexerMode = ExcelRangeIndexerMode.Relative;
+
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating a range by specifying cells address
+  IRange range1 = sheet.Range["B3:D5"];
+
+  //Accessing a range relatively to the existing range by specifying cell row and column index
+  range1[2, 2].Text = "Returns C4 cell";
+  range1[0, 0].Text = "Returns A2 cell";
+
+  //Creating a Range of cells specifying cell row and column index
+  IRange range2 = sheet.Range[5, 1, 10, 3];
+
+  //Accessing a range relatively to the existing range of cells by specifying cell row and column index
+  range2[2, 2, 3, 3].Text = "Returns range of cells B6 to C7";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ### Accessing Discontinuous Ranges
 
@@ -149,49 +386,144 @@ Following code snippet illustrates how to access discontinuous range.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013
-IWorkbook workbook = application.Workbooks.Create(1);
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// range1 and range2 are discontinuous ranges.
-IRange range1 = sheet.Range[ "A1:A2" ];
-IRange range2 = sheet.Range["C1:C2" ];
-IRanges ranges = sheet.CreateRangesCollection();
+  //range1 and range2 are discontinuous ranges
+  IRange range1 = sheet.Range["A1:A2"];
+  IRange range2 = sheet.Range["C1:C2"];
+  IRanges ranges = sheet.CreateRangesCollection();
 
-// range1 and range2 are considered as a single range
-ranges.Add( range1 );
-ranges.Add( range2 );
-ranges.Text = "Test";
+  //range1 and range2 are considered as a single range
+  ranges.Add(range1);
+  ranges.Add(range2);
+  ranges.Text = "Test";
 
-workbook.SaveAs("Range.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.SaveAs("Range.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' range1 and range2 are discontinuous ranges.
-Dim range1 As IRange = sheet.Range("A1:A2")
-Dim range2 As IRange = sheet.Range("C1:C2")
-Dim ranges As IRanges = sheet.CreateRangesCollection()
+  'range1 and range2 are discontinuous ranges
+  Dim range1 As IRange = sheet.Range("A1:A2")
+  Dim range2 As IRange = sheet.Range("C1:C2")
+  Dim ranges As IRanges = sheet.CreateRangesCollection()
 
-' range1 and range2 are considered as a single range
-ranges.Add(range1)
-ranges.Add(range2)
-ranges.Text = "Test"
+  'range1 and range2 are considered as a single range
+  ranges.Add(range1)
+  ranges.Add(range2)
+  ranges.Text = "Test"
 
-workbook.SaveAs("Range.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.SaveAs("Range.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //range1 and range2 are discontinuous ranges
+  IRange range1 = sheet.Range["A1:A2"];
+  IRange range2 = sheet.Range["C1:C2"];
+  IRanges ranges = sheet.CreateRangesCollection();
+
+  //range1 and range2 are considered as a single range
+  ranges.Add(range1);
+  ranges.Add(range2);
+  ranges.Text = "Test";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Range";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //range1 and range2 are discontinuous ranges
+  IRange range1 = sheet.Range["A1:A2"];
+  IRange range2 = sheet.Range["C1:C2"];
+  IRanges ranges = sheet.CreateRangesCollection();
+
+  //range1 and range2 are considered as a single range
+  ranges.Add(range1);
+  ranges.Add(range2);
+  ranges.Text = "Test";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Range.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //range1 and range2 are discontinuous ranges
+  IRange range1 = sheet.Range["A1:A2"];
+  IRange range2 = sheet.Range["C1:C2"];
+  IRanges ranges = sheet.CreateRangesCollection();
+
+  //range1 and range2 are considered as a single range
+  ranges.Add(range1);
+  ranges.Add(range2);
+  ranges.Text = "Test";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ### Accessing a Cell or Range using IMigrantRange 
 
@@ -199,58 +531,154 @@ The **IMigrantRange** interface can also be used to access a single cell or grou
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
-IWorkbook workbook = application.Workbooks.Create(1);
-IWorksheet sheet = workbook.Worksheets[0];
-IMigrantRange migrantRange = sheet.MigrantRange;
-
-// Writing Data.
-for (int row = 1; row <= rowCount; row++)
+using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    for (int column = 1; column <= colCount; column++)
-    {
-        // Writing values.
-        migrantRange.ResetRowColumn(row, column);
-        migrantRange.Text = "Test";
-    }
-}
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+  IMigrantRange migrantRange = sheet.MigrantRange;
 
-workbook.SaveAs("Range.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  //Writing Data
+  for (int row = 1; row <= migrantRange.LastRow; row++)
+  {
+	for (int column = 1; column <= migrantRange.LastColumn; column++)
+	{
+	  //Writing values
+	  migrantRange.ResetRowColumn(row, column);
+	  migrantRange.Text = "Test";
+	}
+   }
+  
+  workbook.SaveAs("Range.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-Dim migrantRange As IMigrantRange = sheet.MigrantRange
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+  Dim migrantRange As IMigrantRange = sheet.MigrantRange
 
-' Writing Data.
-Dim row As Integer
-
-For  row = 1 To  rowCount Step  row + 1
-
-    Dim column As Integer
-
-    For  column = 1 To  colCount Step  column + 1
-
-    ' Writing values.
-    migrantRange.ResetRowColumn(row, column)
-    migrantRange.Text = "Test"
-
+  'Writing Data
+  Dim row As Integer
+  For row = 1 To migrantRange.LastRow Step row + 1
+	Dim column As Integer
+	For column = 1 To migrantRange.LastColumn Step column + 1
+	  'Writing values
+	  migrantRange.ResetRowColumn(row, column)
+	  migrantRange.Text = "Test"
 	Next
-Next
+  Next
 
-workbook.SaveAs("Range.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.SaveAs("Range.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+  IMigrantRange migrantRange = sheet.MigrantRange;
+
+  //Writing Data
+  for (int row = 1; row <= migrantRange.LastRow; row++)
+  {
+	for (int column = 1; column <= migrantRange.LastColumn; column++)
+	{
+	  //Writing values
+	  migrantRange.ResetRowColumn(row, column);
+	  migrantRange.Text = "Test";
+	}
+  }
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Range";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+  IMigrantRange migrantRange = sheet.MigrantRange;
+
+  //Writing Data
+  for (int row = 1; row <= migrantRange.LastRow; row++)
+  {
+	for (int column = 1; column <= migrantRange.LastColumn; column++)
+	{
+	  //Writing values
+	  migrantRange.ResetRowColumn(row, column);
+	  migrantRange.Text = "Test";
+	}
+  }
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Range.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+  IMigrantRange migrantRange = sheet.MigrantRange;
+
+  //Writing Data
+  for (int row = 1; row <= migrantRange.LastRow; row++)
+  {
+	for (int column = 1; column <= migrantRange.LastColumn; column++)
+	{
+	  //Writing values
+	  migrantRange.ResetRowColumn(row, column);
+	  migrantRange.Text = "Test";
+	}
+  }
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Accessing used range of a Worksheet
 
@@ -260,43 +688,143 @@ N> By default, XlsIO considers a cell as used, even if there exists some formatt
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// UsedRange excludes the blank cell which has formatting
-sheet.UsedRangeIncludesFormatting = false;
+  //UsedRange excludes the blank cell which has formatting
+  sheet.UsedRangeIncludesFormatting = false;
 
-// Modifying the column width and row height of the used range
-sheet.UsedRange.ColumnWidth = 20;
-sheet.UsedRange.RowHeight = 20;
+  //Modifying the column width and row height of the used range
+  sheet.UsedRange.ColumnWidth = 20;
+  sheet.UsedRange.RowHeight = 20;
 
-workbook.SaveAs("Range.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.SaveAs("Range.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' UsedRange excludes the blank cell which has formatting
-sheet.UsedRangeIncludesFormatting = false
+  'UsedRange excludes the blank cell which has formatting
+  sheet.UsedRangeIncludesFormatting = False
 
-' Modifying only the Used Ranges.
-sheet.UsedRange.ColumnWidth = 20
-sheet.UsedRange.RowHeight = 20
+  'Modifying only the Used Ranges
+  sheet.UsedRange.ColumnWidth = 20
+  sheet.UsedRange.RowHeight = 20
 
-workbook.SaveAs("Range.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.SaveAs("Range.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //UsedRange excludes the blank cell which has formatting
+  worksheet.UsedRangeIncludesFormatting = false;
+
+  //Modifying the column width and row height of the used range
+  worksheet.UsedRange.ColumnWidth = 20;
+  worksheet.UsedRange.RowHeight = 20;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Range";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //UsedRange excludes the blank cell which has formatting
+  worksheet.UsedRangeIncludesFormatting = false;
+
+  //Modifying the column width and row height of the used range
+  worksheet.UsedRange.ColumnWidth = 20;
+  worksheet.UsedRange.RowHeight = 20;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Range.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //UsedRange excludes the blank cell which has formatting
+  worksheet.UsedRangeIncludesFormatting = false;
+
+  //Modifying the column width and row height of the used range
+  worksheet.UsedRange.ColumnWidth = 20;
+  worksheet.UsedRange.RowHeight = 20;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Range.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Get Precedent and Dependent Cells or Range
 
@@ -311,79 +839,263 @@ Following code example illustrates how to get precedent cells from a worksheet a
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("FormulaExcel.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("FormulaExcel.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-//Getting precedent cells from the worksheet.
-IRange[] results = sheet["A1"].GetPrecedents();
+  //Getting precedent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetPrecedents();
 
-//Getting precedent cells from the workbook.
-IRange[] results = sheet["A1"].GetPrecedents(true);
+  //Getting precedent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetPrecedents(true);
 
-string fileName = "Precedents.xlsx";
-workbook.SaveAs(fileName);
-workbook.Close();
-excelEngine.Dispose();
+  string fileName = "Precedents.xlsx";
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-‘Getting precedent cells from the worksheet.
-Dim results() As IRange = sheet("A1").GetPrecedents()
+  'Getting precedent cells from the worksheet
+  Dim results1() As IRange = sheet("A1").GetPrecedents()
 
-‘Getting precedent cells from the workbook.
-Dim results() As IRange = sheet("A1").GetPrecedents(true)
+  'Getting precedent cells from the workbook
+  Dim results2() As IRange = sheet("A1").GetPrecedents(True)
 
-Dim fileName As String = "Precedents.xlsx"
-workbook.SaveAs(fileName)
-workbook.Close()
-excelEngine.Dispose()
+  Dim fileName As String = "Precedents.xlsx"
+  workbook.SaveAs(fileName)
+End Using
 {% endhighlight %}
-{% endtabs %} 
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting precedent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetPrecedents();
+
+  //Getting precedent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetPrecedents(true);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Precedents";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream inputStream = new FileStream("FormulaExcel.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting precedent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetPrecedents();
+
+  //Getting precedent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetPrecedents(true);
+
+  //Saving the workbook as stream
+  FileStream file = new FileStream("Precedents.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(file);
+  file.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.FormulaExcel.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting precedent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetPrecedents();
+
+  //Getting precedent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetPrecedents(true);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Precedents.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Precedents.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 Following code example illustrates how to get dependent cells from a worksheet and entire workbook.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("FormulaExcel.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("FormulaExcel.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-//Getting dependent cells from the worksheet.
-IRange[] results = sheet["A1"].GetDependents();
+  //Getting dependent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetDependents();
 
-//Getting dependent cells from the workbook.
-IRange[] results = sheet["A1"].GetDependents(true);
+  //Getting dependent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetDependents(true);
 
-string fileName = "Dependents.xlsx";
-workbook.SaveAs(fileName);
-workbook.Close();
-excelEngine.Dispose();
+  string fileName = "Dependents.xlsx";
+  workbook.SaveAs(fileName);
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-‘Getting dependent cells from the worksheet.
-Dim results() As IRange = sheet("A1").GetDependents()
+  'Getting dependent cells from the worksheet
+  Dim results1() As IRange = sheet("A1").GetDependents()
 
-‘Getting dependent cells from the workbook.
-Dim results() As IRange = sheet("A1").GetDependents(true)
+  'Getting dependent cells from the workbook
+  Dim results2() As IRange = sheet("A1").GetDependents(True)
 
-Dim fileName As String = "Dependents.xlsx"
-workbook.SaveAs(fileName)
-workbook.Close()
-excelEngine.Dispose()
+  Dim fileName As String = "Dependents.xlsx"
+  workbook.SaveAs(fileName)
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting dependent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetDependents();
+
+  //Getting dependent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetDependents(true);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Dependents";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream inputStream = new FileStream("FormulaExcel.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting dependent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetDependents();
+
+  //Getting dependent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetDependents(true);
+
+  //Saving the workbook as stream
+  FileStream file = new FileStream("Dependents.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(file);
+  file.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.FormulaExcel.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting dependent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetDependents();
+
+  //Getting dependent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetDependents(true);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Dependents.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Dependents.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -393,35 +1105,124 @@ You can delete everything in the cell, or just remove the formatting, contents, 
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Clearing a Range “A4” and its formatting.
-sheet.Range["A4"].Clear(true);
+  //Clearing a Range “A4” and its formatting
+  sheet.Range["A4"].Clear(true);
 
-workbook.SaveAs("ClearRange.xlsx");
-workbook.Version = ExcelVersion.Excel2013;
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("ClearRange.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Clearing a Range “A4” and its formatting.
-sheet.Range("A4").Clear(True)
+  'Clearing a Range “A4” and its formatting
+  sheet.Range("A4").Clear(True)
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("ClearRange.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("ClearRange.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Clearing a Range “A4” and its formatting
+  worksheet.Range["A4"].Clear(true);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "ClearRange";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Clearing a Range “A4” and its formatting
+  worksheet.Range["A4"].Clear(true);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("ClearRange.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Clearing a Range “A4” and its formatting
+  worksheet.Range["A4"].Clear(true);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ClearRange.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ClearRange.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Copy or Move a Range
 
@@ -431,41 +1232,145 @@ Following code example illustrates how to copy a range of cells from the source 
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Copying a Range “A1” to “A5”.
-IRange source = sheet.Range["A1"];
-IRange destination = sheet.Range["A5"];
+  //Copying a Range “A1” to “A5”
+  IRange source = sheet.Range["A1"];
+  IRange destination = sheet.Range["A5"];
+  source.CopyTo(destination, ExcelCopyRangeOptions.All);
 
-source.CopyTo(destination,ExcelCopyRangeOptions.All);
-
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("CopyRange.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("CopyRange.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Copying a Range “A1” to “A5”.
-Dim source As IRange = sheet.Range("A1")
-Dim destination As IRange = sheet.Range("A5")
+  'Copying a Range “A1” to “A5”
+  Dim source As IRange = sheet.Range("A1")
+  Dim destination As IRange = sheet.Range("A5")
+  source.CopyTo(destination, ExcelCopyRangeOptions.All)
 
-source.CopyTo(destination,ExcelCopyRangeOptions.All)
-
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("CopyRange.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("CopyRange.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Copying a Range “A1” to “A5”
+  IRange source = worksheet.Range["A1"];
+  IRange destination = worksheet.Range["A5"];
+  source.CopyTo(destination, ExcelCopyRangeOptions.All);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "CopyRange";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Copying a Range “A1” to “A5”
+  IRange source = worksheet.Range["A1"];
+  IRange destination = worksheet.Range["A5"];
+  source.CopyTo(destination, ExcelCopyRangeOptions.All);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "CopyRange";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Copying a Range “A1” to “A5”
+  IRange source = worksheet.Range["A1"];
+  IRange destination = worksheet.Range["A5"];
+  source.CopyTo(destination, ExcelCopyRangeOptions.All);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("CopyRange.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("CopyRange.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 **MoveTo** method is used for moving a range of cells to another range as shown below. 
 
@@ -473,41 +1378,131 @@ N> MoveTo method does not update formulas.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx"); 
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Moving a Range “A1” to “A5”.
-IRange source = sheet.Range["A1"];
-IRange destination = sheet.Range["A5"];
+  //Moving a Range “A1” to “A5”
+  IRange source = sheet.Range["A1"];
+  IRange destination = sheet.Range["A5"];
+  source.MoveTo(destination);
 
-source.MoveTo(destination);
-
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("MoveRange.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("MoveRange.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Moving a Range “A1” to “A5”.
-Dim source As IRange = sheet.Range("A1")
-Dim destination As IRange = sheet.Range("A5")
+  'Moving a Range “A1” to “A5”
+  Dim source As IRange = sheet.Range("A1")
+  Dim destination As IRange = sheet.Range("A5")
+  source.MoveTo(destination)
 
-source.MoveTo(destination)
-
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("MoveRange.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("MoveRange.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Moving a Range “A1” to “A5”
+  IRange source = worksheet.Range["A1"];
+  IRange destination = worksheet.Range["A5"];
+  source.MoveTo(destination);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "MoveRange";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Moving a Range “A1” to “A5”
+  IRange source = worksheet.Range["A1"];
+  IRange destination = worksheet.Range["A5"];
+  source.MoveTo(destination);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("MoveRange.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Moving a Range “A1” to “A5”
+  IRange source = worksheet.Range["A1"];
+  IRange destination = worksheet.Range["A5"];
+  source.MoveTo(destination);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("MoveRange.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("MoveRange.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Copy and Paste As Link
 
@@ -517,41 +1512,271 @@ Following code example illustrates how to paste a range of cells as link.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Copy range as link from Range “A1” to “A5”.
-IRange source = sheet.Range["A1"];
-IRange destination = sheet.Range["A5"];
+  //Copy range as link from Range “A1” to “A5”
+  IRange source = sheet.Range["A1"];
+  IRange destination = sheet.Range["D5"];
+  source.CopyTo(destination, true);
 
-source.CopyTo(destination, true);
-
-workbook.Version = ExcelVersion.Excel2016;
-workbook.SaveAs("PasteLink.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("PasteLink.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Copy range as link from Range “A1” to “A5”.
-Dim source As IRange = sheet.Range("A1")
-Dim destination As IRange = sheet.Range("A5")
+  'Copy range as link from Range “A1” to “A5”
+  Dim source As IRange = sheet.Range("A1")
+  Dim destination As IRange = sheet.Range("A5")
+  source.CopyTo(destination, True)
 
-source.CopyTo(destination, true)
-
-workbook.Version = ExcelVersion.Excel2016
-workbook.SaveAs("PasteLink.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("PasteLink.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}   
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Copy range as link from Range “A1” to “A5”
+  IRange source = worksheet.Range["A1"];
+  IRange destination = worksheet.Range["A5"];
+  source.CopyTo(destination, true);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PasteLink";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Copy range as link from Range “A1” to “A5”
+  IRange source = worksheet.Range["A1"];
+  IRange destination = worksheet.Range["A5"];
+  source.CopyTo(destination, true);
+  
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("PasteLink.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Copy range as link from Range “A1” to “A5”
+  IRange source = worksheet.Range["A1"];
+  IRange destination = worksheet.Range["A5"];
+  source.CopyTo(destination, true);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ClearRange.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ClearRange.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Skip Blanks While Copying
+
+Blank cells can be skipped while copying from source to destination range by setting the parameter [skip blanks](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CopyTo(IRange,ExcelCopyRangeOptions).html) to TRUE.
+
+The following code illustrates how to skip blank cells while copying.
+
+{% tabs %}
+
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
+  
+  // Copy range as link from Range “A1” to “A5”.
+  IRange source = sheet.Range["A1:A7"];
+  IRange destination = sheet.Range["C3"];
+  
+  //Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
+  
+  //Save workbook
+  workbook.SaveAs("SkipBlank.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorkbook = workbook.Worksheets(0)
+  
+  ' Copy range as link from Range “A1” to “A5”.
+  Dim source As IRange = sheet.Range("A1:A7")
+  Dim destination As IRange = sheet.Range("C3")
+  
+  ' Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true)
+  
+  ' Save workbook
+  workbook.SaveAs("SkipBlank.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker. 
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile openFile = await openPicker.PickSingleFileAsync();
+  
+  //Opens the workbook. 
+  IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
+  IWorksheet sheet = workbook.Worksheets[0];
+  
+  // Copy range as link from Range “A1” to “A5”.
+  IRange source = sheet.Range["A1:A7"];
+  IRange destination = sheet.Range["C3"];
+  
+  //Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
+  
+  //Initializes FileSavePicker.
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "CreateSpreadsheet";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  
+  //Creates a storage file from FileSavePicker.
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  
+  //Saves changes to the specified storage file.
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  string basePath = _hostingEnvironment.WebRootPath + @"\XlsIO\Sample.xlsx";              
+  FileStream sampleFile = new FileStream(basePath, FileMode.Open);
+  IWorkbook workbook = application.Workbooks.Open(sampleFile);
+  IWorksheet sheet = workbook.Worksheets[0];             
+  
+  // Copy range as link from Range “A1” to “A5”.
+  IRange source = sheet.Range["A1:A7"];
+  IRange destination = sheet.Range["C3"];
+  
+  //Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
+
+  //Saving the workbook to stream in XLSX format
+  FileStream stream = new FileStream("SkipBlank.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+  
+  // Copy range as link from Range “A1” to “A5”.
+  IRange source = sheet.Range["A1:A7"];
+  IRange destination = sheet.Range["C3"];
+  
+  //Skip blanks while copying
+  source.CopyTo(destination, ExcelCopyRangeOptions.All, true);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+  workbook.Close();
+
+  //Save the document as file and view the saved document
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("SkipBlanks.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("SkipBlanks.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Find and Replace
 
@@ -567,65 +1792,197 @@ The following code illustrates how to find all the occurrences of text in a work
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Searches for the given string within the text of worksheet.
-IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Text);
+  //Searches for the given string within the text of worksheet
+  IRange[] result1 = sheet.FindAll("FindValue", ExcelFindType.Text);
 
-// Searches for the given string in formulas.
-IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Formula);
+  //Searches for the given string in formulas
+  IRange[] result2 = sheet.FindAll("FindValue", ExcelFindType.Formula);
 
-// Searches for the given string in calculated value, number and text.
-IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Values);
+  //Searches for the given string in calculated value, number and text
+  IRange[] result3 = sheet.FindAll("FindValue", ExcelFindType.Values);
 
-// Searches for the given string in comments.
-IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Comments);
+  //Searches for the given string in comments
+  IRange[] result4 = sheet.FindAll("FindValue", ExcelFindType.Comments);
 
-// Searches for the given string within the text of worksheet and case matched.
-IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchCase);
+  //Searches for the given string within the text of worksheet and case matched
+  IRange[] result5 = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchCase);
 
-// Searches for the given string within the text of worksheet and the entire cell content matching to search text.
-IRange[] result = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent);
+  //Searches for the given string within the text of worksheet and the entire cell content matching to search text
+  IRange[] result6 = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent);
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Find.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Find.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Searches for the given string within the text of worksheet.
-Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text)
+  'Searches for the given string within the text of worksheet
+  Dim result1() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text)
 
-' Searches for the given string in formulas.
-Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Formula)
+  'Searches for the given string in formulas
+  Dim result2() As IRange = sheet.FindAll("FindValue", ExcelFindType.Formula)
 
-' Searches for the given string in calculated value, number and text.
-Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Values)
+  'Searches for the given string in calculated value, number and text
+  Dim result3() As IRange = sheet.FindAll("FindValue", ExcelFindType.Values)
 
-' Searches for the given string in comments.
-Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Comments)
+  'Searches for the given string in comments
+  Dim result4() As IRange = sheet.FindAll("FindValue", ExcelFindType.Comments)
 
-' Searches for the given string within the text of worksheet and case matched.
-Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchCase)
+  'Searches for the given string within the text of worksheet and case matched
+  Dim result5() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchCase)
 
-' Searches for the given string within the text of worksheet and the entire cell content matching to search text.
-Dim result() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent)
+  'Searches for the given string within the text of worksheet and the entire cell content matching to search text
+  Dim result6() As IRange = sheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent)
 
-workbook.SaveAs("Find.xlsx")
-workbook.Close()
-workbook.Version = ExcelVersion.Excel2013
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Find.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Searches for the given string within the text of worksheet
+  IRange[] result1 = worksheet.FindAll("FindValue", ExcelFindType.Text);
+
+  //Searches for the given string in formulas
+  IRange[] result2 = worksheet.FindAll("FindValue", ExcelFindType.Formula);
+
+  //Searches for the given string in calculated value, number and text
+  IRange[] result3 = worksheet.FindAll("FindValue", ExcelFindType.Values);
+
+  //Searches for the given string in comments
+  IRange[] result4 = worksheet.FindAll("FindValue", ExcelFindType.Comments);
+
+  //Searches for the given string within the text of worksheet and case matched
+  IRange[] result5 = worksheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchCase);
+
+  //Searches for the given string within the text of worksheet and the entire cell content matching to search text
+  IRange[] result6 = worksheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Find";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Searches for the given string within the text of worksheet
+  IRange[] result1 = worksheet.FindAll("FindValue", ExcelFindType.Text);
+
+  //Searches for the given string in formulas
+  IRange[] result2 = worksheet.FindAll("FindValue", ExcelFindType.Formula);
+
+  //Searches for the given string in calculated value, number and text
+  IRange[] result3 = worksheet.FindAll("FindValue", ExcelFindType.Values);
+
+  //Searches for the given string in comments
+  IRange[] result4 = worksheet.FindAll("FindValue", ExcelFindType.Comments);
+
+  //Searches for the given string within the text of worksheet and case matched
+  IRange[] result5 = worksheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchCase);
+
+  //Searches for the given string within the text of worksheet and the entire cell content matching to search text
+  IRange[] result6 = worksheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Find.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Searches for the given string within the text of worksheet
+  IRange[] result1 = worksheet.FindAll("FindValue", ExcelFindType.Text);
+
+  //Searches for the given string in formulas
+  IRange[] result2 = worksheet.FindAll("FindValue", ExcelFindType.Formula);
+
+  //Searches for the given string in calculated value, number and text
+  IRange[] result3 = worksheet.FindAll("FindValue", ExcelFindType.Values);
+
+  //Searches for the given string in comments
+  IRange[] result4 = worksheet.FindAll("FindValue", ExcelFindType.Comments);
+
+  //Searches for the given string within the text of worksheet and case matched
+  IRange[] result5 = worksheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchCase);
+
+  //Searches for the given string within the text of worksheet and the entire cell content matching to search text
+  IRange[] result6 = worksheet.FindAll("FindValue", ExcelFindType.Text, ExcelFindOptions.MatchEntireCellContent);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Find.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Find.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 You can replace a text with another text with the help of Replace method which searches for text you’d like to change. You can replace a string, with the data of various data types and data sources, such as data table, data column and array.
 To know more about replace overloads, please refer [Replace](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~Replace.html) in the API documentation section.
@@ -634,67 +1991,189 @@ The following code example illustrates how to replace all occurrences of given s
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Replaces the given string with another string.
-sheet.Replace("FindValue", "NewValue");
+  //Replaces the given string with another string
+  sheet.Replace("FindValue", "NewValue");
 
-// Replaces the given string with another string on match case.
-sheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchCase);
+  //Replaces the given string with another string on match case
+  sheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchCase);
 
-// Replaces the given string with another string matching entire cell content to the search word.
-sheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchEntireCellContent);
+  //Replaces the given string with another string matching entire cell content to the search word
+  sheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchEntireCellContent);
 
-// Replaces the given string with DateTime value.
-sheet.Replace("DateValue", DateTime.Now);
+  //Replaces the given string with DateTime value
+  sheet.Replace("DateValue", DateTime.Now);
 
-// Replaces the given string with Array.
-sheet.Replace("ArrayValue", new string[] { "ArrayValue1", "ArrayValue2", "ArrayValue3" }, true);
+  //Replaces the given string with Array
+  sheet.Replace("ArrayValue", new string[] { "ArrayValue1", "ArrayValue2", "ArrayValue3" }, true);
 
-// Replaces the given string with DataTable.
-DataTable table = SampleDataTable();
-sheet.Replace("DataTable", table, true); 
+  //Replaces the given string with DataTable
+  DataTable table = SampleDataTable();
+  sheet.Replace("DataTable", table, true);
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Replace.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Replace.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Replaces the given string with another string.
-sheet.Replace("FindValue", "NewValue")
+  'Replaces the given string with another string
+  sheet.Replace("FindValue", "NewValue")
 
-' Replaces the given string with another string on match case.
-sheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchCase)
+  'Replaces the given string with another string on match case
+  sheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchCase)
 
-' Replaces the given string with another string matching entire cell content to the search word.
-sheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchEntireCellContent)
+  'Replaces the given string with another string matching entire cell content to the search word
+  sheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchEntireCellContent)
 
-' Replaces the given string with DateTime value.
-sheet.Replace("DateValue", DateTime.Now)
+  'Replaces the given string with DateTime value
+  sheet.Replace("DateValue", DateTime.Now)
 
-' Replaces the given string with Array.
-sheet.Replace("ArrayValue", New String() {"ArrayValue1", "ArrayValue2", "ArrayValue3"}, True)
+  'Replaces the given string with Array
+  sheet.Replace("ArrayValue", New String() {"ArrayValue1", "ArrayValue2", "ArrayValue3"}, True)
 
-' Replaces the given string with DataTable.
-Dim table As DataTable = SampleDataTable()
-sheet.Replace("DataTable", table, True)
+  'Replaces the given string with DataTable
+  Dim table As DataTable = SampleDataTable()
+  sheet.Replace("DataTable", table, True)
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Replace.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Replace.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Replaces the given string with another string
+  worksheet.Replace("FindValue", "NewValue");
+
+  //Replaces the given string with another string on match case
+  worksheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchCase);
+
+  //Replaces the given string with another string matching entire cell content to the search word
+  worksheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchEntireCellContent);
+
+  //Replaces the given string with DateTime value
+  worksheet.Replace("DateValue", DateTime.Now);
+
+  //Replaces the given string with Array
+  worksheet.Replace("ArrayValue", new string[] { "ArrayValue1", "ArrayValue2", "ArrayValue3" }, true);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Replace";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Replaces the given string with another string
+  worksheet.Replace("FindValue", "NewValue");
+
+  //Replaces the given string with another string on match case
+  worksheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchCase);
+
+  //Replaces the given string with another string matching entire cell content to the search word
+  worksheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchEntireCellContent);
+
+  //Replaces the given string with DateTime value
+  worksheet.Replace("DateValue", DateTime.Now);
+
+  //Replaces the given string with Array
+  worksheet.Replace("ArrayValue", new string[] { "ArrayValue1", "ArrayValue2", "ArrayValue3" }, true);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Replace.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Replaces the given string with another string
+  worksheet.Replace("FindValue", "NewValue");
+
+  //Replaces the given string with another string on match case
+  worksheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchCase);
+
+  //Replaces the given string with another string matching entire cell content to the search word
+  worksheet.Replace("FindValue", "NewValue", ExcelFindOptions.MatchEntireCellContent);
+
+  //Replaces the given string with DateTime value
+  worksheet.Replace("DateValue", DateTime.Now);
+
+  //Replaces the given string with Array
+  worksheet.Replace("ArrayValue", new string[] { "ArrayValue1", "ArrayValue2", "ArrayValue3" }, true);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Replace.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Data Sorting
 
@@ -712,59 +2191,181 @@ The following code snippet explains how to sort a range of cells by values
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Creates the data sorter
-IDataSort sorter = workbook.CreateDataSorter();
+  //Creates the data sorter
+  IDataSort sorter = workbook.CreateDataSorter();
 
-// Range to sort
-sorter.SortRange = sheet.Range["D3:D16"];
+  //Range to sort
+  sorter.SortRange = sheet.Range["D3:D16"];
 
-// Adds the sort field with the column index, sort based on and order by attribute
-ISortField sortField = sorter.SortFields.Add(0, SortOn.Values, OrderBy.Ascending);
+  //Adds the sort field with the column index, sort based on and order by attribute
+  ISortField sortField = sorter.SortFields.Add(0, SortOn.Values, OrderBy.Ascending);
 
-// Adds another sort field
-ISortField sortField2 = sorter.SortFields.Add(1, SortOn.Values, OrderBy.Ascending);
+  //Adds another sort field
+  ISortField sortField2 = sorter.SortFields.Add(1, SortOn.Values, OrderBy.Ascending);
 
-// Sort based on the sort Field attribute
-sorter.Sort();
+  //Sort based on the sort Field attribute
+  sorter.Sort();
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Sort.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Sort.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Creates the Data sorter
-Dim sorter As IDataSort = workbook.CreateDataSorter()
+  'Creates the Data sorter
+  Dim sorter As IDataSort = workbook.CreateDataSorter()
 
-' Specifies the sort range
-sorter.SortRange = sheet.Range("D3:D16")
+  'Specifies the sort range
+  sorter.SortRange = sheet.Range("D3:D16")
 
-' Adds the sort field with column index, sort based on and order by attribute
-Dim field As ISortField = sorter.SortFields.Add(2, SortOn.Values, OrderBy.OnTop)
+  'Adds the sort field with column index, sort based on and order by attribute
+  Dim sortField As ISortField = sorter.SortFields.Add(0, SortOn.Values, OrderBy.Ascending)
 
-' Adds the second sort field
-field = sorter.SortFields.Add(2,SortOn.Values,OrderBy.OnTop)
+  'Adds the second sort field
+  Dim sortField2 As ISortField = sorter.SortFields.Add(1, SortOn.Values, OrderBy.Ascending)
 
-' Sorts the data with the sort field attribute
-sorter.Sort()
+  'Sorts the data with the sort field attribute
+  sorter.Sort()
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Sort.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Sort.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creates the data sorter
+  IDataSort sorter = workbook.CreateDataSorter();
+
+  //Range to sort
+  sorter.SortRange = worksheet.Range["D3:D16"];
+
+  //Adds the sort field with the column index, sort based on and order by attribute
+  ISortField sortField = sorter.SortFields.Add(0, SortOn.Values, OrderBy.Ascending);
+
+  //Adds another sort field
+  ISortField sortField2 = sorter.SortFields.Add(1, SortOn.Values, OrderBy.Ascending);
+
+  //Sort based on the sort Field attribute
+  sorter.Sort();
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Sort";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("SortingData.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creates the data sorter
+  IDataSort sorter = workbook.CreateDataSorter();
+
+  //Range to sort
+  sorter.SortRange = worksheet.Range["D3:D16"];
+
+  //Adds the sort field with the column index, sort based on and order by attribute
+  ISortField sortField = sorter.SortFields.Add(0, SortOn.Values, OrderBy.Ascending);
+
+  //Adds another sort field
+  ISortField sortField2 = sorter.SortFields.Add(1, SortOn.Values, OrderBy.Ascending);
+
+  //Sort based on the sort Field attribute
+  sorter.Sort();
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Sort.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creates the data sorter
+  IDataSort sorter = workbook.CreateDataSorter();
+
+  //Range to sort
+  sorter.SortRange = worksheet.Range["D3:D16"];
+
+  //Adds the sort field with the column index, sort based on and order by attribute
+  ISortField sortField = sorter.SortFields.Add(0, SortOn.Values, OrderBy.Ascending);
+
+  //Adds another sort field
+  ISortField sortField2 = sorter.SortFields.Add(1, SortOn.Values, OrderBy.Ascending);
+
+  //Sort based on the sort Field attribute
+  sorter.Sort();
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ### Based on Font Color
 
@@ -772,73 +2373,211 @@ The following code snippet explains how to move a range of cells with the specif
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Creates the data sorter
-IDataSort sorter = workbook.CreateDataSorter();
+  //Creates the data sorter
+  IDataSort sorter = workbook.CreateDataSorter();
 
-// Range to sort
-sorter.SortRange = sheet.Range["A2:D16"];
+  //Range to sort
+  sorter.SortRange = sheet.Range["A2:D16"];
 
-// Creates the sort field with the column index, sort based on and order by attribute
-ISortField sortField1 = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop);
+  //Creates the sort field with the column index, sort based on and order by attribute
+  ISortField sortField1 = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop);
 
-// Specifies the color to sort the data
-sortField1.Color = Color.Red;
+  //Specifies the color to sort the data
+  sortField1.Color = Color.Red;
 
-// Creates another sort field with the column index, sort based on and order by attribute
-ISortField sortField2 = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop);
+  //Creates another sort field with the column index, sort based on and order by attribute
+  ISortField sortField2 = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop);
 
-// Specifies the color to sort the data
-sortField2.Color = Color.Green;
+  //Specifies the color to sort the data
+  sortField2.Color = Color.Green;
 
-// Sort based on the sort Field attribute
-sorter.Sort();
+  //Sort based on the sort Field attribute
+  sorter.Sort();
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Sort.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Sort.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Creates the Data sorter
-Dim sorter As IDataSort = workbook.CreateDataSorter()
+  'Creates the Data sorter
+  Dim sorter As IDataSort = workbook.CreateDataSorter()
 
-' Specifies the sort range
-sorter.SortRange = sheet.Range("A2:D16")
-Dim field1 As ISortField
+  'Specifies the sort range
+  sorter.SortRange = sheet.Range("A2:D16")
 
-' Adds the sort field with column index, sort based on and order by attribute
-field1 = sorter.SortFields.Add(2, SortOn.FontColor,OrderBy.OnTop)
+  'Adds the sort field with column index, sort based on and order by attribute
+  Dim field1 As ISortField = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop)
 
-' Sorts the data based on this color
-Field1.Color = Color.Red
-Dim field2 As ISortField
+  'Sorts the data based on this color
+  field1.Color = Color.Red
 
-' Adds another sort field with column index, sort based on and order by attribute
-Field2 = sorter.SortFields.Add(2, SortOn.FontColor,OrderBy.OnTop)
+  'Adds another sort field with column index, sort based on and order by attribute
+  Dim field2 As ISortField = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop)
 
-' Sorts the data based on this color
-Field2.Color = Color.Green
+  'Sorts the data based on this color
+  field2.Color = Color.Green
 
-' Sorts the data with the sort field attribute.
-sorter.Sort()
+  'Sorts the data with the sort field attribute
+  sorter.Sort()
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Sort.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Sort.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creates the data sorter
+  IDataSort sorter = workbook.CreateDataSorter();
+
+  //Range to sort
+  sorter.SortRange = worksheet.Range["A2:D16"];
+
+  //Creates the sort field with the column index, sort based on and order by attribute
+  ISortField sortField1 = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop);
+
+  //Specifies the color to sort the data
+  sortField1.Color = Color.FromArgb(255, 255, 0, 0);
+
+  //Creates another sort field with the column index, sort based on and order by attribute
+  ISortField sortField2 = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop);
+
+  //Specifies the color to sort the data
+  sortField2.Color = Color.FromArgb(255, 0, 128, 0);
+
+  //Sort based on the sort Field attribute
+  sorter.Sort();
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Sort";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creates the data sorter
+  IDataSort sorter = workbook.CreateDataSorter();
+
+  //Range to sort
+  sorter.SortRange = worksheet.Range["A2:D16"];
+
+  //Creates the sort field with the column index, sort based on and order by attribute
+  ISortField sortField1 = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop);
+
+  //Specifies the color to sort the data
+  sortField1.Color = Color.Red;
+
+  //Creates another sort field with the column index, sort based on and order by attribute
+  ISortField sortField2 = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop);
+
+  //Specifies the color to sort the data
+  sortField2.Color = Color.Green;
+
+  //Sort based on the sort Field attribute
+  sorter.Sort();
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Sort.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creates the data sorter
+  IDataSort sorter = workbook.CreateDataSorter();
+
+  //Range to sort
+  sorter.SortRange = worksheet.Range["A2:D16"];
+
+  //Creates the sort field with the column index, sort based on and order by attribute
+  ISortField sortField1 = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop);
+
+  //Specifies the color to sort the data
+  sortField1.Color = Syncfusion.Drawing.Color.Red;
+
+  //Creates another sort field with the column index, sort based on and order by attribute
+  ISortField sortField2 = sorter.SortFields.Add(2, SortOn.FontColor, OrderBy.OnTop);
+
+  //Specifies the color to sort the data
+  sortField2.Color = Syncfusion.Drawing.Color.Green;
+
+  //Sort based on the sort Field attribute
+  sorter.Sort();
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ### Based on Cell Color
 
@@ -846,71 +2585,209 @@ The following code snippet explains how to move a range of cells with the specif
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Creates the data sorter
-IDataSort sorter = workbook.CreateDataSorter();
+  //Creates the data sorter
+  IDataSort sorter = workbook.CreateDataSorter();
 
-// Range to sort
-sorter.SortRange = sheet.Range["A2:D16"];
+  //Range to sort
+  sorter.SortRange = sheet.Range["A2:D16"];
 
-// Creates the sort field with the column index, sort based on and order by attribute
-ISortField sortField1 = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop);
+  //Creates the sort field with the column index, sort based on and order by attribute
+  ISortField sortField1 = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop);
 
-// Specifies the color to sort the data
-sortField1.Color = Color.Red;
+  //Specifies the color to sort the data
+  sortField1.Color = Color.Red;
 
-// Creates the sort field with the column index, sort based on and order by attribute
-ISortField sortField2 = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop);
+  //Creates the sort field with the column index, sort based on and order by attribute
+  ISortField sortField2 = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop);
 
-// Specifies the color to sort the data
-sortField2.Color = Color.Green;
+  //Specifies the color to sort the data
+  sortField2.Color = Color.Green;
 
-// Sort based on the sort field attribute
-sorter.Sort();
+  //Sort based on the sort field attribute
+  sorter.Sort();
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Sort.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Sort.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-Dim sorter As IDataSort = book.CreateDataSorter()
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+  Dim sorter As IDataSort = workbook.CreateDataSorter()
 
-' Specifies the sort range.
-sorter.SortRange = sheet.Range("A2:D16")
+  'Specifies the sort range.
+  sorter.SortRange = sheet.Range("A2:D16")
 
-' Adds the sort field with column index, sort based on and order by attribute
-Dim field1 As ISortField
-Field1 = sorter.SortFields.Add(2, SortOn.CellColor,OrderBy.OnTop)
+  'Adds the sort field with column index, sort based on and order by attribute
+  Dim field1 As ISortField = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop)
 
-' Sorts the data based on this color
-Field1.Color = Color.Red
+  'Sorts the data based on this color
+  field1.Color = Color.Red
 
-' Adds the sort field with column index, sort based on and order by attribute
-Dim field2 As ISortField
-Field2 = sorter.SortFields.Add(2, SortOn.CellColor,OrderBy.OnTop)
+  'Adds the sort field with column index, sort based on and order by attribute
+  Dim field2 As ISortField = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop)
 
-' Sorts the data based on this color
-Field2.Color = Color.Green
+  'Sorts the data based on this color
+  field2.Color = Color.Green
 
-' Sorts the data with the sort field attribute
-sorter.Sort()
+  'Sorts the data with the sort field attribute
+  sorter.Sort()
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Sort.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Sort.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creates the data sorter
+  IDataSort sorter = workbook.CreateDataSorter();
+
+  //Range to sort
+  sorter.SortRange = worksheet.Range["A2:D16"];
+
+  //Creates the sort field with the column index, sort based on and order by attribute
+  ISortField sortField1 = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop);
+
+  //Specifies the color to sort the data
+  sortField1.Color = Color.FromArgb(255, 255, 0, 0);
+
+  //Creates another sort field with the column index, sort based on and order by attribute
+  ISortField sortField2 = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop);
+
+  //Specifies the color to sort the data
+  sortField2.Color = Color.FromArgb(255, 0, 128, 0);
+
+  //Sort based on the sort Field attribute
+  sorter.Sort();
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Sort";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creates the data sorter
+  IDataSort sorter = workbook.CreateDataSorter();
+
+  //Range to sort
+  sorter.SortRange = worksheet.Range["A2:D16"];
+
+  //Creates the sort field with the column index, sort based on and order by attribute
+  ISortField sortField1 = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop);
+
+  //Specifies the color to sort the data
+  sortField1.Color = Color.Red;
+
+  //Creates another sort field with the column index, sort based on and order by attribute
+  ISortField sortField2 = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop);
+
+  //Specifies the color to sort the data
+  sortField2.Color = Color.Green;
+
+  //Sort based on the sort Field attribute
+  sorter.Sort();
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Sort.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creates the data sorter
+  IDataSort sorter = workbook.CreateDataSorter();
+
+  //Range to sort
+  sorter.SortRange = worksheet.Range["A2:D16"];
+
+  //Creates the sort field with the column index, sort based on and order by attribute
+  ISortField sortField1 = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop);
+
+  //Specifies the color to sort the data
+  sortField1.Color = Syncfusion.Drawing.Color.Red;
+
+  //Creates another sort field with the column index, sort based on and order by attribute
+  ISortField sortField2 = sorter.SortFields.Add(2, SortOn.CellColor, OrderBy.OnTop);
+
+  //Specifies the color to sort the data
+  sortField2.Color = Syncfusion.Drawing.Color.Green;
+
+  //Sort based on the sort Field attribute
+  sorter.Sort();
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sort.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Data Filtering 
 
@@ -929,53 +2806,169 @@ The following code illustrates how to apply simple auto filters.
 
 {% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
-sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"]; 
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
+  sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
 
-// Column index to which AutoFilter must be applied.
-IAutoFilter filter = sheet.AutoFilters[0];
+  //Column index to which AutoFilter must be applied
+  IAutoFilter filter = sheet.AutoFilters[0];
 
-// To apply Top10Number filter, IsTop and IsTop10 must be enabled.
-filter.IsTop = true;
-filter.IsTop10 = true;
+  //To apply Top10Number filter, IsTop and IsTop10 must be enabled
+  filter.IsTop = true;
+  filter.IsTop10 = true;
 
-// Setting Top10 filter with number of cell to be filtered from top
-filter.Top10Number = 5;
+  //Setting Top10 filter with number of cell to be filtered from top
+  filter.Top10Number = 5;
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Filter.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Filter.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks. ("Sample.xlsx")
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
-sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
+  'Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
+  sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
 
-' Column index to which AutoFilter must be applied.
-Dim filter As IAutoFilter = sheet.AutoFilters(0)
+  'Column index to which AutoFilter must be applied.
+  Dim filter As IAutoFilter = sheet.AutoFilters(0)
 
-' To apply Top10Number filter, IsTop and IsTop10 must be enabled.
-filter.IsTop = True
-filter.IsTop10 = True
+  'To apply Top10Number filter, IsTop and IsTop10 must be enabled.
+  filter.IsTop = True
+  filter.IsTop10 = True
 
-' Setting Top10 filter with number of cell to be filtered from top
-filter.Top10Number = 5
+  'Setting Top10 filter with number of cell to be filtered from top
+  filter.Top10Number = 5
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Filter.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Filter.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied
+  IAutoFilter filter = worksheet.AutoFilters[0];
+
+  //To apply Top10Number filter, IsTop and IsTop10 must be enabled
+  filter.IsTop = true;
+  filter.IsTop10 = true;
+
+  //Setting Top10 filter with number of cell to be filtered from top
+  filter.Top10Number = 5;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Filter";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied
+  IAutoFilter filter = worksheet.AutoFilters[0];
+
+  //To apply Top10Number filter, IsTop and IsTop10 must be enabled
+  filter.IsTop = true;
+  filter.IsTop10 = true;
+
+  //Setting Top10 filter with number of cell to be filtered from top
+  filter.Top10Number = 5;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied
+  IAutoFilter filter = worksheet.AutoFilters[0];
+
+  //To apply Top10Number filter, IsTop and IsTop10 must be enabled
+  filter.IsTop = true;
+  filter.IsTop10 = true;
+
+  //Setting Top10 filter with number of cell to be filtered from top
+  filter.Top10Number = 5;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -985,56 +2978,174 @@ Following code snippets illustrates how to apply custom filter, based on first a
 
 {% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
-sheet.AutoFilters.FilterRange = sheet.Range["A1:B323"];
-IAutoFilter filter = sheet.AutoFilters[1];
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range
+  sheet.AutoFilters.FilterRange = sheet.Range["A1:B323"];
+  IAutoFilter filter = sheet.AutoFilters[1];
 
-// Specifying first condition.
-IAutoFilterCondition firstCondition = filter.FirstCondition;
-firstCondition.ConditionOperator = ExcelFilterCondition.Greater;
-firstCondition.Double = 100;
+  //Specifying first condition
+  IAutoFilterCondition firstCondition = filter.FirstCondition;
+  firstCondition.ConditionOperator = ExcelFilterCondition.Greater;
+  firstCondition.Double = 100;
 
-//Specifying second condition.
-IAutoFilterCondition secondCondition = filter.SecondCondition;
-secondCondition.ConditionOperator = ExcelFilterCondition.Less;
-secondCondition.Double = 200;
+  //Specifying second condition
+  IAutoFilterCondition secondCondition = filter.SecondCondition;
+  secondCondition.ConditionOperator = ExcelFilterCondition.Less;
+  secondCondition.Double = 200;
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Filter.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Filter.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
-sheet.AutoFilters.FilterRange = sheet.Range("A1:B323")
-Dim filter As IAutoFilter = sheet.AutoFilters(1)
+  'Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  sheet.AutoFilters.FilterRange = sheet.Range("A1:B323")
+  Dim filter As IAutoFilter = sheet.AutoFilters(1)
 
-' Specifying first condition.
-Dim firstCondition As IAutoFilterCondition = filter.FirstCondition
-firstCondition.ConditionOperator = ExcelFilterCondition.Greater
-firstCondition.Double = 100
+  'Specifying first condition.
+  Dim firstCondition As IAutoFilterCondition = filter.FirstCondition
+  firstCondition.ConditionOperator = ExcelFilterCondition.Greater
+  firstCondition.Double = 100
 
-'Specifying second condition.
-Dim secondCondition As IAutoFilterCondition = filter.SecondCondition
-secondCondition.ConditionOperator = ExcelFilterCondition.Less
-secondCondition.Double = 200
+  'Specifying second condition.
+  Dim secondCondition As IAutoFilterCondition = filter.SecondCondition
+  secondCondition.ConditionOperator = ExcelFilterCondition.Less
+  secondCondition.Double = 200
 
-workbook.Version = ExcelVersion.Excel2013
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Filter.xlsx")
+End Using
+{% endhighlight %}
 
-workbook.SaveAs("Filter.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range
+  sheet.AutoFilters.FilterRange = sheet.Range["A1:B323"];
+  IAutoFilter filter = sheet.AutoFilters[1];
+
+  //Specifying first condition
+  IAutoFilterCondition firstCondition = filter.FirstCondition;
+  firstCondition.ConditionOperator = ExcelFilterCondition.Greater;
+  firstCondition.Double = 100;
+
+  //Specifying second condition
+  IAutoFilterCondition secondCondition = filter.SecondCondition;
+  secondCondition.ConditionOperator = ExcelFilterCondition.Less;
+  secondCondition.Double = 200;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Filter";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range
+  sheet.AutoFilters.FilterRange = sheet.Range["A1:B323"];
+  IAutoFilter filter = sheet.AutoFilters[1];
+
+  //Specifying first condition
+  IAutoFilterCondition firstCondition = filter.FirstCondition;
+  firstCondition.ConditionOperator = ExcelFilterCondition.Greater;
+  firstCondition.Double = 100;
+
+  //Specifying second condition
+  IAutoFilterCondition secondCondition = filter.SecondCondition;
+  secondCondition.ConditionOperator = ExcelFilterCondition.Less;
+  secondCondition.Double = 200;
+
+  //Saving the workbook as stream
+  FileStream file = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(file);
+  file.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range
+  sheet.AutoFilters.FilterRange = sheet.Range["A1:B323"];
+  IAutoFilter filter = sheet.AutoFilters[1];
+
+  //Specifying first condition
+  IAutoFilterCondition firstCondition = filter.FirstCondition;
+  firstCondition.ConditionOperator = ExcelFilterCondition.Greater;
+  firstCondition.Double = 100;
+
+  //Specifying second condition
+  IAutoFilterCondition secondCondition = filter.SecondCondition;
+  secondCondition.ConditionOperator = ExcelFilterCondition.Less;
+  secondCondition.Double = 200;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -1044,101 +3155,321 @@ This filter contains both Text filter and DateTime filter, it filters the data b
 
 {% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;	
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
-sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range
+  sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
 
-// Column index to which AutoFilter must be applied.
-IAutoFilter filter = sheet.AutoFilters[2];
+  //Column index to which AutoFilter must be applied
+  IAutoFilter filter = sheet.AutoFilters[2];
 
-//Applying Text filter to filter multiple text to get filter.
-filter.AddTextFilter(new string[] { "London", "Paris", "New York City"});
+  //Applying Text filter to filter multiple text to get filter
+  filter.AddTextFilter(new string[] { "London", "Paris", "New York City" });
 
-//Applying DateTime filter to filter the date based on DateTimeGroupingType.
-filter.AddDateFilter(new DateTime(2013, 1, 29, 0, 0, 0), DateTimeGroupingType.day);
-filter.AddDateFilter(2014, 12, 2, 10, 30, 0, DateTimeGroupingType.minute);
+  //Applying DateTime filter to filter the date based on DateTimeGroupingType
+  filter.AddDateFilter(new DateTime(2013, 1, 29, 0, 0, 0), DateTimeGroupingType.day);
+  filter.AddDateFilter(2014, 12, 2, 10, 30, 0, DateTimeGroupingType.minute);
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Filter.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Filter.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
-sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
+  'Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range
+  sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
 
-' Column index to which AutoFilter must be applied.
-Dim filter As IAutoFilter = sheet.AutoFilters(2)
+  'Column index to which AutoFilter must be applied
+  Dim filter As IAutoFilter = sheet.AutoFilters(2)
 
-'Applying Text filter to filter multiple text to get filter.
-filter.AddTextFilter(New String() {"London", "Paris", "New York City"})
+  'Applying Text filter to filter multiple text to get filter
+  filter.AddTextFilter(New String() {"London", "Paris", "New York City"})
 
-'Applying DateTime filter to filter the date based on DateTimeGroupingType.
-filter.AddDateFilter(New DateTime(2013, 1, 29, 0, 0, 0), DateTimeGroupingType.day)
-filter.AddDateFilter(2014, 12, 2, 10, 30, 0, DateTimeGroupingType.minute)
+  'Applying DateTime filter to filter the date based on DateTimeGroupingType
+  filter.AddDateFilter(New DateTime(2013, 1, 29, 0, 0, 0), DateTimeGroupingType.day)
+  filter.AddDateFilter(2014, 12, 2, 10, 30, 0, DateTimeGroupingType.minute)
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Filter.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Filter.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[2];
+
+  //Applying Text filter to filter multiple text to get filter.
+  filter.AddTextFilter(new string[] { "London", "Paris", "New York City" });
+
+  //Applying DateTime filter to filter the date based on DateTimeGroupingType.
+  filter.AddDateFilter(new DateTime(2013, 1, 29, 0, 0, 0), DateTimeGroupingType.day);
+  filter.AddDateFilter(2014, 12, 2, 10, 30, 0, DateTimeGroupingType.minute);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Filter";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[2];
+
+  //Applying Text filter to filter multiple text to get filter.
+  filter.AddTextFilter(new string[] { "London", "Paris", "New York City" });
+
+  //Applying DateTime filter to filter the date based on DateTimeGroupingType.
+  filter.AddDateFilter(new DateTime(2013, 1, 29, 0, 0, 0), DateTimeGroupingType.day);
+  filter.AddDateFilter(2014, 12, 2, 10, 30, 0, DateTimeGroupingType.minute);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range. 
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[2];
+
+  //Applying Text filter to filter multiple text to get filter.
+  filter.AddTextFilter(new string[] { "London", "Paris", "New York City" });
+
+  //Applying DateTime filter to filter the date based on DateTimeGroupingType.
+  filter.AddDateFilter(new DateTime(2013, 1, 29, 0, 0, 0), DateTimeGroupingType.day);
+  filter.AddDateFilter(2014, 12, 2, 10, 30, 0, DateTimeGroupingType.minute);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
 ### Dynamic Filter
 
-Dynamic filter is a relative date filter, which filters data based on DynamicFilterType enum. Following code snippets illustrates how to apply Dynamic filter.
+Dynamic filter is a relative date filter, which filters data based on DynamicFilterType enumeration. Following code snippets illustrates how to apply Dynamic filter.
 
 {% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
-sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
 
-// Column index to which AutoFilter must be applied.
-IAutoFilter filter = sheet.AutoFilters[3];
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = sheet.AutoFilters[3];
 
-//Applying dynamic filter to filter the date based on DynamicFilterType.
-filter.AddDynamicFilter(DynamicFilterType.NextQuarter);
+  //Applying dynamic filter to filter the date based on DynamicFilterType.
+  filter.AddDynamicFilter(DynamicFilterType.NextQuarter);
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Filter.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Filter.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
-sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
+  'Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
 
-' Column index to which AutoFilter must be applied.
-Dim filter As IAutoFilter = sheet.AutoFilters(3)
+  'Column index to which AutoFilter must be applied.
+  Dim filter As IAutoFilter = sheet.AutoFilters(3)
 
-'Applying dynamic filter to filter the date based on DynamicFilterType.
-filter.AddDynamicFilter(DynamicFilterType.NextQuarter)
+  'Applying dynamic filter to filter the date based on DynamicFilterType.
+  filter.AddDynamicFilter(DynamicFilterType.NextQuarter)
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Filter.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Filter.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[3];
+
+  //Applying dynamic filter to filter the date based on DynamicFilterType.
+  filter.AddDynamicFilter(DynamicFilterType.NextQuarter);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Filter";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[3];
+
+  //Applying dynamic filter to filter the date based on DynamicFilterType.
+  filter.AddDynamicFilter(DynamicFilterType.NextQuarter);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[3];
+
+  //Applying dynamic filter to filter the date based on DynamicFilterType.
+  filter.AddDynamicFilter(DynamicFilterType.NextQuarter);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -1148,45 +3479,149 @@ Color Filter can be used to filter data based on the color applied to the cell o
 
 {% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
-sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
 
-// Column index to which AutoFilter must be applied.
-IAutoFilter filter = sheet.AutoFilters[3];
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = sheet.AutoFilters[3];
 
-//Applying color filter to filter based on Cell Color.
-filter.AddColorFilter(Color.Red, ExcelColorFilterType.CellColor);
+  //Applying color filter to filter based on Cell Color.
+  filter.AddColorFilter(Color.Red, ExcelColorFilterType.CellColor);
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Filter.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Filter.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
-sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
+  'Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
 
-' Column index to which AutoFilter must be applied.
-Dim filter As IAutoFilter = sheet.AutoFilters(3)
+  'Column index to which AutoFilter must be applied.
+  Dim filter As IAutoFilter = sheet.AutoFilters(3)
 
-'Applying color filter to filter based on Cell Color.
-filter.AddColorFilter(Color.Red, ExcelColorFilterType.CellColor)
+  'Applying color filter to filter based on Cell Color.
+  filter.AddColorFilter(Color.Red, ExcelColorFilterType.CellColor)
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Filter.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Filter.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[3];
+
+  //Applying color filter to filter based on Cell Color.
+  filter.AddColorFilter(Color.FromArgb(255, 255, 0, 0), ExcelColorFilterType.CellColor);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Filter";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[3];
+
+  //Applying color filter to filter based on Cell Color.
+  filter.AddColorFilter(Color.Red, ExcelColorFilterType.CellColor);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[0];
+
+  //Applying color filter to filter based on Cell Color.
+  filter.AddColorFilter(Syncfusion.Drawing.Color.Red, ExcelColorFilterType.CellColor);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -1194,45 +3629,149 @@ To filter cells based on Font color of the text inside cells just change the Exc
 
 {% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
-sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
 
-// Column index to which AutoFilter must be applied.
-IAutoFilter filter = sheet.AutoFilters[3];
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = sheet.AutoFilters[3];
 
-//Applying color filter to filter based on Cell Color.
-filter.AddColorFilter(Color.Red, ExcelColorFilterType.FontColor);
+  //Applying color filter to filter based on Cell Color.
+  filter.AddColorFilter(Color.Red, ExcelColorFilterType.FontColor);
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Filter.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Filter.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
-sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
+  'Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
 
-' Column index to which AutoFilter must be applied.
-Dim filter As IAutoFilter = sheet.AutoFilters(3)
+  'Column index to which AutoFilter must be applied.
+  Dim filter As IAutoFilter = sheet.AutoFilters(3)
 
-'Applying color filter to filter based on Cell Color.
-filter.AddColorFilter(Color.Red, ExcelColorFilterType.FontColor)
+  'Applying color filter to filter based on Cell Color.
+  filter.AddColorFilter(Color.Red, ExcelColorFilterType.FontColor)
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Filter.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Filter.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[3];
+
+  //Applying color filter to filter based on Cell Color.
+  filter.AddColorFilter(Color.FromArgb(255, 255, 0, 0), ExcelColorFilterType.FontColor);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Filter";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[3];
+
+  //Applying color filter to filter based on Cell Color.
+  filter.AddColorFilter(Color.Red, ExcelColorFilterType.FontColor);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[0];
+
+  //Applying color filter to filter based on Cell Color.
+  filter.AddColorFilter(Syncfusion.Drawing.Color.Red, ExcelColorFilterType.FontColor);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -1242,45 +3781,149 @@ Icon filter can be used to filter data that has conditional formatting with Icon
 
 {% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
-sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  sheet.AutoFilters.FilterRange = sheet.Range["A1:K180"];
 
-// Column index to which AutoFilter must be applied.
-IAutoFilter filter = sheet.AutoFilters[3];
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = sheet.AutoFilters[3];
 
-// Applying Icon filter to filter based on applied icon set.
-filter.AddIconFilter(ExcelIconSetType.ThreeFlags, 2);
+  //Applying Icon filter to filter based on applied icon set.
+  filter.AddIconFilter(ExcelIconSetType.ThreeFlags, 2);
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Filter.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Filter.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
-sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
+  'Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  sheet.AutoFilters.FilterRange = sheet.Range("A1:K180")
 
-' Column index to which AutoFilter must be applied.
-Dim filter As IAutoFilter = sheet.AutoFilters(3)
+  'Column index to which AutoFilter must be applied.
+  Dim filter As IAutoFilter = sheet.AutoFilters(3)
 
-'Applying Icon filter to filter based on applied icon set.
-filter.AddIconFilter(ExcelIconSetType.ThreeFlags, 2)
+  'Applying Icon filter to filter based on applied icon set.
+  filter.AddIconFilter(ExcelIconSetType.ThreeFlags, 2)
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Filter.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Filter.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[3];
+
+  //Applying Icon filter to filter based on applied icon set.
+  filter.AddIconFilter(ExcelIconSetType.ThreeFlags, 2);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Filter";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[3];
+
+  //Applying Icon filter to filter based on applied icon set.
+  filter.AddIconFilter(ExcelIconSetType.ThreeFlags, 2);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Filter.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Creating an AutoFilter in the first worksheet. Specifying the AutoFilter range.
+  worksheet.AutoFilters.FilterRange = worksheet.Range["A1:K180"];
+
+  //Column index to which AutoFilter must be applied.
+  IAutoFilter filter = worksheet.AutoFilters[3];
+
+  //Applying Icon filter to filter based on applied icon set.
+  filter.AddIconFilter(ExcelIconSetType.ThreeFlags, 2);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -1302,41 +3945,139 @@ The following code illustrates how to apply Advanced Filter in worksheet.
 
 {% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("InputData.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("InputData.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IRange filterRange = sheet.Range["A1:C6"];
-IRange criteriaRange = sheet.Range["A10:C12"];
-IRange copyToRange = sheet.Range["K5:N5"];
+  IRange filterRange = sheet.Range["A1:C6"];
+  IRange criteriaRange = sheet.Range["A10:C12"];
+  IRange copyToRange = sheet.Range["K5:N5"];
 
-// Apply the Advanced Filter with enable of unique value and copy to another place.
-sheet.AdvancedFilter(ExcelFilterAction.FilterCopy, filterRange, criteriaRange, copyToRange, true);
+  //Apply the Advanced Filter with enable of unique value and copy to another place.
+  sheet.AdvancedFilter(ExcelFilterAction.FilterCopy, filterRange, criteriaRange, copyToRange, true);
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("AdvancedFilter.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("AdvancedFilter.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("InputData.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("InputData.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim filterRange  As IRange = sheet.Range("A1:C6")
-Dim criteriaRange As IRange = sheet.Range("A10:C12")
-Dim copyToRange As IRange = sheet.Range("K5:N5")
+  Dim filterRange As IRange = sheet.Range("A1:C6")
+  Dim criteriaRange As IRange = sheet.Range("A10:C12")
+  Dim copyToRange As IRange = sheet.Range("K5:N5")
 
-‘Apply the Advanced filter with enable of unique value and copy to another place.
-sheet.AdvancedFilter(ExcelFilterAction.FilterCopy, filterRange, criteriaRange, copyToRange, true)
+  'Apply the Advanced filter with enable of unique value and copy to another place.
+  sheet.AdvancedFilter(ExcelFilterAction.FilterCopy, filterRange, criteriaRange, copyToRange, True)
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("AdvancedFilter.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("AdvancedFilter.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  IRange filterRange = worksheet.Range["A1:C6"];
+  IRange criteriaRange = worksheet.Range["A10:C12"];
+  IRange copyToRange = worksheet.Range["K5:N5"];
+
+  //Apply the Advanced Filter with enable of unique value and copy to another place.
+  worksheet.AdvancedFilter(ExcelFilterAction.FilterCopy, filterRange, criteriaRange, copyToRange, true);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "AdvancedFilter";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  IRange filterRange = worksheet.Range["A1:C6"];
+  IRange criteriaRange = worksheet.Range["A10:C12"];
+  IRange copyToRange = worksheet.Range["K5:N5"];
+
+  //Apply the Advanced Filter with enable of unique value and copy to another place.
+  worksheet.AdvancedFilter(ExcelFilterAction.FilterCopy, filterRange, criteriaRange, copyToRange, true);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("AdvancedFilter.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  IRange filterRange = worksheet.Range["A1:C6"];
+  IRange criteriaRange = worksheet.Range["A10:C12"];
+  IRange copyToRange = worksheet.Range["K5:N5"];
+
+  //Apply the Advanced Filter with enable of unique value and copy to another place.
+  worksheet.AdvancedFilter(ExcelFilterAction.FilterCopy, filterRange, criteriaRange, copyToRange, true);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Filter.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -1346,112 +4087,316 @@ We can access the filter and its criteria, based on its column index. Following 
 
 {% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-IWorksheet worksheet = workbook.Worksheets[0];
-
-//selecting the filter by column index
-IAutoFilter filter = worksheet.AutoFilters[0];
-
-switch (filter.FilterType)
+using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    case ExcelFilterType.CombinationFilter:
-        CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-        for (int index = 0; index < filterItems.Count; index++)
-        {
-            if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
-            {
-                string textValue = (filterItems[index] as TextFilter).Text;
-            }
-            else
-            {
-                DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
-            }
-        }
-	    break;
+  //selecting the filter by column index
+  IAutoFilter filter = worksheet.AutoFilters[0];
 
-    case ExcelFilterType.DynamicFilter:
-        DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
-        DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
-        break;
+  switch (filter.FilterType)
+  {
+	case ExcelFilterType.CombinationFilter:
+	  CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
+	  for (int index = 0; index < filterItems.Count; index++)
+	  {
+		if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
+		{
+		  string textValue = (filterItems[index] as TextFilter).Text;
+		}
+		else
+		{
+		  DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
+		}
+	  }
+	  break;
 
-    case ExcelFilterType.CustomFilter:
-	    IAutoFilterCondition firstCondition = filter.FirstCondition;
-	    ExcelFilterDataType types = firstCondition.DataType;
-	    break;
+	case ExcelFilterType.DynamicFilter:
+	  DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
+	  DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
+	  break;
 
-    case ExcelFilterType.ColorFilter:
-	    ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
-	    Color color = colorFilter.Color;
-	    ColorFilterType filterType = colorFilter.ColorFilterType;
-		break;
+	case ExcelFilterType.CustomFilter:
+	  IAutoFilterCondition firstCondition = filter.FirstCondition;
+	  ExcelFilterDataType types = firstCondition.DataType;
+	  break;
 
-    case ExcelFilterType.IconFilter:
-		IconFilter iconFilter = (filter.FilteredItems as IconFilter);    
-		Int iconId = iconFilter.IconId;
-		ExcelIconSetType iconSetType = iconFilter.IconSetType;		
-		break;
+	case ExcelFilterType.ColorFilter:
+	  ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
+	  Color color = colorFilter.Color;
+	  ExcelColorFilterType filterType = colorFilter.ColorFilterType;
+	  break;
+
+	case ExcelFilterType.IconFilter:
+	  IconFilter iconFilter = (filter.FilteredItems as IconFilter);
+	  int iconId = iconFilter.IconId;
+	  ExcelIconSetType iconSetType = iconFilter.IconSetType;
+	  break;
+  }
+
+  workbook.SaveAs("Output.xlsx");
 }
-
-workbook.SaveAs("Output.xlsx");
-workbook.Close();
-excelEngine.Dispose();
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-'selecting the filter by column index
-Dim filter As IAutoFilter = worksheet.AutoFilters(0)
+  'selecting the filter by column index
+  Dim filter As IAutoFilter = worksheet.AutoFilters(0)
 
-Select Case filter.FilterType
-
-	Case ExcelFilterType.CombinationFilter
-		Dim filterItems As CombinationFilter = TryCast(filter.FilteredItems, CombinationFilter)
-
-		For index As Integer = 0 To filterItems.Count - 1
-
-			If filterItems(index).CombinationFilterType = ExcelCombinationFilterType.TextFilter Then
-				Dim textValue As String = TryCast(filterItems(index), TextFilter).Text
-			Else
-				Dim groupType As DateTimeGroupingType = TryCast(filterItems(index), DateTimeFilter).GroupingType
-			End If
-		Next
-		Exit Select
+  Select Case filter.FilterType
+    Case ExcelFilterType.CombinationFilter
+	  Dim filterItems As CombinationFilter = TryCast(filter.FilteredItems, CombinationFilter)
+	  For index As Integer = 0 To filterItems.Count - 1
+		If filterItems(index).CombinationFilterType = ExcelCombinationFilterType.TextFilter Then
+		  Dim textValue As String = TryCast(filterItems(index), TextFilter).Text
+		Else
+		  Dim groupType As DateTimeGroupingType = TryCast(filterItems(index), DateTimeFilter).GroupingType
+		End If
+	  Next
+	  Exit Select
 
 	Case ExcelFilterType.DynamicFilter
-		Dim dateFilter As DynamicFilter = TryCast(filter.FilteredItems, DynamicFilter)
-		Dim dynamicFilterType As DynamicFilterType = dateFilter.DateFilterType
-		Exit Select
+	  Dim dateFilter As DynamicFilter = TryCast(filter.FilteredItems, DynamicFilter)
+	  Dim dynamicFilterType As DynamicFilterType = dateFilter.DateFilterType
+	  Exit Select
 
 	Case ExcelFilterType.CustomFilter
-		Dim firstCondition As IAutoFilterCondition = filter.FirstCondition
-		Dim types As ExcelFilterDataType = firstCondition.DataType
-		Exit Select
+	  Dim firstCondition As IAutoFilterCondition = filter.FirstCondition
+	  Dim types As ExcelFilterDataType = firstCondition.DataType
+	  Exit Select
 
 	Case ExcelFilterType.ColorFilter
-		Dim colorFilter As ColorFilter = TryCast (filter.FilteredItems, ColorFilter);
-        Dim color As Color = iconFilter.Color;
-        Dim filterType As ColorFilterType = colorFilter.ColorFilterType;
-		Exit Select
+	  Dim colorFilter As ColorFilter = TryCast(filter.FilteredItems, ColorFilter)
+	  Dim color As Color = colorFilter.Color
+	  Dim filterType As ExcelColorFilterType = colorFilter.ColorFilterType
+	  Exit Select
 
 	Case ExcelFilterType.IconFilter
-		Dim iconFilter As IconFilter = TryCast (filter.FilteredItems, IconFilter);
-        Dim iconId As Int32 = iconFilter.IconId;
-        Dim iconSetType As ExcelIconSetType = iconFilter.IconSetType;
-		Exit Select
-End Select
+	  Dim iconFilter As IconFilter = TryCast(filter.FilteredItems, IconFilter)
+	  Dim iconId As Int32 = iconFilter.IconId
+	  Dim iconSetType As ExcelIconSetType = iconFilter.IconSetType
+	  Exit Select
+  End Select
 
-workbook.SaveAs("Output.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //selecting the filter by column index
+  IAutoFilter filter = sheet.AutoFilters[0];
+
+  switch (filter.FilterType)
+  {
+	case ExcelFilterType.CombinationFilter:
+	  CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
+	  for (int index = 0; index < filterItems.Count; index++)
+	  {
+		if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
+		{
+		  string textValue = (filterItems[index] as TextFilter).Text;
+		}
+		else
+		{
+		  DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
+		}
+	  }
+	  break;
+
+	case ExcelFilterType.DynamicFilter:
+	  DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
+	  DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
+	  break;
+
+	case ExcelFilterType.CustomFilter:
+	  IAutoFilterCondition firstCondition = filter.FirstCondition;
+	  ExcelFilterDataType types = firstCondition.DataType;
+	  break;
+
+	case ExcelFilterType.ColorFilter:
+	  ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
+	  Color color = colorFilter.Color;
+	  ExcelColorFilterType filterType = colorFilter.ColorFilterType;
+	  break;
+
+	case ExcelFilterType.IconFilter:
+	  IconFilter iconFilter = (filter.FilteredItems as IconFilter);
+	  int iconId = iconFilter.IconId;
+	  ExcelIconSetType iconSetType = iconFilter.IconSetType;
+	  break;
+  }
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //selecting the filter by column index
+  IAutoFilter filter = sheet.AutoFilters[0];
+
+  switch (filter.FilterType)
+  {
+	case ExcelFilterType.CombinationFilter:
+	  CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
+	  for (int index = 0; index < filterItems.Count; index++)
+	  {
+		if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
+		{
+		  string textValue = (filterItems[index] as TextFilter).Text;
+		}
+		else
+		{
+		  DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
+		}
+	  }
+	  break;
+
+	case ExcelFilterType.DynamicFilter:
+	  DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
+	  DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
+	  break;
+
+	case ExcelFilterType.CustomFilter:
+	  IAutoFilterCondition firstCondition = filter.FirstCondition;
+	  ExcelFilterDataType types = firstCondition.DataType;
+	  break;
+
+	case ExcelFilterType.ColorFilter:
+	  ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
+	  Color color = colorFilter.Color;
+	  ExcelColorFilterType filterType = colorFilter.ColorFilterType;
+	  break;
+
+	case ExcelFilterType.IconFilter:
+	  IconFilter iconFilter = (filter.FilteredItems as IconFilter);
+	  int iconId = iconFilter.IconId;
+	  ExcelIconSetType iconSetType = iconFilter.IconSetType;
+	  break;
+  }
+
+  //Saving the workbook as stream
+  FileStream file = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(file);
+  file.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //selecting the filter by column index
+  IAutoFilter filter = sheet.AutoFilters[0];
+
+  switch (filter.FilterType)
+  {
+	case ExcelFilterType.CombinationFilter:
+	  CombinationFilter filterItems = (filter.FilteredItems as CombinationFilter);
+	  for (int index = 0; index < filterItems.Count; index++)
+	  {
+		if (filterItems[index].CombinationFilterType == ExcelCombinationFilterType.TextFilter)
+	    {
+		  string textValue = (filterItems[index] as TextFilter).Text;
+		}
+		else
+		{
+		  DateTimeGroupingType groupType = (filterItems[index] as DateTimeFilter).GroupingType;
+		}
+	  }
+	  break;
+
+    case ExcelFilterType.DynamicFilter:
+	  DynamicFilter dateFilter = (filter.FilteredItems as DynamicFilter);
+	  DynamicFilterType dynamicFilterType = dateFilter.DateFilterType;
+	  break;
+
+	case ExcelFilterType.CustomFilter:
+	  IAutoFilterCondition firstCondition = filter.FirstCondition;
+	  ExcelFilterDataType types = firstCondition.DataType;
+	  break;
+
+	case ExcelFilterType.ColorFilter:
+	  ColorFilter colorFilter = (filter.FilteredItems as ColorFilter);
+	  Syncfusion.Drawing.Color color = colorFilter.Color;
+	  ExcelColorFilterType filterType = colorFilter.ColorFilterType;
+	  break;
+
+    case ExcelFilterType.IconFilter:
+	  IconFilter iconFilter = (filter.FilteredItems as IconFilter);
+	  int iconId = iconFilter.IconId;
+	  ExcelIconSetType iconSetType = iconFilter.IconSetType;
+	  break;
+  }
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -1468,95 +4413,259 @@ The following code example illustrates how to insert various hyperlinks.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
-IWorkbook workbook = application.Workbooks.Create(1);
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Creating a Hyperlink for a Website.
-IHyperLink hyperlink = sheet.HyperLinks.Add(sheet.Range["C5"]);
-hyperlink.Type = ExcelHyperLinkType.Url;
-hyperlink.Address = "http://www.syncfusion.com";
-hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link.";
+  //Creating a Hyperlink for a Website
+  IHyperLink hyperlink = sheet.HyperLinks.Add(sheet.Range["C5"]);
+  hyperlink.Type = ExcelHyperLinkType.Url;
+  hyperlink.Address = "http://www.syncfusion.com";
+  hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link.";
 
-// Creating a Hyperlink for e-mail.
-IHyperLink hyperlink1 = sheet.HyperLinks.Add(sheet.Range["C7"]);
-hyperlink1.Type = ExcelHyperLinkType.Url;
-hyperlink1.Address = "mailto:Username@syncfusion.com";
-hyperlink1.ScreenTip = "Send Mail";
+  //Creating a Hyperlink for e-mail
+  IHyperLink hyperlink1 = sheet.HyperLinks.Add(sheet.Range["C7"]);
+  hyperlink1.Type = ExcelHyperLinkType.Url;
+  hyperlink1.Address = "mailto:Username@syncfusion.com";
+  hyperlink1.ScreenTip = "Send Mail";
 
-// Creating a Hyperlink for Opening Files using type as File.
-IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
-hyperlink2.Type = ExcelHyperLinkType.File;
-hyperlink2.Address = @"C:\Program files";
-hyperlink2.ScreenTip = "File path";
-hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
+  //Creating a Hyperlink for Opening Files using type as File
+  IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
+  hyperlink2.Type = ExcelHyperLinkType.File;
+  hyperlink2.Address = @"C:\Program files";
+  hyperlink2.ScreenTip = "File path";
+  hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
 
-// Creating a Hyperlink for Opening Files using type as Unc.
-IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
-hyperlink3.Type = ExcelHyperLinkType.Unc;
-hyperlink3.Address = @"C:\Documents and Settings";
-hyperlink3.ScreenTip = "Click here for files";
-hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
+  //Creating a Hyperlink for Opening Files using type as Unc
+  IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
+  hyperlink3.Type = ExcelHyperLinkType.Unc;
+  hyperlink3.Address = @"C:\Documents and Settings";
+  hyperlink3.ScreenTip = "Click here for files";
+  hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
 
-// Creating a Hyperlink to another cell using type as Workbook.
-IHyperLink hyperlink4 = sheet.HyperLinks.Add(sheet.Range["C13"]);
-hyperlink4.Type = ExcelHyperLinkType.Workbook;
-hyperlink4.Address = "Sheet1!A15";
-hyperlink4.ScreenTip = "Click here";
-hyperlink4.TextToDisplay = "Hyperlink to cell A15";
+  //Creating a Hyperlink to another cell using type as Workbook
+  IHyperLink hyperlink4 = sheet.HyperLinks.Add(sheet.Range["C13"]);
+  hyperlink4.Type = ExcelHyperLinkType.Workbook;
+  hyperlink4.Address = "Sheet1!A15";
+  hyperlink4.ScreenTip = "Click here";
+  hyperlink4.TextToDisplay = "Hyperlink to cell A15";
 
-workbook.SaveAs("Hyperlink.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.SaveAs("Hyperlink.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-Dim sheet As IWorkbook = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Creating a Hyperlink for a Website.
-Dim hyperlink As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C5"))
-hyperlink.Type = ExcelHyperLinkType.Url
-hyperlink.Address = "http://www.Syncfusion.com"
-hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link."
+  'Creating a Hyperlink for a Website
+  Dim hyperlink As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C5"))
+  hyperlink.Type = ExcelHyperLinkType.Url
+  hyperlink.Address = "http://www.Syncfusion.com"
+  hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link."
 
-' Creating a Hyperlink for e-mail.
-Dim hyperlink1 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C7"))
-hyperlink1.Type = ExcelHyperLinkType.Url
-hyperlink1.Address = "mailto:Username@syncfusion.com"
-hyperlink1.ScreenTip = "Send Mail"
+  'Creating a Hyperlink for e-mail
+  Dim hyperlink1 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C7"))
+  hyperlink1.Type = ExcelHyperLinkType.Url
+  hyperlink1.Address = "mailto:Username@syncfusion.com"
+  hyperlink1.ScreenTip = "Send Mail"
 
-' Creating a Hyperlink for Opening Files using type as File.
-Dim hyperlink2 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C9"))
-hyperlink2.Type = ExcelHyperLinkType.File
-hyperlink2.Address = "C:\Program files"
-hyperlink2.ScreenTip = "File path"
-hyperlink2.TextToDisplay = "Hyperlink for files using File as type"
+  'Creating a Hyperlink for Opening Files using type as File
+  Dim hyperlink2 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C9"))
+  hyperlink2.Type = ExcelHyperLinkType.File
+  hyperlink2.Address = "C:\Program files"
+  hyperlink2.ScreenTip = "File path"
+  hyperlink2.TextToDisplay = "Hyperlink for files using File as type"
 
-' Creating a Hyperlink for Opening Files using type as Unc.
-Dim hyperlink3 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C11"))
-hyperlink3.Type = ExcelHyperLinkType.Unc
-hyperlink3.Address = "C:\Documents and Settings"
-hyperlink3.ScreenTip = "Click here for files"
-hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type"
+  'Creating a Hyperlink for Opening Files using type as Unc
+  Dim hyperlink3 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C11"))
+  hyperlink3.Type = ExcelHyperLinkType.Unc
+  hyperlink3.Address = "C:\Documents and Settings"
+  hyperlink3.ScreenTip = "Click here for files"
+  hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type"
 
-' Creating a Hyperlink to another cell using type as Workbook.
-Dim hyperlink4 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C13"))
-hyperlink4.Type = ExcelHyperLinkType.Workbook
-hyperlink4.Address = "Sheet1!A15"
-hyperlink4.ScreenTip = "Click here"
-hyperlink4.TextToDisplay = "Hyperlink to cell A15"
+  'Creating a Hyperlink to another cell using type as Workbook
+  Dim hyperlink4 As IHyperLink = sheet.HyperLinks.Add(sheet.Range("C13"))
+  hyperlink4.Type = ExcelHyperLinkType.Workbook
+  hyperlink4.Address = "Sheet1!A15"
+  hyperlink4.ScreenTip = "Click here"
+  hyperlink4.TextToDisplay = "Hyperlink to cell A15"
 
-workbook.SaveAs("Hyperlink.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.SaveAs("Hyperlink.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating a Hyperlink for a Website
+  IHyperLink hyperlink = sheet.HyperLinks.Add(sheet.Range["C5"]);
+  hyperlink.Type = ExcelHyperLinkType.Url;
+  hyperlink.Address = "http://www.syncfusion.com";
+  hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link.";
+
+  //Creating a Hyperlink for e-mail
+  IHyperLink hyperlink1 = sheet.HyperLinks.Add(sheet.Range["C7"]);
+  hyperlink1.Type = ExcelHyperLinkType.Url;
+  hyperlink1.Address = "mailto:Username@syncfusion.com";
+  hyperlink1.ScreenTip = "Send Mail";
+
+  //Creating a Hyperlink for Opening Files using type as File
+  IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
+  hyperlink2.Type = ExcelHyperLinkType.File;
+  hyperlink2.Address = @"C:\Program files";
+  hyperlink2.ScreenTip = "File path";
+  hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
+
+  //Creating a Hyperlink for Opening Files using type as Unc
+  IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
+  hyperlink3.Type = ExcelHyperLinkType.Unc;
+  hyperlink3.Address = @"C:\Documents and Settings";
+  hyperlink3.ScreenTip = "Click here for files";
+  hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
+
+  //Creating a Hyperlink to another cell using type as Workbook
+  IHyperLink hyperlink4 = sheet.HyperLinks.Add(sheet.Range["C13"]);
+  hyperlink4.Type = ExcelHyperLinkType.Workbook;
+  hyperlink4.Address = "Sheet1!A15";
+  hyperlink4.ScreenTip = "Click here";
+  hyperlink4.TextToDisplay = "Hyperlink to cell A15";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Hyperlink";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating a Hyperlink for a Website
+  IHyperLink hyperlink = sheet.HyperLinks.Add(sheet.Range["C5"]);
+  hyperlink.Type = ExcelHyperLinkType.Url;
+  hyperlink.Address = "http://www.syncfusion.com";
+  hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link.";
+
+  //Creating a Hyperlink for e-mail
+  IHyperLink hyperlink1 = sheet.HyperLinks.Add(sheet.Range["C7"]);
+  hyperlink1.Type = ExcelHyperLinkType.Url;
+  hyperlink1.Address = "mailto:Username@syncfusion.com";
+  hyperlink1.ScreenTip = "Send Mail";
+
+  //Creating a Hyperlink for Opening Files using type as File
+  IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
+  hyperlink2.Type = ExcelHyperLinkType.File;
+  hyperlink2.Address = @"C:\Program files";
+  hyperlink2.ScreenTip = "File path";
+  hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
+
+  //Creating a Hyperlink for Opening Files using type as Unc
+  IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
+  hyperlink3.Type = ExcelHyperLinkType.Unc;
+  hyperlink3.Address = @"C:\Documents and Settings";
+  hyperlink3.ScreenTip = "Click here for files";
+  hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
+
+  //Creating a Hyperlink to another cell using type as Workbook
+  IHyperLink hyperlink4 = sheet.HyperLinks.Add(sheet.Range["C13"]);
+  hyperlink4.Type = ExcelHyperLinkType.Workbook;
+  hyperlink4.Address = "Sheet1!A15";
+  hyperlink4.ScreenTip = "Click here";
+  hyperlink4.TextToDisplay = "Hyperlink to cell A15";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Hyperlink.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Creating a Hyperlink for a Website
+  IHyperLink hyperlink = sheet.HyperLinks.Add(sheet.Range["C5"]);
+  hyperlink.Type = ExcelHyperLinkType.Url;
+  hyperlink.Address = "http://www.syncfusion.com";
+  hyperlink.ScreenTip = "To know more about Syncfusion products, go through this link.";
+
+  //Creating a Hyperlink for e-mail
+  IHyperLink hyperlink1 = sheet.HyperLinks.Add(sheet.Range["C7"]);
+  hyperlink1.Type = ExcelHyperLinkType.Url;
+  hyperlink1.Address = "mailto:Username@syncfusion.com";
+  hyperlink1.ScreenTip = "Send Mail";
+
+  //Creating a Hyperlink for Opening Files using type as File
+  IHyperLink hyperlink2 = sheet.HyperLinks.Add(sheet.Range["C9"]);
+  hyperlink2.Type = ExcelHyperLinkType.File;
+  hyperlink2.Address = @"C:\Program files";
+  hyperlink2.ScreenTip = "File path";
+  hyperlink2.TextToDisplay = "Hyperlink for files using File as type";
+
+  //Creating a Hyperlink for Opening Files using type as Unc
+  IHyperLink hyperlink3 = sheet.HyperLinks.Add(sheet.Range["C11"]);
+  hyperlink3.Type = ExcelHyperLinkType.Unc;
+  hyperlink3.Address = @"C:\Documents and Settings";
+  hyperlink3.ScreenTip = "Click here for files";
+  hyperlink3.TextToDisplay = "Hyperlink for files using Unc as type";
+
+  //Creating a Hyperlink to another cell using type as Workbook
+  IHyperLink hyperlink4 = sheet.HyperLinks.Add(sheet.Range["C13"]);
+  hyperlink4.Type = ExcelHyperLinkType.Workbook;
+  hyperlink4.Address = "Sheet1!A15";
+  hyperlink4.ScreenTip = "Click here";
+  hyperlink4.TextToDisplay = "Hyperlink to cell A15";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ### Modifying Existing Hyperlink
 
@@ -1564,37 +4673,126 @@ You can modify the properties of existing hyperlink by accessing the Hyperlinks 
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Modifying hyperlink’s text to display.
-IHyperLink hyperlink = sheet.Range["C5"].Hyperlinks[0];
-hyperlink.TextToDisplay = "Syncfusion";
+  //Modifying hyperlink’s text to display
+  IHyperLink hyperlink = sheet.Range["C5"].Hyperlinks[0];
+  hyperlink.TextToDisplay = "Syncfusion";
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Hyperlink.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Hyperlink.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Modifying hyperlink’s text to display.
-Dim hyperlink As IHyperLink = sheet.Range("C5").Hyperlinks(0)
-hyperlink.TextToDisplay = "Syncfusion"
+  'Modifying hyperlink’s text to display
+  Dim hyperlink As IHyperLink = sheet.Range("C5").Hyperlinks(0)
+  hyperlink.TextToDisplay = "Syncfusion"
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Hyperlink.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Hyperlink.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Modifying hyperlink’s text to display
+  IHyperLink hyperlink = worksheet.Range["C5"].Hyperlinks[0];
+  hyperlink.TextToDisplay = "Syncfusion";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Hyperlink";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Modifying hyperlink’s text to display
+  IHyperLink hyperlink = worksheet.Range["C5"].Hyperlinks[0];
+  hyperlink.TextToDisplay = "Syncfusion";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Hyperlink.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Modifying hyperlink’s text to display
+  IHyperLink hyperlink = worksheet.Range["C5"].Hyperlinks[0];
+  hyperlink.TextToDisplay = "Syncfusion";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ### Removing Hyperlink
 
@@ -1602,35 +4800,121 @@ You can remove a hyperlink from a range by accessing the Hyperlinks collection o
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Removing Hyperlink from Range "C7"
-sheet.Range["C7"].Hyperlinks.RemoveAt(0);
+  //Removing Hyperlink from Range "C7"
+  sheet.Range["C7"].Hyperlinks.RemoveAt(0);
 
-workbook.Version = ExcelVersion.Excel2013;
-workbook.SaveAs("Hyperlink.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs("Hyperlink.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Removing Hyperlink from Range "C7"
-sheet.Range("C7").Hyperlinks.RemoveAt(0)
+  'Removing Hyperlink from Range "C7"
+  sheet.Range("C7").Hyperlinks.RemoveAt(0)
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Hyperlink.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.Version = ExcelVersion.Excel2013
+  workbook.SaveAs("Hyperlink.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Removing Hyperlink from Range "C7"
+  worksheet.Range["C7"].Hyperlinks.RemoveAt(0);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Hyperlink";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Removing Hyperlink from Range "C7"
+  worksheet.Range["C7"].Hyperlinks.RemoveAt(0);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Hyperlink.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Removing Hyperlink from Range "C7"
+  worksheet.Range["C7"].Hyperlinks.RemoveAt(0);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.Version = ExcelVersion.Excel2013;
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ### Hyperlinks on Shapes
 
@@ -1646,62 +4930,188 @@ The following code example illustrates how to insert hyperlinks to shapes.
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
 
-// Adding hyperlink to TextBox 
-IWorksheet sheet = workbook.Worksheets[0];
-ITextBox textBox = sheet.TextBoxes.AddTextBox(1, 1, 100, 100);
-IHyperLink hyperlink = sheet.HyperLinks.Add((textBox as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
+  //Adding hyperlink to TextBox 
+  IWorksheet sheet = workbook.Worksheets[0];
+  ITextBox textBox = sheet.TextBoxes.AddTextBox(1, 1, 100, 100);
+  IHyperLink hyperlink = sheet.HyperLinks.Add((textBox as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
 
-// Adding hyperlink to AutoShape
-sheet = workbook.Worksheets[1];
-IShape autoShape = sheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 1, 1, 100, 100);
-hyperlink = sheet.HyperLinks.Add(autoShape, ExcelHyperLinkType.Url, "mailto:Username@syncfusion.com", "Send Mail");
+  //Adding hyperlink to AutoShape
+  sheet = workbook.Worksheets[1];
+  IShape autoShape = sheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 1, 1, 100, 100);
+  hyperlink = sheet.HyperLinks.Add(autoShape, ExcelHyperLinkType.Url, "mailto:Username@syncfusion.com", "Send Mail");
 
-// Adding hyperlink to picture
-sheet = workbook.Worksheets[2];
-IPictureShape picture = sheet.Pictures.AddPicture(@"Image.png");
-hyperlink = sheet.HyperLinks.Add(picture);
-hyperlink.Type = ExcelHyperLinkType.Unc;
-hyperlink.Address = "C:\\Documents and Settings";
-hyperlink.ScreenTip = "Click here for files";
+  //Adding hyperlink to picture
+  sheet = workbook.Worksheets[2];
+  IPictureShape picture = sheet.Pictures.AddPicture(@"Image.png");
+  hyperlink = sheet.HyperLinks.Add(picture);
+  hyperlink.Type = ExcelHyperLinkType.Unc;
+  hyperlink.Address = "C:\\Documents and Settings";
+  hyperlink.ScreenTip = "Click here for files";
 
-workbook.SaveAs("Hyperlink.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.SaveAs("Hyperlink.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
-'Text box 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
-Dim textBox As ITextBox = sheet.TextBoxes.AddTextBox(1, 1, 100, 100)
-Dim hyperlink As IHyperLink = sheet.HyperLinks.Add(TryCast(textBox, IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here")
+  'Text box 
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+  Dim textBox As ITextBox = sheet.TextBoxes.AddTextBox(1, 1, 100, 100)
+  Dim hyperlink As IHyperLink = sheet.HyperLinks.Add(TryCast(textBox, IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here")
 
-'AutoShapes 
-sheet = workbook.Worksheets(1)
-Dim autoShape As IShape = sheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 1, 1, 100, 100)
-hyperlink = sheet.HyperLinks.Add(autoShape, ExcelHyperLinkType.Url, "mailto:Username@syncfusion.com", "Send Mail")
+  'AutoShapes 
+  sheet = workbook.Worksheets(1)
+  Dim autoShape As IShape = sheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 1, 1, 100, 100)
+  hyperlink = sheet.HyperLinks.Add(autoShape, ExcelHyperLinkType.Url, "mailto:Username@syncfusion.com", "Send Mail")
 
-'Pictures 
-sheet = workbook.Worksheets(2)
-Dim picture As IPictureShape = sheet.Pictures.AddPicture("Image.png")
-hyperlink = sheet.HyperLinks.Add(picture)
-hyperlink.Type = ExcelHyperLinkType.Unc
-hyperlink.Address = "C:\Documents and Settings"
-hyperlink.ScreenTip = "Click here for files"
+  'Pictures 
+  sheet = workbook.Worksheets(2)
+  Dim picture As IPictureShape = sheet.Pictures.AddPicture("Image.png")
+  hyperlink = sheet.HyperLinks.Add(picture)
+  hyperlink.Type = ExcelHyperLinkType.Unc
+  hyperlink.Address = "C:\Documents and Settings"
+  hyperlink.ScreenTip = "Click here for files"
 
-workbook.SaveAs("Hyperlink.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.SaveAs("Hyperlink.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding hyperlink to TextBox 
+  ITextBox textBox = worksheet.TextBoxes.AddTextBox(1, 1, 100, 100);
+  IHyperLink hyperlink = worksheet.HyperLinks.Add((textBox as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
+
+  //Adding hyperlink to AutoShape
+  IShape autoShape = worksheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 1, 1, 100, 100);
+  hyperlink = worksheet.HyperLinks.Add(autoShape, ExcelHyperLinkType.Url, "mailto:Username@syncfusion.com", "Send Mail");
+
+  //Adding hyperlink to picture
+  IPictureShape picture = worksheet.Pictures.AddPictureAsLink(5, 5, 10, 10, "Image.png");
+  hyperlink = worksheet.HyperLinks.Add(picture);
+  hyperlink.Type = ExcelHyperLinkType.Unc;
+  hyperlink.Address = "C:\\Documents and Settings";
+  hyperlink.ScreenTip = "Click here for files";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Hyperlink";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  workbook.Version = ExcelVersion.Excel2013;
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding hyperlink to TextBox 
+  ITextBox textBox = worksheet.TextBoxes.AddTextBox(1, 1, 100, 100);
+  IHyperLink hyperlink = worksheet.HyperLinks.Add((textBox as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
+
+  //Adding hyperlink to AutoShape
+  IShape autoShape = worksheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 1, 1, 100, 100);
+  hyperlink = worksheet.HyperLinks.Add(autoShape, ExcelHyperLinkType.Url, "mailto:Username@syncfusion.com", "Send Mail");
+
+  //Adding hyperlink to picture
+  IPictureShape picture = worksheet.Pictures.AddPictureAsLink(5, 5, 10, 10, "Image.png");
+  hyperlink = worksheet.HyperLinks.Add(picture);
+  hyperlink.Type = ExcelHyperLinkType.Unc;
+  hyperlink.Address = "C:\\Documents and Settings";
+  hyperlink.ScreenTip = "Click here for files";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Hyperlink.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding hyperlink to TextBox 
+  ITextBox textBox = worksheet.TextBoxes.AddTextBox(1, 1, 100, 100);
+  IHyperLink hyperlink = worksheet.HyperLinks.Add((textBox as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
+
+  //Adding hyperlink to AutoShape
+  IShape autoShape = worksheet.Shapes.AddAutoShapes(AutoShapeType.Cloud, 1, 1, 100, 100);
+  hyperlink = worksheet.HyperLinks.Add(autoShape, ExcelHyperLinkType.Url, "mailto:Username@syncfusion.com", "Send Mail");
+
+  //Adding hyperlink to picture
+  IPictureShape picture = worksheet.Pictures.AddPictureAsLink(5, 5, 10, 10, "Image.png");
+  hyperlink = worksheet.HyperLinks.Add(picture);
+  hyperlink.Type = ExcelHyperLinkType.Unc;
+  hyperlink.Address = "C:\\Documents and Settings";
+  hyperlink.ScreenTip = "Click here for files";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 **Modifying** **Hyperlinks** **on** **Shapes**
 
@@ -1709,46 +5119,148 @@ Properties of existing hyperlink can be modified by accessing either the Hyperli
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Modifying hyperlink’s screen tip through IWorksheet instance.
-IHyperLink hyperlink = sheet.HyperLinks[0];
-hyperlink.ScreenTip = "Syncfusion";
+  //Modifying hyperlink’s screen tip through IWorksheet instance
+  IHyperLink hyperlink = sheet.HyperLinks[0];
+  hyperlink.ScreenTip = "Syncfusion";
 
-// Modifying hyperlink’s screen tip through IShape instance.
-hyperlink = sheet.Shapes[0].Hyperlink;
-hyperlink.ScreenTip = "Syncfusion";
+  //Modifying hyperlink’s screen tip through IShape instance
+  hyperlink = sheet.Shapes[0].Hyperlink;
+  hyperlink.ScreenTip = "Syncfusion";
 
-workbook.SaveAs("Hyperlink.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.SaveAs("Hyperlink.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-application.DefaultVersion = ExcelVersion.Excel2013
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Modifying hyperlink’s screen tip through IWorksheet instance.
-Dim hyperlink As IHyperLink = sheet.HyperLinks(0)
-hyperlink.ScreenTip = "Syncfusion"
+  'Modifying hyperlink’s screen tip through IWorksheet instance
+  Dim hyperlink As IHyperLink = sheet.HyperLinks(0)
+  hyperlink.ScreenTip = "Syncfusion"
 
-' Modifying hyperlink’s screen tip through IShape instance.
-hyperlink = sheet.Shapes(0).Hyperlink
-hyperlink.ScreenTip = "Syncfusion"
+  'Modifying hyperlink’s screen tip through IShape instance
+  hyperlink = sheet.Shapes(0).Hyperlink
+  hyperlink.ScreenTip = "Syncfusion"
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Hyperlink.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.SaveAs("Hyperlink.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %}  
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Modifying hyperlink’s screen tip through IWorksheet instance
+  IHyperLink hyperlink = worksheet.HyperLinks[0];
+  hyperlink.ScreenTip = "Syncfusion";
+
+  //Modifying hyperlink’s screen tip through IShape instance
+  hyperlink = worksheet.Shapes[0].Hyperlink;
+  hyperlink.ScreenTip = "Syncfusion";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Hyperlink";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Modifying hyperlink’s screen tip through IWorksheet instance
+  IHyperLink hyperlink = worksheet.HyperLinks[0];
+  hyperlink.ScreenTip = "Syncfusion";
+
+  //Modifying hyperlink’s screen tip through IShape instance
+  hyperlink = worksheet.Shapes[0].Hyperlink;
+  hyperlink.ScreenTip = "Syncfusion";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Hyperlink.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Modifying hyperlink’s screen tip through IWorksheet instance
+  IHyperLink hyperlink = worksheet.HyperLinks[0];
+  hyperlink.ScreenTip = "Syncfusion";
+
+  //Modifying hyperlink’s screen tip through IShape instance
+  hyperlink = worksheet.Shapes[0].Hyperlink;
+  hyperlink.ScreenTip = "Syncfusion";
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 **Removing** **Hyperlinks** **from** **Shapes**
 
@@ -1756,33 +5268,121 @@ Hyperlinks from shapes can be removed by accessing Hyperlinks collection of the 
 
 {% tabs %}  
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
-IApplication application = excelEngine.Excel;
-application.DefaultVersion = ExcelVersion.Excel2013;
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-IWorksheet sheet = workbook.Worksheets[0];
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-// Removing hyperlink from sheet with Index
-sheet.HyperLinks.RemoveAt(0);
+  //Removing hyperlink from sheet with Index
+  sheet.HyperLinks.RemoveAt(0);
 
-workbook.SaveAs("Hyperlink.xlsx");
-workbook.Close();
-excelEngine.Dispose();
+  workbook.SaveAs("Hyperlink.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
-Dim application As IApplication = excelEngine.Excel
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-' Removing Hyperlink from sheet with Index
-sheet.HyperLinks.RemoveAt(0)
+  'Removing Hyperlink from sheet with Index
+  sheet.HyperLinks.RemoveAt(0)
 
-workbook.Version = ExcelVersion.Excel2013
-workbook.SaveAs("Hyperlink.xlsx")
-workbook.Close()
-excelEngine.Dispose()
+  workbook.SaveAs("Hyperlink.xlsx")
+End Using
 {% endhighlight %}
-{% endtabs %} 
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Removing hyperlink from sheet with Index
+  worksheet.HyperLinks.RemoveAt(0);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Hyperlink";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Removing hyperlink from sheet with Index
+  worksheet.HyperLinks.RemoveAt(0);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Hyperlink.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Removing hyperlink from sheet with Index
+  worksheet.HyperLinks.RemoveAt(0);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Hyperlink.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
