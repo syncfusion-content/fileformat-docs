@@ -25,71 +25,77 @@ There are two different passwords to encrypt a document.
 
 The Following code snippets illustrate how to achieve the above options.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
 
-IApplication application = excelEngine.Excel;
+  //Encrypt the workbook with password
+  workbook.PasswordToOpen = "password";
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Set the password to modify the workbook
+  workbook.SetWriteProtectionPassword("modify_password");
 
-IWorkbook workbook = application.Workbooks.Create(1);
+  //Set the workbook as read-only
+  workbook.ReadOnlyRecommended = true;
 
-// Encrypt the workbook with password.
-
-workbook.PasswordToOpen = "password";
-
-// Set the password to modify the workbook.
-
-workbook.SetWriteProtectionPassword("modify_password");
-
-// Set the workbook as read-only.
-
-workbook.ReadOnlyRecommended = true;
-
-workbook.SaveAs("Encrypt.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Encrypt.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-Dim application As IApplication = excelEngine.Excel
+  'Encrypt the workbook with password
+  workbook.PasswordToOpen = "password"
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'Set the password to modify the workbook
+  workbook.SetWriteProtectionPassword("modify_password")
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  'Set the workbook as read-only
+  workbook.ReadOnlyRecommended = True
 
-' Encrypt the workbook with password.
-
-workbook.PasswordToOpen = "password"
-
-' Set the password to modify the workbook.
-
-workbook.SetWriteProtectionPassword("modify_password")
-
-' Set the workbook as read-only.
-
-workbook.ReadOnlyRecommended= true
-
-workbook.SaveAs("Encrypt.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Encrypt.xlsx")
+End Using
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+
+  //Encrypt the workbook with password
+  workbook.PasswordToOpen = "password";
+
+  //Set the password to modify the workbook
+  workbook.SetWriteProtectionPassword("modify_password");
+
+  //Set the workbook as read-only
+  workbook.ReadOnlyRecommended = true;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Encrypt.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+{% endtabs %}  
 
 Now, the encrypted workbook can be saved. Refer [Save Excel file](/file-formats/xlsio/loading-and-saving-workbook#saving-a-excel-workbook-to-file-system). 
 
@@ -97,262 +103,286 @@ Now, the encrypted workbook can be saved. Refer [Save Excel file](/file-formats/
 
 You can open an existing encrypted workbook (decrypting) from either the file system or the stream using the following overloads.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-//Creates a new instance for ExcelEngine.
-
+//Creates a new instance for ExcelEngine
 ExcelEngine excelEngine = new ExcelEngine();
 
 //Loads or open an existing workbook through Open method of IWorkbooks
-
-IWorkbook workbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOptions.Default,false, "password");
-
-
-
+IWorkbook workbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOptions.Default, false, "password");
 {% endhighlight %}
 
 {% highlight vb %}
-'Creates a new instance for ExcelEngine.
-
+'Creates a new instance for ExcelEngine
 Dim excelEngine As New ExcelEngine()
 
 'Loads or open an existing workbook through Open method of IWorkbooks
-
 Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOptions.Default, False, "password")
-
-
-
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Creates a new instance for ExcelEngine
+ExcelEngine excelEngine = new ExcelEngine();
+
+//Loads or open an existing workbook through Open method of IWorkbooks
+IWorkbook workbook = excelEngine.Excel.Workbooks.Open(workbookStream, ExcelParseOptions.Default, false, "password");
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+{% endtabs %}
+
 **Removing** **encryption**
 
 The following code illustrates how to remove a protection for an encrypted document.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelParseOptions.Default, true, "password");
 
-IApplication application = excelEngine.Excel;
+  //Removing a protection
+  workbook.PasswordToOpen = string.Empty;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelParseOptions.Default, true, "password");
-
-//Removing a protection.
-
-workbook.PasswordToOpen = string.Empty;
-
-workbook.SaveAs("Output.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Output.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelParseOptions.Default, True, "password")
 
-Dim application As IApplication = excelEngine.Excel
+  'Removing a protection
+  workbook.PasswordToOpen = String.Empty
 
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("Sample.xlsx", ExcelParseOptions.Default, True, "password")
-
-'Removing a protection.
-
-workbook.PasswordToOpen = String.Empty
-
-workbook.SaveAs("Output.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+
+  //Removing a protection
+  workbook.PasswordToOpen = string.Empty;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+{% endtabs %}  
 
 ### Protect workbook elements
 
 XlsIO provides options to protect and unprotect workbook elements with password. The following code example illustrates how to protect a workbook with a password.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
 
-IApplication application = excelEngine.Excel;
+  bool isProtectWindow = true;
+  bool isProtectContent = true;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  //Protect Workbook
+  workbook.Protect(isProtectWindow, isProtectContent, "password");
 
-IWorkbook workbook = application.Workbooks.Open("ProtectWorkbook.xlsx");
-
-bool isProtectWindow = true;
-
-bool isProtectContent = true;
-
-// Protect Workbook.
-
-workbook.Protect(isProtectWindow, isProtectContent, "password");
-
-workbook.SaveAs("Output.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Output.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("ProtectWorkbook.xlsx")
 
-Dim application As IApplication = excelEngine.Excel
+  Dim isProtectWindow As Boolean = True
+  Dim isProtectContent As Boolean = True
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  'protect workbook
+  workbook.Protect(isProtectWindow, isProtectContent, "password")
 
-Dim workbook As IWorkbook = application.Workbooks.Open("ProtectWorkbook.xlsx")
-
-Dim isProtectWindow As Boolean = True
-
-Dim isProtectContent As Boolean = True
-
-' protect workbook.
-
-workbook.Protect(isProtectWindow, isProtectContent, "password")
-
-workbook.SaveAs("Output.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("ProtectWorkbook.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+
+  bool isProtectWindow = true;
+  bool isProtectContent = true;
+
+  //Protect Workbook
+  workbook.Protect(isProtectWindow, isProtectContent, "password");
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+{% endtabs %}  
 
 ### Unprotect Workbook elements
 
 You can unprotect or remove protection for a workbook as shown below.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("ProtectedWorkbook.xlsx");
 
-IApplication application = excelEngine.Excel;
+  //Unprotect (unlock) Workbook using Password
+  workbook.Unprotect("password");
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Open(@"ProtectedWorkbook.xlsx");
-
-// Unprotect (unlock) Workbook using Password.
-
-workbook.Unprotect("password");
-
-workbook.SaveAs("Output.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Output.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("ProtectedWorkbook.xlsx")
 
-Dim application As IApplication = excelEngine.Excel
+  'Unprotect (unlock) Workbook using Password
+  workbook.Unprotect("password")
 
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Open("ProtectedWorkbook.xlsx")
-
-' Unprotect (unlock) Workbook using Password.
-
-workbook.Unprotect("password")
-
-workbook.SaveAs("Output.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("ProtectedWorkbook.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+
+  //Unprotect (unlock) Workbook using Password
+  workbook.Unprotect("password");
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+{% endtabs %}  
 
 ## Protect Worksheet 
 
 XlsIO provides support for protecting and unprotecting elements in worksheets by using the **Protect** method of **IWorksheet****.** The following code example illustrates how to protect a worksheet with a password. 
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Protecting the Worksheet by using a Password
+  sheet.Protect("syncfusion", ExcelSheetProtection.All);
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Create(1);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-// Protecting the Worksheet by using a Password.
-
-sheet.Protect("syncfusion" , ExcelSheetProtection.All);
-
-workbook.SaveAs("Output.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Output.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Protecting the Worksheet by using a Password
+  sheet.Protect("syncfusion", ExcelSheetProtection.All)
 
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-'Protecting the Worksheet by using a Password.
-
-sheet.Protect("syncfusion", ExcelSheetProtection.All)
-
-workbook.SaveAs("Output.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+//XlsIO supports worksheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Protecting the Worksheet by using a Password
+  sheet.Protect("syncfusion", ExcelSheetProtection.All);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports worksheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+{% endtabs %}  
 
 N> By using the ExcelSheetProtection enumerator, you can set protection to the workbook elements/operations.
 
@@ -360,233 +390,251 @@ N> By using the ExcelSheetProtection enumerator, you can set protection to the w
 
 Essential XlsIO can also provide support to protect or unprotect a chart sheet.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("sample.xlsx");
+  IChart chart = workbook.Charts[0];
 
-IApplication application = excelEngine.Excel;
+  //Protect chart sheet
+  chart.Protect("syncfusion", ExcelSheetProtection.All);
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Open("sample.xlsx");
-
-IChart chart = workbook.Charts[0];
-
-//Protect chart sheet.
-
-chart.Protect("syncfusion", ExcelSheetProtection.All);
-
-workbook.SaveAs("Output.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Output.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim chart As IChart = workbook.Charts(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Protect chart sheet
+  chart.Protect("syncfusion", ExcelSheetProtection.All)
 
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
-Dim chart As IChart = workbook.Charts(0)
-
-' Protect chart sheet.
-
-chart.Protect("syncfusion", ExcelSheetProtection.All)
-
-workbook.SaveAs("Output.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+//XlsIO supports chart sheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("ChartSheet.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IChart chart = workbook.Charts[0];
+
+  //Protect chart sheet
+  chart.Protect("syncfusion", ExcelSheetProtection.All);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports chart sheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+{% endtabs %}
+
 **Un****-****Protect** **Worksheet** 
 
 You can also unprotect the worksheet by using the **Unprotect** method of XlsIO. The following code example illustrates how to remove worksheet protection.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Unprotecting (unlocking) the Worksheet using the Password
+  sheet.Unprotect("syncfusion");
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-// Unprotecting (unlocking) the Worksheet using the Password.
-
-sheet.Unprotect("syncfusion");
-
-workbook.SaveAs("Output.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Output.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("sample.xlsx")
+  Dim sheet As IWorkbook = workbook.Worksheets(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Unprotecting (unlocking) the Worksheet using the Password
+  sheet.Unprotect("syncfusion")
 
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Open("sample.xlsx")
-
-Dim sheet As IWorkbook = workbook.Worksheets(0)
-
-' Unprotecting (unlocking) the Worksheet using the Password.
-
-sheet.Unprotect("syncfusion")
-
-workbook.SaveAs("Output.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+//XlsIO supports worksheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Unprotecting (unlocking) the Worksheet using the Password
+  worksheet.Unprotect("syncfusion");
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports worksheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+{% endtabs %}  
 
 **Removing** **protection** **of** **a** **Chart** **Sheet**
 
 You can remove the protection of a chart sheet as shown below.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IChart chart = workbook.Charts[0];
 
-IApplication application = excelEngine.Excel;
+  //Unprotect chart sheet
+  chart.Unprotect("syncfusion");
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
-IChart chart = workbook.Charts[0];
-
-//Unprotect chart sheet
-
-chart.Unprotect("syncfusion");
-
-workbook.SaveAs("Output.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Output.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim chart As IChart = workbook.Charts(0)
 
-Dim application As IApplication = excelEngine.Excel
+  'Unprotect chart sheet
+  chart.Unprotect("syncfusion")
 
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
-Dim chart As IChart = workbook.Charts(0)
-
-' Unprotect chart sheet.
-
-chart.Unprotect("syncfusion")
-
-workbook.SaveAs("Output.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+//XlsIO supports chart sheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IChart chart = workbook.Charts[0];
+
+  //Unprotect chart sheet
+  chart.Unprotect("syncfusion");
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports chart sheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+{% endtabs %}
+
 ## Protect Cell
 
 XlsIO supports locking and unlocking cells by using the cell's **Locked** property of __CellStyle__. This can be manipulated to make certain cells editable in a protected worksheet. 
 
 N> By default, cells are locked. Lock or Unlock cell in an unprotected worksheet has no effect. 
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-IApplication application = excelEngine.Excel;
+  //Unlocking a cell to edit in worksheet protection mode
+  worksheet.Range["A1"].CellStyle.Locked = false;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-
-IWorksheet worksheet = workbook.Worksheets[0];
-
-//Unlocking a cell to edit in worksheet protection mode
-
-worksheet.Range["A1"].CellStyle.Locked = false;
-
-workbook.SaveAs("Output.xlsx");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  workbook.SaveAs("Output.xlsx");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As ExcelEngine = New ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  
+  'Unlocking a cell to edit in worksheet protection mode
+  worksheet.Range("A1").CellStyle.Locked = False
 
-Dim application As IApplication = excelEngine.Excel
-
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-
-Dim worksheet As IWorkbook = workbook.Worksheets(0)
-
-'Unlocking a cell to edit in worksheet protection mode 
-
-worksheet.Range("A1").CellStyle.Locked = False
-
-workbook.SaveAs("Output.xlsx")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  workbook.SaveAs("Output.xlsx")
+End Using
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+//XlsIO supports cell protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Unlocking a cell to edit in worksheet protection mode
+  worksheet.Range["A1"].CellStyle.Locked = false;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports cell protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+{% endhighlight %}
+{% endtabs %}  
 
 
 N> Security features are now supported in NetStandard 1.4 onwards.
