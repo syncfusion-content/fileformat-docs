@@ -6,9 +6,9 @@ control: XlsIO
 documentation: UG
 ---
 
-# Chart to Image Conversion
+# Chart to image conversion
 
-The following code snippets shows how to convert an Excel chart to an image using the **ExcelChartToImageConverter** class.
+The following code snippet shows how to convert an Excel chart to an image using the **ExcelChartToImageConverter** class.
 
 {% tabs %}
 {% highlight c# %}
@@ -67,21 +67,21 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight asp.net core %}
-//XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
 N> Chart conversion to image and PDF are supported from .NET Framework 4.0 onwards.
 
-## Supported Chart Types
+## Supported chart types
 XlsIO supports the following chart types in image conversion.
 <table>
 <tr>
@@ -208,15 +208,15 @@ Excel 2016 Charts
 </tr>
 </table>
 
-## Supported Chart Elements
-XlsIO supports the following chart elements in image conversion.
+## Supported chart elements
+XlsIO supports the following chart elements in image conversion:
 ![](Working-With-Charts_images/chart-elements.jpeg)
 
 **Chart Elements:**
 1. Axis
-2. Axis Titles
-3. Chart Title
-4. Data Labels
-5. Grid Lines
+2. Axis titles
+3. Chart title
+4. Data labels
+5. Grid lines
 6. Legend
-7. Trend Line
+7. Trend line
