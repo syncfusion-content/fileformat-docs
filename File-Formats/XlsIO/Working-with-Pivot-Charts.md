@@ -187,7 +187,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The following code snippet shows how to set field buttons in a pivot chart.
 
-N> PivotChart properties are supported exclusively from Excel 2010 onwards.
+N> The PivotChart properties are supported exclusively from Excel 2010 onwards.
 
 {% tabs %}  
 
