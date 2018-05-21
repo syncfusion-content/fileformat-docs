@@ -192,7 +192,7 @@ Package manager console command
 Syncfusion.OfficeChartToImageConverter.WPF.nupkg
 </td>
 <td>
-Install-Package Syncfusion.OfficeChartToImageConverter.Base -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms
+Install-Package Syncfusion.OfficeChartToImageConverter.Wpf -Source http://nuget.syncfusion.com/nuget_wpf/nuget/getsyncfusionpackages/wpf
 </td>
 </tr>
 </table>
@@ -241,7 +241,7 @@ The package contains OfficeChartToImageConverter .NET library for converting the
 
 ~~~
 // Install package
-Install-Package Syncfusion.OfficeChartToImageConverter.WPF -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms 
+Install-Package Syncfusion.OfficeChartToImageConverter.Wpf -Source http://nuget.syncfusion.com/nuget_wpf/nuget/getsyncfusionpackages/wpf 
 ~~~
 ~~~
 // Uninstall package
