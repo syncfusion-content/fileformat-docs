@@ -332,6 +332,7 @@ excelEngine.Dispose()
 
   {% endtabs %}  
 
+
 ## Print Excel Document
 
 XlsIO supports Excel printing option by converting Excel to PDF and then print that PDF document. The Excel can be print with specified page setup and printer settings in XlsIO.
@@ -599,7 +600,7 @@ This feature provides support for the following elements:
 * Print Order
 * 2D Charts
 * 3D Charts
-
+* AutoShapes
 ​
 
 ## Unsupported Elements
@@ -616,11 +617,9 @@ The following list contains unsupported elements that presently will not be pres
 * Conditional Formats
 	* Data Bars
 	* Color Scales
-	* Icon Sets
 * Tables
 	* Custom Styles
 * Row and Column Headings
 * Form Controls
 * ActiveX Controls
 * OLE Objects
-* AutoShapes
