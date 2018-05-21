@@ -7,16 +7,16 @@ documentation: UG
 ---
 # Custom XML Support
 
-When you embed XML data in a document, the data is named as custom XML part which is used to store arbitrary XML data in the workbook. 
+When you embed XML data in a document, the data is named as custom XML part, which is used to store arbitrary XML data in the workbook. 
 
-Essential XlsIO supports the following functionalities with Custom XML such as,
+Essential XlsIO supports the following functionalities with Custom XML:
 
 * Adding CustomXmlPart to workbook
 * Reading CustomXmlPart from workbook 
 
 **Add** **Custom** **XML** 
 
-Adding Custom XML part to workbook is achieved by using **Add** method of **ICustomXmlPart** interface. 
+Adding Custom XML part to workbook is achieved by using the **Add** method of **ICustomXmlPart** interface. 
 
 The following code snippet illustrates on how to add a Custom XML part.
 
@@ -148,7 +148,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -164,7 +164,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 **Read** **Custom** **XML** 
 
-Reading Custom XML part from workbook is achieved by using **GetById** method of **ICustomXmlPart** interface. The following code snippet illustrates on how to read Custom XML parts from workbook.
+Reading Custom XML part from workbook is achieved by using the **GetById** method of **ICustomXmlPart** interface. The following code snippet illustrates on how to read Custom XML parts from workbook.
 
 {% tabs %}
 {% highlight c# %}
@@ -299,7 +299,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
