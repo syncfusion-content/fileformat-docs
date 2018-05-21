@@ -320,6 +320,78 @@ End Using
 {% endhighlight %}
 
  {% endtabs %}  
+
+## Performing OCR for large PDF documents
+
+You can optimize the memory to perform OCR for large PDF documents by enabling the isMemoryOptimized property. Optimization will be effective only with Multithreading environment or PDF document with more images. This is demonstrated in the following code sample. 
+
+{% tabs %} 
+
+{% highlight c# %}
+
+
+//Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
+
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+
+{
+
+//Load a PDF document.
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("Input.pdf");
+
+//Set OCR language to process.
+
+processor.Settings.Language = Languages.English;
+
+//Process OCR by providing the PDF document, Tesseract data and enable isMemoryOptimized property
+
+processor.PerformOCR(lDoc, @"TessData\",true);
+
+//Save the OCR processed PDF document in the disk.
+
+lDoc.Save("Sample.pdf");
+
+lDoc.Close(true);
+
+}
+
+
+{% endhighlight %}
+
+
+{% highlight vb.net %}
+
+
+'Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
+
+Using processor As New OCRProcessor("TesseractBinaries\")
+
+'Load a PDF document.
+
+Dim lDoc As New PdfLoadedDocument("Input.pdf")
+
+'Set OCR language to process.
+
+processor.Settings.Language = Languages.English
+
+'Process OCR by providing the PDF document and Tesseract data enable isMemoryOptimized property.
+
+processor.PerformOCR(lDoc, "TessData\", True)
+
+'Save the OCR processed PDF document in the disk.
+
+lDoc.Save("Sample.pdf")
+
+lDoc.Close(True)
+
+End Using
+
+
+
+{% endhighlight %}
+
+ {% endtabs %}  
  
 
 ## Best Practices
