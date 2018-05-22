@@ -10,7 +10,7 @@ documentation: UG
 A template marker is a special marker symbol created in an Excel template that appends multiple records from a data source into a worksheet. This marker automatically maps the column name in the data source and names of the marker fields in the template Excel document and fills the data (text or image). Essential XlsIO allows you to bind the template markers to data from various sources, such as 
 
 * DataTable
-* Business Objects
+* Business objects
 * Arrays
 
 ## Template marker Syntax
@@ -54,11 +54,11 @@ Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;;copyrange:R2C2:R4C4
 
 ## Bind from Array
 
-An array of data can be bind to the marker in the template document.
+An array of data can be binded to the marker in the template document.
 
 **Syntax**: %VariableArray
 
-Here is the screen shot of input template which has a template marker.
+The following screenshot represents the input template which has a template marker.
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img1.jpeg)
 
@@ -244,12 +244,12 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}  
 
 
-Here is the screen shot of generated excel in which array of data is bounded. 
+The following screenshot represents generated Excel file in which the array of data is bounded.
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img2.jpeg)
 
 
-You can also add/insert template markers using XlsIO APIs as shown below.
+You can also add or insert template markers using XlsIO APIs as follows.
 
 {% tabs %}  
 {% highlight c# %}
@@ -474,7 +474,7 @@ using(ExcelEngine excelEngine = new ExcelEngine())
 </table>
 By default, DataTable values will be filled in the worksheet as a string format. You can detect data type and number format of DataTable values by using VariableTypeAction enumerator. To know more about the VariableTypeAction enumerator, please refer **VariableTypeAction** in API section.
 
-Here is the screen shot of input template which has a template marker.
+ The following screenshot represents the input template which has a template marker.
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img3.jpeg)
 
@@ -544,7 +544,7 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+//XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% highlight asp.net core %}
 
@@ -586,18 +586,18 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core (2.0 onwards) platforms alone.
+//XlsIO supports binding data from data table using template markers in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core (2.0 onwards) platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
-Here is the screen shot of generated excel in which data type is detected and then number format is applied.   
+The following screenshot represents an Excel file in which the data type is detected and then number format is applied.
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg)
 
 
 ## Bind from Business objects with images
 
-You can generate reports more appealingly with image support in Template Markers. The possible images supported are listed below.
+You can generate reports more appealingly with image support in template markers. The possible image formats are as follows:
 
 * GIF
 * JPEG
@@ -605,7 +605,7 @@ You can generate reports more appealingly with image support in Template Markers
 * BMP
 * TIFF
 
-XlsIO detects the property as image when its type is System.Drawing.Image or byte [].The image can be formatted using following arguments 
+XlsIO detects the property as image when its type is System.Drawing.Image or byte []. The image can be formatted using the following arguments.
 
 <table>
 <tr>
@@ -634,86 +634,86 @@ Image is applied to the specified size (width, height).<br/><br/>Height paramete
 position:</span>position<br/><br/>Ex:<br/><br/>%Reports.Image;position:middle-center<br/><br/>(or)<br/><br/>%Reports.Image;position:right <br/><br/></td><td>
 Image is positioned (top-left, top-center, etc.,) within the cell.<br/><br/></td></tr>
 </table>
-In the following example, a marker is added for merging images.  Like a simple template marker, data source and property name is specified (%Reports.Image;) for image also. 
+In the following example, a marker is added for merging images. Data source and property name is specified (%Reports.Image;) for image also. 
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img5.jpeg)
 
 
 __Marker__ __added__ __for__ __merging__ __images__
 
-N> Image can be used in array, DataTable and Business objects.
+N> Image can be used in array, DataTable, and Business objects.
 
-Different positions of image are maintained internally in ImageVerticalPosition and ImageHorizontalPosition enumerators.  To know more about this, please refer **ImageVerticalPosition** and **ImageHorizontalPosition** enumerators respectively in API section.
+Different positions of the image are maintained internally in the ImageVerticalPosition and ImageHorizontalPosition enumerators.  To learn more about this, refer to the **ImageVerticalPosition** and **ImageHorizontalPosition** enumerators respectively in API section.
 
-The output screens of all the image insertion options along with its input templates are as follows.
+The output of all the image insertion options with input templates are as follows.
 
 **Default** **image** **input** **and** **output**
 
-Input Template
+Input template
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img6.jpeg)
 
 
-Generated Output
+Generated output
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img7.jpeg)
 
 
 **Image** **with** **FitToCell** **attribute**
 
-Input Template
+Input template
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img8.jpeg)
 
 
-Generated Output
+Generated output
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img9.jpeg)
 
 
 **Image** **with** **Size**
 
-Input Template
+Input template
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img10.jpeg)
 
 
-Generated Output
+Generated output
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img11.jpeg)
 
 
 **Image** **with** **Position**
 
-Input Template
+Input template
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img12.jpeg)
 
 
-Generated Output
+Generated output
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img13.jpeg)
 
 
 **Image** **with** **position** **and** **size**
 
-Input Template
+Input template
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img14.jpeg)
 
 
-Generated Output
+Generated output
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg)
 
 
-You can also refer [Template based data filling using Template Markers](/file-formats/xlsio/getting-started#template-based-data-filling-using-template-markers) section in [Getting Started](/file-formats/xlsio/getting-started) for the sample regarding template marker with images.
+You can also refer to the [Template based data filling using Template Markers](/file-formats/xlsio/getting-started#template-based-data-filling-using-template-markers) section in [Getting Started](/file-formats/xlsio/getting-started) for the sample regarding template marker with images.
 
-## Template Marker with Conditional Formatting
+## Template marker with conditional formatting
 
 You can create or apply conditional format to the template marker range.  
 
-Here is the screen shot of input template which has a template marker.
+The following screenshot represents the input template, which has a template marker.
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img16.jpeg)
 
@@ -1365,7 +1365,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-The following code snippet provides supporting methods & class for the above code.
+The following code snippet provides supporting method and class for the previous code.
 
 **GetSalesReports** **Method****:**
 {% tabs %}
@@ -1528,7 +1528,7 @@ public class Sales
 {% endhighlight %}
 {% endtabs %}
 
-Here is the screen shot of generated excel in which conditional format is applied.
+The following screenshot represents generated Excel file in which the conditional format is applied.
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img17.jpeg)
 
