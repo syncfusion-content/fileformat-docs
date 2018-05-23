@@ -162,13 +162,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   application.DefaultVersion = ExcelVersion.Excel2013;
   IWorkbook workbook = application.Workbooks.Open("PivotData.xlsx");
   IWorksheet worksheet = workbook.Worksheets[0];
-  IWorksheet pivotsheet = workbook.Worksheets[1];
+  IWorksheet pivotSheet = workbook.Worksheets[1];
 
   //Create Pivot cache with the given data range
   IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
   //Create "PivotTable1" with the cache at the specified range
-  IPivotTable pivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet["A1"], cache);
+  IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
 
   //Add Pivot table fields (Row and Column fields)
   pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
@@ -190,13 +190,13 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   Dim workbook As IWorkbook = application.Workbooks.Open("PivotData.xlsx")
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
-  Dim pivotsheet As IWorksheet = workbook.Worksheets(1)
+  Dim pivotSheet As IWorksheet = workbook.Worksheets(1)
 
   'Create Pivot cache with the given data range
   Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:H50"))
 
   'Create "PivotTable1" with the cache at the specified range
-  Dim pivotTable As IPivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet("A1"), cache)
+  Dim pivotTable As IPivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet("A1"), cache)
 
   'Add Pivot table fields (Row and Column fields)
   pivotTable.Fields(2).Axis = PivotAxisTypes.Row
@@ -225,13 +225,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
-  IWorksheet pivotsheet = workbook.Worksheets[1];
+  IWorksheet pivotSheet = workbook.Worksheets[1];
 
   //Create Pivot cache with the given data range
   IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
   //Create "PivotTable1" with the cache at the specified range
-  IPivotTable pivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet["A1"], cache);
+  IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
 
   //Add Pivot table fields (Row and Column fields)
   pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
@@ -263,13 +263,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   FileStream fileStream = new FileStream("PivotData.xlsx", FileMode.Open, FileAccess.Read);
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
-  IWorksheet pivotsheet = workbook.Worksheets[1];
+  IWorksheet pivotSheet = workbook.Worksheets[1];
 
   //Create Pivot cache with the given data range
   IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
   //Create "PivotTable1" with the cache at the specified range
-  IPivotTable pivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet["A1"], cache);
+  IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
 
   //Add Pivot table fields (Row and Column fields)
   pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
@@ -302,13 +302,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
-  IWorksheet pivotsheet = workbook.Worksheets[1];
+  IWorksheet pivotSheet = workbook.Worksheets[1];
 
   //Create Pivot cache with the given data range
   IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 
   //Create "PivotTable1" with the cache at the specified range
-  IPivotTable pivotTable = pivotsheet.PivotTables.Add("PivotTable1", pivotsheet["A1"], cache);
+  IPivotTable pivotTable = pivotSheet.PivotTables.Add("PivotTable1", pivotSheet["A1"], cache);
 
   //Add Pivot table fields (Row and Column fields)
   pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
