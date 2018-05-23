@@ -1760,15 +1760,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports pivot table layout in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports pivot table layout in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight asp.net core %}
-//XlsIO supports pivot table layout in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports pivot table layout in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports pivot table layout in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports pivot table layout in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
