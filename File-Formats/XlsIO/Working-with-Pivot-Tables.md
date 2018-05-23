@@ -54,27 +54,27 @@ IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 {% tabs %}
 {% highlight c# %}
 //Create "PivotTable1" with the cache at the specified range
-IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet ["A1"], cache);
+IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["A1"], cache);
 {% endhighlight %}
 
 {% highlight vb %}
 'Create "PivotTable1" with the cache at the specified range
-Dim pivotTable As IPivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet ("A1"), cache)
+Dim pivotTable As IPivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet("A1"), cache)
 {% endhighlight %}
 
 {% highlight UWP %}
 //Create "PivotTable1" with the cache at the specified range
-IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet ["A1"], cache);
+IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["A1"], cache);
 {% endhighlight %}
 
 {% highlight asp.net core %}
 //Create "PivotTable1" with the cache at the specified range
-IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet ["A1"], cache);
+IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["A1"], cache);
 {% endhighlight %}
 
 {% highlight Xamarin %}
 //Create "PivotTable1" with the cache at the specified range
-IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet ["A1"], cache);
+IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["A1"], cache);
 {% endhighlight %}
 {% endtabs %}  
 
@@ -1760,15 +1760,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports layout pivot table in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports pivot table layout in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight asp.net core %}
-//XlsIO supports layout pivot table in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports pivot table layout in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports layout pivot table in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports pivot table layout in Windows Forms,WPF,ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
