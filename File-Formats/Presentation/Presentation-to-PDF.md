@@ -93,7 +93,7 @@ PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation);
 
 //Saves the PDF document
 
-pdfDocument.Save(@"Sample.pdf");
+pdfDocument.Save("Sample.pdf");
 
 //Closes the PDF document
 
@@ -159,7 +159,7 @@ The following code sample demonstrates how to set a substitute font for a missin
 {% tabs %}
 {% highlight c# %}
 //Load the PowerPoint presentation and convert to PDF
-using (IPresentation pptxDoc = Presentation.Open(@"Sample.pptx"))
+using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
 //Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
 pptxDoc.ChartToImageConverter = new ChartToImageConverter();
@@ -188,8 +188,7 @@ else
 args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
-{% endtabs %}
-{% tabs %}
+
 {% highlight vb.net %}
 'Load the PowerPoint presentation and convert to PDF
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
