@@ -161,7 +161,7 @@ The following code sample demonstrates how to set a substitute font for a missin
 //Load the PowerPoint presentation and convert to PDF
 using (IPresentation pptxDoc = Presentation.Open(@"Sample.pptx"))
 {
-//Inititalize 'ChartToImageConverter' to convert charts in the slides, and this is optional
+//Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
 pptxDoc.ChartToImageConverter = new ChartToImageConverter();
 
 // Initializes the 'SubstituteFont' event to set the replacement font
@@ -182,7 +182,7 @@ pdfDoc.Save("Sample.pdf");
 /// <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
 private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-if (args.OrignalFontName == "Arial Unicode MS")
+if (args.OriginalFontName == "Arial Unicode MS")
 args.AlternateFontName = "Arial";
 else
 args.AlternateFontName = "Times New Roman";
@@ -192,8 +192,8 @@ args.AlternateFontName = "Times New Roman";
 {% tabs %}
 {% highlight vb.net %}
 'Load the PowerPoint presentation and convert to PDF
-Dim pptxDoc As IPresentation = Presentation.Open("C:\Users\meikandai\Desktop\PerpetuaFont.pptx")
-'Inititalize 'ChartToImageConverter' to convert charts in the slides, and this is optional
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
 pptxDoc.ChartToImageConverter = New ChartToImageConverter()
 
 'Initializes the 'SubstituteFont' event to set the replacement font
@@ -216,7 +216,7 @@ pdfDoc.Dispose()
 ''' <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
 Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
 ' Sets the alternate font when a specified font is not installed in the production environment
-If args.OrignalFontName = "Arial Unicode MS" Then
+If args.OriginalFontName = "Arial Unicode MS" Then
 args.AlternateFontName = "Arial"
 Else
 args.AlternateFontName = "Times New Roman"
