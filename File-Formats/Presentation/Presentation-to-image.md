@@ -195,11 +195,8 @@ Image[] images = presentation.RenderAsImages(Syncfusion.Drawing.ImageType.Metafi
 //Saves the image to file system
 
 foreach (Image image in images)
-
 { 
-
-image.Save("ImageOutput" + Guid.NewGuid().ToString()+ ".png");
-
+	image.Save("ImageOutput" + Guid.NewGuid().ToString()+ ".png");
 }
 
 {% endhighlight %}
@@ -333,22 +330,20 @@ The following code sample demonstrates how to set a substitute font for a missin
 //Load the PowerPoint presentation and convert to image
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
+	//Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
+	pptxDoc.ChartToImageConverter = new ChartToImageConverter();
 
-//Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
-pptxDoc.ChartToImageConverter = new ChartToImageConverter();
+	// Initializes the 'SubstituteFont' event to set the replacement font
+	pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
 
-// Initializes the 'SubstituteFont' event to set the replacement font
-pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+	//Converts the first slide into image
+	Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
 
-//Converts the first slide into image
-Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
+	//Saves the image as file
+	image.Save("slide1.png");
 
-//Saves the image as file
-image.Save("slide1.png");
-
-//Disposes the image
-image.Dispose();
-
+	//Disposes the image
+	image.Dispose();
 }
 
 /// <summary>
@@ -358,12 +353,10 @@ image.Dispose();
 /// <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
 private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-
-if (args.OriginalFontName == "Arial Unicode MS")
-args.AlternateFontName = "Arial";
-else
-args.AlternateFontName = "Times New Roman";
-
+	if (args.OriginalFontName == "Arial Unicode MS")
+		args.AlternateFontName = "Arial";
+	else
+		args.AlternateFontName = "Times New Roman";
 }
 
 {% endhighlight %}
@@ -397,14 +390,12 @@ image.Dispose()
 ''' <param name="sender">FontSettings type of the Presentation in which the specified font is used but unavailable in production environment. </param>
 ''' <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
 Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
-
-' Sets the alternate font when a specified font is not installed in the production environment
-If args.OriginalFontName = "Arial Unicode MS" Then
-args.AlternateFontName = "Arial"
-Else
-args.AlternateFontName = "Times New Roman"
-End If
-
+	' Sets the alternate font when a specified font is not installed in the production environment
+	If args.OriginalFontName = "Arial Unicode MS" Then
+		args.AlternateFontName = "Arial"
+	Else
+		args.AlternateFontName = "Times New Roman"
+	End If
 End Sub
 
 {% endhighlight %}
