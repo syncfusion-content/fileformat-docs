@@ -18,7 +18,7 @@ You can also create a calculated column in the table. For more details, refer [h
 
 N> In XlsIO, tables are supported only for Excel 2007 and later formats (*.xlsx files).
 
-The folloiwng code sample explains the creation of a simple table by the range of data from an existing worksheet.
+The following code sample explains the creation of a simple table by the range of data from an existing worksheet.
 
 {% tabs %}
 {% highlight c# %}
