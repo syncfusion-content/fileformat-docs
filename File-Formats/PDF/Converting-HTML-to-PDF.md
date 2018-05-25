@@ -2316,18 +2316,18 @@ Issue
 <table>
 <th style="font-size:14px">Issue
 </th>
-<th style="font-size:14px">Converter fails in Azure website, but it works in development machine
+<th style="font-size:14px">HTML conversion fails in Azure website, but it works in development machine
 </th>
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>The converter can be used in Windows Azure Cloud Service but it cannot be used in Azure website due to the lack of administrator privilege and few other restrictions which fails the conversion process.
+<td>If the hosting plan of Azure website is Free/Shared, then the HTML conversion may failed in Azure website. This is due to the lack of administrator privilege and few other restrictions on Free/Shared hosting plan.
 </td>
 </tr>
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>Move the conversion part into the cloud service with web role and add service reference to your Azure website.
+<td>To overcome this failure, please use hosting plans from Basic or above. If the website is already hosted under Free/Shared hosting plan, this can be scaled up to Basic or above in the Azure portal. 
 </td>
 </tr>
 </table>
