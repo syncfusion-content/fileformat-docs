@@ -2321,7 +2321,7 @@ Issue
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>If the hosting plan of Azure website is Free/Shared, then the HTML conversion may failed in Azure website. This is due to the lack of administrator privilege and few other restrictions on Free/Shared hosting plan.
+<td>If the hosting plan of Azure website is Free/Shared, then the HTML conversion may fail in Azure website. This is due to the lack of administrator privilege and few other restrictions on Free/Shared hosting plan.
 </td>
 </tr>
 <tr>
