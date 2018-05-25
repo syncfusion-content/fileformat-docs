@@ -2951,7 +2951,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Add HTML string
   worksheet.Range["A1"].HtmlString = "<font style=\"color:red;font-family:Magneto;font-size:12px; \">Welcome Syncfusion</font>";
 
-  //Assign HTML string as text to differnt range
+  //Assign HTML string as text to different range
   worksheet.Range["A2"].Text = worksheet.Range["A1"].HtmlString;
 
   workbook.SaveAs("Output.xlsx");
@@ -2968,7 +2968,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Add HTML string
   worksheet.Range("A1").HtmlString = "<font style=""color:red;font-family:Magneto;font-size:12px; "">Welcome Syncfusion</font>"
 
-  'Assign HTML string as text to differnt range
+  'Assign HTML string as text to different range
   worksheet.Range("A2").Text = worksheet.Range("A1").HtmlString
 
   workbook.SaveAs("Output.xlsx")
