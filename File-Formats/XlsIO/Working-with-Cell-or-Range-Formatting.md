@@ -2929,6 +2929,91 @@ The output of the previous code is shown in the following screenshot:
 ![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img5.jpeg)
 
 
+## Html string Formatting
+
+HTML string generates a string of characters with different formatting styles using different HTML tags for each character. This makes it easy to manipulate the text or value in the worksheet range as each character is independent and doesn't depend on hierarchical tag structure.
+
+XlsIO supports adding HTML Rich-Text to a range of cells in worksheet.
+
+### Applying HTML string
+
+The following code snippet illustrates how to read and write HTML Rich-Text using HtmlString property of IRange.
+
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(3);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Add HTML string
+  worksheet.Range["A1"].HtmlString = "<font style=\"color:red;font-family:Magneto;font-size:12px; \">Welcome Syncfusion</font>";
+
+  //Assign HTML string as text to differnt range
+  worksheet.Range["A2"].Text = worksheet.Range["A1"].HtmlString;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(3)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Add HTML string
+  worksheet.Range("A1").HtmlString = "<font style=""color:red;font-family:Magneto;font-size:12px; "">Welcome Syncfusion</font>"
+
+  'Assign HTML string as text to differnt range
+  worksheet.Range("A2").Text = worksheet.Range("A1").HtmlString
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+//XlsIO supports adding HTML string to worksheet range in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//XlsIO supports adding HTML string to worksheet range in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports adding HTML string to worksheet range in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms alone.
+{% endhighlight %}
+{% endtabs %}
+
+### Supported Tags
+
+The following are the list of tags supported in addition to HTML String.
+
+* \<p></p>				- Defines a paragraph
+* \<font></font>		- Defines font, color and size of text
+* \<h1….h6></h1…h6>		- Defines HTML headings
+* \<a href></a>			- Defines a hyperlink
+* \<i></i>				- Defines italic text
+* \<u></u>				- Underlines the text
+* \<b></b>				- Defines bold text
+* \<sub></sub>			- Defines subscript
+* \<sup></sup>			- Defines superscript
+* \<br></br>			- Inserts link break
+* \<strike></strike>	- Strikes out the text
+* \<strong></strong>	- Defines important text
+
+These mentioned tags do support the following style attributes.
+
+* Color
+* Font-family
+* Text-decoration
+* Font-size
+* Size
+* Face
+
 ## Rich-Text Formatting 
 
 You can format each character in a cell with different font styles. XlsIO reads and writes rich text by using the **IRichTextString** interface. 
