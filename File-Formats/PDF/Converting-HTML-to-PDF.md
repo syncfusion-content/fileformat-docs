@@ -27,36 +27,57 @@ It does not require external dependencies like browsers, printer drivers, or vie
 * Latest WebKit HTML converter can be download from the below link,
 
     [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
-	
+
+* To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies needs to be added as reference to the project.	
 <table>
 <tr>
 <thead>
 <th>
 Platforms</th>
 <th>
-Assemblies and QtBinaries
+Assemblies
 </th>
 </thead>
 </tr>
 <tr>
 <td> .NET Framework </td>
 <td>
-* To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies needs to be added as reference to the .NET Framework project.
+
     * Syncfusion.Compression.Base.dll
     * Syncfusion.Pdf.Base.dll
     * Syncfusion.HtmlConverter.Base.dll
-
-* The QtBinaries folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
+	
 </td></tr>
 <tr>
 <td> .NET Core </td>
 <td>
-* To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies needs to be added as reference to the .NET Core project.
+
     * Syncfusion.Compression.Portable.dll
     * Syncfusion.Pdf.Portable.dll
     * Syncfusion.HtmlConverter.Portable.dll
+	
+</td></tr>
+</table>
 
-* The QtBinariesDotNetCore folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinariesDotNetCore)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
+<table>
+<tr>
+<thead>
+<th>
+Platforms</th>
+<th>
+QtBinaries
+</th>
+</thead>
+</tr>
+<tr>
+<td> .NET Framework </td>
+<td>
+The QtBinaries folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
+</td></tr>
+<tr>
+<td> .NET Core </td>
+<td>
+The QtBinariesDotNetCore folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinariesDotNetCore)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
 </td></tr>
 </table>
 
