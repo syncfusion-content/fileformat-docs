@@ -7,18 +7,18 @@ documentation: UG
 ---
 # Working with Tables
 
-## Creating a Table
+## Creating a table
 
-XlsIO provides support to read and write table which helps to organize and analyze related data. 
+XlsIO supports reading and writing the table which helps to organize and analyze the related data. 
 
 * **IListObjects** represents a collection of tables in the worksheet. 
-* **IListObject** represent a table in the worksheet
+* **IListObject** represent a table in the worksheet.
 
-Also, you can create a calculated column in table. For more details, refer [here](/file-formats/xlsio/working-with-formulas#calculated-column).
+You can also create a calculated column in the table. For more details, refer [here](/file-formats/xlsio/working-with-formulas#calculated-column).
 
-N> In XlsIO, Tables are supported only for Excel 2007 and later formats (*.xlsx files).
+N> In XlsIO, tables are supported only for Excel 2007 and later formats (*.xlsx files).
 
-The below code sample explains the creation of a simple table by the range of data from an existing worksheet
+The following code sample explains the creation of a simple table by the range of data from an existing worksheet.
 
 {% tabs %}
 {% highlight c# %}
@@ -29,7 +29,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Create Table with data in the given range
+  //Create table with the data in given range
   IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
   string fileName = "Output.xlsx";
@@ -44,7 +44,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-  'Create Table with data in the given range
+  'Create table with the data in given range
   Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
 
   Dim fileName As String = "Output.xlsx"
@@ -61,22 +61,22 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-  //Gets input Excel document from embedded resource collection
+  //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Create Table with data in the given range
+  //Create table with the data in given range
   IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-  //Initializes FileSavePicker
+  //Initializes FileSavePicker      
   FileSavePicker savePicker = new FileSavePicker();
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
   savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-  //Creates a storage file from FileSavePicker
+  //Creates a storage file from FileSavePicker            
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
@@ -93,7 +93,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Create Table with data in the given range
+  //Create table with the data in given range
   IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
   string fileName = "Output.xlsx";
@@ -114,13 +114,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-  //Gets input Excel document from embedded resource collection
+  //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Create Table with data in the given range
+  //Create table with the data in given range
   IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
   //Saving the workbook as stream
@@ -133,7 +133,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -147,9 +147,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-## Accessing a Table
+## Accessing a table
 
-Existing tables in the worksheet can be accessed, as shown below. 
+The existing tables in the worksheet can be accessed, as follows. 
 
 {% tabs %}
 {% highlight c# %}
@@ -200,7 +200,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-  //Gets input Excel document from embedded resource collection
+  //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
@@ -218,7 +218,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-  //Creates a storage file from FileSavePicker
+  //Creates a storage file from the FileSavePicker
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
@@ -259,7 +259,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-  //Gets input Excel document from embedded resource collection
+  //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
@@ -281,7 +281,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -295,11 +295,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-## Formatting a Table
+## Formatting a table
 
-You can apply built-in styles to table using XlsIO. You can also customize the table with other table styles options such as Header/total row, first/last column and banded rows to make a table easier to read.
+You can apply built-in styles to the table using XlsIO. You can also customize the table with other table style options such as Header/total row, first/last column, and banded rows to make a table easier to read.
 
-The below code snippet illustrates how to apply built-in table style.
+The following code snippet illustrates how to apply built-in table style.
 
 {% tabs %}  
 
@@ -430,7 +430,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -444,9 +444,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-## Insert/Remove Columns in a Table
+## Insert or remove columns in a table
 
-IListObject is a collection of columns, whereas a single column is represented by an instance of **IListObjectColumn**. XlsIO provides support to insert or remove columns in a table through worksheet, as below.
+IListObject is a collection of columns, whereas a single column is represented by an instance of **IListObjectColumn**. XlsIO supports to insert or remove columns from the table using worksheet, as follows.
 
 {% tabs %}
 {% highlight c# %}
@@ -478,7 +478,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-  'Creating Table
+  'Creating table
   Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
 
   'Inserting a column in the table
@@ -501,7 +501,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-  //Gets input Excel document from embedded resource collection
+  //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
@@ -522,7 +522,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   savePicker.SuggestedFileName = "Output";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
-  //Creates a storage file from FileSavePicker
+  //Creates a storage file from the FileSavePicker
   StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
   //Saves changes to the specified storage file
@@ -566,7 +566,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-  //Gets input Excel document from embedded resource collection
+  //Gets input Excel document from an embedded resource collection
   Stream inputStream = assembly.GetManifestResourceStream("Table.Sample.xlsx");
 
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
@@ -591,7 +591,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -605,11 +605,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-N> Inserting rows/columns in a worksheet within table range also modifies table structure.
+N> Inserting rows or columns in a worksheet within the table range modifies table structure.
 
-## Adding a Total Row
+## Adding a total row
 
-The "Total Row" is added to a table by accessing the **Table** **Columns**. It is possible to set calculation function to be used to the Total Row cells, by using the ExcelTotalsCalculation enumerator. To know more about this enumerator, please refer **ExcelTotalsCalculation** in API section. These cells will be updated once they are calculated.
+The "Total Row" is added to a table by accessing the **Table** **Columns**. It is possible to set calculation function to be used to the total row cells by using the ExcelTotalsCalculation enumerator. To learn more about this enumerator, refer to the **ExcelTotalsCalculation** in API section. These cells are updated after they are calculated.
 
 {% tabs %}  
 
@@ -624,7 +624,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Creating a table
   IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-  //Adding Total Row
+  //Adding total row
   table.ShowTotals = true;
   table.Columns[0].TotalsRowLabel = "Total";
   table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
@@ -645,7 +645,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Creating a table
   Dim table As IListObject = worksheet.ListObjects.Create("Table1", worksheet("A1:C8"))
 
-  'Adding Total Row
+  'Adding total row
   table.ShowTotals = True
   table.Columns(0).TotalsRowLabel = "Total"
   table.Columns(1).TotalsCalculation = ExcelTotalsCalculation.Sum
@@ -674,7 +674,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Creating a table
   IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-  //Adding Total Row
+  //Adding total row
   table.ShowTotals = true;
   table.Columns[0].TotalsRowLabel = "Total";
   table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
@@ -739,7 +739,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Creating a table
   IListObject table = worksheet.ListObjects.Create("Table1", worksheet["A1:C8"]);
 
-  //Adding Total Row
+  //Adding total row
   table.ShowTotals = true;
   table.Columns[0].TotalsRowLabel = "Total";
   table.Columns[1].TotalsCalculation = ExcelTotalsCalculation.Sum;
@@ -755,7 +755,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -769,9 +769,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-## Create a Table from External Connection 
+## Create a table from external connection 
 
-External connection support allows to work with most recent data right in the workbook. Once the data is imported, only refresh operations are performed thereafter to retrieve the updated data.
+External connection support allows to work with most recent data right in the workbook. After the data is imported, only refresh operations are performed to retrieve the updated data.
 
 <table>
 <thead>
@@ -842,13 +842,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Adding a QueryTable to sheet object
   worksheet.ListObjects.AddEx(ExcelListObjectSourceType.SrcQuery, Connection, worksheet.Range["A1"]);
 
-  //Command Text for the Connection
+  //Command text for the connection
   worksheet.ListObjects[0].QueryTable.CommandText = "Select * from tableTest";
 
-  //The Query performs Asynchronous action
+  //The query performs asynchronous action
   worksheet.ListObjects[0].QueryTable.BackgroundQuery = true;
 
-  //The Query Table is refreshed when the Workbook is opened
+  //The query table is refreshed when the workbook is opened
   worksheet.ListObjects[0].QueryTable.RefreshOnFileOpen = true;
 
   //Represents the connection description
@@ -884,13 +884,13 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Adding a QueryTable to sheet object
   worksheet.ListObjects.AddEx(ExcelListObjectSourceType.SrcQuery, Connection, worksheet.Range("A1"))
 
-  'Command Text for the Connection
+  'Command text for the connection
   worksheet.ListObjects(0).QueryTable.CommandText = "Select * from tableTest"
 
-  'The Query performs Asynchronous action
+  'The query performs asynchronous action
   worksheet.ListObjects(0).QueryTable.BackgroundQuery = True
 
-  'The Query Table is refreshed when the Workbook is opened
+  'The QueryTable is refreshed when the workbook is opened
   worksheet.ListObjects(0).QueryTable.RefreshOnFileOpen = True
 
   'Represents the connection description
@@ -908,16 +908,16 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 
 {% highlight asp.net core %}
-//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports creation of table from external connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 {% endtabs %}
 
-The following table shows different data sources and its connection string formats which are supported in XlsIO.
+The following table shows different data sources and its connection string formats supported in XlsIO.
