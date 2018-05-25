@@ -2327,7 +2327,7 @@ Issue
 <tr>
 <th style="font-size:14px">Solution
 </th>
-<td>To overcome this failure, use basic hosting plans or above. If the website is already hosted under Free or Shared hosting plan, this can be scaled up to Basic or above in the Azure portal. 
+<td>To overcome this failure, use Basic hosting plan or above. If the website is already hosted under Free or Shared hosting plan, this can be scaled up to Basic or above in the Azure portal. 
 </td>
 </tr>
 </table>
