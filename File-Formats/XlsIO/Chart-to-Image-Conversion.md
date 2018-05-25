@@ -6,101 +6,82 @@ control: XlsIO
 documentation: UG
 ---
 
-# Chart to Image Conversion
+# Chart to image conversion
 
-The following code snippets shows how to convert an Excel chart to an image using the **ExcelChartToImageConverter** class.
+The following code snippet shows how to convert an Excel chart to an image using the **ExcelChartToImageConverter** class.
 
-{% tabs %}  
-
+{% tabs %}
 {% highlight c# %}
-ExcelEngine excelEngine = new ExcelEngine();
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
 
-IApplication application = excelEngine.Excel;
+  application.ChartToImageConverter = new ChartToImageConverter();
+  application.ChartToImageConverter.ScalingMode = ScalingMode.Best;
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-application.ChartToImageConverter = new ChartToImageConverter();
+  IChart chart = worksheet.Charts[0];
 
-application.ChartToImageConverter.ScalingMode = ScalingMode.Best;
+  //Creating the memory stream for chart image
+  MemoryStream stream = new MemoryStream();
 
-IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  //Saving the chart as image
+  chart.SaveAsImage(stream);
 
-IWorksheet worksheet = workbook.Worksheets[0];
+  Image image = Image.FromStream(stream);
 
-IChart chart = worksheet.Charts[0];
-
-//Creating the memory stream for chart image.
-
-MemoryStream stream = new MemoryStream();
-
-//Saving the chart as image.
-
-chart.SaveAsImage(stream);
-
-Image image = Image.FromStream(stream);
-
-//Saving image stream to file.
-
-image.Save("Output.png");
-
-//Closing the workbook and disposing the Excel Engine.
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-
-
+  //Saving image stream to file
+  image.Save("Output.png");
+}
 {% endhighlight %}
 
 {% highlight vb %}
-Dim excelEngine As New ExcelEngine()
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
 
-Dim application As IApplication = excelEngine.Excel
+  Dim ChartToImageConverter As chartToImageConverter = New ChartToImageConverter()
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  application.ChartToImageConverter = ChartToImageConverter
+  application.ChartToImageConverter.ScalingMode = ScalingMode.Best
 
-Dim ChartToImageConverter As chartToImageConverter = New ChartToImageConverter()
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-application.ChartToImageConverter = chartToImageConverter
+  Dim chart As IChart = worksheet.Charts(0)
 
-application.ChartToImageConverter.ScalingMode = ScalingMode.Best
+  'Creating the memory stream for chart image
+  Dim stream As New MemoryStream()
 
-Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  'Saving the chart as image
+  chart.SaveAsImage(stream)
 
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
+  Dim image As Image = Image.FromStream(stream)
 
-Dim chart As IChart = worksheet.Charts(0)
-
-'Creating the memory stream for chart image.
-
-Dim stream As New MemoryStream()
-
-'Saving the chart as image.
-
-chart.SaveAsImage(stream)
-
-Dim image As Image = Image.FromStream(stream)
-
-'Saving image stream to file.
-
-image.Save("Output.png")
-
-'Closing the workbook and disposing the Excel Engine.
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-
-
+  'Saving image stream to file
+  image.Save("Output.png")
+End Using
 {% endhighlight %}
 
-  {% endtabs %}  
+{% highlight UWP %}
+//XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight asp.net core %}
+//XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+{% endhighlight %}
+{% endtabs %}  
 
 N> Chart conversion to image and PDF are supported from .NET Framework 4.0 onwards.
 
-## Supported Chart Types
+## Supported chart types
 XlsIO supports the following chart types in image conversion.
 <table>
 <tr>
@@ -227,15 +208,15 @@ Excel 2016 Charts
 </tr>
 </table>
 
-## Supported Chart Elements
-XlsIO supports the following chart elements in image conversion.
+## Supported chart elements
+XlsIO supports the following chart elements in image conversion:
 ![](Working-With-Charts_images/chart-elements.jpeg)
 
 **Chart Elements:**
 1. Axis
-2. Axis Titles
-3. Chart Title
-4. Data Labels
-5. Grid Lines
+2. Axis titles
+3. Chart title
+4. Data labels
+5. Grid lines
 6. Legend
-7. Trend Line
+7. Trend line

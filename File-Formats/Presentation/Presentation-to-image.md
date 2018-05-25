@@ -195,11 +195,8 @@ Image[] images = presentation.RenderAsImages(Syncfusion.Drawing.ImageType.Metafi
 //Saves the image to file system
 
 foreach (Image image in images)
-
 { 
-
-image.Save("ImageOutput" + Guid.NewGuid().ToString()+ ".png");
-
+	image.Save("ImageOutput" + Guid.NewGuid().ToString()+ ".png");
 }
 
 {% endhighlight %}
@@ -315,6 +312,91 @@ bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg")
 'Closes the presentation
 
 presentationDocument.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Font substitution for unavailable fonts
+
+When a font used in a PowerPoint presentation is unavailable in the environment where it is converted to image, then the library substitutes the ‘Microsoft Sans Serif’ as a default font for text rendering. This leads to a difference in text layouts of PowerPoint presentation and the converted image.  To avoid this, the Essential Presentation library allows you to set an alternate font for the missing font used in the PowerPoint presentation.
+
+The following code sample demonstrates how to set a substitute font for a missing font while converting a PowerPoint presentation to image.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PowerPoint presentation and convert to image
+using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
+{
+	//Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
+	pptxDoc.ChartToImageConverter = new ChartToImageConverter();
+
+	// Initializes the 'SubstituteFont' event to set the replacement font
+	pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+
+	//Converts the first slide into image
+	Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
+
+	//Saves the image as file
+	image.Save("slide1.png");
+
+	//Disposes the image
+	image.Dispose();
+}
+
+/// <summary>
+/// Sets the alternate font when a specified font is unavailable in the production environment
+/// </summary>
+/// <param name="sender">FontSettings type of the Presentation in which the specified font is used but unavailable in production environment. </param>
+/// <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
+private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+	if (args.OriginalFontName == "Arial Unicode MS")
+		args.AlternateFontName = "Arial";
+	else
+		args.AlternateFontName = "Times New Roman";
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PowerPoint presentation and convert to image
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+
+'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
+pptxDoc.ChartToImageConverter = New ChartToImageConverter()
+
+'Initializes the 'SubstituteFont' event to set the replacement font
+AddHandler pptxDoc.FontSettings.SubstituteFont, AddressOf SubstituteFont
+
+'Convert the PowerPoint presentation to image.
+Dim image As Image = pptxDoc.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageType.Metafile)
+
+'Save the image.
+image.Save("slide1.png")
+
+'Dispose the Presentation instance
+pptxDoc.Dispose()
+
+'Dispose the image
+image.Dispose()
+
+''' <summary>
+''' Sets the alternate font when a specified font is unavailable in the production environment
+''' </summary>
+''' <param name="sender">FontSettings type of the Presentation in which the specified font is used but unavailable in production environment. </param>
+''' <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
+Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
+	' Sets the alternate font when a specified font is not installed in the production environment
+	If args.OriginalFontName = "Arial Unicode MS" Then
+		args.AlternateFontName = "Arial"
+	Else
+		args.AlternateFontName = "Times New Roman"
+	End If
+End Sub
 
 {% endhighlight %}
 
