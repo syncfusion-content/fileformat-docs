@@ -27,6 +27,7 @@ It does not require external dependencies like browsers, printer drivers, or vie
 * Latest WebKit HTML converter can be download from the below link,
 
     [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
+	
 <table>
 <tr>
 <thead>
@@ -57,6 +58,7 @@ Assemblies and QtBinaries
 
 * The QtBinariesDotNetCore folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinariesDotNetCore)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
 </td></tr>
+</table>
 
 * WebKit HTML conversion also requires VC++ 2010 redistributable, this should to be installed in the machine where the conversion takes place. Please use below download link to get the installer.
     
