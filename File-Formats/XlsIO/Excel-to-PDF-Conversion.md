@@ -73,7 +73,7 @@ End Using
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
 //Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.Data.ExceltoPDF.xlsx");
+Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.Data.ExcelToPDF.xlsx");
 
 //Output stream to save PDF
 MemoryStream outputStream = null;
@@ -183,7 +183,7 @@ using (Stream storageStream = await storageFile.OpenStreamForWriteAsync())
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
 //Gets input Excel document from embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.ExceltoPDF.xlsx");
+Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.ExcelToPDF.xlsx");
 
 //Creates new instance of HttpClient to access service
 HttpClient client = new HttpClient();
