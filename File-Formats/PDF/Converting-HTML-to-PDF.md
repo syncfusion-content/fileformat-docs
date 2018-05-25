@@ -42,20 +42,20 @@ Assemblies
 <tr>
 <td> .NET Framework </td>
 <td>
-
-    * Syncfusion.Compression.Base.dll
-    * Syncfusion.Pdf.Base.dll
-    * Syncfusion.HtmlConverter.Base.dll
-	
+<ul>
+<li>Syncfusion.Compression.Base.dll</li>
+<li>Syncfusion.Pdf.Base.dll</li>
+<li>Syncfusion.HtmlConverter.Base.dll</li>
+</ul>
 </td></tr>
 <tr>
 <td> .NET Core </td>
 <td>
-
-    * Syncfusion.Compression.Portable.dll
-    * Syncfusion.Pdf.Portable.dll
-    * Syncfusion.HtmlConverter.Portable.dll
-	
+<ul>
+<li>Syncfusion.Compression.Portable.dll</li>
+<li>Syncfusion.Pdf.Portable.dll</li>
+<li>Syncfusion.HtmlConverter.Portable.dll</li>
+</ul>
 </td></tr>
 </table>
 
