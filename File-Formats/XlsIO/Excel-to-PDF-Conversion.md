@@ -96,7 +96,6 @@ try
 }
 catch (Exception ex)
 {
-  error.Text = ex.Message.ToString();
   return;
 }
 
@@ -113,7 +112,6 @@ if (response.IsSuccessStatusCode)
 //Pop ups the result of service failure with details
 else
 {
-  error.Text = "The input document could not be processed, Could you please email the document to support@syncfusion.com for troubleshooting";
   return;
 }
 #endregion
@@ -150,29 +148,54 @@ using (Stream storageStream = await storageFile.OpenStreamForWriteAsync())
 {% highlight ASP.NET Core %}
 //XlsIO supports excel to pdf conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.This below code shows how to achieve excel to pdf conversion using a web service.
 
-//.cshtml file for excel to pdf conversion
+//Gets assembly
+Assembly assembly = typeof(Program).GetTypeInfo().Assembly;
 
-@using Syncfusion.JavaScript.DataVisualization
+//Gets input Excel document from embedded resource collection
+Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.Spreadsheet.xlsx");
 
-<form name="form1" method="post" action="https://js.syncfusion.com/ejservices/api/xlsio/converttopdf" enctype="multipart/form-data">
-    <div class="Common">
-        <div class="tablediv">
-            <div class="rowdiv">
-                <label>
-                    Clicking the button below will result in a PDF document being converted from Excel document using Essential XlsIO and Essential PDF.
-                    Please note that you need to have a PDF viewer installed in order to view the generated PDF file.
-                </label>
-                <br />
-                <br />
-                <label>Select Document</label>
-                <br />
-                 @Html.TextBox("file", "", new { type = "file", accept = ".xlsx,.xls,.xlsm,.xltx", @style = "display:inline"})
-                <input class="buttonStyle" type="submit" value="Convert to PDF" name="button" style="width:150px" />
-            </div>
-            <br />
-        </div>
-    </div>
-</form>
+//Creates new instance of HttpClient to access service
+HttpClient client = new HttpClient();
+
+//Gets Uri 
+string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
+
+//Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
+HttpResponseMessage response = null;
+try
+{
+    response = await client.PostAsync(requestUri, new StreamContent(inputStream));
+
+    //Dispose the input stream and client instances
+    inputStream.Dispose();
+    client.Dispose();
+}
+catch (Exception ex)
+{
+    return;
+}
+
+MemoryStream outputStream = null;
+
+//Gets PDF from content stream if service got success
+if (response.IsSuccessStatusCode)
+{
+    var responseHeaders = response.Headers;
+    outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
+    //Dispose the response instance.
+    response.Dispose();
+}
+else
+{
+    return;
+}
+
+//Saving the workbook as stream
+FileStream stream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite);
+outputStream.CopyTo(stream);
+
+outputStream.Close();
+outputStream.Dispose();
 
 {% endhighlight %}
 
@@ -233,7 +256,7 @@ outputStream.Dispose();
 
 {% endtabs %}
 
-## Web Service
+The web service code is given below 
 
 {% tabs %}
 {% highlight c# %}
