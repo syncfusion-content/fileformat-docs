@@ -7,20 +7,20 @@ documentation: UG
 ---
 # Working with Pivot Tables
 
-You can easily arrange and summarize complex data in a [Pivot Table](https://support.office.com/en-us/article/PivotTable-I-Get-started-with-PivotTable-reports-in-Excel-2007-bfe774d3-3e20-46f7-b6a3-f7984855d665). Creation and Manipulation of pivot table is supported in Excel 2007 and later formats, and pivot table in existing document can be preserved for Excel 2003 format**.**
+You can easily arrange and summarize complex data in a [Pivot Table](https://support.office.com/en-us/article/PivotTable-I-Get-started-with-PivotTable-reports-in-Excel-2007-bfe774d3-3e20-46f7-b6a3-f7984855d665). Creation and Manipulation of pivot table is supported in Excel 2007 and later formats, and pivot table in an existing document can be preserved for Excel 2003 format**.**
 
-## Create a Pivot Table
+## Create a pivot table
 
-Following are the steps for creating a simple pivot table.
+Steps to create a simple pivot table: 
 
 * Add pivot cache
-* Add Pivot table
+* Add pivot table
 * Add row and column fields
 * Add data fields
 
-Pivot tables do not take data directly from the source data, but rather from the pivot cache that memorizes a snapshot of the data. **IPivotCache** interface caches the data that needs to be summarized. 
+Pivot tables do not take data directly from the source data, but take from the pivot cache that memorizes a snapshot of the data. The **IPivotCache** interface caches the data that needs to be summarized. 
 
-The data in worksheet is added to pivot cache as below.
+The data in worksheet is added to the pivot cache as follows.
 
 {% tabs %}
 {% highlight c# %}
@@ -49,7 +49,7 @@ IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:H50"]);
 {% endhighlight %}
 {% endtabs %}  
 
-**IPivotTable** represents a single pivot table object created from the cache. It has properties that allow to customize pivot table. The following code creates a blank pivot table. 
+**IPivotTable** represents a single pivot table object created from the cache. It has properties that customizes the pivot table. The following code creates a blank pivot table. 
 
 {% tabs %}
 {% highlight c# %}
@@ -78,46 +78,46 @@ IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["A1"
 {% endhighlight %}
 {% endtabs %}  
 
-Now the pivot table should be populated with required fields. **IPivotField** represents a single field in the pivot table which includes row, column and data field axes. 
+The pivot table should be populated with required fields. The **IPivotField** represents a single field in the pivot table, which includes row, column, and data field axes. 
 
 {% tabs %}
 {% highlight c# %}
-//Add Pivot table fields (Row and Column fields)
+//Add Pivot table fields (row and column fields)
 pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 {% endhighlight %}
 
 {% highlight vb %}
-'Add Pivot table fields (Row and Column fields)
+'Add Pivot table fields (row and column fields)
 pivotTable.Fields(2).Axis = PivotAxisTypes.Row
 pivotTable.Fields(6).Axis = PivotAxisTypes.Row
 pivotTable.Fields(3).Axis = PivotAxisTypes.Column
 {% endhighlight %}
 
 {% highlight UWP %}
-//Add Pivot table fields (Row and Column fields)
+//Add Pivot table fields (row and column fields)
 pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 {% endhighlight %}
 
 {% highlight asp.net core %}
-//Add Pivot table fields (Row and Column fields)
+//Add Pivot table fields (row and column fields)
 pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Add Pivot table fields (Row and Column fields)
+//Add Pivot table fields (row and column fields)
 pivotTable.Fields[2].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[6].Axis = PivotAxisTypes.Row;
 pivotTable.Fields[3].Axis = PivotAxisTypes.Column;
 {% endhighlight %}
 {% endtabs %}  
 
-**IPivotDataFields** represents a collection of data fields in the pivot table. The data field is added with the required subtotal function using **PivotSubtotalTypes** enumeration. To know more about different subtotal types supported in Pivot Tables, please refer **PivotSubtotalTypes** in API section. The following code explains how to configure a pivot field as a data field.
+The **IPivotDataFields** represents a collection of data fields in the pivot table. The data field is added with the required subtotal function using the **PivotSubtotalTypes** enumeration. To learn more about different subtotal types supported in pivot tables, refer to the **PivotSubtotalTypes** in API section. The following code explains how to configure a pivot field as a data field.
 
 {% tabs %}
 {% highlight c# %}
@@ -151,7 +151,7 @@ pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
 {% endhighlight %}
 {% endtabs %}  
 
-The following complete code snippet illustrates how to create a pivot table with existing data in the worksheet, using XlsIO.
+The following code snippet illustrates how to create a pivot table with existing data in the worksheet using XlsIO.
 
 {% tabs %}
 
@@ -330,7 +330,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -344,14 +344,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-## Editing and Formatting a Pivot Table
+## Editing and formatting a pivot table
 
-A Pivot table can be accessed from **IPivotTables** interface which holds the collection of pivot tables in the worksheet. The below code shows how to dynamically refresh the data in a pivot table. In prior,
+A pivot table can be accessed from the **IPivotTables** interface that have the collection of pivot tables in the worksheet. The following code shows how to dynamically refresh the data in a pivot table. In prior:
 
 * Create the pivot table using Excel GUI.
 * Specify the named range to be the data source of the pivot table.
 * Make sure that the "Refresh on Open" option of the pivot table is selected.
-* Dynamically refresh the data in the Named Range.
+* Dynamically refresh the data in the named range.
 
 {% tabs %}
 {% highlight c# %}
@@ -463,7 +463,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -477,7 +477,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-XlsIO supports 85 built-in styles of Excel 2007, enabling users to create a table with rich formatting through PivotBuiltInStyles property as follows. To know more about various built-in styles supported, please refer **PivotBuiltInStyles** enumeration in API section.
+XlsIO supports 85 built-in styles of Excel 2007 used to create a table with rich formatting using the PivotBuiltInStyles property as follows. To learn more about various built-in styles supported, refer to the **PivotBuiltInStyles** enumeration in API section.
 
 {% tabs %}
 {% highlight c# %}
@@ -604,7 +604,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -618,13 +618,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-## Applying Pivot Table Filters 
+## Applying pivot table filters 
 
-The filtered data of a pivot table displays only the subset of data that meet the specified criteria. This can be achieved in XlsIO using the **IPivotFilters** interface.
+The filtered data of a pivot table displays only the subset of data that meets the specified criteria. This can be achieved in XlsIO using the **IPivotFilters** interface.
 
-### Applying Page Filters
+### Applying page filters
 
-The page field filter or report filter, filters the pivot table based on page field items. The following code snippet illustrates how to apply multiple filters to the page field items.
+The page field filter or report filter can filter the pivot table based on the page field items. The following code snippet illustrates how to apply multiple filters to the page field items.
 
 {% tabs %}
 {% highlight c# %}
@@ -691,9 +691,9 @@ pageField.Items[2].Visible = false;
 ![](Working-with-Pivot-Tables_images/Working-with-Pivot-Tables_img1.jpeg)
 
 
-### Applying Row or Column Filters
+### Applying row or column filters
 
-The row field and column field filters, filter the pivot table based on labels, values and items of fields. The following code example illustrates how to apply these filters to a pivot table.
+The row and column field filters can filter the pivot table based on labels, values, and items of the fields. The following code example illustrates how to apply these filters to a pivot table.
 
 **Label** **Filter** 
 
@@ -884,7 +884,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 
   workbook.SaveAs("PivotTable.xlsx")
 
-  'No exception will be thrown if there are unsaved workbooks.
+  'No exception will be thrown if there are unsaved workbooks
   excelEngine.ThrowNotSavedOnDestroy = False
 End Using
 {% endhighlight %}
@@ -1070,7 +1070,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1084,11 +1084,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
   
-## Applying Pivot Table Settings  
+## Applying pivot table settings  
 
 Excel provides various options through the PivotTableOptions dialog box to customize the appearance of the pivot table.
 
-XlsIO supports these pivot table options using IPivotTableOptions interface to control various settings for the existing Pivot table.  To know more about various pivot table options, please refer **IPivotTableOptions** in API section. Following code illustrates how to access PivotTableOptions object. 
+XlsIO supports these pivot table options using the IPivotTableOptions interface to control various settings for the existing pivot table.  To learn more about various pivot table options, refer to the **IPivotTableOptions** in API section. The following code illustrates how to access the PivotTableOptions object. 
 
 {% tabs %}
 {% highlight c# %}
@@ -1122,9 +1122,9 @@ IPivotTableOptions options = pivotTable.Options;
 {% endhighlight %}
 {% endtabs %}  
 
-### Show or Hide the Field List
+### Show or hide the field list
 
-To show or hide the pivot table field list pane, the ShowFieldList property is used as below.
+To show or hide the pivot table field list pane, use the ShowFieldList property.
 
 {% tabs %}
 {% highlight c# %}
@@ -1153,9 +1153,9 @@ options.ShowFieldList = false;
 {% endhighlight %}
 {% endtabs %}  
 
-### Header Caption
+### Header caption
 
-The **RowHeaderCaption** and **ColumnHeaderCaption** properties allow to edit the respective pivot table headers. The header caption can be enabled or disabled through **DisplayFieldCaption** property.
+The **RowHeaderCaption** and **ColumnHeaderCaption** properties allows to edit the respective pivot table headers. The header caption can be enabled or disabled using the **DisplayFieldCaption** property.
 
 {% tabs %}
 {% highlight c# %}
@@ -1189,9 +1189,9 @@ options.ColumnHeaderCaption = "Payments";
 {% endhighlight %}
 {% endtabs %}  
 
-### Grand Total
+### Grand total
 
-XlsIO provides an equivalent API to perform grand totals with simple properties as follows.
+XlsIO provides an equivalent API to perform grand totals with the properties as follows.
 
 {% tabs %}
 {% highlight c# %}
@@ -1225,9 +1225,9 @@ pivotTable.RowGrand = true;
 {% endhighlight %}
 {% endtabs %}  
 
-### Show/Hide Collapse Button
+### Show or hide collapse button
 
-You can also show/hide the **Collapse** button that appears in the fields of the pivot table, when there exists more than one item in a field. The following code example illustrates how to do this.
+You can also show or hide the **Collapse** button that appears in the fields of the pivot table, when more than one item exists in a field. The following code example illustrates how to do this.
 
 {% tabs %}
 {% highlight c# %}
@@ -1256,9 +1256,9 @@ pivotTable.ShowDrillIndicators = true;
 {% endhighlight %}
 {% endtabs %}  
 
-### Display Field Caption and Filter Option
+### Display field caption and filter option
 
-The Filter buttons and field names in the pivot table can be shown or hidden, as in the following code.
+The filter buttons and field names in the pivot table can be shown or hidden, as in the following code.
 
 {% tabs %}  
 
@@ -1288,9 +1288,9 @@ pivotTable.DisplayFieldCaptions = true;
 {% endhighlight %}
 {% endtabs %}  
 
-### Repeating Row Label on Each Page
+### Repeating row label on each page
 
-You can set the row label on each page, while printing, allowing users to view the header on each page.
+You can set the row label on each page while printing, and the header can be viewed on each page.
 
 {% tabs %}
 {% highlight c# %}
@@ -1322,7 +1322,7 @@ pivotTable.RepeatItemsOnEachPrintedPage = true;
 
 ### Repeat Labels
 
-You can repeat labels for row/column fields when the [pivot table layout](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.PivotTableRowLayout.html) is set to tabular or outline layout forms.
+You can repeat labels for row or column fields when the [pivot table layout](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.PivotTableRowLayout.html) is set to tabular or outline layout forms.
 
 **Specific Pivot Field**
 
@@ -1330,27 +1330,27 @@ The following code illustrates how to set the repeat labels option to a specific
 {% tabs %}
 
 {% highlight c# %}
-//Set repeat labels option to a specific pivot field.
+//Set repeat labels option to a specific pivot field
 pivotTable.Fields[0].RepeatLabels = true;
 {% endhighlight %}
 
 {% highlight vb %}
-‘Set repeat labels option to a specific pivot field.
+‘Set repeat labels option to a specific pivot field
 pivotTable.Fields(0).RepeatLabels = True
 {% endhighlight %}
 
 {% highlight UWP %}
-//Set repeat labels option to a specific pivot field.
+//Set repeat labels option to a specific pivot field
 pivotTable.Fields[0].RepeatLabels = true;
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//Set repeat labels option to a specific pivot field.
+//Set repeat labels option to a specific pivot field
 pivotTable.Fields[0].RepeatLabels = true;
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Set repeat labels option to a specific pivot field.
+//Set repeat labels option to a specific pivot field
 pivotTable.Fields[0].RepeatLabels = true;
 {% endhighlight %}
 
@@ -1362,46 +1362,46 @@ pivotTable.Fields[0].RepeatLabels = true;
 The following code illustrates how to set the repeat labels option to all the pivot fields.
 {% tabs %}
 {% highlight c# %}
-//Set repeat labels option to all the pivot fields.
+//Set repeat labels option to all the pivot fields
 pivotTable.Options.RepeatAllLabels(true);
 {% endhighlight %}
 
 {% highlight vb %}
-‘Set repeat labels option to all the pivot fields.
+‘Set repeat labels option to all the pivot fields
 pivotTable.Options.RepeatAllLabels(True)
 {% endhighlight %}
 
 {% highlight UWP %}
-//Set repeat labels option to all the pivot fields.
+//Set repeat labels option to all the pivot fields
 pivotTable.Options.RepeatAllLabels(true);
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//Set repeat labels option to all the pivot fields.
+//Set repeat labels option to all the pivot fields
 pivotTable.Options.RepeatAllLabels(true);
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Set repeat labels option to all the pivot fields.
+//Set repeat labels option to all the pivot fields
 pivotTable.Options.RepeatAllLabels(true);
 {% endhighlight %}
 
 {% endtabs %}
 
   
-## Other Pivot Table Operations
+## Other pivot table operations
 
-### Adding Calculated Field in the existing Pivot Table
+### Adding calculated field in the existing pivot table
 
-Calculated field is a special type of database field that perform calculations by using the contents of other fields in the pivot table with the given formula. The formula can contain operators and expressions as in other worksheet formulas. You can use constants and refer to data from the PivotTable.
+Calculated field is a special type of database field that perform calculations by using the contents of other fields in the pivot table with the given formula. The formula can contain operators and expressions as in other worksheet formulas. You can use constants and refer to the data from the PivotTable.
 
-You can read and create the Calculated Fields in the existing pivot table. The following are the Excel restrictions when using the formula.
+You can read and create the calculated fields in the existing pivot table. The following are the Excel restrictions when using the formula:
 
-* Formula cannot contain cell references or defined names and
-* Formula cannot contains Worksheet functions that require cell references 
+* Formula cannot contain cell references or defined names.
+* Formula cannot contain Worksheet functions that require cell references. 
 * Formula cannot use array functions.
 
-The calculated field In XlsIO can be achieved with following code sample.
+The calculated field in XlsIO can be achieved using the following code sample.
 
 {% tabs %}
 {% highlight c# %}
@@ -1525,7 +1525,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1539,7 +1539,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-The formula can be also be set to the formula property of the IPivotField as below.
+The formula can also be set to the IPivotField property as follows.
 
 {% tabs %}
 {% highlight c# %}
@@ -1677,7 +1677,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -1691,9 +1691,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-### Layout the Pivot Table as Excel
+### Layout the pivot table like Excel
 
-A Pivot Table can be created similar to Excel layout. 
+A pivot table can be created similar to the Excel layout. 
 
 The following code example illustrates how to enable Essential XlsIO to layout the pivot table like Excel. 
 
@@ -1760,15 +1760,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports pivot table layout in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports pivot table layout in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 
 {% highlight asp.net core %}
-//XlsIO supports pivot table layout in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports pivot table layout in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports pivot table layout in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+//XlsIO supports pivot table layout in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 {% endhighlight %}
 {% endtabs %}  
 
