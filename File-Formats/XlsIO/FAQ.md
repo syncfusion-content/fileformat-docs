@@ -2473,9 +2473,9 @@ workbook.SaveAs("Sample.xlsx")
 
   {% endtabs %}  
   
-## What happens when an excel file containing uninstalled fonts is converted to PDF/Image?
+## What happens when an Excel file containing uninstalled fonts is converted to PDF/Image?
 
-When the fonts used in particular Excel document are not installed in the machine, the desired characters will be missing in the PDF/Image conversion. However, XlsIO provides a workaround with SubstituteFontEventHandler. This will enable user to specify alternate font name to render the characters in the specified alternate font called **font substitution**. Otherwise, Microsoft Sans Serif is used as the default one.
+When the fonts used in particular Excel document are not installed in the machine, the desired characters will be missing in the PDF/Image conversion. However, XlsIO comes up with a font substitution method through **SubstituteFontEventHandler** event. This will enable user to specify alternate font name to render the characters in the specified alternate font. Otherwise, Microsoft Sans Serif is used as the default one.
 
 N> Due to this font substitution, there might be a slight difference with the rendered text in the generated PDF/Image files during Excel to PDF/Image conversion.
 
@@ -2483,89 +2483,53 @@ The following code snippet shows how to use font substitution in Excel to PDF co
 
 {% tabs %}
 {% highlight c# %}
-using Syncfusion.ExcelToPdfConverter;
-using Syncfusion.Pdf;
-using Syncfusion.XlsIO;
-using Syncfusion.XlsIO.Implementation;
-using System.Drawing;
-using System.IO;
-using System.Reflection;
-
-namespace XlsIO_Sample
+using (ExcelEngine excelEngine = new ExcelEngine())
 {
-  class Program
-  {
-	public static void Main(string[] args)
-	{
-	  using (ExcelEngine excelEngine = new ExcelEngine())
-	  {
-		IApplication application = excelEngine.Excel;
-		Assembly assembly = typeof(Program).GetTypeInfo().Assembly;
-		Stream workbookStream = assembly.GetManifestResourceStream("XlsIOSample.Sample.xlsx");
-		IWorkbook workbook = application.Workbooks.Open(workbookStream);
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
 
-		//Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
-		application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
+  //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+  application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
-		IWorksheet worksheet = workbook.Worksheets[0];
-		ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
-		PdfDocument pdf = converter.Convert();
+  ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
+  PdfDocument pdf = converter.Convert();
 
-		Stream stream = File.Create("Output.pdf");
-		pdf.Save(stream);
-	  }
-	}
-	
-	private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
-	{
-	  //Sets the alternate font when a specified font is not installed in the production environment
-	  if (args.OriginalFontName == "Wingdings Regular")
-		args.AlternateFontName = "Bauhaus 93";
-	  else
-		args.AlternateFontName = "Times New Roman";
-	}
-  }
+  Stream stream = File.Create("Output.pdf");
+  pdf.Save(stream);
+}
+
+private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+  //Sets the alternate font when a specified font is not installed in the production environment
+  if (args.OriginalFontName == "Wingdings Regular")
+	args.AlternateFontName = "Bauhaus 93";
+  else
+	args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
 
 {% highlight vb %}
-Imports Syncfusion.ExcelToPdfConverter
-Imports Syncfusion.Pdf
-Imports Syncfusion.XlsIO
-Imports Syncfusion.XlsIO.Implementation
-Imports System.IO
-Imports System.Reflection
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
 
-Namespace XlsIO_Sample
-  Class Program
-	Public Shared Sub Main(ByVal args As String())
-      Using excelEngine As ExcelEngine = New ExcelEngine()
-		Dim application As IApplication = excelEngine.Excel
-		Dim assembly As Assembly = GetType(Program).GetTypeInfo.Assembly
-		Dim workbookStream As Stream = assembly.GetManifestResourceStream("XlsIOSample.Sample.xlsx")
-		Dim workbook As IWorkbook = application.Workbooks.Open(workbookStream)
+  'Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+  AddHandler application.SubstituteFont, AddressOf SubstituteFont
 
-		'Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
-		AddHandler application.SubstituteFont, AddressOf SubstituteFont
+  Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
+  Dim pdf As PdfDocument = converter.Convert()
 
-		Dim worksheet As IWorksheet = workbook.Worksheets(0)
-		Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
-		Dim pdf As PdfDocument = converter.Convert()
+  Dim stream As Stream = File.Create("Output.pdf")
+  pdf.Save(stream)
+End Using
 
-		Dim stream As Stream = File.Create("Output.pdf")
-		pdf.Save(stream)
-	  End Using
-	End Sub
-
-	Private Shared Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
-	  'Sets the alternate font when a specified font is not installed in the production environment.
-	  If args.OriginalFontName = "Wingdings Regular" Then
-		args.AlternateFontName = "Bauhaus 93"
-	  Else
-		args.AlternateFontName = "Times New Roman"
-	  End If
-	End Sub
-  End Class
-End Namespace
+Private Shared Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
+  'Sets the alternate font when a specified font is not installed in the production environment.
+  If args.OriginalFontName = "Wingdings Regular" Then
+	args.AlternateFontName = "Bauhaus 93"
+  Else
+	args.AlternateFontName = "Times New Roman"
+  End If
+End Sub
 {% endhighlight %}
 {% endtabs %}
