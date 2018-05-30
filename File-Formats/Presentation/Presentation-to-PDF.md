@@ -93,7 +93,7 @@ PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation);
 
 //Saves the PDF document
 
-pdfDocument.Save(@"Sample.pdf");
+pdfDocument.Save("Sample.pdf");
 
 //Closes the PDF document
 
@@ -159,20 +159,20 @@ The following code sample demonstrates how to set a substitute font for a missin
 {% tabs %}
 {% highlight c# %}
 //Load the PowerPoint presentation and convert to PDF
-using (IPresentation pptxDoc = Presentation.Open(@"Sample.pptx"))
+using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 {
-//Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
-pptxDoc.ChartToImageConverter = new ChartToImageConverter();
+	//Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
+	pptxDoc.ChartToImageConverter = new ChartToImageConverter();
 
-// Initializes the 'SubstituteFont' event to set the replacement font
-pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+	// Initializes the 'SubstituteFont' event to set the replacement font
+	pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
 
-//Convert the PowerPoint presentation to PDF file
-using (PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc))
-{
-//Save the PDF file
-pdfDoc.Save("Sample.pdf");
-}
+	//Convert the PowerPoint presentation to PDF file
+	using (PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc))
+	{
+		//Save the PDF file
+		pdfDoc.Save("Sample.pdf");
+	}
 }
 
 /// <summary>
@@ -182,14 +182,13 @@ pdfDoc.Save("Sample.pdf");
 /// <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
 private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-if (args.OriginalFontName == "Arial Unicode MS")
-args.AlternateFontName = "Arial";
-else
-args.AlternateFontName = "Times New Roman";
+	if (args.OriginalFontName == "Arial Unicode MS")
+		args.AlternateFontName = "Arial";
+	else
+		args.AlternateFontName = "Times New Roman";
 }
 {% endhighlight %}
-{% endtabs %}
-{% tabs %}
+
 {% highlight vb.net %}
 'Load the PowerPoint presentation and convert to PDF
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
