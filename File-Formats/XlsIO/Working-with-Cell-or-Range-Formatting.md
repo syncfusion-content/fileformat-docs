@@ -2929,15 +2929,15 @@ The output of the previous code is shown in the following screenshot:
 ![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img5.jpeg)
 
 
-## HTML string Formatting
+## HTML String Formatting
 
 HTML string generates a string of characters with different formatting styles using different HTML tags for each character. This makes it easy to manipulate the text or value in the worksheet range as each character is independent and doesn't depend on hierarchical tag structure.
 
 XlsIO supports adding HTML Rich-Text to a range of cells in worksheet.
 
-### Applying HTML string
+### Applying HTML String
 
-The following code snippet illustrates how to read and write HTML Rich-Text using HtmlString property of IRange.
+The following code snippet illustrates how to read and write HTML Rich-Text using `HtmlString` property of IRange.
 
 {% tabs %}
 {% highlight c# %}
@@ -2990,7 +2990,7 @@ End Using
 
 ### Supported Tags
 
-The following are the list of tags supported in addition to HTML String.
+The following are the list of tags supported in addition to HTML string.
 
 * \<p></p>				- Defines a paragraph
 * \<font></font>		- Defines font, color and size of text
