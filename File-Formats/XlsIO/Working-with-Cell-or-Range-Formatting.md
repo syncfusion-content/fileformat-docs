@@ -2929,7 +2929,7 @@ The output of the previous code is shown in the following screenshot:
 ![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img5.jpeg)
 
 
-## Html string Formatting
+## HTML string Formatting
 
 HTML string generates a string of characters with different formatting styles using different HTML tags for each character. This makes it easy to manipulate the text or value in the worksheet range as each character is independent and doesn't depend on hierarchical tag structure.
 
