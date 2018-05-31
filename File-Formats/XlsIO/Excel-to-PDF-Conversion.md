@@ -18,7 +18,7 @@ XlsIO allows you to convert an entire workbook or a single worksheet into PDF do
 * Syncfusion.Pdf.Base.dll
 
 ## Workbook to PDF
-XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. To achieve Excel to PDF conversion in other platforms like UWP, Xamarin, ASP.NET Core it is recommended to use web service.
+XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. To achieve Excel to PDF conversion in other platforms like UWP, Xamarin, ASP.NET Core it is recommended to use web service.
 
 The following code illustrates how to convert an Excel workbook to PDF.
 
@@ -31,13 +31,13 @@ using(ExcelEngine excelEngine = new ExcelEngine())
   application.DefaultVersion = ExcelVersion.Excel2013;
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
-  //Open the Excel Document to Convert
+  //Open the Excel document to Convert
   ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
-  //Initialize PDF Document
+  //Initialize PDF document
   PdfDocument pdfDocument = new PdfDocument();
 
-  //Convert Excel Document into PDF document
+  //Convert Excel document into PDF document
   pdfDocument = converter.Convert();
 
   //Save the PDF file
@@ -52,13 +52,13 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   application.DefaultVersion = ExcelVersion.Excel2013
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic)
 
-  'Open the Excel Document to Convert
+  'Open the Excel document to convert
   Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
-  'Initialize the PDF Document
+  'Initialize the PDF document
   Dim pdfDocument As PdfDocument = New PdfDocument()
 
-  'Convert Excel Document into PDF document
+  'Convert Excel document into PDF document
   pdfDocument = converter.Convert()
 
   'Save the PDF file
@@ -72,7 +72,7 @@ End Using
 //Gets assembly
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Gets input Excel document from embedded resource collection
+//Gets input Excel document from an embedded resource collection
 Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.Data.ExcelToPDF.xlsx");
 
 //Output stream to save PDF
@@ -81,7 +81,7 @@ MemoryStream outputStream = null;
 //Creates new instance of HttpClient to access service
 HttpClient client = new HttpClient();
 
-//Web service Uri 
+//Web service URI 
 string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
 
 //Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
@@ -99,7 +99,7 @@ catch (Exception ex)
   return;
 }
 
-//Gets PDF from content stream if service got success
+//Gets PDF from content stream if the service get success
 if (response.IsSuccessStatusCode)
 {
   var responseHeaders = response.Headers;
@@ -151,13 +151,13 @@ using (Stream storageStream = await storageFile.OpenStreamForWriteAsync())
 //Gets assembly
 Assembly assembly = typeof(Program).GetTypeInfo().Assembly;
 
-//Gets input Excel document from embedded resource collection
+//Gets input Excel document from an embedded resource collection
 Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.Spreadsheet.xlsx");
 
-//Creates new instance of HttpClient to access service
+//Creates new instance of HttpClient to access the service
 HttpClient client = new HttpClient();
 
-//Web service Uri 
+//Web service URI 
 string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
 
 //Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
@@ -177,7 +177,7 @@ catch (Exception ex)
 
 MemoryStream outputStream = null;
 
-//Gets PDF from content stream if service got success
+//Gets PDF from content stream if the service get success
 if (response.IsSuccessStatusCode)
 {
     var responseHeaders = response.Headers;
@@ -204,13 +204,13 @@ outputStream.Dispose();
 //Gets assembly
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Gets input Excel document from embedded resource collection
+//Gets input Excel document from an embedded resource collection
 Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.ExcelToPDF.xlsx");
 
 //Creates new instance of HttpClient to access service
 HttpClient client = new HttpClient();
 
-//Web service Uri 
+//Web service URI 
 string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
 
 //Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
@@ -223,7 +223,7 @@ client.Dispose();
 
 MemoryStream outputStream = null;
 
-//Gets PDF from content stream if service got success
+//Gets PDF from content stream if the service get success
 if (response.IsSuccessStatusCode)
 {
   var responseHeaders = response.Headers;
@@ -238,7 +238,7 @@ else
 
 //Save the stream as Excel document and view the saved document
 
-//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+//The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -257,9 +257,9 @@ outputStream.Dispose();
 
 **Web Service**
 
-The web service code that converts Excel document at server side and returns the resultant PDF document as content of HttpResponseMessage at client side.
+The web service code that converts Excel document at server-side and returns the resultant PDF document as content of HttpResponseMessage at client-side.
 
-> The below server side code can be invoked from client side using web service Uri.
+> The following server-side code can be invoked from client-side using web service URI.
 
 {% tabs %}
 {% highlight c# %}
@@ -324,11 +324,11 @@ End Using
 {% endhighlight %}
 {% endtabs %}
 
-To know more about different conversion settings in Excel To PDF conversion, please refer ExcelToPdfConverterSettings in API section.
+To learn more about different conversion settings in Excel To PDF conversion, refer to the ExcelToPdfConverterSettings in API section.
 
 ## Worksheet to PDF
 
-The following code shows how to convert a particular sheet to PDF Document.
+The following code shows how to convert a particular sheet to PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -370,15 +370,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 {% endtabs %}  
 
@@ -428,21 +428,21 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 {% endtabs %}
   
-## Excel with Chart to PDF
+## Excel with chart to PDF
 
-To preserve the charts during Excel To PDF conversion, you should initialize the ChartToImageConverter of **IApplication** interface, otherwise the charts present in worksheet will get skipped. The following code illustrate how to convert an Excel with chart to PDF document.
+To preserve the charts during Excel To PDF conversion, initialize the ChartToImageConverter of **IApplication** interface otherwise the charts present in worksheet gets skipped. The following code illustrates how to convert an Excel with chart to PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -454,7 +454,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
   //Instantiating the ChartToImageConverter and assigning the ChartToImageConverter instance of XlsIO application
   application.ChartToImageConverter = new ChartToImageConverter();
 
-  //Tuning Chart Image Quality
+  //Tuning chart image quality
   application.ChartToImageConverter.ScalingMode = ScalingMode.Best;
 
   IWorkbook workbook = application.Workbooks.Open("chart.xlsx");
@@ -477,7 +477,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   'Instantiating the ChartToImageConverter and assigning the ChartToImageConverter instance of XlsIO application
   application.ChartToImageConverter = New ChartToImageConverter()
 
-  'Tuning Chart Image Quality
+  'Tuning chart image quality
   application.ChartToImageConverter.ScalingMode = ScalingMode.Best
 
   Dim workbook As IWorkbook = application.Workbooks.Open("chart.xlsx")
@@ -492,27 +492,27 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 {% endtabs %}  
 
-## Print Excel Document
+## Print Excel document
 
-XlsIO supports Excel printing option by converting Excel To PDF and then print that PDF document. The Excel can be print with specified page setup and printer settings in XlsIO.
+XlsIO supports Excel printing option by converting Excel To PDF and printing that PDF document. The Excel can be printed with specified page setup and printer settings in XlsIO.
 
 The following printer settings can be applied to print Excel in XlsIO. 
 
 ![](Excel-to-PDF-Conversion_images/Excel-to-PDF-Conversion_img1.jpg)
  
-### Print Excel Document 
+### Print Excel document 
 
 The following code snippet illustrates how to print the Excel document in XlsIO.
 
@@ -523,10 +523,10 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
   IApplication application = excelEngine.Excel;
   IWorkbook workbook = application.Workbooks.Open("Excel.xlsx"));
 
-  // Convert the workbook.
+  // Convert the workbook
   ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
 
-  // Print the converted PDF document.
+  // Print the converted PDF document
   converter.Print();
 }
 {% endhighlight %}
@@ -537,28 +537,28 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim application As IApplication = excelEngine.Excel
   Dim workbook As IWorkbook = application.Workbooks.Open("Excel.xlsx")
 
-  'Convert the workbook.
+  'Convert the workbook
   Dim converter As ExcelToPdfConverter = New ExcelToPdfConverter(workbook)
 
-  'Print the converted PDF document.
+  'Print the converted PDF document
   converter.Print()
 End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 {% endtabs %}
 
-### Print with printer settings.
+### Print with printer settings
 
 The following code snippet illustrates how to print the Excel document with printer settings in XlsIO.
 
@@ -583,7 +583,7 @@ Using(ExcelEngine excelEngine = new ExcelEngine())
   printerSettings.DefaultPageSettings.Color = false;
   printerSettings.Duplex = Duplex.Vertical;
 
-  //Print the converted PDF document with printer settings.
+  //Print the converted PDF document with printer settings
   converter.Print(printerSettings);
 }
 {% endhighlight %}
@@ -613,19 +613,19 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 {% endtabs %}
 
-### Print with Excel To PDF converter settings.
+### Print with Excel To PDF converter settings
 
 The following code snippet illustrates how to print the Excel document with Excel To PDF converter settings in XlsIO.
 
@@ -672,19 +672,19 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 {% endtabs %}
 
-### Print with printer settings and Excel To PDF converter settings.
+### Print with Excel To PDF converter and printer settings
 
 The following code snippet illustrates how to print the Excel document with Excel To PDF converter settings and printer settings in XlsIO.
 
@@ -752,62 +752,62 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone. Refer the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 {% endtabs %}
 
   
 N> This section is applicable only to the Windows Forms and WPF platforms.
 
-## Supported Elements
+## Supported elements
 
-This feature provides support for the following elements:
+This feature supports the following elements:
 
 * Styles
-* Rich-Text Formatting
-* Headers and Footers
+* Rich-text formatting
+* Headers and footers
 * Images
-* Text Boxes
+* Text boxes
 * Hyperlinks
-* Document Properties
-* Table Styles
-* Text Rotations
-* Excel Page Setup Options
+* Document properties
+* Table styles
+* Text rotations
+* Excel page setup options
 * Unicode
-* Print Titles
-* Page Breaks
-* Print Area
-* Print Order
-* 2D Charts
-* 3D Charts
+* Print titles
+* Page breaks
+* Print area
+* Print order
+* 2D charts
+* 3D charts
 * AutoShapes
 ​
 
-## Unsupported Elements
+## Unsupported elements
 
-The following list contains unsupported elements that presently will not be preserved in the generated PDF document. 
+The following list contains unsupported elements that presently not preserved in the generated PDF document: 
 
-* Gradient Fill
+* Gradient fill
 * Comments
 * Sparklines
-* Pivot Charts
-* SmartArt Graphics
-* Different First Page Headers
-* Different Odd and Even Pages
-* Conditional Formats
-	* Data Bars
-	* Color Scales
+* Pivot charts
+* SmartArt graphics
+* Different first page headers
+* Different odd and even pages
+* Conditional formats
+	* Data bars
+	* Color scales
 * Tables
-	* Custom Styles
-* Row and Column Headings
-* Form Controls
-* ActiveX Controls
-* OLE Objects
+	* Custom styles
+* Row and column headings
+* Form controls
+* ActiveX controls
+* OLE objects
