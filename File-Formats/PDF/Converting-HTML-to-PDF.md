@@ -2162,7 +2162,7 @@ Set the path of the QtBinaries folder to the WebKitPath property of WebKitConver
 <br/><br/>
 (Or)
 <br/><br/>
-Place the QtBinaries folder in bin folder of the project.
+Place the QtBinaries folder in bin folder of the project. (This option is only applicable for .NET Framework projects. The <i>WebKitPath</i> property should be set explicitly for .NET Core projects.) 
 <br/><br/>
 The QtBinaries will be available in the WebKitHTMLConverter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i> </span>
 
