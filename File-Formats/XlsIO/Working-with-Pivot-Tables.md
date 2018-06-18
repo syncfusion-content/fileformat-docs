@@ -1322,7 +1322,7 @@ pivotTable.RepeatItemsOnEachPrintedPage = true;
 
 ### Repeat Labels
 
-You can repeat labels for row or column fields when the [pivot table layout](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.PivotTableRowLayout.html) is set to tabular or outline layout forms.
+You can repeat labels for row or column fields when the [pivot table layout](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.PivotTableRowLayout.html) is set to tabular or outline layout forms.
 
 **Specific Pivot Field**
 
