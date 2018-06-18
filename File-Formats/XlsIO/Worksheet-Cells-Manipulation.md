@@ -1640,7 +1640,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Skip Blanks While Copying
 
-Blank cells can be skipped while copying from source to destination range by setting the parameter [skip blanks](https://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CopyTo(IRange,ExcelCopyRangeOptions).html) to TRUE.
+Blank cells can be skipped while copying from source to destination range by setting the parameter [skip blanks](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IRange~CopyTo(IRange,ExcelCopyRangeOptions).html) to TRUE.
 
 The following code illustrates how to skip blank cells while copying.
 
@@ -1785,9 +1785,9 @@ You can perform [find and replace](https://support.office.com/en-usa/article/Fin
 *	To search for data in formulas, values or comments.
 *	To search for case-sensitive data and to match entire cell contents of the cell.
 
-To know more about these options, please refer the [ExcelFindType](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.ExcelFindType.html), [ExcelFindOptions](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.ExcelFindOptions.html) in the API documentation section.
+To know more about these options, please refer the [ExcelFindType](http://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.ExcelFindType.html), [ExcelFindOptions](http://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.ExcelFindOptions.html) in the API documentation section.
 
-You can find all the occurrences of a text in worksheet by using [FindAll](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~FindAll.html) method. To know more about Find and Replace, please refer [IWorksheet](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet_members.html) in the API documentation section.
+You can find all the occurrences of a text in worksheet by using [FindAll](http://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~FindAll.html) method. To know more about Find and Replace, please refer [IWorksheet](http://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet_members.html) in the API documentation section.
 The following code illustrates how to find all the occurrences of text in a worksheet with different find options.
 
 {% tabs %}  
@@ -1985,7 +1985,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}
 
 You can replace a text with another text with the help of Replace method which searches for text you’d like to change. You can replace a string, with the data of various data types and data sources, such as data table, data column and array.
-To know more about replace overloads, please refer [Replace](http://help.syncfusion.com/cr/cref_files/file-formats/xlsio/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~Replace.html) in the API documentation section.
+To know more about replace overloads, please refer [Replace](http://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~Replace.html) in the API documentation section.
 
 The following code example illustrates how to replace all occurrences of given string with various data.
 
