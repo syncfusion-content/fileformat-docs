@@ -8,130 +8,149 @@ documentation: UG
 
 # Worksheet to Image conversion
 
-## Convert as bitmap
+## Convert as Bitmap
 
 The following code shows how to convert the specified range of rows and columns in the worksheet to bitmap.
 
-{% tabs %}
+{% tabs %}  
+
 {% highlight c# %}
-// Convert as bitmap
+// Convert as bitmap.
+
 Image image = sheet.ConvertToImage(1, 1, 10, 20);
+
 image.Save("Sample.png", ImageFormat.Png);
+
+
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-'Convert as bitmap
+'Convert as bitmap.
+
 Dim image As Image = sheet.ConvertToImage(1, 1, 10, 20)
+
 image.Save("Sample.png", ImageFormat.Png)
+
+
+
 {% endhighlight %}
 
-{% highlight UWP %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
+  {% endtabs %}  
 
-{% highlight asp.net core %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-
-{% highlight Xamarin %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-{% endtabs %}  
-
-## Save as stream
+## Save as Stream
 
 The following code snippet shows how to save a sheet as stream.
 
-{% tabs %}
+{% tabs %}  
+
 {% highlight c# %}
-// Converts and save as stream
+// Converts and save as stream.
+
 MemoryStream stream = new MemoryStream();
+
 sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream);
+
+
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-'Converts and save as stream
+'Converts and save as stream.
+
 Dim stream As MemoryStream = New MemoryStream()
+
 sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
+
+
+
 {% endhighlight %}
 
-{% highlight UWP %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
+  {% endtabs %}  
 
-{% highlight asp.net core %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
+The complete code snippet of the above options is shown below.
 
-{% highlight Xamarin %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-{% endtabs %}  
+{% tabs %}  
 
-The complete code snippet of the previous options is shown as follows.
-
-{% tabs %}
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
-  IWorksheet sheet = workbook.Worksheets[0];
+ExcelEngine excelEngine = new ExcelEngine();
+IApplication application = excelEngine.Excel;
+application.DefaultVersion = ExcelVersion.Excel2013;
 
-  //Convert as bitmap
-  Image image = sheet.ConvertToImage(1, 1, 10, 20);
+IWorkbook workbook = application.Workbooks.Open("Sample.xlsx", ExcelOpenType.Automatic);
 
-  image.Save("Sample.png", ImageFormat.Png);
+IWorksheet sheet = workbook.Worksheets[0];
 
-  //Converts and save as stream
-  MemoryStream stream = new MemoryStream();
-  sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream);
+// Convert as bitmap.
 
-  //Save the workbook to disk
-  workbook.SaveAs("Sample.xlsx");
+Image image = sheet.ConvertToImage(1, 1, 10, 20);
 
-  //No exception will be thrown if there are unsaved workbooks
-  excelEngine.ThrowNotSavedOnDestroy = false;
-}
+image.Save("Sample.png", ImageFormat.Png);
+
+// Converts and save as stream.
+
+MemoryStream stream = new MemoryStream();
+
+sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream);
+
+//Save the workbook to disk.
+workbook.SaveAs("Sample.xlsx");
+
+//Close the workbook.
+workbook.Close();
+
+//No exception will be thrown if there are unsaved workbooks.
+excelEngine.ThrowNotSavedOnDestroy = false;
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("sample.xlsx", ExcelOpenType.Automatic)
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'Convert as bitmap
-  Dim image As Image = worksheet.ConvertToImage(1, 1, 10, 20)
+Dim application As IApplication = excelEngine.Excel
 
-  image.Save("Sample.png", ImageFormat.Png)
+application.DefaultVersion = ExcelVersion.Excel2013
 
-  'Converts and save as stream
-  Dim stream As MemoryStream = New MemoryStream()
-  worksheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
+Dim workbook As IWorkbook = application.Workbooks.Open("sample.xlsx", ExcelOpenType.Automatic)
 
-  'Save the workbook to disk
-  workbook.SaveAs("Sample.xlsx")
+Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-  'No exception will be thrown if there are unsaved workbooks.
-  excelEngine.ThrowNotSavedOnDestroy = False
-End Using
+'Convert as bitmap.
+
+Dim image As Image = sheet.ConvertToImage(1, 1, 10, 20)
+
+image.Save("Sample.png", ImageFormat.Png)
+
+'Converts and save as stream.
+
+Dim stream As MemoryStream = New MemoryStream()
+
+sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
+
+'Save the workbook to disk.
+workbook.SaveAs("Sample.xlsx")
+
+'Close the workbook.
+workbook.Close()
+
+'No exception will be thrown if there are unsaved workbooks.
+excelEngine.ThrowNotSavedOnDestroy = False
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
 
-{% highlight UWP %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-
-{% highlight asp.net core %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-
-{% highlight Xamarin %}
-//XlsIO supports worksheet to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
-{% endhighlight %}
-{% endtabs %}  
+  {% endtabs %}  
 
 **Non****-****Supported** **Features****:**
 

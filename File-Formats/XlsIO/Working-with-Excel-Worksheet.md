@@ -18,119 +18,63 @@ The following code snippet shows how to create worksheets within a workbook.
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //The new workbook will have 5 worksheets
-  IWorkbook workbook = application.Workbooks.Create(5);
-  //Creating a Sheet
-  IWorksheet sheet = workbook.Worksheets.Create();
-  //Creating a Sheet with name “Sample”
-  IWorksheet namedSheet = workbook.Worksheets.Create("Sample");
+IApplication application = excelEngine.Excel;
 
-  workbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+//The new workbook will have 5 worksheets.
+
+IWorkbook workbook = application.Workbooks.Create(5);
+
+//Creating a Sheet.
+
+IWorksheet sheet = workbook.Worksheets.Create();
+
+//Creating a Sheet with name “Sample”
+
+IWorksheet namedSheet = workbook.Worksheets.Create("Sample");
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'The new workbook will have 5 worksheets
-  Dim workbook As IWorkbook = application.Workbooks.Create(5)
-  'Creating a sheet
-  Dim sheet As IWorksheet = workbook.Worksheets.Create()
-  'Creating a Sheet with name “Sample”
-  Dim namedSheet As IWorksheet = workbook.Worksheets.Create("Sample")
+Dim application As IApplication = excelEngine.Excel
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+application.DefaultVersion = ExcelVersion.Excel2013
+
+' The new workbook will have 5 worksheets.
+
+Dim workbook As IWorkbook = application.Workbooks.Create(5)
+
+' Creating a sheet.
+
+Dim sheet As IWorksheet = workbook.Worksheets.Create()
+
+' Creating a Sheet with name “Sample”.
+
+Dim namedSheet As IWorksheet = workbook.Worksheets.Create("Sample")
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //The new workbook will have 5 worksheets.
-  IWorkbook workbook = application.Workbooks.Create(5);
-  //Creating a Sheet
-  IWorksheet sheet = workbook.Worksheets.Create();
-  //Creating a Sheet with name “Sample”
-  IWorksheet namedSheet = workbook.Worksheets.Create("Sample");
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //The new workbook will have 5 worksheets
-  IWorkbook workbook = application.Workbooks.Create(5);
-  //Creating a Sheet
-  IWorksheet sheet = workbook.Worksheets.Create();
-  //Creating a Sheet with name “Sample”
-  IWorksheet namedSheet = workbook.Worksheets.Create("Sample");
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //The new workbook will have 5 worksheets.
-  IWorkbook workbook = application.Workbooks.Create(5);
-  //Creating a Sheet.
-  IWorksheet sheet = workbook.Worksheets.Create();
-  //Creating a Sheet with name “Sample”
-  IWorksheet namedSheet = workbook.Worksheets.Create("Sample");
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}  
 
 ## Access a Worksheet 
 
@@ -143,119 +87,59 @@ The below codes illustrate how to access a worksheet from its worksheets collect
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //Accessing via index
-  IWorksheet sheet = workbook.Worksheets[0];
+IApplication application = excelEngine.Excel;
 
-  //Accessing via sheet Name
-  IWorksheet NamedSheet = workbook.Worksheets["Sample"];
+application.DefaultVersion = ExcelVersion.Excel2013;
 
-  workbook.SaveAs("Output.xlsx");
-}
+IWorkbook workbook = application.Workbooks.Create(2);
+
+//Accessing via index
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Accessing via sheet Name
+
+IWorksheet NamedSheet = workbook.Worksheets["Sample"];
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(2)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'Accessing via index
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
+Dim application As IApplication = excelEngine.Excel
 
-  'Accessing via Sheet Name
-  Dim NamedSheet As IWorksheet = workbook.Worksheets("Sample")
+application.DefaultVersion = ExcelVersion.Excel2013
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+Dim workbook As IWorkbook = application.Workbooks.Create(2)
+
+' Accessing via index.
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+' Accessing via Sheet Name.
+
+Dim NamedSheet As IWorksheet = workbook.Worksheets("Sample")
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-
-  //Accessing via index
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Accessing via sheet Name
-  IWorksheet NamedSheet = workbook.Worksheets["Sample"];
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-
-  //Accessing via index
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Accessing via sheet Name
-  IWorksheet NamedSheet = workbook.Worksheets["Sample"];
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-
-  //Accessing via index
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Accessing via sheet Name
-  IWorksheet NamedSheet = workbook.Worksheets["Sample"];
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}   
 
 T>If the workbook contains multiple worksheet, then the parsing of the workbook will consume time. You can use **ExcelParseOptions****.****ParseWorksheetsOnDemand** in IWorkbooks.Open method which parses the worksheet only when their accessed. This option can be used in a scenario where workbook contains multiple worksheets but you are going to use few worksheets among them.
 
@@ -263,24 +147,19 @@ T>If the workbook contains multiple worksheet, then the parsing of the workbook 
 
 {% highlight c# %}
 IWorkbook workbook = application.Workbooks.Open(fileName,ExcelParseOptions.ParseWorksheetsOnDemand);
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
 Dim workbook As IWorkbook = application.Workbooks.Open(fileName, ExcelParseOptions.ParseWorksheetsOnDemand)
+
+
+
 {% endhighlight %}
 
-{% highlight UWP %}
-IWorkbook workbook = await application.Workbooks.OpenAsync(workbookStorageFile,ExcelOpenType.Automatic,ExcelParseOptions.ParseWorksheetsOnDemand);
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-IWorkbook workbook = application.Workbooks.Open(workbookStream,ExcelParseOptions.ParseWorksheetsOnDemand);
-{% endhighlight %}
-
-{% highlight Xamarin %}
-IWorkbook workbook = application.Workbooks.Open(workbookStream,ExcelParseOptions.ParseWorksheetsOnDemand);
-{% endhighlight %}
-{% endtabs %}  
+  {% endtabs %}  
   
 ## Remove a Worksheet
 
@@ -288,104 +167,51 @@ Deletes the worksheets from the workbook collection by accessing the worksheet.
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //Removing the sheet
-  workbook.Worksheets[0].Remove();
+IApplication application = excelEngine.Excel;
 
-  workbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(2);
+
+//Removing the sheet
+
+workbook.Worksheets[0].Remove();
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(2)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'Removing the sheet
-  workbook.Worksheets(0).Remove()
+Dim application As IApplication = excelEngine.Excel
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create(2)
+
+'Removing the sheet.
+
+workbook.Worksheets(0).Remove()
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-
-  //Removing the sheet
-  workbook.Worksheets[0].Remove();
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-
-  //Removing the sheet
-  workbook.Worksheets[0].Remove();
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-
-  //Removing the sheet
-  workbook.Worksheets[0].Remove();
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}   
 
 ## Move or Copy a Worksheet
 
@@ -399,133 +225,66 @@ The following code example illustrates how to copy a sheet with its entire conte
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook sourceWorkbook = application.Workbooks.Open("SourceWorkbookTemplate.xlsx");
-  IWorkbook destinationWorkbook = application.Workbooks.Open("DestinationWorkbookTemplate.xlsx");
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //Copy first worksheet from the Source workbook to the destination workbook
-  destinationWorkbook.Worksheets.AddCopy(sourceWorkbook.Worksheets[0]);
+IApplication application = excelEngine.Excel;
 
-  destinationWorkbook.ActiveSheetIndex = 1;
-  destinationWorkbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook sourceWorkbook = application.Workbooks.Open("SourceWorkbookTemplate.xlsx");
+
+IWorkbook destinationWorkbook = application.Workbooks.Open("DestinationWorkbookTemplate.xlsx");
+
+//Copy first worksheet from the Source workbook to the destination workbook.
+
+destinationWorkbook.Worksheets.AddCopy(sourceWorkbook.Worksheets[0]);
+
+destinationWorkbook.ActiveSheetIndex = 1;
+
+destinationWorkbook.SaveAs("CopiedWorkbook.xlsx");
+
+sourceWorkbook.Close();
+
+destinationWorkbook.Close();
+
+excelEngine.Dispose();   
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim sourceWorkbook As IWorkbook = application.Workbooks.Open("SourceWorkbookTemplate.xlsx")
-  Dim destinationWorkbook As IWorkbook = application.Workbooks.Open("DestinationWorkbookTemplate.xlsx")
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'Copy first worksheet from the Source workbook to the destination workbook
-  destinationWorkbook.Worksheets.AddCopy(sourceWorkbook.Worksheets(0))
+Dim application As IApplication = excelEngine.Excel
 
-  destinationWorkbook.ActiveSheetIndex = 1
-  destinationWorkbook.SaveAs("Output.xlsx")
-End Using
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim sourceWorkbook As IWorkbook = application.Workbooks.Open("SourceWorkbookTemplate.xlsx")
+
+Dim destinationWorkbook As IWorkbook = application.Workbooks.Open("DestinationWorkbookTemplate.xlsx")
+
+' Copy first worksheet from the Source workbook to the destination workbook.
+
+destinationWorkbook.Worksheets.AddCopy(sourceWorkbook.Worksheets(0))
+
+destinationWorkbook.ActiveSheetIndex = 1
+
+destinationWorkbook.SaveAs("CopiedWorkbook.xlsx")
+
+sourceWorkbook.Close()
+
+destinationWorkbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsx");
-  openPicker.FileTypeFilter.Add(".xls");
-  StorageFile sourceFile = await openPicker.PickSingleFileAsync();
-  StorageFile destinationFile = await openPicker.PickSingleFileAsync();
-
-  //Opens the workbook
-  IWorkbook sourceWorkbook = await application.Workbooks.OpenAsync(sourceFile);
-  IWorkbook destinationWorkbook = await application.Workbooks.OpenAsync(destinationFile);
-
-  //Copy first worksheet from the Source workbook to the destination workbook
-  destinationWorkbook.Worksheets.AddCopy(sourceWorkbook.Worksheets[0]);
-  destinationWorkbook.ActiveSheetIndex = 1;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await destinationWorkbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  FileStream sourceStream = new FileStream("SourceWorkbookTemplate.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook sourceWorkbook = application.Workbooks.Open(sourceStream);
-  FileStream destinationStream = new FileStream("DestinationWorkbookTemplate.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook destinationWorkbook = application.Workbooks.Open(destinationStream);
-
-  //Copy first worksheet from the Source workbook to the destination workbook
-  destinationWorkbook.Worksheets.AddCopy(sourceWorkbook.Worksheets[0]);
-  destinationWorkbook.ActiveSheetIndex = 1;
-
-  //Saving the workbook as stream
-  FileStream copiedStream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  destinationWorkbook.SaveAs(copiedStream);
-  copiedStream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream sourceStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.SourceWorkbookTemplate.xlsx");
-  IWorkbook sourceWorkbook = application.Workbooks.Open(sourceStream);
-  Stream destinationStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.DestinationWorkbookTemplate.xlsx");
-  IWorkbook destinationWorkbook = application.Workbooks.Open(destinationStream);
-
-  //Copy first worksheet from the Source workbook to the destination workbook
-  destinationWorkbook.Worksheets.AddCopy(sourceWorkbook.Worksheets[0]);
-  destinationWorkbook.ActiveSheetIndex = 1;
-
-  //Saving the workbook as stream
-  MemoryStream copiedStream = new MemoryStream();
-  destinationWorkbook.SaveAs(copiedStream);
-
-  copiedStream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", copiedStream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", copiedStream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}   
 
 You can specify copy options while copying a worksheet, which helps to achieve customized copying by ignore the certain formatting. For more information about copy options, please refer **ExcelWorksheetCopyFlags** .
+
 
 ### Moving a Worksheet
 
@@ -533,109 +292,55 @@ XlsIO allows moving worksheets from one position to another by using the **Move*
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(3);
-  IWorksheet sheet = workbook.Worksheets[0];
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //Move the Sheet
-  sheet.Move(1);
+IApplication application = excelEngine.Excel;
 
-  workbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(3);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Move the Sheet
+
+sheet.Move(1);
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(3)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'Move the sheet
-  sheet.Move(1)
+Dim application As IApplication = excelEngine.Excel
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create(3)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+'Move the sheet.
+
+sheet.Move(1)
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(3);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Move the Sheet
-  sheet.Move(1);
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(3);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Move the Sheet
-  sheet.Move(1);
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(3);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Move the Sheet
-  sheet.Move(1);
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}   
 
 ## Highlight Worksheet Tabs 
 
@@ -643,109 +348,57 @@ You can highlight the worksheet tab of a particular sheet to denote its importan
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //Highlighting sheet tab
-  sheet.TabColor = ExcelKnownColors.Red;
+IApplication application = excelEngine.Excel;
 
-  workbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Highlighting sheet tab.
+
+sheet.TabColor = ExcelKnownColors.Red;
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'Highlighting sheet tab
-  sheet.TabColor = ExcelKnownColors.Red
+Dim application As IApplication = excelEngine.Excel
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+Dim sheet As IWorkbook = workbook.Worksheets(0)
+
+' Highlighting sheet tab.
+
+sheet.TabColor = ExcelKnownColors.Red
+
+Dim fileName As String = "Output.xlsx"
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Highlighting sheet tab
-  sheet.TabColor = ExcelKnownColors.Red;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Highlighting sheet tab
-  sheet.TabColor = ExcelKnownColors.Red;
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Highlighting sheet tab
-  sheet.TabColor = ExcelKnownColors.Red;
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}   
 
 ## Freeze Panes 	
 
@@ -754,237 +407,117 @@ You can [freeze](https://support.office.com/en-au/article/Freeze-rows-and-column
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //Applying Freeze Pane to the sheet by specifying a cell
-  sheet.Range["B2"].FreezePanes();
-  
-  workbook.SaveAs("Output.xlsx");
-}
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Applying Freeze Pane to the sheet by specifying a cell.
+
+sheet.Range["B2"].FreezePanes();
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'Applying Freeze Pane to the sheet by specifying a cell
-  sheet.Range("B2").FreezePanes()
+Dim application As IApplication = excelEngine.Excel
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+' Applying Freeze Pane to the sheet by specifying a cell.
+
+sheet.Range("B2").FreezePanes()
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
+{% endtabs %}   
 
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Applying Freeze Pane to the sheet by specifying a cell
-  sheet.Range["B2"].FreezePanes();
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Applying Freeze Pane to the sheet by specifying a cell
-  sheet.Range["B2"].FreezePanes();
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  //Applying Freeze Pane to the sheet by specifying a cell
-  sheet.Range["B2"].FreezePanes();
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
- 
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
-
-You can set first visible row and first visible column in non-frozen area, by setting the FirstVisibleRow and FirstVisibleColumn as shown below
+You can set first visible row and first visible column in frozen area, by setting the FirstVisibleRow and FirstVisibleColumn as shown below
 
 N> FirstVisibleColumn and FirstVisibleRow indexes are "zero-based".
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+ExcelEngine excelEngine = new ExcelEngine();
 
-  sheet.Range["B2"].FreezePanes();
+IApplication application = excelEngine.Excel;
 
-  //Set first visible row in the bottom pane
-  sheet.FirstVisibleRow = 2;
-  //Set first visible column in the right pane
-  sheet.FirstVisibleColumn = 2;
+application.DefaultVersion = ExcelVersion.Excel2013;
 
-  workbook.SaveAs("Output.xlsx");
-}
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Set first visible row in the bottom pane.
+
+sheet.FirstVisibleRow = 2;
+
+//Set first visible column in the right pane.
+
+sheet.FirstVisibleColumn = 2;
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  sheet.Range("B2").FreezePanes()
+Dim application As IApplication = excelEngine.Excel
 
-  'Set first visible row in the bottom pane
-  sheet.FirstVisibleRow = 2
-  'Set first visible column in the right pane
-  sheet.FirstVisibleColumn = 2
+application.DefaultVersion = ExcelVersion.Excel2013
 
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+Dim sheet As IWorkbook = workbook.Worksheets(0)
 
-  sheet.Range["B2"].FreezePanes();
+' Set first visible row in the bottom pane.
 
-  //Set first visible row in the bottom pane
-  sheet.FirstVisibleRow = 2;
-  //Set first visible column in the right pane
-  sheet.FirstVisibleColumn = 2;
+sheet.FirstVisibleRow = 2
 
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+' Set first visible column in the right pane.
 
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+sheet.FirstVisibleColumn = 2
 
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
+workbook.SaveAs("Output.xlsx")
 
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+workbook.Close()
 
-  sheet.Range["B2"].FreezePanes();
+excelEngine.Dispose()
 
-  //Set first visible row in the bottom pane
-  sheet.FirstVisibleRow = 2;
-  //Set first visible column in the right pane
-  sheet.FirstVisibleColumn = 2;
 
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
 
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["B2"].FreezePanes();
-
-  //Set first visible row in the bottom pane
-  sheet.FirstVisibleRow = 2;
-  //Set first visible column in the right pane
-  sheet.FirstVisibleColumn = 2;
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
 {% endhighlight %}
 {% endtabs %}   
 
@@ -994,127 +527,69 @@ You can divide the window into different [panes](https://support.office.com/en-A
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //split panes
-  sheet.FirstVisibleColumn = 5;
-  sheet.FirstVisibleRow = 11;
-  sheet.VerticalSplit = 1100;
-  sheet.HorizontalSplit = 1000;
-  sheet.ActivePane = 1;
+IApplication application = excelEngine.Excel;
 
-  workbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//split panes
+
+sheet.FirstVisibleColumn = 5;
+
+sheet.FirstVisibleRow = 11;
+
+sheet.VerticalSplit = 110;
+
+sheet.HorizontalSplit = 100;
+
+sheet.ActivePane = 1;
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'Split Panes
-  sheet.FirstVisibleColumn = 5
-  sheet.FirstVisibleRow = 11
-  sheet.VerticalSplit = 1100
-  sheet.HorizontalSplit = 1000
-  sheet.ActivePane = 1
+Dim application As IApplication = excelEngine.Excel
 
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
+application.DefaultVersion = ExcelVersion.Excel2013
 
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-  //split panes
-  sheet.FirstVisibleColumn = 5;
-  sheet.FirstVisibleRow = 11;
-  sheet.VerticalSplit = 1100;
-  sheet.HorizontalSplit = 1000;
-  sheet.ActivePane = 1;
+Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+' Split Panes
 
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+sheet.FirstVisibleColumn = 5
 
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
+sheet.FirstVisibleRow = 11
 
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+sheet.VerticalSplit = 110
 
-  //split panes
-  sheet.FirstVisibleColumn = 5;
-  sheet.FirstVisibleRow = 11;
-  sheet.VerticalSplit = 1100;
-  sheet.HorizontalSplit = 1000;
-  sheet.ActivePane = 1;
+sheet.HorizontalSplit = 100
 
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
+sheet.ActivePane = 1
 
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+workbook.SaveAs("Output.xlsx")
 
-  //split panes
-  sheet.FirstVisibleColumn = 5;
-  sheet.FirstVisibleRow = 11;
-  sheet.VerticalSplit = 1100;
-  sheet.HorizontalSplit = 1000;
-  sheet.ActivePane = 1;
+workbook.Close()
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
+excelEngine.Dispose()
 
-  stream.Position = 0;
 
-  //Save the document as file and view the saved document
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
 {% endhighlight %}
 {% endtabs %}   
 
@@ -1124,164 +599,87 @@ You can select the size, orientation of the paper, margins, page breaks, scaling
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+ExcelEngine excelEngine = new ExcelEngine();
 
-  sheet.Range["A1:M20"].Text = "PageBreak";
+IApplication application = excelEngine.Excel;
 
-  //Set Horizontal Page Breaks
-  sheet.HPageBreaks.Add(sheet.Range["A5"]);
-  //Set Vertical Page Breaks
-  sheet.VPageBreaks.Add(sheet.Range["B5"]);
+application.DefaultVersion = ExcelVersion.Excel2013;
 
-  //Set print title
-  sheet.PageSetup.PrintTitleColumns = "$B:$E";
-  sheet.PageSetup.PrintTitleRows = "$2:$5";
+IWorkbook workbook = application.Workbooks.Create(1);
 
-  //Set Page Orientation as Portrait or Landscape
-  sheet.PageSetup.Orientation = ExcelPageOrientation.Landscape;
+IWorksheet sheet = workbook.Worksheets[0];
 
-  workbook.SaveAs("Output.xlsx");
-}
+sheet.Range["A1:M20"].Text = "PageBreak";
+
+//Set Horizontal Page Breaks.
+
+sheet.HPageBreaks.Add(sheet.Range["A5"]);
+
+//Set Vertical Page Breaks.
+
+sheet.VPageBreaks.Add(sheet.Range["B5"]);
+
+//Set print title
+
+sheet.PageSetup.PrintTitleColumns = "B1:E1";
+
+sheet.PageSetup.PrintTitleRows = string.Empty;
+
+//Set Page Orientation as Portrait or Landscape        
+
+sheet.PageSetup.Orientation = ExcelPageOrientation.Landscape;
+
+workbook.SaveAs("pageSetup.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  sheet.Range("A1:M20").Text = "PageBreak"
+Dim application As IApplication = excelEngine.Excel
 
-  'Set Horizontal Page Breaks
-  sheet.HPageBreaks.Add(sheet.Range("A5"))
-  'Set Vertical Page Breaks
-  sheet.VPageBreaks.Add(sheet.Range("B5"))
+application.DefaultVersion = ExcelVersion.Excel2013
 
-  'Set print titles
-  sheet.PageSetup.PrintTitleColumns = "$B:$E"
-  sheet.PageSetup.PrintTitleRows = "$2:$5"
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-  'Set Page Orientation as Portrait or Landscape
-  sheet.PageSetup.Orientation = ExcelPageOrientation.Landscape
+Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+sheet.Range("A1:M20").Text = "PageBreak"
+
+' Set Horizontal Page Breaks.
+
+sheet.HPageBreaks.Add(sheet.Range("A5"))
+
+' Set Vertical Page Breaks.
+
+sheet.VPageBreaks.Add(sheet.Range("B5"))
+
+' Set print titles
+
+sheet.PageSetup.PrintTitleColumns = "B1:E1"
+
+sheet.PageSetup.PrintTitleRows = string.Empty
+
+'Set Page Orientation as Portrait or Landscape        
+
+sheet.PageSetup.Orientation = ExcelPageOrientation.Landscape
+
+workbook.SaveAs("pageSetup.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["A1:M20"].Text = "PageBreak";
-
-  //Set Horizontal Page Breaks
-  sheet.HPageBreaks.Add(sheet.Range["A5"]);
-  //Set Vertical Page Breaks
-  sheet.VPageBreaks.Add(sheet.Range["B5"]);
-
-  //Set print title
-  sheet.PageSetup.PrintTitleColumns = "$B:$E"
-  sheet.PageSetup.PrintTitleRows = "$2:$5"
-
-  //Set Page Orientation as Portrait or Landscape
-  sheet.PageSetup.Orientation = ExcelPageOrientation.Landscape;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["A1:M20"].Text = "PageBreak";
-
-  //Set Horizontal Page Breaks
-  sheet.HPageBreaks.Add(sheet.Range["A5"]);
-  //Set Vertical Page Breaks
-  sheet.VPageBreaks.Add(sheet.Range["B5"]);
-
-  //Set print title
-  sheet.PageSetup.PrintTitleColumns = "$B:$E";
-  sheet.PageSetup.PrintTitleRows = "$2:$5";
-
-  //Set Page Orientation as Portrait or Landscape
-  sheet.PageSetup.Orientation = ExcelPageOrientation.Landscape;
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["A1:M20"].Text = "PageBreak";
-
-  //Set Horizontal Page Breaks
-  sheet.HPageBreaks.Add(sheet.Range["A5"]);
-  //Set Vertical Page Breaks.
-  sheet.VPageBreaks.Add(sheet.Range["B5"]);
-
-  //Set print title
-  sheet.PageSetup.PrintTitleColumns = "$B:$E";
-  sheet.PageSetup.PrintTitleRows = "$2:$5";
-
-  //Set Page Orientation as Portrait or Landscape
-  sheet.PageSetup.Orientation = ExcelPageOrientation.Landscape;
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}   
 
 ## Show or Hide Worksheet 
 
@@ -1289,114 +687,59 @@ The following code snippet shows how to hide the sheets using **Visibility** pro
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-  IWorksheet sheet = workbook.Worksheets[0];
+ExcelEngine excelEngine = new ExcelEngine();
 
-  sheet.Range["A1:M20"].Text = "visibility";
-  //Set visibility
-  sheet.Visibility = WorksheetVisibility.Hidden;
+IApplication application = excelEngine.Excel;
 
-  workbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(2);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+sheet.Range["A1:M20"].Text = "visibility";
+
+//Set visibility.
+
+sheet.Visibility = WorksheetVisibility.Hidden;
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(2)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  sheet.Range("A1:M20").Text = "Visibility"
-  'Set visibility
-  sheet.Visibility = WorksheetVisibility.Hidden
+Dim application As IApplication = excelEngine.Excel
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create(2)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+sheet.Range("A1:M20").Text = "Visibility"
+
+' Set visibility.
+
+sheet.Visibility = WorksheetVisibility.Hidden
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["A1:M20"].Text = "visibility";
-  //Set visibility
-  sheet.Visibility = WorksheetVisibility.Hidden;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["A1:M20"].Text = "visibility";
-  //Set visibility
-  sheet.Visibility = WorksheetVisibility.Hidden;
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["A1:M20"].Text = "visibility";
-  //Set visibility
-  sheet.Visibility = WorksheetVisibility.Hidden;
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}   
 
 ## Activate a Worksheet
 
@@ -1404,114 +747,59 @@ You can set a worksheet as active sheet in the workbook by using the **Activate*
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-  IWorksheet sheet = workbook.Worksheets[0];
+ExcelEngine excelEngine = new ExcelEngine();
 
-  sheet.Range["A1:M20"].Text = "Activate";
-  //Activate the sheet
-  sheet.Activate();
+IApplication application = excelEngine.Excel;
 
-  workbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(2);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+sheet.Range["A1:M20"].Text = "Activate";
+
+//Activate the sheet.
+
+sheet.Activate();
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(2)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  sheet.Range("A1:M20").Text = "Activate"
-  'Activate the sheet
-  sheet.Activate()
+Dim application As IApplication = excelEngine.Excel
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create(2)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+sheet.Range("A1:M20").Text = "Activate"
+
+' Activate the sheet.
+
+sheet.Activate()
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["A1:M20"].Text = "Activate";
-  //Activate the sheet
-  sheet.Activate();
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["A1:M20"].Text = "Activate";
-  //Activate the sheet
-  sheet.Activate();
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(2);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["A1:M20"].Text = "Activate";
-  //Activate the sheet
-  sheet.Activate();
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}   
 
 ## Show or Hide Worksheet Tabs 
 
@@ -1519,124 +807,67 @@ The following code snippet shows how to hide the worksheet tab using **DisplayWo
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(3);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Tabs";
-	
-  //Hide the tab
-  workbook.DisplayWorkbookTabs = false;
-  //set the display tab
-  workbook.DisplayedTab = 2;
+ExcelEngine excelEngine = new ExcelEngine();
 
-  workbook.SaveAs("Output.xlsx");
-}	
+IApplication application = excelEngine.Excel;
+
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(2);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+sheet.Range["A1:M20"].Text = "Tabs";
+
+//Hide the tab
+
+workbook.DisplayWorkbookTabs = false;
+
+//set the display tab
+
+workbook.DisplayedTab = 2;
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(3)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-  sheet.Range("A1:M20").Text = "Tabs"
+Dim excelEngine As New ExcelEngine()
 
-  'Hide the tab
-  workbook.DisplayWorkbookTabs = False
-  'set the display tab
-  workbook.DisplayedTab = 2
+Dim application As IApplication = excelEngine.Excel
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create(2)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+sheet.Range("A1:M20").Text = "Tabs"
+
+'Hide the tab
+
+workbook.DisplayWorkbookTabs = False
+
+'set the display tab
+
+workbook.DisplayedTab = 2
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(3);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Tabs";
-  
-  //Hide the tab
-  workbook.DisplayWorkbookTabs = false;
-  //set the display tab
-  workbook.DisplayedTab = 2;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(3);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Tabs";
-	
-  //Hide the tab
-  workbook.DisplayWorkbookTabs = false;
-  //set the display tab
-  workbook.DisplayedTab = 2;
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(3);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Tabs";
-	
-  //Hide the tab
-  workbook.DisplayWorkbookTabs = false;
-  //set the display tab
-  workbook.DisplayedTab = 2;
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}  
  
 ## View Settings
 
@@ -1646,109 +877,55 @@ You can show/hide row and column headings by using the **IsRowColumnHeadersVisib
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+ExcelEngine excelEngine = new ExcelEngine();
 
-  sheet.Range["A1:M20"].Text = "RowColumnHeader";
-  sheet.IsRowColumnHeadersVisible = false;
+IApplication application = excelEngine.Excel;
 
-  workbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+sheet.Range["A1:M20"].Text = "RowColumnHeader";
+
+sheet.IsRowColumnHeadersVisible = false;
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  sheet.Range("A1:M20").Text = "RowColumnHeader"
-  sheet.IsRowColumnHeadersVisible = False
+Dim application As IApplication = excelEngine.Excel
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+sheet.Range("A1:M20").Text = "RowColumnHeader"
+
+sheet.IsRowColumnHeadersVisible = False
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["A1:M20"].Text = "RowColumnHeader";
-  sheet.IsRowColumnHeadersVisible = false;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["A1:M20"].Text = "RowColumnHeader";
-  sheet.IsRowColumnHeadersVisible = false;
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-
-  sheet.Range["A1:M20"].Text = "RowColumnHeader";
-  sheet.IsRowColumnHeadersVisible = false;
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}   
 
 ### Show or Hide Grid Lines 
 
@@ -1756,114 +933,59 @@ The following code snippet shows how to hide the grid lines using IsGridLinesVis
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Gridlines";
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //Hide grid line
-  sheet.IsGridLinesVisible = false;
+IApplication application = excelEngine.Excel;
 
-  workbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+sheet.Range["A1:M20"].Text = "Gridlines";
+
+//Hide grid line.
+
+sheet.IsGridLinesVisible = false;
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-  sheet.Range("A1:M20").Text = "GridLines"
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'Hide grid line
-  sheet.IsGridLinesVisible = False
+Dim application As IApplication = excelEngine.Excel
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+sheet.Range("A1:M20").Text = "GridLines"
+
+' Hide grid line.
+
+sheet.IsGridLinesVisible = False
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Gridlines";
-
-  //Hide grid line
-  sheet.IsGridLinesVisible = false;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Gridlines";
-
-  //Hide grid line
-  sheet.IsGridLinesVisible = false;
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Gridlines";
-
-  //Hide grid line
-  sheet.IsGridLinesVisible = false;
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}   
 
 ### Set Zoom Level
 
@@ -1871,114 +993,61 @@ The following code snippet shows how to set the zoom level by using **Zoom** pro
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Zoom level";
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //set zoom percentage
-  sheet.Zoom = 70;
+IApplication application = excelEngine.Excel;
 
-  workbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+sheet.Range["A1:M20"].Text = "Zoom level";
+
+//set zoom percentage
+
+sheet.Zoom = 70
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-  sheet.Range("A1:M20").Text = "Zoom level"
+[VB.NET]
 
-  'set Zoom percentage
-  sheet.Zoom = 70
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  workbook.SaveAs("Output.xlsx")
-End Using
+Dim application As IApplication = excelEngine.Excel
+
+application.DefaultVersion = ExcelVersion.Excel2013
+
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
+
+Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+sheet.Range("A1:M20").Text = "Zoom level"
+
+' set Zoom percentage
+
+sheet.Zoom = 70
+
+workbook.SaveAs("Output.xlsx")
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
-
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Zoom level";
-
-  //set zoom percentage
-  sheet.Zoom = 70;
-
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Zoom level";
-
-  //set zoom percentage
-  sheet.Zoom = 70;
-
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Zoom level";
-
-  //set zoom percentage
-  sheet.Zoom = 70;
-
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
-{% endhighlight %}
-{% endtabs %}
+{% endtabs %}   
 
 ## Save Worksheet as CSV
 
@@ -1986,123 +1055,52 @@ The following code example illustrates how to save a worksheet as CSV file.
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "document";
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //Save the sheet as CSV
-  sheet.SaveAs("Sample.csv", ",");
+IApplication application = excelEngine.Excel;
 
-  workbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Save the sheet as CSV
+
+sheet.SaveAs("Sample.csv", ",");
+
+workbook.SaveAs(Output.xlsx);
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-  sheet.Range("A1:M20").Text = "document"
-  
-  'Save the sheet as CSV 
-  sheet.SaveAs("Sample.csv", ",")
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
+Dim application As IApplication = excelEngine.Excel
 
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "document";
+application.DefaultVersion = ExcelVersion.Excel2013
 
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-  savePicker.SuggestedFileName = "Sample";
-  savePicker.FileTypeChoices.Add("CSV Files", new List<string>() { ".csv" });
+Dim sheet As IWorkbook = workbook.Worksheets(0)
 
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile1 = await savePicker.PickSaveFileAsync();
+'Save the sheet as CSV 
+sheet.SaveAs("Sample.csv", ",")
 
-  //Saves changes to the specified storage file
-  await sheet.SaveAsAsync(storageFile1,",");
+workbook.SaveAs(Output.xlsx)
 
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+workbook.Close()
 
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile2 = await savePicker.PickSaveFileAsync();
+excelEngine.Dispose()
 
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile2);
-}
-{% endhighlight %}
 
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "document";
 
-  //Saving the sheet and workbook as streams
-  FileStream sheetStream = new FileStream("Sample.csv", FileMode.Create, FileAccess.ReadWrite);
-  sheet.SaveAs(sheetStream,",");
-  
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  sheetStream.Dispose();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "document";
-
-  //Saving the sheet and workbook as streams
-  MemoryStream sheetStream = new MemoryStream();
-  sheet.SaveAs(sheetStream,",");
-  
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  sheetStream.Position = 0;
-  stream.Position = 0;
-  
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.csv", "application/msexcel", sheetStream);
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.csv", "application/msexcel", sheetStream);
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
 {% endhighlight %}
 {% endtabs %}  
  
@@ -2112,123 +1110,56 @@ Essential XlsIO allows to save worksheet as a text file. This can be done by lea
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Text document";
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //Save the sheet as text
-  sheet.SaveAs("Sample.txt", " ");
+IApplication application = excelEngine.Excel;
 
-  workbook.SaveAs("Output.xlsx");
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+sheet.Range["A1:M20"].Text = "Text document";
+
+//Save the sheet as text
+
+sheet.SaveAs("Sample.txt", " ");
+
+workbook.SaveAs("Output.xlsx");
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-  sheet.Range("A1:M20").Text = "Text document"
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'Save the sheet as text
-  sheet.SaveAs("Sample.txt", " ")
+Dim application As IApplication = excelEngine.Excel
 
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
+application.DefaultVersion = ExcelVersion.Excel2013
 
-{% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Text document";
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-  savePicker.SuggestedFileName = "Sample";
-  savePicker.FileTypeChoices.Add("Text Files", new List<string>() { ".txt" });
+sheet.Range("A1:M20").Text = "Text document"
 
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile1 = await savePicker.PickSaveFileAsync();
+'Save the sheet as text
+sheet.SaveAs("Sample.txt", " ")
 
-  //Saves changes to the specified storage file
-  await sheet.SaveAsAsync(storageFile1, " ");
+workbook.SaveAs("Output.xlsx")
 
-  savePicker.SuggestedFileName = "Output";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+workbook.Close()
 
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile2 = await savePicker.PickSaveFileAsync();
+excelEngine.Dispose()
 
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile2);
-}
-{% endhighlight %}
 
-{% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Text document";
 
-  //Saving the sheet and workbook as streams
-  FileStream sheetStream = new FileStream("Sample.txt", FileMode.Create, FileAccess.ReadWrite);
-  sheet.SaveAs(sheetStream," ");
-  
-  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  sheetStream.Dispose();
-  stream.Dispose();
-}
-{% endhighlight %}
-
-{% highlight xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Text document";
-
-  //Saving the sheet and workbook as streams
-  MemoryStream sheetStream = new MemoryStream();
-  sheet.SaveAs(sheetStream," ");
-  
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
-
-  sheetStream.Position = 0;
-  stream.Position = 0;
-
-  //Save the document as file and view the saved document
-
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Sample.txt", "text/plain", sheetStream);
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.txt", "text/plain", sheetStream);
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
-  }
-}
 {% endhighlight %}
 {% endtabs %}   
 
@@ -2245,48 +1176,61 @@ The following code example illustrates on how to do this.
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
-  sheet.Range["A1:M20"].Text = "Html Document";
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //Save an Excel sheet as HTML file
-  sheet.SaveAsHtml("Sample.html");
+IApplication application = excelEngine.Excel;
 
-  //Save the workbook as HTML file
-  workbook.SaveAsHtml("Sample.html", Syncfusion.XlsIO.Implementation.HtmlSaveOptions.Default);
-}
+application.DefaultVersion = ExcelVersion.Excel2013;
+
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+sheet.Range["A1:M20"].Text = "Html Document";
+
+//Save an Excel sheet as HTML file.
+
+sheet.SaveAsHtml("Sample.html");
+
+//Save the workbook as HTML file.
+
+workbook.SaveAsHtml("Sample.html",Implementation.HtmlSaveOptions.Default);
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
-  sheet.Range("A1:M20").Text = "Html Document"
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'Save an Excel sheet as HTML file
-  sheet.SaveAsHtml("Sample.html")
+Dim application As IApplication = excelEngine.Excel
 
-  'Save a workbook as HTML file
-  workbook.SaveAsHtml("Sample.html", Syncfusion.XlsIO.Implementation.HtmlSaveOptions.Default)
-End Using
-{% endhighlight %}
+application.DefaultVersion = ExcelVersion.Excel2013
 
-{% highlight UWP %}
-//XlsIO provides support to convert a worksheet or workbook to HTML with basic formatting preserved in non-portable platforms alone.
-{% endhighlight %}
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-{% highlight ASP.NET Core %}
-//XlsIO provides support to convert a worksheet or workbook to HTML with basic formatting preserved in non-portable platforms alone.
-{% endhighlight %}
+Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-{% highlight xamarin %}
-//XlsIO provides support to convert a worksheet or workbook to HTML with basic formatting preserved in non-portable platforms alone.
+sheet.Range("A1:M20").Text = "Html Document"
+
+' Save an Excel sheet as HTML file.
+
+sheet.SaveAsHtml("Sample.html")
+
+' Save a workbook as HTML file.
+
+workbook.SaveAsHtml("Sample.html", Implementation.HtmlSaveOptions.Default)
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
 {% endtabs %}   
 
@@ -2296,54 +1240,68 @@ XlsIO also provides options to save a worksheet with the displayed text or value
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
-{
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Create(1);
-  IWorksheet sheet = workbook.Worksheets[0];
+ExcelEngine excelEngine = new ExcelEngine();
 
-  //Create the instant for SaveOptions
-  HtmlSaveOptions options = new HtmlSaveOptions();
-  options.TextMode = HtmlSaveOptions.GetText.DisplayText;
-  options.ImagePath = @"..\..\Images\";
+IApplication application = excelEngine.Excel;
 
-  //Save the sheet as HTML
-  sheet.SaveAsHtml("Sample.html", options);
+application.DefaultVersion = ExcelVersion.Excel2013;
 
-  workbook.SaveAs("Output.xlsx");
-}
+IWorkbook workbook = application.Workbooks.Create(1);
+
+IWorksheet sheet = workbook.Worksheets[0];
+
+//Create the instant for SaveOptions.
+
+HtmlSaveOptions options = new HtmlSaveOptions();
+
+options.TextMode = HtmlSaveOptions.GetText.DisplayText;
+
+options.ImagePath = @"..\..\Images\";
+
+//Save the sheet as HTML
+sheet.SaveAsHtml("Sample.html", options);
+
+workbook.SaveAs(Output.xlsx);
+
+workbook.Close();
+
+excelEngine.Dispose();
+
+
+
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Create(1)
-  Dim sheet As IWorksheet = workbook.Worksheets(0)
+Dim excelEngine As ExcelEngine = New ExcelEngine
 
-  'Create the instant for SaveOptions
-  Dim options As New HtmlSaveOptions()
-  options.TextMode = HtmlSaveOptions.GetText.DisplayText
-  options.ImagePath = "..\..\Images\"
+Dim application As IApplication = excelEngine.Excel
 
-  'Save the sheet as HTML
-  sheet.SaveAsHtml("Sample.html", options)
+application.DefaultVersion = ExcelVersion.Excel2013
 
-  workbook.SaveAs("Output.xlsx")
-End Using
-{% endhighlight %}
+Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-{% highlight UWP %}
-//XlsIO provides support for options to save a worksheet with the displayed text or value in the cell to HTML file in non-portable platforms alone.
-{% endhighlight %}
+Dim sheet As IWorksheet = workbook.Worksheets(0)
 
-{% highlight ASP.NET Core %}
-//XlsIO provides support for options to save a worksheet with the displayed text or value in the cell to HTML file in non-portable platforms alone.
-{% endhighlight %}
+' Create the instant for SaveOptions.
 
-{% highlight xamarin %}
-//XlsIO provides support for options to save a worksheet with the displayed text or value in the cell to HTML file in non-portable platforms alone.
+Dim options As New HtmlSaveOptions()
+
+options.TextMode = HtmlSaveOptions.GetText.DisplayText
+
+options.ImagePath = "..\..\Images\"
+
+' Save the sheet as HTML
+
+sheet.SaveAsHtml("Sample.html", options)
+
+workbook.SaveAs(Output.xlsx)
+
+workbook.Close()
+
+excelEngine.Dispose()
+
+
+
 {% endhighlight %}
 {% endtabs %}  
 

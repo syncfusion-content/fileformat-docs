@@ -93,7 +93,7 @@ PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation);
 
 //Saves the PDF document
 
-pdfDocument.Save("Sample.pdf");
+pdfDocument.Save(@"Sample.pdf");
 
 //Closes the PDF document
 
@@ -149,80 +149,6 @@ Essential Presentation library provides you the ability to customize the Present
 * Allows to include the hidden slide during conversion. 
 * Allows to optimize the images in the PowerPoint slides to reduce the converted PDF document size.
 * Allows to decide the quality of the charts in the converted PDF.
-
-## Font substitution for unavailable fonts
-
-When a font used in a PowerPoint presentation is unavailable in the environment where it is converted to PDF, then the library substitutes the ‘Microsoft Sans Serif’ as a default font for text rendering. This leads to a difference in text layouts of PowerPoint presentation and the converted PDF document.  To avoid this, the Essential Presentation library allows you to set an alternate font for the missing font used in the PowerPoint presentation.
-
-The following code sample demonstrates how to set a substitute font for a missing font while converting a PowerPoint presentation to PDF document.
-
-{% tabs %}
-{% highlight c# %}
-//Load the PowerPoint presentation and convert to PDF
-using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
-{
-	//Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
-	pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-
-	// Initializes the 'SubstituteFont' event to set the replacement font
-	pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
-
-	//Convert the PowerPoint presentation to PDF file
-	using (PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc))
-	{
-		//Save the PDF file
-		pdfDoc.Save("Sample.pdf");
-	}
-}
-
-/// <summary>
-/// Sets the alternate font when a specified font is unavailable in the production environment
-/// </summary>
-/// <param name="sender">FontSettings type of the Presentation in which the specified font is used but unavailable in production environment. </param>
-/// <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
-private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
-{
-	if (args.OriginalFontName == "Arial Unicode MS")
-		args.AlternateFontName = "Arial";
-	else
-		args.AlternateFontName = "Times New Roman";
-}
-{% endhighlight %}
-
-{% highlight vb.net %}
-'Load the PowerPoint presentation and convert to PDF
-Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
-pptxDoc.ChartToImageConverter = New ChartToImageConverter()
-
-'Initializes the 'SubstituteFont' event to set the replacement font
-AddHandler pptxDoc.FontSettings.SubstituteFont, AddressOf SubstituteFont
-'Convert the PowerPoint presentation to PDF file
-Dim pdfDoc As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
-'Save the PDF file.
-pdfDoc.Save("Sample.pdf")
-
-'Dispose the PowerPoint presentation instance
-pptxDoc.Dispose()
-
-'Dispose the PDF document instance
-pdfDoc.Dispose()
-
-''' <summary>
-''' Sets the alternate font when a specified font is unavailable in the production environment
-''' </summary>
-''' <param name="sender">FontSettings type of the Presentation in which the specified font is used but unavailable in production environment. </param>
-''' <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
-Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
-' Sets the alternate font when a specified font is not installed in the production environment
-If args.OriginalFontName = "Arial Unicode MS" Then
-args.AlternateFontName = "Arial"
-Else
-args.AlternateFontName = "Times New Roman"
-End If
-End Sub
-{% endhighlight %}
-{% endtabs %}
 
 ## Handouts
 
