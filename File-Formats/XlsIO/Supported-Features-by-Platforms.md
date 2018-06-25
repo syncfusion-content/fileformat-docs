@@ -57,15 +57,18 @@ The list of various supported and non-supported Excel features of Essential XlsI
   <tr>
     <th>Import and Export</th>
     <th>Windows Forms, WPF, ASP.NET and ASP.NET MVC</th>
-    <th>UWP, Xamarin and ASP.NET Core</th>
+    <th>UWP and Xamarin</th>
+    <th>ASP.NET Core</th>
   </tr>
   <tr>
     <td>Import data from DataTable, DataColumn, DataView, Array to worksheet.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Import data from Business Objects to worksheet.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>  
@@ -73,20 +76,24 @@ The list of various supported and non-supported Excel features of Essential XlsI
     <td>Import data into a pre-formatted template using Template Markers.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Importing large amounts of data with minimal memory consumption can be achieved using the import on save option.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Export data from worksheet to DataTable.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Imports data from various external sources like Microsoft Access, SQL Server and Excel, which maintain the connection to refresh data dynamically.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
   </tr>
 </table>

@@ -8,321 +8,277 @@ documentation: UG
 
 # Excel to ODS Conversion
 
-The Open Document Format for Office Applications (ODF), also known as OpenDocument, is an XML-based file format for spreadsheets, charts, presentations and word processing documents. It was developed with the aim of providing an open, XML-based file format specification for office applications. OpenOffice uses ODF format as its default document format. OpenDocument Spreadsheet (ODS) is the file format for Excel documents. XlsIO supports conversion of XLS/XLSX documents to ODS.
-
-The following code snippet illustrates the creation of simple Excel file and exporting the same to ODS format.
-
-{% tabs %}
-
-{% highlight c# %}
-
-ExcelEngine excelEngine = new ExcelEngine();
-
-IApplication application = excelEngine.Excel;
-
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Create(1);
-
-IWorksheet worksheet = workbook.Worksheets[0];
-
-worksheet.Range["A1"].Text = "Month";
-
-worksheet.Range["B1"].Text = "Sales";
-
-worksheet.Range["A5"].Text = "Total";
-
-worksheet.Range["A2"].Text = "January";
-
-worksheet.Range["A3"].Text = "February";
-
-worksheet.AutofitColumn(1);
-
-worksheet.Range["B2"].Number = 68878;
-
-worksheet.Range["B3"].Number = 71550;
-
-worksheet.Range["B5"].Formula = "SUM(B2:B4)";
-
-//Comments
-IComment comment = worksheet.Range["B5"].AddComment();
-
-comment.RichText.Text = "This cell has formula.";
-
-IRichTextString richText = comment.RichText;
-
-IFont blueFont = workbook.CreateFont();
-
-blueFont.Color = ExcelKnownColors.Blue;
-
-richText.SetFont(0, 13, blueFont);
-
-IFont redFont = workbook.CreateFont();
-
-redFont.Color = ExcelKnownColors.Red;
-
-richText.SetFont(14, 20, redFont);
-			
-//Formatting
-IStyle style = workbook.Styles.Add("Style1");
-style.Color = Color.DarkBlue;
-style.Font.Color = ExcelKnownColors.WhiteCustom;
-
-worksheet.Range["A1:B1"].CellStyleName = "Style1";
-worksheet.Range["A5:B5"].CellStyleName = "Style1";
-
-//Save in ODS format
-workbook.SaveAs("Output.ods");
-
-workbook.Close();
-
-excelEngine.Dispose();
-
-{% endhighlight %}
-
-{% highlight vb %}
-
-Dim excelEngine As New ExcelEngine()
-
-Dim application As IApplication = excelEngine.Excel
-
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-Dim worksheet As IWorksheet = workbook.Worksheets(0)
-
-worksheet.Range("A1").Text = "Month"
-
-worksheet.Range("B1").Text = "Sales"
-
-worksheet.Range("A5").Text = "Total"
-
-worksheet.Range("A2").Text = "January"
-
-worksheet.Range("A3").Text = "February"
-
-worksheet.AutofitColumn(1)
-
-worksheet.Range("B2").Number = 68878
-
-worksheet.Range("B3").Number = 71550
-
-worksheet.Range("B5").Formula = "SUM(B2:B4)"
-
-'Comments
-Dim comment As IComment = worksheet.Range("B5").AddComment()
-
-comment.RichText.Text = "This cell has formula."
-
-Dim richText As IRichTextString = comment.RichText
-
-Dim blueFont As IFont = workbook.CreateFont()
-
-blueFont.Color = ExcelKnownColors.Blue
-
-richText.SetFont(0, 13, blueFont)
-
-Dim redFont As IFont = workbook.CreateFont()
-
-redFont.Color = ExcelKnownColors.Red
-
-richText.SetFont(14, 20, redFont)
-
-'Formatting
-Dim style As IStyle = workbook.Styles.Add("Style1")
-style.Color = Color.DarkBlue
-style.Font.Color = ExcelKnownColors.WhiteCustom
-
-worksheet.Range("A1:B1").CellStyleName = "Style1"
-worksheet.Range("A5:B5").CellStyleName = "Style1"
-
-'Save in ODS format
-workbook.SaveAs("Output.ods")
-
-workbook.Close()
-
-excelEngine.Dispose()
-
-{% endhighlight %}
-
-{% endtabs %}
+The Open Document Format for Office Applications (ODF) is also known as OpenDocument. It is an XML-based file format for spreadsheets, charts, presentations, and word processing documents. It was developed with the aim of providing an open and XML-based file format specification for office applications. OpenOffice uses ODF format as its default document format. The OpenDocument Spreadsheet (ODS) is the file format for Excel documents. XlsIO supports conversion of XLS/XLSX documents to ODS.
 
 ## Saving ODS in different platforms
 
-**ASP.NET**
-
-The following code snippet illustrates how to download an OpenDocument Spreadsheet in browser after saving the document.
+The following code snippet illustrates the creation of an Excel file and exporting it to ODS format.
 
 {% tabs %}
-
 {% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
 
-ExcelEngine excelEngine = new ExcelEngine();
+  worksheet.Range["A1"].Text = "Month";
+  worksheet.Range["B1"].Text = "Sales";
+  worksheet.Range["A5"].Text = "Total";
+  worksheet.Range["A2"].Text = "January";
+  worksheet.Range["A3"].Text = "February";
 
-IApplication application = excelEngine.Excel;
+  worksheet.AutofitColumn(1);
 
-application.DefaultVersion = ExcelVersion.Excel2013;
+  worksheet.Range["B2"].Number = 68878;
+  worksheet.Range["B3"].Number = 71550;
+  worksheet.Range["B5"].Formula = "SUM(B2:B4)";
 
-IWorkbook workbook = application.Workbooks.Create(1);
+  //Comments
+  IComment comment = worksheet.Range["B5"].AddComment();
+  comment.RichText.Text = "This cell has formula.";
 
-IWorksheet sheet = workbook.Worksheets[0];
+  IRichTextString richText = comment.RichText;
 
-sheet.Range["A3"].Text = "Hello World";
+  IFont blueFont = workbook.CreateFont();
+  blueFont.Color = ExcelKnownColors.Blue;
+  richText.SetFont(0, 13, blueFont);
 
-//Save in ODS format
-workbook.SaveAs("Output.ods", ExcelSaveType.SaveAsODS, Response, ExcelDownloadType.PromptDialog);
+  IFont redFont = workbook.CreateFont();
+  redFont.Color = ExcelKnownColors.Red;
+  richText.SetFont(14, 20, redFont);
 
-workbook.Close();
+  //Formatting
+  IStyle style = workbook.Styles.Add("Style1");
+  style.Color = Color.DarkBlue;
+  style.Font.Color = ExcelKnownColors.WhiteCustom;
 
-excelEngine.Dispose();
+  worksheet.Range["A1:B1"].CellStyleName = "Style1";
+  worksheet.Range["A5:B5"].CellStyleName = "Style1";
 
+  //Save in ODS format
+  workbook.SaveAs("Output.ods");
+}
 {% endhighlight %}
 
 {% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-Dim excelEngine As New ExcelEngine()
+  worksheet.Range("A1").Text = "Month"
+  worksheet.Range("B1").Text = "Sales"
+  worksheet.Range("A5").Text = "Total"
+  worksheet.Range("A2").Text = "January"
+  worksheet.Range("A3").Text = "February"
 
-Dim application As IApplication = excelEngine.Excel
+  worksheet.AutofitColumn(1)
 
-application.DefaultVersion = ExcelVersion.Excel2013
+  worksheet.Range("B2").Number = 68878
+  worksheet.Range("B3").Number = 71550
+  worksheet.Range("B5").Formula = "SUM(B2:B4)"
 
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  'Comments
+  Dim comment As IComment = worksheet.Range("B5").AddComment()
+  comment.RichText.Text = "This cell has formula."
 
-Dim sheet As IWorksheet = workbook.Worksheets(0)
+  Dim richText As IRichTextString = comment.RichText
 
-sheet.Range("A3").Text = "Hello World"
+  Dim blueFont As IFont = workbook.CreateFont()
+  blueFont.Color = ExcelKnownColors.Blue
+  richText.SetFont(0, 13, blueFont)
 
-'Save in ODS format
-workbook.SaveAs("Output.ods", ExcelSaveType.SaveAsODS, Response, ExcelDownloadType.PromptDialog)
+  Dim redFont As IFont = workbook.CreateFont()
+  redFont.Color = ExcelKnownColors.Red
+  richText.SetFont(14, 20, redFont)
 
-workbook.Close()
+  'Formatting
+  Dim style As IStyle = workbook.Styles.Add("Style1")
+  style.Color = Color.DarkBlue
+  style.Font.Color = ExcelKnownColors.WhiteCustom
 
-excelEngine.Dispose()
+  worksheet.Range("A1:B1").CellStyleName = "Style1"
+  worksheet.Range("A5:B5").CellStyleName = "Style1"
 
+  'Save in ODS format
+  workbook.SaveAs("Output.ods")
+End Using
 {% endhighlight %}
 
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  worksheet.Range["A1"].Text = "Month";
+  worksheet.Range["B1"].Text = "Sales";
+  worksheet.Range["A5"].Text = "Total";
+  worksheet.Range["A2"].Text = "January";
+  worksheet.Range["A3"].Text = "February";
+
+  worksheet.AutofitColumn(1);
+
+  worksheet.Range["B2"].Number = 68878;
+  worksheet.Range["B3"].Number = 71550;
+  worksheet.Range["B5"].Formula = "SUM(B2:B4)";
+
+  //Comments
+  IComment comment = worksheet.Range["B5"].AddComment();
+  comment.RichText.Text = "This cell has formula.";
+
+  IRichTextString richText = comment.RichText;
+
+  IFont blueFont = workbook.CreateFont();
+  blueFont.Color = ExcelKnownColors.Blue;
+  richText.SetFont(0, 13, blueFont);
+
+  IFont redFont = workbook.CreateFont();
+  redFont.Color = ExcelKnownColors.Red;
+  richText.SetFont(14, 20, redFont);
+
+  //Formatting
+  IStyle style = workbook.Styles.Add("Style1");
+  style.Color = Color.FromArgb(255, 72, 61, 139);
+  style.Font.Color = ExcelKnownColors.WhiteCustom;
+
+  worksheet.Range["A1:B1"].CellStyleName = "Style1";
+  worksheet.Range["A5:B5"].CellStyleName = "Style1";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".ods" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsODS);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  worksheet.Range["A1"].Text = "Month";
+  worksheet.Range["B1"].Text = "Sales";
+  worksheet.Range["A5"].Text = "Total";
+  worksheet.Range["A2"].Text = "January";
+  worksheet.Range["A3"].Text = "February";
+
+  worksheet.AutofitColumn(1);
+
+  worksheet.Range["B2"].Number = 68878;
+  worksheet.Range["B3"].Number = 71550;
+  worksheet.Range["B5"].Formula = "SUM(B2:B4)";
+
+  //Comments
+  IComment comment = worksheet.Range["B5"].AddComment();
+  comment.RichText.Text = "This cell has formula.";
+
+  IRichTextString richText = comment.RichText;
+
+  IFont blueFont = workbook.CreateFont();
+  blueFont.Color = ExcelKnownColors.Blue;
+  richText.SetFont(0, 13, blueFont);
+
+  IFont redFont = workbook.CreateFont();
+  redFont.Color = ExcelKnownColors.Red;
+  richText.SetFont(14, 20, redFont);
+
+  //Formatting
+  IStyle style = workbook.Styles.Add("Style1");
+  style.Color = Color.DarkBlue;
+  style.Font.Color = ExcelKnownColors.WhiteCustom;
+
+  worksheet.Range["A1:B1"].CellStyleName = "Style1";
+  worksheet.Range["A5:B5"].CellStyleName = "Style1";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.ods", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream, ExcelSaveType.SaveAsODS);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  worksheet.Range["A1"].Text = "Month";
+  worksheet.Range["B1"].Text = "Sales";
+  worksheet.Range["A5"].Text = "Total";
+  worksheet.Range["A2"].Text = "January";
+  worksheet.Range["A3"].Text = "February";
+
+  worksheet.AutofitColumn(1);
+
+  worksheet.Range["B2"].Number = 68878;
+  worksheet.Range["B3"].Number = 71550;
+  worksheet.Range["B5"].Formula = "SUM(B2:B4)";
+
+  //Comments
+  IComment comment = worksheet.Range["B5"].AddComment();
+  comment.RichText.Text = "This cell has formula.";
+
+  IRichTextString richText = comment.RichText;
+
+  IFont blueFont = workbook.CreateFont();
+  blueFont.Color = ExcelKnownColors.Blue;
+  richText.SetFont(0, 13, blueFont);
+
+  IFont redFont = workbook.CreateFont();
+  redFont.Color = ExcelKnownColors.Red;
+  richText.SetFont(14, 20, redFont);
+
+  //Formatting
+  IStyle style = workbook.Styles.Add("Style1");
+  style.Color = Syncfusion.Drawing.Color.DarkBlue;
+  style.Font.Color = ExcelKnownColors.WhiteCustom;
+
+  worksheet.Range["A1:B1"].CellStyleName = "Style1";
+  worksheet.Range["A5:B5"].CellStyleName = "Style1";
+
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream, ExcelSaveType.SaveAsODS);
+
+  string fileName = "Output.ods";
+  outputStream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
+{% endhighlight %}
 {% endtabs %}
 
-**ASP.NET MVC**
-
-The following code snippet illustrates how to save an OpenDocument Spreadsheet in ASP.NET MVC.
-
-{% tabs %}
-
-{% highlight c# %}
-
-ExcelEngine excelEngine = new ExcelEngine();
-
-IApplication application = excelEngine.Excel;
-
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-IWorkbook workbook = application.Workbooks.Create(1);
-
-IWorksheet sheet = workbook.Worksheets[0];
-
-sheet.Range["A3"].Text = "Hello World";
-
-//Save in ODS format
-return excelEngine.SaveAsActionResult(workbook, "ExcelToODS.ods", HttpContext.ApplicationInstance.Response, ExcelDownloadType.PromptDialog, ExcelHttpContentType.ODS);
-
-{% endhighlight %}
-
-{% highlight vb %}
-
-Dim excelEngine As New ExcelEngine()
-
-Dim application As IApplication = excelEngine.Excel
-
-application.DefaultVersion = ExcelVersion.Excel2013
-
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-sheet.Range("A3").Text = "Hello World"
-
-'Save in ODS format
-Return excelEngine.SaveAsActionResult(workbook, "ExcelToODS.ods", HttpContext.ApplicationInstance.Response, ExcelDownloadType.PromptDialog, ExcelHttpContentType.ODS)
-
-{% endhighlight %}
-
-{% endtabs %}
-
-The method SaveAsActionResult() can be referred from [here](https://help.syncfusion.com/file-formats/xlsio/asp-net-mvc#).
-
-**UWP**
-
-The following code snippet illustrates how to save an OpenDocument Spreadsheet in UWP using file save picker.
-
-{% tabs %}
-
-{% highlight c# %}
-
- ExcelEngine excelEngine = new ExcelEngine();
-
- IApplication application = excelEngine.Excel;
-
- application.DefaultVersion = ExcelVersion.Excel2013;
- 
- //Initializes FileSavePicker.
-
- FileSavePicker savePicker = new FileSavePicker();
-
- savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-
- savePicker.SuggestedFileName = "ExcelToODS";
-
- savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".ods" });
-
- StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
- IWorkbook workbook = application.Workbooks.Create(1);
-
- //Save in ODS format
- await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsODS);
-
- workbook.Close();
-
- excelEngine.Dispose();
- 
-{% endhighlight %}
-
-{% highlight vb %}
-
- Dim excelEngine As New ExcelEngine()
-
- Dim application As IApplication = excelEngine.Excel
-
- application.DefaultVersion = ExcelVersion.Excel2013
-
- 'Initializes FileSavePicker.
-
- Dim savePicker As New FileSavePicker()
-
- savePicker.SuggestedStartLocation = PickerLocationId.Desktop
-
- savePicker.SuggestedFileName = "ExcelToODS"
-
- savePicker.FileTypeChoices.Add("Excel Files", New List(Of String)() From { ".ods" })
-
- Dim storageFile As StorageFile = Await savePicker.PickSaveFileAsync()
-
- 'Save in ODS format
- IWorkbook workbook = application.Workbooks.Create(1)
-
- Await workbook.SaveAsAsync(storageFile, ExcelSaveType.SaveAsODS)
-
- workbook.Close()
-
- excelEngine.Dispose()
- 
-{% endhighlight %}
-
-{% endtabs %}
-
-## Supported and Unsupported Elements in ODS Conversion
+## Supported and unsupported elements in ODS conversion
 
 <table>
 <tr>
