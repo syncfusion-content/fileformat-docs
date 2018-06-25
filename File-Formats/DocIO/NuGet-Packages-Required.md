@@ -81,7 +81,7 @@ Install-Package Syncfusion.DocIO.UWP -Source http://nuget.syncfusion.com/nuget_u
 </td>
 </tr>
 </table>
-N> Starting with v16.2.0.41, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your Xamarin application to use our components.
+N> Starting with v16.2.0.41, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
 ## Converting Word document to PDF
 
@@ -163,7 +163,7 @@ Install-Package Syncfusion.Xamarin.DocIORenderer -Source https://api.nuget.org/v
 </tr>
 </table>
 
-N> 1. Starting with v16.2.0.41, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your Xamarin application to use our components.
+N> 1. Starting with v16.2.0.41, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Install SkiaSharp package version 1.59.3 in addition to DocIORenderer package.
 N> 3. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
 
@@ -199,7 +199,7 @@ Install-Package Syncfusion.OfficeChartToImageConverter.Wpf -Source http://nuget.
 </tr>
 </table>
 
-N> 1. Starting with v16.2.0.41, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your Xamarin application to use our components.
+N> 1. Starting with v16.2.0.41, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. The "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards and also it not supported in the Universal Windows Platform.
 N> 3. The "Syncfusion.AspNet.FileFormats.nupkg" and "Syncfusion.AspNet.Mvc5.FileFormats.nupkg" internally includes the necessary assemblies. So it is not necessary to install the "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package in addition to these packages.
 
