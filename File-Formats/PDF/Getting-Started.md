@@ -24,6 +24,8 @@ To create a PDF document from scratch and saving it to disk or stream, the follo
   </tr>
 </table>
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this link to know about registering Syncfusion license key in your Xamarin application to use our components.
+
 Include the following namespaces in your .cs or .vb file as shown below.
 {% tabs %}
 {% highlight c# %}
