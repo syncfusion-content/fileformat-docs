@@ -482,6 +482,423 @@ wordDocument.Close()
 {% endhighlight %}
 {% endtabs %}
 
+### Accessible PDF document
+
+This setting allows you to determine whether to preserve document structured tags in the converted PDF document for accessibility (508 compliance) support. This property will set the title and description for images, diagrams and other objects in the generated PDF document. This information will be useful for people with vision or cognitive impairments who may not able to see or understand the object
+
+The following code sample shows how to preserve document structured tags in the converted PDF document.
+
+{% tabs %}
+{% highlight c# %}
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+
+//Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+
+DocToPDFConverter converter = new DocToPDFConverter();
+
+//Sets true to preserve document structured tags in the converted PDF document 
+
+converter.Settings.AutoTag = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+//Saves the PDF file to file system
+
+pdfDocument.Save("WordtoPDF.pdf");
+
+//Closes the instance of document objects
+
+pdfDocument.Close(true);
+
+wordDocument.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads an existing Word document
+
+Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+
+'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+
+Dim converter As New DocToPDFConverter()
+
+'Sets true to preserve document structured tags in the converted PDF document 
+
+converter.Settings.AutoTag = True
+
+'Converts Word document into PDF document
+
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+
+'Saves the PDF file to file system
+
+pdfDocument.Save("WordtoPDF.pdf")
+
+'Closes the instance of document objects
+
+pdfDocument.Close(True)
+
+wordDocument.Close()
+{% endhighlight %}
+
+{% highlight asp.net core %}
+// Open the file as Stream
+FileStream docStream = new FileStream(@"D:\Template.docx", FileMode.Open, FileAccess.Read);
+
+//Loads file stream into Word document
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Sets true to preserve document structured tags in the converted PDF document 
+
+render.Settings.AutoTag = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+{% endhighlight %}
+
+{% highlight xamarin %}
+//Load the Word document as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+// Loads the stream into Word Document.
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+	
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Sets true to preserve document structured tags in the converted PDF document 
+
+render.Settings.AutoTag = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+{% endhighlight %}
+{% endtabs %}
+
+### Word document headings to PDF bookmarks
+
+This setting allows you to determine whether to preserve Word document headings (i.e., paragraph with heading style and outline level) as bookmarks in the converted PDF document. As per Microsoft Word behavior, either Word document headings or bookmarks can be exported as PDF bookmarks. By default, DocIO preserves Word documents bookmarks as PDF bookmarks in converted PDF document.
+
+The following code sample shows how to preserve Word document headings as bookmarks in the converted PDF document.
+
+{% tabs %}
+{% highlight c# %}
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+
+//Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+
+DocToPDFConverter converter = new DocToPDFConverter();
+
+//Sets ExportBookmarks for preserving Word document headings as PDF bookmarks
+
+converter.Settings.ExportBookmarks = Syncfusion.DocIO.ExportBookmarkType.Headings;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+//Saves the PDF file to file system
+
+pdfDocument.Save("WordtoPDF.pdf");
+
+//Closes the instance of document objects
+
+pdfDocument.Close(true);
+
+wordDocument.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads an existing Word document
+
+Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+
+'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+
+Dim converter As New DocToPDFConverter()
+
+'Sets ExportBookmarks for preserving Word document headings as PDF bookmarks
+
+converter.Settings.ExportBookmarks = Syncfusion.DocIO.ExportBookmarkType.Headings
+
+'Converts Word document into PDF document
+
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+
+'Saves the PDF file to file system
+
+pdfDocument.Save("WordtoPDF.pdf")
+
+'Closes the instance of document objects
+
+pdfDocument.Close(True)
+
+wordDocument.Close()
+{% endhighlight %}
+
+{% highlight asp.net core %}
+// Open the file as Stream
+FileStream docStream = new FileStream(@"D:\Template.docx", FileMode.Open, FileAccess.Read);
+
+//Loads file stream into Word document
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Sets ExportBookmarks for preserving Word document headings as PDF bookmarks
+
+render.Settings.ExportBookmarks = Syncfusion.DocIO.ExportBookmarkType.Headings;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+{% endhighlight %}
+
+{% highlight xamarin %}
+//Load the Word document as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+// Loads the stream into Word Document.
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+	
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Sets ExportBookmarks for preserving Word document headings as PDF bookmarks
+
+render.Settings.ExportBookmarks = Syncfusion.DocIO.ExportBookmarkType.Headings;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+{% endhighlight %}
+{% endtabs %}
+
+### Word document form field to PDF form field.
+
+This setting allows you to determine whether to preserve Word document form fields (Text form field, Checkbox form field and Drop-down form field) as PDF form fields in the converted PDF document. This features helps in creating fillable PDF forms from Word document.
+
+The following code sample shows how to preserve Word document form field as PDF form field in the converted PDF document.
+
+{% tabs %}
+{% highlight c# %}
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+
+//Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+
+DocToPDFConverter converter = new DocToPDFConverter();
+
+//Sets true to preserve the Word document form field as editable PDF form field in PDF document
+
+converter.Settings.PreserveFormFields = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+//Saves the PDF file to file system
+
+pdfDocument.Save("WordtoPDF.pdf");
+
+//Closes the instance of document objects
+
+pdfDocument.Close(true);
+
+wordDocument.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads an existing Word document
+
+Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+
+'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+
+Dim converter As New DocToPDFConverter()
+
+'Sets true to preserve the Word document form field as editable PDF form field in PDF document
+
+converter.Settings.PreserveFormFields = True
+
+'Converts Word document into PDF document
+
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+
+'Saves the PDF file to file system
+
+pdfDocument.Save("WordtoPDF.pdf")
+
+'Closes the instance of document objects
+
+pdfDocument.Close(True)
+
+wordDocument.Close()
+{% endhighlight %}
+
+{% highlight asp.net core %}
+// Open the file as Stream
+FileStream docStream = new FileStream(@"D:\Template.docx", FileMode.Open, FileAccess.Read);
+
+//Loads file stream into Word document
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Sets true to preserve the Word document form field as editable PDF form field in PDF document
+
+render.Settings.PreserveFormFields = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+{% endhighlight %}
+
+{% highlight xamarin %}
+//Load the Word document as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+// Loads the stream into Word Document.
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+	
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Sets true to preserve the Word document form field as editable PDF form field in PDF document
+
+render.Settings.PreserveFormFields = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+{% endhighlight %}
+{% endtabs %}
+
 ### Image quality 
 
 This setting allows you to determine the quality of the charts and JPEG images in the converted PDF document.
