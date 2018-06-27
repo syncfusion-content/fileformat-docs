@@ -988,7 +988,7 @@ PdfPage page = pdfDoc.Pages.Add();
 
 pdfDoc.DocumentInformation.CustomMetadata["ID"] = "IO1";
 
-pdfDoc.DocumentInformation.CustomMetadata["Company Name"] = "Sycnfusion";
+pdfDoc.DocumentInformation.CustomMetadata["Company Name"] = "Syncfusion";
 
 pdfDoc.DocumentInformation.CustomMetadata["Key"] = "DocumentKey";
 
@@ -1015,7 +1015,7 @@ Dim page As PdfPage = pdfDoc.Pages.Add()
 
 pdfDoc.DocumentInformation.CustomMetadata("ID") = "IO1"
 
-pdfDoc.DocumentInformation.CustomMetadata("Company Name") = "Sycnfusion"
+pdfDoc.DocumentInformation.CustomMetadata("Company Name") = "Syncfusion"
 
 pdfDoc.DocumentInformation.CustomMetadata("Key") = "DocumentKey"
 
