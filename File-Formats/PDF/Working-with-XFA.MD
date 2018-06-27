@@ -2558,6 +2558,54 @@ loadedDocument.Close()
 
 {% endtabs %}
 
+You can fill and save hidden items in XFA combo box field by using the following code snippet.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Load the existing PDF document
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument("Input.pdf");
+//Load the existing XFA form
+PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+//Get the loaded combo box field
+PdfLoadedXfaComboBoxField loadedComboBoxField = (loadedForm.Fields["subform1[0]"] as PdfLoadedXfaForm).Fields["comboBoxField[0]"] as PdfLoadedXfaComboBoxField;
+//Set the combo box selected index using hidden items
+loadedComboBoxField.SelectedValue = loadedComboBoxField.HiddenItems[0];
+//Save the combo box field hidden values
+List<string> hiddenValues = new List<string>();
+hiddenValues = loadedComboBoxField.HiddenItems;
+//Save the document
+loadedDocument.Save("output.pdf");
+//Close the document
+loadedDocument.Close();
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing PDF document
+Dim loadedDocument As New PdfLoadedXfaDocument("Input.pdf")
+'Load the existing XFA form
+Dim loadedForm As PdfLoadedXfaForm = loadedDocument.XfaForm
+'Get the loaded combo box field
+Dim loadedComboBoxField As PdfLoadedXfaComboBoxField = TryCast(TryCast(loadedForm.Fields("subform1[0]"), PdfLoadedXfaForm).Fields("comboBoxField[0]"), PdfLoadedXfaComboBoxField)
+'Set the combo box selected index using hidden items
+loadedComboBoxField.SelectedValue = loadedComboBoxField.HiddenItems(0)
+'Save the combo box field hidden values
+Dim hiddenValues As New List(Of String)()
+hiddenValues = loadedComboBoxField.HiddenItems
+'Save the document
+loadedDocument.Save("output.pdf")
+'Close the document
+loadedDocument.Close()
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ### Filling the XFA list box field
 
 You can fill the XFA list box field by using the below code snippet.
