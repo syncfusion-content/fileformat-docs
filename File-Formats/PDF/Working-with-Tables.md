@@ -548,6 +548,123 @@ pdfDocument.Close(True)
 
 {% endtabs %}
 
+You can create table using PdfGrid by loading the IEnumerable data source. Refer to the following code.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "1", Name = "Clay" };
+
+Object row2 = new { ID = "2", Name = "Gray" };
+
+Object row3 = new { ID = "3", Name = "Ash" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+data.Add(row3);
+
+//Add list to IEnumerable
+
+IEnumerable<object> tableData = data;
+
+//Assign data source
+
+pdfGrid.DataSource = tableData;
+
+//Draw grid to the page of PDF document
+
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the document
+
+doc.Save("Sample.pdf");
+
+//close the document
+
+doc.Close(true);
+
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Create a new PDF document
+
+Dim doc As New PdfDocument()
+
+'Add a page
+
+Dim page As PdfPage = doc.Pages.Add()
+
+'Create a PdfGrid
+
+Dim pdfGrid As New PdfGrid()
+
+'Add values to list
+
+Dim data As New List(Of Object)()
+
+Dim row1 As Object = New With {Key .ID = "1", Key .Name = "Clay"}
+
+Dim row2 As Object = New With {Key .ID = "2", Key .Name = "Gray"}
+
+Dim row3 As Object = New With {Key .ID = "3", Key .Name = "Ash"}
+
+data.Add(row1)
+
+data.Add(row2)
+
+data.Add(row3)
+
+'Add list to IEnumerable
+
+Dim tableData As IEnumerable(Of Object) = data
+
+'Assign data source
+
+pdfGrid.DataSource = tableData
+
+'Draw grid to the page of PDF document
+
+pdfGrid.Draw(page, New PointF(10, 10))
+
+'Save the document
+
+doc.Save("Sample.pdf")
+
+'close the document
+
+doc.Close(True)
+
+
+{% endhighlight %}
+
+{% endtabs %} 
+
+
 ### Creating a simple table using PdfGrid in an existing document
 
 You can create a table using PdfGrid in the existing document by using the following code sample
