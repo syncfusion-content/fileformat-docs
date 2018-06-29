@@ -891,11 +891,11 @@ pdfDoc.Close(True)
 {% endtabs %}  
 
 
-## Adding Custom Metadata to the PDF document
+## Adding Custom Schema to the PDF document
 
-Essential PDF allows you to add required metadata (custom metadata) to a PDF document
+Essential PDF allows you to add required metadata (custom schema) to a PDF document
 
-You can add custom metadata Using XmpMetadata class. The following code illustrates this.
+You can add custom schema Using XmpMetadata class. The following code illustrates this.
 
 {% tabs %}  
 
@@ -966,3 +966,115 @@ pdfDoc.Close(True)
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Adding Custom Metadata to the PDF document
+
+The custom metadata can be added in PDF document by using the CustomMetadata property. Refer to the following code. 
+
+{% tabs %}  
+
+{% highlight c# %}
+
+
+//Create PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Add new PDF page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Add Custom MetaData
+
+pdfDoc.DocumentInformation.CustomMetadata["ID"] = "IO1";
+
+pdfDoc.DocumentInformation.CustomMetadata["CompanyName"] = "Syncfusion";
+
+pdfDoc.DocumentInformation.CustomMetadata["Key"] = "DocumentKey";
+
+//Save and close the document
+
+pdfDoc.Save("AddCustomField.pdf");
+
+pdfDoc.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create PDF document
+
+Dim pdfDoc As New PdfDocument()
+
+'Add new PDF page
+
+Dim page As PdfPage = pdfDoc.Pages.Add()
+
+'Add Custom MetaData
+
+pdfDoc.DocumentInformation.CustomMetadata("ID") = "IO1"
+
+pdfDoc.DocumentInformation.CustomMetadata("CompanyName") = "Syncfusion"
+
+pdfDoc.DocumentInformation.CustomMetadata("Key") = "DocumentKey"
+
+'Save and close the document
+
+pdfDoc.Save("AddCustomField.pdf")
+
+pdfDoc.Close(True)
+
+
+{% endhighlight %}
+
+{% endtabs %}   
+
+
+## Removing Custom Metadata from an existing PDF document
+
+You can remove the custom metadata from an existing PDF document as follows. 
+
+{% tabs %}  
+
+{% highlight c# %}
+
+
+//Load the document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Remove custom metadata using key name
+
+loadedDocument.DocumentInformation.CustomMetadata.Remove("Key");
+
+//Save and close the document
+
+loadedDocument.Save("Output.pdf");
+
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the document
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Remove custom metadata using key name
+
+loadedDocument.DocumentInformation.CustomMetadata.Remove("Key")
+
+'Save and close the document
+
+loadedDocument.Save("Output.pdf")
+
+loadedDocument.Close(True)
+
+
+{% endhighlight %}
+
+{% endtabs %}   
