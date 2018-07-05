@@ -51,8 +51,8 @@ Drawing RTL text<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td></tr>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td></tr>
 <tr>
 <td>
 Text Extraction<br/><br/></td><td>
@@ -455,6 +455,14 @@ No<br/><br/></td></tr>
 <tr>
 <td>
 EMF to PDF<br/><br/></td><td>
+Yes<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td></tr>
+<tr>
+<td>
+PDF to PDF/A-1b<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
