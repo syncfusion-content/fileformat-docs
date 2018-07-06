@@ -167,7 +167,7 @@ End Using
 
 ## Adding animation to text
 
-Animation effects can be applied to text. The following code example demonstrated how to set an interactive animation.
+Animation effects can be applied to text. The following code example demonstrated how to set an animation effect to a text.
 
 {% tabs %}
 
@@ -237,7 +237,7 @@ End Using
 
 ## Adding exit animation effect
 
-When you add common animation effects for both entrance and exit types, animation is applied with entrance effect by default. The following code example demonstrates how to set exist type animation for a slide.
+When you add common animation effects for both entrance and exit types, animation is applied with entrance effect by default. The following code example demonstrates how to set exist type animation for a shape.
 
 {% tabs %}
 
@@ -401,7 +401,7 @@ End Using
 
 ## Modifying animation effect sub type
 
-Presentation library allows you to edit the animations effect sub types in existing presentations. The following example demonstrates how to modify an existing animation effect sub types applied to a shape.
+Presentation library allows you to edit the sub type of animations effects in existing presentations. The following example demonstrates how to modify a sub type applied to the existing animation.
 
 {% tabs %}
 
