@@ -8,16 +8,16 @@ keywords: PowerPoint animation, slide animation, shape animation, pptx animation
 ---
 # Working with Animations
 
-Animations are visual effects for the objects in PowerPoint presentation. Animation can help make a PowerPoint presentation more dynamic. Animation effects can be grouped into below four categories,
+Animations are visual effects for the objects in PowerPoint presentation and animation helps to make a PowerPoint presentation more dynamic. Animation effects can be grouped into four categories.,
 
 1. Entrance
 2. Emphasis
 3. Exit
-4. Motion Paths
+4. Motion paths
 
-Entrance effects can be set to objects so that they enter with animations during Slide Show. Emphasis effects animate the objects on the spot. Exit effects allow objects to leave the Slide Show with animations. Motion Paths allow objects to move around the Slide Show. Each effect contains variables such as start (On click, with previous and after previous), delay, speed, repeat and trigger. This makes animations more flexible and interactive. 
+Entrance effects can be set to enter the objects with animations during slide show. Emphasis effects animate the objects on the spot. Exit effects allow objects to leave the slide show with animations. Motion Paths allow objects to move around the slide show. Each effect contains variables such as start (On click, with previous and after previous), delay, speed, repeat, and trigger. This makes animations more flexible and interactive. 
 
-Syncfusion Presentation library allows to animate the text, pictures, shapes, tables, SmartArt graphics, and charts in PowerPoint presentation.
+Syncfusion Presentation library allows you to animate the text, pictures, shapes, tables, SmartArt graphics, and charts in PowerPoint presentation.
 
 ## Adding animation effect to shapes
 
@@ -89,7 +89,7 @@ End Using
 
 ## Adding interactive animation
 
-Animations can be interactive when it depends on another slide element, like an animation associated with a rectangle can be triggered when a user clicks an oval shape in the slide. The following code example demonstrated how to set an interactive animation.
+Animations can be interactive when it depends on another slide element., for example, an animation associated with a rectangle is triggered when user clicks an oval shape in the slide. The following code example demonstrates how to set an interactive animation.
 
 {% tabs %}
 
@@ -183,7 +183,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 
 ISlide slide = pptxDoc.Slides[0];
 
-//Retrieve the first shape.
+//Retrieve the first shape
 
 IShape shape = slide.Shapes[0] as IShape;
 
@@ -195,7 +195,7 @@ ISequence sequence = slide.Timeline.MainSequence;
 
 IEffect bounceEffect = sequence.AddEffect(shape, EffectType.Swivel, EffectSubtype.Vertical, EffectTriggerType.OnClick, BuildType.ByLevelParagraphs1);
 
-//Save the Presentation to the file system.
+//Save the Presentation to the file system
 
 pptxDoc.Save("Result.pptx");
 
@@ -213,7 +213,7 @@ Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
    Dim slide As ISlide = pptxDoc.Slides(0)
 
-   'Retrieve the first shape.
+   'Retrieve the first shape
 
    Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
 
@@ -225,7 +225,7 @@ Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
    Dim bounceEffect As IEffect = sequence.AddEffect(shape, EffectType.Swivel, EffectSubtype.Vertical, EffectTriggerType.OnClick, BuildType.ByLevelParagraphs1)
 
-   'Save the Presentation to the file system.
+   'Save the Presentation to the file system
 
    pptxDoc.Save("Result.pptx")
 
@@ -237,7 +237,7 @@ End Using
 
 ## Adding exit animation effect
 
-By default, when we add the common animation effects for both entrance and exit types, animation got applied with entrance effect. The following code example demonstrates how to set exist type animation for a slide.
+When you add common animation effects for both entrance and exit types, animation is applied with entrance effect by default. The following code example demonstrates how to set exist type animation for a slide.
 
 {% tabs %}
 
@@ -315,7 +315,7 @@ End Using
 
 ## Edit existing animation effect
 
-The Presentation library allows to edit the animations in existing presentations. The following example demonstrates how to modify an existing animation applied to a shape.
+The Presentation library allows you to edit the animations in existing presentations. The following example demonstrates how to modify an existing animation applied to a shape.
 
 {% tabs %}
 
@@ -331,7 +331,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 
 ISlide slide = pptxDoc.Slides[0];
 
-//Retrieve the first shape.
+//Retrieve the first shape
 
 IShape shape = slide.Shapes[0] as IShape;
 
@@ -351,7 +351,7 @@ IEffect animationEffect = animationEffects[0];
 
 animationEffect.Type = EffectType.GrowAndTurn;
 
-//Save the Presentation to the file system.
+//Save the Presentation to the file system
 
 pptxDoc.Save("Animation.pptx");
 
@@ -389,7 +389,7 @@ Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
    animationEffect.Type = EffectType.GrowAndTurn
 
-   'Save the Presentation to the file system.
+   'Save the Presentation to the file system
 
    pptxDoc.Save("Animation.pptx")
 
@@ -401,7 +401,7 @@ End Using
 
 ## Modifying animation effect sub type
 
-Presentation library allows to edit the animations effect sub types in existing presentations. The following example demonstrates how to modify an existing animation effect sub types applied to a shape.
+Presentation library allows you to edit the animations effect sub types in existing presentations. The following example demonstrates how to modify an existing animation effect sub types applied to a shape.
 
 {% tabs %}
 
@@ -417,7 +417,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 
 ISlide slide = pptxDoc.Slides[0];
 
-//Retrieves the first shape.
+//Retrieves the first shape
 
 IShape shape = slide.Shapes[0] as IShape;
 
@@ -433,7 +433,7 @@ IEffect wheelEffect = sequence[0] as IEffect;
 
 wheelEffect.Subtype = EffectSubtype.Wheel4;
 
-//Saves the Presentation to the file system.
+//Saves the Presentation to the file system
 
 pptxDoc.Save("Result.pptx");
 
@@ -451,7 +451,7 @@ Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
    Dim slide As ISlide = pptxDoc.Slides(0)
 
-   'Retrieves the first shape.
+   'Retrieves the first shape
 
    Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
 
@@ -467,7 +467,7 @@ Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
    wheelEffect.Subtype = EffectSubtype.Wheel4
 
-   'Saves the Presentation to the file system.
+   'Saves the Presentation to the file system
 
    pptxDoc.Save("Result.pptx")
 
@@ -479,7 +479,7 @@ End Using
 
 ## Modifying timing of animation effect
 
-Presentation library allows to edit the animation timing in existing presentations. The following example demonstrates how to modify an existing animation timing applied to a shape.
+Presentation library allows you to edit the animation timing in the existing presentations. The following example demonstrates how to modify an existing animation timing applied to a shape.
 
 {% tabs %}
 
@@ -495,7 +495,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 
 ISlide slide = pptxDoc.Slides[0];
 
-//Retrieves the first shape.
+//Retrieves the first shape
 
 IShape shape = slide.Shapes[0] as IShape;
 
@@ -511,7 +511,7 @@ IEffect pathEffect = sequence[0] as IEffect;
 
 pathEffect.Behaviors[0].Timing.Duration = 5;
 
-//Saves the Presentation to the file system.
+//Saves the Presentation to the file system
 
 pptxDoc.Save("Result.pptx");
 
@@ -529,7 +529,7 @@ Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
    Dim slide As ISlide = pptxDoc.Slides(0)
 
-   'Retrieves the first shape.
+   'Retrieves the first shape
 
    Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
 
@@ -558,7 +558,7 @@ End Using
 
 ## Reordering the animation effects
 
-Presentation library allows to reorder the animation effects in existing presentations. The following example demonstrates how to modify an existing animation order applied to a shape.
+Presentation library allows you to reorder the animation effects in existing presentations. The following example demonstrates how to modify an existing animation order applied to a shape.
 
 {% tabs %}
 
@@ -652,7 +652,7 @@ End Using
 
 ## Creating custom path animation effect
 
-Presentation library allows to create and modify the custom animations in presentations. The following example demonstrates how to apply a custom animation to a shape.
+Presentation library allows you to create and modify the custom animations in presentations. The following example demonstrates how to apply a custom animation to a shape.
 
 {% tabs %}
 
@@ -766,7 +766,7 @@ End Using
 
 ## Removing animation effect
 
-Presentation library allows to remove the animation effects from a shape. The following example demonstrates how to remove an animation effect from a shape.
+Presentation library allows you to remove the animation effects from a shape. The following example demonstrates how to remove an animation effect from a shape.
 
 {% tabs %}
 
@@ -782,7 +782,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
 
 ISlide slide = pptxDoc.Slides[0];
 
-//Retrieves the first shape.
+//Retrieves the first shape
 
 IShape shape = slide.Shapes[0] as IShape;
 
@@ -821,7 +821,7 @@ Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
    Dim slide As ISlide = pptxDoc.Slides(0)
 
-   'Retrieves the first shape.
+   'Retrieves the first shape
 
    Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
 
@@ -853,18 +853,18 @@ End Using
 
 ## Supported animation effects type
 
-Syncfusion Presentation library supports below predefined animation effects with following sub types like the Microsoft PowerPoint.
+Syncfusion Presentation library supports the following predefined animation effects with the sub types like Microsoft PowerPoint.
 
 <table>
 <tr>
 <td>
-{{'**Effect Type**'| markdownify }}
+{{'**Effect type**'| markdownify }}
 </td>
 <td>
 {{'**Valid PresetClass type**'| markdownify }}
 </td>
 <td>
-{{'**Valid Subtype**'| markdownify }}
+{{'**Valid subtype**'| markdownify }}
 </td>
 </tr>
 <tr>
