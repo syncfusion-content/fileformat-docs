@@ -924,7 +924,9 @@ Entrance or Exit
 
 </td>
 <td>
+
 EffectSubtype.Horizontal
+
 EffectSubtype.Vertical
 
 </td>
@@ -999,6 +1001,7 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.In
+
 EffectSubtype.Out
 
 </td>
@@ -1049,8 +1052,11 @@ Emphasis
 </td>
 <td>
 EffectSubtype.Instant
+
 EffectSubtype.Gradual
+
 EffectSubtype.GradualAndCycleClockwise
+
 EffectSubtype.GradualAndCycleCounterClockwise
 
 </td>
@@ -1065,6 +1071,7 @@ Emphasis
 </td>
 <td>
 EffectSubtype.Instant
+
 EffectSubtype.Gradual
 
 </td>
@@ -1079,8 +1086,11 @@ Emphasis
 </td>
 <td>
 EffectSubtype.Instant
+
 EffectSubtype.Gradual
+
 EffectSubtype.GradualAndCycleClockwise
+
 EffectSubtype.GradualAndCycleCounterClockwise
 
 </td>
@@ -1109,8 +1119,11 @@ Emphasis
 </td>
 <td>
 EffectSubtype.FontBold
+
 EffectSubtype.FontItalic
+
 EffectSubtype.FontUnderline
+
 
 </td>
 </tr>
@@ -1124,9 +1137,13 @@ Emphasis
 </td>
 <td>
 EffectSubtype.Instant
+
 EffectSubtype.Gradual
+
 EffectSubtype.GradualAndCycleClockwise
+
 EffectSubtype.GradualAndCycleCounterClockwise
+
 
 </td>
 </tr>
@@ -1140,6 +1157,7 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.Vertical
+
 EffectSubtype.Across
 
 </td>
@@ -1154,6 +1172,7 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.In
+
 EffectSubtype.Out
 
 </td>
@@ -1252,8 +1271,11 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.Right
+
 EffectSubtype.Left
+
 EffectSubtype.Top
+
 EffectSubtype.Bottom
 
 </td>
@@ -1475,12 +1497,19 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.Right
+
 EffectSubtype.Left
+
 EffectSubtype.Top
+
 EffectSubtype.Bottom
+
 EffectSubtype.TopLeft
+
 EffectSubtype.TopRight
+
 EffectSubtype.BottomLeft
+
 EffectSubtype.BottomRight
 
 </td>
@@ -2359,8 +2388,11 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.Bottom
+
 EffectSubtype.Left
+
 EffectSubtype.Right
+
 EffectSubtype.Top
 
 </td>
@@ -2387,6 +2419,7 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.In
+
 EffectSubtype.Out
 
 </td>
@@ -2401,6 +2434,7 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.Horizontal
+
 EffectSubtype.Vertical
 
 </td>
@@ -2499,8 +2533,11 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.HorizontalIn
+
 EffectSubtype.HorizontalOut
+
 EffectSubtype.VerticalIn
+
 EffectSubtype.VerticalOut
 
 </td>
@@ -2515,9 +2552,13 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.Right
+
 EffectSubtype.Left
+
 EffectSubtype.Top
+
 EffectSubtype.Bottom
+
 EffectSubtype.Across
 
 </td>
@@ -2532,8 +2573,11 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.UpLeft
+
 EffectSubtype.UpRight
+
 EffectSubtype.DownLeft
+
 EffectSubtype.DownRight
 
 </td>
@@ -2572,6 +2616,7 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.Horizontal
+
 EffectSubtype.Vertical
 
 </td>
@@ -2670,9 +2715,13 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.Wheel1
+
 EffectSubtype.Wheel2
+
 EffectSubtype.Wheel3
+
 EffectSubtype.Wheel4
+
 EffectSubtype.Wheel8
 
 </td>
@@ -2699,8 +2748,11 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.Top
+
 EffectSubtype.Right
+
 EffectSubtype.Bottom
+
 EffectSubtype.Left
 
 </td>
@@ -2727,13 +2779,20 @@ Entrance or Exit
 </td>
 <td>
 EffectSubtype.In
+
 EffectSubtype.Out
-EffectSubtype.InCenter - only for Entrance class
-EffectSubtype.OutBottom - only for Entrance class
+
+EffectSubtype.InCenter - only for Entrance type
+
+EffectSubtype.OutBottom - only for Entrance type
+
 EffectSubtype.OutSlightly
+
 EffectSubtype.InSlightly
-EffectSubtype.OutCenter - only for Exit class
-EffectSubtype.InBottom - only for Exit class
+
+EffectSubtype.OutCenter - only for Exit type
+
+EffectSubtype.InBottom - only for Exit type
 
 </td>
 </tr>
