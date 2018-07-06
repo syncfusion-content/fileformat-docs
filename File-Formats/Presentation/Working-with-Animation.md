@@ -21,7 +21,7 @@ Syncfusion Presentation library allows to animate the text, pictures, shapes, ta
 
 ## Adding animation effect to shapes
 
-Animation effects can be added to shapes, images, tables, charts and SmartArt diagrams. The following code example demonstrates how to add an animation effect to an auto shape.
+Animation effects can be added to shapes, images, tables, charts and SmartArt diagrams. The following code example demonstrates how to add an animation effect to an shape.
 
 {% tabs %}
 {% highlight c# %}
@@ -345,11 +345,11 @@ IEffect[] animationEffects = sequence.GetEffectsByShape(shape);
 
 //Iterate the animation effect to make the change
 
-IEffect animEffect = animationEffects[0];
+IEffect animationEffect = animationEffects[0];
 
 //Change the animation effect type from swivel to GrowAndTurn
 
-animEffect.Type = EffectType.GrowAndTurn;
+animationEffect.Type = EffectType.GrowAndTurn;
 
 //Save the Presentation to the file system.
 
@@ -383,11 +383,11 @@ Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
    'Iterate the animation effect to make the change
 
-   Dim animEffect As IEffect = animationEffects(0)
+   Dim animationEffect As IEffect = animationEffects(0)
 
    'Change the animation effect type from swivel to GrowAndTurn
 
-   animEffect.Type = EffectType.GrowAndTurn
+   animationEffect.Type = EffectType.GrowAndTurn
 
    'Save the Presentation to the file system.
 
@@ -584,11 +584,11 @@ ISequence sequence = slide.Timeline.MainSequence;
 
 //Get the animation effects of the shape
 
-IEffect[] shapeAnimEffects = sequence.GetEffectsByShape(shape);
+IEffect[] shapeAnimationEffects = sequence.GetEffectsByShape(shape);
 
 //Get the second animation effect of the shape
 
-IEffect effect = shapeAnimEffects[1];
+IEffect effect = shapeAnimationEffects[1];
 
 //Remove the animation effect from the sequence
 
@@ -626,11 +626,11 @@ Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
    'Get the animation effects of the shape
 
-   Dim shapeAnimEffects As IEffect() = sequence.GetEffectsByShape(shape)
+   Dim shapeAnimationEffects As IEffect() = sequence.GetEffectsByShape(shape)
 
    'Get the second animation effect of the shape
 
-   Dim effect As IEffect = shapeAnimEffects(1)
+   Dim effect As IEffect = shapeAnimationEffects(1)
 
    'Remove the animation effect from the sequence
 
@@ -686,7 +686,7 @@ IMotionEffect motionBehavior = ((IMotionEffect)bounceEffect.Behaviors[0]);
 
 PointF[] points = new PointF[1];
 
-//Add the move command to move the postion of the shape
+//Add the move command to move the position of the shape
 
 points[0] = new PointF(0, 0);
 
@@ -738,7 +738,7 @@ Using pptxDoc As IPresentation = Presentation.Create()
 
    Dim points As PointF() = New PointF(0) {}
 
-   'Add the move command to move the postion of the shape
+   'Add the move command to move the position of the shape
 
    points(0) = New PointF(0, 0)
 
