@@ -925,9 +925,9 @@ Entrance or Exit
 </td>
 <td>
 
-EffectSubtype.Horizontal
+<li>EffectSubtype.Horizontal</li>
 
-EffectSubtype.Vertical
+<li>EffectSubtype.Vertical</li>
 
 </td>
 </tr>
@@ -1000,9 +1000,9 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.In
+<li>EffectSubtype.In</li>
 
-EffectSubtype.Out
+<li>EffectSubtype.Out</li>
 
 </td>
 </tr>
@@ -1051,13 +1051,13 @@ Emphasis
 
 </td>
 <td>
-EffectSubtype.Instant
+<li>EffectSubtype.Instant</li>
 
-EffectSubtype.Gradual
+<li>EffectSubtype.Gradual</li>
 
-EffectSubtype.GradualAndCycleClockwise
+<li>EffectSubtype.GradualAndCycleClockwise</li>
 
-EffectSubtype.GradualAndCycleCounterClockwise
+<li>EffectSubtype.GradualAndCycleCounterClockwise</li>
 
 </td>
 </tr>
@@ -1070,9 +1070,9 @@ Emphasis
 
 </td>
 <td>
-EffectSubtype.Instant
+<li>EffectSubtype.Instant</li>
 
-EffectSubtype.Gradual
+<li>EffectSubtype.Gradual</li>
 
 </td>
 </tr>
@@ -1085,13 +1085,13 @@ Emphasis
 
 </td>
 <td>
-EffectSubtype.Instant
+<li>EffectSubtype.Instant</li>
 
-EffectSubtype.Gradual
+<li>EffectSubtype.Gradual</li>
 
-EffectSubtype.GradualAndCycleClockwise
+<li>EffectSubtype.GradualAndCycleClockwise</li>
 
-EffectSubtype.GradualAndCycleCounterClockwise
+<li>EffectSubtype.GradualAndCycleCounterClockwise</li>
 
 </td>
 </tr>
@@ -1104,8 +1104,9 @@ Emphasis
 
 </td>
 <td>
-EffectSubtype.Instant
-EffectSubtype.Gradual
+<li>EffectSubtype.Instant</li>
+
+<li>EffectSubtype.Gradual</li>
 
 </td>
 </tr>
@@ -1118,11 +1119,11 @@ Emphasis
 
 </td>
 <td>
-EffectSubtype.FontBold
+<li>EffectSubtype.FontBold</li>
 
-EffectSubtype.FontItalic
+<li>EffectSubtype.FontItalic</li>
 
-EffectSubtype.FontUnderline
+<li>EffectSubtype.FontUnderline</li>
 
 
 </td>
@@ -1136,13 +1137,13 @@ Emphasis
 
 </td>
 <td>
-EffectSubtype.Instant
+<li>EffectSubtype.Instant</li>
 
-EffectSubtype.Gradual
+<li>EffectSubtype.Gradual</li>
 
-EffectSubtype.GradualAndCycleClockwise
+<li>EffectSubtype.GradualAndCycleClockwise</li>
 
-EffectSubtype.GradualAndCycleCounterClockwise
+<li>EffectSubtype.GradualAndCycleCounterClockwise</li>
 
 
 </td>
@@ -1156,9 +1157,9 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.Vertical
+<li>EffectSubtype.Vertical</li>
 
-EffectSubtype.Across
+<li>EffectSubtype.Across</li>
 
 </td>
 </tr>
@@ -1171,9 +1172,9 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.In
+<li>EffectSubtype.In</li>
 
-EffectSubtype.Out
+<li>EffectSubtype.Out</li>
 
 </td>
 </tr>
@@ -1270,13 +1271,13 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.Right
+<li>EffectSubtype.Right</li>
 
-EffectSubtype.Left
+<li>EffectSubtype.Left</li>
 
-EffectSubtype.Top
+<li>EffectSubtype.Top</li>
 
-EffectSubtype.Bottom
+<li>EffectSubtype.Bottom</li>
 
 </td>
 </tr>
@@ -1348,8 +1349,8 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.In
-EffectSubtype.Out
+<li>EffectSubtype.In</li>
+<li>EffectSubtype.Out</li>
 
 </td>
 </tr>
@@ -1422,8 +1423,8 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.None
-EffectSubtype.Center
+<li>EffectSubtype.None</li>
+<li>EffectSubtype.Center</li>
 
 </td>
 </tr>
@@ -1496,21 +1497,21 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.Right
+<li>EffectSubtype.Right</li>
 
-EffectSubtype.Left
+<li>EffectSubtype.Left</li>
 
-EffectSubtype.Top
+<li>EffectSubtype.Top</li>
 
-EffectSubtype.Bottom
+<li>EffectSubtype.Bottom</li>
 
-EffectSubtype.TopLeft
+<li>EffectSubtype.TopLeft</li>
 
-EffectSubtype.TopRight
+<li>EffectSubtype.TopRight</li>
 
-EffectSubtype.BottomLeft
+<li>EffectSubtype.BottomLeft</li>
 
-EffectSubtype.BottomRight
+<li>EffectSubtype.BottomRight</li>
 
 </td>
 </tr>
@@ -2387,13 +2388,13 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.Bottom
+<li>EffectSubtype.Bottom</li>
 
-EffectSubtype.Left
+<li>EffectSubtype.Left</li>
 
-EffectSubtype.Right
+<li>EffectSubtype.Right</li>
 
-EffectSubtype.Top
+<li>EffectSubtype.Top</li>
 
 </td>
 </tr>
@@ -2418,9 +2419,9 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.In
+<li>EffectSubtype.In</li>
 
-EffectSubtype.Out
+<li>EffectSubtype.Out</li>
 
 </td>
 </tr>
@@ -2433,9 +2434,9 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.Horizontal
+<li>EffectSubtype.Horizontal</li>
 
-EffectSubtype.Vertical
+<li>EffectSubtype.Vertical</li>
 
 </td>
 </tr>
@@ -2532,13 +2533,13 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.HorizontalIn
+<li>EffectSubtype.HorizontalIn</li>
 
-EffectSubtype.HorizontalOut
+<li>EffectSubtype.HorizontalOut</li>
 
-EffectSubtype.VerticalIn
+<li>EffectSubtype.VerticalIn</li>
 
-EffectSubtype.VerticalOut
+<li>EffectSubtype.VerticalOut</li>
 
 </td>
 </tr>
@@ -2551,15 +2552,15 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.Right
+<li>EffectSubtype.Right</li>
 
-EffectSubtype.Left
+<li>EffectSubtype.Left</li>
 
-EffectSubtype.Top
+<li>EffectSubtype.Top</li>
 
-EffectSubtype.Bottom
+<li>EffectSubtype.Bottom</li>
 
-EffectSubtype.Across
+<li>EffectSubtype.Across</li>
 
 </td>
 </tr>
@@ -2572,13 +2573,13 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.UpLeft
+<li>EffectSubtype.UpLeft</li>
 
-EffectSubtype.UpRight
+<li>EffectSubtype.UpRight</li>
 
-EffectSubtype.DownLeft
+<li>EffectSubtype.DownLeft</li>
 
-EffectSubtype.DownRight
+<li>EffectSubtype.DownRight</li>
 
 </td>
 </tr>
@@ -2615,9 +2616,9 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.Horizontal
+<li>EffectSubtype.Horizontal</li>
 
-EffectSubtype.Vertical
+<li>EffectSubtype.Vertical</li>
 
 </td>
 </tr>
@@ -2714,15 +2715,15 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.Wheel1
+<li>EffectSubtype.Wheel1</li>
 
-EffectSubtype.Wheel2
+<li>EffectSubtype.Wheel2</li>
 
-EffectSubtype.Wheel3
+<li>EffectSubtype.Wheel3</li>
 
-EffectSubtype.Wheel4
+<li>EffectSubtype.Wheel4</li>
 
-EffectSubtype.Wheel8
+<li>EffectSubtype.Wheel8</li>
 
 </td>
 </tr>
@@ -2747,13 +2748,13 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.Top
+<li>EffectSubtype.Top</li>
 
-EffectSubtype.Right
+<li>EffectSubtype.Right</li>
 
-EffectSubtype.Bottom
+<li>EffectSubtype.Bottom</li>
 
-EffectSubtype.Left
+<li>EffectSubtype.Left</li>
 
 </td>
 </tr>
@@ -2778,21 +2779,21 @@ Entrance or Exit
 
 </td>
 <td>
-EffectSubtype.In
+<li>EffectSubtype.In</li>
 
-EffectSubtype.Out
+<li>EffectSubtype.Out</li>
 
-EffectSubtype.InCenter - only for Entrance type
+<li>EffectSubtype.InCenter - only for Entrance type</li>
 
-EffectSubtype.OutBottom - only for Entrance type
+<li>EffectSubtype.OutBottom - only for Entrance type</li>
 
-EffectSubtype.OutSlightly
+<li>EffectSubtype.OutSlightly</li>
 
-EffectSubtype.InSlightly
+<li>EffectSubtype.InSlightly</li>
 
-EffectSubtype.OutCenter - only for Exit type
+<li>EffectSubtype.OutCenter - only for Exit type</li>
 
-EffectSubtype.InBottom - only for Exit type
+<li>EffectSubtype.InBottom - only for Exit type</li>
 
 </td>
 </tr>
