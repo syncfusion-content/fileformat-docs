@@ -925,9 +925,9 @@ Entrance or Exit
 </td>
 <td>
 
-<li>EffectSubtype.Horizontal</li>
+<li>EffectSubtype.Horizontal                                       </li>
 
-<li>EffectSubtype.Vertical</li>
+<li>EffectSubtype.Vertical                                         </li>
 
 </td>
 </tr>
