@@ -14,18 +14,14 @@ The following table shows the various features available in the Essential PDF an
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms /WPF<br/><br/></th><th>
-ASP.NET/ASP.NET MVC<br/><br/>(MediumTrust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core <br/><br/></th></tr>
+Xamarin and .NET Core <br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
 Drawing Text<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -34,23 +30,17 @@ Yes<br/><br/></td></tr>
 Text Formatting<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Multilingual Support<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
 Drawing RTL text<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
@@ -58,22 +48,16 @@ Yes<br/><br/></td></tr>
 Text Extraction<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
 Unicode<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Pagination<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -87,18 +71,14 @@ Graphics:
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms / WPF <br/><br/></th><th>
-ASP.NET /ASP.NET MVC<br/><br/> (Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core<br/><br/></th></tr>
+Xamarin and .NET Core<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
 Pen and Brush<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -107,15 +87,11 @@ Yes<br/><br/></td></tr>
 Layers<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Transparent Graphics<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
@@ -123,15 +99,11 @@ No<br/><br/></td></tr>
 Color Spaces<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Image Extraction<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
@@ -139,15 +111,11 @@ No<br/><br/></td></tr>
 Enhanced Printing Support<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Barcode<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-No<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 </tbody>
@@ -161,18 +129,14 @@ Document–level Operations :
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms / WPF <br/><br/></th><th>
-ASP.NET/ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core <br/><br/></th></tr>
+Xamarin and .NET Core <br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
 Merge Documents<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -181,14 +145,10 @@ Yes<br/><br/></td></tr>
 Split Document<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Overlay Documents<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -197,22 +157,16 @@ Yes<br/><br/></td></tr>
 Import Pages<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Stamp<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Booklet<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -226,26 +180,20 @@ Document Settings :
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms /WPF<br/><br/></th><th>
-ASP.NET/ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core<br/><br/></th></tr>
+Xamarin and .NET Core<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
 Custom Metadata<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
 Document Properties<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -254,14 +202,10 @@ Yes<br/><br/></td></tr>
 Page Orientation<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Page Sizes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -270,14 +214,10 @@ Yes<br/><br/></td></tr>
 Viewer Preferences<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Tagged PDF with section 508 compliant<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -291,18 +231,14 @@ Forms:
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms/WPF<br/><br/></th><th>
-ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core <br/><br/></th></tr>
+Xamarin and .NET Core <br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
 Fields<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -311,14 +247,10 @@ Yes<br/><br/></td></tr>
 Form Filling<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Flatten<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -327,14 +259,10 @@ Yes<br/><br/></td></tr>
 Import Form Data<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Form Export<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -348,11 +276,9 @@ XFA Forms:
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms/WPF<br/><br/></th><th>
-ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core <br/><br/></th></tr>
+Xamarin and .NET Core <br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -360,14 +286,10 @@ Xamarin and ASP.NET Core <br/><br/></th></tr>
 Fields<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
 Form Filling<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
@@ -381,19 +303,15 @@ Document Conversion:
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms/WPF<br/><br/></th><th>
-ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core <br/><br/></th></tr>
+Xamarin and .NET Core <br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
 TIFF to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
@@ -401,23 +319,17 @@ No<br/><br/></td></tr>
 HTML to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
 RTF To PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 DOC To PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
@@ -425,15 +337,11 @@ Yes<br/><br/></td></tr>
 Excel To PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
 PDF OCR<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
@@ -441,15 +349,11 @@ No<br/><br/></td></tr>
 XPS to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
 SVG to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
@@ -457,15 +361,11 @@ No<br/><br/></td></tr>
 EMF to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
 PDF to PDF/A-1b<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
 </tbody>
@@ -478,11 +378,9 @@ PDF Standards:
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms/WPF<br/><br/></th><th>
-ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core <br/><br/></th></tr>
+Xamarin and .NET Core <br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
@@ -490,14 +388,10 @@ Xamarin and ASP.NET Core <br/><br/></th></tr>
 PDF/ A-1b Compliance<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
 PDF/x1a: 2001 Compliance<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
@@ -511,18 +405,14 @@ Fonts:
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms/WPF<br/><br/></th><th>
-ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core<br/><br/></th></tr>
+Xamarin and .NET Core<br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
 Standard Fonts<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -531,23 +421,17 @@ Yes<br/><br/></td></tr>
 CJK Fonts<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 TrueType Fonts<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Unicode TrueType<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 </tbody>
@@ -560,18 +444,14 @@ Images:
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms/WPF<br/><br/></th><th>
-ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core <br/><br/></th></tr>
+Xamarin and .NET Core <br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
 Scalar Images<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -580,22 +460,16 @@ Yes<br/><br/></td></tr>
 Soft Mask<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Vector Images<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
 Watermarks<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -610,26 +484,20 @@ Tables:
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms/WPF<br/><br/></th><th>
-ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core <br/><br/></th></tr>
+Xamarin and .NET Core <br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
 ADO.Net Tables Support<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-No<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
 Cell / Row / Column Formatting<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -638,14 +506,10 @@ Yes<br/><br/></td></tr>
 Header<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Pagination<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -654,14 +518,10 @@ Yes<br/><br/></td></tr>
 Borders<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 RowSpan and ColumnSpan<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -670,14 +530,10 @@ Yes<br/><br/></td></tr>
 Nested table<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Cell Padding and Spacing<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -691,18 +547,14 @@ Page Level Operations:
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms/WPF<br/><br/></th><th>
-ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core <br/><br/></th></tr>
+Xamarin and .NET Core <br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
 Headers and Footers<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -711,14 +563,10 @@ Yes<br/><br/></td></tr>
 Page Label<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Automatic Fields<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -732,18 +580,14 @@ Interactive Elements:
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms/WPF<br/><br/></th><th>
-ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core <br/><br/></th></tr>
+Xamarin and .NET Core <br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
 3D-Annotation<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -752,14 +596,10 @@ Yes<br/><br/></td></tr>
 Action<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Attachment<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -768,22 +608,16 @@ Yes<br/><br/></td></tr>
 Bookmark<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Hyperlink<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Portfolio<br/><br/></td><td>
-Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
@@ -797,27 +631,21 @@ Security:
 <tr>
 <th>
 Features<br/><br/></th><th>
-Windows Forms/WPF<br/><br/></th><th>
-ASP .NET / ASP.NET MVC<br/><br/>(Medium Trust)<br/><br/></th><th>
-Silverlight<br/><br/></th><th>
+.NET Framework<br/><br/></th><th>
 UWP<br/><br/></th><th>
-Xamarin and ASP.NET Core <br/><br/></th></tr>
+Xamarin and .NET Core <br/><br/></th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
 Digital Signature<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
 Encryption and Decryption<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td><td>
-No<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 </tbody>
