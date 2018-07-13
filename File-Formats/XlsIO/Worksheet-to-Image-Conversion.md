@@ -138,5 +138,7 @@ End Using
 * Subscript/Superscript
 * RTF
 * Shrink to fit
+* Shapes (except TextBox shape and Image)
+* Chart Worksheet
 * Complex conditional formatting
 * Gradient fill is partially supported
