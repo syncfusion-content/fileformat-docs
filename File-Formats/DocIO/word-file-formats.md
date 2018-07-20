@@ -171,7 +171,8 @@ document.Close()
 The XML format introduced in Microsoft Word 2003 was a simple, XML-based format called WordprocessingML or WordML.
 The Essential DocIO supports converting the Word document into Word Processing XML document and vice versa.
 
-N> Currently importing and exporting the Word Processing 2003 (importing alone) and 2007 XML documents is supported.
+N> 1. Currently importing and exporting the Word Processing 2003 (importing alone) and 2007 XML documents is supported.
+N> 2. The custom XML elements present in the Word Processing 2003 XML documents will be removed while importing, like latest Microsoft Word. The custom XML element feature is depreciated by Microsoft Word and those elements will be removed automatically while opening the document.
 
 The following code example shows how to convert the Word document into Word Processing XML document.
 
