@@ -19,11 +19,18 @@ Refer to the following links for assemblies required based on platforms to conve
 
 The following namespaces are required to compile the code: 
 
+For WPF, Windows Forms, ASP. NET and ASP.NET MVC applications
 * using Syncfusion.DocIO
 * using Syncfusion.DocIO.DLS
 * using Syncfusion.OfficeChart
 * using Syncfusion.DocToPDFConverter
 * using Syncfusion.OfficeChartToImageConverter
+* using Syncfusion.Pdf
+
+For ASP.NET Core and Xamarin applications
+* using Syncfusion.DocIO
+* using Syncfusion.DocIO.DLS
+* using Syncfusion.DocIORenderer
 * using Syncfusion.Pdf
 
 The following code example illustrates how to convert a Word document into PDF document.
