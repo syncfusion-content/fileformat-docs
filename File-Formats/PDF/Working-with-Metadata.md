@@ -988,7 +988,7 @@ PdfPage page = pdfDoc.Pages.Add();
 
 pdfDoc.DocumentInformation.CustomMetadata["ID"] = "IO1";
 
-pdfDoc.DocumentInformation.CustomMetadata["Company Name"] = "Syncfusion";
+pdfDoc.DocumentInformation.CustomMetadata["CompanyName"] = "Syncfusion";
 
 pdfDoc.DocumentInformation.CustomMetadata["Key"] = "DocumentKey";
 
@@ -1015,7 +1015,7 @@ Dim page As PdfPage = pdfDoc.Pages.Add()
 
 pdfDoc.DocumentInformation.CustomMetadata("ID") = "IO1"
 
-pdfDoc.DocumentInformation.CustomMetadata("Company Name") = "Syncfusion"
+pdfDoc.DocumentInformation.CustomMetadata("CompanyName") = "Syncfusion"
 
 pdfDoc.DocumentInformation.CustomMetadata("Key") = "DocumentKey"
 
@@ -1028,4 +1028,53 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}   
+
+
+## Removing Custom Metadata from an existing PDF document
+
+You can remove the custom metadata from an existing PDF document as follows. 
+
+{% tabs %}  
+
+{% highlight c# %}
+
+
+//Load the document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Remove custom metadata using key name
+
+loadedDocument.DocumentInformation.CustomMetadata.Remove("Key");
+
+//Save and close the document
+
+loadedDocument.Save("Output.pdf");
+
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the document
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Remove custom metadata using key name
+
+loadedDocument.DocumentInformation.CustomMetadata.Remove("Key")
+
+'Save and close the document
+
+loadedDocument.Save("Output.pdf")
+
+loadedDocument.Close(True)
+
+
+{% endhighlight %}
+
+{% endtabs %}   

@@ -572,11 +572,15 @@ PdfGrid pdfGrid = new PdfGrid();
 List<object> data = new List<object>();
 
 Object row1 = new { ID = "1", Name = "Clay" };
+
 Object row2 = new { ID = "2", Name = "Gray" };
+
 Object row3 = new { ID = "3", Name = "Ash" };
 
 data.Add(row1);
+
 data.Add(row2);
+
 data.Add(row3);
 
 //Add list to IEnumerable
@@ -624,11 +628,15 @@ Dim pdfGrid As New PdfGrid()
 Dim data As New List(Of Object)()
 
 Dim row1 As Object = New With {Key .ID = "1", Key .Name = "Clay"}
+
 Dim row2 As Object = New With {Key .ID = "2", Key .Name = "Gray"}
+
 Dim row3 As Object = New With {Key .ID = "3", Key .Name = "Ash"}
 
 data.Add(row1)
+
 data.Add(row2)
+
 data.Add(row3)
 
 'Add list to IEnumerable
@@ -654,7 +662,8 @@ doc.Close(True)
 
 {% endhighlight %}
 
-{% endtabs %}
+{% endtabs %} 
+
 
 ### Creating a simple table using PdfGrid in an existing document
 
