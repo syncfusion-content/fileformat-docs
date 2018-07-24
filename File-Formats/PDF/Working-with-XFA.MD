@@ -2604,7 +2604,7 @@ loadedDocument.Close()
 
 {% endhighlight %}
 
-{% endtabs %}
+{% endtabs %} 
 
 ### Filling the XFA list box field
 
