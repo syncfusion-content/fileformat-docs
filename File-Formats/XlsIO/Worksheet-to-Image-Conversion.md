@@ -171,7 +171,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
   //Gets input Excel document from an embedded resource collection
-  Stream inputStream = assembly.GetManifestResourceStream("NETStandardUWP.Sample.xlsx");
+  Stream inputStream = assembly.GetManifestResourceStream("WorksheetToImage.Sample.xlsx");
 
   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
   IWorksheet sheet = workbook.Worksheets[0];
