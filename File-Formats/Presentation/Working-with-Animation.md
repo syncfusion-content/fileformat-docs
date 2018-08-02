@@ -873,7 +873,7 @@ Syncfusion Presentation library supports the following predefined animation effe
 {{'**Motion path**'| markdownify }}
 </td>
 <td>
-{{'**Valid subtype**'| markdownify }}
+{{'**Effect options**'| markdownify }}
 </td>
 </tr>
 <tr>
