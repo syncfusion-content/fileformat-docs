@@ -24,6 +24,24 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports opening an existing PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports opening an existing PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports opening an existing PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+
+{% endhighlight %}
 {% endtabs %}
 ## Opening an existing PDF document from Stream
 
@@ -40,6 +58,27 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream);
 
 'Opens an existing document from stream 
 Dim loadedDocument As New PdfLoadedDocument(stream)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Opens an existing document from stream 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream); 
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Opens an existing document from stream 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream); 
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Opens an existing document from stream 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream); 
 
 {% endhighlight %}
 {% endtabs %}
@@ -60,6 +99,27 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray);
 Dim loadedDocument As New PdfLoadedDocument(byteArray)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Open an existing document from byte array 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray); 
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Open an existing document from byte array 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray); 
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Open an existing document from byte array 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray); 
+
+{% endhighlight %}
 {% endtabs %}
 ## Opening an Encrypted PDF document
 
@@ -77,6 +137,24 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf", "password"
 
 'Open an existing encrypted document from disk. 
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf","password")
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports opening an Encrypted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports opening an Encrypted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports opening an Encrypted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
 
 {% endhighlight %}
 {% endtabs %}
@@ -99,6 +177,39 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, "password");
 Dim loadedDocument As New PdfLoadedDocument(stream,"password")
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Open an existing encrypted document from stream.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, "password");
+
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+
+//Open an existing encrypted document from stream.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, "password");
+
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+
+//Open an existing encrypted document from stream.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, "password");
+
+
+
+{% endhighlight %}
 {% endtabs %}
 
 {% tabs %} 
@@ -113,6 +224,27 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, "password");
 
 'Open an existing encrypted document from byte array. 
 Dim loadedDocument As New PdfLoadedDocument(byteArray,"password")
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Open an existing encrypted document from byte array. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, "password");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Open an existing encrypted document from byte array. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, "password");
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Open an existing encrypted document from byte array. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, "password");
 
 {% endhighlight %}
 {% endtabs %}
@@ -133,6 +265,24 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf", true);
 Dim loadedDocument As New PdfLoadedDocument("Input.pdf", True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports opening a corrupted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports opening a corrupted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports opening a corrupted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+
+{% endhighlight %}
 {% endtabs %}
 
 {% tabs %}
@@ -149,6 +299,27 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, true);
 Dim loadedDocument As New PdfLoadedDocument(stream, True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Open an existing corrupted document from stream. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Open an existing corrupted document from stream. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, true);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Open an existing corrupted document from stream. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(stream, true);
+
+{% endhighlight %}
 {% endtabs %}
 
 {% tabs %}
@@ -163,6 +334,27 @@ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, true);
 
 'Open an existing corrupted document from byte array. 
 Dim loadedDocument As New PdfLoadedDocument(byteArray, True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Open an existing corrupted document from byte array. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Open an existing corrupted document from byte array. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, true);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Open an existing corrupted document from byte array. 
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(byteArray, true);
 
 {% endhighlight %}
 {% endtabs %}
@@ -194,6 +386,74 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 'To-Do some manipulation
 'Save the document in file system
 loadedDocument.Save("Output.pdf")
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Load the PDF document as stream
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+await loadedDocument.OpenAsync(pdfStream);
+//To-Do some manipulation
+//To-Do some manipulation
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+await loadedDocument.SaveAsync(stream);
+//Close the document.
+loadedDocument.Close(true);
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//To-Do some manipulation
+//To-Do some manipulation
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+//Close the document.
+loadedDocument.Close(true);
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+//Define the file name.
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+//To-Do some manipulation
+//To-Do some manipulation
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close(true);
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 {% endtabs %}
@@ -228,6 +488,48 @@ Dim stream As New MemoryStream()
 loadedDocument.Save(stream)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Load the PDF document as stream
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+await loadedDocument.OpenAsync(pdfStream);
+//To-Do some manipulation
+//To-Do some manipulation
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+await loadedDocument.SaveAsync(stream);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//To-Do some manipulation
+//To-Do some manipulation
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+//To-Do some manipulation
+//To-Do some manipulation
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+{% endhighlight %}
 {% endtabs %}
 
 ## Saving a PDF document into the same file or stream
@@ -257,6 +559,36 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 loadedDocument.Save()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+var picker = new FileOpenPicker();
+picker.FileTypeFilter.Add(".pdf");
+//Browse and chose the file
+StorageFile file = await picker.PickSingleFileAsync();
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+await loadedDocument.OpenAsync(file);
+//To-Do some manipulation
+//To-Do some manipulation  
+//Resave the document to the same file
+await loadedDocument.Save();
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP.
+
+{% endhighlight %}
 {% endtabs %}
 
 {% tabs %}
@@ -279,6 +611,35 @@ Dim loadedDocument As New PdfLoadedDocument(stream)
 'To-Do some manipulation
 'Resave the document to the same stream
 loadedDocument.Save()
+
+{% endhighlight %}
+{% highlight UWP %}
+
+//Create the file open picker
+var picker = new FileOpenPicker();
+picker.FileTypeFilter.Add(".pdf");
+//Browse and chose the file
+StorageFile file = await picker.PickSingleFileAsync();
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+await loadedDocument.OpenAsync(file);
+//To-Do some manipulation
+//To-Do some manipulation  
+//Resave the document to the same file
+await loadedDocument.Save();
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP.
 
 {% endhighlight %}
 {% endtabs %}
@@ -312,6 +673,55 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Load the PDF document as stream
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+await loadedDocument.OpenAsync(pdfStream);
+//To-Do some manipulation
+//To-Do some manipulation
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+await loadedDocument.SaveAsync(stream);
+//Close the document.
+ loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//To-Do some manipulation
+//To-Do some manipulation
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+//To-Do some manipulation
+//To-Do some manipulation
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 N> Close() method will dispose all the memory consumed by PDF DOM.

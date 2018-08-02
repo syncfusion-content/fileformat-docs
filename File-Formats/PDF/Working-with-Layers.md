@@ -678,3 +678,217 @@ document.Close(True)
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Adding annotation to layer
+
+Essential PDF allows the users to add annotation to layers in the PDF document. Refer to the following code snippet.  
+
+{% tabs %}  
+
+{% highlight c# %}
+
+
+//Create new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add page
+
+PdfPage page = document.Pages.Add();
+
+//Add the layer
+
+PdfLayer layer = document.Layers.Add("Layer");
+
+//Create graphics for layer
+
+PdfGraphics graphics = layer.CreateGraphics(page);
+
+//Draw ellipse
+
+graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+
+//Create square annotation
+
+PdfSquareAnnotation annotation = new PdfSquareAnnotation(new RectangleF(200, 260, 50, 50), "Square annotation");
+
+annotation.Color = new PdfColor(Color. Red);
+
+//Set layer to annotation
+
+annotation.Layer = layer;
+
+//Add annotation to the created page
+
+page.Annotations.Add(annotation);
+
+//Save the document
+
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+
+
+
+{% endhighlight %}
+
+
+
+{% highlight vb.net %}
+
+
+'Create new PDF document
+
+Dim document As New PdfDocument()
+
+'Add page
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Add the layer
+
+Dim Layer As PdfLayer = document.Layers.Add("Layer")
+
+'Create graphics for layer
+
+Dim graphics As PdfGraphics = Layer.CreateGraphics(page)
+
+'Draw ellipse
+
+graphics.DrawEllipse(PdfPens.Red, New RectangleF(50, 50, 40, 40))
+
+'Create square annotation
+
+Dim annotation As New PdfSquareAnnotation(New RectangleF(200, 260, 50, 50), "Square annotation")
+
+annotation.Color = New PdfColor(Color.Red)
+
+'Set layer to annotation
+
+annotation.Layer = Layer
+
+'Add annotation to the created page
+
+page.Annotations.Add(annotation)
+
+'Save the document
+
+document.Save("Output.pdf")
+
+'Close the document
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+
+{% endtabs %}  
+
+The following code illustrates how to add annotation to the layers in an existing PDF document.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+
+//Load the existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Gets the first page from the document
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Add the layer
+
+PdfLayer Layer = loadedDocument.Layers.Add("Layer");
+
+//Create graphics for layer
+
+PdfGraphics graphics = Layer.CreateGraphics(loadedPage);
+
+//Draw ellipse
+
+graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+
+//Create square annotation
+
+PdfSquareAnnotation annotation = new PdfSquareAnnotation(new RectangleF(200, 260, 50, 50), "Square annotation");
+
+annotation.Color = new PdfColor(Color.Red);
+
+//Set layer to annotation
+
+annotation.Layer = Layer;
+
+//Add annotation to the created page
+
+loadedPage.Annotations.Add(annotation);
+
+//Save the document
+
+loadedDocument.Save("Output.pdf");
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+{% endhighlight %}
+
+
+
+{% highlight vb.net %}
+
+
+'Load the existing PDF document
+
+Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
+
+'Gets the first page from the document
+
+Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
+
+'Add the layer
+
+Dim Layer As PdfLayer = loadedDocument.Layers.Add("Layer")
+
+'Create graphics for layer
+
+Dim graphics As PdfGraphics = Layer.CreateGraphics(loadedPage)
+
+'Draw ellipse
+
+graphics.DrawEllipse(PdfPens.Red, New RectangleF(50, 50, 40, 40))
+
+'Create square annotation
+
+Dim annotation As New PdfSquareAnnotation(New RectangleF(200, 260, 50, 50), "Square annotation")
+
+annotation.Color = New PdfColor(Color.Red)
+
+'Set layer to annotation
+
+annotation.Layer = Layer
+
+'Add annotation to the created page
+
+loadedPage.Annotations.Add(annotation)
+
+'Save the document
+
+loadedDocument.Save("Output.pdf")
+
+'Close the document
+
+loadedDocument.Close(True)
+
+
+
+{% endhighlight %}
+
+{% endtabs %}  
