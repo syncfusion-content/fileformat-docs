@@ -872,6 +872,9 @@ Syncfusion Presentation library supports the following predefined animation effe
 <td>
 {{'**Motion path**'| markdownify }}
 </td>
+<td>
+{{'**Valid subtype**'| markdownify }}
+</td>
 </tr>
 <tr>
 <td>
@@ -888,6 +891,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -906,6 +912,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -922,6 +931,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -940,6 +952,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -956,6 +971,10 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+<li> Horizontal </li>
+<li> Vertical </li>
 </td>
 </tr>
 <tr>
@@ -974,6 +993,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -990,6 +1012,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1008,6 +1033,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1024,6 +1052,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1042,6 +1073,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1058,6 +1092,10 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+<li> In </li>
+<li> Out </li>
 </td>
 </tr>
 <tr>
@@ -1076,6 +1114,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1092,6 +1133,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1110,6 +1154,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1126,6 +1173,12 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+<li> Instant </li>
+<li> Gradual </li>
+<li> GradualAndCycleClockwise </li>
+<li> GradualAndCycleCounterClockwise </li>
 </td>
 </tr>
 <tr>
@@ -1144,6 +1197,10 @@ Yes
 <td>
 -
 </td>
+<td>
+<li> Instant </li>
+<li> Gradual </li>
+</td>
 </tr>
 <tr>
 <td>
@@ -1160,6 +1217,12 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+<li> Instant </li>
+<li> Gradual </li>
+<li> GradualAndCycleClockwise </li>
+<li> GradualAndCycleCounterClockwise </li>
 </td>
 </tr>
 <tr>
@@ -1178,6 +1241,10 @@ Yes
 <td>
 -
 </td>
+<td>
+<li> Instant </li>
+<li> Gradual </li>
+</td>
 </tr>
 <tr>
 <td>
@@ -1194,6 +1261,11 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+<li> FontBold </li>
+<li> FontItalic </li>
+<li> FontUnderline </li>
 </td>
 </tr>
 <tr>
@@ -1212,6 +1284,12 @@ Yes
 <td>
 -
 </td>
+<td>
+<li> Instant </li>
+<li> Gradual </li>
+<li> GradualAndCycleClockwise </li>
+<li> GradualAndCycleCounterClockwise </li>
+</td>
 </tr>
 <tr>
 <td>
@@ -1228,6 +1306,10 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+<li> Vertical </li>
+<li> Across </li>
 </td>
 </tr>
 <tr>
@@ -1246,6 +1328,10 @@ Yes
 <td>
 -
 </td>
+<td>
+<li> In </li>
+<li> Out </li>
+</td>
 </tr>
 <tr>
 <td>
@@ -1262,6 +1348,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1280,6 +1369,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1296,6 +1388,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1314,6 +1409,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1330,6 +1428,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1348,6 +1449,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1364,6 +1468,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1382,6 +1489,12 @@ Yes
 <td>
 -
 </td>
+<td>
+<li> Right </li>
+<li> Left </li>
+<li> Top </li>
+<li> Bottom </li>
+</td>
 </tr>
 <tr>
 <td>
@@ -1398,6 +1511,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1416,6 +1532,9 @@ Custom
 <td>
 -
 </td>
+<td>
+- 
+</td>
 </tr>
 <tr>
 <td>
@@ -1432,6 +1551,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1450,6 +1572,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1466,6 +1591,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1484,6 +1612,10 @@ Yes
 <td>
 -
 </td>
+<td>
+<li> In </li>
+<li> Out </li>
+</td>
 </tr>
 <tr>
 <td>
@@ -1500,6 +1632,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1518,6 +1653,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1534,6 +1672,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1552,6 +1693,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1568,6 +1712,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1586,6 +1733,10 @@ Yes
 <td>
 -
 </td>
+<td>
+<li> None </li>
+<li> Center </li>
+</td>
 </tr>
 <tr>
 <td>
@@ -1602,6 +1753,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1620,6 +1774,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1636,6 +1793,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1654,6 +1814,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1670,6 +1833,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1688,6 +1854,16 @@ Yes
 <td>
 -
 </td>
+<td>
+<li> Right </li>
+<li> Left </li>
+<li> Top </li>
+<li> Bottom </li>
+<li> TopLeft </li>
+<li> TopRight </li>
+<li> BottomLeft </li>
+<li> BottomRight </li>
+</td>
 </tr>
 <tr>
 <td>
@@ -1704,6 +1880,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1722,6 +1901,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1738,6 +1920,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1756,6 +1941,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1772,6 +1960,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1790,6 +1981,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1806,6 +2000,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1824,6 +2021,9 @@ Path4PointStar
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1840,6 +2040,9 @@ Path5PointStar
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1858,6 +2061,9 @@ Path6PointStar
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1874,6 +2080,9 @@ Path8PointStar
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1892,6 +2101,9 @@ PathArcDown
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1908,6 +2120,9 @@ PathArcLeft
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1926,6 +2141,9 @@ PathArcRight
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1942,6 +2160,9 @@ PathArcUp
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1960,6 +2181,9 @@ PathBean
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -1976,6 +2200,9 @@ PathBounceLeft
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -1994,6 +2221,9 @@ PathBounceRight
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2010,6 +2240,9 @@ PathBuzzsaw
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2028,6 +2261,9 @@ PathCircle
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2044,6 +2280,9 @@ PathCrescentMoon
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2062,6 +2301,9 @@ PathCurvedSquare
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2078,6 +2320,9 @@ PathCurvedX
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2096,6 +2341,9 @@ PathCurvyLeft
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2112,6 +2360,9 @@ PathCurvyRight
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2130,6 +2381,9 @@ PathCurvyStar
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2146,6 +2400,9 @@ PathDecayingWave
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2164,6 +2421,9 @@ PathDiagonalDownRight
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2180,6 +2440,9 @@ PathDiagonalUpRight
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2198,6 +2461,9 @@ PathDiamond
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2214,6 +2480,9 @@ PathDown
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2232,6 +2501,9 @@ PathEqualTriangle
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2248,6 +2520,9 @@ PathFigure8Four
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2266,6 +2541,9 @@ PathFootball
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2282,6 +2560,9 @@ PathFunnel
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2300,6 +2581,9 @@ PathHeart
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2316,6 +2600,9 @@ PathHeartbeat
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2334,6 +2621,9 @@ PathHexagon
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2350,6 +2640,9 @@ PathHorizontalFigure8
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2368,6 +2661,9 @@ PathInvertedSquare
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2384,6 +2680,9 @@ PathInvertedTriangle
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2402,6 +2701,9 @@ PathLeft
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2418,6 +2720,9 @@ PathLoopdeLoop
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2436,6 +2741,9 @@ PathNeutron
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2452,6 +2760,9 @@ PathOctagon
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2470,6 +2781,9 @@ PathParallelogram
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2486,6 +2800,9 @@ PathPeanut
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2504,6 +2821,9 @@ PathPentagon
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2520,6 +2840,9 @@ PathPlus
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2538,6 +2861,9 @@ PathPointyStar
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2554,6 +2880,9 @@ PathRight
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2572,6 +2901,9 @@ PathRightTriangle
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2588,6 +2920,9 @@ PathSCurve1
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2606,6 +2941,9 @@ PathSCurve2
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2622,6 +2960,9 @@ PathSineWave
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2640,6 +2981,9 @@ PathSpiralLeft
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2656,6 +3000,9 @@ PathSpiralRight
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2674,6 +3021,9 @@ PathSpring
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2690,6 +3040,9 @@ PathSquare
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2708,6 +3061,9 @@ PathStairsDown
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2724,6 +3080,9 @@ PathSwoosh
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2742,6 +3101,9 @@ PathTeardrop
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2758,6 +3120,9 @@ PathTrapezoid
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2776,6 +3141,9 @@ PathTurnDown
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2792,6 +3160,9 @@ PathTurnRight
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2810,6 +3181,9 @@ PathTurnUp
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2826,6 +3200,9 @@ PathTurnUpRight
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2844,6 +3221,9 @@ PathUp
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2860,6 +3240,9 @@ PathUser
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2878,6 +3261,9 @@ PathVerticalFigure8
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2894,6 +3280,9 @@ PathWave
 </td>
 <td>
 Yes
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -2912,6 +3301,9 @@ PathZigzag
 <td>
 Yes
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2928,6 +3320,12 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+<li> Bottom </li>
+<li> Left </li>
+<li> Right </li>
+<li> Top </li>
 </td>
 </tr>
 <tr>
@@ -2946,6 +3344,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -2962,6 +3363,10 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+<li> In </li>
+<li> Out </li>
 </td>
 </tr>
 <tr>
@@ -2980,6 +3385,10 @@ Yes
 <td>
 -
 </td>
+<td>
+<li> Horizontal </li>
+<li> Vertical </li>
+</td>
 </tr>
 <tr>
 <td>
@@ -2996,6 +3405,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -3014,6 +3426,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -3030,6 +3445,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -3048,6 +3466,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -3064,6 +3485,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -3082,6 +3506,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -3098,6 +3525,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -3116,6 +3546,12 @@ Yes
 <td>
 -
 </td>
+<td>
+<li> HorizontalIn </li>
+<li> HorizontalOut </li>
+<li> VerticalIn </li>
+<li> VerticalOut </li>
+</td>
 </tr>
 <tr>
 <td>
@@ -3132,6 +3568,13 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+<li> Right </li>
+<li> Left </li>
+<li> Top </li>
+<li> Bottom </li>
+<li> Across </li>
 </td>
 </tr>
 <tr>
@@ -3150,6 +3593,12 @@ Yes
 <td>
 -
 </td>
+<td>
+<li> UpLeft </li>
+<li> UpRight </li>
+<li> DownLeft </li> 
+<li> DownRight </li>
+</td>
 </tr>
 <tr>
 <td>
@@ -3166,6 +3615,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -3184,6 +3636,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -3200,6 +3655,10 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+<li> Horizontal </li>
+<li> Vertical </li>
 </td>
 </tr>
 <tr>
@@ -3218,6 +3677,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -3234,6 +3696,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -3252,6 +3717,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -3268,6 +3736,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -3286,6 +3757,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -3302,6 +3776,9 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+None 
 </td>
 </tr>
 <tr>
@@ -3320,6 +3797,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -3336,6 +3816,13 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+<li> Wheel1 </li>
+<li> Wheel2 </li>
+<li> Wheel3 </li>
+<li> Wheel4 </li>
+<li> Wheel8 </li>
 </td>
 </tr>
 <tr>
@@ -3354,6 +3841,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -3370,6 +3860,12 @@ Yes
 </td>
 <td>
 -
+</td>
+<td>
+<li> Top </li>
+<li> Right </li>
+<li> Bottom </li>
+<li> Left </li>
 </td>
 </tr>
 <tr>
@@ -3388,6 +3884,9 @@ Yes
 <td>
 -
 </td>
+<td>
+None 
+</td>
 </tr>
 <tr>
 <td>
@@ -3405,1268 +3904,17 @@ Yes
 <td>
 -
 </td>
-</tr>
-</table>
-**Animation effects with subtypes:**
-<table>
-<tr>
 <td>
-{{'**Effect type**'| markdownify }}
-</td>
-<td>
-{{'**Valid subtype**'| markdownify }}
-</td>
-</tr>
-<tr>
-<td>
-Appear 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-CurveUpDown 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Ascend 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Blast 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Blinds 
-</td>
-<td>
-* Horizontal 
-* Vertical 
-</td>
-</tr>
-<tr>
-<td>
-Blink 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-BoldFlash 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-BoldReveal 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Boomerang 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Bounce 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Box 
-</td>
-<td>
-* In 
-* Out 
-</td>
-</tr>
-<tr>
-<td>
-BrushOnColor 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-BrushOnUnderline 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-CenterRevolve 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-ChangeFillColor 
-</td>
-<td>
-* Instant 
-* Gradual 
-* GradualAndCycleClockwise 
-* GradualAndCycleCounterClockwise 
-</td>
-</tr>
-<tr>
-<td>
-ChangeFont 
-</td>
-<td>
-* Instant 
-* Gradual 
-</td>
-</tr>
-<tr>
-<td>
-ChangeFontColor 
-</td>
-<td>
-* Instant 
-* Gradual 
-* GradualAndCycleClockwise 
-* GradualAndCycleCounterClockwise 
-</td>
-</tr>
-<tr>
-<td>
-ChangeFontSize 
-</td>
-<td>
-* Instant 
-* Gradual 
-</td>
-</tr>
-<tr>
-<td>
-ChangeFontStyle 
-</td>
-<td>
-* FontBold 
-* FontItalic 
-* FontUnderline 
-</td>
-</tr>
-<tr>
-<td>
-ChangeLineColor 
-</td>
-<td>
-* Instant 
-* Gradual 
-* GradualAndCycleClockwise 
-* GradualAndCycleCounterClockwise 
-</td>
-</tr>
-<tr>
-<td>
-Checkerboard 
-</td>
-<td>
-* Vertical 
-* Across 
-</td>
-</tr>
-<tr>
-<td>
-Circle 
-</td>
-<td>
-* In 
-* Out 
-</td>
-</tr>
-<tr>
-<td>
-ColorBlend 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-ColorTypewriter 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-ColorWave 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-ComplementaryColor 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-ComplementaryColor2 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Compress 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-ContrastingColor 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Crawl 
-</td>
-<td>
-* Right 
-* Left 
-* Top 
-* Bottom 
-</td>
-</tr>
-<tr>
-<td>
-Credits 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Custom 
-</td>
-<td>
-- 
-</td>
-</tr>
-<tr>
-<td>
-Darken 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Desaturate 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Descend 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Diamond 
-</td>
-<td>
-* In 
-* Out 
-</td>
-</tr>
-<tr>
-<td>
-Dissolve 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-EaseInOut 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Expand 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Fade 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-FadedSwivel 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-FadedZoom 
-</td>
-<td>
-* None 
-* Center 
-</td>
-</tr>
-<tr>
-<td>
-FlashBulb 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-FlashOnce 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Flicker 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Flip 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Float 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Fly 
-</td>
-<td>
-* Right 
-* Left 
-* Top 
-* Bottom 
-* TopLeft 
-* TopRight 
-* BottomLeft 
-* BottomRight 
-</td>
-</tr>
-<tr>
-<td>
-Fold 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Glide 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-GrowAndTurn 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-GrowShrink 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-GrowWithColor 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Lighten 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-LightSpeed 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Path4PointStar 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Path5PointStar 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Path6PointStar 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Path8PointStar 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathArcDown 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathArcLeft 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathArcRight 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathArcUp 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathBean 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathBounceLeft 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathBounceRight 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathBuzzsaw 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathCircle 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathCrescentMoon 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathCurvedSquare 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathCurvedX 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathCurvyLeft 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathCurvyRight 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathCurvyStar 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathDecayingWave 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathDiagonalDownRight 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathDiagonalUpRight 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathDiamond 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathDown 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathEqualTriangle 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathFigure8Four 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathFootball 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathFunnel 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathHeart 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathHeartbeat 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathHexagon 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathHorizontalFigure8 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathInvertedSquare 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathInvertedTriangle 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathLeft 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathLoopdeLoop 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathNeutron 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathOctagon 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathParallelogram 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathPeanut 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathPentagon 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathPlus 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathPointyStar 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathRight 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathRightTriangle 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathSCurve1 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathSCurve2 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathSineWave 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathSpiralLeft 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathSpiralRight 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathSpring 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathSquare 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathStairsDown 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathSwoosh 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathTeardrop 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathTrapezoid 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathTurnDown 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathTurnRight 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathTurnUp 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathTurnUpRight 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathUp 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathUser 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathVerticalFigure8 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathWave 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-PathZigzag 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Peek 
-</td>
-<td>
-* Bottom 
-* Left 
-* Right 
-* Top 
-</td>
-</tr>
-<tr>
-<td>
-Pinwheel 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Plus 
-</td>
-<td>
-* In 
-* Out 
-</td>
-</tr>
-<tr>
-<td>
-RandomBars 
-</td>
-<td>
-* Horizontal 
-* Vertical 
-</td>
-</tr>
-<tr>
-<td>
-RandomEffects 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-RiseUp 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Shimmer 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Sling 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Spin 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Spinner 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Spiral 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Split 
-</td>
-<td>
-* HorizontalIn 
-* HorizontalOut 
-* VerticalIn 
-* VerticalOut 
-</td>
-</tr>
-<tr>
-<td>
-Stretch 
-</td>
-<td>
-* Right 
-* Left 
-* Top 
-* Bottom 
-* Across 
-</td>
-</tr>
-<tr>
-<td>
-Strips 
-</td>
-<td>
-* UpLeft 
-* UpRight 
-* DownLeft 
-* DownRight 
-</td>
-</tr>
-<tr>
-<td>
-StyleEmphasis 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Swish 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Swivel 
-</td>
-<td>
-* Horizontal 
-* Vertical 
-</td>
-</tr>
-<tr>
-<td>
-Teeter 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Thread 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Transparency 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Unfold 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-VerticalGrow 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Wave 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Wedge 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Wheel 
-</td>
-<td>
-* Wheel1 
-* Wheel2 
-* Wheel3 
-* Wheel4 
-* Wheel8 
-</td>
-</tr>
-<tr>
-<td>
-Whip 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Wipe 
-</td>
-<td>
-* Top 
-* Right 
-* Bottom 
-* Left 
-</td>
-</tr>
-<tr>
-<td>
-Magnify 
-</td>
-<td>
-None 
-</td>
-</tr>
-<tr>
-<td>
-Zoom 
-</td>
-<td>
-* In 
-* Out 
-* InCenter - only for Entrance type 
-* OutBottom - only for Entrance type 
-* OutSlightly 
-* InSlightly 
-* OutCenter - only for Exit type 
-* InBottom - only for Exit type
+<li> In </li>
+<li> Out </li>
+<li> InCenter - only for Entrance type </li>
+<li> OutBottom - only for Entrance type </li>
+<li> OutSlightly </li>
+<li> InSlightly </li>
+<li> OutCenter - only for Exit type </li>
+<li> InBottom - only for Exit type </li>
 </td>
 </tr>
 </table>
+
 
