@@ -1620,8 +1620,6 @@ This functionality supports the following data sources.
 
 Each marker starts with a prefix "%", which is followed by a __MarkerVariable__ and its __property__. The arguments are delimited by semicolon (;). The following syntax shows the usage of marker in input template document. 
 
-LINK- Template marker section for argument.
-
 <table>
 <tr>
 <td>
@@ -1638,6 +1636,7 @@ For example – let’s consider that you have a template document as shown belo
 
 ![](Getting-Started_images/Getting-Started_img3.jpeg)
 
+[Download input template](http://www.syncfusion.com/downloads/support/directtrac/general/ze/TemplateMarker1284008036.zip)
 
 The following code snippet shows how to use template markers with objects.
 
