@@ -1632,6 +1632,9 @@ Use the following syntax to maintain row formats while filling data.
 <td>
 %&lt;MarkerVariable&gt;.&lt;Property&gt;;insert:copystyles<br/><br/>For example: %Reports.SalesPerson;insert:copystyles<br/><br/></td></tr>
 </table>
+
+Find more details in [Template marker section for arguments](https://help.syncfusion.com/file-formats/xlsio/working-with-template-markers#template-marker-syntax)
+
 For example – let’s consider that you have a template document as shown below.
 
 ![](Getting-Started_images/Getting-Started_img3.jpeg)
