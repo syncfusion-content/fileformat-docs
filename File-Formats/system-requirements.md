@@ -2,7 +2,7 @@
 layout: post
 title: System requirements needed to use Syncfusion Essential Studio File Format products
 description: Learn what are the system requirements needed to use Syncfusion Essential File Format products
-platform: fileformats
+platform: file-formats
 control: System Requirements
 documentation: ug
 
