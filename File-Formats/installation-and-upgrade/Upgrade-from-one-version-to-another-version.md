@@ -2,7 +2,7 @@
 layout: post
 title: Upgrade from one version to another version| common | Syncfusion
 description: upgrade from one version to another version
-platform: fileformats
+platform: file-formats
 control: Essential Studio
 documentation: ug
 ---

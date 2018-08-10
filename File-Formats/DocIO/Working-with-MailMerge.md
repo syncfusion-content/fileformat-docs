@@ -1,4 +1,5 @@
 ---
+---
 title: Working with MailMerge
 description: This section illustrates how to merge the data from data source to a Word document
 platform: file-formats
@@ -493,7 +494,7 @@ commands.Add(entry);
 
 //Retrieves the customer details
 
-entry = new DictionaryEntry("Orders", "CustomerID = %Customer.CustomerID%");
+entry = new DictionaryEntry("Orders", "CustomerID = %Customers.CustomerID%");
 
 commands.Add(entry);
 
@@ -539,7 +540,7 @@ commands.Add(entry)
 
 'Retrieves the customer details
 
-entry = New DictionaryEntry("Orders", "CustomerID = %Customer.CustomerID%")
+entry = New DictionaryEntry("Orders", "CustomerID = %Customers.CustomerID%")
 
 commands.Add(entry)
 
