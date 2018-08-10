@@ -539,7 +539,7 @@ commands.Add(entry)
 
 'Retrieves the customer details
 
-entry = New DictionaryEntry("Orders", "CustomerID = %Customer.CustomerID%")
+entry = New DictionaryEntry("Orders", "CustomerID = %Customers.CustomerID%")
 
 commands.Add(entry)
 
