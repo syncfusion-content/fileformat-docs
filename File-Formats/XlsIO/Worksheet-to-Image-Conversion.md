@@ -262,8 +262,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}  
 
 N> 1. Instance of XlsIORenderer class is mandatory to convert the worksheet to image using .NET Standard assemblies.
-N> 2. In .NET Standard, the Image format and quality can be specified using the ExportImageOptions class. By default the ImageFormat is set to 
-PNG and ScalingMode is set to Best.
+N> 2. In .NET Standard, the Image format and quality can be specified using the ExportImageOptions class. By default the ImageFormat is set to PNG and ScalingMode is set to Best.
 N> 3. Worksheet to image conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
 
 **Non****-****Supported** **Features****:**
