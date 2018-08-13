@@ -71,7 +71,48 @@ Syncfusion.ExcelToPDFConverter.Base.nupkg
 </tr>
 </table>
 
-N> Excel to PDF/Image conversion is not supported in Xamarin, UWP and ASP.NET Core applications.
+N> Excel to PDF conversion is not supported in Xamarin, UWP and .NET Core applications.
+
+## Converting Excel Worksheet to Image
+
+For converting an Excel worksheet to image, the following NuGet packages need to be installed in your application.
+
+<table>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tbody>
+<tr>
+<td>
+Windows Forms, WPF, ASP.NET and ASP.NET MVC
+</td>
+<td>
+Syncfusion.XlsIO.Base.nupkg
+</td>
+</tr>
+<tr>
+<td>
+UWP and .NET Core
+</td>
+<td>
+Syncfusion.XlsIORenderer.NETStandard.nupkg
+</td>
+</tr>
+<tr>
+<td>
+Xamarin
+</td>
+<td>
+Syncfusion.Xamarin.XlsIORenderer.nupkg
+</td>
+</tr>
+</tbody>
+</table>
+
+N> Worksheet to image conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
 
 ## Converting Charts in XlsIO
 
@@ -94,7 +135,8 @@ Syncfusion.ExcelChartToImageConverter.Wpf.nupkg
 </tr>
 </table>
 
-N> The "Syncfusion.ExcelChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards. 
+N> 1. The "Syncfusion.ExcelChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards. 
+N> 2. Chart to image conversion is not supported in .NET Standard.
 
 ## NuGet Package Installation and Uninstallation
 

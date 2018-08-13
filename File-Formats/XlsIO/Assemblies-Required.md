@@ -46,7 +46,7 @@ Syncfusion.XlsIO.UWP
 </tr>
 <tr>
 <td>
-Xamarin
+.NET Core and Xamarin
 </td>
 <td>
 Syncfusion.XlsIO.Portable<br/>
@@ -128,7 +128,7 @@ Syncfusion.XlsIO.Universal
 
 ## Converting Excel document to PDF
 
-For converting an Excel document to PDF, the following assemblies need to be referenced in your application
+For converting an Excel document to PDF, the following assemblies need to be referenced in your application.
 <table>
 <tr>
 <th>
@@ -164,7 +164,47 @@ Syncfusion.ExcelToPDFConverter.ClientProfile
 </tbody>
 </table>
 
-N> Excel to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
+N> Excel to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin, .NET Core and UWP applications.
+
+## Converting Excel Worksheet to Image
+
+For converting an Excel worksheet to image, the following assemblies need to be referenced in your application.
+
+<table>
+<tr>
+<thead><th>
+Platform(s)</th>
+<th>
+Assembly
+</th>
+</thead>
+</tr>
+<tbody>
+<tr>
+<td>
+Windows Forms, WPF, ASP.NET and ASP.NET MVC
+</td>
+<td>
+Syncfusion.Compression.Base<br/>
+Syncfusion.XlsIO.Base
+</td>
+</tr>
+<tr>
+<td>
+UWP, .NET Core and Xamarin
+</td>
+<td>
+Syncfusion.Compression.Portable<br/>
+Syncfusion.XlsIO.Portable<br/>
+Syncfusion.XlsIORenderer.Portable
+</td>
+</tr>
+</tbody>
+</table>
+
+N> Worksheet to image conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
+
+## Converting Excel Chart to Image
 
 The following assemblies are to be referred in addition to the above mentioned assemblies for converting charts present in the Excel document into PDF/Image.
 <table>
@@ -189,6 +229,7 @@ Syncfusion.SfChart.WPF
 </tbody>
 </table>
 
-N> The above mentioned assemblies are supported from .NET Framework 4.0 onwards.
+N> 1. Chart to image conversion is supported from .NET Framework 4.0 onwards.
+N> 2. Chart to image conversion is not supported in .NET Standard.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your Xamarin application to use our components.

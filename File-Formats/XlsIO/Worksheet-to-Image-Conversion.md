@@ -8,6 +8,13 @@ documentation: UG
 
 # Worksheet to Image conversion
 
+## Assemblies Required
+
+Refer to the following links for assemblies required based on platforms to convert the worksheet to image.
+
+* [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-worksheet-to-image) 
+* [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-worksheet-to-image)
+
 ## Convert as bitmap
 
 The following code shows how to convert the specified range of rows and columns in the worksheet to bitmap.
@@ -26,7 +33,8 @@ image.Save("Sample.png", ImageFormat.Png)
 {% endhighlight %}
 
 {% highlight UWP %}
-//Note that Worksheet To Image conversion in UWP can be performed by referring NetStandard assemblies only.
+//Worksheet To Image conversion can be performed by reffering .NET Standard assemblies in UWP platform.
+
 // Initialize XlsIORenderer
 application.XlsIORenderer = new XlsIORenderer();
 
@@ -78,7 +86,8 @@ sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
 {% endhighlight %}
 
 {% highlight UWP %}
-//Note that Worksheet To Image conversion in UWP can be performed by referring NetStandard assemblies only.
+//Worksheet To Image conversion can be performed by reffering .NET Standard assemblies in UWP platform.
+
 // Initialize XlsIORenderer
 application.XlsIORenderer = new XlsIORenderer();
 
@@ -161,7 +170,8 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Note that Worksheet To Image conversion in UWP can be performed by referring NetStandard assemblies only.
+//Worksheet To Image conversion can be performed by reffering .NET Standard assemblies in UWP platform.
+
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
   IApplication application = excelEngine.Excel;
@@ -251,10 +261,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-**Note****:**
-In ASP.NET Core, UWP and Xamarin the Image format and quality can be specified using the ExportImageOptions Class. Creating an object for ExportImageOptions and 
-passing the same as a parameter in the ConvertToImage method results image in the required quality and image format. By default the ImageFormat is set to 
+N> 1. Instance of XlsIORenderer class is mandatory to convert the worksheet to image using .NET Standard assemblies.
+N> 2. In .NET Standard, the Image format and quality can be specified using the ExportImageOptions class. By default the ImageFormat is set to 
 PNG and ScalingMode is set to Best.
+N> 3. Worksheet to image conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
 
 **Non****-****Supported** **Features****:**
 
