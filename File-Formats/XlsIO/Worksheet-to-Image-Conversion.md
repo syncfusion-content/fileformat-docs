@@ -33,7 +33,7 @@ image.Save("Sample.png", ImageFormat.Png)
 {% endhighlight %}
 
 {% highlight UWP %}
-//Worksheet To Image conversion can be performed by reffering .NET Standard assemblies in UWP platform.
+//Worksheet To Image conversion can be performed by referring .NET Standard assemblies in UWP platform.
 
 // Initialize XlsIORenderer
 application.XlsIORenderer = new XlsIORenderer();
@@ -86,7 +86,7 @@ sheet.ConvertToImage(1, 1, 10, 20, ImageType.Metafile, stream)
 {% endhighlight %}
 
 {% highlight UWP %}
-//Worksheet To Image conversion can be performed by reffering .NET Standard assemblies in UWP platform.
+//Worksheet To Image conversion can be performed by referring .NET Standard assemblies in UWP platform.
 
 // Initialize XlsIORenderer
 application.XlsIORenderer = new XlsIORenderer();
@@ -170,7 +170,7 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//Worksheet To Image conversion can be performed by reffering .NET Standard assemblies in UWP platform.
+//Worksheet To Image conversion can be performed by referring .NET Standard assemblies in UWP platform.
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
