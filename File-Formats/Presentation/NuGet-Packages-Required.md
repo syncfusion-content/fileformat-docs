@@ -11,16 +11,14 @@ To work with PowerPoint Presentations, the following NuGet packages need to be i
 
 <table>
 <tr>
-<td>
-{{'**Platform(s)**'| markdownify }}
-</td>
-<td>
-{{'**NuGet Package**'| markdownify }}
-</td>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
 </tr>
 <tr>
 <td>
-Windows Forms and WPF
+.NET Framework(Windows Forms, WPF, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core – Targeting .NET Framework)
 </td>
 <td>
 Syncfusion.Presentation.Base.nupkg
@@ -28,10 +26,18 @@ Syncfusion.Presentation.Base.nupkg
 </tr>
 <tr>
 <td>
-ASP.NET and ASP.NET MVC
+UWP
 </td>
 <td>
-Syncfusion.Web.FileFormatsBase.nupkg
+Syncfusion.Presentation.UWP.nupkg
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core (Targeting .netcoreapp)
+</td>
+<td>
+Syncfusion.Presentation.NETStandard.nupkg
 </td>
 </tr>
 <tr>
@@ -40,14 +46,6 @@ Xamarin
 </td>
 <td>
 Syncfusion.Xamarin.Presentation.nupkg
-</td>
-</tr>
-<tr>
-<td>
-Universal Windows Platform
-</td>
-<td>
-Syncfusion.Presentation.UWP46.nupkg
 </td>
 </tr>
 </table>
