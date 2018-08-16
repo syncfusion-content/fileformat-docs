@@ -34,7 +34,7 @@ Syncfusion.Presentation.UWP.nupkg
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting .netcoreapp)
+ASP.NET Core (Targeting .net core application)
 </td>
 <td>
 Syncfusion.Presentation.NETStandard.nupkg
