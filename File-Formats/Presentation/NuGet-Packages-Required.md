@@ -75,8 +75,7 @@ Syncfusion.OfficeChartToImageConverter.Wpf.nupkg
 </tr>
 </table>
 
-N> 1. The "Syncfusion.AspNet.FileFormats.nupkg" and "Syncfusion.AspNet.Mvc.FileFormats.nupkg" packages already includes the necessary assemblies for chart conversion. So it is not needed to additionally install the “Syncfusion.OfficeChartToImageConverter.Wpf.nupkg” NuGet package in ASP.NET and ASP.NET MVC platforms.
-N> 2. The "Syncfusion.OfficeChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards.
+N> The "Syncfusion.OfficeChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards.
 
 ## Converting PowerPoint Presentation to PDF
 
@@ -93,26 +92,10 @@ For converting PowerPoint Presentation to PDF, the following NuGet packages need
 </tr>
 <tr>
 <td>
-Windows Forms and WPF
+Windows Forms, WPF, ASP.NET and ASP.NET MVC 
 </td>
 <td>
 Syncfusion.PresentationToPdfConverter.Base.nupkg
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET
-</td>
-<td>
-Syncfusion.AspNet.FileFormats.nupkg
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET MVC
-</td>
-<td>
-Syncfusion.AspNet.Mvc.FileFormats.nupkg
 </td>
 </tr>
 </table>
