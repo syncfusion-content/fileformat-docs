@@ -50,6 +50,10 @@ Syncfusion.Xamarin.XlsIO.nupkg
 </tr>
 </table>
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+
+N> Syncfusion components are also available in nuget.org
+
 ## Converting Excel document into PDF
 
 For converting Excel document into PDF, the following NuGet packages need to be installed in your application.
@@ -115,9 +119,9 @@ XlsIO NuGet packages can be installed and uninstalled using Package Manager Cons
 Windows Forms, WPF, ASP.NET Web and MVC
 </td>
 <td>
-* Install-package Syncfusion.XlsIO.Base -source {{'<http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.Base -source {{'<http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelChartToImageConverter.WPF -source {{'<http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms/>'| markdownify }}
+* Install-package Syncfusion.XlsIO.Base {{'<http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms/>'| markdownify }}<br/><br/>
+* Install-package Syncfusion.ExcelToPdfConverter.Base {{'<http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms/>'| markdownify }}<br/><br/>
+* Install-package Syncfusion.ExcelChartToImageConverter.WPF {{'<http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms/>'| markdownify }}
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.Base -RemoveDependencies                             <br/><br/>
@@ -130,7 +134,7 @@ Windows Forms, WPF, ASP.NET Web and MVC
 UWP
 </td>
 <td>
-Install-package Syncfusion.XlsIO.UWP –source {{'<http://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows>'| markdownify }}
+Install-package Syncfusion.XlsIO.UWP {{'<http://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows>'| markdownify }}
 </td>
 <td>
 Uninstall-package Syncfusion.XlsIO.UWP –RemoveDependencies
@@ -141,7 +145,7 @@ Uninstall-package Syncfusion.XlsIO.UWP –RemoveDependencies
 ASP.NET Core
 </td>
 <td>
-Install-package Syncfusion.XlsIO.NETStandard -source {{'<http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore>'| markdownify }}
+Install-package Syncfusion.XlsIO.NETStandard {{'<http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore>'| markdownify }}
 </td>
 <td>
 Uninstall-package Syncfusion.XlsIO.NETStandard –RemoveDependencies
@@ -152,12 +156,10 @@ Uninstall-package Syncfusion.XlsIO.NETStandard –RemoveDependencies
 Xamarin
 </td>
 <td>
-Install-package Syncfusion.Xamarin.XlsIO –source {{'<http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin>'| markdownify }}
+Install-package Syncfusion.Xamarin.XlsIO {{'<http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin>'| markdownify }}
 </td>
 <td>
 Uninstall-package Syncfusion.Xamarin.XlsIO –RemoveDependencies
 </td>
 </tr>
 </table>
-
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your Xamarin application to use our components.
