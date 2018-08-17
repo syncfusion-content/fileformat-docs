@@ -66,7 +66,9 @@ Universal (Classic)<br/></td><td>
 Syncfusion.DocIO.Universal<br/></td></tr>
 </table>
 
-N> Starting with v16.2.0.41, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+
+N> Syncfusion components are available in nuget.org
 
 ## Converting Word document to PDF
 
@@ -91,9 +93,10 @@ ASP.NET Core and Xamarin<br/></td><td>
 Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>SkiaSharp</td></tr>
 </table>
 
-N> 1. Starting with v16.2.0.41, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
-N> 2. Word to PDF conversion is supported in ASP.NET Core and Xamarin from 2018 Volume 1 release (v16.1.0.24) using SkiaSharp graphics library.
-N> 3. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal applications.
+N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> 2. Syncfusion components are available in nuget.org
+N> 3. Word to PDF conversion is supported in ASP.NET Core and Xamarin from 2018 Volume 1 release (v16.1.0.24) using SkiaSharp graphics library.
+N> 4. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal applications.
 
 ## Converting Charts
 
@@ -109,6 +112,7 @@ Assembly<br/></th></tr></thead>
 WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/></td><td>
 Syncfusion.OfficeChartToImageConverter.WPF<br/>Syncfusion.SfChart.WPF<br/></td></tr>
 </table>
-N> 1. Starting with v16.2.0.41, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
-N> 2. The above mentioned assemblies is supported from .NET Framework 4.0 onwards.
-N> 3. Chart conversion is not supported in ASP.NET Core and Xamarin platforms.
+N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> 2. Syncfusion components are available in nuget.org
+N> 3. The above mentioned assemblies is supported from .NET Framework 4.0 onwards.
+N> 4. Chart conversion is not supported in ASP.NET Core and Xamarin platforms.
