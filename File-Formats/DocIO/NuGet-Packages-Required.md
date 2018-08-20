@@ -71,7 +71,7 @@ Install-Package Syncfusion.DocIO.UWP
 </tr>
 </table>
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
-N> 2. Syncfusion components are available in nuget.org
+N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 
 ## Converting Word document to PDF
 
@@ -93,7 +93,7 @@ Package manager console command
 </thead>
 <tr>
 <td>
-.NET Frameworks (Windows Forms, WPF, ASP.NET and ASP.NET MVC)
+.NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core – Targeting .NET Framework)
 </td>
 <td>
 Syncfusion.DocToPdfConverter.Base.nupkg
@@ -104,7 +104,7 @@ Install-Package Syncfusion.DocToPdfConverter.Base
 </tr>
 <tr>
 <td>
-ASP.NET Core 
+ASP.NET Core (Targeting .netcoreapp)
 </td>
 <td>
 Syncfusion.DocIORenderer.NetStandard.nupkg
@@ -127,7 +127,7 @@ Install-Package Syncfusion.Xamarin.DocIORenderer
 </table>
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
-N> 2. Syncfusion components are available in nuget.org
+N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 N> 3. Install SkiaSharp package version 1.59.3 in addition to DocIORenderer package.
 N> 4. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
 
@@ -152,7 +152,7 @@ Package manager console command
 </thead>
 <tr>
 <td>
-.NET Frameworks (Windows Forms, WPF, ASP.NET and ASP.NET MVC)
+.NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core – Targeting .NET Framework)
 </td>
 <td>
 Syncfusion.OfficeChartToImageConverter.WPF.nupkg
@@ -164,8 +164,8 @@ Install-Package Syncfusion.OfficeChartToImageConverter.Wpf
 </table>
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
-N> 2. Syncfusion components are available in nuget.org
-N> 3. The "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards and also it not supported in the Universal Windows Platform.
+N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
+N> 3. The "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards and it is not supported in ASP.NET Core (Targeting .netcoreapp) and Xamarin platforms.
 
 
 ## NuGet Package Installation and Uninstallation
@@ -174,7 +174,7 @@ To use Syncfusion NuGet packages in your project, please refer the NuGet Package
 
 DocIO NuGet packages can be installed and uninstalled using Package Manager Console. In Visual Studio, select Tools > NuGet Package Manager > Package Manager Console and execute the following commands.
 
-### .NET Frameworks (Windows Forms, WPF, ASP.NET and ASP.NET MVC)
+### .NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core – Targeting .NET Framework)
 
 **NuGet Package:** Syncfusion.DocIO.Base
 
@@ -216,7 +216,7 @@ Uninstall-Package Syncfusion.OfficeChartToImageConverter.WPF -RemoveDependencies
 ~~~
 
 
-### ASP.NET Core
+### ASP.NET Core (Targeting .netcoreapp)
 
 **NuGet Package:** Syncfusion.DocIO.NETStandard
 
