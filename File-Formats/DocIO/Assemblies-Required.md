@@ -18,7 +18,7 @@ Platform(s)<br/></th><th>
 Assembly<br/></th></tr></thead>
 <tr>
 <td>
-WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/></td><td>
+WPF, Windows Forms, ASP. NET, ASP.NET MVC and ASP.NET Core - Targeting .NET Framework<br/></td><td>
 Syncfusion.DocIO.Base<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/></td></tr>
 <tr>
 <td>
@@ -88,7 +88,7 @@ Windows Forms and WPF (Client Profile)<br/></td><td>
 Syncfusion.DocIO.ClientProfile<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/>Syncfusion.Pdf.ClientProfile<br/>Syncfusion.DocToPdfConverter.ClientProfile<br/></td></tr>
 <tr>
 <td>
-ASP.NET Core and Xamarin<br/></td><td>
+ASP.NET Core (Targeting .netcoreapp) and Xamarin<br/></td><td>
 Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>SkiaSharp</td></tr>
 </table>
 

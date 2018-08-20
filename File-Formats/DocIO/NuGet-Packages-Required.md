@@ -27,7 +27,7 @@ Package manager console command
 </thead>
 <tr>
 <td>
-.NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core – Targeting .NET Framework)
+.NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core - Targeting .NET Framework)
 </td>
 <td>
 Syncfusion.DocIO.Base.nupkg
