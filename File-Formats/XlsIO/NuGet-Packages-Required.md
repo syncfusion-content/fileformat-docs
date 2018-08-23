@@ -141,7 +141,7 @@ Uninstall-package Syncfusion.XlsIO.UWP –RemoveDependencies
 ASP.NET Core
 </td>
 <td>
-Install-package Syncfusion.XlsIO.NETStandard -source {{'<http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore>'| markdownify }}
+Install-package Syncfusion.XlsIO.NETStandard -source {{'<https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore>'| markdownify }}
 </td>
 <td>
 Uninstall-package Syncfusion.XlsIO.NETStandard –RemoveDependencies

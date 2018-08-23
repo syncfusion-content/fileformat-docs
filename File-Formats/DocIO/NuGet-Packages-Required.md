@@ -33,7 +33,7 @@ Package manager console command
 Syncfusion.DocIO.Base.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIO.Base -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms
+Install-Package Syncfusion.DocIO.Base -Source https://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms
 </td>
 </tr>
 <tr>
@@ -44,7 +44,7 @@ ASP.NET and ASP.NET MVC
 Syncfusion.Web.FileFormatsBase.nupkg
 </td>
 <td>
-Install-Package Syncfusion.Web.FileFormatsBase -Source http://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet
+Install-Package Syncfusion.Web.FileFormatsBase -Source https://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet
 </td>
 </tr>
 <tr>
@@ -55,7 +55,7 @@ ASP.NET Core
 Syncfusion.DocIO.NETStandard.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIO.NETStandard -Source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore
+Install-Package Syncfusion.DocIO.NETStandard -Source https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore
 </td>
 </tr>
 <tr>
@@ -77,7 +77,7 @@ UWP
 Syncfusion.DocIO.UWP.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIO.UWP -Source http://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows
+Install-Package Syncfusion.DocIO.UWP -Source https://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows
 </td>
 </tr>
 </table>
@@ -109,7 +109,7 @@ Package manager console command
 Syncfusion.DocToPdfConverter.Base.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocToPdfConverter.Base -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms
+Install-Package Syncfusion.DocToPdfConverter.Base -Source https://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms
 </td>
 </tr>
 <tr>
@@ -120,7 +120,7 @@ ASP.NET
 Syncfusion.AspNet.FileFormats.nupkg
 </td>
 <td>
-Install-Package Syncfusion.AspNet.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet
+Install-Package Syncfusion.AspNet.FileFormats -Source https://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet
 </td>
 </tr>
 <tr>
@@ -132,11 +132,11 @@ Syncfusion.AspNet.Mvc.FileFormats.nupkg
 </td>
 <td>
 // MVC 3 version <br/>
-Install-Package Syncfusion.AspNet.Mvc3.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc <br/>
+Install-Package Syncfusion.AspNet.Mvc3.FileFormats -Source https://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc <br/>
 // MVC 4 version <br/>
-Install-Package Syncfusion.AspNet.Mvc4.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc <br/>
+Install-Package Syncfusion.AspNet.Mvc4.FileFormats -Source https://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc <br/>
 // MVC 5 version <br/>
-Install-Package Syncfusion.AspNet.Mvc5.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
+Install-Package Syncfusion.AspNet.Mvc5.FileFormats -Source https://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
 </td>
 </tr>
 <tr>
@@ -147,7 +147,7 @@ ASP.NET Core
 Syncfusion.DocIORenderer.NetStandard.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIORenderer.NetStandard -Source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore
+Install-Package Syncfusion.DocIORenderer.NetStandard -Source https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore
 </td>
 </tr>
 <tr>
@@ -194,7 +194,7 @@ Package manager console command
 Syncfusion.OfficeChartToImageConverter.WPF.nupkg
 </td>
 <td>
-Install-Package Syncfusion.OfficeChartToImageConverter.Wpf -Source http://nuget.syncfusion.com/nuget_wpf/nuget/getsyncfusionpackages/wpf
+Install-Package Syncfusion.OfficeChartToImageConverter.Wpf -Source https://nuget.syncfusion.com/nuget_wpf/nuget/getsyncfusionpackages/wpf
 </td>
 </tr>
 </table>
@@ -218,7 +218,7 @@ The package contains DocIO library that allows you to create, read and edit Word
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocIO.Base -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms 
+Install-Package Syncfusion.DocIO.Base -Source https://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms 
 ~~~
 ~~~
 // Uninstall package
@@ -231,7 +231,7 @@ The package contains the DocToPdfConverter .NET library that allows you to conve
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocToPdfConverter.Base -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms 
+Install-Package Syncfusion.DocToPdfConverter.Base -Source https://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms 
 ~~~
 ~~~
 // Uninstall package
@@ -244,7 +244,7 @@ The package contains OfficeChartToImageConverter .NET library for converting the
 
 ~~~
 // Install package
-Install-Package Syncfusion.OfficeChartToImageConverter.Wpf -Source http://nuget.syncfusion.com/nuget_wpf/nuget/getsyncfusionpackages/wpf 
+Install-Package Syncfusion.OfficeChartToImageConverter.Wpf -Source https://nuget.syncfusion.com/nuget_wpf/nuget/getsyncfusionpackages/wpf 
 ~~~
 ~~~
 // Uninstall package
@@ -260,7 +260,7 @@ The package contains DocIO portable library that allows you to create, read and 
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocIO.NETStandard -Source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore 
+Install-Package Syncfusion.DocIO.NETStandard -Source https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore 
 
 // Install dependent package
 Install-Package SkiaSharp -Source https://api.nuget.org/v3/index.json
@@ -276,7 +276,7 @@ The package contains the DocIORenderer .NET portable library that allows you to 
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocIORenderer.NetStandard -Source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore 
+Install-Package Syncfusion.DocIORenderer.NetStandard -Source https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore 
 ~~~
 ~~~
 // Uninstall package
@@ -322,7 +322,7 @@ The package contains Syncfusion File formats libraries that provides the ability
 
 ~~~
 // Install package
-Install-Package Syncfusion.Web.FileFormatsBase -Source http://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet 
+Install-Package Syncfusion.Web.FileFormatsBase -Source https://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet 
 ~~~
 ~~~
 // Uninstall package
@@ -335,7 +335,7 @@ The package contains Syncfusion File formats libraries that provides the ability
 
 ~~~
 // Install package
-Install-Package Syncfusion.AspNet.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet
+Install-Package Syncfusion.AspNet.FileFormats -Source https://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet
 ~~~
 ~~~
 // Uninstall
@@ -350,7 +350,7 @@ The package contains Syncfusion File formats libraries that provides the ability
 
 ~~~
 // Install package
-Install-Package Syncfusion.Web.FileFormatsBase -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
+Install-Package Syncfusion.Web.FileFormatsBase -Source https://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
 ~~~
 ~~~
 // Uninstall package
@@ -363,7 +363,7 @@ The package contains Syncfusion File formats libraries that provides the ability
 
 ~~~
 // Install package
-Install-Package Syncfusion.AspNet.Mvc5.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
+Install-Package Syncfusion.AspNet.Mvc5.FileFormats -Source https://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
 ~~~
 ~~~
 // Uninstall package
@@ -380,7 +380,7 @@ The package contains DocIO library that allows you to create, read and edit Word
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocIO.UWP -Source http://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows 
+Install-Package Syncfusion.DocIO.UWP -Source https://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows 
 ~~~
 
 ~~~
