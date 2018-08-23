@@ -119,7 +119,7 @@ The QtBinariesDotNetCore folder available in the WebKit HTML Converter installed
 		3. Syncfusion.HtmlConverter.Portable.dll
 	<b>NuGet</b>
 		1. Syncfusion.HtmlConverter.NETStandard
-		   [http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore)
+		   [https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore)
 
 * The QtBinaries folder is available in the WebKit HTML Converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. 
 
@@ -145,7 +145,7 @@ The QtBinariesDotNetCore folder available in the WebKit HTML Converter installed
 		3. Syncfusion.HtmlConverter.Portable.dll
 	<b>NuGet</b>
 		1. Syncfusion.HtmlConverter.NETStandard
-		   [http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore)
+		   [https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore)
 	
 * The QtBinaries folder is available in the WebKit HTML Converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings.
 	

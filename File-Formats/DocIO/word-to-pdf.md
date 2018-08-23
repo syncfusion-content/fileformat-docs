@@ -177,23 +177,23 @@ In Linux OS, you can perform the Word to PDF conversion using .NET Core applicat
 <tr>
 <td>
 Syncfusion.DocIORenderer.NetStandard<br/><br/></td><td>
-Install-package Syncfusion.DocIORenderer.NetStandard -source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore<br/><br/></td></tr>
+Install-package Syncfusion.DocIORenderer.NetStandard -source https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore<br/><br/></td></tr>
 <tr>
 <td>
 Syncfusion.DocIO.NetStandard<br/><br/></td><td>
-Install-package Syncfusion.DocIO.NetStandard -source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore<br/><br/></td></tr>
+Install-package Syncfusion.DocIO.NetStandard -source https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore<br/><br/></td></tr>
 <tr>
 <td>
 Syncfusion.Compression.NetStandard<br/><br/></td><td>
-Install-package Syncfusion.Compression.NetStandard -source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore<br/><br/></td></tr>
+Install-package Syncfusion.Compression.NetStandard -source https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore<br/><br/></td></tr>
 <tr>
 <td>
 Syncfusion.OfficeChart.NetStandard<br/><br/></td><td>
-Install-package Syncfusion.OfficeChart.NetStandard -source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore<br/><br/></td></tr>
+Install-package Syncfusion.OfficeChart.NetStandard -source https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore<br/><br/></td></tr>
 <tr>
 <td>
 Syncfusion.Pdf.NetStandard<br/><br/></td><td>
-Install-package Syncfusion.Pdf.NetStandard -source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore<br/><br/></td></tr>
+Install-package Syncfusion.Pdf.NetStandard -source https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore<br/><br/></td></tr>
 <tr>
 <td>
 SkiaSharp<br/><br/></td><td>

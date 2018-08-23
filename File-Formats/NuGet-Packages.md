@@ -45,7 +45,7 @@ You should get the private Syncfusion NuGet feed URL to install or upgrade the S
     
     **Source:** Syncfusion NuGet Feed URL      
 
-    For example, Name: Syncfusion AspNet Core Packages, Source: [http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore).
+    For example, Name: Syncfusion AspNet Core Packages, Source: [https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore).
 
 5.	Click the **Update** button to add the name and source details to package sources. 
 
@@ -69,7 +69,7 @@ You should get the private Syncfusion NuGet feed URL to install or upgrade the S
     
     **Source:** Syncfusion NuGet Feed URL      
 
-    For example, Name: Syncfusion ASP.NET Core Packages, Source: [http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore).
+    For example, Name: Syncfusion ASP.NET Core Packages, Source: [https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore).
     
 	![](NuGet_Packages_Images/img5.png)
  
@@ -119,7 +119,7 @@ To reference the Syncfusion component using the Package Manager Console as NuGet
     Install-Package Syncfusion.DocIO.NETStandard
 
     #install specified package in default project with specified Package Source
-    Install-Package Syncfusion.DocIO.NETStandard -Source “http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
+    Install-Package Syncfusion.DocIO.NETStandard -Source “https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
 
     #install specified package in specified project 
     Install-Package Syncfusion.DocIO.NETStandard -ProjectName SyncfusionDemoApplication
@@ -167,10 +167,10 @@ The NuGet Command Line Interface (CLI), nuget.exe, provides the full extent of N
 
     ~~~
     #For Windows platform
-    nuget.exe Sources Add –Name “Syncfusion Source” –Source “http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
+    nuget.exe Sources Add –Name “Syncfusion Source” –Source “https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
 
     #For MAC/Linux platform
-    mono nuget.exe Sources Add –Name “Syncfusion Source” –Source “http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
+    mono nuget.exe Sources Add –Name “Syncfusion Source” –Source “https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
     ~~~
 
 ### NuGet installation
@@ -197,7 +197,7 @@ nuget.exe install “Syncfusion.DocIO.NETStandard”
 nuget.exe install “C:\Users\SyncfusionApplication\package.config”
 
 #install specific Syncfusion ASP.NET Core NuGet package with Syncfusion ASP.NET Core NuGet feed for Windows 
-nuget.exe install “Syncfusion.DocIO.NETStandard”  –Source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
+nuget.exe install “Syncfusion.DocIO.NETStandard”  –Source https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
 
 #install specific package for Mac and Linux 
 mono nuget.exe install “Syncfusion.DocIO.NETStandard”
@@ -206,7 +206,7 @@ mono nuget.exe install “Syncfusion.DocIO.NETStandard”
 mono nuget.exe install “C:\Users\SyncfusionApplication\package.config”
 
 #install specific Syncfusion ASP.NET Core NuGet package with Syncfusion ASP.NET Core NuGet feed for Mac and Linux 
-mono nuget.exe install “Syncfusion.DocIO.NETStandard”  –Source “http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
+mono nuget.exe install “Syncfusion.DocIO.NETStandard”  –Source “https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
 ~~~
 
 ## Managing NuGet package using Dotnet CLI
@@ -227,7 +227,7 @@ The NuGet Command Line Interface (CLI), Dotnet.exe, provides the full extent of 
     **For example :**
 
     ~~~        
-    dotnet add package Syncfusion.DocIO.NETStandard  -s “http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
+    dotnet add package Syncfusion.DocIO.NETStandard  -s “https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
     ~~~
 
     **Restore**
@@ -291,7 +291,7 @@ To update the installed Syncfusion NuGet packages using the Package Manager Cons
     Update-Package Syncfusion.DocIO.NETStandard
 
     #Update specified package in default project with specified Package Source
-    Update-Package Syncfusion.DocIO.NETStandard –Source “http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore” 
+    Update-Package Syncfusion.DocIO.NETStandard –Source “https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore” 
 
     #Update specified package in specified project 
     Update-Package Syncfusion.DocIO.NETStandard -ProjectName SyncfusionDemoApplication
@@ -328,7 +328,7 @@ Using the NuGet CLI, all the NuGet packages in the project can be updated to the
     nuget update “C:\Users\SyncfusionApplication\package.config”
 
     #Update all NuGet packages from specified Packages Source
-    nuget update -Source “http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
+    nuget update -Source “https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore”
     ~~~
 
     N> Update command is not working as expected in Mono (Mac and Linux) and projects using PackageReference format.
