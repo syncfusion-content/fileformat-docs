@@ -512,6 +512,416 @@ public class Customer
 {% endhighlight %}
 {% endtabs %}  
 
+#### Import Data from Business Objects with hyperlink
+
+Essential XlsIO allows you to import data directly from Business Objects and created hyperlinks in worksheet as shown below
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Import the data to worksheet
+  IList<Company> reports = GetCompanyDetails();
+  worksheet.ImportData(reports, 2, 1, false);
+
+  workbook.SaveAs("ImportFromBO.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Import the data to worksheet
+  Dim reports As IList(Of Company) = GetCompanyDetails()
+  worksheet.ImportData(reports, 2, 1, False)
+
+  workbook.SaveAs("ImportFromBO.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Import the data to worksheet
+  IList<Company> reports = GetCompanyDetails();
+  worksheet.ImportData(reports, 2, 1, false);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "ImportFromBO";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Import the data to worksheet
+  IList<Company> reports = GetCompanyDetails();
+  worksheet.ImportData(reports, 2, 1, false);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("ImportFromBO.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Import the data to worksheet
+  IList<Company> reports = GetCompanyDetails();
+  worksheet.ImportData(reports, 2, 1, false);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ImportFromBO.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportFromBO.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following code snippet provides supporting methods and classes for the previous code.
+
+{% tabs %}  
+{% highlight c# %}
+//Gets a list of company details
+private List<Company> GetCompanyDetails()
+{
+    List<Company> companyList = new List<Company>();
+
+    Company company = new Company();
+    company.Name = "Syncfusion";
+    Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Microsoft";
+    link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Google";
+    link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    return companyList;
+}    
+public class Hyperlink : IHyperLink
+{
+    public IApplication Application { get; }
+    public object Parent { get;}
+    public string Address { get; set; }
+    public string Name { get; }
+    public IRange Range { get; }
+    public string ScreenTip { get; set; }
+    public string SubAddress { get; set; }
+    public string TextToDisplay { get; set; }
+    public ExcelHyperLinkType Type { get; set; }
+    public IShape Shape { get; }
+    public ExcelHyperlinkAttachedType AttachedType { get; }
+    public byte[] Image { get; set; }
+
+    public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
+    {
+        Address = address;
+        ScreenTip = screenTip;
+        SubAddress = subAddress;            
+        TextToDisplay = textToDisplay;
+        Type = type;
+        Image = image;
+    }
+}
+
+public class Company
+{
+    public string Name { get; set; }
+    public Hyperlink Link { get; set; }
+}
+
+{% endhighlight %}
+
+{% highlight vb %}
+'Gets a list of company details
+Private Function GetCompanyDetails() As List(Of Company)
+    Dim companyList As List(Of Company) = New List(Of Company)()
+    Dim company As Company = New Company()
+    company.Name = "Syncfusion"
+    Dim link As Hyperlink = New Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, Nothing)
+    company.Link = link
+    companyList.Add(company)
+    company = New Company()
+    company.Name = "Microsoft"
+    link = New Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, Nothing)
+    company.Link = link
+    companyList.Add(company)
+    company = New Company()
+    company.Name = "Google"
+    link = New Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, Nothing)
+    company.Link = link
+    companyList.Add(company)
+    Return companyList
+End Function   
+Public Class Hyperlink
+    Inherits IHyperLink
+
+    Public ReadOnly Property Application As IApplication
+    Public ReadOnly Property Parent As Object
+    Public Property Address As String
+    Public ReadOnly Property Name As String
+    Public ReadOnly Property Range As IRange
+    Public Property ScreenTip As String
+    Public Property SubAddress As String
+    Public Property TextToDisplay As String
+    Public Property Type As ExcelHyperLinkType
+    Public ReadOnly Property Shape As IShape
+    Public ReadOnly Property AttachedType As ExcelHyperlinkAttachedType
+    Public Property Image As Byte()
+
+    Public Sub New(ByVal address As String, ByVal subAddress As String, ByVal screenTip As String, ByVal textToDisplay As String, ByVal type As ExcelHyperLinkType, ByVal image As Byte())
+        Address = address
+        ScreenTip = screenTip
+        SubAddress = subAddress
+        TextToDisplay = textToDisplay
+        Type = type
+        Image = image
+    End Sub
+End Class
+
+Public Class Company
+    Public Property Name As String
+    Public Property Link As Hyperlink
+End Class
+
+{% endhighlight %}
+
+{% highlight UWP %}
+//Gets a list of company details
+private List<Company> GetCompanyDetails()
+{
+    List<Company> companyList = new List<Company>();
+
+    Company company = new Company();
+    company.Name = "Syncfusion";
+    Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Microsoft";
+    link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Google";
+    link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    return companyList;
+}    
+public class Hyperlink : IHyperLink
+{
+    public IApplication Application { get; }
+    public object Parent { get;}
+    public string Address { get; set; }
+    public string Name { get; }
+    public IRange Range { get; }
+    public string ScreenTip { get; set; }
+    public string SubAddress { get; set; }
+    public string TextToDisplay { get; set; }
+    public ExcelHyperLinkType Type { get; set; }
+    public IShape Shape { get; }
+    public ExcelHyperlinkAttachedType AttachedType { get; }
+    public byte[] Image { get; set; }
+
+    public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
+    {
+        Address = address;
+        ScreenTip = screenTip;
+        SubAddress = subAddress;            
+        TextToDisplay = textToDisplay;
+        Type = type;
+        Image = image;
+    }
+}
+
+public class Company
+{
+    public string Name { get; set; }
+    public Hyperlink Link { get; set; }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Gets a list of company details
+private List<Company> GetCompanyDetails()
+{
+    List<Company> companyList = new List<Company>();
+
+    Company company = new Company();
+    company.Name = "Syncfusion";
+    Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Microsoft";
+    link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Google";
+    link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    return companyList;
+}    
+public class Hyperlink : IHyperLink
+{
+    public IApplication Application { get; }
+    public object Parent { get;}
+    public string Address { get; set; }
+    public string Name { get; }
+    public IRange Range { get; }
+    public string ScreenTip { get; set; }
+    public string SubAddress { get; set; }
+    public string TextToDisplay { get; set; }
+    public ExcelHyperLinkType Type { get; set; }
+    public IShape Shape { get; }
+    public ExcelHyperlinkAttachedType AttachedType { get; }
+    public byte[] Image { get; set; }
+
+    public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
+    {
+        Address = address;
+        ScreenTip = screenTip;
+        SubAddress = subAddress;            
+        TextToDisplay = textToDisplay;
+        Type = type;
+        Image = image;
+    }
+}
+
+public class Company
+{
+    public string Name { get; set; }
+    public Hyperlink Link { get; set; }
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Gets a list of company details
+private List<Company> GetCompanyDetails()
+{
+    List<Company> companyList = new List<Company>();
+
+    Company company = new Company();
+    company.Name = "Syncfusion";
+    Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Microsoft";
+    link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Google";
+    link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    return companyList;
+}    
+public class Hyperlink : IHyperLink
+{
+    public IApplication Application { get; }
+    public object Parent { get;}
+    public string Address { get; set; }
+    public string Name { get; }
+    public IRange Range { get; }
+    public string ScreenTip { get; set; }
+    public string SubAddress { get; set; }
+    public string TextToDisplay { get; set; }
+    public ExcelHyperLinkType Type { get; set; }
+    public IShape Shape { get; }
+    public ExcelHyperlinkAttachedType AttachedType { get; }
+    public byte[] Image { get; set; }
+
+    public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
+    {
+        Address = address;
+        ScreenTip = screenTip;
+        SubAddress = subAddress;            
+        TextToDisplay = textToDisplay;
+        Type = type;
+        Image = image;
+    }
+}
+
+public class Company
+{
+    public string Name { get; set; }
+    public Hyperlink Link { get; set; }
+}
+{% endhighlight %}
+{% endtabs %} 
+
 ### Import Data from Array
 
 The following code snippet shows how to import array of data into a worksheet using **ImportArray** method.
