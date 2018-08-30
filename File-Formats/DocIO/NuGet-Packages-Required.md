@@ -225,9 +225,6 @@ The package contains DocIO portable library that allows you to create, read and 
 ~~~
 // Install package
 Install-Package Syncfusion.DocIO.NETStandard
-
-// Install dependent package
-Install-Package SkiaSharp
 ~~~
 ~~~
 // Uninstall package
@@ -241,6 +238,9 @@ The package contains the DocIORenderer .NET portable library that allows you to 
 ~~~
 // Install package
 Install-Package Syncfusion.DocIORenderer.NetStandard
+
+// Install dependent package
+Install-Package SkiaSharp -Version 1.59.3
 ~~~
 ~~~
 // Uninstall package
@@ -256,9 +256,6 @@ The package contains DocIO portable library that allows you to create, read and 
 ~~~
 // Install package
 Install-Package Syncfusion.Xamarin.DocIO
-
-// Install dependent package
-Install-Package SkiaSharp
 ~~~
 ~~~
 // Uninstall package
@@ -272,6 +269,9 @@ The package contains the DocIORenderer .NET portable library that allows you to 
 ~~~
 // Install package
 Install-Package Syncfusion.Xamarin.DocIORenderer
+
+// Install dependent package
+Install-Package SkiaSharp -Version 1.59.3
 ~~~
 ~~~
 // Uninstall package
