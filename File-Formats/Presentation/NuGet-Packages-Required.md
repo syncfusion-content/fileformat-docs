@@ -11,16 +11,14 @@ To work with PowerPoint Presentations, the following NuGet packages need to be i
 
 <table>
 <tr>
-<td>
-{{'**Platform(s)**'| markdownify }}
-</td>
-<td>
-{{'**NuGet Package**'| markdownify }}
-</td>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
 </tr>
 <tr>
 <td>
-Windows Forms and WPF
+.NET Framework(Windows Forms, WPF, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core – Targeting .NET Framework)
 </td>
 <td>
 Syncfusion.Presentation.Base.nupkg
@@ -28,10 +26,18 @@ Syncfusion.Presentation.Base.nupkg
 </tr>
 <tr>
 <td>
-ASP.NET and ASP.NET MVC
+UWP
 </td>
 <td>
-Syncfusion.Web.FileFormatsBase.nupkg
+Syncfusion.Presentation.UWP.nupkg
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core (Targeting .net core application)
+</td>
+<td>
+Syncfusion.Presentation.NETStandard.nupkg
 </td>
 </tr>
 <tr>
@@ -42,15 +48,9 @@ Xamarin
 Syncfusion.Xamarin.Presentation.nupkg
 </td>
 </tr>
-<tr>
-<td>
-Universal Windows Platform
-</td>
-<td>
-Syncfusion.Presentation.UWP46.nupkg
-</td>
-</tr>
 </table>
+
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
 ## Converting Charts in PowerPoint Presentation
 
@@ -75,8 +75,7 @@ Syncfusion.OfficeChartToImageConverter.Wpf.nupkg
 </tr>
 </table>
 
-N> 1. The "Syncfusion.AspNet.FileFormats.nupkg" and "Syncfusion.AspNet.Mvc.FileFormats.nupkg" packages already includes the necessary assemblies for chart conversion. So it is not needed to additionally install the “Syncfusion.OfficeChartToImageConverter.Wpf.nupkg” NuGet package in ASP.NET and ASP.NET MVC platforms.
-N> 2. The "Syncfusion.OfficeChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards.
+N> The "Syncfusion.OfficeChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards.
 
 ## Converting PowerPoint Presentation to PDF
 
@@ -93,26 +92,10 @@ For converting PowerPoint Presentation to PDF, the following NuGet packages need
 </tr>
 <tr>
 <td>
-Windows Forms and WPF
+Windows Forms, WPF, ASP.NET and ASP.NET MVC 
 </td>
 <td>
 Syncfusion.PresentationToPdfConverter.Base.nupkg
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET
-</td>
-<td>
-Syncfusion.AspNet.FileFormats.nupkg
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET MVC
-</td>
-<td>
-Syncfusion.AspNet.Mvc.FileFormats.nupkg
 </td>
 </tr>
 </table>
