@@ -2278,15 +2278,92 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO provides support to convert a worksheet or workbook to HTML with basic formatting preserved in non-portable platforms alone.
+//Worksheet To HTML conversion can be performed by referring .NET Standard assemblies in UWP platform.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+  sheet.Range["A1:M20"].Text = "Html Document";
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Sample";
+  savePicker.FileTypeChoices.Add("HTML Files", new List<string>() { ".html",".htm" });
+
+  //Creates a storage file from the FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Converts and save to stream
+  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+  Stream stream = file.AsStreamForWrite();
+  
+  //Save an Excel sheet as HTML file
+  sheet.SaveAsHtml(stream);
+  
+  //Save a workbook as HTML file
+  workbook.SaveAsHtml(stream, Syncfusion.XlsIO.Implementation.HtmlSaveOptions.Default);
+  await file.FlushAsync();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO provides support to convert a worksheet or workbook to HTML with basic formatting preserved in non-portable platforms alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  //Initialize excel engine and open workbook
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+  worksheet.Range["A1:M20"].Text = "Html Document";
+
+  //Create stream to store HTML file.
+  Stream stream = new MemoryStream();
+
+  //Save an Excel sheet as HTML file
+  worksheet.SaveAsHtml(stream);
+  
+  //Save a workbook as HTML file
+  workbook.SaveAsHtml(stream, Syncfusion.XlsIO.Implementation.HtmlSaveOptions.Default);
+  stream.Dispose();
+  workbook.Close();
+}
 {% endhighlight %}
 
 {% highlight xamarin %}
-//XlsIO provides support to convert a worksheet or workbook to HTML with basic formatting preserved in non-portable platforms alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+  sheet.Range["A1:M20"].Text = "Html Document";
+
+  //Creates memory stream.
+  MemoryStream stream = new MemoryStream();
+  
+  //Save an Excel sheet as HTML file
+  sheet.SaveAsHtml(stream);
+
+  //Save a workbook as HTML file
+  workbook.SaveAsHtml(stream, Syncfusion.XlsIO.Implementation.HtmlSaveOptions.Default);
+  
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+      DependencyService.Get<ISaveWindowsPhone>()
+          .Save("Sample.html", "text/html", stream);
+  else
+      DependencyService.Get<ISave>().Save("Sample.html", "text/html", stream);
+}
 {% endhighlight %}
 {% endtabs %}   
 
@@ -2335,15 +2412,91 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO provides support for options to save a worksheet with the displayed text or value in the cell to HTML file in non-portable platforms alone.
+//Worksheet To HTML conversion can be performed by referring .NET Standard assemblies in UWP platform.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Sample";
+  savePicker.FileTypeChoices.Add("HTML Files", new List<string>() { ".html",".htm" });
+
+  //Creates a storage file from the FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Create the instant for SaveOptions
+  HtmlSaveOptions saveOptions = new HtmlSaveOptions();
+  saveOptions.TextMode = HtmlSaveOptions.GetText.DisplayText;
+
+  //Converts and save to stream
+  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+  Stream stream = file.AsStreamForWrite();
+  sheet.SaveAsHtml(stream, saveOptions);
+  await file.FlushAsync();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO provides support for options to save a worksheet with the displayed text or value in the cell to HTML file in non-portable platforms alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  //Initialize excel engine and open workbook
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Create stream to store HTML file.
+  Stream stream = new MemoryStream();
+
+  //Create the instant for SaveOptions
+  HtmlSaveOptions saveOptions = new HtmlSaveOptions();
+  saveOptions.TextMode = HtmlSaveOptions.GetText.DisplayText;
+
+  //Save and Dispose
+  worksheet.SaveAsHtml(stream, saveOptions);
+  stream.Dispose();
+  workbook.Close();
+}
 {% endhighlight %}
 
 {% highlight xamarin %}
-//XlsIO provides support for options to save a worksheet with the displayed text or value in the cell to HTML file in non-portable platforms alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Create the instant for SaveOptions
+  HtmlSaveOptions saveOptions = new HtmlSaveOptions();
+  saveOptions.TextMode = HtmlSaveOptions.GetText.DisplayText;
+
+  //Converts and save to stream.
+  MemoryStream stream = new MemoryStream();
+  sheet.SaveAsHtml(stream, saveOptions);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+      DependencyService.Get<ISaveWindowsPhone>()
+          .Save("Sample.html", "text/html", stream);
+  else
+      DependencyService.Get<ISave>().Save("Sample.html", "text/html", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
