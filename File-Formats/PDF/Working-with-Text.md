@@ -774,7 +774,7 @@ PdfGraphics graphics = page.Graphics;
 
 Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Arial.ttf");
 
-//Initialize the PDF TrueTypee font. 
+//Initialize the PDF TrueType font. 
 
 PdfFont font = new PdfTrueTypeFont(fontStream, 14);
 
