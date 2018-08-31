@@ -120,9 +120,9 @@ N> Syncfusion components are available in nuget.org
 Windows Forms, WPF, ASP.NET Web and MVC
 </td>
 <td>
-* Install-package Syncfusion.XlsIO.Base <br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.Base <br/><br/>
-* Install-package Syncfusion.ExcelChartToImageConverter.WPF 
+* Install-package Syncfusion.XlsIO.Base -source {{'<https://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms/>'| markdownify }}<br/><br/>
+* Install-package Syncfusion.ExcelToPdfConverter.Base -source {{'<https://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms/>'| markdownify }}<br/><br/>
+* Install-package Syncfusion.ExcelChartToImageConverter.WPF -source {{'<https://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms/>'| markdownify }}
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.Base -RemoveDependencies <br/><br/>
@@ -135,7 +135,7 @@ Windows Forms, WPF, ASP.NET Web and MVC
 UWP
 </td>
 <td>
-Install-package Syncfusion.XlsIO.UWP
+Install-package Syncfusion.XlsIO.UWP –source {{'<https://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows>'| markdownify }}
 </td>
 <td>
 Uninstall-package Syncfusion.XlsIO.UWP –RemoveDependencies
@@ -146,7 +146,7 @@ Uninstall-package Syncfusion.XlsIO.UWP –RemoveDependencies
 ASP.NET Core
 </td>
 <td>
-Install-package Syncfusion.XlsIO.NETStandard
+Install-package Syncfusion.XlsIO.NETStandard -source {{'<https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore>'| markdownify }}
 </td>
 <td>
 Uninstall-package Syncfusion.XlsIO.NETStandard –RemoveDependencies
@@ -157,7 +157,7 @@ Uninstall-package Syncfusion.XlsIO.NETStandard –RemoveDependencies
 Xamarin
 </td>
 <td>
-Install-package Syncfusion.Xamarin.XlsIO
+Install-package Syncfusion.Xamarin.XlsIO –source {{'<https://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin>'| markdownify }}
 </td>
 <td>
 Uninstall-package Syncfusion.Xamarin.XlsIO –RemoveDependencies
