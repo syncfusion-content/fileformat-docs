@@ -18,7 +18,7 @@ To work with Excel documents, the following NuGet packages need to be installed 
 </tr>
 <tr>
 <td>
-Windows Forms, WPF, ASP.NET Web and MVC
+.NET Framework (Windows Forms, WPF, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core – Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.XlsIO.Base.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.Base/)'| markdownify }}
@@ -34,7 +34,7 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core
+ASP.NET Core (Targeting .net core application)
 </td>
 <td>
 {{'[Syncfusion.XlsIO.NETStandard.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.NETStandard/)'| markdownify }}
