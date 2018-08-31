@@ -127,7 +127,7 @@ document.Close(true);
 
 Save(stream, "Output.pdf");
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -183,7 +183,7 @@ string fileName = "Output.pdf";
 
 return File(stream, contentType, fileName);
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight Xamarin %}
 
@@ -234,9 +234,9 @@ else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
 
-{% endhighlight %}
+{% end highlight %}
 
-{% endtabs %}
+{% end tabs %}
 
 You can create a custom page size in the PDF document by using following code snippet.
 
@@ -276,7 +276,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight vb.net %}
 
@@ -312,7 +312,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight UWP %}
 
@@ -354,7 +354,7 @@ document.Close(true);
 
 Save(stream, "Output.pdf");
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -410,7 +410,7 @@ string fileName = "Output.pdf";
 
 return File(stream, contentType, fileName);
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight Xamarin %}
 
@@ -461,9 +461,9 @@ else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
 
-{% endhighlight %}
+{% end highlight %}
 
-{% endtabs %}
+{% end tabs %}
 
 You can change page orientation from portrait to landscape by using the following code snippet.
 
@@ -508,7 +508,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight vb.net %}
 
@@ -548,7 +548,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight UWP %}
 
@@ -596,7 +596,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -658,7 +658,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight Xamarin %}
 
@@ -715,9 +715,9 @@ else
 }
 
 
-{% endhighlight %}
+{% end highlight %}
 
-{% endtabs %}
+{% end tabs %}
 
 You can also change orientation by setting the rotation angle using PdfPageRotateAngle Enum. The following code snippets illustrates the same.
 
@@ -761,7 +761,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight vb.net %}
 
@@ -801,7 +801,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight UWP %}
 
@@ -848,7 +848,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -909,7 +909,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight Xamarin %}
 
@@ -964,9 +964,9 @@ else
      Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
 
-{% endhighlight %}
+{% end highlight %}
 
-{% endtabs %}
+{% end tabs %}
 
 ## Creating sections in a PDF
 
@@ -1008,7 +1008,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight vb.net %}
 
@@ -1044,7 +1044,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight UWP %}
 
@@ -1087,7 +1087,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -1144,7 +1144,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight Xamarin %}
 
@@ -1196,9 +1196,9 @@ else
 }
 
 
-{% endhighlight %}
+{% end highlight %}
 
-{% endtabs %}
+{% end tabs %}
 
 ## Printing PDF document
 
@@ -1240,7 +1240,7 @@ dialog.Document.Print();
 
 viewer.Dispose();
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight vb.net %}
 
@@ -1270,9 +1270,9 @@ dialog.Document.Print()
 
 viewer.Dispose()
 
-{% endhighlight %}
+{% end highlight %}
 
-{% endtabs %}
+{% end tabs %}
 
 ## Working with document properties
 
@@ -1326,7 +1326,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight vb.net %}
 
@@ -1372,7 +1372,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight UWP %}
 
@@ -1425,7 +1425,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -1492,7 +1492,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight Xamarin %}
 
@@ -1554,9 +1554,9 @@ else
 }
 
 
-{% endhighlight %}
+{% end highlight %}
 
-{% endtabs %}
+{% end tabs %}
 
 The following code snippet shows how to read and modify the document properties of an existing PDF document.
 
@@ -1588,7 +1588,7 @@ document.Save("Output.pdf");
 //Close the document.
 document.Close(true);
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight vb.net %}
 
@@ -1618,7 +1618,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight UWP %}
 
@@ -1669,7 +1669,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -1722,7 +1722,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight Xamarin %}
 
@@ -1770,9 +1770,9 @@ else
 }
 
 
-{% endhighlight %}
+{% end highlight %}
 
-{% endtabs %}
+{% end tabs %}
 
 ## Performing incremental update for PDF document
 
@@ -1803,7 +1803,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight vb.net %}
 
@@ -1828,7 +1828,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight UWP %}
 
@@ -1873,7 +1873,7 @@ loadedDocument.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -1920,7 +1920,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight Xamarin %}
 
@@ -1962,9 +1962,9 @@ else
 }
 
 
-{% endhighlight %
+{% end highlight %
 
-{% endtabs %}
+{% end tabs %}
 
 ## Choosing the viewer preferences
 
@@ -2016,7 +2016,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight vb.net %}
 
@@ -2060,7 +2060,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight UWP %}
 
@@ -2111,7 +2111,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -2175,7 +2175,7 @@ string fileName = "Output.pdf";
 
 return File(stream, contentType, fileName);
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight Xamarin %}
 
@@ -2235,9 +2235,9 @@ else
 }
 
 
-{% endhighlight %}
+{% end highlight %}
 
-{% endtabs %}
+{% end tabs %}
 
 You can also allow the reader application to initially display the bookmarks, thumbnails or attachments using  PdfPageMode ENUM
 
@@ -2277,7 +2277,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight vb.net %}
 
@@ -2313,7 +2313,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight UWP %}
 
@@ -2355,7 +2355,7 @@ document.Close(true);
 
 Save(stream, "Output.pdf");
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -2410,7 +2410,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight Xamarin %}
 
@@ -2461,9 +2461,9 @@ else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
 
-{% endhighlight %}
+{% end highlight %}
 
-{% endtabs %}
+{% end tabs %}
 
 ## Adding document action
 
@@ -2511,7 +2511,7 @@ document.Save(name+".pdf");
 document.Close(true);
 }
 
-{% endhighlight %}
+{% end highlight %}
 {% highlight vb.net %}
 
 Dim works As IEnumerable(Of Integer) = Enumerable.Range(0, 100)
@@ -2548,20 +2548,20 @@ document.Close(True)
 
 End Sub
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight UWP %}
 
-{% endhighlight %}
+{% end highlight %}
 
 % highlight ASP.NET Core %}
 
-{% endhighlight %}
+{% end highlight %}
 
 % highlight Xamarin %}
 
-{% endhighlight %}
-{% endtabs %}
+{% end highlight %}
+{% end tabs %}
 
 You can also modify the existing document in multi-threading environment. The below samples explain how to modify the existing PDF document in multi-threading environment.
 
@@ -2603,7 +2603,7 @@ doc.Close(true);
 
 }
 
-{% endhighlight %}
+{% end highlight %}
 {% highlight vb.net %}
 
 Dim works As IEnumerable(Of Integer) = Enumerable.Range(0, 100)
@@ -2640,5 +2640,5 @@ doc.Close(True)
 
 End Sub
 
-{% endhighlight %}
-{% endtabs %}
+{% end highlight %}
+{% end tabs %}
