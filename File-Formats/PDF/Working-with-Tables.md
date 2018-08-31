@@ -120,6 +120,179 @@ doc.Save("Output.pdf")
 doc.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+// Create a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+object row = new { Name = "abc", Age = "21", Sex = "Male" };
+
+data.Add(row);
+
+//Add list to IEnumerable
+
+IEnumerable<object> table = data;
+
+//Assign data source.
+
+pdfLightTable.DataSource = table;
+
+//Draw PdfLightTable.
+
+pdfLightTable.Draw(page, new PointF(0, 0));
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+// Create a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+object row = new { Name = "abc", Age = "21", Sex = "Male" };
+
+data.Add(row);
+
+//Add list to IEnumerable
+
+IEnumerable<object> table = data;
+
+//Assign data source.
+
+pdfLightTable.DataSource = table;
+
+//Draw PdfLightTable.
+
+pdfLightTable.Draw(page, new Syncfusion.Drawing.PointF(0, 0));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+// Create a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+object row = new { Name = "abc", Age = "21", Sex = "Male" };
+
+data.Add(row);
+
+//Add list to IEnumerable
+
+IEnumerable<object> table = data;
+
+//Assign data source.
+
+pdfLightTable.DataSource = table;
+
+//Draw PdfLightTable.
+
+pdfLightTable.Draw(page, new Syncfusion.Drawing.PointF(0, 0));
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
 {% endtabs %}
 
 You can directly add rows and columns, instead of a data source by setting DataSourceType property to PdfLightTableDataSourceType.TableDirect.
@@ -223,6 +396,192 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Acquire page's graphics.
+
+PdfGraphics graphics = page.Graphics;
+
+//Declare a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the Data source as direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Acquire page's graphics.
+
+PdfGraphics graphics = page.Graphics;
+
+//Declare a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the Data source as direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Acquire page's graphics.
+
+PdfGraphics graphics = page.Graphics;
+
+//Declare a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the Data source as direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Creating a simple table using PdfLightTable in an existing document
@@ -312,6 +671,165 @@ doc.Save("Output.pdf")
 doc.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument doc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+await doc.OpenAsync(file);
+
+//Get first page from document
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Create a PdfLightTable.
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+List<object> data = new List<object>();
+
+object row = new { Name = "abc", Age = "21", Sex = "Male" };
+data.Add(row);
+
+//Add list to IEnumerable
+IEnumerable<object> table = data;
+
+//Assign data source.
+pdfLightTable.DataSource = table;
+
+//Draw PdfLightTable.
+pdfLightTable.Draw(graphics, new PointF(0, 0));
+
+//Save the PDF document into stream
+MemoryStream stream = new MemoryStream();
+await doc.SaveAsync(stream);
+
+//Close the document.
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Get first page from document
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+// Create a PdfLightTable.
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+List<object> data = new List<object>();
+object row = new { Name = "abc", Age = "21", Sex = "Male" };
+
+data.Add(row);
+
+//Add list to IEnumerable
+IEnumerable<object> table = data;
+
+//Assign data source.
+pdfLightTable.DataSource = table;
+
+//Draw PdfLightTable.
+pdfLightTable.Draw(graphics, new Syncfusion.Drawing.PointF(0, 0));
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+
+//Close the document.
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+ //Load the file as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Get first page from document
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Create a PdfLightTable.
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+List<object> data = new List<object>();
+
+object row = new { Name = "abc", Age = "21", Sex = "Male" };
+data.Add(row);
+
+//Add list to IEnumerable
+IEnumerable<object> table = data;
+
+//Assign data source.
+pdfLightTable.DataSource = table;
+
+//Draw PdfLightTable.
+pdfLightTable.Draw(graphics, new Syncfusion.Drawing.PointF(0, 0));
+
+//Save the PDF document into stream
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Creating a simple table using PdfGrid in a new document
@@ -425,6 +943,193 @@ doc.Save("Output.pdf")
 'Close the document
 
 doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Draw grid to the page of PDF document.
+
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Draw grid to the page of PDF document.
+
+pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Draw grid to the page of PDF document.
+
+pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
 
 {% endhighlight %}
 
@@ -546,6 +1251,204 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add three columns.
+
+pdfGrid.Columns.Add(3);
+
+//Add header.
+
+pdfGrid.Headers.Add(1);
+
+PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
+
+pdfGridHeader.Cells[0].Value = "Employee ID";
+
+pdfGridHeader.Cells[1].Value = "Employee Name";
+
+pdfGridHeader.Cells[2].Value = "Salary";
+
+//Add rows.
+
+PdfGridRow pdfGridRow = pdfGrid.Rows.Add();
+
+pdfGridRow.Cells[0].Value = "E01";
+
+pdfGridRow.Cells[1].Value = "Clay";
+
+pdfGridRow.Cells[2].Value = "$10,000";
+
+//Draw the PdfGrid.
+
+pdfGrid.Draw(pdfPage, PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDocument.SaveAsync(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endtabs %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add three columns.
+
+pdfGrid.Columns.Add(3);
+
+//Add header.
+
+pdfGrid.Headers.Add(1);
+
+PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
+
+pdfGridHeader.Cells[0].Value = "Employee ID";
+
+pdfGridHeader.Cells[1].Value = "Employee Name";
+
+pdfGridHeader.Cells[2].Value = "Salary";
+
+//Add rows.
+
+PdfGridRow pdfGridRow = pdfGrid.Rows.Add();
+
+pdfGridRow.Cells[0].Value = "E01";
+
+pdfGridRow.Cells[1].Value = "Clay";
+
+pdfGridRow.Cells[2].Value = "$10,000";
+
+//Draw the PdfGrid.
+
+pdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Empty);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+pdfDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endtabs %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add three columns.
+
+pdfGrid.Columns.Add(3);
+
+//Add header.
+
+pdfGrid.Headers.Add(1);
+
+PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
+
+pdfGridHeader.Cells[0].Value = "Employee ID";
+
+pdfGridHeader.Cells[1].Value = "Employee Name";
+
+pdfGridHeader.Cells[2].Value = "Salary";
+
+//Add rows.
+
+PdfGridRow pdfGridRow = pdfGrid.Rows.Add();
+
+pdfGridRow.Cells[0].Value = "E01";
+
+pdfGridRow.Cells[1].Value = "Clay";
+
+pdfGridRow.Cells[2].Value = "$10,000";
+
+//Draw the PdfGrid.
+
+pdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+
+{% endtabs %}
+
 {% endtabs %}
 
 You can create table using PdfGrid by loading the IEnumerable data source. Refer to the following code.
@@ -662,6 +1565,203 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "1", Name = "Clay" };
+
+Object row2 = new { ID = "2", Name = "Gray" };
+
+Object row3 = new { ID = "3", Name = "Ash" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+data.Add(row3);
+
+//Add list to IEnumerable
+
+IEnumerable<object> tableData = data;
+
+//Assign data source
+
+pdfGrid.DataSource = tableData;
+
+//Draw grid to the page of PDF document
+
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "1", Name = "Clay" };
+
+Object row2 = new { ID = "2", Name = "Gray" };
+
+Object row3 = new { ID = "3", Name = "Ash" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+data.Add(row3);
+
+//Add list to IEnumerable
+
+IEnumerable<object> tableData = data;
+
+//Assign data source
+
+pdfGrid.DataSource = tableData;
+
+//Draw grid to the page of PDF document
+
+pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "1", Name = "Clay" };
+
+Object row2 = new { ID = "2", Name = "Gray" };
+
+Object row3 = new { ID = "3", Name = "Ash" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+data.Add(row3);
+
+//Add list to IEnumerable
+
+IEnumerable<object> tableData = data;
+
+//Assign data source
+
+pdfGrid.DataSource = tableData;
+
+//Draw grid to the page of PDF document
+
+pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %} 
 
 
@@ -746,6 +1846,221 @@ doc.Save("Output.pdf")
 
 'close the document
 doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+ //Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument doc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await doc.OpenAsync(file);
+
+//Get first page from document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "1", Name = "Clay" };
+
+Object row2 = new { ID = "2", Name = "Thomas" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Draw grid to the page of PDF document.
+
+pdfGrid.Draw(graphics, new PointF(10, 10));
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Get first page from document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "1", Name = "Clay" };
+
+Object row2 = new { ID = "2", Name = "Thomas" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Draw grid to the page of PDF document.
+
+pdfGrid.Draw(graphics, new Syncfusion.Drawing.PointF(10, 10));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Get first page from document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "1", Name = "Clay" };
+
+Object row2 = new { ID = "2", Name = "Thomas" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Draw grid to the page of PDF document.
+
+pdfGrid.Draw(graphics, new Syncfusion.Drawing.PointF(10, 10));
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -904,6 +2219,257 @@ doc.Save("Output.pdf")
 doc.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add Rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "112", "Minim", "III" });
+
+//Create the font for setting the style.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Declare and define the alternate style.
+
+PdfCellStyle altStyle = new PdfCellStyle(font, PdfBrushes.White, PdfPens.Green);
+
+altStyle.BackgroundBrush = PdfBrushes.DarkGray;
+
+//Declare and define the header style.
+
+PdfCellStyle headerStyle = new PdfCellStyle(font, PdfBrushes.White, PdfPens.Brown);
+
+headerStyle.BackgroundBrush = PdfBrushes.Red;
+
+pdfLightTable.Style.AlternateStyle = altStyle;
+
+pdfLightTable.Style.HeaderStyle = headerStyle;
+
+//Show header in the table
+
+pdfLightTable.Style.ShowHeader = true;
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add Rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "112", "Minim", "III" });
+
+//Create the font for setting the style.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Declare and define the alternate style.
+
+PdfCellStyle altStyle = new PdfCellStyle(font, PdfBrushes.White, PdfPens.Green);
+
+altStyle.BackgroundBrush = PdfBrushes.DarkGray;
+
+//Declare and define the header style.
+
+PdfCellStyle headerStyle = new PdfCellStyle(font, PdfBrushes.White, PdfPens.Brown);
+
+headerStyle.BackgroundBrush = PdfBrushes.Red;
+
+pdfLightTable.Style.AlternateStyle = altStyle;
+
+pdfLightTable.Style.HeaderStyle = headerStyle;
+
+//Show header in the table
+
+pdfLightTable.Style.ShowHeader = true;
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add Rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "112", "Minim", "III" });
+
+//Create the font for setting the style.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Declare and define the alternate style.
+
+PdfCellStyle altStyle = new PdfCellStyle(font, PdfBrushes.White, PdfPens.Green);
+
+altStyle.BackgroundBrush = PdfBrushes.DarkGray;
+
+//Declare and define the header style.
+
+PdfCellStyle headerStyle = new PdfCellStyle(font, PdfBrushes.White, PdfPens.Brown);
+
+headerStyle.BackgroundBrush = PdfBrushes.Red;
+
+pdfLightTable.Style.AlternateStyle = altStyle;
+
+pdfLightTable.Style.HeaderStyle = headerStyle;
+
+//Show header in the table
+
+pdfLightTable.Style.ShowHeader = true;
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -1072,6 +2638,311 @@ args.Graphics.DrawEllipse(PdfBrushes.Red, args.Bounds)
 End If
 
 End Sub
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "112", "Minim", "III" });
+
+//Subscribing to events
+
+pdfLightTable.BeginCellLayout += pdfLightTable_BeginCellLayout;
+
+pdfLightTable.EndCellLayout += pdfLightTable_EndCellLayout;
+
+//Show the header.
+
+pdfLightTable.Style.ShowHeader = true;
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+private void pdfLightTable_EndCellLayout(object sender, EndCellLayoutEventArgs args)
+
+{
+
+    if (args.RowIndex == 0 && args.CellIndex == 0)
+
+    {
+        //Load the PDF document as stream
+
+        Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Image.jpg");
+
+        args.Graphics.DrawImage(new PdfBitmap(imageStream), args.Bounds);
+
+    }
+
+}
+
+private void pdfLightTable_BeginCellLayout(object sender, BeginCellLayoutEventArgs args)
+
+{
+
+    if (args.RowIndex == 0 && args.CellIndex == 1)
+
+    {
+
+        args.Graphics.DrawEllipse(PdfBrushes.Red, args.Bounds);
+
+    }
+
+}
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "112", "Minim", "III" });
+
+//Subscribing to events
+
+pdfLightTable.BeginCellLayout += pdfLightTable_BeginCellLayout;
+
+pdfLightTable.EndCellLayout += pdfLightTable_EndCellLayout;
+
+//Show the header.
+
+pdfLightTable.Style.ShowHeader = true;
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+private void pdfLightTable_EndCellLayout(object sender, EndCellLayoutEventArgs args)
+
+{
+
+    if (args.RowIndex == 0 && args.CellIndex == 0)
+
+    {
+        //Load the image as stream
+
+        FileStream imageStream = new FileStream("Image.jpg", FileMode.Open, FileAccess.Read);
+
+        args.Graphics.DrawImage(new PdfBitmap(imageStream), args.Bounds);
+
+    }
+
+}
+
+private void pdfLightTable_BeginCellLayout(object sender, BeginCellLayoutEventArgs args)
+
+{
+
+    if (args.RowIndex == 0 && args.CellIndex == 1)
+
+    {
+
+        args.Graphics.DrawEllipse(PdfBrushes.Red, args.Bounds);
+
+    }
+
+}
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "112", "Minim", "III" });
+
+//Subscribing to events
+
+pdfLightTable.BeginCellLayout += pdfLightTable_BeginCellLayout;
+
+pdfLightTable.EndCellLayout += pdfLightTable_EndCellLayout;
+
+//Show the header.
+
+pdfLightTable.Style.ShowHeader = true;
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+private void pdfLightTable_EndCellLayout(object sender, EndCellLayoutEventArgs args)
+
+{
+
+    if (args.RowIndex == 0 && args.CellIndex == 0)
+
+    {
+        //Load the image as stream
+
+        Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.jpg");
+
+        args.Graphics.DrawImage(new PdfBitmap(imageStream), args.Bounds);
+
+    }
+
+}
+
+private void pdfLightTable_BeginCellLayout(object sender, BeginCellLayoutEventArgs args)
+
+{
+
+    if (args.RowIndex == 0 && args.CellIndex == 1)
+
+    {
+
+        args.Graphics.DrawEllipse(PdfBrushes.Red, args.Bounds);
+
+    }
+
+}
+
 
 {% endhighlight %}
 
@@ -1273,6 +3144,345 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+ //Create a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Create the page
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create the parent grid
+
+PdfGrid parentPdfGrid = new PdfGrid();
+
+//Add the rows
+
+PdfGridRow row1 = parentPdfGrid.Rows.Add();
+
+PdfGridRow row2 = parentPdfGrid.Rows.Add();
+
+row2.Height = 58;
+
+//Add the columns
+
+parentPdfGrid.Columns.Add(3);
+
+//Set the value to the specific cell.
+
+parentPdfGrid.Rows[0].Cells[0].Value = "Nested Table";
+
+parentPdfGrid.Rows[0].Cells[1].RowSpan = 2;
+
+parentPdfGrid.Rows[0].Cells[1].ColumnSpan = 2;
+
+//Create the child table
+
+PdfGrid childPdfGrid = new PdfGrid();
+
+//Set the column and rows for child grid
+
+childPdfGrid.Columns.Add(5);
+
+for (int i = 0; i < 5; i++)
+
+{
+
+    PdfGridRow row = childPdfGrid.Rows.Add();
+
+    for (int j = 0; j < 5; j++)
+
+    {
+
+        row.Cells[j].Value = String.Format("Cell [{0} {1}]", j, i);
+
+    }
+
+}
+
+//Set the value as another PdfGrid in a cell.
+
+parentPdfGrid.Rows[0].Cells[1].Value = childPdfGrid;
+
+//Specify the style for the PdfGridCell.
+
+PdfGridCellStyle pdfGridCellStyle = new PdfGridCellStyle();
+
+pdfGridCellStyle.TextPen = PdfPens.Red;
+
+pdfGridCellStyle.Borders.All = PdfPens.Red;
+
+//Load the image as stream
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Image.jpg");
+
+pdfGridCellStyle.BackgroundImage = new PdfBitmap(imageStream);
+
+PdfGridCell pdfGridCell = parentPdfGrid.Rows[0].Cells[0];
+
+//Apply style
+
+pdfGridCell.Style = pdfGridCellStyle;
+
+//Set image position for the background image in the style.
+
+pdfGridCell.ImagePosition = PdfGridImagePosition.Fit;
+
+//Draw the PdfGrid.
+
+parentPdfGrid.Draw(pdfPage, PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDocument.SaveAsync(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Create the page
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create the parent grid
+
+PdfGrid parentPdfGrid = new PdfGrid();
+
+//Add the rows
+
+PdfGridRow row1 = parentPdfGrid.Rows.Add();
+
+PdfGridRow row2 = parentPdfGrid.Rows.Add();
+
+row2.Height = 58;
+
+//Add the columns
+
+parentPdfGrid.Columns.Add(3);
+
+//Set the value to the specific cell.
+
+parentPdfGrid.Rows[0].Cells[0].Value = "Nested Table";
+
+parentPdfGrid.Rows[0].Cells[1].RowSpan = 2;
+
+parentPdfGrid.Rows[0].Cells[1].ColumnSpan = 2;
+
+//Create the child table
+
+PdfGrid childPdfGrid = new PdfGrid();
+
+//Set the column and rows for child grid
+
+childPdfGrid.Columns.Add(5);
+
+for (int i = 0; i < 5; i++)
+
+{
+
+    PdfGridRow row = childPdfGrid.Rows.Add();
+
+    for (int j = 0; j < 5; j++)
+
+    {
+
+        row.Cells[j].Value = String.Format("Cell [{0} {1}]", j, i);
+
+    }
+
+}
+
+//Set the value as another PdfGrid in a cell.
+
+parentPdfGrid.Rows[0].Cells[1].Value = childPdfGrid;
+
+//Specify the style for the PdfGridCell.
+
+PdfGridCellStyle pdfGridCellStyle = new PdfGridCellStyle();
+
+pdfGridCellStyle.TextPen = PdfPens.Red;
+
+pdfGridCellStyle.Borders.All = PdfPens.Red;
+
+//Load image as stream
+
+FileStream imageStream = new FileStream("Image.jpg", FileMode.Open, FileAccess.Read);
+
+pdfGridCellStyle.BackgroundImage = new PdfBitmap(imageStream);
+
+PdfGridCell pdfGridCell = parentPdfGrid.Rows[0].Cells[0];
+
+//Apply style
+
+pdfGridCell.Style = pdfGridCellStyle;
+
+//Set image position for the background image in the style.
+
+pdfGridCell.ImagePosition = PdfGridImagePosition.Fit;
+
+//Draw the PdfGrid.
+
+parentPdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Empty);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+pdfDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Create the page
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create the parent grid
+
+PdfGrid parentPdfGrid = new PdfGrid();
+
+//Add the rows
+
+PdfGridRow row1 = parentPdfGrid.Rows.Add();
+
+PdfGridRow row2 = parentPdfGrid.Rows.Add();
+
+row2.Height = 58;
+
+//Add the columns
+
+parentPdfGrid.Columns.Add(3);
+
+//Set the value to the specific cell.
+
+parentPdfGrid.Rows[0].Cells[0].Value = "Nested Table";
+
+parentPdfGrid.Rows[0].Cells[1].RowSpan = 2;
+
+parentPdfGrid.Rows[0].Cells[1].ColumnSpan = 2;
+
+//Create the child table
+
+PdfGrid childPdfGrid = new PdfGrid();
+
+//Set the column and rows for child grid
+
+childPdfGrid.Columns.Add(5);
+
+for (int i = 0; i < 5; i++)
+
+{
+
+    PdfGridRow row = childPdfGrid.Rows.Add();
+
+    for (int j = 0; j < 5; j++)
+
+    {
+
+        row.Cells[j].Value = String.Format("Cell [{0} {1}]", j, i);
+
+    }
+
+}
+
+//Set the value as another PdfGrid in a cell.
+
+parentPdfGrid.Rows[0].Cells[1].Value = childPdfGrid;
+
+//Specify the style for the PdfGridCell.
+
+PdfGridCellStyle pdfGridCellStyle = new PdfGridCellStyle();
+
+pdfGridCellStyle.TextPen = PdfPens.Red;
+
+pdfGridCellStyle.Borders.All = PdfPens.Red;
+
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Image.jpg");
+
+pdfGridCellStyle.BackgroundImage = new PdfBitmap(imageStream);
+
+PdfGridCell pdfGridCell = parentPdfGrid.Rows[0].Cells[0];
+
+//Apply style
+
+pdfGridCell.Style = pdfGridCellStyle;
+
+//Set image position for the background image in the style.
+
+pdfGridCell.ImagePosition = PdfGridImagePosition.Fit;
+
+//Draw the PdfGrid.
+
+parentPdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Support for rows and columns customization
@@ -1471,6 +3681,297 @@ End Sub
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "112", "Minim", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "113", "john", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "114", "peter", "III" });
+
+//Subscribing to events
+
+pdfLightTable.BeginRowLayout += pdfLightTable_BeginRowLayout;
+
+pdfLightTable.EndRowLayout += pdfLightTable_EndRowLayout;
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+private void pdfLightTable_EndRowLayout(object sender, EndRowLayoutEventArgs args)
+
+{
+
+    //Customize the rows when row layout ends
+
+    if (args.RowIndex == 3)
+
+    args.Cancel = true;
+
+}
+
+private void pdfLightTable_BeginRowLayout(object sender, BeginRowLayoutEventArgs args)
+
+{
+
+    //Apply column span
+
+    if (args.RowIndex == 1)
+
+    {
+
+        PdfLightTable table = (PdfLightTable)sender;
+
+        int count = table.Columns.Count;
+
+        int[] spanMap = new int[count];
+
+        // Set just spanned cells. Negative values are not allowed.
+
+        spanMap[0] = 2;
+
+        spanMap[1] = 3;
+
+        args.ColumnSpanMap = spanMap;
+
+    }
+
+}
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "112", "Minim", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "113", "john", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "114", "peter", "III" });
+
+//Subscribing to events
+
+pdfLightTable.BeginRowLayout += pdfLightTable_BeginRowLayout;
+
+pdfLightTable.EndRowLayout += pdfLightTable_EndRowLayout;
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+private void pdfLightTable_EndRowLayout(object sender, EndRowLayoutEventArgs args)
+
+{
+
+    //Customize the rows when row layout ends
+
+    if (args.RowIndex == 3)
+
+    args.Cancel = true;
+
+}
+
+private void pdfLightTable_BeginRowLayout(object sender, BeginRowLayoutEventArgs args)
+
+{
+
+    //Apply column span
+
+    if (args.RowIndex == 1)
+
+    {
+
+        PdfLightTable table = (PdfLightTable)sender;
+
+        int count = table.Columns.Count;
+
+        int[] spanMap = new int[count];
+
+        // Set just spanned cells. Negative values are not allowed.
+
+        spanMap[0] = 2;
+
+        spanMap[1] = 3;
+
+        args.ColumnSpanMap = spanMap;
+
+    }
+
+}
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "Maxim", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "112", "Minim", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "113", "john", "III" });
+
+pdfLightTable.Rows.Add(new object[] { "114", "peter", "III" });
+
+//Subscribing to events
+
+pdfLightTable.BeginRowLayout += pdfLightTable_BeginRowLayout;
+
+pdfLightTable.EndRowLayout += pdfLightTable_EndRowLayout;
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Column customization in PdfLightTable
@@ -1612,6 +4113,251 @@ doc.Save("Output.pdf")
 'close the document
 
 doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Acquire page's graphics.
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "john", "III" });
+
+// Specify column name.
+
+pdfLightTable.Columns[1].ColumnName = "Student Name";
+
+//create and customize the string formats
+
+PdfStringFormat format = new PdfStringFormat();
+
+format.Alignment = PdfTextAlignment.Center;
+
+format.LineAlignment = PdfVerticalAlignment.Bottom;
+
+//Apply string format
+
+pdfLightTable.Columns[0].StringFormat = format;
+
+//Style to display header.
+
+pdfLightTable.Style.ShowHeader = true;
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Acquire page's graphics.
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "john", "III" });
+
+// Specify column name.
+
+pdfLightTable.Columns[1].ColumnName = "Student Name";
+
+//create and customize the string formats
+
+PdfStringFormat format = new PdfStringFormat();
+
+format.Alignment = PdfTextAlignment.Center;
+
+format.LineAlignment = PdfVerticalAlignment.Bottom;
+
+//Apply string format
+
+pdfLightTable.Columns[0].StringFormat = format;
+
+//Style to display header.
+
+pdfLightTable.Style.ShowHeader = true;
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = doc.Pages.Add();
+
+//Acquire page's graphics.
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct.
+
+pdfLightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns.
+
+pdfLightTable.Columns.Add(new PdfColumn("Roll Number"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Name"));
+
+pdfLightTable.Columns.Add(new PdfColumn("Class"));
+
+//Add rows.
+
+pdfLightTable.Rows.Add(new object[] { "111", "john", "III" });
+
+// Specify column name.
+
+pdfLightTable.Columns[1].ColumnName = "Student Name";
+
+//create and customize the string formats
+
+PdfStringFormat format = new PdfStringFormat();
+
+format.Alignment = PdfTextAlignment.Center;
+
+format.LineAlignment = PdfVerticalAlignment.Bottom;
+
+//Apply string format
+
+pdfLightTable.Columns[0].StringFormat = format;
+
+//Style to display header.
+
+pdfLightTable.Style.ShowHeader = true;
+
+//Draw the PdfLightTable.
+
+pdfLightTable.Draw(page, Syncfusion.Drawing.PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -1761,6 +4507,257 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "John" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+Object row3 = new { ID = "E03", Name = "Peter" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+data.Add(row3);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Create an instance of PdfGridRowStyle
+
+PdfGridRowStyle pdfGridRowStyle = new PdfGridRowStyle();
+
+pdfGridRowStyle.BackgroundBrush = PdfBrushes.LightYellow;
+
+pdfGridRowStyle.Font = new PdfStandardFont(PdfFontFamily.Courier, 10);
+
+pdfGridRowStyle.TextBrush = PdfBrushes.Blue;
+
+pdfGridRowStyle.TextPen = PdfPens.Pink;
+
+//Set the height
+
+pdfGrid.Rows[2].Height = 50;
+
+//Set style for the PdfGridRow.
+
+pdfGrid.Rows[0].Style = pdfGridRowStyle;
+
+//Draw the PdfGrid.
+
+PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDocument.SaveAsync(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "John" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+Object row3 = new { ID = "E03", Name = "Peter" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+data.Add(row3);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Create an instance of PdfGridRowStyle
+
+PdfGridRowStyle pdfGridRowStyle = new PdfGridRowStyle();
+
+pdfGridRowStyle.BackgroundBrush = PdfBrushes.LightYellow;
+
+pdfGridRowStyle.Font = new PdfStandardFont(PdfFontFamily.Courier, 10);
+
+pdfGridRowStyle.TextBrush = PdfBrushes.Blue;
+
+pdfGridRowStyle.TextPen = PdfPens.Pink;
+
+//Set the height
+
+pdfGrid.Rows[2].Height = 50;
+
+//Set style for the PdfGridRow.
+
+pdfGrid.Rows[0].Style = pdfGridRowStyle;
+
+//Draw the PdfGrid.
+
+PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Empty);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+pdfDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "John" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+Object row3 = new { ID = "E03", Name = "Peter" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+data.Add(row3);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Create an instance of PdfGridRowStyle
+
+PdfGridRowStyle pdfGridRowStyle = new PdfGridRowStyle();
+
+pdfGridRowStyle.BackgroundBrush = PdfBrushes.LightYellow;
+
+pdfGridRowStyle.Font = new PdfStandardFont(PdfFontFamily.Courier, 10);
+
+pdfGridRowStyle.TextBrush = PdfBrushes.Blue;
+
+pdfGridRowStyle.TextPen = PdfPens.Pink;
+
+//Set the height
+
+pdfGrid.Rows[2].Height = 50;
+
+//Set style for the PdfGridRow.
+
+pdfGrid.Rows[0].Style = pdfGridRowStyle;
+
+//Draw the PdfGrid.
+
+PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Columns customization in PdfGrid
@@ -1899,6 +4896,246 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+Object row3 = new { ID = "E02", Name = "Peter" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+data.Add(row3);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Set the width
+
+pdfGrid.Columns[1].Width = 50;
+
+//create and customize the string formats
+
+PdfStringFormat format = new PdfStringFormat();
+
+format.Alignment = PdfTextAlignment.Center;
+
+format.LineAlignment = PdfVerticalAlignment.Bottom;
+
+//set the column text format
+
+pdfGrid.Columns[0].Format = format;
+
+//Draw the PdfGrid.
+
+PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, PointF.Empty);
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDocument.SaveAsync(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+Object row3 = new { ID = "E02", Name = "Peter" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+data.Add(row3);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Set the width
+
+pdfGrid.Columns[1].Width = 50;
+
+//create and customize the string formats
+
+PdfStringFormat format = new PdfStringFormat();
+
+format.Alignment = PdfTextAlignment.Center;
+
+format.LineAlignment = PdfVerticalAlignment.Bottom;
+
+//set the column text format
+
+pdfGrid.Columns[0].Format = format;
+
+//Draw the PdfGrid.
+
+PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Empty);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream.
+
+pdfDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid.
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+Object row3 = new { ID = "E02", Name = "Peter" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+data.Add(row3);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Set the width
+
+pdfGrid.Columns[1].Width = 50;
+
+//create and customize the string formats
+
+PdfStringFormat format = new PdfStringFormat();
+
+format.Alignment = PdfTextAlignment.Center;
+
+format.LineAlignment = PdfVerticalAlignment.Bottom;
+
+//set the column text format
+
+pdfGrid.Columns[0].Format = format;
+
+//Draw the PdfGrid.
+
+PdfGridLayoutResult result = pdfGrid.Draw(pdfPage, Syncfusion.Drawing.PointF.Empty);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Built-in table styles
@@ -1996,6 +5233,174 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "George" };
+Object row4 = new { ID = "E04", Name = "Stefen" };
+Object row5 = new { ID = "E05", Name = "Mathew" };
+
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+
+//Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+ //Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "George" };
+Object row4 = new { ID = "E04", Name = "Stefen" };
+Object row5 = new { ID = "E05", Name = "Mathew" };
+
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+
+//Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+
+//Close the document.
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "George" };
+Object row4 = new { ID = "E04", Name = "Stefen" };
+Object row5 = new { ID = "E05", Name = "Mathew" };
+
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+
+//Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent1);
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+
+//Close the document.
+doc.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 The following image shows the PDF document with ```PdfGridBuiltinStyle.GridTable4Accent1```.
@@ -2083,6 +5488,175 @@ pdfLightTable.Draw(page, New PointF(10, 10))
 doc.Save("Output.pdf")
 'close the document
 doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable.
+PdfLightTable pdfLightTable = new PdfLightTable();
+//Add values to list
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "George" };
+Object row4 = new { ID = "E04", Name = "Stefen" };
+Object row5 = new { ID = "E05", Name = "Mathew" };
+
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+pdfLightTable.DataSource = dataTable;
+
+//Apply built-in table style
+pdfLightTable.ApplyBuiltinStyle(PdfLightTableBuiltinStyle.GridTable4Accent2);
+
+//Draw grid to the page of PDF document.
+pdfLightTable.Draw(page, new PointF(10, 10));
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+await doc.SaveAsync(stream);
+
+//Close the document.
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable.
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "George" };
+Object row4 = new { ID = "E04", Name = "Stefen" };
+Object row5 = new { ID = "E05", Name = "Mathew" };
+
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+pdfLightTable.DataSource = dataTable;
+
+//Apply built-in table style
+pdfLightTable.ApplyBuiltinStyle(PdfLightTableBuiltinStyle.GridTable4Accent2);
+
+//Draw grid to the page of PDF document.
+pdfLightTable.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+
+//Close the document.
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfLightTable.
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "George" };
+Object row4 = new { ID = "E04", Name = "Stefen" };
+Object row5 = new { ID = "E05", Name = "Mathew" };
+
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+pdfLightTable.DataSource = dataTable;
+
+//Apply built-in table style
+pdfLightTable.ApplyBuiltinStyle(PdfLightTableBuiltinStyle.GridTable4Accent2);
+
+//Draw grid to the page of PDF document.
+pdfLightTable.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+
+//Close the document.
+doc.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -2178,6 +5752,185 @@ pdfGrid.Draw(page, New PointF(10, 10))
 doc.Save("Output.pdf")
 'close the document
 doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "George" };
+Object row4 = new { ID = "E04", Name = "Stefen" };
+Object row5 = new { ID = "E05", Name = "Mathew" };
+
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+
+PdfGridBuiltinStyleSettings tableStyleOption = new PdfGridBuiltinStyleSettings();
+tableStyleOption.ApplyStyleForBandedRows = true;
+tableStyleOption.ApplyStyleForHeaderRow = true;
+
+//Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent4, tableStyleOption);
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+await doc.SaveAsync(stream);
+
+//Close the document.
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "George" };
+Object row4 = new { ID = "E04", Name = "Stefen" };
+Object row5 = new { ID = "E05", Name = "Mathew" };
+
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+
+PdfGridBuiltinStyleSettings tableStyleOption = new PdfGridBuiltinStyleSettings();
+tableStyleOption.ApplyStyleForBandedRows = true;
+tableStyleOption.ApplyStyleForHeaderRow = true;
+
+//Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent4, tableStyleOption);
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+
+//Close the document.
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Add a page.
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "George" };
+Object row4 = new { ID = "E04", Name = "Stefen" };
+Object row5 = new { ID = "E05", Name = "Mathew" };
+
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+
+PdfGridBuiltinStyleSettings tableStyleOption = new PdfGridBuiltinStyleSettings();
+tableStyleOption.ApplyStyleForBandedRows = true;
+tableStyleOption.ApplyStyleForHeaderRow = true;
+
+//Apply built-in table style
+pdfGrid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable4Accent4, tableStyleOption);
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+
+//Close the document.
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -2308,6 +6061,209 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+// Create a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+//you can add multiple rows
+
+Object row = new { Name = "abc", Age = "21", Sex = "Male" };
+
+data.Add(row);
+
+//Add list to IEnumerable
+
+IEnumerable<object> table = data;
+
+//Assign data source.
+
+pdfLightTable.DataSource = table;
+
+//Set properties to paginate the table.
+
+PdfLightTableLayoutFormat layoutFormat = new PdfLightTableLayoutFormat();
+
+layoutFormat.Break = PdfLayoutBreakType.FitPage;
+
+layoutFormat.Layout = PdfLayoutType.Paginate;
+
+//Draw PdfLightTable.
+
+pdfLightTable.Draw(page, new PointF(0, 0), layoutFormat);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+// Create a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+//you can add multiple rows
+
+Object row = new { Name = "abc", Age = "21", Sex = "Male" };
+
+data.Add(row);
+
+//Add list to IEnumerable
+
+IEnumerable<object> table = data;
+
+//Assign data source.
+
+pdfLightTable.DataSource = table;
+
+//Set properties to paginate the table.
+
+PdfLightTableLayoutFormat layoutFormat = new PdfLightTableLayoutFormat();
+
+layoutFormat.Break = PdfLayoutBreakType.FitPage;
+
+layoutFormat.Layout = PdfLayoutType.Paginate;
+
+//Draw PdfLightTable.
+
+pdfLightTable.Draw(page, new Syncfusion.Drawing.PointF(0, 0), layoutFormat);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+// Create a PdfLightTable.
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+//you can add multiple rows
+
+Object row = new { Name = "abc", Age = "21", Sex = "Male" };
+
+data.Add(row);
+
+//Add list to IEnumerable
+
+IEnumerable<object> table = data;
+
+//Assign data source.
+
+pdfLightTable.DataSource = table;
+
+//Set properties to paginate the table.
+
+PdfLightTableLayoutFormat layoutFormat = new PdfLightTableLayoutFormat();
+
+layoutFormat.Break = PdfLayoutBreakType.FitPage;
+
+layoutFormat.Layout = PdfLayoutType.Paginate;
+
+//Draw PdfLightTable.
+
+pdfLightTable.Draw(page, new Syncfusion.Drawing.PointF(0, 0), layoutFormat);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Pagination in PdfGrid
@@ -2427,6 +6383,221 @@ document.Save("Output.pdf")
 'close the document
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+//You can add multiple rows 
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Set properties to paginate the grid.
+
+PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
+
+layoutFormat.Break = PdfLayoutBreakType.FitPage;
+
+layoutFormat.Layout = PdfLayoutType.Paginate;
+
+//Draw grid to the page of PDF document.
+
+pdfGrid.Draw(page, new PointF(10, 10), layoutFormat);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+//You can add multiple rows here
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Set properties to paginate the grid.
+
+PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
+
+layoutFormat.Break = PdfLayoutBreakType.FitPage;
+
+layoutFormat.Layout = PdfLayoutType.Paginate;
+
+//Draw grid to the page of PDF document.
+
+pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10), layoutFormat);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+//You can add multiple rows 
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source.
+
+pdfGrid.DataSource = dataTable;
+
+//Set properties to paginate the grid.
+
+PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
+
+layoutFormat.Break = PdfLayoutBreakType.FitPage;
+
+layoutFormat.Layout = PdfLayoutType.Paginate;
+
+//Draw grid to the page of PDF document.
+
+pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10), layoutFormat);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 

@@ -70,6 +70,98 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page to the document.
+PdfPage page = doc.Pages.Add();
+//Create an instance for named destination.
+PdfNamedDestination destination = new PdfNamedDestination("TOC");
+destination.Destination = new PdfDestination(page);
+//Set the location
+destination.Destination.Location = new PointF(0, 500);
+//Set zoom factor to 400 percentage
+destination.Destination.Zoom = 4;
+doc.NamedDestinationCollection.Add(destination);
+//Draw the text.
+page.Graphics.DrawString("Hello World!!", new PdfStandardFont(PdfFontFamily.Helvetica, 10), PdfBrushes.Black, new PointF(0, 500));
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+await doc.SaveAsync(stream);
+//Close the document
+doc.Close(true);                                                                   
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page to the document.
+PdfPage page = doc.Pages.Add();
+//Create an instance for named destination.
+PdfNamedDestination destination = new PdfNamedDestination("TOC");
+destination.Destination = new PdfDestination(page);
+//Set the location
+destination.Destination.Location = new PointF(0, 500);
+//Set zoom factor to 400 percentage
+destination.Destination.Zoom = 4;
+doc.NamedDestinationCollection.Add(destination);
+//Draw the text.
+page.Graphics.DrawString("Hello World!!", new PdfStandardFont(PdfFontFamily.Helvetica, 10), PdfBrushes.Black, new PointF(0, 500));
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+stream.Position = 0;
+//Closes the document
+doc.Close(true);
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+//Defin the file name
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page to the document.
+PdfPage page = doc.Pages.Add();
+//Create an instance for named destination.
+PdfNamedDestination destination = new PdfNamedDestination("TOC");
+destination.Destination = new PdfDestination(page);
+//Set the location
+destination.Destination.Location = new PointF(0, 500);
+//Set zoom factor to 400 percentage
+destination.Destination.Zoom = 4;
+doc.NamedDestinationCollection.Add(destination);
+//Draw the text.
+page.Graphics.DrawString("Hello World!!", new PdfStandardFont(PdfFontFamily.Helvetica, 10), PdfBrushes.Black, new PointF(0, 500));
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+//Closes the document
+doc.Close(true);
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ## Adding Named Destination to an existing PDF document
@@ -121,6 +213,100 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+var picker = new FileOpenPicker();
+picker.FileTypeFilter.Add(".pdf");
+//Browse and chose the file
+StorageFile file = await picker.PickSingleFileAsync();
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+await loadedDocument.OpenAsync(file);
+//Get the first page of the document
+PdfPageBase page = loadedDocument.Pages[0];
+//Create an instance for named destination.
+PdfNamedDestination destination = new PdfNamedDestination("TOC");
+destination.Destination = new PdfDestination(page);
+//Set the location
+destination.Destination.Location = new PointF(0, 500);
+//Set zoom factor to 400 percentage
+destination.Destination.Zoom = 4;
+loadedDocument.NamedDestinationCollection.Add(destination);
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+await loadedDocument.SaveAsync(stream);
+//Close the document
+loadedDocument.Close(true);                                                             
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Get the first page of the document
+PdfPageBase page = loadedDocument.Pages[0];
+//Create an instance for named destination.
+PdfNamedDestination destination = new PdfNamedDestination("TOC");
+destination.Destination = new PdfDestination(page);
+//Set the location
+destination.Destination.Location = new PointF(0, 500);
+//Set zoom factor to 400 percentage
+destination.Destination.Zoom = 4;
+loadedDocument.NamedDestinationCollection.Add(destination);
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+stream.Position = 0;
+//Closes the document
+loadedDocument.Close(true);
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+//Defin the file name
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Get the first page of the document
+PdfPageBase page = loadedDocument.Pages[0];
+//Create an instance for named destination.
+PdfNamedDestination destination = new PdfNamedDestination("TOC");
+destination.Destination = new PdfDestination(page);
+//Set the location
+destination.Destination.Location = new PointF(0, 500);
+//Set zoom factor to 400 percentage
+destination.Destination.Zoom = 4;
+loadedDocument.NamedDestinationCollection.Add(destination);
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Closes the document
+loadedDocument.Close(true);
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
  {% endtabs %}  
 
 ## Removing/Modifying the named destination
@@ -167,6 +353,96 @@ destination.Title = "POC"
 lDoc.Save("Output.pdf")
 'Close the document
 lDoc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+var picker = new FileOpenPicker();
+picker.FileTypeFilter.Add(".pdf");
+//Browse and chose the file
+StorageFile file = await picker.PickSingleFileAsync();
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument lDoc = new PdfLoadedDocument();
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+await lDoc.OpenAsync(file);
+//Get the named destination collection
+PdfNamedDestinationCollection destinationCollection = lDoc.NamedDestinationCollection;
+//Remove the named destination by title
+destinationCollection.Remove("TOC");
+
+//Modify the exiting named destination
+PdfNamedDestination destination = destinationCollection[0];
+destination.Title = "POC";
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+await lDoc.SaveAsync(stream);
+//Close the document
+lDoc.Close(true);                                                                   
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("Barcode.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+//Get the named destination collection
+PdfNamedDestinationCollection destinationCollection = lDoc.NamedDestinationCollection;
+//Remove the named destination by title
+destinationCollection.Remove("TOC");
+
+//Modify the exiting named destination
+PdfNamedDestination destination = destinationCollection[0];
+destination.Title = "POC";
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+lDoc.Save(stream);
+stream.Position = 0;
+//Close the documents.
+lDoc.Close(true);
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+//Defin the file name.
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+//Get the named destination collection
+PdfNamedDestinationCollection destinationCollection = lDoc.NamedDestinationCollection;
+//Remove the named destination by title
+destinationCollection.Remove("TOC");
+
+//Modify the exiting named destination
+PdfNamedDestination destination = destinationCollection[0];
+destination.Title = "POC";
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+lDoc.Save(stream);
+//Closes the document
+lDoc.Close(true);
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -228,6 +504,107 @@ bookmark.NamedDestination = destination
 doc.Save("Sample.pdf")
 'Close the document
 doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page to the document.
+PdfPage page = doc.Pages.Add();
+//Create an instance for named destination.
+PdfNamedDestination destination = new PdfNamedDestination("TOC");
+destination.Destination = new PdfDestination(page);
+//Set the location
+destination.Destination.Location = new PointF(0, 800);
+//Set zoom factor to 400 percentage
+destination.Destination.Zoom = 4;
+//Add the named destination to the collection
+doc.NamedDestinationCollection.Add(destination);
+//Create a bookmark
+PdfBookmark bookmark = doc.Bookmarks.Add("TOC");
+//Assign the named destination to the bookmark
+bookmark.NamedDestination = destination;
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+await doc.SaveAsync(stream);
+//Close the document
+doc.Close(true);                                                                   
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page to the document.
+PdfPage page = doc.Pages.Add();
+//Create an instance for named destination.
+PdfNamedDestination destination = new PdfNamedDestination("TOC");
+destination.Destination = new PdfDestination(page);
+//Set the location
+destination.Destination.Location = new PointF(0, 800);
+//Set zoom factor to 400 percentage
+destination.Destination.Zoom = 4;
+//Add the named destination to the collection
+doc.NamedDestinationCollection.Add(destination);
+//Create a bookmark
+PdfBookmark bookmark = doc.Bookmarks.Add("TOC");
+//Assign the named destination to the bookmark
+bookmark.NamedDestination = destination;
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+stream.Position = 0;
+//Close the documents.
+doc.Close(true);
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+//Defin the file name.
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page to the document.
+PdfPage page = doc.Pages.Add();
+//Create an instance for named destination.
+PdfNamedDestination destination = new PdfNamedDestination("TOC");
+destination.Destination = new PdfDestination(page);
+//Set the location
+destination.Destination.Location = new PointF(0, 800);
+//Set zoom factor to 400 percentage
+destination.Destination.Zoom = 4;
+//Add the named destination to the collection
+doc.NamedDestinationCollection.Add(destination);
+//Create a bookmark
+PdfBookmark bookmark = doc.Bookmarks.Add("TOC");
+//Assign the named destination to the bookmark
+bookmark.NamedDestination = destination;
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+//Closes the document
+doc.Close(true);
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 

@@ -69,6 +69,24 @@ finalDoc.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports merging multiple documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports merging multiple documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports merging multiple documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
 {% endtabs %}
 
 You can merge the PDF document streams by using the following code example.
@@ -147,6 +165,68 @@ stream2.Dispose()
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports merging multiple documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a PDF document
+
+PdfDocument finalDoc = new PdfDocument();
+
+FileStream stream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+
+FileStream stream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
+
+// Creates a PDF stream for merging
+
+Stream[] streams = { stream1, stream2 };
+
+// Merges PDFDocument.
+
+PdfDocumentBase.Merge(finalDoc, streams);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+finalDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+finalDoc.Close(true);
+
+//Disposes the streams.
+
+stream1.Dispose();
+
+stream2.Dispose();
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports merging multiple documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+
+{% endhighlight %}
 {% endtabs %}
 
 ## Importing pages from multiple documents
@@ -211,6 +291,141 @@ lDoc.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await lDoc.OpenAsync(file);
+
+//Creates a new document
+
+PdfDocument document = new PdfDocument();
+
+//Imports the page at 1 from the lDoc
+
+document.ImportPage(lDoc, 1);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Closes the document
+
+document.Close(true);
+
+lDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the PDF document.
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Creates a new document
+
+PdfDocument document = new PdfDocument();
+
+//Imports the page at 1 from the lDoc
+
+document.ImportPage(lDoc, 1);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+lDoc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Creates a new document
+
+PdfDocument document = new PdfDocument();
+
+//Imports the page at 1 from the lDoc
+
+document.ImportPage(lDoc, 1);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+lDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
 {% endtabs %}
 
 You can import multiple pages from an existing document by using **ImportPageRange** method. The following code example illustrates this.
@@ -271,6 +486,141 @@ document.Close(True)
 lDoc.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await lDoc.OpenAsync(file);
+
+//Creates a new document
+
+PdfDocument document = new PdfDocument();
+
+//Imports the page at 1 from the lDoc
+
+document.ImportPageRange(lDoc, 0, lDoc.Pages.Count - 1);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Closes the document
+
+document.Close(true);
+
+lDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the PDF document.
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Creates a new document
+
+PdfDocument document = new PdfDocument();
+
+//Imports the page at 1 from the lDoc
+
+document.ImportPageRange(lDoc, 0, lDoc.Pages.Count - 1);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+lDoc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Creates a new document
+
+PdfDocument document = new PdfDocument();
+
+//Imports the page at 1 from the lDoc
+
+document.ImportPageRange(lDoc, 0, lDoc.Pages.Count - 1);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+lDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 {% endtabs %}
@@ -349,6 +699,161 @@ lDoc2.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Load the PDF document as stream
+Stream pdfStream1 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.fi
+
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument lDoc = new PdfLoadedDocument(pdfStream1);
+
+//Load the PDF document as stream
+Stream pdfStream2 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.fi
+
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument lDoc2 = new PdfLoadedDocument(pdfStream2);
+
+//Creates the new document
+
+PdfDocument document = new PdfDocument();
+
+//Imports and arranges the pages
+
+document.ImportPage(lDoc, 2);
+
+document.ImportPage(lDoc2, 1);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Closes the documents
+
+document.Close(true);
+
+lDoc.Close(true);
+
+lDoc2.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the PDF document.
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream1);
+
+//Load the PDF document.
+
+FileStream docStream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the PDF document.
+
+PdfLoadedDocument lDoc2 = new PdfLoadedDocument(docStream2);
+
+//Creates the new document
+
+PdfDocument document = new PdfDocument();
+
+//Imports and arranges the pages
+
+document.ImportPage(lDoc, 1);
+
+document.ImportPage(lDoc2, 0);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the documents
+
+document.Close(true);
+
+lDoc.Close(true);
+
+lDoc2.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream1);
+
+//Load the file as stream
+
+Stream docStream2 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file2.pdf");
+
+PdfLoadedDocument lDoc2 = new PdfLoadedDocument(docStream2);
+
+//Creates the new document
+
+PdfDocument document = new PdfDocument();
+
+//Imports and arranges the pages
+
+document.ImportPage(lDoc, 1);
+
+document.ImportPage(lDoc2, 0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the documents
+
+document.Close(true);
+
+lDoc.Close(true);
+
+lDoc2.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samp
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
 {% endtabs %}
 
 ## Best practices
@@ -395,6 +900,24 @@ loadedDocument.Split("split.pdf")
 loadedDocument.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports split the document into multiple documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports split the document into multiple documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports split the document into multiple documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 {% endtabs %}
@@ -451,6 +974,24 @@ document.Save("Output.pdf")
 document.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports merging multiple PDF documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports merging multiple PDF documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports merging multiple PDF documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 {% endtabs %}

@@ -54,7 +54,176 @@ document.Close(true);
 
 {% endhighlight %}
 
+{% highlight vb.net %}
 
+'Create a new PDF document.
+
+Dim document As PdfDocument = New PdfDocument()
+
+'Add a new page to the PDF document.
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create a textbox field and add the properties.
+
+Dim textBoxField As PdfTextBoxField = New PdfTextBoxField(page, "FirstName")
+
+textBoxField.Bounds = New RectangleF(0, 0, 100, 20)
+
+textBoxField.ToolTip = "First Name"
+
+'Add the form field to the document.
+
+document.Form.Fields.Add(textBoxField)
+
+'Save the document.
+
+document.Save("Form.pdf")
+
+'close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a textbox field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(textBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a textbox field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(textBoxField);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a textbox field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(textBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
 
 The below code snippet illustrates how to add the textbox to an existing PDF document:
 
@@ -142,13 +311,183 @@ loadedDocument.Save("Form.pdf")
 
 loadedDocument.Close(True)
 
+{% endhighlight %}
 
+{% highlight UWP %}
 
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a textbox field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(loadedPage, "FirstName");
+
+textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Add the form field to the existing PDF document.
+
+loadedDocument.Form.Fields.Add(textBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a textbox field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(loadedPage, "FirstName");
+
+textBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Add the form field to the existing PDF document.
+
+loadedDocument.Form.Fields.Add(textBoxField);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a textbox field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(loadedPage, "FirstName");
+
+textBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Add the form field to the existing PDF document.
+
+loadedDocument.Form.Fields.Add(textBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
 
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 
 ### Adding the combo box field
@@ -249,6 +588,180 @@ document.Save("Form.pdf")
 
 document.Close(True)
 
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a combo box for the first page.
+
+PdfComboBoxField comboBoxField = new PdfComboBoxField(page, "JobTitle");
+
+//Set the combo box properties.
+
+comboBoxField.Bounds = new RectangleF(0, 40, 100, 20);
+
+//Set tooltip.
+
+comboBoxField.ToolTip = "Job Title";
+
+//Add list items.
+
+comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
+
+comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
+
+comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
+
+//Add combo box to the form.
+
+document.Form.Fields.Add(comboBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a combo box for the first page.
+
+PdfComboBoxField comboBoxField = new PdfComboBoxField(page, "JobTitle");
+
+//Set the combo box properties.
+
+comboBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 40, 100, 20);
+
+//Set tooltip.
+
+comboBoxField.ToolTip = "Job Title";
+
+//Add list items.
+
+comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
+
+comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
+
+comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
+
+//Add combo box to the form.
+
+document.Form.Fields.Add(comboBoxField);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a combo box for the first page.
+
+PdfComboBoxField comboBoxField = new PdfComboBoxField(page, "JobTitle");
+
+//Set the combo box properties.
+
+comboBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 40, 100, 20);
+
+//Set tooltip.
+
+comboBoxField.ToolTip = "Job Title";
+
+//Add list items.
+
+comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
+
+comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
+
+comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
+
+//Add combo box to the form.
+
+document.Form.Fields.Add(comboBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
 
 
 {% endhighlight %}
@@ -369,6 +882,215 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a combo box for the first page.
+
+PdfComboBoxField comboBoxField = new PdfComboBoxField(loadedPage, "JobTitle");
+
+//Set the combo box properties.
+
+comboBoxField.Bounds = new RectangleF(0, 40, 100, 20);
+
+//Set tooltip.
+
+comboBoxField.ToolTip = "Job Title";
+
+//Add list items.
+
+comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
+
+comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
+
+comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
+
+//Add combo box to the form.
+
+loadedDocument.Form.Fields.Add(comboBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a combo box for the first page.
+
+PdfComboBoxField comboBoxField = new PdfComboBoxField(loadedPage, "JobTitle");
+
+//Set the combo box properties.
+
+comboBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 40, 100, 20);
+
+//Set tooltip.
+
+comboBoxField.ToolTip = "Job Title";
+
+//Add list items.
+
+comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
+
+comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
+
+comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
+
+//Add combo box to the form.
+
+loadedDocument.Form.Fields.Add(comboBoxField);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a combo box for the first page.
+
+PdfComboBoxField comboBoxField = new PdfComboBoxField(loadedPage, "JobTitle");
+
+//Set the combo box properties.
+
+comboBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 40, 100, 20);
+
+//Set tooltip.
+
+comboBoxField.ToolTip = "Job Title";
+
+//Add list items.
+
+comboBoxField.Items.Add(new PdfListFieldItem("Development", "accounts"));
+
+comboBoxField.Items.Add(new PdfListFieldItem("Support", "advertise"));
+
+comboBoxField.Items.Add(new PdfListFieldItem("Documentation", "content"));
+
+//Add combo box to the form.
+
+loadedDocument.Form.Fields.Add(comboBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
  {% endtabs %}  
 
 ### Adding the radio button field
@@ -470,6 +1192,179 @@ document.Save("Form.pdf")
 document.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a Radio button.
+
+PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(page, "employeesRadioList");
+
+//Add the radio button into form
+
+document.Form.Fields.Add(employeesRadioList);
+
+//Create radio button items.
+
+PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
+
+radioButtonItem1.Bounds = new RectangleF(100, 140, 20, 20);
+
+PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
+
+radioButtonItem2.Bounds = new RectangleF(100, 170, 20, 20);
+
+//Add the items to radio button group.
+
+employeesRadioList.Items.Add(radioButtonItem1);
+
+employeesRadioList.Items.Add(radioButtonItem2);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a Radio button.
+
+PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(page, "employeesRadioList");
+
+//Add the radio button into form
+
+document.Form.Fields.Add(employeesRadioList);
+
+//Create radio button items.
+
+PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
+
+radioButtonItem1.Bounds = new Syncfusion.Drawing.RectangleF(100, 140, 20, 20);
+
+PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
+
+radioButtonItem2.Bounds = new Syncfusion.Drawing.RectangleF(100, 170, 20, 20);
+
+//Add the items to radio button group.
+
+employeesRadioList.Items.Add(radioButtonItem1);
+
+employeesRadioList.Items.Add(radioButtonItem2);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a Radio button.
+
+PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(page, "employeesRadioList");
+
+//Add the radio button into form
+
+document.Form.Fields.Add(employeesRadioList);
+
+//Create radio button items.
+
+PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
+
+radioButtonItem1.Bounds = new Syncfusion.Drawing.RectangleF(100, 140, 20, 20);
+
+PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
+
+radioButtonItem2.Bounds = new Syncfusion.Drawing.RectangleF(100, 170, 20, 20);
+
+//Add the items to radio button group.
+
+employeesRadioList.Items.Add(radioButtonItem1);
+
+employeesRadioList.Items.Add(radioButtonItem2);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -587,6 +1482,215 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a Radio button.
+
+PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(loadedPage, "employeesRadioList");
+
+//Add the radio button into loaded document
+
+loadedDocument.Form.Fields.Add(employeesRadioList);
+
+//Create radio button items.
+
+PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
+
+radioButtonItem1.Bounds = new RectangleF(100, 140, 20, 20);
+
+PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
+
+radioButtonItem2.Bounds = new RectangleF(100, 170, 20, 20);
+
+//Add the items to radio button group.
+
+employeesRadioList.Items.Add(radioButtonItem1);
+
+employeesRadioList.Items.Add(radioButtonItem2);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a Radio button.
+
+PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(loadedPage, "employeesRadioList");
+
+//Add the radio button into loaded document
+
+loadedDocument.Form.Fields.Add(employeesRadioList);
+
+//Create radio button items.
+
+PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
+
+radioButtonItem1.Bounds = new Syncfusion.Drawing.RectangleF(100, 140, 20, 20);
+
+PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
+
+radioButtonItem2.Bounds = new Syncfusion.Drawing.RectangleF(100, 170, 20, 20);
+
+//Add the items to radio button group.
+
+employeesRadioList.Items.Add(radioButtonItem1);
+
+employeesRadioList.Items.Add(radioButtonItem2);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a Radio button.
+
+PdfRadioButtonListField employeesRadioList = new PdfRadioButtonListField(loadedPage, "employeesRadioList");
+
+//Add the radio button into loaded document
+
+loadedDocument.Form.Fields.Add(employeesRadioList);
+
+//Create radio button items.
+
+PdfRadioButtonListItem radioButtonItem1 = new PdfRadioButtonListItem("1-9");
+
+radioButtonItem1.Bounds = new Syncfusion.Drawing.RectangleF(100, 140, 20, 20);
+
+PdfRadioButtonListItem radioButtonItem2 = new PdfRadioButtonListItem("10-49");
+
+radioButtonItem2.Bounds = new Syncfusion.Drawing.RectangleF(100, 170, 20, 20);
+
+//Add the items to radio button group.
+
+employeesRadioList.Items.Add(radioButtonItem1);
+
+employeesRadioList.Items.Add(radioButtonItem2);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ### Adding the list box field
@@ -696,6 +1800,191 @@ document.Save("Form.pdf")
 document.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create list box.
+
+PdfListBoxField listBoxField = new PdfListBoxField(page, "list1");
+
+//Set the properties.
+
+listBoxField.Bounds = new RectangleF(100, 60, 100, 50);
+
+//Add the items to the list box.
+
+listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
+
+listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
+
+listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
+
+//Select the item.
+
+listBoxField.SelectedIndex = 2;
+
+//Set the multi select option.
+
+listBoxField.MultiSelect = true;
+
+//Add the list box into PDF document
+
+document.Form.Fields.Add(listBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create list box.
+
+PdfListBoxField listBoxField = new PdfListBoxField(page, "list1");
+
+//Set the properties.
+
+listBoxField.Bounds = new Syncfusion.Drawing.RectangleF(100, 60, 100, 50);
+
+//Add the items to the list box.
+
+listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
+
+listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
+
+listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
+
+//Select the item.
+
+listBoxField.SelectedIndex = 0;
+
+//Set the multi select option.
+
+listBoxField.MultiSelect = true;
+
+//Add the list box into PDF document
+
+document.Form.Fields.Add(listBoxField);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create list box.
+
+PdfListBoxField listBoxField = new PdfListBoxField(page, "list1");
+
+//Set the properties.
+
+listBoxField.Bounds = new Syncfusion.Drawing.RectangleF(100, 60, 100, 50);
+
+//Add the items to the list box.
+
+listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
+
+listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
+
+listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
+
+//Select the item.
+
+listBoxField.SelectedIndex = 2;
+
+//Set the multi select option.
+
+listBoxField.MultiSelect = true;
+
+//Add the list box into PDF document
+
+document.Form.Fields.Add(listBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -821,6 +2110,228 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create list box.
+
+PdfListBoxField listBoxField = new PdfListBoxField(loadedPage, "list1");
+
+//Set the properties.
+
+listBoxField.Bounds = new RectangleF(100, 60, 100, 50);
+
+//Add the items to the list box.
+
+listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
+
+listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
+
+listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
+
+//Select the item.
+
+listBoxField.SelectedIndex = 2;
+
+//Set the multi select option.
+
+listBoxField.MultiSelect = true;
+
+//Add the list box into PDF document
+
+loadedDocument.Form.Fields.Add(listBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+ //Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create list box.
+
+PdfListBoxField listBoxField = new PdfListBoxField(loadedPage, "list1");
+
+//Set the properties.
+
+listBoxField.Bounds = new Syncfusion.Drawing.RectangleF(100, 60, 100, 50);
+
+//Add the items to the list box.
+
+listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
+
+listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
+
+listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
+
+//Select the item.
+
+listBoxField.SelectedIndex = 2;
+
+//Set the multi select option.
+
+listBoxField.MultiSelect = true;
+
+//Add the list box into PDF document
+
+loadedDocument.Form.Fields.Add(listBoxField);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create list box.
+
+PdfListBoxField listBoxField = new PdfListBoxField(loadedPage, "list1");
+
+//Set the properties.
+
+listBoxField.Bounds = new Syncfusion.Drawing.RectangleF(100, 60, 100, 50);
+
+//Add the items to the list box.
+
+listBoxField.Items.Add(new PdfListFieldItem("English", "English"));
+
+listBoxField.Items.Add(new PdfListFieldItem("French", "French"));
+
+listBoxField.Items.Add(new PdfListFieldItem("German", "German"));
+
+//Select the item.
+
+listBoxField.SelectedIndex = 2;
+
+//Set the multi select option.
+
+listBoxField.MultiSelect = true;
+
+//Add the list box into PDF document
+
+loadedDocument.Form.Fields.Add(listBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+
+{% endhighlight %}
+
  {% endtabs %}  
  
 
@@ -902,8 +2413,148 @@ document.Save("Form.pdf")
 
 document.Close(True)
 
+{% endhighlight %}
 
+{% highlight UWP %}
 
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create Check Box field.
+
+PdfCheckBoxField checkBoxField = new PdfCheckBoxField(page, "CheckBox");
+
+//Set check box properties.
+
+checkBoxField.ToolTip = "Check Box";
+
+checkBoxField.Bounds = new RectangleF(0, 20, 10, 10);
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(checkBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create Check Box field.
+
+PdfCheckBoxField checkBoxField = new PdfCheckBoxField(page, "CheckBox");
+
+//Set check box properties.
+
+checkBoxField.ToolTip = "Check Box";
+
+checkBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 20, 10, 10);
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(checkBoxField);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create Check Box field.
+
+PdfCheckBoxField checkBoxField = new PdfCheckBoxField(page, "CheckBox");
+
+//Set check box properties.
+
+checkBoxField.ToolTip = "Check Box";
+
+checkBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 20, 10, 10);
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(checkBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
 
 
 {% endhighlight %}
@@ -1002,6 +2653,185 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create Check Box field.
+
+PdfCheckBoxField checkBoxField = new PdfCheckBoxField(loadedPage, "CheckBox");
+
+//Set check box properties.
+
+checkBoxField.ToolTip = "Check Box";
+
+checkBoxField.Bounds = new RectangleF(0, 20, 10, 10);
+
+//Add the form field to the existing document.
+
+loadedDocument.Form.Fields.Add(checkBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create Check Box field.
+
+PdfCheckBoxField checkBoxField = new PdfCheckBoxField(loadedPage, "CheckBox");
+
+//Set check box properties.
+
+checkBoxField.ToolTip = "Check Box";
+
+checkBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 20, 10, 10);
+
+//Add the form field to the existing document.
+
+loadedDocument.Form.Fields.Add(checkBoxField);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+  loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create Check Box field.
+
+PdfCheckBoxField checkBoxField = new PdfCheckBoxField(loadedPage, "CheckBox");
+
+//Set check box properties.
+
+checkBoxField.ToolTip = "Check Box";
+
+checkBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 20, 10, 10);
+
+//Add the form field to the existing document.
+
+loadedDocument.Form.Fields.Add(checkBoxField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
   {% endtabs %}  
   
 
@@ -1085,6 +2915,150 @@ document.Close(True)
 
 
 
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF Signature field.
+
+PdfSignatureField signatureField = new PdfSignatureField(page, "Signature");
+
+//Set properties to the signature field.
+
+signatureField.Bounds = new RectangleF(0, 400, 90, 20);
+
+signatureField.ToolTip = "Signature";
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(signatureField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF Signature field.
+
+PdfSignatureField signatureField = new PdfSignatureField(page, "Signature");
+
+//Set properties to the signature field.
+
+signatureField.Bounds = new Syncfusion.Drawing.RectangleF(0, 400, 90, 20);
+
+signatureField.ToolTip = "Signature";
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(signatureField);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF Signature field.
+
+PdfSignatureField signatureField = new PdfSignatureField(page, "Signature");
+
+//Set properties to the signature field.
+
+signatureField.Bounds = new Syncfusion.Drawing.RectangleF(0, 400, 90, 20);
+
+signatureField.ToolTip = "Signature";
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(signatureField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
 
 
 {% endhighlight %}
@@ -1183,6 +3157,185 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create PDF Signature field.
+
+PdfSignatureField signatureField = new PdfSignatureField(loadedPage, "Signature");
+
+//Set properties to the signature field.
+
+signatureField.Bounds = new RectangleF(0, 400, 90, 20);
+
+signatureField.ToolTip = "Signature";
+
+//Add the form field to the existing document.
+
+loadedDocument.Form.Fields.Add(signatureField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create PDF Signature field.
+
+PdfSignatureField signatureField = new PdfSignatureField(loadedPage, "Signature");
+
+//Set properties to the signature field.
+
+signatureField.Bounds = new Syncfusion.Drawing.RectangleF(0, 400, 90, 20);
+
+signatureField.ToolTip = "Signature";
+
+//Add the form field to the existing document.
+
+loadedDocument.Form.Fields.Add(signatureField);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create PDF Signature field.
+
+PdfSignatureField signatureField = new PdfSignatureField(loadedPage, "Signature");
+
+//Set properties to the signature field.
+
+signatureField.Bounds = new Syncfusion.Drawing.RectangleF(0, 400, 90, 20);
+
+signatureField.ToolTip = "Signature";
+
+//Add the form field to the existing document.
+
+loadedDocument.Form.Fields.Add(signatureField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
  {% endtabs %}  
 
 ### Adding the button field 
@@ -1264,6 +3417,149 @@ document.Save("Form.pdf")
 document.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a Button.
+
+PdfButtonField buttonField = new PdfButtonField(page, "Click");
+
+//Set properties to the Button field.
+
+buttonField.Bounds = new RectangleF(0, 150, 90, 20);
+
+buttonField.Text = "Click";
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(buttonField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a Button.
+
+PdfButtonField buttonField = new PdfButtonField(page, "Click");
+
+//Set properties to the Button field.
+
+buttonField.Bounds = new Syncfusion.Drawing.RectangleF(0, 150, 90, 20);
+
+buttonField.Text = "Click";
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(buttonField);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a Button.
+
+PdfButtonField buttonField = new PdfButtonField(page, "Click");
+
+//Set properties to the Button field.
+
+buttonField.Bounds = new Syncfusion.Drawing.RectangleF(0, 150, 90, 20);
+
+buttonField.Text = "Click";
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(buttonField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -1357,6 +3653,179 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a Button and set properties to the Button field.
+
+PdfButtonField buttonField = new PdfButtonField(loadedPage, "Click");
+
+buttonField.Bounds = new RectangleF(0, 150, 90, 20);
+
+buttonField.Text = "Click";
+
+//Add the form field to the existing document.
+
+loadedDocument.Form.Fields.Add(buttonField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a Button and set properties to the Button field.
+
+PdfButtonField buttonField = new PdfButtonField(loadedPage, "Click");
+
+buttonField.Bounds = new Syncfusion.Drawing.RectangleF(0, 150, 90, 20);
+
+buttonField.Text = "Click";
+
+//Add the form field to the existing document.
+
+loadedDocument.Form.Fields.Add(buttonField);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+ //Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the form if the form does not exist in the loaded document
+
+if (loadedDocument.Form == null)
+
+    loadedDocument.CreateForm();
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a Button and set properties to the Button field.
+
+PdfButtonField buttonField = new PdfButtonField(loadedPage, "Click");
+
+buttonField.Bounds = new Syncfusion.Drawing.RectangleF(0, 150, 90, 20);
+
+buttonField.Text = "Click";
+
+//Add the form field to the existing document.
+
+loadedDocument.Form.Fields.Add(buttonField);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 
@@ -1446,6 +3915,164 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded form field and modify the properties.
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+RectangleF newBounds = new RectangleF(100, 100, 150, 50);
+
+loadedTextBoxField.Bounds = newBounds;
+
+loadedTextBoxField.SpellCheck = true;
+
+loadedTextBoxField.Text = "New text of the field.";
+
+loadedTextBoxField.Password = false;
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded form field and modify the properties.
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+RectangleF newBounds = new RectangleF(100, 100, 150, 50);
+
+loadedTextBoxField.Bounds = newBounds;
+
+loadedTextBoxField.SpellCheck = true;
+
+loadedTextBoxField.Text = "New text of the field.";
+
+loadedTextBoxField.Password = false;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Defin the file name.
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded form field and modify the properties.
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+Syncfusion.Drawing.RectangleF newBounds = new Syncfusion.Drawing.RectangleF(100, 100, 150, 50);
+
+loadedTextBoxField.Bounds = newBounds;
+
+loadedTextBoxField.SpellCheck = true;
+
+loadedTextBoxField.Text = "New text of the field.";
+
+loadedTextBoxField.Password = false;
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 
@@ -1517,6 +4144,139 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded text box field and fill it.
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text = "First Name";
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded text box field and fill it.
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text = "First Name";
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Defin the file name.
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded text box field and fill it.
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text = "First Name";
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ### Filling the combo box field
@@ -1583,6 +4343,140 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded combo box field  and modify the properties
+
+PdfLoadedComboBoxField loadedComboboxField = loadedForm.Fields[1] as PdfLoadedComboBoxField;
+
+loadedComboboxField.SelectedIndex = 1;
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "sample.pdf"); 
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded combo box field  and modify the properties
+
+PdfLoadedComboBoxField loadedComboboxField = loadedForm.Fields[1] as PdfLoadedComboBoxField;
+
+loadedComboboxField.SelectedIndex = 1;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Defin the file name.
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded combo box field  and modify the properties
+
+PdfLoadedComboBoxField loadedComboboxField = loadedForm.Fields[1] as PdfLoadedComboBoxField;
+
+loadedComboboxField.SelectedIndex = 1;
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
  {% endtabs %}  
 
 ### Filling the radio button field
@@ -1646,6 +4540,139 @@ loadedDocument.Save("sample.pdf")
 loadedDocument.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded radio button field.
+
+PdfLoadedRadioButtonListField loadedRadioButtonField = loadedForm.Fields[3] as PdfLoadedRadioButtonListField;
+
+loadedRadioButtonField.SelectedIndex = 1;
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded radio button field.
+
+PdfLoadedRadioButtonListField loadedRadioButtonField = loadedForm.Fields[3] as PdfLoadedRadioButtonListField;
+
+loadedRadioButtonField.SelectedIndex = 1;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Defin the file name.
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded radio button field.
+
+PdfLoadedRadioButtonListField loadedRadioButtonField = loadedForm.Fields[0] as PdfLoadedRadioButtonListField;
+
+loadedRadioButtonField.SelectedIndex = 1;
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -1717,6 +4744,145 @@ loadedDocument.Save("sample.pdf")
 loadedDocument.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Fill list box.
+
+PdfLoadedListBoxField loadedListBox = loadedForm.Fields[2] as PdfLoadedListBoxField;
+
+// Fill list box and Modify the list box select index
+
+loadedListBox.SelectedIndex = new int[2] { 1, 2 };
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Fill list box.
+
+PdfLoadedListBoxField loadedListBox = loadedForm.Fields[2] as PdfLoadedListBoxField;
+
+// Fill list box and Modify the list box select index
+
+loadedListBox.SelectedIndex = new int[2] { 1, 2 };
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Defin the file name.
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Fill list box.
+
+PdfLoadedListBoxField loadedListBox = loadedForm.Fields[2] as PdfLoadedListBoxField;
+
+// Fill list box and Modify the list box select index
+
+loadedListBox.SelectedIndex = new int[2] { 1, 2 };
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -1795,6 +4961,157 @@ loadedDocument.Save("sample.pdf")
 loadedDocument.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//load the check box from field collection
+
+PdfLoadedCheckBoxField loadedCheckBoxField = loadedForm.Fields[0] as PdfLoadedCheckBoxField;
+
+// fill the checkbox .
+
+loadedCheckBoxField.Items[0].Checked = true;
+
+//Check the checkbox if it is not grouped.
+
+loadedCheckBoxField.Checked = true;
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//load the check box from field collection
+
+PdfLoadedCheckBoxField loadedCheckBoxField = loadedForm.Fields[0] as PdfLoadedCheckBoxField;
+
+// fill the checkbox .
+
+loadedCheckBoxField.Items[0].Checked = true;
+
+//Check the checkbox if it is not grouped.
+
+loadedCheckBoxField.Checked = true;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Defin the file name.
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//load the check box from field collection
+
+PdfLoadedCheckBoxField loadedCheckBoxField = loadedForm.Fields[0] as PdfLoadedCheckBoxField;
+
+// fill the checkbox .
+
+loadedCheckBoxField.Items[0].Checked = true;
+
+//Check the checkbox if it is not grouped.
+
+loadedCheckBoxField.Checked = true;
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -1880,6 +5197,176 @@ loadedDocument.Save("output.pdf")
 
 loadedDocument.Close(True)
 
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Create PDF Certificate
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+
+PdfCertificate certificate = new PdfCertificate(certificateStream, "syncfusion");
+
+//Load the signature field from field collection and fill this with certificate
+
+PdfLoadedSignatureField loadedSignatureField = loadedForm.Fields[9] as PdfLoadedSignatureField;
+
+loadedSignatureField.Signature = new PdfSignature();
+
+loadedSignatureField.Signature.Certificate = certificate;
+
+loadedSignatureField.Signature.Reason = "Reason";
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Create PDF Certificate
+
+FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+
+PdfCertificate certificate = new PdfCertificate(certificateStream, "syncfusion");
+
+//Load the signature field from field collection and fill this with certificate
+
+PdfLoadedSignatureField loadedSignatureField = loadedForm.Fields[9] as PdfLoadedSignatureField
+
+loadedSignatureField.Signature = new PdfSignature();
+
+loadedSignatureField.Signature.Certificate = certificate;
+
+loadedSignatureField.Signature.Reason = "Reason";
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Defin the file name.
+
+string fileName = "output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Create PDF Certificate
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+
+PdfCertificate certificate = new PdfCertificate(certificateStream, "syncfusion");
+
+//Load the signature field from field collection and fill this with certificate
+
+PdfLoadedSignatureField loadedSignatureField = loadedForm.Fields[9] as PdfLoadedSignatureField;
+
+loadedSignatureField.Signature = new PdfSignature();
+
+loadedSignatureField.Signature.Certificate = certificate;
+
+loadedSignatureField.Signature.Reason = "Reason";
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
 
 
 {% endhighlight %}
@@ -1973,6 +5460,181 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument document = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await document.OpenAsync(file);
+
+//Get the loaded form.
+
+PdfLoadedForm form = document.Form;
+
+PdfLoadedFormFieldCollection fields = form.Fields;
+
+//Enumerates the form fields.
+
+for (int i = 0; i < fields.Count; i++)
+
+{
+
+    if (fields[i] is PdfLoadedTextBoxField)
+
+    {
+
+        PdfLoadedTextBoxField loadedTextBoxField = fields[i] as PdfLoadedTextBoxField;
+
+        loadedTextBoxField.Text = "Text";
+
+    }
+
+}
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm form = document.Form;
+
+PdfLoadedFormFieldCollection fields = form.Fields;
+
+//Enumerates the form fields.
+
+for (int i = 0; i < fields.Count; i++)
+
+{
+
+    if (fields[i] is PdfLoadedTextBoxField)
+
+    {
+
+        PdfLoadedTextBoxField loadedTextBoxField = fields[i] as PdfLoadedTextBoxField;
+
+        loadedTextBoxField.Text = "Text";
+
+    }
+
+}
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Defin the file name.
+
+string fileName = "output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm form = document.Form;
+
+PdfLoadedFormFieldCollection fields = form.Fields;
+
+//Enumerates the form fields.
+
+for (int i = 0; i < fields.Count; i++)
+
+{
+
+    if (fields[i] is PdfLoadedTextBoxField)
+
+    {
+
+        PdfLoadedTextBoxField loadedTextBoxField = fields[i] as PdfLoadedTextBoxField;
+
+        loadedTextBoxField.Text = "Text";
+
+    }
+
+}
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
  {% endtabs %}  
  
 
@@ -2056,6 +5718,169 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument doc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await doc.OpenAsync(file);
+
+// Load the form from the loaded document.
+
+PdfLoadedForm form = doc.Form;
+
+// Load the form field collections from the form.
+
+PdfLoadedFormFieldCollection fieldCollection = form.Fields as PdfLoadedFormFieldCollection;
+
+PdfLoadedField loadedField = null;
+
+// Get the field using TryGetField Method.
+
+if (fieldCollection.TryGetField("f1-1", out loadedField))
+
+{
+
+    (loadedField as PdfLoadedTextBoxField).Text = "1";
+
+}
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+// Load the form from the loaded document.
+
+PdfLoadedForm form = doc.Form;
+
+// Load the form field collections from the form.
+
+PdfLoadedFormFieldCollection fieldCollection = form.Fields as PdfLoadedFormFieldCollection;
+
+PdfLoadedField loadedField = null;
+
+// Get the field using TryGetField Method.
+
+if (fieldCollection.TryGetField("f1-1", out loadedField))
+
+{
+
+    (loadedField as PdfLoadedTextBoxField).Text = "1";
+
+}
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Defin the file name.
+
+string fileName = "output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+// Load the form from the loaded document.
+
+PdfLoadedForm form = doc.Form;
+
+// Load the form field collections from the form.
+
+PdfLoadedFormFieldCollection fieldCollection = form.Fields as PdfLoadedFormFieldCollection;
+
+PdfLoadedField loadedField = null;
+
+// Get the field using TryGetField Method.
+
+if (fieldCollection.TryGetField("f1-1", out loadedField))
+
+{
+
+    (loadedField as PdfLoadedTextBoxField).Text = "1";
+
+}
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
  {% endtabs %}  
 
 ### TryGetValue
@@ -2125,6 +5950,151 @@ loadedDocument.Save("output.pdf")
 loadedDocument.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+// Load the form from the loaded document
+
+PdfLoadedForm form = loadedDocument.Form;
+
+// Load the form field collections from the form
+
+PdfLoadedFormFieldCollection fieldCollection = form.Fields as PdfLoadedFormFieldCollection;
+
+string fieldValue = string.Empty;
+
+// Get the field value using TryGetValue Method
+
+fieldCollection.TryGetValue("f1-2", out fieldValue);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+// Load the form from the loaded document.
+
+PdfLoadedForm form = loadedDocument.Form;
+
+// Load the form field collections from the form.
+
+PdfLoadedFormFieldCollection fieldCollection = form.Fields as PdfLoadedFormFieldCollection;
+
+string fieldValue = string.Empty;
+
+// Get the field value using TryGetValue Method
+
+fieldCollection.TryGetValue("FirstName", out fieldValue);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Defin the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+// Load the form from the loaded document.
+
+PdfLoadedForm form = loadedDocument.Form;
+
+// Load the form field collections from the form.
+
+PdfLoadedFormFieldCollection fieldCollection = form.Fields as PdfLoadedFormFieldCollection;
+
+string fieldValue = string.Empty;
+
+// Get the field value using TryGetValue Method
+
+fieldCollection.TryGetValue("FirstName", out fieldValue);
+
+//Save the PDF document to stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -2220,6 +6190,157 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document
+
+PdfPage page = document.Pages.Add();
+
+//Create a Text box field and add the properties
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Flatten the whole form field 
+
+document.Form.Flatten = true;
+
+//Flattens the first field //form.Fields[0].Flatten = true;
+
+//Add the form field to the document
+
+document.Form.Fields.Add(textBoxField);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document
+
+PdfPage page = document.Pages.Add();
+
+//Create a Text box field and add the properties
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Flatten the whole form field 
+
+document.Form.Flatten = true;
+
+//Flattens the first field //form.Fields[0].Flatten = true;
+
+//Add the form field to the document
+
+document.Form.Fields.Add(textBoxField);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name.
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document
+
+PdfPage page = document.Pages.Add();
+
+//Create a Text box field and add the properties
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Flatten the whole form field 
+
+document.Form.Flatten = true;
+
+//Flattens the first field //form.Fields[0].Flatten = true;
+
+//Add the form field to the document
+
+document.Form.Fields.Add(textBoxField);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code sample
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 Please refer the sample for flattening the form fields in existing PDF document:
@@ -2290,6 +6411,158 @@ loadedDocument.Save("output.pdf")
 
 loadedDocument.Close(True)
 
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+PdfLoadedFormFieldCollection fields = loadedForm.Fields;
+
+//Get the loaded text box field
+
+PdfLoadedTextBoxField loadedTextBoxField = fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text = "Text";
+
+//Flatten the whole form
+
+loadedForm.Flatten = true;
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+PdfLoadedFormFieldCollection fields = loadedForm.Fields;
+
+//Get the loaded text box field
+
+PdfLoadedTextBoxField loadedTextBoxField = fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text = "Text";
+
+//Flatten the whole form.
+
+loadedForm.Flatten = true;
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+PdfLoadedFormFieldCollection fields = loadedForm.Fields;
+
+//Get the loaded text box field
+
+PdfLoadedTextBoxField loadedTextBoxField = fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text = "Text";
+
+//Flatten the whole form.
+
+loadedForm.Flatten = true;
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
 
 
 {% endhighlight %}
@@ -2403,6 +6676,182 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create the form
+
+PdfForm form = document.Form;
+
+//Set the form as read only
+
+form.ReadOnly = true;
+
+//Create a text box field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+textBoxField.Text = "john";
+
+//set read only property for a particular field
+
+//textBoxField.ReadOnly = true;
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(textBoxField);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create the form
+
+PdfForm form = document.Form;
+
+//Set the form as read only
+
+form.ReadOnly = true;
+
+//Create a text box field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+textBoxField.Text = "john";
+
+//set read only property for a particular field
+
+//textBoxField.ReadOnly = true;
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(textBoxField);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create the form
+
+PdfForm form = document.Form;
+
+//Set the form as read only
+
+form.ReadOnly = true;
+
+//Create a text box field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+textBoxField.Text = "john";
+
+//set read only property for a particular field
+
+//textBoxField.ReadOnly = true;
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(textBoxField);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+
+{% endhighlight %}
+
  {% endtabs %}  
 
 The below code snippet illustrates how to set the read only property to an existing PDF document.
@@ -2460,6 +6909,133 @@ loadedDocument.Save("Form1.pdf")
 loadedDocument.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Set the form as read only
+
+loadedForm.ReadOnly = true;
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Set the form as read only
+
+loadedForm.ReadOnly = true;
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Set the form as read only
+
+loadedForm.ReadOnly = true;
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -2557,6 +7133,170 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Load the textbox field
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+//Remove the field
+
+loadedForm.Fields.Remove(loadedTextBoxField);
+
+//Remove the field at index 0
+
+loadedForm.Fields.RemoveAt(0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code sample
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Load the textbox field
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+//Remove the field
+
+loadedForm.Fields.Remove(loadedTextBoxField);
+
+//Remove the field at index 0
+
+loadedForm.Fields.RemoveAt(0);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file nam
+
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Load the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Load the textbox field
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+//Remove the field
+
+loadedForm.Fields.Remove(loadedTextBoxField);
+
+//Remove the field at index 0
+
+loadedForm.Fields.RemoveAt(0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ## Importing FDF file to PDF
@@ -2570,7 +7310,7 @@ The below code illustrates how to import FDF file to PDF.
 {% highlight c# %}
 
 
-//Load an existing document.
+//Load an existing document.  
 
 PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
 
@@ -2777,6 +7517,151 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document
+
+PdfPage page = document.Pages.Add();
+
+//Create a Text box field and add the properties
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Add the form field to the document
+
+document.Form.Fields.Add(textBoxField);
+
+//Enable the default Appearance
+
+document.Form.SetDefaultAppearance(true);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a Text box field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(textBoxField);
+
+//Enable the default Appearance
+
+document.Form.SetDefaultAppearance(true);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to PDF document.
+
+PdfPage page = document.Pages.Add();
+
+//Create a Text box field and add the properties.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+textBoxField.Bounds = new Syncfusion.Drawing.RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "First Name";
+
+//Add the form field to the document.
+
+document.Form.Fields.Add(textBoxField);
+
+//Enable the default Appearance
+
+document.Form.SetDefaultAppearance(true);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 The below code illustrates how to enable the default appearance in existing PDF document:
@@ -2848,6 +7733,151 @@ loadedDocument.Save("sample.pdf")
 loadedDocument.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded text box field and fill it.
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text = "First Name";
+
+//Enable the default Appearance
+
+loadedDocument.Form.SetDefaultAppearance(true);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded text box field and fill it.
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text = "First Name";
+
+//Enable the default Appearance
+
+loadedDocument.Form.SetDefaultAppearance(true);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form.
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded text box field and fill it.
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text = "First Name";
+
+//Enable the default Appearance
+
+loadedDocument.Form.SetDefaultAppearance(true);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 

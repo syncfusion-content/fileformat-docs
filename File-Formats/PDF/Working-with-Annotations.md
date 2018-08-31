@@ -100,6 +100,172 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page 
+
+PdfPage page = document.Pages.Add();
+
+//Creates a rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new popup annotation.
+
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
+
+popupAnnotation.Border.Width = 4;
+
+popupAnnotation.Border.HorizontalRadius = 20;
+
+popupAnnotation.Border.VerticalRadius = 30;
+
+//Sets the pdf popup icon.
+
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+
+//Adds this annotation to the created page.
+
+page.Annotations.Add(popupAnnotation);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "PopupAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page 
+
+PdfPage page = document.Pages.Add();
+
+//Creates a rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new popup annotation.
+
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
+
+popupAnnotation.Border.Width = 4;
+
+popupAnnotation.Border.HorizontalRadius = 20;
+
+popupAnnotation.Border.VerticalRadius = 30;
+
+//Sets the pdf popup icon.
+
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+
+//Adds this annotation to the created page.
+
+page.Annotations.Add(popupAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "PopupAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page 
+
+PdfPage page = document.Pages.Add();
+
+//Creates a rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new popup annotation.
+
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation();
+
+popupAnnotation.Bounds = rectangle;
+
+popupAnnotation.Text = "Test popup annotation";
+
+popupAnnotation.Border.Width = 4;
+
+popupAnnotation.Border.HorizontalRadius = 20;
+
+popupAnnotation.Border.VerticalRadius = 30;
+
+//Sets the pdf popup icon.
+
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+
+//Adds this annotation to the created page.
+
+page.Annotations.Add(popupAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("PopupAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("PopupAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 To add annotations to an existing PDF document, use the following code example.
 
@@ -180,6 +346,174 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument document = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await document.OpenAsync(file);
+
+//Creates a rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new popup annotation.
+
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
+
+popupAnnotation.Border.Width = 4;
+
+popupAnnotation.Border.HorizontalRadius = 20;
+
+popupAnnotation.Border.VerticalRadius = 30;
+
+//Sets the pdf popup icon.
+
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+
+//Adds the annotation to loaded page
+
+document.Pages[0].Annotations.Add(popupAnnotation);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "PopupAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Creates a rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new popup annotation.
+
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
+
+popupAnnotation.Border.Width = 4;
+
+popupAnnotation.Border.HorizontalRadius = 20;
+
+popupAnnotation.Border.VerticalRadius = 30;
+
+//Sets the pdf popup icon.
+
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+
+//Adds the annotation to loaded page
+
+document.Pages[0].Annotations.Add(popupAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "PopupAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Creates a rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new popup annotation.
+
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
+
+popupAnnotation.Border.Width = 4;
+
+popupAnnotation.Border.HorizontalRadius = 20;
+
+popupAnnotation.Border.VerticalRadius = 30;
+
+//Sets the pdf popup icon.
+
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+
+//Adds the annotation to loaded page
+
+document.Pages[0].Annotations.Add(popupAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("PopupAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("PopupAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Flatten annotation
@@ -216,6 +550,128 @@ Next
 'Save and close the PDF document instance
 loadedDocument.Save("output.pdf")
 loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get all the pages
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    //Flatten all the annotations in the page
+    loadedPage.Annotations.Flatten = true;
+}
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get all the pages
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    //Flatten all the annotations in the page
+    loadedPage.Annotations.Flatten = true;
+}
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get all the pages
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    //Flatten all the annotations in the page
+    loadedPage.Annotations.Flatten = true;
+}
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 {% endtabs %}
@@ -266,6 +722,153 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get all the pages
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    //Flatten all the annotations in the page
+    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
+    {
+        //Check for the circle annotation
+        if (annotation is PdfLoadedCircleAnnotation)
+        {
+            //Flatten the circle annotation
+            annotation.Flatten = true;
+        }
+    }
+}
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get all the pages
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    //Flatten all the annotations in the page
+    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
+    {
+        //Check for the circle annotation
+        if (annotation is PdfLoadedCircleAnnotation)
+        {
+            //Flatten the circle annotation
+            annotation.Flatten = true;
+        }
+    }
+}
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get all the pages
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    //Flatten all the annotations in the page
+    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
+    {
+        //Check for the circle annotation
+        if (annotation is PdfLoadedCircleAnnotation)
+        {
+            //Flatten the circle annotation
+            annotation.Flatten = true;
+        }
+    }
+}
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Supported annotation types
@@ -354,6 +957,77 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports 3D annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Load the PDF document
+
+FileStream inputStream = new FileStream("3DAnnotation.U3D", FileMode.Open, FileAccess.Read);
+
+//Creates a new pdf 3d annotation.
+
+Pdf3DAnnotation pdf3dAnnotation = new Pdf3DAnnotation(new RectangleF(10, 50, 300, 150), inputStream);
+
+//Handles the activation of the 3d annotation
+
+Pdf3DActivation activation = new Pdf3DActivation();
+
+activation.ActivationMode = Pdf3DActivationMode.ExplicitActivation;
+
+activation.ShowToolbar = true;
+
+pdf3dAnnotation.Activation = activation;
+
+//Adds annotation to page
+
+page.Annotations.Add(pdf3dAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "3DAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports 3D annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core.
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### File Link Annotation 
@@ -428,6 +1102,25 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports File Link Annotation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports File Link Annotation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports File Link Annotation only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Free Text Annotation
@@ -547,6 +1240,204 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new pdf document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates PDF free text annotation
+
+PdfFreeTextAnnotation freeText = new PdfFreeTextAnnotation(new RectangleF(50, 100, 100, 50));
+
+//Sets properties to the annotation
+
+freeText.MarkupText = "Free Text with Callout";
+
+freeText.TextMarkupColor = new PdfColor(Color.FromArgb(0,0,0,255));
+
+freeText.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 7f);
+
+freeText.Color = new PdfColor(Color.FromArgb(0, 0, 255, 0));
+
+freeText.BorderColor = new PdfColor(Color.FromArgb(0, 255, 0, 0));
+
+freeText.Border = new PdfAnnotationBorder(.5f);
+
+freeText.LineEndingStyle = PdfLineEndingStyle.OpenArrow;
+
+freeText.AnnotationFlags = PdfAnnotationFlags.Default;
+
+freeText.Text = "Free Text";
+
+freeText.Opacity = 0.5f;
+
+PointF[] points = { new PointF(100, 400), new PointF(100, 450) };
+
+freeText.CalloutLines = points;
+
+//Adds the annotation to page
+
+page.Annotations.Add(freeText);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respect
+
+Save(stream, "FreeTextAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new pdf document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates PDF free text annotation
+
+PdfFreeTextAnnotation freeText = new PdfFreeTextAnnotation(new RectangleF(50, 100, 100, 50));
+
+//Sets properties to the annotation
+
+freeText.MarkupText = "Free Text with Callout";
+
+freeText.TextMarkupColor = new PdfColor(Color.Black);
+
+freeText.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 7f);
+
+freeText.Color = new PdfColor(Color.Yellow);
+
+freeText.BorderColor = new PdfColor(Color.Red);
+
+freeText.Border = new PdfAnnotationBorder(.5f);
+
+freeText.LineEndingStyle = PdfLineEndingStyle.OpenArrow;
+
+freeText.AnnotationFlags = PdfAnnotationFlags.Default;
+
+freeText.Text = "Free Text";
+
+freeText.Opacity = 0.5f;
+
+PointF[] points = { new PointF(100, 400), new PointF(100, 450) };
+
+freeText.CalloutLines = points;
+
+//Adds the annotation to page
+
+page.Annotations.Add(freeText);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "FreeTextAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new pdf document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates PDF free text annotation
+
+PdfFreeTextAnnotation freeText = new PdfFreeTextAnnotation(new RectangleF(50, 100, 100, 50));
+
+//Sets properties to the annotation
+
+freeText.MarkupText = "Free Text with Callout";
+
+freeText.TextMarkupColor = new PdfColor(Syncfusion.Drawing.Color.Black);
+
+freeText.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 7f);
+
+freeText.Color = new PdfColor(Syncfusion.Drawing.Color.Yellow);
+
+freeText.BorderColor = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+freeText.Border = new PdfAnnotationBorder(.5f);
+
+freeText.LineEndingStyle = PdfLineEndingStyle.OpenArrow;
+
+freeText.AnnotationFlags = PdfAnnotationFlags.Default;
+
+freeText.Text = "Free Text";
+
+freeText.Opacity = 0.5f;
+
+PointF[] points = { new PointF(100, 400), new PointF(100, 450) };
+
+freeText.CalloutLines = points;
+
+//Adds the annotation to page
+
+page.Annotations.Add(freeText);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("FreeTextAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("FreeTextAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Line Annotation 
@@ -697,6 +1588,252 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Specifies the line end points
+
+int[] points = new int[] { 80, 420, 150, 420 };
+
+//Creates a new line annotation.
+
+PdfLineAnnotation lineAnnotation = new PdfLineAnnotation(points, "Line Annotation");
+
+//Creates pdf line border
+
+LineBorder lineBorder = new LineBorder();
+
+lineBorder.BorderStyle = PdfBorderStyle.Solid;
+
+lineBorder.BorderWidth = 1;
+
+lineAnnotation.lineBorder = lineBorder;
+
+lineAnnotation.LineIntent = PdfLineIntent.LineDimension;
+
+//Assigns the line ending style
+
+lineAnnotation.BeginLineStyle = PdfLineEndingStyle.Butt;
+
+lineAnnotation.EndLineStyle = PdfLineEndingStyle.Diamond;
+
+lineAnnotation.AnnotationFlags = PdfAnnotationFlags.Default;
+
+//Assigns the line color
+
+lineAnnotation.InnerLineColor = new PdfColor(Color.FromArgb(0,0,255,0));
+
+lineAnnotation.BackColor = new PdfColor(Color.FromArgb(0, 0, 255, 0));
+
+//Assigns the leader line
+
+lineAnnotation.LeaderLineExt = 0;
+
+lineAnnotation.LeaderLine = 0;
+
+//Assigns the Line caption type
+
+lineAnnotation.LineCaption = true;
+
+lineAnnotation.CaptionType = PdfLineCaptionType.Inline;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(lineAnnotation);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "LineAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Specifies the line end points
+
+int[] points = new int[] { 80, 420, 150, 420 };
+
+//Creates a new line annotation.
+
+PdfLineAnnotation lineAnnotation = new PdfLineAnnotation(points, "Line Annotation");
+
+//Creates pdf line border
+
+LineBorder lineBorder = new LineBorder();
+
+lineBorder.BorderStyle = PdfBorderStyle.Solid;
+
+lineBorder.BorderWidth = 1;
+
+lineAnnotation.lineBorder = lineBorder;
+
+lineAnnotation.LineIntent = PdfLineIntent.LineDimension;
+
+//Assigns the line ending style
+
+lineAnnotation.BeginLineStyle = PdfLineEndingStyle.Butt;
+
+lineAnnotation.EndLineStyle = PdfLineEndingStyle.Diamond;
+
+lineAnnotation.AnnotationFlags = PdfAnnotationFlags.Default;
+
+//Assigns the line color
+
+lineAnnotation.InnerLineColor = new PdfColor(Color.Green);
+
+lineAnnotation.BackColor = new PdfColor(Color.Green);
+
+//Assigns the leader line
+
+lineAnnotation.LeaderLineExt = 0;
+
+lineAnnotation.LeaderLine = 0;
+
+//Assigns the Line caption type
+
+lineAnnotation.LineCaption = true;
+
+lineAnnotation.CaptionType = PdfLineCaptionType.Inline;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(lineAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "LineAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Specifies the line end points
+
+int[] points = new int[] { 80, 420, 150, 420 };
+
+//Creates a new line annotation.
+
+PdfLineAnnotation lineAnnotation = new PdfLineAnnotation(points, "Line Annotation");
+
+//Creates pdf line border
+
+LineBorder lineBorder = new LineBorder();
+
+lineBorder.BorderStyle = PdfBorderStyle.Solid;
+
+lineBorder.BorderWidth = 1;
+
+lineAnnotation.lineBorder = lineBorder;
+
+lineAnnotation.LineIntent = PdfLineIntent.LineDimension;
+
+//Assigns the line ending style
+
+lineAnnotation.BeginLineStyle = PdfLineEndingStyle.Butt;
+
+lineAnnotation.EndLineStyle = PdfLineEndingStyle.Diamond;
+
+lineAnnotation.AnnotationFlags = PdfAnnotationFlags.Default;
+
+//Assigns the line color
+
+lineAnnotation.InnerLineColor = new PdfColor(Syncfusion.Drawing.Color.Green);
+
+lineAnnotation.BackColor = new PdfColor(Syncfusion.Drawing.Color.Green);
+
+//Assigns the leader line
+
+lineAnnotation.LeaderLineExt = 0;
+
+lineAnnotation.LeaderLine = 0;
+
+//Assigns the Line caption type
+
+lineAnnotation.LineCaption = true;
+
+lineAnnotation.CaptionType = PdfLineCaptionType.Inline;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(lineAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("LineAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("LineAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 ### Rubber stamp Annotation
 
@@ -775,6 +1912,144 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new pdf rubber stamp annotation.
+
+RectangleF rectangle = new RectangleF(40, 60, 80, 20);
+
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp
+
+rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
+
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+
+//Adds annotation to the page
+
+page.Annotations.Add(rubberStampAnnotation);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "RubberStamp.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new pdf rubber stamp annotation.
+
+RectangleF rectangle = new RectangleF(40, 60, 80, 20);
+
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
+
+rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
+
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+
+//Adds annotation to the page
+
+page.Annotations.Add(rubberStampAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "RubberStamp.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new pdf rubber stamp annotation.
+
+RectangleF rectangle = new RectangleF(40, 60, 80, 20);
+
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
+
+rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
+
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+
+//Adds annotation to the page
+
+page.Annotations.Add(rubberStampAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("RubberStamp.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("RubberStamp.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Ink Annotation
@@ -853,6 +2128,144 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+List<float> linePoints = new List<float> { 40, 300, 60, 100, 40, 50, 40, 300 };
+
+//Creates a new ink annotation
+
+RectangleF rectangle = new RectangleF(0, 0, 300, 400);
+
+PdfInkAnnotation inkAnnotation = new PdfInkAnnotation(rectangle, linePoints);
+
+inkAnnotation.Color = new PdfColor(Color.FromArgb(0,255,0,0));
+
+//Adds annotation to the page
+
+page.Annotations.Add(inkAnnotation);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "InkAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+List<float> linePoints = new List<float> { 40, 300, 60, 100, 40, 50, 40, 300 };
+
+//Creates a new ink annotation
+
+RectangleF rectangle = new RectangleF(0, 0, 300, 400);
+
+PdfInkAnnotation inkAnnotation = new PdfInkAnnotation(rectangle, linePoints);
+
+inkAnnotation.Color = new PdfColor(Color.Red);
+
+//Adds annotation to the page
+
+page.Annotations.Add(inkAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Defin the file name
+
+string fileName = "InkAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+List<float> linePoints = new List<float> { 40, 300, 60, 100, 40, 50, 40, 300 };
+
+//Creates a new ink annotation
+
+RectangleF rectangle = new RectangleF(0, 0, 300, 400);
+
+PdfInkAnnotation inkAnnotation = new PdfInkAnnotation(rectangle, linePoints);
+
+inkAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Adds annotation to the page
+
+page.Annotations.Add(inkAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("InkAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("InkAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Pop-up Annotation
@@ -939,6 +2352,168 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Create a new PDF page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new popup annotation.
+
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
+
+popupAnnotation.Border.Width = 4;
+
+popupAnnotation.Border.HorizontalRadius = 20;
+
+popupAnnotation.Border.VerticalRadius = 30;
+
+//Sets the PDF popup icon.
+
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(popupAnnotation);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected c
+
+Save(stream, "PopupAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Create a new PDF page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new popup annotation.
+
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
+
+popupAnnotation.Border.Width = 4;
+
+popupAnnotation.Border.HorizontalRadius = 20;
+
+popupAnnotation.Border.VerticalRadius = 30;
+
+//Sets the PDF popup icon.
+
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(popupAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "PopupAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Create a new PDF page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new popup annotation.
+
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
+
+popupAnnotation.Border.Width = 4;
+
+popupAnnotation.Border.HorizontalRadius = 20;
+
+popupAnnotation.Border.VerticalRadius = 30;
+
+//Sets the PDF popup icon.
+
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(popupAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("PopupAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("PopupAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### File Attachment Annotation
@@ -1019,6 +2594,162 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF Document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF attachmentRectangle = new RectangleF(10, 40, 30, 30);
+
+//Load the file as stream
+
+Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Logo.png");
+
+//Creates a new attachment annotation.
+
+PdfAttachmentAnnotation attachmentAnnotation = new PdfAttachmentAnnotation(attachmentRectangle, @"logo.png", inputStream);
+
+//Sets the attachment icon to attachment annotation.
+
+attachmentAnnotation.Icon = PdfAttachmentIcon.PushPin;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(attachmentAnnotation);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "AttachmentAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF Document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF attachmentRectangle = new RectangleF(10, 40, 30, 30);
+
+//Load the PDF document
+
+FileStream inputStream = new FileStream("logo.png", FileMode.Open, FileAccess.Read);
+
+//Creates a new attachment annotation.
+
+PdfAttachmentAnnotation attachmentAnnotation = new PdfAttachmentAnnotation(attachmentRectangle, @"logo.png", inputStream);
+
+//Sets the attachment icon to attachment annotation.
+
+attachmentAnnotation.Icon = PdfAttachmentIcon.PushPin;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(attachmentAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "PopupAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF Document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF attachmentRectangle = new RectangleF(10, 40, 30, 30);
+
+//Load the file as stream
+
+Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Logo.png");
+
+//Creates a new attachment annotation.
+
+PdfAttachmentAnnotation attachmentAnnotation = new PdfAttachmentAnnotation(attachmentRectangle, @"logo.png", inputStream);
+
+//Sets the attachment icon to attachment annotation.
+
+attachmentAnnotation.Icon = PdfAttachmentIcon.PushPin;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(attachmentAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("AttachmentAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("AttachmentAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Sound Annotation
@@ -1115,6 +2846,136 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports Sound Annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Web.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new sound annotation.
+
+FileStream inputStream = new FileStream("Startup.wav", FileMode.Open, FileAccess.Read);
+
+PdfSoundAnnotation soundAnnotation = new PdfSoundAnnotation(rectangle, inputStream);
+
+soundAnnotation.Sound.Encoding = PdfSoundEncoding.Signed;
+
+soundAnnotation.Sound.Channels = PdfSoundChannels.Stereo;
+
+soundAnnotation.Sound.Bits = 16;
+
+soundAnnotation.Color = new PdfColor(Color.Red);
+
+//Sets the pdf sound icon.
+
+soundAnnotation.Icon = PdfSoundIcon.Speaker;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(soundAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "SoundIcon.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new sound annotation.
+
+//Load the file as stream
+
+Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Signature.Assets.Startup.wav");
+
+PdfSoundAnnotation soundAnnotation = new PdfSoundAnnotation(rectangle, inputStream);
+
+soundAnnotation.Sound.Encoding = PdfSoundEncoding.Signed;
+
+soundAnnotation.Sound.Channels = PdfSoundChannels.Stereo;
+
+soundAnnotation.Sound.Bits = 16;
+
+soundAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Sets the pdf sound icon.
+
+soundAnnotation.Icon = PdfSoundIcon.Speaker;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(soundAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SoundIcon.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("SoundIcon.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### URI Annotation
@@ -1195,6 +3056,150 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new Uri Annotation
+
+PdfUriAnnotation uriAnnotation = new PdfUriAnnotation(rectangle, "http://www.google.com");
+
+//Sets Text to uriAnnotation
+
+uriAnnotation.Text = "Uri Annotation";
+
+//Adds this annotation to a new page
+
+page.Annotations.Add(uriAnnotation);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respe
+
+Save(stream, "UriAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new Uri Annotation
+
+PdfUriAnnotation uriAnnotation = new PdfUriAnnotation(rectangle, "http://www.google.com");
+
+//Sets Text to uriAnnotation
+
+uriAnnotation.Text = "Uri Annotation";
+
+//Adds this annotation to a new page
+
+page.Annotations.Add(uriAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "UriAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new Uri Annotation
+
+PdfUriAnnotation uriAnnotation = new PdfUriAnnotation(rectangle, "http://www.google.com");
+
+//Sets Text to uriAnnotation
+
+uriAnnotation.Text = "Uri Annotation";
+
+//Adds this annotation to a new page
+
+page.Annotations.Add(uriAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("UriAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("UriAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Document Link Annotation
@@ -1303,6 +3308,192 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a page
+
+PdfPage page2 = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF docLinkAnnotationRectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new document link annotation.
+
+PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationRectangle)
+
+documentLinkAnnotation.AnnotationFlags = PdfAnnotationFlags.NoRotate;
+
+documentLinkAnnotation.Text = "Document link annotation";
+
+documentLinkAnnotation.Color = new PdfColor(Color.FromArgb(0,0,0,255));
+
+//Sets the destination.
+
+documentLinkAnnotation.Destination = new PdfDestination(page2);
+
+documentLinkAnnotation.Destination.Location = new PointF(10, 0);
+
+documentLinkAnnotation.Destination.Zoom = 5;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(documentLinkAnnotation);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "DocumentLinkAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a page
+
+PdfPage page2 = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF docLinkAnnotationRectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new document link annotation.
+
+PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationRectangle);
+
+documentLinkAnnotation.AnnotationFlags = PdfAnnotationFlags.NoRotate;
+
+documentLinkAnnotation.Text = "Document link annotation";
+
+documentLinkAnnotation.Color = new PdfColor(Color.Navy);
+
+//Sets the destination.
+
+documentLinkAnnotation.Destination = new PdfDestination(page2);
+
+documentLinkAnnotation.Destination.Location = new PointF(10, 0);
+
+documentLinkAnnotation.Destination.Zoom = 5;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(documentLinkAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "DocumentLinkAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a page
+
+PdfPage page2 = document.Pages.Add();
+
+//Creates a new rectangle
+
+RectangleF docLinkAnnotationRectangle = new RectangleF(10, 40, 30, 30);
+
+//Creates a new document link annotation.
+
+PdfDocumentLinkAnnotation documentLinkAnnotation = new PdfDocumentLinkAnnotation(docLinkAnnotationRectangle);
+
+documentLinkAnnotation.AnnotationFlags = PdfAnnotationFlags.NoRotate;
+
+documentLinkAnnotation.Text = "Document link annotation";
+
+documentLinkAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Navy);
+
+//Sets the destination.
+
+documentLinkAnnotation.Destination = new PdfDestination(page2);
+
+documentLinkAnnotation.Destination.Location = new Syncfusion.Drawing.PointF(10, 0);
+
+documentLinkAnnotation.Destination.Zoom = 5;
+
+//Adds this annotation to a new page.
+
+page.Annotations.Add(documentLinkAnnotation); 
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentLinkAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentLinkAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 ## Modifying the annotations
 
@@ -1377,6 +3568,162 @@ lDoc.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await lDoc.OpenAsync(file);
+
+//Gets the first page from the document
+
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+
+//Gets the annotation collection
+
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+
+//Gets the first annotation and modify the properties
+
+PdfLoadedPopupAnnotation popUp = annotations[0] as PdfLoadedPopupAnnotation;
+
+popUp.Border = new PdfAnnotationBorder(4, 0, 0);
+
+popUp.Color = new PdfColor(Color.FromArgb(0,255,0,0));
+
+popUp.Text = "Modified annotation";
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await lDoc.SaveAsync(stream);
+
+//Close the document
+
+lDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Gets the first page from the document
+
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+
+//Gets the annotation collection
+
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+
+//Gets the first annotation and modify the properties
+
+PdfLoadedPopupAnnotation popUp = annotations[0] as PdfLoadedPopupAnnotation;
+
+popUp.Border = new PdfAnnotationBorder(4, 0, 0);
+
+popUp.Color = new PdfColor(Color.Red);
+
+popUp.Text = "Modified annotation";
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+lDoc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Gets the first page from the document
+
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+
+//Gets the annotation collection
+
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+
+//Gets the first annotation and modify the properties
+
+PdfLoadedPopupAnnotation popUp = annotations[0] as PdfLoadedPopupAnnotation;
+
+popUp.Border = new PdfAnnotationBorder(4, 0, 0);
+
+popUp.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+popUp.Text = "Modified annotation";
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+//Close the document.
+
+lDoc.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Removing annotations from an existing PDF 
@@ -1440,4 +3787,142 @@ lDoc.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await lDoc.OpenAsync(file);
+
+//Gets the first page of the document
+
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+
+//Gets the annotation collection
+
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+
+//Removes the first annotation
+
+annotations.RemoveAt(0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await lDoc.SaveAsync(stream);
+
+//Close the document
+
+lDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Gets the first page of the document
+
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+
+//Gets the annotation collection
+
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+
+//Removes the first annotation
+
+annotations.RemoveAt(0);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+lDoc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Gets the first page of the document
+
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+
+//Gets the annotation collection
+
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+
+//Removes the first annotation
+
+annotations.RemoveAt(0);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+//Close the document.
+
+lDoc.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
