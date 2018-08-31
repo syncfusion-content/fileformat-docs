@@ -2894,7 +2894,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 Excel chart consists of two types of gridlines such as **major gridlines** and **minor gridlines**. Major gridlines represent the main values in the axis and minor gridlines represent possible values between two adjacent axis values. You can show or hide these gridlines using [HasMajorGridlines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~HasMajorGridLines.html) and [HasMinorGridlines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~HasMinorGridLines.html) of **IChartAxis** interface.
 
-Essential XlsIO supports formatting of gridlines as well through the [MajorGridines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~MajorGridLines.html) and [MinorGridlines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~MinorGridLines.html) of **IChartAxis**.
+Essential XlsIO supports formatting of gridlines as well through the [MajorGridlines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~MajorGridLines.html) and [MinorGridlines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~MinorGridLines.html) of **IChartAxis**.
 
 Refer the following complete code snippets.
 
@@ -4497,7 +4497,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   chart.ChartType = ExcelChartType.Column_Clustered;
   chart.IsSeriesInRows = false;
 
-  //Adding picture on thechart
+  //Adding picture on the chart
   chart.Pictures.AddPicture("Image.png");
 
   //Adding hyperlink to the picture on chart
@@ -4658,6 +4658,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+N> XlsIO supports adding picture only to a chart in the workbook,but does not support adding picture to a chart in the worksheet. 
 
 ## Add DataTable to Chart
 
