@@ -2320,6 +2320,740 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+### Font settings for chart legend and data labels
+
+Essential XlsIO allows you to set the desired font to legend and series data labels for legend through [TextArea](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartLegend~TextArea.html) in **IChartLegend**. Similarly, desired font for data labels of chart series can be set through [DataLabels](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartDataPoint~DataLabels.html) in **IChartDataPoints**.
+
+The font style includes font name, font size and font color which are set through [FontName](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IFont~FontName.html), [Size](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IFont~Size.html) and [Color](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IFont~Color.html) properties respectively. 
+
+Refer the following complete code snippets.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Adding a chart in Excel worksheet
+  IChartShape chart = sheet.Charts.Add();
+  chart.DataRange = sheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Displaying the data label values of chart series
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[1].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+  //Setting font name, size and color for chart legend
+  chart.Legend.TextArea.FontName = "Tahoma";
+  chart.Legend.TextArea.Size = 20;
+  chart.Legend.TextArea.Color = ExcelKnownColors.Red;
+
+  //Setting font name, size and color for data labels of first series
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.FontName = "Tahoma";
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 20;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Red;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding a chart in Excel worksheet
+  Dim chart As IChartShape = worksheet.Charts.Add
+  chart.DataRange = worksheet.Range("A1:B5")
+  chart.ChartType = ExcelChartType.Column_Clustered
+  chart.IsSeriesInRows = False
+
+  'Displaying the data label values of chart series
+  chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+  chart.Series(1).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+
+  'Setting font name, size and color for chart legend
+  chart.Legend.TextArea.FontName = "Tahoma"
+  chart.Legend.TextArea.Size = 20
+  chart.Legend.TextArea.Color = ExcelKnownColors.Red
+
+  'Setting font name, size and color for data labels of first series
+  chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.FontName = "Tahoma"
+  chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 20
+  chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Red
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opening an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding a chart in Excel worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Displaying the data label values of chart series
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[1].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+  //Setting font name, size and color for chart legend
+  chart.Legend.TextArea.FontName = "Tahoma";
+  chart.Legend.TextArea.Size = 20;
+  chart.Legend.TextArea.Color = ExcelKnownColors.Red;
+
+  //Setting font name, size and color for data labels of first series
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.FontName = "Tahoma";
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 20;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Red;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding a chart in Excel worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Displaying the data label values of chart series
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[1].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+  //Setting font name, size and color for chart legend
+  chart.Legend.TextArea.FontName = "Tahoma";
+  chart.Legend.TextArea.Size = 20;
+  chart.Legend.TextArea.Color = ExcelKnownColors.Red;
+
+  //Setting font name, size and color for data labels of first series
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.FontName = "Tahoma";
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 20;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Red;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding a chart in Excel worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Displaying the data label values of chart series
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[1].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+  //Setting font name, size and color for chart legend
+  chart.Legend.TextArea.FontName = "Tahoma";
+  chart.Legend.TextArea.Size = 20;
+  chart.Legend.TextArea.Color = ExcelKnownColors.Red;
+
+  //Setting font name, size and color for data labels of first series
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.FontName = "Tahoma";
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 20;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Color = ExcelKnownColors.Red;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Adjust space between chart bars
+
+Spaces between chart bars are of two types.
+
+1. **Series Overlap** : Space between bars of different data series of single category.
+2. **Gap Width** : Space between different categories.
+
+Essential XlsIO allows you to adjust the space between chart bars using [Overlap](http://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartFormat~Overlap.html) and [GapWidth](http://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartFormat~GapWidth.html) properties of **IChartFormat** interface.
+
+Refer the following complete code snippets.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Adding space between bars of different series of single category
+  chart.Series[0].SerieFormat.CommonSerieOptions.Overlap = 60;
+
+  //Adding space between bars of different categories
+  chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 80;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding chart in the worksheet
+  Dim chart As IChartShape = worksheet.Charts.Add
+  chart.DataRange = worksheet.Range("A1:B5")
+  chart.ChartType = ExcelChartType.Column_Clustered
+  chart.IsSeriesInRows = False
+
+  'Adding space between bars of different series of single category
+  chart.Series(0).SerieFormat.CommonSerieOptions.Overlap = 60
+
+  'Adding space between bars of different categories
+  chart.Series(0).SerieFormat.CommonSerieOptions.GapWidth = 80
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opening an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Adding space between bars of different series of single category
+  chart.Series[0].SerieFormat.CommonSerieOptions.Overlap = 60;
+
+  //Adding space between bars of different categories
+  chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 80;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Adding space between bars of different series of single category
+  chart.Series[0].SerieFormat.CommonSerieOptions.Overlap = 60;
+
+  //Adding space between bars of different categories
+  chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 80;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Adding space between bars of different series of single category
+  chart.Series[0].SerieFormat.CommonSerieOptions.Overlap = 60;
+
+  //Adding space between bars of different categories
+  chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 80;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Fill Chart Elements with Picture
+
+Chart elements helps in modifying the chart appearance. The different chart elements are plot area, chart area, axes, titles, data points, legend, and data labels.
+
+### Fill plot area with picture
+
+Plot area holds the data series of a chart. This plot area can be filled with solid colors, texture, picture, and pattern. 
+
+Essential XlsIO allows you to fill plot area with picture using the [UserPicture](http://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IFill~UserPicture.html) of **IFill** interface. Refer to the following complete code snippets.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:C6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Filling plot area of the chart with picture
+  chart.PlotArea.Fill.UserPicture("Image.png");
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding chart in the worksheet
+  Dim chart As IChartShape = worksheet.Charts.Add
+  chart.DataRange = worksheet.Range("A1:C6")
+  chart.ChartType = ExcelChartType.Column_Clustered
+  chart.IsSeriesInRows = False
+
+  'Filling plot area of the chart with picture
+  chart.PlotArea.Fill.UserPicture("Image.png")
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opening an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:C6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.Image.png");
+
+  //Getting an image from the stream
+  Syncfusion.XlsIO.Image image = Syncfusion.XlsIO.Image.FromStream(imageStream);
+
+  //Filling plot area of the chart with picture
+  chart.PlotArea.Fill.UserPicture(image, "Image");
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:C6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Getting an image from the stream
+  FileStream imageStream = new FileStream("Image.png", FileMode.Open, FileAccess.Read);
+  Image image = Image.FromStream(imageStream);
+
+  //Filling plot area of the chart with picture
+  chart.PlotArea.Fill.UserPicture(image, "Image");
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:C6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Getting an image from the stream
+  Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Image.png");
+  Syncfusion.Drawing.Image image = Syncfusion.Drawing.Image.FromStream(imageStream);
+
+  //Filling plot area of the chart with picture
+  chart.PlotArea.Fill.UserPicture(image, "Image");
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Fill chart area with picture
+
+Chart area holds plot area, legend, axes, data table, and so on. This chart area can be filled with solid colors, texture, picture, and pattern. 
+
+Similar to plot area, chart area can be filled with picture using [UserPicture](http://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IFill~UserPicture.html) of **IFill** interface. Refer to the following complete code snippets.
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:C6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Filling chart area of the chart with picture
+  chart.ChartArea.Fill.UserPicture("Image.png");
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding chart in the worksheet
+  Dim chart As IChartShape = worksheet.Charts.Add
+  chart.DataRange = worksheet.Range("A1:C6")
+  chart.ChartType = ExcelChartType.Column_Clustered
+  chart.IsSeriesInRows = False
+
+  'Filling chart area of the chart with picture
+  chart.ChartArea.Fill.UserPicture("Image.png")
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opening an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:C6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.Image.png");
+
+  //Getting an image from the stream
+  Syncfusion.XlsIO.Image image = Syncfusion.XlsIO.Image.FromStream(imageStream);
+
+  //Filling chart area of the chart with picture
+  chart.ChartArea.Fill.UserPicture(image, "Image");
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:C6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Getting an image from the stream
+  FileStream imageStream = new FileStream("Image.png", FileMode.Open, FileAccess.Read);
+  Image image = Image.FromStream(imageStream);
+
+  //Filling chart area of the chart with picture
+  chart.ChartArea.Fill.UserPicture(image, "Image");
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:C6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Getting an image from the stream
+  Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Image.png");
+  Syncfusion.Drawing.Image image = Syncfusion.Drawing.Image.FromStream(imageStream);
+
+  //Filling chart area of the chart with picture
+  chart.ChartArea.Fill.UserPicture(image, "Image");
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
 ## Applying 3D Formats
 
 The following code example explains how to apply 3D settings such as rotation, side wall, back wall, and floor settings.
@@ -3214,6 +3948,453 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}  
 
 N> In order to position the chart elements, plot area should be smaller than chart area.
+
+## Explode a Pie Chart
+
+Essential XlsIO allows you to explode either all data points at a single explosion value or each data point at different explosion using [Percent](http://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartSerieDataFormat~Percent.html) of **IChartSerieDataFormat** interface.
+
+You can either create a pie chart and then explode it or directly create an exploded pie chart using XlsIO. Selecting `Pie_Exploded` as **ChartType** inserts a pie chart with a default explosion of **25%**. Learn how to [Create an Exploded Pie Chart](https://www.syncfusion.com/kb/8539/how-to-create-excel-exploded-pie-chart-in-c-vb-net).
+
+Refer the following complete code snippets.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding pie chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A3:B7"];
+  chart.ChartType = ExcelChartType.Pie;
+  chart.IsSeriesInRows = false;
+
+  //Showing the values of data points
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+  //Exploding the pie chart to 40%
+  chart.Series[0].SerieFormat.Percent = 40;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding pie chart in the worksheet
+  Dim chart As IChartShape = worksheet.Charts.Add
+  chart.DataRange = worksheet.Range("A3:B7")
+  chart.ChartType = ExcelChartType.Pie
+  chart.IsSeriesInRows = False
+
+  'Showing the values of data points
+  chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+
+  'Exploding the pie chart to 40%
+  chart.Series(0).SerieFormat.Percent = 40
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opening an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding pie chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A3:B7"];
+  chart.ChartType = ExcelChartType.Pie;
+  chart.IsSeriesInRows = false;
+
+  //Showing the values of data points
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+  //Exploding the pie chart to 40%
+  chart.Series[0].SerieFormat.Percent = 40;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding pie chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A3:B7"];
+  chart.ChartType = ExcelChartType.Pie;
+  chart.IsSeriesInRows = false;
+
+  //Showing the values of data points
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+  //Exploding the pie chart to 40%
+  chart.Series[0].SerieFormat.Percent = 40;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding pie chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A3:B7"];
+  chart.ChartType = ExcelChartType.Pie;
+  chart.IsSeriesInRows = false;
+
+  //Showing the values of data points
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+  //Exploding the pie chart to 40%
+  chart.Series[0].SerieFormat.Percent = 40;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Add DataTable to Chart
+
+Data table beneath the chart clearly represents the chart content in table format. While creating a chart, the data table is hidden, and the option should be manually enabled to view it.
+
+Essential XlsIO supports adding data table using [HasDataTable](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChart~HasDataTable.html) of **IChart** interface. Enabling this property adds the data table beneath the chart.
+
+Refer the following complete code snippets.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Assigning data in the worksheet
+  worksheet.Range["A1"].Text = "Items";
+  worksheet.Range["B1"].Text = "Amount(in $)";
+  worksheet.Range["C1"].Text = "Count";
+
+  worksheet.Range["A2"].Text = "Beverages";
+  worksheet.Range["A3"].Text = "Condiments";
+  worksheet.Range["A4"].Text = "Confections";
+  worksheet.Range["A5"].Text = "Dairy Products";
+  worksheet.Range["A6"].Text = "Grains / Cereals";
+
+  worksheet.Range["B2"].Number = 2776;
+  worksheet.Range["B3"].Number = 1077;
+  worksheet.Range["B4"].Number = 2287;
+  worksheet.Range["B5"].Number = 1368;
+  worksheet.Range["B6"].Number = 3325;
+
+  worksheet.Range["C2"].Number = 925;
+  worksheet.Range["C3"].Number = 378;
+  worksheet.Range["C4"].Number = 880;
+  worksheet.Range["C5"].Number = 581;
+  worksheet.Range["C6"].Number = 189;
+
+  //Adding a chart to the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:C6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Adding title to the chart
+  chart.ChartTitle = "Chart with Data Table";
+
+  //Adding data table to the chart
+  chart.HasDataTable = true;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Assigning data in the worksheet
+  worksheet.Range("A1").Text = "Items"
+  worksheet.Range("B1").Text = "Amount(in $)"
+  worksheet.Range("C1").Text = "Count"
+
+  worksheet.Range("A2").Text = "Beverages"
+  worksheet.Range("A3").Text = "Condiments"
+  worksheet.Range("A4").Text = "Confections"
+  worksheet.Range("A5").Text = "Dairy Products"
+  worksheet.Range("A6").Text = "Grains / Cereals"
+
+  worksheet.Range("B2").Number = 2776
+  worksheet.Range("B3").Number = 1077
+  worksheet.Range("B4").Number = 2287
+  worksheet.Range("B5").Number = 1368
+  worksheet.Range("B6").Number = 3325
+
+  worksheet.Range("C2").Number = 925
+  worksheet.Range("C3").Number = 378
+  worksheet.Range("C4").Number = 880
+  worksheet.Range("C5").Number = 581
+  worksheet.Range("C6").Number = 189
+
+  'Adding a chart in the worksheet
+  Dim chart As IChartShape = worksheet.Charts.Add
+  chart.DataRange = worksheet.Range("A1:C6")
+  chart.ChartType = ExcelChartType.Column_Clustered
+  chart.IsSeriesInRows = False
+
+  'Adding title to the chart
+  chart.ChartTitle = "Chart with Data Table"
+
+  'Adding data table to the chart
+  chart.HasDataTable = True
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Assigning data in the worksheet
+  worksheet.Range["A1"].Text = "Items";
+  worksheet.Range["B1"].Text = "Amount(in $)";
+  worksheet.Range["C1"].Text = "Count";
+
+  worksheet.Range["A2"].Text = "Beverages";
+  worksheet.Range["A3"].Text = "Condiments";
+  worksheet.Range["A4"].Text = "Confections";
+  worksheet.Range["A5"].Text = "Dairy Products";
+  worksheet.Range["A6"].Text = "Grains / Cereals";
+
+  worksheet.Range["B2"].Number = 2776;
+  worksheet.Range["B3"].Number = 1077;
+  worksheet.Range["B4"].Number = 2287;
+  worksheet.Range["B5"].Number = 1368;
+  worksheet.Range["B6"].Number = 3325;
+
+  worksheet.Range["C2"].Number = 925;
+  worksheet.Range["C3"].Number = 378;
+  worksheet.Range["C4"].Number = 880;
+  worksheet.Range["C5"].Number = 581;
+  worksheet.Range["C6"].Number = 189;
+
+  //Adding a chart to the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:C6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Adding title to the chart
+  chart.ChartTitle = "Chart with Data Table";
+
+  //Adding data table to the chart
+  chart.HasDataTable = true;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Assigning data in the worksheet
+  worksheet.Range["A1"].Text = "Items";
+  worksheet.Range["B1"].Text = "Amount(in $)";
+  worksheet.Range["C1"].Text = "Count";
+
+  worksheet.Range["A2"].Text = "Beverages";
+  worksheet.Range["A3"].Text = "Condiments";
+  worksheet.Range["A4"].Text = "Confections";
+  worksheet.Range["A5"].Text = "Dairy Products";
+  worksheet.Range["A6"].Text = "Grains / Cereals";
+
+  worksheet.Range["B2"].Number = 2776;
+  worksheet.Range["B3"].Number = 1077;
+  worksheet.Range["B4"].Number = 2287;
+  worksheet.Range["B5"].Number = 1368;
+  worksheet.Range["B6"].Number = 3325;
+
+  worksheet.Range["C2"].Number = 925;
+  worksheet.Range["C3"].Number = 378;
+  worksheet.Range["C4"].Number = 880;
+  worksheet.Range["C5"].Number = 581;
+  worksheet.Range["C6"].Number = 189;
+
+  //Adding a chart to the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:C6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Adding title to the chart
+  chart.ChartTitle = "Chart with Data Table";
+
+  //Adding data table to the chart
+  chart.HasDataTable = true;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Assigning data in the worksheet
+  worksheet.Range["A1"].Text = "Items";
+  worksheet.Range["B1"].Text = "Amount(in $)";
+  worksheet.Range["C1"].Text = "Count";
+
+  worksheet.Range["A2"].Text = "Beverages";
+  worksheet.Range["A3"].Text = "Condiments";
+  worksheet.Range["A4"].Text = "Confections";
+  worksheet.Range["A5"].Text = "Dairy Products";
+  worksheet.Range["A6"].Text = "Grains / Cereals";
+
+  worksheet.Range["B2"].Number = 2776;
+  worksheet.Range["B3"].Number = 1077;
+  worksheet.Range["B4"].Number = 2287;
+  worksheet.Range["B5"].Number = 1368;
+  worksheet.Range["B6"].Number = 3325;
+
+  worksheet.Range["C2"].Number = 925;
+  worksheet.Range["C3"].Number = 378;
+  worksheet.Range["C4"].Number = 880;
+  worksheet.Range["C5"].Number = 581;
+  worksheet.Range["C6"].Number = 189;
+
+  //Adding chart to the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:C6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Adding title to the chart
+  chart.ChartTitle = "Chart with Data Table";
+
+  //Adding data table to the chart
+  chart.HasDataTable = true;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Sparkline 
 
@@ -5346,7 +6527,6 @@ The following screen shot shows the output of above code.
 
 
 N>These Charts are supported only in Excel 2016 and are not visible in the earlier versions.
-
 
 ## Supported Chart Types
 
