@@ -557,25 +557,25 @@ TextLine line = lineCollection.TextLine[0];
 List<TextWord> textWordCollection = line.WordCollection;
 
 //Gets word from the collection using index
-TextWord textword = textWordCollection[0];
+TextWord textWord = textWordCollection[0];
 
 //Gets bounds of the word
-RectangleF WordBounds = textword.Bounds;
+RectangleF WordBounds = textWord.Bounds;
 
 //Gets font name of the word
-string wordFontName = textword.FontName;
+string wordFontName = textWord.FontName;
 
 //Gets size of the word
-float wordFontSize = textword.FontSize;
+float wordFontSize = textWord.FontSize;
 
 //Gets font style of the word
-FontStyle wordFontStyle = textword.FontStyle;
+FontStyle wordFontStyle = textWord.FontStyle;
 
 // Gets the word
-string wordText = textword.Text;
+string wordText = textWord.Text;
 
 // Gets Glyph details of the word
-List<TextGlyph> textGlyphCollection = textword.Glyphs;
+List<TextGlyph> textGlyphCollection = textWord.Glyphs;
 
 {% endhighlight %}
 
@@ -631,10 +631,10 @@ TextLine line = lineCollection.TextLine[0];
 List<TextWord> textWordCollection = line.WordCollection;
 
 //Gets word from the collection using index
-TextWord textword = textWordCollection[0];
+TextWord textWord = textWordCollection[0];
 
 // Gets Glyph details of the word
-List<TextGlyph> textGlyphCollection = textword.Glyphs;
+List<TextGlyph> textGlyphCollection = textWord.Glyphs;
 
 //Gets character of the word
 TextGlyph textGlyph = textGlyphCollection[0];

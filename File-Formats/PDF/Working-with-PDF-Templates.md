@@ -194,7 +194,7 @@ pdfDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Output.pdf";
 
@@ -460,7 +460,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Output.pdf";
 
@@ -750,7 +750,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "output.pdf";
 
@@ -1119,7 +1119,7 @@ pdfDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Output.pdf";
 
@@ -1448,7 +1448,7 @@ loadedDocument2.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "output.pdf";
 
@@ -1460,7 +1460,7 @@ return File(stream, contentType, fileName);
 
 {% highlight Xamarin %}
 
-//Load the existing docuemnts
+//Load the existing document
 
 Stream docStream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample1.pdf");
 

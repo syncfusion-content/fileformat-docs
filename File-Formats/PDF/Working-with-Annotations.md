@@ -197,7 +197,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "PopupAnnotation.pdf";
 
@@ -451,7 +451,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "PopupAnnotation.pdf";
 
@@ -627,7 +627,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "output.pdf";
 
@@ -813,7 +813,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "output.pdf";
 
@@ -1012,7 +1012,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "3DAnnotation.pdf";
 
@@ -1361,7 +1361,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "FreeTextAnnotation.pdf";
 
@@ -1741,7 +1741,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "LineAnnotation.pdf";
 
@@ -1993,7 +1993,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "RubberStamp.pdf";
 
@@ -2209,7 +2209,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "InkAnnotation.pdf";
 
@@ -3093,7 +3093,7 @@ await document.SaveAsync(stream);
 
 document.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respe
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code sample.
 
 Save(stream, "UriAnnotation.pdf");
 

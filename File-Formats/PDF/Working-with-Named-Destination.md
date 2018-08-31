@@ -120,7 +120,7 @@ stream.Position = 0;
 doc.Close(true);
 //Defining the ContentType for pdf file
 string contentType = "application/pdf";
-//Defin the file name
+//Define the file name
 string fileName = "Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name
 return File(stream, contentType, fileName);
@@ -267,7 +267,7 @@ stream.Position = 0;
 loadedDocument.Close(true);
 //Defining the ContentType for pdf file
 string contentType = "application/pdf";
-//Defin the file name
+//Define the file name
 string fileName = "Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name
 return File(stream, contentType, fileName);
@@ -407,7 +407,7 @@ stream.Position = 0;
 lDoc.Close(true);
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
-//Defin the file name.
+//Define the file name.
 string fileName = "Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
@@ -563,7 +563,7 @@ stream.Position = 0;
 doc.Close(true);
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
-//Defin the file name.
+//Define the file name.
 string fileName = "Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 

@@ -212,7 +212,7 @@ stream2.Dispose();
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "sample.pdf";
 
@@ -374,7 +374,7 @@ lDoc.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "sample.pdf";
 
@@ -571,7 +571,7 @@ lDoc.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "sample.pdf";
 
@@ -792,7 +792,7 @@ lDoc2.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "sample.pdf";
 
@@ -842,7 +842,7 @@ lDoc2.Close(true);
 
 //Save the stream into pdf file
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samp
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code sample
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {

@@ -567,8 +567,8 @@ page.Graphics.DrawImage(image, New RectangleF(176, 0, 390, 130))
 {% highlight UWP %}
 
 //Loads the image as stream
-Stream imagestream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.AdventureCycle.jpg");
-PdfImage image = PdfImage.FromStream(imagestream);
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.AdventureCycle.jpg");
+PdfImage image = PdfImage.FromStream(imageStream);
 //Draws the image to the PDF page
 page.Graphics.DrawImage(image, new RectangleF(176, 0, 390, 130));
 

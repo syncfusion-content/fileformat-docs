@@ -179,7 +179,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Output.pdf";
 
@@ -415,7 +415,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Output.pdf";
 
@@ -688,7 +688,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Output.pdf";
 
@@ -904,7 +904,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Output.pdf";
 
@@ -1103,7 +1103,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Output.pdf";
 
@@ -1329,7 +1329,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Output.pdf";
 

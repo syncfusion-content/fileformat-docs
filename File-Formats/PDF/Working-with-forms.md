@@ -4011,7 +4011,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name.
+//Define the file name.
 
 string fileName = "sample.pdf";
 
@@ -4224,7 +4224,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name.
+//Define the file name.
 
 string fileName = "sample.pdf";
 
@@ -4424,7 +4424,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name.
+//Define the file name.
 
 string fileName = "sample.pdf";
 
@@ -4623,7 +4623,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name.
+//Define the file name.
 
 string fileName = "sample.pdf";
 
@@ -4831,7 +4831,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name.
+//Define the file name.
 
 string fileName = "sample.pdf";
 
@@ -5056,7 +5056,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name.
+//Define the file name.
 
 string fileName = "sample.pdf";
 
@@ -5305,7 +5305,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name.
+//Define the file name.
 
 string fileName = "output.pdf";
 
@@ -5568,7 +5568,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name.
+//Define the file name.
 
 string fileName = "output.pdf";
 
@@ -5818,7 +5818,7 @@ doc.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name.
+//Define the file name.
 
 string fileName = "output.pdf";
 
@@ -6041,7 +6041,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name.
+//Define the file name.
 
 string fileName = "Form.pdf";
 
@@ -6278,7 +6278,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name.
+//Define the file name.
 
 string fileName = "Form.pdf";
 
@@ -6507,7 +6507,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "output.pdf";
 
@@ -6780,7 +6780,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Form.pdf";
 
@@ -6988,7 +6988,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "sample.pdf";
 
@@ -7233,11 +7233,11 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Form.pdf";
 
-//Creates a FileContentResult object by using the file contents, content type, and file nam
+//Creates a FileContentResult object by using the file contents, content type, and file name.
 
 return File(stream, contentType, fileName);
 
@@ -7601,7 +7601,7 @@ document.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Form.pdf";
 
@@ -7824,7 +7824,7 @@ loadedDocument.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "sample.pdf";
 

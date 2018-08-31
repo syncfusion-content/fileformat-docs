@@ -215,7 +215,7 @@ doc.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Shapes.pdf";
 
@@ -470,7 +470,7 @@ doc.Close(true);
 
 string contentType = "application/pdf";
 
-//Defin the file name
+//Define the file name
 
 string fileName = "Shapes.pdf";
 

@@ -261,9 +261,9 @@ PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
 //Sets an image for signature field.
 
-Stream imageSteram = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signature.jpg");
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signature.jpg");
 
-PdfBitmap signatureImage = new PdfBitmap(imageSteram);
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
 
 //Sets signature information
 
@@ -435,7 +435,7 @@ PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
 //Sets an image for signature field.
 
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signat
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signature.jpg");
 
 PdfBitmap signatureImage = new PdfBitmap(imageStream);
 
@@ -563,9 +563,9 @@ PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
 //Sets an image for signature field.
 
-Stream imageSteram = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signature.jpg");
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signature.jpg");
 
-PdfBitmap signatureImage = new PdfBitmap(imageSteram);
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
 
 //Sets signature information
 
@@ -1572,9 +1572,9 @@ PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
 
 //Sets an image for signature field.
 
-Stream imageSteram = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion_logo.gif");
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion_logo.gif");
 
-PdfBitmap image = new PdfBitmap(imageSteram);
+PdfBitmap image = new PdfBitmap(imageStream);
 
 //Adds time stamp by using the server URI and credentials.
 

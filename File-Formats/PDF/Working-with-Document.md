@@ -49,7 +49,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighlight %}
+{% end highlight %}
 
 {% highlight vb.net %}
 

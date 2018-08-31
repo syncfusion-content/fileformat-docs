@@ -770,11 +770,11 @@ PdfPage page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the true type font from the local *.ttf file.
+//Load the TrueType font from the local *.ttf file.
 
 Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Arial.ttf");
 
-//Initialize the PDF true type font. 
+//Initialize the PDF TrueTypee font. 
 
 PdfFont font = new PdfTrueTypeFont(fontStream, 14);
 
@@ -812,7 +812,7 @@ PdfPage page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the true type font from the local *.ttf file.
+//Load the TrueType font from the local *.ttf file.
 
 FileStream fontStream = new FileStream("Arial.ttf", FileMode.Open, FileAccess.Read);
 
@@ -866,13 +866,13 @@ PdfPage page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the true type font. 
+//Load the TrueType font. 
 
-Stream fontstream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.ttf");
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.ttf");
 
-//Initialize the PDF true type font.  
+//Initialize the PDF TrueType font.  
 
-PdfFont font = new PdfTrueTypeFont(fontstream, 14);
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
 
 //Draw the text.
 
@@ -1223,7 +1223,7 @@ format.ParagraphIndent = 35f;
 
 //Read the text from file.
 
-StreamReader reader = new StreamReader("arabic.txt", Encoding.Unicode);
+StreamReader reader = new StreamReader("Arabic.txt", Encoding.Unicode);
 
 string text = reader.ReadToEnd();
 
@@ -1278,7 +1278,7 @@ format.ParagraphIndent = 35.0F
 
 'Read the text from file.
 
-Dim reader As StreamReader = New StreamReader("arabic.txt", Encoding.Unicode)
+Dim reader As StreamReader = New StreamReader("Arabic.txt", Encoding.Unicode)
 
 Dim text As String = reader.ReadToEnd()
 
@@ -1312,13 +1312,13 @@ PdfPage page = doc.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the true type font. 
+//Load the TrueType font. 
 
-Stream fontstream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.arial.ttf");
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.arial.ttf");
 
-//Initialize the PDF true type font.  
+//Initialize the PDF TrueType font.  
 
-PdfFont font = new PdfTrueTypeFont(fontstream, 14, PdfFontStyle.Regular);
+PdfFont font = new PdfTrueTypeFont(fontStream, 14, PdfFontStyle.Regular);
 
 //Set the format for string.
 
@@ -1336,7 +1336,7 @@ format.ParagraphIndent = 35f;
 
 //Read the unicode text from the text file.
 
-Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.arabic.txt");
+Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Arabic.txt");
 
 StreamReader reader = new StreamReader(inputStream);
 
@@ -1400,7 +1400,7 @@ format.ParagraphIndent = 35f;
 
 //Read the text from file.
 
-FileStream rtlText = new FileStream("arabic.txt", FileMode.Open, FileAccess.Read);
+FileStream rtlText = new FileStream("Arabic.txt", FileMode.Open, FileAccess.Read);
 
 StreamReader reader = new StreamReader(rtlText, Encoding.Unicode);
 
@@ -1456,17 +1456,17 @@ PdfPage page = doc.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the true type font. 
+//Load the TrueType font. 
 
-Stream fontstream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.arial.ttf");
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.arial.ttf");
 
-//Initialize the PDF true type font.  
+//Initialize the PDF TrueType font.  
 
-PdfFont font = new PdfTrueTypeFont(fontstream, 14, PdfFontStyle.Regular);
+PdfFont font = new PdfTrueTypeFont(fontStream, 14, PdfFontStyle.Regular);
 
 //Read the unicode text from the text file.
 
-Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.arabic.txt");
+Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arabic.txt");
 
 StreamReader reader = new StreamReader(inputStream);
 
