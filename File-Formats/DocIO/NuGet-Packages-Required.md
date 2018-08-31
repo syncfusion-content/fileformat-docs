@@ -27,35 +27,24 @@ Package manager console command
 </thead>
 <tr>
 <td>
-.NET Frameworks (Windows Forms, WPF, ASP.NET and ASP.NET MVC)
+.NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core - Targeting .NET Framework)
 </td>
 <td>
 Syncfusion.DocIO.Base.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIO.Base -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms
+Install-Package Syncfusion.DocIO.Base
 </td>
 </tr>
 <tr>
 <td>
-ASP.NET and ASP.NET MVC
-</td>
-<td>
-Syncfusion.Web.FileFormatsBase.nupkg
-</td>
-<td>
-Install-Package Syncfusion.Web.FileFormatsBase -Source http://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET Core
+ASP.NET Core (Targeting .netcoreapp)
 </td>
 <td>
 Syncfusion.DocIO.NETStandard.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIO.NETStandard -Source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore
+Install-Package Syncfusion.DocIO.NETStandard
 </td>
 </tr>
 <tr>
@@ -66,7 +55,7 @@ Xamarin
 Syncfusion.Xamarin.DocIO.nupkg
 </td>
 <td>
-Install-Package Syncfusion.Xamarin.DocIO -Source https://api.nuget.org/v3/index.json
+Install-Package Syncfusion.Xamarin.DocIO
 </td>
 </tr>
 <tr>
@@ -77,11 +66,12 @@ UWP
 Syncfusion.DocIO.UWP.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIO.UWP -Source http://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows
+Install-Package Syncfusion.DocIO.UWP
 </td>
 </tr>
 </table>
-N> Starting with v16.2.0.41, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 
 ## Converting Word document to PDF
 
@@ -103,51 +93,24 @@ Package manager console command
 </thead>
 <tr>
 <td>
-.NET Frameworks (Windows Forms, WPF, ASP.NET and ASP.NET MVC)
+.NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core – Targeting .NET Framework)
 </td>
 <td>
 Syncfusion.DocToPdfConverter.Base.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocToPdfConverter.Base -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms
+Install-Package Syncfusion.DocToPdfConverter.Base
 </td>
 </tr>
 <tr>
 <td>
-ASP.NET
-</td>
-<td>
-Syncfusion.AspNet.FileFormats.nupkg
-</td>
-<td>
-Install-Package Syncfusion.AspNet.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET MVC
-</td>
-<td>
-Syncfusion.AspNet.Mvc.FileFormats.nupkg
-</td>
-<td>
-// MVC 3 version <br/>
-Install-Package Syncfusion.AspNet.Mvc3.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc <br/>
-// MVC 4 version <br/>
-Install-Package Syncfusion.AspNet.Mvc4.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc <br/>
-// MVC 5 version <br/>
-Install-Package Syncfusion.AspNet.Mvc5.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
-</td>
-</tr>
-<tr>
-<td>
-ASP.NET Core 
+ASP.NET Core (Targeting .netcoreapp)
 </td>
 <td>
 Syncfusion.DocIORenderer.NetStandard.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIORenderer.NetStandard -Source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore
+Install-Package Syncfusion.DocIORenderer.NetStandard
 </td>
 </tr>
 <tr>
@@ -158,14 +121,15 @@ Xamarin
 Syncfusion.Xamarin.DocIORenderer.nupkg
 </td>
 <td>
-Install-Package Syncfusion.Xamarin.DocIORenderer -Source https://api.nuget.org/v3/index.json
+Install-Package Syncfusion.Xamarin.DocIORenderer
 </td>
 </tr>
 </table>
 
-N> 1. Starting with v16.2.0.41, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
-N> 2. Install SkiaSharp package version 1.59.3 in addition to DocIORenderer package.
-N> 3. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
+N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
+N> 3. Install SkiaSharp package version 1.59.3 in addition to DocIORenderer package.
+N> 4. Please refer the procedure to deploy your .NET Core application in Linux OS from [here](https://www.syncfusion.com/kb/8470/how-to-deploy-net-core-application-with-word-to-pdf-conversion-capabilities-in-linux-os).
 
 
 ## Converting Charts
@@ -188,20 +152,20 @@ Package manager console command
 </thead>
 <tr>
 <td>
-.NET Frameworks (Windows Forms, WPF, ASP.NET and ASP.NET MVC)
+.NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core – Targeting .NET Framework)
 </td>
 <td>
 Syncfusion.OfficeChartToImageConverter.WPF.nupkg
 </td>
 <td>
-Install-Package Syncfusion.OfficeChartToImageConverter.Wpf -Source http://nuget.syncfusion.com/nuget_wpf/nuget/getsyncfusionpackages/wpf
+Install-Package Syncfusion.OfficeChartToImageConverter.Wpf
 </td>
 </tr>
 </table>
 
-N> 1. Starting with v16.2.0.41, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
-N> 2. The "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards and also it not supported in the Universal Windows Platform.
-N> 3. The "Syncfusion.AspNet.FileFormats.nupkg" and "Syncfusion.AspNet.Mvc5.FileFormats.nupkg" internally includes the necessary assemblies. So it is not necessary to install the "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package in addition to these packages.
+N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
+N> 3. The "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards and it is not supported in ASP.NET Core (Targeting .netcoreapp) and Xamarin platforms.
 
 
 ## NuGet Package Installation and Uninstallation
@@ -210,7 +174,7 @@ To use Syncfusion NuGet packages in your project, please refer the NuGet Package
 
 DocIO NuGet packages can be installed and uninstalled using Package Manager Console. In Visual Studio, select Tools > NuGet Package Manager > Package Manager Console and execute the following commands.
 
-### .NET Frameworks (Windows Forms, WPF, ASP.NET and ASP.NET MVC)
+### .NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core – Targeting .NET Framework)
 
 **NuGet Package:** Syncfusion.DocIO.Base
 
@@ -218,7 +182,7 @@ The package contains DocIO library that allows you to create, read and edit Word
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocIO.Base -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms 
+Install-Package Syncfusion.DocIO.Base
 ~~~
 ~~~
 // Uninstall package
@@ -231,7 +195,7 @@ The package contains the DocToPdfConverter .NET library that allows you to conve
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocToPdfConverter.Base -Source http://nuget.syncfusion.com/nuget_windows-forms/nuget/getsyncfusionpackages/windows-forms 
+Install-Package Syncfusion.DocToPdfConverter.Base
 ~~~
 ~~~
 // Uninstall package
@@ -244,7 +208,7 @@ The package contains OfficeChartToImageConverter .NET library for converting the
 
 ~~~
 // Install package
-Install-Package Syncfusion.OfficeChartToImageConverter.Wpf -Source http://nuget.syncfusion.com/nuget_wpf/nuget/getsyncfusionpackages/wpf 
+Install-Package Syncfusion.OfficeChartToImageConverter.Wpf
 ~~~
 ~~~
 // Uninstall package
@@ -252,7 +216,7 @@ Uninstall-Package Syncfusion.OfficeChartToImageConverter.WPF -RemoveDependencies
 ~~~
 
 
-### ASP.NET Core
+### ASP.NET Core (Targeting .netcoreapp)
 
 **NuGet Package:** Syncfusion.DocIO.NETStandard
 
@@ -260,10 +224,7 @@ The package contains DocIO portable library that allows you to create, read and 
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocIO.NETStandard -Source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore 
-
-// Install dependent package
-Install-Package SkiaSharp -Source https://api.nuget.org/v3/index.json
+Install-Package Syncfusion.DocIO.NETStandard
 ~~~
 ~~~
 // Uninstall package
@@ -276,7 +237,10 @@ The package contains the DocIORenderer .NET portable library that allows you to 
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocIORenderer.NetStandard -Source http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore 
+Install-Package Syncfusion.DocIORenderer.NetStandard
+
+// Install dependent package
+Install-Package SkiaSharp -Version 1.59.3
 ~~~
 ~~~
 // Uninstall package
@@ -291,10 +255,7 @@ The package contains DocIO portable library that allows you to create, read and 
 
 ~~~
 // Install package
-Install-Package Syncfusion.Xamarin.DocIO -Source https://api.nuget.org/v3/index.json
-
-// Install dependent package
-Install-Package SkiaSharp -Source https://api.nuget.org/v3/index.json
+Install-Package Syncfusion.Xamarin.DocIO
 ~~~
 ~~~
 // Uninstall package
@@ -307,70 +268,15 @@ The package contains the DocIORenderer .NET portable library that allows you to 
 
 ~~~
 // Install package
-Install-Package Syncfusion.Xamarin.DocIORenderer -Source https://api.nuget.org/v3/index.json
+Install-Package Syncfusion.Xamarin.DocIORenderer
+
+// Install dependent package
+Install-Package SkiaSharp -Version 1.59.3
 ~~~
 ~~~
 // Uninstall package
 Uninstall-Package Syncfusion.Xamarin.DocIORenderer -RemoveDependencies 
 ~~~
-
-### ASP.NET
-
-**NuGet Package:** Syncfusion.Web.FileFormatsBase
-
-The package contains Syncfusion File formats libraries that provides the ability to create, read, and edit Word, PDF, Excel, and PowerPoint files.
-
-~~~
-// Install package
-Install-Package Syncfusion.Web.FileFormatsBase -Source http://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet 
-~~~
-~~~
-// Uninstall package
-Uninstall-Package Syncfusion.Web.FileFormatsBase -RemoveDependencies 
-~~~
-
-**NuGet Package:** Syncfusion.AspNet.FileFormats
-
-The package contains Syncfusion File formats libraries that provides the ability to create, read, edit, and convert Word, PDF, Excel, and PowerPoint files.
-
-~~~
-// Install package
-Install-Package Syncfusion.AspNet.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnet/nuget/getsyncfusionpackages/aspnet
-~~~
-~~~
-// Uninstall
-Uninstall-Package Syncfusion.AspNet.FileFormats -RemoveDependencies 
-~~~
-
-### ASP.NET MVC
-
-**NuGet Package:** Syncfusion.Web.FileFormatsBase
-
-The package contains Syncfusion File formats libraries that provides the ability to create, read, and edit Word, PDF, Excel, and PowerPoint files.
-
-~~~
-// Install package
-Install-Package Syncfusion.Web.FileFormatsBase -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
-~~~
-~~~
-// Uninstall package
-Uninstall-Package Syncfusion.Web.FileFormatsBase -RemoveDependencies 
-~~~
-
-**NuGet Package:** Syncfusion.AspNet.Mvc5.FileFormats
-
-The package contains Syncfusion File formats libraries that provides the ability to create, read, edit, and convert Word, PDF, Excel, and PowerPoint files.
-
-~~~
-// Install package
-Install-Package Syncfusion.AspNet.Mvc5.FileFormats -Source http://nuget.syncfusion.com/nuget_aspnetmvc/nuget/getsyncfusionpackages/aspnetmvc
-~~~
-~~~
-// Uninstall package
-Uninstall-Package Syncfusion.AspNet.Mvc5.FileFormats -RemoveDependencies 
-~~~
-
-N> The number at the end of MVC denotes ASP.NET MVC version. That is for MVC 3 version install "Syncfusion.AspNet.Mvc3.FileFormats", for MVC 4 version install "Syncfusion.AspNet.Mvc4.FileFormats", for MVC 5 version install "Syncfusion.AspNet.Mvc5.FileFormats".
 
 ### UWP
 
@@ -380,7 +286,7 @@ The package contains DocIO library that allows you to create, read and edit Word
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocIO.UWP -Source http://nuget.syncfusion.com/nuget_universalwindows/nuget/getsyncfusionpackages/universalwindows 
+Install-Package Syncfusion.DocIO.UWP
 ~~~
 
 ~~~
@@ -511,47 +417,6 @@ Syncfusion.DocIO.UWP.dll
 </td>
 <td>
 Syncfusion.OfficeChart.UWP.nupkg<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.Web.FileFormatsBase.nupkg
-</td>
-<td>
-Syncfusion File formats provides the ability to create, read, and edit Word, PDF, Excel, and PowerPoint files.
-</td>
-<td>
-Syncfusion.Compression.Base.dll<br/>Syncfusion.DocIO.Base.dll<br/>Syncfusion.OfficeChart.Base.dll<br/>Syncfusion.Pdf.Base.dll<br/>Syncfusion.Presentation.Base.dll<br/>Syncfusion.XlsIO.Base.dll<br/><br/></td>
-<td>
-
-</td>
-</tr>
-<tr>
-<td>
-Syncfusion.AspNet.FileFormats.nupkg
-</td>
-<td>
-Syncfusion File formats provides the ability to create, read, edit, and convert Word, PDF, Excel, and PowerPoint files.
-</td>
-<td>
-Syncfusion.DocToPDFConverter.Base.dll<br/>Syncfusion.ExcelChartToImageConverter.WPF.dll<br/>Syncfusion.ExcelToPDFConverter.Base.dll<br/>Syncfusion.HtmlConverter.Base.dll<br/>Syncfusion.OfficeChartToImageConverter.WPF.dll<br/>Syncfusion.PresentationToPDFConverter.Base.dll<br/>Syncfusion.SfChart.WPF.dll<br/><br/></td>
-<td>
-Syncfusion.Web.FileFormatsBase.nupkg
-</td>
-</tr>
-<tr>
-<td>
-Syncfusion.AspNet.Mvc3.FileFormats.nupkg <br/>
-Syncfusion.AspNet.Mvc4.FileFormats.nupkg <br/>
-Syncfusion.AspNet.Mvc5.FileFormats.nupkg <br/>
-</td>
-<td>
-Syncfusion File formats provides the ability to create, read, edit, and convert Word, PDF, Excel, and PowerPoint files.
-</td>
-<td>
-Syncfusion.DocToPDFConverter.Base.dll<br/>Syncfusion.ExcelChartToImageConverter.WPF.dll<br/>Syncfusion.ExcelToPDFConverter.Base.dll<br/>Syncfusion.HtmlConverter.Base.dll<br/>Syncfusion.OfficeChartToImageConverter.WPF.dll<br/>Syncfusion.PresentationToPDFConverter.Base.dll<br/>Syncfusion.SfChart.WPF.dll<br/><br/></td>
-<td>
-Syncfusion.Web.FileFormatsBase.nupkg
-</td>
 </tr>
 </table>
 
