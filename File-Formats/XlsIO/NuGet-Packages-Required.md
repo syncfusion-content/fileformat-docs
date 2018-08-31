@@ -1,0 +1,166 @@
+---
+title: NuGet Packages for XlsIO
+description: NuGet Packages for XlsIO library
+platform: file-formats
+control: XlsIO
+documentation: UG
+---
+# NuGet Packages Required
+
+To work with Excel documents, the following NuGet packages need to be installed in your application.
+
+<table>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tr>
+<td>
+Windows Forms, WPF, ASP.NET Web and MVC
+</td>
+<td>
+{{'[Syncfusion.XlsIO.Base.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.Base/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+UWP
+</td>
+<td>
+{{'[Syncfusion.XlsIO.UWP.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.UWP/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core
+</td>
+<td>
+{{'[Syncfusion.XlsIO.NETStandard.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.NETStandard/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+Xamarin
+</td>
+<td>
+{{'[Syncfusion.Xamarin.XlsIO.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/)'| markdownify }}
+</td>
+</tr>
+</table>
+
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+
+
+## Converting Excel document into PDF
+
+For converting Excel document into PDF, the following NuGet packages need to be installed in your application.
+
+<table>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tr>
+<td>
+Windows Forms, WPF, ASP.NET Web and MVC
+</td>
+<td>
+{{'[Syncfusion.ExcelToPDFConverter.Base.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.Base/)'| markdownify }}
+</td>
+</tr>
+</table>
+
+N> Excel to PDF/Image conversion is not supported in Xamarin, UWP and ASP.NET Core applications.
+
+## Converting Charts in XlsIO
+
+The below NuGet package need to be installed additionally to convert the charts present in Excel documents.
+
+<table>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tr>
+<td>
+Windows Forms, WPF, ASP.NET Web and MVC
+</td>
+<td>
+{{'[Syncfusion.ExcelChartToImageConverter.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.WPF/)'| markdownify }}
+</td>
+</tr>
+</table>
+
+N> The "Syncfusion.ExcelChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards. 
+
+## NuGet Package Installation and Uninstallation
+
+To use NuGet package in your project, please refer the NuGet Package [Installation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-install-and-configuration) and [Uninstallation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-uninstallation-process) sections.
+
+XlsIO NuGet packages can be installed and uninstalled using Package Manager Console. In Visual Studio, select **Tools > NuGet Package Manager > Package Manager Console** and execute the below commands in respective platforms.
+
+N> Syncfusion components are available in nuget.org
+
+<table>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>Install</b></th>
+<th><b>UnInstall</b></th>
+</thead>
+</tr>
+<tr>
+<td>
+Windows Forms, WPF, ASP.NET Web and MVC
+</td>
+<td>
+* Install-package Syncfusion.XlsIO.Base <br/><br/>
+* Install-package Syncfusion.ExcelToPdfConverter.Base <br/><br/>
+* Install-package Syncfusion.ExcelChartToImageConverter.WPF 
+</td>
+<td>
+* Uninstall-package Syncfusion.XlsIO.Base -RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.ExcelToPdfConverter.Base -RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.ExcelChartToImageConverter.WPF -RemoveDependencies                             
+</td>
+</tr>
+<tr>
+<td>
+UWP
+</td>
+<td>
+Install-package Syncfusion.XlsIO.UWP
+</td>
+<td>
+Uninstall-package Syncfusion.XlsIO.UWP –RemoveDependencies
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core
+</td>
+<td>
+Install-package Syncfusion.XlsIO.NETStandard
+</td>
+<td>
+Uninstall-package Syncfusion.XlsIO.NETStandard –RemoveDependencies
+</td>
+</tr>
+<tr>
+<td>
+Xamarin
+</td>
+<td>
+Install-package Syncfusion.Xamarin.XlsIO
+</td>
+<td>
+Uninstall-package Syncfusion.Xamarin.XlsIO –RemoveDependencies
+</td>
+</tr>
+</table>
