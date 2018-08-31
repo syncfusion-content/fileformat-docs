@@ -2533,6 +2533,187 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+### Border Style for Chart Series
+
+A unique border style like line color, line weight, and line pattern can be set for each chart series. Also, these settings can be made for each data point in the chart series. 
+
+Refer the following complete code snippets.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Accessing first chart series
+  IChartSerie serie = chart.Series[0];
+
+  //Formatting the series border
+  serie.SerieFormat.LineProperties.LineColor = Color.Brown;
+  serie.SerieFormat.LineProperties.LinePattern = ExcelChartLinePattern.CircleDot;
+  serie.SerieFormat.LineProperties.LineWeight = ExcelChartLineWeight.Wide;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding chart in the worksheet
+  Dim chart As IChartShape = worksheet.Charts.Add
+  chart.DataRange = worksheet.Range("A1:B5")
+  chart.ChartType = ExcelChartType.Column_Clustered
+  chart.IsSeriesInRows = False
+
+  'Accessing first chart series
+  Dim serie As IChartSerie = chart.Series(0)
+
+  'Formatting the series border
+  serie.SerieFormat.LineProperties.LineColor = Color.Brown
+  serie.SerieFormat.LineProperties.LinePattern = ExcelChartLinePattern.CircleDot
+  serie.SerieFormat.LineProperties.LineWeight = ExcelChartLineWeight.Wide
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opening an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Accessing first chart series
+  IChartSerie serie = chart.Series[0];
+
+  //Formatting the series border
+  serie.SerieFormat.LineProperties.LineColor = Color.FromArgb(225, 165, 42, 42);
+  serie.SerieFormat.LineProperties.LinePattern = ExcelChartLinePattern.CircleDot;
+  serie.SerieFormat.LineProperties.LineWeight = ExcelChartLineWeight.Wide;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Accessing first chart series
+  IChartSerie serie = chart.Series[0];
+
+  //Formatting the series border
+  serie.SerieFormat.LineProperties.LineColor = Color.Brown;
+  serie.SerieFormat.LineProperties.LinePattern = ExcelChartLinePattern.CircleDot;
+  serie.SerieFormat.LineProperties.LineWeight = ExcelChartLineWeight.Wide;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Accessing first chart series
+  IChartSerie serie = chart.Series[0];
+
+  //Formatting the series border
+  serie.SerieFormat.LineProperties.LineColor = Syncfusion.Drawing.Color.Brown;
+  serie.SerieFormat.LineProperties.LinePattern = ExcelChartLinePattern.CircleDot;
+  serie.SerieFormat.LineProperties.LineWeight = ExcelChartLineWeight.Wide;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
 ### Adjust space between chart bars
 
 Spaces between chart bars are of two types.
@@ -2696,6 +2877,179 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //Save the document as file and view the saved document
 
   //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Hide Chart Gridlines
+
+Excel chart consists of two types of gridlines such as **major gridlines** and **minor gridlines**. Major gridlines represent the main values in the axis and minor gridlines represent possible values between two adjacent axis values. You can show or hide these gridlines using [HasMajorGridlines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~HasMajorGridLines.html) and [HasMinorGridlines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~HasMinorGridLines.html) of **IChartAxis** interface.
+
+Essential XlsIO supports formatting of gridlines as well through the [MajorGridines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~MajorGridLines.html) and [MinorGridlines](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IChartAxis~MinorGridLines.html) of **IChartAxis**.
+
+Refer the following complete code snippets.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the Excel worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Hiding major gridlines
+  chart.PrimaryValueAxis.HasMajorGridLines = false;
+
+  //Showing minor gridlines
+  chart.PrimaryValueAxis.HasMinorGridLines = true;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding chart in the Excel worksheet
+  Dim chart As IChartShape = worksheet.Charts.Add
+  chart.DataRange = worksheet.Range("A1:B5")
+  chart.ChartType = ExcelChartType.Column_Clustered
+  chart.IsSeriesInRows = False
+
+  'Hiding major gridlines
+  chart.PrimaryValueAxis.HasMajorGridLines = False
+
+  'Showing minor gridlines
+  chart.PrimaryValueAxis.HasMinorGridLines = True
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opening an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the Excel worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Hiding major gridlines
+  chart.PrimaryValueAxis.HasMajorGridLines = false;
+
+  //Showing minor gridlines
+  chart.PrimaryValueAxis.HasMinorGridLines = true;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the Excel worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Hiding major gridlines
+  chart.PrimaryValueAxis.HasMajorGridLines = false;
+
+  //Showing minor gridlines
+  chart.PrimaryValueAxis.HasMinorGridLines = true;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the Excel worksheet
+  IChartShape chart = worksheet.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B5"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Hiding major gridlines
+  chart.PrimaryValueAxis.HasMajorGridLines = false;
+
+  //Showing minor gridlines
+  chart.PrimaryValueAxis.HasMinorGridLines = true;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
@@ -4099,6 +4453,189 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   //Exploding the pie chart to 40%
   chart.Series[0].SerieFormat.Percent = 40;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Add Picture to Chart and assign Hyperlink
+
+Essential XlsIO supports assigning hyperlink to the picture added in a chart in the Excel workbook. To achieve this, create a [chart in workbook](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#creating-a-chart-sheet) and add picture to the chart using [AddPicture](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IPictures~AddPicture(String).html) of **IPictures** interface. You can assign hyperlink to the picture using [Add](https://help.syncfusion.com/cr/cref_files/windowsforms/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IHyperLinks~Add(IShape,ExcelHyperLinkType,String,String).html) property of **IHyperlinks** interface.
+
+Refer to the following complete code snippets.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];				
+
+  //Adding chart in the workbook
+  IChart chart = workbook.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Adding picture on thechart
+  chart.Pictures.AddPicture("Image.png");
+
+  //Adding hyperlink to the picture on chart
+  worksheet.HyperLinks.Add((workbook.Charts[0].Pictures[0] as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding chart in the workbook
+  Dim chart As IChart = workbook.Charts.Add
+  chart.DataRange = worksheet.Range("A1:B6")
+  chart.ChartType = ExcelChartType.Column_Clustered
+  chart.IsSeriesInRows = False
+
+  'Adding picture on the chart
+  chart.Pictures.AddPicture("Image.png")
+
+  'Adding hyperlink to the picture on chart
+  worksheet.HyperLinks.Add(workbook.Charts(0).Pictures(0), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here")
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opening an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the workbook
+  IChart chart = workbook.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.Image.png");
+
+  //Adding picture on the chart
+  chart.Pictures.AddPicture(1,1,imageStream);
+
+  //Adding hyperlink to the picture on chart
+  worksheet.HyperLinks.Add((workbook.Charts[0].Pictures[0] as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the workbook
+  IChart chart = workbook.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Getting an image from the stream
+  FileStream imageStream = new FileStream("Image.png", FileMode.Open, FileAccess.Read);
+  Image image = Image.FromStream(imageStream);
+
+  //Adding picture on the chart
+  chart.Pictures.AddPicture(1, 1, imageStream);
+
+  //Adding hyperlink to the picture on chart
+  worksheet.HyperLinks.Add((workbook.Charts[0].Pictures[0] as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding chart in the workbook
+  IChart chart = workbook.Charts.Add();
+  chart.DataRange = worksheet.Range["A1:B6"];
+  chart.ChartType = ExcelChartType.Column_Clustered;
+  chart.IsSeriesInRows = false;
+
+  //Getting an image from the stream
+  Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Image.png");
+  Syncfusion.Drawing.Image image = Syncfusion.Drawing.Image.FromStream(imageStream);
+
+  //Adding picture on the chart
+  chart.Pictures.AddPicture(1, 1, imageStream);
+
+  //Adding hyperlink to the picture on chart
+  worksheet.HyperLinks.Add((workbook.Charts[0].Pictures[0] as IShape), ExcelHyperLinkType.Url, "http://www.Syncfusion.com", "click here");
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
