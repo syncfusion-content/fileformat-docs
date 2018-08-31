@@ -193,8 +193,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   Stream stream = file.AsStreamForWrite();
   sheet.ConvertToImage(1, 1, 10, 20, stream);
   await file.FlushAsync();
-  stream.Dispose();{% endhighlight %}
-}
+  stream.Dispose();
+}  
+{% endhighlight %}
+
 {% highlight asp.net core %}
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
