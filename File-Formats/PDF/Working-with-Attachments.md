@@ -333,7 +333,7 @@ Save(memoryStream, "Output.pdf");
 
 {% highlight ASP.NET Core %}
 
-            //Load the PDF document
+//Load the PDF document
 
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
 
@@ -580,7 +580,41 @@ return File(stream, contentType, fileName);
 
 {% highlight Xamarin %}
 
+//Load the file as stream
 
+ Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+ PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+ //Removes an attachment
+
+ PdfAttachment attachment = document.Attachments[0];
+
+ document.Attachments.Remove(attachment);
+
+ //document.Attachments.RemoveAt(1);
+
+ //Save the document into stream.
+
+ MemoryStream memoryStream = new MemoryStream();
+
+ document.Save(memoryStream);
+
+ //Close the documents.
+
+ document.Close(true);
+
+ //Save the stream into pdf file
+
+ //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer pdf/xamarin section for respective code samples.
+ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+ {
+     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+ }
+ else
+ {
+     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+ }
 
 {% endhighlight %}
 
