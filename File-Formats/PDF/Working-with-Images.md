@@ -104,6 +104,149 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the image as stream from the disk.
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Autumn Leaves.jpg");
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Draw the image
+
+graphics.DrawImage(image, 0, 0);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the image from the disk.
+
+FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open, FileAccess.Read);
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Draw the image
+
+graphics.DrawImage(image, 0, 0);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the image as stream
+
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Draw the image
+
+graphics.DrawImage(image, 0, 0);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ## Inserting an image in an existing document
@@ -183,6 +326,167 @@ doc.Close(True)
 
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument doc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await doc.OpenAsync(file);
+
+//Get first page from document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the image as stream
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Autumn Leaves.jpg");
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Draw the image
+
+graphics.DrawImage(image, 0, 0);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Get first page from document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the image from the disk
+
+FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open, FileAccess.Read);
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Draw the image
+
+graphics.DrawImage(image, 0, 0);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Get first page from document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the image as stream
+
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Draw the image
+
+graphics.DrawImage(image, 0, 0);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -272,6 +576,167 @@ doc.Save("Output.pdf")
 doc.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument doc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await doc.OpenAsync(file);
+
+//Get first page from document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the image as stream
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Autumn Leaves.jpg");
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Draw the image
+
+graphics.DrawImage(image, 0, 0);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Get first page from document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the image from the disk
+
+FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open, FileAccess.Read);
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Draw the image
+
+graphics.DrawImage(image, 0, 0);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Get first page from document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the image as stream
+
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Draw the image
+
+graphics.DrawImage(image, 0, 0);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -389,6 +854,24 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//PDF supports inserting a vector image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports inserting a vector image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports inserting a vector image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ## Working with image masking
@@ -483,6 +966,24 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//PDF supports image masking only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports image masking only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports image masking only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 
@@ -551,6 +1052,24 @@ doc.Close(True)
 
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports replacing image in an existing PDF document only in Windows Forms, WPF,ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports replacing image in an existing PDF document only in Windows Forms, WPF,ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports replacing image in an existing PDF document only in Windows Forms, WPF,ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
@@ -635,6 +1154,163 @@ doc.Save("output.pdf")
 doc.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create Document
+
+PdfDocument doc = new PdfDocument();
+
+//Add new page
+
+PdfPage page = doc.Pages.Add();
+
+//Load the image as stream
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Data.Assets.Autumn Leaves.jpg");
+
+//Load a bitmap
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Set layout property to make the element break across the pages.
+
+PdfLayoutFormat format = new PdfLayoutFormat();
+
+format.Break = PdfLayoutBreakType.FitPage;
+
+format.Layout = PdfLayoutType.Paginate;
+
+//Draw image
+
+image.Draw(page, 20, 400, format);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create Document
+
+PdfDocument doc = new PdfDocument();
+
+//Add new page
+
+PdfPage page = doc.Pages.Add();
+
+//Load a bitmap
+
+FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open, FileAccess.Read);
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Set layout property to make the element break across the pages.
+
+PdfLayoutFormat format = new PdfLayoutFormat();
+
+format.Break = PdfLayoutBreakType.FitPage;
+
+format.Layout = PdfLayoutType.Paginate;
+
+//Draw image
+
+image.Draw(page, 20, 400, format);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create Document
+
+PdfDocument doc = new PdfDocument();
+
+//Add new page
+
+PdfPage page = doc.Pages.Add();
+
+//Load a bitmap
+
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Autumn Leaves.jpg");
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Set layout property to make the element break across the pages.
+
+PdfLayoutFormat format = new PdfLayoutFormat();
+
+format.Break = PdfLayoutBreakType.FitPage;
+
+format.Layout = PdfLayoutType.Paginate;
+
+//Draw image
+
+image.Draw(page, 20, 400, format);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -748,6 +1424,202 @@ doc.Close(True)
 
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create Document
+
+PdfDocument doc = new PdfDocument();
+
+//Add new page
+
+PdfPage page = doc.Pages.Add();
+
+//Load the image as stream
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Data.Assets.input.jpg");
+
+//Load a bitmap.
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//save the current graphics state
+
+PdfGraphicsState state = page.Graphics.Save();
+
+//Translate the coordinate system to the  required position
+
+page.Graphics.TranslateTransform(20, 100);
+
+//Apply transparency
+
+page.Graphics.SetTransparency(0.5f);
+
+//Rotate the coordinate system
+
+page.Graphics.RotateTransform(-45);
+
+// Draw image
+
+image.Draw(page, 0, 0);
+
+//Restore the graphics state
+
+page.Graphics.Restore(state);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create Document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a new page
+
+PdfPage page = doc.Pages.Add();
+
+//Load a image as stream
+
+FileStream imageStream = new FileStream("input.jpg", FileMode.Open, FileAccess.Read);
+
+//Load a bitmap.
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//save the current graphics state
+
+PdfGraphicsState state = page.Graphics.Save();
+
+//Translate the coordinate system to the  required position
+
+page.Graphics.TranslateTransform(20, 100);
+
+//Apply transparency
+
+page.Graphics.SetTransparency(0.5f);
+
+//Rotate the coordinate system
+
+page.Graphics.RotateTransform(-45);
+
+// Draw image
+
+image.Draw(page, 0, 0);
+
+//Restore the graphics state
+
+page.Graphics.Restore(state);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create Document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a new page
+
+PdfPage page = doc.Pages.Add();
+
+//Load a bitmap
+
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.jpg");
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//save the current graphics state
+
+PdfGraphicsState state = page.Graphics.Save();
+
+//Translate the coordinate system to the  required position
+
+page.Graphics.TranslateTransform(20, 100);
+
+//Apply transparency
+
+page.Graphics.SetTransparency(0.5f);
+
+//Rotate the coordinate system
+
+page.Graphics.RotateTransform(-45);
+
+// Draw image
+
+image.Draw(page, 0, 0);
+
+//Restore the graphics state
+
+page.Graphics.Restore(state);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 

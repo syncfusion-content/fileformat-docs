@@ -95,6 +95,163 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+// Create a new instance of PdfDocument class.
+
+PdfDocument document = new PdfDocument();
+
+//Create a new portfolio
+
+document.PortfolioInformation = new PdfPortfolioInformation();
+
+//set the view mode of the portfolio
+
+document.PortfolioInformation.ViewMode = PdfPortfolioViewMode.Tile;
+
+//Create the attachment
+
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Sample.pdf");
+
+PdfAttachment pdfFile = new PdfAttachment("Sample.pdf", pdfStream);
+
+pdfFile.FileName = "Sample.pdf";
+
+//Set the startup document to view
+
+document.PortfolioInformation.StartupDocument = pdfFile;
+
+//Add the attachment to the document
+
+document.Attachments.Add(pdfFile);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+// Create a new instance of PdfDocument class.
+
+PdfDocument document = new PdfDocument();
+
+//Create a new portfolio
+
+document.PortfolioInformation = new PdfPortfolioInformation();
+
+//set the view mode of the portfolio
+
+document.PortfolioInformation.ViewMode = PdfPortfolioViewMode.Tile;
+
+//Create the attachment
+
+FileStream pdfStream = new FileStream("CorporateBrochure.pdf", FileMode.Open, FileAccess.Read);
+
+PdfAttachment pdfFile = new PdfAttachment("CorporateBrochure.pdf", pdfStream);
+
+pdfFile.FileName = "CorporateBrochure.pdf";
+
+//Set the startup document to view
+
+document.PortfolioInformation.StartupDocument = pdfFile;
+
+//Add the attachment to the document
+
+document.Attachments.Add(pdfFile);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+// Create a new instance of PdfDocument class.
+
+PdfDocument document = new PdfDocument();
+
+//Create a new portfolio
+
+document.PortfolioInformation = new PdfPortfolioInformation();
+
+//set the view mode of the portfolio
+
+document.PortfolioInformation.ViewMode = PdfPortfolioViewMode.Tile;
+
+//Create the attachment
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfAttachment pdfFile = new PdfAttachment("Sample.pdf", docStream);
+
+pdfFile.FileName = "Sample.pdf";
+
+//Set the startup document to view
+
+document.PortfolioInformation.StartupDocument = pdfFile;
+
+//Add the attachment to the document
+
+document.Attachments.Add(pdfFile);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 
@@ -168,6 +325,69 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//PDF supports extracting file from PDF Portfolio only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Sample.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Iterate the attachments
+
+foreach (PdfAttachment attachment in document.Attachments)
+
+{
+
+    //Extract the attachment and save to the disk
+
+    FileStream s = new FileStream(attachment.FileName, FileMode.Create);
+
+    s.Write(attachment.Data, 0, attachment.Data.Length);
+
+    s.Dispose();
+
+}
+
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports extracting file from PDF Portfolio only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
  {% endtabs %}  
 
  
@@ -216,6 +436,121 @@ document.Save("Output.pdf")
 document.Close()
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument document = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await document.OpenAsync(file);
+
+//Remove the file from the Portfolio
+
+document.Attachments.RemoveAt(1);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Sample.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Remove the file from the Portfolio
+
+document.Attachments.RemoveAt(0);
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+// Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Remove the file from the Portfolio
+
+document.Attachments.RemoveAt(0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 

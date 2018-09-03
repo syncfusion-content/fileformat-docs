@@ -100,6 +100,161 @@ doc.Save("Output.pdf")
 doc.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates new PDF document
+PdfDocument doc = new PdfDocument();
+
+//Set the document title
+doc.DocumentInformation.Title = "PdfTextElement";
+
+//Creates new page.
+PdfPage page = doc.Pages.Add();
+
+//Initialize the structure element with tag type paragraph.
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
+
+//represents the text that is exact replacement for PdfTextElement
+structureElement.ActualText = "Simple paragraph element";
+
+string text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+
+//Initialize the PDF text element
+PdfTextElement element = new PdfTextElement(text);
+
+//Adding tag to the text element.
+element.PdfTag = structureElement;
+
+//Creates font for the text element
+element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
+
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+//Draws Text
+PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width, 200));
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates new PDF document
+PdfDocument doc = new PdfDocument();
+
+//Set the document title
+doc.DocumentInformation.Title = "PdfTextElement";
+
+//Creates new page.
+PdfPage page = doc.Pages.Add();
+
+//Initialize the structure element with tag type paragraph.
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
+
+//represents the text that is exact replacement for PdfTextElement
+structureElement.ActualText = "Simple paragraph element";
+
+string text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+
+//Initialize the PDF text element
+PdfTextElement element = new PdfTextElement(text);
+
+//Adding tag to the text element.
+element.PdfTag = structureElement;
+
+//Creates font for the text element
+element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
+
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+//Draws Text
+PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width, 200));
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+doc.Close(true);
+
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+
+//Define the file name
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates new PDF document
+PdfDocument doc = new PdfDocument();
+
+//Set the document title
+doc.DocumentInformation.Title = "PdfTextElement";
+
+//Creates new page.
+PdfPage page = doc.Pages.Add();
+
+//Initialize the structure element with tag type paragraph.
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
+
+//represents the text that is exact replacement for PdfTextElement
+structureElement.ActualText = "Simple paragraph element";
+
+string text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+
+//Initialize the PDF text element
+PdfTextElement element = new PdfTextElement(text);
+
+//Adding tag to the text element.
+element.PdfTag = structureElement;
+
+//Creates font for the text element
+element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
+
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+//Draws Text
+PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width, 200));
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+doc.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Adding tag to Image
@@ -179,6 +334,168 @@ doc.Save("Image.pdf")
 doc.Close(True) 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates new PDF document
+PdfDocument doc = new PdfDocument();
+
+//Set the document title
+doc.DocumentInformation.Title = "Image";
+
+//Creates new page.
+PdfPage page = doc.Pages.Add();
+
+//Draw string
+page.Graphics.DrawString("JPEG Image:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(0, 0));
+
+//Load the image as stream
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.syncfusion.jpg");
+
+//Create a new PDF bitmap object
+PdfBitmap bitmap = new PdfBitmap(imageStream);
+
+//Set the tag type.
+PdfStructureElement imageElement = new PdfStructureElement(PdfTagType.Figure);
+
+//Set the alternate text.
+imageElement.AlternateText = "GreenTree";
+
+//adding tag to the PDF image
+bitmap.PdfTag = imageElement;
+
+//Draw image
+bitmap.Draw(page.Graphics, new PointF(50, 20));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Image.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates new PDF document
+PdfDocument doc = new PdfDocument();
+
+//Set the document title
+doc.DocumentInformation.Title = "Image";
+
+//Creates new page.
+PdfPage page = doc.Pages.Add();
+
+//Draw string
+page.Graphics.DrawString("JPEG Image:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(0, 0));
+
+//Load the image as stream
+FileStream imageStream = new FileStream("syncfusion.jpg", FileMode.Open, FileAccess.Read);
+
+//Create a new PDF bitmap object
+PdfBitmap bitmap = new PdfBitmap(imageStream);
+
+//Set the tag type.
+PdfStructureElement imageElement = new PdfStructureElement(PdfTagType.Figure);
+
+//Set the alternate text.
+imageElement.AlternateText = "GreenTree";
+
+//adding tag to the PDF image
+bitmap.PdfTag = imageElement;
+
+//Draw image
+bitmap.Draw(page.Graphics, new PointF(50, 20));
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Image.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates new PDF document
+PdfDocument doc = new PdfDocument();
+
+//Set the document title
+doc.DocumentInformation.Title = "Image";
+
+//Creates new page.
+PdfPage page = doc.Pages.Add();
+
+//Draw string
+page.Graphics.DrawString("JPEG Image:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(0, 0));
+
+//Load the file as stream
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion.jpg");
+
+//Create a new PDF bitmap object
+PdfBitmap bitmap = new PdfBitmap(imageStream);
+
+//Set the tag type.
+PdfStructureElement imageElement = new PdfStructureElement(PdfTagType.Figure);
+
+//Set the alternate text.
+imageElement.AlternateText = "GreenTree";
+
+//adding tag to the PDF image
+bitmap.PdfTag = imageElement;
+
+//Draw image
+bitmap.Draw(page.Graphics, new PointF(50, 20));
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Image.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Image.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Adding tag to Shapes
@@ -258,6 +575,162 @@ line.Draw(page.Graphics)
 doc.Save("Output.pdf")
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Set the document title
+doc.DocumentInformation.Title = "LineShape";
+
+//Add new page
+PdfPage page = doc.Pages.Add();
+
+//Draw text.
+page.Graphics.DrawString("Line Shape:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(30, 80));
+
+//Initialize structure element with tag type as Figure
+PdfStructureElement element = new PdfStructureElement(PdfTagType.Figure);
+
+//Set alternate text
+element.AlternateText = "Line Sample";
+
+//Initialize the line shape
+PdfLine line = new PdfLine(100, 100, 100, 300);
+
+line.Pen = new PdfPen(Color.FromArgb(0,255,0,0));
+
+//Adding tag to the line element
+line.PdfTag = element;
+
+//Draws the line
+line.Draw(page.Graphics);
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Set the document title
+doc.DocumentInformation.Title = "LineShape";
+
+//Add new page
+PdfPage page = doc.Pages.Add();
+
+//Draw text.
+page.Graphics.DrawString("Line Shape:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(30, 80));
+
+//Initialize structure element with tag type as Figure
+PdfStructureElement element = new PdfStructureElement(PdfTagType.Figure);
+
+//Set alternate text
+element.AlternateText = "Line Sample";
+
+//Initialize the line shape
+PdfLine line = new PdfLine(100, 100, 100, 300);
+
+line.Pen = new PdfPen(Color.Red);
+
+//Adding tag to the line element
+line.PdfTag = element;
+
+//Draws the line
+line.Draw(page.Graphics);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Set the document title
+doc.DocumentInformation.Title = "LineShape";
+
+//Add new page
+PdfPage page = doc.Pages.Add();
+
+//Draw text.
+page.Graphics.DrawString("Line Shape:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(30, 80));
+
+//Initialize structure element with tag type as Figure
+PdfStructureElement element = new PdfStructureElement(PdfTagType.Figure);
+
+//Set alternate text
+element.AlternateText = "Line Sample";
+
+//Initialize the line shape
+PdfLine line = new PdfLine(100, 100, 100, 300);
+
+line.Pen = new PdfPen(Syncfusion.Drawing.Color.Red);
+
+//Adding tag to the line element
+line.PdfTag = element;
+
+//Draws the line
+line.Draw(page.Graphics);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Adding tag to Form Fields
@@ -341,6 +814,165 @@ doc.Save("Output.pdf")
 doc.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates new PDF document
+PdfDocument doc = new PdfDocument();
+
+doc.DocumentInformation.Title = "Form Fields";
+
+//Adds new page
+PdfPage page = doc.Pages.Add();
+
+// Create a Text box field.
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "This is form field text box");
+
+//Adding tag to the text box field
+textBoxField.PdfTag = new PdfStructureElement(PdfTagType.Form);
+
+textBoxField.Text = "Filled text box";
+
+//Set properties to the textbox.
+textBoxField.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+textBoxField.BorderColor = new PdfColor(Color.FromArgb(255,0,0,0));
+
+textBoxField.BorderStyle = PdfBorderStyle.Beveled;
+
+textBoxField.Bounds = new RectangleF(200, 0, 90, 20);
+
+textBoxField.ToolTip = "TextBox field";
+
+doc.Form.Fields.Add(textBoxField);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates new PDF document
+PdfDocument doc = new PdfDocument();
+
+doc.DocumentInformation.Title = "Form Fields";
+
+//Adds new page
+PdfPage page = doc.Pages.Add();
+
+// Create a Text box field.
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "This is form field text box");
+
+//Adding tag to the text box field
+textBoxField.PdfTag = new PdfStructureElement(PdfTagType.Form);
+
+textBoxField.Text = "Filled text box";
+
+//Set properties to the textbox.
+textBoxField.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+textBoxField.BorderColor = new PdfColor(Color.Gray);
+
+textBoxField.BorderStyle = PdfBorderStyle.Beveled;
+
+textBoxField.Bounds = new RectangleF(200, 0, 90, 20);
+
+textBoxField.ToolTip = "TextBox field";
+
+doc.Form.Fields.Add(textBoxField);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates new PDF document
+PdfDocument doc = new PdfDocument();
+
+doc.DocumentInformation.Title = "Form Fields";
+
+//Adds new page
+PdfPage page = doc.Pages.Add();
+
+// Create a Text box field.
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "This is form field text box");
+
+//Adding tag to the text box field
+textBoxField.PdfTag = new PdfStructureElement(PdfTagType.Form);
+
+textBoxField.Text = "Filled text box";
+
+//Set properties to the textbox.
+textBoxField.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+textBoxField.BorderColor = new PdfColor(Syncfusion.Drawing.Color.Gray);
+
+textBoxField.BorderStyle = PdfBorderStyle.Beveled;
+
+textBoxField.Bounds = new RectangleF(200, 0, 90, 20);
+
+textBoxField.ToolTip = "TextBox field";
+
+doc.Form.Fields.Add(textBoxField);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Adding tag to Annotation
@@ -434,6 +1066,177 @@ doc.Save("PopupAnnotation.pdf")
 doc.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Set the document title
+doc.DocumentInformation.Title = "LineShape";
+
+//Add new page
+PdfPage page = doc.Pages.Add();
+
+//Initialize the structure element with tag type as annotation
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Annotation);
+
+structureElement.AlternateText = "Popup Annotation";
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
+
+//Adding tag for the annotation
+popupAnnotation.PdfTag = structureElement;
+
+popupAnnotation.Border.Width = 4;
+
+popupAnnotation.Border.HorizontalRadius = 20;
+
+popupAnnotation.Border.VerticalRadius = 30;
+
+//Sets the PDF pop-up icon.
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+
+//Adds this annotation to a new page.
+page.Annotations.Add(popupAnnotation);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "PopupAnnotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Set the document title
+doc.DocumentInformation.Title = "LineShape";
+
+//Add new page
+PdfPage page = doc.Pages.Add();
+
+//Initialize the structure element with tag type as annotation
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Annotation);
+
+structureElement.AlternateText = "Popup Annotation";
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation"
+
+//Adding tag for the annotation
+popupAnnotation.PdfTag = structureElement;
+
+popupAnnotation.Border.Width = 4;
+
+popupAnnotation.Border.HorizontalRadius = 20;
+
+popupAnnotation.Border.VerticalRadius = 30;
+
+//Sets the PDF pop-up icon.
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+
+//Adds this annotation to a new page.
+page.Annotations.Add(popupAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "PopupAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates new PDF document.
+PdfDocument doc = new PdfDocument();
+
+//Set the document title
+doc.DocumentInformation.Title = "LineShape";
+
+//Add new page
+PdfPage page = doc.Pages.Add();
+
+//Initialize the structure element with tag type as annotation
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Annotation);
+
+structureElement.AlternateText = "Popup Annotation";
+
+RectangleF rectangle = new RectangleF(10, 40, 30, 30);
+
+PdfPopupAnnotation popupAnnotation = new PdfPopupAnnotation(rectangle, "Test popup annotation");
+
+//Adding tag for the annotation
+popupAnnotation.PdfTag = structureElement;
+
+popupAnnotation.Border.Width = 4;
+
+popupAnnotation.Border.HorizontalRadius = 20;
+
+popupAnnotation.Border.VerticalRadius = 30;
+
+//Sets the PDF pop-up icon.
+popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
+
+//Adds this annotation to a new page.
+page.Annotations.Add(popupAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("PopupAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("PopupAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Adding tag to Hyperlink
@@ -529,6 +1332,180 @@ document.Save("Output.pdf")
 document.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+document.DocumentInformation.Title = "Link";
+
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+
+//Creates new pdf structure element with tag type link.
+PdfStructureElement linkStructureElement = new PdfStructureElement(PdfTagType.Link);
+
+//Create the font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
+
+//Create the Text Web Link.
+PdfTextWebLink textLink = new PdfTextWebLink();
+
+//Adding tag to text web link.
+textLink.PdfTag = linkStructureElement;
+
+//Set the hyperlink
+textLink.Url = "http://www.syncfusion.com";
+
+//Set the link text
+textLink.Text = "Syncfusion .NET components and controls";
+
+//Set the font
+textLink.Font = font;
+
+textLink.Brush = PdfBrushes.Blue;
+
+//Draw the hyperlink in PDF page
+textLink.DrawTextWebLink(page, new PointF(10, 40));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+document.DocumentInformation.Title = "Link";
+
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+
+//Creates new pdf structure element with tag type link.
+PdfStructureElement linkStructureElement = new PdfStructureElement(PdfTagType.Link);
+
+//Create the font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
+
+//Create the Text Web Link.
+PdfTextWebLink textLink = new PdfTextWebLink();
+
+//Adding tag to text web link.
+textLink.PdfTag = linkStructureElement;
+
+//Set the hyperlink
+textLink.Url = "http://www.syncfusion.com";
+
+//Set the link text
+textLink.Text = "Syncfusion .NET components and controls";
+
+//Set the font
+textLink.Font = font;
+
+textLink.Brush = PdfBrushes.Blue;
+
+//Draw the hyperlink in PDF page
+textLink.DrawTextWebLink(page, new PointF(10, 40));
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+document.DocumentInformation.Title = "Link";
+
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+
+//Creates new pdf structure element with tag type link.
+PdfStructureElement linkStructureElement = new PdfStructureElement(PdfTagType.Link);
+
+//Create the font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
+
+//Create the Text Web Link.
+PdfTextWebLink textLink = new PdfTextWebLink();
+
+//Adding tag to text web link.
+textLink.PdfTag = linkStructureElement;
+
+//Set the hyperlink
+textLink.Url = "http://www.syncfusion.com";
+
+//Set the link text
+textLink.Text = "Syncfusion .NET components and controls";
+
+//Set the font
+textLink.Font = font;
+
+textLink.Brush = PdfBrushes.Blue;
+
+//Draw the hyperlink in PDF page
+textLink.DrawTextWebLink(page, new PointF(10, 40));
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Adding tag to Template
@@ -618,6 +1595,129 @@ pdfDocument.Save("Output.pdf")
 pdfDocument.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+
+pdfDocument.DocumentInformation.Title = "TemplateDocument";
+
+//Add a page to the PDF document.
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+pdfPage.Graphics.DrawString("Rectangle:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(0, 0));
+
+//Create a PDF Template.
+PdfTemplate template = new PdfTemplate(100, 50);
+
+//Initialize the structure element with tag type figure.
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Figure);
+
+//Set alternative description for figure.
+structureElement.AlternateText = "Template Figure";
+
+//Adding tag to the template element.
+template.PdfTag = structureElement;
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+PdfBrush brush = new PdfSolidBrush(Color.Pink);
+
+//Draw rectangle using template graphics
+template.Graphics.DrawRectangle(brush, new RectangleF(0, 30, 150, 90));
+
+//Draw the template on the page graphics of the document.
+pdfPage.Graphics.DrawPdfTemplate(template, PointF.Empty);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+pdfDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+
+pdfDocument.DocumentInformation.Title = "TemplateDocument";
+
+//Add a page to the PDF document.
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+pdfPage.Graphics.DrawString("Rectangle:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(0, 0));
+
+//Create a PDF Template.
+PdfTemplate template = new PdfTemplate(100, 50);
+
+//Initialize the structure element with tag type figure.
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Figure);
+
+//Set alternative description for figure.
+structureElement.AlternateText = "Template Figure";
+
+//Adding tag to the template element.
+template.PdfTag = structureElement;
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.Pink);
+
+//Draw rectangle using template graphics
+template.Graphics.DrawRectangle(brush, new RectangleF(0, 30, 150, 90));
+
+//Draw the template on the page graphics of the document.
+pdfPage.Graphics.DrawPdfTemplate(template, PointF.Empty);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Adding tag to Table
@@ -783,6 +1883,282 @@ pdfDocument.Save("Output.pdf")
 pdfDocument.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document.
+PdfDocument pdfDocument = new PdfDocument();
+
+pdfDocument.DocumentInformation.Title = "Table";
+
+//Adds new page
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Initialize the new structure element with tag type table
+PdfStructureElement element = new PdfStructureElement(PdfTagType.Table);
+
+//Create a new PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+
+//Adding tag to PDF grid.
+pdfGrid.PdfTag = element;
+
+//Add three columns.
+pdfGrid.Columns.Add(3);
+
+//Add header.
+pdfGrid.Headers.Add(1);
+
+PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
+
+pdfGridHeader.Style.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
+
+pdfGridHeader.Style.TextBrush = PdfBrushes.Brown;
+
+//Adding tag for each row with tag type TR
+pdfGridHeader.PdfTag = new PdfStructureElement(PdfTagType.TableRow);
+
+pdfGridHeader.Cells[0].Value = "Employee ID";
+
+//Adding tag for header cell with tag type TH
+pdfGridHeader.Cells[0].PdfTag = new PdfStructureElement(PdfTagType.TableHeader);
+
+pdfGridHeader.Cells[1].Value = "Employee Name";
+
+//Adding tag for header cell with tag type TH
+pdfGridHeader.Cells[1].PdfTag = new PdfStructureElement(PdfTagType.TableHeader);
+
+pdfGridHeader.Cells[2].Value = "Salary";
+
+//Adding tag for header cell with tag type TH
+pdfGridHeader.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableHeader);
+
+//Add rows.
+PdfGridRow pdfGridRow = pdfGrid.Rows.Add();
+
+pdfGridRow.PdfTag = new PdfStructureElement(PdfTagType.TableRow);
+
+pdfGridRow.Cells[0].Value = "E01";
+
+pdfGridRow.Cells[1].Value = "Clay";
+
+pdfGridRow.Cells[2].Value = "$10,000";
+
+//Adding tag for each cell with tag type TD
+pdfGridRow.Cells[0].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
+
+pdfGridRow.Cells[1].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
+
+pdfGridRow.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
+
+//Draw the PdfGrid.
+pdfGrid.Draw(pdfPage, PointF.Empty);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDocument.SaveAsync(stream);
+
+//Close the document
+
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document.
+PdfDocument pdfDocument = new PdfDocument();
+
+pdfDocument.DocumentInformation.Title = "Table";
+
+//Adds new page
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Initialize the new structure element with tag type table
+PdfStructureElement element = new PdfStructureElement(PdfTagType.Table);
+
+//Create a new PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+
+//Adding tag to PDF grid.
+pdfGrid.PdfTag = element;
+
+//Add three columns.
+pdfGrid.Columns.Add(3);
+
+//Add header.
+pdfGrid.Headers.Add(1);
+
+PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
+
+pdfGridHeader.Style.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
+
+pdfGridHeader.Style.TextBrush = PdfBrushes.Brown;
+
+//Adding tag for each row with tag type TR
+pdfGridHeader.PdfTag = new PdfStructureElement(PdfTagType.TableRow);
+
+pdfGridHeader.Cells[0].Value = "Employee ID";
+
+//Adding tag for header cell with tag type TH
+pdfGridHeader.Cells[0].PdfTag = new PdfStructureElement(PdfTagType.TableHeader);
+
+pdfGridHeader.Cells[1].Value = "Employee Name";
+
+//Adding tag for header cell with tag type TH
+pdfGridHeader.Cells[1].PdfTag = new PdfStructureElement(PdfTagType.TableHeader);
+
+pdfGridHeader.Cells[2].Value = "Salary";
+
+//Adding tag for header cell with tag type TH
+pdfGridHeader.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableHeader);
+
+//Add rows.
+PdfGridRow pdfGridRow = pdfGrid.Rows.Add();
+
+pdfGridRow.PdfTag = new PdfStructureElement(PdfTagType.TableRow);
+
+pdfGridRow.Cells[0].Value = "E01";
+
+pdfGridRow.Cells[1].Value = "Clay";
+
+pdfGridRow.Cells[2].Value = "$10,000";
+
+//Adding tag for each cell with tag type TD
+pdfGridRow.Cells[0].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
+
+pdfGridRow.Cells[1].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
+
+pdfGridRow.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
+
+//Draw the PdfGrid.
+pdfGrid.Draw(pdfPage, PointF.Empty);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+pdfDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document.
+PdfDocument pdfDocument = new PdfDocument();
+
+pdfDocument.DocumentInformation.Title = "Table";
+
+//Adds new page
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Initialize the new structure element with tag type table
+PdfStructureElement element = new PdfStructureElement(PdfTagType.Table);
+
+//Create a new PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+
+//Adding tag to PDF grid.
+pdfGrid.PdfTag = element;
+
+//Add three columns.
+pdfGrid.Columns.Add(3);
+
+//Add header.
+pdfGrid.Headers.Add(1);
+
+PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
+
+pdfGridHeader.Style.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
+
+pdfGridHeader.Style.TextBrush = PdfBrushes.Brown;
+
+//Adding tag for each row with tag type TR
+pdfGridHeader.PdfTag = new PdfStructureElement(PdfTagType.TableRow);
+
+pdfGridHeader.Cells[0].Value = "Employee ID";
+
+//Adding tag for header cell with tag type TH
+pdfGridHeader.Cells[0].PdfTag = new PdfStructureElement(PdfTagType.TableHeader);
+
+pdfGridHeader.Cells[1].Value = "Employee Name";
+
+//Adding tag for header cell with tag type TH
+pdfGridHeader.Cells[1].PdfTag = new PdfStructureElement(PdfTagType.TableHeader);
+
+pdfGridHeader.Cells[2].Value = "Salary";
+
+//Adding tag for header cell with tag type TH
+pdfGridHeader.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableHeader);
+
+//Add rows.
+PdfGridRow pdfGridRow = pdfGrid.Rows.Add();
+
+pdfGridRow.PdfTag = new PdfStructureElement(PdfTagType.TableRow);
+
+pdfGridRow.Cells[0].Value = "E01";
+
+pdfGridRow.Cells[1].Value = "Clay";
+
+pdfGridRow.Cells[2].Value = "$10,000";
+
+//Adding tag for each cell with tag type TD
+pdfGridRow.Cells[0].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
+
+pdfGridRow.Cells[1].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
+
+pdfGridRow.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
+
+//Draw the PdfGrid.
+pdfGrid.Draw(pdfPage, PointF.Empty);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Adding tag to List Element
@@ -919,6 +2295,240 @@ document.Save("Output.pdf")
 document.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Sets document title
+document.DocumentInformation.Title = "List";
+
+//Add a new page to the document.
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+SizeF size = page.Graphics.ClientSize;
+
+//Create font
+PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Italic);
+
+graphics.DrawString("List:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(10, 0));
+
+string[] products = { "Tools", "Grid", "Chart", "Edit", "Diagram", "XlsIO", "Grouping", "Calculate", "PDF", "HTMLUI", "DocIO" };
+
+//Create string format
+PdfStringFormat format = new PdfStringFormat();
+
+format.LineSpacing = 10f;
+
+//Initialize new structure element with tag type List.
+PdfStructureElement listElement = new PdfStructureElement(PdfTagType.List);
+
+//Create Ordered list
+PdfOrderedList pdfList = new PdfOrderedList();
+
+//Adding tag for list element
+pdfList.PdfTag = listElement;
+
+pdfList.Marker.Brush = PdfBrushes.Black;
+
+pdfList.Indent = 20;
+
+//Set format for sub list
+pdfList.Font = font;
+
+pdfList.StringFormat = format;
+
+for (int i = 0; i < products.Length; i++)
+{
+    pdfList.Items.Add(string.Concat("Essential ", products[i]));
+
+    //Adding tag for the list item
+    pdfList.Items[i].PdfTag = new PdfStructureElement(PdfTagType.ListItem);
+}
+
+//Draw the list
+pdfList.Draw(page, new RectangleF(0, 20, size.Width, size.Height));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Sets document title
+document.DocumentInformation.Title = "List";
+
+//Add a new page to the document.
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+SizeF size = page.Graphics.ClientSize;
+
+//Create font
+PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Italic);
+
+graphics.DrawString("List:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(10, 0));
+
+string[] products = { "Tools", "Grid", "Chart", "Edit", "Diagram", "XlsIO", "Grouping", "Calculate", "PDF", "HTMLUI", "DocIO" };
+
+//Create string format
+PdfStringFormat format = new PdfStringFormat();
+
+format.LineSpacing = 10f;
+
+//Initialize new structure element with tag type List.
+PdfStructureElement listElement = new PdfStructureElement(PdfTagType.List);
+
+//Create Ordered list
+PdfOrderedList pdfList = new PdfOrderedList();
+
+//Adding tag for list element
+pdfList.PdfTag = listElement;
+
+pdfList.Marker.Brush = PdfBrushes.Black;
+
+pdfList.Indent = 20;
+
+//Set format for sub list
+pdfList.Font = font;
+
+pdfList.StringFormat = format;
+
+for (int i = 0; i < products.Length; i++)
+{
+    pdfList.Items.Add(string.Concat("Essential ", products[i]));
+
+    //Adding tag for the list item
+    pdfList.Items[i].PdfTag = new PdfStructureElement(PdfTagType.ListItem);
+}
+
+//Draw the list
+pdfList.Draw(page, new RectangleF(0, 20, size.Width, size.Height));
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Sets document title
+document.DocumentInformation.Title = "List";
+
+//Add a new page to the document.
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+SizeF size = page.Graphics.ClientSize;
+
+//Create font
+PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Italic);
+
+graphics.DrawString("List:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(10, 0));
+
+string[] products = { "Tools", "Grid", "Chart", "Edit", "Diagram", "XlsIO", "Grouping", "Calculate", "PDF", "HTMLUI", "DocIO" };
+
+//Create string format
+PdfStringFormat format = new PdfStringFormat();
+
+format.LineSpacing = 10f;
+
+//Initialize new structure element with tag type List.
+PdfStructureElement listElement = new PdfStructureElement(PdfTagType.List);
+
+//Create Ordered list
+PdfOrderedList pdfList = new PdfOrderedList();
+
+//Adding tag for list element
+pdfList.PdfTag = listElement;
+
+pdfList.Marker.Brush = PdfBrushes.Black;
+
+pdfList.Indent = 20;
+
+//Set format for sub list
+pdfList.Font = font;
+
+pdfList.StringFormat = format;
+
+for (int i = 0; i < products.Length; i++)
+{
+    pdfList.Items.Add(string.Concat("Essential ", products[i]));
+
+    //Adding tag for the list item
+    pdfList.Items[i].PdfTag = new PdfStructureElement(PdfTagType.ListItem);
+}
+
+//Draw the list
+pdfList.Draw(page, new RectangleF(0, 20, size.Width, size.Height));
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Marking PDF content as an Artifact
@@ -1059,6 +2669,255 @@ pdfDocument.Save("HeaderFooter.pdf")
 pdfDocument.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+
+//Add a page to the PDF document
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+pdfDocument.DocumentInformation.Title = "HeaderFooter";
+
+//Creating artifact type for the header
+PdfArtifact headerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new RectangleF(30, 40, 100, 100), new PdfAttached(PdfEdge.Top
+
+//Create a header and draw the image.
+RectangleF bounds = new RectangleF(0, 0, pdfDocument.Pages[0].GetClientSize().Width, 50);
+
+PdfPageTemplateElement header = new PdfPageTemplateElement(bounds);
+
+//Adding artifact to the header
+header.PdfTag = headerArtifact;
+
+//Load the image as stream
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.syncfusion.jpg");
+PdfImage image = new PdfBitmap(imageStream);
+
+//Draw the image in the header.            
+header.Graphics.DrawImage(image, new PointF(200, 0), new SizeF(100, 50));
+
+//Add the header at the top.
+pdfDocument.Template.Top = header;
+
+//Creating artifact type for the footer
+PdfArtifact footerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new PdfAttached(PdfEdge.Bottom), PdfArtifactSubType.Footer);
+
+//Create a Page template that can be used as footer.
+PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
+
+PdfBrush brush = new PdfSolidBrush(Color.FromArgb(0,0,0,0));
+
+//Create page number field.
+PdfPageNumberField pageNumber = new PdfPageNumberField(font, brush);
+
+//Create page count field.
+PdfPageCountField count = new PdfPageCountField(font, brush);
+
+//Add the fields in composite fields.
+PdfCompositeField compositeField = new PdfCompositeField(font, brush, "Page {0} of {1}", pageNumber, count);
+
+compositeField.Bounds = footer.Bounds;
+
+//Adding artifact type to the footer.
+compositeField.PdfTag = footerArtifact;
+
+//Draw the composite field in footer.
+compositeField.Draw(footer.Graphics, new PointF(470, 40));
+
+//Add the footer template at the bottom.
+pdfDocument.Template.Bottom = footer;
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDocument.SaveAsync(stream);
+
+//Close the document
+
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "HeaderFooter.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+
+//Add a page to the PDF document
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+pdfDocument.DocumentInformation.Title = "HeaderFooter";
+
+//Creating artifact type for the header
+PdfArtifact headerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new RectangleF(30, 40, 100, 100), new PdfAttached(PdfEdge.Top), PdfArtifactSubType.Header);
+
+//Create a header and draw the image.
+RectangleF bounds = new RectangleF(0, 0, pdfDocument.Pages[0].GetClientSize().Width, 50);
+
+PdfPageTemplateElement header = new PdfPageTemplateElement(bounds);
+
+//Adding artifact to the header
+header.PdfTag = headerArtifact;
+
+//Load the image as stream
+FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open, FileAccess.Read);
+PdfImage image = new PdfBitmap(imageStream);
+
+//Draw the image in the header.            
+header.Graphics.DrawImage(image, new PointF(200, 0), new SizeF(100, 50));
+
+//Add the header at the top.
+pdfDocument.Template.Top = header;
+
+//Creating artifact type for the footer
+PdfArtifact footerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new PdfAttached(PdfEdge.Bottom), PdfArtifactSubType.Footer);
+
+//Create a Page template that can be used as footer.
+PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
+
+PdfBrush brush = new PdfSolidBrush(Color.Black);
+
+//Create page number field.
+PdfPageNumberField pageNumber = new PdfPageNumberField(font, brush);
+
+//Create page count field.
+PdfPageCountField count = new PdfPageCountField(font, brush);
+
+//Add the fields in composite fields.
+PdfCompositeField compositeField = new PdfCompositeField(font, brush, "Page {0} of {1}", pageNumber, count);
+
+compositeField.Bounds = footer.Bounds;
+
+//Adding artifact type to the footer.
+compositeField.PdfTag = footerArtifact;
+
+//Draw the composite field in footer.
+compositeField.Draw(footer.Graphics, new PointF(470, 40));
+
+//Add the footer template at the bottom.
+pdfDocument.Template.Bottom = footer;
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+pdfDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "HeaderFooter.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+
+//Add a page to the PDF document
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+pdfDocument.DocumentInformation.Title = "HeaderFooter";
+
+//Creating artifact type for the header
+PdfArtifact headerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new RectangleF(30, 40, 100, 100), new PdfAttached(PdfEdge.Top), PdfArtifactSubType.Header);
+
+//Create a header and draw the image.
+RectangleF bounds = new RectangleF(0, 0, pdfDocument.Pages[0].GetClientSize().Width, 50);
+
+PdfPageTemplateElement header = new PdfPageTemplateElement(bounds);
+
+//Adding artifact to the header
+header.PdfTag = headerArtifact;
+
+//Load the file as stream
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Signature.Assets.Autumn Leaves.jpg");
+PdfImage image = new PdfBitmap(imageStream);
+
+//Draw the image in the header.            
+header.Graphics.DrawImage(image, new PointF(200, 0), new SizeF(100, 50));
+
+//Add the header at the top.
+pdfDocument.Template.Top = header;
+
+//Creating artifact type for the footer
+PdfArtifact footerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new PdfAttached(PdfEdge.Bottom), PdfArtifactSubType.Footer);
+
+//Create a Page template that can be used as footer.
+PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
+
+PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.Black);
+
+//Create page number field.
+PdfPageNumberField pageNumber = new PdfPageNumberField(font, brush);
+
+//Create page count field.
+PdfPageCountField count = new PdfPageCountField(font, brush);
+
+//Add the fields in composite fields.
+PdfCompositeField compositeField = new PdfCompositeField(font, brush, "Page {0} of {1}", pageNumber, count);
+
+compositeField.Bounds = footer.Bounds;
+
+//Adding artifact type to the footer.
+compositeField.PdfTag = footerArtifact;
+
+//Draw the composite field in footer.
+compositeField.Draw(footer.Graphics, new PointF(470, 40));
+
+//Add the footer template at the bottom.
+pdfDocument.Template.Bottom = footer;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("HeaderFooter.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("HeaderFooter.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Tag Reading Order
@@ -1196,6 +3055,246 @@ document.Save("Output.pdf")
 document.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Sets document title
+document.DocumentInformation.Title = "Order";
+
+//Add a new page to the document.
+PdfPage page = document.Pages.Add();
+
+//Initialize the structure element with tag type paragraph.
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
+
+//Order the tag in third position.
+structureElement.Order = 3;
+
+PdfTextElement element = new PdfTextElement("This is paragraph ONE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+//Adding tag to the text element
+element.PdfTag = structureElement;
+
+element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200));
+
+//Initialize the structure element with tag type paragraph.
+PdfStructureElement paraStruct1 = new PdfStructureElement(PdfTagType.Paragraph);
+
+//Order the tag in first position
+paraStruct1.Order = 1;
+
+//Creates new text element
+PdfTextElement element1 = new PdfTextElement("This is paragraph TWO.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element1.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+//Adding tag to the text element
+element1.PdfTag = paraStruct1;
+
+element1.Draw(page, new RectangleF(0, 50, page.Graphics.ClientSize.Width / 2, 200));
+
+//Initialize the structure element with tag type paragraph.
+PdfStructureElement paraStruct2 = new PdfStructureElement(PdfTagType.Paragraph);
+
+//Order the tag in second position
+paraStruct2.Order = 2;
+
+//Creates new text element
+PdfTextElement element2 = new PdfTextElement("This is paragraph THREE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element2.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+//Adding tag to the text element
+element2.PdfTag = paraStruct2;
+
+element2.Draw(page.Graphics, new PointF(0, 100));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Sets document title
+document.DocumentInformation.Title = "Order";
+
+//Add a new page to the document.
+PdfPage page = document.Pages.Add();
+
+//Initialize the structure element with tag type paragraph.
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
+
+//Order the tag in third position.
+structureElement.Order = 3;
+
+PdfTextElement element = new PdfTextElement("This is paragraph ONE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+//Adding tag to the text element
+element.PdfTag = structureElement;
+
+element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200));
+
+//Initialize the structure element with tag type paragraph.
+PdfStructureElement paraStruct1 = new PdfStructureElement(PdfTagType.Paragraph);
+
+//Order the tag in first position
+paraStruct1.Order = 1;
+
+//Creates new text element
+PdfTextElement element1 = new PdfTextElement("This is paragraph TWO.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element1.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+//Adding tag to the text element
+element1.PdfTag = paraStruct1;
+
+element1.Draw(page, new RectangleF(0, 50, page.Graphics.ClientSize.Width / 2, 200));
+
+//Initialize the structure element with tag type paragraph.
+PdfStructureElement paraStruct2 = new PdfStructureElement(PdfTagType.Paragraph);
+
+//Order the tag in second position
+paraStruct2.Order = 2;
+
+//Creates new text element
+PdfTextElement element2 = new PdfTextElement("This is paragraph THREE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element2.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+//Adding tag to the text element
+element2.PdfTag = paraStruct2;
+
+element2.Draw(page.Graphics, new PointF(0, 100));
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Sets document title
+document.DocumentInformation.Title = "Order";
+
+//Add a new page to the document.
+PdfPage page = document.Pages.Add();
+
+//Initialize the structure element with tag type paragraph.
+PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
+
+//Order the tag in third position.
+structureElement.Order = 3;
+
+PdfTextElement element = new PdfTextElement("This is paragraph ONE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+//Adding tag to the text element
+element.PdfTag = structureElement;
+
+element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200));
+
+//Initialize the structure element with tag type paragraph.
+PdfStructureElement paraStruct1 = new PdfStructureElement(PdfTagType.Paragraph);
+
+//Order the tag in first position
+paraStruct1.Order = 1;
+
+//Creates new text element
+PdfTextElement element1 = new PdfTextElement("This is paragraph TWO.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element1.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+//Adding tag to the text element
+element1.PdfTag = paraStruct1;
+
+element1.Draw(page, new RectangleF(0, 50, page.Graphics.ClientSize.Width / 2, 200));
+
+//Initialize the structure element with tag type paragraph.
+PdfStructureElement paraStruct2 = new PdfStructureElement(PdfTagType.Paragraph);
+
+//Order the tag in second position
+paraStruct2.Order = 2;
+
+//Creates new text element
+PdfTextElement element2 = new PdfTextElement("This is paragraph THREE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element2.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+//Adding tag to the text element
+element2.PdfTag = paraStruct2;
+
+element2.Draw(page.Graphics, new PointF(0, 100));
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Auto Tagging a new document
@@ -1287,6 +3386,174 @@ document.Save("AutoTag.pdf")
 document.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates new PDF document
+PdfDocument document = new PdfDocument();
+
+//Set true to auto tag all elements in document
+document.AutoTag = true;
+
+document.DocumentInformation.Title = "AutoTag";
+
+// Add a new page to the document.
+PdfPage page = document.Pages.Add();
+
+//Creates new text element
+PdfTextElement element = new PdfTextElement("This is paragraph ONE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200));
+
+//Creates new text element
+PdfTextElement element1 = new PdfTextElement("This is paragraph TWO.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element1.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+element1.Draw(page, new RectangleF(0, 50, page.Graphics.ClientSize.Width / 2, 200));
+
+//Creates new text element
+PdfTextElement element2 = new PdfTextElement("This is paragraph THREE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element2.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+element2.Draw(page.Graphics, new PointF(0, 100));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "AutoTag.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates new PDF document
+PdfDocument document = new PdfDocument();
+
+//Set true to auto tag all elements in document
+document.AutoTag = true;
+
+document.DocumentInformation.Title = "AutoTag";
+
+// Add a new page to the document.
+PdfPage page = document.Pages.Add();
+
+//Creates new text element
+PdfTextElement element = new PdfTextElement("This is paragraph ONE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200));
+
+//Creates new text element
+PdfTextElement element1 = new PdfTextElement("This is paragraph TWO.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element1.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+element1.Draw(page, new RectangleF(0, 50, page.Graphics.ClientSize.Width / 2, 200));
+
+//Creates new text element
+PdfTextElement element2 = new PdfTextElement("This is paragraph THREE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element2.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+element2.Draw(page.Graphics, new PointF(0, 100));
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "AutoTag.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates new PDF document
+PdfDocument document = new PdfDocument();
+
+//Set true to auto tag all elements in document
+document.AutoTag = true;
+
+document.DocumentInformation.Title = "AutoTag";
+
+// Add a new page to the document.
+PdfPage page = document.Pages.Add();
+
+//Creates new text element
+PdfTextElement element = new PdfTextElement("This is paragraph ONE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200));
+
+//Creates new text element
+PdfTextElement element1 = new PdfTextElement("This is paragraph TWO.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element1.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+element1.Draw(page, new RectangleF(0, 50, page.Graphics.ClientSize.Width / 2, 200));
+
+//Creates new text element
+PdfTextElement element2 = new PdfTextElement("This is paragraph THREE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
+
+element2.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+
+element2.Draw(page.Graphics, new PointF(0, 100));
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("AutoTag.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("AutoTag.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 N> Once the document is auto tagged, and if any element tagged manually then manually tagged element takes the precedence.
@@ -1371,6 +3638,7 @@ document.Close(True)
 
 
 {% endhighlight %}
+
 {% endtabs %}
 
 N> Hyperlinks are not supported in tagged PDF
