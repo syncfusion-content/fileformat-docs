@@ -138,6 +138,180 @@ pdfDocument.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Adds a page to the PDF document
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = pdfPage.Graphics;
+
+//Creates CalGray color space.
+
+PdfCalGrayColorSpace calGrayColorSpace = new PdfCalGrayColorSpace();
+
+//Updates color values.
+
+calGrayColorSpace.Gamma = 0.7;
+
+calGrayColorSpace.WhitePoint = new double[] { 0.2, 1, 0.8 };
+
+PdfCalGrayColor calGrayColorSpace1 = new PdfCalGrayColor(calGrayColorSpace);
+
+calGrayColorSpace1.Gray = 0.1;
+
+PdfBrush brush = new PdfSolidBrush(calGrayColorSpace1);
+
+RectangleF bounds = new RectangleF(0, 0, 300, 300);
+
+//Draws rectangle by using the PdfBrush
+
+graphics.DrawRectangle(brush, bounds);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDocument.SaveAsync(stream);
+
+//Close the document
+
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Adds a page to the PDF document
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = pdfPage.Graphics;
+
+//Creates CalGray color space.
+
+PdfCalGrayColorSpace calGrayColorSpace = new PdfCalGrayColorSpace();
+
+//Updates color values.
+
+calGrayColorSpace.Gamma = 0.7;
+
+calGrayColorSpace.WhitePoint = new double[] { 0.2, 1, 0.8 };
+
+PdfCalGrayColor calGrayColorSpace1 = new PdfCalGrayColor(calGrayColorSpace);
+
+calGrayColorSpace1.Gray = 0.1;
+
+PdfBrush brush = new PdfSolidBrush(calGrayColorSpace1);
+
+RectangleF bounds = new RectangleF(0, 0, 300, 300);
+
+//Draws rectangle by using the PdfBrush
+
+graphics.DrawRectangle(brush, bounds);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+pdfDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Adds a page to the PDF document
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = pdfPage.Graphics;
+
+//Creates CalGray color space.
+
+PdfCalGrayColorSpace calGrayColorSpace = new PdfCalGrayColorSpace();
+
+//Updates color values.
+
+calGrayColorSpace.Gamma = 0.7;
+
+calGrayColorSpace.WhitePoint = new double[] { 0.2, 1, 0.8 };
+
+PdfCalGrayColor calGrayColorSpace1 = new PdfCalGrayColor(calGrayColorSpace);
+
+calGrayColorSpace1.Gray = 0.1;
+
+PdfBrush brush = new PdfSolidBrush(calGrayColorSpace1);
+
+RectangleF bounds = new RectangleF(0, 0, 300, 300);
+
+//Draws rectangle by using the PdfBrush
+
+graphics.DrawRectangle(brush, bounds);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 The following code example illustrates how to draw a rectangle with **CalGray** brush in existing PDF document.
@@ -241,6 +415,198 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Loads the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = loadedPage.Graphics;
+
+//Creates CalGray color space.
+
+PdfCalGrayColorSpace calGrayColorSpace = new PdfCalGrayColorSpace();
+
+//Updates color values.
+
+calGrayColorSpace.Gamma = 0.7;
+
+calGrayColorSpace.WhitePoint = new double[] { 0.2, 1, 0.8 };
+
+PdfCalGrayColor calGrayColorSpace1 = new PdfCalGrayColor(calGrayColorSpace);
+
+calGrayColorSpace1.Gray = 0.1;
+
+PdfBrush brush = new PdfSolidBrush(calGrayColorSpace1);
+
+RectangleF bounds = new RectangleF(0, 0, 300, 300);
+
+//Draws rectangle by using the PdfBrush
+
+graphics.DrawRectangle(brush, bounds);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Loads the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = loadedPage.Graphics;
+
+//Creates CalGray color space.
+
+PdfCalGrayColorSpace calGrayColorSpace = new PdfCalGrayColorSpace();
+
+//Updates color values.
+
+calGrayColorSpace.Gamma = 0.7;
+
+calGrayColorSpace.WhitePoint = new double[] { 0.2, 1, 0.8 };
+
+PdfCalGrayColor calGrayColorSpace1 = new PdfCalGrayColor(calGrayColorSpace);
+
+calGrayColorSpace1.Gray = 0.1;
+
+PdfBrush brush = new PdfSolidBrush(calGrayColorSpace1);
+
+RectangleF bounds = new RectangleF(0, 0, 300, 300);
+
+//Draws rectangle by using the PdfBrush
+
+graphics.DrawRectangle(brush, bounds);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Loads the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = loadedPage.Graphics;
+
+//Creates CalGray color space.
+
+PdfCalGrayColorSpace calGrayColorSpace = new PdfCalGrayColorSpace();
+
+//Updates color values.
+
+calGrayColorSpace.Gamma = 0.7;
+
+calGrayColorSpace.WhitePoint = new double[] { 0.2, 1, 0.8 };
+
+PdfCalGrayColor calGrayColorSpace1 = new PdfCalGrayColor(calGrayColorSpace);
+
+calGrayColorSpace1.Gray = 0.1;
+
+PdfBrush brush = new PdfSolidBrush(calGrayColorSpace1);
+
+RectangleF bounds = new RectangleF(0, 0, 300, 300);
+
+//Draws rectangle by using the PdfBrush
+
+graphics.DrawRectangle(brush, bounds);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## ICC-based Color Spaces
@@ -396,6 +762,246 @@ pdfDocument.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Adds a page to the PDF document.
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = pdfPage.Graphics;
+
+//Creates ICCBased color space.
+
+PdfCalRGBColorSpace calRgbCS = new PdfCalRGBColorSpace();
+
+calRgbCS.Gamma = new double[] { 7.6, 5.1, 8.5 };
+
+calRgbCS.Matrix = new double[] { 1, 0, 0, 0, 1, 0, 0, 0, 1 };
+
+calRgbCS.WhitePoint = new double[] { 0.7, 1, 0.8 };
+
+//Reads the ICC profile.
+
+Stream fileStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.icc");
+
+byte[] profileData = new byte[fileStream.Length];
+
+fileStream.Read(profileData, 0, profileData.Length);
+
+fileStream.Dispose();
+
+//Instantiates ICC color space.
+
+PdfICCColorSpace iccBasedCS = new PdfICCColorSpace();
+
+iccBasedCS.ProfileData = profileData;
+
+iccBasedCS.AlternateColorSpace = calRgbCS;
+
+iccBasedCS.ColorComponents = 3;
+
+iccBasedCS.Range = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 };
+
+PdfICCColor red = new PdfICCColor(iccBasedCS);
+
+red.ColorComponents = new double[] { 1, 0, 1 };
+
+PdfBrush brush = new PdfSolidBrush(red);
+
+RectangleF bounds = new RectangleF(0, 0, 300, 300);
+
+//Draws rectangle by using the PdfBrush.
+
+graphics.DrawRectangle(brush, bounds);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDocument.SaveAsync(stream);
+
+//Close the document
+
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Adds a page to the PDF document.
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = pdfPage.Graphics;
+
+//Creates ICCBased color space.
+
+PdfCalRGBColorSpace calRgbCS = new PdfCalRGBColorSpace();
+
+calRgbCS.Gamma = new double[] { 7.6, 5.1, 8.5 };
+
+calRgbCS.Matrix = new double[] { 1, 0, 0, 0, 1, 0, 0, 0, 1 };
+
+calRgbCS.WhitePoint = new double[] { 0.7, 1, 0.8 };
+
+//Reads the ICC profile.
+
+FileStream fileStream = new FileStream(@"input.icc", FileMode.Open, FileAccess.Read);
+
+byte[] profileData = new byte[fileStream.Length];
+
+fileStream.Read(profileData, 0, profileData.Length);
+
+fileStream.Close();
+
+//Instantiates ICC color space.
+
+PdfICCColorSpace iccBasedCS = new PdfICCColorSpace();
+
+iccBasedCS.ProfileData = profileData;
+
+iccBasedCS.AlternateColorSpace = calRgbCS;
+
+iccBasedCS.ColorComponents = 3;
+
+iccBasedCS.Range = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 };
+
+PdfICCColor red = new PdfICCColor(iccBasedCS);
+
+red.ColorComponents = new double[] { 1, 0, 1 };
+
+PdfBrush brush = new PdfSolidBrush(red);
+
+RectangleF bounds = new RectangleF(0, 0, 300, 300);
+
+//Draws rectangle by using the PdfBrush.
+
+graphics.DrawRectangle(brush, bounds);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+pdfDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Adds a page to the PDF document.
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = pdfPage.Graphics;
+
+//Creates ICCBased color space.
+
+PdfCalRGBColorSpace calRgbCS = new PdfCalRGBColorSpace();
+
+calRgbCS.Gamma = new double[] { 7.6, 5.1, 8.5 };
+
+calRgbCS.Matrix = new double[] { 1, 0, 0, 0, 1, 0, 0, 0, 1 };
+
+calRgbCS.WhitePoint = new double[] { 0.7, 1, 0.8 };
+
+//Reads the ICC profile.
+
+Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.icc");
+
+byte[] profileData = new byte[fileStream.Length];
+
+fileStream.Read(profileData, 0, profileData.Length);
+
+fileStream.Close();
+
+//Instantiates ICC color space.
+
+PdfICCColorSpace iccBasedCS = new PdfICCColorSpace();
+
+iccBasedCS.ProfileData = profileData;
+
+iccBasedCS.AlternateColorSpace = calRgbCS;
+
+iccBasedCS.ColorComponents = 3;
+
+iccBasedCS.Range = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 };
+
+PdfICCColor red = new PdfICCColor(iccBasedCS);
+
+red.ColorComponents = new double[] { 1, 0, 1 };
+
+PdfBrush brush = new PdfSolidBrush(red);
+
+RectangleF bounds = new RectangleF(0, 0, 300, 300);
+
+//Draws rectangle by using the PdfBrush.
+
+graphics.DrawRectangle(brush, bounds);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 The following code example illustrates how to set the indexed ICC color space in existing PDF document.
@@ -522,6 +1128,264 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Loads the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = loadedPage.Graphics;
+
+//Creates ICCBased color space.
+
+PdfCalRGBColorSpace calRgbCS = new PdfCalRGBColorSpace();
+
+calRgbCS.Gamma = new double[] { 7.6, 5.1, 8.5 };
+
+calRgbCS.Matrix = new double[] { 1, 0, 0, 0, 1, 0, 0, 0, 1 };
+
+calRgbCS.WhitePoint = new double[] { 0.7, 1, 0.8 };
+
+//Reads the ICC profile.
+
+Stream fileStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.icc");
+
+byte[] profileData = new byte[fileStream.Length];
+
+fileStream.Read(profileData, 0, profileData.Length);
+
+fileStream.Dispose();
+
+//Instantiates ICC color space.
+
+PdfICCColorSpace iccBasedCS = new PdfICCColorSpace();
+
+iccBasedCS.ProfileData = profileData;
+
+iccBasedCS.AlternateColorSpace = calRgbCS;
+
+iccBasedCS.ColorComponents = 3;
+
+iccBasedCS.Range = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 };
+
+PdfICCColor red = new PdfICCColor(iccBasedCS);
+
+red.ColorComponents = new double[] { 1, 0, 1 };
+
+PdfBrush brush = new PdfSolidBrush(red);
+
+RectangleF bounds = new RectangleF(0, 0, 300, 300);
+
+//Draws rectangle by using the PdfBrush.
+
+graphics.DrawRectangle(brush, bounds);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Loads the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = loadedPage.Graphics;
+
+//Creates ICCBased color space.
+
+PdfCalRGBColorSpace calRgbCS = new PdfCalRGBColorSpace();
+
+calRgbCS.Gamma = new double[] { 7.6, 5.1, 8.5 };
+
+calRgbCS.Matrix = new double[] { 1, 0, 0, 0, 1, 0, 0, 0, 1 };
+
+calRgbCS.WhitePoint = new double[] { 0.7, 1, 0.8 };
+
+//Reads the ICC profile.
+
+FileStream fileStream = new FileStream(@"input.icc", FileMode.Open, FileAccess.Read);
+
+byte[] profileData = new byte[fileStream.Length];
+
+fileStream.Read(profileData, 0, profileData.Length);
+
+fileStream.Close();
+
+//Instantiates ICC color space.
+
+PdfICCColorSpace iccBasedCS = new PdfICCColorSpace();
+
+iccBasedCS.ProfileData = profileData;
+
+iccBasedCS.AlternateColorSpace = calRgbCS;
+
+iccBasedCS.ColorComponents = 3;
+
+iccBasedCS.Range = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 };
+
+PdfICCColor red = new PdfICCColor(iccBasedCS);
+
+red.ColorComponents = new double[] { 1, 0, 1 };
+
+PdfBrush brush = new PdfSolidBrush(red);
+
+RectangleF bounds = new RectangleF(0, 0, 300, 300);
+
+//Draws rectangle by using the PdfBrush.
+
+graphics.DrawRectangle(brush, bounds);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Signature.Assets.Barcode.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Loads the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = loadedPage.Graphics;
+
+//Creates ICCBased color space.
+
+PdfCalRGBColorSpace calRgbCS = new PdfCalRGBColorSpace();
+
+calRgbCS.Gamma = new double[] { 7.6, 5.1, 8.5 };
+
+calRgbCS.Matrix = new double[] { 1, 0, 0, 0, 1, 0, 0, 0, 1 };
+
+calRgbCS.WhitePoint = new double[] { 0.7, 1, 0.8 };
+
+//Reads the ICC profile.
+
+Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Signature.Assets.rgb.icc");
+
+byte[] profileData = new byte[fileStream.Length];
+
+fileStream.Read(profileData, 0, profileData.Length);
+
+fileStream.Close();
+
+//Instantiates ICC color space.
+
+PdfICCColorSpace iccBasedCS = new PdfICCColorSpace();
+
+iccBasedCS.ProfileData = profileData;
+
+iccBasedCS.AlternateColorSpace = calRgbCS;
+
+iccBasedCS.ColorComponents = 3;
+
+iccBasedCS.Range = new double[] { 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 };
+
+PdfICCColor red = new PdfICCColor(iccBasedCS);
+
+red.ColorComponents = new double[] { 1, 0, 1 };
+
+PdfBrush brush = new PdfSolidBrush(red);
+
+RectangleF bounds = new RectangleF(0, 0, 300, 300);
+
+//Draws rectangle by using the PdfBrush.
+
+graphics.DrawRectangle(brush, bounds);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Pantone colors
@@ -639,6 +1503,198 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+// Creates a new document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+// Creates exponential interpolation function
+
+PdfExponentialInterpolationFunction function = new PdfExponentialInterpolationFunction(true);
+
+float[] numberArray = new float[4];
+
+numberArray[0] = 0.38f;
+
+numberArray[1] = 0.88f;
+
+function.C1 = numberArray;
+
+// Creates SeparationColorSpace
+
+PdfSeparationColorSpace colorSpace = new PdfSeparationColorSpace();
+
+colorSpace.TintTransform = function;
+
+colorSpace.Colorant = "PANTONE Orange 021 C";
+
+PdfSeparationColor color = new PdfSeparationColor(colorSpace);
+
+color.Tint = 0.7;
+
+RectangleF bounds = new RectangleF(20, 70, 200, 100);
+
+PdfPen pen = new PdfPen(color);
+
+//Draws the rectangle
+
+page.Graphics.DrawRectangle(pen, bounds);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "SeparationColor.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+// Creates a new document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+// Creates exponential interpolation function
+
+PdfExponentialInterpolationFunction function = new PdfExponentialInterpolationFunction(true);
+
+float[] numberArray = new float[4];
+
+numberArray[0] = 0.38f;
+
+numberArray[1] = 0.88f;
+
+function.C1 = numberArray;
+
+// Creates SeparationColorSpace
+
+PdfSeparationColorSpace colorSpace = new PdfSeparationColorSpace();
+
+colorSpace.TintTransform = function;
+
+colorSpace.Colorant = "PANTONE Orange 021 C";
+
+PdfSeparationColor color = new PdfSeparationColor(colorSpace);
+
+color.Tint = 0.7;
+
+RectangleF bounds = new RectangleF(20, 70, 200, 100);
+
+PdfPen pen = new PdfPen(color);
+
+//Draws the rectangle
+
+page.Graphics.DrawRectangle(pen, bounds);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "SeparationColor.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+// Creates a new document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+// Creates exponential interpolation function
+
+PdfExponentialInterpolationFunction function = new PdfExponentialInterpolationFunction(true);
+
+float[] numberArray = new float[4];
+
+numberArray[0] = 0.38f;
+
+numberArray[1] = 0.88f;
+
+function.C1 = numberArray;
+
+// Creates SeparationColorSpace
+
+PdfSeparationColorSpace colorSpace = new PdfSeparationColorSpace();
+
+colorSpace.TintTransform = function;
+
+colorSpace.Colorant = "PANTONE Orange 021 C";
+
+PdfSeparationColor color = new PdfSeparationColor(colorSpace);
+
+color.Tint = 0.7;
+
+RectangleF bounds = new RectangleF(20, 70, 200, 100);
+
+PdfPen pen = new PdfPen(color);
+
+//Draws the rectangle
+
+page.Graphics.DrawRectangle(pen, bounds);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SeparationColor.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("SeparationColor.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 The following code example illustrates how to draw the graphics elements by using Pantone colors in existing PDF document.
@@ -749,6 +1805,210 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+// Creates exponential interpolation function 
+
+PdfExponentialInterpolationFunction function = new PdfExponentialInterpolationFunction(true);
+
+float[] numberArray = new float[4];
+
+numberArray[0] = 0.38f;
+
+numberArray[1] = 0.88f;
+
+function.C1 = numberArray;
+
+// Creates SeparationColorSpace
+
+PdfSeparationColorSpace colorSpace = new PdfSeparationColorSpace();
+
+colorSpace.TintTransform = function;
+
+colorSpace.Colorant = "PANTONE Orange 021 C";
+
+PdfSeparationColor color = new PdfSeparationColor(colorSpace);
+
+color.Tint = 0.7;
+
+RectangleF bounds = new RectangleF(20, 70, 200, 100);
+
+PdfPen pen = new PdfPen(color);
+
+//Draws the rectangle
+
+loadedPage.Graphics.DrawRectangle(pen, bounds);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "SeparationColor.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+// Creates exponential interpolation function 
+
+PdfExponentialInterpolationFunction function = new PdfExponentialInterpolationFunction(true);
+
+float[] numberArray = new float[4];
+
+numberArray[0] = 0.38f;
+
+numberArray[1] = 0.88f;
+
+function.C1 = numberArray;
+
+// Creates SeparationColorSpace
+
+PdfSeparationColorSpace colorSpace = new PdfSeparationColorSpace();
+
+colorSpace.TintTransform = function;
+
+colorSpace.Colorant = "PANTONE Orange 021 C";
+
+PdfSeparationColor color = new PdfSeparationColor(colorSpace);
+
+color.Tint = 0.7;
+
+RectangleF bounds = new RectangleF(20, 70, 200, 100);
+
+PdfPen pen = new PdfPen(color);
+
+//Draws the rectangle
+
+loadedPage.Graphics.DrawRectangle(pen, bounds);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "SeparationColor.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+// Creates exponential interpolation function 
+
+PdfExponentialInterpolationFunction function = new PdfExponentialInterpolationFunction(true);
+
+float[] numberArray = new float[4];
+
+numberArray[0] = 0.38f;
+
+numberArray[1] = 0.88f;
+
+function.C1 = numberArray;
+
+// Creates SeparationColorSpace
+
+PdfSeparationColorSpace colorSpace = new PdfSeparationColorSpace();
+
+colorSpace.TintTransform = function;
+
+colorSpace.Colorant = "PANTONE Orange 021 C";
+
+PdfSeparationColor color = new PdfSeparationColor(colorSpace);
+
+color.Tint = 0.7;
+
+RectangleF bounds = new RectangleF(20, 70, 200, 100);
+
+PdfPen pen = new PdfPen(color);
+
+//Draws the rectangle
+
+loadedPage.Graphics.DrawRectangle(pen, bounds);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SeparationColor.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("SeparationColor.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Working with color space in graphics
@@ -876,6 +2136,216 @@ pdfDocument.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Adds a page to the PDF document.
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = pdfPage.Graphics;
+
+PdfPen pen = new PdfPen(Color.FromArgb(0,255,0,0));
+
+PdfBrush brush = new PdfSolidBrush(Color.FromArgb(0,0,0,255));
+
+RectangleF rectangle = new RectangleF(0, 0, 100, 100);
+
+//Default color space.
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+graphics.Save();
+
+//GrayScale color space.
+
+graphics.ColorSpace = PdfColorSpace.GrayScale;
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+//CMYK color space.
+
+graphics.ColorSpace = PdfColorSpace.CMYK;
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+graphics.Restore();
+
+//Default color space.
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+//Draws by using the PdfBrush.
+
+graphics.DrawRectangle(brush, rectangle);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await pdfDocument.SaveAsync(stream);
+
+//Close the document
+
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Adds a page to the PDF document.
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = pdfPage.Graphics;
+
+PdfPen pen = new PdfPen(Color.Red);
+
+PdfBrush brush = new PdfSolidBrush(Color.Blue);
+
+RectangleF rectangle = new RectangleF(0, 0, 100, 100);
+
+//Default color space.
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+graphics.Save();
+
+//GrayScale color space.
+
+graphics.ColorSpace = PdfColorSpace.GrayScale;
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+//CMYK color space.
+
+graphics.ColorSpace = PdfColorSpace.CMYK;
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+graphics.Restore();
+
+//Default color space.
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+//Draws by using the PdfBrush.
+
+graphics.DrawRectangle(brush, rectangle);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+pdfDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document.
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Adds a page to the PDF document.
+
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = pdfPage.Graphics;
+
+PdfPen pen = new PdfPen(Syncfusion.Drawing.Color.Red);
+
+PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.Blue);
+
+RectangleF rectangle = new RectangleF(0, 0, 100, 100);
+
+//Default color space.
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+graphics.Save();
+
+//GrayScale color space.
+
+graphics.ColorSpace = PdfColorSpace.GrayScale;
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+//CMYK color space.
+
+graphics.ColorSpace = PdfColorSpace.CMYK;
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+graphics.Restore();
+
+//Default color space.
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+//Draws by using the PdfBrush.
+
+graphics.DrawRectangle(brush, rectangle);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Close the document.
+
+pdfDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 The following code illustrates how to use the color spaces in particular objects in existing PDF document.
@@ -1000,4 +2470,232 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Loads the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = loadedPage.Graphics;
+
+PdfPen pen = new PdfPen(Color.FromArgb(0,255,0,0));
+
+PdfBrush brush = new PdfSolidBrush(Color.FromArgb(0,0,0,255));
+
+RectangleF rectangle = new RectangleF(0, 0, 100, 100);
+
+//Default color space.
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+graphics.Save();
+
+//GrayScale color space.
+
+graphics.ColorSpace = PdfColorSpace.GrayScale;
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+//CMYK color space.
+
+graphics.ColorSpace = PdfColorSpace.CMYK;
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+graphics.Restore();
+
+//Default color space.
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+//Draws by using the PdfBrush.
+
+graphics.DrawRectangle(brush, rectangle);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Loads the page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Acquires graphics of the page.
+
+PdfGraphics graphics = loadedPage.Graphics;
+
+PdfPen pen = new PdfPen(Color.Red);
+
+PdfBrush brush = new PdfSolidBrush(Color.Blue);
+
+RectangleF rectangle = new RectangleF(0, 0, 100, 100);
+
+//Default color space.
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+graphics.Save();
+
+//GrayScale color space.
+
+graphics.ColorSpace = PdfColorSpace.GrayScale;
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+//CMYK color space.
+
+graphics.ColorSpace = PdfColorSpace.CMYK;
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+graphics.Restore();
+
+//Default color space.
+
+graphics.DrawRectangle(pen, brush, rectangle);
+
+//Draws by using the PdfBrush.
+
+graphics.DrawRectangle(brush, rectangle);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+ Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+ PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+ //Loads the page
+
+ PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+ //Acquires graphics of the page.
+
+ PdfGraphics graphics = loadedPage.Graphics;
+
+ PdfPen pen = new PdfPen(Syncfusion.Drawing.Color.Red);
+
+ PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.Blue);
+
+ RectangleF rectangle = new RectangleF(0, 0, 100, 100);
+
+ //Default color space.
+
+ graphics.DrawRectangle(pen, brush, rectangle);
+
+ graphics.Save();
+
+ //GrayScale color space.
+
+ graphics.ColorSpace = PdfColorSpace.GrayScale;
+
+ graphics.DrawRectangle(pen, brush, rectangle);
+
+ //CMYK color space.
+
+ graphics.ColorSpace = PdfColorSpace.CMYK;
+
+ graphics.DrawRectangle(pen, brush, rectangle);
+
+ graphics.Restore();
+
+ //Default color space.
+
+ graphics.DrawRectangle(pen, brush, rectangle);
+
+ //Draws by using the PdfBrush.
+
+ graphics.DrawRectangle(brush, rectangle);
+
+ //Save the document into stream.
+
+ MemoryStream stream = new MemoryStream();
+
+ loadedDocument.Save(stream);
+
+ //Close the document.
+
+ loadedDocument.Close(true);
+
+ //Save the stream into pdf file
+ //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+ {
+     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+ }
+ else
+ {
+     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+ }
+
+{% endhighlight %}
+
 {% endtabs %}

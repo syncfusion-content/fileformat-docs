@@ -91,6 +91,158 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security.
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key128Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.RC4;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted with RC4 128bit", font, brush, new PointF(0, 40));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security.
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key128Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.RC4;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted with RC4 128bit", font, brush, new PointF(0, 40));
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security.
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key128Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.RC4;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted with RC4 128bit", font, brush, new PointF(0, 40));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+
 {% endtabs %}
 
 N> While using both user and owner passwords, please specify different user and owner password while encrypting the PDF document for better security.
@@ -183,6 +335,176 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security.
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm.
+
+security.KeySize = PdfEncryptionKeySize.Key128Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.RC4;
+
+security.OwnerPassword = "syncfusion";
+
+//It allows printing and accessibility copy content
+
+security.Permissions = PdfPermissionsFlags.Print | PdfPermissionsFlags.AccessibilityCopyContent;
+
+security.UserPassword = "password";
+
+graphics.DrawString("This document is protected with owner password", font, brush, new PointF(0, 40));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security.
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm.
+
+security.KeySize = PdfEncryptionKeySize.Key128Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.RC4;
+
+security.OwnerPassword = "syncfusion";
+
+//It allows printing and accessibility copy content
+
+security.Permissions = PdfPermissionsFlags.Print | PdfPermissionsFlags.AccessibilityCopyContent;
+
+security.UserPassword = "password";
+
+graphics.DrawString("This document is protected with owner password", font, brush, new PointF(0, 40));
+
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security.
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm.
+
+security.KeySize = PdfEncryptionKeySize.Key128Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.RC4;
+
+security.OwnerPassword = "syncfusion";
+
+//It allows printing and accessibility copy content
+
+security.Permissions = PdfPermissionsFlags.Print | PdfPermissionsFlags.AccessibilityCopyContent;
+
+security.UserPassword = "password";
+
+graphics.DrawString("This document is protected with owner password", font, brush, new PointF(0, 40));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Working with AES Encryption
@@ -260,6 +582,157 @@ graphics.DrawString("Encrypted with AES 256bit", font, brush, New PointF(0, 40))
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security.
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm.
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted with AES 256bit", font, brush, new PointF(0, 40));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security.
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm.
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted with AES 256bit", font, brush, new PointF(0, 40));
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security.
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm.
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted with AES 256bit", font, brush, new PointF(0, 40));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -353,6 +826,175 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security.
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm using 256 bit key in AES mode.
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+security.OwnerPassword = "syncfusion";
+
+//It allows printing and accessibility copy content
+
+security.Permissions = PdfPermissionsFlags.Print | PdfPermissionsFlags.AccessibilityCopyContent;
+
+security.UserPassword = "password";
+
+graphics.DrawString("This document is protected with owner password", font, brush, new PointF(0, 40));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security.
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm using 256 bit key in AES mode.
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+security.OwnerPassword = "syncfusion";
+
+//It allows printing and accessibility copy content
+
+security.Permissions = PdfPermissionsFlags.Print | PdfPermissionsFlags.AccessibilityCopyContent;
+
+security.UserPassword = "password";
+
+graphics.DrawString("This document is protected with owner password", font, brush, new PointF(0, 40));
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security.
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm using 256 bit key in AES mode.
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+security.OwnerPassword = "syncfusion";
+
+//It allows printing and accessibility copy content
+
+security.Permissions = PdfPermissionsFlags.Print | PdfPermissionsFlags.AccessibilityCopyContent;
+
+security.UserPassword = "password";
+
+graphics.DrawString("This document is protected with owner password", font, brush, new PointF(0, 40));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Protect an existing document
@@ -425,6 +1067,147 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Load the PDF document as stream
+
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument document = new PdfLoadedDocument(pdfStream);
+
+//PDF document security 
+
+PdfSecurity security = document.Security;
+
+//Specifies encryption key size, algorithm and permission. 
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Provide owner and user password.
+
+security.OwnerPassword = "ownerPassword256";
+
+security.UserPassword = "userPassword256";
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+document.Save(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to pdf/uwp section for respected code samples.
+
+Save(memoryStream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//PDF document security 
+
+PdfSecurity security = document.Security;
+
+//Specifies encryption key size, algorithm and permission. 
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Provide owner and user password.
+
+security.OwnerPassword = "ownerPassword256";
+
+security.UserPassword = "userPassword256";
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//PDF document security 
+
+PdfSecurity security = document.Security;
+
+//Specifies encryption key size, algorithm and permission. 
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Provide owner and user password.
+
+security.OwnerPassword = "ownerPassword256";
+
+security.UserPassword = "userPassword256";
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Changing the password of the PDF document
@@ -466,6 +1249,111 @@ loadedDocument.Security.UserPassword = "NewPassword"
 loadedDocument.Save("Output.pdf")
 
 loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Load the PDF document as stream
+
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(pdfStream,"password");
+
+//Change the user password 
+
+loadedDocument.Security.UserPassword = "NewPassword";
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+loadedDocument.Save(memoryStream);
+
+//Close the documents.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to pdf/uwp section for respected code samples.
+
+Save(memoryStream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream, "password");
+
+//Change the user password 
+
+loadedDocument.Security.UserPassword = "NewPassword";
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream, "password");
+
+//Change the user password 
+
+loadedDocument.Security.UserPassword = "NewPassword";
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -513,6 +1401,112 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Load the PDF document as stream
+
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(pdfStream,"syncfusion");
+
+//Change the permission
+
+loadedDocument.Security.Permissions = PdfPermissionsFlags.CopyContent | PdfPermissionsFlags.AssembleDocument;
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+loadedDocument.Save(memoryStream);
+
+//Close the documents.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to pdf/uwp section for respected code samples.
+
+Save(memoryStream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream, "syncfusion");
+
+//Change the permission
+
+loadedDocument.Security.Permissions = PdfPermissionsFlags.CopyContent | PdfPermissionsFlags.AssembleDocument;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream,"syncfusion");
+
+//Change the permission
+
+loadedDocument.Security.Permissions = PdfPermissionsFlags.CopyContent | PdfPermissionsFlags.AssembleDocument;
+
+//document.Attachments.RemoveAt(1);
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+loadedDocument.Save(memoryStream);
+
+//Close the documents.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer pdf/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Remove password from the user password PDF document
@@ -557,6 +1551,110 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Load the PDF document as stream
+
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(pdfStream,"password");
+
+//Change the user password 
+
+loadedDocument.Security.UserPassword = string.Empty;
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+loadedDocument.Save(memoryStream);
+
+//Close the documents.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to pdf/uwp section for respected code samples.
+
+Save(memoryStream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream, "password");
+
+//Change the user password 
+
+loadedDocument.Security.UserPassword = string.Empty;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream,"password");
+
+//Change the user password 
+
+loadedDocument.Security.UserPassword = string.Empty;
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+loadedDocument.Save(memoryStream);
+
+//Close the documents.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer pdf/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## How to determine whether the PDF document is password protected or not?
@@ -592,6 +1690,66 @@ Catch exception As PdfDocumentException
 		MessageBox.Show("Cannot open an encrypted document without password")
 	End If
 End Try
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+try
+{
+    //Load the PDF document as stream
+
+    Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Output.pdf");
+
+    //Creates an empty PDF loaded document instance
+
+    PdfLoadedDocument loadedDocument = new PdfLoadedDocument(pdfStream);
+
+}
+
+catch (PdfDocumentException exception)
+{
+    
+}
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+try
+
+{
+    //Load the PDF document
+
+    FileStream docStream = new FileStream("Output.pdf", FileMode.Open, FileAccess.Read);
+
+    PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+}
+
+catch (PdfDocumentException exception)
+{
+    
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+try
+{
+    //Load the file as stream
+
+    Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Output.pdf");
+
+    PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+}
+
+catch (PdfDocumentException exception)
+{
+   
+}
+
 
 {% endhighlight %}
 

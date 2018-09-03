@@ -84,6 +84,145 @@ doc.Save("CODE39.pdf")
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Creating new PDF Document
+
+PdfDocument doc = new PdfDocument();
+
+//Adding new page to PDF document
+
+PdfPage page = doc.Pages.Add();
+
+//Drawing Code39 barcode 
+
+PdfCode39Barcode barcode = new PdfCode39Barcode();
+
+//Setting height of the barcode 
+
+barcode.BarHeight = 45;
+
+barcode.Text = "CODE39$";
+
+//Printing barcode on to the Pdf. 
+
+barcode.Draw(page, new PointF(25, 70));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+
+doc.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creating new PDF Document
+
+PdfDocument doc = new PdfDocument();
+
+//Adding new page to PDF document
+
+PdfPage page = doc.Pages.Add();
+
+//Drawing Code39 barcode 
+
+PdfCode39Barcode barcode = new PdfCode39Barcode();
+
+//Setting height of the barcode 
+
+barcode.BarHeight = 45;
+
+barcode.Text = "CODE39$";
+
+//Printing barcode on to the Pdf. 
+
+barcode.Draw(page, new PointF(25, 70));
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " CODE39.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creating new PDF Document
+
+PdfDocument doc = new PdfDocument();
+
+//Adding new page to PDF document
+
+PdfPage page = doc.Pages.Add();
+
+//Drawing Code39 barcode 
+
+PdfCode39Barcode barcode = new PdfCode39Barcode();
+
+//Setting height of the barcode 
+
+barcode.BarHeight = 45;
+
+barcode.Text = "CODE39$";
+
+//Printing barcode on to the Pdf. 
+
+barcode.Draw(page, new PointF(25, 70));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Closes the document
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Adding a two dimensional barcode to a PDF document
@@ -169,6 +308,158 @@ doc.Save("QRBarcode.pdf")
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Drawing QR Barcode
+
+PdfQRBarcode barcode = new PdfQRBarcode();
+
+//Set Error Correction Level
+
+barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High;
+
+//Set XDimension
+
+barcode.XDimension = 3;
+
+barcode.Text = "http://www.syncfusion.com";
+
+//Creating new PDF Document
+
+PdfDocument doc = new PdfDocument();
+
+//Adding new page to PDF document
+
+PdfPage page = doc.Pages.Add();
+
+//Printing barcode on to the Pdf. 
+
+barcode.Draw(page, new PointF(25, 70));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+
+doc.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Drawing QR Barcode
+
+PdfQRBarcode barcode = new PdfQRBarcode();
+
+//Set Error Correction Level
+
+barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High;
+
+//Set XDimension
+
+barcode.XDimension = 3;
+
+barcode.Text = "http://www.syncfusion.com";
+barcode.Text = "http://www.syncfusion.com";
+
+//Creating new PDF Document
+
+PdfDocument doc = new PdfDocument();
+
+//Adding new page to PDF document
+
+PdfPage page = doc.Pages.Add();
+
+//Printing barcode on to the Pdf. 
+
+barcode.Draw(page, new PointF(25, 70));
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " QRBarcode.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Drawing QR Barcode
+
+PdfQRBarcode barcode = new PdfQRBarcode();
+
+//Set Error Correction Level
+
+barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High;
+
+//Set XDimension
+
+barcode.XDimension = 3;
+
+barcode.Text = "http://www.syncfusion.com";
+
+//Creating new PDF Document
+
+PdfDocument doc = new PdfDocument();
+
+//Adding new page to PDF document
+
+PdfPage page = doc.Pages.Add();
+
+//Printing barcode on to the Pdf. 
+
+barcode.Draw(page, new PointF(25, 70));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Closes the document
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -251,6 +542,157 @@ doc.Save("CODABAR.pdf")
 
 doc.Close(True)      
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creating new PDF Document
+
+PdfDocument doc = new PdfDocument();
+
+//Adding new page to PDF document
+
+PdfPage page = doc.Pages.Add();
+
+//Create new instance for Codabar barcode
+
+PdfCodabarBarcode barcode = new PdfCodabarBarcode();
+
+//Setting location of the barcode 
+
+barcode.Location = new PointF(100, 100);
+
+//Setting size of the barcode
+
+barcode.Size = new SizeF(200, 100);
+
+barcode.Text = "123456789$";
+
+//Printing barcode on to the Pdf. 
+
+barcode.Draw(page);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+
+doc.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creating new PDF Document
+
+PdfDocument doc = new PdfDocument();
+
+//Adding new page to PDF document
+
+PdfPage page = doc.Pages.Add();
+
+//Create new instance for Codabar barcode
+
+PdfCodabarBarcode barcode = new PdfCodabarBarcode();
+
+//Setting location of the barcode 
+
+barcode.Location = new PointF(100, 100);
+
+//Setting size of the barcode
+
+barcode.Size = new SizeF(200, 100);
+
+barcode.Text = "123456789$";
+
+//Printing barcode on to the Pdf. 
+
+barcode.Draw(page);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " CODABAR.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creating new PDF Document
+
+PdfDocument doc = new PdfDocument();
+
+//Adding new page to PDF document
+
+PdfPage page = doc.Pages.Add();
+
+//Create new instance for Codabar barcode
+
+PdfCodabarBarcode barcode = new PdfCodabarBarcode();
+
+//Setting location of the barcode 
+
+barcode.Location = new PointF(100, 100);
+
+//Setting size of the barcode
+
+barcode.Size = new SizeF(200, 100);
+
+barcode.Text = "123456789$";
+
+//Printing barcode on to the Pdf. 
+
+barcode.Draw(page);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Closes the document
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
