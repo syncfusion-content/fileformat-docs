@@ -116,6 +116,179 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+//Add the first layer.
+
+PdfPageLayer layer = page.Layers.Add("Layer1");
+
+PdfGraphics graphics = layer.Graphics;
+
+graphics.TranslateTransform(100, 60);
+
+//Draw arc.
+
+PdfPen pen = new PdfPen(Color.FromArgb(0,255,0,0), 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add another layer on the page.
+
+PdfPageLayer layer2 = page.Layers.Add("Layer2");
+
+graphics = layer2.Graphics;
+
+graphics.TranslateTransform(100, 180);
+
+//Draw ellipse.
+
+graphics.DrawEllipse(pen, bounds);
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await document.SaveAsync(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+//Add the first layer.
+
+PdfPageLayer layer = page.Layers.Add("Layer1");
+
+PdfGraphics graphics = layer.Graphics;
+
+graphics.TranslateTransform(100, 60);
+
+//Draw arc.
+
+PdfPen pen = new PdfPen(Syncfusion.Drawing.Color.Red, 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add another layer on the page.
+
+PdfPageLayer layer2 = page.Layers.Add("Layer2");
+
+graphics = layer2.Graphics;
+
+graphics.TranslateTransform(100, 180);
+
+//Draw ellipse.
+
+graphics.DrawEllipse(pen, bounds);
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create PDF document.
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+//Add the first layer.
+
+PdfPageLayer layer = page.Layers.Add("Layer1");
+
+PdfGraphics graphics = layer.Graphics;
+
+graphics.TranslateTransform(100, 60);
+
+//Draw arc.
+
+PdfPen pen = new PdfPen(Syncfusion.Drawing.Color.Red, 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add another layer on the page.
+
+PdfPageLayer layer2 = page.Layers.Add("Layer2");
+
+graphics = layer2.Graphics;
+
+graphics.TranslateTransform(100, 180);
+
+//Draw ellipse.
+
+graphics.DrawEllipse(pen, bounds);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
  {% endtabs %}  
 
 The below code illustrates how to add the multiple layers in an existing PDF document.
@@ -219,6 +392,198 @@ loadedDocument.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Add the first layer.
+
+PdfPageLayer layer = loadedPage.Layers.Add("Layer1");
+
+PdfGraphics graphics = layer.Graphics;
+
+graphics.TranslateTransform(100, 60);
+
+//Draw arc.
+
+PdfPen pen = new PdfPen(Color.FromArgb(0,0,255,0), 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add another layer on the page.
+
+PdfPageLayer layer2 = loadedPage.Layers.Add("Layer2");
+
+graphics = layer2.Graphics;
+
+graphics.TranslateTransform(100, 180);
+
+//Draw ellipse.
+
+graphics.DrawEllipse(pen, bounds);
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await loadedDocument.SaveAsync(memoryStream);
+
+//Close the documents.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Add the first layer.
+
+PdfPageLayer layer = loadedPage.Layers.Add("Layer1");
+
+PdfGraphics graphics = layer.Graphics;
+
+graphics.TranslateTransform(100, 60);
+
+//Draw arc.
+
+PdfPen pen = new PdfPen(Syncfusion.Drawing.Color.Gray, 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add another layer on the page.
+
+PdfPageLayer layer2 = loadedPage.Layers.Add("Layer2");
+
+graphics = layer2.Graphics;
+
+graphics.TranslateTransform(100, 180);
+
+//Draw ellipse.
+
+graphics.DrawEllipse(pen, bounds);
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Add the first layer.
+
+PdfPageLayer layer = loadedPage.Layers.Add("Layer1");
+
+PdfGraphics graphics = layer.Graphics;
+
+graphics.TranslateTransform(100, 60);
+
+//Draw arc.
+
+PdfPen pen = new PdfPen(Syncfusion.Drawing.Color.Gray, 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add another layer on the page.
+
+PdfPageLayer layer2 = loadedPage.Layers.Add("Layer2");
+
+graphics = layer2.Graphics;
+
+graphics.TranslateTransform(100, 180);
+
+//Draw ellipse.
+
+graphics.DrawEllipse(pen, bounds);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 
 {% endtabs %}  
 
@@ -326,6 +691,179 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add page
+
+PdfPage page = document.Pages.Add();
+
+//Add the layer
+
+PdfLayer layer = document.Layers.Add("Layer");
+
+//Create graphics for layer
+
+PdfGraphics graphics = layer.CreateGraphics(page);
+
+//Draw ellipse
+
+graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+
+//Create square annotation
+
+PdfSquareAnnotation annotation = new PdfSquareAnnotation(new RectangleF(200, 260, 50, 50), "Square annotation");
+
+annotation.Color = new PdfColor(Color.FromArgb(0,255,0,0));
+
+//Set layer to annotation
+
+annotation.Layer = layer;
+
+//Add annotation to the created page
+
+page.Annotations.Add(annotation);
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await document.SaveAsync(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add page
+
+PdfPage page = document.Pages.Add();
+
+//Add the layer
+
+PdfLayer layer = document.Layers.Add("Layer");
+
+//Create graphics for layer
+
+PdfGraphics graphics = layer.CreateGraphics(page);
+
+//Draw ellipse
+
+graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+
+//Create square annotation
+
+PdfSquareAnnotation annotation = new PdfSquareAnnotation(new RectangleF(200, 260, 50, 50), "Square annotation");
+
+annotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Set layer to annotation
+
+annotation.Layer = layer;
+
+//Add annotation to the created page
+
+page.Annotations.Add(annotation);
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add page
+
+PdfPage page = document.Pages.Add();
+
+//Add the layer
+
+PdfLayer layer = document.Layers.Add("Layer");
+
+//Create graphics for layer
+
+PdfGraphics graphics = layer.CreateGraphics(page);
+
+//Draw ellipse
+
+graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+
+//Create square annotation
+
+PdfSquareAnnotation annotation = new PdfSquareAnnotation(new RectangleF(200, 260, 50, 50), "Square annotation");
+
+annotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Set layer to annotation
+
+annotation.Layer = layer;
+
+//Add annotation to the created page
+
+page.Annotations.Add(annotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 The following code illustrates how to add annotation to the layers in an existing PDF document.
@@ -430,6 +968,197 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Gets the first page from the document
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Add the layer
+
+PdfLayer Layer = loadedDocument.Layers.Add("Layer");
+
+//Create graphics for layer
+
+PdfGraphics graphics = Layer.CreateGraphics(loadedPage);
+
+//Draw ellipse
+
+graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+
+//Create square annotation
+
+PdfSquareAnnotation annotation = new PdfSquareAnnotation(new RectangleF(200, 260, 50, 50), "Square annotation");
+
+annotation.Color = new PdfColor(Color.FromArgb(0,255,0,0));
+
+//Set layer to annotation
+
+annotation.Layer = Layer;
+
+//Add annotation to the created page
+
+loadedPage.Annotations.Add(annotation);
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await loadedDocument.SaveAsync(memoryStream);
+
+//Close the documents.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Gets the first page from the document
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Add the layer
+
+PdfLayer Layer = loadedDocument.Layers.Add("Layer");
+
+//Create graphics for layer
+
+PdfGraphics graphics = Layer.CreateGraphics(loadedPage);
+
+//Draw ellipse
+
+graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+
+//Create square annotation
+
+PdfSquareAnnotation annotation = new PdfSquareAnnotation(new RectangleF(200, 260, 50, 50), "Square annotation");
+
+annotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Set layer to annotation
+
+annotation.Layer = Layer;
+
+//Add annotation to the created page
+
+loadedPage.Annotations.Add(annotation);
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Gets the first page from the document
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Add the layer
+
+PdfLayer Layer = loadedDocument.Layers.Add("Layer");
+
+//Create graphics for layer
+
+PdfGraphics graphics = Layer.CreateGraphics(loadedPage);
+
+//Draw ellipse
+
+graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+
+//Create square annotation
+
+PdfSquareAnnotation annotation = new PdfSquareAnnotation(new RectangleF(200, 260, 50, 50), "Square annotation");
+
+annotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Set layer to annotation
+
+annotation.Layer = Layer;
+
+//Add annotation to the created page
+
+loadedPage.Annotations.Add(annotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}   
 
 
@@ -500,6 +1229,145 @@ document.Close(True)
 
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument document = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await document.OpenAsync(file);
+
+//Gets the first page from the document
+
+PdfLoadedPage loadedPage = document.Pages[0] as PdfLoadedPage;
+
+//Get the layer collection
+
+PdfPageLayerCollection layers = loadedPage.Layers;
+
+//Remove the layer
+
+layers.RemoveAt(0);
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await document.SaveAsync(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Gets the first page from the document
+
+PdfLoadedPage loadedPage = document.Pages[0] as PdfLoadedPage;
+
+//Get the layer collection
+
+PdfPageLayerCollection layers = loadedPage.Layers;
+
+//Remove the layer
+
+layers.RemoveAt(0);
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//Gets the first page from the document
+
+PdfLoadedPage loadedPage = document.Pages[0] as PdfLoadedPage;
+
+//Get the layer collection
+
+PdfPageLayerCollection layers = loadedPage.Layers;
+
+//Remove the layer
+
+document.Layers.RemoveAt(0);
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+document.Save(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
 
 {% endhighlight %}
 
@@ -618,6 +1486,181 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the document
+
+PdfDocument document = new PdfDocument();
+
+//Create a page
+
+PdfPage page = document.Pages.Add();
+
+//Add the first layer and enable the visibility.
+
+PdfPageLayer layer = page.Layers.Add("Layer1", true);
+
+PdfGraphics graphics = layer.Graphics;
+
+graphics.TranslateTransform(100, 60);
+
+//Draw Arc.
+
+PdfPen pen = new PdfPen(Color.FromArgb(0,255,0,0), 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add another layer on the page and disable the visibility.
+
+PdfPageLayer layer2 = page.Layers.Add("Layer2", false);
+
+graphics = layer2.Graphics;
+
+graphics.TranslateTransform(100, 180);
+
+//Draw ellipse.
+
+graphics.DrawEllipse(pen, bounds);
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await document.SaveAsync(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create the document
+
+PdfDocument document = new PdfDocument();
+
+//Create a page
+
+PdfPage page = document.Pages.Add();
+
+//Add the first layer and enable the visibility.
+
+PdfPageLayer layer = page.Layers.Add("Layer1", true);
+
+PdfGraphics graphics = layer.Graphics;
+
+graphics.TranslateTransform(100, 60);
+
+//Draw Arc.
+
+PdfPen pen = new PdfPen(Syncfusion.Drawing.Color.Red, 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add another layer on the page and disable the visibility.
+
+PdfPageLayer layer2 = page.Layers.Add("Layer2", false);
+
+graphics = layer2.Graphics;
+
+graphics.TranslateTransform(100, 180);
+
+//Draw ellipse.
+
+graphics.DrawEllipse(pen, bounds);
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create the document
+
+PdfDocument document = new PdfDocument();
+
+//Create a page
+
+PdfPage page = document.Pages.Add();
+
+//Add the first layer and enable the visibility.
+
+PdfPageLayer layer = page.Layers.Add("Layer1", true);
+
+PdfGraphics graphics = layer.Graphics;
+
+graphics.TranslateTransform(100, 60);
+
+//Draw Arc.
+
+PdfPen pen = new PdfPen(Syncfusion.Drawing.Color.Red, 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add another layer on the page and disable the visibility.
+
+PdfPageLayer layer2 = page.Layers.Add("Layer2", false);
+
+graphics = layer2.Graphics;
+
+graphics.TranslateTransform(100, 180);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 The following code illustrates how to toggle the visibility of layers in an existing PDF document.
@@ -677,217 +1720,123 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% endtabs %}  
+{% highlight UWP %}
 
-## Adding annotation to layer
+//Load the PDF document as stream
 
-Essential PDF allows the users to add annotation to layers in the PDF document. Refer to the following code snippet.  
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 
-{% tabs %}  
+//Creates an empty PDF loaded document instance
 
-{% highlight c# %}
+PdfLoadedDocument document = new PdfLoadedDocument();
 
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
 
-//Create new PDF document
+await document.OpenAsync(pdfStream);
 
-PdfDocument document = new PdfDocument();
+//Gets the first layer from the layer collection
 
-//Add page
+PdfLayer layer = document.Layers[0];
 
-PdfPage page = document.Pages.Add();
+//Disable the visibility
 
-//Add the layer
+layer.Visible = false;
 
-PdfLayer layer = document.Layers.Add("Layer");
+MemoryStream memoryStream = new MemoryStream();
 
-//Create graphics for layer
+//Save the document.
 
-PdfGraphics graphics = layer.CreateGraphics(page);
+await document.SaveAsync(memoryStream);
 
-//Draw ellipse
-
-graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
-
-//Create square annotation
-
-PdfSquareAnnotation annotation = new PdfSquareAnnotation(new RectangleF(200, 260, 50, 50), "Square annotation");
-
-annotation.Color = new PdfColor(Color. Red);
-
-//Set layer to annotation
-
-annotation.Layer = layer;
-
-//Add annotation to the created page
-
-page.Annotations.Add(annotation);
-
-//Save the document
-
-document.Save("Output.pdf");
-
-//Close the document
+//Close the documents.
 
 document.Close(true);
 
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
 
-
-
-{% endhighlight %}
-
-
-
-{% highlight vb.net %}
-
-
-'Create new PDF document
-
-Dim document As New PdfDocument()
-
-'Add page
-
-Dim page As PdfPage = document.Pages.Add()
-
-'Add the layer
-
-Dim Layer As PdfLayer = document.Layers.Add("Layer")
-
-'Create graphics for layer
-
-Dim graphics As PdfGraphics = Layer.CreateGraphics(page)
-
-'Draw ellipse
-
-graphics.DrawEllipse(PdfPens.Red, New RectangleF(50, 50, 40, 40))
-
-'Create square annotation
-
-Dim annotation As New PdfSquareAnnotation(New RectangleF(200, 260, 50, 50), "Square annotation")
-
-annotation.Color = New PdfColor(Color.Red)
-
-'Set layer to annotation
-
-annotation.Layer = Layer
-
-'Add annotation to the created page
-
-page.Annotations.Add(annotation)
-
-'Save the document
-
-document.Save("Output.pdf")
-
-'Close the document
-
-document.Close(True)
-
-
+Save(memoryStream, "Output.pdf");
 
 {% endhighlight %}
 
-{% endtabs %}  
+{% highlight ASP.NET Core %}
 
-The following code illustrates how to add annotation to the layers in an existing PDF document.
+//Load the PDF document
 
-{% tabs %}  
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
 
-{% highlight c# %}
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
 
+//Gets the first layer from the layer collection
 
-//Load the existing PDF document
+PdfLayer layer = document.Layers[0];
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+//Disable the visibility
 
-//Gets the first page from the document
+layer.Visible = false;
 
-PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+//Save and close the document
 
-//Add the layer
+MemoryStream stream = new MemoryStream();
 
-PdfLayer Layer = loadedDocument.Layers.Add("Layer");
+document.Save(stream);
 
-//Create graphics for layer
+stream.Position = 0;
 
-PdfGraphics graphics = Layer.CreateGraphics(loadedPage);
+//Close the document.
 
-//Draw ellipse
+document.Close(true);
 
-graphics.DrawEllipse(PdfPens.Red, new RectangleF(50, 50, 40, 40));
+//Defining the ContentType for pdf file.
 
-//Create square annotation
+string contentType = "application/pdf";
 
-PdfSquareAnnotation annotation = new PdfSquareAnnotation(new RectangleF(200, 260, 50, 50), "Square annotation");
+//Define the file name.
 
-annotation.Color = new PdfColor(Color.Red);
+string fileName = "Output.pdf";
 
-//Set layer to annotation
+//Creates a FileContentResult object by using the file contents, content type, and file name.
 
-annotation.Layer = Layer;
-
-//Add annotation to the created page
-
-loadedPage.Annotations.Add(annotation);
-
-//Save the document
-
-loadedDocument.Save("Output.pdf");
-
-//Close the document
-
-loadedDocument.Close(true);
-
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
+{% highlight Xamarin %}
 
+//Load the file as stream
 
-{% highlight vb.net %}
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
 
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
 
-'Load the existing PDF document
+//Gets the first layer from the layer collection
 
-Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
+PdfLayer layer = document.Layers[0];
 
-'Gets the first page from the document
+//Disable the visibility
 
-Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
+layer.Visible = false;
 
-'Add the layer
+//Save the document into stream.
 
-Dim Layer As PdfLayer = loadedDocument.Layers.Add("Layer")
+MemoryStream memoryStream = new MemoryStream();
 
-'Create graphics for layer
+document.Save(memoryStream);
 
-Dim graphics As PdfGraphics = Layer.CreateGraphics(loadedPage)
+//Close the documents.
 
-'Draw ellipse
+document.Close(true);
 
-graphics.DrawEllipse(PdfPens.Red, New RectangleF(50, 50, 40, 40))
+//Save the stream into pdf file
 
-'Create square annotation
-
-Dim annotation As New PdfSquareAnnotation(New RectangleF(200, 260, 50, 50), "Square annotation")
-
-annotation.Color = New PdfColor(Color.Red)
-
-'Set layer to annotation
-
-annotation.Layer = Layer
-
-'Add annotation to the created page
-
-loadedPage.Annotations.Add(annotation)
-
-'Save the document
-
-loadedDocument.Save("Output.pdf")
-
-'Close the document
-
-loadedDocument.Close(True)
-
-
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
 
 {% endhighlight %}
 
