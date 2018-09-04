@@ -13,8 +13,10 @@ The list of various supported and non-supported Excel features of Essential XlsI
 <table>
   <tr>
     <th>Workbook Features</th>
-    <th>Windows Forms, WPF, ASP.NET and ASP.NET MVC</th>
-    <th>UWP, Xamarin and ASP.NET Core</th>
+    <th>.NET Framework<br/>
+	(WF, WPF, ASP.NET and ASP.NET MVC)</th>
+    <th>.NET Standard<br/>
+	(UWP, .NET Core and Xamarin)</th>
   </tr>
   <tr>
     <td>Create an Excel workbook from scratch or modify an existing workbook.</td>
@@ -56,19 +58,18 @@ The list of various supported and non-supported Excel features of Essential XlsI
 <table>
   <tr>
     <th>Import and Export</th>
-    <th>Windows Forms, WPF, ASP.NET and ASP.NET MVC</th>
-    <th>UWP and Xamarin</th>
-    <th>ASP.NET Core</th>
+    <th>.NET Framework<br/>
+	(WF, WPF, ASP.NET and ASP.NET MVC)</th>
+    <th>.NET Standard<br/>
+	(UWP, .NET Core and Xamarin)</th>
   </tr>
   <tr>
     <td>Import data from DataTable, DataColumn, DataView, Array to worksheet.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Import data from Business Objects to worksheet.</td>
-    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>  
@@ -76,24 +77,20 @@ The list of various supported and non-supported Excel features of Essential XlsI
     <td>Import data into a pre-formatted template using Template Markers.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Importing large amounts of data with minimal memory consumption can be achieved using the import on save option.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Export data from worksheet to DataTable.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Imports data from various external sources like Microsoft Access, SQL Server and Excel, which maintain the connection to refresh data dynamically.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
   </tr>
 </table>
@@ -101,8 +98,10 @@ The list of various supported and non-supported Excel features of Essential XlsI
 <table>
   <tr>
     <th>Formulas</th>
-    <th>Windows Forms, WPF, ASP.NET and ASP.NET MVC</th>
-    <th>UWP, Xamarin and ASP.NET Core</th>
+    <th>.NET Framework<br/>
+	(WF, WPF, ASP.NET and ASP.NET MVC)</th>
+    <th>.NET Standard<br/>
+	(UWP, .NET Core and Xamarin)</th>
   </tr>
   <tr>
     <td>Read and write Excel formulas.</td>
@@ -134,8 +133,10 @@ The list of various supported and non-supported Excel features of Essential XlsI
 <table>
   <tr>
     <th>Charts</th>
-    <th>Windows Forms, WPF, ASP.NET and ASP.NET MVC</th>
-    <th>UWP, Xamarin and ASP.NET Core</th>
+    <th>.NET Framework<br/>
+	(WF, WPF, ASP.NET and ASP.NET MVC)</th>
+    <th>.NET Standard<br/>
+	(UWP, .NET Core and Xamarin)</th>
   </tr>
   <tr>
     <td>Creation and manipulation of Excel 2-D charts.</td>
@@ -185,35 +186,39 @@ The list of various supported and non-supported Excel features of Essential XlsI
 <table>
   <tr>
     <th>Security</th>
-    <th>Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core</th>
-    <th>UWP and Xamarin </th>
+    <th>.NET Framework<br/>
+	(WF, WPF, ASP.NET and ASP.NET MVC)</th>
+    <th>.NET Standard<br/>
+	(UWP, .NET Core and Xamarin)</th>
   </tr>
   <tr>
     <td>Open and save encrypted and decrypted documents.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Protect and unprotect workbook.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Protect and unprotect worksheets.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Lock and unlock cells for write protection.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
   </tr>
 </table>
 <table>
   <tr>
     <th>Worksheet Features</th>
-    <th>Windows Forms, WPF, ASP.NET and ASP.NET MVC</th>
-    <th>UWP, Xamarin and ASP.NET Core</th>
+    <th>.NET Framework<br/>
+	(WF, WPF, ASP.NET and ASP.NET MVC)</th>
+    <th>.NET Standard<br/>
+	(UWP, .NET Core and Xamarin)</th>
   </tr>
   <tr>
     <td colspan="3"><strong>Formatting</strong></td>
@@ -428,8 +433,10 @@ The list of various supported and non-supported Excel features of Essential XlsI
 <table>
   <tr>
     <th>Conversion</th>
-    <th>Windows Forms, WPF, ASP.NET and ASP.NET MVC</th>
-    <th>UWP, Xamarin and ASP.NET Core</th>
+    <th>.NET Framework<br/>
+	(WF, WPF, ASP.NET and ASP.NET MVC)</th>
+    <th>.NET Standard<br/>
+	(UWP, .NET Core and Xamarin)</th>
   </tr>
   <tr>
     <td>Converts Excel document into PDF.</td>
@@ -439,15 +446,15 @@ The list of various supported and non-supported Excel features of Essential XlsI
   <tr>
     <td>Converts an entire Excel worksheet into a single image.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Converts specific range of an Excel worksheet into a single image.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
   </tr>
   <tr>
-    <td>Converts Excel charts to images (.NET Framework 4.0 and above).</td>
+    <td>Converts Excel chart to image.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
   </tr>
@@ -457,3 +464,5 @@ The list of various supported and non-supported Excel features of Essential XlsI
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
   </tr>
 </table>
+
+N> Worksheet to image conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
