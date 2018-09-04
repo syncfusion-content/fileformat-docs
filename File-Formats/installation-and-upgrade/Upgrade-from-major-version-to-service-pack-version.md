@@ -2,7 +2,7 @@
 layout: post
 title: Upgrade from major version to service pack version| common | Syncfusion
 description: upgrade from major version to service pack version
-platform: fileformats
+platform: file-formats
 control: Essential Studio
 documentation: ug
 ---
