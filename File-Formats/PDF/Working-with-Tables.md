@@ -1307,7 +1307,7 @@ pdfDocument.Close(true);
 
 Save(stream, "Output.pdf");
 
-{% endtabs %}
+{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -1379,7 +1379,7 @@ string fileName = "Output.pdf";
 
 return File(stream, contentType, fileName);
 
-{% endtabs %}
+{% endhighlight %}
 
 {% highlight Xamarin %}
 
@@ -1447,7 +1447,7 @@ else
 }
 
 
-{% endtabs %}
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -1851,7 +1851,7 @@ doc.Close(True)
 
 {% highlight UWP %}
 
- //Create the file open picker
+//Create the file open picker
 
 var picker = new FileOpenPicker();
 
@@ -3146,7 +3146,7 @@ pdfDocument.Close(True)
 
 {% highlight UWP %}
 
- //Create a new PDF document.
+//Create a new PDF document.
 
 PdfDocument pdfDocument = new PdfDocument();
 
