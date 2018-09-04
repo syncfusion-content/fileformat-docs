@@ -1770,7 +1770,305 @@ pivotTable.Options.RepeatAllLabels(true);
 
 {% endtabs %}
 
-  
+## AutoSort to pivot fields
+
+Pivot field AutoSort allows you to sort the pivot row or column fields based on the data field values. You can perform the sorting in following direction:
+
+* Top to Bottom
+* Left to Right 
+
+### Top to Bottom sorting
+
+Top to Bottom sorting can sort the pivot table column field values based on the sort type. To apply Top to Bottom sorting in pivot table, you should apply the sorting in pivot row field by AutoSort method. The following code example illustrates how to apply Top to Bottom sorting to a pivot table.
+
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
+
+  // Pivot Top to Bottom sorting.
+  IPivotField rowField = pivotTable.RowFields[0];
+  rowField.AutoSort(PivotFieldSortType.Ascending, 1);
+
+  workbook.SaveAs("PivotFieldAutoSort.xlsx");
+  excelEngine.ThrowNotSavedOnDestroy = false;
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(1)
+  Dim pivotTable As IPivotTable = sheet.PivotTables(0)
+
+  ' Pivot Top to Bottom sorting.
+  Dim rowField As IPivotField = pivotTable.RowFields(0)
+  rowField.AutoSort(PivotFieldSortType.Ascending, 1)
+
+  workbook.SaveAs("PivotTableCalculate.xlsx")
+  excelEngine.ThrowNotSavedOnDestroy = False
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
+
+  // Pivot Top to Bottom sorting.
+  IPivotField rowField = pivotTable.RowFields[0];
+  rowField.AutoSort(PivotFieldSortType.Ascending, 1);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotFieldAutoSort";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight asp.net core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
+
+  // Pivot Top to Bottom sorting.
+  IPivotField rowField = pivotTable.RowFields[0];
+  rowField.AutoSort(PivotFieldSortType.Ascending, 1);
+
+  string fileName = "PivotFieldAutoSort.xlsx";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
+
+  // Pivot Top to Bottom sorting.
+  IPivotField rowField = pivotTable.RowFields[0];
+  rowField.AutoSort(PivotFieldSortType.Ascending, 1);
+
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
+
+  string fileName = "PivotFieldAutoSort.xlsx";
+
+  outputStream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
+{% endhighlight %}
+{% endtabs %} 
+
+### Left to Right
+
+Left to Right sorting can sort the pivot table row field values based on the sort type. To apply Left to Right sorting in pivot table, you should apply the sorting in pivot column field by AutoSort method. The following code example illustrates how to apply Left to Right sorting to a pivot table.
+
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  IWorkbook workbook = application.Workbooks.Open("PivotTable.xlsx");
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
+
+  // Pivot table Left to Right sorting.
+  IPivotField columnField = pivotTable.ColumnFields[0];
+  columnField.AutoSort(PivotFieldSortType.Ascending, 1);
+
+  workbook.SaveAs("PivotFieldAutoSort.xlsx");
+  excelEngine.ThrowNotSavedOnDestroy = false;
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+
+  Dim workbook As IWorkbook = application.Workbooks.Open("PivotTable.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(1)
+  Dim pivotTable As IPivotTable = sheet.PivotTables(0)
+
+  ' Pivot table Left to Right sorting.
+  Dim rowField As columnField = pivotTable.ColumnFields(0)
+  columnField.AutoSort(PivotFieldSortType.Ascending, 1)
+
+  workbook.SaveAs("PivotTableCalculate.xlsx")
+  excelEngine.ThrowNotSavedOnDestroy = False
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream);
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
+
+  // Pivot table Left to Right sorting.
+  IPivotField columnField = pivotTable.ColumnFields[0];
+  columnField.AutoSort(PivotFieldSortType.Ascending, 1);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "PivotFieldAutoSort";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight asp.net core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  FileStream fileStream = new FileStream("PivotTable.xlsx", FileMode.Open, FileAccess.Read);
+
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
+
+  // Pivot table Left to Right sorting.
+  IPivotField columnField = pivotTable.ColumnFields[0];
+  columnField.AutoSort(PivotFieldSortType.Ascending, 1);
+
+  string fileName = "PivotFieldAutoSort.xlsx";
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.PivotTable.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[1];
+  IPivotTable pivotTable = sheet.PivotTables[0];
+
+  // Pivot table Left to Right sorting.
+  IPivotField columnField = pivotTable.ColumnFields[0];
+  columnField.AutoSort(PivotFieldSortType.Ascending, 1);
+
+  //Saving the workbook as stream
+  MemoryStream outputStream = new MemoryStream();
+  workbook.SaveAs(outputStream);
+
+  string fileName = "PivotFieldAutoSort.xlsx";
+
+  outputStream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+  	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+  else
+  {
+  	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(fileName, "application/msexcel", outputStream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+N> PivotCacheImpl.IsRefreshOnLoad property is set as true when applying AutoSort to pivot fields.
+
 ## Other pivot table operations
 
 ### Adding calculated field in the existing pivot table
