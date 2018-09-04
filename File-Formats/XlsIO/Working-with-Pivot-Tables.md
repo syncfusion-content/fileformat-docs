@@ -618,6 +618,388 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
+## Refresh a pivot table
+
+When you update the pivot table data source, refresh the pivot table manually to load the new data source into it. Essential XlsIO supports this refreshing of pivot table data source through **IsRefreshOnLoad** property of **PivotCacheImpl**.
+
+Refer the following complete code snippets.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Updating a new value in the pivot data
+  worksheet.Range["C2"].Value = "250";
+
+  //Accessing the pivot table 
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+  PivotTableImpl pivotTableImpl = pivotTable as PivotTableImpl;
+
+  //Refreshing pivot cache to update the pivot table
+  pivotTableImpl.Cache.IsRefreshOnLoad = true;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Updating a new value in the pivot data
+  worksheet.Range("C2").Value = "250"
+
+  'Accessing the pivot table
+  Dim pivotTable As IPivotTable = worksheet.PivotTables(0)
+  Dim pivotTableImpl As PivotTableImpl = CType(pivotTable, PivotTableImpl)
+
+  'Refreshing pivot cache to update the pivot table
+  pivotTableImpl.Cache.IsRefreshOnLoad = True
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opening an existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Updating a new value in the pivot data
+  worksheet.Range["C2"].Value = "250";
+
+  //Accessing the pivot table 
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+  PivotTableImpl pivotTableImpl = pivotTable as PivotTableImpl;
+
+  //Refreshing pivot cache to update the pivot table
+  pivotTableImpl.Cache.IsRefreshOnLoad = true;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Updating a new value in the pivot data
+  worksheet.Range["C2"].Value = "250";
+
+  //Accessing the pivot table 
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+  PivotTableImpl pivotTableImpl = pivotTable as PivotTableImpl;
+
+  //Refreshing pivot cache to update the pivot table
+  pivotTableImpl.Cache.IsRefreshOnLoad = true;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Updating a new value in the pivot data
+  worksheet.Range["C2"].Value = "250";
+
+  //Accessing the pivot table 
+  IPivotTable pivotTable = worksheet.PivotTables[0];
+  PivotTableImpl pivotTableImpl = pivotTable as PivotTableImpl;
+
+  //Refreshing pivot cache to update the pivot table
+  pivotTableImpl.Cache.IsRefreshOnLoad = true;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Expand or collapse rows in pivot table
+
+Essential XlsIO allows you to expand and collapse the **PivotFieldItems** or simply the pivot table rows using **IsHiddenDetails** of **PivotItemOptions**.
+
+Refer the following complete code snippets.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Create pivot cache with the given data range
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:C13"]);
+
+  //Create "PivotTable1" with the cache at the specified range
+  IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["E1"], cache);
+
+  //Add pivot table fields (Row and Column fields)
+  pivotTable.Fields[0].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[1].Axis = PivotAxisTypes.Row;
+
+  //Add data field
+  IPivotField field = pivotTable.Fields[2];
+  pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
+
+  //Initialize PivotItemOptions
+  PivotItemOptions options = new PivotItemOptions();
+  options.IsHiddenDetails = false;
+
+  //Collapsing the first and second items of the first pivot field using PivotItemOptions
+  (pivotTable.Fields[0] as PivotFieldImpl).AddItemOption(0, options);
+  (pivotTable.Fields[0] as PivotFieldImpl).AddItemOption(1, options);
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Create pivot cache with the given data range
+  Dim cache As IPivotCache = workbook.PivotCaches.Add(worksheet("A1:C13"))
+
+  'Create "PivotTable1" with the cache at the specified range
+  Dim pivotTable As IPivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet("E1"), cache)
+
+  'Add pivot table fields (Row and Column fields)
+  pivotTable.Fields(0).Axis = PivotAxisTypes.Row
+  pivotTable.Fields(1).Axis = PivotAxisTypes.Row
+
+  'Add data field
+  Dim field As IPivotField = pivotTable.Fields(2)
+  pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum)
+
+  'Initialize PivotItemOptions
+  Dim options As PivotItemOptions = New PivotItemOptions
+  options.IsHiddenDetails = False
+
+  'Collapsing the first and second items of the first pivot field using PivotItemOptions
+  CType(pivotTable.Fields(0), PivotFieldImpl).AddItemOption(0, options)
+  CType(pivotTable.Fields(0), PivotFieldImpl).AddItemOption(1, options)
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the file picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opening the existing workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Create pivot cache with the given data range
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:C13"]);
+
+  //Create "PivotTable1" with the cache at the specified range
+  IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["E1"], cache);
+
+  //Add pivot table fields (Row and Column fields)
+  pivotTable.Fields[0].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[1].Axis = PivotAxisTypes.Row;
+
+  //Add data field
+  IPivotField field = pivotTable.Fields[2];
+  pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
+
+  //Initialize PivotItemOptions
+  PivotItemOptions options = new PivotItemOptions();
+  options.IsHiddenDetails = false;
+
+  //Collapsing the first and second items of the first pivot field using PivotItemOptions
+  (pivotTable.Fields[0] as PivotFieldImpl).AddItemOption(0, options);
+  (pivotTable.Fields[0] as PivotFieldImpl).AddItemOption(1, options);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+  savePicker.SuggestedFileName = "Output";
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Create pivot cache with the given data range
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:C13"]);
+
+  //Create "PivotTable1" with the cache at the specified range
+  IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["E1"], cache);
+
+  //Add pivot table fields (Row and Column fields)
+  pivotTable.Fields[0].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[1].Axis = PivotAxisTypes.Row;
+
+  //Add data field
+  IPivotField field = pivotTable.Fields[2];
+  pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
+
+  //Initialize PivotItemOptions
+  PivotItemOptions options = new PivotItemOptions();
+  options.IsHiddenDetails = false;
+
+  //Collapsing the first and second items of the first pivot field using PivotItemOptions
+  (pivotTable.Fields[0] as PivotFieldImpl).AddItemOption(0, options);
+  (pivotTable.Fields[0] as PivotFieldImpl).AddItemOption(1, options);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("PivotTable.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Create pivot cache with the given data range
+  IPivotCache cache = workbook.PivotCaches.Add(worksheet["A1:C13"]);
+
+  //Create "PivotTable1" with the cache at the specified range
+  IPivotTable pivotTable = worksheet.PivotTables.Add("PivotTable1", worksheet["E1"], cache);
+
+  //Add pivot table fields (Row and Column fields)
+  pivotTable.Fields[0].Axis = PivotAxisTypes.Row;
+  pivotTable.Fields[1].Axis = PivotAxisTypes.Row;
+
+  //Add data field
+  IPivotField field = pivotTable.Fields[2];
+  pivotTable.DataFields.Add(field, "Sum", PivotSubtotalTypes.Sum);
+
+  //Initialize PivotItemOptions
+  PivotItemOptions options = new PivotItemOptions();
+  options.IsHiddenDetails = false;
+
+  //Collapsing the first and second items of the first pivot field using PivotItemOptions
+  (pivotTable.Fields[0] as PivotFieldImpl).AddItemOption(0, options);
+  (pivotTable.Fields[0] as PivotFieldImpl).AddItemOption(1, options);
+
+  //Saving the workbooks as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
 ## Applying pivot table filters 
 
 The filtered data of a pivot table displays only the subset of data that meets the specified criteria. This can be achieved in XlsIO using the **IPivotFilters** interface.

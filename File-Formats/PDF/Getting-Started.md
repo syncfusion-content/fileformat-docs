@@ -24,7 +24,7 @@ To create a PDF document from scratch and saving it to disk or stream, the follo
   </tr>
 </table>
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your Xamarin application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
 Include the following namespaces in your .cs or .vb file as shown below.
 {% tabs %}
@@ -40,6 +40,27 @@ Imports Syncfusion.Pdf
 Imports Syncfusion.Pdf.Parsing
 Imports Syncfusion.Pdf.Graphics
 Imports Syncfusion.Pdf.Grid
+{% endhighlight %}
+
+{% highlight UWP %}
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Parsing;
+using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Grid;
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Parsing;
+using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Grid;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Parsing;
+using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Grid;
 {% endhighlight %}
 {% endtabs %}
 
@@ -80,6 +101,81 @@ document.Save("Output.pdf")
 'Close the document.
 document.Close(True)
 {% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+//Set the standard font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+//Draw the text.
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream);
+//Close the document.
+document.Close(true);
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+//Set the standard font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+//Draw the text.
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+//Close the document.
+document.Close(true);
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+//Set the standard font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+//Draw the text.
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document.
+document.Close(true);
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Creating a PDF document with image
@@ -119,6 +215,84 @@ doc.Save("Output.pdf")
 'Close the document.
 doc.Close(True)
 {% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page to the document.
+PdfPage page = doc.Pages.Add();
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+//Load the image as stream.
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Autumn Leaves.jpg");
+PdfBitmap image = new PdfBitmap(imageStream);
+//Draw the image
+graphics.DrawImage(image, 0, 0);
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+await doc.SaveAsync(stream);
+//Close the document.
+doc.Close(true);
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page to the document.
+PdfPage page = doc.Pages.Add();
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+//Load the image as stream.
+FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open, FileAccess.Read);
+PdfBitmap image = new PdfBitmap(imageStream);
+//Draw the image
+graphics.DrawImage(image, 0, 0);
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+//Close the document.
+doc.Close(true);
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+//Define the file name.
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page to the document.
+PdfPage page = doc.Pages.Add();
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+//Load the image as stream.
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
+PdfBitmap image = new PdfBitmap(imageStream);
+//Draw the image
+graphics.DrawImage(image, 0, 0);
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+//Close the document.
+doc.Close(true);
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Creating a PDF document with table
@@ -180,6 +354,123 @@ doc.Save("Output.pdf")
 'close the document
 doc.Close(True)
 {% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page.
+PdfPage page = doc.Pages.Add();
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+//Add values to list
+List<object> data = new List<object>();
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "Andrew" };
+Object row4 = new { ID = "E04", Name = "Paul" };
+Object row5 = new { ID = "E05", Name = "Gray" };
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new PointF(10, 10));
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+await doc.SaveAsync(stream);
+//Close the document.
+doc.Close(true);
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page.
+PdfPage page = doc.Pages.Add();
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+//Add values to list
+List<object> data = new List<object>();
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "Andrew" };
+Object row4 = new { ID = "E04", Name = "Paul" };
+Object row5 = new { ID = "E05", Name = "Gray" };
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+//Close the document.
+doc.Close(true);
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+//Define the file name.
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page.
+PdfPage page = doc.Pages.Add();
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+//Add values to list
+List<object> data = new List<object>();
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "Andrew" };
+Object row4 = new { ID = "E04", Name = "Paul" };
+Object row5 = new { ID = "E05", Name = "Gray" };
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new PointF(10, 10));
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+//Close the document.
+doc.Close(true);
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Creating a simple PDF document with basic elements
@@ -209,6 +500,42 @@ Dim page As PdfPage = document.Pages.Add()
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Adds page settings
+document.PageSettings.Orientation = PdfPageOrientation.Landscape;
+document.PageSettings.Margins.All = 50;
+//Adds a page to the document
+PdfPage page = document.Pages.Add();
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Adds page settings
+document.PageSettings.Orientation = PdfPageOrientation.Landscape;
+document.PageSettings.Margins.All = 50;
+//Adds a page to the document
+PdfPage page = document.Pages.Add();
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Adds page settings
+document.PageSettings.Orientation = PdfPageOrientation.Landscape;
+document.PageSettings.Margins.All = 50;
+//Adds a page to the document
+PdfPage page = document.Pages.Add();
+
+{% endhighlight %}
 {% endtabs %}
 1. Essential PDF has APIs similar to the .NET GDI plus which helps to draw elements to the PDF page just like 2D drawing in .NET. 
 2. Unlike System.Drawing APIs all the units are measured in point instead of pixel. 
@@ -236,6 +563,37 @@ page.Graphics.DrawImage(image, New RectangleF(176, 0, 390, 130))
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Loads the image as stream
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.AdventureCycle.jpg");
+PdfImage image = PdfImage.FromStream(imageStream);
+//Draws the image to the PDF page
+page.Graphics.DrawImage(image, new RectangleF(176, 0, 390, 130));
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Loads the image as stream
+FileStream imageStream = new FileStream("AdventureCycle.jpg", FileMode.Open, FileAccess.Read);
+PdfImage image = PdfImage.FromStream(imageStream);
+//Draws the image to the PDF page
+page.Graphics.DrawImage(image, new RectangleF(176, 0, 390, 130));
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Loads the image as stream
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.AdventureCycle.jpg");
+PdfImage image = PdfImage.FromStream(imageStream);
+//Draws the image to the PDF page
+page.Graphics.DrawImage(image, new RectangleF(176, 0, 390, 130));
+
+{% endhighlight %}
+
 {% endtabs %}
 
 The following methods can be used to add text to a PDF document.
@@ -316,6 +674,106 @@ graphics.DrawLine(linePen, startPoint, endPoint)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
+RectangleF bounds = new RectangleF(0, result.Bounds.Bottom + 90, graphics.ClientSize.Width, 30);
+//Draws a rectangle to place the heading in that region.
+graphics.DrawRectangle(solidBrush, bounds);
+//Creates a font for adding the heading in the page
+PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
+//Creates a text element to add the invoice number
+PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
+element.Brush = PdfBrushes.White;
+
+//Draws the heading on the page
+result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 98));
+string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
+//Measures the width of the text to place it in the correct location
+SizeF textSize = subHeadingFont.MeasureString(currentDate);
+PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
+//Draws the date by using DrawString method
+graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
+PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
+//Creates text elements to add the address and draw it to the page.
+element = new PdfTextElement("BILL TO ", timesRoman);
+element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
+result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
+PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
+PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
+PointF endPoint = new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3);
+//Draws a line at the bottom of the address
+graphics.DrawLine(linePen, startPoint, endPoint);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
+RectangleF bounds = new RectangleF(0, result.Bounds.Bottom + 90, graphics.ClientSize.Width, 30);
+//Draws a rectangle to place the heading in that region.
+graphics.DrawRectangle(solidBrush, bounds);
+//Creates a font for adding the heading in the page
+PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
+//Creates a text element to add the invoice number
+PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
+element.Brush = PdfBrushes.White;
+
+//Draws the heading on the page
+result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 98));
+string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
+//Measures the width of the text to place it in the correct location
+SizeF textSize = subHeadingFont.MeasureString(currentDate);
+PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
+//Draws the date by using DrawString method
+graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
+PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
+//Creates text elements to add the address and draw it to the page.
+element = new PdfTextElement("BILL TO ", timesRoman);
+element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
+result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
+PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
+PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
+PointF endPoint = new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3);
+//Draws a line at the bottom of the address
+graphics.DrawLine(linePen, startPoint, endPoint);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
+RectangleF bounds = new RectangleF(0, result.Bounds.Bottom + 90, graphics.ClientSize.Width, 30);
+//Draws a rectangle to place the heading in that region.
+graphics.DrawRectangle(solidBrush, bounds);
+//Creates a font for adding the heading in the page
+PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
+//Creates a text element to add the invoice number
+PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
+element.Brush = PdfBrushes.White;
+
+//Draws the heading on the page
+result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 98));
+string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
+//Measures the width of the text to place it in the correct location
+SizeF textSize = subHeadingFont.MeasureString(currentDate);
+PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
+//Draws the date by using DrawString method
+graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
+PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
+//Creates text elements to add the address and draw it to the page.
+element = new PdfTextElement("BILL TO ", timesRoman);
+element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
+result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
+PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
+PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
+PointF endPoint = new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3);
+//Draws a line at the bottom of the address
+graphics.DrawLine(linePen, startPoint, endPoint);
+
+{% endhighlight %}
+
 {% endtabs %}
 Essential PDF provides two types of table models. The difference between both the table models can be referred from the link 
 [Difference between PdfLightTable and PdfGrid](/file-formats/pdf/working-with-tables#difference-between-pdflighttable-and-pdfgrid "difference-between-pdflighttable-and-pdfgrid")
@@ -405,6 +863,136 @@ layoutFormat.Layout = PdfLayoutType.Paginate
 Dim gridResult As PdfGridLayoutResult = grid.Draw(page, New RectangleF(New PointF(0, result.Bounds.Bottom + 40), New SizeF(g.ClientSize.Width, g.ClientSize.Height - 100)), layoutFormat)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Creates the datasource for the table
+DataTable invoiceDetails = GetProductDetailsAsDataTable();
+//Creates a PDF grid
+PdfGrid grid = new PdfGrid();
+//Adds the data source
+grid.DataSource = invoiceDetails;
+//Creates the grid cell styles
+PdfGridCellStyle cellStyle = new PdfGridCellStyle();
+cellStyle.Borders.All = PdfPens.White;
+PdfGridRow header = grid.Headers[0];
+//Creates the header style
+PdfGridCellStyle headerStyle = new PdfGridCellStyle();
+headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
+headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
+headerStyle.TextBrush = PdfBrushes.White;
+headerStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f, PdfFontStyle.Regular);
+
+//Adds cell customizations
+for (int i = 0; i < header.Cells.Count; i++)
+{
+if (i == 0 || i == 1)
+header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+else
+header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
+}
+
+//Applies the header style
+header.ApplyStyle(headerStyle);
+cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
+cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
+cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
+//Creates the layout format for grid
+PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
+// Creates layout format settings to allow the table pagination
+layoutFormat.Layout = PdfLayoutType.Paginate;
+//Draws the grid to the PDF page.
+PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(g.ClientSize.Width, g.ClientSize.Height - 100)), layoutFormat);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+
+//Creates the datasource for the table
+DataTable invoiceDetails = GetProductDetailsAsDataTable();
+//Creates a PDF grid
+PdfGrid grid = new PdfGrid();
+//Adds the data source
+grid.DataSource = invoiceDetails;
+//Creates the grid cell styles
+PdfGridCellStyle cellStyle = new PdfGridCellStyle();
+cellStyle.Borders.All = PdfPens.White;
+PdfGridRow header = grid.Headers[0];
+//Creates the header style
+PdfGridCellStyle headerStyle = new PdfGridCellStyle();
+headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
+headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
+headerStyle.TextBrush = PdfBrushes.White;
+headerStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f, PdfFontStyle.Regular);
+
+//Adds cell customizations
+for (int i = 0; i < header.Cells.Count; i++)
+{
+if (i == 0 || i == 1)
+header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+else
+header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
+}
+
+//Applies the header style
+header.ApplyStyle(headerStyle);
+cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
+cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
+cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
+//Creates the layout format for grid
+PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
+// Creates layout format settings to allow the table pagination
+layoutFormat.Layout = PdfLayoutType.Paginate;
+//Draws the grid to the PDF page.
+PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(g.ClientSize.Width, g.ClientSize.Height - 100)), layoutFormat);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+
+//Creates the datasource for the table
+DataTable invoiceDetails = GetProductDetailsAsDataTable();
+//Creates a PDF grid
+PdfGrid grid = new PdfGrid();
+//Adds the data source
+grid.DataSource = invoiceDetails;
+//Creates the grid cell styles
+PdfGridCellStyle cellStyle = new PdfGridCellStyle();
+cellStyle.Borders.All = PdfPens.White;
+PdfGridRow header = grid.Headers[0];
+//Creates the header style
+PdfGridCellStyle headerStyle = new PdfGridCellStyle();
+headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
+headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
+headerStyle.TextBrush = PdfBrushes.White;
+headerStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f, PdfFontStyle.Regular);
+
+//Adds cell customizations
+for (int i = 0; i < header.Cells.Count; i++)
+{
+if (i == 0 || i == 1)
+header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+else
+header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
+}
+
+//Applies the header style
+header.ApplyStyle(headerStyle);
+cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
+cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
+cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
+//Creates the layout format for grid
+PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
+// Creates layout format settings to allow the table pagination
+layoutFormat.Layout = PdfLayoutType.Paginate;
+//Draws the grid to the PDF page.
+PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(g.ClientSize.Width, g.ClientSize.Height - 100)), layoutFormat);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 The following code example shows how to save the invoice document to disk and dispose the PdfDocument object.
@@ -424,6 +1012,47 @@ document.Close(true);
 'Saves and closes the document.
 document.Save("Sample.pdf")
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream);
+//Close the document.
+document.Close(true);
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+FileStream fileStream = new FileStream("Sample.pdf", FileMode.CreateNew, FileAccess.ReadWrite);
+//Save and close the PDF document 
+document.Save(fileStream);
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document.
+document.Close(true);
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 {% endtabs %}
@@ -499,6 +1128,116 @@ loadedDocument.Save("output.pdf")
 loadedDocument.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+var picker = new FileOpenPicker();
+picker.FileTypeFilter.Add(".pdf");
+//Browse and chose the file
+StorageFile file = await picker.PickSingleFileAsync();
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+await loadedDocument.OpenAsync(file);
+//Loads the form
+PdfLoadedForm form = loadedDocument.Form;
+//Fills the textbox field by using index
+(form.Fields[0] as PdfLoadedTextBoxField).Text = "John";
+//Fills the textbox fields by using field name
+(form.Fields["LastName"] as PdfLoadedTextBoxField).Text = "Doe";
+(form.Fields["Address"] as PdfLoadedTextBoxField).Text = " John Doe \n 123 Main St \n Anytown, USA";
+//Loads the radio button group
+PdfLoadedRadioButtonItemCollection radioButtonCollection = (form.Fields["Gender"] as PdfLoadedRadioButtonListField).Items;
+//Checks the 'Male' option
+radioButtonCollection[0].Checked = true;
+//Checks the 'business' checkbox field
+(form.Fields["Business"] as PdfLoadedCheckBoxField).Checked = true;
+//Checks the 'retiree' checkbox field
+(form.Fields["Retiree"] as PdfLoadedCheckBoxField).Checked = true;
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+await loadedDocument.SaveAsync(stream);
+//Close the document.
+loadedDocument.Close(true);
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("JobApplication.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Loads the form
+PdfLoadedForm form = loadedDocument.Form;
+//Fills the textbox field by using index
+(form.Fields[0] as PdfLoadedTextBoxField).Text = "John";
+//Fills the textbox fields by using field name
+(form.Fields["LastName"] as PdfLoadedTextBoxField).Text = "Doe";
+(form.Fields["Address"] as PdfLoadedTextBoxField).Text = " John Doe \n 123 Main St \n Anytown, USA";
+//Loads the radio button group
+PdfLoadedRadioButtonItemCollection radioButtonCollection = (form.Fields["Gender"] as PdfLoadedRadioButtonListField).Items;
+//Checks the 'Male' option
+radioButtonCollection[0].Checked = true;
+//Checks the 'business' checkbox field
+(form.Fields["Business"] as PdfLoadedCheckBoxField).Checked = true;
+//Checks the 'retiree' checkbox field
+(form.Fields["Retiree"] as PdfLoadedCheckBoxField).Checked = true;
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+//Close the document.
+loadedDocument.Close(true);
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+//Define the file name.
+string fileName = "output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.JobApplication.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Loads the form
+PdfLoadedForm form = loadedDocument.Form;
+//Fills the textbox field by using index
+(form.Fields[0] as PdfLoadedTextBoxField).Text = "John";
+//Fills the textbox fields by using field name
+(form.Fields["LastName"] as PdfLoadedTextBoxField).Text = "Doe";
+(form.Fields["Address"] as PdfLoadedTextBoxField).Text = " John Doe \n 123 Main St \n Anytown, USA";
+//Loads the radio button group
+PdfLoadedRadioButtonItemCollection radioButtonCollection = (form.Fields["Gender"] as PdfLoadedRadioButtonListField).Items;
+//Checks the 'Male' option
+radioButtonCollection[0].Checked = true;
+//Checks the 'business' checkbox field
+(form.Fields["Business"] as PdfLoadedCheckBoxField).Checked = true;
+//Checks the 'retiree' checkbox field
+(form.Fields["Retiree"] as PdfLoadedCheckBoxField).Checked = true;
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document.
+loadedDocument.Close(true);
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
 {% endtabs %}
 
 The filled form is shown in adobe reader application as follows.
@@ -546,6 +1285,27 @@ webKitSettings.WebKitPath = "/QtBinaries/"
 {% endhighlight %}
 {% endtabs %}
 
+{% highlight UWP %}
+
+//PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a WebKitConverterSettings instance
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+
+{% endhighlight %}
+
 For converting HTTPS sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the following link,
 
 [OpenSSL](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064 )
@@ -590,6 +1350,45 @@ Dim document As PdfDocument = htmlConverter.Convert("http://www.google.com")
 document.Save("Sample.pdf")
 document.Close(True)
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create an instance of HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Create a WebKitConverterSettings instance
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+//Assign the WebKit settings to converter
+htmlConverter.ConverterSettings = webKitSettings;
+//Convert the URL to PDF
+PdfDocument document = htmlConverter.Convert("http://www.google.com");
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+stream.Position = 0;
+//Closes the document
+document.Close(true);
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Sample.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+
+{% endhighlight %}
 {% endtabs %}
 
 To convert the HTML string to PDF, use the following code example.
@@ -614,7 +1413,7 @@ document.Close(true);
 'Create an instance of HTML to PDF converter
 Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
 'Create a WebKitConverterSettings instance
-Dim webKitSettings As New WebKitConverterSettings()
+Dim webKitSettings As New WebKitConverterSettings() 
 'Set WebKit path
 webKitSettings.WebKitPath = "/QtBinaries/"
 'Assign the WebKit settings to converter
@@ -624,6 +1423,41 @@ Dim document As PdfDocument = htmlConverter.Convert("<html><head><title></title>
 'Save and close the document.
 document.Save("Sample.pdf")
 document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create an instance of HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+//Create a WebKitConverterSettings instance
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+//Assign the WebKit settings to converter
+htmlConverter.ConverterSettings = webKitSettings;
+//Convert the HTML string to PDF
+PdfDocument document = htmlConverter.Convert("<html><head><title></title></head><body><div>Hello World!!!</div></body></html>", "");
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+stream.Position = 0;
+//Closes the document
+document.Close(true);
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight  Xamarin%}
+//PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 {% endhighlight %}
 {% endtabs %}
 ## Merge PDF Documents
@@ -663,6 +1497,24 @@ finalDoc.Save("Sample.pdf")
 finalDoc.Close(True)
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports merging multiple PDF documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports merging multiple PDF documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports merging multiple PDF documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
 {% endtabs %}
 You can merge the PDF document streams by using the following code example.
 
@@ -700,6 +1552,44 @@ PdfDocumentBase.Merge(finalDoc, streams)
 finalDoc.Save("sample.pdf")
 'closes the document
 finalDoc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports merging multiple PDF documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a PDF document
+PdfDocument finalDoc = new PdfDocument();
+FileStream stream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+FileStream stream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
+// Creates a PDF stream for merging
+Stream[] streams = { stream1, stream2 };
+// Merges PDFDocument.
+PdfDocumentBase.Merge(finalDoc, streams);
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+finalDoc.Save(stream);
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+//Close the document.
+finalDoc.Close(true);
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+//Define the file name.
+string fileName = "sample.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports merging multiple PDF documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
 {% endhighlight %}
 

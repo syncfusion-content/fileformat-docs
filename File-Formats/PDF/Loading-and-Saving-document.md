@@ -27,19 +27,19 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
 
 {% highlight UWP %}
 
-//PDF supports opening an existing PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+//PDF supports opening an existing PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//PDF supports opening an existing PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+//PDF supports opening an existing PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//PDF supports opening an existing PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+//PDF supports opening an existing PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 {% endtabs %}
@@ -142,19 +142,19 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf","password")
 
 {% highlight UWP %}
 
-//PDF supports opening an Encrypted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+//PDF supports opening an Encrypted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//PDF supports opening an Encrypted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+//PDF supports opening an Encrypted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//PDF supports opening an Encrypted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+//PDF supports opening an Encrypted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 {% endtabs %}
@@ -268,19 +268,19 @@ Dim loadedDocument As New PdfLoadedDocument("Input.pdf", True)
 
 {% highlight UWP %}
 
-//PDF supports opening a corrupted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+//PDF supports opening a corrupted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//PDF supports opening a corrupted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+//PDF supports opening a corrupted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//PDF supports opening a corrupted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC.
+//PDF supports opening a corrupted PDF document from physical path only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 {% endtabs %}
@@ -436,7 +436,7 @@ return File(stream, contentType, fileName);
 
 //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 //To-Do some manipulation
 //To-Do some manipulation
 //Save the document into stream.
@@ -522,7 +522,7 @@ loadedDocument.Save(stream);
 
 //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 //To-Do some manipulation
 //To-Do some manipulation
 //Save the document into stream.
@@ -580,13 +580,13 @@ await loadedDocument.Save();
 
 {% highlight ASP.NET Core %}
 
-//PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP.
+//PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP.
+//PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
 
 {% endhighlight %}
 {% endtabs %}
@@ -633,13 +633,13 @@ await loadedDocument.Save();
 
 {% highlight ASP.NET Core %}
 
-//PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP.
+//PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP.
+//PDF supports saving a PDF document into the same file only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
 
 {% endhighlight %}
 {% endtabs %}
@@ -711,7 +711,7 @@ loadedDocument.Close(true);
 
 //Load the file as stream
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
 //To-Do some manipulation
 //To-Do some manipulation
 //Save the document into stream.

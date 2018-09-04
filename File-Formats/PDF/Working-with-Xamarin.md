@@ -761,3 +761,157 @@ End Class
 
 {% endhighlight %}
 {% endtabs %}
+
+N> Launching a file in default viewer is different in iOS when compared to Windows Phone and Android. This requires the helper class PreviewControllerDS, as described in the code samples below.
+
+{% tabs %}  
+{% highlight c# %}
+
+public class PreviewControllerDS : QLPreviewControllerDataSource
+{
+	private QLPreviewItem _item;
+
+	public PreviewControllerDS(QLPreviewItem item)
+	{
+		_item = item;
+	}
+
+	public override nint PreviewItemCount (QLPreviewController controller)
+	{
+		return (nint)1;
+	}
+
+	public override IQLPreviewItem GetPreviewItem (QLPreviewController controller, nint index)
+	{
+		return _item;
+	}
+}
+
+
+public class QLPreviewItemFileSystem : QLPreviewItem
+{
+	string _fileName, _filePath;
+
+	public QLPreviewItemFileSystem(string fileName, string filePath)
+	{
+		_fileName = fileName;
+		_filePath = filePath;
+	}
+
+	public override string ItemTitle
+	{
+		get
+		{
+			return _fileName;
+		}
+	}
+	public override NSUrl ItemUrl
+	{
+		get
+		{
+			return NSUrl.FromFilename(_filePath);
+		}
+	}
+}
+
+public class QLPreviewItemBundle : QLPreviewItem
+{
+	string _fileName, _filePath;
+	public QLPreviewItemBundle(string fileName, string filePath)
+	{
+		_fileName = fileName;
+		_filePath = filePath;
+	}
+
+	public override string ItemTitle
+	{
+		get
+		{
+			return _fileName;
+		}
+	}
+	public override NSUrl ItemUrl
+	{
+		get
+		{
+			var documents = NSBundle.MainBundle.BundlePath;
+			var lib = Path.Combine(documents, _filePath);
+			var url = NSUrl.FromFilename(lib);
+			return url;
+		}
+	}
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Public Class PreviewControllerDS
+        Inherits QLPreviewControllerDataSource
+
+        Private _item As QLPreviewItem
+
+        Public Sub New(ByVal item As QLPreviewItem)
+            _item = item
+        End Sub
+
+        Public Overrides Function PreviewItemCount(ByVal controller As QLPreviewController) As nint
+            Return CType(1, nint)
+        End Function
+
+        Public Overrides Function GetPreviewItem(ByVal controller As QLPreviewController, ByVal index As nint) As IQLPreviewItem
+            Return _item
+        End Function
+    End Class
+
+Public Class QLPreviewItemFileSystem
+    Inherits QLPreviewItem
+
+    Private _fileName, _filePath As String
+
+    Public Sub New(ByVal fileName As String, ByVal filePath As String)
+        _fileName = fileName
+        _filePath = filePath
+    End Sub
+
+    Public Overrides ReadOnly Property ItemTitle As String
+        Get
+            Return _fileName
+        End Get
+    End Property
+
+    Public Overrides ReadOnly Property ItemUrl As NSUrl
+        Get
+            Return NSUrl.FromFilename(_filePath)
+        End Get
+    End Property
+End Class
+
+Public Class QLPreviewItemBundle
+    Inherits QLPreviewItem
+
+    Private _fileName, _filePath As String
+
+    Public Sub New(ByVal fileName As String, ByVal filePath As String)
+        _fileName = fileName
+        _filePath = filePath
+    End Sub
+
+    Public Overrides ReadOnly Property ItemTitle As String
+        Get
+            Return _fileName
+        End Get
+    End Property
+
+    Public Overrides ReadOnly Property ItemUrl As NSUrl
+        Get
+            Dim documents = NSBundle.MainBundle.BundlePath
+            Dim [lib] = Path.Combine(documents, _filePath)
+            Dim url = NSUrl.FromFilename([lib])
+            Return url
+        End Get
+    End Property
+End Class
+
+{% endhighlight %}
+{% endtabs %}

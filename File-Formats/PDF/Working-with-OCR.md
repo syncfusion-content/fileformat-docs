@@ -77,6 +77,8 @@ You can also download the language packages from below link
 
 N> From 16.1.0.24 OCR is not a part of Essential Studio and is available as separate package (OCR Processor) under the Add-On section in the below link [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version).
 
+N> PDF supports OCR only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
 ## Performing OCR for an entire document
 
 You can perform OCR on PDF document with the help of OCRProcessor Class. Refer the below code snippet for the same.

@@ -39,6 +39,8 @@ Universal Windows Platform<br/></td><td>
 Syncfusion.Presentation.UWP<br/>Syncfusion.OfficeChart.UWP<br/></td></tr>
 </table>
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+
 ## Converting PowerPoint Presentation to PDF
 
 For converting a PowerPoint Presentation to PDF, the following assemblies needed to be referenced in your application

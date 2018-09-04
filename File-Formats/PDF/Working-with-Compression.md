@@ -13,6 +13,8 @@ Essential PDF allows you to compress the PDF document and thereby reduce the fil
 2. Content compression for a new document
 3. Image compression for a new document
 
+N> PDF supports compressing PDF document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
 ## Compressing existing PDF document
 
 You can compress the existing PDF document by using PdfLoadedDocument and PdfCompressionOptions. The following compression techniques are used to compress the existing PDF document.
@@ -77,6 +79,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 {% endhighlight %}
+
 {% endtabs %}
 
 ## Optimizing embedded font
@@ -128,6 +131,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 {% endhighlight %}
+
 {% endtabs %}
 
 N> The font compression support only in TrueType and Type2 embedded fonts.
@@ -181,6 +185,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 {% endhighlight %}
+
 {% endtabs %}
 
 ## Remove metadata information
@@ -227,6 +232,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 {% endhighlight %}
+
 {% endtabs %}
 
 ## Compressing the PDF content
@@ -309,6 +315,7 @@ document.Save("Output.pdf")
 document.Close(True)
 
 {% endhighlight %}
+
 {% endtabs %}
 
 You can compress the existing PDF document by using the following code snippet.
@@ -348,6 +355,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 {% endhighlight %}
+
 {% endtabs %}
 
 ## Compressing images
@@ -406,6 +414,7 @@ document.Save("Output.pdf")
 document.Close(True)
 
 {% endhighlight %}
+
 {% endtabs %}
 
 You can compress the images in the existing PDF document by using the following code snippet
@@ -480,4 +489,5 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 {% endhighlight %}
+
 {% endtabs %}
