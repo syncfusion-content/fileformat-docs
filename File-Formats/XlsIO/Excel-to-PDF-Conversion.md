@@ -776,10 +776,10 @@ This feature supports the following elements:
 * Headers and footers
 * Images
 * Picture recolor
- 	* Black and White
-	* Color Change
+ 	* Black and white
+	* Color change
 	* DuoTone
-	* Gray Scale
+	* Gray scale
 * Text boxes
 * Hyperlinks
 * Document properties
