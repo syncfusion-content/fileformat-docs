@@ -778,7 +778,7 @@ This feature supports the following elements:
 * Picture recolor
  	* Black and White
 	* Color Change
-	* Duotone
+	* DuoTone
 	* Gray Scale
 * Text boxes
 * Hyperlinks
