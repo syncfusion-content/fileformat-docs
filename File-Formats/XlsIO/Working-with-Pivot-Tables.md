@@ -2067,7 +2067,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-N> PivotCacheImpl.IsRefreshOnLoad property is set as true when applying autosort to pivot fields.
+N> PivotCacheImpl.IsRefreshOnLoad property is set as true when applying AutoSort to pivot fields.
 
 ## Other pivot table operations
 
