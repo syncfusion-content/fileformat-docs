@@ -775,6 +775,11 @@ This feature supports the following elements:
 * Rich-text formatting
 * Headers and footers
 * Images
+* Picture recolor
+ 	* Black and white
+	* Color change
+	* DuoTone
+	* Gray scale
 * Text boxes
 * Hyperlinks
 * Document properties
