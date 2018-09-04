@@ -596,7 +596,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -658,7 +658,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight Xamarin %}
 
@@ -715,7 +715,7 @@ else
 }
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -761,7 +761,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight vb.net %}
 
@@ -801,7 +801,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight UWP %}
 
@@ -848,7 +848,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -909,7 +909,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight Xamarin %}
 
@@ -964,7 +964,7 @@ else
      Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -1008,7 +1008,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight vb.net %}
 
@@ -1044,7 +1044,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight UWP %}
 
@@ -1087,7 +1087,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -1144,7 +1144,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight Xamarin %}
 
@@ -1196,7 +1196,7 @@ else
 }
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -1240,7 +1240,7 @@ dialog.Document.Print();
 
 viewer.Dispose();
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight vb.net %}
 
@@ -1270,7 +1270,7 @@ dialog.Document.Print()
 
 viewer.Dispose()
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -1326,7 +1326,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight vb.net %}
 
@@ -1372,7 +1372,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight UWP %}
 
@@ -1425,7 +1425,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -1492,7 +1492,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight Xamarin %}
 
@@ -1554,7 +1554,7 @@ else
 }
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -1588,7 +1588,7 @@ document.Save("Output.pdf");
 //Close the document.
 document.Close(true);
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight vb.net %}
 
@@ -1618,7 +1618,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight UWP %}
 
@@ -1669,7 +1669,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -1722,7 +1722,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight Xamarin %}
 
@@ -1770,7 +1770,7 @@ else
 }
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -1803,7 +1803,7 @@ loadedDocument.Save("Output.pdf");
 loadedDocument.Close(true);
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight vb.net %}
 
@@ -1828,7 +1828,7 @@ loadedDocument.Save("Output.pdf")
 loadedDocument.Close(True)
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight UWP %}
 
@@ -1873,7 +1873,7 @@ loadedDocument.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -1920,7 +1920,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight Xamarin %}
 
@@ -1962,7 +1962,7 @@ else
 }
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -2016,7 +2016,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight vb.net %}
 
@@ -2060,7 +2060,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight UWP %}
 
@@ -2111,7 +2111,7 @@ document.Close(true);
 Save(stream, "Output.pdf");
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -2175,7 +2175,7 @@ string fileName = "Output.pdf";
 
 return File(stream, contentType, fileName);
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight Xamarin %}
 
@@ -2235,7 +2235,7 @@ else
 }
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -2277,7 +2277,7 @@ document.Save("Output.pdf");
 
 document.Close(true);
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight vb.net %}
 
@@ -2313,7 +2313,7 @@ document.Save("Output.pdf")
 
 document.Close(True)
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight UWP %}
 
@@ -2355,7 +2355,7 @@ document.Close(true);
 
 Save(stream, "Output.pdf");
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -2410,7 +2410,7 @@ string fileName = "Output.pdf";
 return File(stream, contentType, fileName);
 
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% highlight Xamarin %}
 
@@ -2461,7 +2461,7 @@ else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
 
-{% endhighligh %}
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -2511,7 +2511,7 @@ document.Save(name+".pdf");
 document.Close(true);
 }
 
-{% endhighligh %}
+{% endhighlight %}
 {% highlight vb.net %}
 
 Dim works As IEnumerable(Of Integer) = Enumerable.Range(0, 100)
@@ -2548,19 +2548,8 @@ document.Close(True)
 
 End Sub
 
-{% endhighligh %}
+{% endhighlight %}
 
-{% highlight UWP %}
-
-{% endhighligh %}
-
-% highlight ASP.NET Core %}
-
-{% endhighligh %}
-
-% highlight Xamarin %}
-
-{% endhighligh %}
 {% endtabs %}
 
 You can also modify the existing document in multi-threading environment. The below samples explain how to modify the existing PDF document in multi-threading environment.
@@ -2603,7 +2592,7 @@ doc.Close(true);
 
 }
 
-{% endhighligh %}
+{% endhighlight %}
 {% highlight vb.net %}
 
 Dim works As IEnumerable(Of Integer) = Enumerable.Range(0, 100)
@@ -2640,5 +2629,5 @@ doc.Close(True)
 
 End Sub
 
-{% endhighligh %}
+{% endhighlight %}
 {% endtabs %}
