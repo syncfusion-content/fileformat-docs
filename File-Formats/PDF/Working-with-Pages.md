@@ -1677,8 +1677,6 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
-{% endtabs %}  
-
 {% highlight UWP %}
 
 //PDF supports splitting a PDF file to individual page only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
@@ -1696,3 +1694,5 @@ loadedDocument.Close(True)
 //PDF supports splitting a PDF file to individual page only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
+
+{% endtabs %}  
