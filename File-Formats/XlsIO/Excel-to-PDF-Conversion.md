@@ -794,6 +794,7 @@ This feature supports the following elements:
 * 2D charts
 * 3D charts
 * AutoShapes
+* Group shapes
 ​
 
 ## Unsupported elements
