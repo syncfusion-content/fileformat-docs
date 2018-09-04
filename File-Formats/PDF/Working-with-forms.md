@@ -17,7 +17,7 @@ Essential PDF allows you to create and manage the form (AcroForm) in PDF documen
 
 The below code snippet illustrates how to add a textbox field to a new PDF document.
 
-
+{% tabs %}
 
 {% highlight c# %}
 
@@ -766,7 +766,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 Please refer the below code snippet for adding the combo box in existing PDF document.
 
@@ -1091,7 +1091,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 ### Adding the radio button field
 
@@ -1368,7 +1368,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 The below code snippet illustrates how to add the radio button in existing PDF document:
 
@@ -2186,7 +2186,7 @@ Save(stream, "Form.pdf");
 
 {% highlight ASP.NET Core %}
 
- //Load the PDF document
+//Load the PDF document
 
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
 
@@ -2332,7 +2332,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
  
 
 ### Adding the check Box field
@@ -2832,7 +2832,7 @@ else
 
 {% endhighlight %}
 
-  {% endtabs %}  
+{% endtabs %}  
   
 
 ### Adding the signature field
@@ -3063,7 +3063,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 Please refer the below code snippet for adding the signature field in existing PDF document:
 
@@ -3336,7 +3336,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 ### Adding the button field 
 
@@ -4477,7 +4477,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 ### Filling the radio button field
 
@@ -4886,7 +4886,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 ### Filling the check Box field
 
@@ -5115,7 +5115,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 ### Filling the signature field
 
@@ -5372,7 +5372,7 @@ else
 {% endhighlight %}
 
 
- {% endtabs %}  
+{% endtabs %}  
 
 ### Enumerate the form fields
 
@@ -5635,7 +5635,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
  
 
 ### TryGetField
@@ -5881,7 +5881,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 ### TryGetValue
 
@@ -6098,7 +6098,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 ## Removing editing capability of form fields
 
@@ -6852,7 +6852,7 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 The below code snippet illustrates how to set the read only property to an existing PDF document.
 
@@ -7361,7 +7361,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
  
 
 ## Export PDF file to FDF
@@ -7418,7 +7418,7 @@ loadedDocument.Close(True)
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
  
 ## Adding actions to form fields 

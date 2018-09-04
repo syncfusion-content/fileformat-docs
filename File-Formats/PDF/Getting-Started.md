@@ -1283,7 +1283,6 @@ Dim webKitSettings As New WebKitConverterSettings()
 'Set WebKit path
 webKitSettings.WebKitPath = "/QtBinaries/"
 {% endhighlight %}
-{% endtabs %}
 
 {% highlight UWP %}
 
@@ -1305,6 +1304,7 @@ webKitSettings.WebKitPath = @"/QtBinaries/";
 //PDF supports converting HTML contents to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
 
 {% endhighlight %}
+{% endtabs %}
 
 For converting HTTPS sites, it requires OPENSSL libraries to be installed in the machine. You can install the OPENSSL library by downloading its setup from the following link,
 

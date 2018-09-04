@@ -758,7 +758,7 @@ document.Close(True)
 
 {% highlight UWP %}
 
- //Create a new PDF document.
+//Create a new PDF document.
 
 PdfDocument document = new PdfDocument();
 
