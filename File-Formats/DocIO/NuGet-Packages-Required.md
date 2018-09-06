@@ -365,7 +365,7 @@ Essential DocIO is a .NET Word library that allows you to create, read and edit 
 Syncfusion.DocIO.Portable.dll
 </td>
 <td>
-NETStandard.Library.nupkg<br/>Syncfusion.Compression.NETStandard.nupkg<br/>Syncfusion.OfficeChart.NETStandard.nupkg<br/><br/></td>
+Syncfusion.Compression.NETStandard.nupkg<br/>Syncfusion.OfficeChart.NETStandard.nupkg<br/>NETStandard.Library.nupkg<br/><br/></td>
 </tr>
 <tr>
 <td>
@@ -378,7 +378,7 @@ The DocIORenderer is a .NET library that allows you to convert the Word document
 Syncfusion.DocIORenderer.Portable.dll
 </td>
 <td>
-NETStandard.Library.nupkg<br/>SkiaSharp.nupkg<br/>Syncfusion.Compression.NETStandard.nupkg<br/>Syncfusion.OfficeChart.NETStandard.nupkg<br/>Syncfusion.DocIO.NETStandard.nupkg<br/>Syncfusion.Pdf.NETStandard.nupkg<br/><br/></td>
+Syncfusion.Compression.NETStandard.nupkg<br/>Syncfusion.OfficeChart.NETStandard.nupkg<br/>Syncfusion.DocIO.NETStandard.nupkg<br/>Syncfusion.Pdf.NETStandard.nupkg<br/>NETStandard.Library.nupkg<br/>SkiaSharp.nupkg<br/><br/></td>
 </tr>
 <tr>
 <td>
