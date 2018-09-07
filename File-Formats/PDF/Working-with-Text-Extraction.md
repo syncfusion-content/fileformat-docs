@@ -143,6 +143,8 @@ loadedDocument.Close(true);
 
 N> In this method, the text is extracted in the order in which it is written in the document stream and it may not be in the order in which it is viewed in the PDF reader application.
 
+N> Extracting text from the PDF document pages will not load the entire document content into memory.
+
 The below code illustrates how to extract the text from entire PDF document:
 
 {% tabs %}
