@@ -775,6 +775,11 @@ This feature supports the following elements:
 * Rich-text formatting
 * Headers and footers
 * Images
+* Picture recolor
+ 	* Black and white
+	* Color change
+	* DuoTone
+	* Gray scale
 * Text boxes
 * Hyperlinks
 * Document properties
@@ -789,6 +794,7 @@ This feature supports the following elements:
 * 2D charts
 * 3D charts
 * AutoShapes
+* Group shapes
 ​
 
 ## Unsupported elements

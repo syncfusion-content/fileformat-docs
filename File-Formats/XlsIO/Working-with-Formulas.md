@@ -778,6 +778,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+N> Calculated value for external reference formulas can be evaluated in XlsIO.
+
 ## Applying Argument Separators Based on Cultures
 
 Formula separators vary for different cultures, and exceptions can be thrown in such cases. This can be overcome by setting the separators by using **SetSeparators** method of __IWorkbook__.
@@ -1163,7 +1165,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## External Formula
 
-XlsIO supports to write and preserve formulas referred to other workbook. These formulas can be evaluated using Microsoft Excel and not by XlsIO.
+XlsIO supports to write and preserve formulas referred to other workbook.
 
 Following code illustrates the insertion of a formula that refers to a value in another workbook.
 

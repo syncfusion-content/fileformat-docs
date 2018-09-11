@@ -1532,6 +1532,454 @@ The following screenshot represents generated Excel file in which the conditiona
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img17.jpeg)
 
+## Template marker with conditional formatting
 
+You can add hyperlink to the template marker range.
 
+The following screenshot represents the input template, which has a template marker.
+
+![](Working-with-Template-Markers_images/Working-with-Template_Markers_img18.jpeg)
+
+The following code snippet illustrates how to detect data type and apply number format with template marker.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    IWorkbook workbook = application.Workbooks.Open("TemplateMarker.xlsx")
+
+    //Create Template Marker Processor
+    ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+    //Add collection to the marker variables where the name should match with input template
+    marker.AddVariable("Company", GetCompanyDetails());
+
+    //Process the markers in the template
+    marker.ApplyMarkers();
+
+    workbook.SaveAs("TemplateMarkerHyperlink.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+using excelEngine As ExcelEngine = new ExcelEngine()
+  Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("TemplateMarker.xlsx")
+
+  'Create Template Marker Processor
+  Dim marker As ITemplateMarkersProcessor = workbook.CreateTemplateMarkersProcessor()
+ 
+  'Add collection to the marker variables where the name should match with input template
+   marker.AddVariable("Company", GetCompanyDetails());
+
+  'Process the markers and detect the number format along with the data type in the template
+  marker.ApplyMarkers()
+
+  workbook.SaveAs("TemplateMarkerHyperlink.xlsx");
+End Using
+
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile openFile = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
+  
+  //Create Template Marker Processor
+  ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+  //Add collection to the marker variables where the name should match with input template
+  marker.AddVariable("Company", GetCompanyDetails());
+
+  //Process the markers in the template
+  marker.ApplyMarkers();
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "TemplateMarkerHyperlink";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+{% highlight asp.net core %}
+
+//Binding data from data table is supported only from ASP.NET Core 2.0
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("TemplateMarker.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+
+  //Create Template Marker Processor
+    ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+  //Add collection to the marker variables where the name should match with input template
+  marker.AddVariable("Company", GetCompanyDetails());
+
+  //Process the markers in the template
+  marker.ApplyMarkers();
+
+  //Saving the workbook as stream
+
+  FileStream stream = new FileStream("TemplateMarkerHyperlink.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.TemplateMarker.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+
+  //Create Template Marker Processor
+  ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+  //Add collection to the marker variables where the name should match with input template
+  marker.AddVariable("Company", GetCompanyDetails());
+
+  //Process the markers in the template
+  marker.ApplyMarkers();
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarkerHyperlink.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarkerHyperlink.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}  
+
+The following code snippet provides supporting methods and classes for the previous code.
+
+{% tabs %}  
+{% highlight c# %}
+//Gets a list of company details
+private List<Company> GetCompanyDetails()
+{
+    List<Company> companyList = new List<Company>();
+
+    Company company = new Company();
+    company.Name = "Syncfusion";
+    Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Microsoft";
+    link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Google";
+    link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    return companyList;
+}    
+public class Hyperlink : IHyperLink
+{
+    public IApplication Application { get; }
+    public object Parent { get;}
+    public string Address { get; set; }
+    public string Name { get; }
+    public IRange Range { get; }
+    public string ScreenTip { get; set; }
+    public string SubAddress { get; set; }
+    public string TextToDisplay { get; set; }
+    public ExcelHyperLinkType Type { get; set; }
+    public IShape Shape { get; }
+    public ExcelHyperlinkAttachedType AttachedType { get; }
+    public byte[] Image { get; set; }
+
+    public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
+    {
+        Address = address;
+        ScreenTip = screenTip;
+        SubAddress = subAddress;            
+        TextToDisplay = textToDisplay;
+        Type = type;
+        Image = image;
+    }
+}
+
+public class Company
+{
+    public string Name { get; set; }
+    public Hyperlink Link { get; set; }
+}
+
+{% endhighlight %}
+
+{% highlight vb %}
+'Gets a list of company details
+Private Function GetCompanyDetails() As List(Of Company)
+    Dim companyList As List(Of Company) = New List(Of Company)()
+    Dim company As Company = New Company()
+    company.Name = "Syncfusion"
+    Dim link As Hyperlink = New Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, Nothing)
+    company.Link = link
+    companyList.Add(company)
+    company = New Company()
+    company.Name = "Microsoft"
+    link = New Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, Nothing)
+    company.Link = link
+    companyList.Add(company)
+    company = New Company()
+    company.Name = "Google"
+    link = New Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, Nothing)
+    company.Link = link
+    companyList.Add(company)
+    Return companyList
+End Function   
+Public Class Hyperlink
+    Inherits IHyperLink
+
+    Public ReadOnly Property Application As IApplication
+    Public ReadOnly Property Parent As Object
+    Public Property Address As String
+    Public ReadOnly Property Name As String
+    Public ReadOnly Property Range As IRange
+    Public Property ScreenTip As String
+    Public Property SubAddress As String
+    Public Property TextToDisplay As String
+    Public Property Type As ExcelHyperLinkType
+    Public ReadOnly Property Shape As IShape
+    Public ReadOnly Property AttachedType As ExcelHyperlinkAttachedType
+    Public Property Image As Byte()
+
+    Public Sub New(ByVal address As String, ByVal subAddress As String, ByVal screenTip As String, ByVal textToDisplay As String, ByVal type As ExcelHyperLinkType, ByVal image As Byte())
+        Address = address
+        ScreenTip = screenTip
+        SubAddress = subAddress
+        TextToDisplay = textToDisplay
+        Type = type
+        Image = image
+    End Sub
+End Class
+
+Public Class Company
+    Public Property Name As String
+    Public Property Link As Hyperlink
+End Class
+
+{% endhighlight %}
+
+{% highlight UWP %}
+//Gets a list of company details
+private List<Company> GetCompanyDetails()
+{
+    List<Company> companyList = new List<Company>();
+
+    Company company = new Company();
+    company.Name = "Syncfusion";
+    Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Microsoft";
+    link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Google";
+    link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    return companyList;
+}    
+public class Hyperlink : IHyperLink
+{
+    public IApplication Application { get; }
+    public object Parent { get;}
+    public string Address { get; set; }
+    public string Name { get; }
+    public IRange Range { get; }
+    public string ScreenTip { get; set; }
+    public string SubAddress { get; set; }
+    public string TextToDisplay { get; set; }
+    public ExcelHyperLinkType Type { get; set; }
+    public IShape Shape { get; }
+    public ExcelHyperlinkAttachedType AttachedType { get; }
+    public byte[] Image { get; set; }
+
+    public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
+    {
+        Address = address;
+        ScreenTip = screenTip;
+        SubAddress = subAddress;            
+        TextToDisplay = textToDisplay;
+        Type = type;
+        Image = image;
+    }
+}
+
+public class Company
+{
+    public string Name { get; set; }
+    public Hyperlink Link { get; set; }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Gets a list of company details
+private List<Company> GetCompanyDetails()
+{
+    List<Company> companyList = new List<Company>();
+
+    Company company = new Company();
+    company.Name = "Syncfusion";
+    Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Microsoft";
+    link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Google";
+    link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    return companyList;
+}    
+public class Hyperlink : IHyperLink
+{
+    public IApplication Application { get; }
+    public object Parent { get;}
+    public string Address { get; set; }
+    public string Name { get; }
+    public IRange Range { get; }
+    public string ScreenTip { get; set; }
+    public string SubAddress { get; set; }
+    public string TextToDisplay { get; set; }
+    public ExcelHyperLinkType Type { get; set; }
+    public IShape Shape { get; }
+    public ExcelHyperlinkAttachedType AttachedType { get; }
+    public byte[] Image { get; set; }
+
+    public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
+    {
+        Address = address;
+        ScreenTip = screenTip;
+        SubAddress = subAddress;            
+        TextToDisplay = textToDisplay;
+        Type = type;
+        Image = image;
+    }
+}
+
+public class Company
+{
+    public string Name { get; set; }
+    public Hyperlink Link { get; set; }
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Gets a list of company details
+private List<Company> GetCompanyDetails()
+{
+    List<Company> companyList = new List<Company>();
+
+    Company company = new Company();
+    company.Name = "Syncfusion";
+    Hyperlink link = new Hyperlink("https://www.syncfusion.com", "", "", "Syncfusion", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Microsoft";
+    link = new Hyperlink("https://www.microsoft.com", "", "", "Microsoft", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    company = new Company();
+    company.Name = "Google";
+    link = new Hyperlink("https://www.google.com", "", "", "Google", ExcelHyperLinkType.Url, null);
+    company.Link = link;
+    companyList.Add(company);
+
+    return companyList;
+}    
+public class Hyperlink : IHyperLink
+{
+    public IApplication Application { get; }
+    public object Parent { get;}
+    public string Address { get; set; }
+    public string Name { get; }
+    public IRange Range { get; }
+    public string ScreenTip { get; set; }
+    public string SubAddress { get; set; }
+    public string TextToDisplay { get; set; }
+    public ExcelHyperLinkType Type { get; set; }
+    public IShape Shape { get; }
+    public ExcelHyperlinkAttachedType AttachedType { get; }
+    public byte[] Image { get; set; }
+
+    public Hyperlink(string address, string subAddress, string screenTip, string textToDisplay, ExcelHyperLinkType type, byte[] image)
+    {
+        Address = address;
+        ScreenTip = screenTip;
+        SubAddress = subAddress;            
+        TextToDisplay = textToDisplay;
+        Type = type;
+        Image = image;
+    }
+}
+
+public class Company
+{
+    public string Name { get; set; }
+    public Hyperlink Link { get; set; }
+}
+{% endhighlight %}
+{% endtabs %} 
+
+The following screenshot represents generated Excel file in which the hyperlink is added.
+
+![](Working-with-Template-Markers_images/Working-with-Template_Markers_img19.jpeg)
 
