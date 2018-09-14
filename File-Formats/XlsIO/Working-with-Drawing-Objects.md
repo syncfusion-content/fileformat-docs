@@ -1178,6 +1178,166 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+### Show or Hide Excel Comments
+
+Comments in an Excel document can be shown or hidden using **IsVisible** property. The following code example illustrates this.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding comments in the worksheet
+  worksheet.Range["E5"].AddComment();
+  worksheet.Range["E15"].AddComment();
+
+  //Adding text in comments
+  worksheet.Comments[0].Text = "Comment1";
+  worksheet.Comments[1].Text = "Comment2";
+
+  //Show comment
+  worksheet.Comments[0].IsVisible = true;
+  //Hide comment
+  worksheet.Comments[1].IsVisible = false;
+
+  workbook.SaveAs("Output.xlsx");
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Create(1)
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Adding comments in the worksheet
+  worksheet.Range("E5").AddComment()
+  worksheet.Range("E15").AddComment()
+
+  'Adding text in comments
+  worksheet.Comments(0).Text = "Comment1"
+  worksheet.Comments(1).Text = "Comment2"
+
+  'Show comment
+  worksheet.Comments(0).IsVisible = True
+  'Hide comment
+  worksheet.Comments(1).IsVisible = False
+
+  workbook.SaveAs("Output.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding comments in the worksheet
+  worksheet.Range["E5"].AddComment();
+  worksheet.Range["E15"].AddComment();
+
+  //Adding text in comments
+  worksheet.Comments[0].Text = "Comment1";
+  worksheet.Comments[1].Text = "Comment2";
+
+  //Show comment
+  worksheet.Comments[0].IsVisible = true;
+  //Hide comment
+  worksheet.Comments[1].IsVisible = false;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding comments in the worksheet
+  worksheet.Range["E5"].AddComment();
+  worksheet.Range["E15"].AddComment();
+
+  //Adding text in comments
+  worksheet.Comments[0].Text = "Comment1";
+  worksheet.Comments[1].Text = "Comment2";
+
+  //Show comment
+  worksheet.Comments[0].IsVisible = true;
+  //Hide comment
+  worksheet.Comments[1].IsVisible = false;
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Adding comments in the worksheet
+  worksheet.Range["E5"].AddComment();
+  worksheet.Range["E15"].AddComment();
+
+  //Adding text in comments
+  worksheet.Comments[0].Text = "Comment1";
+  worksheet.Comments[1].Text = "Comment2";
+
+  //Show comment
+  worksheet.Comments[0].IsVisible = true;
+  //Hide comment
+  worksheet.Comments[1].IsVisible = false;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
 Following code snippets illustrates how to remove all the comments in existing worksheet.
 
 {% tabs %}
