@@ -789,6 +789,8 @@ AlignCellContentForTextBody(cell, horizontalAlignment);
 
 The following code example illustrates how to load an existing document and apply table formatting options such as Borders, LeftIndent, Paddings, IsAutoResize, etc.
 
+N> `BorderStyle.None` is the default value of `BorderType` property in `Borders` class which will show no borders. It is recommended to set other `BorderStyle` value (excluding `BorderStyle.None` and `BorderStyle.Cleared`) to view the border in a Word Document.
+
 {% tabs %}  
 
 {% highlight c# %}
