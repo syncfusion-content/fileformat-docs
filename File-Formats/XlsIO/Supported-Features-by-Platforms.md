@@ -446,12 +446,12 @@ The list of various supported and non-supported Excel features of Essential XlsI
   <tr>
     <td>Converts an entire Excel worksheet into a single image.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Converts specific range of an Excel worksheet into a single image.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Converts Excel chart to image.</td>
