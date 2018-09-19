@@ -439,7 +439,7 @@ The list of various supported and non-supported Excel features of Essential XlsI
 	(UWP, .NET Core and Xamarin)</th>
   </tr>
   <tr>
-    <td>Converts Excel document into PDF.</td>
+    <td>Converts Excel to PDF.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
   </tr>
@@ -459,7 +459,7 @@ The list of various supported and non-supported Excel features of Essential XlsI
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
   </tr>
   <tr>
-    <td>Converts Excel document into HTML.</td>
+    <td>Converts Excel to HTML.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
