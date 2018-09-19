@@ -66,7 +66,36 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+
+  //Encrypt the workbook with password
+  workbook.PasswordToOpen = "password";
+
+  //Set the password to modify the workbook
+  workbook.SetWriteProtectionPassword("modify_password");
+
+  //Set the workbook as read-only
+  workbook.ReadOnlyRecommended = true;               
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from the FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+  Stream stream = file.AsStreamForWrite();
+  workbook.SaveAs(stream);
+  await file.FlushAsync();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -93,7 +122,40 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+
+  //Encrypt the workbook with password
+  workbook.PasswordToOpen = "password";
+
+  //Set the password to modify the workbook
+  workbook.SetWriteProtectionPassword("modify_password");
+
+  //Set the workbook as read-only
+  workbook.ReadOnlyRecommended = true;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -121,7 +183,13 @@ Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelPars
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
+
+//Creates a new instance for ExcelEngine
+ExcelEngine excelEngine = new ExcelEngine();
+
+//Loads or open an existing workbook through Open method of IWorkbooks
+IWorkbook workbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOptions.Default, false, "password");
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -133,7 +201,11 @@ IWorkbook workbook = excelEngine.Excel.Workbooks.Open(workbookStream, ExcelParse
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//Creates a new instance for ExcelEngine
+ExcelEngine excelEngine = new ExcelEngine();
+
+//Loads or open an existing workbook through Open method of IWorkbooks
+IWorkbook workbook = excelEngine.Excel.Workbooks.Open(fileName, ExcelParseOptions.Default, false, "password");
 {% endhighlight %}
 {% endtabs %}
 
@@ -170,7 +242,39 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Removing a protection
+  workbook.PasswordToOpen = string.Empty;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+                
+  //Creates a storage file from the FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+  Stream stream = file.AsStreamForWrite();
+  workbook.SaveAs(stream);
+  await file.FlushAsync();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -192,7 +296,42 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Removing a protection
+  workbook.PasswordToOpen = string.Empty;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -235,7 +374,42 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  bool isProtectWindow = true;
+  bool isProtectContent = true;
+
+  //Protect Workbook
+  workbook.Protect(isProtectWindow, isProtectContent, "password");
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+                
+  //Creates a storage file from the FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+  Stream stream = file.AsStreamForWrite();
+  workbook.SaveAs(stream);
+  await file.FlushAsync();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -260,7 +434,45 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  bool isProtectWindow = true;
+  bool isProtectContent = true;
+
+  //Protect Workbook
+  workbook.Protect(isProtectWindow, isProtectContent, "password");
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -297,7 +509,39 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Unprotect (unlock) Workbook using Password
+  workbook.Unprotect("password");
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+                
+  //Creates a storage file from the FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+  Stream stream = file.AsStreamForWrite();
+  workbook.SaveAs(stream);
+  await file.FlushAsync();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -319,7 +563,42 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports workbook protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Unprotect (unlock) Workbook using Password
+  workbook.Unprotect("password");
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -358,7 +637,32 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports worksheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Protecting the Worksheet by using a Password
+  sheet.Protect("syncfusion", ExcelSheetProtection.All);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+                
+  //Creates a storage file from the FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+  Stream stream = file.AsStreamForWrite();
+  workbook.SaveAs(stream);
+  await file.FlushAsync();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -380,7 +684,35 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports worksheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Create(1);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Protecting the Worksheet by using a Password
+  sheet.Protect("syncfusion", ExcelSheetProtection.All);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -421,7 +753,39 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports chart sheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IChart chart = workbook.Charts[0];
+
+  //Protect chart sheet
+  chart.Protect("syncfusion", ExcelSheetProtection.All);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+                
+  //Creates a storage file from the FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+  Stream stream = file.AsStreamForWrite();
+  workbook.SaveAs(stream);
+  await file.FlushAsync();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -444,7 +808,42 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports chart sheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IChart chart = workbook.Charts[0];
+
+  //Protect chart sheet
+  chart.Protect("syncfusion", ExcelSheetProtection.All);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -483,7 +882,39 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports worksheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Unprotecting (unlocking) the Worksheet using the Password
+  sheet.Unprotect("syncfusion");
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+                
+  //Creates a storage file from the FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+  Stream stream = file.AsStreamForWrite();
+  workbook.SaveAs(stream);
+  await file.FlushAsync();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -506,7 +937,42 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports worksheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Unprotecting (unlocking) the Worksheet using the Password
+  sheet.Unprotect("syncfusion");
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
@@ -545,7 +1011,39 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports chart sheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IChart chart = workbook.Charts[0];
+
+  //Unprotect chart sheet
+  chart.Unprotect("syncfusion");
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+                
+  //Creates a storage file from the FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+  Stream stream = file.AsStreamForWrite();
+  workbook.SaveAs(stream);
+  await file.FlushAsync();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -568,7 +1066,42 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports chart sheet protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IChart chart = workbook.Charts[0];
+
+  //Unprotect chart sheet
+  chart.Unprotect("syncfusion");
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}
 
@@ -609,7 +1142,39 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports cell protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+//Encrypt and Decrypt can be performed by referring .NET Standard assemblies in UWP platform.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Unlocking a cell to edit in worksheet protection mode
+  worksheet.Range["A1"].CellStyle.Locked = false;
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+                
+  //Creates a storage file from the FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+  Stream stream = file.AsStreamForWrite();
+  workbook.SaveAs(stream);
+  await file.FlushAsync();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -632,9 +1197,44 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports cell protection in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms and .NetStandard (1.4 onwards) alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Security.Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelParseOptions.Default, true, "password");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Unlocking a cell to edit in worksheet protection mode
+  worksheet.Range["A1"].CellStyle.Locked = false;
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
+  }
+}
 {% endhighlight %}
 {% endtabs %}  
 
 
-N> Security features are now supported in NetStandard 1.4 onwards.
+N> Security features are now supported in .NET Standard 1.4 onwards.

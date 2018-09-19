@@ -256,9 +256,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
       DependencyService.Get<ISaveWindowsPhone>()
-          .Save("Test.png", "image/png", stream);
+          .SaveAndView("Test.png", "image/png", stream);
   else
-      DependencyService.Get<ISave>().Save("Test.png", "image/png", stream);
+      DependencyService.Get<ISave>().SaveAndView("Test.png", "image/png", stream);
 }
 {% endhighlight %}
 {% endtabs %}  
