@@ -87,6 +87,158 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a solid brush.
+
+PdfBrush brush = new PdfSolidBrush(new PdfColor(0, 0, 0));
+
+//Set the font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Draw the text.
+
+graphics.DrawString("Hello world!", font, brush, new PointF(20, 20));
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a solid brush.
+
+PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.Black);
+
+//Set the font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Draw the text.
+
+graphics.DrawString("Hello world!", font, brush, new Syncfusion.Drawing.PointF(20, 20));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a solid brush.
+
+PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.Black);
+
+//Set the font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Draw the text.
+
+graphics.DrawString("Hello world!", font, brush, new Syncfusion.Drawing.PointF(20, 20));
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ## Inserting pages in a document
@@ -133,6 +285,128 @@ loadedDocument.Save("Output.pdf")
 
 loadedDocument.Close(True)
 
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Insert a new page in the beginning of the document
+
+loadedDocument.Pages.Insert(0);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Insert a new page in the beginning of the document
+
+loadedDocument.Pages.Insert(0);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Insert a new page in the beginning of the document
+
+loadedDocument.Pages.Insert(0);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 
 {% endhighlight %}
@@ -227,6 +501,169 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Set margin for all the pages
+
+document.PageSettings.Margins.All = 10;
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a solid brush.
+
+PdfBrush brush = new PdfSolidBrush(new PdfColor(0, 0, 0));
+
+//Set the font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Draw the text.
+
+graphics.DrawString("Hello world!", font, brush, new PointF(20, 20));
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Set margin for all the pages
+
+document.PageSettings.Margins.All = 10;
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a solid brush.
+
+PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.Black);
+
+//Set the font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Draw the text.
+
+graphics.DrawString("Hello world!", font, brush, new Syncfusion.Drawing.PointF(20, 20));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Set margin for all the pages
+
+document.PageSettings.Margins.All = 10;
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a solid brush.
+
+PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.Black);
+
+//Set the font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Draw the text.
+
+graphics.DrawString("Hello world!", font, brush, new Syncfusion.Drawing.PointF(20, 20));
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 
@@ -270,6 +707,75 @@ Dim pageCount As Integer = loadedDocument.Pages.Count
 
 loadedDocument.Close(True)
 
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the page count.
+
+int pageCount = loadedDocument.Pages.Count;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the page count.
+
+int pageCount = loadedDocument.Pages.Count;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf ");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the page count.
+
+int pageCount = loadedDocument.Pages.Count;
+
+//Close the document.
+
+loadedDocument.Close(true);
 
 
 {% endhighlight %}
@@ -349,6 +855,159 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+int startIndex = 0;
+
+int endIndex = loadedDocument.Pages.Count - 1;
+
+//Import all the pages to the new PDF document.
+
+document.ImportPageRange(loadedDocument, startIndex, endIndex);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document instances.
+
+loadedDocument.Close(true);
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the PDF document.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+int startIndex = 0;
+
+int endIndex = loadedDocument.Pages.Count - 1;
+
+//Import all the pages to the new PDF document.
+
+document.ImportPageRange(loadedDocument, startIndex, endIndex);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document instances.
+
+document.Close(true);
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+int startIndex = 0;
+
+int endIndex = loadedDocument.Pages.Count - 1;
+
+//Import all the pages to the new PDF document.
+
+document.ImportPageRange(loadedDocument, startIndex, endIndex);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document instances.
+
+document.Close(true);
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %} 
 
 
@@ -396,6 +1055,127 @@ loadedDocument.Save("Output.pdf")
 
 loadedDocument.Close(True)
 
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Rearrange the page by index
+
+loadedDocument.Pages.ReArrange(new int[] { 1, 0 });
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Rearrange the page by index
+
+loadedDocument.Pages.ReArrange(new int[] { 1, 0 });
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Rearrange the page by index
+
+loadedDocument.Pages.ReArrange(new int[] { 1, 0 });
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+            
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 
 {% endhighlight %}
@@ -452,6 +1232,129 @@ loadedDocument.Save("Output.pdf")
 
 loadedDocument.Close(True)
 
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Remove the first page in the PDF document
+
+loadedDocument.Pages.RemoveAt(0);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+ //Load the PDF document.
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the PDF document.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Remove the first page in the PDF document
+
+loadedDocument.Pages.RemoveAt(0);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Remove the first page in the PDF document
+
+loadedDocument.Pages.RemoveAt(0);
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document.
+
+loadedDocument.Close(true);
+            
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 
 {% endhighlight %}
@@ -552,6 +1455,174 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a section.
+
+PdfSection section = document.Sections.Add();
+
+//Rotate a section/page
+
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle90;
+
+PdfPage page = section.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a solid brush.
+
+PdfBrush brush = new PdfSolidBrush(new PdfColor(0, 0, 0));
+
+//Set the font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Draws the text.
+
+graphics.DrawString("Rotated by 90 degree", font, brush, new PointF(20, 20));
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a section.
+
+PdfSection section = document.Sections.Add();
+
+//Rotate a section/page
+
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle90;
+
+PdfPage page = section.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a solid brush.
+
+PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.Black);
+
+//Set the font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Draws the text.
+
+graphics.DrawString("Rotated by 90 degree", font, brush, new Syncfusion.Drawing.PointF(20, 20));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a section.
+
+PdfSection section = document.Sections.Add();
+
+//Rotate a section/page
+
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle90;
+
+PdfPage page = section.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a solid brush.
+
+PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.Black);
+
+//Set the font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Draws the text.
+
+graphics.DrawString("Rotated by 90 degree", font, brush, new Syncfusion.Drawing.PointF(20, 20));
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+            
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ## Splitting a PDF file to individual pages
@@ -603,6 +1674,24 @@ loadedDocument.Split(destinationFilePattern)
 loadedDocument.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports splitting a PDF file to individual page only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports splitting a PDF file to individual page only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports splitting a PDF file to individual page only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 

@@ -111,6 +111,181 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a new page.
+
+PdfPage page = doc.Pages.Add();
+
+//Add pen.
+
+PdfPen pen = new PdfPen(PdfBrushes.Brown, 10f);
+
+//Create a gradient brush
+
+PdfLinearGradientBrush brush = new PdfLinearGradientBrush(new PointF(10, 100), new PointF(100, 200), new PdfColor(Color.FromArgb(0,255,0,0)), new PdfColor(Color.FromArgb(0,0,255,0)));
+
+//Create polygon points
+
+PointF p1 = new PointF(10, 100);
+
+PointF p2 = new PointF(10, 200);
+
+PointF p3 = new PointF(100, 100);
+
+PointF p4 = new PointF(100, 200);
+
+PointF p5 = new PointF(55, 150);
+
+PointF[] points = { p1, p2, p3, p4, p5 };
+
+// Draw Polygon.
+
+page.Graphics.DrawPolygon(pen, brush, points);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+
+doc.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Shapes.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a new page.
+
+PdfPage page = doc.Pages.Add();
+
+//Add pen.
+
+PdfPen pen = new PdfPen(PdfBrushes.Brown, 10f);
+
+//Create a gradient brush
+
+PdfLinearGradientBrush brush = new PdfLinearGradientBrush(new PointF(10, 100), new PointF(100, 200), new PdfColor(Syncfusion.Drawing.Color.Red), new PdfColor(Syncfusion.Drawing.Color.Green));
+
+//Create polygon points
+
+PointF p1 = new PointF(10, 100);
+
+PointF p2 = new PointF(10, 200);
+
+PointF p3 = new PointF(100, 100);
+
+PointF p4 = new PointF(100, 200);
+
+PointF p5 = new PointF(55, 150);
+
+PointF[] points = { p1, p2, p3, p4, p5 };
+
+// Draw Polygon.
+
+page.Graphics.DrawPolygon(pen, brush, points);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Shapes.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a new page.
+
+PdfPage page = doc.Pages.Add();
+
+//Add pen.
+
+PdfPen pen = new PdfPen(PdfBrushes.Brown, 10f);
+
+//Create a gradient brush
+
+PdfLinearGradientBrush brush = new PdfLinearGradientBrush(new PointF(10, 100), new PointF(100, 200), new PdfColor(Syncfusion.Drawing.Color.Red), new PdfColor(Syncfusion.Drawing.Color.Green));
+
+//Create polygon points
+
+PointF p1 = new PointF(10, 100);
+
+PointF p2 = new PointF(10, 200);
+
+PointF p3 = new PointF(100, 100);
+
+PointF p4 = new PointF(100, 200);
+
+PointF p5 = new PointF(55, 150);
+
+PointF[] points = { p1, p2, p3, p4, p5 };
+
+// Draw Polygon.
+
+page.Graphics.DrawPolygon(pen, brush, points);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Closes the document
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Shapes.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Shapes.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Working with shape pagination
@@ -196,6 +371,169 @@ ellipse.Draw(page, 20, 20, format)
 doc.Save("Shapes.pdf")
 
 doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create Document
+
+PdfDocument doc = new PdfDocument();
+
+//Add new page
+
+PdfPage page = doc.Pages.Add();
+
+//Set bounds for ellipse
+
+RectangleF rect = new RectangleF(0, 0, 100, 1000);
+
+//Create ellipse
+
+PdfEllipse ellipse = new PdfEllipse(rect);
+
+//Set layout property to make the ellipse break across the pages.
+
+PdfLayoutFormat format = new PdfLayoutFormat();
+
+format.Break = PdfLayoutBreakType.FitPage;
+
+format.Layout = PdfLayoutType.Paginate;
+
+ellipse.Brush = PdfBrushes.Brown;
+
+//Draw ellipse.
+
+ellipse.Draw(page, 20, 20, format);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+
+doc.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "Shapes.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create Document
+
+PdfDocument doc = new PdfDocument();
+
+//Add new page
+
+PdfPage page = doc.Pages.Add();
+
+//Set bounds for ellipse
+
+RectangleF rect = new RectangleF(0, 0, 100, 1000);
+
+//Create ellipse
+
+PdfEllipse ellipse = new PdfEllipse(rect);
+
+//Set layout property to make the ellipse break across the pages.
+
+PdfLayoutFormat format = new PdfLayoutFormat();
+
+format.Break = PdfLayoutBreakType.FitPage;
+
+format.Layout = PdfLayoutType.Paginate;
+
+ellipse.Brush = PdfBrushes.Brown;
+
+//Draw ellipse.
+
+ellipse.Draw(page, 20, 20, format);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Shapes.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create Document
+
+PdfDocument doc = new PdfDocument();
+
+//Add new page
+
+PdfPage page = doc.Pages.Add();
+
+//Set bounds for ellipse
+
+RectangleF rect = new RectangleF(0, 0, 100, 1000);
+
+//Create ellipse
+
+PdfEllipse ellipse = new PdfEllipse(rect);
+
+//Set layout property to make the ellipse break across the pages.
+
+PdfLayoutFormat format = new PdfLayoutFormat();
+
+format.Break = PdfLayoutBreakType.FitPage;
+
+format.Layout = PdfLayoutType.Paginate;
+
+ellipse.Brush = PdfBrushes.Brown;
+
+//Draw ellipse.
+
+ellipse.Draw(page, 20, 20, format);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Closes the document
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Shapes.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Shapes.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 

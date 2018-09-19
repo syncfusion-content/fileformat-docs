@@ -77,6 +77,143 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+ //Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+ //Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+            
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Drawing text in an existing document
@@ -132,6 +269,131 @@ doc.Save("Output.pdf")
 
 'Close the document.
 doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument doc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+await doc.OpenAsync(file);
+
+//Get first page from document
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text.
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+
+//Save the document into memory stream.
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+ //Load the PDF document
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Get first page from document
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text.
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+
+//Close the document.
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf ");
+
+//Load a PDF document.
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Get first page from document
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text.
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Save the document into memory stream.
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -216,6 +478,143 @@ document.Save("Output.pdf")
 'Close the document.
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -357,6 +756,154 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TrueType font from the local *.ttf file.
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Arial.ttf");
+
+//Initialize the PDF TrueType font. 
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TrueType font from the local *.ttf file.
+
+FileStream fontStream = new FileStream("Arial.ttf", FileMode.Open, FileAccess.Read);
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TrueType font. 
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.ttf");
+
+//Initialize the PDF TrueType font.  
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Draw the text.
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Draw text using CJK fonts
@@ -412,6 +959,117 @@ document.Save("Output.pdf")
 
 'Close the document.
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+PdfFont font = new PdfCjkStandardFont(PdfCjkFontFamily.HeiseiMinchoW3, 20);
+
+//Draw the text.
+graphics.DrawString("こんにちは世界", font, PdfBrushes.Black, new PointF(0, 0));
+
+//Save the document into memory stream.
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+PdfFont font = new PdfCjkStandardFont(PdfCjkFontFamily.HeiseiMinchoW3, 20);
+
+//Draw the text.
+graphics.DrawString("こんにちは世界", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+stream.Position = 0;
+
+//Close the document.
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+ //Create a new PDF document.
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document.
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page.
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font.
+PdfFont font = new PdfCjkStandardFont(PdfCjkFontFamily.HeiseiMinchoW3, 20);
+
+//Draw the text.
+graphics.DrawString("こんにちは世界", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Save the document into memory stream.
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
 
 {% endhighlight %}
 
@@ -505,6 +1163,24 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//PDF supports embedding fonts or displaying a Unicode text in the PDF document by default in UWP platform. 
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports embedding fonts or displaying a Unicode text in the PDF document by default in Xamarin platform. 
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports embedding fonts or displaying a Unicode text in the PDF document by default in ASP.NET Core platform. 
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Drawing Right-To-Left text 
@@ -527,41 +1203,44 @@ PdfPage page = doc.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Set the font with Unicode option.
+//Create font.
 
-Font font = new Font("Arial", 14);
-
-PdfFont pdfFont = new PdfTrueTypeFont(font, true);
+PdfFont font = new PdfTrueTypeFont(new Font("Arial", 14), true);
 
 //Set the format for string.
 
 PdfStringFormat format = new PdfStringFormat();
 
-//Set the format as RTL type.
+//Set the property for RTL text.
 
-format.RightToLeft = true;
+format.TextDirection = PdfTextDirection.RightToLeft;
 
 //Set the alignment.
 
 format.Alignment = PdfTextAlignment.Right;
 
-//Read the RTL text from the text file.
+format.ParagraphIndent = 35f;
 
-StreamReader reader = new StreamReader(@"input.txt", Encoding.Unicode);
+//Read the text from file.
 
-string textWithHebrew = reader.ReadToEnd();
+StreamReader reader = new StreamReader("Arabic.txt", Encoding.Unicode);
+
+string text = reader.ReadToEnd();
 
 reader.Close();
 
-graphics.DrawString(textWithHebrew, pdfFont, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
+//Draw string with Right alignment.
 
-//Save the document.
+graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Save the document
 
 doc.Save("Output.pdf");
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
+
 
 {% endhighlight %}
 
@@ -569,7 +1248,7 @@ doc.Close(true);
 
 'Create a new PDF document.
 
-Dim doc As New PdfDocument()
+Dim doc As PdfDocument = New PdfDocument()
 
 'Add a page to the document.
 
@@ -579,41 +1258,262 @@ Dim page As PdfPage = doc.Pages.Add()
 
 Dim graphics As PdfGraphics = page.Graphics
 
-'Set the font with Unicode option.
+'Create font.
 
-Dim font As New Font("Arial", 14)
-
-Dim pdfFont As PdfFont = New PdfTrueTypeFont(font, True)
+Dim font As PdfFont = New PdfTrueTypeFont(New Font("Arial", 14), True)
 
 'Set the format for string.
 
-Dim format As New PdfStringFormat()
+Dim format As PdfStringFormat = New PdfStringFormat()
 
-'Set the format as RTL type.
+'Set the property for RTL text.
 
-format.RightToLeft = True
+format.TextDirection = PdfTextDirection.RightToLeft
 
 'Set the alignment.
 
 format.Alignment = PdfTextAlignment.Right
 
-'Read the RTL text from the text file.
+format.ParagraphIndent = 35.0F
 
-Dim reader As New StreamReader("input.txt", Encoding.Unicode)
+'Read the text from file.
 
-Dim textWithHebrew As String = reader.ReadToEnd()
+Dim reader As StreamReader = New StreamReader("Arabic.txt", Encoding.Unicode)
+
+Dim text As String = reader.ReadToEnd()
 
 reader.Close()
 
-graphics.DrawString(textWithHebrew, pdfFont, PdfBrushes.Black, New RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format)
+'Draw string with Right alignment.
 
-'Save the document.
+graphics.DrawString(text, font, PdfBrushes.Black, New RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format)
+
+'Save the document
 
 doc.Save("Output.pdf")
 
-'Close the document.
+'Close the document
 
 doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+ //Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TrueType font. 
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.arial.ttf");
+
+//Initialize the PDF TrueType font.  
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14, PdfFontStyle.Regular);
+
+//Set the format for string.
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the property for RTL text.
+
+format.TextDirection = PdfTextDirection.RightToLeft;
+
+//Set the alignment.
+
+format.Alignment = PdfTextAlignment.Right;
+
+format.ParagraphIndent = 35f;
+
+//Read the unicode text from the text file.
+
+Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Arabic.txt");
+
+StreamReader reader = new StreamReader(inputStream);
+
+string text = reader.ReadToEnd();
+
+reader.Dispose();
+
+//Draw the text.
+
+graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Create font.
+
+FileStream fontStream = new FileStream("arial.ttf", FileMode.Open, FileAccess.Read);
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Set the format for string.
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the property for RTL text.
+
+format.TextDirection = PdfTextDirection.RightToLeft;
+
+//Set the alignment.
+
+format.Alignment = PdfTextAlignment.Right;
+
+format.ParagraphIndent = 35f;
+
+//Read the text from file.
+
+FileStream rtlText = new FileStream("Arabic.txt", FileMode.Open, FileAccess.Read);
+
+StreamReader reader = new StreamReader(rtlText, Encoding.Unicode);
+
+string text = reader.ReadToEnd();
+
+reader.Dispose();
+
+//Draw string with Right alignment.
+
+graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document.
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page.
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TrueType font. 
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.arial.ttf");
+
+//Initialize the PDF TrueType font.  
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14, PdfFontStyle.Regular);
+
+//Read the unicode text from the text file.
+
+Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arabic.txt");
+
+StreamReader reader = new StreamReader(inputStream);
+
+string text = reader.ReadToEnd();
+
+reader.Dispose();
+
+//Set the format for string.
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the property for RTL text.
+
+format.TextDirection = PdfTextDirection.RightToLeft;
+
+//Set the alignment.
+
+format.Alignment = PdfTextAlignment.Right;
+
+format.ParagraphIndent = 35f;
+
+//Draw the text.
+
+graphics.DrawString(text, font, PdfBrushes.Black, new Syncfusion.Drawing.RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document.
+
+doc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -748,6 +1648,24 @@ doc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//PDF supports Adding HTML Styled Text only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports Adding HTML Styled Text only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports Adding HTML Styled Text only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Creating a multicolumn PDF document
@@ -821,6 +1739,162 @@ textElement.Draw(page, New RectangleF(page.GetClientSize().Width / 2, 0, page.Ge
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a PDF document instance
+
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+string text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+
+//Create a text element with the text and font
+
+PdfTextElement textElement = new PdfTextElement(text, new PdfStandardFont(PdfFontFamily.TimesRoman, 14));
+
+//Draw the text in the first column
+
+textElement.Draw(page, new RectangleF(0, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height));
+
+textElement = new PdfTextElement(text, new PdfStandardFont(PdfFontFamily.TimesRoman, 14));
+
+//Draw the text in the second column
+
+textElement.Draw(page, new RectangleF(page.GetClientSize().Width / 2, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height));
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a PDF document instance
+
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+string text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+
+//Create a text element with the text and font
+
+PdfTextElement textElement = new PdfTextElement(text, new PdfStandardFont(PdfFontFamily.TimesRoman, 14));
+
+//Draw the text in the first column
+
+textElement.Draw(page, new RectangleF(0, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height));
+
+textElement = new PdfTextElement(text, new PdfStandardFont(PdfFontFamily.TimesRoman, 14));
+
+//Draw the text in the second column
+
+textElement.Draw(page, new RectangleF(page.GetClientSize().Width / 2, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a PDF document instance
+
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+string text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+
+//Create a text element with the text and font
+
+PdfTextElement textElement = new PdfTextElement(text, new PdfStandardFont(PdfFontFamily.TimesRoman, 14));
+
+//Draw the text in the first column
+
+textElement.Draw(page, new Syncfusion.Drawing.RectangleF(0, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height));
+
+textElement = new PdfTextElement(text, new PdfStandardFont(PdfFontFamily.TimesRoman, 14));
+
+//Draw the text in the second column
+
+textElement.Draw(page, new Syncfusion.Drawing.RectangleF(page.GetClientSize().Width / 2, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height));
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -930,6 +2004,207 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+ //Create a PDF document instance
+
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Read the long text from the text file.
+
+Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.txt");
+
+StreamReader reader = new StreamReader(inputStream, Encoding.ASCII);
+
+string text = reader.ReadToEnd();
+
+reader.Dispose();
+
+const int paragraphGap = 10;
+
+//Create a text element with the text and font
+
+PdfTextElement textElement = new PdfTextElement(text, new PdfStandardFont(PdfFontFamily.TimesRoman, 14));
+
+PdfLayoutFormat layoutFormat = new PdfLayoutFormat();
+
+layoutFormat.Layout = PdfLayoutType.Paginate;
+
+layoutFormat.Break = PdfLayoutBreakType.FitPage;
+
+//Draw the first paragraph
+
+PdfLayoutResult result = textElement.Draw(page, new RectangleF(0, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
+
+//Draw the second paragraph from the first paragraph end position
+
+result = textElement.Draw(page, new RectangleF(0, result.Bounds.Bottom + paragraphGap, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+ //Create a PDF document instance
+
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Read the long text from the text file.
+
+FileStream inputStream = new FileStream("Input.txt", FileMode.Open, FileAccess.Read);
+
+StreamReader reader = new StreamReader(inputStream, Encoding.ASCII);
+
+string text = reader.ReadToEnd();
+
+reader.Dispose();
+
+
+const int paragraphGap = 10;
+
+
+//Create a text element with the text and font
+
+PdfTextElement textElement = new PdfTextElement(text, new PdfStandardFont(PdfFontFamily.TimesRoman, 14));
+
+PdfLayoutFormat layoutFormat = new PdfLayoutFormat();
+
+layoutFormat.Layout = PdfLayoutType.Paginate;
+
+layoutFormat.Break = PdfLayoutBreakType.FitPage;
+
+//Draw the first paragraph
+
+PdfLayoutResult result = textElement.Draw(page, new RectangleF(0, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
+
+//Draw the second paragraph from the first paragraph end position
+
+result = textElement.Draw(page, new RectangleF(0, result.Bounds.Bottom + paragraphGap, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a PDF document instance
+
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Read the long text from the text file.
+
+Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.txt");
+
+StreamReader reader = new StreamReader(inputStream, Encoding.UTF8);
+
+string text = reader.ReadToEnd();
+
+reader.Dispose();
+
+
+const int paragraphGap = 10;
+
+
+//Create a text element with the text and font
+
+PdfTextElement textElement = new PdfTextElement(text, new PdfStandardFont(PdfFontFamily.TimesRoman, 14));
+
+PdfLayoutFormat layoutFormat = new PdfLayoutFormat();
+
+layoutFormat.Layout = PdfLayoutType.Paginate;
+
+layoutFormat.Break = PdfLayoutBreakType.FitPage;
+
+//Draw the first paragraph
+
+PdfLayoutResult result = textElement.Draw(page, new Syncfusion.Drawing.RectangleF(0, 0, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
+
+//Draw the second paragraph from the first paragraph end position
+
+result = textElement.Draw(page, new Syncfusion.Drawing.RectangleF(0, result.Bounds.Bottom + paragraphGap, page.GetClientSize().Width / 2, page.GetClientSize().Height), layoutFormat);
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Inserting Rich Text Format contents 
@@ -1021,6 +2296,24 @@ imageMetafile.Draw(page, 0, 0, format)
 doc.Save("Output.pdf")
 
 doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports Inserting Rich Text Format contents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports Inserting Rich Text Format contents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports Inserting Rich Text Format contents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
@@ -1155,6 +2448,234 @@ pdfList.Draw(page, New RectangleF(0, 20, size.Width, size.Height))
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new instance of PdfDocument class.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the document.
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+SizeF size = page.Graphics.ClientSize;
+
+//Create font 
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Italic);
+
+string[] products = { "Tools", "Grid", "Chart", "Edit", "Diagram", "XlsIO", "Grouping", "Calculate", "PDF", "HTMLUI", "DocIO" };
+
+//Create string format
+
+PdfStringFormat format = new PdfStringFormat();
+
+format.LineSpacing = 10f;
+
+//Create Ordered list
+
+PdfOrderedList pdfList = new PdfOrderedList();
+
+pdfList.Marker.Brush = PdfBrushes.Black;
+
+pdfList.Indent = 20;
+
+//Set format for sub list
+
+pdfList.Font = font;
+
+pdfList.StringFormat = format;
+
+foreach (string s in products)
+
+{
+
+//Add items
+
+pdfList.Items.Add(string.Concat("Essential ", s));
+
+}
+
+pdfList.Draw(page, new RectangleF(0, 20, size.Width, size.Height));
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf"); 
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new instance of PdfDocument class.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the document.
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+SizeF size = page.Graphics.ClientSize;
+
+//Create font 
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Italic);
+
+string[] products = { "Tools", "Grid", "Chart", "Edit", "Diagram", "XlsIO", "Grouping", "Calculate", "PDF", "HTMLUI", "DocIO" };
+
+//Create string format
+
+PdfStringFormat format = new PdfStringFormat();
+
+format.LineSpacing = 10f;
+
+//Create Ordered list
+
+PdfOrderedList pdfList = new PdfOrderedList();
+
+pdfList.Marker.Brush = PdfBrushes.Black;
+
+pdfList.Indent = 20;
+
+//Set format for sub list
+
+pdfList.Font = font;
+
+pdfList.StringFormat = format;
+
+foreach (string s in products)
+
+{
+
+    //Add items
+
+    pdfList.Items.Add(string.Concat("Essential ", s));
+
+}
+
+pdfList.Draw(page, new RectangleF(0, 20, size.Width, size.Height));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new instance of PdfDocument class.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the document.
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+Syncfusion.Drawing.SizeF size = page.Graphics.ClientSize;
+
+//Create font 
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Italic);
+
+string[] products = { "Tools", "Grid", "Chart", "Edit", "Diagram", "XlsIO", "Grouping", "Calculate", "PDF", "HTMLUI", "DocIO" };
+
+//Create string format
+
+PdfStringFormat format = new PdfStringFormat();
+
+format.LineSpacing = 10f;
+
+//Create Ordered list
+
+PdfOrderedList pdfList = new PdfOrderedList();
+
+pdfList.Marker.Brush = PdfBrushes.Black;
+
+pdfList.Indent = 20;
+
+//Set format for sub list
+
+pdfList.Font = font;
+
+pdfList.StringFormat = format;
+
+foreach (string s in products)
+
+{
+
+//Add items
+
+pdfList.Items.Add(string.Concat("Essential ", s));
+
+}
+
+pdfList.Draw(page, new Syncfusion.Drawing.RectangleF(0, 20, size.Width, size.Height));
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 
@@ -1302,6 +2823,258 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create a new instance of PdfDocument class.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the document.
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+SizeF size = page.Graphics.ClientSize;
+
+//Create an unordered list
+
+PdfUnorderedList list = new PdfUnorderedList();
+
+//Set the marker style
+
+list.Marker.Style = PdfUnorderedMarkerStyle.Disk;
+
+//Create font and write title
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Regular);
+
+//Create string format
+
+PdfStringFormat format = new PdfStringFormat();
+
+format.LineSpacing = 10f;
+
+// Format list
+
+list.Font = font;
+
+list.StringFormat = format;
+
+//Set list indent
+
+list.Indent = 10;
+
+//Add items to the list
+
+list.Items.Add("PDF");
+
+list.Items.Add("XlsIO");
+
+list.Items.Add("DocIO");
+
+list.Items.Add("PPT");
+
+//Set text indent
+
+list.TextIndent = 10;
+
+//Draw list
+
+list.Draw(page, new RectangleF(0, 10, size.Width, size.Height));
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new instance of PdfDocument class.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the document.
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+SizeF size = page.Graphics.ClientSize;
+
+//Create an unordered list
+
+PdfUnorderedList list = new PdfUnorderedList();
+
+//Set the marker style
+
+list.Marker.Style = PdfUnorderedMarkerStyle.Disk;
+
+//Create font and write title
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Regular);
+
+//Create string format
+
+PdfStringFormat format = new PdfStringFormat();
+
+format.LineSpacing = 10f;
+
+// Format list
+
+list.Font = font;
+
+list.StringFormat = format;
+
+//Set list indent
+
+list.Indent = 10;
+
+//Add items to the list
+
+list.Items.Add("PDF");
+
+list.Items.Add("XlsIO");
+
+list.Items.Add("DocIO");
+
+list.Items.Add("PPT");
+
+//Set text indent
+
+list.TextIndent = 10;
+
+//Draw list
+
+list.Draw(page, new RectangleF(0, 10, size.Width, size.Height));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream
+
+document.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new instance of PdfDocument class.
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the document.
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+Syncfusion.Drawing.SizeF size = page.Graphics.ClientSize;
+
+//Create an unordered list
+
+PdfUnorderedList list = new PdfUnorderedList();
+
+//Set the marker style
+
+list.Marker.Style = PdfUnorderedMarkerStyle.Disk;
+
+//Create font and write title
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Regular);
+
+//Create string format
+
+PdfStringFormat format = new PdfStringFormat();
+
+format.LineSpacing = 10f;
+
+// Format list
+
+list.Font = font;
+
+list.StringFormat = format;
+
+//Set list indent
+
+list.Indent = 10;
+
+//Add items to the list
+
+list.Items.Add("PDF");
+
+list.Items.Add("XlsIO");
+
+list.Items.Add("DocIO");
+
+list.Items.Add("PPT");
+
+//Set text indent
+
+list.TextIndent = 10;
+
+//Draw list
+
+list.Draw(page, new Syncfusion.Drawing.RectangleF(0, 10, size.Width, size.Height));
+
+//Save the document into memory stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Replace Fonts in an existing document
@@ -1341,6 +3114,24 @@ loadedDocument.UsedFonts(0).Replace(New PdfStandardFont(PdfFontFamily.TimesRoman
 loadedDocument.Save("Output.pdf")
 
 loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports Replace fonts in an existing document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports Replace fonts in an existing document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports Replace fonts in an existing document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 

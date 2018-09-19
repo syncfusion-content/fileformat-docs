@@ -1465,4 +1465,12 @@ Textbox
 Linked text boxes are not supported.
 </td>
 </tr>
+<tr>
+<td>
+Font kerning
+</td>
+<td>
+Partially supported. At present, the text in a line is scaled uniformly to match the width of kerned text, instead of adjusting the space between each pair of characters.
+</td>
+</tr>
 </table>

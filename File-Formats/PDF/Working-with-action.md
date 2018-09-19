@@ -56,6 +56,25 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports adding Launch action to the PDF document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports adding Launch action to the PDF document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports adding Launch action to the PDF document only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
 {% endtabs %}
 ## Supported action types
 
@@ -148,6 +167,119 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports sound action only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create a sound action
+
+FileStream fileStream = new FileStream("Startup.wav", FileMode.Open, FileAccess.Read);
+
+PdfSoundAction soundAction = new PdfSoundAction(fileStream);
+
+soundAction.Sound.Bits = 16;
+
+soundAction.Sound.Channels = PdfSoundChannels.Stereo;
+
+soundAction.Sound.Encoding = PdfSoundEncoding.Signed;
+
+soundAction.Volume = 0.9f;
+
+//Set the sound action
+
+document.Actions.AfterOpen = soundAction;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create a sound action
+
+Stream stream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Startup.wav");
+
+PdfSoundAction soundAction = new PdfSoundAction(stream);
+
+soundAction.Sound.Bits = 16;
+
+soundAction.Sound.Channels = PdfSoundChannels.Stereo;
+
+soundAction.Sound.Encoding = PdfSoundEncoding.Signed;
+
+soundAction.Volume = 0.9f;
+
+//Set the sound action
+
+document.Actions.AfterOpen = soundAction;
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+document.Save(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### JavaScript action
@@ -211,6 +343,127 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create JavaScript action
+
+PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"Hello World!!!\")");
+
+//Add the JavaScript action
+
+document.Actions.AfterOpen = scriptAction;
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await document.SaveAsync(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create JavaScript action
+
+PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"Hello World!!!\")");
+
+//Add the JavaScript action
+
+document.Actions.AfterOpen = scriptAction;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create JavaScript action
+
+PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"Hello World!!!\")");
+
+//Add the JavaScript action
+
+document.Actions.AfterOpen = scriptAction;
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+document.Save(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 N> You can refer more PDF JavaScript code in **PdfJavaScriptAction** from the below developer guide.
@@ -269,6 +522,115 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new document with PDF/A standard.
+
+PdfDocument document = new PdfDocument();
+
+//Create a uri action
+
+PdfUriAction uriAction = new PdfUriAction("http://www.google.com");
+
+//Add the action to the document
+
+document.Actions.AfterOpen = uriAction;
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await document.SaveAsync(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new document with PDF/A standard.
+
+PdfDocument document = new PdfDocument();
+
+//Create a uri action
+
+PdfUriAction uriAction = new PdfUriAction("http://www.google.com");
+
+//Add the action to the document
+
+document.Actions.AfterOpen = uriAction;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new document with PDF/A standard.
+
+PdfDocument document = new PdfDocument();
+
+//Create a uri action
+
+PdfUriAction uriAction = new PdfUriAction("http://www.google.com");
+
+//Add the action to the document
+
+document.Actions.AfterOpen = uriAction;
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+document.Save(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### GoTo action
@@ -344,6 +706,145 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+//Add first page
+
+PdfPage page = document.Pages.Add();
+
+//Add second page
+
+PdfPage secondPage = document.Pages.Add();
+
+//Set the goto action
+
+PdfGoToAction gotoAction = new PdfGoToAction(secondPage);
+
+//Set destination location
+
+gotoAction.Destination = new PdfDestination(secondPage, new PointF(0, 100));
+
+document.Actions.AfterOpen = gotoAction;
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await document.SaveAsync(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+//Add first page
+
+PdfPage page = document.Pages.Add();
+
+//Add second page
+
+PdfPage secondPage = document.Pages.Add();
+
+//Set the goto action
+
+PdfGoToAction gotoAction = new PdfGoToAction(secondPage);
+
+//Set destination location
+
+gotoAction.Destination = new PdfDestination(secondPage, new PointF(0, 100));
+
+document.Actions.AfterOpen = gotoAction;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+//Add first page
+
+PdfPage page = document.Pages.Add();
+
+//Add second page
+
+PdfPage secondPage = document.Pages.Add();
+
+//Set the goto action
+
+PdfGoToAction gotoAction = new PdfGoToAction(secondPage);
+
+//Set destination location
+
+gotoAction.Destination = new PdfDestination(secondPage, new PointF(0, 100));
+
+document.Actions.AfterOpen = gotoAction;
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+document.Save(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Launch action
@@ -396,6 +897,25 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports launch action only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports launch action only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports launch action only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Named action
@@ -467,6 +987,127 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+document.Pages.Add();
+
+document.Pages.Add();
+
+//Create a named action
+
+PdfNamedAction namedAction = new PdfNamedAction(PdfActionDestination.LastPage);
+
+//Add the named action
+
+document.Actions.AfterOpen = namedAction;
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await document.SaveAsync(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+document.Pages.Add();
+
+document.Pages.Add();
+
+//Create a named action
+
+PdfNamedAction namedAction = new PdfNamedAction(PdfActionDestination.LastPage);
+
+//Add the named action
+
+document.Actions.AfterOpen = namedAction;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+document.Pages.Add();
+
+document.Pages.Add();
+
+//Create a named action
+
+PdfNamedAction namedAction = new PdfNamedAction(PdfActionDestination.LastPage);
+
+//Add the named action
+
+document.Actions.AfterOpen = namedAction;
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+document.Save(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Submit action
@@ -551,6 +1192,157 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page
+
+PdfPage page = document.Pages.Add();
+
+// Create a Button field.
+
+PdfButtonField submitButton = new PdfButtonField(page, "Submit data");
+
+submitButton.Bounds = new RectangleF(100, 60, 50, 20);
+
+submitButton.ToolTip = "Submit";
+
+document.Form.Fields.Add(submitButton);
+
+// Create a submit action. It submit the data of the form fields to the mentioned URL
+
+PdfSubmitAction submitAction = new PdfSubmitAction("http://www.syncfusionforms.com/Submit.aspx");
+
+submitAction.DataFormat = SubmitDataFormat.Html;
+
+submitButton.Actions.GotFocus = submitAction;
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await document.SaveAsync(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page
+
+PdfPage page = document.Pages.Add();
+
+// Create a Button field.
+
+PdfButtonField submitButton = new PdfButtonField(page, "Submit data");
+
+submitButton.Bounds = new RectangleF(100, 60, 50, 20);
+
+submitButton.ToolTip = "Submit";
+
+document.Form.Fields.Add(submitButton);
+
+// Create a submit action. It submit the data of the form fields to the mentioned URL
+
+PdfSubmitAction submitAction = new PdfSubmitAction("http://www.syncfusionforms.com/Submit.aspx");
+
+submitAction.DataFormat = SubmitDataFormat.Html;
+
+submitButton.Actions.GotFocus = submitAction;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page
+
+PdfPage page = document.Pages.Add();
+
+// Create a Button field.
+
+PdfButtonField submitButton = new PdfButtonField(page, "Submit data");
+
+submitButton.Bounds = new RectangleF(100, 60, 50, 20);
+
+submitButton.ToolTip = "Submit";
+
+document.Form.Fields.Add(submitButton);
+
+// Create a submit action. It submit the data of the form fields to the mentioned URL
+
+PdfSubmitAction submitAction = new PdfSubmitAction("http://www.google.com");
+
+submitAction.DataFormat = SubmitDataFormat.Html;
+
+submitButton.Actions.GotFocus = submitAction;
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+document.Save(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Reset action
@@ -667,6 +1459,199 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page
+
+PdfPage page = document.Pages.Add();
+
+// Create a Text box field.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+//Set properties to the textbox.
+
+textBoxField.BorderColor = new PdfColor(Color.FromArgb(0, 211, 211, 211));
+
+textBoxField.BorderStyle = PdfBorderStyle.Beveled;
+
+textBoxField.Bounds = new RectangleF(80, 0, 100, 20);
+
+textBoxField.Text = "First Name";
+
+//Add the form field to the document
+
+document.Form.Fields.Add(textBoxField);
+
+// Create a Button field.
+
+PdfButtonField clearButton = new PdfButtonField(page, "Clear");
+
+clearButton.Bounds = new RectangleF(100, 60, 50, 20);
+
+clearButton.ToolTip = "Clear";
+
+document.Form.Fields.Add(clearButton);
+
+// Create an instance of reset action
+
+PdfResetAction resetAction = new PdfResetAction();
+
+clearButton.Actions.GotFocus = resetAction;
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await document.SaveAsync(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page
+
+PdfPage page = document.Pages.Add();
+
+// Create a Text box field.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+//Set properties to the textbox.
+
+textBoxField.BorderColor = new PdfColor(Color.Gray);
+
+textBoxField.BorderStyle = PdfBorderStyle.Beveled;
+
+textBoxField.Bounds = new RectangleF(80, 0, 100, 20);
+
+textBoxField.Text = "First Name";
+
+//Add the form field to the document
+
+document.Form.Fields.Add(textBoxField);
+
+// Create a Button field.
+
+PdfButtonField clearButton = new PdfButtonField(page, "Clear");
+
+clearButton.Bounds = new RectangleF(100, 60, 50, 20);
+
+clearButton.ToolTip = "Clear";
+
+document.Form.Fields.Add(clearButton);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page
+
+PdfPage page = document.Pages.Add();
+
+// Create a Text box field.
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
+
+//Set properties to the textbox.
+
+textBoxField.BorderColor = new PdfColor(Syncfusion.Drawing.Color.Gray);
+
+textBoxField.BorderStyle = PdfBorderStyle.Beveled;
+
+textBoxField.Bounds = new RectangleF(80, 0, 100, 20);
+
+textBoxField.Text = "First Name";
+
+//Add the form field to the document
+
+document.Form.Fields.Add(textBoxField);
+
+// Create a Button field.
+
+PdfButtonField clearButton = new PdfButtonField(page, "Clear");
+
+clearButton.Bounds = new RectangleF(100, 60, 50, 20);
+
+clearButton.ToolTip = "Clear";
+
+document.Form.Fields.Add(clearButton);
+
+// Create an instance of reset action
+
+PdfResetAction resetAction = new PdfResetAction();
+
+clearButton.Actions.GotFocus = resetAction;
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+document.Save(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Adding an action to the form field
@@ -762,6 +1747,169 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+ //Create a new PDF document.
+
+ PdfDocument document = new PdfDocument();
+
+ //Creates a new page
+
+ PdfPage page = document.Pages.Add();
+
+ //Create a new PdfButtonField
+
+ PdfButtonField submitButton = new PdfButtonField(page, "submitButton");
+
+ submitButton.Bounds = new RectangleF(25, 160, 100, 20);
+
+ submitButton.Text = "Apply";
+
+ submitButton.BackColor = new PdfColor(181, 191, 203);
+
+ //Create a new PdfJavaScriptAction
+
+ PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"You are looking at Form field action of PDF \")");
+
+ //Set the scriptAction to submitButton
+
+ submitButton.Actions.MouseDown = scriptAction;
+
+ //Add the submit button to the new document.
+
+ document.Form.Fields.Add(submitButton);
+
+ MemoryStream memoryStream = new MemoryStream();
+
+ //Save the document.
+
+ await document.SaveAsync(memoryStream);
+
+ //Close the documents.
+
+ document.Close(true);
+
+ //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+ Save(memoryStream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfButtonField
+
+PdfButtonField submitButton = new PdfButtonField(page, "submitButton");
+
+submitButton.Bounds = new RectangleF(25, 160, 100, 20);
+
+submitButton.Text = "Apply";
+
+submitButton.BackColor = new PdfColor(181, 191, 203);
+
+//Create a new PdfJavaScriptAction
+
+PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"You are looking at Form field action of PD
+
+//Set the scriptAction to submitButton
+
+submitButton.Actions.MouseDown = scriptAction;
+
+//Add the submit button to the new document.
+
+document.Form.Fields.Add(submitButton);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfButtonField
+
+PdfButtonField submitButton = new PdfButtonField(page, "submitButton");
+
+submitButton.Bounds = new RectangleF(25, 160, 100, 20);
+
+submitButton.Text = "Apply";
+
+submitButton.BackColor = new PdfColor(181, 191, 203);
+
+//Create a new PdfJavaScriptAction
+
+PdfJavaScriptAction scriptAction = new PdfJavaScriptAction("app.alert(\"You are looking at Form field action of PDF \")");
+
+//Set the scriptAction to submitButton
+
+submitButton.Actions.MouseDown = scriptAction;
+
+//Add the submit button to the new document.
+
+document.Form.Fields.Add(submitButton);
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+document.Save(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Adding an action to the bookmarks
@@ -844,6 +1992,157 @@ document.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create document bookmarks.
+
+PdfBookmark bookmark = document.Bookmarks.Add("Page 1");
+
+//Set the text style and color.
+
+bookmark.TextStyle = PdfTextStyle.Bold;
+
+bookmark.Color = Color.FromArgb(0,255,0,0);
+
+//Create a Uri action
+
+PdfUriAction uriAction = new PdfUriAction("http://www.google.com");
+
+//Set the Uri action
+
+bookmark.Action = uriAction;
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await document.SaveAsync(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "fieldAction.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create document bookmarks.
+
+PdfBookmark bookmark = document.Bookmarks.Add("Page 1");
+
+//Set the text style and color.
+
+bookmark.TextStyle = PdfTextStyle.Bold;
+
+bookmark.Color = Color.Red;
+
+//Create a Uri action
+
+PdfUriAction uriAction = new PdfUriAction("http://www.google.com");
+
+//Set the Uri action
+
+bookmark.Action = uriAction;
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new document.
+
+PdfDocument document = new PdfDocument();
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Create document bookmarks.
+
+PdfBookmark bookmark = document.Bookmarks.Add("Page 1");
+
+//Set the text style and color.
+
+bookmark.TextStyle = PdfTextStyle.Bold;
+
+bookmark.Color = Syncfusion.Drawing.Color.Red;
+
+//Create a Uri action
+
+PdfUriAction uriAction = new PdfUriAction("http://www.google.com");
+
+//Set the Uri action
+
+bookmark.Action = uriAction;
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+document.Save(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 N> The action assigned to the bookmark works only when destination of bookmark is not set.
