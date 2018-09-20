@@ -1770,14 +1770,14 @@ pivotTable.Options.RepeatAllLabels(true);
 
 {% endtabs %}
 
-## AutoSort to pivot fields
+## Sort by value in pivot table or AutoSort in Pivot Table
 
 Pivot field AutoSort allows you to sort the pivot row or column fields based on the data field values. You can perform the sorting in following direction:
 
 * Top to Bottom
 * Left to Right 
 
-### Top to Bottom sorting
+### Sort a Pivot Table Field Top to Bottom
 
 Top to Bottom sorting can sort the pivot table column field values based on the sort type. To apply Top to Bottom sorting in pivot table, you should apply the sorting in pivot row field by AutoSort method. The following code example illustrates how to apply Top to Bottom sorting to a pivot table.
 
@@ -1922,7 +1922,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %} 
 
-### Left to Right
+### Sort a Pivot Table Field Left to Right
 
 Left to Right sorting can sort the pivot table row field values based on the sort type. To apply Left to Right sorting in pivot table, you should apply the sorting in pivot column field by AutoSort method. The following code example illustrates how to apply Left to Right sorting to a pivot table.
 
