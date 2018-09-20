@@ -4937,7 +4937,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Sparkline 
 
-[Sparkline](https://support.office.com/en-za/article/About-sparklines-bf2059c8-1f44-4dbf-aa2e-ca792a139849) is a small chart in a worksheet cell that provides a visual representation of data.
+[Sparkline](https://support.office.com/en-us/article/use-sparklines-to-show-data-trends-1474e169-008c-4783-926b-5c60e620f5ca) is a small chart in a worksheet cell that provides a visual representation of data.
 
 ### Sparkline Creation Using XlsIO
 
