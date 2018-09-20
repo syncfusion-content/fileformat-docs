@@ -93,7 +93,7 @@ For converting an Excel worksheet to image, the following NuGet packages need to
 Windows Forms, WPF, ASP.NET and ASP.NET MVC
 </td>
 <td>
-Syncfusion.XlsIO.Base.nupkg
+{{'[Syncfusion.XlsIO.Base.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.Base/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -101,7 +101,7 @@ Syncfusion.XlsIO.Base.nupkg
 UWP and .NET Core
 </td>
 <td>
-Syncfusion.XlsIORenderer.NETStandard.nupkg
+{{'[Syncfusion.XlsIORenderer.NETStandard.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.NETStandard/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -109,7 +109,7 @@ Syncfusion.XlsIORenderer.NETStandard.nupkg
 Xamarin
 </td>
 <td>
-Syncfusion.Xamarin.XlsIORenderer.nupkg
+{{'[Syncfusion.Xamarin.XlsIORenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer/)'| markdownify }}
 </td>
 </tr>
 </tbody>
