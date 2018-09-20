@@ -776,7 +776,7 @@ This feature supports the following elements:
 * Headers and footers
 * Images
 * Picture recolor
- 	* Black and white
+	* Black and white
 	* Color change
 	* DuoTone
 	* Gray scale
