@@ -434,7 +434,7 @@ pptxDoc.Close()
 {% endhighlight %}
 {% endtabs %}
 
-## Copy and append an existing column to a table
+## Copy an existing column to the end of table
 
 You can copy an existing column and append it to the end of table. Refer to the following code example.
 
@@ -502,7 +502,7 @@ IPresentation pptxDoc = Presentation.Open("Table.pptx");
 
 ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
 
-//Insert a column at the specified index. Here, the existing first coulumn at index 0 is copied and inserted at column index 1
+//Insert a column at the specified index. Here, the existing first column at index 0 is copied and inserted at column index 1
 
 table.Columns.Insert(1, table.Columns[0].Clone());
 

@@ -718,8 +718,8 @@ FlyThrough
 <td>
 In
 Out
-Inbounce
-Outbounce
+In bounce
+Out bounce
 </td>
 </tr>
 <tr>
