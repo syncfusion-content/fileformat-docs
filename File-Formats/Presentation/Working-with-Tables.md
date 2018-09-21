@@ -538,6 +538,7 @@ pptxDoc.Save("Sample.pptx")
 pptxDoc.Close()
 
 {% endhighlight %}
+{% endtabs %}
 
 ## Applying table formatting
 
