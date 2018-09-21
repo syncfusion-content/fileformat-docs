@@ -194,22 +194,22 @@ The list of various supported and non-supported Excel features of Essential XlsI
   <tr>
     <td>Open and save encrypted and decrypted documents.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Protect and unprotect workbook.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Protect and unprotect worksheets.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Lock and unlock cells for write protection.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
 </table>
 <table>
@@ -439,24 +439,29 @@ The list of various supported and non-supported Excel features of Essential XlsI
 	(UWP, .NET Core and Xamarin)</th>
   </tr>
   <tr>
-    <td>Converts Excel document into PDF.</td>
+    <td>Converts Excel to PDF.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
   </tr>
   <tr>
     <td>Converts an entire Excel worksheet into a single image.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Converts specific range of an Excel worksheet into a single image.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Converts Excel chart to image.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+  </tr>
+  <tr>
+    <td>Converts Excel to HTML.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>Converts Excel document to ODS (Open Document Spreadsheet).</td>
