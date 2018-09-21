@@ -3186,3 +3186,517 @@ documentViewer.Dispose()
 {% endhighlight %}
 
 {% endtabs %}
+
+## Drawing complex script language text
+
+Essential PDF allows you to add complex script language text in the PDF document by using the ```ComplexScript``` property available in ```PdfStringFormat``` instance. The following code snippet illustrates this.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the font with Unicode option
+
+Font font = new Font("Tahoma", 14);
+
+PdfFont pdfFont = new PdfTrueTypeFont(font, true);
+
+//Set the format for string
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the format as complex script layout type
+
+format.ComplexScript = true;
+
+//Draw the text
+
+graphics.DrawString("สวัสดีชาวโลก", pdfFont, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Save the document
+ 
+doc.Save("Output.pdf");
+
+//Close the document
+
+doc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document 
+
+Dim doc As New PdfDocument()
+
+'Add a page to the document
+
+Dim page As PdfPage = doc.Pages.Add()
+
+'Create PDF graphics for the page 
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Set the font with Unicode option 
+
+Dim font As New Font("Tahoma", 14)
+
+Dim pdfFont As PdfFont = New PdfTrueTypeFont(font, True)
+
+'Set the format for string
+
+Dim format As New PdfStringFormat()
+
+'Set the format as complex script layout type 
+
+format.ComplexScript = True
+
+'Draw the text
+
+graphics.DrawString("สวัสดีชาวโลก", pdfFont, PdfBrushes.Black, New RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format)
+
+'Save the document 
+
+doc.Save("Output.pdf")
+
+'Close the document
+
+doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the font with Unicode option
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("ComplexScriptSample.Assets.tahoma.ttf");
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 10);
+           
+//Set the format for string
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the format as complex script layout type
+
+format.ComplexScript = true;
+
+//Draw the text
+
+graphics.DrawString("สวัสดีชาวโลก", pdfFont, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Save the PDF document
+         
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the PDF document
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respected code samples
+
+ Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+FileStream fontStream = new FileStream("tahoma.ttf", FileMode.Open, FileAccess.Read);
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 10);
+           
+//Set the format for string
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the format as complex script layout type
+
+format.ComplexScript = true;
+
+//Draw the text
+
+graphics.DrawString("สวัสดีชาวโลก", pdfFont, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Save the PDF document
+        
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the PDF document
+
+doc.Close(true);
+
+//Defining the content type for PDF file.
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the font as stream
+
+Stream fontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.tahoma.ttf");
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 10);
+           
+//Set the format for string
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the format as complex script layout type
+
+format.ComplexScript = true;
+
+//Draw the text
+
+graphics.DrawString("สวัสดีชาวโลก", pdfFont, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Save the PDF document
+           
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the PDF document
+
+doc.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can add the complex script language text in an existing PDF document by using the following code sample.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load a PDF document
+
+PdfLoadedDocument doc = new PdfLoadedDocument("input.pdf");
+
+//Get first page from the document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the font with Unicode option
+
+Font font = new Font("Tahoma", 14);
+
+PdfFont pdfFont = new PdfTrueTypeFont(font, true);
+
+//Set the format for string
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the format as complex script layout type
+
+format.ComplexScript = true;
+
+//Draw the text
+
+graphics.DrawString("สวัสดีชาวโลก", pdfFont, PdfBrushes.Black, new RectangleF(0, 0, page.Size.Width, page.Size.Height), format);
+
+//Save the document
+
+doc.Save("Output.pdf");
+
+//Close the document
+
+doc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load a PDF document
+
+Dim doc As New PdfLoadedDocument("input.pdf")
+
+'Get first page from the document 
+
+Dim page As PdfLoadedPage = TryCast(doc.Pages(0), PdfLoadedPage)
+
+'Create PDF graphics for the page 
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Set the font with Unicode option 
+
+Dim font As New Font("Tahoma", 14)
+
+Dim pdfFont As PdfFont = New PdfTrueTypeFont(font, True)
+
+'Set the format for string 
+
+Dim format As New PdfStringFormat()
+
+'Set the format as complex script layout type 
+
+format.ComplexScript = True
+
+'Draw the text 
+
+graphics.DrawString("สวัสดีชาวโลก", pdfFont, PdfBrushes.Black, New RectangleF(0, 0, page.Size.Width, page.Size.Height), format)
+
+'Save the document 
+
+doc.Save("Output.pdf")
+
+'Close the document
+
+doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+Stream inputFileStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("input.pdf");
+
+//Load a PDF document
+
+PdfLoadedDocument doc = new PdfLoadedDocument(inputFileStream);
+
+//Get first page from the document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the font with Unicode option
+
+Font font = new Font("Tahoma", 14);
+
+PdfFont pdfFont = new PdfTrueTypeFont(font, true);
+
+//Set the format for string
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the format as complex script layout type
+
+format.ComplexScript = true;
+
+//Draw the text
+
+graphics.DrawString("สวัสดีชาวโลก", pdfFont, PdfBrushes.Black, new RectangleF(0, 0, page.Size.Width, page.Size.Height), format);
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the PDF document
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+FileStream inputFileStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load a PDF document
+
+PdfLoadedDocument doc = new PdfLoadedDocument(inputFileStream);
+
+//Get first page from the document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the font with Unicode option
+
+Font font = new Font("Tahoma", 14);
+
+PdfFont pdfFont = new PdfTrueTypeFont(font, true);
+
+//Set the format for string
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the format as complex script layout type
+
+format.ComplexScript = true;
+
+//Draw the text
+
+graphics.DrawString("สวัสดีชาวโลก", pdfFont, PdfBrushes.Black, new RectangleF(0, 0, page.Size.Width, page.Size.Height), format);
+
+//Save the PDF document
+          
+MemoryStream stream = new MemoryStream();
+
+await doc.Save(stream);
+
+//Close the PDF document
+
+doc.Close(true);
+
+//Defining the content type for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+Stream inputFileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+//Load a PDF document
+
+PdfLoadedDocument doc = new PdfLoadedDocument(inputFileStream);
+
+//Get first page from the document
+
+PdfLoadedPage page = doc.Pages[0] as PdfLoadedPage;
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Set the font with Unicode option
+
+Font font = new Font("Tahoma", 14);
+
+PdfFont pdfFont = new PdfTrueTypeFont(font, true);
+
+//Set the format for string
+
+PdfStringFormat format = new PdfStringFormat();
+
+//Set the format as complex script layout type
+
+format.ComplexScript = true;
+
+//Draw the text
+
+graphics.DrawString("สวัสดีชาวโลก", pdfFont, PdfBrushes.Black, new RectangleF(0, 0, page.Size.Width, page.Size.Height), format);
+
+//Save the PDF document
+          
+MemoryStream stream = new MemoryStream();
+
+await doc.Save(stream);
+
+//Close the PDF document
+
+doc.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{ 
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+} 
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}

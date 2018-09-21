@@ -7420,7 +7420,822 @@ loadedDocument.Close(True)
 
 {% endtabs %}  
 
- 
+## Complex script support for form fields
+
+You can add a complex script language text in PDF AcroForm fields by using the ```ComplexScript``` property of the form fields instance. The following code snippet illustrates this.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new PDF page
+
+PdfPage page = document.Pages.Add();
+
+//Create new PDF text box field
+
+PdfTextBoxField textField = new PdfTextBoxField(page, "textBox");
+
+//Set bounds
+
+textField.Bounds = new RectangleF(10, 10, 200, 30);
+
+//Set text
+
+textField.Text = "สวัสดีชาวโลก";
+
+//Create new PdfTrueTypeFont instance
+
+PdfTrueTypeFont font = new PdfTrueTypeFont(new Font("Tahoma", 10), true);
+
+//Set font
+
+textField.Font = font;
+
+//Enable complex script layout
+
+textField.ComplexScript = true;
+
+//Add the text box field to the form collection
+
+document.Form.Fields.Add(textField);
+
+//Set default appearance as false
+
+document.Form.SetDefaultAppearance(false);
+
+//Save the PDF document
+
+document.Save("Form.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document
+
+Dim document As New PdfDocument()
+
+'Add a new PDF page
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create new PDF text box field
+
+Dim textField As New PdfTextBoxField(page, "textBox")
+
+'Set bounds
+
+textField.Bounds = New RectangleF(10, 10, 200, 30)
+
+'Set text
+
+textField.Text = "สวัสดีชาวโลก"
+
+'Create new PdfTrueTypeFont instance
+
+Dim font As New PdfTrueTypeFont(New Font("Tahoma", 10), True)
+
+'Set font
+
+textField.Font = font
+
+'Enable complex script layout
+
+textField.ComplexScript = True
+
+'Add the text box field to the form collection
+
+document.Form.Fields.Add(textField)
+
+'Set default appearance as false
+
+document.Form.SetDefaultAppearance(False)
+
+'Save the PDF document
+
+document.Save("Form.pdf")
+
+'Close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new PDF page
+
+PdfPage page = document.Pages.Add();
+
+//Create new PDF text box field
+
+PdfTextBoxField textField = new PdfTextBoxField(page, "textBox");
+
+//Set bounds
+
+textField.Bounds = new RectangleF(10, 10, 200, 30);
+
+//Set text
+
+textField.Text = "สวัสดีชาวโลก";
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("ComplexScriptSample.Assets.tahoma.ttf");
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 10);
+
+//Set font
+
+textField.Font = font;
+
+//Enable complex script layout
+
+textField.ComplexScript = true;
+
+//Add the text box field to the form collection
+
+document.Form.Fields.Add(textField);
+
+//Set default appearance to false
+
+document.Form.SetDefaultAppearance(false);
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the PDF document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new PDF page
+
+PdfPage page = document.Pages.Add();
+
+//Create the new PDF text box field
+
+PdfTextBoxField textField = new PdfTextBoxField(page, "textBox");
+
+//Set bounds
+
+textField.Bounds = new RectangleF(10, 10, 200, 30);
+
+//Set text
+
+textField.Text = "สวัสดีชาวโลก";
+
+FileStream fontStream = new FileStream("tahoma.ttf", FileMode.Open, FileAccess.Read);
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 10);
+
+//Set font
+
+textField.Font = font;
+
+//Enable complex script layout
+
+textField.ComplexScript = true;
+
+//Add the text box field to the form collection
+
+document.Form.Fields.Add(textField);
+
+//Set default appearance as false
+
+document.Form.SetDefaultAppearance(false);
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the PDF document
+
+document.Close(true);
+
+//Defining the content type for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new PDF page
+
+PdfPage page = document.Pages.Add();
+
+//Create the new PDF text box field
+
+PdfTextBoxField textField = new PdfTextBoxField(page, "textBox");
+
+//Set bounds
+
+textField.Bounds = new RectangleF(10, 10, 200, 30);
+
+//Set text
+
+textField.Text = "สวัสดีชาวโลก";
+
+//Load the font as stream
+
+Stream fontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.tahoma.ttf");
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 10);
+
+//Set font
+
+textField.Font = font;
+
+//Enable complex script layout
+
+textField.ComplexScript = true;
+
+//Add the text box field to the form collection
+
+document.Form.Fields.Add(textField);
+
+//Set default appearance as false
+
+document.Form.SetDefaultAppearance(false);
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the PDF document
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can add the complex script support for all the supported form fields by enabling the ```ComplexScript``` property of ```PdfForm```/```PdfLoadedForm``` instance.
+
+Supported form fields:
+
+* Text box field
+* Combo box field
+* List box field
+* Button field
+
+The following code example illustrates how to add complex script support for all the supported fields in PDF document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new PDF page
+
+PdfPage page = document.Pages.Add();
+
+//Create the new PDF text box field
+
+PdfTextBoxField textField = new PdfTextBoxField(page, "textBox");
+
+//Set bounds
+
+textField.Bounds = new RectangleF(10, 10, 200, 30);
+
+//Set text
+
+textField.Text = "สวัสดีชาวโลก";
+
+//Create new PdfTrueTypeFont instance
+
+PdfTrueTypeFont font = new PdfTrueTypeFont(new Font("Tahoma", 10), true);
+
+//Set font
+
+textField.Font = font;
+
+//Add the text box field to the form collection
+
+document.Form.Fields.Add(textField);
+
+//Set default appearance to false
+
+document.Form.SetDefaultAppearance(false);
+
+//Enable complex script layout for form
+
+document.Form.ComplexScript = true;
+
+//Save the PDF document
+
+document.Save("Form.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document
+
+Dim document As New PdfDocument()
+
+'Add a new PDF page
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create the new PDF text box field
+
+Dim textField As New PdfTextBoxField(page, "textBox")
+
+'Set bounds
+
+textField.Bounds = New RectangleF(10, 10, 200, 30)
+
+'Set text
+
+textField.Text = "สวัสดีชาวโลก"
+
+'Create new PdfTrueTypeFont instance
+
+Dim font As New PdfTrueTypeFont(New Font("Tahoma", 10), True)
+
+'Set font
+
+textField.Font = font
+
+'Add the text box field to the form collection
+
+document.Form.Fields.Add(textField)
+
+'Set default appearance to false
+
+document.Form.SetDefaultAppearance(False)
+
+'Enable complex script layout for form
+
+document.Form.ComplexScript = True
+
+'Save the PDF document
+
+document.Save("Form.pdf")
+
+'Close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new PDF page
+
+PdfPage page = document.Pages.Add();
+
+//Create the new PDF text box field
+
+PdfTextBoxField textField = new PdfTextBoxField(page, "textBox");
+
+//Set bounds
+
+textField.Bounds = new RectangleF(10, 10, 200, 30);
+
+//Set text
+
+textField.Text = "สวัสดีชาวโลก";
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("ComplexScriptSample.Assets.tahoma.ttf");
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 10);
+
+//Set font
+
+textField.Font = font;
+
+//Add the text box field to the form collection
+
+document.Form.Fields.Add(textField);
+
+//Set default appearance to false
+
+document.Form.SetDefaultAppearance(false);
+
+//Enable complex script layout for form
+
+document.Form.ComplexScript = true;
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples.
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new PDF page
+
+PdfPage page = document.Pages.Add();
+
+//Create the new PDF text box field
+
+PdfTextBoxField textField = new PdfTextBoxField(page, "textBox");
+
+//Set bounds
+
+textField.Bounds = new RectangleF(10, 10, 200, 30);
+
+//Set text
+
+textField.Text = "สวัสดีชาวโลก";
+
+FileStream fontStream = new FileStream("tahoma.ttf", FileMode.Open, FileAccess.Read);
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 10);
+
+//Set font
+
+textField.Font = font;
+
+//Add the text box field to the form collection
+
+document.Form.Fields.Add(textField);
+
+//Set default appearance as false
+
+document.Form.SetDefaultAppearance(false);
+
+//Enable complex script layout for form
+
+document.Form.ComplexScript = true;
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the PDF document
+
+document.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new PDF page
+
+PdfPage page = document.Pages.Add();
+
+//Create the new PDF text box field
+
+PdfTextBoxField textField = new PdfTextBoxField(page, "textBox");
+
+//Set bounds
+
+textField.Bounds = new RectangleF(10, 10, 200, 30);
+
+//Set text
+
+textField.Text = "สวัสดีชาวโลก";
+
+//Load the font as stream
+
+Stream fontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.tahoma.ttf");
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 10);
+
+//Set font
+
+textField.Font = font;
+
+//Add the text box field to the form collection
+
+document.Form.Fields.Add(textField);
+
+//Set default appearance as false
+
+document.Form.SetDefaultAppearance(false);
+
+//Enable complex script layout for form
+
+document.Form.ComplexScript = true;
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the PDF document
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can also flatten the existing form fields with complex script layout by using the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Form.pdf");
+
+//Get the existing PDF form
+
+PdfLoadedForm lForm = loadedDocument.Form as PdfLoadedForm;
+
+//Set the complex script layout
+
+lForm.ComplexScript = true;
+
+//Set flatten
+
+lForm.Flatten = true;
+
+//Save the document
+
+loadedDocument.Save("flatten.pdf");
+
+//Close the document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing PDF document
+
+Dim loadedDocument As New PdfLoadedDocument("Form.pdf")
+
+'Get the existing PDF form
+
+Dim lForm As PdfLoadedForm = TryCast(loadedDocument.Form, PdfLoadedForm)
+
+'Set the complex script layout
+
+lForm.ComplexScript = True
+
+'Set flatten
+
+lForm.Flatten = True
+
+'Save the document
+
+loadedDocument.Save("flatten.pdf")
+
+'Close the document
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+Stream inputFileStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Form.pdf");
+
+//Load the existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputFileStream);
+
+//Get the existing PDF form
+
+PdfLoadedForm lForm = loadedDocument.Form as PdfLoadedForm;
+
+//Set the complex script layout
+
+lForm.ComplexScript = true;
+
+//Set flatten
+
+lForm.Flatten = true;
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+FileStream inputFileStream = new FileStream("Form.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputFileStream);
+
+//Get the existing PDF form
+
+PdfLoadedForm lForm = loadedDocument.Form as PdfLoadedForm;
+
+//Set the complex script layout
+
+lForm.ComplexScript = true;
+
+//Set flatten
+
+lForm.Flatten = true;
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document
+
+loadedDocument.Save(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Defining the content type for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+Stream inputFileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Form.pdf");
+
+//Load the existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputFileStream);
+
+//Get the existing PDF form
+
+PdfLoadedForm lForm = loadedDocument.Form as PdfLoadedForm;
+
+//Set the complex script layout
+
+lForm.ComplexScript = true;
+
+//Set flatten
+
+lForm.Flatten = true;
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the PDF document
+
+loadedDocument.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+	Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Adding actions to form fields 
 
 Please refer to the [actions](/file-formats/pdf/working-with-action#adding-an-action-to-the-form-field "Working with action") section for more details
