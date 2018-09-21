@@ -1770,7 +1770,7 @@ pivotTable.Options.RepeatAllLabels(true);
 
 {% endtabs %}
 
-## Sort by value in pivot table or AutoSort in Pivot Table
+## Sort by value in Pivot Table
 
 Pivot field AutoSort allows you to sort the pivot row or column fields based on the data field values. You can perform the sorting in following direction:
 
