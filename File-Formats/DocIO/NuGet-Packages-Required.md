@@ -27,13 +27,57 @@ Package manager console command
 </thead>
 <tr>
 <td>
-.NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core - Targeting .NET Framework)
+Windows Forms
 </td>
 <td>
-Syncfusion.DocIO.Base.nupkg
+Syncfusion.DocIO.WinForms.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIO.Base
+Install-Package Syncfusion.DocIO.WinForms
+</td>
+</tr>
+<tr>
+<td>
+WPF
+</td>
+<td>
+Syncfusion.DocIO.Wpf.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocIO.Wpf
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET and ASP.NET Core (Targeting .NET Framework)
+</td>
+<td>
+Syncfusion.DocIO.AspNet.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocIO.AspNet
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC4
+</td>
+<td>
+Syncfusion.DocIO.AspNet.Mvc4.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocIO.AspNet.Mvc4
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC5
+</td>
+<td>
+Syncfusion.DocIO.AspNet.Mvc5.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocIO.AspNet.Mvc5
 </td>
 </tr>
 <tr>
@@ -41,10 +85,10 @@ Install-Package Syncfusion.DocIO.Base
 ASP.NET Core (Targeting .netcoreapp)
 </td>
 <td>
-Syncfusion.DocIO.NETStandard.nupkg
+Syncfusion.DocIO.Net.Core.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIO.NETStandard
+Install-Package Syncfusion.DocIO.Net.Core
 </td>
 </tr>
 <tr>
@@ -93,13 +137,57 @@ Package manager console command
 </thead>
 <tr>
 <td>
-.NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core – Targeting .NET Framework)
+Windows Forms
 </td>
 <td>
-Syncfusion.DocToPdfConverter.Base.nupkg
+Syncfusion.DocToPdfConverter.WinForms.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocToPdfConverter.Base
+Install-Package Syncfusion.DocToPdfConverter.WinForms
+</td>
+</tr>
+<tr>
+<td>
+WPF
+</td>
+<td>
+Syncfusion.DocToPdfConverter.Wpf.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocToPdfConverter.Wpf
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET and ASP.NET Core (Targeting .NET Framework)
+</td>
+<td>
+Syncfusion.DocToPdfConverter.AspNet.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocToPdfConverter.AspNet
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC4
+</td>
+<td>
+Syncfusion.DocToPdfConverter.AspNet.Mvc4.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocToPdfConverter.AspNet.Mvc4
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC5
+</td>
+<td>
+Syncfusion.DocToPdfConverter.AspNet.Mvc5.nupkg
+</td>
+<td>
+Install-Package Syncfusion.DocToPdfConverter.AspNet.Mvc5
 </td>
 </tr>
 <tr>
@@ -107,10 +195,10 @@ Install-Package Syncfusion.DocToPdfConverter.Base
 ASP.NET Core (Targeting .netcoreapp)
 </td>
 <td>
-Syncfusion.DocIORenderer.NetStandard.nupkg
+Syncfusion.DocIORenderer.Net.Core.nupkg
 </td>
 <td>
-Install-Package Syncfusion.DocIORenderer.NetStandard
+Install-Package Syncfusion.DocIORenderer.Net.Core
 </td>
 </tr>
 <tr>
@@ -152,10 +240,65 @@ Package manager console command
 </thead>
 <tr>
 <td>
-.NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core – Targeting .NET Framework)
+Windows Forms
 </td>
 <td>
-Syncfusion.OfficeChartToImageConverter.WPF.nupkg
+Syncfusion.OfficeChartToImageConverter.WinForms.nupkg
+</td>
+<td>
+Install-Package Syncfusion.OfficeChartToImageConverter.WinForms
+</td>
+</tr>
+<tr>
+<td>
+WPF
+</td>
+<td>
+Syncfusion.OfficeChartToImageConverter.Wpf.nupkg
+</td>
+<td>
+Install-Package Syncfusion.OfficeChartToImageConverter.Wpf
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET and ASP.NET Core (Targeting .NET Framework)
+</td>
+<td>
+Syncfusion.OfficeChartToImageConverter.AspNet.nupkg
+</td>
+<td>
+Install-Package Syncfusion.OfficeChartToImageConverter.AspNet
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC4
+</td>
+<td>
+Syncfusion.OfficeChartToImageConverter.AspNet.Mvc4.nupkg
+</td>
+<td>
+Install-Package Syncfusion.OfficeChartToImageConverter.AspNet.Mvc4
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC5
+</td>
+<td>
+Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5.nupkg
+</td>
+<td>
+Install-Package Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core (Targeting .NET Framework)
+</td>
+<td>
+Syncfusion.OfficeChartToImageConverter.Wpf.nupkg
 </td>
 <td>
 Install-Package Syncfusion.OfficeChartToImageConverter.Wpf
@@ -174,35 +317,76 @@ To use Syncfusion NuGet packages in your project, please refer the NuGet Package
 
 DocIO NuGet packages can be installed and uninstalled using Package Manager Console. In Visual Studio, select Tools > NuGet Package Manager > Package Manager Console and execute the following commands.
 
-### .NET Frameworks (Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core – Targeting .NET Framework)
+### Windows Forms
 
-**NuGet Package:** Syncfusion.DocIO.Base
+**NuGet Package:** Syncfusion.DocIO.WinForms
 
 The package contains DocIO library that allows you to create, read and edit Word documents.
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocIO.Base
+Install-Package Syncfusion.DocIO.WinForms
 ~~~
 ~~~
 // Uninstall package
-Uninstall-Package Syncfusion.DocIO.Base -RemoveDependencies 
+Uninstall-Package Syncfusion.DocIO.WinForms -RemoveDependencies 
 ~~~
 
-**NuGet Package:** Syncfusion.DocToPdfConverter.Base
+**NuGet Package:** Syncfusion.DocToPdfConverter.WinForms
 
 The package contains the DocToPdfConverter .NET library that allows you to convert the Word documents to PDF.
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocToPdfConverter.Base
+Install-Package Syncfusion.DocToPdfConverter.WinForms
 ~~~
 ~~~
 // Uninstall package
-Uninstall-Package Syncfusion.DocToPdfConverter.Base -RemoveDependencies 
+Uninstall-Package Syncfusion.DocToPdfConverter.WinForms -RemoveDependencies 
 ~~~
 
-**NuGet Package:** Syncfusion.OfficeChartToImageConverter.WPF
+**NuGet Package:** Syncfusion.OfficeChartToImageConverter.WinForms
+
+The package contains OfficeChartToImageConverter .NET library for converting the chart present in word document to image.
+
+~~~
+// Install package
+Install-Package Syncfusion.OfficeChartToImageConverter.WinForms
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.OfficeChartToImageConverter.WinForms -RemoveDependencies 
+~~~
+
+### WPF
+
+**NuGet Package:** Syncfusion.DocIO.Wpf
+
+The package contains DocIO library that allows you to create, read and edit Word documents.
+
+~~~
+// Install package
+Install-Package Syncfusion.DocIO.Wpf
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.DocIO.Wpf -RemoveDependencies 
+~~~
+
+**NuGet Package:** Syncfusion.DocToPdfConverter.Wpf
+
+The package contains the DocToPdfConverter .NET library that allows you to convert the Word documents to PDF.
+
+~~~
+// Install package
+Install-Package Syncfusion.DocToPdfConverter.Wpf
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.DocToPdfConverter.Wpf -RemoveDependencies 
+~~~
+
+**NuGet Package:** Syncfusion.OfficeChartToImageConverter.Wpf
 
 The package contains OfficeChartToImageConverter .NET library for converting the chart present in word document to image.
 
@@ -212,39 +396,161 @@ Install-Package Syncfusion.OfficeChartToImageConverter.Wpf
 ~~~
 ~~~
 // Uninstall package
-Uninstall-Package Syncfusion.OfficeChartToImageConverter.WPF -RemoveDependencies 
+Uninstall-Package Syncfusion.OfficeChartToImageConverter.Wpf -RemoveDependencies 
 ~~~
 
+### ASP.NET and ASP.NET Core (Targeting .NET Framework)
+
+**NuGet Package:** Syncfusion.DocIO.AspNet
+
+The package contains DocIO library that allows you to create, read and edit Word documents.
+
+~~~
+// Install package
+Install-Package Syncfusion.DocIO.AspNet
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.DocIO.AspNet -RemoveDependencies 
+~~~
+
+**NuGet Package:** Syncfusion.DocToPdfConverter.AspNet
+
+The package contains the DocToPdfConverter .NET library that allows you to convert the Word documents to PDF.
+
+~~~
+// Install package
+Install-Package Syncfusion.DocToPdfConverter.AspNet
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.DocToPdfConverter.AspNet -RemoveDependencies 
+~~~
+
+**NuGet Package:** Syncfusion.OfficeChartToImageConverter.AspNet
+
+The package contains OfficeChartToImageConverter .NET library for converting the chart present in word document to image.
+
+~~~
+// Install package
+Install-Package Syncfusion.OfficeChartToImageConverter.AspNet
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.OfficeChartToImageConverter.AspNet -RemoveDependencies 
+~~~
+
+### ASP.NET MVC4
+
+**NuGet Package:** Syncfusion.DocIO.AspNet.Mvc4
+
+The package contains DocIO library that allows you to create, read and edit Word documents.
+
+~~~
+// Install package
+Install-Package Syncfusion.DocIO.AspNet.Mvc4
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.DocIO.AspNet.Mvc4 -RemoveDependencies 
+~~~
+
+**NuGet Package:** Syncfusion.DocToPdfConverter.AspNet.Mvc4
+
+The package contains the DocToPdfConverter .NET library that allows you to convert the Word documents to PDF.
+
+~~~
+// Install package
+Install-Package Syncfusion.DocToPdfConverter.AspNet.Mvc4
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.DocToPdfConverter.AspNet.Mvc4 -RemoveDependencies 
+~~~
+
+**NuGet Package:** Syncfusion.OfficeChartToImageConverter.AspNet.Mvc4
+
+The package contains OfficeChartToImageConverter .NET library for converting the chart present in word document to image.
+
+~~~
+// Install package
+Install-Package Syncfusion.OfficeChartToImageConverter.AspNet.Mvc4
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.OfficeChartToImageConverter.AspNet.Mvc4 -RemoveDependencies 
+~~~
+
+### ASP.NET MVC5
+
+**NuGet Package:** Syncfusion.DocIO.AspNet.Mvc5
+
+The package contains DocIO library that allows you to create, read and edit Word documents.
+
+~~~
+// Install package
+Install-Package Syncfusion.DocIO.AspNet.Mvc5
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.DocIO.AspNet.Mvc5 -RemoveDependencies 
+~~~
+
+**NuGet Package:** Syncfusion.DocToPdfConverter.AspNet.Mvc5
+
+The package contains the DocToPdfConverter .NET library that allows you to convert the Word documents to PDF.
+
+~~~
+// Install package
+Install-Package Syncfusion.DocToPdfConverter.AspNet.Mvc5
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.DocToPdfConverter.AspNet.Mvc5 -RemoveDependencies 
+~~~
+
+**NuGet Package:** Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5
+
+The package contains OfficeChartToImageConverter .NET library for converting the chart present in word document to image.
+
+~~~
+// Install package
+Install-Package Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5
+~~~
+~~~
+// Uninstall package
+Uninstall-Package Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5 -RemoveDependencies 
+~~~
 
 ### ASP.NET Core (Targeting .netcoreapp)
 
-**NuGet Package:** Syncfusion.DocIO.NETStandard
+**NuGet Package:** Syncfusion.DocIO.Net.Core
 
 The package contains DocIO portable library that allows you to create, read and edit Word documents.
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocIO.NETStandard
+Install-Package Syncfusion.DocIO.Net.Core
 ~~~
 ~~~
 // Uninstall package
-Uninstall-Package Syncfusion.DocIO.NETStandard -RemoveDependencies 
+Uninstall-Package Syncfusion.DocIO.Net.Core -RemoveDependencies 
 ~~~
 
-**NuGet Package:** Syncfusion.DocIORenderer.NetStandard
+**NuGet Package:** Syncfusion.DocIORenderer.Net.Core
 
 The package contains the DocIORenderer .NET portable library that allows you to convert the Word documents to PDF.
 
 ~~~
 // Install package
-Install-Package Syncfusion.DocIORenderer.NetStandard
+Install-Package Syncfusion.DocIORenderer.Net.Core
 
 // Install dependent package
 Install-Package SkiaSharp -Version 1.59.3
 ~~~
 ~~~
 // Uninstall package
-Uninstall-Package Syncfusion.DocIORenderer.NetStandard -RemoveDependencies 
+Uninstall-Package Syncfusion.DocIORenderer.Net.Core -RemoveDependencies 
 ~~~
 
 ### Xamarin
@@ -293,130 +599,3 @@ Install-Package Syncfusion.DocIO.UWP
 // Uninstall package
 Uninstall-Package Syncfusion.DocIO.UWP -RemoveDependencies 
 ~~~
-
-## NuGet Package details
-
-Please find the NuGet package details from the following table. The table contains the assemblies list present in the NuGet package and dependent NuGet package details.
-
-<table>
-<thead>
-<tr>
-<th>
-Package name
-</th>
-<th>
-Description
-</th>
-<th>
-Assemblies
-</th>
-<th>
-Dependent NuGet packages
-</th>
-</tr>
-</thead>
-<tr>
-<td>
-Syncfusion.DocIO.Base.nupkg
-</td>
-<td>
-Essential DocIO is a .NET Word library that allows you to create, read and edit Word documents in any .NET application without Microsoft Office dependency.
-</td>
-<td>
-Syncfusion.DocIO.Base.dll
-</td>
-<td>
-Syncfusion.Compression.Base.nupkg<br/>Syncfusion.OfficeChart.Base.nupkg<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.DocToPdfConverter.Base.nupkg
-</td>
-<td>
-The DocToPdfConverter is a .NET library that allows you to convert the Word documents to PDF in any .NET Framework application without Microsoft Office dependency.
-</td>
-<td>
-Syncfusion.DocToPDFConverter.Base.dll
-</td>
-<td>
-Syncfusion.DocIO.Base.nupkg<br/>Syncfusion.Pdf.Base.nupkg<br/>Syncfusion.Compression.Base.nupkg<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.OfficeChartToImageConverter.WPF.nupkg
-</td>
-<td>
-The OfficeChartToImageConverter is a .NET class library for converting Word and Presentation chart to image without using Microsoft Office.
-</td>
-<td>
-Syncfusion.OfficeChartToImageConverter.Wpf.dll
-</td>
-<td>
-Syncfusion.SfChart.WPF.nupkg<br/>Syncfusion.OfficeChart.Base.nupkg<br/>Syncfusion.Compression.Base.nupkg<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.DocIO.NETStandard.nupkg
-</td>
-<td>
-Essential DocIO is a .NET Word library that allows you to create, read and edit Word documents in .NET Core application without Microsoft Office dependency.
-</td>
-<td>
-Syncfusion.DocIO.Portable.dll
-</td>
-<td>
-Syncfusion.Compression.NETStandard.nupkg<br/>Syncfusion.OfficeChart.NETStandard.nupkg<br/>NETStandard.Library.nupkg<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.DocIORenderer.NetStandard.nupkg
-</td>
-<td>
-The DocIORenderer is a .NET library that allows you to convert the Word documents to PDF in .NET Core application without Microsoft Office dependency.
-</td>
-<td>
-Syncfusion.DocIORenderer.Portable.dll
-</td>
-<td>
-Syncfusion.Compression.NETStandard.nupkg<br/>Syncfusion.OfficeChart.NETStandard.nupkg<br/>Syncfusion.DocIO.NETStandard.nupkg<br/>Syncfusion.Pdf.NETStandard.nupkg<br/>NETStandard.Library.nupkg<br/>SkiaSharp.nupkg<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.Xamarin.DocIO.nupkg
-</td>
-<td>
-Essential DocIO is a .NET Word library that allows you to create, read and edit Word documents in Xamarin application without Microsoft Office dependency.
-</td>
-<td>
-Syncfusion.DocIO.Portable.dll
-</td>
-<td>
-Syncfusion.Xamarin.Compression.nupkg<br/>Syncfusion.Xamarin.OfficeChart.nupkg<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.Xamarin.DocIORenderer.nupkg
-</td>
-<td>
-The DocIORenderer is a .NET library that allows you to convert the Word documents to PDF in Xamarin application without Microsoft Office dependency.
-</td>
-<td>
-Syncfusion.Compression.Portable.dll<br/>Syncfusion.DocIO.Portable.dll<br/>Syncfusion.DocIORenderer.Portable.dll<br/>Syncfusion.OfficeChart.Portable.dll<br/>Syncfusion.Pdf.Portable.dll<br/><br/></td>
-<td>
-SkiaSharp.nupkg<br/><br/></td>
-</tr>
-<tr>
-<td>
-Syncfusion.DocIO.UWP.nupkg
-</td>
-<td>
-Essential DocIO is a .NET Word library that allows you to create, read and edit Word documents in Universal Windows Platform apps without Microsoft Office dependency.
-</td>
-<td>
-Syncfusion.DocIO.UWP.dll
-</td>
-<td>
-Syncfusion.OfficeChart.UWP.nupkg<br/><br/></td>
-</tr>
-</table>
-
