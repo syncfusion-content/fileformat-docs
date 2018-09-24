@@ -157,6 +157,84 @@ End Using
 
 N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other existing text in the PDF page won’t be returned in this method. Please check [text extraction](/file-formats/pdf/Working-with-Text-Extraction) feature for this.
 
+## Performing OCR with tesseract version 3.05
+
+You can perform OCR using the tesseract version 3.05. The ```TesseractVersion``` property is used to switch the tesseract version between 3.02 and 3.05. By default, OCR works with tesseract version 3.02.
+ 
+You must use the pre built Syncfusion tesseract version 3.05 in the sample to run the OCR properly. The tesseract binaries are shipping with Syncfusion NuGet package, use the following link to download the NuGet package.
+
+[https://www.nuget.org/packages/Syncfusion.OCRProcessor.Base](https://www.nuget.org/packages/Syncfusion.OCRProcessor.Base)
+
+The following sample code snippet demonstrates the OCR processor with Tesseract3.05 for PDF documents.
+ 
+{% tabs %} 
+
+{% highlight c# %}
+
+
+using (OCRProcessor processor = new OCRProcessor(@" Tesseract3.05Binaries \”)
+            
+{ 
+
+//Load a PDF document 
+ 
+PdfLoadedDocument lDoc = new PdfLoadedDocument(“input.pdf”); 
+
+//Set OCR language to process 
+
+processor.Settings.Language = Languages.English;
+ 
+//Set tesseract OCR Engine 
+				
+processor.Settings.TesseractVersion = TesseractVersion.Version3_05; 
+ 
+//Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
+				 
+processor.PerformOCR(lDoc, @"TessData\", true); 
+ 
+//Save the OCR processed PDF document in the disk 
+				
+lDoc.Save("Sample.pdf"); 
+               
+lDoc.Close(true); 
+				
+} 
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+Using processor As New OCRProcessor("Tesseract3.05Binaries\”)
+
+'Load a PDF document
+
+Dim lDoc As New PdfLoadedDocument("Input.pdf")
+
+'Set OCR language to process
+
+processor.Settings.Language = Languages.English
+            
+'Set tesseract OCR engine
+
+processor.Settings.TesseractVersion = TesseractVersion.Version3_05
+
+'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
+
+processor.PerformOCR(lDoc, "TessData\", True)
+
+'Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf")
+
+lDoc.Close(True)
+
+End Using
+			
+{% endhighlight %}
+
+ {% endtabs %}  
+
 ## Performing OCR for a region of the document
 
 You can perform OCR on particular region or several regions of a PDF page with the help of PageRegion class. Refer the below code snippet for the same.
@@ -395,83 +473,6 @@ End Using
 
  {% endtabs %}  
  
-## Performing OCR with tesseract version 3.05
-
-You can perform OCR using the tesseract version 3.05. The ```TesseractVersion``` property is used to switch the tesseract version between 3.02 and 3.05. By default, OCR works with tesseract version 3.02.
- 
-You must use the pre built Syncfusion tesseract version 3.05 in the sample to run the OCR properly. The tesseract binaries are shipping with Syncfusion NuGet package, use the following link to download the NuGet package.
-
-[https://www.nuget.org/packages/Syncfusion.OCRProcessor.Base](https://www.nuget.org/packages/Syncfusion.OCRProcessor.Base)
-
-The following sample code snippet demonstrates the OCR processor with Tesseract3.05 for PDF documents.
- 
-{% tabs %} 
-
-{% highlight c# %}
-
-
-using (OCRProcessor processor = new OCRProcessor(@" Tesseract3.05Binaries \”)
-            
-{ 
-
-//Load a PDF document 
- 
-PdfLoadedDocument lDoc = new PdfLoadedDocument(“input.pdf”); 
-
-//Set OCR language to process 
-
-processor.Settings.Language = Languages.English;
- 
-//Set tesseract OCR Engine 
-				
-processor.Settings.TesseractVersion = TesseractVersion.Version3_05; 
- 
-//Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
-				 
-processor.PerformOCR(lDoc, @"TessData\", true); 
- 
-//Save the OCR processed PDF document in the disk 
-				
-lDoc.Save("Sample.pdf"); 
-               
-lDoc.Close(true); 
-				
-} 
-
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-Using processor As New OCRProcessor("Tesseract3.05Binaries\”)
-
-'Load a PDF document
-
-Dim lDoc As New PdfLoadedDocument("Input.pdf")
-
-'Set OCR language to process
-
-processor.Settings.Language = Languages.English
-            
-'Set tesseract OCR engine
-
-processor.Settings.TesseractVersion = TesseractVersion.Version3_05
-
-'Process OCR by providing the PDF document and tesseract data, and enabling the isMemoryOptimized property
-
-processor.PerformOCR(lDoc, "TessData\", True)
-
-'Save the OCR processed PDF document in the disk
-
-lDoc.Save("Sample.pdf")
-
-lDoc.Close(True)
-
-End Using
-			
-{% endhighlight %}
-
- {% endtabs %}  
 
 ## Native call
 
