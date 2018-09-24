@@ -3507,7 +3507,7 @@ The line measurement annotation is displayed as the straight line in the page. T
 
 The following code example explains how to add a line measurement annotation to the page.
 
-% tabs %}
+{% tabs %}
 {% highlight c# %}
 
 //Creates a new PDF document.
