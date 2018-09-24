@@ -1620,3 +1620,342 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Enable Long Term Validation (LTV) PDF signature
+
+The Essential PDF supports creating long term signature validation when signing the PDF document. The LTV signature allows you to check the validity of a signature long after the document was signed. To achieve long term validation, all the required elements for signature validation must be embedded in the signed PDF.
+
+Note: The resulted PDF document size will be large, since all the necessary signature information, Certificate Revocation List (CRL), and Online Certificate Status Protocol (OCSP) are embedded.
+
+The following code example illustrates how to create LTV PDF.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page.
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key.
+
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(page, pdfCert, "Signature");
+
+//Sets an image for signature field.
+
+PdfBitmap image = new PdfBitmap(@"syncfusion_logo.gif");
+
+//Adds time stamp by using the server URI and credentials.
+
+signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digistamp.com"), "user", "123456");
+
+//Enable LTV on Signature
+
+signature.EnableLtv = true;
+
+//Sets signature info.
+
+signature.Bounds = new RectangleF(new PointF(0, 0), image.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image.
+
+graphics.DrawImage(image, 0, 0);
+
+//Saves and closes the document.
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a new PDF document.
+
+Dim document As New PdfDocument()
+
+'Adds a new page.
+
+Dim page As PdfPage = document.Pages.Add()
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Creates a certificate instance from PFX file with private key.
+
+Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
+
+'Creates a digital signature.
+
+Dim signature As New PdfSignature(page, pdfCert, "Signature")
+
+'Sets an image for signature field.
+
+Dim image As New PdfBitmap("syncfusion_logo.gif")
+
+'Adds time stamp by using the server URI and credentials.
+
+signature.TimeStampServer = New TimeStampServer(New Uri("http://syncfusion.digistamp.com"), "user", "123456")
+
+'Enable LTV on Signature
+
+signature.EnableLtv = True
+
+'Sets signature info.
+
+signature.Bounds = New RectangleF(New PointF(0, 0), image.PhysicalDimension)
+
+signature.ContactInfo = "johndoe@owned.us"
+
+signature.LocationInfo = "Honolulu, Hawaii"
+
+signature.Reason = "I am author of this document."
+
+'Draws the signature image.
+
+graphics.DrawImage(image, 0, 0)
+
+'Saves and closes the document.
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page.
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key.
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets an image for signature field.
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion_logo.gif");
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Adds time stamp by using the server URI and credentials.
+
+signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digistamp.com"), "user", "123456");
+
+//Enable LTV on Signature
+
+signature.EnableLtv = true;
+
+//Sets signature info.
+
+signature.Bounds = new RectangleF(new PointF(0, 0), image.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image.
+
+graphics.DrawImage(image, 0, 0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page.
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key.
+
+FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets an image for signature field.
+
+FileStream imageStream = new FileStream("syncfusion_logo.gif", FileMode.Open, FileAccess.Read);
+
+//Sets an image for signature field.
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Adds time stamp by using the server URI and credentials.
+
+signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digistamp.com"), "user", "123456");
+
+//Enable LTV on Signature
+
+signature.EnableLtv = true;
+
+//Sets signature info.
+
+signature.Bounds = new RectangleF(new PointF(0, 0), image.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image.
+
+graphics.DrawImage(image, 0, 0);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page.
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key.
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets an image for signature field.
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.syncfusion_logo.gif");
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Adds time stamp by using the server URI and credentials.
+
+signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digistamp.com"), "user", "123456");
+
+//Enable LTV on Signature
+
+signature.EnableLtv = true;
+
+//Sets signature info.
+
+signature.Bounds = new RectangleF(new PointF(0, 0), image.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image.
+
+graphics.DrawImage(image, 0, 0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
