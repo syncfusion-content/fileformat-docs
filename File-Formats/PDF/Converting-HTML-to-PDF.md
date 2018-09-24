@@ -2335,7 +2335,7 @@ Issue
 
 ## Conversion using Blink Rendering
 
-Syncfusion Essential HTML Converter supports HTML to PDF conversion by using the advanced Blink rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, and ASP.NET MVC to convert URLs, HTML string, SVG and MHTML to PDF. 
+Syncfusion Essential HTML converter supports HTML to PDF conversion by using the advanced Blink rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, and ASP.NET MVC to convert URLs, HTML string, SVG and MHTML to PDF. 
 
 ### Prerequisites
 
@@ -2356,7 +2356,7 @@ Syncfusion Essential HTML Converter supports HTML to PDF conversion by using the
 * Newtonsoft.Json package (v6.0.8 or above)
 * BlinkBinaries
 
-The BlinkBinaries folder is available in the HTML Converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\BlinkBinaries)</i></span>. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
+The BlinkBinaries folder is available in the HTML converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\BlinkBinaries)</i></span>. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
 
 <b>NuGet</b>
 
@@ -2401,13 +2401,13 @@ ASP.NET MVC
 </tr>
 </table>
 
-N> The above NuGet packages are available in [nuget.org](https://www.nuget.org/)
+N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
-* The BlinkBinaries folder will be available in the package installed location. Set the path of the BlinkBinaries folder from package location to <i>BlinkPath</i> property of BlinkConverterSettings.
+* The BlinkBinaries folder is available in the package installed location. Set the path of the BlinkBinaries folder from package location to the <i>BlinkPath</i> property of BlinkConverterSettings.
 
 ### URL to PDF
 
-To convert website URL or local HTML file to PDF using Blink rendering engine, please refer the below code snippet.
+To convert website URL or local HTML file to PDF using Blink rendering engine, refer to the following code snippet.
 
 {% tabs %}
 
@@ -2472,7 +2472,7 @@ For example, if the above image is in <i>“C:/Temp/ HTMLFiles/syncfusion_logo.g
 
 <b>baseURL:</b> C:/Temp/HTMLFiles/
 
-To convert the HTML string to PDF, please refer the below code snippet.
+To convert the HTML string to PDF, refer to the following code snippet. 
 
 {% tabs %}
 
