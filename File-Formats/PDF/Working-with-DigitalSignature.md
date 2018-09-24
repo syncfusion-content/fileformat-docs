@@ -1322,7 +1322,7 @@ PdfDocument document = new PdfDocument();
 
 PdfPageBase page = document.Pages.Add();
 
-PdfGarphics graphics=page.Graphics;
+PdfGraphics graphics=page.Graphics;
 
 //Creates a certificate instance from the PFX file with private key
             
