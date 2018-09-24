@@ -3495,6 +3495,1003 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+## Measurement Annotations
+
+Essential PDF supports interactive measurement annotations, which measures the distance, area, and angle of the line segments.
+
+The following measurement annotation types are supported in Essential PDF:
+
+### Line measurement annotation
+
+The line measurement annotation is displayed as the straight line in the page. The distance of the line is measured automatically when you change the position of the line and is displayed in the pop-up window.
+
+The following code example explains how to add a line measurement annotation to the page.
+
+% tabs %}
+{% highlight c# %}
+
+//Creates a new PDF document.
+
+PdfDocument document= new PdfDocument();
+
+//Creates a new page.
+
+PdfPage page = document.Pages.Add();
+
+PdfFont font= new PdfStandardFont(PdfFontFamily.Helvetica, 10f, PdfFontStyle.Regular);
+
+//Specifies the line end points.
+
+int[]  points = new int[] { 100, 750, 500, 750 };
+
+//Creates the line measurement annotation
+
+PdfLineMeasurementAnnotation lineMeasureAnnotation = new PdfLineMeasurementAnnotation(points);
+
+//Assign author to the line measurement annotation.
+
+lineMeasureAnnotation.Author = "Syncfusion";
+
+//Assign subject to the line measurement annotation
+
+lineMeasureAnnotation.Subject = "LineAnnotation";
+
+//Assign unit to the line measurement annotation
+
+lineMeasureAnnotation.Unit = PdfMeasurementUnit.Inch;
+
+//Assign borderWidth to the line measurement annotation.
+
+lineMeasureAnnotation.lineBorder.BorderWidth = 2;
+
+//Assign font to the line measurement annotation.
+
+lineMeasureAnnotation.Font = font;
+
+//Assign color to the line measurement annotation.
+
+lineMeasureAnnotation.Color = new PdfColor(Color.Red);
+
+//Adds the line measurement annotation to a new page.
+
+page.Annotations.Add(lineMeasureAnnotation);
+
+//Saves the document to disk.
+
+document.Save("LineMeasurementAnnotation.pdf");
+
+//Close the document.
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+//Creates a new PDF document
+
+Dim document As PdfDocument = New PdfDocument
+
+//Creates a new page
+
+Dim page As PdfPage = document.Pages.Add
+
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 10.0!, PdfFontStyle.Regular)
+
+//Specifies the line end points.
+
+Dim points() As Integer = New Integer() {100, 750, 500, 750}
+
+//Creates the line measurement annotation
+
+Dim lineMeasureAnnotation As PdfLineMeasurementAnnotation = New PdfLineMeasurementAnnotation(points)
+
+'Assign author to the line measurement annotation
+
+lineMeasureAnnotation.Author = "Syncfusion"
+
+'Assign subject to the line measurement annotation
+
+lineMeasureAnnotation.Subject = "LineAnnotation"
+
+'Assign unit to the line measurement annotation
+
+lineMeasureAnnotation.Unit = PdfMeasurementUnit.Inch
+
+'Assign borderWidth to the line measurement annotation
+
+lineMeasureAnnotation.lineBorder.BorderWidth = 2
+
+'Assign font to the line measurement annotation
+
+lineMeasureAnnotation.Font = font
+
+'Assign color to the line measurement annotation
+
+lineMeasureAnnotation.Color = New PdfColor(Color.Red)
+
+'Adds the line measurement annotation to a new page
+
+page.Annotations.Add(lineMeasureAnnotation)
+
+'Saves the document to disk
+
+document.Save("LineMeasurementAnnotation.pdf")
+
+'Close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 10f, PdfFontStyle.Regular);
+
+//Specifies the line end points
+
+int[] points = new int[] { 100, 750, 500, 750 };
+
+//Creates the line measurement annotation
+
+PdfLineMeasurementAnnotation lineMeasureAnnotation = new PdfLineMeasurementAnnotation(points);
+
+//Assign author to the line measurement annotation
+
+lineMeasureAnnotation.Author = "Syncfusion";
+
+//Assign subject to the line measurement annotation
+
+lineMeasureAnnotation.Subject = "LineAnnotation";
+
+//Assign unit to the line measurement annotation
+
+lineMeasureAnnotation.Unit = PdfMeasurementUnit.Inch;
+
+//Assign borderWidth to the line measurement annotation
+
+lineMeasureAnnotation.lineBorder.BorderWidth = 2;
+
+//Assign font to the line measurement annotation
+
+lineMeasureAnnotation.Font = font;
+
+//Assign color to the line measurement annotation
+
+lineMeasureAnnotation.Color = new PdfColor(Color.FromArgb(255, 255, 0, 0));
+
+//Adds the line measurement annotation to a new page
+
+page.Annotations.Add(lineMeasureAnnotation);
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 10f, PdfFontStyle.Regular);
+
+//Specifies the line end points
+
+int[] points = new int[] { 100, 750, 500, 750 };
+
+//Creates the line measurement annotation
+
+PdfLineMeasurementAnnotation lineMeasureAnnotation = new PdfLineMeasurementAnnotation(points);
+
+//Assign author to the line measurement annotation
+
+lineMeasureAnnotation.Author = "Syncfusion";
+
+//Assign subject to the line measurement annotation
+
+lineMeasureAnnotation.Subject = "LineAnnotation";
+
+//Assign unit to the line measurement annotation
+
+lineMeasureAnnotation.Unit = PdfMeasurementUnit.Inch;
+
+//Assign borderWidth to the line measurement annotation
+
+lineMeasureAnnotation.lineBorder.BorderWidth = 2;
+
+//Assign font to the line measurement annotation
+
+lineMeasureAnnotation.Font = font;
+
+//Assign color to the line measurement annotation
+
+lineMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Adds the line measurement annotation to a new page
+
+page.Annotations.Add(lineMeasureAnnotation);
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+document.Save(stream);
+
+stream.Position=0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "LineMeasurementAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 10f, PdfFontStyle.Regular);
+
+//Specifies the line end points
+
+int[] points = new int[] { 100, 750, 500, 750 };
+
+//Creates the line measurement annotation
+
+PdfLineMeasurementAnnotation lineMeasureAnnotation = new PdfLineMeasurementAnnotation(points);
+
+//Assign author to the line measurement annotation
+
+lineMeasureAnnotation.Author = "Syncfusion";
+
+//Assign subject to the line measurement annotation
+
+lineMeasureAnnotation.Subject = "LineAnnotation";
+
+//Assign unit to the line measurement annotation
+
+lineMeasureAnnotation.Unit = PdfMeasurementUnit.Inch;
+
+//Assign borderWidth to the line measurement annotation
+
+lineMeasureAnnotation.lineBorder.BorderWidth = 2;
+
+//Assign font to the line measurement annotation
+
+lineMeasureAnnotation.Font = font;
+
+//Assign color to the line measurement annotation
+
+lineMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Adds the line measurement annotation to a new page
+
+page.Annotations.Add(lineMeasureAnnotation);
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream.
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("LineMeasurementAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("LineMeasurementAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Square measurement annotation
+
+The square measurement annotation is displayed as square shape in the page. The area of the square is measured when you change the square bound and is displayed in the pop-up window.
+
+The following code example explains how to add a square measurement annotation to the page.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Creates a new PDF document
+
+PdfDocument document= new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+RectangleF rect = new RectangleF(10, 100, 100,100);
+
+//Creates the square measurement annotation
+
+PdfSquareMeasurementAnnotation squareMeasureAnnotation = new PdfSquareMeasurementAnnotation(rect);
+
+//Assign author to the square measurement annotation
+
+squareMeasureAnnotation.Author = "Syncfusion";
+
+//Assign subject to the square measurement annotation
+
+squareMeasureAnnotation.Subject = "Square measurement annotation";
+
+//Assign color to the square measurement annotation
+
+squareMeasureAnnotation.Color = new PdfColor(Color.Red);
+
+//Assign measurement unit to the square measurement annotation
+
+squareMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
+
+//Adds the square measurement annotation to a page
+
+page.Annotations.Add(squareMeasureAnnotation);
+
+//Saves the document to disk
+
+document.Save("SquareMeasurementAnnotation.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a new PDF document
+
+Dim document As New PdfDocument()
+
+'Creates a new page
+
+Dim page As PdfPage = document.Pages.Add()
+
+Dim rect As New RectangleF(10, 100, 100, 100)
+
+'Creates the square measurement annotation
+
+Dim squareMeasureAnnotation As New PdfSquareMeasurementAnnotation(rect)
+
+'Assign author to the square measurement annotation
+
+squareMeasureAnnotation.Author = "Syncfusion"
+
+'Assign subject to the square measurement annotation
+
+squareMeasureAnnotation.Subject = "Square measurement annotation"
+
+'Assign color to the square measurement annotation
+
+squareMeasureAnnotation.Color = New PdfColor(Color.Red)
+
+'Assign measurement unit to the square measurement annotation
+
+squareMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter
+
+'Adds the square measurement annotation to a page
+
+page.Annotations.Add(squareMeasureAnnotation)
+
+'Saves the document to disk
+
+document.Save("SquareMeasurementAnnotation.pdf")
+
+'Close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+RectangleF rect = new RectangleF(10, 100, 100, 100);
+
+//Creates the square measurement annotation
+
+PdfSquareMeasurementAnnotation squareMeasureAnnotation = new PdfSquareMeasurementAnnotation(rect);
+
+//Assign author to the square measurement annotation
+
+squareMeasureAnnotation.Author = "Syncfusion";
+
+//Assign subject to the square measurement annotation
+
+squareMeasureAnnotation.Subject = "Square measurement annotation";
+
+//Assign color to the square measurement annotation
+
+squareMeasureAnnotation.Color = new PdfColor(Color.FromArgb(255, 255, 0, 0));
+
+//Assign measurement unit to the square measurement annotation
+
+squareMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
+
+//Adds the square measurement annotation to a page
+
+page.Annotations.Add(squareMeasureAnnotation);
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream.
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+Syncfusion.Drawing.RectangleF rect = new Syncfusion.Drawing.RectangleF(10, 100, 100, 100);
+
+//Creates the square measurement annotation
+
+PdfSquareMeasurementAnnotation squareMeasureAnnotation = new PdfSquareMeasurementAnnotation(rect);
+
+//Assign author to the square measurement annotation
+
+squareMeasureAnnotation.Author = "Syncfusion";
+
+//Assign subject to the square measurement annotation
+
+squareMeasureAnnotation.Subject = "Square measurement annotation";
+
+//Assign color to the square measurement annotation
+
+squareMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Assign measurement unit to the square measurement annotation
+
+squareMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
+
+//Adds the square measurement annotation to a page
+
+page.Annotations.Add(squareMeasureAnnotation);
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into stream
+
+document.Save(stream);
+
+stream.Position=0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "SquareMeasurementAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+Syncfusion.Drawing.RectangleF rect = new Syncfusion.Drawing.RectangleF(10, 100, 100, 100);
+
+//Creates the square measurement annotation
+
+PdfSquareMeasurementAnnotation squareMeasureAnnotation = new PdfSquareMeasurementAnnotation(rect);
+
+//Assign author to the square measurement annotation
+
+squareMeasureAnnotation.Author = "Syncfusion";
+
+//Assign subject to the square measurement annotation
+
+squareMeasureAnnotation.Subject = "Square measurement annotation";
+
+//Assign color to the square measurement annotation
+
+squareMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Assign measurement unit to the square measurement annotation
+
+squareMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
+
+//Adds the square measurement annotation to a page
+
+page.Annotations.Add(squareMeasureAnnotation);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the document to disk
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SquareMeasurementAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("SquareMeasurementAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Circle measurement annotation
+
+The circle measurement annotation is displayed as circle shape in the page. The radius or diameter distance of the circle is measured and the value is displayed in the pop-up window.
+
+The following code example explains how to add a circle measurement annotation to the page.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+RectangleF rect = new RectangleF(10, 100, 100, 100);
+
+//Creates the circle measurement annotation
+
+PdfCircleMeasurementAnnotation circleMeasureAnnotation = new PdfCircleMeasurementAnnotation(rect);
+
+//Assign author to the circle measurement annotation
+
+circleMeasureAnnotation.Author = "Syncfusion";
+
+//Assign subject to the circle measurement annotation
+
+circleMeasureAnnotation.Subject = "Circle measurement annotation";
+
+//Assign color to the square measurement annotation
+
+circleMeasureAnnotation.Color = new PdfColor(Color.Red);
+
+//Assign measurement unit to the circle measurement annotation
+
+circleMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
+
+//Sets the measurementType to the circle measurement annotation
+
+circleMeasureAnnotation.MeasurementType = PdfCircleMeasurementType.Diameter;
+
+//Adds the circle measurement annotation to a page
+
+page.Annotations.Add(circleMeasureAnnotation);
+
+//Saves the document to disk
+
+document.Save("CircleMeasurementAnnotation.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a new PDF document
+
+Dim document As New PdfDocument()
+
+'Creates a new page
+
+Dim page As PdfPage = document.Pages.Add()
+
+Dim rect As New RectangleF(10, 100, 100, 100)
+
+'Creates the circle measurement annotation
+
+Dim circleMeasureAnnotation As New PdfCircleMeasurementAnnotation(rect)
+
+'Assign author to the circle measurement annotation
+
+circleMeasureAnnotation.Author = "Syncfusion"
+
+'Assign subject to the circle measurement annotation
+
+circleMeasureAnnotation.Subject = "Circle measurement annotation"
+
+'Assign color to the square measurement annotation
+
+circleMeasureAnnotation.Color = New PdfColor(Color.Red)
+
+'Assign measurement unit to the circle measurement annotation
+
+circleMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter
+
+'Sets the measurementType to the circle measurement annotation
+
+circleMeasureAnnotation.MeasurementType = PdfCircleMeasurementType.Diameter
+
+'Adds the circle measurement annotation to a page
+
+page.Annotations.Add(circleMeasureAnnotation)
+
+'Saves the document to disk
+
+document.Save("CircleMeasurementAnnotation.pdf")
+
+'Close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+RectangleF rect = new RectangleF(10, 100, 100, 100);
+
+//Creates the circle measurement annotation
+
+PdfCircleMeasurementAnnotation circleMeasureAnnotation = new PdfCircleMeasurementAnnotation(rect);
+
+//Assign author to the circle measurement annotation
+
+circleMeasureAnnotation.Author = "Syncfusion";
+
+//Assign subject to the circle measurement annotation
+
+circleMeasureAnnotation.Subject = "Circle measurement annotation";
+
+//Assign color to the square measurement annotation
+
+circleMeasureAnnotation.Color = new PdfColor(Color.FromArgb(255, 255, 0, 0));
+
+//Assign measurement unit to the circle measurement annotation
+
+circleMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
+
+//Sets the measurementType to the circle measurement annotation
+
+circleMeasureAnnotation.MeasurementType = PdfCircleMeasurementType.Diameter;
+
+//Adds the circle measurement annotation to a page
+
+page.Annotations.Add(circleMeasureAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+Syncfusion.Drawing.RectangleF rect = new Syncfusion.Drawing.RectangleF(10, 100, 100, 100);
+
+//Creates the circle measurement annotation
+
+PdfCircleMeasurementAnnotation circleMeasureAnnotation = new PdfCircleMeasurementAnnotation(rect);
+
+//Assign author to the circle measurement annotation
+
+circleMeasureAnnotation.Author = "Syncfusion";
+
+//Assign subject to the circle measurement annotation
+
+circleMeasureAnnotation.Subject = "Circle measurement annotation";
+
+//Assign color to the square measurement annotation
+
+circleMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Assign measurement unit to the circle measurement annotation
+
+circleMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
+
+//Sets the measurementType to the circle measurement annotation
+
+circleMeasureAnnotation.MeasurementType = PdfCircleMeasurementType.Diameter;
+
+//Adds the circle measurement annotation to a page
+
+page.Annotations.Add(circleMeasureAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "CircleMeasurementAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+Syncfusion.Drawing.RectangleF rect = new Syncfusion.Drawing.RectangleF(10, 100, 100, 100);
+
+//Creates the circle measurement annotation
+
+PdfCircleMeasurementAnnotation circleMeasureAnnotation = new PdfCircleMeasurementAnnotation(rect);
+
+//Assign author to the circle measurement annotation
+
+circleMeasureAnnotation.Author = "Syncfusion";
+
+//Assign subject to the circle measurement annotation
+
+circleMeasureAnnotation.Subject = "Circle measurement annotation";
+
+//Assign color to the square measurement annotation
+
+circleMeasureAnnotation.Color = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Assign measurement unit to the circle measurement annotation
+
+circleMeasureAnnotation.Unit = PdfMeasurementUnit.Centimeter;
+
+//Sets the measurementType to the circle measurement annotation
+
+circleMeasureAnnotation.MeasurementType = PdfCircleMeasurementType.Diameter;
+
+//Adds the circle measurement annotation to a page
+
+page.Annotations.Add(circleMeasureAnnotation);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("CircleMeasurementAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("CircleMeasurementAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Angle measurement annotation
+
+The angle measurement annotation calculates the angle between three points and draws arc between three points. The angle of the annotation is displayed in the pop-up window.
+
+The following code example explains how to add angle measurement annotation to the page.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+PointF[] points = new PointF[] { new PointF(100, 700), new PointF(150, 650), new PointF(100, 600) };
+
+//Creates the angel measurement annotation
+
+PdfAngleMeasurementAnnotation angleMeasureAnnotation = new PdfAngleMeasurementAnnotation(points);
+
+//Set font to the angle measurement annotation
+
+angleMeasureAnnotation.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f, PdfFontStyle.Regular);
+
+//Assign color to the angle measurement annotation
+angleMeasureAnnotation.Color = Color.Red;
+
+//Adds angle measurement annotation
+
+page.Annotations.Add(angleMeasureAnnotation);
+
+//Saves the document to disk
+
+document.Save("AngleMeasurementAnnotation.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a new PDF document
+
+Dim document As New PdfDocument()
+
+'Creates a new page
+
+Dim page As PdfPage = document.Pages.Add()
+
+Dim points As PointF() = New PointF() {New PointF(100, 700), New PointF(150, 650), New PointF(100, 600)}
+
+'Creates the angel measurement annotation
+
+Dim angleMeasureAnnotation As New PdfAngleMeasurementAnnotation(points)
+
+'Set font to the angle measurement annotation
+
+angleMeasureAnnotation.Font = New PdfStandardFont(PdfFontFamily.Helvetica, 12.0F, PdfFontStyle.Regular)
+
+'Assign color to the angle measurement annotation
+angleMeasureAnnotation.Color = Color.Red
+
+'Adds angle measurement annotation
+
+page.Annotations.Add(angleMeasureAnnotation)
+
+'Saves the document to disk
+
+document.Save("AngleMeasurementAnnotation.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports angle measurement annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Web.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//PDF supports angle measurement annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Web.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//PDF supports angle measurement annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Web.
+
+{% endhighlight %}
+
+{% endtabs %}
 ## Modifying the annotations
 
 Essential PDF allows you to modify the annotation of existing document. The following code illustrates this.
