@@ -371,7 +371,7 @@ pptxDoc.Close()
 
 ## Set the speed for transition effect
 
-The speed is the customized property provided by Syncfusion PowerPoint library to set the transition duration mentioned [above](/file-formats/presentation/create-edit-slide-transitions-in-powerpoint-presentation-slides-c#-.net#set-the-transition-duration) (in this page) to a customized enumeration values. By default, each transition will happen for 2 seconds. You can change the following enumeration values to change the duration of a slide transition:
+The speed is the customized property provided by Syncfusion PowerPoint library to set the transition duration mentioned [above](/file-formats/presentation/create-edit-slide-transitions-in-powerpoint-presentation-slides-cs-.net#set-the-transition-duration) (in this page) to a customized enumeration values. By default, each transition will happen for 2 seconds. You can change the following enumeration values to change the duration of a slide transition:
 
 1. Default          - 2 seconds
 2. Fast               - 0.5 seconds
@@ -460,8 +460,8 @@ The following are the  list of transition effect options that can be applied to 
 Airplane
 </td>
 <td>
-Left
-Right
+<li> Left </li>
+<li> Right </li>
 </td>
 </tr>
 <tr>
@@ -472,8 +472,8 @@ Right
 Blinds
 </td>
 <td>
-Horizontal
-Vertical
+<li> Horizontal </li>
+<li> Vertical </li>
 </td>
 </tr>
 <tr>
@@ -484,10 +484,10 @@ Vertical
 Box
 </td>
 <td>
-Left
-Right
-Up
-Down
+<li> Left </li> 
+<li> Right </li> 
+<li> Up </li> 
+<li> Down </li> 
 </td>
 </tr>
 <tr>
@@ -498,8 +498,8 @@ Down
 Checkerboard
 </td>
 <td>
-Across
-Down
+<li> Across </li> 
+<li> Down </li> 
 </td>
 </tr>
 <tr>
@@ -521,8 +521,8 @@ None
 Comb
 </td>
 <td>
-Horizontal
-Vertical
+<li> Horizontal </li> 
+<li> Vertical </li> 
 </td>
 </tr>
 <tr>
@@ -533,8 +533,8 @@ Vertical
 Conveyor
 </td>
 <td>
-Left
-Right
+<li> Left </li> 
+<li> Right </li> 
 </td>
 </tr>
 <tr>
@@ -545,14 +545,14 @@ Right
 Cover
 </td>
 <td>
-Left
-Right
-Up
-Down
-LeftUp
-LeftDown
-RightUp
-RightDown
+<li> Left </li>
+<li> Right </li>
+<li> Up </li>
+<li> Down </li>
+<li> LeftUp </li>
+<li> LeftDown </li>
+<li> RightUp </li>
+<li> RightDown </li>
 </td>
 </tr>
 <tr>
@@ -574,10 +574,10 @@ None
 Cube
 </td>
 <td>
-Left
-Right
-Up
-Down
+<li> Left </li>
+<li> Right </li>
+<li> Up </li>
+<li> Down </li>
 </td>
 </tr>
 <tr>
@@ -599,8 +599,8 @@ None
 Cut
 </td>
 <td>
-None
-ThroughBlack
+<li> None </li>
+<li> ThroughBlack </li>
 </td>
 </tr>
 <tr>
@@ -633,8 +633,8 @@ None
 Doors
 </td>
 <td>
-Horizontal
-Vertical
+<li> Horizontal </li> 
+<li> Vertical </li> 
 </td>
 </tr>
 <tr>
@@ -645,8 +645,8 @@ Vertical
 Drape
 </td>
 <td>
-Left
-Right
+<li> Left </li> 
+<li> Right </li>
 </td>
 </tr>
 <tr>
@@ -657,8 +657,8 @@ Right
 FadeAway
 </td>
 <td>
-Smoothly
-ThroughBlack
+<li> Smoothly </li>
+<li> ThroughBlack </li>
 </td>
 </tr>
 <tr>
@@ -669,8 +669,8 @@ ThroughBlack
 FallOver
 </td>
 <td>
-Left
-Right
+<li> Left </li>
+<li> Right </li>
 </td>
 </tr>
 <tr>
@@ -681,8 +681,8 @@ Right
 FerrisWheel
 </td>
 <td>
-Left
-Right
+<li> Left </li>
+<li> Right </li>
 </td>
 </tr>
 <tr>
@@ -704,8 +704,8 @@ None
 Flip
 </td>
 <td>
-Left
-Right
+<li> Left </li>
+<li> Right </li>
 </td>
 </tr>
 <tr>
@@ -716,10 +716,10 @@ Right
 FlyThrough
 </td>
 <td>
-In
-Out
-In bounce
-Out bounce
+<li> In </li>
+<li> Out </li>
+<li> InBounce </li>
+<li> OutBounce </li>
 </td>
 </tr>
 <tr>
@@ -741,8 +741,8 @@ None
 Gallery
 </td>
 <td>
-Left
-Right
+<li> Left </li>
+<li> Right </li>
 </td>
 </tr>
 <tr>
@@ -753,10 +753,10 @@ Right
 GlitterDiamond
 </td>
 <td>
-Left
-Right
-Up
-Down
+<li> Left </li>
+<li> Right </li>
+<li> Up </li>
+<li> Down </li>
 </td>
 </tr>
 <tr>
@@ -767,10 +767,10 @@ Down
 GlitterHexagon
 </td>
 <td>
-Left
-Right
-Up
-Down
+<li> Left </li>
+<li> Right </li>
+<li> Up </li>
+<li> Down </li>
 </td>
 </tr>
 <tr>
@@ -792,8 +792,8 @@ None
 Morph
 </td>
 <td>
-ByObject
-ByWord
+<li> ByObject </li>
+<li> ByWord </li>
 ByChar
 </td>
 </tr>
@@ -816,10 +816,10 @@ None
 Orbit
 </td>
 <td>
-Left
-Right
-Up
-Down
+<li> Left </li>
+<li> Right </li>
+<li> Up </li>
+<li> Down </li>
 </td>
 </tr>
 <tr>
@@ -830,8 +830,8 @@ Down
 Origami
 </td>
 <td>
-Left
-Right
+<li> Left </li>
+<li> Right </li>
 </td>
 </tr>
 <tr>
@@ -842,8 +842,8 @@ Right
 PageCurlDouble
 </td>
 <td>
-Left
-Right
+<li> Left </li>
+<li> Right </li>
 </td>
 </tr>
 <tr>
@@ -854,8 +854,8 @@ Right
 PageCurlSingle
 </td>
 <td>
-Left
-Right
+<li> Left </li>
+<li> Right </li>
 </td>
 </tr>
 <tr>
@@ -866,10 +866,10 @@ Right
 Pan
 </td>
 <td>
-Left
-Right
-Up
-Down
+<li> Left </li>
+<li> Right </li>
+<li> Up </li>
+<li> Down </li>
 </td>
 </tr>
 <tr>
@@ -880,8 +880,8 @@ Down
 PeelOff
 </td>
 <td>
-Left
-Right
+<li> Left </li>
+<li> Right </li>
 </td>
 </tr>
 <tr>
@@ -914,10 +914,10 @@ None
 Push
 </td>
 <td>
-Left
-Right
-Up
-Down
+<li> Left </li>
+<li> Right </li>
+<li> Up </li>
+<li> Down </li>
 </td>
 </tr>
 <tr>
@@ -939,8 +939,8 @@ None
 RandomBars
 </td>
 <td>
-Horizontal
-Vertical
+<li> Horizontal </li>
+<li> Vertical </li>
 </td>
 </tr>
 <tr>
@@ -951,10 +951,10 @@ Vertical
 Reveal
 </td>
 <td>
-SmoothLeft
-SmoothRight
-BlackLeft
-BlackRight
+<li> SmoothLeft </li>
+<li> SmoothRight </li>
+<li> BlackLeft </li>
+<li> BlackRight </li>
 </td>
 </tr>
 <tr>
@@ -965,11 +965,11 @@ BlackRight
 Ripple
 </td>
 <td>
-Center
-RightUp
-RightDown
-LeftUp
-LeftDown
+<li> Center </li>
+<li> RightUp </li>
+<li> RightDown </li>
+<li> LeftUp </li>
+<li> LeftDown </li>
 </td>
 </tr>
 <tr>
@@ -980,10 +980,10 @@ LeftDown
 Rotate
 </td>
 <td>
-Left
-Right
-Up
-Down
+<li> Left </li>
+<li> Right </li>
+<li> Up </li>
+<li> Down </li>
 </td>
 </tr>
 <tr>
@@ -994,10 +994,10 @@ Down
 Shred
 </td>
 <td>
-StripsIn
-StripsOut
-RectangleIn
-RectangleOut
+<li> StripsIn </li>
+<li> StripsOut </li>
+<li> RectangleIn </li>
+<li> RectangleOut </li>
 </td>
 </tr>
 <tr>
@@ -1008,10 +1008,10 @@ RectangleOut
 Split
 </td>
 <td>
-HorizontalIn
-HorizontalOut
-VerticalIn
-VerticalOut
+<li> HorizontalIn </li>
+<li> HorizontalOut </li>
+<li> VerticalIn </li>
+<li> VerticalOut </li>
 </td>
 </tr>
 <tr>
@@ -1022,10 +1022,10 @@ VerticalOut
 Strips
 </td>
 <td>
-LeftDown
-LeftUp
-RightDown
-RightUp
+<li> LeftDown </li>
+<li> LeftUp </li>
+<li> RightDown </li>
+<li> RightUp </li>
 </td>
 </tr>
 <tr>
@@ -1036,8 +1036,8 @@ RightUp
 Switch
 </td>
 <td>
-Left
-Right
+<li> Left </li>
+<li> Right </li>
 </td>
 </tr>
 <tr>
@@ -1048,14 +1048,14 @@ Right
 Uncover
 </td>
 <td>
-Left
-Right
-Up
-Down
-LeftDown
-LeftUp
-RightDown
-RightUp
+<li> Left </li>
+<li> Right </li>
+<li> Up </li>
+<li> Down </li>
+<li> LeftDown </li>
+<li> LeftUp </li>
+<li> RightDown </li>
+<li> RightUp </li>
 </td>
 </tr>
 <tr>
@@ -1066,10 +1066,10 @@ RightUp
 Vortex
 </td>
 <td>
-Left
-Right
-Up
-Down
+<li> Left </li>
+<li> Right </li>
+<li> Up </li>
+<li> Down </li>
 </td>
 </tr>
 <tr>
@@ -1080,8 +1080,8 @@ Down
 Warp
 </td>
 <td>
-In
-Out
+<li> In </li>
+<li> Out </li>
 </td>
 </tr>
 <tr>
@@ -1103,12 +1103,12 @@ None
 Wheel
 </td>
 <td>
-Spoke1
-Spoke2
-Spoke3
-Spoke4
-Spoke8
-Reverse1Spoke
+<li> Spoke1 </li>
+<li> Spoke2 </li>
+<li> Spoke3 </li>
+<li> Spoke4 </li>
+<li> Spoke8 </li>
+<li> Reverse1Spoke </li>
 </td>
 </tr>
 <tr>
@@ -1119,8 +1119,8 @@ Reverse1Spoke
 Wind
 </td>
 <td>
-Left
-Right
+<li> Left </li>
+<li> Right </li>
 </td>
 </tr>
 <tr>
@@ -1131,8 +1131,8 @@ Right
 Window
 </td>
 <td>
-Horizontal
-Vertical
+<li> Horizontal </li>
+<li> Vertical </li>
 </td>
 </tr>
 <tr>
@@ -1143,10 +1143,10 @@ Vertical
 Wipe
 </td>
 <td>
-Left
-Right
-Up
-Down
+<li> Left </li>
+<li> Right </li>
+<li> Up </li>
+<li> Down </li>
 </td>
 </tr>
 <tr>
@@ -1157,8 +1157,8 @@ Down
 Zoom
 </td>
 <td>
-In
-Out
+<li> In </li>
+<li> Out </li>
 </td>
 </tr>
 </table>
