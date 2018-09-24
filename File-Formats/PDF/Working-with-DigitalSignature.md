@@ -1302,6 +1302,348 @@ else
 
 {% endtabs %}
 
+
+## Adding a signature validation appearance based on the signature 
+
+You can add the dynamic signature validation appearance to the signature field by enabling the “EnableValidationAppearance” property available in the “PdfSignature” class, the appearance will change based on the PDF reader validation. 
+
+Refer to the following code sample.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+         
+//Add a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGarphics graphics=page.Graphics;
+
+//Creates a certificate instance from the PFX file with private key
+            
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets an image for the signature field
+
+PdfBitmap signatureImage = new PdfBitmap(@"signature.jpg");
+
+//Sets enable signature validation appearance
+
+signature.EnableValidationAppearance = true;
+
+//Sets signature information
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draw the signature image
+      
+graphics.DrawImage(signatureImage, 0, 0);
+ 
+//Save and close documents
+
+document.Save("Output.pdf");
+
+document.Close( true );
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a new PDF document
+
+Dim document As New PdfDocument()
+
+'Adds a new page
+
+Dim page As PdfPageBase = document.Pages.Add()
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Creates a certificate instance from the PFX file with private key
+
+Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
+
+'Creates a digital signature
+
+Dim signature As New PdfSignature(document, page, pdfCert, "Signature")
+
+'Sets an image for the signature field
+
+Dim signatureImage As New PdfBitmap("signature.jpg")
+
+‘Sets enable signature validation appearance
+        
+signature.EnableValidationAppearance = True
+
+'Sets signature info
+
+signature.Bounds = New RectangleF(New PointF(0, 0), signatureImage.PhysicalDimension)
+
+signature.ContactInfo = "johndoe@owned.us"
+
+signature.LocationInfo = "Honolulu, Hawaii"
+
+signature.Reason = "I am author of this document."
+
+'Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0)
+
+'Saves and closes the document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from the PFX file with private key
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets an image for signature field
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.signature.jpg");
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets enable signature validation appearance
+
+signature.EnableValidationAppearance = true;
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from the PFX file with private key
+
+FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets an image for the signature field
+
+FileStream imageStream = new FileStream("signature.jpg", FileMode.Open, FileAccess.Read);
+
+//Sets an image for signature field
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets enable signature validation appearance
+
+signature.EnableValidationAppearance = true;
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents
+
+document.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);            //Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from the PFX file with private key
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets an image for the signature field
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signature.jpg");
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets enable signature validation appearance
+
+signature.EnableValidationAppearance = true;
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+         
+{
+
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+           
+}
+
+else
+
+{
+
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+
 ## Adding a timestamp in digital signature
 
 Essential PDF allows you to add timestamp in the digital signature of the PDF document. The following code example illustrates the same.
