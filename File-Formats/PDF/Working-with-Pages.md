@@ -1625,6 +1625,187 @@ else
 
 {% endtabs %}  
 
+## Rotating an existing PDF page
+
+You can rotate a PDF page in the existing PDF document, using the following code snippet.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Load the PDF document.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Gets the page.
+
+PdfPageBase loadedPage = loadedDocument.Pages[0] as PdfPageBase;
+ 
+//Set the rotation for loaded page.
+
+loadedPage.Rotation = PdfPageRotateAngle.RotateAngle90;
+             
+// Save the Document
+
+loadedDocument.Save("Output.pdf");
+
+// Close the Document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document. 
+
+Dim loadedDocument As New PdfLoadedDocument("input.pdf")
+
+'Gets the page.
+
+Dim page As PdfPageBase = TryCast(loadedDocument.Pages(0), PdfPageBase)
+
+'Set the rotation for loaded page.
+
+page.Rotation = PdfPageRotateAngle.RotateAngle90
+
+'Save the document. 
+
+loadedDocument.Save("Output.pdf")
+
+'Closes the document.
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker 
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file 
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Gets the page
+
+PdfPageBase loadedPage = loadedDocument.Pages[0] as PdfPageBase;
+
+//Set the rotation for loaded page.
+
+loadedPage.Rotation = PdfPageRotateAngle.RotateAngle90;
+
+//Save the document as stream.
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document. 
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples. 
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document.
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Gets the page
+
+PdfPageBase loadedPage = loadedDocument.Pages[0] as PdfPageBase;
+
+//Set the rotation for loaded page.
+
+loadedPage.Rotation = PdfPageRotateAngle.RotateAngle90;            
+
+//Save the document into stream 
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty. 
+
+stream.Position = 0;
+
+//Close the document 
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file. 
+
+string contentType = "application/pdf";
+
+//Define the file name. 
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf ");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream); 
+
+//Gets the page
+
+PdfPageBase loadedPage = loadedDocument.Pages[0] as PdfPageBase;
+
+//Set the rotation for loaded page.
+
+loadedPage.Rotation = PdfPageRotateAngle.RotateAngle90;
+
+//Save the document into stream
+
+MemoryStream memoryStream = new MemoryStream();
+
+loadedDocument.Save(memoryStream);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+      Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Splitting a PDF file to individual pages
 
 Essential PDF allows to split the pages of an existing PDF document into multiple individual PDF documents. The following code snippet explains the same.
