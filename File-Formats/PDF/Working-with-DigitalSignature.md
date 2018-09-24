@@ -1621,6 +1621,382 @@ else
 
 {% endtabs %}
 
+## Adding a timestamp to PDF document
+
+You can add timestamp to PDF document, using the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Creates a new PDF document.
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page.
+
+PdfPage page = document.Pages.Add();
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(page, "Signature");
+
+//Add the time stamp by using the server URI.
+
+signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digistamp.com"), "user", "123456");
+
+//Save and close the document
+
+document.Save("Output.pdf");
+
+document.Close(true);  
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a new PDF document.
+
+Dim document As New PdfDocument()
+
+'Adds a new page.
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Creates a digital signature.
+
+Dim signature As New PdfSignature(page, "Signature")
+
+'Adds time stamp by using the server URI.
+
+signature.TimeStampServer = New TimeStampServer(New Uri("http://syncfusion.digistamp.com"), "user", "123456")
+
+'Saves and closes the document.
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page.
+
+PdfPage page = document.Pages.Add();        
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(page, "Signature");
+
+//Add the time stamp by using the server URI.
+
+signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digistamp.com"), "user", "123456");
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document. 
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples. 
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new pdf document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPage page = document.Pages.Add();
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(page, "Signature");
+
+//Add the time stamp by using the server URI.
+
+signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digistamp.com"), "user", "123456");
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+ 
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file. 
+
+string contentType = "application/pdf";
+
+//Define the file name. 
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document.
+
+PdfDocument document = new PdfDocument();            
+
+//Add a page.
+
+PdfPage page = document.Pages.Add();
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(page, "Signature");
+
+//Add the time stamp by using the server URI.
+
+signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digistamp.com"), "user", "123456");
+
+//Save the document into stream
+
+MemoryStream memoryStream = new MemoryStream();
+
+document.Save(memoryStream);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Adding a timestamp to existing PDF document
+
+You can add timestamp to existing PDF document, using the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the existing PDF document.
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Add a new page.
+
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(page, "Signature");
+
+//Add the time stamp by using the server URI.
+
+signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digistamp.com"), "user", "123456");
+
+//Saves  the document
+
+loadedDocument.Save("Output.pdf");
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document. 
+
+Dim document As New PdfLoadedDocument("Input.pdf")
+
+'Gets the first page of the document.
+
+Dim page As PdfLoadedPage = TryCast(document.Pages(0), PdfLoadedPage)
+
+'Creates a digital signature.
+
+Dim signature As New PdfSignature(page, "Signature")
+
+'Adds time stamp by using the server URI.
+
+signature.TimeStampServer = New TimeStampServer(New Uri("http://syncfusion.digistamp.com"), "user", "123456")
+
+'Saves and closes the document.
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker 
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file 
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Gets the first page of the document.
+
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(page, "Signature");
+
+//Add the time stamp by using the server URI.
+
+signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digistamp.com"), "user", "123456");
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document. 
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples. 
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Gets the page.
+
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(page, "Signature");
+
+//Add the time stamp by using the server URI.
+
+signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digistamp.com"), "user", "123456");
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file. 
+
+string contentType = "application/pdf";
+
+//Define the file name. 
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf ");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);  
+
+//Gets the page.
+
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Creates a digital signature.
+
+PdfSignature signature = new PdfSignature(page, "Signature");
+
+//Add the time stamp by using the server URI.
+
+signature.TimeStampServer = new TimeStampServer(new Uri("http://syncfusion.digistamp.com"), "user", "123456")
+
+//Save the PDF document to stream
+
+MemoryStream memoryStream = new MemoryStream();
+
+loadedDocument.Save(memoryStream);
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Enable Long Term Validation (LTV) PDF signature
 
 The Essential PDF supports creating long term signature validation when signing the PDF document. The LTV signature allows you to check the validity of a signature long after the document was signed. To achieve long term validation, all the required elements for signature validation must be embedded in the signed PDF.
