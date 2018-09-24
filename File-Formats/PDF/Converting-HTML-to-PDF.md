@@ -2333,6 +2333,218 @@ Issue
 </table>
 
 
+## Conversion using Blink Rendering
+
+Syncfusion Essential HTML Converter supports HTML to PDF conversion by using the advanced Blink rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, and ASP.NET MVC to convert URLs, HTML string, SVG and MHTML to PDF. 
+
+### Prerequisites
+
+<b>Minimum product version:</b> 16.3.0.21
+
+<b>Minimum .NET Framework version:</b> 4.5 and above
+
+* Latest version of Essential HTML converter can be downloaded from the below link,
+
+    [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
+
+* To convert HTML to PDF using Blink rendering engine, add the following assemblies or NuGet packages as reference to the project.
+
+<b>Assemblies</b>
+* Syncfusion.Compression.Base.dll
+* Syncfusion.Pdf.Base.dll
+* Syncfusion.HtmlConverter.Base.dll
+* Newtonsoft.Json package (v6.0.8 or above)
+* BlinkBinaries
+
+The BlinkBinaries folder is available in the HTML Converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\BlinkBinaries)</i></span>. The physical path of this folder should be set to the <i>BlinkPath</i> property of BlinkConverterSettings.
+
+<b>NuGet</b>
+
+<table>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tr>
+<td>
+Windows Forms
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Blink.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.WinForms/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+WPF
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Blink.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Blink.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.AspNet/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.Blink.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.Blink.AspNet.Mvc5/)'| markdownify }}
+</td>
+</tr>
+</table>
+
+N> The above NuGet packages are available in [nuget.org](https://www.nuget.org/)
+
+* The BlinkBinaries folder will be available in the package installed location. Set the path of the BlinkBinaries folder from package location to <i>BlinkPath</i> property of BlinkConverterSettings.
+
+### URL to PDF
+
+To convert website URL or local HTML file to PDF using Blink rendering engine, please refer the below code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/QtBinaries/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+
+//Save and close the PDF document 
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML to PDF converter with Blink rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = "/QtBinaries/"
+
+'Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
+
+'Save and close the PDF document 
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### HTML String to PDF
+
+Blink rendering engine provides support for converting HTML string to PDF. While converting HTML string to PDF, converter provides option to specify the base URL.
+
+<b>baseURL:</b> Path of the resources (images, style sheets, scripts.,) used in the input HTML string.
+
+For the below HTML string, the baseURL will be the path of the <font color="blue"><i>syncfusion_logo.gif</i></font> image.
+
+For example, if the above image is in <i>“C:/Temp/ HTMLFiles/syncfusion_logo.gif”</i> location then the baseURL will be as below,
+
+<b>baseURL:</b> C:/Temp/HTMLFiles/
+
+To convert the HTML string to PDF, please refer the below code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//HTML string and Base URL 
+string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
+
+string baseUrl = @"C:/Temp/HTMLFiles/";
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert(htmlText, baseUrl);
+
+//Save and close the PDF document 
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML to PDF converter with Blink rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'HTML string and Base URL 
+Dim htmlText As String = "<html><body><img src=""syncfusion_logo.gif"" alt=""Syncfusion_logo"" width=""200"" height=""70""><p> Hello World</p></body></html>"
+
+Dim baseUrl As String = "C:/Temp/HTMLFiles/"
+
+'Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
+
+'Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert(htmlText, baseUrl)
+
+'Save and close the PDF document
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight html %}
+<html>
+<body>
+<img src="syncfusion_logo.gif" alt="Syncfusion_logo" width="200" height="70">
+<p> Hello World</p>
+</body>
+</html>
+
+{% endhighlight %}
+
+{% endtabs %}
+
+	
 ## Conversion using IE Rendering
 
 Essential PDF makes use of the Microsoft MSHTML library to convert HTML pages to PDF. The output would like how it is viewed in the Internet Explorer browser.
