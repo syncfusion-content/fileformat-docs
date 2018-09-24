@@ -2419,7 +2419,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Bl
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 
 //Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/QtBinaries/";
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 //Assign Blink converter settings to HTML converter
 htmlConverter.ConverterSettings = blinkConverterSettings;
@@ -2443,7 +2443,7 @@ Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEn
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
 
 'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/QtBinaries/"
+blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
 
 'Assign Blink converter settings to HTML converter
 htmlConverter.ConverterSettings = blinkConverterSettings
