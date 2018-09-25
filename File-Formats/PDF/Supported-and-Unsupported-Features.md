@@ -43,6 +43,11 @@ Drawing RTL text<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+<td>
+Drawing complex script text<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td></tr>
 <tr>
 <td>
 Text Extraction<br/><br/></td><td>
