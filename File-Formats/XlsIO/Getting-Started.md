@@ -966,7 +966,7 @@ The output screen-shot of the above code.
 
 XlsIO helps to import data from various data sources into a worksheet. The following data sources can be imported using XlsIO:
 
-* Business Objects
+* CLR Objects
 * Data Table
 * Data Column
 * Data View
@@ -1394,7 +1394,7 @@ End Using
 
 //Exporting data from worksheet can be achieved using List as illustrated below.
 
-//To know more about exporting data from worksheet to various business objects, please refer xlsio/working-with-data section.
+//To know more about exporting data from worksheet to various CLR objects, please refer xlsio/working-with-data section.
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1512,7 +1512,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 //Exporting data from worksheet can be achieved using List as illustrated below.
 
-//To know more about exporting data from worksheet to various business objects, please refer xlsio/working-with-data section.
+//To know more about exporting data from worksheet to various CLR objects, please refer xlsio/working-with-data section.
 
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
@@ -1616,7 +1616,7 @@ A template marker is a special marker symbol that allows to generate a document 
 
 This functionality supports the following data sources.
 
-* Business Objects
+* CLR Objects
 * DataTable
 * Array
 
