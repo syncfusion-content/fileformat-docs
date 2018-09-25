@@ -1,4 +1,4 @@
----
+﻿---
 title: Supported and Unsupported Features
 description: This section explains about features available in Essential PDF and their availability in different platforms.
 platform: file-formats
@@ -653,6 +653,12 @@ Encryption and Decryption<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+<tr>
+<td>
+Redaction<br/><br/></td><td>
+Yes<br/><br/></td><td>
+No<br/><br/></td><td>
+No<br/><br/></td></tr>
 </tbody>
 </table>
 
