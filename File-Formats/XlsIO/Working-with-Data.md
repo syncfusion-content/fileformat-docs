@@ -1134,7 +1134,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Export worksheet data into CLR Objects
-  List<Report> CLRObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
+  List<Report> clrObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
 
   workbook.SaveAs("CLRObjects.xlsx");
 }
@@ -1148,7 +1148,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
   'Export worksheet data into CLR Objects
-  Dim CLRObjects As List(Of Report) = worksheet.ExportData(Of Report)(1, 1, 10, 3)
+  Dim clrObjects As List(Of Report) = worksheet.ExportData(Of Report)(1, 1, 10, 3)
 
   workbook.SaveAs("CLRObjects.xlsx")
 End Using
@@ -1172,7 +1172,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Export worksheet data into CLR Objects
-  List<Report> CLRObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
+  List<Report> clrObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
 
   //Initializes FileSavePicker
   FileSavePicker savePicker = new FileSavePicker();
@@ -1198,7 +1198,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Export worksheet data into CLR Objects
-  List<Report> CLRObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
+  List<Report> clrObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
 
   //Saving the workbook as stream
   FileStream stream = new FileStream("CLRObjects.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -1220,7 +1220,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorksheet worksheet = workbook.Worksheets[0];
 
   //Export worksheet data into CLR Objects
-  List<Report> CLRObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
+  List<Report> clrObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
