@@ -10,7 +10,7 @@ documentation: UG
 A template marker is a special marker symbol created in an Excel template that appends multiple records from a data source into a worksheet. This marker automatically maps the column name in the data source and names of the marker fields in the template Excel document and fills the data (text or image). Essential XlsIO allows you to bind the template markers to data from various sources, such as 
 
 * DataTable
-* Business objects
+* CLR objects
 * Arrays
 
 ## Template marker Syntax
@@ -595,7 +595,7 @@ The following screenshot represents an Excel file in which the data type is dete
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg)
 
 
-## Bind from Business objects with images
+## Bind from CLR objects with images
 
 You can generate reports more appealingly with image support in template markers. The possible image formats are as follows:
 
@@ -641,7 +641,7 @@ In the following example, a marker is added for merging images. Data source and 
 
 __Marker__ __added__ __for__ __merging__ __images__
 
-N> Image can be used in array, DataTable, and Business objects.
+N> Image can be used in array, DataTable, and CLR objects.
 
 Different positions of the image are maintained internally in the ImageVerticalPosition and ImageHorizontalPosition enumerators.  To learn more about this, refer to the **ImageVerticalPosition** and **ImageHorizontalPosition** enumerators respectively in API section.
 

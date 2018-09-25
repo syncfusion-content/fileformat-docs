@@ -14,7 +14,7 @@ XlsIO provides the ability to import data into a worksheet from the following da
 * Data Table
 * Data Column
 * Data View
-* Business Objects
+* CLR Objects
 * Array
 
 ### Import Data from DataTable
@@ -224,9 +224,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-### Import Data from Business Objects
+### Import Data from CLR Objects
 
-Essential XlsIO allows you to import data directly from Business Objects as shown below. 
+Essential XlsIO allows you to import data directly from CLR Objects as shown below. 
 
 {% tabs %}  
 {% highlight c# %}
@@ -512,9 +512,9 @@ public class Customer
 {% endhighlight %}
 {% endtabs %}  
 
-#### Import Data from Business Objects with hyperlink
+#### Import Data from CLR Objects with hyperlink
 
-Essential XlsIO allows you to import data directly from Business Objects and created hyperlinks in worksheet as shown below
+Essential XlsIO allows you to import data directly from CLR Objects and created hyperlinks in worksheet as shown below
 
 {% tabs %}  
 {% highlight c# %}
@@ -1118,11 +1118,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-## Exporting from Worksheet to Business Objects 
+## Exporting from Worksheet to CLR Objects 
 
-XlsIO allows to export the sheet data to a **Business Objects** by using the **ExportData&lt;T&gt;()** method. This method Exports Excel data into business objects from existing or newly created Excel document by matching set of properties and [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1).
+XlsIO allows to export the sheet data to a **CLR Objects** by using the **ExportData&lt;T&gt;()** method. This method Exports Excel data into CLR objects from existing or newly created Excel document by matching set of properties and [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1).
 
-The following code snippet illustrates on how to export worksheet data into Business Objects using **ExportData&lt;T&gt;**.
+The following code snippet illustrates on how to export worksheet data into CLR Objects using **ExportData&lt;T&gt;**.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1133,10 +1133,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Export worksheet data into Business Objects
-  List<Report> businessObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
+  //Export worksheet data into CLR Objects
+  List<Report> clrObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
 
-  workbook.SaveAs("BusinessObjects.xlsx");
+  workbook.SaveAs("CLRObjects.xlsx");
 }
 {% endhighlight %}
 
@@ -1147,10 +1147,10 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
   Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-  'Export worksheet data into Business Objects
-  Dim businessObjects As List(Of Report) = worksheet.ExportData(Of Report)(1, 1, 10, 3)
+  'Export worksheet data into CLR Objects
+  Dim clrObjects As List(Of Report) = worksheet.ExportData(Of Report)(1, 1, 10, 3)
 
-  workbook.SaveAs("BusinessObjects.xlsx")
+  workbook.SaveAs("CLRObjects.xlsx")
 End Using
 {% endhighlight %}
 
@@ -1171,13 +1171,13 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = await application.Workbooks.OpenAsync(file);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Export worksheet data into Business Objects
-  List<Report> businessObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
+  //Export worksheet data into CLR Objects
+  List<Report> clrObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
 
   //Initializes FileSavePicker
   FileSavePicker savePicker = new FileSavePicker();
   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "BusinessObjects";
+  savePicker.SuggestedFileName = "CLRObjects";
   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
 
   //Creates a storage file from FileSavePicker
@@ -1197,11 +1197,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open(fileStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Export worksheet data into Business Objects
-  List<Report> businessObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
+  //Export worksheet data into CLR Objects
+  List<Report> clrObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
 
   //Saving the workbook as stream
-  FileStream stream = new FileStream("BusinessObjects.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  FileStream stream = new FileStream("CLRObjects.xlsx", FileMode.Create, FileAccess.ReadWrite);
   workbook.SaveAs(stream);
   stream.Dispose();
 }
@@ -1219,8 +1219,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IWorkbook workbook = application.Workbooks.Open(inputStream);
   IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Export worksheet data into Business Objects
-  List<Report> businessObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
+  //Export worksheet data into CLR Objects
+  List<Report> clrObjects = worksheet.ExportData<Report>(1, 1, 10, 3);
 
   //Saving the workbook as stream
   MemoryStream stream = new MemoryStream();
@@ -1234,11 +1234,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
   {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("BusinessObjects.xlsx", "application/msexcel", stream);
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("CLRObjects.xlsx", "application/msexcel", stream);
   }
   else
   {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("BusinessObjects.xlsx", "application/msexcel", stream);
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("CLRObjects.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
