@@ -293,17 +293,6 @@ Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5.nupkg
 Install-Package Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5
 </td>
 </tr>
-<tr>
-<td>
-ASP.NET Core (Targeting .NET Framework)
-</td>
-<td>
-Syncfusion.OfficeChartToImageConverter.Wpf.nupkg
-</td>
-<td>
-Install-Package Syncfusion.OfficeChartToImageConverter.Wpf
-</td>
-</tr>
 </table>
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
