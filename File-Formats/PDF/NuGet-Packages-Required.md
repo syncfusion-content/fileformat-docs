@@ -84,6 +84,7 @@ Xamarin
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
+N> From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package naming to make the users to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
 
 ## Converting HTML to PDF
 
@@ -240,7 +241,60 @@ ASP.NET MVC5
 </tr>
 </table>
 
-N> HTML to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.	
+N> HTML to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
+
+## PDF OCR
+
+For recognizing text from the scanned PDF document, the following NuGet packages need to be installed in your application.
+
+<table>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tr>
+<td>
+Windows Forms
+</td>
+<td>
+{{'[Syncfusion.PDF.OCR.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.PDF.OCR.WinForms/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+WPF
+</td>
+<td>
+{{'[Syncfusion.PDF.OCR.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.PDF.OCR.WPF/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET
+</td>
+<td>
+{{'[Syncfusion.PDF.OCR.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.PDF.OCR.AspNet/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC4
+</td>
+<td>
+{{'[Syncfusion.PDF.OCR.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.PDF.OCR.AspNet.Mvc4/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC5
+</td>
+<td>
+{{'[Syncfusion.PDF.OCR.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.PDF.OCR.AspNet.Mvc5/)'| markdownify }}
+</td>
+</tr>
+</table>
 
 ## Converting Word to PDF
 
