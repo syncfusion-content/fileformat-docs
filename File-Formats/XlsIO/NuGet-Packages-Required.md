@@ -34,7 +34,7 @@ WPF
 </tr>
 <tr>
 <td>
-ASP.NET Web Forms, ASP.NET Core – Targeting .NET Framework)
+ASP.NET Web Forms, ASP.NET Core(Targeting .NET Framework)
 </td>
 <td>
 {{'[Syncfusion.XlsIO.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet/)'| markdownify }}
