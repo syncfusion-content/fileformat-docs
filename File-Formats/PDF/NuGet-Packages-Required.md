@@ -84,7 +84,7 @@ Xamarin
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-N> From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package naming to make the users to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
+N> From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package names to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
 
 ## Converting HTML to PDF
 
@@ -245,13 +245,13 @@ N> HTML to PDF conversion is not supported in Silverlight, Windows Phone, WinRT,
 
 ## PDF OCR
 
-For recognizing text from the scanned PDF document, the following NuGet packages need to be installed in your application.
+For recognizing text from the scanned PDF document, the following NuGet packages should be installed in your application:
 
 <table>
 <tr>
 <thead>
 <th><b>Platform(s)</b></th>
-<th><b>NuGet Package</b></th>
+<th><b>NuGet package</b></th>
 </thead>
 </tr>
 <tr>
