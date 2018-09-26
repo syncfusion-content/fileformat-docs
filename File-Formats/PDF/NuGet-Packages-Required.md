@@ -332,7 +332,6 @@ Windows Forms
 {{'[Syncfusion.ExcelToPDFConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.WinForms/)'| markdownify }}
 </td>
 </tr>
-</tr>
 <tr>
 <td>
 WPF
@@ -341,7 +340,6 @@ WPF
 {{'[Syncfusion.ExcelToPDFConverter.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.Wpf/)'| markdownify }}
 </td>
 </tr>
-</tr>
 <tr>
 <td>
 ASP.NET
@@ -349,7 +347,6 @@ ASP.NET
 <td>
 {{'[Syncfusion.ExcelToPDFConverter.Base.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet/)'| markdownify }}
 </td>
-</tr>
 </tr>
 <tr>
 <td>
