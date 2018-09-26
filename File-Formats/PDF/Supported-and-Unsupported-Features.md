@@ -1,4 +1,4 @@
-﻿---
+---
 title: Supported and Unsupported Features
 description: This section explains about features available in Essential PDF and their availability in different platforms.
 platform: file-formats
