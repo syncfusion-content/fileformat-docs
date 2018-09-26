@@ -107,7 +107,7 @@ The below sample illustrates how to create a new PDF document with XFA page size
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
 //Set the page size.
-document.PageSettings.Size = PdfPageSize.A4;
+document.PageSettings.PageSize = PdfPageSize.A4;
 //Add a new XFA page.
 PdfXfaPage xfaPage = document.Pages.Add();
 //Create a new PDF XFA form
@@ -133,7 +133,7 @@ document.Close();
 'Create a new PDF XFA document.
 Dim document As New PdfXfaDocument()
 'Set the page size.
-document.PageSettings.Size = PdfPageSize.A4
+document.PageSettings.PageSize = PdfPageSize.A4
 'Add a new XFA page.
 Dim xfaPage As PdfXfaPage = document.Pages.Add()
 'Create a new PDF XFA form
@@ -194,7 +194,7 @@ You can create a custom page size to the PDF document by using following code sn
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
 //Set the page size.
-document.PageSettings.Size = new SizeF(500,700);
+document.PageSettings.PageSize = new SizeF(500,700);
 //Add a new XFA page.
 PdfXfaPage xfaPage = document.Pages.Add();
 //Create a new PDF XFA form
@@ -220,7 +220,7 @@ document.Close();
 'Create a new PDF XFA document.
 Dim document As New PdfXfaDocument()
 'Set the page size.
-document.PageSettings.Size = New SizeF(500,700)
+document.PageSettings.PageSize = New SizeF(500,700)
 'Add a new XFA page.
 Dim xfaPage As PdfXfaPage = document.Pages.Add()
 'Create a new PDF XFA form
@@ -280,7 +280,7 @@ You can change page orientation from portrait to landscape by using the followin
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
 //Set the page size.
-document.PageSettings.Size = new SizeF(500,700);
+document.PageSettings.PageSize = new SizeF(500,700);
 //Change the page orientation to landscape.
 document.PageSettings. PageOrientation = PdfXfaPageOrientation.Landscape;
 //Add a new XFA page.
@@ -308,7 +308,7 @@ document.Close();
 'Create a new PDF XFA document.
 Dim document As New PdfXfaDocument()
 'Set the page size.
-document.PageSettings.Size = New SizeF(500,700)
+document.PageSettings.PageSize = New SizeF(500,700)
 'Change the page orientation to landscape.
 document.PageSettings.PageOrientation = PdfXfaPageOrientation.Landscape
 'Add a new XFA page.
@@ -374,7 +374,7 @@ The below sample illustrates how to create a dynamic XFA forms.
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
 //Set the page size.
-document.PageSettings.Size = PdfPageSize.A4;
+document.PageSettings.PageSize = PdfPageSize.A4;
 //Add a new XFA page.
 PdfXfaPage xfaPage = document.Pages.Add();
 //Create a new PDF XFA form
@@ -400,7 +400,7 @@ document.Close();
 'Create a new PDF XFA document.
 Dim document As New PdfXfaDocument()
 'Set the page size.
-document.PageSettings.Size = PdfPageSize.A4
+document.PageSettings.PageSize = PdfPageSize.A4
 'Add a new XFA page.
 Dim xfaPage As PdfXfaPage = document.Pages.Add()
 'Create a new PDF XFA form
@@ -462,7 +462,7 @@ The below sample illustrates how to create a static XFA forms.
 //Create a new PDF XFA document.
 PdfXfaDocument document = new PdfXfaDocument();
 //Set the page size.
-document.PageSettings.Size = PdfPageSize.A4;
+document.PageSettings.PageSize = PdfPageSize.A4;
 //Add a new XFA page.
 PdfXfaPage xfaPage = document.Pages.Add();
 //Create a new PDF XFA form
@@ -488,7 +488,7 @@ document.Close();
 'Create a new PDF XFA document.
 Dim document As New PdfXfaDocument()
 'Set the page size.
-document.PageSettings.Size = PdfPageSize.A4
+document.PageSettings.PageSize = PdfPageSize.A4
 'Add a new XFA page.
 Dim xfaPage As PdfXfaPage = document.Pages.Add()
 'Create a new PDF XFA form
@@ -1044,7 +1044,7 @@ listBoxField.Items.Add("English");
 listBoxField.Items.Add("French");
 listBoxField.Items.Add("German");
 //Add the field to the XFA form.
-mainForm.Fields.Add(comboBoxField);
+mainForm.Fields.Add(listBoxField);
 //Add the XFA form to the document.
 document.XfaForm = mainForm;
 //Save the document.
@@ -1073,7 +1073,7 @@ listBoxField.Items.Add("English")
 listBoxField.Items.Add("French")
 listBoxField.Items.Add("German")
 'Add the field to the XFA form.
-mainForm.Fields.Add(comboBoxField)
+mainForm.Fields.Add(listBoxField)
 'Add the XFA form to the document.
 document.XfaForm = mainForm
 'Save the document.
@@ -1138,7 +1138,7 @@ listBoxField.Items.Add("English");
 listBoxField.Items.Add("French");
 listBoxField.Items.Add("German");
 //Add the field to the existing XFA form.
-loadedForm.Fields.Add(comboBoxField);
+loadedForm.Fields.Add(listBoxField);
 //Save the document
 loadedDocument.Save("XfaForm.pdf");
 //Close the document
@@ -1163,7 +1163,7 @@ listBoxField.Items.Add("English")
 listBoxField.Items.Add("French")
 listBoxField.Items.Add("German")
 'Add the field to the existing XFA form.
-loadedForm.Fields.Add(comboBoxField)
+loadedForm.Fields.Add(listBoxField)
 'Save the document
 loadedDocument.Save("XfaForm.pdf")
 'Close the document
