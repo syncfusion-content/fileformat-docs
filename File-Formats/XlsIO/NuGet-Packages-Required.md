@@ -290,9 +290,9 @@ N> Syncfusion components are available in nuget.org
 Windows Forms
 </td>
 <td>
-* Install-package Syncfusion.XlsIO.WinForms -source {{'<https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.WinForms -source {{'<https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.WinForms/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelChartToImageConverter.WinForms -source {{'<https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.WinForms/>'| markdownify }}
+* Install-package Syncfusion.XlsIO.WinForms<br/><br/>
+* Install-package Syncfusion.ExcelToPdfConverter.WinForms<br/><br/>
+* Install-package Syncfusion.ExcelChartToImageConverter.WinForms
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.WinForms -RemoveDependencies <br/><br/>
@@ -305,9 +305,9 @@ Windows Forms
 WPF
 </td>
 <td>
-* Install-package Syncfusion.XlsIO.Wpf -source {{'<https://www.nuget.org/packages/Syncfusion.XlsIO.Wpf/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.Wpf -source {{'<https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.Wpf/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelChartToImageConverter.Wpf -source {{'<https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.Wpf/>'| markdownify }}
+* Install-package Syncfusion.XlsIO.Wpf<br/><br/>
+* Install-package Syncfusion.ExcelToPdfConverter.Wpf<br/><br/>
+* Install-package Syncfusion.ExcelChartToImageConverter.Wpf
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.Wpf -RemoveDependencies <br/><br/>
@@ -320,9 +320,9 @@ WPF
 ASP.NET Web
 </td>
 <td>
-* Install-package Syncfusion.XlsIO.AspNet -source {{'<https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.AspNet -source {{'<https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelChartToImageConverter.AspNet -source {{'<https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.AspNet/>'| markdownify }}
+* Install-package Syncfusion.XlsIO.AspNet<br/><br/>
+* Install-package Syncfusion.ExcelToPdfConverter.AspNet<br/><br/>
+* Install-package Syncfusion.ExcelChartToImageConverter.AspNet
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.AspNet -RemoveDependencies <br/><br/>
@@ -335,9 +335,9 @@ ASP.NET Web
 ASP.NET MVC4
 </td>
 <td>
-* Install-package Syncfusion.XlsIO.AspNet.MVC4 -source {{'<https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.MVC4/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.AspNet.MVC4 -source {{'<https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet.MVC4/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelChartToImageConverter.AspNet.MVC4 -source {{'<https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.AspNet.MVC4/>'| markdownify }}
+* Install-package Syncfusion.XlsIO.AspNet.MVC4<br/><br/>
+* Install-package Syncfusion.ExcelToPdfConverter.AspNet.MVC4<br/><br/>
+* Install-package Syncfusion.ExcelChartToImageConverter.AspNet.MVC4
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.AspNet.MVC4 -RemoveDependencies <br/><br/>
@@ -350,9 +350,9 @@ ASP.NET MVC4
 ASP.NET MVC5
 </td>
 <td>
-* Install-package Syncfusion.XlsIO.AspNet.MVC5 -source {{'<https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.MVC5/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelToPdfConverter.AspNet.MVC5 -source {{'<https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet.MVC5/>'| markdownify }}<br/><br/>
-* Install-package Syncfusion.ExcelChartToImageConverter.AspNet.MVC5 -source {{'<https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.AspNet.MVC5/>'| markdownify }}
+* Install-package Syncfusion.XlsIO.AspNet.MVC5<br/><br/>
+* Install-package Syncfusion.ExcelToPdfConverter.AspNet.MVC5<br/><br/>
+* Install-package Syncfusion.ExcelChartToImageConverter.AspNet.MVC5
 </td>
 <td>
 * Uninstall-package Syncfusion.XlsIO.AspNet.MVC5 -RemoveDependencies <br/><br/>
@@ -365,7 +365,7 @@ ASP.NET MVC5
 UWP
 </td>
 <td>
-Install-package Syncfusion.XlsIO.UWP –source {{'<https://www.nuget.org/packages/Syncfusion.XlsIO.UWP/>'| markdownify }}
+Install-package Syncfusion.XlsIO.UWP
 </td>
 <td>
 Uninstall-package Syncfusion.XlsIO.UWP –RemoveDependencies
@@ -376,7 +376,7 @@ Uninstall-package Syncfusion.XlsIO.UWP –RemoveDependencies
 ASP.NET Core
 </td>
 <td>
-Install-package Syncfusion.XlsIO.Net.Core -source {{'<https://www.nuget.org/packages/Syncfusion.XlsIO.net.core/>'| markdownify }}
+Install-package Syncfusion.XlsIO.Net.Core
 </td>
 <td>
 Uninstall-package Syncfusion.XlsIO.Net.Core –RemoveDependencies
@@ -387,7 +387,7 @@ Uninstall-package Syncfusion.XlsIO.Net.Core –RemoveDependencies
 Xamarin
 </td>
 <td>
-Install-package Syncfusion.Xamarin.XlsIO –source {{'<https://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin>'| markdownify }}
+Install-package Syncfusion.Xamarin.XlsIO
 </td>
 <td>
 Uninstall-package Syncfusion.Xamarin.XlsIO –RemoveDependencies
