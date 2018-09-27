@@ -1075,6 +1075,245 @@ else
 
 {% endtabs %}
 
+## Measuring a string
+
+The Essential PDF allows you to measure a string using the PdfFont and returns size of the given text. Refer to the following code sample.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create the new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+string text = "Hello World!";
+
+//Measure the text
+
+SizeF size = font.MeasureString(text);
+
+//Draw string to the PDF page
+
+graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(PointF.Empty, size));
+
+//Save the document
+
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create the new PDF document
+
+Dim document As New PdfDocument()
+
+'Add a page to the document
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create PDF graphics for the page
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Create a new PDF font instance
+
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 12)
+
+Dim text As String = "Hello World!"
+
+'Measure the text
+
+Dim size As SizeF = font.MeasureString(text)
+
+'Draw string to the PDF page
+
+graphics.DrawString(text, font, PdfBrushes.Black, New RectangleF(PointF.Empty, size))
+
+'Save the document
+
+document.Save("Output.pdf")
+
+'Close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+string text = "Hello World!";
+
+//Measure the text
+
+SizeF size = font.MeasureString(text);
+
+//Draw string to the PDF page
+
+graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(PointF.Empty, size));
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document instances
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create the new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+string text = "Hello World!";
+
+//Measure the text
+
+SizeF size = font.MeasureString(text);
+
+//Draw string to th ePDF page
+
+graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(PointF.Empty, size));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0', then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for PDF file.
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create the new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a new PDF font instance
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+string text = "Hello World!";
+
+//Measure the text
+
+SizeF size = font.MeasureString(text);
+
+//Draw string to the PDF page
+
+graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(PointF.Empty, size));
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document instances
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Embedding fonts and working with Unicode text
 
 To embed a font or display Unicode text in the document, the ‘Unicode’ Boolean parameter of the PdfTrueTypeFont constructor has to be set to true. The following code illustrates the same.
