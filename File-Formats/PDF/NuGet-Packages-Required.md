@@ -66,10 +66,18 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core
+ASP.NET Core (Targeting NET Core)
 </td>
 <td>
 {{'[Syncfusion.Pdf.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core (Targeting NET Framework)
+</td>
+<td>
+{{'[Syncfusion.Pdf.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -190,10 +198,18 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-ASP.NET Core
+ASP.NET Core (Targeting NET Core)
 </td>
 <td>
 {{'[Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core (Targeting NET Framework)
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet/)'| markdownify }}
 </td>
 </tr>
 </table>
@@ -349,10 +365,18 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-ASP.NET Core
+ASP.NET Core (Targeting NET Core)
 </td>
 <td>
 {{'[Syncfusion.DocIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core (Targeting NET Framework)
+</td>
+<td>
+{{'[Syncfusion.DocToPdfConverter.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.DocToPDFConverter.AspNet/)'| markdownify }}
 </td>
 </tr>
 <tr>
