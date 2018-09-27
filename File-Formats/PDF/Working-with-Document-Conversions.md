@@ -175,7 +175,7 @@ StorageFile file = await fileOpenPicker.PickSingleFileAsync();
 
 var stream = await file.OpenReadAsync();
 
-//Clears the textblock
+//Clears the text block
 
 TextBlockView.Text = "";
 
@@ -679,7 +679,7 @@ else
 }
 
 //Saving the workbook as stream
-FileStream stream = new FileStream("ExceltoPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+FileStream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
 outputStream.CopyTo(stream);
 
 outputStream.Close();
@@ -1287,7 +1287,7 @@ StorageFile file = await fileOpenPicker.PickSingleFileAsync();
 
 var stream = await file.OpenReadAsync();
 
-//Clears the textblock
+//Clears the text block
 
 TextBlockView.Text = "";
 
@@ -1365,7 +1365,7 @@ string contentType = "application/pdf";
 
 //Define the file name.
 
-string fileName = " RTFtoPDF.pdf";
+string fileName = " RTFToPDF.pdf";
 
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 
@@ -1397,7 +1397,7 @@ render.Dispose();
 
 rtfDocument.Dispose();
 
-//Save the docuemnt into memory stream
+//Save the document into memory stream
 
 MemoryStream stream = new MemoryStream();
 
@@ -1415,11 +1415,11 @@ pdfDocument.Close();
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("RTFtoPDF.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("RTFToPDF.pdf", "application/pdf", stream);
 }
 else
 {
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("RTFtoPDF.pdf", "application/pdf", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("RTFToPDF.pdf", "application/pdf", stream);
 }
 
 {% endhighlight %}
