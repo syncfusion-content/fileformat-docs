@@ -1476,7 +1476,7 @@ PdfTextBoxField textBoxField = new PdfTextBoxField(page, "FirstName");
 
 //Set properties to the textbox.
 
-textBoxField.BorderColor = new PdfColor(Color.FromArgb(0, 211, 211, 211));
+textBoxField.BorderColor = new PdfColor(128, 128, 128);
 
 textBoxField.BorderStyle = PdfBorderStyle.Beveled;
 

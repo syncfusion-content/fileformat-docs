@@ -127,7 +127,7 @@ PdfPen pen = new PdfPen(PdfBrushes.Brown, 10f);
 
 //Create a gradient brush
 
-PdfLinearGradientBrush brush = new PdfLinearGradientBrush(new PointF(10, 100), new PointF(100, 200), new PdfColor(Color.FromArgb(0,255,0,0)), new PdfColor(Color.FromArgb(0,0,255,0)));
+PdfLinearGradientBrush brush = new PdfLinearGradientBrush(new PointF(10, 100), new PointF(100, 200), new PdfColor(Color.FromArgb(0,255,0,0)), new PdfColor(Color.FromArgb(0,0,128,0)));
 
 //Create polygon points
 

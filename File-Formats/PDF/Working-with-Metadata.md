@@ -126,6 +126,142 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Essential PDF does not support Metadata (XMP) in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+// Get XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+// XMP Basic Schema.
+
+BasicSchema basic = metaData.BasicSchema;
+
+//set the basic details of the document
+
+basic.Advisory.Add("advisory");
+
+basic.BaseURL = new Uri("http://google.com");
+
+basic.CreateDate = DateTime.Now;
+
+basic.CreatorTool = "creator tool";
+
+basic.Identifier.Add("identifier");
+
+basic.Label = "label";
+
+basic.MetadataDate = DateTime.Now;
+
+basic.ModifyDate = DateTime.Now;
+
+basic.Nickname = "nickname";
+
+basic.Rating.Add(-25);
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+pdfDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDoc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "DocumentInformation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+// Get XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+// XMP Basic Schema.
+
+BasicSchema basic = metaData.BasicSchema;
+
+//set the basic details of the document
+
+basic.Advisory.Add("advisory");
+
+basic.BaseURL = new Uri("http://google.com");
+
+basic.CreateDate = DateTime.Now;
+
+basic.CreatorTool = "creator tool";
+
+basic.Identifier.Add("identifier");
+
+basic.Label = "label";
+
+basic.MetadataDate = DateTime.Now;
+
+basic.ModifyDate = DateTime.Now;
+
+basic.Nickname = "nickname";
+
+basic.Rating.Add(-25);
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+pdfDoc.Save(memoryStream);
+
+//Close the documents.
+
+pdfDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 
@@ -226,6 +362,138 @@ pdfDoc.Save("DocumentInformation.pdf")
 pdfDoc.Close(True)
 
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF does not support Metadata (XMP) in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument pdfDoc = new PdfLoadedDocument(docStream);
+
+// Get XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+// XMP Basic Schema.
+
+BasicSchema basic = metaData.BasicSchema;
+
+//set the basic details of the document
+
+basic.Advisory.Add("advisory");
+
+basic.BaseURL = new Uri("http://google.com");
+
+basic.CreateDate = DateTime.Now;
+
+basic.CreatorTool = "creator tool";
+
+basic.Identifier.Add("identifier");
+
+basic.Label = "label";
+
+basic.MetadataDate = DateTime.Now;
+
+basic.ModifyDate = DateTime.Now;
+
+basic.Nickname = "nickname";
+
+basic.Rating.Add(-25);
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+pdfDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDoc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "DocumentInformation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument pdfDoc = new PdfLoadedDocument(docStream);
+
+// Get XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+// XMP Basic Schema.
+
+BasicSchema basic = metaData.BasicSchema;
+
+//set the basic details of the document
+
+basic.Advisory.Add("advisory");
+
+basic.BaseURL = new Uri("http://google.com");
+
+basic.CreateDate = DateTime.Now;
+
+basic.CreatorTool = "creator tool";
+
+basic.Identifier.Add("identifier");
+
+basic.Label = "label";
+
+basic.MetadataDate = DateTime.Now;
+
+basic.ModifyDate = DateTime.Now;
+
+basic.Nickname = "nickname";
+
+basic.Rating.Add(-25);
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+pdfDoc.Save(memoryStream);
+
+//Close the documents.
+
+pdfDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
 
 {% endhighlight %}
 
@@ -364,6 +632,142 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Essential PDF does not support Metadata (XMP) in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+// Get metaData object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+// XMP Basic Schema.
+
+BasicSchema basic = metaData.BasicSchema;
+
+//set the basic details of the document
+
+basic.Advisory.Add("advisory");
+
+basic.BaseURL = new Uri("http://google.com");
+
+basic.CreateDate = DateTime.Now;
+
+basic.CreatorTool = "creator tool";
+
+basic.Identifier.Add("identifier");
+
+basic.Label = "label";
+
+basic.MetadataDate = DateTime.Now;
+
+basic.ModifyDate = DateTime.Now;
+
+basic.Nickname = "nickname";
+
+basic.Rating.Add(-25);
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+pdfDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDoc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "DocumentInformation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+// Get metaData object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+// XMP Basic Schema.
+
+BasicSchema basic = metaData.BasicSchema;
+
+//set the basic details of the document
+
+basic.Advisory.Add("advisory");
+
+basic.BaseURL = new Uri("http://google.com");
+
+basic.CreateDate = DateTime.Now;
+
+basic.CreatorTool = "creator tool";
+
+basic.Identifier.Add("identifier");
+
+basic.Label = "label";
+
+basic.MetadataDate = DateTime.Now;
+
+basic.ModifyDate = DateTime.Now;
+
+basic.Nickname = "nickname";
+
+basic.Rating.Add(-25);
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+pdfDoc.Save(memoryStream);
+
+//Close the documents.
+
+pdfDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ### Dublin Core Schema
@@ -462,6 +866,119 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Essential PDF does not support Metadata (XMP) in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create new PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Dublin core Schema.
+
+DublinCoreSchema dublin = metaData.DublinCoreSchema;
+
+//Set the Dublin Core Schema details of the document.
+
+dublin.Creator.Add("Syncfusion");
+
+dublin.Description.Add("Title", "Essential PDF creator");
+
+dublin.Title.Add("Resource name", "Documentation");
+
+dublin.Type.Add("PDF");
+
+dublin.Publisher.Add("Essential PDF");
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+pdfDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDoc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "DocumentInformation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create new PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Dublin core Schema.
+
+DublinCoreSchema dublin = metaData.DublinCoreSchema;
+
+//Set the Dublin Core Schema details of the document.
+
+dublin.Creator.Add("Syncfusion");
+
+dublin.Description.Add("Title", "Essential PDF creator");
+
+dublin.Title.Add("Resource name", "Documentation");
+
+dublin.Type.Add("PDF");
+
+dublin.Publisher.Add("Essential PDF");
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+pdfDoc.Save(memoryStream);
+
+//Close the documents.
+
+pdfDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
+
 {% endtabs %}  
 
 ### Rights Management Schema
@@ -547,6 +1064,111 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Essential PDF does not support Metadata (XMP) in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Rights Management Schema.
+
+RightsManagementSchema rights = metaData.RightsManagementSchema;
+
+//Set the Rights Management Schema details of the document.
+
+rights.Certificate = new Uri("http://syncfusion.com");
+
+rights.Owner.Add("Syncfusion");
+
+rights.Marked = true;
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+pdfDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDoc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "DocumentInformation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Rights Management Schema.
+
+RightsManagementSchema rights = metaData.RightsManagementSchema;
+
+//Set the Rights Management Schema details of the document.
+
+rights.Certificate = new Uri("http://syncfusion.com");
+
+rights.Owner.Add("Syncfusion");
+
+rights.Marked = true;
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+pdfDoc.Save(memoryStream);
+
+//Close the documents.
+
+pdfDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
+
  {% endtabs %}  
 
 ### Basic Job Ticket Schema
@@ -623,6 +1245,107 @@ pdfDoc.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF does not support Metadata (XMP) in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Add a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+// Gets XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+// XMP Rights Management Schema.
+
+BasicJobTicketSchema basicJob = metaData.BasicJobTicketSchema;
+
+//Set the Rights Management Schema details of the document.
+
+basicJob.JobRef.Add("PDF document creation");
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+pdfDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDoc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "DocumentInformation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Add a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+// Gets XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+// XMP Rights Management Schema.
+
+BasicJobTicketSchema basicJob = metaData.BasicJobTicketSchema;
+
+//Set the Rights Management Schema details of the document.
+
+basicJob.JobRef.Add("PDF document creation");
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+pdfDoc.Save(memoryStream);
+
+//Close the documents.
+
+pdfDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 
  {% endtabs %}  
 
@@ -716,6 +1439,119 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Essential PDF does not support Metadata (XMP) in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a Pdf document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a Page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Page text Schema.
+
+PagedTextSchema pagedText = metaData.PagedTextSchema;
+
+//Sets the Page text Schema details of the document.
+
+pagedText.MaxPageSize.Width = 500;
+
+pagedText.MaxPageSize.Height = 750;
+
+pagedText.NPages = 1;
+
+pagedText.PlateNames.Add("Sample page");
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+pdfDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDoc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "DocumentInformation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a Pdf document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Create a Page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP Page text Schema.
+
+PagedTextSchema pagedText = metaData.PagedTextSchema;
+
+//Sets the Page text Schema details of the document.
+
+pagedText.MaxPageSize.Width = 500;
+
+pagedText.MaxPageSize.Height = 750;
+
+pagedText.NPages = 1;
+
+pagedText.PlateNames.Add("Sample page");
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+pdfDoc.Save(memoryStream);
+
+//Close the documents.
+
+pdfDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
+
  {% endtabs %}  
  
 
@@ -800,6 +1636,115 @@ pdfDoc.Close(True)
 
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF does not support Metadata (XMP) in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Add a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP PDF Schema.
+
+PDFSchema pdfSchema = metaData.PDFSchema;
+
+//Set the PDF Schema details of the document.
+
+pdfSchema.Producer = "Syncfusion";
+
+pdfSchema.PDFVersion = "1.5";
+
+pdfSchema.Keywords = "Essential PDF";
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+pdfDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDoc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "DocumentInformation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Add a page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Gets XMP object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//XMP PDF Schema.
+
+PDFSchema pdfSchema = metaData.PDFSchema;
+
+//Set the PDF Schema details of the document.
+
+pdfSchema.Producer = "Syncfusion";
+
+pdfSchema.PDFVersion = "1.5";
+
+pdfSchema.Keywords = "Essential PDF";
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+pdfDoc.Save(memoryStream);
+
+//Close the documents.
+
+pdfDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 
  {% endtabs %}  
 
@@ -888,6 +1833,111 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+Essential PDF does not support Metadata (XMP) in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create Pdf document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+PdfPage page = pdfDoc.Pages.Add();
+
+// Get metaData object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//Create custom schema field
+
+CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
+
+customSchema["creationDate"] = DateTime.Now.ToString();
+
+customSchema["DOCID"] = "SYNCSAM001";
+
+customSchema["Encryption"] = "Standard";
+
+customSchema["Project"] = "Data processing";
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+pdfDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDoc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "DocumentInformation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create Pdf document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+PdfPage page = pdfDoc.Pages.Add();
+
+// Get metaData object.
+
+XmpMetadata metaData = pdfDoc.DocumentInformation.XmpMetadata;
+
+//Create custom schema field
+
+CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
+
+customSchema["creationDate"] = DateTime.Now.ToString();
+
+customSchema["DOCID"] = "SYNCSAM001";
+
+customSchema["Encryption"] = "Standard";
+
+customSchema["Project"] = "Data processing";
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+pdfDoc.Save(memoryStream);
+
+//Close the documents.
+
+pdfDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("DocumentInformation.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
+
 {% endtabs %}  
 
 
@@ -965,6 +2015,106 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Essential PDF does not support Metadata (XMP) in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Create XML Document container.
+
+XmpMetadata metaData = new XmpMetadata(pdfDoc.DocumentInformation.XmpMetadata.XmlData);
+
+//Create custom schema.
+
+CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
+
+customSchema["Author"] = "Syncfusion";
+
+customSchema["creationDate"] = DateTime.Now.ToString();
+
+customSchema["DOCID"] = "SYNCSAM001";
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+pdfDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDoc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "CustomMetaField.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Create XML Document container.
+
+XmpMetadata metaData = new XmpMetadata(pdfDoc.DocumentInformation.XmpMetadata.XmlData);
+
+//Create custom schema.
+
+CustomSchema customSchema = new CustomSchema(metaData, "custom", "http://www.syncfusion.com");
+
+customSchema["Author"] = "Syncfusion";
+
+customSchema["creationDate"] = DateTime.Now.ToString();
+
+customSchema["DOCID"] = "SYNCSAM001";
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+pdfDoc.Save(memoryStream);
+
+//Close the documents.
+
+pdfDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("CustomMetaField.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("CustomMetaField.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ## Adding Custom Metadata to the PDF document
@@ -1028,6 +2178,99 @@ pdfDoc.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Essential PDF does not support Metadata (XMP) in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Add new PDF page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Add Custom MetaData
+
+pdfDoc.DocumentInformation.CustomMetadata["ID"] = "IO1";
+
+pdfDoc.DocumentInformation.CustomMetadata["CompanyName"] = "Syncfusion";
+
+pdfDoc.DocumentInformation.CustomMetadata["Key"] = "DocumentKey";
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+pdfDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+pdfDoc.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "AddCustomField.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create PDF document
+
+PdfDocument pdfDoc = new PdfDocument();
+
+//Add new PDF page
+
+PdfPage page = pdfDoc.Pages.Add();
+
+//Add Custom MetaData
+
+pdfDoc.DocumentInformation.CustomMetadata["ID"] = "IO1";
+
+pdfDoc.DocumentInformation.CustomMetadata["CompanyName"] = "Syncfusion";
+
+pdfDoc.DocumentInformation.CustomMetadata["Key"] = "DocumentKey";
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+pdfDoc.Save(memoryStream);
+
+//Close the documents.
+
+pdfDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("AddCustomField.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("AddCustomField.pdf", "application/pdf", memoryStream);
+}
+
+{% endhighlight %}
+
+
 {% endtabs %}   
 
 
@@ -1074,6 +2317,86 @@ loadedDocument.Save("Output.pdf")
 
 loadedDocument.Close(True)
 
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF does not support Metadata (XMP) in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Remove custom metadata using key name
+
+loadedDocument.DocumentInformation.CustomMetadata.Remove("Key");
+
+//Save and close the document
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document.
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Remove custom metadata using key name
+
+loadedDocument.DocumentInformation.CustomMetadata.Remove("Key");
+
+//Save the document into stream.
+
+MemoryStream memoryStream = new MemoryStream();
+
+loadedDocument.Save(memoryStream);
+
+//Close the documents.
+
+loadedDocument.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", memoryStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
+}
 
 {% endhighlight %}
 

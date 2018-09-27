@@ -312,6 +312,48 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//HTML string and Base URL 
+string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
+
+string baseUrl = @"C:/Temp/HTMLFiles/";
+
+//Set WebKit path
+settings.WebKitPath = @"/QtBinaries/";
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert HTML string to PDF
+PdfDocument document = htmlConverter.Convert(htmlText, baseUrl);
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -370,6 +412,46 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com"
 document.Save("Sample.pdf")
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter with WebKit rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Disable JavaScript; By default - true
+webKitSettings.EnableJavaScript = false;
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = " Sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -434,6 +516,46 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter with WebKit rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Set additional delay; units in milliseconds;
+webKitSettings.AdditionalDelay = 3000;
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com/");
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = " Sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -492,6 +614,46 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com"
 document.Save("Sample.pdf")
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter with WebKit rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Enable hyperlinks; By default - true
+webKitSettings.EnableHyperLink = false;
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -619,6 +781,58 @@ padding-left: 5px;
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter 
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+// WebKit converter settings
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+// Enable bookmarks
+
+webKitSettings.EnableBookmarks = true;
+
+//Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -743,6 +957,58 @@ padding-left: 5px;
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter 
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+// WebKit converter settings
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+// Enable table of contents
+
+webKitSettings.EnableToc = true;
+
+//Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -847,6 +1113,72 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter with WebKit Rendering Engine.
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+//Initialize HTML to PDF converter
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Enable TOC
+
+webKitSettings.EnableToc = true;
+
+//Set the style for level 1(H1) items in table of contents
+
+HtmlToPdfTocStyle tocstyleH1 = new HtmlToPdfTocStyle();
+
+tocstyleH1.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Regular);
+
+tocstyleH1.BackgroundColor = new PdfSolidBrush(new PdfColor(Color.FromArgb(68, 114, 196)));
+
+tocstyleH1.ForeColor = PdfBrushes.Pink;
+
+tocstyleH1.Padding = new PdfPaddings(5, 5, 3, 3);
+
+webKitSettings.Toc.SetItemStyle(1, tocstyleH1);
+
+//Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -909,6 +1241,44 @@ document.Save("Sample.pdf")
 document.Close()
 
 {% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter with WebKit rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Set print media type
+webKitSettings.MediaType = MediaType.Print;
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
 
 {% endtabs %}
 
@@ -987,6 +1357,58 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter 
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+// WebKit converter settings 
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Set enable form
+
+webKitSettings.EnableForm = true;
+
+//Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert("http://asp.syncfusion.com/demos/http_post_get/default.aspx");
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents
+.
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -1047,6 +1469,47 @@ Dim document As PdfDocument = htmlConverter.Convert("www.example.com")
 document.Save("Sample.pdf")
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter with WebKit rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+webKitSettings.Username = "username";
+
+webKitSettings.Password = "password";
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("www.example.com");
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -1131,6 +1594,60 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+// WebKit converter settings
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+// Add cookies as name and value pair
+
+webKitSettings.Cookies.Add("CookieName1", " CookieValue1");
+
+webKitSettings.Cookies.Add("CookieName2", " CookieValue2");
+
+//Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert url to pdf
+
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -1202,6 +1719,56 @@ document.Close(true)
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter 
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//Set WebKit path
+
+settings.WebKitPath = @"/QtBinaries/";
+
+//Add a bearer token to login a webpage
+
+settings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>");
+
+//Assign WebKit settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+
+PdfDocument document = htmlConverter.Convert("https://www.example.com");
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -1264,6 +1831,46 @@ Dim document As PdfDocument = htmlConverter.Convert("input.html")
 document.Save("Sample.pdf")
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter with WebKit rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Enable offline mode
+webKitSettings.EnableOfflineMode = true;
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert HTML to PDF
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -1390,6 +1997,62 @@ for(count = 1; count <= 100; count++){
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter 
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+// WebKit converter settings 
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+// Enable html table header repeat on every page.
+
+webKitSettings.EnableRepeatTableHeader = true;
+
+//Enable html table footer repeat on every page.
+
+webKitSettings.EnableRepeatTableFooter = true;
+
+//Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert URL to PDF
+
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -1470,6 +2133,60 @@ Dim document As PdfDocument = htmlConverter.Convert("http://asp.syncfusion.com/d
 document.Save("Output.pdf")
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+// WebKit converter settings
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Add post parameters
+
+webKitSettings.HttpPostFields.Add("firstName", "Andrew");
+
+webKitSettings.HttpPostFields.Add("lastName", "Fuller");
+
+//Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert("http://asp.syncfusion.com/demos/http_post_get/default.aspx");
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -1558,6 +2275,64 @@ Dim document As PdfDocument = htmlConverter.Convert(urlToConvert)
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+// WebKit converter settings
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = @"D:\UG\Samples\PdfCoreSample\PdfCoreSample\QtBinaries";
+
+string url = "http://asp.syncfusion.com/demos/http_post_get/default.aspx";
+
+Uri getMethodUri = new Uri(url);
+
+string httpGetData = getMethodUri.Query.Length > 0 ? "&" : "?" + String.Format("{0}={1}", "firstName", "Andrew");
+
+httpGetData += String.Format("&{0}={1}", "lastName", "Fuller");
+
+string urlToConvert = url + httpGetData;
+
+//Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert(urlToConvert);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -1774,6 +2549,46 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter with WebKit rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Set WebKit viewport size
+webKitSettings.WebKitViewPort = new Size(400, 0);
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("http://www.google.com");
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = "Sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -1850,6 +2665,44 @@ Hello world
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+// WebKit converter settings
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Assign the WebKit settings
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert Partial webpage to PDF
+PdfDocument document = htmlConverter.ConvertPartialHtml("input.html", "pic");
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents
+document.Close(true);
+
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+
+//Define the file name
+string fileName = "Sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## HTML to single PDF page
@@ -1913,6 +2766,46 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com"
 'Save and close the PDF document 
 document.Save("Output.pdf")
 document.Close(true)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//Set WebKit path
+settings.WebKitPath = @"/QtBinaries/";
+
+//Set singlePageLayout option to render the whole HTML content in a single PDF page
+settings.SinglePageLayout = SinglePageLayout.FitWidth;
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents
+document.Close(true);
+
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+
+//Define the file name
+string fileName = "Sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
@@ -2079,6 +2972,58 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Initialize HTML converter 
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+// WebKit converter settings
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Assign the WebKit binaries path
+
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+// Set windows status.
+
+webKitSettings.WindowStatus = "completed";
+
+//Assign the WebKit settings
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Temporary Path
@@ -2138,6 +3083,46 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com"
 'Save and close the PDF document 
 document.Save("Output.pdf")
 document.Close(true)
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter 
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//Set WebKit path
+settings.WebKitPath = @"/QtBinaries/";
+
+//Set Temporary Path to generate temporary files
+settings.TempPath = @"C:/HtmlConversion/Temp/";
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com");
+
+//Save the document into stream.
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name.
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
