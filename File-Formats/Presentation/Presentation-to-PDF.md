@@ -324,6 +324,50 @@ pdfDoc.Close();
 
 {% endtabs %}
 
+## PDF Conformance
+
+Essential Presentation currently supports following PDF conformances while converting a PowerPoint document to PDF.
+
+* PDF/A-1b conformance
+* PDF/X-1a conformance
+
+N> 1. To know more details about PDF/A standard refer [https://en.wikipedia.org/wiki/PDF/A#Description](https://en.wikipedia.org/wiki/PDF/A#Description )
+N> 2. To know more details about PDF/X standard refer [https://en.wikipedia.org/wiki/PDF/X](https://en.wikipedia.org/wiki/PDF/X)
+
+The following code sample demonstrates how to set the PDF conformance level while PowerPoint presentation to PDF conversion.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PowerPoint document
+IPresentation pptxDoc = Presentation.Open("Sample.pptx"));
+
+//Initialize the conversion settings
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+
+//Initialize the conversion settings
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+
+//Set the Pdf conformance level to A1B
+pdfConverterSettings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B;
+
+//Convert the PowerPoint document to PDF
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc,pdfConverterSettings);
+
+//Save the converted PDF file.
+pdfDoc.Save("Sample.pdf");
+
+//Close the presentation instance
+pptxDoc.Close();
+
+//Close the PDF instance
+pdfDoc.Close();
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Chart quality
 
 The Presentation library provides an option to decide the quality of the charts to optimize the converted PDF document size. 
@@ -437,3 +481,40 @@ pdfDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+## PowerPoint to PDF conversion in Azure platform
+
+The Syncfusion PowerPoint library supports converting the PowerPoint document to PDF in Azure platform. The following code sample demonstrates how to convert a PowerPoint presentation to PDF in Azure platform.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PowerPoint document
+IPresentation pptxDoc = Presentation.Open("Table.pptx");
+
+//Initialize the conversion settings
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+
+//Initialize the conversion settings
+PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
+
+//Enable the portable rendering.
+pdfConverterSettings.EnablePortableRendering = true;
+
+//Convert the PowerPoint document to PDF
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc,pdfConverterSettings);
+
+//Save the converted PDF file.
+pdfDoc.Save("Sample.pdf");
+
+//Close the presentation instance
+pptxDoc.Close();
+ 
+//Close the PDF instance
+pdfDoc.Close();
+
+{% endhighlight %}
+
+{% endtabs %}
+
