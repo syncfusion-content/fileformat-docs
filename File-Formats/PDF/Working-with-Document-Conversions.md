@@ -70,12 +70,19 @@ This is supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF<br/><
 
 The following namespaces are required to compile the code in this topic.
 
+For Windows Forms, WPF, ASP.NET and ASP.NET MVC applications
 * using Syncfusion.OfficeChart
 * using Syncfusion.DocIO
 * using Syncfusion.DocIO.DLS
 * using Syncfusion.DocToPDFConverter
 * using Syncfusion.Pdf
 * using Syncfusion.OfficeChartToImageConverter
+
+For ASP.NET Core and Xamarin applications 
+* using Syncfusion.DocIO
+* using Syncfusion.DocIO.DLS
+* using Syncfusion.DocIORenderer
+* using Syncfusion.Pdf
 
 DocToPDFConverter class is responsible for converting a Word document into PDF. The following code snippet illustrates how to convert a Word document into PDF document.
 
@@ -147,11 +154,111 @@ wordDocument.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+// Open the file as Stream
+
+FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+
+//Loads file stream into Word document
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+pdfDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " WordtoPDF.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the Word document as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Template.docx");
+
+//Load the stream into word document
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Save the document into memory stream
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document 
+
+pdfDocument.Close();
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("WordtoPDF.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("WordtoPDF.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 Note:
 
-* Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
 * Initializing the ChartToImageConverter is mandatory to convert the charts present in the Word document to PDF. Otherwise the charts will not be exported to the converted PDF
 * ChartToImageConverter is supported from .NET Framework 4.0 onwards
 * Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to Word document
@@ -266,6 +373,18 @@ wordDocument.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports customizing the Word document to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC Platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports customizing the Word document to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC Platforms.
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -368,12 +487,25 @@ excelEngine.Dispose()
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. 
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. 
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. 
+
+{% endhighlight %}
+
 {% endtabs %}
-
-
-
-To know more about ExcelToPdf conversion settings, please refer ExcelToPdfConverterSettings – LINK API reference
-
 
 ### Converting a Worksheet to PDF
 
@@ -450,7 +582,23 @@ excelEngine.Dispose()
 
 {% endhighlight %}
 
+{% highlight UWP %}
 
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -536,6 +684,24 @@ pdfDocument.Close()
 workbook.Close()
 
 excelEngine.Dispose()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
@@ -631,6 +797,24 @@ excelEngine.Dispose()
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
 {% endtabs %}
 
 N> This section is applicable only to the Windows Forms, ASP.NET, MVC and WPF platforms.
@@ -706,9 +890,16 @@ This assembly has the core features for creating PDF file.<br/><br/></td></tr>
 
 The following namespaces are required to compile the code in this topic.
 
+For Windows Forms, WPF, ASP.NET and ASP.NET MVC applications
 * using Syncfusion.DocIO
 * using Syncfusion.DocIO.DLS
 * using Syncfusion.DocToPDFConverter
+* using Syncfusion.Pdf
+
+For ASP.NET Core and Xamarin applications 
+* using Syncfusion.DocIO
+* using Syncfusion.DocIO.DLS
+* using Syncfusion.DocIORenderer
 * using Syncfusion.Pdf
 
 DocToPDFConverter class is responsible for converting a RTF to PDF. The following code snippet illustrates how to convert a RTF to PDF document.
@@ -773,11 +964,111 @@ rtfDocument.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+// Open the file as Stream
+
+FileStream docStream = new FileStream(@"Input.rtf", FileMode.Open, FileAccess.Read);
+
+//Loads file stream into Word document
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+pdfDocument.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " RTFToPDF.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the Word document as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.rtf");
+
+//Load an existing Word document
+
+WordDocument rtfDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(rtfDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+rtfDocument.Dispose();
+
+//Save the document into memory stream
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document 
+
+pdfDocument.Close();
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("RTFToPDF.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("RTFToPDF.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
-N> 1. RTF to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
-N> 2. Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to RTF document.
+N> Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to RTF document.
 
 
 ### Customizing the RTF to PDF conversion
@@ -870,6 +1161,18 @@ pdfDocument.Close(True)
 rtfDocument.Close()
 
 
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports customizing the RTF to PDF conversion only Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports customizing the RTF to PDF conversion only Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
@@ -995,7 +1298,79 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
 
+//Create a PDF document
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Add a section to the PDF document
+
+PdfSection section = pdfDocument.Sections.Add();
+
+//Declare the PDF page
+
+PdfPage page;
+
+//Declare PDF page graphics
+
+PdfGraphics graphics;
+
+//Load multi frame TIFF image
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.image.tiff");
+
+PdfBitmap tiffImage = new PdfBitmap(imageStream);
+
+//Get the frame count
+
+int frameCount = tiffImage.FrameCount;
+
+//Access each frame draw into the page
+
+for (int i = 0; i < frameCount; i++)
+
+{
+
+    page = section.Pages.Add();
+
+    section.PageSettings.Margins.All = 0;
+
+    graphics = page.Graphics;
+
+    tiffImage.ActiveFrame = i;
+
+    graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
+
+}
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await pdfDocument.SaveAsync(memoryStream);
+
+//Close the documents.
+
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports converting multi page TIFF to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports converting multi page TIFF to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -1074,6 +1449,24 @@ pdfDocument.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Essential PDF supports compressing monochrome images only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports compressing monochrome images only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports compressing monochrome images only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+{% endhighlight %}
+
 {% endtabs %}
 
 N> 1. Currently the JBIG2Decode compression is supported only in lossy mode and also only single frame TIFF images are supported.
@@ -1129,7 +1522,47 @@ document.Close(True)
 
 {% endhighlight %}
 
+{% highlight UWP %}
 
+//Create converter class.
+
+XPSToPdfConverter converter = new XPSToPdfConverter();
+
+//Load the XPS file
+
+Stream fileStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.xps");
+
+//Convert the XPS to PDF.
+
+PdfDocument document = converter.Convert(fileStream);
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await document.SaveAsync(memoryStream);
+
+//Close the documents.
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports converting XPS document to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports converting XPS document to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+{% endhighlight %}
 
 {% endtabs %}
 
@@ -1404,6 +1837,64 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Essential PDF supports converting MHTML to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms. 
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter 
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+
+webKitSettings.WebKitPath = @"/QtBinaries/";
+
+//Assign WebKit settings to HTML converter
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert MHTML to PDF
+
+PdfDocument document = htmlConverter.Convert(@"input.mhtml");
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name.
+
+string fileName = " Sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports converting MHTML to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms. 
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -1450,6 +1941,24 @@ htmlConverter.ConverterSettings = webKitSettings
 
 'Convert URL to MHTML
 htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml")
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF supports converting HTML to MHTML only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports converting HTML to MHTML only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports converting HTML to MHTML only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
 
 {% endhighlight %}
 
@@ -1505,6 +2014,24 @@ Dim image As Image() = htmlConverter.ConvertToImage("http://www.syncfusion.com "
 
 'Save the image.
 image(0).Save("Sample.jpg")
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF supports converting HTML to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports converting HTML to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports converting HTML to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
 
 {% endhighlight %}
 
@@ -1566,6 +2093,24 @@ Dim image As Image() = htmlConverter.ConvertToImage(htmlString, baseURL)
 
 'Save the image.
 image(0).Save("Sample.jpg")
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF supports converting HTML string to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports converting HTML string to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports converting HTML string to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
 
 {% endhighlight %}
 
@@ -1656,6 +2201,24 @@ Hello world
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Essential PDF supports converting partial webpage to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports converting partial webpage to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports converting partial webpage to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -1703,6 +2266,24 @@ htmlConverter.ConverterSettings = webKitSettings
 
 'Convert URL to SVG
 htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF supports converting HTML to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports converting HTML to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports converting HTML to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
 
 {% endhighlight %}
 
@@ -1783,6 +2364,24 @@ Hello world
 	</div>
 </body>
 </html>
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF supports converting partial webpage to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports converting partial webpage to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports converting partial webpage to SVG only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
 
 {% endhighlight %}
 

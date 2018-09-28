@@ -134,7 +134,7 @@ graphics.TranslateTransform(100, 60);
 
 //Draw arc.
 
-PdfPen pen = new PdfPen(Color.FromArgb(0,255,0,0), 50);
+PdfPen pen = new PdfPen(new PdfColor(255, 0, 0), 50);
 
 RectangleF bounds = new RectangleF(0, 0, 50, 50);
 
@@ -425,7 +425,7 @@ graphics.TranslateTransform(100, 60);
 
 //Draw arc.
 
-PdfPen pen = new PdfPen(Color.FromArgb(0,0,255,0), 50);
+PdfPen pen = new PdfPen(new PdfColor(255, 0, 0), 50);
 
 RectangleF bounds = new RectangleF(0, 0, 50, 50);
 
@@ -1506,7 +1506,7 @@ graphics.TranslateTransform(100, 60);
 
 //Draw Arc.
 
-PdfPen pen = new PdfPen(Color.FromArgb(0,255,0,0), 50);
+PdfPen pen = new PdfPen(new PdfColor(255, 0, 0), 50);
 
 RectangleF bounds = new RectangleF(0, 0, 50, 50);
 
