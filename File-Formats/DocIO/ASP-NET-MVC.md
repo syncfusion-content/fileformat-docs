@@ -324,6 +324,6 @@ End Class
 
 {% endtabs %}
 
-## Online Samples
+## Online Examples
 
-You can visit our online [demo samples] (https://mvc.syncfusion.com/demos/web/docio/default) to know more about Essential DocIO functionalities. 
+You can visit our [online examples] (https://mvc.syncfusion.com/demos/web/docio/default) to know more about Essential DocIO features. 
