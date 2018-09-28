@@ -1,6 +1,6 @@
 ---
 title: Working with ASP.NET Core
-description: Briefs about loading and saving the PDF document in ASP.NET Core platform
+description: Loading and saving the PDF document in ASP.NET Core platform
 platform: file-formats
 control: PDF
 documentation: UG

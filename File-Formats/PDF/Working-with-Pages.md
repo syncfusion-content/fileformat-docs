@@ -1185,7 +1185,7 @@ else
 
 ## Changing the page numbers in a PDF document
 
-You can alter the page label for the existing PDF document using PdfPageLabel class. Refer to the following code snippet. 
+You can alter the page label for the existing PDF document using ```PdfPageLabel``` class. Refer to the following code snippet. 
 
 {% tabs %}  
 

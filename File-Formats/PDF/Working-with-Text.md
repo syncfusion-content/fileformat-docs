@@ -1077,7 +1077,7 @@ else
 
 ## Measuring a string
 
-The Essential PDF allows you to measure a string using the PdfFont and returns size of the given text. Refer to the following code sample.
+The Essential PDF allows you to measure a string using the ```PdfFont``` and returns size of the given text. Refer to the following code sample.
 
 {% tabs %}
 
