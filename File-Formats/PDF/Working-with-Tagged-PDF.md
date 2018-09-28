@@ -599,7 +599,7 @@ element.AlternateText = "Line Sample";
 //Initialize the line shape
 PdfLine line = new PdfLine(100, 100, 100, 300);
 
-line.Pen = new PdfPen(Color.FromArgb(0,255,0,0));
+line.Pen = new PdfPen(new PdfColor(255, 0, 0));
 
 //Adding tag to the line element
 line.PdfTag = element;
@@ -836,7 +836,7 @@ textBoxField.Text = "Filled text box";
 //Set properties to the textbox.
 textBoxField.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
 
-textBoxField.BorderColor = new PdfColor(Color.FromArgb(255,0,0,0));
+textBoxField.BorderColor = new PdfColor(128,128,128);
 
 textBoxField.BorderStyle = PdfBorderStyle.Beveled;
 
