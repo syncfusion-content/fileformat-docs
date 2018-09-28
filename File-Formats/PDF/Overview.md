@@ -25,7 +25,7 @@ The following list shows the key features available in the Essential PDF.
 * Support to add, modify and remove interactive elements such as bookmarks, annotations and attachments.
 * Support to add barcode in the PDF files.
 * Support to convert PDF to PDF/A-1B conformance.
-* Support for PDFX1-A and PDFA1-B conformances. 
+* Support for PDF/X1-A and PDF/A1-B conformances. 
 * Support to create accessible PDF or tagged PDF (PDF/UA) with section 508 compliant. 
 * Support to redact text and images in the PDF files.  
 * Support to digitally sign PDF. 
