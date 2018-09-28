@@ -1183,6 +1183,226 @@ else
 {% endtabs %}  
 
 
+## Changing the page numbers in a PDF document
+
+You can alter the page label for the existing PDF document using ```PdfPageLabel``` class. Refer to the following code snippet. 
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Load the PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Create a page label
+
+PdfPageLabel pageLabel = new PdfPageLabel();
+
+//Set the number style with upper case roman letters
+
+pageLabel.NumberStyle = PdfNumberStyle.UpperRoman;
+
+//Set the staring number as 1
+
+pageLabel.StartNumber = 1;
+
+loadedDocument.LoadedPageLabel = pageLabel;
+
+//Save the document
+
+loadedDocument.Save("Output.pdf");
+
+//Close the document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document
+
+Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
+
+'Create a page label
+
+Dim pageLabel As New PdfPageLabel()
+
+'Set the number style with upper case roman letters
+
+pageLabel.NumberStyle = PdfNumberStyle.UpperRoman
+
+'Set the staring number as 1
+
+pageLabel.StartNumber = 1
+
+loadedDocument.LoadedPageLabel = pageLabel
+
+'Save the document
+
+loadedDocument.Save("Output.pdf")
+
+'Close the document
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose a file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of the PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+// Create a page label
+
+PdfPageLabel pageLabel = new PdfPageLabel();
+
+//Set the number style with upper case roman letters
+
+pageLabel.NumberStyle = PdfNumberStyle.UpperRoman;
+
+//Set the staring number as 1
+
+pageLabel.StartNumber = 1;
+
+loadedDocument.LoadedPageLabel = pageLabel;
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document instances
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+// Create a page label
+
+PdfPageLabel pageLabel = new PdfPageLabel();
+
+//Set the number style with upper case roman letters
+
+pageLabel.NumberStyle = PdfNumberStyle.UpperRoman;
+
+//Set the staring number as 1
+
+pageLabel.StartNumber = 1;
+
+loadedDocument.LoadedPageLabel = pageLabel;
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0', then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+// Create a page label
+
+PdfPageLabel pageLabel = new PdfPageLabel();
+
+//Set the number style with upper case roman letters
+
+pageLabel.NumberStyle = PdfNumberStyle.UpperRoman;
+
+//Set the staring number as 1
+
+pageLabel.StartNumber = 1;
+
+loadedDocument.LoadedPageLabel = pageLabel;
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document instances
+
+loadedDocument.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %} 
+
+
 ## Removing pages from a document
 
 You can remove the pages from the existing PDF document as shown in the below code snippet. 
