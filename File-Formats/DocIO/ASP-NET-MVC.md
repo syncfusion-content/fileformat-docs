@@ -37,6 +37,41 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 
 return document.ExportAsActionResult("Sample.docx", FormatType.Docx, HttpContext.ApplicationInstance.Response, HttpContentDisposition.Attachment);
 
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Creates an empty Word document instance
+
+Dim document As New WordDocument()
+
+'Adds new section to the document
+
+Dim section As IWSection = document.AddSection()
+
+'Adds new paragraph to the section
+
+Dim paragraph As IWParagraph = section.AddParagraph()
+
+'Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+
+'Export the document after saving
+
+Return document.ExportAsActionResult("Sample.docx", FormatType.Docx, HttpContext.ApplicationInstance.Response, HttpContentDisposition.Attachment)
+
+{% endhighlight %}
+
+{% endtabs %}  
+
+Following extension class will help you to download the Word document.
+
+{% tabs %}  
+
+{% highlight c# %}
+
 public static class DocIOExtension
 {
 
@@ -154,26 +189,6 @@ this.Document.Save(FileName, formatType, Response, ContentDisposition);
 
 {% highlight vb.net %}
 
-
-'Creates an empty Word document instance
-
-Dim document As New WordDocument()
-
-'Adds new section to the document
-
-Dim section As IWSection = document.AddSection()
-
-'Adds new paragraph to the section
-
-Dim paragraph As IWParagraph = section.AddParagraph()
-
-'Appends the text to the created paragraph
-
-paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
-
-'Export the document after saving
-
-Return document.ExportAsActionResult("Sample.docx", FormatType.Docx, HttpContext.ApplicationInstance.Response, HttpContentDisposition.Attachment)
 
 Public Module Class DocIOExtension
 
@@ -307,4 +322,8 @@ End Class
 
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
+
+## Online Examples
+
+You can visit our [online examples] (https://mvc.syncfusion.com/demos/web/docio/default) to know more about Essential DocIO features. 
