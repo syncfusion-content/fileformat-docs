@@ -78,7 +78,7 @@ For Windows Forms, WPF, ASP.NET and ASP.NET MVC applications
 * using Syncfusion.Pdf
 * using Syncfusion.OfficeChartToImageConverter
 
-For UWP, ASP.NET Core and Xamarin applications 
+For ASP.NET Core and Xamarin applications 
 * using Syncfusion.DocIO
 * using Syncfusion.DocIO.DLS
 * using Syncfusion.DocIORenderer
@@ -151,63 +151,6 @@ pdfDocument.Close(True)
 wordDocument.Close()
 
 
-
-{% endhighlight %}
-
-{% highlight UWP %}
-
-//Create the file open picker
-
-FileOpenPicker fileOpenPicker = new FileOpenPicker()
-{
-    ViewMode = PickerViewMode.Thumbnail,
-
-    SuggestedStartLocation = PickerLocationId.PicturesLibrary
-};
-
-fileOpenPicker.FileTypeFilter.Add(".doc");
-
-fileOpenPicker.FileTypeFilter.Add(".docx");
-
-StorageFile file = await fileOpenPicker.PickSingleFileAsync();
-
-//Opens storage file.
-
-var stream = await file.OpenReadAsync();
-
-//Clears the text block
-
-TextBlockView.Text = "";
-
-//Loads document from stream
-
-WordDocument document = new WordDocument(stream.AsStream(), FormatType.Automatic);
-
-//Instantiation of DocIORenderer for Word to PDF conversion
-
-DocIORenderer renderer = new DocIORenderer();
-
-//Converts Word document into PDF
-
-PdfDocument pdf = renderer.ConvertToPDF(document);
-
-//Releases all resources used by the Word document and DocIO Renderer objects
-
-renderer.Dispose(); 
-
-document.Close();
-
-//Output stream to save PDF
-
-MemoryStream outputStream = new MemoryStream();
-
-pdf.Save(outputStream);
-
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-
-Save(outputStream,"WordtoPDF.pdf");
-
-pdf.Close();
 
 {% endhighlight %}
 
@@ -316,7 +259,6 @@ else
 
 Note:
 
-* Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications
 * Initializing the ChartToImageConverter is mandatory to convert the charts present in the Word document to PDF. Otherwise the charts will not be exported to the converted PDF
 * ChartToImageConverter is supported from .NET Framework 4.0 onwards
 * Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to Word document
@@ -428,12 +370,6 @@ pdfDocument.Close(True)
 wordDocument.Close()
 
 
-
-{% endhighlight %}
-
-{% highlight UWP %}
-
-//Essential PDF supports customizing the Word document to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC Platforms.
 
 {% endhighlight %}
 
@@ -555,266 +491,23 @@ excelEngine.Dispose()
 
 {% highlight UWP %}
 
-#region Excel To PDF
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Gets input Excel document from an embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.Data.ExcelToPDF.xlsx");
-
-//Output stream to save PDF
-MemoryStream outputStream = null;
-
-//Creates new instance of HttpClient to access service
-HttpClient client = new HttpClient();
-
-//Web service URI 
-string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
-
-//Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
-HttpResponseMessage response = null;
-try
-{
-    response = await client.PostAsync(requestUri, new StreamContent(inputStream));
-
-    //Dispose the input stream and client instances
-    inputStream.Dispose();
-    client.Dispose();
-}
-catch (Exception ex)
-{
-    return;
-}
-
-//Gets PDF from content stream if the service get success
-if (response.IsSuccessStatusCode)
-{
-    var responseHeaders = response.Headers;
-    outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
-
-    //Dispose the response instance
-    response.Dispose();
-}
-
-else
-{
-    return;
-}
-#endregion
-
-//Save the workbook stream as a file.
-
-#region Setting output location
-StorageFile storageFile;
-if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-{
-    FileSavePicker savePicker = new FileSavePicker();
-    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-    savePicker.SuggestedFileName = "ExcelToPDF";
-    savePicker.FileTypeChoices.Add("PDF File", new List<string>() { ".pdf", });
-    storageFile = await savePicker.PickSaveFileAsync();
-}
-else
-{
-    StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-    storageFile = await local.CreateFileAsync("ExcelToPDF.xlsx", CreationCollisionOption.ReplaceExisting);
-}
-
-if (storageFile == null)
-    return;
-
-using (Stream storageStream = await storageFile.OpenStreamForWriteAsync())
-{
-    if (storageStream.CanSeek)
-        storageStream.SetLength(0);
-    storageStream.Write(outputStream.ToArray(), 0, (int)outputStream.Length);
-    outputStream.Dispose();
-}
-#endregion
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. 
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//Gets assembly
-Assembly assembly = typeof(Program).GetTypeInfo().Assembly;
-
-//Gets input Excel document from an embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.Spreadsheet.xlsx");
-
-//Creates new instance of HttpClient to access the service
-HttpClient client = new HttpClient();
-
-//Web service URI 
-string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
-
-//Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
-HttpResponseMessage response = null;
-try
-{
-    response = await client.PostAsync(requestUri, new StreamContent(inputStream));
-
-    //Dispose the input stream and client instances
-    inputStream.Dispose();
-    client.Dispose();
-}
-catch (Exception ex)
-{
-    return;
-}
-
-MemoryStream outputStream = null;
-
-//Gets PDF from content stream if the service get success
-if (response.IsSuccessStatusCode)
-{
-    var responseHeaders = response.Headers;
-    outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
-    //Dispose the response instance.
-    response.Dispose();
-}
-else
-{
-    return;
-}
-
-//Saving the workbook as stream
-FileStream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
-outputStream.CopyTo(stream);
-
-outputStream.Close();
-outputStream.Dispose();
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. 
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Gets input Excel document from an embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.ExcelToPDF.xlsx");
-
-//Creates new instance of HttpClient to access service
-HttpClient client = new HttpClient();
-
-//Web service URI 
-string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
-
-//Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
-HttpResponseMessage response = null;
-response = await client.PostAsync(requestUri, new StreamContent(inputStream));
-
-//Dispose the input stream and client instances
-inputStream.Dispose();
-client.Dispose();
-
-MemoryStream outputStream = null;
-
-//Gets PDF from content stream if the service get success
-if (response.IsSuccessStatusCode)
-{
-    var responseHeaders = response.Headers;
-    outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
-    //Dispose the response instance.
-    response.Dispose();
-}
-else
-{
-    return;
-}
-
-//Save the stream as Excel document and view the saved document
-
-//The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-    await DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", outputStream);
-}
-else
-{
-    DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", outputStream);
-}
-
-//Dispose the output stream instance
-outputStream.Dispose();
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. 
 
 {% endhighlight %}
 
 {% endtabs %}
-
-**Web Service**
-
-The web service code that converts Excel document at server-side and returns the resultant PDF document as content of HttpResponseMessage at client-side.
-
-> The following server-side code can be invoked from client-side using web service URI.
-
-{% tabs %}
-{% highlight c# %}
-HttpFileCollection files = HttpContext.Current.Request.Files;
-
-if (files.Count == 0)
-    return;
-    
-//Loads an existing Excel document stream	
-using (Stream stream = files[0].InputStream)
-{
-  using (ExcelEngine engine = new ExcelEngine())
-  {
-    IApplication application = engine.Excel;
-	
-    //Initializes the ChartToImageConverter for converting charts during Excel To PDF conversion
-    application.ChartToImageConverter = new ChartToImageConverter();
-    application.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
-	
-    //Creates an instance of the ExcelToPDFConverter
-    using (ExcelToPdfConverter excelToPDFConverter = new ExcelToPdfConverter(stream))
-    {
-      //Converts Excel document into PDF document
-      using (PdfDocument pdfDocument = excelToPDFConverter.Convert())
-      {
-        //Saves the PDF document to response stream
-        pdfDocument.Save("ExcelToPDF.pdf", HttpContext.Current.Response, HttpReadType.Save);
-        pdfDocument.Close(true);
-      }
-    } 
-  }
-}
-{% endhighlight %}
-{% highlight vb %}
-Dim files As HttpFileCollection = HttpContext.Current.Request.Files
-
-If files.Count = 0 Then Return
-
-'Loads an existing Excel document stream
-Using stream As Stream = files(0).InputStream
-      Using engine As ExcelEngine = New ExcelEngine()
-          Dim application As IApplication = engine.Excel
-          
-          'Initializes the ChartToImageConverter for converting charts during Excel To PDF conversion
-          application.ChartToImageConverter = New ChartToImageConverter()
-          application.ChartToImageConverter.ScalingMode = ScalingMode.Normal
-          
-          'Creates an instance of the ExcelToPDFConverter
-          Using excelToPDFConverter As ExcelToPdfConverter = New ExcelToPdfConverter(stream)
-          
-             'Converts Excel document into PDF document
-              Using pdfDocument As PdfDocument = excelToPDFConverter.Convert()
-              
-                 'Saves the PDF document to response stream
-                  pdfDocument.Save("ExcelToPDF.pdf", HttpContext.Current.Response, HttpReadType.Save)
-                  pdfDocument.Close(True)
-                  
-              End Using
-          End Using
-      End Using
-End Using
-{% endhighlight %}
-{% endtabs %}
-
-To know more about ExcelToPdf conversion settings, please refer ExcelToPdfConverterSettings – LINK API reference
-
 
 ### Converting a Worksheet to PDF
 
@@ -893,19 +586,19 @@ excelEngine.Dispose()
 
 {% highlight UWP %}
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
@@ -998,19 +691,19 @@ excelEngine.Dispose()
 
 {% highlight UWP %}
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
@@ -1108,19 +801,19 @@ excelEngine.Dispose()
 
 {% highlight UWP %}
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//Essential PDF supports Excel to PDF conversion only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
@@ -1199,9 +892,16 @@ This assembly has the core features for creating PDF file.<br/><br/></td></tr>
 
 The following namespaces are required to compile the code in this topic.
 
+For Windows Forms, WPF, ASP.NET and ASP.NET MVC applications
 * using Syncfusion.DocIO
 * using Syncfusion.DocIO.DLS
 * using Syncfusion.DocToPDFConverter
+* using Syncfusion.Pdf
+
+For ASP.NET Core and Xamarin applications 
+* using Syncfusion.DocIO
+* using Syncfusion.DocIO.DLS
+* using Syncfusion.DocIORenderer
 * using Syncfusion.Pdf
 
 DocToPDFConverter class is responsible for converting a RTF to PDF. The following code snippet illustrates how to convert a RTF to PDF document.
@@ -1263,63 +963,6 @@ pdfDocument.Close(True)
 rtfDocument.Close()
 
 
-
-{% endhighlight %}
-
-{% highlight UWP %}
-
-//Create the file open picker
-
-FileOpenPicker fileOpenPicker = new FileOpenPicker()
-{
-    ViewMode = PickerViewMode.Thumbnail,
-
-    SuggestedStartLocation = PickerLocationId.PicturesLibrary
-};
-
-fileOpenPicker.FileTypeFilter.Add(".rtf");
-
-//fileOpenPicker.FileTypeFilter.Add(".docx");
-
-StorageFile file = await fileOpenPicker.PickSingleFileAsync();
-
-//Opens storage file.
-
-var stream = await file.OpenReadAsync();
-
-//Clears the text block
-
-TextBlockView.Text = "";
-
-//Loads document from stream
-
-WordDocument document = new WordDocument(stream.AsStream(), FormatType.Automatic);
-
-//Instantiation of DocIORenderer for Word to PDF conversion
-
-DocIORenderer renderer = new DocIORenderer();
-
-//Converts Word document into PDf
-
-PdfDocument pdf = renderer.ConvertToPDF(document);
-
-//Releases all resources used by the Word document and DocIO Renderer objects
-
-renderer.Dispose(); 
-
-document.Close();
-
-//Output stream to save PDF
-
-MemoryStream outputStream = new MemoryStream();
-
-pdf.Save(outputStream);
-
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-
-Save(outputStream,"RTFToPDF.pdf");
-
-pdf.Close();
 
 {% endhighlight %}
 
@@ -1427,8 +1070,7 @@ else
 {% endtabs %}
 
 
-N> 1. RTF to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin and UWP applications.
-N> 2. Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to RTF document.
+N> Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to RTF document.
 
 
 ### Customizing the RTF to PDF conversion
@@ -1521,12 +1163,6 @@ pdfDocument.Close(True)
 rtfDocument.Close()
 
 
-
-{% endhighlight %}
-
-{% highlight UWP %}
-
-//Essential PDF supports customizing the RTF to PDF conversion only Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 

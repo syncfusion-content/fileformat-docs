@@ -340,7 +340,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 document.Close(true);
 
 //Defining the ContentType for pdf file.
@@ -441,7 +441,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 document.Close(true);
 
 //Defining the ContentType for pdf file.
@@ -542,7 +542,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 document.Close(true);
 
 //Defining the ContentType for pdf file.
@@ -643,7 +643,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 document.Close(true);
 
 //Defining the ContentType for pdf file.
@@ -815,7 +815,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 
 document.Close(true);
 
@@ -991,7 +991,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 
 document.Close(true);
 
@@ -1161,7 +1161,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 
 document.Close(true);
 
@@ -1268,7 +1268,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 document.Close(true);
 
 //Defining the ContentType for pdf file.
@@ -1391,8 +1391,8 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents
-.
+//Close the document
+
 document.Close(true);
 
 //Defining the ContentType for pdf file.
@@ -1499,7 +1499,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 document.Close(true);
 
 //Defining the ContentType for pdf file.
@@ -1630,7 +1630,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 
 document.Close(true);
 
@@ -1751,7 +1751,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 
 document.Close(true);
 
@@ -1860,7 +1860,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 document.Close(true);
 
 //Defining the ContentType for pdf file.
@@ -2035,7 +2035,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 
 document.Close(true);
 
@@ -2172,7 +2172,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 
 document.Close(true);
 
@@ -2318,7 +2318,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 
 document.Close(true);
 
@@ -2575,7 +2575,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 document.Close(true);
 
 //Defining the ContentType for pdf file.
@@ -2689,7 +2689,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents
+//Close the document
 document.Close(true);
 
 //Defining the ContentType for pdf file
@@ -2795,7 +2795,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents
+//Close the document
 document.Close(true);
 
 //Defining the ContentType for pdf file
@@ -3006,7 +3006,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents
+//Close the document
 
 document.Close(true);
 
@@ -3112,7 +3112,7 @@ document.Save(stream);
 
 stream.Position = 0;
 
-//Close the documents.
+//Close the document.
 document.Close(true);
 
 //Defining the ContentType for pdf file.
