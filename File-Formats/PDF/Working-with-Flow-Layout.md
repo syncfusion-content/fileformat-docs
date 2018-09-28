@@ -44,14 +44,6 @@ Imports Syncfusion.DocIO.DLS
 Imports Syncfusion.DocToPDFConverter
 {% endhighlight %}
 
-{% highlight UWP %}
-
-using Syncfusion.Pdf;
-using Syncfusion.DocIO.DLS;
-using Syncfusion.DocIORenderer;
-
-{% endhighlight %}
-
 {% highlight ASP.NET Core %}
 
 using Syncfusion.Pdf;
@@ -141,46 +133,6 @@ pdfDocument.Save("Output.pdf")
 pdfDocument.Close(True)
 'Close the document
 wordDocument.Close()
-{% endhighlight %}
-
-{% highlight UWP %}
-
-//Creates a new Word document 
-WordDocument wordDocument = new WordDocument();
-//Adds new section with single paragraph to the document
-wordDocument.EnsureMinimal();
-wordDocument.LastSection.PageSetup.Margins.All = 15;
-//Get Last paragraph of the document
-IWParagraph paragraph = wordDocument.LastParagraph;
-//Create a custom style
-WParagraphStyle paragraphStyle = wordDocument.Styles.FindByName("Normal") as WParagraphStyle;
-paragraphStyle.CharacterFormat.Font = new Font("Times New Roman", 12);
-paragraphStyle.ParagraphFormat.HorizontalAlignment =Syncfusion.DocIO.DLS.HorizontalAlignment.Justify;
-paragraphStyle.ParagraphFormat.AfterSpacing = 15f;
-WSection section = wordDocument.LastSection;
-string text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
-//Adds new text to the paragraphs
-paragraph.AppendText(text);
-//Adds first text to the paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText(text);
-//Second paragraph
-paragraph = section.AddParagraph();
-paragraph.AppendText(text);
-//Instantiation of DocIORenderer for Word to PDF conversion
-DocIORenderer renderer = new DocIORenderer();
-//Converts Word document into PDF
-PdfDocument pdf = renderer.ConvertToPDF(wordDocument);
-//Releases all resources used by the Word document and DocIO Renderer objects
-renderer.Dispose();
-wordDocument.Close();
-//Output stream to save PDF
-MemoryStream outputStream = new MemoryStream();
-pdf.Save(outputStream);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(outputStream,"Output.pdf");
-pdf.Close();
-
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -392,70 +344,6 @@ Dim pdfDocument As PdfDocument = converter.ConvertToPDF(document)
 pdfDocument.Save("Sample.pdf")
 pdfDocument.Close(True)
 document.Close()
-{% endhighlight %}
-
-{% highlight UWP %}
-
-//A new document is created.
-WordDocument document = new WordDocument();
-//Adding a new section to the document.
-WSection section = document.AddSection() as WSection;
-//Set Margin of the section
-section.PageSetup.Margins.All = 20;
-
-//Create Paragraph styles
-WParagraphStyle style = document.AddParagraphStyle("Normal") as WParagraphStyle;
-style.CharacterFormat.FontName = "Calibri";
-style.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Justify;
-style.CharacterFormat.FontSize = 11f;
-style.ParagraphFormat.AfterSpacing = 8;
-style.ParagraphFormat.FirstLineIndent = 36f;
-
-style = document.AddParagraphStyle("Heading 1") as WParagraphStyle;
-style.ApplyBaseStyle("Normal");
-style.CharacterFormat.FontName = "Calibri Light";
-style.CharacterFormat.FontSize = 16f;
-style.CharacterFormat.TextColor = Color.FromArgb(46, 116, 181);
-//Appends paragraph.
-IWParagraph paragraph = section.AddParagraph();
-paragraph.ApplyStyle("Heading 1");
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-paragraph.ParagraphFormat.AfterSpacing = 10;
-WTextRange textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
-textRange.CharacterFormat.FontSize = 18f;
-textRange.CharacterFormat.FontName = "Calibri";
-string text =
-"Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
-//Appends paragraph.
-paragraph = section.AddParagraph();
-textRange = paragraph.AppendText(text) as WTextRange;
-
-paragraph = section.AddParagraph();
-textRange = paragraph.AppendText(text) as WTextRange;
-//Add image to the paragraph
-paragraph = section.AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Mountain-200.jpg");
-paragraph.AppendPicture(imageStream);
-
-//Appends paragraph.
-paragraph = section.AddParagraph();
-textRange = paragraph.AppendText(text) as WTextRange;
-
-//Instantiation of DocIORenderer for Word to PDF conversion
-DocIORenderer renderer = new DocIORenderer();
-//Converts Word document into PDF
-PdfDocument pdf = renderer.ConvertToPDF(document);
-//Releases all resources used by the Word document and DocIO Renderer objects
-renderer.Dispose();
-document.Close();
-//Output stream to save PDF
-MemoryStream outputStream = new MemoryStream();
-pdf.Save(outputStream);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(outputStream,"Output.pdf");
-pdf.Close();
-
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -755,87 +643,6 @@ pdfDocument.Save("Output.pdf")
 pdfDocument.Close(True)
 'Close the document
 wordDocument.Close()
-{% endhighlight %}
-
-{% highlight UWP %}
-
-//Creates a new Word document 
-WordDocument wordDocument = new WordDocument();
-//Adding a new section to the document.
-WSection section = wordDocument.AddSection() as WSection;
-//Set Margin of the section
-section.PageSetup.Margins.All = 20;
-// Adding a new Table
-WTable table = section.AddTable() as WTable;
-table.TableFormat.Paddings.All = 2;
-table.TableFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.Single;
-// Inserting rows to the table.
-table.ResetCells(4, 5);
-
-//Appends paragraph with header.
-IWParagraph paragraph = table[0, 0].AddParagraph();
-paragraph.AppendText("SNO");
-paragraph = table[0, 1].AddParagraph();
-paragraph.AppendText("PRODUCT");
-paragraph = table[0, 2].AddParagraph();
-paragraph.AppendText("PRICE ($)");
-paragraph = table[0, 3].AddParagraph();
-paragraph.AppendText("QUANTITY");
-paragraph = table[0, 4].AddParagraph();
-paragraph.AppendText("TOTAL PRICE ($)");
-//Add the first item
-paragraph = table[1, 0].AddParagraph();
-paragraph.AppendText("1");
-paragraph = table[1, 1].AddParagraph();
-paragraph.AppendText("AWC Logo Cap");
-paragraph = table[1, 2].AddParagraph();
-paragraph.AppendText("8.99");
-paragraph = table[1, 3].AddParagraph();
-paragraph.AppendText("2");
-paragraph = table[1, 4].AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-paragraph.AppendText("17.98");
-//Add the second item
-paragraph = table[2, 0].AddParagraph();
-paragraph.AppendText("2");
-paragraph = table[2, 1].AddParagraph();
-paragraph.AppendText("Long-Sleeve Logo Jersey, M");
-paragraph = table[2, 2].AddParagraph();
-paragraph.AppendText("49.99");
-paragraph = table[2, 3].AddParagraph();
-paragraph.AppendText("3");
-paragraph = table[2, 4].AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-paragraph.AppendText("149.97");
-// Table formatting with cell merging.
-table[3, 0].CellFormat.HorizontalMerge = CellMerge.Start;
-table[3, 1].CellFormat.HorizontalMerge = CellMerge.Continue;
-table[3, 2].CellFormat.HorizontalMerge = CellMerge.Continue;
-table[3, 3].CellFormat.HorizontalMerge = CellMerge.Continue;
-paragraph = table[3, 0].AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-paragraph.AppendText("Grand Total");
-paragraph = table[3, 4].AddParagraph();
-paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-paragraph.AppendText("167.95");
-
-//Apply built-in table style to the table.
-table.ApplyStyle(BuiltinTableStyle.MediumShading1Accent1);
-
-//Instantiation of DocIORenderer for Word to PDF conversion
-DocIORenderer renderer = new DocIORenderer();
-//Converts Word document into PDF
-PdfDocument pdf = renderer.ConvertToPDF(wordDocument);
-//Releases all resources used by the Word document and DocIO Renderer objects
-renderer.Dispose();
-wordDocument.Close();
-//Output stream to save PDF
-MemoryStream outputStream = new MemoryStream();
-pdf.Save(outputStream);
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
-Save(outputStream,"Output.pdf");
-pdf.Close();
-
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}

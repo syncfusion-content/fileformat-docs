@@ -325,7 +325,7 @@ string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion
 string baseUrl = @"C:/Temp/HTMLFiles/";
 
 //Set WebKit path
-settings.WebKitPath = @"/QtBinaries/";
+settings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Assign WebKit settings to HTML converter
 htmlConverter.ConverterSettings = settings;
@@ -423,7 +423,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Disable JavaScript; By default - true
 webKitSettings.EnableJavaScript = false;
@@ -524,7 +524,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set additional delay; units in milliseconds;
 webKitSettings.AdditionalDelay = 3000;
@@ -625,7 +625,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Enable hyperlinks; By default - true
 webKitSettings.EnableHyperLink = false;
@@ -793,7 +793,7 @@ WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Assign the WebKit binaries path
 
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 // Enable bookmarks
 
@@ -969,7 +969,7 @@ WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Assign the WebKit binaries path
 
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 // Enable table of contents
 
@@ -1125,7 +1125,7 @@ WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Assign the WebKit binaries path
 
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Enable TOC
 
@@ -1250,7 +1250,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set print media type
 webKitSettings.MediaType = MediaType.Print;
@@ -1369,7 +1369,7 @@ WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Assign the WebKit binaries path
 
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set enable form
 
@@ -1480,7 +1480,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 webKitSettings.Username = "username";
 
@@ -1606,7 +1606,7 @@ WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Assign the WebKit binaries path
 
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 // Add cookies as name and value pair
 
@@ -1729,7 +1729,7 @@ WebKitConverterSettings settings = new WebKitConverterSettings();
 
 //Set WebKit path
 
-settings.WebKitPath = @"/QtBinaries/";
+settings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Add a bearer token to login a webpage
 
@@ -1842,7 +1842,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Enable offline mode
 webKitSettings.EnableOfflineMode = true;
@@ -2009,7 +2009,7 @@ WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Assign the WebKit binaries path
 
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 // Enable html table header repeat on every page.
 
@@ -2148,7 +2148,7 @@ WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Assign the WebKit binaries path
 
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Add post parameters
 
@@ -2290,7 +2290,7 @@ WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Assign the WebKit binaries path
 
-webKitSettings.WebKitPath = @"D:\UG\Samples\PdfCoreSample\PdfCoreSample\QtBinaries";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 string url = "http://asp.syncfusion.com/demos/http_post_get/default.aspx";
 
@@ -2557,7 +2557,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Set WebKit path
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set WebKit viewport size
 webKitSettings.WebKitViewPort = new Size(400, 0);
@@ -2674,7 +2674,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Assign the WebKit binaries path
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Assign the WebKit settings
 htmlConverter.ConverterSettings = webKitSettings;
@@ -2777,7 +2777,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 WebKitConverterSettings settings = new WebKitConverterSettings();
 
 //Set WebKit path
-settings.WebKitPath = @"/QtBinaries/";
+settings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set singlePageLayout option to render the whole HTML content in a single PDF page
 settings.SinglePageLayout = SinglePageLayout.FitWidth;
@@ -2984,7 +2984,7 @@ WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Assign the WebKit binaries path
 
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 // Set windows status.
 
@@ -3094,7 +3094,7 @@ HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
 WebKitConverterSettings settings = new WebKitConverterSettings();
 
 //Set WebKit path
-settings.WebKitPath = @"/QtBinaries/";
+settings.WebKitPath = @"\QtBinariesDotNetCore\";
 
 //Set Temporary Path to generate temporary files
 settings.TempPath = @"C:/HtmlConversion/Temp/";
