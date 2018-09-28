@@ -403,8 +403,6 @@ Essential PDF allows you to convert an entire workbook or a single worksheet int
 
 ### Converting  a Workbook to PDF
 
-Essential PDF supports Excel to PDF conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. To achieve Excel to PDF conversion in other platforms like UWP, Xamarin, ASP.NET Core it is recommended to use web service.
-
 The following code illustrates how to convert a workbook to PDF Document.
 
 {% tabs %}
