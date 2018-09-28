@@ -795,8 +795,8 @@ This feature supports the following elements:
 * 3D charts
 * AutoShapes
 * Group shapes
-* Conditional Formatting
-* Pivot Tables
+* Conditional formats
+* Pivot tables
 
 ## Unsupported elements
 
