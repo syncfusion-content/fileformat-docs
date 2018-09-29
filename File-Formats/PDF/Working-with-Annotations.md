@@ -1259,13 +1259,13 @@ PdfFreeTextAnnotation freeText = new PdfFreeTextAnnotation(new RectangleF(50, 10
 
 freeText.MarkupText = "Free Text with Callout";
 
-freeText.TextMarkupColor = new PdfColor(Color.FromArgb(0,0,0,255));
+freeText.TextMarkupColor = new PdfColor(0, 0, 0);
 
 freeText.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 7f);
 
-freeText.Color = new PdfColor(Color.FromArgb(0, 0, 255, 0));
+freeText.Color = new PdfColor(255, 255, 0);
 
-freeText.BorderColor = new PdfColor(Color.FromArgb(0, 255, 0, 0));
+freeText.BorderColor = new PdfColor(255, 0, 0);
 
 freeText.Border = new PdfAnnotationBorder(.5f);
 
@@ -1629,9 +1629,9 @@ lineAnnotation.AnnotationFlags = PdfAnnotationFlags.Default;
 
 //Assigns the line color
 
-lineAnnotation.InnerLineColor = new PdfColor(Color.FromArgb(0,0,255,0));
+lineAnnotation.InnerLineColor = new PdfColor(0, 128, 0);
 
-lineAnnotation.BackColor = new PdfColor(Color.FromArgb(0, 0, 255, 0));
+lineAnnotation.BackColor = new PdfColor(0, 128, 0);
 
 //Assigns the leader line
 
@@ -3335,7 +3335,7 @@ documentLinkAnnotation.AnnotationFlags = PdfAnnotationFlags.NoRotate;
 
 documentLinkAnnotation.Text = "Document link annotation";
 
-documentLinkAnnotation.Color = new PdfColor(Color.FromArgb(0,0,0,255));
+documentLinkAnnotation.Color = new PdfColor(Color.FromArgb(0,0,0,128));
 
 //Sets the destination.
 

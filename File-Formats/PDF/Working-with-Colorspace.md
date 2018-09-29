@@ -2151,9 +2151,9 @@ PdfPage pdfPage = pdfDocument.Pages.Add();
 
 PdfGraphics graphics = pdfPage.Graphics;
 
-PdfPen pen = new PdfPen(Color.FromArgb(0,255,0,0));
+PdfPen pen = new PdfPen(new PdfColor(255,0,0));
 
-PdfBrush brush = new PdfSolidBrush(Color.FromArgb(0,0,0,255));
+PdfBrush brush = new PdfSolidBrush(new PdfColor(0,0,255));
 
 RectangleF rectangle = new RectangleF(0, 0, 100, 100);
 
@@ -2499,9 +2499,9 @@ PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
 
 PdfGraphics graphics = loadedPage.Graphics;
 
-PdfPen pen = new PdfPen(Color.FromArgb(0,255,0,0));
+PdfPen pen = new PdfPen(new PdfColor(255,0,0));
 
-PdfBrush brush = new PdfSolidBrush(Color.FromArgb(0,0,0,255));
+PdfBrush brush = new PdfSolidBrush(new PdfColor(0,0,255));
 
 RectangleF rectangle = new RectangleF(0, 0, 100, 100);
 
