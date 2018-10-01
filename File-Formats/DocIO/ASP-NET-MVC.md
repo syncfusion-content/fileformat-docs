@@ -326,6 +326,6 @@ End Class
 
 ## Online Examples
 
-1. You can visit our ASP.NET MVC (JavaScript) online examples for [more examples of Essential DocIO](https://aspnetmvc.syncfusion.com/DocIO/UpdateFields#/material).
+1. You can visit our ASP.NET MVC (JavaScript) online examples for [more examples of Essential DocIO](https://ej2.syncfusion.com/aspnetmvc/DocIO/UpdateFields#/material).
 
 2. You can visit our ASP.NET MVC (jQuery) online examples for [more examples of Essential DocIO](https://mvc.syncfusion.com/demos/web/docio/default).
