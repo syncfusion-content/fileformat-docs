@@ -1853,7 +1853,7 @@ WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
 
 //Set WebKit path
 
-webKitSettings.WebKitPath = @"/QtBinaries/";
+webKitSettings.WebKitPath = @"/QtBinariesDotNetCore/";
 
 //Assign WebKit settings to HTML converter
 
