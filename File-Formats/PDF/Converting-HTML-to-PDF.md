@@ -1280,6 +1280,8 @@ string fileName = " Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
+{% endhighlight %}
+
 {% endtabs %}
 
 
