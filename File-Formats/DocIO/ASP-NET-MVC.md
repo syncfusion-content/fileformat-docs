@@ -326,4 +326,6 @@ End Class
 
 ## Online Examples
 
-You can visit our [online examples] (https://mvc.syncfusion.com/demos/web/docio/default) to know more about Essential DocIO features. 
+1. You can visit our ASP.NET MVC (JavaScript) online examples for [more examples of Essential DocIO](https://aspnetmvc.syncfusion.com/DocIO/UpdateFields#/material).
+
+2. You can visit our ASP.NET MVC (jQuery) online examples for [more examples of Essential DocIO](https://mvc.syncfusion.com/demos/web/docio/default).
