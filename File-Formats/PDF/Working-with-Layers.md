@@ -1159,8 +1159,286 @@ else
 
 {% endhighlight %}
 
-{% endtabs %}   
+{% endtabs %}  
 
+## Nested Layers
+
+Essential PDF allows users to add nested layers in the PDF document. Refer to the following code snippet. 
+
+{% tabs %} 
+
+{% highlight c# %}
+
+//Create the PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+//Add the parent layer
+
+PdfLayer layer = document.Layers.Add("Layer1");
+
+PdfGraphics graphics = layer.CreateGraphics(page);
+
+graphics.TranslateTransform(100, 60);
+
+//Draw an arc
+
+PdfPen pen = new PdfPen(Color.Red, 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add the child layer
+
+PdfLayer layer2 = layer.Layers.Add("Layer2");
+
+graphics = layer2.CreateGraphics(page);
+
+graphics.TranslateTransform(100, 180);
+
+//Draw an ellipse
+
+graphics.DrawEllipse(pen, bounds);
+
+//Save the document
+
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create the PDF document
+
+Dim document As New PdfDocument()
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Add the parent layer
+
+Dim layer As PdfLayer = document.Layers.Add("Layer1")
+
+Dim graphics As PdfGraphics = layer.CreateGraphics(page)
+
+graphics.TranslateTransform(100, 60)
+
+'Draw an arc
+
+Dim pen As New PdfPen(Color.Red, 50)
+
+Dim bounds As New RectangleF(0, 0, 50, 50)
+
+graphics.DrawArc(pen, bounds, 360, 360)
+
+'Add the child layer
+
+Dim layer2 As PdfLayer = layer.Layers.Add("Layer2")
+
+graphics = layer2.CreateGraphics(page)
+
+graphics.TranslateTransform(100, 180)
+
+'Draw an ellipse
+
+graphics.DrawEllipse(pen, bounds)
+
+'Save the document
+
+document.Save("Output.pdf")
+
+'Close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+//Add the parent layer
+
+PdfLayer layer = document.Layers.Add("Layer1");
+
+PdfGraphics graphics = layer.CreateGraphics(page);
+
+graphics.TranslateTransform(100, 60);
+
+//Draw an arc
+
+PdfPen pen = new PdfPen(new PdfColor(255,0,0), 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add the child layer
+
+PdfLayer layer2 = layer.Layers.Add("Layer2");
+
+graphics = layer2.CreateGraphics(page);
+
+graphics.TranslateTransform(100, 180);
+
+//Draw an ellipse
+
+graphics.DrawEllipse(pen, bounds);
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document instances
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create the PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+//Add the parent layer
+
+PdfLayer layer = document.Layers.Add("Layer1");
+
+PdfGraphics graphics = layer.CreateGraphics(page);
+
+graphics.TranslateTransform(100, 60);
+
+//Draw an arc
+
+PdfPen pen = new PdfPen(Color.Red, 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add the child layer
+
+PdfLayer layer2 = layer.Layers.Add("Layer2");
+
+graphics = layer2.CreateGraphics(page);
+
+graphics.TranslateTransform(100, 180);
+
+//Draw an ellipse
+
+graphics.DrawEllipse(pen, bounds);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0', the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create the PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+//Add the parent layer
+
+PdfLayer layer = document.Layers.Add("Layer1");
+
+PdfGraphics graphics = layer.CreateGraphics(page);
+
+graphics.TranslateTransform(100, 60);
+
+//Draw an arc
+
+PdfPen pen = new PdfPen(Syncfusion.Drawing.Color.Red, 50);
+
+RectangleF bounds = new RectangleF(0, 0, 50, 50);
+
+graphics.DrawArc(pen, bounds, 360, 360);
+
+//Add the child layer
+
+PdfLayer layer2 = layer.Layers.Add("Layer2");
+
+graphics = layer2.CreateGraphics(page);
+
+graphics.TranslateTransform(100, 180);
+
+//Draw an ellipse
+
+graphics.DrawEllipse(pen, bounds);
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document instances
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
 
 ## Removing layers from an existing PDF document
 
