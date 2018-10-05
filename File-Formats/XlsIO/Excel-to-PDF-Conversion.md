@@ -1,6 +1,6 @@
 ---
 title: Excel to PDF Conversion
-description: Briefs about Excel to PDF conversion in XlsIO
+description: In this section, you can learn how to convert Excel Workbook to PDF & Worksheet to PDF file; how to print Excel file and how to convert Excel chart to image
 platform: File-formats
 control: XlsIO
 documentation: UG

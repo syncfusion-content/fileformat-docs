@@ -1,6 +1,6 @@
 ---
 title: Overview of Essential Presentation library
-description: Overview of Essential Presentation library
+description: Essential Presentation is a .NET PowerPoint library to create, read, edit, & convert PowerPoint files in WinForms, WPF, UWP, ASP.NET Core, ASP.NET, Xamarin applications
 platform: file-formats
 control: Presentation
 documentation: UG

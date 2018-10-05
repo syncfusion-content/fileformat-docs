@@ -1,6 +1,6 @@
 ---
-title: Overview
-description: This section explains about Essential PDF
+title: Create, read, edit, convert PDF files in .NET applications [C#, VB.NET]
+description: Essential PDF is a .NET PDF library to create, read, edit, & convert PDF files in Windows Forms, WPF, UWP, ASP.NET Core, ASP.NET MVC, Xamarin applications
 platform: file-formats
 control: PDF
 documentation: UG

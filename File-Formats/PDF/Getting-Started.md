@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Create a simple PDF file with basic elements such as text, image & tables
 description: This section explains creating a simple PDF document with basic elements
 platform: file-formats
 control: PDF
