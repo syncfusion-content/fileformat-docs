@@ -1,6 +1,6 @@
 ---
 title: Converting HTML to PDF
-description: This section explains converting HTML to PDF
+description: Learn how to convert HTML to PDF using 3 different rendering engines (Blink, WebKit and IE) with various features like TOC, partial web page to PDF etc.
 platform: file-formats
 control: PDF
 documentation: UG
