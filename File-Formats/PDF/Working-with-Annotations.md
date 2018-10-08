@@ -871,6 +871,168 @@ else
 
 {% endtabs %}
 
+To flatten pop-up annotation in the PDF document, use the following code example.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("PopupAnnotation.pdf");
+//Get all the pages
+foreach(PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    foreach(PdfLoadedAnnotation annotation in loadedPage.Annotations)
+    {
+        if(annotation is PdfLoadedPopupAnnotation)
+        {
+            //Enable the flatten annotation
+            annotation.Flatten = true;
+            //Enable flatten for the pop-up window annotation
+            annotation.FlattenPopUps = true;
+        }
+    }
+}
+//Save the document
+loadedDocument.Save("Output.pdf");
+//Close the document
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing PDF document
+Dim loadedDocument As New PdfLoadedDocument("PopupAnnotation.pdf")
+'Get all the pages
+For Each loadedPage As PdfLoadedPage In loadedDocument.Pages
+    For Each annotation As PdfLoadedAnnotation In loadedPage.Annotations
+        If TypeOf annotation Is PdfLoadedPopupAnnotation Then
+            'Enable the flatten annotation
+            annotation.Flatten = True
+            'Enable flatten for the pop-up window annotation
+            annotation.FlattenPopUps = True
+        End If
+    Next
+Next
+'Save the document
+loadedDocument.Save("Output.pdf")
+'Close the document
+loadedDocument.Close(True)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+var picker = new FileOpenPicker();
+picker.FileTypeFilter.Add(".pdf");
+//Browse and choose the file
+StorageFile file = await picker.PickSingleFileAsync();
+//Creates an empty PDF loaded document instance
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+//Loads or opens an existing PDF document using Open method of the PdfLoadedDocument class
+await loadedDocument.OpenAsync(file);
+//Get all the page
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
+    {
+        if (annotation is PdfLoadedPopupAnnotation)
+        {
+            //Enable the flatten annotation
+            annotation.Flatten = true;
+            //Enable flatten for the pop-up window annotation
+            annotation.FlattenPopUps = true;
+        }
+    }
+}
+//Save the document as stream
+MemoryStream stream = new MemoryStream();
+await loadedDocument.SaveAsync(stream);
+//Close the document instances
+loadedDocument.Close(true);
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+FileStream docStream = new FileStream("PopupAnnotation.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Get all the pages
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
+    {
+        if (annotation is PdfLoadedPopupAnnotation)
+        {
+            //Enable the flatten annotation
+            annotation.Flatten = true;
+            //Enable flatten for the pop-up window annotation
+            annotation.FlattenPopUps = true;
+        }
+    }
+}
+//Creating the stream object
+MemoryStream stream = new MemoryStream();
+//Save the document as stream
+loadedDocument.Save(stream);
+//If the position is not set to '0', then the PDF will be empty
+stream.Position = 0;
+//Close the document
+loadedDocument.Close(true);
+//Defining the ContentType for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "Output.pdf";
+//Creates the FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PopupAnnotation.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+//Get all the pages
+foreach (PdfLoadedPage loadedPage in loadedDocument.Pages)
+{
+    foreach (PdfLoadedAnnotation annotation in loadedPage.Annotations)
+    {
+        if (annotation is PdfLoadedPopupAnnotation)
+        {
+            //Enable the flatten annotation
+            annotation.Flatten = true;
+            //Enable flatten for the pop-up window annotation
+            annotation.FlattenPopUps = true;
+        }
+    }
+}
+//Save the document as stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document instances
+loadedDocument.Close(true);
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Supported annotation types
 
 ### 3D Annotation
@@ -2262,6 +2424,231 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("InkAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can get ink list points from the ```PdfLoadedInkAnnotation```, represented by ```InkPointsCollection```. The following code illustrate this.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Loads the document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("Input.pdf");
+
+//Gets the first page from the document
+
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+
+//Gets the annotation collection
+
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+
+//Gets the first ink annotation
+
+PdfLoadedInkAnnotation inkAnnotation = annotations[0] as PdfLoadedInkAnnotation;
+
+//Gets the ink points collection
+
+List<List<float>> points = inkAnnotation.InkPointsCollection;
+
+//Save the document
+
+lDoc.Save("Output.pdf");
+
+//Close the document
+
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads the document
+
+Dim lDoc As New PdfLoadedDocument("Input.pdf")
+
+'Gets the first page from the document
+
+Dim page As PdfLoadedPage = TryCast(lDoc.Pages(0), PdfLoadedPage)
+
+'Gets the annotation collection
+
+Dim annotations As PdfLoadedAnnotationCollection = page.Annotations
+
+'Gets the first ink annotation
+
+Dim inkAnnotation As PdfLoadedInkAnnotation = TryCast(annotations(0), PdfLoadedInkAnnotation)
+
+'Gets the ink points collection
+
+Dim points As List(Of List(Of Single)) = inkAnnotation.InkPointsCollection
+
+'Save the document
+
+lDoc.Save("Output.pdf")
+
+'Close the document
+
+lDoc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document using the Open method of PdfLoadedDocument class
+
+await lDoc.OpenAsync(file);
+
+//Gets the first page from the document
+
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+
+//Gets the annotation collection
+
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+
+//Gets the first ink annotation
+
+PdfLoadedInkAnnotation inkAnnotation = annotations[0] as PdfLoadedInkAnnotation;
+
+//Gets the ink points collection
+
+List<List<float>> points = inkAnnotation.InkPointsCollection;
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+await lDoc.SaveAsync(stream);
+
+//Close the document instances
+
+lDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Gets the first page from the document
+
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+
+//Gets the annotation collection
+
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+
+//Gets the first ink annotation
+
+PdfLoadedInkAnnotation inkAnnotation = annotations[0] as PdfLoadedInkAnnotation;
+
+//Gets the ink points collection
+
+List<List<float>> points = inkAnnotation.InkPointsCollection;
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+lDoc.Save(stream);
+
+//If the position is not set to '0', the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the document
+
+lDoc.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Gets the first page from the document
+
+PdfLoadedPage page = lDoc.Pages[0] as PdfLoadedPage;
+
+//Gets the annotation collection
+
+PdfLoadedAnnotationCollection annotations = page.Annotations;
+
+//Gets the first ink annotation
+
+PdfLoadedInkAnnotation inkAnnotation = annotations[0] as PdfLoadedInkAnnotation;
+
+//Gets the ink points collection
+
+List<List<float>> points = inkAnnotation.InkPointsCollection;
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+//Close the document instances
+
+lDoc.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
 
 {% endhighlight %}
