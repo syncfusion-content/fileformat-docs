@@ -1,6 +1,6 @@
 ---
 title: Working with Portfolio
-description: This section explains how to create PDF portfolio and the PDF Portfolios allows the user to bring together content from a variety of sources, including documents, drawings, images, e-mail, spreadsheets and web pages
+description: Explains how to create PDF portfolio which helps to bring together content from a variety of sources, including documents, drawings, images, e-mail, & web pages
 platform: file-formats
 control: PDF
 documentation: UG

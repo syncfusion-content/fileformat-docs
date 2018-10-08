@@ -1,6 +1,6 @@
 ---
 title: Working with Data
-description: Briefs about working with data in XlsIO
+description: Learn how to import data to Excel file from ADO.NET objects, Collections, Array; and how to export data from Excel to ADO.NET objects or collections.
 platform: File-Formats
 control: XlsIO
 documentation: UG

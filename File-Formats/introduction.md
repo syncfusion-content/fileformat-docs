@@ -1,6 +1,6 @@
 ---
-title: Create, read, edit, and convert PDF, Excel, Word, and PowerPoint files in C#, VB, .NET Core, UWP, and Xamarin
-description: Syncfusion Essential File Format platform allows you to create, edit, write, and convert PDF, Excel, Word, and PowerPoint file formats in .NET Framework [C#, VB.NET], .NET Core, UWP and Xamarin applications without Microsoft Office or Adobe dependencies.
+title: Create, read, edit & convert PDF, Excel, Word & PowerPoint files in C#, VB.NET
+description: Create, read, edit, write, and convert PDF, Excel, Word, and PowerPoint file formats in .NET applications without Microsoft Office or Adobe dependencies.
 platform: file-formats
 control: general
 documentation: UG

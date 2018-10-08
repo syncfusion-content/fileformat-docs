@@ -1,6 +1,6 @@
 ---
 title: Working with Word document
-description: This section illustrates how to work with Word document
+description: Learn about combining multiple Word documents as one, printing Word document, applying styles, document properties, & iterating through DOM elements
 platform: file-formats
 control: DocIO
 documentation: UG

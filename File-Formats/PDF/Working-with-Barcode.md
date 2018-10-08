@@ -1,6 +1,6 @@
 ---
 title: Working with Barcode
-description: This section explains how to add barcodes to PDF document
+description: This section explains about how to add 1D & 2D barcodes to the PDF document and customize the appearance, position and size of the one dimensional barcode.
 platform: file-formats
 control: PDF
 documentation: 

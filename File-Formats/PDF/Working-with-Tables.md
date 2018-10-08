@@ -1,6 +1,6 @@
 ---
 title: Working with Tables
-description: This section explains how to create tables in the PDF document
+description: Learn how to create or add table to a PDF document, applying cell style & built-in table styles, automatic pagination and customize the rows and columns etc.
 platform: file-formats
 control: PDF
 documentation: UG

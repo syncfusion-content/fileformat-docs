@@ -1,6 +1,6 @@
 ---
-title: Getting Started
-description: Explains basic operations in XlsIO
+title: Create an excel file from data souce or scratch, export data from excel
+description: Learn how to create an excel file from data source or scratch; export data from Excel; create formatted excel report by filling data just similar like Mail merge
 platform: File-formats
 control: XlsIO
 documentation: UG
