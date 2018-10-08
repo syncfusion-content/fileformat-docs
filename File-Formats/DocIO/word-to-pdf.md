@@ -176,24 +176,24 @@ In Linux OS, you can perform the Word to PDF conversion using .NET Core applicat
 <tbody>
 <tr>
 <td>
-Syncfusion.DocIORenderer.NetStandard<br/><br/></td><td>
-Install-package Syncfusion.DocIORenderer.NetStandard<br/><br/></td></tr>
+Syncfusion.DocIORenderer.Net.Core<br/><br/></td><td>
+Install-package Syncfusion.DocIORenderer.Net.Core<br/><br/></td></tr>
 <tr>
 <td>
-Syncfusion.DocIO.NetStandard<br/><br/></td><td>
-Install-package Syncfusion.DocIO.NetStandard<br/><br/></td></tr>
+Syncfusion.DocIO.Net.Core<br/><br/></td><td>
+Install-package Syncfusion.DocIO.Net.Core<br/><br/></td></tr>
 <tr>
 <td>
-Syncfusion.Compression.NetStandard<br/><br/></td><td>
-Install-package Syncfusion.Compression.NetStandard<br/><br/></td></tr>
+Syncfusion.Compression.Net.Core<br/><br/></td><td>
+Install-package Syncfusion.Compression.Net.Core<br/><br/></td></tr>
 <tr>
 <td>
-Syncfusion.OfficeChart.NetStandard<br/><br/></td><td>
-Install-package Syncfusion.OfficeChart.NetStandard<br/><br/></td></tr>
+Syncfusion.OfficeChart.Net.Core<br/><br/></td><td>
+Install-package Syncfusion.OfficeChart.Net.Core<br/><br/></td></tr>
 <tr>
 <td>
-Syncfusion.Pdf.NetStandard<br/><br/></td><td>
-Install-package Syncfusion.Pdf.NetStandard<br/><br/></td></tr>
+Syncfusion.Pdf.Net.Core<br/><br/></td><td>
+Install-package Syncfusion.Pdf.Net.Core<br/><br/></td></tr>
 <tr>
 <td>
 SkiaSharp<br/><br/></td><td>
