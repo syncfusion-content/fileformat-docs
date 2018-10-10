@@ -774,11 +774,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 External connection support allows to work with most recent data right in the workbook. After the data is imported, only refresh operations are performed to retrieve the updated data.
 
 <table>
-<thead>
 <tr>
-<th>Database<br/><br/>
+<th>Database<br/><br/></th>
 <th>Connection Type<br/><br/></th>
-<th>Sample connection string<br/><br/></th></tr></thead>
+<th>Sample connection string<br/><br/></th></tr>
 <tr>
 <td rowspan ="2"> <span style="font-weight:bold">
 Microsoft Access<br/><br/></td>
