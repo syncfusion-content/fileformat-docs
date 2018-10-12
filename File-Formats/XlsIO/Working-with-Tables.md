@@ -773,52 +773,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 External connection support allows to work with most recent data right in the workbook. After the data is imported, only refresh operations are performed to retrieve the updated data.
 
-<table>
-<thead>
-<tr>
-<th>Database<br/><br/>
-<th>Connection Type<br/><br/></th>
-<th>Sample connection string<br/><br/></th></tr></thead>
-<tr>
-<td rowspan ="2"> <span style="font-weight:bold">
-Microsoft Access<br/><br/></td>
-<td>
-OLEDB<br/><br/></td><td>
-OLEDB;Provider=Microsoft.JET.OLEDB.4.0;Password=\"\";<br/><br/>User ID=Admin;Data Source=C:\\Company\\DB\\TestDB.mdb<br/><br/></td></tr>
-<tr>
-<td>
-ODBC<br/><br/></td><td>
-ODBC;DSN=MS Access;DBQ=C:\\Company\\DB\\Testing.mdb;<br/><br/>DefaultDir=C:\\Company\\DB;FIL=MS Access;MaxBufferSize=2048;PageTimeout=5;<br/><br/></td></tr>
-<tr>
-<td rowspan="2"> <span style="font-weight:bold">
-SQL<br/><br/></td>
-<td>
-OLEDB<br/><br/></td>
-<td>
-OLEDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;<br/><br/>Persist Security Info=True;Initial Catalog=Temp;<br/><br/>Data Source=SYNCFUSION\\SQLEXPRESS;Workstation ID=SYNCINC;<br/><br/></td></tr>
-<tr>
-<td>
-ODBC<br/><br/></td>
-<td>
-ODBC;DSN=Test1;UID=syncfusion;Trusted_Connection=Yes;<br/><br/>APP=Microsoft Office <br/><br/>2010;WSID=SYNCINC;DATABASE=Temp<br/><br/></td></tr>
-<tr>
-<td><span style="font-weight:bold">
-Excel<br/><br/></td><td>
-OLEDB<br/><br/></td><td>
-OLEDB;Provider=Microsoft.ACE.OLEDB.12.0;Password=\"\";<br/><br/>User ID=Admin;Data Source="c:\SourceTemplate.xlsx;<br/><br/>Jet OLEDB:Engine Type=37;<br/><br/></td></tr>
-<tr>
-<td rowspan = "2"> <span style="font-weight:bold">
-SharePoint<br/><br/></td>
-<td>
-OLEDB<br/><br/></td>
-<td>
-Stars with OLEDB<br/><br/></td></tr>
-<tr>
-<td>
-ODBC<br/><br/></td><td>
-Stars with ODBC<br/><br/></td></tr>
-</table>
-
 The following code snippet explains the method of importing data through an external connection in the workbook.
 
 {% tabs %}
@@ -921,3 +875,48 @@ End Using
 {% endtabs %}
 
 The following table shows different data sources and its connection string formats supported in XlsIO.
+
+<table>
+<tr>
+<th>Database<br/><br/></th>
+<th>Connection Type<br/><br/></th>
+<th>Sample connection string<br/><br/></th></tr>
+<tr>
+<td rowspan ="2"> <span style="font-weight:bold">
+Microsoft Access<br/><br/></td>
+<td>
+OLEDB<br/><br/></td><td>
+OLEDB;Provider=Microsoft.JET.OLEDB.4.0;Password=\"\";<br/><br/>User ID=Admin;Data Source=C:\\Company\\DB\\TestDB.mdb<br/><br/></td></tr>
+<tr>
+<td>
+ODBC<br/><br/></td><td>
+ODBC;DSN=MS Access;DBQ=C:\\Company\\DB\\Testing.mdb;<br/><br/>DefaultDir=C:\\Company\\DB;FIL=MS Access;MaxBufferSize=2048;PageTimeout=5;<br/><br/></td></tr>
+<tr>
+<td rowspan="2"> <span style="font-weight:bold">
+SQL<br/><br/></td>
+<td>
+OLEDB<br/><br/></td>
+<td>
+OLEDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;<br/><br/>Persist Security Info=True;Initial Catalog=Temp;<br/><br/>Data Source=SYNCFUSION\\SQLEXPRESS;Workstation ID=SYNCINC;<br/><br/></td></tr>
+<tr>
+<td>
+ODBC<br/><br/></td>
+<td>
+ODBC;DSN=Test1;UID=syncfusion;Trusted_Connection=Yes;<br/><br/>APP=Microsoft Office <br/><br/>2010;WSID=SYNCINC;DATABASE=Temp<br/><br/></td></tr>
+<tr>
+<td><span style="font-weight:bold">
+Excel<br/><br/></td><td>
+OLEDB<br/><br/></td><td>
+OLEDB;Provider=Microsoft.ACE.OLEDB.12.0;Password=\"\";<br/><br/>User ID=Admin;Data Source="c:\SourceTemplate.xlsx;<br/><br/>Jet OLEDB:Engine Type=37;<br/><br/></td></tr>
+<tr>
+<td rowspan = "2"> <span style="font-weight:bold">
+SharePoint<br/><br/></td>
+<td>
+OLEDB<br/><br/></td>
+<td>
+Stars with OLEDB<br/><br/></td></tr>
+<tr>
+<td>
+ODBC<br/><br/></td><td>
+Stars with ODBC<br/><br/></td></tr>
+</table>
