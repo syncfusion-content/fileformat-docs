@@ -125,7 +125,7 @@ This is mandatory to set WebKitPath property with QtBinariesDotNetCore folder, o
 		1. Syncfusion.HtmlConverter.NETStandard
 		   [https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore)
 
-* The QtBinaries folder is available in the WebKit HTML Converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set WebKitPath property with QtBinariesDotNetCore folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+* The QtBinaries folder is available in the WebKit HTML Converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set WebKitPath property with QtBinaries folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 
 * To convert HTML to PDF in Linux using the WebKit rendering engine, the following packages should be installed in the Linux machine where the conversion takes place.
 	1. $ sudo apt-get update 
@@ -151,7 +151,7 @@ This is mandatory to set WebKitPath property with QtBinariesDotNetCore folder, o
 		1. Syncfusion.HtmlConverter.NETStandard
 		   [https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore)
 	
-* The QtBinaries folder is available in the WebKit HTML Converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set WebKitPath property with QtBinariesDotNetCore folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+* The QtBinaries folder is available in the WebKit HTML Converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set WebKitPath property with QtBinaries folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 	
 	
 ## URL to PDF
