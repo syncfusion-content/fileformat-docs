@@ -2355,9 +2355,9 @@ Please find the steps to set the system proxy settings,
 
 <b>Please refer below screenshots:</b>
  
-![](DocumentConversion_images/proxy.png)
+![Manual proxy](DocumentConversion_images/proxy.png)
 
-![](DocumentConversion_images/proxy2.png)
+![Manual proxy settings](DocumentConversion_images/proxy2.png)
 
  
 To convert a web page to PDF using system proxy settings, please refer the below code snippet,
@@ -3213,7 +3213,7 @@ Instead, the required assemblies can be added in the Windows system folder.
 
 Syncfusion provides troubleshooting tool to find out the missing prerequisites. The tool is available in the location: <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\WebKitUtility)</i></span>
 
-![](DocumentConversion_images/TroubleShootingTool.png)
+![TroubleShootingTool](DocumentConversion_images/TroubleShootingTool.png)
 
 Please follow the below instructions for manual troubleshooting.
 
