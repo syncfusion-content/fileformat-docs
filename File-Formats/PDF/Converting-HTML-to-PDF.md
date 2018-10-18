@@ -72,12 +72,16 @@ QtBinaries
 <tr>
 <td> .NET Framework </td>
 <td>
-The QtBinaries folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
+The QtBinaries folder is available in the WebKit HTML converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings.
+
+This is mandatory to set the WebKitPath property with QtBinaries folder. If the WebKitPath is not mentioned, place the QtBinaries folder in bin folder of the project, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.  
 </td></tr>
 <tr>
 <td> .NET Core </td>
 <td>
-The QtBinariesDotNetCore folder available in the WebKit HTML Converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinariesDotNetCore)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
+The QtBinariesDotNetCore folder is available in the WebKit HTML converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinariesDotNetCore)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
+
+This is mandatory to set WebKitPath property with QtBinariesDotNetCore folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 </td></tr>
 </table>
 
@@ -121,7 +125,7 @@ The QtBinariesDotNetCore folder available in the WebKit HTML Converter installed
 		1. Syncfusion.HtmlConverter.NETStandard
 		   [https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore)
 
-* The QtBinaries folder is available in the WebKit HTML Converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. 
+* The QtBinaries folder is available in the WebKit HTML Converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set WebKitPath property with QtBinaries folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 
 * To convert HTML to PDF in Linux using the WebKit rendering engine, the following packages should be installed in the Linux machine where the conversion takes place.
 	1. $ sudo apt-get update 
@@ -147,7 +151,7 @@ The QtBinariesDotNetCore folder available in the WebKit HTML Converter installed
 		1. Syncfusion.HtmlConverter.NETStandard
 		   [https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore](https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore)
 	
-* The QtBinaries folder is available in the WebKit HTML Converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings.
+* The QtBinaries folder is available in the WebKit HTML Converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set WebKitPath property with QtBinaries folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 	
 	
 ## URL to PDF
@@ -2351,9 +2355,9 @@ Please find the steps to set the system proxy settings,
 
 <b>Please refer below screenshots:</b>
  
-![](DocumentConversion_images/proxy.png)
+![Manual proxy](DocumentConversion_images/proxy.png)
 
-![](DocumentConversion_images/proxy2.png)
+![Manual proxy settings](DocumentConversion_images/proxy2.png)
 
  
 To convert a web page to PDF using system proxy settings, please refer the below code snippet,
@@ -3209,7 +3213,7 @@ Instead, the required assemblies can be added in the Windows system folder.
 
 Syncfusion provides troubleshooting tool to find out the missing prerequisites. The tool is available in the location: <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\WebKitUtility)</i></span>
 
-![](DocumentConversion_images/TroubleShootingTool.png)
+![TroubleShootingTool](DocumentConversion_images/TroubleShootingTool.png)
 
 Please follow the below instructions for manual troubleshooting.
 
