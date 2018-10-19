@@ -514,7 +514,7 @@ public class Customer
 
 #### Import Data from CLR Objects with hyperlink
 
-Essential XlsIO allows you to import data directly from CLR Objects and created hyperlinks in worksheet as shown below
+Essential XlsIO allows you to import images, data with URLs, and data with mail IDs as hyperlinks from various data sources binded in CLR Objects as shown below
 
 {% tabs %}  
 {% highlight c# %}
