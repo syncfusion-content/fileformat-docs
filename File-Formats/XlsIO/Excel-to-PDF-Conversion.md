@@ -18,7 +18,6 @@ XlsIO allows you to convert an entire workbook or a single worksheet into PDF do
 * Syncfusion.Pdf.Base.dll
 
 ## Workbook to PDF
-XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. To achieve Excel to PDF conversion in other platforms like UWP, Xamarin, ASP.NET Core it is recommended to use web service.
 
 The following code illustrates how to convert an Excel workbook to PDF.
 
@@ -67,261 +66,133 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
+//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 
 #region Excel To PDF
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Gets input Excel document from an embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.Data.ExcelToPDF.xlsx");
-
-//Output stream to save PDF
-MemoryStream outputStream = null;
-
-//Creates new instance of HttpClient to access service
-HttpClient client = new HttpClient();
-
-//Web service URI 
-string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
-
-//Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
-HttpResponseMessage response = null;
-try
+using (ExcelEngine excelEngine = new ExcelEngine())
 {
-  response = await client.PostAsync(requestUri, new StreamContent(inputStream));
+    IApplication application = excelEngine.Excel;
+    
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-  //Dispose the input stream and client instances
-  inputStream.Dispose();
-  client.Dispose();
-}
-catch (Exception ex)
-{
-  return;
-}
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+	
+    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
 
-//Gets PDF from content stream if the service get success
-if (response.IsSuccessStatusCode)
-{
-  var responseHeaders = response.Headers;
-  outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
 
-  //Dispose the response instance
-  response.Dispose();
-}
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-else
-{
-  return;
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+
+    await doc.SaveAsync(stream);
+    Save(stream, "ExcelToPDF.pdf");
+
+    excelStream.Dispose();
+    stream.Dispose();
 }
 #endregion
 
 //Save the workbook stream as a file.
 
 #region Setting output location
-StorageFile storageFile;
-if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+async void Save(Stream stream, string filename)
 {
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "ExcelToPDF";
-  savePicker.FileTypeChoices.Add("PDF File", new List<string>() { ".pdf", });
-  storageFile = await savePicker.PickSaveFileAsync();
-}
-else
-{
-  StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-  storageFile = await local.CreateFileAsync("ExcelToPDF.xlsx", CreationCollisionOption.ReplaceExisting);
-}
+    stream.Position = 0;
 
-if (storageFile == null)
-  return;
-
-using (Stream storageStream = await storageFile.OpenStreamForWriteAsync())
-{
-    if (storageStream.CanSeek)
-      storageStream.SetLength(0);
-    storageStream.Write(outputStream.ToArray(), 0, (int)outputStream.Length);
-    outputStream.Dispose();
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = "Sample";
+        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+        Stream st = fileStream.AsStreamForWrite();
+        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+        st.Flush();
+        st.Dispose();
+        fileStream.Dispose();
+    }
 }
 #endregion
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
-//Gets assembly
-Assembly assembly = typeof(Program).GetTypeInfo().Assembly;
-
-//Gets input Excel document from an embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.Spreadsheet.xlsx");
-
-//Creates new instance of HttpClient to access the service
-HttpClient client = new HttpClient();
-
-//Web service URI 
-string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
-
-//Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
-HttpResponseMessage response = null;
-try
+using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    response = await client.PostAsync(requestUri, new StreamContent(inputStream));
+   IApplication application = excelEngine.Excel;
+   FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
+   IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-    //Dispose the input stream and client instances
-    inputStream.Dispose();
-    client.Dispose();
+   //Initialize XlsIO renderer.
+   XlsIORenderer renderer = new XlsIORenderer();
+
+   //Convert Excel document into PDF document 
+   PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+   Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+   pdfDocument.Save(stream);
+
+   excelStream.Dispose();
+   stream.Dispose();
 }
-catch (Exception ex)
-{
-    return;
-}
-
-MemoryStream outputStream = null;
-
-//Gets PDF from content stream if the service get success
-if (response.IsSuccessStatusCode)
-{
-    var responseHeaders = response.Headers;
-    outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
-    //Dispose the response instance.
-    response.Dispose();
-}
-else
-{
-    return;
-}
-
-//Saving the workbook as stream
-FileStream stream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite);
-outputStream.CopyTo(stream);
-
-outputStream.Close();
-outputStream.Dispose();
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Gets input Excel document from an embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.ExcelToPDF.xlsx");
-
-//Creates new instance of HttpClient to access service
-HttpClient client = new HttpClient();
-
-//Web service URI 
-string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
-
-//Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
-HttpResponseMessage response = null;
-response = await client.PostAsync(requestUri, new StreamContent(inputStream));
-
-//Dispose the input stream and client instances
-inputStream.Dispose();
-client.Dispose();
-
-MemoryStream outputStream = null;
-
-//Gets PDF from content stream if the service get success
-if (response.IsSuccessStatusCode)
+using (ExcelEngine excelEngine = new ExcelEngine())
 {
-  var responseHeaders = response.Headers;
-  outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
-  //Dispose the response instance.
-  response.Dispose();
-}
-else
-{
-  return;
-}
+    IApplication application = excelEngine.Excel;
+   
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Save the stream as Excel document and view the saved document
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
 
-//The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+    IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-  await DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", outputStream);
-}
-else
-{
-  DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", outputStream);
-}
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
 
-//Dispose the output stream instance
-outputStream.Dispose();
-{% endhighlight %}
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
 
-{% endtabs %}
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+    doc.Save(stream);
 
-**Web Service**
+    stream.Position = 0;
 
-The web service code that converts Excel document at server-side and returns the resultant PDF document as content of HttpResponseMessage at client-side.
-
-> The following server-side code can be invoked from client-side using web service URI.
-
-{% tabs %}
-{% highlight c# %}
-HttpFileCollection files = HttpContext.Current.Request.Files;
-
-if (files.Count == 0)
-    return;
-    
-//Loads an existing Excel document stream	
-using (Stream stream = files[0].InputStream)
-{
-  using (ExcelEngine engine = new ExcelEngine())
-  {
-    IApplication application = engine.Excel;
-	
-    //Initializes the ChartToImageConverter for converting charts during Excel To PDF conversion
-    application.ChartToImageConverter = new ChartToImageConverter();
-    application.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
-	
-    //Creates an instance of the ExcelToPDFConverter
-    using (ExcelToPdfConverter excelToPDFConverter = new ExcelToPdfConverter(stream))
+    //Save the stream into pdf file
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     {
-      //Converts Excel document into PDF document
-      using (PdfDocument pdfDocument = excelToPDFConverter.Convert())
-      {
-        //Saves the PDF document to response stream
-        pdfDocument.Save("ExcelToPDF.pdf", HttpContext.Current.Response, HttpReadType.Save);
-        pdfDocument.Close(true);
-      }
-    } 
-  }
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+
+    excelStream.Dispose();
+    stream.Dispose();
 }
 {% endhighlight %}
-{% highlight vb %}
-Dim files As HttpFileCollection = HttpContext.Current.Request.Files
 
-If files.Count = 0 Then Return
-
-'Loads an existing Excel document stream
-Using stream As Stream = files(0).InputStream
-      Using engine As ExcelEngine = New ExcelEngine()
-          Dim application As IApplication = engine.Excel
-          
-          'Initializes the ChartToImageConverter for converting charts during Excel To PDF conversion
-          application.ChartToImageConverter = New ChartToImageConverter()
-          application.ChartToImageConverter.ScalingMode = ScalingMode.Normal
-          
-          'Creates an instance of the ExcelToPDFConverter
-          Using excelToPDFConverter As ExcelToPdfConverter = New ExcelToPdfConverter(stream)
-          
-             'Converts Excel document into PDF document
-              Using pdfDocument As PdfDocument = excelToPDFConverter.Convert()
-              
-                 'Saves the PDF document to response stream
-                  pdfDocument.Save("ExcelToPDF.pdf", HttpContext.Current.Response, HttpReadType.Save)
-                  pdfDocument.Close(True)
-                  
-              End Using
-          End Using
-      End Using
-End Using
-{% endhighlight %}
 {% endtabs %}
 
 To learn more about different conversion settings in Excel To PDF conversion, refer to the ExcelToPdfConverterSettings in API section.
@@ -370,15 +241,138 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
+
+#region Excel To PDF
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+	
+    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
+	IWorksheet worksheet = workbook.Worksheets[0];
+	
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+
+    await doc.SaveAsync(stream);
+    Save(stream, "ExcelToPDF.pdf");
+
+    excelStream.Dispose();
+    stream.Dispose();
+}
+#endregion
+
+//Save the workbook stream as a file.
+
+#region Setting output location
+async void Save(Stream stream, string filename)
+{
+    stream.Position = 0;
+
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = "Sample";
+        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+        Stream st = fileStream.AsStreamForWrite();
+        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+        st.Flush();
+        st.Dispose();
+        fileStream.Dispose();
+    }
+}
+#endregion
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
+   IWorkbook workbook = application.Workbooks.Open(excelStream);
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   //Initialize XlsIO renderer.
+   XlsIORenderer renderer = new XlsIORenderer();
+
+   //Convert Excel document into PDF document 
+   PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+
+   Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+   pdfDocument.Save(stream);
+
+   excelStream.Dispose();
+   stream.Dispose();
+}
+
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+   
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+
+    IWorkbook workbook = application.Workbooks.Open(excelStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
+
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+    doc.Save(stream);
+
+    stream.Position = 0;
+
+    //Save the stream into pdf file
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+
+    excelStream.Dispose();
+    stream.Dispose();
+}
+
 {% endhighlight %}
 {% endtabs %}  
 
@@ -428,15 +422,142 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
+
+#region Excel To PDF
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+	
+    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
+	
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+	PdfDocument pdfDocument = new PdfDocument();     
+    	
+    foreach (IWorksheet sheet in workbook.Worksheets)
+    {
+      pdfDocument = renderer.ConvertToPDF(sheet);
+    
+	  //Save the PDF file
+	  MemoryStream stream = new MemoryStream();
+	  await doc.SaveAsync(stream);
+      Save(stream, sheet.Name+".pdf");
+	  stream.Dispose();
+    }
+	
+    excelStream.Dispose();
+}
+#endregion
+
+//Save the workbook stream as a file.
+
+#region Setting output location
+async void Save(Stream stream, string filename)
+{
+    stream.Position = 0;
+
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = "Sample";
+        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+        Stream st = fileStream.AsStreamForWrite();
+        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+        st.Flush();
+        st.Dispose();
+        fileStream.Dispose();
+    }
+}
+#endregion
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
+   IWorkbook workbook = application.Workbooks.Open(excelStream);
+   
+   //Initialize XlsIO renderer.
+   XlsIORenderer renderer = new XlsIORenderer();
+   PdfDocument pdfDocument = new PdfDocument();     
+    	
+   foreach (IWorksheet sheet in workbook.Worksheets)
+   {
+     pdfDocument = renderer.ConvertToPDF(sheet);
+   
+     //Save the PDF file
+     Stream stream = new FileStream(sheet.Name+".pdf", FileMode.Create, FileAccess.ReadWrite);
+     pdfDocument.Save(stream);
+     stream.Dispose();
+   }
+
+   excelStream.Dispose();
+}
+
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+   
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
+
+    IWorkbook workbook = application.Workbooks.Open(excelStream);
+
+    //Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+    PdfDocument pdfDocument = new PdfDocument();     
+     	
+    foreach (IWorksheet sheet in workbook.Worksheets)
+    {
+      pdfDocument = renderer.ConvertToPDF(sheet);
+    
+      //Save the PDF file
+      Stream stream = new FileStream(sheet.Name+".pdf", FileMode.Create, FileAccess.ReadWrite);
+      pdfDocument.Save(stream);
+	  
+	  stream.Position = 0;
+	  //Save the stream into pdf file
+      if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+      {
+          Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+      }
+      else
+      {
+          Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+      }
+      stream.Dispose();
+    }    
+    excelStream.Dispose();
+}
+
 {% endhighlight %}
 {% endtabs %}
   
@@ -492,15 +613,15 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel with chart To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel with chart To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
+//XlsIO supports Excel with chart To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
 {% endhighlight %}
 {% endtabs %}  
 
