@@ -493,7 +493,7 @@ presentationDocument.Close()
 
 The above code example creates a chart in the following screenshot.
 
-![](WorkingwithCharts_images/WorkingwithCharts_img1.jpeg)
+![PowerPoint Example Chart1](WorkingwithCharts_images/WorkingwithCharts_img1.jpeg)
 
 ## Refreshing the chart
 
@@ -667,7 +667,7 @@ presentationDocument.Close()
 
 A chart is composed of various elements such as legends, axes, series, etc. Each chart element corresponds to an object. The following image illustrates the basic elements of a chart.
 
-![](WorkingwithCharts_images/WorkingwithCharts_img2.jpeg)
+![PowerPoint Example Chart2](WorkingwithCharts_images/WorkingwithCharts_img2.jpeg)
 
 1. The chart area of the chart.
 2. The plot area of the chart.
@@ -1751,7 +1751,7 @@ pptxDoc.Close();
 
 The following screenshot shows the output of previous code.
 
-![](Working-with-Charts_images/Funnel.png)
+![PowerPoint Funnel Chart](Working-with-Charts_images/Funnel.png)
 
 ### Box and Whisker
 
@@ -2167,7 +2167,7 @@ private static void SetChartData(IPresentationChart chart)
 
 The following screenshot shows the output of previous code.
 
-![](Working-with-Charts_images/BoxAndWhisker.png)
+![PowerPoint Box And Whisker Chart](Working-with-Charts_images/BoxAndWhisker.png)
 
 ### Waterfall
 
@@ -2335,7 +2335,7 @@ pptxDoc.Close();
 
 The following screenshot shows the output of previous code.
 
-![](Working-with-Charts_images/WaterFall.png)
+![PowerPoint WaterFall Chart](Working-with-Charts_images/WaterFall.png)
 
 ### Histogram
 
@@ -2482,7 +2482,7 @@ pptxDoc.Close();
 
 The following screenshot shows the output of previous code.
 
-![](Working-with-Charts_images/Histogram.png)
+![PowerPoint Histogram Chart](Working-with-Charts_images/Histogram.png)
 
 ### Pareto
 
@@ -2640,7 +2640,7 @@ pptxDoc.Close();
 
 The following screenshot shows the output of previous code.
 
-![](Working-with-Charts_images/Pareto.png)
+![PowerPoint Pareto Chart](Working-with-Charts_images/Pareto.png)
 
 N>These charts are supported only in PowerPoint 2016 and are not supported in the previous versions.
 
