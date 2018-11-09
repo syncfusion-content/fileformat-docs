@@ -1279,14 +1279,6 @@ Not supported
 </tr>
 <tr>
 <td>
-Embedded fonts
-</td>
-<td>
-Not supported
-</td>
-</tr>
-<tr>
-<td>
 Rotation – predefined shape
 </td>
 <td>
@@ -1367,14 +1359,6 @@ Not supported
 </tr>
 <tr>
 <td>
-Line and Section Number
-</td>
-<td>
-Not supported
-</td>
-</tr>
-<tr>
-<td>
 Watermark
 </td>
 <td>
@@ -1411,14 +1395,6 @@ Footnote and endnote
 </td>
 <td>
 Number formats in Roman, Alphabets, and Arabic only supported.
-</td>
-</tr>
-<tr>
-<td>
-Image cropping
-</td>
-<td>
-Only DOCX and WordML format documents are supported.
 </td>
 </tr>
 <tr>
