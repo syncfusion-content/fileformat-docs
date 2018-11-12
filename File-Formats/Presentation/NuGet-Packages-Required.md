@@ -18,10 +18,42 @@ To work with PowerPoint Presentations, the following NuGet packages need to be i
 </tr>
 <tr>
 <td>
-.NET Framework(Windows Forms, WPF, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core – Targeting .NET Framework)
+Windows Forms
 </td>
 <td>
-Syncfusion.Presentation.Base.nupkg
+{{'[Syncfusion.Presentation.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+WPF
+</td>
+<td>
+{{'[Syncfusion.Presentation.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Web Forms, ASP.NET Core(Targeting .NET Framework)
+</td>
+<td>
+{{'[Syncfusion.Presentation.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC4
+</td>
+<td>
+{{'[Syncfusion.Presentation.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC5
+</td>
+<td>
+{{'[Syncfusion.Presentation.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc5/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -29,7 +61,7 @@ Syncfusion.Presentation.Base.nupkg
 UWP
 </td>
 <td>
-Syncfusion.Presentation.UWP.nupkg
+{{'[Syncfusion.Presentation.UWP.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.UWP/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -37,7 +69,7 @@ Syncfusion.Presentation.UWP.nupkg
 ASP.NET Core (Targeting .net core application)
 </td>
 <td>
-Syncfusion.Presentation.NETStandard.nupkg
+{{'[Syncfusion.Presentation.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/)'| markdownify }}
 </td>
 </tr>
 <tr>
@@ -45,59 +77,313 @@ Syncfusion.Presentation.NETStandard.nupkg
 Xamarin
 </td>
 <td>
-Syncfusion.Xamarin.Presentation.nupkg
+{{'[Syncfusion.Xamarin.Presentation.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.Presentation/)'| markdownify }}
 </td>
 </tr>
 </table>
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
-## Converting Charts in PowerPoint Presentation
+N> From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package names to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
 
-In Windows Forms and WPF platforms, the below NuGet package need to be installed additionally to convert the charts present in PowerPoint presentations.
+## Converting PowerPoint Presentation into PDF
+
+For converting PowerPoint Presentation into PDF, the following NuGet packages need to be installed in your application.
 
 <table>
 <tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tr>
 <td>
-{{'**Platforms**'| markdownify }}
+Windows Forms
 </td>
 <td>
-{{'**NuGet Package**'| markdownify }}
+{{'[Syncfusion.PresentationToPDFConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.WinForms/)'| markdownify }}
 </td>
 </tr>
 <tr>
 <td>
-Windows Forms and WPF
+WPF
 </td>
 <td>
-Syncfusion.OfficeChartToImageConverter.Wpf.nupkg
+{{'[Syncfusion.PresentationToPDFConverter.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Web
+</td>
+<td>
+{{'[Syncfusion.PresentationToPDFConverter.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.AspNet/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC4
+</td>
+<td>
+{{'[Syncfusion.PresentationToPDFConverter.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.AspNet.Mvc4/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC5
+</td>
+<td>
+{{'[Syncfusion.PresentationToPDFConverter.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationToPdfConverter.AspNet.Mvc5/)'| markdownify }}
 </td>
 </tr>
 </table>
 
-N> The "Syncfusion.OfficeChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards.
+N> PowerPoint Presentation to PDF conversion is not supported in Xamarin, UWP and .NET Core applications.
 
-## Converting PowerPoint Presentation to PDF
+## Converting PowerPoint Presentation to Image
 
-For converting PowerPoint Presentation to PDF, the following NuGet packages need to be installed in your application.
+For converting an PowerPoint Presentation to image, the following NuGet packages need to be installed in your application.
 
 <table>
 <tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tbody>
+<tr>
 <td>
-{{'**Platform(s)**'| markdownify }}
+Windows Forms
 </td>
 <td>
-{{'**NuGet Package**'| markdownify }}
+{{'[Syncfusion.Presentation.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms/)'| markdownify }}
 </td>
 </tr>
 <tr>
 <td>
-Windows Forms, WPF, ASP.NET and ASP.NET MVC 
+WPF
 </td>
 <td>
-Syncfusion.PresentationToPdfConverter.Base.nupkg
+{{'[Syncfusion.Presentation.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Web Forms
+</td>
+<td>
+{{'[Syncfusion.Presentation.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC4
+</td>
+<td>
+{{'[Syncfusion.Presentation.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc4/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC5
+</td>
+<td>
+{{'[Syncfusion.Presentation.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc5/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+UWP
+</td>
+<td>
+{{'[Syncfusion.Presentation.UWP.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.UWP/)'| markdownify }}
+</td>
+</tr>
+</tbody>
+</table>
+
+N> PowerPoint Presentation to image conversion is not supported in Xamarin and .NET Core applications.
+
+## Converting Charts in Presentation
+
+The below NuGet package need to be installed additionally to convert the charts present in PowerPoint Presentation.
+
+<table>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tr>
+<td>
+Windows Forms
+</td>
+<td>
+{{'[Syncfusion.OfficeChartToImageConverter.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.OfficeChartToImageConverter.WinForms/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+WPF
+</td>
+<td>
+{{'[Syncfusion.OfficeChartToImageConverter.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.OfficeChartToImageConverter.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Web
+</td>
+<td>
+{{'[Syncfusion.OfficeChartToImageConverter.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.OfficeChartToImageConverter.AspNet/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC4
+</td>
+<td>
+{{'[Syncfusion.OfficeChartToImageConverter.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.OfficeChartToImageConverter.AspNet.Mvc4/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC5
+</td>
+<td>
+{{'[Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5/)'| markdownify }}
 </td>
 </tr>
 </table>
 
-N> Presentation to PDF/Image conversion is not supported in Xamarin, UWP and ASP.NET Core applications. 
+N> 1. The "Syncfusion.OfficeChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards. 
+N> 2. Chart to image conversion is not supported in .NET Standard.
+
+## NuGet Package Installation and Uninstallation
+
+To use NuGet package in your project, please refer the NuGet Package [Installation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-install-and-configuration) and [Uninstallation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-uninstallation-process) sections.
+
+PowerPoint Presentation NuGet packages can be installed and uninstalled using Package Manager Console. In Visual Studio, select **Tools > NuGet Package Manager > Package Manager Console** and execute the below commands in respective platforms.
+
+N> Syncfusion components are available in nuget.org
+
+<table>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>Install</b></th>
+<th><b>UnInstall</b></th>
+</thead>
+</tr>
+<tr>
+<td>
+Windows Forms
+</td>
+<td>
+* Install-package Syncfusion.Presentation.WinForms<br/><br/>
+* Install-package Syncfusion.PresentationToPdfConverter.WinForms<br/><br/>
+* Install-package Syncfusion.OfficeChartToImageConverter.WinForms
+</td>
+<td>
+* Uninstall-package Syncfusion.Presentation.WinForms -RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.PresentationToPdfConverter.WinForms -RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.OfficeChartToImageConverter.WinForms -RemoveDependencies                             
+</td>
+</tr>
+<tr>
+<td>
+WPF
+</td>
+<td>
+* Install-package Syncfusion.Presentation.Wpf<br/><br/>
+* Install-package Syncfusion.PresentationToPdfConverter.Wpf<br/><br/>
+* Install-package Syncfusion.OfficeChartToImageConverter.Wpf
+</td>
+<td>
+* Uninstall-package Syncfusion.Presentation.Wpf -RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.PresentationToPdfConverter.Wpf -RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.OfficeChartToImageConverter.Wpf -RemoveDependencies  
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Web
+</td>
+<td>
+* Install-package Syncfusion.Presentation.AspNet<br/><br/>
+* Install-package Syncfusion.PresentationToPdfConverter.AspNet<br/><br/>
+* Install-package Syncfusion.OfficeChartToImageConverter.AspNet
+</td>
+<td>
+* Uninstall-package Syncfusion.Presentation.AspNet -RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.PresentationToPdfConverter.AspNet -RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.OfficeChartToImageConverter.AspNet -RemoveDependencies  
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC4
+</td>
+<td>
+* Install-package Syncfusion.Presentation.AspNet.MVC4<br/><br/>
+* Install-package Syncfusion.PresentationToPdfConverter.AspNet.MVC4<br/><br/>
+* Install-package Syncfusion.OfficeChartToImageConverter.AspNet.MVC4
+</td>
+<td>
+* Uninstall-package Syncfusion.Presentation.AspNet.MVC4 -RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.PresentationToPdfConverter.AspNet.MVC4 -RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.OfficeChartToImageConverter.AspNet.MVC4 -RemoveDependencies  
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC5
+</td>
+<td>
+* Install-package Syncfusion.Presentation.AspNet.MVC5<br/><br/>
+* Install-package Syncfusion.PresentationToPdfConverter.AspNet.MVC5<br/><br/>
+* Install-package Syncfusion.OfficeChartToImageConverter.AspNet.MVC5
+</td>
+<td>
+* Uninstall-package Syncfusion.Presentation.AspNet.MVC5 -RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.PresentationToPdfConverter.AspNet.MVC5 -RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.OfficeChartToImageConverter.AspNet.MVC5 -RemoveDependencies  
+</td>
+</tr>
+<tr>
+<td>
+UWP
+</td>
+<td>
+Install-package Syncfusion.Presentation.UWP
+</td>
+<td>
+Uninstall-package Syncfusion.Presentation.UWP –RemoveDependencies
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core
+</td>
+<td>
+Install-package Syncfusion.Presentation.Net.Core
+</td>
+<td>
+Uninstall-package Syncfusion.Presentation.Net.Core –RemoveDependencies
+</td>
+</tr>
+<tr>
+<td>
+Xamarin
+</td>
+<td>
+Install-package Syncfusion.Xamarin.Presentation
+</td>
+<td>
+Uninstall-package Syncfusion.Xamarin.Presentation –RemoveDependencies
+</td>
+</tr>
+</table>
