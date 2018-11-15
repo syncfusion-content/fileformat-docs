@@ -116,7 +116,7 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-% highlight ASP.NET CORE %}
+{% highlight ASP.NET CORE %}
 
 //Create new instance of PowerPoint presentation.
 IPresentation pptxDoc = Presentation.Create();
@@ -148,7 +148,7 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-% highlight XAMARIN %}
+{% highlight XAMARIN %}
 
 //Create new instance of PowerPoint presentation.
 IPresentation pptxDoc = Presentation.Create();
