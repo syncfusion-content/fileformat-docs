@@ -883,7 +883,7 @@ The following table shows different data sources and its connection string forma
 <th>Sample connection string<br/><br/></th></tr>
 <tr>
 <td rowspan ="2"> <span style="font-weight:bold">
-Microsoft Access<br/><br/></td>
+Microsoft Access<br/><br/></span></td>
 <td>
 OLEDB<br/><br/></td><td>
 OLEDB;Provider=Microsoft.JET.OLEDB.4.0;Password=\"\";<br/><br/>User ID=Admin;Data Source=C:\\Company\\DB\\TestDB.mdb<br/><br/></td></tr>
@@ -893,7 +893,7 @@ ODBC<br/><br/></td><td>
 ODBC;DSN=MS Access;DBQ=C:\\Company\\DB\\Testing.mdb;<br/><br/>DefaultDir=C:\\Company\\DB;FIL=MS Access;MaxBufferSize=2048;PageTimeout=5;<br/><br/></td></tr>
 <tr>
 <td rowspan="2"> <span style="font-weight:bold">
-SQL<br/><br/></td>
+SQL<br/><br/></span></td>
 <td>
 OLEDB<br/><br/></td>
 <td>
@@ -905,12 +905,12 @@ ODBC<br/><br/></td>
 ODBC;DSN=Test1;UID=syncfusion;Trusted_Connection=Yes;<br/><br/>APP=Microsoft Office <br/><br/>2010;WSID=SYNCINC;DATABASE=Temp<br/><br/></td></tr>
 <tr>
 <td><span style="font-weight:bold">
-Excel<br/><br/></td><td>
+Excel<br/><br/></span></td><td>
 OLEDB<br/><br/></td><td>
 OLEDB;Provider=Microsoft.ACE.OLEDB.12.0;Password=\"\";<br/><br/>User ID=Admin;Data Source="c:\SourceTemplate.xlsx;<br/><br/>Jet OLEDB:Engine Type=37;<br/><br/></td></tr>
 <tr>
 <td rowspan = "2"> <span style="font-weight:bold">
-SharePoint<br/><br/></td>
+SharePoint<br/><br/></span></td>
 <td>
 OLEDB<br/><br/></td>
 <td>
