@@ -164,7 +164,7 @@ pptxDoc.Save(stream);
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentaton/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
@@ -360,7 +360,7 @@ pptxDoc.Save(stream);
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentaton/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
@@ -675,7 +675,7 @@ pptxDoc.Save(stream);
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentaton/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
@@ -853,7 +853,7 @@ pptxDoc.Save(stream);
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentaton/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
@@ -875,7 +875,7 @@ The following code example demonstrates how to remove a paragraph from a slide.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
 //Retrieves the first slide from Presentation
-ISlide slide = ppptxDoc.Slides[0];
+ISlide slide = pptxDoc.Slides[0];
 
 //Retrieves the first shape
 IShape shape = slide.Shapes[0] as IShape;
@@ -965,7 +965,7 @@ FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
 
 //Retrieves the first slide from Presentation
-ISlide slide = ppptxDoc.Slides[0];
+ISlide slide = pptxDoc.Slides[0];
 
 //Retrieves the first shape
 IShape shape = slide.Shapes[0] as IShape;
@@ -995,7 +995,7 @@ Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
 IPresentation pptxDoc = Presentation.Open(inputStream);
 
 //Retrieves the first slide from Presentation
-ISlide slide = ppptxDoc.Slides[0];
+ISlide slide = pptxDoc.Slides[0];
 
 //Retrieves the first shape
 IShape shape = slide.Shapes[0] as IShape;
@@ -1016,7 +1016,7 @@ pptxDoc.Save(stream);
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentaton/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else

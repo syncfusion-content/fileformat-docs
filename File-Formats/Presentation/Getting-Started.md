@@ -612,7 +612,7 @@ else
 
 The resultant PowerPoint Presentation looks as follows.
 
-![](GettingStarted_images/GettingStarted_img1.JPG)
+![GettingStarted Image](GettingStarted_images/GettingStarted_img1.JPG)
 
 
 ## Converting PowerPoint Presentation to PDF

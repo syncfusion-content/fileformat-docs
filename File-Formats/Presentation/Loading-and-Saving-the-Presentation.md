@@ -137,13 +137,13 @@ IPresentation pptxDoc = Presentation.OpenAsync(presentationStream, password);
 
 {% highlight ASP.NET CORE %}
 
-//Essential Presentation Library does not provides support to Encryption and Decryption in ASP.Net Core platforms. 
+//Essential Presentation Library does not provides support to Encryption and Decryption in ASP.NET Core platforms. 
 
 {% endhighlight %}
 
 {% highlight XAMARIN %}
 
-//Essential Presentation Library does not provides support to Encryption and Decryption in ASP.Net Core platforms.
+//Essential Presentation Library does not provides support to Encryption and Decryption in ASP.NET Core platforms.
 
 {% endhighlight %}
 
@@ -177,13 +177,13 @@ IPresentation pptxDoc = Presentation.OpenAsync(fileName, password);
 
 {% highlight ASP.NET CORE %}
 
-//Essential Presentation does not provides support to Encryption and Decryption in ASP.Net Core platforms.
+//Essential Presentation does not provides support to Encryption and Decryption in ASP.NET Core platforms.
 
 {% endhighlight %}
 
 {% highlight XAMARIN %}
 
-//Essential Presentation does not provides support to Encryption and Decryption in ASP.Net Core platforms.
+//Essential Presentation does not provides support to Encryption and Decryption in ASP.NET Core platforms.
 
 {% endhighlight %}
 
@@ -293,7 +293,7 @@ pptxDoc.Close();
 
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentaton/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
@@ -604,7 +604,7 @@ pptxDoc.Close();
 
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentaton/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
