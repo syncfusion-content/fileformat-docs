@@ -1073,7 +1073,7 @@ pptxDoc.Close();
 
 {% highlight XAMARIN %}
 
-//PowerPoint Presentation to image conversion is not supported for XAMARIN platforms.
+//PowerPoint Presentation to image conversion is not supported for Xamarin platforms.
 
 {% endhighlight %}
 

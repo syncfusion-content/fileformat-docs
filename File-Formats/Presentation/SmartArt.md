@@ -933,7 +933,7 @@ ISmartArt smartArt = slide.Shapes[0] as ISmartArt;
 smartArt.Nodes.RemoveAt(4);
 
 //Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream("SamrtArt.pptx", FileMode.Create);
+FileStream outputStream = new FileStream("SmartArt.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
 
 //Close the Presentation.
