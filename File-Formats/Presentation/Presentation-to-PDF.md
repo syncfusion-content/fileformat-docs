@@ -81,15 +81,15 @@ The following namespaces are required to compile the code in this topic.
 
 //Opens a PowerPoint Presentation
 
-IPresentation presentation = Presentation.Open("Sample.pptx");
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
 //Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
-presentation.ChartToImageConverter = new ChartToImageConverter();
+pptxDoc.ChartToImageConverter = new ChartToImageConverter();
 
 //Converts the PowerPoint Presentation into PDF document
 
-PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation);
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
 
 //Saves the PDF document
 
@@ -101,7 +101,7 @@ pdfDocument.Close(true);
 
 //Closes the Presentation
 
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
@@ -109,15 +109,15 @@ presentation.Close();
 
 'Opens a PowerPoint Presentation
 
-Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
 'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
-presentationDocument.ChartToImageConverter = New ChartToImageConverter()
+pptxDoc.ChartToImageConverter = New ChartToImageConverter()
 
 'Converts the PowerPoint Presentation into PDF document
 
-Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
+Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
 
 'Saves the PDF document
 
@@ -129,7 +129,7 @@ pdfDocument.Close(True)
 
 'Closes the Presentation
 
-presentationDocument.Close()
+pptxDoc.Close()
 
 {% endhighlight %}
 
@@ -235,7 +235,7 @@ The following code sample demonstrates how to convert a PowerPoint presentation 
 {% highlight c# %}
 
 //Load the PowerPoint presentation to convert.
-IPresentation presentation = Presentation.Open("Sample.pptx");
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
  
 //Enable the handouts and number of pages per slide options in converter settings.
 PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
@@ -243,13 +243,13 @@ pdfConverterSettings.PublishOptions = PublishOptions.Handouts;
 pdfConverterSettings.SlidesPerPage = SlidesPerPage.Nine;
             
 //Convert the documents by passing the PDF conversion settings as parameter.
-PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation, pdfConverterSettings);
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings);
  
 //Save the converted PDF document.
 pdfDoc.Save("Sample.pdf");
  
 //Close the presentation instance
-presentation.Close();
+pptxDoc.Close();
  
 //Close the PDF instance
 pdfDoc.Close();
@@ -269,20 +269,20 @@ The following code sample demonstrates how to convert a PowerPoint presentation 
 {% highlight c# %}
 
  //Load the PowerPoint presentation to convert.
-IPresentation presentation = Presentation.Open("Sample.pptx");
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
  
 //Enable the include hidden slides option in converter settings.
 PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
 pdfConverterSettings.PublishOptions = PublishOptions.NotesPages;
  
 //Convert the documents by passing the settings as parameter.
-PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation, pdfConverterSettings);
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings);
  
 //Save the converted PDF file.
 pdfDoc.Save("Sample.pdf");
  
 //Close the presentation instance
-presentation.Close();
+pptxDoc.Close();
  
 //Close the PDF instance
 pdfDoc.Close();
@@ -302,20 +302,20 @@ The following code sample demonstrates how to include the hidden slides while co
 {% highlight c# %}
 
 //Load the PowerPoint presentation to convert.
-IPresentation presentation = Presentation.Open("Sample.pptx");
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
  
 //Enable or disable including the hidden slides option in converter settings.
 PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
 pdfConverterSettings.ShowHiddenSlides = true;
  
 //Convert the documents by passing the settings as parameter.
-PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation, pdfConverterSettings);
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings);
  
 //Save the converted PDF file.
 pdfDoc.Save("Sample.pdf");
  
 //Close the presentation instance
-presentation.Close();
+pptxDoc.Close();
  
 //Close the PDF instance
 pdfDoc.Close();
@@ -342,9 +342,6 @@ The following code sample demonstrates how to set the PDF conformance level whil
 
 //Load the PowerPoint document
 IPresentation pptxDoc = Presentation.Open("Sample.pptx"));
-
-//Initialize the conversion settings
-PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
 
 //Initialize the conversion settings
 PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
@@ -382,23 +379,23 @@ The following code sample demonstrates how to set the quality of the charts whil
 {% highlight c# %}
 
 //Load the PowerPoint presentation to convert.
-IPresentation presentation = Presentation.Open("Sample.pptx");
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
 //Create an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
-presentation.ChartToImageConverter = new ChartToImageConverter();
+pptxDoc.ChartToImageConverter = new ChartToImageConverter();
 
 //Sets the scaling mode of the chart to best. 
-presentation.ChartToImageConverter.ScalingMode = ScalingMode.Best;
+pptxDoc.ChartToImageConverter.ScalingMode = ScalingMode.Best;
  
 //Convert the documents by passing the PDF conversion settings as parameter.
-PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation);          
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc);          
  
 //Save the converted PDF document.
 pdfDoc.Save("Sample.pdf");
  
 //Close the presentation instance
-presentation.Close();
+pptxDoc.Close();
  
 //Close the PDF instance
 pdfDoc.Close();
@@ -420,7 +417,7 @@ The following code sample demonstrates how to optimize the duplicate images whil
 {% highlight c# %}
 
 //Load the PowerPoint presentation to convert.
-IPresentation presentation = Presentation.Open("Sample.pptx");
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
  
 //Enable the include hidden slides option in converter settings.
 PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
@@ -429,13 +426,13 @@ PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfC
 pdfConverterSettings.OptimizeIdenticalImages = true;
  
 //Convert the documents by passing the settings as parameter.
-PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation, pdfConverterSettings);
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings);
  
 //Save the converted PDF file.
 pdfDoc.Save("Sample.pdf");
  
 //Close the presentation instance
-presentation.Close();
+pptxDoc.Close();
  
 //Close the PDF instance
 pdfDoc.Close();
@@ -455,7 +452,7 @@ The following code sample demonstrates how to optimize the image quality and res
 {% highlight c# %}
 
 //Load the PowerPoint presentation to convert.
-IPresentation presentation = Presentation.Open("Sample.pptx");
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
  
 //Enable the include hidden slides option in converter settings.
 PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
@@ -467,13 +464,13 @@ pdfConverterSettings.ImageResolution = 100;
 pdfConverterSettings.ImageQuality = 100;
  
 //Convert the documents by passing the settings as parameter.
-PdfDocument pdfDoc = PresentationToPdfConverter.Convert(presentation, pdfConverterSettings);
+PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings);
  
 //Save the converted PDF file.
 pdfDoc.Save("Sample.pdf");
  
 //Close the presentation instance
-presentation.Close();
+pptxDoc.Close();
  
 //Close the PDF instance
 pdfDoc.Close();
@@ -492,9 +489,6 @@ The Syncfusion PowerPoint library supports converting the PowerPoint document to
 
 //Load the PowerPoint document
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
-
-//Initialize the conversion settings
-PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
 
 //Initialize the conversion settings
 PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
