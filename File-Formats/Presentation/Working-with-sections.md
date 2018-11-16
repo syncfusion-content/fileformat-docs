@@ -21,56 +21,133 @@ The following code example demonstrates how to add a blank slide to a section.
 {% highlight c# %}
 
 //Creates a PowerPoint presentation
-
-IPresentation presentation = Presentation.Create();
+IPresentation pptxDoc = Presentation.Create();
 
 //Adds a section to the PowerPoint presentation
-
-ISection section = presentation.Sections.Add();
+ISection section = pptxDoc.Sections.Add();
 
 //Sets a name to the created section
-
 section.Name = "SectionDemo";
 
 //Adds a slide to the created section
-
 ISlide slide = section.AddSlide(SlideLayoutType.Blank);
 
 //Adds a text box to the slide
-
 slide.AddTextBox(10, 10, 100, 100).TextBody.AddParagraph("Slide in SectionDemo");
 
 //Saves the PowerPoint presentation
-
-presentation.Save("Section.pptx");
+pptxDoc.Save("Section.pptx");
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Creates a PowerPoint presentation
-
-Dim presentationDocument As IPresentation = Presentation.Create()
+Dim pptxDoc As IPresentation = Presentation.Create()
 
 'Adds a section to the PowerPoint presentation
-
-Dim section As ISection = presentationDocument.Sections.Add()
+Dim section As ISection = pptxDoc.Sections.Add()
 
 'Sets a name to the created section
-
 section.Name = "SectionDemo"
 
 'Adds a slide to the created section
-
 Dim slide As ISlide = section.AddSlide(SlideLayoutType.Blank)
 
 'Adds a text box to the slide
-
 slide.AddTextBox(10, 10, 100, 100).TextBody.AddParagraph("Slide in SectionDemo")
 
 'Saves the PowerPoint presentation
+pptxDoc.Save("Section.PPTX")
 
-presentationDocument.Save("Section.PPTX")
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds a section to the PowerPoint presentation
+ISection section = pptxDoc.Sections.Add();
+
+//Sets a name to the created section
+section.Name = "SectionDemo";
+
+//Adds a slide to the created section
+ISlide slide = section.AddSlide(SlideLayoutType.Blank);
+
+//Adds a text box to the slide
+slide.AddTextBox(10, 10, 100, 100).TextBody.AddParagraph("Slide in SectionDemo");
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Section";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Creates a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds a section to the PowerPoint presentation
+ISection section = pptxDoc.Sections.Add();
+
+//Sets a name to the created section
+section.Name = "SectionDemo";
+
+//Adds a slide to the created section
+ISlide slide = section.AddSlide(SlideLayoutType.Blank);
+
+//Adds a text box to the slide
+slide.AddTextBox(10, 10, 100, 100).TextBody.AddParagraph("Slide in SectionDemo");
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Section.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Creates a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds a section to the PowerPoint presentation
+ISection section = pptxDoc.Sections.Add();
+
+//Sets a name to the created section
+section.Name = "SectionDemo";
+
+//Adds a slide to the created section
+ISlide slide = section.AddSlide(SlideLayoutType.Blank);
+
+//Adds a text box to the slide
+slide.AddTextBox(10, 10, 100, 100).TextBody.AddParagraph("Slide in SectionDemo");
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -85,40 +162,116 @@ The following code example demonstrates how to add an existing slide to a sectio
 {% highlight c# %}
 
 //Loads a PowerPoint presentation
-
-IPresentation presentation = Presentation.Open("PPTXWithoutSection.PPTX");
+IPresentation pptxDoc = Presentation.Open("PPTXWithoutSection.PPTX");
 
 //Creates a new section in the PowerPoint presentation
-
-presentation.Sections.Add();
+pptxDoc.Sections.Add();
 
 //Moves the first slide to the created section
-
-presentation.Slides[0].MoveToSection(0);
+pptxDoc.Slides[0].MoveToSection(0);
 
 //Saves the PowerPoint presentation
-
-presentation.Save("Sections.PPTX");
+pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Loads a PowerPoint presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open("PPTXWithoutSection.PPTX")
+Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithoutSection.PPTX")
 
 'Creates a new section in the PowerPoint presentation
-
-presentationDocument.Sections.Add()
+pptxDoc.Sections.Add()
 
 'Moves the first slide to the created section
-
-presentationDocument.Slides(0).MoveToSection(0)
+pptxDoc.Slides(0).MoveToSection(0)
 
 'Saves the PowerPoint presentation
+pptxDoc.Save("Sections.PPTX")
 
-presentationDocument.Save("Sections.PPTX")
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Creates a new section in the PowerPoint presentation
+pptxDoc.Sections.Add();
+
+//Moves the first slide to the created section
+pptxDoc.Slides[0].MoveToSection(0);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sections";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Creates a new section in the PowerPoint presentation
+pptxDoc.Sections.Add();
+
+//Moves the first slide to the created section
+pptxDoc.Slides[0].MoveToSection(0);
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Section.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Creates a new section in the PowerPoint presentation
+pptxDoc.Sections.Add();
+
+//Moves the first slide to the created section
+pptxDoc.Slides[0].MoveToSection(0);
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Section.pptx.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -133,48 +286,131 @@ The following code example demonstrates how to insert a section in a template Po
 {% highlight c# %}
 
 //Loads a PowerPoint presentation
-
-IPresentation presentation = Presentation.Open("PPTXWithSections.PPTX");
+IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
 
 //Creates a new section
-
-ISection section = presentation.Sections.Add();
+ISection section = pptxDoc.Sections.Add();
 
 //Names the created section
-
 section.Name = "InsertedSection";
 
 //Inserts the section at second position.
-
-presentation.Sections.Insert(1, section);
+pptxDoc.Sections.Insert(1, section);
 
 //Saves the PowerPoint presentation
-
-presentation.Save("Sections.PPTX");
+pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Loads a PowerPoint presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
+Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
 
 'Creates a new section
-
-Dim section As ISection = presentationDocument.Sections.Add()
+Dim section As ISection = pptxDoc.Sections.Add()
 
 'Names the created section
-
 section.Name = "InsertedSection"
 
 'Inserts the section at second position.
-
-presentationDocument.Sections.Insert(1, section)
+pptxDoc.Sections.Insert(1, section)
 
 'Saves the PowerPoint presentation
+pptxDoc.Save("Sections.PPTX")
 
-presentationDocument.Save("Sections.PPTX")
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+/Creates a new section
+ISection section = pptxDoc.Sections.Add();
+
+//Names the created section
+section.Name = "InsertedSection";
+
+//Inserts the section at second position.
+pptxDoc.Sections.Insert(1, section);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sections";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Creates a new section
+ISection section = pptxDoc.Sections.Add();
+
+//Names the created section
+section.Name = "InsertedSection";
+
+//Inserts the section at second position.
+pptxDoc.Sections.Insert(1, section);
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Section.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Creates a new section
+ISection section = pptxDoc.Sections.Add();
+
+//Names the created section
+section.Name = "InsertedSection";
+
+//Inserts the section at second position.
+pptxDoc.Sections.Insert(1, section);
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -189,32 +425,101 @@ You can move the sections within a PowerPoint presentation. The following code e
 {% highlight c# %}
 
 //Loads a PowerPoint presentation
-
-IPresentation presentation = Presentation.Open("PPTXWithSections.PPTX");
+IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
 
 //Moves the second section to third position within the PowerPoint presentation.
-
-presentation.Sections[2].Move(3);
+pptxDoc.Sections[2].Move(3);
 
 //Saves the PowerPoint presentation
-
-presentation.Save("Sections.PPTX");
+pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Loads a PowerPoint presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
+Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
 
 'Moves the second section to third position within the PowerPoint presentation.
-
-presentationDocument.Sections(2).Move(3)
+pptxDoc.Sections(2).Move(3)
 
 'Saves the PowerPoint presentation
+pptxDoc.Save("Sections.PPTX")
 
-presentationDocument.Save("Sections.PPTX")
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Moves the second section to third position within the PowerPoint presentation.
+pptxDoc.Sections[2].Move(3);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sections";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Moves the second section to third position within the PowerPoint presentation.
+pptxDoc.Sections[2].Move(3);
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Section.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Moves the second section to third position within the PowerPoint presentation.
+pptxDoc.Sections[2].Move(3);
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -229,40 +534,116 @@ The following code example demonstrates how to move a slide from one section to 
 {% highlight c# %}
 
 //Loads a PowerPoint presentation
-
-IPresentation presentation = Presentation.Open("PPTXWithSections.PPTX");
+IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
 
 //Gets the first slide of second section in the PowerPoint presentation
-
-ISlide slide = presentation.Sections[1].Slides[0];
+ISlide slide = pptxDoc.Sections[1].Slides[0];
 
 //Moves the slide to first section
-
 slide.MoveToSection(0);
 
 //Saves the PowerPoint presentation
-
-presentation.Save("Sections.PPTX");
+pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Loads a PowerPoint presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
+Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
 
 'Gets the first slide of second section in the PowerPoint presentation
-
-Dim slide As ISlide = presentationDocument.Sections(1).Slides(0)
+Dim slide As ISlide = pptxDoc.Sections(1).Slides(0)
 
 'Moves the slide to first section
-
 slide.MoveToSection(0)
 
 'Saves the PowerPoint presentation
+pptxDoc.Save("Sections.PPTX")
 
-presentationDocument.Save("Sections.PPTX")
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Gets the first slide of second section in the PowerPoint presentation
+ISlide slide = pptxDoc.Sections[1].Slides[0];
+
+//Moves the slide to first section
+slide.MoveToSection(0);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sections";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Gets the first slide of second section in the PowerPoint presentation
+ISlide slide = pptxDoc.Sections[1].Slides[0];
+
+//Moves the slide to first section
+slide.MoveToSection(0);
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Section.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Gets the first slide of second section in the PowerPoint presentation
+ISlide slide = pptxDoc.Sections[1].Slides[0];
+
+//Moves the slide to first section
+slide.MoveToSection(0);
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -277,54 +658,142 @@ The following code example demonstrates how to clone the slide collection of a s
 {% highlight c# %}
 
 //Loads a PowerPoint presentation
-
-IPresentation presentation = Presentation.Open("PPTXWithSections.PPTX");
+IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
 
 //Clones the slides in 3rd section
-
-ISlides slides = presentation.Sections[2].Clone();
+ISlides slides = pptxDoc.Sections[2].Clone();
 
 //Creates a destination PowerPoint presentation instance. Existing presentations can also be used here.
-
-presentation = Presentation.Create();
+pptxDoc = Presentation.Create();
 
 //Iterates the cloned slides and adds the slides to the destination presentation
-
 foreach (ISlide slide in slides)
 
-presentation.Slides.Add(slide);
+pptxDoc.Slides.Add(slide);
 
 //Saves the PowerPoint presentation
-
-presentation.Save("Sections.PPTX");
+pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Loads a PowerPoint presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
+Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
 
 'Clones the slides in 3rd section
-
-Dim slides As ISlides = presentationDocument.Sections(2).Clone()
+Dim slides As ISlides = pptxDoc.Sections(2).Clone()
 
 'Creates a destination PowerPoint presentation instance. Existing presentations can also be used here.
-
-presentationDocument = Presentation.Create()
+pptxDoc = Presentation.Create()
 
 'Iterates the cloned slides and adds the slides to the destination presentation
-
 For Each slide As ISlide In slides
 
-presentationDocument.Slides.Add(slide)
+pptxDoc.Slides.Add(slide)
 
 Next
 
 'Save the PowerPoint presentation
+pptxDoc.Save("Sections.PPTX")
 
-presentationDocument.Save("Sections.PPTX")
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Clones the slides in 3rd section
+ISlides slides = pptxDoc.Sections[2].Clone();
+
+//Creates a destination PowerPoint presentation instance. Existing presentations can also be used here.
+pptxDoc = Presentation.Create();
+
+//Iterates the cloned slides and adds the slides to the destination presentation
+foreach (ISlide slide in slides)
+   pptxDoc.Slides.Add(slide);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sections";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Clones the slides in 3rd section
+ISlides slides = pptxDoc.Sections[2].Clone();
+
+//Creates a destination PowerPoint presentation instance. Existing presentations can also be used here.
+pptxDoc = Presentation.Create();
+
+//Iterates the cloned slides and adds the slides to the destination presentation
+foreach (ISlide slide in slides)
+
+pptxDoc.Slides.Add(slide);
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Section.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Clones the slides in 3rd section
+ISlides slides = pptxDoc.Sections[2].Clone();
+
+//Creates a destination PowerPoint presentation instance. Existing presentations can also be used here.
+pptxDoc = Presentation.Create();
+
+//Iterates the cloned slides and adds the slides to the destination presentation
+foreach (ISlide slide in slides)
+
+pptxDoc.Slides.Add(slide);
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -339,32 +808,101 @@ The following code example demonstrates how to create remove a particular sectio
 {% highlight c# %}
 
 //Loads a PowerPoint presentation
-
-IPresentation presentation = Presentation.Open("PPTXWithSections.PPTX");
+IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
 
 //Removes the second section from the PowerPoint presentation
-
-presentation.Sections.Remove(presentation.Sections[1]);
+pptxDoc.Sections.Remove(pptxDoc.Sections[1]);
 
 //Saves the PowerPoint presentation
-
-presentation.Save("Sections.PPTX");
+pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Loads a PowerPoint presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
+Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
 
 'Removes the second section from the PowerPoint presentation
-
-presentationDocument.Sections.Remove(presentationDocument.Sections(1))
+pptxDoc.Sections.Remove(pptxDoc.Sections(1))
 
 'Saves the PowerPoint presentation
+pptxDoc.Save("Sections.PPTX")
 
-presentationDocument.Save("Sections.PPTX")
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Removes the second section from the PowerPoint presentation
+pptxDoc.Sections.Remove(pptxDoc.Sections[1]);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sections";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Removes the second section from the PowerPoint presentation
+pptxDoc.Sections.Remove(pptxDoc.Sections[1]);
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Section.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Removes the second section from the PowerPoint presentation
+pptxDoc.Sections.Remove(pptxDoc.Sections[1]);
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Section.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -379,32 +917,101 @@ The following code example demonstrates how to remove section collection from an
 {% highlight c# %}
 
 //Loads a PowerPoint presentation
-
-IPresentation presentation = Presentation.Open("PPTXWithSections.PPTX");
+IPresentation pptxDoc = Presentation.Open("PPTXWithSections.PPTX");
 
 //Removes the sections
-
-presentation.Sections.Clear();
+pptxDoc.Sections.Clear();
 
 //Saves the PowerPoint presentation
-
-presentation.Save("Sections.PPTX");
+pptxDoc.Save("Sections.PPTX");
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Loads a PowerPoint presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
+Dim pptxDoc As IPresentation = Presentation.Open("PPTXWithSections.PPTX")
 
 'Removes the sections
-
-presentationDocument.Sections.Clear()
+pptxDoc.Sections.Clear()
 
 'Saves the PowerPoint presentation
+pptxDoc.Save("Sections.PPTX")
 
-presentationDocument.Save("Sections.PPTX")
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Removes the sections
+pptxDoc.Sections.Clear();
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sections";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("PPTXWithSections.PPTX",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Removes the sections
+pptxDoc.Sections.Clear();
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Sections.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Removes the sections
+pptxDoc.Sections.Clear();
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sections.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sections.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 

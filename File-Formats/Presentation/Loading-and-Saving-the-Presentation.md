@@ -85,6 +85,17 @@ Dim pptxDoc As IPresentation = Presentation.Open(presentationStream)
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Create new Presentation without slides.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+{% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 
 //Loads or open an PowerPoint Presentation
@@ -99,7 +110,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
 
 //Loads or open an PowerPoint Presentation
-IPresentation powerpointDoc = Presentation.Open(inputStream);
+IPresentation pptxDoc = Presentation.Open(inputStream);
 
 {% endhighlight %}
 
@@ -177,13 +188,13 @@ IPresentation pptxDoc = Presentation.OpenAsync(fileName, password);
 
 {% highlight ASP.NET CORE %}
 
-//Essential Presentation does not provides support to Encryption and Decryption in ASP.NET Core platforms.
+//Essential Presentation Library does not provides support to Encryption and Decryption in ASP.NET Core platforms.
 
 {% endhighlight %}
 
 {% highlight XAMARIN %}
 
-//Essential Presentation does not provides support to Encryption and Decryption in ASP.NET Core platforms.
+//Essential Presentation Library does not provides support to Encryption and Decryption in ASP.NET Core platforms.
 
 {% endhighlight %}
 
@@ -277,7 +288,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
 
 //Loads or open an PowerPoint Presentation
-IPresentation powerpointDoc = Presentation.Open(inputStream);
+IPresentation pptxDoc = Presentation.Open(inputStream);
 
 //To-Do some manipulation
 //To-Do some manipulation
@@ -391,7 +402,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
 
 //Loads or open an PowerPoint Presentation
-IPresentation powerpointDoc = Presentation.Open(inputStream);
+IPresentation pptxDoc = Presentation.Open(inputStream);
 
 //To-Do some manipulation
 //To-Do some manipulation
@@ -610,8 +621,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Close the instance of PowerPoint Presentation
-pptxDoc.Close();
 
 {% endhighlight %}
 

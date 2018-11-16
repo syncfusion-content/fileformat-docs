@@ -327,7 +327,7 @@ pptxDoc.Close();
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
@@ -362,9 +362,9 @@ stream.Position = 0;
 
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -489,63 +489,48 @@ pptxDoc.Close()
 {% highlight UWP %}
 
 //Create the PowerPoint Presentation
-
 IPresentation pptxDoc = Presentation.Create();
 
 //Gets the slide from Presentation
-
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Adds textbox to the slide
-
 IShape textboxShape2 = slide.AddTextBox(500, 0, 400, 500);
 
 //Adds paragraph to the textbody of textbox
-
 IParagraph paragraph2 = textboxShape2.TextBody.AddParagraph();
 
 //Adds a TextPart to the paragraph
-
 ITextPart textPartFormatting = paragraph2.AddTextPart();
 
 //Adds text to the TextPart
-
 textPartFormatting.Text = "In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico. The plant manufactures several critical subcomponents for the AdventureWorks Cycles product line. These subcomponents are shipped to the another location for final product assembly. In 2001, the plant, became the sole manufacturer and distributor of the touring bicycle product group.";
 
 //Sets the underline color
-
 textPartFormatting.UnderlineColor = ColorObject.Black;
 
 //Retrieves the existing font for modification
-
 IFont font = textPartFormatting.Font;
 
 //Sets the underline type
-
 font.Underline = TextUnderlineType.Single;
 
 //Sets the font weight
-
 font.Bold = true;
 
 //Adds a TextPart to the paragraph
-
 ITextPart textPartFormatting2 = paragraph2.AddTextPart();
 
 //Adds text to the TextPart
-
 textPartFormatting2.Text = "In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico.";
 
 //Retrieves the existing font for modification
-
 IFont font2 = textPartFormatting2.Font;
 
 //Sets the font color
-
 font2.Color = ColorObject.Blue;
 
 //Sets the underline type
-
 font2.Underline = TextUnderlineType.WavyDouble;
 
 //Initializes FileSavePicker
@@ -610,7 +595,7 @@ font2.Color = ColorObject.BlanchedAlmond;
 font2.Underline = TextUnderlineType.WavyDouble;
 
 //Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
+FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
 
 //Closes the Presentation
@@ -811,7 +796,7 @@ ITextPart textPart = paragraph.TextParts[0];
 textPart.Text = "Hello Presentation";
 
 //Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
+FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
 
 //Closes the Presentation.
@@ -823,7 +808,7 @@ pptxDoc.Close();
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
@@ -855,9 +840,9 @@ stream.Position = 0;
 
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -961,7 +946,7 @@ await pptxDoc.SaveAsync(storageFile);
 {% highlight ASP.NET CORE %}
 
 //Loads or open an PowerPoint Presentation
-FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
+FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
 
 //Retrieves the first slide from Presentation
@@ -977,7 +962,7 @@ IParagraph paragraph = shape.TextBody.Paragraphs[0];
 shape.TextBody.Paragraphs.Remove(paragraph);
 
 //Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
+FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
 
 //Closes the Presentation
@@ -989,7 +974,7 @@ pptxDoc.Close();
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
@@ -1018,9 +1003,9 @@ stream.Position = 0;
 
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 

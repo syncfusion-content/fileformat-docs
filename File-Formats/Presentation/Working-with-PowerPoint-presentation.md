@@ -129,11 +129,8 @@ IParagraph paragraph = textShape.TextBody.AddParagraph();
 ITextPart textPart = paragraph.AddTextPart("Essential Presentation");
 
 //Save the PowerPoint Presentation to stream
-MemoryStream stream = new MemoryStream();
-pptxDoc.Save(stream);
-stream.Position = 0;
-
-return File(stream, ContentType, fileName);
+FileStream outputStream = new FileStream(outputFileName, FileMode.Create);
+clonedPresentation.SaveAs(outputStream);
 
 {% endhighlight %}
 
@@ -163,10 +160,10 @@ ITextPart textPart = paragraph.AddTextPart("Essential Presentation");
 MemoryStream stream = new MemoryStream();
 
 //Save Presentation in stream format.
-pptxDoc.Save(stream);
+clonedPresentation.Save(stream);
 
 //Close the presentation
-pptxDoc.Close();
+clonedPresentation.Close();
 stream.Position = 0;
 
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
@@ -935,7 +932,7 @@ FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 pptxDoc.Save(outputStream);
 
 //Close the presentation
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
@@ -948,7 +945,7 @@ IPresentation pptxDoc = Presentation.Create();
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Mark the presentation as final
-presentation.Final = true;
+pptxDoc.Final = true;
 
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();

@@ -310,7 +310,7 @@ pptxDoc.Close();
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream("Sample.pptx");
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
@@ -322,7 +322,7 @@ ISlide slide = pptxDoc.Slides[0];
 IPicture picture = slide.Pictures[0];
 
 //Gets the new picture as stream.
-Stream pictureStream = assembly.GetManifestResourceStream("Image.png");
+Stream pictureStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Image.png");
 
 //Creates instance for memory stream
 MemoryStream memoryStream = new MemoryStream();
@@ -494,7 +494,7 @@ pptxDoc.Close();
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream inputStream = assembly.GetManifestResourceStream("Sample.pptx");
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
