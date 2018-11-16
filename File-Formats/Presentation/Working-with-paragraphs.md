@@ -18,72 +18,157 @@ The following code example demonstrates how to add a paragraph in a slide.
 {% highlight c# %}
 
 //Creates PowerPoint Presentation
-
-IPresentation presentation = Presentation.Create();
+IPresentation pptxDoc = Presentation.Create();
 
 //Adds slide to the PowerPoint
-
-ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Adds textbox to the slide
-
 IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
 
 //Adds paragraph to the textbody of textbox
-
 IParagraph paragraph = textboxShape.TextBody.AddParagraph();
 
 //Adds a TextPart to the paragraph
-
 ITextPart textPart = paragraph.AddTextPart();
 
 //Adds text to the TextPart
-
 textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
 
 //Saves the Presentation
-
-presentation.Save("Output.pptx");
+pptxDoc.Save("Output.pptx");
 
 //Closes the Presentation
-
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Creates PowerPoint Presentation
-
-Dim presentationDocument As IPresentation = Presentation.Create()
+Dim pptxDoc As IPresentation = Presentation.Create()
 
 'Adds slide to the PowerPoint
-
-Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 
 'Adds textbox to the slide
-
 Dim textboxShape As IShape = slide.AddTextBox(0, 0, 500, 500)
 
 'Adds paragraph to the textbody of textbox
-
 Dim paragraph As IParagraph = textboxShape.TextBody.AddParagraph()
 
 'Adds a TextPart to the paragraph
-
 Dim textPart As ITextPart = paragraph.AddTextPart()
 
 'Adds text to the TextPart
-
 textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base."
 
 'Saves the Presentation
-
-presentationDocument.Save("Output.pptx")
+pptxDoc.Save("Output.pptx")
 
 'Closes the Presentation
+pptxDoc.Close()
 
-presentationDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds slide to the PowerPoint
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
+
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Creates PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds slide to the PowerPoint
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
+
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Creates PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds slide to the PowerPoint
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds textbox to the slide
+IShape textboxShape = slide.AddTextBox(0, 0, 500, 500);
+
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph = textboxShape.TextBody.AddParagraph();
+
+//Adds a TextPart to the paragraph
+ITextPart textPart = paragraph.AddTextPart();
+
+//Adds text to the TextPart
+textPart.Text = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -98,80 +183,188 @@ Each paragraph in a slide can has its own formatting types such as alignment, in
 {% highlight c# %}
 
 //Loads the PowerPoint Presentation
-
-IPresentation presentation = Presentation.Open("Sample.pptx");
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
 //Gets the slide from Presentation
-
-ISlide slide = presentation.Slides[0];
+ISlide slide = pptxDoc.Slides[0];
 
 //Gets the shape in slide
-
 IShape textboxShape = slide.Shapes[0] as IShape;  
 
 //Gets instance of a paragraph in a textbox
-
 IParagraph paragraph = textboxShape.TextBody.Paragraphs[0];
 
 //Applies the first line indent of the paragraph
-
 paragraph.FirstLineIndent = 10;
 
 //Applies the horizontal alignment of the paragraph to center.
-
 paragraph.HorizontalAlignment = HorizontalAlignmentType.Left;
 
 //Applies the left indent of the paragraph
-
 paragraph.LeftIndent = 8;
 
 //Saves the Presentation
-
-presentation.Save("Output.pptx");
+pptxDoc.Save("Output.pptx");
 
 //Closes the Presentation
-
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Loads the PowerPoint Presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
 'Gets the slide from Presentation
-
-Dim slide As ISlide = presentationDocument.Slides(0)
+Dim slide As ISlide = pptxDoc.Slides(0)
 
 'Gets the shape in slide
-
 Dim textboxShape As IShape = TryCast(slide.Shapes(0), IShape)
 
 'Gets instance of a paragraph in a textbox
-
 Dim paragraph As IParagraph = textboxShape.TextBody.Paragraphs(0)
 
 'Applies the first line indent of the paragraph
-
 paragraph.FirstLineIndent = 10
 
 'Applies the horizontal alignment of the paragraph to center.
-
 paragraph.HorizontalAlignment = HorizontalAlignmentType.Left
 
 'Applies the left indent of the paragraph
-
 paragraph.LeftIndent = 8
 
 'Saves the Presentation
-
-presentationDocument.Save("Output.pptx")
+pptxDoc.Save("Output.pptx")
 
 'Closes the Presentation
+pptxDoc.Close()
 
-presentationDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Gets the slide from Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Gets the shape in slide
+IShape textboxShape = slide.Shapes[0] as IShape;
+
+//Gets instance of a paragraph in a textbox
+IParagraph paragraph = textboxShape.TextBody.Paragraphs[0];
+
+//Applies the first line indent of the paragraph
+paragraph.FirstLineIndent = 10;
+
+//Applies the horizontal alignment of the paragraph to center.
+paragraph.HorizontalAlignment = HorizontalAlignmentType.Left;
+
+//Applies the left indent of the paragraph
+paragraph.LeftIndent = 8;
+
+//Adds text to paragraph
+paragraph.Text = "PowerPoint Presentation";
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Gets the slide from Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Gets the shape in slide
+IShape textboxShape = slide.Shapes[0] as IShape;  
+
+//Gets instance of a paragraph in a textbox
+IParagraph paragraph = textboxShape.TextBody.Paragraphs[0];
+
+//Applies the first line indent of the paragraph
+paragraph.FirstLineIndent = 10;
+
+//Applies the horizontal alignment of the paragraph to center.
+paragraph.HorizontalAlignment = HorizontalAlignmentType.Left;
+
+//Applies the left indent of the paragraph
+paragraph.LeftIndent = 8;
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Gets the slide from Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Gets the shape in slide
+IShape textboxShape = slide.Shapes[0] as IShape;  
+
+//Gets instance of a paragraph in a textbox
+IParagraph paragraph = textboxShape.TextBody.Paragraphs[0];
+
+//Applies the first line indent of the paragraph
+paragraph.FirstLineIndent = 10;
+
+//Applies the horizontal alignment of the paragraph to center.
+paragraph.HorizontalAlignment = HorizontalAlignmentType.Left;
+
+//Applies the left indent of the paragraph
+paragraph.LeftIndent = 8;
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -185,13 +378,123 @@ With Essential Presentation, you can add or modify the text in a Presentation. W
 
 {% highlight c# %}
 
-//Loads the PowerPoint Presentation
+//Creates the PowerPoint Presentation instance
+IPresentation pptxDoc = Presentation.Create();
 
-IPresentation presentation = Presentation.Create();
+//Gets the slide from Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds textbox to the slide
+IShape textboxShape2 = slide.AddTextBox(500, 0, 400, 500);
+
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph2 = textboxShape2.TextBody.AddParagraph();
+
+//Adds a TextPart to the paragraph
+ITextPart textPartFormatting = paragraph2.AddTextPart();
+
+//Adds text to the TextPart
+textPartFormatting.Text = "In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico. The plant manufactures several critical subcomponents for the AdventureWorks Cycles product line. These subcomponents are shipped to the another location for final product assembly. In 2001, the plant, became the sole manufacturer and distributor of the touring bicycle product group.";
+
+//Sets the underline color
+textPartFormatting.UnderlineColor.SystemColor = Color.Black;
+
+//Retrieves the existing font for modification
+IFont font = textPartFormatting.Font;
+
+//Sets the underline type
+font.Underline = TextUnderlineType.Single;
+
+//Sets the font weight
+font.Bold = true;
+
+//Adds a TextPart to the paragraph
+ITextPart textPartFormatting2 = paragraph2.AddTextPart();
+
+//Adds text to the TextPart
+textPartFormatting2.Text = "In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico.";
+
+//Retrieves the existing font for modification
+IFont font2 = textPartFormatting2.Font;
+
+//Sets the font color
+font2.Color.SystemColor = Color.Blue;
+
+//Sets the underline type
+font2.Underline = TextUnderlineType.WavyDouble;
+
+//Saves the Presentation
+pptxDoc.Save("Output.pptx");
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads the PowerPoint Presentation
+Dim pptxDoc As IPresentation = Presentation.Create()
+
+'Gets the slide from Presentation
+Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+'Adds textbox to the slide
+Dim textboxShape2 As IShape = slide.AddTextBox(500, 0, 400, 500)
+
+'Adds paragraph to the textbody of textbox
+Dim paragraph2 As IParagraph = textboxShape2.TextBody.AddParagraph()
+
+'Adds a TextPart to the paragraph
+Dim textPartFormatting As ITextPart = paragraph2.AddTextPart()
+
+'Adds text to the TextPart
+textPartFormatting.Text = "In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico. It manufactures several critical subcomponents for the AdventureWorks Cycles product line. These subcomponents are shipped to the another location for final product assembly. In 2001, the plant, became the sole manufacturer and distributor of the touring bicycle product group."
+
+'Sets the underline color
+textPartFormatting.UnderlineColor.SystemColor = Color.Black
+
+'Retrieves the existing font for modification
+Dim font As IFont = textPartFormatting.Font
+
+'Sets the underline type
+font.Underline = TextUnderlineType.[Single]
+
+'Sets the font weight
+font.Bold = True
+
+'Adds a TextPart to the paragraph
+Dim textPartFormatting2 As ITextPart = paragraph2.AddTextPart()
+
+'Adds text to the TextPart
+textPartFormatting2.Text = "In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico."
+
+'Retrieves the existing font for modification
+Dim font2 As IFont = textPartFormatting2.Font
+
+'Sets the font color
+font2.Color.SystemColor = Color.Blue
+
+'Sets the underline type
+font2.Underline = TextUnderlineType.WavyDouble
+
+'Saves the Presentation
+pptxDoc.Save("Output.pptx")
+
+'Closes the Presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the PowerPoint Presentation
+
+IPresentation pptxDoc = Presentation.Create();
 
 //Gets the slide from Presentation
 
-ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Adds textbox to the slide
 
@@ -211,7 +514,7 @@ textPartFormatting.Text = "In 2000, AdventureWorks Cycles bought a small manufac
 
 //Sets the underline color
 
-textPartFormatting.UnderlineColor.SystemColor = Color.Black;
+textPartFormatting.UnderlineColor = ColorObject.Black;
 
 //Retrieves the existing font for modification
 
@@ -239,91 +542,144 @@ IFont font2 = textPartFormatting2.Font;
 
 //Sets the font color
 
-font2.Color.SystemColor = Color.Blue;
+font2.Color = ColorObject.Blue;
 
 //Sets the underline type
 
 font2.Underline = TextUnderlineType.WavyDouble;
 
-//Saves the Presentation
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
 
-presentation.Save("Output.pptx");
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Closes the Presentation
-
-presentation.Close();
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight ASP.NET CORE %}
 
-'Loads the PowerPoint Presentation
+//Creates the PowerPoint Presentation instance
+IPresentation pptxDoc = Presentation.Create();
 
-Dim presentationDocument As IPresentation = Presentation.Create()
+//Adds new slide to the presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
-'Gets the slide from Presentation
+//Adds textbox to the slide
+IShape textboxShape2 = slide.AddTextBox(500, 0, 400, 500);
 
-Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph2 = textboxShape2.TextBody.AddParagraph();
 
-'Adds textbox to the slide
+//Adds a TextPart to the paragraph
+ITextPart textPartFormatting = paragraph2.AddTextPart();
 
-Dim textboxShape2 As IShape = slide.AddTextBox(500, 0, 400, 500)
+//Adds text to the TextPart
+textPartFormatting.Text = "In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico. The plant manufactures several critical subcomponents for the AdventureWorks Cycles product line. These subcomponents are shipped to the another location for final product assembly. In 2001, the plant, became the sole manufacturer and distributor of the touring bicycle product group.";
 
-'Adds paragraph to the textbody of textbox
+//Sets the underline color
+textPartFormatting.UnderlineColor = ColorObject.AliceBlue;
 
-Dim paragraph2 As IParagraph = textboxShape2.TextBody.AddParagraph()
+//Retrieves the existing font for modification
+IFont font = textPartFormatting.Font;
 
-'Adds a TextPart to the paragraph
+//Sets the underline type
+font.Underline = TextUnderlineType.Single;
 
-Dim textPartFormatting As ITextPart = paragraph2.AddTextPart()
+//Sets the font weight
+font.Bold = true;
 
-'Adds text to the TextPart
+//Adds a TextPart to the paragraph
+ITextPart textPartFormatting2 = paragraph2.AddTextPart();
 
-textPartFormatting.Text = "In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico. It manufactures several critical subcomponents for the AdventureWorks Cycles product line. These subcomponents are shipped to the another location for final product assembly. In 2001, the plant, became the sole manufacturer and distributor of the touring bicycle product group."
+//Adds text to the TextPart
+textPartFormatting2.Text = "In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico.";
 
-'Sets the underline color
+//Retrieves the existing font for modification
+IFont font2 = textPartFormatting2.Font;
 
-textPartFormatting.UnderlineColor.SystemColor = Color.Black
+//Sets the font color
+font2.Color = ColorObject.BlanchedAlmond;
 
-'Retrieves the existing font for modification
+//Sets the underline type
+font2.Underline = TextUnderlineType.WavyDouble;
 
-Dim font As IFont = textPartFormatting.Font
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
+pptxDoc.Save(outputStream);
 
-'Sets the underline type
+//Closes the Presentation
+pptxDoc.Close();
 
-font.Underline = TextUnderlineType.[Single]
+{% endhighlight %}
 
-'Sets the font weight
+{% highlight XAMARIN %}
 
-font.Bold = True
+//Creates the PowerPoint Presentation instance
+IPresentation pptxDoc = Presentation.Create();
 
-'Adds a TextPart to the paragraph
+//Adds new slide to the presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
-Dim textPartFormatting2 As ITextPart = paragraph2.AddTextPart()
+//Adds textbox to the slide
+IShape textboxShape2 = slide.AddTextBox(500, 0, 400, 500);
 
-'Adds text to the TextPart
+//Adds paragraph to the textbody of textbox
+IParagraph paragraph2 = textboxShape2.TextBody.AddParagraph();
 
-textPartFormatting2.Text = "In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico."
+//Adds a TextPart to the paragraph
+ITextPart textPartFormatting = paragraph2.AddTextPart();
 
-'Retrieves the existing font for modification
+//Adds text to the TextPart
+textPartFormatting.Text = "In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico. The plant manufactures several critical subcomponents for the AdventureWorks Cycles product line. These subcomponents are shipped to the another location for final product assembly. In 2001, the plant, became the sole manufacturer and distributor of the touring bicycle product group.";
 
-Dim font2 As IFont = textPartFormatting2.Font
+//Sets the underline color
+textPartFormatting.UnderlineColor = ColorObject.AliceBlue;
 
-'Sets the font color
+//Retrieves the existing font for modification
+IFont font = textPartFormatting.Font;
 
-font2.Color.SystemColor = Color.Blue
+//Sets the underline type
+font.Underline = TextUnderlineType.Single;
 
-'Sets the underline type
+//Sets the font weight
+font.Bold = true;
 
-font2.Underline = TextUnderlineType.WavyDouble
+//Adds a TextPart to the paragraph
+ITextPart textPartFormatting2 = paragraph2.AddTextPart();
 
-'Saves the Presentation
+//Adds text to the TextPart
+textPartFormatting2.Text = "In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico.";
 
-presentationDocument.Save("Output.pptx")
+//Retrieves the existing font for modification
+IFont font2 = textPartFormatting2.Font;
 
-'Closes the Presentation
+//Sets the font color
+font2.Color = ColorObject.BlanchedAlmond;
 
-presentationDocument.Close()
+//Sets the underline type
+font2.Underline = TextUnderlineType.WavyDouble;
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -338,72 +694,170 @@ You can modify a text by accessing the existing paragraphs in a Presentation. Th
 {% highlight c# %}
 
 //Opens an existing Presentation from file system.
-
-IPresentation presentation = Presentation.Open("Sample.pptx");
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
 //Retrieves the first slide from Presentation
-
-ISlide slide = presentation.Slides[0];
+ISlide slide = pptxDoc.Slides[0];
 
 //Retrieves the first shape.
-
 IShape shape = slide.Shapes[0] as IShape;
 
 //Retrieves the first paragraph of the shape.
-
 IParagraph paragraph = shape.TextBody.Paragraphs[0];
 
 //Retrieves the first TextPart of the shape.
-
 ITextPart textPart = paragraph.TextParts[0];
 
 //Modifies the text content of the TextPart.
-
 textPart.Text = "Hello Presentation";
 
 //Saves the presentation to the file system.
-
-presentation.Save("Result.pptx");
+pptxDoc.Save("Result.pptx");
 
 //Closes the Presentation.
-
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Opens an existing Presentation from file system.
-
-Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
 'Retrieves the first slide from Presentation
-
-Dim slide As ISlide = presentationDocument.Slides(0)
+Dim slide As ISlide = pptxDoc.Slides(0)
 
 'Retrieves the first shape.
-
 Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
 
 'Retrieves the first paragraph of the shape.
-
 Dim paragraph As IParagraph = shape.TextBody.Paragraphs(0)
 
 'Retrieves the first TextPart of the shape.
-
 Dim textPart As ITextPart = paragraph.TextParts(0)
 
 'Modifies the text content of the TextPart.
-
 textPart.Text = "Hello Presentation"
 
 'Saves the presentation to the file system.
-
-presentationDocument.Save("Result.pptx")
+pptxDoc.Save("Result.pptx")
 
 'Closes the Presentation.
+pptxDoc.Close()
 
-presentationDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Retrieves the first slide from Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Retrieves the first shape.
+IShape shape = slide.Shapes[0] as IShape;
+
+//Retrieves the first paragraph of the shape.
+IParagraph paragraph = shape.TextBody.Paragraphs[0];
+
+//Retrieves the first TextPart of the shape.
+ITextPart textPart = paragraph.TextParts[0];
+
+//Modifies the text content of the TextPart.
+ textPart.Text = "Hello Presentation";
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Result";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Retrieves the first slide from Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Retrieves the first shape.
+IShape shape = slide.Shapes[0] as IShape;
+
+//Retrieves the first paragraph of the shape.
+IParagraph paragraph = shape.TextBody.Paragraphs[0];
+
+//Retrieves the first TextPart of the shape.
+ITextPart textPart = paragraph.TextParts[0];
+
+//Modifies the text content of the TextPart.
+textPart.Text = "Hello Presentation";
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the Presentation.
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Retrieves the first slide from Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Retrieves the first shape.
+IShape shape = slide.Shapes[0] as IShape;
+
+//Retrieves the first paragraph of the shape.
+IParagraph paragraph = shape.TextBody.Paragraphs[0];
+
+//Retrieves the first TextPart of the shape.
+ITextPart textPart = paragraph.TextParts[0];
+
+//Modifies the text content of the TextPart.
+textPart.Text = "Hello Presentation";
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -418,64 +872,155 @@ The following code example demonstrates how to remove a paragraph from a slide.
 {% highlight c# %}
 
 //Opens an existing Presentation from file system.
-
-IPresentation presentation = Presentation.Open("Sample.pptx");
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
 //Retrieves the first slide from Presentation
-
-ISlide slide = presentation.Slides[0];
+ISlide slide = pptxDoc.Slides[0];
 
 //Retrieves the first shape
-
 IShape shape = slide.Shapes[0] as IShape;
 
 //Retrieves the first paragraph of the shape
-
 IParagraph paragraph = shape.TextBody.Paragraphs[0];
 
 //Removes the first paragraph from the textbody of the shape
-
 shape.TextBody.Paragraphs.Remove(paragraph);
 
 //Saves the presentation to the file system
-
-presentation.Save("Result.pptx");
+pptxDoc.Save("Result.pptx");
 
 //Closes the Presentation
-
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Opens an existing Presentation from file system.
-
-Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
 'Retrieves the first slide from Presentation
-
-Dim slide As ISlide = presentationDocument.Slides(0)
+Dim slide As ISlide = pptxDoc.Slides(0)
 
 'Retrieves the first shape.
-
 Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
 
 'Retrieves the first paragraph of the shape.
-
 Dim paragraph As IParagraph = shape.TextBody.Paragraphs(0)
 
 'Removes the first paragraph from the textbody of the shape.
-
 shape.TextBody.Paragraphs.Remove(paragraph)
 
 'Saves the presentation to the file system.
-
-presentationDocument.Save("Result.pptx")
+pptxDoc.Save("Result.pptx")
 
 'Closes the Presentation.
+pptxDoc.Close()
 
-presentationDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Retrieves the first slide from Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Retrieves the first shape.
+IShape shape = slide.Shapes[0] as IShape;
+
+//Retrieves the first paragraph of the shape.
+IParagraph paragraph = shape.TextBody.Paragraphs[0];
+
+//Removes the first paragraph from the textbody of the shape
+shape.TextBody.Paragraphs.Remove(paragraph);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Result";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Retrieves the first slide from Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Retrieves the first shape
+IShape shape = slide.Shapes[0] as IShape;
+
+//Retrieves the first paragraph of the shape
+IParagraph paragraph = shape.TextBody.Paragraphs[0];
+
+//Removes the first paragraph from the textbody of the shape
+shape.TextBody.Paragraphs.Remove(paragraph);
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Retrieves the first slide from Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Retrieves the first shape
+IShape shape = slide.Shapes[0] as IShape;
+
+//Retrieves the first paragraph of the shape
+IParagraph paragraph = shape.TextBody.Paragraphs[0];
+
+//Removes the first paragraph from the textbody of the shape
+shape.TextBody.Paragraphs.Remove(paragraph);
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
