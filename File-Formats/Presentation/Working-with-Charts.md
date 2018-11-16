@@ -493,7 +493,7 @@ presentationDocument.Close()
 
 The above code example creates a chart in the following screenshot.
 
-![](WorkingwithCharts_images/WorkingwithCharts_img1.jpeg)
+![PowerPoint Example Chart1](WorkingwithCharts_images/WorkingwithCharts_img1.jpeg)
 
 ## Refreshing the chart
 
@@ -667,7 +667,7 @@ presentationDocument.Close()
 
 A chart is composed of various elements such as legends, axes, series, etc. Each chart element corresponds to an object. The following image illustrates the basic elements of a chart.
 
-![](WorkingwithCharts_images/WorkingwithCharts_img2.jpeg)
+![PowerPoint Example Chart2](WorkingwithCharts_images/WorkingwithCharts_img2.jpeg)
 
 1. The chart area of the chart.
 2. The plot area of the chart.
@@ -1604,6 +1604,1045 @@ presentationDocument.Close()
 {% endhighlight %}
 
 {% endtabs %}
+
+## PowerPoint 2016 Charts
+
+Essential Presentation supports creating and manipulating new and modern chart types such as waterfall, histogram, pareto, box and whisker, tree map, and sunburst, which are introduced in Microsoft PowerPoint 2016.
+
+### Funnel
+
+[Funnel](https://support.office.com/en-us/article/Create-a-funnel-chart-ba21bcba-f325-4d9f-93df-97074589a70e#) charts show values across multiple stages in a process. Refer to the following code example to create a Funnel chart.
+
+{% tabs %}
+{% highlight c# %}
+using (IPresentation pptxDoc = Presentation.Create())
+{
+  ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+  
+  //Create a chart
+  IPresentationChart chart = slide1.Charts.AddChart(30, 50, 600, 300);
+  
+  //Set chart type as Funnel
+  chart.ChartType = OfficeChartType.Funnel;
+  
+  //Set the chart title
+  chart.ChartTitle = "Funnel";
+  
+  //Assign data
+  chart.DataRange = chart.ChartData[1, 1, 6, 2];
+  chart.IsSeriesInRows = false;
+  
+  //Set data
+  chart.ChartData.SetValue(1, 1, "Web sales");
+  chart.ChartData.SetValue(1, 2, "Users count");
+  chart.ChartData.SetValue(2, 1, "Website Visits");
+  chart.ChartData.SetValue(2, 2, "15600");
+  chart.ChartData.SetValue(3, 1, "Downloads");
+  chart.ChartData.SetValue(3, 2, "8000");
+  chart.ChartData.SetValue(4, 1, "Requested price list");
+  chart.ChartData.SetValue(4, 2, "6000");
+  chart.ChartData.SetValue(5, 1, "Invoice sent");
+  chart.ChartData.SetValue(5, 2, "2000");
+  chart.ChartData.SetValue(6, 1, "Finalized");
+  chart.ChartData.SetValue(6, 2, "1000");
+  
+  //Formatting the legend and data label option
+  chart.HasLegend = false;
+  IOfficeChartSerie serie = chart.Series[0];
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+  chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+  
+  //Save and close the presentation
+  pptxDoc.Save("FunnelChart.pptx");
+  pptxDoc.Close();
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Creates a PowerPoint instance
+Dim pptxDoc As IPresentation = Presentation.Create()
+Dim slide1 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+'Create a chart
+Dim chart As IPresentationChart = slide1.Charts.AddChart(30, 50, 600, 300)
+
+'Set chart type as Funnel
+chart.ChartType = OfficeChartType.Funnel
+
+'Set the chart title
+chart.ChartTitle = "Funnel"
+
+'Assign data
+chart.DataRange = chart.ChartData(1, 1, 6, 2)
+chart.IsSeriesInRows = False
+
+'Set data
+chart.ChartData.SetValue(1, 1, "Web sales")
+chart.ChartData.SetValue(1, 2, "Users count")
+chart.ChartData.SetValue(2, 1, "Website Visits")
+chart.ChartData.SetValue(2, 2, "15600")
+chart.ChartData.SetValue(3, 1, "Downloads")
+chart.ChartData.SetValue(3, 2, "8000")
+chart.ChartData.SetValue(4, 1, "Requested price list")
+chart.ChartData.SetValue(4, 2, "6000")
+chart.ChartData.SetValue(5, 1, "Invoice sent")
+chart.ChartData.SetValue(5, 2, "2000")
+chart.ChartData.SetValue(6, 1, "Finalized")
+chart.ChartData.SetValue(6, 2, "1000")
+
+'Formatting the legend and data label option
+chart.HasLegend = False
+Dim serie As IOfficeChartSerie = chart.Series(0)
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
+
+'Save and close the presentation
+pptxDoc.Save("FunnelChart.pptx")
+pptxDoc.Close()
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Creates a new instance of PowerPoint Presentation
+IPresentation presentation = Presentation.Create();
+
+//Adds a slide to Presentation
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Create a chart
+IPresentationChart chart = slide1.Charts.AddChart(30, 50, 600, 300);
+
+//Set chart type as Funnel
+chart.ChartType = OfficeChartType.Funnel;
+
+//Set the chart title
+chart.ChartTitle = "Funnel";
+
+//Assign data
+chart.DataRange = chart.ChartData[1, 1, 6, 2];
+chart.IsSeriesInRows = false;
+
+//Set data
+chart.ChartData.SetValue(1, 1, "Web sales");
+chart.ChartData.SetValue(1, 2, "Users count");
+chart.ChartData.SetValue(2, 1, "Website Visits");
+chart.ChartData.SetValue(2, 2, "15600");
+chart.ChartData.SetValue(3, 1, "Downloads");
+chart.ChartData.SetValue(3, 2, "8000");
+chart.ChartData.SetValue(4, 1, "Requested price list");
+chart.ChartData.SetValue(4, 2, "6000");
+chart.ChartData.SetValue(5, 1, "Invoice sent");
+chart.ChartData.SetValue(5, 2, "2000");
+chart.ChartData.SetValue(6, 1, "Finalized");
+chart.ChartData.SetValue(6, 2, "1000");
+
+//Formatting the legend and data label option
+chart.HasLegend = false;
+IOfficeChartSerie serie = chart.Series[0];
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+//Save and close the presentation
+pptxDoc.Save("FunnelChart.pptx");
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following screenshot shows the output of previous code.
+
+![PowerPoint Funnel Chart](WorkingwithCharts_images/Funnel.png)
+
+### Box and Whisker
+
+[Box and Whisker](https://support.office.com/en-us/article/Create-a-box-and-whisker-chart-62f4219f-db4b-4754-aca8-4743f6190f0d#) chart shows distribution of data into quartiles, highlighting the mean and outliers. Box and Whisker charts are most commonly used in statistical analysis. Refer to the following code example to create the Box and Whisker chart.
+
+{% tabs %}
+
+{% highlight c# %}
+private static void TestBox_Whisker()
+{
+   using(IPresentation pptxDoc = Presentation.Create())
+   {
+      ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+	  IPresentationChart chart = slide1.Charts.AddChart(50, 50, 600, 400);
+	  chart.ChartTitle = "Test Scores";
+	  chart.ChartType = OfficeChartType.BoxAndWhisker;
+	  
+	  //Assign data
+	  chart.DataRange = chart.ChartData[1,1,16,4];
+	  chart.IsSeriesInRows = false;
+	  
+	  //Set data to the chart RowIndex, columnIndex, and data
+	  SetChartData(chart);
+	  
+	  //Box and Whisker settings on first series
+	  IOfficeChartSerie seriesA = chart.Series[0];
+	  seriesA.SerieFormat.ShowInnerPoints = false;
+	  seriesA.SerieFormat.ShowOutlierPoints = true;
+	  seriesA.SerieFormat.ShowMeanMarkers = true;
+	  seriesA.SerieFormat.ShowMeanLine = false;
+	  seriesA.SerieFormat.QuartileCalculationType = QuartileCalculation.ExclusiveMedian;
+	  
+	  //Box and Whisker settings on second series
+	  IOfficeChartSerie seriesB = chart.Series[1];
+	  seriesB.SerieFormat.ShowInnerPoints = false;
+	  seriesB.SerieFormat.ShowOutlierPoints = true;
+	  seriesB.SerieFormat.ShowMeanMarkers = true;
+	  seriesB.SerieFormat.ShowMeanLine = false;
+	  seriesB.SerieFormat.QuartileCalculationType = QuartileCalculation.InclusiveMedian;
+	  
+	  //Box and Whisker settings on third series
+	  IOfficeChartSerie seriesC = chart.Series[2];
+	  seriesC.SerieFormat.ShowInnerPoints = false;
+	  seriesC.SerieFormat.ShowOutlierPoints = true;
+	  seriesC.SerieFormat.ShowMeanMarkers = true;
+	  seriesC.SerieFormat.ShowMeanLine = false;
+	  seriesC.SerieFormat.QuartileCalculationType = QuartileCalculation.ExclusiveMedian;
+	  
+	  //Save and close the presentation
+	  pptxDoc.Save("BoxAndWhisker.pptx");
+	  pptxDoc.Close();
+   }
+}
+
+/// <summary>
+/// Set the values for the chart
+/// </summary>
+/// <param name="chart">Represent the instance of the Presentation chart</param>
+private static void SetChartData(IPresentationChart chart)
+{
+   chart.ChartData.SetValue(1, 1, "Course");
+   chart.ChartData.SetValue(1, 2, "SchoolA");
+   chart.ChartData.SetValue(1, 3, "SchoolB");
+   chart.ChartData.SetValue(1, 4, "SchoolC");
+   
+   chart.ChartData.SetValue(2, 1, "English");
+   chart.ChartData.SetValue(2, 2, 63);
+   chart.ChartData.SetValue(2, 3, 53);
+   chart.ChartData.SetValue(2, 4, 45);
+   
+   chart.ChartData.SetValue(3, 1, "Physics");
+   chart.ChartData.SetValue(3, 2, 61);
+   chart.ChartData.SetValue(3, 3, 55);
+   chart.ChartData.SetValue(3, 4, 65);
+   
+   chart.ChartData.SetValue(4, 1, "English");
+   chart.ChartData.SetValue(4, 2, 63);
+   chart.ChartData.SetValue(4, 3, 50);
+   chart.ChartData.SetValue(4, 4, 65);
+   
+   chart.ChartData.SetValue(5, 1, "Math");
+   chart.ChartData.SetValue(5, 2, 62);
+   chart.ChartData.SetValue(5, 3, 51);
+   chart.ChartData.SetValue(5, 4, 64);
+   
+   chart.ChartData.SetValue(6, 1, "English");
+   chart.ChartData.SetValue(6, 2, 46);
+   chart.ChartData.SetValue(6, 3, 53);
+   chart.ChartData.SetValue(6, 4, 66);
+   
+   chart.ChartData.SetValue(7, 1, "English");
+   chart.ChartData.SetValue(7, 2, 58);
+   chart.ChartData.SetValue(7, 3, 56);
+   chart.ChartData.SetValue(7, 4, 67);
+   
+   chart.ChartData.SetValue(8, 1, "Math");
+   chart.ChartData.SetValue(8, 2, 62);
+   chart.ChartData.SetValue(8, 3, 53);
+   chart.ChartData.SetValue(8, 4, 66);
+   
+   chart.ChartData.SetValue(9, 1, "Math");
+   chart.ChartData.SetValue(9, 2, 62);
+   chart.ChartData.SetValue(9, 3, 53);
+   chart.ChartData.SetValue(9, 4, 66);
+   
+   chart.ChartData.SetValue(10, 1, "English");
+   chart.ChartData.SetValue(10, 2, 63);
+   chart.ChartData.SetValue(10, 3, 54);
+   chart.ChartData.SetValue(10, 4, 64);
+   
+   chart.ChartData.SetValue(11, 1, "English");
+   chart.ChartData.SetValue(11, 2, 63);
+   chart.ChartData.SetValue(11, 3, 52);
+   chart.ChartData.SetValue(11, 4, 67);
+   
+   chart.ChartData.SetValue(12, 1, "Physics");
+   chart.ChartData.SetValue(12, 2, 60);
+   chart.ChartData.SetValue(12, 3, 56);
+   chart.ChartData.SetValue(12, 4, 64);
+   
+   chart.ChartData.SetValue(13, 1, "English");
+   chart.ChartData.SetValue(13, 2, 60);
+   chart.ChartData.SetValue(13, 3, 56);
+   chart.ChartData.SetValue(13, 4, 64);
+   
+   chart.ChartData.SetValue(14, 1, "Math");
+   chart.ChartData.SetValue(14, 2, 61);
+   chart.ChartData.SetValue(14, 3, 56);
+   chart.ChartData.SetValue(14, 4, 45);
+   
+   chart.ChartData.SetValue(15, 1, "Math");
+   chart.ChartData.SetValue(15, 2, 63);
+   chart.ChartData.SetValue(15, 3, 58);
+   chart.ChartData.SetValue(15, 4, 64);
+   
+   chart.ChartData.SetValue(16, 1, "English");
+   chart.ChartData.SetValue(16, 2, 59);
+   chart.ChartData.SetValue(16, 3, 54);
+   chart.ChartData.SetValue(16, 4, 65);
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Sub TestBoxAndWhiskerChart()
+   'Creates a PowerPoint instance
+   Dim pptxDoc As IPresentation = Presentation.Create()
+   
+   Dim slide1 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+   Dim chart As IPresentationChart = slide1.Charts.AddChart(50, 50, 600, 400)
+   
+   chart.ChartTitle = "Test Scores"
+   chart.ChartType = OfficeChartType.BoxAndWhisker
+   
+   'Assign data
+   chart.DataRange = chart.ChartData(1, 1, 16, 4)
+   chart.IsSeriesInRows = False
+   
+   'Set data to the chart RowIndex, columnIndex, and data
+   SetChartData(chart)
+   
+   'Box and Whisker settings on first series
+   Dim seriesA As IOfficeChartSerie = chart.Series(0)
+   seriesA.SerieFormat.ShowInnerPoints = False
+   seriesA.SerieFormat.ShowOutlierPoints = True
+   seriesA.SerieFormat.ShowMeanMarkers = True
+   seriesA.SerieFormat.ShowMeanLine = False
+   seriesA.SerieFormat.QuartileCalculationType = QuartileCalculation.ExclusiveMedian
+   
+   'Box and Whisker settings on second series
+   Dim seriesB As IOfficeChartSerie = chart.Series(1)
+   seriesB.SerieFormat.ShowInnerPoints = False
+   seriesB.SerieFormat.ShowOutlierPoints = True
+   seriesB.SerieFormat.ShowMeanMarkers = True
+   seriesB.SerieFormat.ShowMeanLine = False
+   seriesB.SerieFormat.QuartileCalculationType = QuartileCalculation.InclusiveMedian
+   
+   'Box and Whisker settings on third series
+   Dim seriesC As IOfficeChartSerie = chart.Series(2)
+   seriesC.SerieFormat.ShowInnerPoints = False
+   seriesC.SerieFormat.ShowOutlierPoints = True
+   seriesC.SerieFormat.ShowMeanMarkers = True
+   seriesC.SerieFormat.ShowMeanLine = False
+   seriesC.SerieFormat.QuartileCalculationType = QuartileCalculation.ExclusiveMedian
+   
+   'Save and close the presentation
+   pptxDoc.Save("BoxAndWhisker.pptx")
+   pptxDoc.Close()
+End Sub
+
+''' <summary>
+''' Set the values for the chart
+''' </summary>
+''' <param name="chart">Represent the instance of the Presentation chart</param>
+Private Sub SetChartData(chart As IPresentationChart)
+   chart.ChartData.SetValue(1, 1, "Course")
+   chart.ChartData.SetValue(1, 2, "SchoolA")
+   chart.ChartData.SetValue(1, 3, "SchoolB")
+   chart.ChartData.SetValue(1, 4, "SchoolC")
+   
+   chart.ChartData.SetValue(2, 1, "English")
+   chart.ChartData.SetValue(2, 2, 63)
+   chart.ChartData.SetValue(2, 3, 53)
+   chart.ChartData.SetValue(2, 4, 45)
+   
+   chart.ChartData.SetValue(3, 1, "Physics")
+   chart.ChartData.SetValue(3, 2, 61)
+   chart.ChartData.SetValue(3, 3, 55)
+   chart.ChartData.SetValue(3, 4, 65)
+   
+   chart.ChartData.SetValue(4, 1, "English")
+   chart.ChartData.SetValue(4, 2, 63)
+   chart.ChartData.SetValue(4, 3, 50)
+   chart.ChartData.SetValue(4, 4, 65)
+   
+   chart.ChartData.SetValue(5, 1, "Math")
+   chart.ChartData.SetValue(5, 2, 62)
+   chart.ChartData.SetValue(5, 3, 51)
+   chart.ChartData.SetValue(5, 4, 64)
+   
+   chart.ChartData.SetValue(6, 1, "English")
+   chart.ChartData.SetValue(6, 2, 46)
+   chart.ChartData.SetValue(6, 3, 53)
+   chart.ChartData.SetValue(6, 4, 66)
+   
+   chart.ChartData.SetValue(7, 1, "English")
+   chart.ChartData.SetValue(7, 2, 58)
+   chart.ChartData.SetValue(7, 3, 56)
+   chart.ChartData.SetValue(7, 4, 67)
+   
+   chart.ChartData.SetValue(8, 1, "Math")
+   chart.ChartData.SetValue(8, 2, 62)
+   chart.ChartData.SetValue(8, 3, 53)
+   chart.ChartData.SetValue(8, 4, 66)
+   
+   chart.ChartData.SetValue(9, 1, "Math")
+   chart.ChartData.SetValue(9, 2, 62)
+   chart.ChartData.SetValue(9, 3, 53)
+   chart.ChartData.SetValue(9, 4, 66)
+   
+   chart.ChartData.SetValue(10, 1, "English")
+   chart.ChartData.SetValue(10, 2, 63)
+   chart.ChartData.SetValue(10, 3, 54)
+   chart.ChartData.SetValue(10, 4, 64)
+   
+   chart.ChartData.SetValue(11, 1, "English")
+   chart.ChartData.SetValue(11, 2, 63)
+   chart.ChartData.SetValue(11, 3, 52)
+   chart.ChartData.SetValue(11, 4, 67)
+   
+   chart.ChartData.SetValue(12, 1, "Physics")
+   chart.ChartData.SetValue(12, 2, 60)
+   chart.ChartData.SetValue(12, 3, 56)
+   chart.ChartData.SetValue(12, 4, 64)
+   
+   chart.ChartData.SetValue(13, 1, "English")
+   chart.ChartData.SetValue(13, 2, 60)
+   chart.ChartData.SetValue(13, 3, 56)
+   chart.ChartData.SetValue(13, 4, 64)
+   
+   chart.ChartData.SetValue(14, 1, "Math")
+   chart.ChartData.SetValue(14, 2, 61)
+   chart.ChartData.SetValue(14, 3, 56)
+   chart.ChartData.SetValue(14, 4, 45)
+   
+   chart.ChartData.SetValue(15, 1, "Math")
+   chart.ChartData.SetValue(15, 2, 63)
+   chart.ChartData.SetValue(15, 3, 58)
+   chart.ChartData.SetValue(15, 4, 64)
+   
+   chart.ChartData.SetValue(16, 1, "English")
+   chart.ChartData.SetValue(16, 2, 59)
+   chart.ChartData.SetValue(16, 3, 54)
+   chart.ChartData.SetValue(16, 4, 65)
+End Sub
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+private static void TestBox_Whisker()
+{
+   using(IPresentation pptxDoc = Presentation.Create())
+   {
+      ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+	  IPresentationChart chart = slide1.Charts.AddChart(50, 50, 600, 400);
+	  chart.ChartTitle = "Test Scores";
+	  chart.ChartType = OfficeChartType.BoxAndWhisker;
+	  
+	  //Assign data
+	  chart.DataRange = chart.ChartData[1,1,16,4];
+	  chart.IsSeriesInRows = false;
+	  
+	  //Set data to the chart RowIndex, columnIndex, and data
+	  SetChartData(chart);
+	  
+	  //Box and Whisker settings on first series
+	  IOfficeChartSerie seriesA = chart.Series[0];
+	  seriesA.SerieFormat.ShowInnerPoints = false;
+	  seriesA.SerieFormat.ShowOutlierPoints = true;
+	  seriesA.SerieFormat.ShowMeanMarkers = true;
+	  seriesA.SerieFormat.ShowMeanLine = false;
+	  seriesA.SerieFormat.QuartileCalculationType = QuartileCalculation.ExclusiveMedian;
+	  
+	  //Box and Whisker settings on second series
+	  IOfficeChartSerie seriesB = chart.Series[1];
+	  seriesB.SerieFormat.ShowInnerPoints = false;
+	  seriesB.SerieFormat.ShowOutlierPoints = true;
+	  seriesB.SerieFormat.ShowMeanMarkers = true;
+	  seriesB.SerieFormat.ShowMeanLine = false;
+	  seriesB.SerieFormat.QuartileCalculationType = QuartileCalculation.InclusiveMedian;
+	  
+	  //Box and Whisker settings on third series
+	  IOfficeChartSerie seriesC = chart.Series[2];
+	  seriesC.SerieFormat.ShowInnerPoints = false;
+	  seriesC.SerieFormat.ShowOutlierPoints = true;
+	  seriesC.SerieFormat.ShowMeanMarkers = true;
+	  seriesC.SerieFormat.ShowMeanLine = false;
+	  seriesC.SerieFormat.QuartileCalculationType = QuartileCalculation.ExclusiveMedian;
+	  
+	  //Save and close the presentation
+	  pptxDoc.Save("BoxAndWhisker.pptx");
+	  pptxDoc.Close();
+   }
+}
+
+/// <summary>
+/// Set the values for the chart
+/// </summary>
+/// <param name="chart">Represent the instance of the Presentation chart</param>
+private static void SetChartData(IPresentationChart chart)
+{
+   chart.ChartData.SetValue(1, 1, "Course");
+   chart.ChartData.SetValue(1, 2, "SchoolA");
+   chart.ChartData.SetValue(1, 3, "SchoolB");
+   chart.ChartData.SetValue(1, 4, "SchoolC");
+   
+   chart.ChartData.SetValue(2, 1, "English");
+   chart.ChartData.SetValue(2, 2, 63);
+   chart.ChartData.SetValue(2, 3, 53);
+   chart.ChartData.SetValue(2, 4, 45);
+   
+   chart.ChartData.SetValue(3, 1, "Physics");
+   chart.ChartData.SetValue(3, 2, 61);
+   chart.ChartData.SetValue(3, 3, 55);
+   chart.ChartData.SetValue(3, 4, 65);
+   
+   chart.ChartData.SetValue(4, 1, "English");
+   chart.ChartData.SetValue(4, 2, 63);
+   chart.ChartData.SetValue(4, 3, 50);
+   chart.ChartData.SetValue(4, 4, 65);
+   
+   chart.ChartData.SetValue(5, 1, "Math");
+   chart.ChartData.SetValue(5, 2, 62);
+   chart.ChartData.SetValue(5, 3, 51);
+   chart.ChartData.SetValue(5, 4, 64);
+   
+   chart.ChartData.SetValue(6, 1, "English");
+   chart.ChartData.SetValue(6, 2, 46);
+   chart.ChartData.SetValue(6, 3, 53);
+   chart.ChartData.SetValue(6, 4, 66);
+   
+   chart.ChartData.SetValue(7, 1, "English");
+   chart.ChartData.SetValue(7, 2, 58);
+   chart.ChartData.SetValue(7, 3, 56);
+   chart.ChartData.SetValue(7, 4, 67);
+   
+   chart.ChartData.SetValue(8, 1, "Math");
+   chart.ChartData.SetValue(8, 2, 62);
+   chart.ChartData.SetValue(8, 3, 53);
+   chart.ChartData.SetValue(8, 4, 66);
+   
+   chart.ChartData.SetValue(9, 1, "Math");
+   chart.ChartData.SetValue(9, 2, 62);
+   chart.ChartData.SetValue(9, 3, 53);
+   chart.ChartData.SetValue(9, 4, 66);
+   
+   chart.ChartData.SetValue(10, 1, "English");
+   chart.ChartData.SetValue(10, 2, 63);
+   chart.ChartData.SetValue(10, 3, 54);
+   chart.ChartData.SetValue(10, 4, 64);
+   
+   chart.ChartData.SetValue(11, 1, "English");
+   chart.ChartData.SetValue(11, 2, 63);
+   chart.ChartData.SetValue(11, 3, 52);
+   chart.ChartData.SetValue(11, 4, 67);
+   
+   chart.ChartData.SetValue(12, 1, "Physics");
+   chart.ChartData.SetValue(12, 2, 60);
+   chart.ChartData.SetValue(12, 3, 56);
+   chart.ChartData.SetValue(12, 4, 64);
+   
+   chart.ChartData.SetValue(13, 1, "English");
+   chart.ChartData.SetValue(13, 2, 60);
+   chart.ChartData.SetValue(13, 3, 56);
+   chart.ChartData.SetValue(13, 4, 64);
+   
+   chart.ChartData.SetValue(14, 1, "Math");
+   chart.ChartData.SetValue(14, 2, 61);
+   chart.ChartData.SetValue(14, 3, 56);
+   chart.ChartData.SetValue(14, 4, 45);
+   
+   chart.ChartData.SetValue(15, 1, "Math");
+   chart.ChartData.SetValue(15, 2, 63);
+   chart.ChartData.SetValue(15, 3, 58);
+   chart.ChartData.SetValue(15, 4, 64);
+   
+   chart.ChartData.SetValue(16, 1, "English");
+   chart.ChartData.SetValue(16, 2, 59);
+   chart.ChartData.SetValue(16, 3, 54);
+   chart.ChartData.SetValue(16, 4, 65);
+}
+{% endhighlight %}
+
+{% endtabs %}
+
+The following screenshot shows the output of previous code.
+
+![PowerPoint Box And Whisker Chart](WorkingwithCharts_images/BoxAndWhisker.png)
+
+### Waterfall
+
+[Waterfall](https://support.office.com/en-us/article/Create-a-waterfall-chart-in-Office-2016-8de1ece4-ff21-4d37-acd7-546f5527f185#) chart helps understand the finances of business owners by viewing profit and loss statements. You can quickly illustrate the line items in your financial data and get a clear picture of how each item is impacting your bottom line using a Waterfall chart. Refer to the following code to create a Waterfall chart.
+
+{% tabs %}
+
+{% highlight c# %}
+using(IPresentation pptxDoc = Presentation.Create())
+{
+   ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+   
+   //Create a chart
+   IPresentationChart chart = slide1.Charts.AddChart(50, 50, 700, 400);
+   
+   //Set chart type as Waterfall
+   chart.ChartType = OfficeChartType.WaterFall;
+   
+   //Set data range 
+   chart.DataRange = chart.ChartData[1, 1, 8, 2];
+   chart.IsSeriesInRows = false;
+   
+   chart.ChartData.SetValue(2, 1, "Start");
+   chart.ChartData.SetValue(2, 2, 120000);
+   chart.ChartData.SetValue(3, 1, "Product Revenue");
+   chart.ChartData.SetValue(3, 2, 570000);
+   chart.ChartData.SetValue(4, 1, "Service Revenue");
+   chart.ChartData.SetValue(4, 2, 230000);
+   chart.ChartData.SetValue(5, 1, "Positive Balance");
+   chart.ChartData.SetValue(5, 2, 920000);
+   chart.ChartData.SetValue(6, 1, "Fixed Costs");
+   chart.ChartData.SetValue(6, 2, -345000);
+   chart.ChartData.SetValue(7, 1, "Variable Costs");
+   chart.ChartData.SetValue(7, 2, -230000);
+   chart.ChartData.SetValue(8, 1, "Total");
+   chart.ChartData.SetValue(8, 2, 345000);
+   
+   //Data point settings as total in chart
+   IOfficeChartSerie series = chart.Series[0];
+   chart.Series[0].DataPoints[2].SetAsTotal = true;
+   chart.Series[0].DataPoints[5].SetAsTotal = true;
+   
+   //Showing the connector lines between data points
+   chart.Series[0].SerieFormat.ShowConnectorLines = true;
+   
+   //Set the chart title
+   chart.ChartTitle = "Company Profit (in USD)";
+   
+   //Formatting data label and legend option
+   chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+   chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+   chart.Legend.Position = OfficeLegendPosition.Right;
+   
+   //Save and close the presentation
+   pptxDoc.Save("WaterFall.pptx");
+   pptxDoc.Close();
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Creates a PowerPoint instance
+Dim pptxDoc As IPresentation = Presentation.Create()
+
+Dim slide1 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+'Create a chart
+Dim chart As IPresentationChart = slide1.Charts.AddChart(50, 50, 700, 400)
+
+'Set chart type as Waterfall
+chart.ChartType = OfficeChartType.WaterFall
+
+'Set data range 
+chart.DataRange = chart.ChartData(1, 1, 8, 2)
+chart.IsSeriesInRows = False
+
+chart.ChartData.SetValue(2, 1, "Start")
+chart.ChartData.SetValue(2, 2, 120000)
+chart.ChartData.SetValue(3, 1, "Product Revenue")
+chart.ChartData.SetValue(3, 2, 570000)
+chart.ChartData.SetValue(4, 1, "Service Revenue")
+chart.ChartData.SetValue(4, 2, 230000)
+chart.ChartData.SetValue(5, 1, "Positive Balance")
+chart.ChartData.SetValue(5, 2, 920000)
+chart.ChartData.SetValue(6, 1, "Fixed Costs")
+chart.ChartData.SetValue(6, 2, -345000)
+chart.ChartData.SetValue(7, 1, "Variable Costs")
+chart.ChartData.SetValue(7, 2, -230000)
+chart.ChartData.SetValue(8, 1, "Total")
+chart.ChartData.SetValue(8, 2, 345000)
+
+'Data point settings as total in chart
+Dim series As IOfficeChartSerie = chart.Series(0)
+chart.Series(0).DataPoints(2).SetAsTotal = True
+chart.Series(0).DataPoints(5).SetAsTotal = True
+
+'Showing the connector lines between data points
+chart.Series(0).SerieFormat.ShowConnectorLines = True
+
+'Set the chart title
+chart.ChartTitle = "Company Profit (in USD)"
+
+'Formatting data label and legend option
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.IsValue = True
+chart.Series(0).DataPoints.DefaultDataPoint.DataLabels.Size = 8
+chart.Legend.Position = OfficeLegendPosition.Right
+
+'Save and close the presentation
+pptxDoc.Save("WaterFall.pptx")
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Creates a new instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Create a chart
+IPresentationChart chart = slide1.Charts.AddChart(50, 50, 700, 400);
+
+//Set chart type as Waterfall
+   chart.ChartType = OfficeChartType.WaterFall;
+   
+//Set data range 
+chart.DataRange = chart.ChartData[1, 1, 8, 2];
+chart.IsSeriesInRows = false;
+   
+chart.ChartData.SetValue(2, 1, "Start");
+chart.ChartData.SetValue(2, 2, 120000);
+chart.ChartData.SetValue(3, 1, "Product Revenue");
+chart.ChartData.SetValue(3, 2, 570000);
+chart.ChartData.SetValue(4, 1, "Service Revenue");
+chart.ChartData.SetValue(4, 2, 230000);
+chart.ChartData.SetValue(5, 1, "Positive Balance");
+chart.ChartData.SetValue(5, 2, 920000);
+chart.ChartData.SetValue(6, 1, "Fixed Costs");
+chart.ChartData.SetValue(6, 2, -345000);
+chart.ChartData.SetValue(7, 1, "Variable Costs");
+chart.ChartData.SetValue(7, 2, -230000);
+chart.ChartData.SetValue(8, 1, "Total");
+chart.ChartData.SetValue(8, 2, 345000);
+   
+//Data point settings as total in chart
+IOfficeChartSerie series = chart.Series[0];
+chart.Series[0].DataPoints[2].SetAsTotal = true;
+chart.Series[0].DataPoints[5].SetAsTotal = true;
+  
+//Showing the connector lines between data points
+chart.Series[0].SerieFormat.ShowConnectorLines = true;
+   
+//Set the chart title
+chart.ChartTitle = "Company Profit (in USD)";
+   
+//Formatting data label and legend option
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+chart.Legend.Position = OfficeLegendPosition.Right;
+   
+//Save and close the presentation
+pptxDoc.Save("WaterFall.pptx");
+pptxDoc.Close();
+{% endhighlight %}
+
+{% endtabs %}
+
+The following screenshot shows the output of previous code.
+
+![PowerPoint WaterFall Chart](WorkingwithCharts_images/WaterFall.png)
+
+### Histogram
+
+[Histogram](https://support.office.com/en-us/article/Create-a-histogram-85680173-064b-4024-b39d-80f17ff2f4e8# ) shows the frequencies within a distribution. Each column of the chart is called a bin, which can be changed further to analyze the data. Refer to the following code example to create a Histogram.
+
+{% tabs %}
+
+{% highlight c# %}
+using(IPresentation pptxDoc = Presentation.Create())
+{
+   ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+   
+   IPresentationChart chart = slide1.Charts.AddChart(50, 50, 500, 400);
+   chart.ChartType = OfficeChartType.Histogram;
+   
+   chart.DataRange = chart.ChartData[2, 1, 15, 1];
+   
+   chart.ChartData.SetValue(1, 1, "Student Heights");
+   chart.ChartData.SetValue(2, 1, 130);
+   chart.ChartData.SetValue(3, 1, 132);
+   chart.ChartData.SetValue(4, 1, 159);
+   chart.ChartData.SetValue(5, 1, 163);
+   chart.ChartData.SetValue(6, 1, 140);
+   chart.ChartData.SetValue(7, 1, 155);
+   chart.ChartData.SetValue(8, 1, 139);
+   chart.ChartData.SetValue(9, 1, 143);
+   chart.ChartData.SetValue(10, 1, 153);
+   chart.ChartData.SetValue(11, 1, 165);
+   chart.ChartData.SetValue(12, 1, 153);
+   chart.ChartData.SetValue(13, 1, 149);
+   chart.ChartData.SetValue(14, 1, 154);
+   chart.ChartData.SetValue(15, 1, 162);
+   
+   //Category axis bin settings
+   chart.PrimaryCategoryAxis.BinWidth = 8;
+   
+   //Gap width settings
+   chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+   
+   //Set the chart title and axis title
+   chart.ChartTitle = "Height Data";
+   chart.PrimaryValueAxis.Title = "Number of students";
+   chart.PrimaryCategoryAxis.Title = "Height";
+   
+   //Hiding the legend
+   chart.HasLegend = false;
+   
+   pptxDoc.Save("Histogram.pptx");
+   pptxDoc.Close();
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Creates a PowerPoint instance
+Dim pptxDoc As IPresentation = Presentation.Create()
+Dim slide1 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+Dim chart As IPresentationChart = slide1.Charts.AddChart(50, 50, 500, 400)
+chart.ChartType = OfficeChartType.Histogram
+
+chart.DataRange = chart.ChartData(2, 1, 15, 1)
+
+chart.ChartData.SetValue(1, 1, "Student Heights")
+chart.ChartData.SetValue(2, 1, 130)
+chart.ChartData.SetValue(3, 1, 132)
+chart.ChartData.SetValue(4, 1, 159)
+chart.ChartData.SetValue(5, 1, 163)
+chart.ChartData.SetValue(6, 1, 140)
+chart.ChartData.SetValue(7, 1, 155)
+chart.ChartData.SetValue(8, 1, 139)
+chart.ChartData.SetValue(9, 1, 143)
+chart.ChartData.SetValue(10, 1, 153)
+chart.ChartData.SetValue(11, 1, 165)
+chart.ChartData.SetValue(12, 1, 153)
+chart.ChartData.SetValue(13, 1, 149)
+chart.ChartData.SetValue(14, 1, 154)
+chart.ChartData.SetValue(15, 1, 162)
+
+'Category axis bin settings
+chart.PrimaryCategoryAxis.BinWidth = 8
+
+'Gap width settings
+chart.Series(0).SerieFormat.CommonSerieOptions.GapWidth = 6
+
+'Set the chart title and axis title
+chart.ChartTitle = "Height Data"
+chart.PrimaryValueAxis.Title = "Number of students"
+chart.PrimaryCategoryAxis.Title = "Height"
+
+'Hiding the legend
+chart.HasLegend = False
+
+pptxDoc.Save("Histogram.pptx")
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Creates a new instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+IPresentationChart chart = slide1.Charts.AddChart(50, 50, 500, 400);
+
+chart.ChartType = OfficeChartType.Histogram;
+
+chart.DataRange = chart.ChartData[2, 1, 15, 1];
+
+chart.ChartData.SetValue(1, 1, "Student Heights");
+chart.ChartData.SetValue(2, 1, 130);
+chart.ChartData.SetValue(3, 1, 132);
+chart.ChartData.SetValue(4, 1, 159);
+chart.ChartData.SetValue(5, 1, 163);
+chart.ChartData.SetValue(6, 1, 140);
+chart.ChartData.SetValue(7, 1, 155);
+chart.ChartData.SetValue(8, 1, 139);
+chart.ChartData.SetValue(9, 1, 143);
+chart.ChartData.SetValue(10, 1, 153);
+chart.ChartData.SetValue(11, 1, 165);
+chart.ChartData.SetValue(12, 1, 153);
+chart.ChartData.SetValue(13, 1, 149);
+chart.ChartData.SetValue(14, 1, 154);
+chart.ChartData.SetValue(15, 1, 162);
+   
+//Category axis bin settings
+chart.PrimaryCategoryAxis.BinWidth = 8;
+   
+//Gap width settings
+chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+   
+//Set the chart title and axis title
+chart.ChartTitle = "Height Data";
+chart.PrimaryValueAxis.Title = "Number of students";
+chart.PrimaryCategoryAxis.Title = "Height";
+   
+//Hiding the legend
+chart.HasLegend = false;
+   
+pptxDoc.Save("Histogram1.pptx");
+pptxDoc.Close();
+{% endhighlight %}
+
+{% endtabs %}
+
+The following screenshot shows the output of previous code.
+
+![PowerPoint Histogram Chart](WorkingwithCharts_images/Histogram.png)
+
+### Pareto
+
+[Pareto](https://support.office.com/en-us/article/Create-a-Pareto-chart-a1512496-6dba-4743-9ab1-df5012972856#) is a sorted histogram in which the columns sorted in descending order and a line representing the cumulative total percentage. . Refer to the following code example to create a Pareto chart.
+
+{% tabs %}
+
+{% highlight c# %}
+using(IPresentation pptxDoc = Presentation.Create())
+{
+   ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+   
+   IPresentationChart chart = slide1.Charts.AddChart(50, 50, 500, 400);
+   
+   //Set chart type as Pareto
+   chart.ChartType = OfficeChartType.Pareto;
+   
+   //Set data range
+   chart.DataRange = chart.ChartData[2, 1, 8, 2];
+   
+   chart.ChartData.SetValue(2, 1, "Rent");
+   chart.ChartData.SetValue(2, 2, 2300);
+   chart.ChartData.SetValue(3, 1, "Car payment");
+   chart.ChartData.SetValue(3, 2, 1200);
+   chart.ChartData.SetValue(4, 1, "Groceries");
+   chart.ChartData.SetValue(4, 2, 900);
+   chart.ChartData.SetValue(5, 1, "Electricity");
+   chart.ChartData.SetValue(5, 2, 600);
+   chart.ChartData.SetValue(6, 1, "Gas");
+   chart.ChartData.SetValue(6, 2, 500);
+   chart.ChartData.SetValue(7, 1, "Cable");
+   chart.ChartData.SetValue(7, 2, 300);
+   chart.ChartData.SetValue(8, 1, "Mobile");
+   chart.ChartData.SetValue(8, 2, 200);
+   
+   //Set category values as bin values  
+   chart.PrimaryCategoryAxis.IsBinningByCategory = true;
+   
+   //Formatting Pareto line      
+   chart.Series[0].ParetoLineFormat.LineProperties.ColorIndex = OfficeKnownColors.Bright_green;
+   
+   //Gap width settings
+   chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+   
+   //Set the chart title
+   chart.ChartTitle = "Expenses";
+   
+   //Hiding the legend
+   chart.HasLegend = false;
+   
+   //Save and close the presentation
+   pptxDoc.Save("ParetoChart.pptx");
+   pptxDoc.Close();
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Creates a PowerPoint instance
+Dim pptxDoc As IPresentation = Presentation.Create()
+Dim slide1 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+Dim chart As IPresentationChart = slide1.Charts.AddChart(50, 50, 500, 400)
+
+'Set chart type as Pareto
+chart.ChartType = OfficeChartType.Pareto
+
+'Set data range
+chart.DataRange = chart.ChartData(2, 1, 8, 2)
+
+chart.ChartData.SetValue(2, 1, "Rent")
+chart.ChartData.SetValue(2, 2, 2300)
+chart.ChartData.SetValue(3, 1, "Car payment")
+chart.ChartData.SetValue(3, 2, 1200)
+chart.ChartData.SetValue(4, 1, "Groceries")
+chart.ChartData.SetValue(4, 2, 900)
+chart.ChartData.SetValue(5, 1, "Electricity")
+chart.ChartData.SetValue(5, 2, 600)
+chart.ChartData.SetValue(6, 1, "Gas")
+chart.ChartData.SetValue(6, 2, 500)
+chart.ChartData.SetValue(7, 1, "Cable")
+chart.ChartData.SetValue(7, 2, 300)
+chart.ChartData.SetValue(8, 1, "Mobile")
+chart.ChartData.SetValue(8, 2, 200)
+
+'Set category values as bin values
+chart.PrimaryCategoryAxis.IsBinningByCategory = True
+
+'Formatting Pareto line
+chart.Series(0).ParetoLineFormat.LineProperties.ColorIndex = OfficeKnownColors.Bright_green
+
+'Gap width settings
+chart.Series(0).SerieFormat.CommonSerieOptions.GapWidth = 6
+
+'Set the chart title
+chart.ChartTitle = "Expenses"
+
+'Hiding the legend
+chart.HasLegend = False
+
+'Save and close the presentation
+pptxDoc.Save("ParetoChart.pptx")
+pptxDoc.Close()
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Creates a new instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds a slide to Presentation
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+IPresentationChart chart = slide1.Charts.AddChart(50, 50, 500, 400);
+
+//Set chart type as Pareto
+chart.ChartType = OfficeChartType.Pareto;
+   
+//Set data range
+chart.DataRange = chart.ChartData[2, 1, 8, 2];
+   
+chart.ChartData.SetValue(2, 1, "Rent");
+chart.ChartData.SetValue(2, 2, 2300);
+chart.ChartData.SetValue(3, 1, "Car payment");
+chart.ChartData.SetValue(3, 2, 1200);
+chart.ChartData.SetValue(4, 1, "Groceries");
+chart.ChartData.SetValue(4, 2, 900);
+chart.ChartData.SetValue(5, 1, "Electricity");
+chart.ChartData.SetValue(5, 2, 600);
+chart.ChartData.SetValue(6, 1, "Gas");
+chart.ChartData.SetValue(6, 2, 500);
+chart.ChartData.SetValue(7, 1, "Cable");
+chart.ChartData.SetValue(7, 2, 300);
+chart.ChartData.SetValue(8, 1, "Mobile");
+chart.ChartData.SetValue(8, 2, 200);
+   
+//Set category values as bin values  
+chart.PrimaryCategoryAxis.IsBinningByCategory = true;
+   
+//Formatting Pareto line      
+chart.Series[0].ParetoLineFormat.LineProperties.ColorIndex = OfficeKnownColors.Bright_green;
+   
+//Gap width settings
+chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+   
+//Set the chart title
+chart.ChartTitle = "Expenses";
+   
+//Hiding the legend
+chart.HasLegend = false;
+   
+//Save and close the presentation
+pptxDoc.Save("ParetoChart.pptx");
+pptxDoc.Close();
+{% endhighlight %}
+
+{% endtabs %}
+
+The following screenshot shows the output of previous code.
+
+![PowerPoint Pareto Chart](WorkingwithCharts_images/Pareto.png)
+
+N>These charts are supported only in PowerPoint 2016 and are not supported in the previous versions.
 
 ## Supported Chart Types 
 
