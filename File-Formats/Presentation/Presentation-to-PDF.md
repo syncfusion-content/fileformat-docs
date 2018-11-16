@@ -394,7 +394,7 @@ PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc);
 //Save the converted PDF document.
 pdfDoc.Save("Sample.pdf");
  
-//Close the pptxDoc instance
+//Close the presentation instance
 pptxDoc.Close();
  
 //Close the PDF instance
@@ -408,15 +408,15 @@ pdfDoc.Close();
 
 **Optimizing the identical images**
 
-The pptxDoc library allows you to optimize the memory usage for the duplicate images while converting the PowerPoint pptxDoc to PDF document to reduce the document size.
+The presentation library allows you to optimize the memory usage for the duplicate images while converting the PowerPoint presentation to PDF document to reduce the document size.
  
-The following code sample demonstrates how to optimize the duplicate images while converting a PowerPoint pptxDoc to PDF document. 
+The following code sample demonstrates how to optimize the duplicate images while converting a PowerPoint presentation to PDF document. 
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Load the PowerPoint pptxDoc to convert.
+//Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
  
 //Enable the include hidden slides option in converter settings.
