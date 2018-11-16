@@ -1751,7 +1751,7 @@ pptxDoc.Close();
 
 The following screenshot shows the output of previous code.
 
-![PowerPoint Funnel Chart](Working-with-Charts_images/Funnel.png)
+![PowerPoint Funnel Chart](WorkingwithCharts_images/Funnel.png)
 
 ### Box and Whisker
 
@@ -2167,7 +2167,7 @@ private static void SetChartData(IPresentationChart chart)
 
 The following screenshot shows the output of previous code.
 
-![PowerPoint Box And Whisker Chart](Working-with-Charts_images/BoxAndWhisker.png)
+![PowerPoint Box And Whisker Chart](WorkingwithCharts_images/BoxAndWhisker.png)
 
 ### Waterfall
 
@@ -2335,7 +2335,7 @@ pptxDoc.Close();
 
 The following screenshot shows the output of previous code.
 
-![PowerPoint WaterFall Chart](Working-with-Charts_images/WaterFall.png)
+![PowerPoint WaterFall Chart](WorkingwithCharts_images/WaterFall.png)
 
 ### Histogram
 
@@ -2482,7 +2482,7 @@ pptxDoc.Close();
 
 The following screenshot shows the output of previous code.
 
-![PowerPoint Histogram Chart](Working-with-Charts_images/Histogram.png)
+![PowerPoint Histogram Chart](WorkingwithCharts_images/Histogram.png)
 
 ### Pareto
 
@@ -2640,7 +2640,7 @@ pptxDoc.Close();
 
 The following screenshot shows the output of previous code.
 
-![PowerPoint Pareto Chart](Working-with-Charts_images/Pareto.png)
+![PowerPoint Pareto Chart](WorkingwithCharts_images/Pareto.png)
 
 N>These charts are supported only in PowerPoint 2016 and are not supported in the previous versions.
 
