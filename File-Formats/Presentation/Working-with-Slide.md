@@ -1071,9 +1071,9 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
+{% highlight XAMARIN %}
 
-//PowerPoint Presentation to image conversion is not supported for ASP.NET Core platforms.
+//PowerPoint Presentation to image conversion is not supported for Xamarin platforms.
 
 {% endhighlight %}
 

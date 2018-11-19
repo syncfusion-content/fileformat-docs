@@ -594,10 +594,10 @@ pptxDoc.Close();
 MemoryStream stream = new MemoryStream();
 
 //Save Presentation in stream format.
-powerpointDoc.Save(stream);
+pptxDoc.Save(stream);
 
 //Close the presentation
-powerpointDoc.Close();
+pptxDoc.Close();
 stream.Position = 0;
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -729,15 +729,15 @@ Imports Syncfusion.PresentationToPdfConverter
 
 //Opens a PowerPoint Presentation file
 
-IPresentation presentation = Presentation.Open(fileName);
+IPresentation pptxDoc = Presentation.Open(fileName);
 
 //Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
-presentation.ChartToImageConverter = new ChartToImageConverter();
+pptxDoc.ChartToImageConverter = new ChartToImageConverter();
 
 //Converts the PowerPoint Presentation into PDF document
 
-PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation);
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
 
 //Saves the PDF document
 
@@ -749,7 +749,7 @@ pdfDocument.Close(true);
 
 //Closes the Presentation
 
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
@@ -757,15 +757,15 @@ presentation.Close();
 
 'Opens a PowerPoint Presentation
 
-Dim presentationDocument As IPresentation = Presentation.Open(fileName)
+Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 
 'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
 
-presentationDocument.ChartToImageConverter = New ChartToImageConverter ()
+pptxDoc.ChartToImageConverter = New ChartToImageConverter ()
 
 'Converts the PowerPoint Presentation into PDF document
 
-Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
+Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
 
 'Saves the PDF document
 
@@ -777,7 +777,25 @@ pdfDocument.Close(True)
 
 'Closes the Presentation
 
-presentationDocument.Close()
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+Essential Presentation Library does not support presentation to Pdf conversion in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+Essential Presentation Library does not support presentation to Pdf conversion in ASP.NET Core platforms.
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+Essential Presentation Library does not support presentation to Pdf conversion in ASP.NET Core platforms.
 
 {% endhighlight %}
 
