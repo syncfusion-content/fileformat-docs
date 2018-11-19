@@ -471,7 +471,7 @@ string ContentType = null;
 
 //Save the PowerPoint Presentation to stream
 MemoryStream outputStream = new MemoryStream();
-powerpointDoc.Save(outputStream);
+pptxDoc.Save(outputStream);
 outputStream.Position = 0;
 
 //Return the file with content type
@@ -599,7 +599,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(inputFilePath);
 
 //Loads or open an PowerPoint Presentation
-IPresentation powerpointDoc = Presentation.Open(inputStream);
+IPresentation pptxDoc = Presentation.Open(inputStream);
 
 //To-Do some manipulation
 //To-Do some manipulation

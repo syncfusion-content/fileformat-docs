@@ -89,5 +89,6 @@ Syncfusion.SfChart.WPF<br/>
 </td>
 </tr>
 </table>
-N> Presentation to PDF/Image conversion is not supported in Xamarin, UWP and ASP.NET Core applications.
-N> The “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards
+N> 1.Presentation to Image conversion is not supported in Xamarin and ASP.NET Core applications.
+N> 2.Presentation to PDF conversion is not supported in UWP, Xamarin and ASP.NET Core applications.
+N> 3.The “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards
