@@ -80,27 +80,21 @@ The following namespaces are required to compile the code in this topic.
 {% highlight c# %}
 
 //Opens a PowerPoint Presentation
-
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
 //Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
-
 pptxDoc.ChartToImageConverter = new ChartToImageConverter();
 
 //Converts the PowerPoint Presentation into PDF document
-
 PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
 
 //Saves the PDF document
-
 pdfDocument.Save("Sample.pdf");
 
 //Closes the PDF document
-
 pdfDocument.Close(true);
 
 //Closes the Presentation
-
 pptxDoc.Close();
 
 {% endhighlight %}
@@ -108,27 +102,21 @@ pptxDoc.Close();
 {% highlight vb.net %}
 
 'Opens a PowerPoint Presentation
-
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 
 'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
-
 pptxDoc.ChartToImageConverter = New ChartToImageConverter()
 
 'Converts the PowerPoint Presentation into PDF document
-
 Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
 
 'Saves the PDF document
-
 pdfDocument.Save("Sample.pdf")
 
 'Closes the PDF document
-
 pdfDocument.Close(True)
 
 'Closes the Presentation
-
 pptxDoc.Close()
 
 {% endhighlight %}
@@ -256,6 +244,31 @@ pdfDoc.Close();
 
 {% endhighlight %}
 
+{% highlight vb.net %}
+
+'Load the PowerPoint presentation to convert.
+Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
+ 
+'Enable the handouts and number of pages per slide options in converter settings.
+Dim pdfConverterSettings As PresentationToPdfConverterSettings  = new PresentationToPdfConverterSettings()
+
+pdfConverterSettings.PublishOptions = PublishOptions.Handouts
+pdfConverterSettings.SlidesPerPage = SlidesPerPage.Nine
+            
+'Convert the documents by passing the PDF conversion settings as parameter.
+Dim pdfDoc As PdfDocument  = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)
+ 
+'Save the converted PDF document.
+pdfDoc.Save("Sample.pdf")
+ 
+'Close the presentation instance
+pptxDoc.Close()
+ 
+'Close the PDF instance
+pdfDoc.Close()
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Notes pages
@@ -268,7 +281,7 @@ The following code sample demonstrates how to convert a PowerPoint presentation 
 
 {% highlight c# %}
 
- //Load the PowerPoint presentation to convert.
+//Load the PowerPoint presentation to convert.
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
  
 //Enable the include hidden slides option in converter settings.
@@ -286,6 +299,29 @@ pptxDoc.Close();
  
 //Close the PDF instance
 pdfDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PowerPoint presentation to convert.
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+ 
+'Enable the include hidden slides option in converter settings.
+Dim pdfConverterSettings As PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings()
+pdfConverterSettings.PublishOptions = PublishOptions.NotesPages
+ 
+'Convert the documents by passing the settings as parameter.
+Dim pdfDoc As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)
+ 
+'Save the converted PDF file.
+pdfDoc.Save("Sample.pdf")
+ 
+'Close the presentation instance
+pptxDoc.Close()
+ 
+'Close the PDF instance
+pdfDoc.Close()
 
 {% endhighlight %}
 
@@ -319,6 +355,29 @@ pptxDoc.Close();
  
 //Close the PDF instance
 pdfDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PowerPoint presentation to convert.
+Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
+ 
+'Enable or disable including the hidden slides option in converter settings.
+Dim pdfConverterSettings As PresentationToPdfConverterSettings  = new PresentationToPdfConverterSettings()
+pdfConverterSettings.ShowHiddenSlides = true
+ 
+'Convert the documents by passing the settings as parameter.
+Dim pdfDoc As PdfDocument  = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)
+ 
+'Save the converted PDF file.
+pdfDoc.Save("Sample.pdf")
+ 
+'Close the presentation instance
+pptxDoc.Close()
+ 
+'Close the PDF instance
+pdfDoc.Close()
 
 {% endhighlight %}
 
@@ -363,6 +422,31 @@ pdfDoc.Close();
 
 {% endhighlight %}
 
+{% highlight vb.net %}
+
+'Load the PowerPoint presentation to convert.
+Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
+ 
+'Enable or disable including the hidden slides option in converter settings.
+Dim pdfConverterSettings As PresentationToPdfConverterSettings  = new PresentationToPdfConverterSettings()
+
+'Set the Pdf conformance level to A1B
+pdfConverterSettings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B
+ 
+'Convert the documents by passing the settings as parameter.
+Dim pdfDoc As PdfDocument  = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)
+ 
+'Save the converted PDF file.
+pdfDoc.Save("Sample.pdf")
+ 
+'Close the presentation instance
+pptxDoc.Close()
+ 
+'Close the PDF instance
+pdfDoc.Close()
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Chart quality
@@ -382,7 +466,6 @@ The following code sample demonstrates how to set the quality of the charts whil
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
 //Create an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
-
 pptxDoc.ChartToImageConverter = new ChartToImageConverter();
 
 //Sets the scaling mode of the chart to best. 
@@ -399,6 +482,31 @@ pptxDoc.Close();
  
 //Close the PDF instance
 pdfDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PowerPoint presentation to convert.
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+
+'Create an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
+pptxDoc.ChartToImageConverter = new ChartToImageConverter()
+
+'Sets the scaling mode of the chart to best. 
+pptxDoc.ChartToImageConverter.ScalingMode = ScalingMode.Best
+ 
+'Convert the documents by passing the PDF conversion settings as parameter.
+Dim pdfDoc As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)          
+ 
+'Save the converted PDF document.
+pdfDoc.Save("Sample.pdf")
+ 
+'Close the presentation instance
+pptxDoc.Close()
+ 
+'Close the PDF instance
+pdfDoc.Close()
 
 {% endhighlight %}
 
@@ -436,6 +544,31 @@ pptxDoc.Close();
  
 //Close the PDF instance
 pdfDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PowerPoint presentation to convert.
+Dim pptxDoc As IPresentation  = Presentation.Open("Sample.pptx")
+ 
+'Enable the include hidden slides option in converter settings.
+Dim pdfConverterSettings As PresentationToPdfConverterSettings  = new PresentationToPdfConverterSettings()
+ 
+'Set the flag to optimize the identical images
+pdfConverterSettings.OptimizeIdenticalImages = true
+ 
+'Convert the documents by passing the settings as parameter.
+Dim pdfDoc As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)
+ 
+Save the converted PDF file.
+pdfDoc.Save("Sample.pdf")
+ 
+Close the presentation instance
+pptxDoc.Close()
+ 
+Close the PDF instance
+pdfDoc.Close()
 
 {% endhighlight %}
 
@@ -477,6 +610,34 @@ pdfDoc.Close();
 
 {% endhighlight %}
 
+{% highlight vb.net %}
+
+'Load the PowerPoint presentation to convert.
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+ 
+'Enable the include hidden slides option in converter settings.
+Dim pdfConverterSettings As PresentationToPdfConverterSettings = new PresentationToPdfConverterSettings()
+ 
+'Set the image resolution
+pdfConverterSettings.ImageResolution = 100
+ 
+'Set the image quality
+pdfConverterSettings.ImageQuality = 100
+ 
+'Convert the documents by passing the settings as parameter.
+Dim pdfDoc As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)
+ 
+'Save the converted PDF file.
+pdfDoc.Save("Sample.pdf")
+ 
+'Close the presentation instance
+pptxDoc.Close()
+ 
+'Close the PDF instance
+pdfDoc.Close()
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## PowerPoint to PDF conversion in Azure platform
@@ -507,6 +668,31 @@ pptxDoc.Close();
  
 //Close the PDF instance
 pdfDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PowerPoint document
+Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
+
+'Initialize the conversion settings
+Dim pdfConverterSettings As PresentationToPdfConverterSettings = new PresentationToPdfConverterSettings()
+
+'Enable the portable rendering.
+pdfConverterSettings.EnablePortableRendering = true
+
+'Convert the PowerPoint document to PDF
+Dim pdfDoc As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc,pdfConverterSettings)
+
+'Save the converted PDF file.
+pdfDoc.Save("Sample.pdf")
+
+'Close the presentation instance
+pptxDoc.Close()
+ 
+'Close the PDF instance
+pdfDoc.Close()
 
 {% endhighlight %}
 

@@ -106,31 +106,24 @@ The following code example demonstrates how to convert a slide to image.
 {% highlight c# %}
 
 //Opens a PowerPoint Presentation file
-
 IPresentation presentation = Presentation.Open(fileName);
 
 //Creates an instance of ChartToImageConverter
-
 presentation.ChartToImageConverter = new ChartToImageConverter();
 
 //Sets the scaling mode as best
-
 presentation.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best;
 
 //Converts the first slide into image
-
 Image image = presentation.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
 
 //Saves the image as file
-
 image.Save("slide1.png");
 
 //Disposes the image
-
 image.Dispose();
 
 //Closes the Presentation instance
-
 presentation.Close();
 
 {% endhighlight %}
@@ -138,31 +131,24 @@ presentation.Close();
 {% highlight vb.net %}
 
 'Opens a PowerPoint Presentation file
-
 Dim presentationDocument As IPresentation = Presentation.Open(fileName)
 
 'Creates an instance of ChartToImageConverter
-
 presentationDocument.ChartToImageConverter = New ChartToImageConverter()
 
 'Sets the scaling mode as best
-
 presentationDocument.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best
 
 'Converts the first slide into image
-
 Dim image As Image = presentationDocument.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageType.Metafile)
 
 'Saves the image as file
-
 image.Save("slide1.png")
 
 'Disposes the image
-
 image.Dispose()
 
 'Closes the Presentation instance
-
 Presentation_1.Close()
 
 {% endhighlight %}
@@ -177,23 +163,18 @@ The following code example demonstrates the conversion of an entire Presentation
 {% highlight c# %}
 
 //Loads the PowerPoint Presentation
-
 IPresentation presentation = Presentation.Open("Sample.pptx");
 
 //Creates instance of ChartToImageConverter
-
 presentation.ChartToImageConverter = new ChartToImageConverter();
 
 //Sets the scaling mode as best
-
 presentation.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best;
 
 //Converts entire Presentation to images
-
 Image[] images = presentation.RenderAsImages(Syncfusion.Drawing.ImageType.Metafile);
 
 //Saves the image to file system
-
 foreach (Image image in images)
 { 
 	image.Save("ImageOutput" + Guid.NewGuid().ToString()+ ".png");
@@ -204,23 +185,18 @@ foreach (Image image in images)
 {% highlight vb.net %}
 
 'Loads the PowerPoint Presentation
-
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx")
 
 'Creates instance of ChartToImageConverter
-
 presentationDocument.ChartToImageConverter = New ChartToImageConverter()
 
 'Sets the scaling mode as best
-
 presentationDocument.ChartToImageConverter.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Best
 
 'Converts entire Presentation to images
-
 Dim images As Image() = presentationDocument.RenderAsImages(Syncfusion.Drawing.ImageType.Metafile)
 
 'Saves the image to file system
-
 For Each image As Image In images
 
 image.Save("ImageOutput" + Guid.NewGuid().ToString() + ".png")
@@ -238,7 +214,6 @@ The following code snippet demonstrates how to convert a PowerPoint slide to ima
 {% highlight c# %}
 
 //Loads the PowerPoint presentation
-
 IPresentation presentation = Presentation.Open("Output.pptx");
 
 //Declare variables to hold custom width and height
@@ -246,31 +221,24 @@ int customWidth = 1500;
 int customHeight = 1000;
 
 //Converts the slide as image and returns the image stream
-
 Stream stream = presentation.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf);
 
 //Creates a bitmap of specific width and height
-
 Bitmap bitmap = new Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb);
 
 //Gets the graphics from image
-
 Graphics graphics = Graphics.FromImage(bitmap);
 
 //Sets the resolution
-
 bitmap.SetResolution(graphics.DpiX, graphics.DpiY);
 
 //Recreates the image in custom size
-
 graphics.DrawImage(System.Drawing.Image.FromStream(stream), new Rectangle(0, 0, bitmap.Width, bitmap.Height));
 
 //Saves the image as bitmap 
-
 bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg");
 
 //Closes the presentation
-
 presentation.Close();
 
 {% endhighlight %}
@@ -278,7 +246,6 @@ presentation.Close();
 {% highlight vb.net %}
 
 'Loads the PowerPoint presentation
-
 Dim presentationDocument As IPresentation = Presentation.Open("Output.pptx")
 
 'Declare variables to hold custom width and height
@@ -286,40 +253,289 @@ Dim customWidth As Integer = 1500
 Dim customHeight As Integer = 1000
 
 'Converts the slide as image and returns the image stream
-
 Dim stream As Stream = presentationDocument.Slides(0).ConvertToImage(Syncfusion.Drawing.ImageFormat.Emf)
 
 'Creates a bitmap of specific width and height
-
 Dim bitmap As New Bitmap(customWidth, customHeight, PixelFormat.Format32bppPArgb)
 
 'Gets the graphics from image
-
 Dim imageGraphics As Graphics = Graphics.FromImage(bitmap)
 
 'Sets the resolution
-
 bitmap.SetResolution(imageGraphics.DpiX, imageGraphics.DpiY)
 
 'Recreates the image in custom size
-
 imageGraphics.DrawImage(System.Drawing.Image.FromStream(stream), New Rectangle(0, 0, bitmap.Width, bitmap.Height))
 
 'Saves the image as bitmap
-
 bitmap.Save("ImageOutput" + Guid.NewGuid().ToString() + ".jpeg")
 
 'Closes the presentation
-
 presentationDocument.Close()
 
 {% endhighlight %}
 
 {% endtabs %}
 
+## UWP
+
+PowerPoint slides can be converted to images in UWP by using Essential Presentation library. The following assemblies are required in the UWP application to convert the slides as images.
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Assembly Name</th>
+            <th>
+                Short Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Syncfusion.Presentation.UWP</td>
+            <td>This assembly contains the core features needed for creating, reading, manipulating a Presentation file.</td>
+        </tr>
+        <tr>
+            <td>Syncfusion.OfficeChart.UWP</td>
+            <td>This assembly contains the Office Chart Object model and core features needed for chart creation.</td>
+        </tr>
+        <tr>
+            <td>Syncfusion.OfficeChartToImageConverter.UWP</td>
+            <td>This assembly is used to convert Office Chart into Image. </td>
+        </tr>
+        <tr>
+            <td>Syncfusion.SfChart.UWP</td>
+            <td>Supporting assembly for Syncfusion.OfficeChartToImageConverter.UWP</td>
+        </tr>       
+    </tbody>
+</table>
+
+The following code example demonstrates how to convert a slide to image in UWP.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the presentation file using open picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.FileTypeFilter.Add(".pptx");
+StorageFile inputFile = await openPicker.PickSingleFileAsync();
+presentation = await Presentation.OpenAsync(inputFile);
+
+//Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides
+presentation.ChartToImageConverter = new ChartToImageConverter();
+
+//Pick the folder to save the converted images.
+FolderPicker folderPicker = new FolderPicker();
+folderPicker.ViewMode = PickerViewMode.Thumbnail;
+folderPicker.FileTypeFilter.Add("*");
+StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
+StorageFile imageFile = await storageFolder.CreateFileAsync("Slide1.jpg", CreationCollisionOption.ReplaceExisting);
+
+//Convert the slide to image.
+await slide.SaveAsImageAsync(imageFile);
+
+//Closes the presentation instance
+presentation.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the presentation file using open picker
+Dim openPicker As FileOpenPicker = new FileOpenPicker()
+openPicker.FileTypeFilter.Add(".pptx")
+Dim inputFile As StorageFile = await openPicker.PickSingleFileAsync()
+Dim presentation As IPresentation = await Presentation.OpenAsync(inputFile)
+
+'Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides
+presentation.ChartToImageConverter = new ChartToImageConverter()
+
+'Pick the folder to save the converted images.
+Dim folderPicker As FolderPicker = new FolderPicker()
+folderPicker.ViewMode = PickerViewMode.Thumbnail
+folderPicker.FileTypeFilter.Add("*")
+Dim storageFolder As StorageFolder = await folderPicker.PickSingleFolderAsync()
+Dim imageFile as StorageFile  = await storageFolder.CreateFileAsync("Slide1.jpg", CreationCollisionOption.ReplaceExisting)
+
+'Convert the slide to image.
+await slide.SaveAsImageAsync(imageFile)
+
+'Closes the presentation instance
+presentation.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the presentation file using open picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.FileTypeFilter.Add(".pptx");
+StorageFile inputFile = await openPicker.PickSingleFileAsync();
+presentation = await Presentation.OpenAsync(inputFile);
+
+//Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides.
+presentation.ChartToImageConverter = new ChartToImageConverter();
+
+//Pick the folder to save the converted images.
+FolderPicker folderPicker = new FolderPicker();
+folderPicker.ViewMode = PickerViewMode.Thumbnail;
+folderPicker.FileTypeFilter.Add("*");
+StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
+StorageFile imageFile = await storageFolder.CreateFileAsync("Slide1.jpg", CreationCollisionOption.ReplaceExisting);
+
+//Get the stream of the created image file.
+StorageFile imageStream = await imageFile.OpenStreamForWriteAsync()
+
+//Creates a new instance for the rendering options to customize the image resolution.
+RenderingOptions renderingOptions = new RenderingOptions();
+
+//Sets the horizontal scaling value for the converted image. The default value is 1.
+renderingOptions.ScaleX = 10F;
+
+//Sets the vertical scaling value for the converted image. The default value is 1.
+renderingOptions.ScaleY = 10F;
+
+//Convert the slide to image with specified resolution.
+await slide.SaveAsImageAsync(imageStream, renderingOptions);
+
+//Closes the presentation instance
+presentation.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the presentation file using open picker
+Dim openPicker As FileOpenPicker = new FileOpenPicker()
+openPicker.FileTypeFilter.Add(".pptx")
+Dim inputFile As StorageFile = await openPicker.PickSingleFileAsync()
+Dim presentation As IPresentation = await Presentation.OpenAsync(inputFile)
+
+'Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides
+presentation.ChartToImageConverter = new ChartToImageConverter()
+
+'Pick the folder to save the converted images.
+Dim folderPicker As FolderPicker = new FolderPicker()
+folderPicker.ViewMode = PickerViewMode.Thumbnail
+folderPicker.FileTypeFilter.Add("*")
+Dim storageFolder As StorageFolder = await folderPicker.PickSingleFolderAsync()
+Dim imageFile as StorageFile  = await storageFolder.CreateFileAsync("Slide1.jpg", CreationCollisionOption.ReplaceExisting)
+
+'Get the stream of the created image file.
+imageStream As StorageFile = await imageFile.OpenStreamForWriteAsync()
+
+'Creates a new instance for the rendering options to customize the image resolution.
+renderingOptions As RenderingOptions  = new RenderingOptions()
+
+'Sets the horizontal scaling value for the converted image. The default value is 1.
+renderingOptions.ScaleX = 10F
+
+'Sets the vertical scaling value for the converted image. The default value is 1.
+renderingOptions.ScaleY = 10F
+
+'Convert the slide to image.
+await slide.SaveAsImageAsync(imageFile)
+
+'Closes the presentation instance
+presentation.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code snippet demonstrates how to convert a PowerPoint slide to image by passing ‘CancellationToken’.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the presentation file using open picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.FileTypeFilter.Add(".pptx");
+StorageFile inputFile = await openPicker.PickSingleFileAsync();
+presentation = await Presentation.OpenAsync(inputFile);
+
+//Initialize the ChartToImageConverter instance to convert the charts in the slides.
+presentation.ChartToImageConverter = new ChartToImageConverter();
+
+
+//Pick the folder to save the converted images.
+FolderPicker folderPicker = new FolderPicker();                    
+folderPicker.ViewMode = PickerViewMode.Thumbnail;
+folderPicker.FileTypeFilter.Add("*");
+StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
+
+//Create a cancellation token to cancel the image rendering instantly.
+CancellationTokenSource cancellationToken = new CancellationTokenSource();
+
+//Convert the slide to image.
+int slideNumber = 1;
+foreach (ISlide slide in presentation.Slides)
+{
+   StorageFile imageFile = await storageFolder.CreateFileAsync("Slide" + slideNumber++ + ".jpg", CreationCollisionOption.ReplaceExisting);
+   await slide.SaveAsImageAsync(imageFile, cancellationToken.Token);
+}
+
+//Close the presentation instance
+presentation.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the presentation file using open picker
+Dim openPicker As FileOpenPicker = new FileOpenPicker()
+openPicker.FileTypeFilter.Add(".pptx")
+Dim inputFile As StorageFile = await openPicker.PickSingleFileAsync()
+Dim presentation As IPresentation = await Presentation.OpenAsync(inputFile)
+
+'Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides
+presentation.ChartToImageConverter = new ChartToImageConverter()
+
+'Pick the folder to save the converted images.
+Dim folderPicker As FolderPicker = new FolderPicker()
+folderPicker.ViewMode = PickerViewMode.Thumbnail
+folderPicker.FileTypeFilter.Add("*")
+Dim storageFolder As StorageFolder = await folderPicker.PickSingleFolderAsync()
+
+'Create a cancellation token to cancel the image rendering instantly.
+Dim cancellationToken As CancellationTokenSource = new CancellationTokenSource()
+
+'Convert the slide to image.
+Dim slideNumber As Int32 = 1
+foreach (Dim slide As ISlide in presentation.Slides)
+{
+   Dim imageFile As StorageFile  = await storageFolder.CreateFileAsync("Slide" + slideNumber++ + ".jpg", CreationCollisionOption.ReplaceExisting)
+   await slide.SaveAsImageAsync(imageFile, cancellationToken.Token)
+}
+
+'Closes the presentation instance
+presentation.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+N> 1. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image
+N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onward
+N> 3. The image conversion is not supported in Xamarin platforms
+N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
+N> 5. EMF images in the PowerPoint slides will not be converted in UWP due to platform limitation.
+N> 6. Radial gradient, rectangular gradient and path gradient brushes are not supported in UWP due to platform limitation. These brushes are rendered as linear gradient brush in our UWP slide to image conversion.
+
 ## Font substitution for unavailable fonts
 
 When a font used in a PowerPoint presentation is unavailable in the environment where it is converted to image, then the library substitutes the ‘Microsoft Sans Serif’ as a default font for text rendering. This leads to a difference in text layouts of PowerPoint presentation and the converted image.  To avoid this, the Essential Presentation library allows you to set an alternate font for the missing font used in the PowerPoint presentation.
+
+N> Font substitution for Unavailable fonts is not supported in UWP, ASP.NET CORE and Xamarin platforms
 
 The following code sample demonstrates how to set a substitute font for a missing font while converting a PowerPoint presentation to image.
 
@@ -401,160 +617,3 @@ End Sub
 {% endhighlight %}
 
 {% endtabs %}
-
-## UWP
-
-PowerPoint slides can be converted to images in UWP by using Essential Presentation library. The following assemblies are required in the UWP application to convert the slides as images.
-
-<table>
-    <thead>
-        <tr>
-            <th>
-                Assembly Name</th>
-            <th>
-                Short Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Syncfusion.Presentation.UWP</td>
-            <td>This assembly contains the core features needed for creating, reading, manipulating a Presentation file.</td>
-        </tr>
-        <tr>
-            <td>Syncfusion.OfficeChart.UWP</td>
-            <td>This assembly contains the Office Chart Object model and core features needed for chart creation.</td>
-        </tr>
-        <tr>
-            <td>Syncfusion.OfficeChartToImageConverter.UWP</td>
-            <td>This assembly is used to convert Office Chart into Image. </td>
-        </tr>
-        <tr>
-            <td>Syncfusion.SfChart.UWP</td>
-            <td>Supporting assembly for Syncfusion.OfficeChartToImageConverter.UWP</td>
-        </tr>       
-    </tbody>
-</table>
-
-The following code example demonstrates how to convert a slide to image in UWP.
-
-{% tabs %}
-
-{% highlight c# %}
-
-//Load the presentation file using open picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.FileTypeFilter.Add(".pptx");
-StorageFile inputFile = await openPicker.PickSingleFileAsync();
-presentation = await Presentation.OpenAsync(inputFile);
-
-//Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides
-presentation.ChartToImageConverter = new ChartToImageConverter();
-
-//Pick the folder to save the converted images.
-FolderPicker folderPicker = new FolderPicker();
-folderPicker.ViewMode = PickerViewMode.Thumbnail;
-folderPicker.FileTypeFilter.Add("*");
-StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
-StorageFile imageFile = await storageFolder.CreateFileAsync("Slide1.jpg", CreationCollisionOption.ReplaceExisting);
-
-//Convert the slide to image.
-await slide.SaveAsImageAsync(imageFile);
-
-//Closes the presentation instance
-presentation.Close();
-
-{% endhighlight %}
-
-{% endtabs %}
-
-The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution.
-
-{% tabs %}
-
-{% highlight c# %}
-
-//Load the presentation file using open picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.FileTypeFilter.Add(".pptx");
-StorageFile inputFile = await openPicker.PickSingleFileAsync();
-presentation = await Presentation.OpenAsync(inputFile);
-
-//Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides.
-presentation.ChartToImageConverter = new ChartToImageConverter();
-
-//Pick the folder to save the converted images.
-FolderPicker folderPicker = new FolderPicker();
-folderPicker.ViewMode = PickerViewMode.Thumbnail;
-folderPicker.FileTypeFilter.Add("*");
-StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
-StorageFile imageFile = await storageFolder.CreateFileAsync("Slide1.jpg", CreationCollisionOption.ReplaceExisting);
-
-//Get the stream of the created image file.
-StorageFile imageStream = await imageFile.OpenStreamForWriteAsync()
-
-//Creates a new instance for the rendering options to customize the image resolution.
-RenderingOptions renderingOptions = new RenderingOptions();
-
-//Sets the horizontal scaling value for the converted image. The default value is 1.
-renderingOptions.ScaleX = 10F;
-
-//Sets the vertical scaling value for the converted image. The default value is 1.
-renderingOptions.ScaleY = 10F;
-
-//Convert the slide to image with specified resolution.
-await slide.SaveAsImageAsync(imageStream, renderingOptions);
-
-//Closes the presentation instance
-presentation.Close();
-
-{% endhighlight %}
-
-{% endtabs %}
-
-The following code snippet demonstrates how to convert a PowerPoint slide to image by passing ‘CancellationToken’.
-
-{% tabs %}
-
-{% highlight c# %}
-
-//Load the presentation file using open picker
-FileOpenPicker openPicker = new FileOpenPicker();
-openPicker.FileTypeFilter.Add(".pptx");
-StorageFile inputFile = await openPicker.PickSingleFileAsync();
-presentation = await Presentation.OpenAsync(inputFile);
-
-//Initialize the ChartToImageConverter instance to convert the charts in the slides.
-presentation.ChartToImageConverter = new ChartToImageConverter();
-
-
-//Pick the folder to save the converted images.
-FolderPicker folderPicker = new FolderPicker();                    
-folderPicker.ViewMode = PickerViewMode.Thumbnail;
-folderPicker.FileTypeFilter.Add("*");
-StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
-
-//Create a cancellation token to cancel the image rendering instantly.
-CancellationTokenSource cancellationToken = new CancellationTokenSource();
-
-//Convert the slide to image.
-int slideNumber = 1;
-foreach (ISlide slide in presentation.Slides)
-{
-   StorageFile imageFile = await storageFolder.CreateFileAsync("Slide" + slideNumber++ + ".jpg", CreationCollisionOption.ReplaceExisting);
-   await slide.SaveAsImageAsync(imageFile, cancellationToken.Token);
-}
-
-//Close the presentation instance
-presentation.Close();
-
-{% endhighlight %}
-
-{% endtabs %}
-
-
-N> 1. Instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to image. Otherwise, the charts in the presentation are not exported to the converted image
-N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onward
-N> 3. The image conversion is not supported in Xamarin platforms
-N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
-N> 5. EMF images in the PowerPoint slides will not be converted in UWP due to platform limitation.
-N> 6. Radial gradient, rectangular gradient and path gradient brushes are not supported in UWP due to platform limitation. These brushes are rendered as linear gradient brush in our UWP slide to image conversion.
