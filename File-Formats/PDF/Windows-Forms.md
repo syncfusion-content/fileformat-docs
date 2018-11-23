@@ -1,5 +1,5 @@
 ---
-title: Working with Windows Forms
+title: Syncfusion PDF control for Windows Forms
 description: Loading and saving the PDF document in Windows Forms platform
 platform: file-formats
 control: PDF
@@ -10,7 +10,7 @@ documentation: UG
 
 In your Windows Forms application, add the required assemblies to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
 
-#Loading the document
+##Loading the document
 
 The following code snippet illustrates how to load the PDF document in Windows Forms.
 
