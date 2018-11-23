@@ -56,8 +56,16 @@ if(currentBuild.result != 'FAILURE')
 	{
 	    gitlabCommitStatus("Build")
 		{
-		bat 'powershell.exe -ExecutionPolicy ByPass -File '+env.WORKSPACE+"/ug_spellchecker/build.ps1 -Script "+env.WORKSPACE+"/ug_spellchecker/build.cake -Target build -Platform \""+platform+"\" -Branch "+'"'+env.gitlabSourceBranch+'"'
+		bat 'powershell.exe -ExecutionPolicy ByPass -File '+env.WORKSPACE+"/ug_spellchecker/build.ps1 -Script "+env.WORKSPACE+"/ug_spellchecker/build.cake -Target build -Platform \""+platform+"\" -Targetbranch "+env.gitlabTargetBranch+" -Branch "+'"'+env.gitlabSourceBranch+'"'
 	 	}
+	 	
+	 	def files = findFiles(glob: '**/cireports/errorlogs/*.txt')
+ 
+        if(files.size() > 0)
+        {
+           currentBuild.result = 'FAILURE'
+        }
+	 	
     }
 	 catch(Exception e) 
     {
