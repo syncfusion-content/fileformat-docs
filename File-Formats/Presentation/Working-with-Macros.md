@@ -20,48 +20,121 @@ The following code illustrates how to load and save a macro enabled presentation
 {% highlight c# %}
 
 //Opens an existing macro enabled PowerPoint presentation
-
-IPresentation presentation = Presentation.Open("Sample.PPTM");
+IPresentation pptxDoc = Presentation.Open("Sample.PPTM");
 
 //Adds a blank slide to the presentation
-
-ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Adds a text box to the slide
-
 IParagraph paragraph = slide.Shapes.AddTextBox(100, 100, 300, 80).TextBody.AddParagraph("Preserve Macros");
 
 //Saves the presentation
-
-presentation.Save("Output.PPTM");
+pptxDoc.Save("Output.PPTM");
 
 //Closes the presentation
-
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Opens an existing macro enabled PowerPoint presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open("Sample.PPTM")
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.PPTM")
 
 'Adds a blank slide to the presentation
-
-Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 
 'Adds a text box to the slide
-
 Dim paragraph As IParagraph = slide.Shapes.AddTextBox(100, 100, 300, 80).TextBody.AddParagraph("Preserve Macros")
 
 'Saves the presentation
-
-presentationDocument.Save("Output.PPTM")
+pptxDoc.Save("Output.PPTM")
 
 'Closes the presentation
+pptxDoc.Close()
 
-presentationDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptm");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Adds a blank slide to the presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds a text box to the slide
+IParagraph paragraph = slide.Shapes.AddTextBox(100, 100, 300, 80).TextBody.AddParagraph("Preserve Macros");
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptm" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens an existing macro enabled PowerPoint presentation
+FileStream inputStream = new FileStream("Sample.pptm",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Adds a blank slide to the presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds a text box to the slide
+IParagraph paragraph = slide.Shapes.AddTextBox(100, 100, 300, 80).TextBody.AddParagraph("Preserve Macros");
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Output.pptm", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Opens an existing macro enabled PowerPoint presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Adds a blank slide to the presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds a text box to the slide
+IParagraph paragraph = slide.Shapes.AddTextBox(100, 100, 300, 80).TextBody.AddParagraph("Preserve Macros");
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptm", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptm", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -76,46 +149,111 @@ The following code example illustrates how to remove the macros present in the p
 {% highlight c# %}
 
 //Opens an existing macro enabled PowerPoint presentation
-
-IPresentation presentation = Presentation.Open("Sample.PPTM");
+IPresentation pptxDoc = Presentation.Open("Sample.PPTM");
 
 //Checks whether the presentation has macros and then removes them
-
-if (presentation.HasMacros)
-
-presentation.RemoveMacros();
+if (pptxDoc.HasMacros)
+pptxDoc.RemoveMacros();
 
 //Saves the presentation
-
-presentation.Save("Output.pptx");
+pptxDoc.Save("Output.pptx");
 
 //Closes the presentation
-
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Opens an existing macro enabled PowerPoint presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open("Sample.PPTM")
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.PPTM")
 
 'Checks whether the presentation has macros and then removes them
-
-If presentationDocument.HasMacros Then
-
-presentationDocument.RemoveMacros()
+If pptxDoc.HasMacros Then
+pptxDoc.RemoveMacros()
 
 End If
 
 'Saves the presentation
-
-presentationDocument.Save("Output.pptx")
+pptxDoc.Save("Output.pptx")
 
 'Closes the presentation
+pptxDoc.Close()
 
-presentationDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptm");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an Macro enabled PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Checks whether the presentation has macros and then removes them
+if (pptxDoc.HasMacros)
+pptxDoc.RemoveMacros();
+
+//Saves the presentation
+pptxDoc.Save("Output.pptx");
+
+//Closes the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens an existing macro enabled PowerPoint presentation
+FileStream inputStream = new FileStream("Sample.pptm",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Checks whether the presentation has macros and then removes them
+if (pptxDoc.HasMacros)
+pptxDoc.RemoveMacros();
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptm");
+
+//Opens an existing macro enabled PowerPoint presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Checks whether the presentation has macros and then removes them
+if (pptxDoc.HasMacros)
+pptxDoc.RemoveMacros();
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 

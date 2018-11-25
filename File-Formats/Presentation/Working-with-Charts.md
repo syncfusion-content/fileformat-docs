@@ -1243,9 +1243,6 @@ The appearance of a chart can be modified according to the convenience and usage
 //Opens the Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
-//Initializes the ChartToImageConverter class; this is mandatory
-pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-
 //Gets the first slide
 ISlide slide = pptxDoc.Slides[0];
 
@@ -1332,9 +1329,6 @@ pptxDoc.Close();
 
 'Opens the Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
-'Initializes the ChartToImageConverter class; this is mandatory
-pptxDoc.ChartToImageConverter = New ChartToImageConverter()
 
 'Gets the first slide
 Dim slide As ISlide = pptxDoc.Slides(0)
@@ -1423,9 +1417,6 @@ pptxDoc.Close()
 //Opens the Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
-//Initializes the ChartToImageConverter class; this is mandatory
-pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-
 //Gets the first slide
 ISlide slide = pptxDoc.Slides[0];
 
@@ -1513,6 +1504,193 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Gets the first slide
+ISlide slide = pptxDoc.Slides[0];
+
+//Gets the chart in slide
+IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
+
+//Modifies the chart height
+chart.Height = 500;
+
+//Modifies the chart width
+chart.Width = 700;
+
+//Changes the title
+chart.ChartTitle = "New title";
+
+//Changes the series name of first chart series
+chart.Series[0].Name = "Modified series name";
+
+//Hides the category labels
+chart.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNone;
+
+//Shows Data Table.
+chart.HasDataTable = true;
+
+//Formats Chart Area.
+IOfficeChartFrameFormat chartArea = chart.ChartArea;
+
+//Chart Area Border Settings
+
+//Style           
+chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+
+//Color
+chartArea.Border.LineColor = Color.Blue;
+
+//Weight
+chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+//Chart Area Settings
+
+//Fill Effects
+chartArea.Fill.FillType = OfficeFillType.Gradient;
+
+//Two Color
+chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+
+//Sets two colors.
+chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+chartArea.Fill.ForeColor = Color.White;
+
+//Plot Area
+IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
+
+//Plots Area Border Settings
+
+//Style
+chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+
+//Color
+chartPlotArea.Border.LineColor = Color.Blue;
+
+//Weight
+chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+//Fill Effects
+chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
+
+//Two Color
+chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+
+//Sets two colors.
+chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+chartPlotArea.Fill.ForeColor = Color.White;
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Gets the first slide
+ISlide slide = pptxDoc.Slides[0];
+
+//Gets the chart in slide
+IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
+
+//Modifies the chart height
+chart.Height = 500;
+
+//Modifies the chart width
+chart.Width = 700;
+
+//Changes the title
+chart.ChartTitle = "New title";
+
+//Changes the series name of first chart series
+chart.Series[0].Name = "Modified series name";
+
+//Hides the category labels
+chart.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNone;
+
+//Formats Chart Area.
+IOfficeChartFrameFormat chartArea = chart.ChartArea;
+
+//Chart Area Border Settings
+
+//Style           
+chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+
+//Color
+chartArea.Border.LineColor = Color.Blue;
+
+//Weight
+chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+//Chart Area Settings
+
+//Fill Effects
+chartArea.Fill.FillType = OfficeFillType.Gradient;
+
+//Two Color
+chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+
+//Sets two colors.
+chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+chartArea.Fill.ForeColor = Color.White;
+
+//Plot Area
+IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
+
+//Plots Area Border Settings
+
+//Style
+chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+
+//Color
+chartPlotArea.Border.LineColor = Color.Blue;
+
+//Weight
+chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+//Fill Effects
+chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
+
+//Two Color
+chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+
+//Sets two colors.
+chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
+chartPlotArea.Fill.ForeColor = Color.White;
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -1848,6 +2026,234 @@ await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Gets the chart from the first slide
+IPresentationChart chart = pptxDoc.Slides[0].Charts[0] as IPresentationChart;
+
+//Sets border settings
+chart.PlotArea.Border.AutoFormat = false;
+
+//Sets the auto line color
+chart.PlotArea.Border.IsAutoLineColor = false;
+
+//Sets the border line color
+chart.PlotArea.Border.LineColor = Color.Blue;
+
+//Sets the border line pattern
+chart.PlotArea.Border.LinePattern = OfficeChartLinePattern.DashDot;
+
+//Sets the border line weight
+chart.PlotArea.Border.LineWeight = OfficeChartLineWeight.Wide;
+
+//Sets the border transparency
+chart.PlotArea.Border.Transparency = 0.6;
+
+//Sets the plot area’s fill type
+chart.PlotArea.Fill.FillType = OfficeFillType.SolidColor;
+
+//Sets the plot area’s fill color
+chart.PlotArea.Fill.ForeColor = Color.LightPink;
+
+//Sets the plot area shadow presence
+chart.PlotArea.Shadow.ShadowInnerPresets = Office2007ChartPresetsInner.InsideDiagonalTopLeft;
+
+//Sets the legend position
+chart.Legend.Position = OfficeLegendPosition.Left;
+
+//Sets the layout inclusion
+chart.Legend.IncludeInLayout = true;
+
+//Sets the legend border format
+chart.Legend.FrameFormat.Border.AutoFormat = false;
+
+//Sets the legend border auto line color
+chart.Legend.FrameFormat.Border.IsAutoLineColor = false;
+
+//Sets the border line color
+chart.Legend.FrameFormat.Border.LineColor = Color.Blue;
+
+//Sets the border line pattern
+chart.Legend.FrameFormat.Border.LinePattern = OfficeChartLinePattern.DashDot;
+
+//Sets the legend border line weight
+chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide;
+
+//Sets the font weight for legend text
+chart.Legend.TextArea.Bold = true;
+
+//Sets the fore color to legend text
+chart.Legend.TextArea.Color = OfficeKnownColors.Bright_green;
+
+//Sets the font name for legend text
+chart.Legend.TextArea.FontName = "Times New Roman";
+
+//Sets the font size for legend text
+chart.Legend.TextArea.Size = 20;
+
+//Sets the legend text area' strike through
+chart.Legend.TextArea.Strikethrough = true;
+
+//Modifies the legend entry
+chart.Legend.LegendEntries[0].IsDeleted = true;
+
+//Modifies the legend layout height
+chart.Legend.Layout.Height = 200;
+
+//Modifies the legend layout height mode
+chart.Legend.Layout.HeightMode = LayoutModes.factor;
+
+//Modifies the legend layout left position
+chart.Legend.Layout.Left = 100;
+
+//Modifies the legend layout left mode
+chart.Legend.Layout.LeftMode = LayoutModes.factor;
+
+//Modifies the legend layout top position
+chart.Legend.Layout.Top = 100;
+
+//Modifies the legend layout top mode
+chart.Legend.Layout.TopMode = LayoutModes.factor;
+
+//Modifies the legend layout width
+chart.Legend.Layout.Width = 300;
+
+//Modifies the legend layout width mode
+chart.Legend.Layout.WidthMode = LayoutModes.factor;
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("ModifiedChart.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Gets the chart from the first slide
+IPresentationChart chart = pptxDoc.Slides[0].Charts[0] as IPresentationChart;
+
+//Sets border settings
+chart.PlotArea.Border.AutoFormat = false;
+
+//Sets the auto line color
+chart.PlotArea.Border.IsAutoLineColor = false;
+
+//Sets the border line color
+chart.PlotArea.Border.LineColor = Color.Blue;
+
+//Sets the border line pattern
+chart.PlotArea.Border.LinePattern = OfficeChartLinePattern.DashDot;
+
+//Sets the border line weight
+chart.PlotArea.Border.LineWeight = OfficeChartLineWeight.Wide;
+
+//Sets the border transparency
+chart.PlotArea.Border.Transparency = 0.6;
+
+//Sets the plot area’s fill type
+chart.PlotArea.Fill.FillType = OfficeFillType.SolidColor;
+
+//Sets the plot area’s fill color
+chart.PlotArea.Fill.ForeColor = Color.LightPink;
+
+//Sets the plot area shadow presence
+chart.PlotArea.Shadow.ShadowInnerPresets = Office2007ChartPresetsInner.InsideDiagonalTopLeft;
+
+//Sets the legend position
+chart.Legend.Position = OfficeLegendPosition.Left;
+
+//Sets the layout inclusion
+chart.Legend.IncludeInLayout = true;
+
+//Sets the legend border format
+chart.Legend.FrameFormat.Border.AutoFormat = false;
+
+//Sets the legend border auto line color
+chart.Legend.FrameFormat.Border.IsAutoLineColor = false;
+
+//Sets the border line color
+chart.Legend.FrameFormat.Border.LineColor = Color.Blue;
+
+//Sets the border line pattern
+chart.Legend.FrameFormat.Border.LinePattern = OfficeChartLinePattern.DashDot;
+
+//Sets the legend border line weight
+chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide;
+
+//Sets the font weight for legend text
+chart.Legend.TextArea.Bold = true;
+
+//Sets the fore color to legend text
+chart.Legend.TextArea.Color = OfficeKnownColors.Bright_green;
+
+//Sets the font name for legend text
+chart.Legend.TextArea.FontName = "Times New Roman";
+
+//Sets the font size for legend text
+chart.Legend.TextArea.Size = 20;
+
+//Sets the legend text area' strike through
+chart.Legend.TextArea.Strikethrough = true;
+
+//Modifies the legend entry
+chart.Legend.LegendEntries[0].IsDeleted = true;
+
+//Modifies the legend layout height
+chart.Legend.Layout.Height = 200;
+
+//Modifies the legend layout height mode
+chart.Legend.Layout.HeightMode = LayoutModes.factor;
+
+//Modifies the legend layout left position
+chart.Legend.Layout.Left = 100;
+
+//Modifies the legend layout left mode
+chart.Legend.Layout.LeftMode = LayoutModes.factor;
+
+//Modifies the legend layout top position
+chart.Legend.Layout.Top = 100;
+
+//Modifies the legend layout top mode
+chart.Legend.Layout.TopMode = LayoutModes.factor;
+
+//Modifies the legend layout width
+chart.Legend.Layout.Width = 300;
+
+//Modifies the legend layout width mode
+chart.Legend.Layout.WidthMode = LayoutModes.factor;
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ModifiedChart.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("ModifiedChart.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Positioning Chart Elements
@@ -1957,6 +2363,179 @@ pptxDoc.Save("Output.pptx")
 
 'Closes the Presentation
 pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+IPresentation pptxDoc = Presentation.Create();
+
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds chart to slide
+IPresentationChart chart = slide.Shapes.AddChart(100, 120, 500, 300);
+
+//Sets the data range of chart
+chart.DataRange = chart.ChartData[1, 2, 4, 3];
+
+//Sets data to the chart- RowIndex, columnIndex and data
+chart.ChartData.SetValue(1, 2, "2012");
+chart.ChartData.SetValue(2, 2, 330);
+chart.ChartData.SetValue(3, 2, 490);
+chart.ChartData.SetValue(4, 2, 700);
+chart.ChartType = OfficeChartType.Area;
+
+//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
+
+//Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
+
+chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
+chart.PlotArea.Layout.TopMode = LayoutModes.factor;
+
+//Value in points should not be negative value when LayoutMode is Edge
+
+//It can be a negative value, when the LayoutMode is Factor.
+
+chart.ChartTitleArea.Layout.Left = 10;
+chart.ChartTitleArea.Layout.Top = 100;
+
+//Manually positions chart plot area
+
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer;
+chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.TopMode = LayoutModes.edge;
+
+//Manually positions chart legend 
+
+chart.Legend.Layout.LeftMode = LayoutModes.factor;
+chart.Legend.Layout.TopMode = LayoutModes.factor;
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "ModifiedChart";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+IPresentation pptxDoc = Presentation.Create();
+
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds chart to slide
+IPresentationChart chart = slide.Shapes.AddChart(100, 120, 500, 300);
+
+//Sets the data range of chart
+chart.DataRange = chart.ChartData[1, 2, 4, 3];
+
+//Sets data to the chart- RowIndex, columnIndex and data
+chart.ChartData.SetValue(1, 2, "2012");
+chart.ChartData.SetValue(2, 2, 330);
+chart.ChartData.SetValue(3, 2, 490);
+chart.ChartData.SetValue(4, 2, 700);
+chart.ChartType = OfficeChartType.Area;
+
+//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
+
+//Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
+
+chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
+chart.PlotArea.Layout.TopMode = LayoutModes.factor;
+
+//Value in points should not be negative value when LayoutMode is Edge
+
+//It can be a negative value, when the LayoutMode is Factor.
+
+chart.ChartTitleArea.Layout.Left = 10;
+chart.ChartTitleArea.Layout.Top = 100;
+
+//Manually positions chart plot area
+
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer;
+chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.TopMode = LayoutModes.edge;
+
+//Manually positions chart legend 
+
+chart.Legend.Layout.LeftMode = LayoutModes.factor;
+chart.Legend.Layout.TopMode = LayoutModes.factor;
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+IPresentation pptxDoc = Presentation.Create();
+
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds chart to slide
+IPresentationChart chart = slide.Shapes.AddChart(100, 120, 500, 300);
+
+//Sets the data range of chart
+chart.DataRange = chart.ChartData[1, 2, 4, 3];
+
+//Sets data to the chart- RowIndex, columnIndex and data
+chart.ChartData.SetValue(1, 2, "2012");
+chart.ChartData.SetValue(2, 2, 330);
+chart.ChartData.SetValue(3, 2, 490);
+chart.ChartData.SetValue(4, 2, 700);
+chart.ChartType = OfficeChartType.Area;
+
+//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
+
+//Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
+
+chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
+chart.PlotArea.Layout.TopMode = LayoutModes.factor;
+
+//Value in points should not be negative value when LayoutMode is Edge
+
+//It can be a negative value, when the LayoutMode is Factor.
+
+chart.ChartTitleArea.Layout.Left = 10;
+chart.ChartTitleArea.Layout.Top = 100;
+
+//Manually positions chart plot area
+
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer;
+chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
+chart.PlotArea.Layout.TopMode = LayoutModes.edge;
+
+//Manually positions chart legend 
+
+chart.Legend.Layout.LeftMode = LayoutModes.factor;
+chart.Legend.Layout.TopMode = LayoutModes.factor;
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -2581,6 +3160,64 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
+{% highlight XAMARIN %}
+//Creates a new instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds a slide to Presentation
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Create a chart
+IPresentationChart chart = slide1.Charts.AddChart(30, 50, 600, 300);
+
+//Set chart type as Funnel
+chart.ChartType = OfficeChartType.Funnel;
+
+//Set the chart title
+chart.ChartTitle = "Funnel";
+
+//Assign data
+chart.DataRange = chart.ChartData[1, 1, 6, 2];
+chart.IsSeriesInRows = false;
+
+//Set data
+chart.ChartData.SetValue(1, 1, "Web sales");
+chart.ChartData.SetValue(1, 2, "Users count");
+chart.ChartData.SetValue(2, 1, "Website Visits");
+chart.ChartData.SetValue(2, 2, "15600");
+chart.ChartData.SetValue(3, 1, "Downloads");
+chart.ChartData.SetValue(3, 2, "8000");
+chart.ChartData.SetValue(4, 1, "Requested price list");
+chart.ChartData.SetValue(4, 2, "6000");
+chart.ChartData.SetValue(5, 1, "Invoice sent");
+chart.ChartData.SetValue(5, 2, "2000");
+chart.ChartData.SetValue(6, 1, "Finalized");
+chart.ChartData.SetValue(6, 2, "1000");
+
+//Formatting the legend and data label option
+chart.HasLegend = false;
+IOfficeChartSerie serie = chart.Series[0];
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("FunnelChart.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("FunnelChart.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 The following screenshot shows the output of previous code.
@@ -3142,6 +3779,153 @@ private static void SetChartData(IPresentationChart chart)
 }
 {% endhighlight %}
 
+{% highlight XAMARIN %}
+private static void TestBox_Whisker()
+{
+   using(IPresentation pptxDoc = Presentation.Create())
+   {
+      ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+	  IPresentationChart chart = slide1.Charts.AddChart(50, 50, 600, 400);
+	  chart.ChartTitle = "Test Scores";
+	  chart.ChartType = OfficeChartType.BoxAndWhisker;
+	  
+	  //Assign data
+	  chart.DataRange = chart.ChartData[1,1,16,4];
+	  chart.IsSeriesInRows = false;
+	  
+	  //Set data to the chart RowIndex, columnIndex, and data
+	  SetChartData(chart);
+	  
+	  //Box and Whisker settings on first series
+	  IOfficeChartSerie seriesA = chart.Series[0];
+	  seriesA.SerieFormat.ShowInnerPoints = false;
+	  seriesA.SerieFormat.ShowOutlierPoints = true;
+	  seriesA.SerieFormat.ShowMeanMarkers = true;
+	  seriesA.SerieFormat.ShowMeanLine = false;
+	  seriesA.SerieFormat.QuartileCalculationType = QuartileCalculation.ExclusiveMedian;
+	  
+	  //Box and Whisker settings on second series
+	  IOfficeChartSerie seriesB = chart.Series[1];
+	  seriesB.SerieFormat.ShowInnerPoints = false;
+	  seriesB.SerieFormat.ShowOutlierPoints = true;
+	  seriesB.SerieFormat.ShowMeanMarkers = true;
+	  seriesB.SerieFormat.ShowMeanLine = false;
+	  seriesB.SerieFormat.QuartileCalculationType = QuartileCalculation.InclusiveMedian;
+	  
+	  //Box and Whisker settings on third series
+	  IOfficeChartSerie seriesC = chart.Series[2];
+	  seriesC.SerieFormat.ShowInnerPoints = false;
+	  seriesC.SerieFormat.ShowOutlierPoints = true;
+	  seriesC.SerieFormat.ShowMeanMarkers = true;
+	  seriesC.SerieFormat.ShowMeanLine = false;
+	  seriesC.SerieFormat.QuartileCalculationType = QuartileCalculation.ExclusiveMedian;
+	  
+	  //Create new memory stream to save Presentation.
+	  MemoryStream stream = new MemoryStream();
+
+	  //Save Presentation in stream format.
+      pptxDoc.Save(stream);
+
+      //Close the presentation
+      pptxDoc.Close();
+      stream.Position = 0;
+
+      //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+      if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+		Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("BoxAndWhisker.pptx.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+      else
+		Xamarin.Forms.DependencyService.Get<ISave>().Save("BoxAndWhisker.pptx.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+   }
+}
+
+/// <summary>
+/// Set the values for the chart
+/// </summary>
+/// <param name="chart">Represent the instance of the Presentation chart</param>
+private static void SetChartData(IPresentationChart chart)
+{
+   chart.ChartData.SetValue(1, 1, "Course");
+   chart.ChartData.SetValue(1, 2, "SchoolA");
+   chart.ChartData.SetValue(1, 3, "SchoolB");
+   chart.ChartData.SetValue(1, 4, "SchoolC");
+   
+   chart.ChartData.SetValue(2, 1, "English");
+   chart.ChartData.SetValue(2, 2, 63);
+   chart.ChartData.SetValue(2, 3, 53);
+   chart.ChartData.SetValue(2, 4, 45);
+   
+   chart.ChartData.SetValue(3, 1, "Physics");
+   chart.ChartData.SetValue(3, 2, 61);
+   chart.ChartData.SetValue(3, 3, 55);
+   chart.ChartData.SetValue(3, 4, 65);
+   
+   chart.ChartData.SetValue(4, 1, "English");
+   chart.ChartData.SetValue(4, 2, 63);
+   chart.ChartData.SetValue(4, 3, 50);
+   chart.ChartData.SetValue(4, 4, 65);
+   
+   chart.ChartData.SetValue(5, 1, "Math");
+   chart.ChartData.SetValue(5, 2, 62);
+   chart.ChartData.SetValue(5, 3, 51);
+   chart.ChartData.SetValue(5, 4, 64);
+   
+   chart.ChartData.SetValue(6, 1, "English");
+   chart.ChartData.SetValue(6, 2, 46);
+   chart.ChartData.SetValue(6, 3, 53);
+   chart.ChartData.SetValue(6, 4, 66);
+   
+   chart.ChartData.SetValue(7, 1, "English");
+   chart.ChartData.SetValue(7, 2, 58);
+   chart.ChartData.SetValue(7, 3, 56);
+   chart.ChartData.SetValue(7, 4, 67);
+   
+   chart.ChartData.SetValue(8, 1, "Math");
+   chart.ChartData.SetValue(8, 2, 62);
+   chart.ChartData.SetValue(8, 3, 53);
+   chart.ChartData.SetValue(8, 4, 66);
+   
+   chart.ChartData.SetValue(9, 1, "Math");
+   chart.ChartData.SetValue(9, 2, 62);
+   chart.ChartData.SetValue(9, 3, 53);
+   chart.ChartData.SetValue(9, 4, 66);
+   
+   chart.ChartData.SetValue(10, 1, "English");
+   chart.ChartData.SetValue(10, 2, 63);
+   chart.ChartData.SetValue(10, 3, 54);
+   chart.ChartData.SetValue(10, 4, 64);
+   
+   chart.ChartData.SetValue(11, 1, "English");
+   chart.ChartData.SetValue(11, 2, 63);
+   chart.ChartData.SetValue(11, 3, 52);
+   chart.ChartData.SetValue(11, 4, 67);
+   
+   chart.ChartData.SetValue(12, 1, "Physics");
+   chart.ChartData.SetValue(12, 2, 60);
+   chart.ChartData.SetValue(12, 3, 56);
+   chart.ChartData.SetValue(12, 4, 64);
+   
+   chart.ChartData.SetValue(13, 1, "English");
+   chart.ChartData.SetValue(13, 2, 60);
+   chart.ChartData.SetValue(13, 3, 56);
+   chart.ChartData.SetValue(13, 4, 64);
+   
+   chart.ChartData.SetValue(14, 1, "Math");
+   chart.ChartData.SetValue(14, 2, 61);
+   chart.ChartData.SetValue(14, 3, 56);
+   chart.ChartData.SetValue(14, 4, 45);
+   
+   chart.ChartData.SetValue(15, 1, "Math");
+   chart.ChartData.SetValue(15, 2, 63);
+   chart.ChartData.SetValue(15, 3, 58);
+   chart.ChartData.SetValue(15, 4, 64);
+   
+   chart.ChartData.SetValue(16, 1, "English");
+   chart.ChartData.SetValue(16, 2, 59);
+   chart.ChartData.SetValue(16, 3, 54);
+   chart.ChartData.SetValue(16, 4, 65);
+}
+{% endhighlight %}
+
 {% endtabs %}
 
 The following screenshot shows the output of previous code.
@@ -3318,9 +4102,11 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 await pptxDoc.SaveAsync(storageFile);
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 //Creates a new instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
+
+//Add slide to the presentation
 ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Create a chart
@@ -3364,9 +4150,76 @@ chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
 chart.Legend.Position = OfficeLegendPosition.Right;
    
-//Save and close the presentation
-pptxDoc.Save("WaterFall.pptx");
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("WaterFall.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Creates a new instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Add slide to the presentation
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Create a chart
+IPresentationChart chart = slide1.Charts.AddChart(50, 50, 700, 400);
+
+//Set chart type as Waterfall
+chart.ChartType = OfficeChartType.WaterFall;
+   
+//Set data range 
+chart.DataRange = chart.ChartData[1, 1, 8, 2];
+chart.IsSeriesInRows = false;
+   
+chart.ChartData.SetValue(2, 1, "Start");
+chart.ChartData.SetValue(2, 2, 120000);
+chart.ChartData.SetValue(3, 1, "Product Revenue");
+chart.ChartData.SetValue(3, 2, 570000);
+chart.ChartData.SetValue(4, 1, "Service Revenue");
+chart.ChartData.SetValue(4, 2, 230000);
+chart.ChartData.SetValue(5, 1, "Positive Balance");
+chart.ChartData.SetValue(5, 2, 920000);
+chart.ChartData.SetValue(6, 1, "Fixed Costs");
+chart.ChartData.SetValue(6, 2, -345000);
+chart.ChartData.SetValue(7, 1, "Variable Costs");
+chart.ChartData.SetValue(7, 2, -230000);
+chart.ChartData.SetValue(8, 1, "Total");
+chart.ChartData.SetValue(8, 2, 345000);
+   
+//Data point settings as total in chart
+IOfficeChartSerie series = chart.Series[0];
+chart.Series[0].DataPoints[2].SetAsTotal = true;
+chart.Series[0].DataPoints[5].SetAsTotal = true;
+  
+//Showing the connector lines between data points
+chart.Series[0].SerieFormat.ShowConnectorLines = true;
+   
+//Set the chart title
+chart.ChartTitle = "Company Profit (in USD)";
+   
+//Formatting data label and legend option
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
+chart.Legend.Position = OfficeLegendPosition.Right;
+   
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
 pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("WaterFall.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("WaterFall.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+   
 {% endhighlight %}
 
 {% endtabs %}
@@ -3568,6 +4421,65 @@ chart.HasLegend = false;
    
 pptxDoc.Save("Histogram.pptx");
 pptxDoc.Close();
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Creates a new instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+IPresentationChart chart = slide1.Charts.AddChart(50, 50, 500, 400);
+
+chart.ChartType = OfficeChartType.Histogram;
+
+chart.DataRange = chart.ChartData[2, 1, 15, 1];
+
+chart.ChartData.SetValue(1, 1, "Student Heights");
+chart.ChartData.SetValue(2, 1, 130);
+chart.ChartData.SetValue(3, 1, 132);
+chart.ChartData.SetValue(4, 1, 159);
+chart.ChartData.SetValue(5, 1, 163);
+chart.ChartData.SetValue(6, 1, 140);
+chart.ChartData.SetValue(7, 1, 155);
+chart.ChartData.SetValue(8, 1, 139);
+chart.ChartData.SetValue(9, 1, 143);
+chart.ChartData.SetValue(10, 1, 153);
+chart.ChartData.SetValue(11, 1, 165);
+chart.ChartData.SetValue(12, 1, 153);
+chart.ChartData.SetValue(13, 1, 149);
+chart.ChartData.SetValue(14, 1, 154);
+chart.ChartData.SetValue(15, 1, 162);
+   
+//Category axis bin settings
+chart.PrimaryCategoryAxis.BinWidth = 8;
+   
+//Gap width settings
+chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+   
+//Set the chart title and axis title
+chart.ChartTitle = "Height Data";
+chart.PrimaryValueAxis.Title = "Number of students";
+chart.PrimaryCategoryAxis.Title = "Height";
+   
+//Hiding the legend
+chart.HasLegend = false;
+   
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Histogram.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Histogram.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
 {% endhighlight %}
 
 {% endtabs %}
@@ -3784,6 +4696,68 @@ chart.HasLegend = false;
 //Save and close the presentation
 pptxDoc.Save("ParetoChart.pptx");
 pptxDoc.Close();
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Creates a new instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds a slide to Presentation
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+IPresentationChart chart = slide1.Charts.AddChart(50, 50, 500, 400);
+
+//Set chart type as Pareto
+chart.ChartType = OfficeChartType.Pareto;
+   
+//Set data range
+chart.DataRange = chart.ChartData[2, 1, 8, 2];
+   
+chart.ChartData.SetValue(2, 1, "Rent");
+chart.ChartData.SetValue(2, 2, 2300);
+chart.ChartData.SetValue(3, 1, "Car payment");
+chart.ChartData.SetValue(3, 2, 1200);
+chart.ChartData.SetValue(4, 1, "Groceries");
+chart.ChartData.SetValue(4, 2, 900);
+chart.ChartData.SetValue(5, 1, "Electricity");
+chart.ChartData.SetValue(5, 2, 600);
+chart.ChartData.SetValue(6, 1, "Gas");
+chart.ChartData.SetValue(6, 2, 500);
+chart.ChartData.SetValue(7, 1, "Cable");
+chart.ChartData.SetValue(7, 2, 300);
+chart.ChartData.SetValue(8, 1, "Mobile");
+chart.ChartData.SetValue(8, 2, 200);
+   
+//Set category values as bin values  
+chart.PrimaryCategoryAxis.IsBinningByCategory = true;
+   
+//Formatting Pareto line      
+chart.Series[0].ParetoLineFormat.LineProperties.ColorIndex = OfficeKnownColors.Bright_green;
+   
+//Gap width settings
+chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
+   
+//Set the chart title
+chart.ChartTitle = "Expenses";
+   
+//Hiding the legend
+chart.HasLegend = false;
+   
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ParetoChart.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("ParetoChart.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 {% endhighlight %}
 
 {% endtabs %}

@@ -728,27 +728,21 @@ Imports Syncfusion.PresentationToPdfConverter
 {% highlight c# %}
 
 //Opens a PowerPoint Presentation file
-
 IPresentation pptxDoc = Presentation.Open(fileName);
 
 //Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
-
 pptxDoc.ChartToImageConverter = new ChartToImageConverter();
 
 //Converts the PowerPoint Presentation into PDF document
-
 PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
 
 //Saves the PDF document
-
 pdfDocument.Save(@"SampleWithoutSetting.pdf");
 
 //Closes the PDF document
-
 pdfDocument.Close(true);
 
 //Closes the Presentation
-
 pptxDoc.Close();
 
 {% endhighlight %}
@@ -756,46 +750,40 @@ pptxDoc.Close();
 {% highlight vb.net %}
 
 'Opens a PowerPoint Presentation
-
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 
 'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
-
 pptxDoc.ChartToImageConverter = New ChartToImageConverter ()
 
 'Converts the PowerPoint Presentation into PDF document
-
 Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
 
 'Saves the PDF document
-
 pdfDocument.Save("SampleWithoutSetting.pdf")
 
 'Closes the PDF document
-
 pdfDocument.Close(True)
 
 'Closes the Presentation
-
 pptxDoc.Close()
 
 {% endhighlight %}
 
 {% highlight UWP %}
 
-Essential Presentation Library does not support presentation to Pdf conversion in UWP platform.
+//Essential Presentation Library does not support presentation to Pdf conversion in UWP platform.
 
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
 
-Essential Presentation Library does not support presentation to Pdf conversion in ASP.NET Core platforms.
+//Essential Presentation Library does not support presentation to Pdf conversion in ASP.NET Core platforms.
 
 {% endhighlight %}
 
 {% highlight XAMARIN %}
 
-Essential Presentation Library does not support presentation to Pdf conversion in ASP.NET Core platforms.
+//Essential Presentation Library does not support presentation to Pdf conversion in ASP.NET Core platforms.
 
 {% endhighlight %}
 
