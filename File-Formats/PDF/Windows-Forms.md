@@ -6,11 +6,11 @@ control: PDF
 documentation: UG
 --- 
 
-#Working with Windows Forms
+# Working with Windows Forms
 
 In your Windows Forms application, add the required assemblies to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
 
-##Loading the document
+## Loading the document
 
 The following code snippet illustrates how to load the PDF document in Windows Forms.
 
