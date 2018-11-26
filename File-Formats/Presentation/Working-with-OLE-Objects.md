@@ -1,6 +1,6 @@
 ---
 title: Working with OLE Objects
-description: Working with OLE Objects
+description: Create and edit OLE Objects in PowerPoint files |Syncfusion|
 platform: file-formats
 control: Presentation
 documentation: UG

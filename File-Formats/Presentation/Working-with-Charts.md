@@ -1,5 +1,5 @@
 ---
-title: Working with Charts in PowerPoint Presentation
+title: Create and edit Charts in PowerPoint files |Syncfusion|
 description: Working with Charts in PowerPoint Presentation
 platform: file-formats
 control: Presentation

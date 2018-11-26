@@ -1,5 +1,5 @@
 ---
-title: Working with macros in PowerPoint Presentation
+title: Create and edit macros in PowerPoint files |Syncfusion|
 description: Working with macros in PowerPoint Presentation
 platform: file-formats
 control: Presentation
