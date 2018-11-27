@@ -1793,7 +1793,7 @@ N> Here column and row indexes are "zero based".
 
 The screenshot of the output with SubTotal generated from the previous code.
 
-![](Worksheet-Rows-and-Columns-Manipulation_images/Worksheet-Rows-and-Columns-Manipulation_img1.jpeg)
+![Subtotal applied on the range](Worksheet-Rows-and-Columns-Manipulation_images/Worksheet-Rows-and-Columns-Manipulation_img1.jpeg)
 
 
 N> Summary of a group can be shown above the rows and left of the column using the IsSummaryRowBelow and IsSummaryColumnRight properties of IPageSetup interface. By default, these properties are set to TRUE.
