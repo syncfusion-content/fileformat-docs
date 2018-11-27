@@ -1,5 +1,5 @@
 ---
-title: Worksheet Rows and Columns Manipulation
+title: Worksheet Rows and Columns Manipulation | Syncfusion
 description: Briefs about Row and Column manipulations in XlsIO
 platform: File-formats
 control: XlsIO
@@ -728,8 +728,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-N> Resetting column width manually or through AutoFit, for the columns hidden using [ShowColumn](https://help.syncfusion.com/cr/cref_files/winrt/Syncfusion.XlsIO.WinRT~Syncfusion.XlsIO.IWorksheet~ShowColumn.html)/[HideColumn](https://help.syncfusion.com/cr/cref_files/winrt/Syncfusion.XlsIO.WinRT~Syncfusion.XlsIO.IWorksheet~HideColumn.html) methods will make the hidden columns visible.
-N> Resetting row height manually or through AutoFit,  for the rows hidden using [ShowRow](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~ShowRow.html) /[HideRow](https://help.syncfusion.com/cr/cref_files/winrt/Syncfusion.XlsIO.WinRT~Syncfusion.XlsIO.IWorksheet~HideRow.html) methods will make the hidden rows visible.
+N> Resetting column width manually or through AutoFit, for the columns hidden using [ShowColumn](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~ShowColumn.html)/[HideColumn](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~HideColumn.html) methods will make the hidden columns visible.
+N> Resetting row height manually or through AutoFit,  for the rows hidden using [ShowRow](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~ShowRow.html) /[HideRow](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IWorksheet~HideRow.html) methods will make the hidden rows visible.
 
 ## Adjust Row Height and Column Width 
 
@@ -1793,7 +1793,7 @@ N> Here column and row indexes are "zero based".
 
 The screenshot of the output with SubTotal generated from the previous code.
 
-![](Worksheet-Rows-and-Columns-Manipulation_images/Worksheet-Rows-and-Columns-Manipulation_img1.jpeg)
+![Subtotal applied to the range](Worksheet-Rows-and-Columns-Manipulation_images/Worksheet-Rows-and-Columns-Manipulation_img1.jpeg)
 
 
 N> Summary of a group can be shown above the rows and left of the column using the IsSummaryRowBelow and IsSummaryColumnRight properties of IPageSetup interface. By default, these properties are set to TRUE.

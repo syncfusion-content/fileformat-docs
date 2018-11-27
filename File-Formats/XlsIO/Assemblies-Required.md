@@ -1,5 +1,5 @@
 ---
-title: Assemblies Required
+title: XlsIO Assemblies Required | Syncfusion
 description: Briefs the assemblies required for various platforms and frameworks.
 platform: File-formats
 control: XlsIO
