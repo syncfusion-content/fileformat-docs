@@ -1,5 +1,5 @@
 ---
-title: Worksheet Rows and Columns Manipulation
+title: Worksheet Rows and Columns Manipulation | Syncfusion
 description: Briefs about Row and Column manipulations in XlsIO
 platform: File-formats
 control: XlsIO
