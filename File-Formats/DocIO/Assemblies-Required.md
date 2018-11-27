@@ -1,5 +1,5 @@
 ---
-title: Assemblies Required
+title: Assemblies Required for DocIO | Syncfusion
 description: Assemblies required to use DocIO
 platform: file-formats
 control: DocIO
