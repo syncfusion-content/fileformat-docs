@@ -1,5 +1,5 @@
 ---
-title: Working with OLE Objects
+title: Create and edit OLE Objects in PowerPoint files |Syncfusion|
 description: Working with OLE Objects
 platform: file-formats
 control: Presentation
@@ -163,7 +163,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream excelStream = assembly.GetManifestResourceStream("OleTemplate.xlsx");
 
 //Image to be displayed, This can be any image
-Stream imageStream = assembly.GetManifestResourceStream(OlePicture.png);
+Stream imageStream = assembly.GetManifestResourceStream("OlePicture.png");
 
 //Add an OLE object to the slide
 IOleObject oleObject = slide.Shapes.AddOleObject(imageStream, "Excel.Sheet.12", excelStream);
