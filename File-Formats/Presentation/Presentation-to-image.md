@@ -340,32 +340,6 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
-
-'Load the presentation file using open picker
-Dim openPicker As FileOpenPicker = new FileOpenPicker()
-openPicker.FileTypeFilter.Add(".pptx")
-Dim inputFile As StorageFile = await openPicker.PickSingleFileAsync()
-Dim pptxDoc As IPresentation = await Presentation.OpenAsync(inputFile)
-
-'Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides
-pptxDoc.ChartToImageConverter = new ChartToImageConverter()
-
-'Pick the folder to save the converted images.
-Dim folderPicker As FolderPicker = new FolderPicker()
-folderPicker.ViewMode = PickerViewMode.Thumbnail
-folderPicker.FileTypeFilter.Add("*")
-Dim storageFolder As StorageFolder = await folderPicker.PickSingleFolderAsync()
-Dim imageFile as StorageFile  = await storageFolder.CreateFileAsync("Slide1.jpg", CreationCollisionOption.ReplaceExisting)
-
-'Convert the slide to image.
-await slide.SaveAsImageAsync(imageFile)
-
-'Closes the presentation instance
-pptxDoc.Close()
-
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image using custom image resolution.
@@ -410,44 +384,6 @@ pptxDoc.Close();
 
 {% endhighlight %}
 
-{% highlight vb.net %}
-
-'Load the presentation file using open picker
-Dim openPicker As FileOpenPicker = new FileOpenPicker()
-openPicker.FileTypeFilter.Add(".pptx")
-Dim inputFile As StorageFile = await openPicker.PickSingleFileAsync()
-Dim pptxDoc As IPresentation = await Presentation.OpenAsync(inputFile)
-
-'Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides
-pptxDoc.ChartToImageConverter = new ChartToImageConverter()
-
-'Pick the folder to save the converted images.
-Dim folderPicker As FolderPicker = new FolderPicker()
-folderPicker.ViewMode = PickerViewMode.Thumbnail
-folderPicker.FileTypeFilter.Add("*")
-Dim storageFolder As StorageFolder = await folderPicker.PickSingleFolderAsync()
-Dim imageFile as StorageFile  = await storageFolder.CreateFileAsync("Slide1.jpg", CreationCollisionOption.ReplaceExisting)
-
-'Get the stream of the created image file.
-imageStream As StorageFile = await imageFile.OpenStreamForWriteAsync()
-
-'Creates a new instance for the rendering options to customize the image resolution.
-renderingOptions As RenderingOptions  = new RenderingOptions()
-
-'Sets the horizontal scaling value for the converted image. The default value is 1.
-renderingOptions.ScaleX = 10F
-
-'Sets the vertical scaling value for the converted image. The default value is 1.
-renderingOptions.ScaleY = 10F
-
-'Convert the slide to image.
-await slide.SaveAsImageAsync(imageFile)
-
-'Closes the presentation instance
-pptxDoc.Close()
-
-{% endhighlight %}
-
 {% endtabs %}
 
 The following code snippet demonstrates how to convert a PowerPoint slide to image by passing ‘CancellationToken’.
@@ -485,39 +421,6 @@ foreach (ISlide slide in pptxDoc.Slides)
 
 //Close the Presentation instance
 pptxDoc.Close();
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Load the presentation file using open picker
-Dim openPicker As FileOpenPicker = new FileOpenPicker()
-openPicker.FileTypeFilter.Add(".pptx")
-Dim inputFile As StorageFile = await openPicker.PickSingleFileAsync()
-Dim pptxDoc As IPresentation = await Presentation.OpenAsync(inputFile)
-
-'Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides
-pptxDoc.ChartToImageConverter = new ChartToImageConverter()
-
-'Pick the folder to save the converted images.
-Dim folderPicker As FolderPicker = new FolderPicker()
-folderPicker.ViewMode = PickerViewMode.Thumbnail
-folderPicker.FileTypeFilter.Add("*")
-Dim storageFolder As StorageFolder = await folderPicker.PickSingleFolderAsync()
-
-'Create a cancellation token to cancel the image rendering instantly.
-Dim cancellationToken As CancellationTokenSource = new CancellationTokenSource()
-
-'Convert the slide to image.
-Dim slideNumber As Int32 = 1
-foreach (Dim slide As ISlide in pptxDoc.Slides)
-{
-   Dim imageFile As StorageFile  = await storageFolder.CreateFileAsync("Slide" + slideNumber++ + ".jpg", CreationCollisionOption.ReplaceExisting)
-   await slide.SaveAsImageAsync(imageFile, cancellationToken.Token)
-}
-
-'Closes the presentation instance
-pptxDoc.Close()
 
 {% endhighlight %}
 
