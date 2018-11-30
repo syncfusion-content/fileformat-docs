@@ -1,5 +1,5 @@
 ---
-title: Getting Started with Essential Presentation library
+title: Getting Started with Essential Presentation library |Syncfusion|
 description: Getting started with Essential Presentation library; Creating a PowerPoint Presentation; Modifying the existing PowerPoint presentation
 platform: file-formats
 control: Presentation
@@ -70,6 +70,24 @@ Imports Syncfusion.Presentation
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+using Syncfusion.Presentation;
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+using Syncfusion.Presentation;
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+using Syncfusion.Presentation;
+
+{% endhighlight %}
+
 {% endtabs %}
 
 An entire PowerPoint Presentation is represented by an instance of 'IPresentation' interface and it is the root element of Essential Presentation’s DOM.
@@ -82,7 +100,7 @@ The following code example demonstrates how to create an instance of 'IPresentat
 
 //Creates a new instance of PowerPoint presentation
 
-IPresentation presentation = Presentation.Create();
+IPresentation pptxDoc = Presentation.Create();
 
 {% endhighlight %}
 
@@ -90,7 +108,31 @@ IPresentation presentation = Presentation.Create();
 
 'Creates a new instance of PowerPoint presentation
 
-Dim presentationDocument As IPresentation = Presentation.Create()
+Dim pptxDoc As IPresentation = Presentation.Create()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new instance of PowerPoint presentation
+
+IPresentation pptxDoc = Presentation.Create();
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new instance of PowerPoint presentation
+
+IPresentation pptxDoc = Presentation.Create();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Creates a new instance of PowerPoint presentation
+
+IPresentation pptxDoc = Presentation.Create();
 
 {% endhighlight %}
 
@@ -106,7 +148,7 @@ The following code example demonstrates how to add a blank slide to a PowerPoint
 
 //Adds a slide to the PowerPoint Presentation
 
-ISlide firstSlide = presentation.Slides.Add(SlideLayoutType.Blank);
+ISlide firstSlide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 {% endhighlight %}
 
@@ -114,7 +156,31 @@ ISlide firstSlide = presentation.Slides.Add(SlideLayoutType.Blank);
 
 'Adds a slide to the PowerPoint Presentation
 
-Dim firstSlide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+Dim firstSlide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Adds a slide to the PowerPoint Presentation
+
+ISlide firstSlide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Adds a slide to the PowerPoint Presentation
+
+ISlide firstSlide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Adds a slide to the PowerPoint Presentation
+
+ISlide firstSlide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 {% endhighlight %}
 
@@ -131,25 +197,19 @@ The following code example demonstrates how to add text into a presentation.
 {% highlight c# %}
 
 //Adds a textbox in a slide by specifying its position and size
-
 IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
 
 //Adds a paragraph into the textShape
-
 IParagraph paragraph = textShape.TextBody.AddParagraph();
 
 //Set the horizontal alignment of paragraph
-          
 paragraph.HorizontalAlignment = HorizontalAlignmentType.Center;
 
 //Adds a textPart in the paragraph
-
 ITextPart textPart = paragraph.AddTextPart("Hello Presentation");
 
 //Applies font formatting to the text
-
 textPart.Font.FontSize = 80;
-
 textPart.Font.Bold = true;
 
 {% endhighlight %}
@@ -157,31 +217,84 @@ textPart.Font.Bold = true;
 {% highlight vb.net %}
 
 'Adds a textbox in a slide by specifying its position and size
-
 Dim textShape As IShape  = firstSlide.AddTextBox(100, 75, 756, 200)
 
 'Adds a paragraph into the textShape
-
 Dim paragraph As IParagraph  = textShape.TextBody.AddParagraph()
 
 'Set the horizontal alignment of paragraph
-
 paragraph.HorizontalAlignment = HorizontalAlignmentType.Center
 
 'Add a textPart in the paragraph
-
 Dim textPart As ITextPart  = paragraph.AddTextPart("Hello Presentation")
 
 'Applies font formatting to the text
-
 textPart.Font.FontSize = 80
-
 textPart.Font.Bold = True
 
 {% endhighlight %}
 
-{% endtabs %}
+{% highlight UWP %}
 
+//Adds a textbox in a slide by specifying its position and size
+IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
+
+//Adds a paragraph into the textShape
+IParagraph paragraph = textShape.TextBody.AddParagraph();
+
+//Set the horizontal alignment of paragraph
+paragraph.HorizontalAlignment = HorizontalAlignmentType.Center;
+
+//Adds a textPart in the paragraph
+ITextPart textPart = paragraph.AddTextPart("Hello Presentation");
+
+//Applies font formatting to the text
+textPart.Font.FontSize = 80;
+textPart.Font.Bold = true;
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Adds a textbox in a slide by specifying its position and size
+IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
+
+//Adds a paragraph into the textShape
+IParagraph paragraph = textShape.TextBody.AddParagraph();
+
+//Set the horizontal alignment of paragraph
+paragraph.HorizontalAlignment = HorizontalAlignmentType.Center;
+
+//Adds a textPart in the paragraph
+ITextPart textPart = paragraph.AddTextPart("Hello Presentation");
+
+//Applies font formatting to the text
+textPart.Font.FontSize = 80;
+textPart.Font.Bold = true;
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Adds a textbox in a slide by specifying its position and size
+IShape textShape = firstSlide.AddTextBox(100, 75, 756, 200);
+
+//Adds a paragraph into the textShape
+IParagraph paragraph = textShape.TextBody.AddParagraph();
+
+//Set the horizontal alignment of paragraph
+paragraph.HorizontalAlignment = HorizontalAlignmentType.Center;
+
+//Adds a textPart in the paragraph
+ITextPart textPart = paragraph.AddTextPart("Hello Presentation");
+
+//Applies font formatting to the text
+textPart.Font.FontSize = 80;
+textPart.Font.Bold = true;
+
+{% endhighlight %}
+
+{% endtabs %}
 Essential Presentation allows you to create simple and multi-level lists that make the content easier for reading. The following code example demonstrates how to add a bulleted list in a paragraph.
 
 {% tabs %}
@@ -189,19 +302,53 @@ Essential Presentation allows you to create simple and multi-level lists that ma
 {% highlight c# %}
 
 //Adds a new paragraph with text.
-
 paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 //Sets the list type as bullet
-
 paragraph.ListFormat.Type = ListType.Bulleted;
 
 //Sets the bullet character for this list
-
 paragraph.ListFormat.BulletCharacter = Convert.ToChar(183);
 
 //Sets the font of the bullet character
+paragraph.ListFormat.FontName = "Symbol";
 
+//Sets the hanging value as 20
+paragraph.FirstLineIndent = -20;
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Adds a new paragraph with text.
+paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+
+'Sets the list type as bullet
+paragraph.ListFormat.Type = ListType.Bulleted
+
+'Sets the bullet character for this list
+paragraph.ListFormat.BulletCharacter = Convert.ToChar(183)
+
+'Sets the font of the bullet character
+paragraph.ListFormat.FontName = "Symbol"
+
+'Sets the hanging value as 20
+paragraph.FirstLineIndent = -20
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Adds a new paragraph with text.
+paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+//Sets the list type as bullet
+paragraph.ListFormat.Type = ListType.Bulleted;
+
+//Sets the bullet character for this list
+paragraph.ListFormat.BulletCharacter = Convert.ToChar(183);
+
+//Sets the font of the bullet character
 paragraph.ListFormat.FontName = "Symbol";
 
 //Sets the hanging value as 20
@@ -210,27 +357,41 @@ paragraph.FirstLineIndent = -20;
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight ASP.NET CORE %}
 
-'Adds a new paragraph with text.
+//Adds a new paragraph with text.
+paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
-paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
+//Sets the list type as bullet
+paragraph.ListFormat.Type = ListType.Bulleted;
 
-'Sets the list type as bullet
+//Sets the bullet character for this list
+paragraph.ListFormat.BulletCharacter = Convert.ToChar(183);
 
-paragraph.ListFormat.Type = ListType.Bulleted
+//Sets the font of the bullet character
+paragraph.ListFormat.FontName = "Symbol";
 
-'Sets the bullet character for this list
+//Sets the hanging value as 20
+paragraph.FirstLineIndent = -20;
 
-paragraph.ListFormat.BulletCharacter = Convert.ToChar(183)
+{% endhighlight %}
 
-'Sets the font of the bullet character
+{% highlight XAMARIN %}
 
-paragraph.ListFormat.FontName = "Symbol"
+//Adds a new paragraph with text.
+paragraph = textShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
-'Sets the hanging value as 20
+//Sets the list type as bullet
+paragraph.ListFormat.Type = ListType.Bulleted;
 
-paragraph.FirstLineIndent = -20
+//Sets the bullet character for this list
+paragraph.ListFormat.BulletCharacter = Convert.ToChar(183);
+
+//Sets the font of the bullet character
+paragraph.ListFormat.FontName = "Symbol";
+
+//Sets the hanging value as 20
+paragraph.FirstLineIndent = -20;
 
 {% endhighlight %}
 
@@ -244,15 +405,12 @@ In PowerPoint Presentation, the multilevel lists are used for presenting the con
 {% highlight c# %}
 
 //Adds a new paragraph  
-
 paragraph = textShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
 
 //Sets the list type as bullet
-
 paragraph.ListFormat.Type = ListType.Bulleted;
 
 //Sets the list level as 2. Possible values can range from 0 to 8
-
 paragraph.IndentLevelNumber = 2;
 
 {% endhighlight %}
@@ -260,16 +418,52 @@ paragraph.IndentLevelNumber = 2;
 {% highlight vb.net %}
 
 'Adds a new paragraph  
-
 paragraph = textShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.")
 
 'Sets the list type as bullet
-
 paragraph.ListFormat.Type = ListType.Bulleted
 
 'Sets the list level as 2. Possible values can range from 0 to 8
-
 paragraph.IndentLevelNumber = 2
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Adds a new paragraph  
+paragraph = textShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
+
+//Sets the list type as bullet
+paragraph.ListFormat.Type = ListType.Bulleted;
+
+//Sets the list level as 2. Possible values can range from 0 to 8
+paragraph.IndentLevelNumber = 2;
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Adds a new paragraph  
+paragraph = textShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
+
+//Sets the list type as bullet
+paragraph.ListFormat.Type = ListType.Bulleted;
+
+//Sets the list level as 2. Possible values can range from 0 to 8
+paragraph.IndentLevelNumber = 2;
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Adds a new paragraph  
+paragraph = textShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
+
+//Sets the list type as bullet
+paragraph.ListFormat.Type = ListType.Bulleted;
+
+//Sets the list level as 2. Possible values can range from 0 to 8
+paragraph.IndentLevelNumber = 2;
 
 {% endhighlight %}
 
@@ -283,11 +477,9 @@ You can add images to the Presentation by adding them in the picture collection 
 {% highlight c# %}
 
 //Gets the image from file path
-
 Image image = Image.FromFile(@"image.jpg");
 
 // Adds the image to the slide by specifying position and size
-
 firstSlide.Pictures.AddPicture(new MemoryStream(image.ImageData), 300, 270, 410, 250);
 
 {% endhighlight %}
@@ -295,11 +487,42 @@ firstSlide.Pictures.AddPicture(new MemoryStream(image.ImageData), 300, 270, 410
 {% highlight vb.net %}
 
 'Gets the image from file path
-
 Dim image__1 As Image = Image.FromFile("image.jpg")
 
 ' Adds the image to the slide by specifying position and size 
 firstSlide.Pictures.AddPicture(New MemoryStream (image__1.ImageData), 300, 270, 410, 250)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Gets the image from file path
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream imageStream = assembly.GetManifestResourceStream("UWP.Data.tablet.jpg");
+
+// Adds the image to the slide by specifying position and size
+firstSlide.Pictures.AddPicture(imageStream, 300, 270, 410, 250);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Gets the image from file path
+FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.Read);
+
+// Adds the image to the slide by specifying position and size
+firstSlide.Pictures.AddPicture(imageStream, 300, 270, 410, 250);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Gets the image from file path
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream imageStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.tablet.jpg");
+
+// Adds the image to the slide by specifying position and size
+firstSlide.Pictures.AddPicture(imageStream, 300, 270, 410, 250);
 
 {% endhighlight %}
 
@@ -312,12 +535,10 @@ Finally, save the Presentation in file system and close its instance.
 {% highlight c# %}
 
 //Saves the Presentation in the given name 
-
-presentation.Save("Output.pptx");
+pptxDoc.Save("Output.pptx");
 
 //Releases the resources occupied
-
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
@@ -325,11 +546,64 @@ presentation.Close();
 
 'Saves the Presentation in the given name
 
-Presentation_1.Save("Output.pptx")
+pptxDoc.Save("Output.pptx")
 
 'Releases the resources occupied
 
-Presentation_1.Close()
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sample";
+
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+//Releases the resources occupied
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Saving the PowerPoint Presentation as stream
+FileStream stream = new FileStream("Sample.pptx", FileMode.Create, FileAccess.ReadWrite);
+pptxDoc.Save(stream);
+
+//Dispose stream
+stream.Dispose();
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -338,7 +612,7 @@ Presentation_1.Close()
 
 The resultant PowerPoint Presentation looks as follows.
 
-![](GettingStarted_images/GettingStarted_img1.JPG)
+![GettingStarted Image](GettingStarted_images/GettingStarted_img1.JPG)
 
 
 ## Converting PowerPoint Presentation to PDF
@@ -454,56 +728,62 @@ Imports Syncfusion.PresentationToPdfConverter
 {% highlight c# %}
 
 //Opens a PowerPoint Presentation file
-
-IPresentation presentation = Presentation.Open(fileName);
+IPresentation pptxDoc = Presentation.Open(fileName);
 
 //Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
-
-presentation.ChartToImageConverter = new ChartToImageConverter();
+pptxDoc.ChartToImageConverter = new ChartToImageConverter();
 
 //Converts the PowerPoint Presentation into PDF document
-
-PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation);
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
 
 //Saves the PDF document
-
 pdfDocument.Save(@"SampleWithoutSetting.pdf");
 
 //Closes the PDF document
-
 pdfDocument.Close(true);
 
 //Closes the Presentation
-
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Opens a PowerPoint Presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open(fileName)
+Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 
 'Creates an instance of ChartToImageConverter and assigns it to ChartToImageConverter property of Presentation
-
-presentationDocument.ChartToImageConverter = New ChartToImageConverter ()
+pptxDoc.ChartToImageConverter = New ChartToImageConverter ()
 
 'Converts the PowerPoint Presentation into PDF document
-
-Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(presentationDocument)
+Dim pdfDocument As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
 
 'Saves the PDF document
-
 pdfDocument.Save("SampleWithoutSetting.pdf")
 
 'Closes the PDF document
-
 pdfDocument.Close(True)
 
 'Closes the Presentation
+pptxDoc.Close()
 
-presentationDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential Presentation Library does not support presentation to Pdf conversion in UWP platform.
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Essential Presentation Library does not support presentation to Pdf conversion in ASP.NET Core platforms.
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Essential Presentation Library does not support presentation to Pdf conversion in ASP.NET Core platforms.
 
 {% endhighlight %}
 

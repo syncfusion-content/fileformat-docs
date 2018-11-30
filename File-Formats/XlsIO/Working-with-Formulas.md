@@ -1165,9 +1165,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## External Formula
 
-XlsIO supports to write and preserve formulas referred to other workbook.
+XlsIO supports to write and preserve external formula.
 
-Following code illustrates the insertion of a formula that refers to a value in another workbook.
+External formula is the one which refers to a cell or a range of cells or a defined named range from outside the current worksheet/workbook. The main benefit of using an external reference is that whenever the referenced cell(s) in another worksheet changes, the value returned by the external cell reference is automatically updated.
+
+Following code illustrates the insertion of a formula that refers to cell 'A1' in another workbook which is enclosed in a square bracket [One.xlsx].
 
 {% tabs %}  
 {% highlight c# %}
