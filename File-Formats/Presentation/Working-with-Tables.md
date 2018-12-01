@@ -14,23 +14,18 @@ Essential Presentation supports creating and editing tables in PowerPoint slide
 {% highlight c# %}
 
 //Create a PowerPoint presentation
-
 IPresentation pptxDoc = Presentation.Create();
 
 //Add slide to the presentation
-
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Add a table to the slide
-
 ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
 
 //Initialize index values to add text to table cells
-
 int rowIndex = 0, colIndex;
 
 //Iterate row-wise cells and add text to it
-
 foreach (IRow rows in table.Rows)
 {
 	colIndex = 0;
@@ -49,34 +44,27 @@ foreach (IRow rows in table.Rows)
 }
 
 //Save the presentation
-
 pptxDoc.Save("Sample.pptx");
 
 //Close the presentation
-
 pptxDoc.Close();
 
 {% endhighlight %}
 {% highlight vb.net %}
 
 'Create a PowerPoint presentation
-
 Dim pptxDoc As IPresentation = Presentation.Create()
 
 'Add slide to the presentation
-
 Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 
 'Add a table to the slide
-
 Dim table As ITable = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200)
 
 'Initialize index values to add text to table cells
-
 Dim rowIndex As Integer = 0, colIndex As Integer
 
 'Iterate row-wise cells and add text to it
-
 For Each rows As IRow In table.Rows
 	colIndex = 0
 	
@@ -93,14 +81,145 @@ For Each rows As IRow In table.Rows
 Next
 
 'Save the presentation
-
 pptxDoc.Save("Sample.pptx")
 
 'Close the presentation
-
 pptxDoc.Close()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Add slide to the presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add a table to the slide
+ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
+
+//Initialize index values to add text to table cells
+int rowIndex = 0, colIndex;
+
+//Iterate row-wise cells and add text to it
+
+foreach (IRow rows in table.Rows)
+{
+	colIndex = 0;	
+	foreach (ICell cell in rows.Cells)	
+	{	
+		cell.TextBody.AddParagraph("(" + rowIndex.ToString() + " , " + colIndex.ToString() + ")");
+		colIndex++;
+	}
+	rowIndex++;
+}
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sample";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Create a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Add slide to the presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add a table to the slide
+ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
+
+//Initialize index values to add text to table cells
+int rowIndex = 0, colIndex;
+
+//Iterate row-wise cells and add text to it
+foreach (IRow rows in table.Rows)
+{
+	colIndex = 0;
+	
+	foreach (ICell cell in rows.Cells)	
+	{
+	
+		cell.TextBody.AddParagraph("(" + rowIndex.ToString() + " , " + colIndex.ToString() + ")");
+		
+		colIndex++;
+		
+	}
+	
+	rowIndex++;
+
+}
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Create a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Add slide to the presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add a table to the slide
+ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
+
+//Initialize index values to add text to table cells
+int rowIndex = 0, colIndex;
+
+//Iterate row-wise cells and add text to it
+foreach (IRow rows in table.Rows)
+{
+	colIndex = 0;
+	
+	foreach (ICell cell in rows.Cells)	
+	{
+	
+		cell.TextBody.AddParagraph("(" + rowIndex.ToString() + " , " + colIndex.ToString() + ")");
+		
+		colIndex++;
+		
+	}
+	
+	rowIndex++;
+
+}
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Create a table by adding columns
@@ -111,23 +230,18 @@ The following code example demonstrates how to create a simple table in a PowerP
 {% highlight c# %}
 
 //Create a PowerPoint presentation
-
 IPresentation pptxDoc = Presentation.Create();
 
 //Add slide to the presentation
-
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Add a table to the slide
-
 ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
 
 //Initialize index values to add text to table cells
-
 int row = 0, col;
 
 //Iterate row-wise cells and add text to it
-
 foreach (IColumn columns in table.Columns)
 {
 	col = 0;
@@ -145,33 +259,28 @@ foreach (IColumn columns in table.Columns)
 }
 
 //Save the presentation
-
 pptxDoc.Save("Sample.pptx");
 
 //Close the presentation
-
 pptxDoc.Close();
+
 {% endhighlight %}
+
 {% highlight vb.net %}
 
 'Create a PowerPoint presentation
-
 Dim pptxDoc As IPresentation = Presentation.Create()
 
 'Add slide to the presentation
-
 Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 
 'Add a table to the slide
-
 Dim table As ITable = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200)
 
 'Initialize index values to add text to the table cells
-
 Dim row As Integer = 0, col As Integer
 
 'Iterate row-wise cells and add text to it
-
 For Each columns As IColumn In table.Columns
 	col = 0
 	
@@ -186,15 +295,143 @@ For Each columns As IColumn In table.Columns
 	row += 1
 	
 Next
-'Save the presentation
 
+'Save the presentation
 pptxDoc.Save("Sample.pptx")
 
 'Close the presentation
-
 pptxDoc.Close()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Add slide to the presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add a table to the slide
+ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
+
+//Initialize index values to add text to table cells
+int row = 0, col;
+
+//Iterate row-wise cells and add text to it
+
+foreach (IColumn columns in table.Columns)
+{
+	col = 0;	
+	foreach (ICell cell in columns.Cells)
+	{	
+		cell.TextBody.AddParagraph("(" + row.ToString() + " , " + col.ToString() + ")");		
+		col++;		
+	}	
+	row++;
+}
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sample";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Create a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Add slide to the presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add a table to the slide
+ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
+
+//Initialize index values to add text to table cells
+int row = 0, col;
+
+//Iterate row-wise cells and add text to it
+foreach (IColumn columns in table.Columns)
+{
+	col = 0;
+	
+	foreach (ICell cell in columns.Cells)
+	{
+	
+		cell.TextBody.AddParagraph("(" + row.ToString() + " , " + col.ToString() + ")");
+		
+		col++;
+		
+	}
+	
+	row++;
+}
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Close the presentation
+pptxDoc.Close();
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Create a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Add slide to the presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add a table to the slide
+ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
+
+//Initialize index values to add text to table cells
+int row = 0, col;
+
+//Iterate row-wise cells and add text to it
+foreach (IColumn columns in table.Columns)
+{
+	col = 0;
+	
+	foreach (ICell cell in columns.Cells)
+	{
+	
+		cell.TextBody.AddParagraph("(" + row.ToString() + " , " + col.ToString() + ")");
+		
+		col++;
+		
+	}
+	
+	row++;
+}
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Append a new row at the end of table
@@ -205,19 +442,15 @@ You can append new rows at the end of an existing PowerPoint table. Refer to the
 {% highlight c# %}
 
 //Open an existing PowerPoint presentation
-
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
 
 //Get a table in the slide
-
 ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
 
 //Add or append a new row at the end of table
-
 IRow row = table.Rows.Add();
 
 //Iterate row-wise cells and add text to it
-
 foreach (ICell cell in row.Cells)
 {
     cell.TextBody.AddParagraph(table.Rows.IndexOf(row).ToString());
@@ -228,25 +461,21 @@ foreach (ICell cell in row.Cells)
 pptxDoc.Save("Sample.pptx");
 
 //Close the presentation
-
 pptxDoc.Close();
+
 {% endhighlight %}
 {% highlight vb.net %}
 
 'Open an existing PowerPoint presentation
-
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
 
 'Get a table in the slide
-
 Dim table As ITable = TryCast(pptxDoc.Slides(0).Shapes(0), ITable)
 
 'Add a new row at the end of table
-
 Dim row As IRow = table.Rows.Add()
 
 'Iterate row-wise cells and add text to it
-
 For Each cell As ICell In row.Cells
 
 	cell.TextBody.AddParagraph(table.Rows.IndexOf(row).ToString())
@@ -254,13 +483,118 @@ For Each cell As ICell In row.Cells
 Next
 
 'Save the presentation
-
 pptxDoc.Save("Sample.pptx")
 
 'Close the presentation
-
 pptxDoc.Close()
+
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Add or append a new row at the end of table
+IRow row = table.Rows.Add();
+
+//Iterate row-wise cells and add text to it
+
+foreach (ICell cell in row.Cells)
+{
+    cell.TextBody.AddParagraph(table.Rows.IndexOf(row).ToString());	
+}
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sample";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Add or append a new row at the end of table
+IRow row = table.Rows.Add();
+
+//Iterate row-wise cells and add text to it
+foreach (ICell cell in row.Cells)
+{
+    cell.TextBody.AddParagraph(table.Rows.IndexOf(row).ToString());
+
+}
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Table.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Add or append a new row at the end of table
+IRow row = table.Rows.Add();
+
+//Iterate row-wise cells and add text to it
+foreach (ICell cell in row.Cells)
+{
+	cell.TextBody.AddParagraph(table.Rows.IndexOf(row).ToString());
+
+}
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+
+stream.Position = 0;
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Copy an existing row to the end of table
@@ -268,52 +602,128 @@ pptxDoc.Close()
 You can copy an existing row to the end of a table. Refer to the following code example.
 
 {% tabs %}
+
 {% highlight c# %}
 
 //Open an existing PowerPoint presentation
-
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
 
 //Get a table in the slide
-
 ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
 
 //Copy the first row to the end of table
-
 table.Rows.Add(table.Rows[0].Clone());
 
 //Save the presentation
-
 pptxDoc.Save("Sample.pptx");
 
 //Close the presentation
-
 pptxDoc.Close();
 
 {% endhighlight %}
 {% highlight vb.net %}
 
 'Open an existing PowerPoint presentation
-
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
 
 'Get the table in the slide
-
 Dim table As ITable = TryCast(pptxDoc.Slides(0).Shapes(0), ITable)
 
 'Copy the first row to the end of table
-
 table.Rows.Add(table.Rows(0).Clone())
 
 'Save the presentation
-
 pptxDoc.Save("Sample.pptx")
 
 'Close the presentation
-
 pptxDoc.Close()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Copy the first row to the end of table
+table.Rows.Add(table.Rows[0].Clone());
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sample";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Copy the first row to the end of table
+table.Rows.Add(table.Rows[0].Clone());
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Table.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Copy the first row to the end of table
+table.Rows.Add(table.Rows[0].Clone());
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+
+stream.Position = 0;
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Insert a row in table
@@ -324,47 +734,127 @@ You can insert a row at the specified index position of a table. Refer to the fo
 {% highlight c# %}
 
 //Open an existing PowerPoint presentation
-
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
 
 //Get a table in the slide
-
 ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
 
 //Insert a row at the specified index. Here, the existing first row at index 0 is copied and inserted at row index 1
-
 table.Rows.Insert(1, table.Rows[0].Clone());
 
 //Save the presentation
-
 pptxDoc.Save("Sample.pptx");
 
 //Close the presentation
-
 pptxDoc.Close();
+
 {% endhighlight %}
 {% highlight vb.net %}
-'Open an existing PowerPoint presentation
 
+'Open an existing PowerPoint presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
 
 'Get a table in the slide
-
 Dim table As ITable = TryCast(pptxDoc.Slides(0).Shapes(0), ITable)
 
 'Insert a row at the specified index. Here, the existing first row at index 0 is copied and inserted at row index 1.
-
 table.Rows.Insert(1, table.Rows(0).Clone())
 
 'Save the presentation
-
 pptxDoc.Save("Sample.pptx")
 
 'Close the presentation
-
 pptxDoc.Close()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Insert a row at the specified index. Here, the existing first row at index 0 is copied and inserted at row index 1
+table.Rows.Insert(1, table.Rows[0].Clone());
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sample";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Insert a row at the specified index. Here, the existing first row at index 0 is copied and inserted at row index 1
+table.Rows.Insert(1, table.Rows[0].Clone());
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Table.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Insert a row at the specified index. Here, the existing first row at index 0 is copied and inserted at row index 1
+table.Rows.Insert(1, table.Rows[0].Clone());
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+
+stream.Position = 0;
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Append a new column at the end table
@@ -375,48 +865,40 @@ You can append new column to a table. Refer to the following code example.
 {% highlight c# %}
 
 //Open an existing PowerPoint presentation
-
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
 
 //Get a table in the slide
-
 ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
 
 //Add or append a new column at the end of table
-
 IColumn column = table.Columns.Add();
 
 //Iterate row-wise cells and add text to it
-
 foreach (ICell cell in column.Cells)
 {
     cell.TextBody.AddParagraph(table.Columns.IndexOf(column).ToString());
 }
-//Save the presentation
 
+//Save the presentation
 pptxDoc.Save("Sample.pptx");
 
 //Close the presentation
-
 pptxDoc.Close();
 
 {% endhighlight %}
+
 {% highlight vb.net %}
 
 'Open an existing PowerPoint presentation
-
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
 
 'Get a table in the slide
-
 Dim table As ITable = TryCast(pptxDoc.Slides(0).Shapes(0), ITable)
 
 'Add or append a new column at the end of table
-
 Dim column As IColumn = table.Columns.Add()
 
 'Iterate row-wise cells and add text to it
-
 For Each cell As ICell In column.Cells
 
 	cell.TextBody.AddParagraph(table.Columns.IndexOf(column).ToString())
@@ -424,14 +906,118 @@ For Each cell As ICell In column.Cells
 Next
 
 'Save the presentation
-
 pptxDoc.Save("Sample.pptx")
 
 'Close the presentation
-
 pptxDoc.Close()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Add or append a new column at the end of table
+IColumn column = table.Columns.Add();
+
+//Iterate row-wise cells and add text to it
+foreach (ICell cell in column.Cells)
+{
+    cell.TextBody.AddParagraph(table.Columns.IndexOf(column).ToString());
+}
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sample";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Add or append a new column at the end of table
+IColumn column = table.Columns.Add();
+
+//Iterate row-wise cells and add text to it
+foreach (ICell cell in column.Cells)
+{
+    cell.TextBody.AddParagraph(table.Columns.IndexOf(column).ToString());
+}
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Table.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Add or append a new column at the end of table
+IColumn column = table.Columns.Add();
+
+//Iterate row-wise cells and add text to it
+foreach (ICell cell in column.Cells)
+{
+    cell.TextBody.AddParagraph(table.Columns.IndexOf(column).ToString());
+}
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+
+stream.Position = 0;
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Copy an existing column to the end of table
@@ -442,49 +1028,128 @@ You can copy an existing column and append it to the end of table. Refer to the 
 {% highlight c# %}
 
 //Open an existing PowerPoint presentation
-
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
 
 //Get a table from the slide
-
 ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
 
 //Copy the column and append it to the end of table
-
 table.Columns.Add(table.Columns[0].Clone());
 
 //Save the presentation
-
 pptxDoc.Save("Sample.pptx");
 
 //Close the presentation
-
 pptxDoc.Close();
 
 {% endhighlight %}
+
 {% highlight vb.net %}
 
 'Open an existing PowerPoint presentation
-
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
 
 'Get a table from the slide
-
 Dim table As ITable = TryCast(pptxDoc.Slides(0).Shapes(0), ITable)
 
 'Copy the column and append it to the end of table
-
 table.Columns.Add(table.Columns(0).Clone())
 
 'Save the presentation
-
 pptxDoc.Save("Sample.pptx")
 
 'Close the presentation
-
 pptxDoc.Close()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Get a table from the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Copy the column and append it to the end of table
+table.Columns.Add(table.Columns[0].Clone());
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Copy the column and append it to the end of table
+table.Columns.Add(table.Columns[0].Clone());
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Table.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Copy the column and append it to the end of table
+table.Columns.Add(table.Columns[0].Clone());
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+
+stream.Position = 0;
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Insert a column to a table
@@ -495,49 +1160,127 @@ You can insert a column at the specified index position of a table. Refer to the
 {% highlight c# %}
 
 //Open an existing PowerPoint presentation
-
 IPresentation pptxDoc = Presentation.Open("Table.pptx");
 
 //Get the table from the slide
-
 ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
 
 //Insert a column at the specified index. Here, the existing first column at index 0 is copied and inserted at column index 1
-
 table.Columns.Insert(1, table.Columns[0].Clone());
 
 //Save the presentation
-
 pptxDoc.Save("Sample.pptx");
 
 //Close the presentation
-
 pptxDoc.Close();
 
 {% endhighlight %}
 {% highlight vb.net %}
 
 'Open an existing PowerPoint presentation
-
 Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
 
 'Get the table from the slide
-
 Dim table As ITable = TryCast(pptxDoc.Slides(0).Shapes(0), ITable)
 
 'Insert a column at the specified index. Here, the existing first column at index 0 is copied and inserted at column index 1.
-
 table.Columns.Insert(1, table.Columns(0).Clone())
 
 'Save the presentation
-
 pptxDoc.Save("Sample.pptx")
 
 'Close the presentation
-
 pptxDoc.Close()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Get the table from the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Insert a column at the specified index. Here, the existing first column at index 0 is copied and inserted at column index 1
+table.Columns.Insert(1, table.Columns[0].Clone());
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Insert a column at the specified index. Here, the existing first column at index 0 is copied and inserted at column index 1
+table.Columns.Insert(1, table.Columns[0].Clone());
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Table.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Insert a column at the specified index. Here, the existing first column at index 0 is copied and inserted at column index 1
+table.Columns.Insert(1, table.Columns[0].Clone());
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+
+stream.Position = 0;
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Applying table formatting
@@ -549,192 +1292,362 @@ You can format a table to change its appearance by customizing the table border,
 {% highlight c# %}
 
 //Creates instance of PowerPoint Presentation
-
-IPresentation presentation = Presentation.Create();
+IPresentation pptxDoc = Presentation.Create();
 
 //Adds slide to the Presentation
-
-ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Adds table to the slide
-
 ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
 
 //Retrieves each cell and fills text content to the cell.
-
 ICell cell = table[0, 0];
 
 //Sets the column width for a cell; this sets the width for entire column
-
 cell.ColumnWidth = 400;
 
 //Sets the margin for the cell.
-
 cell.TextBody.MarginBottom = 0;
-
 cell.TextBody.MarginLeft = 58;
-
 cell.TextBody.MarginRight = 29;
-
 cell.TextBody.MarginTop = 65;
 
 //Sets the back color for the cell.
-
 cell.Fill.SolidFill.Color.SystemColor = Color.Orange;
-
 cell.TextBody.AddParagraph("First Row and First Column");
 
 cell = table[0, 1];
 
 //Sets the margin for the cell.
-
 cell.TextBody.MarginLeft = 58;
-
 cell.TextBody.MarginRight = 29;
-
 cell.TextBody.MarginTop = 65;
 
 //Sets the back color for the cell.
-
 cell.Fill.SolidFill.Color.SystemColor = Color.BlueViolet;
-
 cell.TextBody.AddParagraph("First Row and Second Column");
 
 cell = table[1, 0];
 
 //Sets the margin for the cell.
-
 cell.TextBody.MarginLeft = 58;
-
 cell.TextBody.MarginRight = 29;
-
 cell.TextBody.MarginTop = 65;
 
 //Sets the back color for the cell.
-
 cell.Fill.SolidFill.Color.SystemColor = Color.SandyBrown;
-
 cell.TextBody.AddParagraph("Second Row and First Column");
 
 cell = table[1, 1];
 
 //Sets the margin for the cell.
-
 cell.TextBody.MarginLeft = 58;
-
 cell.TextBody.MarginRight = 29;
-
 cell.TextBody.MarginTop = 65;
 
 //Sets the back color for the cell.
-
 cell.Fill.SolidFill.Color.SystemColor = Color.Silver;
-
 cell.TextBody.AddParagraph("Second Row and Second Column");
 
 //Saves the Presentation
-
-presentation.Save("Table.pptx");
+pptxDoc.Save("Table.pptx");
 
 //Closes the Presentation
-
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Creates instance of PowerPoint Presentation
-
-Dim presentationDocument As IPresentation = Presentation.Create()
+Dim pptxDoc As IPresentation = Presentation.Create()
 
 'Adds slide to the Presentation
-
-Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 
 'Adds table to the slide
-
 Dim table As ITable = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200)
 
 'Retrieves each cell and fills text content to the cell.
-
 Dim cell As ICell = table(0, 0)
 
 'Sets the column width for a cell; this sets the width for entire column
-
 cell.ColumnWidth = 400
 
 'Sets the margin for the cell.
-
 cell.TextBody.MarginBottom = 0
-
 cell.TextBody.MarginLeft = 58
-
 cell.TextBody.MarginRight = 29
-
 cell.TextBody.MarginTop = 65
 
 'Sets the back color for the cell.
-
 cell.Fill.SolidFill.Color.SystemColor = Color.Orange
-
 cell.TextBody.AddParagraph("First Row and First Column")
 
 cell = table(0, 1)
 
 'Sets the margin for the cell.
-
 cell.TextBody.MarginLeft = 58
-
 cell.TextBody.MarginRight = 29
-
 cell.TextBody.MarginTop = 65
 
 'Sets the back color for the cell.
-
 cell.Fill.SolidFill.Color.SystemColor = Color.BlueViolet
-
 cell.TextBody.AddParagraph("First Row and Second Column")
 
 cell = table(1, 0)
 
 'Sets the margin for the cell.
-
 cell.TextBody.MarginLeft = 58
-
 cell.TextBody.MarginRight = 29
-
 cell.TextBody.MarginTop = 65
 
 'Sets the back color for the cell.
-
 cell.Fill.SolidFill.Color.SystemColor = Color.SandyBrown
-
 cell.TextBody.AddParagraph("Second Row and First Column")
 
 cell = table(1, 1)
 
 'Sets the margin for the cell.
-
 cell.TextBody.MarginLeft = 58
-
 cell.TextBody.MarginRight = 29
-
 cell.TextBody.MarginTop = 65
 
 'Sets the back color for the cell.
-
 cell.Fill.SolidFill.Color.SystemColor = Color.Silver
-
 cell.TextBody.AddParagraph("Second Row and Second Column")
 
 'Saves the Presentation
-
-presentationDocument.Save("Table.pptx")
+pptxDoc.Save("Table.pptx")
 
 'Closes the Presentation
+pptxDoc.Close()
 
-presentationDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds slide to the Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds table to the slide
+ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
+
+//Retrieves each cell and fills text content to the cell.
+ICell cell = table[0, 0];
+
+//Sets the column width for a cell; this sets the width for entire column
+cell.ColumnWidth = 400;
+
+//Sets the margin for the cell.
+
+cell.TextBody.MarginBottom = 0;
+cell.TextBody.MarginLeft = 58;
+cell.TextBody.MarginRight = 29;
+cell.TextBody.MarginTop = 65;
+
+//Sets the back color for the cell.
+cell.Fill.SolidFill.Color = ColorObject.Orange;
+
+cell.TextBody.AddParagraph("First Row and First Column");
+cell = table[0, 1];
+
+//Sets the margin for the cell.
+
+cell.TextBody.MarginLeft = 58;
+cell.TextBody.MarginRight = 29;
+cell.TextBody.MarginTop = 65;
+
+//Sets the back color for the cell.
+cell.Fill.SolidFill.Color = ColorObject.BlueViolet;
+
+cell.TextBody.AddParagraph("First Row and Second Column");
+cell = table[1, 0];
+
+//Sets the margin for the cell.
+
+cell.TextBody.MarginLeft = 58;
+cell.TextBody.MarginRight = 29;
+cell.TextBody.MarginTop = 65;
+
+//Sets the back color for the cell.
+cell.Fill.SolidFill.Color = ColorObject.SandyBrown;
+
+cell.TextBody.AddParagraph("Second Row and First Column");
+cell = table[1, 1];
+
+//Sets the margin for the cell.
+
+cell.TextBody.MarginLeft = 58;
+cell.TextBody.MarginRight = 29;
+cell.TextBody.MarginTop = 65;
+
+//Sets the back color for the cell.
+cell.Fill.SolidFill.Color = ColorObject.Silver;
+
+cell.TextBody.AddParagraph("Second Row and Second Column");
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Table";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Create an instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds slide to the Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds table to the slide
+ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
+
+//Retrieves each cell and fills text content to the cell.
+ICell cell = table[0, 0];
+
+//Sets the column width for a cell; this sets the width for entire column
+cell.ColumnWidth = 400;
+
+//Sets the margin for the cell.
+cell.TextBody.MarginBottom = 0;
+cell.TextBody.MarginLeft = 58;
+cell.TextBody.MarginRight = 29;
+cell.TextBody.MarginTop = 65;
+
+//Sets the back color for the cell.
+cell.Fill.SolidFill.Color = ColorObject.Orange;
+cell.TextBody.AddParagraph("First Row and First Column");
+
+cell = table[0, 1];
+
+//Sets the margin for the cell.
+cell.TextBody.MarginLeft = 58;
+cell.TextBody.MarginRight = 29;
+cell.TextBody.MarginTop = 65;
+
+//Sets the back color for the cell.
+cell.Fill.SolidFill.Color = ColorObject.BlueViolet;
+cell.TextBody.AddParagraph("First Row and Second Column");
+
+cell = table[1, 0];
+
+//Sets the margin for the cell.
+cell.TextBody.MarginLeft = 58;
+cell.TextBody.MarginRight = 29;
+cell.TextBody.MarginTop = 65;
+
+//Sets the back color for the cell.
+cell.Fill.SolidFill.Color= ColorObject.SandyBrown;
+cell.TextBody.AddParagraph("Second Row and First Column");
+
+cell = table[1, 1];
+
+//Sets the margin for the cell.
+cell.TextBody.MarginLeft = 58;
+cell.TextBody.MarginRight = 29;
+cell.TextBody.MarginTop = 65;
+
+//Sets the back color for the cell.
+cell.Fill.SolidFill.Color  = ColorObject.Silver;
+cell.TextBody.AddParagraph("Second Row and Second Column");
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Table.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Create an instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds slide to the Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds table to the slide
+ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
+
+//Retrieves each cell and fills text content to the cell.
+ICell cell = table[0, 0];
+
+//Sets the column width for a cell; this sets the width for entire column
+cell.ColumnWidth = 400;
+
+//Sets the margin for the cell.
+cell.TextBody.MarginBottom = 0;
+cell.TextBody.MarginLeft = 58;
+cell.TextBody.MarginRight = 29;
+cell.TextBody.MarginTop = 65;
+
+//Sets the back color for the cell.
+cell.Fill.SolidFill.Color = ColorObject.Orange;
+cell.TextBody.AddParagraph("First Row and First Column");
+
+cell = table[0, 1];
+
+//Sets the margin for the cell.
+cell.TextBody.MarginLeft = 58;
+cell.TextBody.MarginRight = 29;
+cell.TextBody.MarginTop = 65;
+
+//Sets the back color for the cell.
+cell.Fill.SolidFill.Color = ColorObject.BlueViolet;
+cell.TextBody.AddParagraph("First Row and Second Column");
+
+cell = table[1, 0];
+
+//Sets the margin for the cell.
+cell.TextBody.MarginLeft = 58;
+cell.TextBody.MarginRight = 29;
+cell.TextBody.MarginTop = 65;
+
+//Sets the back color for the cell.
+cell.Fill.SolidFill.Color= ColorObject.SandyBrown;
+cell.TextBody.AddParagraph("Second Row and First Column");
+
+cell = table[1, 1];
+
+//Sets the margin for the cell.
+cell.TextBody.MarginLeft = 58;
+cell.TextBody.MarginRight = 29;
+cell.TextBody.MarginTop = 65;
+
+//Sets the back color for the cell.
+cell.Fill.SolidFill.Color  = ColorObject.Silver;
+cell.TextBody.AddParagraph("Second Row and Second Column");
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+
+stream.Position = 0;
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -749,160 +1662,309 @@ You can format a table by applying pre-defined table styles. The following code 
 {% highlight c# %}
 
 //Creates instance of PowerPoint Presentation
-
-IPresentation presentation = Presentation.Create();
+IPresentation pptxDoc = Presentation.Create();
 
 //Adds slide to the Presentation
-
-ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Adds table to the slide
-
 ITable table = slide.Shapes.AddTable(3, 3, 100, 120, 300, 200);
 
 table.BuiltInStyle = BuiltInTableStyle.ThemedStyle2Accent4;
-
 table.HasBandedRows = false;
-
 table.HasHeaderRow = false;
-
 table.HasBandedColumns = true;
-
 table.HasFirstColumn = true;
-
 table.HasLastColumn = true;
-
 table.HasTotalRow = true;
 
 //Retrieves each cell and fills text content to the cell.
-
 ICell cell = table[0, 0];
-
 cell.TextBody.AddParagraph("First Row and First Column");
 
 cell = table[0, 1];
-
 cell.TextBody.AddParagraph("First Row and Second Column");
 
 cell = table[0, 2];
-
 cell.TextBody.AddParagraph("First Row and Third Column");
 
 cell = table[1, 0];
-
 cell.TextBody.AddParagraph("Second Row and First Column");
 
 cell = table[1, 1];
-
 cell.TextBody.AddParagraph("Second Row and Second Column");
 
 cell = table[1, 2];
-
 cell.TextBody.AddParagraph("Second Row and Third Column");
 
 cell = table[2, 0];
-
 cell.TextBody.AddParagraph("Third Row and First Column");
 
 cell = table[2, 1];
-
 cell.TextBody.AddParagraph("Third Row and Second Column");
 
 cell = table[2, 2];
-
 cell.TextBody.AddParagraph("Third Row and Third Column");
 
 //Adds description to table shape
-
 table.Description = "Table arrangement";
 
 //Saves the Presentation
-
-presentation.Save("Table.pptx");
+pptxDoc.Save("Table.pptx");
 
 //Closes the Presentation
-
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Creates instance of PowerPoint Presentation
-
-Dim  presentationDocument As IPresentation = Presentation.Create()
+Dim  pptxDoc As IPresentation = Presentation.Create()
 
 'Adds slide to the Presentation
-
-Dim slide As ISlide =  presentationDocument .Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide =  pptxDoc .Slides.Add(SlideLayoutType.Blank)
 
 'Adds table to the slide
-
 Dim table As ITable = slide.Shapes.AddTable(3, 3, 100, 120, 300, 200)
 
 table.BuiltInStyle = BuiltInTableStyle.ThemedStyle2Accent4
-
 table.HasBandedRows = False
-
 table.HasHeaderRow = False
-
 table.HasBandedColumns = True
-
 table.HasFirstColumn = True
-
 table.HasLastColumn = True
-
 table.HasTotalRow = True
 
 'Retrieves each cell and fills text content to the cell.
-
 Dim cell As ICell = table(0, 0)
-
 cell.TextBody.AddParagraph("First Row and First Column")
 
 cell = table(0, 1)
-
 cell.TextBody.AddParagraph("First Row and Second Column")
 
 cell = table(0, 2)
-
 cell.TextBody.AddParagraph("First Row and Third Column")
 
 cell = table(1, 0)
-
 cell.TextBody.AddParagraph("Second Row and First Column")
 
 cell = table(1, 1)
-
 cell.TextBody.AddParagraph("Second Row and Second Column")
 
 cell = table(1, 2)
-
 cell.TextBody.AddParagraph("Second Row and Third Column")
 
 cell = table(2, 0)
-
 cell.TextBody.AddParagraph("Third Row and First Column")
 
 cell = table(2, 1)
-
 cell.TextBody.AddParagraph("Third Row and Second Column")
 
 cell = table(2, 2)
-
 cell.TextBody.AddParagraph("Third Row and Third Column")
 
 'Adds description to table shape
-
 table.Description = "Table arrangement"
 
 'Saves the Presentation
-
-presentationDocument.Save("Table.pptx")
+pptxDoc.Save("Table.pptx")
 
 'Closes the Presentation
+pptxDoc.Close()
 
-presentationDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds slide to the Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds table to the slide
+
+ITable table = slide.Shapes.AddTable(3, 3, 100, 120, 300, 200);
+table.BuiltInStyle = BuiltInTableStyle.ThemedStyle2Accent4;
+table.HasBandedRows = false;
+table.HasHeaderRow = false;
+table.HasBandedColumns = true;
+table.HasFirstColumn = true;
+table.HasLastColumn = true;
+table.HasTotalRow = true;
+
+//Retrieves each cell and fills text content to the cell.
+
+ICell cell = table[0, 0];
+cell.TextBody.AddParagraph("First Row and First Column");
+
+cell = table[0, 1];
+cell.TextBody.AddParagraph("First Row and Second Column");
+
+cell = table[0, 2];
+cell.TextBody.AddParagraph("First Row and Third Column");
+
+cell = table[1, 0];
+cell.TextBody.AddParagraph("Second Row and First Column");
+
+cell = table[1, 1];
+cell.TextBody.AddParagraph("Second Row and Second Column");
+
+cell = table[1, 2];
+cell.TextBody.AddParagraph("Second Row and Third Column");
+
+cell = table[2, 0];
+cell.TextBody.AddParagraph("Third Row and First Column");
+
+cell = table[2, 1];
+cell.TextBody.AddParagraph("Third Row and Second Column");
+
+cell = table[2, 2];
+cell.TextBody.AddParagraph("Third Row and Third Column");
+
+//Adds description to table shape
+table.Description = "Table arrangement";
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Table";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Creates instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds slide to the Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds table to the slide
+ITable table = slide.Shapes.AddTable(3, 3, 100, 120, 300, 200);
+
+table.BuiltInStyle = BuiltInTableStyle.ThemedStyle2Accent4;
+table.HasBandedRows = false;
+table.HasHeaderRow = false;
+table.HasBandedColumns = true;
+table.HasFirstColumn = true;
+table.HasLastColumn = true;
+table.HasTotalRow = true;
+
+//Retrieves each cell and fills text content to the cell.
+ICell cell = table[0, 0];
+cell.TextBody.AddParagraph("First Row and First Column");
+
+cell = table[0, 1];
+cell.TextBody.AddParagraph("First Row and Second Column");
+
+cell = table[0, 2];
+cell.TextBody.AddParagraph("First Row and Third Column");
+
+cell = table[1, 0];
+cell.TextBody.AddParagraph("Second Row and First Column");
+
+cell = table[1, 1];
+cell.TextBody.AddParagraph("Second Row and Second Column");
+
+cell = table[1, 2];
+cell.TextBody.AddParagraph("Second Row and Third Column");
+
+cell = table[2, 0];
+cell.TextBody.AddParagraph("Third Row and First Column");
+
+cell = table[2, 1];
+cell.TextBody.AddParagraph("Third Row and Second Column");
+
+cell = table[2, 2];
+cell.TextBody.AddParagraph("Third Row and Third Column");
+
+//Adds description to table shape
+table.Description = "Table arrangement";
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Table.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Creates instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds slide to the Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds table to the slide
+ITable table = slide.Shapes.AddTable(3, 3, 100, 120, 300, 200);
+
+table.BuiltInStyle = BuiltInTableStyle.ThemedStyle2Accent4;
+table.HasBandedRows = false;
+table.HasHeaderRow = false;
+table.HasBandedColumns = true;
+table.HasFirstColumn = true;
+table.HasLastColumn = true;
+table.HasTotalRow = true;
+
+//Retrieves each cell and fills text content to the cell.
+ICell cell = table[0, 0];
+cell.TextBody.AddParagraph("First Row and First Column");
+
+cell = table[0, 1];
+cell.TextBody.AddParagraph("First Row and Second Column");
+
+cell = table[0, 2];
+cell.TextBody.AddParagraph("First Row and Third Column");
+
+cell = table[1, 0];
+cell.TextBody.AddParagraph("Second Row and First Column");
+
+cell = table[1, 1];
+cell.TextBody.AddParagraph("Second Row and Second Column");
+
+cell = table[1, 2];
+cell.TextBody.AddParagraph("Second Row and Third Column");
+
+cell = table[2, 0];
+cell.TextBody.AddParagraph("Third Row and First Column");
+
+cell = table[2, 1];
+cell.TextBody.AddParagraph("Third Row and Second Column");
+
+cell = table[2, 2];
+cell.TextBody.AddParagraph("Third Row and Third Column");
+
+//Adds description to table shape
+table.Description = "Table arrangement";
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -917,72 +1979,170 @@ The following code example demonstrates how to modify the table in existing Powe
 {% highlight c# %}
 
 //Creates instance of PowerPoint Presentation
-
-IPresentation presentation = Presentation.Open("Table.pptx");
+IPresentation pptxDoc = Presentation.Open("Table.pptx");
 
 //Gets slide from the Presentation
-
-ISlide slide = presentation.Slides[0];
+ISlide slide = pptxDoc.Slides[0];
 
 //Gets table from slide
-
 ITable table = slide.Shapes[0] as ITable;
 
 //Modifies the table width
-
 table.Width = 450;
 
 //Changes the built in style of the table
-
 table.BuiltInStyle = BuiltInTableStyle.DarkStyle1Accent2;
 
 //Sets text content to the cell
-
 table.Rows[0].Cells[0].TextBody.AddParagraph("Row1 Cell1");           
 
 //Saves the Presentation
-
-presentation.Save("TableModified.pptx");
+pptxDoc.Save("TableModified.pptx");
 
 //Closes the Presentation
-
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Creates instance of PowerPoint Presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open("Table.pptx")
+Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
 
 'Gets slide from the Presentation
-
-Dim slide As ISlide = presentationDocument.Slides(0)
+Dim slide As ISlide = pptxDoc.Slides(0)
 
 'Gets table from slide
-
 Dim table As ITable = TryCast(slide.Shapes(0), ITable)
 
 'Modifies the table width
-
 table.Width = 450
 
 'Changes the built in style of the table
-
 table.BuiltInStyle = BuiltInTableStyle.DarkStyle1Accent2
 
 'Sets text content to the cell
-
 table.Rows(0).Cells(0).TextBody.AddParagraph("Row1 Cell1")
 
 'Saves the Presentation
-
-presentationDocument.Save("TableModified.pptx")
+pptxDoc.Save("TableModified.pptx")
 
 'Closes the Presentation
+pptxDoc.Close()
 
-presentationDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Gets slide from the Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Gets table from slide
+ITable table = slide.Shapes[0] as ITable;
+
+//Modifies the table width
+table.Width = 450;
+
+//Changes the built in style of the table
+table.BuiltInStyle = BuiltInTableStyle.DarkStyle1Accent2;
+
+//Sets text content to the cell
+table.Rows[0].Cells[0].TextBody.AddParagraph("Row1 Cell1");
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "TableModified";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Gets slide from the Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Gets table from slide
+ITable table = slide.Shapes[0] as ITable;
+
+//Modifies the table width
+table.Width = 450;
+
+//Changes the built in style of the table
+table.BuiltInStyle = BuiltInTableStyle.DarkStyle1Accent2;
+
+//Sets text content to the cell
+table.Rows[0].Cells[0].TextBody.AddParagraph("Row1 Cell1");          
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("TableModified.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Gets slide from the Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Gets table from slide
+ITable table = slide.Shapes[0] as ITable;
+
+//Modifies the table width
+table.Width = 450;
+
+//Changes the built in style of the table
+table.BuiltInStyle = BuiltInTableStyle.DarkStyle1Accent2;
+
+//Sets text content to the cell
+table.Rows[0].Cells[0].TextBody.AddParagraph("Row1 Cell1");          
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+
+stream.Position = 0;
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -997,23 +2157,98 @@ The following code example shows how to merge cells in a table.
 {% highlight c# %}
 
 //Creates instance of PowerPoint Presentation
-
-IPresentation presentation = Presentation.Create();
+IPresentation pptxDoc = Presentation.Create();
 
 //Adds slide to the Presentation
-
-ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Adds table to the slide
-
 ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
 
 //Retrieves first cell.
-
 ICell cell = table[0, 0];
 
 //Sets the column span value to merge the cell.
+cell.ColumnSpan = 2;
 
+//Retrieves each cell and fills text content to the cell.
+cell.TextBody.AddParagraph("First Row and First Column");
+
+cell = table[0, 1];
+cell.TextBody.AddParagraph("First Row and Second Column");
+
+cell = table[1, 0];
+cell.TextBody.AddParagraph("Second Row and First Column");
+
+cell = table[1, 1];
+cell.TextBody.AddParagraph("Second Row and Second Column");
+
+//Gives simple description to table shape
+table.Description = "Table arrangement";
+
+//Saves the Presentation
+pptxDoc.Save("Table.pptx");
+
+//Closes the Presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates instance of PowerPoint Presentation
+Dim pptxDoc As IPresentation = Presentation.Create()
+
+'Adds slide to the Presentation
+Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+'Adds table to the slide
+Dim table As ITable = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200)
+
+'Retrieves first cell.
+Dim cell As ICell = table(0, 0)
+
+'Sets the column span value to merge the cell.
+cell.ColumnSpan = 2
+
+'Retrieves each cell and fills text content to the cell.
+cell.TextBody.AddParagraph("First Row and First Column")
+
+cell = table(0, 1)
+cell.TextBody.AddParagraph("First Row and Second Column")
+
+cell = table(1, 0)
+cell.TextBody.AddParagraph("Second Row and First Column")
+
+cell = table(1, 1)
+cell.TextBody.AddParagraph("Second Row and Second Column")
+
+'Gives simple description to table shape
+table.Description = "Table arrangement"
+
+'Saves the Presentation
+pptxDoc.Save("Table.pptx")
+
+'Closes the Presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Adds slide to the Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Adds table to the slide
+ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
+
+//Retrieves first cell.
+ICell cell = table[0, 0];
+
+//Sets the column span value to merge the cell.
 cell.ColumnSpan = 2;
 
 //Retrieves each cell and fills text content to the cell.
@@ -1033,68 +2268,110 @@ cell = table[1, 1];
 cell.TextBody.AddParagraph("Second Row and Second Column");
 
 //Gives simple description to table shape
-
 table.Description = "Table arrangement";
 
-//Saves the Presentation
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Table";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
 
-presentation.Save("Table.pptx");
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
-//Closes the Presentation
-
-presentation.Close();
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight ASP.NET CORE %}
 
-'Creates instance of PowerPoint Presentation
+//Creates instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
 
-Dim presentationDocument As IPresentation = Presentation.Create()
+//Adds slide to the Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
-'Adds slide to the Presentation
+//Adds table to the slide
+ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
 
-Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
+//Retrieves first cell.
+ICell cell = table[0, 0];
 
-'Adds table to the slide
+//Sets the column span value to merge the cell.
+cell.ColumnSpan = 2;
 
-Dim table As ITable = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200)
+//Retrieves each cell and fills text content to the cell.
+cell.TextBody.AddParagraph("First Row and First Column");
 
-'Retrieves first cell.
+cell = table[0, 1];
+cell.TextBody.AddParagraph("First Row and Second Column");
 
-Dim cell As ICell = table(0, 0)
+cell = table[1, 0];
+cell.TextBody.AddParagraph("Second Row and First Column");
 
-'Sets the column span value to merge the cell.
+cell = table[1, 1];
+cell.TextBody.AddParagraph("Second Row and Second Column");
 
-cell.ColumnSpan = 2
+//Gives simple description to table shape
+table.Description = "Table arrangement";
 
-'Retrieves each cell and fills text content to the cell.
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
+pptxDoc.Save(outputStream);
 
-cell.TextBody.AddParagraph("First Row and First Column")
+//Closes the Presentation
+pptxDoc.Close();
 
-cell = table(0, 1)
+{% endhighlight %}
 
-cell.TextBody.AddParagraph("First Row and Second Column")
+{% highlight XAMARIN %}
 
-cell = table(1, 0)
+//Creates instance of PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
 
-cell.TextBody.AddParagraph("Second Row and First Column")
+//Adds slide to the Presentation
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
-cell = table(1, 1)
+//Adds table to the slide
+ITable table = slide.Shapes.AddTable(2, 2, 100, 120, 300, 200);
 
-cell.TextBody.AddParagraph("Second Row and Second Column")
+//Retrieves first cell.
+ICell cell = table[0, 0];
 
-'Gives simple description to table shape
+//Sets the column span value to merge the cell.
+cell.ColumnSpan = 2;
 
-table.Description = "Table arrangement"
+//Retrieves each cell and fills text content to the cell.
+cell.TextBody.AddParagraph("First Row and First Column");
 
-'Saves the Presentation
+cell = table[0, 1];
+cell.TextBody.AddParagraph("First Row and Second Column");
 
-presentationDocument.Save("Table.pptx")
+cell = table[1, 0];
+cell.TextBody.AddParagraph("Second Row and First Column");
 
-'Closes the Presentation
+cell = table[1, 1];
+cell.TextBody.AddParagraph("Second Row and Second Column");
 
-presentationDocument.Close()
+//Gives simple description to table shape
+table.Description = "Table arrangement";
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -1109,56 +2386,140 @@ You can remove a table from a slide by its instance or by its index position in 
 {% highlight c# %}
 
 //Creates instance of PowerPoint Presentation
-
-IPresentation presentation = Presentation.Open("Table.pptx");
+IPresentation pptxDoc = Presentation.Open("Table.pptx");
 
 //Gets slide from the Presentation
-
-ISlide slide = presentation.Slides[0];
+ISlide slide = pptxDoc.Slides[0];
 
 //Gets the table from slide
-
 ITable table = slide.Shapes[0] as ITable;
 
 //Removes table from shape collection
-
 slide.Shapes.Remove(table);
 
 //Saves the Presentation
-
-presentation.Save("TableRemoved.pptx");
+pptxDoc.Save("TableRemoved.pptx");
 
 //Closes the Presentation
-
-presentation.Close();
+pptxDoc.Close();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 'Creates instance of PowerPoint Presentation
-
-Dim presentationDocument As IPresentation = Presentation.Open("Table.pptx")
+Dim pptxDoc As IPresentation = Presentation.Open("Table.pptx")
 
 'Gets slide from the Presentation
-
-Dim slide As ISlide = presentationDocument.Slides(0)
+Dim slide As ISlide = pptxDoc.Slides(0)
 
 'Gets the table from slide
-
 Dim table As ITable = TryCast(slide.Shapes(0), ITable)
 
 'Removes table from shape collection
-
 slide.Shapes.Remove(table)
 
 'Saves the Presentation
-
-presentationDocument.Save("TableRemoved.pptx")
+pptxDoc.Save("TableRemoved.pptx")
 
 'Closes the Presentation
+pptxDoc.Close()
 
-presentationDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".pptx");
+
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
+
+//Gets slide from the Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Gets the table from slide
+ITable table = slide.Shapes[0] as ITable;
+
+//Removes table from shape collection
+slide.Shapes.Remove(table);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "TableRemoved";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Gets slide from the Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Gets the table from slide
+ITable table = slide.Shapes[0] as ITable;
+
+//Removes table from shape collection
+slide.Shapes.Remove(table);        
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("TableModified.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Gets slide from the Presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Gets the table from slide
+ITable table = slide.Shapes[0] as ITable;
+
+//Removes table from shape collection
+slide.Shapes.Remove(table);        
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+
+stream.Position = 0;
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 

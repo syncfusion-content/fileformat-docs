@@ -137,9 +137,25 @@ ASP.NET MVC5
 {{'[Syncfusion.ExcelToPDFConverter.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet.Mvc5/)'| markdownify }}
 </td>
 </tr>
+<tr>
+<td>
+UWP and .NET Core
+</td>
+<td>
+{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+Xamarin
+</td>
+<td>
+{{'[Syncfusion.Xamarin.XlsIORenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer/)'| markdownify }}
+</td>
+</tr>
 </table>
 
-N> Excel to PDF conversion is not supported in Xamarin, UWP and .NET Core applications.
+N> Excel to PDF conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
 
 ## Converting Excel Worksheet to Image
 

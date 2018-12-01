@@ -1,5 +1,5 @@
 ---
-title: Assemblies Required
+title: XlsIO Assemblies Required | Syncfusion
 description: Briefs the assemblies required for various platforms and frameworks.
 platform: File-formats
 control: XlsIO
@@ -165,10 +165,21 @@ Syncfusion.Pdf.ClientProfile<br/>
 Syncfusion.ExcelToPDFConverter.ClientProfile
 </td>
 </tr>
+<tr>
+<td>
+UWP, .NET Core and Xamarin
+</td>
+<td>
+Syncfusion.Compression.Portable<br/>
+Syncfusion.XlsIO.Portable<br/>
+Syncfusion.Pdf.Portable<br/>
+Syncfusion.XlsIORenderer.Portable
+</td>
+</tr>
 </tbody>
 </table>
 
-N> Excel to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin, .NET Core and UWP applications.
+N> Excel to PDF conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
 
 ## Converting Excel Worksheet to Image
 
