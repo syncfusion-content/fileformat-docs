@@ -3189,7 +3189,7 @@ Dim document As PdfDocument = htmlConverter.Convert("input.html")
 document.Save("Output.pdf")
 document.Close(true)
 
-% endhighlight %}
+{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -3229,7 +3229,7 @@ string fileName = " Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name
 return File(stream, contentType, fileName);
 
-% endhighlight %}
+{% endhighlight %}
 
 ##Split image
 
@@ -3285,7 +3285,7 @@ Dim document As PdfDocument = htmlConverter.Convert("input.html")
 document.Save("Output.pdf")
 document.Close(true)
 
-% endhighlight %}
+{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -3325,7 +3325,7 @@ string fileName = " Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
 
-% endhighlight %}
+{% endhighlight %}
 
 {% endtabs %}
 
