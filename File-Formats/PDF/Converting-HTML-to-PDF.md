@@ -3135,6 +3135,201 @@ return File(stream, contentType, fileName);
 {% endtabs %}
 
 
+## Split Text
+
+The WebKit HTML converter supports avoiding text split between the PDF pages when converting HTML to PDF. You can prevent the text split by disabling the <i>SplitTextLines</i> property available in the <i>WebKitConverterSettings</i>.Refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//Set WebKit path
+settings.WebKitPath = @"/QtBinaries/";
+
+//Set the SplitTextLines property
+settings.SplitTextLines = false;
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save and close the PDF document
+document.Save("Output.pdf");
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML converter with WebKit rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+
+Dim settings As WebKitConverterSettings = New WebKitConverterSettings
+
+'Set WebKit path
+settings.WebKitPath = "/QtBinaries/"
+
+'Set SplitTextLines property
+settings.SplitTextLines = false
+
+'Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("input.html")
+
+'Save and close the PDF document
+document.Save("Output.pdf")
+document.Close(true)
+
+% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//Set WebKit path
+settings.WebKitPath = @"\QtBinariesDotNetCore\";
+
+//Set SplitTextLines property
+settings.SplitTextLines = false;
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+document.Close(true);
+
+//Defining the ContentType for pdf file.
+string contentType = "application/pdf";
+
+//Define the file name
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+% endhighlight %}
+
+##Split image
+
+The WebKit HTML converter supports avoiding image split between the PDF pages when converting HTML to PDF. You can prevent the image split by disabling the <i>SplitImages</i> property available in the <i>WebKitConverterSettings</i>. Refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//Set WebKit path
+settings.WebKitPath = @"/QtBinaries/";
+
+//Set the SplitImages property
+settings.SplitImages=false;
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save and close the PDF document
+document.Save("Output.pdf");
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML converter with WebKit rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.WebKit)
+
+Dim settings As WebKitConverterSettings = New WebKitConverterSettings
+
+'Set WebKit path
+settings.WebKitPath = "/QtBinaries/"
+
+'Set the SplitImages property
+settings.SplitImages = false
+
+'Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("input.html")
+
+'Save and close the PDF document
+document.Save("Output.pdf")
+document.Close(true)
+
+% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Initialize HTML to PDF converter
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+
+//Set WebKit path
+settings.WebKitPath = @"\QtBinariesDotNetCore\";
+
+//Set the SplitImages property
+settings.SplitImages=false;
+
+//Assign WebKit settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+document.Close(true);
+
+//Defining the ContentType for pdf file
+string contentType = "application/pdf";
+
+//Define the file name
+string fileName = " Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+return File(stream, contentType, fileName);
+
+% endhighlight %}
+
+{% endtabs %}
+
+
 ## Troubleshooting
 
 <table>
