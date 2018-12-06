@@ -245,7 +245,7 @@ document.Close(true);
 
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 
-if ( Device.RuntimePlatform == Device.UWP)
+if (Device.RuntimePlatform == Device.UWP)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
 }
