@@ -104,6 +104,7 @@ document.Close(True)
 
 {% highlight UWP %}
 
+
 //Create a new document with PDF/A-1b standard.
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A1B);
@@ -142,9 +143,12 @@ document.Close(true);
 
 Save(stream, "Output.pdf");
 
+
+
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
+
 
 //Create a new document with PDF/A-1b standard.
 
@@ -196,9 +200,12 @@ string fileName = "Output.pdf";
 
 return File(stream, contentType, fileName);
 
+
+
 {% endhighlight %}
 
 {% highlight Xamarin %}
+
 
 //Create a new document with PDF/A-1b standard.
 
@@ -246,6 +253,7 @@ else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
+
 
 
 {% endhighlight %}
