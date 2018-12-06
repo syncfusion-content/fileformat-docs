@@ -117,7 +117,7 @@ PdfPage page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the TrueType font from the local *.ttf file.
+//Load the TrueType font from the local file.
 
 Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Arial.ttf");
 
@@ -162,7 +162,7 @@ PdfPage page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the TrueType font from the local *.ttf file.
+//Load the TrueType font from the local file.
 
 FileStream fontStream = new FileStream("Arial.ttf", FileMode.Open, FileAccess.Read);
 
