@@ -105,41 +105,41 @@ document.Close(True)
 {% highlight UWP %}
 
 
-//Create a new document with PDF/A-1b standard.
+//Create a new document with PDF/A-1b standard
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A1B);
 
-//Add a page to the document.
+//Add a page to the document
 
 PdfPage page = document.Pages.Add();
 
-//Create PDF graphics for the page.
+//Create PDF graphics for the page
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the TrueType font from the local file.
+//Load the TrueType font from the local file
 
 Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Arial.ttf");
 
-//Initialize the PDF TrueType font. 
+//Initialize the PDF TrueType font
 
 PdfFont font = new PdfTrueTypeFont(fontStream, 14);
 
-//Draw the text.
+//Draw the text
 
 graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
 
-//Save the document into memory stream.
+//Save the document into memory stream
 
 MemoryStream stream = new MemoryStream();
 
 await document.SaveAsync(stream);
 
-//Close the document.
+//Close the document
 
 document.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respected code samples
 
 Save(stream, "Output.pdf");
 
@@ -150,25 +150,25 @@ Save(stream, "Output.pdf");
 {% highlight ASP.NET Core %}
 
 
-//Create a new document with PDF/A-1b standard.
+//Create a new document with PDF/A-1b standard
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A1B);
 
-//Add a page to the document.
+//Add a page to the document
 
 PdfPage page = document.Pages.Add();
 
-//Create PDF graphics for the page.
+//Create PDF graphics for the page
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the TrueType font from the local file.
+//Load the TrueType font from the local file
 
 FileStream fontStream = new FileStream("Arial.ttf", FileMode.Open, FileAccess.Read);
 
 PdfFont font = new PdfTrueTypeFont(fontStream, 14);
 
-//Draw the text.
+//Draw the text
 
 graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
 
@@ -180,23 +180,23 @@ MemoryStream stream = new MemoryStream();
 
 document.Save(stream);
 
-//If the position is not set to '0' then the PDF will be empty.
+//If the position is not set to '0', then the PDF will be empty
 
 stream.Position = 0;
 
-//Close the document.
+//Close the document
 
 document.Close(true);
 
-//Defining the ContentType for pdf file.
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
-//Define the file name.
+//Define the file name
 
 string fileName = "Output.pdf";
 
-//Creates a FileContentResult object by using the file contents, content type, and file name.
+//Creates a FileContentResult object by using the file contents, content type, and file name
 
 return File(stream, contentType, fileName);
 
@@ -207,43 +207,43 @@ return File(stream, contentType, fileName);
 {% highlight Xamarin %}
 
 
-//Create a new document with PDF/A-1b standard.
+//Create a new document with PDF/A-1b standard
 
 PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A1B);
 
-//Add a page to the document.
+//Add a page to the document
 
 PdfPage page = document.Pages.Add();
 
-//Create PDF graphics for the page.
+//Create PDF graphics for the page
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the TrueType font. 
+//Load the TrueType font
 
 Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.ttf");
 
-//Initialize the PDF TrueType font.  
+//Initialize the PDF TrueType font 
 
 PdfFont font = new PdfTrueTypeFont(fontStream, 14);
 
-//Draw the text.
+//Draw the text
 
 graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
 
-//Save the document into memory stream.
+//Save the document into memory stream
 
 MemoryStream stream = new MemoryStream();
 
 document.Save(stream);
 
-//Close the document.
+//Close the document
 
 document.Close(true);
 
-//Save the stream into pdf file
+//Save the stream into PDF file
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 
 if (Device.RuntimePlatform == Device.UWP)
 {
@@ -258,8 +258,8 @@ else
 
 {% endhighlight %}
 
- {% endtabs %}  
- 
+{% endtabs %}  
+
 
 ## Adding support for PDF/X-1a conformance.
 
