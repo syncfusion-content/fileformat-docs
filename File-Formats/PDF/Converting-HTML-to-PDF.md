@@ -3137,7 +3137,7 @@ return File(stream, contentType, fileName);
 
 ## Split Text
 
-The WebKit HTML converter supports avoiding text split between the PDF pages when converting HTML to PDF. You can prevent the text split by disabling the <i>SplitTextLines</i> property available in the <i>WebKitConverterSettings</i>.Refer to the following code snippet.
+The WebKit HTML converter supports avoiding text split between the PDF pages when converting HTML to PDF. You can prevent the text split by disabling the ```SplitTextLines``` property available in the ```WebKitConverterSettings```.Refer to the following code snippet.
 
 {% tabs %}
 
