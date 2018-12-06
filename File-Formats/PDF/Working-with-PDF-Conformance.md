@@ -1,5 +1,5 @@
 ---
-title: Working with PDF conformance
+title: Working with PDF conformance |Syncfusion|
 description: This section explains how to create a PDF conformance documents
 platform: file-formats
 control: PDF
