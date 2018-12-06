@@ -3939,3 +3939,271 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Drawing text using OpenType font
+
+Essential PDF supports drawing text to a PDF document using OpenType font.
+
+You can draw a text with OpenType font in a PDF document using the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//Create  font
+
+Stream fontStream = System.IO.File.OpenRead("NotoSerif-Black.otf");
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Text to draw
+
+string text = "Syncfusion Essential PDF is a.NET PDF library used to create, read, and edit PDF files in any application";
+
+//Get page client size
+
+SizeF clipBounds = page.Graphics.ClientSize;
+
+RectangleF rect = new RectangleF(0, 0, clipBounds.Width, clipBounds.Height); 
+
+//Draw the text
+
+page.Graphics.DrawString(text, font, PdfBrushes.Blue, rect);
+
+//Save the document
+
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true); 
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+‘Create a new PDF document
+
+Dim document As PdfDocument = New PdfDocument 
+
+‘Add a page to the document
+
+Dim page As PdfPage = document.Pages.Add                                                                                         
+            
+‘Create font
+
+Dim fontStream As Stream = System.IO.File.OpenRead("NotoSerif-Black.otf")
+
+Dim font As PdfFont = New PdfTrueTypeFont(fontStream, 14)
+
+‘Text to draw
+
+Dim text As String = "Syncfusion Essential PDF is a.NET PDF library used to create, read, and edit PDF files in any application"
+
+‘Get page client size
+
+Dim clipBounds As SizeF = page.Graphics.ClientSize
+
+Dim rect As RectangleF = New RectangleF(0, 0, clipBounds.Width, clipBounds.Height)
+
+‘Draw the text
+
+page.Graphics.DrawString(text, font, PdfBrushes.Blue, rect)
+
+‘Save the document
+
+document.Save("Output.pdf")
+
+‘Close the document
+
+document.Close(true)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+//Create font
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.NotoSerif-Black.otf");
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Text to draw
+
+string text = @"Syncfusion Essential PDF is a.NET PDF library used to create, read, and edit PDF files in any application";
+
+//Create a brush
+
+PdfBrush brush = new PdfSolidBrush(new PdfColor(0, 0, 0));
+
+//Create a pen
+
+PdfPen pen = new PdfPen(new PdfColor(0, 0, 0));
+
+//Get page client size
+
+SizeF clipBounds = page.Graphics.ClientSize;
+
+RectangleF rect = new RectangleF(0, 0, clipBounds.Width, clipBounds.Height);
+
+//Draw the text
+
+page.Graphics.DrawString(text, font, brush, rect);
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the PDF document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+//Create font
+
+FileStream fontFileStream = new FileStream("NotoSerif-Black.otf", FileMode.Open, FileAccess.Read);
+
+PdfFont font = new PdfTrueTypeFont(fontFileStream, 14);
+
+//Text to draw         
+
+string text = "Syncfusion Essential PDF is a.NET Core PDF library used to create, read, and edit PDF files in any application";
+
+//Create a brush
+
+PdfBrush brush = new PdfSolidBrush(new PdfColor(0, 0, 0));
+
+//Create a pen
+
+PdfPen pen = new PdfPen(new PdfColor(0, 0, 0));
+
+//Get page client size
+
+SizeF clipBounds = page.Graphics.ClientSize;
+
+RectangleF rect = new RectangleF(0, 0, clipBounds.Width, clipBounds.Height);            
+            
+//Draw the text
+
+page.Graphics.DrawString(text, font, brush, rect);
+
+//Save the PDF document
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the PDF document
+
+document.Close(true);
+
+//Defining the content type for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+//Create font
+
+Stream fontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.NotoSerif-Black.otf");
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Text to draw           
+
+string text = @"Syncfusion Essential PDF is a.NET PDF library used to create, read, and edit PDF files in any application";
+
+//Create a brush
+
+PdfBrush brush = new PdfSolidBrush(new PdfColor(0, 0, 0));
+
+//Create a pen
+
+PdfPen pen = new PdfPen(new PdfColor(0, 0, 0));
+
+//Get page client size
+
+SizeF clipBounds = page.Graphics.ClientSize;
+
+RectangleF rect = new RectangleF(0, 0, clipBounds.Width, clipBounds.Height);
+
+//Draw the text
+
+page.Graphics.DrawString(text, font, brush, rect);
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the PDF document
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+         Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
