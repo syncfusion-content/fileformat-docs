@@ -1755,7 +1755,7 @@ catch (PdfDocumentException exception)
 
 {% endtabs %}
 
-## How to determine whether the PDF document is signed by user or owner password?
+## How to determine whether the PDF document is signed by user or owner password
 
 Essential PDF supports identifying the secured document signed by user or owner.
 
@@ -1782,7 +1782,7 @@ Returns null</td><td>
 <td>
 PDF document secured with both the owner and user passwords.</td><td>
 Owner password</td><td>
-Returns user password <br/><br/><b>Note:<b/> Returns null for AES 256 and AES 256 Revision 6 encryptions.</td><td>
+Returns user password <br/><br/><b>Note:</b> Returns null for AES 256 and AES 256 Revision 6 encryptions.</td><td>
 Returns owner password</td><td>
 
 <tr>
