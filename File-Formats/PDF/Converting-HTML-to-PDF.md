@@ -3233,7 +3233,7 @@ return File(stream, contentType, fileName);
 
 ##Split image
 
-The WebKit HTML converter supports avoiding image split between the PDF pages when converting HTML to PDF. You can prevent the image split by disabling the <i>SplitImages</i> property available in the <i>WebKitConverterSettings</i>. Refer to the following code snippet.
+The WebKit HTML converter supports avoiding image split between the PDF pages when converting HTML to PDF. You can prevent the image split by disabling the ```SplitImages``` property available in the ```WebKitConverterSettings```. Refer to the following code snippet.
 
 {% tabs %}
 
