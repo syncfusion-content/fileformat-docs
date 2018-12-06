@@ -1,5 +1,5 @@
 ---
-title: Working with Security
+title: Working with Security | Syncfusion
 description: This sections explains how to protect the PDF document using encryption and set permission to the PDF document operations like printing, editing, copy content
 platform: file-formats
 control: PDF
@@ -1755,7 +1755,7 @@ catch (PdfDocumentException exception)
 
 {% endtabs %}
 
-## How to determine whether the PDF document is  signed by user or owner password?
+## How to determine whether the PDF document is signed by user or owner password?
 
 Essential PDF supports identifying the secured document signed by user or owner.
 

@@ -1,5 +1,5 @@
 ---
-title: Working with Text
+title: Working with Text | Syncfusion
 description: This section explains how to add text to the PDF document using different type of fonts, TrueType fonts and standard fonts
 platform: file-formats
 control: PDF
@@ -3960,7 +3960,7 @@ PdfPage page = document.Pages.Add();
 
 //Create  font
 
-Stream fontStream = System.IO.File.OpenRead("NotoSerif-Black.otf");
+Stream fontStream = System.IO.File.OpenRead("Font.otf");
 
 PdfFont font = new PdfTrueTypeFont(fontStream, 14);
 
@@ -4000,7 +4000,7 @@ Dim page As PdfPage = document.Pages.Add
             
 ‘Create font
 
-Dim fontStream As Stream = System.IO.File.OpenRead("NotoSerif-Black.otf")
+Dim fontStream As Stream = System.IO.File.OpenRead("Font.otf")
 
 Dim font As PdfFont = New PdfTrueTypeFont(fontStream, 14)
 
@@ -4041,7 +4041,7 @@ PdfPage page = document.Pages.Add();
 
 //Create font
 
-Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.NotoSerif-Black.otf");
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Font.otf");
 
 PdfFont font = new PdfTrueTypeFont(fontStream, 14);
 
@@ -4095,7 +4095,7 @@ PdfPage page = document.Pages.Add();
 
 //Create font
 
-FileStream fontFileStream = new FileStream("NotoSerif-Black.otf", FileMode.Open, FileAccess.Read);
+FileStream fontFileStream = new FileStream("Font.otf", FileMode.Open, FileAccess.Read);
 
 PdfFont font = new PdfTrueTypeFont(fontFileStream, 14);
 
@@ -4157,7 +4157,7 @@ PdfPage page = document.Pages.Add();
 
 //Create font
 
-Stream fontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.NotoSerif-Black.otf");
+Stream fontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Font.otf");
 
 PdfFont font = new PdfTrueTypeFont(fontStream, 14);
 
