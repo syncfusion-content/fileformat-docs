@@ -1,5 +1,5 @@
 ---
-title: Working with Forms
+title: Working with Forms | Syncfusion
 description: This section explains how to create, fill and flatten form fields in the PDF document
 platform: file-formats
 control: PDF
@@ -8235,6 +8235,346 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Auto naming of form fields
+
+The Essential PDF supports auto naming of form fields in a PDF document while creating form fields with same name. The ```FieldAutoNaming ``` property is used to enable or disable auto naming in the ```PdfForm``` instance. 
+
+While enabling this property, the field names are auto naming. If the fields are created using same/common name, the created fields will act as individual. 
+
+While disabling this property, the field names are not auto naming and the created fields are saved in a single group. The same value will be referred in all the same name fields.
+
+By default, the value is set to true. This is illustrated in the following code sample.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the PDF document
+
+PdfPage page = document.Pages.Add();
+
+//Create the form
+
+PdfForm form = document.Form;
+
+//Enable the field auto naming 
+
+form.FieldAutoNaming = true;
+
+//Create a textbox field and add the properties
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "Name");
+
+textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "FirstName";
+
+textBoxField.Text = "Simons";
+
+//Add the form field to the document
+
+document.Form.Fields.Add(textBoxField);
+
+//Create a text box field with the same name and add the properties
+
+PdfTextBoxField textBoxField1 = new PdfTextBoxField(page, "Name");
+
+textBoxField1.Bounds = new RectangleF(0, 50, 100, 20);
+
+textBoxField1.ToolTip = "LastName";
+
+textBoxField1.Text = "Bistro";
+
+//Add form field to the document
+
+document.Form.Fields.Add(textBoxField1);
+
+//Save the document
+
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document
+
+Dim document As New PdfDocument()
+
+'Add a new page to the PDF document
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create the form
+
+Dim form As PdfForm = document.Form
+
+'Enable the field auto naming 
+
+form.FieldAutoNaming = True
+
+'Create a text box field and add the properties
+
+Dim textBoxField As New PdfTextBoxField(page, "Name")
+
+textBoxField.Bounds = New RectangleF(0, 0, 100, 20)
+
+textBoxField.ToolTip = "FirstName"
+
+textBoxField.Text = "Simons"
+
+'Add the form field to the document
+
+document.Form.Fields.Add(textBoxField)
+
+'Create a text box field with the same name and add the properties
+
+Dim textBoxField1 As New PdfTextBoxField(page, "Name")
+
+textBoxField1.Bounds = New RectangleF(0, 50, 100, 20)
+
+textBoxField1.ToolTip = "LastName"
+
+textBoxField1.Text = "Bistro"
+
+'Add form field to the document
+
+document.Form.Fields.Add(textBoxField1)
+
+'Save the document
+
+document.Save("Output.pdf")
+
+'Close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the PDF document
+
+PdfPage page = document.Pages.Add();
+
+//Create the form
+
+PdfForm form = document.Form;
+
+//Enable the field auto naming 
+
+form.FieldAutoNaming = true;
+
+//Create a text box field and add the properties
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "Name");
+
+textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "FirstName";
+
+textBoxField.Text = "Simons";
+
+//Add the form field to the document
+
+document.Form.Fields.Add(textBoxField);
+
+//Create a text box field with the same name and add the properties
+
+PdfTextBoxField textBoxField1 = new PdfTextBoxField(page, "Name");
+
+textBoxField1.Bounds = new RectangleF(0, 50, 100, 20);
+
+textBoxField1.ToolTip = "LastName";
+
+textBoxField1.Text = "Bistro";
+
+//Add form field to the document
+
+document.Form.Fields.Add(textBoxField1);
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the PDF document
+
+PdfPage page = document.Pages.Add();
+
+//Create the form
+
+PdfForm form = document.Form;
+
+//Enable the field auto naming 
+
+form.FieldAutoNaming = true;
+
+//Create a text box field and add the properties
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "Name");
+
+textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "FirstName";
+
+textBoxField.Text = "Simons";
+
+//Add the form field to the document
+
+document.Form.Fields.Add(textBoxField);
+
+//Create a text box field with the same name and add the properties
+
+PdfTextBoxField textBoxField1 = new PdfTextBoxField(page, "Name");
+
+textBoxField1.Bounds = new RectangleF(0, 50, 100, 20);
+
+textBoxField1.ToolTip = "LastName";
+
+textBoxField1.Text = "Bistro";
+
+//Add form field to the document
+
+document.Form.Fields.Add(textBoxField1);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0', then the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for PDF file.
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a new page to the PDF document
+
+PdfPage page = document.Pages.Add();
+
+//Create the form
+
+PdfForm form = document.Form;
+
+//Enable the field auto naming 
+
+form.FieldAutoNaming = true;
+
+//Create a textbox field and add the properties
+
+PdfTextBoxField textBoxField = new PdfTextBoxField(page, "Name");
+
+textBoxField.Bounds = new RectangleF(0, 0, 100, 20);
+
+textBoxField.ToolTip = "FirstName";
+
+textBoxField.Text = "Simons";
+
+//Add the form field to the document
+
+document.Form.Fields.Add(textBoxField);
+
+//Create a text box field with the same name and add the properties
+
+PdfTextBoxField textBoxField1 = new PdfTextBoxField(page, "Name");
+
+textBoxField1.Bounds = new RectangleF(0, 50, 100, 20);
+
+textBoxField1.ToolTip = "LastName";
+
+textBoxField1.Text = "Bistro";
+
+//Add form field to the document
+
+document.Form.Fields.Add(textBoxField1);
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document 
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following screenshot shows the enabling and disabling of form fields auto naming in PDF documents. 
+
+![Auto Naming](Form_images/Form_img1.png)
+
 
 ## Adding actions to form fields 
 
