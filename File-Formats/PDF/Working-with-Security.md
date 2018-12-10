@@ -1,5 +1,5 @@
 ---
-title: Working with Security
+title: Working with Security | Syncfusion
 description: This sections explains how to protect the PDF document using encryption and set permission to the PDF document operations like printing, editing, copy content
 platform: file-formats
 control: PDF
@@ -1754,3 +1754,50 @@ catch (PdfDocumentException exception)
 {% endhighlight %}
 
 {% endtabs %}
+
+## How to determine whether the PDF document is signed by user or owner password
+
+Essential PDF supports identifying the secured document signed by user or owner.
+
+The following table shows the various combination for loading the signed document with user or owner password:
+
+<table>
+<thead>
+<tr>
+<th>
+Document type</th><th>
+Open with</th><th>
+User password</th><th>
+Owner password</th><th>
+</thead>
+<tbody>
+<tr>
+<td>
+PDF document secured with both the owner and user passwords.</td><td>
+User password</td><td>
+Returns user password</td><td>
+Returns null</td><td>
+
+<tr>
+<td>
+PDF document secured with both the owner and user passwords.</td><td>
+Owner password</td><td>
+Returns user password <br/><br/>**Note:** Returns null for AES 256 and AES 256 Revision 6 encryptions.</td><td>
+Returns owner password</td><td>
+
+<tr>
+<td>
+PDF document secured with owner password alone.</td><td>
+Owner password</td><td>
+Returns null</td><td>
+Returns owner password</td><td>
+
+<tr>
+<td>
+PDF document secured with user password alone.</td><td>
+User Password</td><td>
+Returns user password</td><td>
+Returns owner Password (owner password is same as the user password; it allows full permission to users).</td><td>
+
+</tbody>
+</table>
