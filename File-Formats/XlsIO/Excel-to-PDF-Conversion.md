@@ -1,5 +1,5 @@
 ---
-title: Syncfusion Excel to PDF Conversion
+title: Excel to PDF Conversion
 description: In this section, you can learn how to convert Excel Workbook to PDF & Worksheet to PDF file; how to print Excel file and how to convert Excel chart to image
 platform: File-formats
 control: XlsIO
@@ -87,25 +87,27 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
     //Gets input Excel document from an embedded resource collection
     Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
-
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
+	
+    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
 
     //Initialize XlsIO renderer.
     XlsIORenderer renderer = new XlsIORenderer();
-	
-	//Convert Excel workbook into PDF document
+
+    //Convert Excel document into PDF document 
     PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
-    
-	//Save the PDF document to stream.
-	MemoryStream stream = new MemoryStream();
-    pdfDocument.Save(stream);
-	
-	Save(stream, "ExcelToPDF.pdf");
+
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+
+    await doc.SaveAsync(stream);
+    Save(stream, "ExcelToPDF.pdf");
+
     excelStream.Dispose();
+    stream.Dispose();
 }
 #endregion
 
-//Save the PDF stream as a file.
+//Save the workbook stream as a file.
 
 #region Setting output location
 async void Save(Stream stream, string filename)
@@ -181,7 +183,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
     //Save the PDF document to stream.
     MemoryStream stream = new MemoryStream();
-    pdfDocument.Save(stream);
+    doc.Save(stream);
 
     stream.Position = 0;
 
@@ -260,26 +262,28 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
     //Gets input Excel document from an embedded resource collection
     Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
-
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
+	
+    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
 	IWorksheet worksheet = workbook.Worksheets[0];
-
+	
     //Initialize XlsIO renderer.
     XlsIORenderer renderer = new XlsIORenderer();
-	
-	//Convert Excel worksheet into PDF document
+
+    //Convert Excel document into PDF document 
     PdfDocument pdfDocument = renderer.ConvertToPDF(worksheet);
-    
-	//Save the PDF document to stream.
-	MemoryStream stream = new MemoryStream();
-    pdfDocument.Save(stream);
-	
-	Save(stream, "ExcelToPDF.pdf");
+
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+
+    await doc.SaveAsync(stream);
+    Save(stream, "ExcelToPDF.pdf");
+
     excelStream.Dispose();
+    stream.Dispose();
 }
 #endregion
 
-//Save the PDF stream as a file.
+//Save the workbook stream as a file.
 
 #region Setting output location
 async void Save(Stream stream, string filename)
@@ -360,7 +364,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
     //Save the PDF document to stream.
     MemoryStream stream = new MemoryStream();
-    pdfDocument.Save(stream);
+    doc.Save(stream);
 
     stream.Position = 0;
 
@@ -430,36 +434,38 @@ End Using
 //Excel To PDF conversion can be performed by referring .NET Standard assemblies in UWP platform
 
 #region Excel To PDF
-//Create an instance of ExcelEngine.
 using (ExcelEngine excelEngine = new ExcelEngine())
 {
     IApplication application = excelEngine.Excel;
-
+    
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
     //Gets input Excel document from an embedded resource collection
     Stream excelStream = assembly.GetManifestResourceStream("ExcelToPDF.xlsx");
-
-    IWorkbook workbook = application.Workbooks.Open(excelStream);
-
+	
+    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
+	
     //Initialize XlsIO renderer.
     XlsIORenderer renderer = new XlsIORenderer();
-	
-    PdfDocument pdfDocument = new PdfDocument();
+	PdfDocument pdfDocument = new PdfDocument();     
+    	
     foreach (IWorksheet sheet in workbook.Worksheets)
     {
-        pdfDocument = renderer.ConvertToPDF(sheet);
-        //Save the PDF file
-        MemoryStream stream = new MemoryStream();
-        pdfDocument.Save(stream);
-        Save(stream, sheet.Name + ".pdf");
+      pdfDocument = renderer.ConvertToPDF(sheet);
+    
+	  //Save the PDF file
+	  MemoryStream stream = new MemoryStream();
+	  await doc.SaveAsync(stream);
+      Save(stream, sheet.Name+".pdf");
+	  stream.Dispose();
     }
+	
     excelStream.Dispose();
 }
 #endregion
 
-//Save the PDF stream as a file.
+//Save the workbook stream as a file.
 
 #region Setting output location
 async void Save(Stream stream, string filename)

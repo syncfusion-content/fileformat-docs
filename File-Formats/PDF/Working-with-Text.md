@@ -3990,42 +3990,41 @@ document.Close(true);
 
 {% highlight vb.net %}
 
-‘Create a new PDF document
+'Create a new PDF document
 
 Dim document As PdfDocument = New PdfDocument 
 
-‘Add a page to the document
+'Add a page to the document
 
-Dim page As PdfPage = document.Pages.Add                                                                                         
-            
-‘Create font
+Dim page As PdfPage = document.Pages.Add
+
+'Create font
 
 Dim fontStream As Stream = System.IO.File.OpenRead("Font.otf")
 
 Dim font As PdfFont = New PdfTrueTypeFont(fontStream, 14)
 
-‘Text to draw
+'Text to draw
 
 Dim text As String = "Syncfusion Essential PDF is a.NET PDF library used to create, read, and edit PDF files in any application"
 
-‘Get page client size
+'Get page client size
 
 Dim clipBounds As SizeF = page.Graphics.ClientSize
 
 Dim rect As RectangleF = New RectangleF(0, 0, clipBounds.Width, clipBounds.Height)
 
-‘Draw the text
+'Draw the text
 
 page.Graphics.DrawString(text, font, PdfBrushes.Blue, rect)
 
-‘Save the document
+'Save the document
 
 document.Save("Output.pdf")
 
-‘Close the document
+'Close the document
 
 document.Close(true)
-
 
 {% endhighlight %}
 
@@ -4099,7 +4098,7 @@ FileStream fontFileStream = new FileStream("Font.otf", FileMode.Open, FileAccess
 
 PdfFont font = new PdfTrueTypeFont(fontFileStream, 14);
 
-//Text to draw         
+//Text to draw
 
 string text = "Syncfusion Essential PDF is a.NET Core PDF library used to create, read, and edit PDF files in any application";
 
@@ -4116,7 +4115,7 @@ PdfPen pen = new PdfPen(new PdfColor(0, 0, 0));
 SizeF clipBounds = page.Graphics.ClientSize;
 
 RectangleF rect = new RectangleF(0, 0, clipBounds.Width, clipBounds.Height);            
-            
+
 //Draw the text
 
 page.Graphics.DrawString(text, font, brush, rect);
@@ -4161,7 +4160,7 @@ Stream fontStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream
 
 PdfFont font = new PdfTrueTypeFont(fontStream, 14);
 
-//Text to draw           
+//Text to draw
 
 string text = @"Syncfusion Essential PDF is a.NET PDF library used to create, read, and edit PDF files in any application";
 
