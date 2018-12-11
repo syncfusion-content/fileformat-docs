@@ -8,23 +8,10 @@ documentation: UG
 
 # Excel to PDF Conversion
 
-XlsIO allows you to convert an entire workbook or a single worksheet into PDF document. For converting an Excel document to PDF, the following assemblies need to be referenced in your application
+XlsIO allows you to convert an entire workbook or a single worksheet into PDF document. Refer to the following links for assemblies/nugets required based on platforms to convert Excel document into PDF.
 
-For WPF, Windows Forms, ASP. NET and ASP.NET MVC applications
-
-* Syncfusion.XlsIO.Base.dll
-* Syncfusion.Compression.Base.dll
-* Syncfusion.ExcelToPDFConverter.Base.dll
-* Syncfusion.ExcelChartToImageConverter.Wpf.dll
-* Syncfusion.SfChart.Wpf.dll
-* Syncfusion.Pdf.Base.dll
-
-For ASP.NET Core and Xamarin applications
-
-* Syncfusion.XlsIO.Portable.dll
-* Syncfusion.Compression.Portable.dll
-* Syncfusion.XlsIORenderer.Portable.dll
-* Syncfusion.Pdf.Portable.dll
+* [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-document-to-pdf) 
+* [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-document-into-pdf)
 
 ## Workbook to PDF
 
