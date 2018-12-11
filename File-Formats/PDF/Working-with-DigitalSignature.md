@@ -1,5 +1,5 @@
 ---
-title: Working with Digital Signature
+title: Working with Digital Signature | Syncfusion
 description: This section explains how to create a Digital Signature in the PDF document by using Essential PDF
 platform: file-formats
 control: PDF
@@ -2334,6 +2334,100 @@ else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
 }
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Retrieve certificate details from an existing signed PDF document
+
+You can get the certificate details such as subject name, issuer name, and expiry date from an existing signed PDF document using the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the existing signed PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Gets the page of the document
+
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Gets the signature field from the PDF document
+
+PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+
+//Get PDF Certificate instance from signature field
+
+PdfCertificate certificate = field.Signature.Certificate;
+
+//Get the certificate details
+
+string issuerName = certificate.IssuerName;
+
+string subjectName = certificate.SubjectName;
+
+DateTime validFrom = certificate.ValidFrom;
+
+DateTime validTo = certificate.ValidTo;
+
+//Close the document 
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing signed PDF document
+
+Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
+
+'Gets the page of the document
+
+Dim page As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
+
+'Gets the signature field from the PDF document
+
+Dim field As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
+
+'Get PDF certificate instance from signature field
+
+Dim certificate As PdfCertificate = field.Signature.Certificate
+
+'Get the certificate details
+
+Dim issuerName As String = certificate.IssuerName
+
+Dim subjectName As String = certificate.SubjectName
+
+Dim validFrom As DateTime = certificate.ValidFrom
+
+Dim validTo As DateTime = certificate.ValidTo
+
+'Close the document 
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF supports retrieving certificate details from signed PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports retrieving certificate details from signed PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports retrieving certificate details from signed PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
 {% endhighlight %}
 
