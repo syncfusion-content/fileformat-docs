@@ -1,5 +1,5 @@
 ---
-title: Working with Paragraph in PowerPoint Presentation
+title: Working with Paragraph in PowerPoint Presentation | Syncfusion |
 description: Working with Paragraph in PowerPoint Presentation
 platform: file-formats
 control: Presentation
@@ -843,6 +843,38 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Enabling shrink text on overflow option
+
+In a PowerPoint slide, if you add a text more than a shape can hold, the text will overflow from the shape. But by using a Shrink text on overflow option, you can fit a large text within a shape.The following code example demonstrates how to enable this property.
+
+{% tabs %}
+
+{% highlight c# %}
+
+// Create a new PowerPoint file.
+using (IPresentation ppDoc = Presentation.Create())
+{
+
+  // Add a slide to the PowerPoint file.
+  ISlide slide = ppDoc.Slides.Add(SlideLayoutType.Blank);
+
+  // Add a text box to the slide
+  IShape textBox = slide.Shapes.AddTextBox(100, 100, 100, 100);
+
+  //Add text to the text box. 
+  textBox.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit");
+
+  //Set the property to shrink text on overflow. 
+  textBox.TextBody.FitTextOption = FitTextOption.ShrinkTextOnOverFlow;
+
+  // Save the PowerPoint file
+  ppDoc.Save("Sample.pptx");
+}
 
 {% endhighlight %}
 
