@@ -1,7 +1,7 @@
 ---
-title: Create, edit and format table in PowerPoint presentation slide
+title: Create, edit and format table in PowerPoint slide | Syncfusion |
 description: Code examples to create, edit and format PowerPoint tables in .NET, C#, web, ASP.NET, UWP, MVC, Xamarin and .NET Core
-platform: file-format,.NET, C#, web, ASP.NET, UWP, MVC, Xamarin and .NET Core
+platform: file-formats, aspnet, uwp, ejmvc, windowsforms, wpf, xamarin, xamarin.android, xamarin.ios
 control: Syncfusion PowerPoint presentation
 documentation: 
 keywords: PowerPoint, slide, table, format-table, rows, columns, pptx
@@ -1321,7 +1321,7 @@ Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
 'Get the table from the slide
 Dim table As ITable = TryCast(pptxDoc.Slides(0).Shapes(0), ITable)
 
-‘Changing the paagraph content in te table
+‘Changing the paragraph content in the table
 table.Rows[0].Cells[0].TextBody.AddParagraph("Hello World");
 
 ‘Get the dynamic height of table
