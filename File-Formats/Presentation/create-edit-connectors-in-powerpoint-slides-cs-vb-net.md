@@ -1,7 +1,7 @@
 ---
-title: Add and edit connectors in PowerPoint slides | PowerPoint C# |
+title: Add and edit connectors in PowerPoint slides | Syncfusion |
 description: Code examples to create and edit PowerPoint connectors in .NET, C#, web, ASP.NET, UWP, MVC, Xamarin and .NET Core
-platform: file-format, .NET, C#, web, ASP.NET, UWP, MVC, Xamarin and .NET Core
+platform: file-formats, aspnet, uwp, ejmvc, windowsforms, wpf, xamarin, xamarin.android, xamarin.ios
 control: Syncfusion PowerPoint presentation
 documentation: 
 keywords: PowerPoint, slide, connectors, pptx, shapes
@@ -216,7 +216,7 @@ using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
    
    int connectionSiteIndex = 4;
 
-   //Reconnnect the end point of connector with triangle shape if its connection site count is greater than 4
+   //Reconnect the end point of connector with triangle shape if its connection site count is greater than 4
 
    if (connectionSiteIndex < triangle.ConnectionSiteCount)
     
@@ -267,7 +267,7 @@ Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
   
    Dim connectionSiteIndex As Integer = 4
   
-   'Reconnnect the end point of connector with triangle shape if its connection site count is greater than 4
+   'Reconnect the end point of connector with triangle shape if its connection site count is greater than 4
   
    If (connectionSiteIndex < triangle.ConnectionSiteCount) Then
   
