@@ -903,9 +903,9 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-N> ShrinkTextOnOverFlow is not supported in UWP, ASP.NET CORE and Xamarin platforms
-
 {% endtabs %}
+
+N> The shrink text on overflow is not supported in UWP, ASP.NET CORE and Xamarin platforms.
 
 ## Removing the paragraph 
 
