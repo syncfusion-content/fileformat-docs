@@ -4075,6 +4075,268 @@ else
 
 {% endtabs %}  
 
+## Retrieving/Modifying the fore and back color of an existing form fields
+
+You can retrieve/modify the fore and background color of an existing form fields in a PDF document by using ```ForeColor``` and ```BackColor``` properties of the respective form fields. The following code snippet illustrate this. 
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Load the PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded form field
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+//Get fore color of the field
+
+PdfColor foreColor = loadedTextBoxField.ForeColor;
+
+//Set the fore color
+
+loadedTextBoxField.ForeColor = new PdfColor(Color.Red);
+
+//Get background color of the field
+
+PdfColor backColor = loadedTextBoxField.BackColor;
+
+//Set the background color
+
+loadedTextBoxField.BackColor = new PdfColor(Color.Green);
+
+//Save the document
+
+loadedDocument.Save("Form.pdf");
+
+//Close the document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document
+
+Dim loadedDocument As New PdfLoadedDocument(fileName)
+
+'Get the loaded form
+
+Dim loadedForm As PdfLoadedForm = loadedDocument.Form
+
+'Get the loaded form field
+
+Dim loadedTextBoxField As PdfLoadedTextBoxField = TryCast(loadedForm.Fields(0), PdfLoadedTextBoxField)
+
+'Get fore color of the field
+
+Dim foreColor As PdfColor = loadedTextBoxField.ForeColor
+
+'Set the fore color
+
+loadedTextBoxField.ForeColor = New PdfColor(Color.Red)
+
+'Get background color of the field
+
+Dim backColor As PdfColor = loadedTextBoxField.BackColor
+
+'Set the background color
+
+loadedTextBoxField.BackColor = New PdfColor(Color.Green)
+
+'Save the document
+
+loadedDocument.Save("Form.pdf")
+
+'Close the document
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded form field
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+//Get fore color of the field
+
+PdfColor foreColor = loadedTextBoxField.ForeColor;
+
+//Set the fore color
+
+loadedTextBoxField.ForeColor = new PdfColor(255,0,0);
+
+//Get background color of the field
+
+PdfColor backColor = loadedTextBoxField.BackColor;
+
+//Set the background color
+
+loadedTextBoxField.BackColor = new PdfColor(0,255,0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded form field
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+//Get fore color of the field
+
+PdfColor foreColor = loadedTextBoxField.ForeColor;
+
+//Set the fore color
+
+loadedTextBoxField.ForeColor = new PdfColor(Color.Red);
+
+//Get background color of the field
+
+PdfColor backColor = loadedTextBoxField.BackColor;
+
+//Set the background color
+
+loadedTextBoxField.BackColor = new PdfColor(Color.Green);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Defining the content type for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);            
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Get the loaded form field
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+//Get fore color of the field
+
+PdfColor foreColor = loadedTextBoxField.ForeColor;
+
+//Set the fore color
+
+loadedTextBoxField.ForeColor = new PdfColor(Syncfusion.Drawing.Color.Red);
+
+//Get background color of the field
+
+PdfColor backColor = loadedTextBoxField.BackColor;
+
+//Set the background color
+
+loadedTextBoxField.BackColor = new PdfColor(Syncfusion.Drawing.Color.Green);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %} 
 
 ## Filling form fields in an existing PDF Document
 
