@@ -1,5 +1,5 @@
 ---
-title: Working with Annotations
+title: Working with Annotations | Syncfusion
 description: This section explains how to create different type of interactive Annotation by using Essential PDF
 platform: file-formats
 control: PDF
