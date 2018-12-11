@@ -1,5 +1,5 @@
 ---
-title: Working with Paragraph in PowerPoint Presentation | Syncfusion |
+title: Working with Paragraph in PowerPoint Presentation | Syncfusion
 description: Working with Paragraph in PowerPoint Presentation
 platform: file-formats
 control: Presentation
@@ -867,7 +867,7 @@ using (IPresentation ppDoc = Presentation.Create())
   IShape textBox = slide.Shapes.AddTextBox(100, 100, 100, 100);
 
   //Add text to the text box. 
-  textBox.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit");
+  textBox.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetuer adipiscing elit");
 
   //Set the property to shrink text on overflow. 
   textBox.TextBody.FitTextOption = FitTextOption.ShrinkTextOnOverFlow;
