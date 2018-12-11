@@ -1283,6 +1283,62 @@ else
 
 {% endtabs %}
 
+## Get the actual height of the table
+
+You can get the actual height of a table. Refer to the following code example.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Opens existing PowerPoint file
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
+
+//Opens slide in the presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Open Table in the slide to make changes
+ITable table = slide.Shapes[0] as ITable;
+
+//Changing the paragraph content in the table
+table.Rows[0].Cells[0].TextBody.AddParagraph("Hello World");
+
+//Get the dynamic height of the table
+float height=table.GetActualHeight();
+
+//Save the presentation
+pptxDoc.Save("Table.pptx");
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+{% highlight vb.net %}
+
+'Open an existing PowerPoint file
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+
+'Get the table from the slide
+Dim table As ITable = TryCast(pptxDoc.Slides(0).Shapes(0), ITable)
+
+‘Changing the paagraph content in te table
+table.Rows[0].Cells[0].TextBody.AddParagraph("Hello World");
+
+‘Get the dynamic height of table
+Dim height As float = table.GetActualHeight()
+
+'Save the presentation
+pptxDoc.Save("Table.pptx")
+
+'Close the presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N> Get the actual height of the table is not supported in UWP, ASP.NET CORE and Xamarin platforms
+
 ## Applying table formatting
 
 You can format a table to change its appearance by customizing the table border, cell background, cell margins etc. The following code example demonstrates how to apply the custom table formatting.
