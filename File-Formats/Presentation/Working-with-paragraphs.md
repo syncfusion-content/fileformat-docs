@@ -1,5 +1,5 @@
 ---
-title: Working with Paragraph in PowerPoint Presentation
+title: Working with Paragraph in PowerPoint Presentation | Syncfusion
 description: Working with Paragraph in PowerPoint Presentation
 platform: file-formats
 control: Presentation
@@ -867,7 +867,7 @@ using (IPresentation ppDoc = Presentation.Create())
   IShape textBox = slide.Shapes.AddTextBox(100, 100, 100, 100);
 
   //Add text to the text box. 
-  textBox.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit");
+  textBox.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetuer adipiscing elit");
 
   //Set the property to shrink text on overflow. 
   textBox.TextBody.FitTextOption = FitTextOption.ShrinkTextOnOverFlow;
@@ -878,8 +878,34 @@ using (IPresentation ppDoc = Presentation.Create())
 
 {% endhighlight %}
 
-{% endtabs %}
+{% highlight vb.net %}
 
+'Create a new PowerPoint file
+Dim pptxDoc As IPresentation = Presentation.Create()
+
+'Adds slide to the PowerPoint
+Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+'Adds textbox to the slide
+Dim textboxShape As IShape = slide.AddTextBox(0, 0, 500, 500)
+
+'Adds paragraph to the textbody of textbox
+Dim paragraph As IParagraph = textboxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetuer adipiscing elit")
+
+'Set the property to shrink text on overflow.
+textboxShape.TextBody.FitTextOption = FitTextOption.ShrinkTextOnOverFlow
+
+'Save the PowerPoint file
+pptxDoc.Save("Output.pptx")
+
+'Close the PowerPoint file
+pptxDoc.Close()
+
+{% endhighlight %}
+
+N> ShrinkTextOnOverFlow is not supported in UWP, ASP.NET CORE and Xamarin platforms
+
+{% endtabs %}
 
 ## Removing the paragraph 
 
