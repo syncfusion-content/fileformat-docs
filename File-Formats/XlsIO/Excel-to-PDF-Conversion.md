@@ -1,5 +1,5 @@
 ---
-title: Excel to PDF Conversion
+title: Syncfusion Excel to PDF Conversion
 description: In this section, you can learn how to convert Excel Workbook to PDF & Worksheet to PDF file; how to print Excel file and how to convert Excel chart to image
 platform: File-formats
 control: XlsIO
@@ -8,7 +8,7 @@ documentation: UG
 
 # Excel to PDF Conversion
 
-XlsIO allows you to convert an entire workbook or a single worksheet into PDF document. Refer to the following links for assemblies/nugets required based on platforms to convert Excel document into PDF.
+XlsIO allows you to convert an entire workbook or a single worksheet into PDF document. Refer to the following links for assemblies/nuget packages required based on platforms to convert Excel document into PDF.
 
 * [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-document-to-pdf) 
 * [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-document-into-pdf)
