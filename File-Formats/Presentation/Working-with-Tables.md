@@ -1285,7 +1285,9 @@ else
 
 ## Get the actual height of the table
 
-You can get the actual height of a table. The following code example demonstrates how to get the actual height of the table.
+The table height expands with the content added to it. The Essential Presentation library allows you to get this actual height or rendered height of the table. This property is a calculated value based on the content added to the table cells.
+
+The following code example demonstrates how to get the actual height of a PowerPoint table.
 
 {% tabs %}
 
