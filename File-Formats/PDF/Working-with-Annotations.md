@@ -1,5 +1,5 @@
 ---
-title: Working with Annotations
+title: Working with Annotations | Syncfusion
 description: This section explains how to create different type of interactive Annotation by using Essential PDF
 platform: file-formats
 control: PDF
@@ -1136,8 +1136,6 @@ PdfDocument document = new PdfDocument();
 
 PdfPage page = document.Pages.Add();
 
-//Load the PDF document
-
 FileStream inputStream = new FileStream("3DAnnotation.U3D", FileMode.Open, FileAccess.Read);
 
 //Creates a new pdf 3d annotation.
@@ -1186,7 +1184,231 @@ return File(stream, contentType, fileName);
 
 {% highlight Xamarin %}
 
-//PDF supports 3D annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core.
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.3DAnnotation.u3d");
+
+//Creates a new PDF 3d annotation
+
+Pdf3DAnnotation pdf3dAnnotation = new Pdf3DAnnotation(new RectangleF(10, 50, 300, 150), inputStream);
+
+//Handles the activation of the 3d annotation
+
+Pdf3DActivation activation = new Pdf3DActivation();
+
+activation.ActivationMode = Pdf3DActivationMode.ExplicitActivation;
+
+activation.ShowToolbar = true;
+
+pdf3dAnnotation.Activation = activation;
+
+//Adds annotation to page
+
+page.Annotations.Add(pdf3dAnnotation);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("3DAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("3DAnnotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can add the JavaScript script to the 3D annotation using the ```OnInstantiate``` property, which is executed whenever a 3D stream is read to create an instance of the 3D artwork. The following code snippet illustrate this.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create a new PDF 3D annotation
+
+Pdf3DAnnotation pdf3dAnnotation = new Pdf3DAnnotation(new RectangleF(10, 50, 300, 150), @"Input.u3d");
+
+//Assign JavaScript script
+
+pdf3dAnnotation.OnInstantiate = "host.getURL(\"http://www.google.com\")";
+
+//Adds annotation to page
+
+page.Annotations.Add(pdf3dAnnotation);
+
+//Save the document to disk
+
+document.Save("3DAnnotation.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a new PDF document
+
+Dim document As New PdfDocument()
+
+'Creates a new page
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create a new PDF 3D annotation
+
+Dim pdf3dAnnotation As New Pdf3DAnnotation(New RectangleF(10, 50, 300, 150), "Input.u3d")
+
+'Assign JavaScript script
+
+pdf3dAnnotation.OnInstantiate = "host.getURL(""http://www.google.com"")"
+
+'Adds annotation to page
+
+page.Annotations.Add(pdf3dAnnotation)
+
+'Save the document to disk
+
+document.Save("3DAnnotation.pdf")
+
+'Close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//PDF supports 3D annotation only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, and ASP.NET Core platforms
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+FileStream inputStream = new FileStream("3DAnnotation.U3D", FileMode.Open, FileAccess.Read);
+
+//Creates a new PDF 3D annotation
+
+Pdf3DAnnotation pdf3dAnnotation = new Pdf3DAnnotation(new RectangleF(10, 50, 300, 150), inputStream);
+
+//Assign JavaScript script
+
+pdf3dAnnotation.OnInstantiate = "host.getURL(\"http://www.google.com\")";
+
+//Adds annotation to page
+
+page.Annotations.Add(pdf3dAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "3DAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page
+
+PdfPage page = document.Pages.Add();
+
+Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.3DAnnotation.u3d");
+
+//Creates a new PDF 3d annotation
+
+Pdf3DAnnotation pdf3dAnnotation = new Pdf3DAnnotation(new RectangleF(10, 50, 300, 150), inputStream);
+
+//Assign JavaScript script
+
+pdf3dAnnotation.OnInstantiate = "host.getURL(\"http://www.google.com\")";          
+
+//Adds annotation to page
+
+page.Annotations.Add(pdf3dAnnotation);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("3DAnnotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("3DAnnotation.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 

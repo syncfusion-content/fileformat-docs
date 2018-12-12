@@ -1,5 +1,5 @@
 ---
-title: Working with Tables
+title: Working with Tables | Syncfusion
 description: Learn how to create or add table to a PDF document, applying cell style & built-in table styles, automatic pagination and customize the rows and columns etc.
 platform: file-formats
 control: PDF
@@ -5138,6 +5138,802 @@ else
 
 {% endtabs %}
 
+## Support for table customization
+
+### Table customization in PdfLightTable
+
+Essential PDF supports users to create a customizable PDF table like cell spacing, cell padding, repeat header, show header, etc. This can be achieved by using the ```PdfLightTableStyle``` instance.
+
+The following code snippet illustrates how to customize the table using ```PdfLightTable```. 
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+//Create a PdfLightTable
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Initialize DataTable to assign as DateSource to the light table
+
+DataTable table = new DataTable();
+
+//Include columns to the DataTable
+
+table.Columns.Add("Name");
+
+table.Columns.Add("Age");
+
+table.Columns.Add("Sex");
+
+//Include rows to the DataTable
+
+table.Rows.Add(new string[] { "abc", "21", "Male" });
+
+//Assign data source
+
+pdfLightTable.DataSource = table;
+
+//Declare and define light table style
+
+PdfLightTableStyle lightTableStyle = new PdfLightTableStyle();
+
+//Set cell padding, which specifies the space between border and content of the cell
+
+lightTableStyle.CellPadding = 2;
+
+//Set cell spacing, which specifies the space between the adjacent cells
+
+lightTableStyle.CellSpacing = 2;
+
+//Sets to show header in table
+
+lightTableStyle.ShowHeader = true;
+
+//Sets to repeat header on each page
+
+lightTableStyle.RepeatHeader = true;
+
+//Apply style
+
+pdfLightTable.Style = lightTableStyle;
+
+//Draw PdfLightTable
+
+pdfLightTable.Draw(page, new PointF(0, 0));
+
+//Save the document
+
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document
+
+Dim document As New PdfDocument()
+
+'Add a page
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create a PdfLightTable
+
+Dim pdfLightTable As New PdfLightTable()
+
+'Initialize DataTable to assign as DateSource to the light table
+
+Dim table As New DataTable()
+
+'Include columns to the DataTable
+
+table.Columns.Add("Name")
+
+table.Columns.Add("Age")
+
+table.Columns.Add("Sex")
+
+'Include rows to the DataTable
+
+table.Rows.Add(New String() {"abc", "21", "Male"})
+
+'Assign data source
+
+pdfLightTable.DataSource = table
+
+'Declare and define light table style
+
+Dim lightTableStyle As New PdfLightTableStyle()
+
+'Set cell padding, which specifies the space between border and content of the cell
+
+lightTableStyle.CellPadding = 2
+
+'Set cell spacing, which specifies the space between the adjacent cells
+
+lightTableStyle.CellSpacing = 2
+
+'Sets to show header in table
+
+lightTableStyle.ShowHeader = True
+
+'Sets to repeat header on each page
+
+lightTableStyle.RepeatHeader = True
+
+'Apply style
+
+pdfLightTable.Style = lightTableStyle
+
+'Draw PdfLightTable
+
+pdfLightTable.Draw(page, New PointF(0, 0))
+
+'Save the document
+
+document.Save("Output.pdf")
+
+'Close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+// Create a PdfLightTable
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+object row = new { Name = "abc", Age = "21", Sex = "Male" };
+
+data.Add(row);
+
+//Add list to IEnumerable
+
+IEnumerable<object> table = data;
+
+//Assign data source
+
+pdfLightTable.DataSource = table;
+
+//Declare and define light table style
+
+PdfLightTableStyle lightTableStyle = new PdfLightTableStyle();
+
+//Set cell padding, which specifies the space between border and content of the cell
+
+lightTableStyle.CellPadding = 2;
+
+//Set cell spacing, which specifies the space between the adjacent cells
+
+lightTableStyle.CellSpacing = 2;
+
+//Sets to show header in table
+
+lightTableStyle.ShowHeader = true;
+
+//Sets to repeat header on each page
+
+lightTableStyle.RepeatHeader = true;
+
+//Apply style
+
+pdfLightTable.Style = lightTableStyle;
+
+//Draw PdfLightTable
+
+pdfLightTable.Draw(page, new PointF(0, 0));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+// Create a PdfLightTable
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+object row = new { Name = "abc", Age = "21", Sex = "Male" };
+
+data.Add(row);
+
+//Add list to IEnumerable
+
+IEnumerable<object> table = data;
+
+//Assign data source
+
+pdfLightTable.DataSource = table;
+
+//Declare and define light table style
+
+PdfLightTableStyle lightTableStyle = new PdfLightTableStyle();
+
+//Set cell padding, which specifies the space between border and content of the cell
+
+lightTableStyle.CellPadding = 2;
+
+//Set cell spacing, which specifies the space between the adjacent cells
+
+lightTableStyle.CellSpacing = 2;
+
+//Sets to show header in table
+
+lightTableStyle.ShowHeader = true;
+
+//Sets to repeat header on each page
+
+lightTableStyle.RepeatHeader = true;
+
+//Apply style
+
+pdfLightTable.Style = lightTableStyle;
+
+//Draw PdfLightTable
+
+pdfLightTable.Draw(page, new PointF(0, 0));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0', then the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for PDF file.
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+// Create a PdfLightTable
+
+PdfLightTable pdfLightTable = new PdfLightTable();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+object row = new { Name = "abc", Age = "21", Sex = "Male" };
+
+data.Add(row);
+
+//Add list to IEnumerable
+
+IEnumerable<object> table = data;
+
+//Assign data source
+
+pdfLightTable.DataSource = table;
+
+//Declare and define light table style
+
+PdfLightTableStyle lightTableStyle = new PdfLightTableStyle();	
+
+//Set cell padding, which specifies the space between border and content of the cell
+
+lightTableStyle.CellPadding = 2;
+
+//Set cell spacing, which specifies the space between the adjacent cells
+
+lightTableStyle.CellSpacing = 2;
+
+//Sets to show header in table
+
+lightTableStyle.ShowHeader = true;
+
+//Sets to repeat header on each page
+
+lightTableStyle.RepeatHeader = true;
+
+//Apply style
+
+pdfLightTable.Style = lightTableStyle;
+
+//Draw PdfLightTable
+
+pdfLightTable.Draw(page, new PointF(0, 0));
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document instances
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Table customization in PdfGrid
+
+Essential PDF supports users to create a customizable PDF table like cell spacing, cell padding, horizonal overflow, etc. This can be achieved by using ```PdfGridStyle``` instance. 
+
+The following code snippet illustrates how to customize the table using ```PdfGrid```. 
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create a DataTable
+
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+
+dataTable.Columns.Add("ID");
+
+dataTable.Columns.Add("Name");
+
+//Add rows to the DataTable
+
+dataTable.Rows.Add(new object[] { "E01", "Clay" });
+
+dataTable.Rows.Add(new object[] { "E02", "Thomas" });
+
+//Assign data source
+
+pdfGrid.DataSource = dataTable;
+
+//Declare and define the grid style
+
+PdfGridStyle gridStyle = new PdfGridStyle();
+
+//Set cell padding, which specifies the space between border and content of the cell
+
+gridStyle.CellPadding = new PdfPaddings(2, 2, 2, 2);
+
+//Set cell spacing, which specifies the space between the adjacent cells
+
+gridStyle.CellSpacing = 2;
+
+//Enable to adjust PDF table row width based on the text length
+
+gridStyle.AllowHorizontalOverflow = true;
+
+//Apply style
+
+pdfGrid.Style = gridStyle;
+
+//Draw grid to the page of PDF document
+
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the document
+
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document
+
+Dim document As New PdfDocument()
+
+'Add a page
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create a PdfGrid
+
+Dim pdfGrid As New PdfGrid()
+
+'Create a DataTable
+
+Dim dataTable As New DataTable()
+
+'Add columns to the DataTable
+
+dataTable.Columns.Add("ID")
+
+dataTable.Columns.Add("Name")
+
+'Add rows to the DataTable
+
+dataTable.Rows.Add(New Object() {"E01", "Clay"})
+
+dataTable.Rows.Add(New Object() {"E02", "Thomas"})
+
+'Assign data source
+
+pdfGrid.DataSource = dataTable
+
+'Declare and define the grid style
+
+Dim gridStyle As New PdfGridStyle()
+
+'Set cell padding, which specifies the space between border and content of the cell
+
+gridStyle.CellPadding = New PdfPaddings(2, 2, 2, 2)
+
+'Set cell spacing, which specifies the space between the adjacent cells
+
+gridStyle.CellSpacing = 2
+
+'Enable to adjust PDF table row width based on the text length
+
+gridStyle.AllowHorizontalOverflow = True
+
+'Apply style
+
+pdfGrid.Style = gridStyle
+
+'Draw grid to the page of PDF document
+
+pdfGrid.Draw(page, New PointF(10, 10))
+
+'Save the document
+
+document.Save("Output.pdf")
+
+'Close the document
+
+document.Close(True)
+
+'This will open the PDF file so, the result will be seen in default PDF viewer
+
+Process.Start("Output.pdf")
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add a page
+
+PdfPage page = doc.Pages.Add();
+
+//Create a PdfGrid
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+
+pdfGrid.DataSource = dataTable;
+
+//Declare and define the grid style
+
+PdfGridStyle gridStyle = new PdfGridStyle();
+
+//Set cell padding, which specifies the space between border and content of the cell
+
+gridStyle.CellPadding = new PdfPaddings(2, 2, 2, 2);
+
+//Set cell spacing, which specifies the space between the adjacent cells
+
+gridStyle.CellSpacing = 2;
+
+//Enable to adjust PDF table row width based on the text length
+
+gridStyle.AllowHorizontalOverflow = true;
+
+//Apply style
+
+pdfGrid.Style = gridStyle;
+
+//Draw grid to the page of PDF document
+
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the PDF document into stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+
+pdfGrid.DataSource = dataTable;
+
+//Declare and define the grid style
+
+PdfGridStyle gridStyle = new PdfGridStyle();
+
+//Set cell padding, which specifies the space between border and content of the cell
+
+gridStyle.CellPadding = new PdfPaddings(2, 2, 2, 2);
+
+//Set cell spacing, which specifies the space between the adjacent cells
+
+gridStyle.CellSpacing = 2;
+
+//Enable to adjust PDF table row width based on the text length
+
+gridStyle.AllowHorizontalOverflow = true;
+
+//Apply style
+
+pdfGrid.Style = gridStyle;
+
+//Draw grid to the page of PDF document
+
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0', then the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for PDF file.
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+
+List<object> data = new List<object>();
+
+Object row1 = new { ID = "E01", Name = "Clay" };
+
+Object row2 = new { ID = "E02", Name = "Thomas" };
+
+data.Add(row1);
+
+data.Add(row2);
+
+//Add list to IEnumerable
+
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+
+pdfGrid.DataSource = dataTable;
+
+//Declare and define the grid style
+
+PdfGridStyle gridStyle = new PdfGridStyle();
+
+//Set cell padding, which specifies the space between border and content of the cell
+
+gridStyle.CellPadding = new PdfPaddings(2, 2, 2, 2);
+
+//Set cell spacing, which specifies the space between the adjacent cells
+
+gridStyle.CellSpacing = 2;
+
+//Enable to adjust PDF table row width based on the text length
+
+gridStyle.AllowHorizontalOverflow = true;
+
+//Apply style
+
+pdfGrid.Style = gridStyle;
+
+//Draw grid to the page of PDF document
+
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document instances
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Built-in table styles
 
 In-built table styles can be applied to both PdfGrid and PdfLightTable models and the appearance is made similar to Microsoft Word’s built-in table styles. You can also apply in-built table styles with the following additional table style options.
@@ -5404,7 +6200,7 @@ else
 {% endtabs %}
 
 The following image shows the PDF document with ```PdfGridBuiltinStyle.GridTable4Accent1```.
-![](Table_images/Gridtable4Accent1.png)
+![GridTable4Accent1 image](Table_images/Gridtable4Accent1.png)
 
 The below code example illustrates how to apply built-in table styles to the PdfLightTable.
 
@@ -5663,7 +6459,7 @@ else
 {% endtabs %}
 
 The following image shows the PDF document with ```PdfGridBuiltinStyle.Gridtable4Accent2```.
-![](Table_images/Gridtable4Accent2.png)
+![Gridtable4Accent2 image](Table_images/Gridtable4Accent2.png)
 
 The below code example illustrates how to apply built-in table styles with table options to the PdfGrid.
 
@@ -5937,7 +6733,7 @@ else
 {% endtabs %}
 
 The following image shows the PDF document with `PdfGridBuiltinStyle.Gridtable4Accent4`.
-![](Table_images/Gridtable4Accent4.png)
+![Gridtable4Accent4 image](Table_images/Gridtable4Accent4.png)
 
 ## Pagination
 
