@@ -4041,7 +4041,7 @@ Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSetting
 blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
 
 'Add a bearer token to login a webpage
-blinlConverterSettings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>")
+blinkConverterSettings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>")
 
 'Assign Blink converter settings to HTML converter
 htmlConverter.ConverterSettings = blinkConverterSettings
