@@ -3787,13 +3787,13 @@ image[0].Dispose(True)
 
 ### HTML String to Image
 
-Blink rendering engine provides support for converting HTML string to Image. While converting HTML string to Image, converter provides option to specify the base URL.
+Blink rendering engine supports converting HTML string to Image. While converting HTML string to Image, converter provides an option to specify the base URL.
 
 <b>baseURL:</b> Path of the resources (images, style sheets, scripts.,) used in the input HTML string.
 
 For the below HTML string, the baseURL will be the path of the <font color="blue"><i>syncfusion_logo.gif</i></font> image.
 
-For example, if the above image is in <i>“C:/Temp/ HTMLFiles/syncfusion_logo.gif”</i> location then the baseURL will be as below,
+For example, if the previous image is in <i>“C:/Temp/ HTMLFiles/syncfusion_logo.gif”</i> location then the baseURL will be as follows.
 
 <b>baseURL:</b> C:/Temp/HTMLFiles/
 
@@ -3830,7 +3830,7 @@ image[0].Dispose();
 
 {% highlight vb.net %}
 
-'Initialize HTML to PDF converter with Blink rendering engine
+'Initialize the HTML to PDF converter with Blink rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
@@ -3868,15 +3868,15 @@ image[0].Dispose(True)
 
 {% endtabs %}
 
-### Windows Authentication
+### Windows authentication
 
-To convert the Windows Authenticated web page to PDF document by providing the username and password, please refer the below code snippet.
+To convert the Windows authenticated web page to the PDF document by providing the username and password. Refer the following code snippet.
 
 {% tabs %}
 
 {% highlight c# %}
 
-// Initialize HTML to PDF converter with Blink rendering engine
+// Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
@@ -3903,7 +3903,7 @@ document.Close(true);
 
 {% highlight vb.net %}
 
-'Initialize HTML to PDF converter with Blink rendering engine
+'Initialize the HTML to PDF converter with Blink rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
@@ -3930,15 +3930,15 @@ document.Close(True)
 
 {% endtabs %}
 
-### Form Authentication
+### Form authentication
 
-The Blink HTML Converter provides support for form authentication by using cookies. The cookies will be send to web server for form authentication when the HTML page is requested. Each cookie is represented by a name and a value. Please refer the below code snippet.
+The Blink HTML converter provides support for form authentication by using cookies. The cookies will be send to web server for form authentication when the HTML page is requested. Each cookie is represented by a name and a value. Refer to the following code snippet.
 
 {% tabs %}
 
 {% highlight c# %}
 
-// Initialize HTML to PDF converter with Blink rendering engine
+// Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
@@ -3968,7 +3968,7 @@ document.Close(true);
 
 {% highlight vb.net %}
 
-'Initialize HTML to PDF converter with Blink rendering engine
+'Initialize the HTML to PDF converter with Blink rendering engine
 Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
 
 Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
@@ -3997,7 +3997,7 @@ document.Close(True)
 
 {% endtabs %}
 
-### Token Based Authentication
+### Token Based authentication
 
 The Blink HTML Converter supports token-based authentication by using the HTTP request headers. The token values will be send to web server when the HTML page is requested. Refer to the following code snippet.
 
@@ -4065,13 +4065,13 @@ Windows status can be used instead of additional delay. In additional delay, the
 <b>Note:</b> This feature requires changes in the HTML file.
 
 If windows status does not match in code and HTML, then the converter will meet with deadlock.
-Please refer the below code snippet,
+Refer to the following code snippet,
 
 {% tabs %}
 
 {% highlight c# %}
 
-// Initialize HTML to PDF converter with Blink rendering engine
+// Initialize the HTML to PDF converter with Blink rendering engine
 HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
 
 BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
