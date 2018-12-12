@@ -2145,3 +2145,350 @@ document.Close()
 {% endhighlight %}
 
 {% endtabs %}  
+
+### Restart numbering in lists
+
+The following code example shows how to restart the list numbering in a Word documents while performing mail merge and merging multiple Word documents.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument(@"D:\Desktop Items\mailmerge.docx");
+
+//Sets ImportOptions to restart the list numbering.
+
+wordDocument.ImportOptions = ImportOptions.ListRestartNumbering;
+
+//Creates the employee details as “IEnumerable” collection
+
+List<Employee> employeeList = new List<Employee>();
+
+employeeList.Add(new Employee("101", "Nancy Davolio", "Seattle, WA, USA"));
+
+employeeList.Add(new Employee("102", "Andrew Fuller", "Tacoma, WA, USA"));
+
+employeeList.Add(new Employee("103", "Janet Leverling", "Kirkland, WA, USA"));
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employee", employeeList);
+
+//Performs Mail merge
+
+wordDocument.MailMerge.ExecuteGroup(dataTable);
+
+//Saves the Word document.
+
+wordDocument.Save("Simple1.docx",FormatType.Docx);
+
+//Closes the instance of Word document object
+
+wordDocument.Close();
+
+/// <summary>
+
+/// Represents an helper class to perform mail merge.
+
+/// </summary>
+
+public class Employee
+
+{
+
+    public string EmployeeID { get; set; }
+
+    public string EmployeeName { get; set; }
+
+    public string Location { get; set; }
+
+    /// <summary>
+
+    /// Represents a constructor to create value for merge fields.
+
+    /// </summary>    
+
+    public Employee(string employeeId, string employeeName, string location)
+
+    {
+
+        EmployeeID = employeeId;
+
+        EmployeeName = employeeName;
+
+        Location = location;
+
+	}
+
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads an existing Word document
+
+Dim wordDocument As WordDocument = New WordDocument("D:\Desktop Items\mailmerge.docx")
+
+'Sets ImportOptions to restart the list numbering.
+
+wordDocument.ImportOptions = ImportOptions.ListRestartNumbering
+
+'Creates the employee details as “IEnumerable” collection
+
+Dim employeeList As List(Of Employee) = New List(Of Employee)()
+
+employeeList.Add(New Employee("101", "Nancy Davolio", "Seattle, WA, USA"))
+
+employeeList.Add(New Employee("102", "Andrew Fuller", "Tacoma, WA, USA"))
+
+employeeList.Add(New Employee("103", "Janet Leverling", "Kirkland, WA, USA"))
+
+'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+Dim dataTable As MailMergeDataTable = New MailMergeDataTable("Employee", employeeList)
+
+'Performs Mail merge
+
+wordDocument.MailMerge.ExecuteGroup(dataTable)
+
+'Saves the Word document.
+
+wordDocument.Save("Simple1.docx", FormatType.Docx)
+
+'Closes the instance of Word document object
+
+wordDocument.Close()
+
+'Represents an helper class to perform mail merge.
+
+Public Class Employee
+
+    Public Property EmployeeID() As String
+
+        Get
+
+            Return m_EmployeeID
+
+        End Get
+
+        Set(value As String)
+
+            m_EmployeeID = value
+
+        End Set
+
+    End Property
+
+    Private m_EmployeeID As String
+
+    Public Property EmployeeName() As String
+
+        Get
+
+            Return m_EmployeeName
+
+        End Get
+
+        Set(value As String)
+
+            m_EmployeeName = value
+
+        End Set
+
+    End Property
+
+    Private m_EmployeeName As String
+
+    Public Property Location() As String
+
+        Get
+
+            Return m_Location
+
+        End Get
+
+        Set(value As String)
+
+            m_Location = value
+
+        End Set
+
+    End Property
+
+    Private m_Location As String
+
+    'Represents a constructor to create value for merge fields.
+
+    Public Sub New(employeeId As String, employeeName As String, location As String)
+
+        m_EmployeeID = employeeId
+
+        m_EmployeeName = employeeName
+
+        m_Location = location
+
+	End Sub
+
+End Class
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
+
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
+
+//Sets ImportOptions to restart the list numbering.
+
+wordDocument.ImportOptions = ImportOptions.ListRestartNumbering;
+
+//Creates the employee details as “IEnumerable” collection
+
+List<Employee> employeeList = new List<Employee>();
+
+employeeList.Add(new Employee("101", "Nancy Davolio", "Seattle, WA, USA"));
+
+employeeList.Add(new Employee("102", "Andrew Fuller", "Tacoma, WA, USA"));
+
+employeeList.Add(new Employee("103", "Janet Leverling", "Kirkland, WA, USA"));
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+
+//Performs Mail merge
+
+wordDocument.MailMerge.ExecuteGroup(dataTable);
+
+//Saves the Word document.
+
+MemoryStream outputStream = new MemoryStream();
+
+wordDocument.Save(outputStream, FormatType.Docx);
+
+//Closes the instance of Word document object
+
+wordDocument.Close();
+
+/// <summary>
+
+/// Represents an helper class to perform mail merge.
+
+/// </summary>
+
+public class Employee
+
+{
+
+    public string EmployeeID { get; set; }
+
+    public string EmployeeName { get; set; }
+
+    public string Location { get; set; }
+
+    /// <summary>
+
+    /// Represents a constructor to create value for merge fields.
+
+    /// </summary>    
+
+    public Employee(string employeeId, string employeeName, string location)
+
+    {
+
+        EmployeeID = employeeId;
+
+        EmployeeName = employeeName;
+
+        Location = location;
+
+	}
+
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the Word document as stream 
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+// Loads the stream into Word Document.
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Sets ImportOptions to restart the list numbering.
+
+wordDocument.ImportOptions = ImportOptions.ListRestartNumbering;
+
+//Creates the employee details as “IEnumerable” collection
+
+List<Employee> employeeList = new List<Employee>();
+
+employeeList.Add(new Employee("101", "Nancy Davolio", "Seattle, WA, USA"));
+
+employeeList.Add(new Employee("102", "Andrew Fuller", "Tacoma, WA, USA"));
+
+employeeList.Add(new Employee("103", "Janet Leverling", "Kirkland, WA, USA"));
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+
+//Performs Mail merge
+
+wordDocument.MailMerge.ExecuteGroup(dataTable);
+
+//Saves the Word document.
+
+MemoryStream outputStream = new MemoryStream();
+
+wordDocument.Save(outputStream, FormatType.Docx);
+
+//Closes the instance of Word document object
+
+wordDocument.Close();
+
+/// <summary>
+
+/// Represents an helper class to perform mail merge.
+
+/// </summary>
+
+public class Employee
+
+{
+
+	public string EmployeeID { get; set; }
+	
+	public string EmployeeName { get; set; }
+	
+	public string Location { get; set; }
+	
+	/// <summary>
+	
+	/// Represents a constructor to create value for merge fields.
+	
+	/// </summary>    
+	
+	public Employee(string employeeId, string employeeName, string location)
+	
+	{
+	
+		EmployeeID = employeeId;
+	
+		EmployeeName = employeeName;
+	
+		Location = location;
+	}
+}
+
+{% endhighlight %}
+
+{% endtabs %}
