@@ -1,5 +1,5 @@
 ---
-title: Working with Optical Character Recognition (OCR)
+title: Working with Optical Character Recognition (OCR) | Syncfusion
 description: This section explains how to process OCR for the existing PDF document
 platform: file-formats
 control: PDF
@@ -471,8 +471,113 @@ End Using
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
  
+
+## Layout result from OCR
+
+You can get the OCRed text and its bounds from a scanned PDF document by using the ```OCRLayoutResult``` Class. Refer to the following code snippet. 
+ 
+{% tabs %} 
+
+{% highlight c# %}
+
+//Initialize the OCR processor by providing the path of tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
+
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+
+{
+
+//Load a PDF document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("Input.pdf");
+
+//Set OCR language to process
+
+processor.Settings.Language = Languages.English;
+
+//Initializes OCR layout result
+
+OCRLayoutResult result;
+
+//Process OCR by providing the PDF document, Tesseract data, and layout result
+
+processor.PerformOCR(lDoc, @"TessData\", out result);
+
+//Get OCRed line collection from first page
+
+OCRLineCollection lines = result.Pages[0].Lines;
+
+//Get each OCRed line and its bounds
+
+foreach(Line line in lines)
+{
+    string text = line.Text;
+
+    RectangleF bounds = line.Rectangle;
+}
+
+//Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf");
+
+//Close the document
+
+lDoc.Close(true);
+
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the OCR processor by providing the path of tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
+
+Using processor As New OCRProcessor("TesseractBinaries\")
+
+'Load a PDF document
+
+Dim lDoc As New PdfLoadedDocument("Input.pdf")
+
+'Set OCR language to process
+
+processor.Settings.Language = Languages.English
+
+'Initializes OCR layout result
+
+Dim result As OCRLayoutResult
+
+'Process OCR by providing the PDF document, Tesseract data, and layout result
+
+processor.PerformOCR(lDoc, "TessData\", result)
+
+'Get OCRed line collection from first page
+
+Dim lines As OCRLineCollection = result.Pages(0).Lines
+
+'Get each OCRed line and its bounds
+
+For Each line As Line In lines
+
+    Dim text As String = line.Text
+
+    Dim bounds As RectangleF = line.Rectangle
+
+Next
+
+'Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf")
+
+'Close the document
+
+lDoc.Close(True)
+
+End Using
+
+{% endhighlight %}
+
+{% endtabs %} 
 
 ## Native call
 
@@ -646,6 +751,84 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Customizing temp folder
+
+While performing OCR on an existing scanned PDF document, the OCR Processor will create temporary files (.temp, .tiff, .txt) and the files are deleted after the process is completed. You can change this temporary files folder location using the ```TempFolder``` property available in the ```OCRSettings ``` Instance. Refer to the following code snippet.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Initialize the OCR processor by providing the path of tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
+
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+
+{
+    
+//Load a PDF document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("Input.pdf");
+
+//Set OCR language to process	
+
+processor.Settings.Language = Languages.English;
+
+//Set custom temp file path location
+
+processor.Settings.TempFolder = "D:/Temp/";
+
+//Process OCR by providing the PDF document and Tesseract data
+
+processor.PerformOCR(lDoc, @"TessData\");
+
+//Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf");
+
+//Close the document
+
+lDoc.Close(true);
+
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the OCR processor by providing the path of tesseract binaries (SyncfusionTesseract.dll and liblept168.dll)
+
+Using processor As New OCRProcessor("TesseractBinaries\")
+
+'Load a PDF document
+
+Dim lDoc As New PdfLoadedDocument("Input.pdf")
+
+'Set OCR language to process
+
+processor.Settings.Language = Languages.English
+
+'Set custom temp file path location
+
+processor.Settings.TempFolder = "D:/Temp/"
+
+'Process OCR by providing the PDF document and Tesseract data
+
+processor.PerformOCR(lDoc, "TessData\")
+
+'Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf")
+
+'Close the document
+
+lDoc.Close(True)
+
+End Using
+
+{% endhighlight %}
+
+{% endtabs %} 
 
 
 ## Best Practices
