@@ -1285,7 +1285,7 @@ else
 
 ## Get the actual height of the table
 
-You can get the actual height of a table. Refer to the following code example.
+You can get the actual height of a table. The following code example demonstrates how to get the actual height of the table.
 
 {% tabs %}
 
@@ -1337,7 +1337,7 @@ pptxDoc.Close()
 
 {% endtabs %}
 
-N> Get the actual height of the table is not supported in UWP, ASP.NET CORE and Xamarin platforms
+N> Getting the actual height of the table is not supported in UWP, ASP.NET CORE and Xamarin platforms.
 
 ## Applying table formatting
 
