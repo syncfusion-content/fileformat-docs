@@ -1,7 +1,7 @@
 ---
-title: Create, edit and format table in PowerPoint presentation slide
+title: Create, edit and format table in PowerPoint slide | Syncfusion |
 description: Code examples to create, edit and format PowerPoint tables in .NET, C#, web, ASP.NET, UWP, MVC, Xamarin and .NET Core
-platform: file-format,.NET, C#, web, ASP.NET, UWP, MVC, Xamarin and .NET Core
+platform: file-formats
 control: Syncfusion PowerPoint presentation
 documentation: 
 keywords: PowerPoint, slide, table, format-table, rows, columns, pptx
@@ -1282,6 +1282,64 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Get the actual height of the table
+
+The table height expands with the content added to it. The Essential Presentation library allows you to get this actual height or rendered height of the table. This property is a calculated value based on the content added to the table cells.
+
+The following code example demonstrates how to get the actual height of a PowerPoint table.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Opens existing PowerPoint file
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
+
+//Opens slide in the presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Open Table in the slide to make changes
+ITable table = slide.Shapes[0] as ITable;
+
+//Changing the paragraph content in the table
+table.Rows[0].Cells[0].TextBody.AddParagraph("Hello World");
+
+//Get the dynamic height of the table
+float height=table.GetActualHeight();
+
+//Save the presentation
+pptxDoc.Save("Table.pptx");
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+{% highlight vb.net %}
+
+'Open an existing PowerPoint file
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+
+'Get the table from the slide
+Dim table As ITable = TryCast(pptxDoc.Slides(0).Shapes(0), ITable)
+
+‘Changing the paragraph content in the table
+table.Rows[0].Cells[0].TextBody.AddParagraph("Hello World");
+
+‘Get the dynamic height of table
+Dim height As float = table.GetActualHeight()
+
+'Save the presentation
+pptxDoc.Save("Table.pptx")
+
+'Close the presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N> Getting the actual height of the table is not supported in UWP, ASP.NET CORE and Xamarin platforms.
 
 ## Applying table formatting
 

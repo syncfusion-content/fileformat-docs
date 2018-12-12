@@ -1755,11 +1755,11 @@ catch (PdfDocumentException exception)
 
 {% endtabs %}
 
-## How to determine whether the PDF document is signed by user or owner password
+## How to determine whether the PDF document is protected by user or owner password
 
-Essential PDF supports identifying the secured document signed by user or owner.
+Essential PDF supports identifying the document whether it is protected by user or owner.
 
-The following table shows the various combination for loading the signed document with user or owner password:
+The following table shows the various combination for loading the secured document with user or owner password:
 
 <table>
 <thead>
@@ -1768,7 +1768,7 @@ The following table shows the various combination for loading the signed documen
 Document type</th><th>
 Open with</th><th>
 User password</th><th>
-Owner password</th><th>
+Owner password</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -1776,28 +1776,28 @@ Owner password</th><th>
 PDF document secured with both the owner and user passwords.</td><td>
 User password</td><td>
 Returns user password</td><td>
-Returns null</td><td>
+Returns null</td></tr>
 
 <tr>
 <td>
 PDF document secured with both the owner and user passwords.</td><td>
 Owner password</td><td>
-Returns user password <br/><br/>**Note:** Returns null for AES 256 and AES 256 Revision 6 encryptions.</td><td>
-Returns owner password</td><td>
+Returns user password <br/><br/><b>Note:</b> Returns null for AES 256 and AES 256 Revision 6 encryptions.</td><td>
+Returns owner password</td></tr>
 
 <tr>
 <td>
 PDF document secured with owner password alone.</td><td>
 Owner password</td><td>
 Returns null</td><td>
-Returns owner password</td><td>
+Returns owner password</td></tr>
 
 <tr>
 <td>
 PDF document secured with user password alone.</td><td>
 User Password</td><td>
 Returns user password</td><td>
-Returns owner Password (owner password is same as the user password; it allows full permission to users).</td><td>
+Returns owner Password (owner password is same as the user password; it allows full permission to users).</td></tr>
 
 </tbody>
 </table>
