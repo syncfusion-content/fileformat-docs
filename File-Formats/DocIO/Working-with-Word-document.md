@@ -1,5 +1,5 @@
 ---
-title: Working with Word document
+title: Working with Word document | Syncfusion
 description: Learn about combining multiple Word documents as one, printing Word document, applying styles, document properties, & iterating through DOM elements
 platform: file-formats
 control: DocIO
