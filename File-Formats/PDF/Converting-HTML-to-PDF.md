@@ -3520,6 +3520,166 @@ Issue
 </tr>
 </table>
 
+<table>
+
+<th style="font-size:14px">Issue
+</th>
+<th style="font-size:14px">Failed to convert Webpage Exception in Server
+</th>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>If the <i>Syncfusion.HtmlConverter.Base.dll</i> assembly is blocked in the machine, then the converter may throw this exception.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>Unblock the assembly if it is blocked by referring to the following screenshot of <i>Syncfusion.HtmlConverter.Base.dll</i>.
+![Syncfusion.HtmlConverter.Base.dll Properties](DocumentConversion_images/TroubleShootDllProperties.png)
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>This exception may occur if the assemblies and QtBinaries are used from different version of WebKit installers.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>Make sure to use the Syncfusion assemblies and QtBinaries from the same WebKit Installer since there will be some changes in the assemblies and QtBinaries for every release.The assemblies and QtBinaries for a specific version can be get by installing the WebKit HTML converter. 
+<br/><br/>
+<b>WebKit HTML converter:</b> <a href="https://www.syncfusion.com/downloads/version-history">https://www.syncfusion.com/downloads/version-history</a>
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>While converting HTML to PDF, WebKit HTML converter internally creates temporary files in temp folder for conversion. 
+<br/><br/>
+If the temporary folder does not have elevated permission for the respective user then the WebKit HTML converter may throw this exception.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>By default, WebKit HTML converter gets system temporary folder to create temporary files for conversion. Please refer to the following examples of default temporary folder.
+<br/><br/>
+<ul>
+<li>C:\Users\<<username>>\AppData\Local\Temp</li>
+<li>C:\Windows\Temp<li/>
+</ul>
+<br/><br/>
+Make sure that the previous paths have elevated permission for respective user. 
+<br/><br/>(Or)<br/><br/>
+The WebKit HTML converter has support for setting temporary path. Using the TempPath property, you can set any folder path that has read/write/execute permission. Then, the converter uses this path for creating temporary files. Refer below code snippet to set temp folder.
+
+{% highlight c# %}
+
+WebKitConverterSettings settings = new WebKitConverterSettings();
+settings.TempPath = "D://MyProject//bin";
+
+{% endhighlight %}
+
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>Sometimes exception occurs even if the user have elevated permission
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>Try hosting an application in different user account of the server and check the conversion.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>WebKit HTML converter may throw this exception if the Web Application is published in a network shared location. 
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>To avoid this exception, publish the application in the server’s local disk, where it will be hosted. Please do not publish the website to shared network location.
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>Sometimes this exception occurs for only particular URL
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>Please contact Syncfusion <a href="https://www.syncfusion.com/support/directtrac/incidents/newincident">support</a> with input HTML, code snippet, and environment details (OS, culture settings, bit version etc.,).
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>WebKit rendering engine internally creates surrogate process in a temporary folder (temporary executable with different name for every conversion) and launches it for converting HTML to PDF. So, the converter requires read/write/execute permission for  temporary folder to execute the temporary executable from the code. 
+<br/>
+<br/>
+<ul>
+<li>Server may block the temporary executables due to group policy/Third Party Software.
+</li>
+<li>The temporary path may do not have the required (read/write/execute) permission.
+</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>1.The temporary executables can be whitelisted in the server by the following ways:
+<br/>
+<br/>
+<ul>
+<li>Set the path of a folder in server as the temporary executables path by setting the TempPath property of WebkitConverterSettings and add that folder’s path in the exception list of group policy/Third Party Softwares.
+{% highlight c# %}
+
+//Set temporary path to generate temporary files 
+webkitConverterSettings.TempPath = @"C:/HtmlConversion/Temp/";
+   
+{% endhighlight %}
+</li>
+<li>Set a name for the executable in the server by setting TempFileName property of WebkitConverterSettings and add that name in the exception list of group policy/Third Party Softwares.
+{% highlight c# %}
+
+//Set temporary file name to generate temporary files 
+webkitConverterSettings.TempFileName = "Syncfusion";
+   
+{% endhighlight %}
+</li>
+</ul>
+<br/>
+<br/>
+2. Enable the read/write/execute permission of the temporary path for the respective group.   
+</td>
+</tr>
+
+</table>
+
 
 ## Conversion using Blink Rendering
 
@@ -3732,7 +3892,418 @@ document.Close(True)
 
 {% endtabs %}
 
-	
+### URL to Image
+
+To convert website URL or local HTML file to Image using Blink rendering engine, refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to Image
+Image[] image = htmlConverter.ConvertToImage("https://www.google.com");
+
+//Save and dispose the image file
+image[0].Save("Output.jpg");
+image[0].Dispose();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML to PDF converter with Blink rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
+
+'Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings
+
+'Convert URL to Image
+Dim image As Image[] = htmlConverter.ConvertToImage("https://www.google.com")
+
+'Save and dispose the image file
+image[0].Save("Output.jpg")
+
+image[0].Dispose(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### HTML String to Image
+
+Blink rendering engine supports converting HTML string to Image. While converting HTML string to Image, converter provides an option to specify the base URL.
+
+<b>baseURL:</b> Path of the resources (images, style sheets, scripts.,) used in the input HTML string.
+
+For the below HTML string, the baseURL will be the path of the <font color="blue"><i>syncfusion_logo.gif</i></font> image.
+
+For example, if the previous image is in <i>“C:/Temp/ HTMLFiles/syncfusion_logo.gif”</i> location then the baseURL will be as follows.
+
+<b>baseURL:</b> C:/Temp/HTMLFiles/
+
+To convert the HTML string to Image, refer to the following code snippet.
+
+{% tabs %} 
+
+{% highlight c# %}
+
+//Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//HTML string and Base URL
+string htmlText = "<html><body><img src=\"syncfusion_logo.gif\" alt=\"Syncfusion_logo\" width=\"200\" height=\"70\"><p> Hello World</p></body></html>";
+
+string baseUrl = @"C:/Temp/HTMLFiles/";
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to Image
+Image[] image = htmlConverter.ConvertToImage(htmlText, baseUrl);
+
+//Save and dispose the image file
+image[0].Save("Output.jpg");
+image[0].Dispose();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'HTML string and Base URL
+Dim htmlText As String = "<html><body><img src=""syncfusion_logo.gif"" alt=""Syncfusion_logo"" width=""200"" height=""70""><p> Hello World</p></body></html>"
+
+Dim baseUrl As String = "C:/Temp/HTMLFiles/"
+
+'Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
+
+'Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings
+
+'Convert URL to Image
+Dim image As Image[] = htmlConverter.Convert(htmlText, baseUrl)
+
+'Save and dispose the image file
+image[0].Save("Output.jpg")
+image[0].Dispose(True)
+
+{% endhighlight %}
+
+{% highlight html %}
+
+<html>
+<body>
+    <img src="syncfusion_logo.gif" alt="Syncfusion_logo" width="200" height="70">
+    <p> Hello World</p>
+</body>
+</html>
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Windows authentication
+
+To convert the Windows authenticated web page to the PDF document by providing the username and password. Refer the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+// Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+blinkConverterSettings.Username = "username";
+
+blinkConverterSettings.Password = "password";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.example.com")
+
+//Save and close the PDF document
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
+
+blinkConverterSettings.Username = "username"
+
+blinkConverterSettings.Password = "password"
+
+'Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("https://www.example.com")
+
+'Save and close the PDF document
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Form authentication
+
+The Blink HTML converter provides support for form authentication by using cookies. The cookies will be send to web server for form authentication when the HTML page is requested. Each cookie is represented by a name and a value. Refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+// Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+// Add cookies as name and value pair
+
+blinkConverterSettings.Cookies.Add("CookieName1", " CookieValue1");
+
+blinkConverterSettings.Cookies.Add("CookieName2", " CookieValue2");
+
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.example.com");
+
+//Save and close the PDF document
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
+
+'Add cookies
+
+blinkConverterSettings.Cookies.Add("Name1", "Value1")
+
+blinkConverterSettings.Cookies.Add("Name2", "Value2")
+
+'Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("https://www.example.com")
+
+'Save and close the PDF document
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Token Based authentication
+
+The Blink HTML Converter supports token-based authentication by using the HTTP request headers. The token values will be send to web server when the HTML page is requested. Refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+// Initialize HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+//Add a bearer token to login a webpage
+
+blinkConverterSettings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>");
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.example.com");
+
+//Save and close the PDF document
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML to PDF converter with Blink rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
+
+'Add a bearer token to login a webpage
+blinkConverterSettings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>")
+
+'Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("https://www.example.com")
+
+'Save and close the PDF document
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Windows status
+
+Windows status can be used instead of additional delay. In additional delay, the amount of time required for loading the resources is unpredictable. This behavior can be avoided by using windows status.
+
+<b>Note:</b> This feature requires changes in the HTML file.
+
+If windows status does not match in code and HTML, then the converter will meet with deadlock.
+Refer to the following code snippet,
+
+{% tabs %}
+
+{% highlight c# %}
+
+// Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
+
+// Set windows status.
+blinkConverterSettings.WindowStatus = "completed";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save and close the PDF document
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML to PDF converter with Blink rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
+
+'Set windows status.
+blinkConverterSettings.WindowStatus = "completed"
+
+'Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = blinkConverterSettings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("input.html")
+
+'Save and close the PDF document
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight html %}
+
+<html>
+<head>
+</head>
+<body>
+    <div id="message">
+        Wait for 2 Seconds
+    </div>
+    <script type="text/javascript">
+        setTimeout(function () {
+            document.getElementById("message").innerHTML = "Hello World!!";
+            window.status = "completed";
+        }, 2000);
+    </script>
+</body>
+</html>
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
 ## Conversion using IE Rendering
 
 Essential PDF makes use of the Microsoft MSHTML library to convert HTML pages to PDF. The output would like how it is viewed in the Internet Explorer browser.
@@ -4197,21 +4768,21 @@ The following table shows the IE, WebKit and Blink rendering engines supported f
 <td>Windows Authentication</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 </tr>
 
 <tr>
 <td>Form Authentication</td>
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 </tr>
 
 <tr>
 <td>HTML to Image</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 </tr>
 
 <tr>
@@ -4281,7 +4852,7 @@ The following table shows the IE, WebKit and Blink rendering engines supported f
 <td>Windows status</td>
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 </tr>
 
 <tr>
