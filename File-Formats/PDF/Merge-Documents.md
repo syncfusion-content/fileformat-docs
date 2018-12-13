@@ -72,19 +72,148 @@ finalDoc.Close(True)
 
 {% highlight UWP %}
 
-//PDF supports merging multiple documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, the PDF file cannot be loaded from disk. However you can merge specified document using the following code snippet.
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Merge the document 
+
+PdfDocumentBase.Merge(document, loadedDocument);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the documents
+
+document.Close(true);
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+
+Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//PDF supports merging multiple documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, the PDF file cannot be loaded from disk. However you can merge multiple documents from stream using the following code snippet.
+
+//Creates a PDF document
+
+PdfDocument finalDoc = new PdfDocument();
+
+FileStream stream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+
+FileStream stream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
+
+// Creates a PDF stream for merging
+
+Stream[] streams = { stream1, stream2 };
+
+// Merges PDFDocument.
+
+PdfDocumentBase.Merge(finalDoc, streams);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+finalDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+finalDoc.Close(true);
+
+//Disposes the streams.
+
+stream1.Dispose();
+
+stream2.Dispose();
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//PDF supports merging multiple documents from disk only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, the PDF file cannot be loaded from disk. However you can merge multiple documents from stream using the following code snippet.
+
+//Loads the file as stream
+
+Stream stream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
+
+Stream stream2 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file2.pdf");
+
+//Creates a PDF stream for merging
+
+Stream[] source = { stream1, stream2 };
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();            
+
+//Merge the documents
+
+PdfDocumentBase.Merge(document, source);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the documents
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 {% endtabs %}
@@ -168,7 +297,43 @@ stream2.Dispose()
 
 {% highlight UWP %}
 
-//PDF supports merging multiple documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+//PDF supports merging multiple documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms. However you can merge spcific document by using the following code snippet.
+
+//Load the PDF document as stream
+
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.file1.pdf");
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(pdfStream);
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Merge the document 
+
+PdfDocumentBase.Merge(document, loadedDocument);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the documents
+
+document.Close(true);
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
@@ -224,7 +389,46 @@ return File(stream, contentType, fileName);
 
 {% highlight Xamarin %}
 
-//PDF supports merging multiple documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms.
+//Loads the file as stream
+
+Stream stream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
+
+Stream stream2 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file2.pdf");
+
+//Creates a PDF stream for merging
+
+Stream[] source = { stream1, stream2 };
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();            
+
+//Merge the documents
+
+PdfDocumentBase.Merge(document, source);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the documents
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 {% endtabs %}
@@ -703,13 +907,13 @@ lDoc2.Close(True)
 {% highlight UWP %}
 
 //Load the PDF document as stream
-Stream pdfStream1 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.fi
+Stream pdfStream1 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.file1.pdf");
 
 //Creates an empty PDF loaded document instance
 PdfLoadedDocument lDoc = new PdfLoadedDocument(pdfStream1);
 
 //Load the PDF document as stream
-Stream pdfStream2 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.fi
+Stream pdfStream2 = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.file2.pdf");
 
 //Creates an empty PDF loaded document instance
 PdfLoadedDocument lDoc2 = new PdfLoadedDocument(pdfStream2);
@@ -905,19 +1109,19 @@ loadedDocument.Close(True)
 
 {% highlight UWP %}
 
-//PDF supports split the document into multiple documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, multiple PDF files cannot be saved to disk. So Essential PDF supports split the document into multiple documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//PDF supports split the document into multiple documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, multiple PDF files cannot be saved to disk. So Essential PDF supports split the document into multiple documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//PDF supports split the document into multiple documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, multiple PDF files cannot be saved to disk. So Essential PDF supports split the document into multiple documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
 
 {% endhighlight %}
 {% endtabs %}
@@ -979,19 +1183,148 @@ document.Close(True)
 
 {% highlight UWP %}
 
-//PDF supports merging multiple PDF documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, the PDF file cannot be loaded from disk. However you can merge specified document using the following code snippet.
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Merge the document 
+
+PdfDocumentBase.Merge(document, loadedDocument);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the documents
+
+document.Close(true);
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+
+Save(stream, "Sample.pdf");
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//PDF supports merging multiple PDF documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, the PDF file cannot be loaded from disk. However you can merge multiple documents from stream using the following code snippet.
+
+//Creates a PDF document
+
+PdfDocument finalDoc = new PdfDocument();
+
+FileStream stream1 = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+
+FileStream stream2 = new FileStream("file2.pdf", FileMode.Open, FileAccess.Read);
+
+// Creates a PDF stream for merging
+
+Stream[] streams = { stream1, stream2 };
+
+// Merges PDFDocument.
+
+PdfDocumentBase.Merge(finalDoc, streams);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+finalDoc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+finalDoc.Close(true);
+
+//Disposes the streams.
+
+stream1.Dispose();
+
+stream2.Dispose();
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//PDF supports merging multiple PDF documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, the PDF file cannot be loaded from disk. However you can merge multiple documents from stream using the following code snippet.
+
+//Loads the file as stream
+
+Stream stream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
+
+Stream stream2 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file2.pdf");
+
+//Creates a PDF stream for merging
+
+Stream[] source = { stream1, stream2 };
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();            
+
+//Merge the documents
+
+PdfDocumentBase.Merge(document, source);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the documents
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pdf", "application/pdf", stream);
+}
 
 {% endhighlight %}
 {% endtabs %}
