@@ -104,7 +104,7 @@ PdfDocumentBase.Merge(document, loadedDocument);
 
 MemoryStream stream = new MemoryStream();
 
-await loadedDocument.SaveAsync(stream);
+await document.SaveAsync(stream);
 
 //Close the documents
 
@@ -323,7 +323,7 @@ PdfDocumentBase.Merge(document, loadedDocument);
 
 MemoryStream stream = new MemoryStream();
 
-await loadedDocument.SaveAsync(stream);
+await document.SaveAsync(stream);
 
 //Close the documents
 
@@ -1109,19 +1109,19 @@ loadedDocument.Close(True)
 
 {% highlight UWP %}
 
-//Due to platform limitations, multiple PDF files cannot be saved to disk. So Essential PDF supports split the document into multiple documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, multiple PDF files cannot be saved to disk. So, Essential PDF supports splitting the document into multiple documents only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//Due to platform limitations, multiple PDF files cannot be saved to disk. So Essential PDF supports split the document into multiple documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, multiple PDF files cannot be saved to disk. So, Essential PDF supports splitting the document into multiple documents only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//Due to platform limitations, multiple PDF files cannot be saved to disk. So Essential PDF supports split the document into multiple documents only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, multiple PDF files cannot be saved to disk. So, Essential PDF supports splitting the document into multiple documents only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms.
 
 {% endhighlight %}
 {% endtabs %}
@@ -1215,7 +1215,7 @@ PdfDocumentBase.Merge(document, loadedDocument);
 
 MemoryStream stream = new MemoryStream();
 
-await loadedDocument.SaveAsync(stream);
+await document.SaveAsync(stream);
 
 //Close the documents
 
