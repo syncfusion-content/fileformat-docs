@@ -1,5 +1,5 @@
 ---
-title: Working with MailMerge
+title: Working with MailMerge | Syncfusion
 description: This section illustrates how to merge the data from data source to a Word document
 platform: file-formats
 control: DocIO
@@ -2182,7 +2182,7 @@ wordDocument.MailMerge.ExecuteGroup(dataTable);
 
 //Saves the Word document.
 
-wordDocument.Save("Simple1.docx",FormatType.Docx);
+wordDocument.Save("Sample.docx",FormatType.Docx);
 
 //Closes the instance of Word document object
 
@@ -2256,7 +2256,7 @@ wordDocument.MailMerge.ExecuteGroup(dataTable)
 
 'Saves the Word document.
 
-wordDocument.Save("Simple1.docx", FormatType.Docx)
+wordDocument.Save("Sample.docx", FormatType.Docx)
 
 'Closes the instance of Word document object
 

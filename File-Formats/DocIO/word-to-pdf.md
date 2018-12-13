@@ -1,5 +1,5 @@
 ---
-title: Word document to PDF Conversion
+title: Word document to PDF Conversion | Syncfusion
 description: Converting Word document to PDF using DocIO
 platform: file-formats
 control: DocIO
