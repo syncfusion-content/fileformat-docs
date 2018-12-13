@@ -1,5 +1,5 @@
 ---
-title: Merge Documents
+title: Merge Documents | Syncfusion
 description: Learn how to merge or combine multiple PDF documents as one and how to import pages from one document to another using Syncfusion .NET PDF library
 platform: file-formats
 control: PDF
@@ -72,7 +72,7 @@ finalDoc.Close(True)
 
 {% highlight UWP %}
 
-//Due to platform limitations, the PDF file cannot be loaded from disk. However you can merge specified document using the following code snippet.
+//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge specified document using the following code snippet.
 
 //Create the file open picker
 
@@ -120,7 +120,7 @@ Save(stream, "Sample.pdf");
 
 {% highlight ASP.NET Core %}
 
-//Due to platform limitations, the PDF file cannot be loaded from disk. However you can merge multiple documents from stream using the following code snippet.
+//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
 
 //Creates a PDF document
 
@@ -172,7 +172,7 @@ return File(stream, contentType, fileName);
 
 {% highlight Xamarin %}
 
-//Due to platform limitations, the PDF file cannot be loaded from disk. However you can merge multiple documents from stream using the following code snippet.
+//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
 
 //Loads the file as stream
 
@@ -297,7 +297,7 @@ stream2.Dispose()
 
 {% highlight UWP %}
 
-//PDF supports merging multiple documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms. However you can merge spcific document by using the following code snippet.
+//PDF supports merging multiple documents from stream only in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms. However, you can merge specified document using the following code snippet.
 
 //Load the PDF document as stream
 
@@ -1183,7 +1183,7 @@ document.Close(True)
 
 {% highlight UWP %}
 
-//Due to platform limitations, the PDF file cannot be loaded from disk. However you can merge specified document using the following code snippet.
+//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge specified document using the following code snippet.
 
 //Create the file open picker
 
@@ -1231,7 +1231,7 @@ Save(stream, "Sample.pdf");
 
 {% highlight ASP.NET Core %}
 
-//Due to platform limitations, the PDF file cannot be loaded from disk. However you can merge multiple documents from stream using the following code snippet.
+//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
 
 //Creates a PDF document
 
@@ -1283,7 +1283,7 @@ return File(stream, contentType, fileName);
 
 {% highlight Xamarin %}
 
-//Due to platform limitations, the PDF file cannot be loaded from disk. However you can merge multiple documents from stream using the following code snippet.
+//Due to platform limitations, the PDF file cannot be loaded from disk. However, you can merge multiple documents from stream using the following code snippet.
 
 //Loads the file as stream
 
