@@ -1713,7 +1713,7 @@ DocToPDFConverter converter = new DocToPDFConverter();
 
 //Adds the hyphenation dictionary of the specified language
 
-FileStream dictionaryStream = new FileStream(@"hyph_en_US .dic", FileMode.Open, FileAccess.Read);
+FileStream dictionaryStream = new FileStream("hyphen_en_US.dic", FileMode.Open, FileAccess.Read);
 
 //Adds the hyphenation dictionary of the specified language
 
@@ -1751,7 +1751,7 @@ Dim converter As New DocToPDFConverter()
 
 'Adds the hyphenation dictionary of the specified language
 
-Dim dictionaryStream As New FileStream(path:=" hyph_en_US .dic", mode:=FileMode.Open)
+Dim dictionaryStream As New FileStream("hyphen_en_US .dic", mode:=FileMode.Open)
 
 'Adds the hyphenation dictionary of the specified language
 
@@ -1763,7 +1763,7 @@ Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
 
 'Saves the PDF file 
 
-pdfDocument.Save("C:\Users\jenefa.koilduraijeba\Desktop\WordtoPDF.pdf")
+pdfDocument.Save("WordtoPDF.pdf")
 
 'Closes the instance of document objects
 
@@ -1787,7 +1787,7 @@ DocIORenderer renderer = new DocIORenderer();
 
 //Reads the language dictionary for hyphenation
 
-FileStream dictionaryStream = new FileStream("hyph_en_US.dic", FileMode.Open);
+FileStream dictionaryStream = new FileStream("hyphen_en_US.dic", FileMode.Open);
 
 //Adds the hyphenation dictionary of the specified language
 
@@ -1833,7 +1833,7 @@ DocIORenderer renderer = new DocIORenderer();
 
 //Reads the language dictionary for hyphenation
 
-FileStream dictionaryStream = new FileStream("hyph_en_US.dic", FileMode.Open);
+FileStream dictionaryStream = new FileStream("hyphen_en_US.dic", FileMode.Open);
 
 //Adds the hyphenation dictionary of the specified language
 

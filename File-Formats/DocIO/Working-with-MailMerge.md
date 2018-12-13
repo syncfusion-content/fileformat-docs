@@ -18,7 +18,7 @@ The following data sources are supported by Essential DocIO for performing Mail 
 
 You can create a template document with Merge fields by using the Microsoft Word. The following screenshot shows how to insert a merge filed in the Word document by using the Microsoft Word.
 
-![](MailMerge_images/MailMerge_img1.png)
+![Word template document](MailMerge_images/MailMerge_img1.png)
 
 
 You need to add a prefix (“Image:”) to the merge field name for merging an image in the place of a merge field.
@@ -121,7 +121,7 @@ document.Close()
 
 The generated template document looks as follows.
 
-![](MailMerge_images/MailMerge_img2.jpeg)
+![Template document](MailMerge_images/MailMerge_img2.jpeg)
 
 The following code example shows how to perform a simple Mail merge in the generated template document with string array as data source.
 
@@ -175,7 +175,7 @@ document.Close()
 
 The resultant document looks as follows.
 
-![](MailMerge_images/MailMerge_img3.jpeg)
+![Resultant document](MailMerge_images/MailMerge_img3.jpeg)
 
 
 ## Performing Mail merge for a group
@@ -190,7 +190,7 @@ You can perform Mail merge and append multiple records from data source within a
 
 For example – Consider that you have a template document as shown.
 
-![](MailMerge_images/MailMerge_img4.jpeg)
+![Mail merge for a group](MailMerge_images/MailMerge_img4.jpeg)
 
 
 In this template, Employees is the group name and the same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the Mail merge group. 
@@ -307,7 +307,7 @@ End Function
 
 The resultant document looks as follows.
 
-![](MailMerge_images/MailMerge_img5.jpeg)
+![Group resultant document](MailMerge_images/MailMerge_img5.jpeg)
 
 
 ## Performing Nested Mail merge for group
@@ -1021,7 +1021,7 @@ You can perform nested Mail merge with implicit relational data objects without 
 
 For example – Consider that you have a template document as follows.
 
-![](MailMerge_images/MailMerge_img6.jpeg)
+![Nested Mail merge](MailMerge_images/MailMerge_img6.jpeg)
 
 
 In this template, Employees is the owner group and it has two child groups Customers and Orders.
@@ -1586,7 +1586,7 @@ End Class
 
 The resultant document looks as follows.
 
-![](MailMerge_images/MailMerge_img7.jpeg)
+![Nested Mail merge resultant document](MailMerge_images/MailMerge_img7.jpeg)
 
 
 ## Event support for Mail merge
@@ -2156,7 +2156,7 @@ The following code example shows how to restart the list numbering in a Word doc
 
 //Loads an existing Word document
 
-WordDocument wordDocument = new WordDocument(@"D:\Desktop Items\mailmerge.docx");
+WordDocument wordDocument = new WordDocument("Template.docx");
 
 //Sets ImportOptions to restart the list numbering.
 
@@ -2230,7 +2230,7 @@ public class Employee
 
 'Loads an existing Word document
 
-Dim wordDocument As WordDocument = New WordDocument("D:\Desktop Items\mailmerge.docx")
+Dim wordDocument As WordDocument = New WordDocument("Template.docx")
 
 'Sets ImportOptions to restart the list numbering.
 
