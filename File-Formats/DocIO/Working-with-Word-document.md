@@ -932,6 +932,110 @@ destinationDocument.Close()
 
 {% endtabs %}  
 
+### Maintain Imported List style information
+
+The following code example shows how to maintain information about imported list styles in a Word document while cloning and merging multiple Word documents.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Opens the source document
+
+WordDocument sourceDocument = new WordDocument(sourceFileName);
+
+//Opens the destination document  
+
+WordDocument destinationDocument = new WordDocument(targetFileName);
+
+//Sets true value to maintain imported list style cache to destination document
+
+destinationDocument.Settings.MaintainImportedListCache = true;
+
+//Processes the body contents for each section in the Word document
+
+foreach (WSection section in sourceDocument.Sections)
+
+{   
+
+//Accesses the body of section where all the contents in document are apart
+
+foreach (TextBodyItem bodyItem in section.Body.ChildEntities)
+
+{
+
+   destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone());
+
+}
+
+}   
+
+//Closes the source document
+
+sourceDocument.Close();
+
+//Sets false value to exclude imported list style cache to destination document
+
+destinationDocument.Settings.MaintainImportedListCache = false;
+
+//Saves the destination document
+
+destinationDocument.Save(outputFileName, FormatType.Docx);
+
+//Closes the destination document
+
+destinationDocument.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Opens the source document
+
+Dim sourceDocument As New WordDocument(sourceFileName)
+
+'Opens the destination document
+
+Dim destinationDocument As New WordDocument(targetFileName)
+
+'Sets true value to maintain imported list style cache to destination document
+
+destinationDocument.Settings.MaintainImportedListCache = True
+
+'Processes the body contents for each section in the Word document
+
+For Each section As WSection In sourceDocument.Sections
+
+'Accesses the body of section where all the contents in document are apart     
+
+For Each bodyItem As TextBodyItem In section.Body.ChildEntities
+
+destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone())
+
+Next
+
+Next   
+
+'Closes the source document
+
+sourceDocument.Close()
+
+'Sets false value to exclude imported list style cache to destination document
+
+destinationDocument.Settings.MaintainImportedListCache = False
+
+'Saves the destination document
+
+destinationDocument.Save(outputFileName, FormatType.Docx)
+
+'Closes the destination document
+
+destinationDocument.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Printing a Word document
 
 You can print a Word document by utilizing DocIO’s capability to convert the document into images and .NET framework’s [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx#) class
