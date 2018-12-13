@@ -3573,8 +3573,8 @@ If the temporary folder does not have elevated permission for the respective use
 <td>By default, WebKit HTML converter gets system temporary folder to create temporary files for conversion. Please refer to the following examples of default temporary folder.
 <br/><br/>
 <ul>
-<li>C:\Users\<<username>>\AppData\Local\Temp</li>
-<li>C:\Windows\Temp<li/>
+<li>C:\Users\User_Name\AppData\Local\Temp</li>
+<li>C:\Windows\Temp</li>
 </ul>
 <br/><br/>
 Make sure that the previous paths have elevated permission for respective user. 
@@ -3622,20 +3622,6 @@ settings.TempPath = "D://MyProject//bin";
 <tr>
 <th style="font-size:14px">Reason
 </th>
-<td>Sometimes this exception occurs for only particular URL
-</td>
-</tr>
-
-<tr>
-<th style="font-size:14px">Solution
-</th>
-<td>Please contact Syncfusion <a href="https://www.syncfusion.com/support/directtrac/incidents/newincident">support</a> with input HTML, code snippet, and environment details (OS, culture settings, bit version etc.,).
-</td>
-</tr>
-
-<tr>
-<th style="font-size:14px">Reason
-</th>
 <td>WebKit rendering engine internally creates surrogate process in a temporary folder (temporary executable with different name for every conversion) and launches it for converting HTML to PDF. So, the converter requires read/write/execute permission for  temporary folder to execute the temporary executable from the code. 
 <br/>
 <br/>
@@ -3675,6 +3661,20 @@ webkitConverterSettings.TempFileName = "Syncfusion";
 <br/>
 <br/>
 2. Enable the read/write/execute permission of the temporary path for the respective group.   
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Reason
+</th>
+<td>Sometimes this exception occurs for only particular URL
+</td>
+</tr>
+
+<tr>
+<th style="font-size:14px">Solution
+</th>
+<td>Please contact Syncfusion <a href="https://www.syncfusion.com/support/directtrac/incidents/newincident">support</a> with input HTML, code snippet, and environment details (OS, culture settings, bit version etc.,).
 </td>
 </tr>
 
