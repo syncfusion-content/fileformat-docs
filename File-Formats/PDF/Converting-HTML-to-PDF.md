@@ -3538,7 +3538,8 @@ Issue
 <th style="font-size:14px">Solution
 </th>
 <td>Unblock the assembly if it is blocked by referring to the following screenshot of <i>Syncfusion.HtmlConverter.Base.dll</i>.
-![Syncfusion.HtmlConverter.Base.dll Properties](DocumentConversion_images/TroubleShootDllProperties.png)
+<br/>
+<img src="DocumentConversion_images/TroubleShootDllProperties.png" alt="Syncfusion.HtmlConverter.Base.dll Properties">
 </td>
 </tr>
 
