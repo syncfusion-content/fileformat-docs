@@ -1034,6 +1034,118 @@ destinationDocument.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET Core %}
+
+//Opens the source document
+
+FileStream SourceFileStream = new FileStream("Source.docx", FileMode.Open);
+
+WordDocument sourceDocument = new WordDocument(SourceFileStream, FormatType.Docx);
+
+//Opens the destination document  
+
+FileStream DestinationFileStream = new FileStream("Destination.docx", FileMode.Open);
+
+WordDocument destinationDocument = new WordDocument(DestinationFileStream, FormatType.Docx);
+
+//Sets true value to maintain imported list style cache to destination document
+
+destinationDocument.Settings.MaintainImportedListCache = true;
+
+//Processes the body contents for each section in the Word document
+
+foreach (WSection section in sourceDocument.Sections)
+
+{   
+
+//Accesses the body of section where all the contents in document are apart
+
+foreach (TextBodyItem bodyItem in section.Body.ChildEntities)
+
+{
+
+   destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone());
+
+}
+
+}   
+
+//Closes the source document
+
+sourceDocument.Close();
+
+//Sets false value to exclude imported list style cache to destination document
+
+destinationDocument.Settings.MaintainImportedListCache = false;
+
+//Saves the destination document
+
+MemoryStream outputStream = new MemoryStream();
+
+destinationDocument.Save(outputStream, FormatType.Docx);
+
+//Closes the destination document
+
+destinationDocument.Close();
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Opens the source document
+
+Stream sourceStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Source.docx");
+
+WordDocument sourceDocument = new WordDocument(sourceStream, FormatType.Docx);
+
+//Opens the destination document  
+
+Stream destinationStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Destination.docx");
+
+WordDocument destinationDocument = new WordDocument(destinationStream, FormatType.Docx);
+
+//Sets true value to maintain imported list style cache to destination document
+
+destinationDocument.Settings.MaintainImportedListCache = true;
+
+//Processes the body contents for each section in the Word document
+
+foreach (WSection section in sourceDocument.Sections)
+
+{   
+
+//Accesses the body of section where all the contents in document are apart
+
+foreach (TextBodyItem bodyItem in section.Body.ChildEntities)
+
+{
+
+   destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone());
+
+}
+
+}   
+
+//Closes the source document
+
+sourceDocument.Close();
+
+//Sets false value to exclude imported list style cache to destination document
+
+destinationDocument.Settings.MaintainImportedListCache = false;
+
+//Saves the destination document
+
+MemoryStream outputStream = new MemoryStream();
+
+destinationDocument.Save(outputStream, FormatType.Docx);
+
+//Closes the destination document
+
+destinationDocument.Close();
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Printing a Word document
