@@ -2080,19 +2080,156 @@ loadedDocument.Close(True)
 
 {% highlight UWP %}
 
-//PDF supports splitting a PDF file to individual page only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, Essential PDF supports splitting a PDF file into individual pages only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. However this can be acheived by using the following code snippet. 
 
-{% endhighlight %}
+//Create the file open picker
 
-{% highlight Xamarin %}
+var picker = new FileOpenPicker();
 
-//PDF supports splitting a PDF file to individual page only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+for (int i = 0; i < loadedDocument.PageCount; i++)
+{
+
+//Creates a new document
+
+PdfDocument document = new PdfDocument();
+
+//Imports the loaded document page index to the current document
+
+document.ImportPage(loadedDocument, i);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output" +i +".pdf");
+
+}
+
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//PDF supports splitting a PDF file to individual page only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Due to platform limitations, Essential PDF supports splitting a PDF file into individual pages only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. However this can be acheived by using the following code snippet. 
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+for (int i=0;i<loadedDocument.PageCount;i++)
+{
+
+//Creates a new document
+
+PdfDocument document = new PdfDocument();
+
+//Imports the pages from the loaded document
+
+document.ImportPage(loadedDocument, i);
+
+//Create a memory stream 
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document to stream
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Create a file stream
+
+FileStream fileStream = new FileStream("Output" + i + ".pdf", FileMode.Create, FileAccess.Write);
+
+byte[] bytes = stream.ToArray();
+
+//Write bytes to file
+
+fileStream.Write(bytes, 0, (int)bytes.Length);
+
+//Dispose the streams
+
+stream.Dispose();
+
+fileStream.Dispose();
+
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Due to platform limitations, Essential PDF supports splitting a PDF file into individual pages only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. However this can be acheived by using the following code snippet. 
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+for (int i = 0; i < loadedDocument.Pages.Count; i++)
+{
+
+//Creates a new document
+
+PdfDocument document = new PdfDocument();
+
+//Imports the pages from the loaded document
+
+document.ImportPage(loadedDocument, i);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output"+ i+ ".pdf", "application/pdf", stream;
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output" + i + ".pdf", "application/pdf", stream);
+}
+}
+
 
 {% endhighlight %}
 
