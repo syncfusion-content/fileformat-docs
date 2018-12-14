@@ -2080,7 +2080,7 @@ loadedDocument.Close(True)
 
 {% highlight UWP %}
 
-//Due to platform limitations, Essential PDF supports splitting a PDF file into individual pages only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. However this can be acheived by using the following code snippet. 
+//Due to platform limitations, Essential PDF supports splitting a PDF file into individual pages only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. However this can be achieved by using the following code snippet. 
 
 //Create the file open picker
 
@@ -2132,7 +2132,7 @@ Save(stream, "Output" +i +".pdf");
 
 {% highlight ASP.NET Core %}
 
-//Due to platform limitations, Essential PDF supports splitting a PDF file into individual pages only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. However this can be acheived by using the following code snippet. 
+//Due to platform limitations, Essential PDF supports splitting a PDF file into individual pages only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. However this can be achieved by using the following code snippet. 
 
 //Load the PDF document
 
@@ -2187,7 +2187,7 @@ fileStream.Dispose();
 
 {% highlight Xamarin %}
 
-//Due to platform limitations, Essential PDF supports splitting a PDF file into individual pages only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. However this can be acheived by using the following code snippet. 
+//Due to platform limitations, Essential PDF supports splitting a PDF file into individual pages only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. However this can be achieved by using the following code snippet. 
 
 //Load the file as stream
 
