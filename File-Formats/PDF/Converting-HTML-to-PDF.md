@@ -3538,7 +3538,8 @@ Issue
 <th style="font-size:14px">Solution
 </th>
 <td>Unblock the assembly if it is blocked by referring to the following screenshot of <i>Syncfusion.HtmlConverter.Base.dll</i>.
-![Syncfusion.HtmlConverter.Base.dll Properties](DocumentConversion_images/TroubleShootDllProperties.png)
+<br/>
+<img src="DocumentConversion_images/TroubleShootDllProperties.png" alt="Syncfusion.HtmlConverter.Base.dll Properties">
 </td>
 </tr>
 
@@ -4157,66 +4158,6 @@ document.Close(True)
 
 {% endtabs %}
 
-### Token Based authentication
-
-The Blink HTML Converter supports token-based authentication by using the HTTP request headers. The token values will be send to web server when the HTML page is requested. Refer to the following code snippet.
-
-{% tabs %}
-
-{% highlight c# %}
-
-// Initialize HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Add a bearer token to login a webpage
-
-blinkConverterSettings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>");
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert URL to PDF
-PdfDocument document = htmlConverter.Convert("https://www.example.com");
-
-//Save and close the PDF document
-document.Save("Output.pdf");
-
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Initialize HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
-
-Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
-'Add a bearer token to login a webpage
-blinkConverterSettings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>")
-
-'Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings
-
-'Convert URL to PDF
-Dim document As PdfDocument = htmlConverter.Convert("https://www.example.com")
-
-'Save and close the PDF document
-document.Save("Output.pdf")
-
-document.Close(True)
-
-{% endhighlight %}
-
-{% endtabs %}
 
 ### Windows status
 
