@@ -1,5 +1,5 @@
 ---
-title: Working with pages
+title: Working with pages | Syncfusion
 description: This section explains how to add, rearrange and remove pages from the PDF document
 platform: file-formats
 control: PDF
