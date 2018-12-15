@@ -1,5 +1,5 @@
 ---
-title: Working with MailMerge
+title: Working with MailMerge | Syncfusion
 description: This section illustrates how to merge the data from data source to a Word document
 platform: file-formats
 control: DocIO
@@ -18,7 +18,7 @@ The following data sources are supported by Essential DocIO for performing Mail 
 
 You can create a template document with Merge fields by using the Microsoft Word. The following screenshot shows how to insert a merge filed in the Word document by using the Microsoft Word.
 
-![](MailMerge_images/MailMerge_img1.png)
+![Word template document](MailMerge_images/MailMerge_img1.png)
 
 
 You need to add a prefix (“Image:”) to the merge field name for merging an image in the place of a merge field.
@@ -121,7 +121,7 @@ document.Close()
 
 The generated template document looks as follows.
 
-![](MailMerge_images/MailMerge_img2.jpeg)
+![Template document](MailMerge_images/MailMerge_img2.jpeg)
 
 The following code example shows how to perform a simple Mail merge in the generated template document with string array as data source.
 
@@ -175,7 +175,7 @@ document.Close()
 
 The resultant document looks as follows.
 
-![](MailMerge_images/MailMerge_img3.jpeg)
+![Resultant document](MailMerge_images/MailMerge_img3.jpeg)
 
 
 ## Performing Mail merge for a group
@@ -190,7 +190,7 @@ You can perform Mail merge and append multiple records from data source within a
 
 For example – Consider that you have a template document as shown.
 
-![](MailMerge_images/MailMerge_img4.jpeg)
+![Mail merge for a group](MailMerge_images/MailMerge_img4.jpeg)
 
 
 In this template, Employees is the group name and the same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the Mail merge group. 
@@ -307,7 +307,7 @@ End Function
 
 The resultant document looks as follows.
 
-![](MailMerge_images/MailMerge_img5.jpeg)
+![Group resultant document](MailMerge_images/MailMerge_img5.jpeg)
 
 
 ## Performing Nested Mail merge for group
@@ -1021,7 +1021,7 @@ You can perform nested Mail merge with implicit relational data objects without 
 
 For example – Consider that you have a template document as follows.
 
-![](MailMerge_images/MailMerge_img6.jpeg)
+![Nested Mail merge](MailMerge_images/MailMerge_img6.jpeg)
 
 
 In this template, Employees is the owner group and it has two child groups Customers and Orders.
@@ -1586,7 +1586,7 @@ End Class
 
 The resultant document looks as follows.
 
-![](MailMerge_images/MailMerge_img7.jpeg)
+![Nested Mail merge resultant document](MailMerge_images/MailMerge_img7.jpeg)
 
 
 ## Event support for Mail merge
@@ -2145,3 +2145,350 @@ document.Close()
 {% endhighlight %}
 
 {% endtabs %}  
+
+### Restart numbering in lists
+
+The following code example shows how to restart the list numbering in a Word documents while performing mail merge and merging multiple Word documents.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument("Template.docx");
+
+//Sets ImportOptions to restart the list numbering.
+
+wordDocument.ImportOptions = ImportOptions.ListRestartNumbering;
+
+//Creates the employee details as “IEnumerable” collection
+
+List<Employee> employeeList = new List<Employee>();
+
+employeeList.Add(new Employee("101", "Nancy Davolio", "Seattle, WA, USA"));
+
+employeeList.Add(new Employee("102", "Andrew Fuller", "Tacoma, WA, USA"));
+
+employeeList.Add(new Employee("103", "Janet Leverling", "Kirkland, WA, USA"));
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employee", employeeList);
+
+//Performs Mail merge
+
+wordDocument.MailMerge.ExecuteGroup(dataTable);
+
+//Saves the Word document.
+
+wordDocument.Save("Sample.docx",FormatType.Docx);
+
+//Closes the instance of Word document object
+
+wordDocument.Close();
+
+/// <summary>
+
+/// Represents an helper class to perform mail merge.
+
+/// </summary>
+
+public class Employee
+
+{
+
+    public string EmployeeID { get; set; }
+
+    public string EmployeeName { get; set; }
+
+    public string Location { get; set; }
+
+    /// <summary>
+
+    /// Represents a constructor to create value for merge fields.
+
+    /// </summary>    
+
+    public Employee(string employeeId, string employeeName, string location)
+
+    {
+
+        EmployeeID = employeeId;
+
+        EmployeeName = employeeName;
+
+        Location = location;
+
+	}
+
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads an existing Word document
+
+Dim wordDocument As WordDocument = New WordDocument("Template.docx")
+
+'Sets ImportOptions to restart the list numbering.
+
+wordDocument.ImportOptions = ImportOptions.ListRestartNumbering
+
+'Creates the employee details as “IEnumerable” collection
+
+Dim employeeList As List(Of Employee) = New List(Of Employee)()
+
+employeeList.Add(New Employee("101", "Nancy Davolio", "Seattle, WA, USA"))
+
+employeeList.Add(New Employee("102", "Andrew Fuller", "Tacoma, WA, USA"))
+
+employeeList.Add(New Employee("103", "Janet Leverling", "Kirkland, WA, USA"))
+
+'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+Dim dataTable As MailMergeDataTable = New MailMergeDataTable("Employee", employeeList)
+
+'Performs Mail merge
+
+wordDocument.MailMerge.ExecuteGroup(dataTable)
+
+'Saves the Word document.
+
+wordDocument.Save("Sample.docx", FormatType.Docx)
+
+'Closes the instance of Word document object
+
+wordDocument.Close()
+
+'Represents an helper class to perform mail merge.
+
+Public Class Employee
+
+    Public Property EmployeeID() As String
+
+        Get
+
+            Return m_EmployeeID
+
+        End Get
+
+        Set(value As String)
+
+            m_EmployeeID = value
+
+        End Set
+
+    End Property
+
+    Private m_EmployeeID As String
+
+    Public Property EmployeeName() As String
+
+        Get
+
+            Return m_EmployeeName
+
+        End Get
+
+        Set(value As String)
+
+            m_EmployeeName = value
+
+        End Set
+
+    End Property
+
+    Private m_EmployeeName As String
+
+    Public Property Location() As String
+
+        Get
+
+            Return m_Location
+
+        End Get
+
+        Set(value As String)
+
+            m_Location = value
+
+        End Set
+
+    End Property
+
+    Private m_Location As String
+
+    'Represents a constructor to create value for merge fields.
+
+    Public Sub New(employeeId As String, employeeName As String, location As String)
+
+        m_EmployeeID = employeeId
+
+        m_EmployeeName = employeeName
+
+        m_Location = location
+
+	End Sub
+
+End Class
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
+
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
+
+//Sets ImportOptions to restart the list numbering.
+
+wordDocument.ImportOptions = ImportOptions.ListRestartNumbering;
+
+//Creates the employee details as “IEnumerable” collection
+
+List<Employee> employeeList = new List<Employee>();
+
+employeeList.Add(new Employee("101", "Nancy Davolio", "Seattle, WA, USA"));
+
+employeeList.Add(new Employee("102", "Andrew Fuller", "Tacoma, WA, USA"));
+
+employeeList.Add(new Employee("103", "Janet Leverling", "Kirkland, WA, USA"));
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+
+//Performs Mail merge
+
+wordDocument.MailMerge.ExecuteGroup(dataTable);
+
+//Saves the Word document.
+
+MemoryStream outputStream = new MemoryStream();
+
+wordDocument.Save(outputStream, FormatType.Docx);
+
+//Closes the instance of Word document object
+
+wordDocument.Close();
+
+/// <summary>
+
+/// Represents an helper class to perform mail merge.
+
+/// </summary>
+
+public class Employee
+
+{
+
+    public string EmployeeID { get; set; }
+
+    public string EmployeeName { get; set; }
+
+    public string Location { get; set; }
+
+    /// <summary>
+
+    /// Represents a constructor to create value for merge fields.
+
+    /// </summary>    
+
+    public Employee(string employeeId, string employeeName, string location)
+
+    {
+
+        EmployeeID = employeeId;
+
+        EmployeeName = employeeName;
+
+        Location = location;
+
+	}
+
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the Word document as stream 
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+// Loads the stream into Word Document.
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Sets ImportOptions to restart the list numbering.
+
+wordDocument.ImportOptions = ImportOptions.ListRestartNumbering;
+
+//Creates the employee details as “IEnumerable” collection
+
+List<Employee> employeeList = new List<Employee>();
+
+employeeList.Add(new Employee("101", "Nancy Davolio", "Seattle, WA, USA"));
+
+employeeList.Add(new Employee("102", "Andrew Fuller", "Tacoma, WA, USA"));
+
+employeeList.Add(new Employee("103", "Janet Leverling", "Kirkland, WA, USA"));
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+
+//Performs Mail merge
+
+wordDocument.MailMerge.ExecuteGroup(dataTable);
+
+//Saves the Word document.
+
+MemoryStream outputStream = new MemoryStream();
+
+wordDocument.Save(outputStream, FormatType.Docx);
+
+//Closes the instance of Word document object
+
+wordDocument.Close();
+
+/// <summary>
+
+/// Represents an helper class to perform mail merge.
+
+/// </summary>
+
+public class Employee
+
+{
+
+	public string EmployeeID { get; set; }
+	
+	public string EmployeeName { get; set; }
+	
+	public string Location { get; set; }
+	
+	/// <summary>
+	
+	/// Represents a constructor to create value for merge fields.
+	
+	/// </summary>    
+	
+	public Employee(string employeeId, string employeeName, string location)
+	
+	{
+	
+		EmployeeID = employeeId;
+	
+		EmployeeName = employeeName;
+	
+		Location = location;
+	}
+}
+
+{% endhighlight %}
+
+{% endtabs %}
