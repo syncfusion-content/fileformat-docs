@@ -2119,14 +2119,6 @@ Not supported
 </tr>
 <tr>
 <td>
-Hyphenation
-</td>
-<td>
-Not supported
-</td>
-</tr>
-<tr>
-<td>
 Comments
 </td>
 <td>
@@ -2144,14 +2136,6 @@ Not supported
 <tr>
 <td>
 Equation
-</td>
-<td>
-Not supported
-</td>
-</tr>
-<tr>
-<td>
-Track changes
 </td>
 <td>
 Not supported
