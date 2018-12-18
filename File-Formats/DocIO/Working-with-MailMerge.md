@@ -2158,7 +2158,7 @@ The following code example shows how to restart the list numbering in a Word doc
 
 WordDocument wordDocument = new WordDocument("Template.docx");
 
-//Sets ImportOptions to restart the list numbering.
+//Sets ImportOptions to restart the list numbering
 
 wordDocument.ImportOptions = ImportOptions.ListRestartNumbering;
 
@@ -2172,15 +2172,15 @@ employeeList.Add(new Employee("102", "Andrew Fuller", "Tacoma, WA, USA"));
 
 employeeList.Add(new Employee("103", "Janet Leverling", "Kirkland, WA, USA"));
 
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
 
 MailMergeDataTable dataTable = new MailMergeDataTable("Employee", employeeList);
 
-//Performs Mail merge
+//Performs mail merge
 
 wordDocument.MailMerge.ExecuteGroup(dataTable);
 
-//Saves the Word document.
+//Saves the Word document
 
 wordDocument.Save("Sample.docx",FormatType.Docx);
 
@@ -2190,7 +2190,7 @@ wordDocument.Close();
 
 /// <summary>
 
-/// Represents an helper class to perform mail merge.
+/// Represents the helper class to perform mail merge
 
 /// </summary>
 
@@ -2206,7 +2206,7 @@ public class Employee
 
     /// <summary>
 
-    /// Represents a constructor to create value for merge fields.
+    /// Represents a constructor to create value for merge fields
 
     /// </summary>    
 
@@ -2232,7 +2232,7 @@ public class Employee
 
 Dim wordDocument As WordDocument = New WordDocument("Template.docx")
 
-'Sets ImportOptions to restart the list numbering.
+'Sets ImportOptions to restart the list numbering
 
 wordDocument.ImportOptions = ImportOptions.ListRestartNumbering
 
@@ -2246,15 +2246,15 @@ employeeList.Add(New Employee("102", "Andrew Fuller", "Tacoma, WA, USA"))
 
 employeeList.Add(New Employee("103", "Janet Leverling", "Kirkland, WA, USA"))
 
-'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
 
 Dim dataTable As MailMergeDataTable = New MailMergeDataTable("Employee", employeeList)
 
-'Performs Mail merge
+'Performs mail merge
 
 wordDocument.MailMerge.ExecuteGroup(dataTable)
 
-'Saves the Word document.
+'Saves the Word document
 
 wordDocument.Save("Sample.docx", FormatType.Docx)
 
@@ -2262,7 +2262,7 @@ wordDocument.Save("Sample.docx", FormatType.Docx)
 
 wordDocument.Close()
 
-'Represents an helper class to perform mail merge.
+'Represents the helper class to perform mail merge
 
 Public Class Employee
 
@@ -2320,7 +2320,7 @@ Public Class Employee
 
     Private m_Location As String
 
-    'Represents a constructor to create value for merge fields.
+    'Represents a constructor to create value for merge fields
 
     Public Sub New(employeeId As String, employeeName As String, location As String)
 
@@ -2344,7 +2344,7 @@ FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
 
-//Sets ImportOptions to restart the list numbering.
+//Sets ImportOptions to restart the list numbering
 
 wordDocument.ImportOptions = ImportOptions.ListRestartNumbering;
 
@@ -2358,15 +2358,15 @@ employeeList.Add(new Employee("102", "Andrew Fuller", "Tacoma, WA, USA"));
 
 employeeList.Add(new Employee("103", "Janet Leverling", "Kirkland, WA, USA"));
 
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
 
 MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
 
-//Performs Mail merge
+//Performs mail merge
 
 wordDocument.MailMerge.ExecuteGroup(dataTable);
 
-//Saves the Word document.
+//Saves the Word document
 
 MemoryStream outputStream = new MemoryStream();
 
@@ -2378,7 +2378,7 @@ wordDocument.Close();
 
 /// <summary>
 
-/// Represents an helper class to perform mail merge.
+/// Represents the helper class to perform mail merge
 
 /// </summary>
 
@@ -2394,7 +2394,7 @@ public class Employee
 
     /// <summary>
 
-    /// Represents a constructor to create value for merge fields.
+    /// Represents a constructor to create value for merge fields
 
     /// </summary>    
 
@@ -2419,11 +2419,11 @@ public class Employee
 
 Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
 
-// Loads the stream into Word Document.
+// Loads the stream into Word Document
 
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 
-//Sets ImportOptions to restart the list numbering.
+//Sets ImportOptions to restart the list numbering
 
 wordDocument.ImportOptions = ImportOptions.ListRestartNumbering;
 
@@ -2437,11 +2437,11 @@ employeeList.Add(new Employee("102", "Andrew Fuller", "Tacoma, WA, USA"));
 
 employeeList.Add(new Employee("103", "Janet Leverling", "Kirkland, WA, USA"));
 
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
 
 MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
 
-//Performs Mail merge
+//Performs mail merge
 
 wordDocument.MailMerge.ExecuteGroup(dataTable);
 
@@ -2457,7 +2457,7 @@ wordDocument.Close();
 
 /// <summary>
 
-/// Represents an helper class to perform mail merge.
+/// Represents the helper class to perform mail merge
 
 /// </summary>
 
@@ -2473,7 +2473,7 @@ public class Employee
 	
 	/// <summary>
 	
-	/// Represents a constructor to create value for merge fields.
+	/// Represents a constructor to create value for merge fields
 	
 	/// </summary>    
 	

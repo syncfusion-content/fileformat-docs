@@ -1525,9 +1525,9 @@ pdfDocument.Save(outputStream);
 
 ### complex script text
 
-This setting allows you to Preservation of complex script text in converted PDF document.
+This setting allows you to preserve the complex script text in the converted PDF document.
 
-The following code sample shows how to Preservation of complex script text into the converted PDF document.
+The following code sample shows how to preserve the complex script text in the converted PDF document.
 
 {% tabs %}  
 
@@ -1541,7 +1541,7 @@ WordDocument wordDocument = new WordDocument(@"Template.docx", FormatType.Docx);
 
 DocToPDFConverter converter = new DocToPDFConverter();
 
-//Sets AutoDetectComplexScript property as true, to detect the complex scripts automatically.
+//Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
 
 converter.Settings.AutoDetectComplexScript = true;
 
@@ -1577,7 +1577,7 @@ wordDocument.ChartToImageConverter = New ChartToImageConverter()
 
 Dim converter As New DocToPDFConverter()
 
-'Sets AutoDetectComplexScript property as true, to detect the complex scripts automatically.
+'Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
 
 converter.Settings.AutoDetectComplexScript = True
 
@@ -1609,19 +1609,7 @@ WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
 
 DocIORenderer renderer = new DocIORenderer();
 
-//Sets EmbedFonts property as true, to embed fonts in resultant PDF
-
-renderer.Settings.EmbedFonts = true;
-
-//Sets EmbedCompleteFonts property as true, to embed complete font information in converted PDF
-
-renderer.Settings.EmbedCompleteFonts = true;
-
-//Sets PDF conformance level PDF/A1B or PDF/X-1a:2001 for long-term archiving
-
-renderer.Settings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B;
-
-//Sets AutoDetectComplexScript property as true, to detect the complex scripts automatically.
+//Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
 
 renderer.Settings.AutoDetectComplexScript = true;
 
@@ -1663,7 +1651,7 @@ WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatT
 
 DocIORenderer render = new DocIORenderer();
 
-//Sets AutoDetectComplexScript property as true, to detect the complex scripts automatically.
+//Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
 
 render.Settings.AutoDetectComplexScript = true;
 
@@ -1691,10 +1679,13 @@ pdfDocument.Close();
 
 {% endtabs %}
 
-### Hyphenation in Word-to-PDF and Word-to-image conversions
+### Hyphenation in Word-to-PDF conversion
 
-The following code sample shows how to hyphenate text in a Word document while converting it to PDF or image format.
+Essential DocIO now allows hyphenating text in a Word document while converting it to PDF format based on the given language dictionaries. These dictionaries prescribe where words of a specific language can be hyphenated. Use the dictionary files as OpenOffice format dictionary.
 
+N> 1. If automatic hyphenation is not enabled in the Word document, you can enable it by using WordDocument. property of DocIO.
+
+The following code sample shows how to hyphenate text in a Word document while converting it to PDF format.
 {% tabs %}  
 
 {% highlight c# %}
@@ -1867,7 +1858,7 @@ pdfDocument.Close();
 
 ### Track changes in Word-to-PDF conversion
 
-The following code sample shows how to preserve revision marks in a generated PDF when converting Word documents with tracked changes or revisions
+The following code sample shows how to preserve revision marks in a generated PDF when converting Word documents with tracked changes or revisions.
 
 {% tabs %}  
 
@@ -1877,7 +1868,7 @@ The following code sample shows how to preserve revision marks in a generated PD
 
 WordDocument wordDocument =new WordDocument();
 
-//Sets revision types to preserve track changes in  Word to PDF conversion
+//Sets revision types to preserve track changes in Word when converting to PDF
 
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
 
@@ -1911,7 +1902,7 @@ pdfDocument.Close();
 
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
 
-'Sets revision types to preserve track changes in  Word to PDF conversion.
+'Sets revision types to preserve track changes in when converting to PDF conversion.
 
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions Or
 
@@ -1951,7 +1942,7 @@ FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 
 WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
 
-//Sets revision types to preserve track changes in  Word to PDF conversion.
+//Sets revision types to preserve track changes in  Word when converting to PDF.
 
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
 
@@ -1995,7 +1986,7 @@ typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Samp
 
 WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
 
-//Sets revision types to preserve track changes in  Word to PDF conversion
+//Sets revision types to preserve track changes in  Word when converting to PDF
 
 wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
 
