@@ -1523,7 +1523,7 @@ pdfDocument.Save(outputStream);
 
 {% endtabs %}
 
-### complex script text
+### Complex Script Text
 
 This setting allows you to preserve the complex script text in the converted PDF document.
 
