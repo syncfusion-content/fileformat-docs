@@ -124,12 +124,12 @@ This is mandatory to set WebKitPath property with QtBinariesDotNetCore folder, o
 		3. Syncfusion.HtmlConverter.Portable.dll
 		4. QtBinaries
 		
-* The QtBinaries folder is available in the Webkit HTML converter installed location. The physical path of this folder should be set to the WebKitPath property of WebkitConverterSettings.
+* The QtBinaries folder is available in the WebKit HTML converter installed location. The physical path of this folder should be set to the WebKitPath property of WebkitConverterSettings.
 		
 	<b>NuGet</b>
 		 <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
 
-* The <b>QtBinariesLinux</b> folder is available in the HtmltoPdfConverter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the WebKitPath property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the WebKitPath property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 
 * To convert HTML to PDF in Linux using the WebKit rendering engine, the following packages should be installed in the Linux machine where the conversion takes place.
 	1. $ sudo apt-get update 
@@ -153,12 +153,12 @@ This is mandatory to set WebKitPath property with QtBinariesDotNetCore folder, o
 		3. Syncfusion.HtmlConverter.Portable.dll
 		4. QtBinaries
 		
-* The QtBinaries folder is available in the Webkit HTML converter installed location. The physical path of this folder should be set to the WebKitPath property of WebkitConverterSettings.
+* The QtBinaries folder is available in the WebKit HTML converter installed location. The physical path of this folder should be set to the WebKitPath property of WebkitConverterSettings.
 		
 	<b>NuGet</b>
 		<a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
 
-* The <b>QtBinariesLinux</b> folder is available in the HtmltoPdfConverter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set  the WebKitPath property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set  the WebKitPath property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 	
 	
 ## URL to PDF
@@ -4139,7 +4139,7 @@ Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSetting
 blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
 
 'Set additional delay; units in milliseconds
-blinkConverterSetttings.AdditionalDelay = 3000
+blinkConverterSettings.AdditionalDelay = 3000
 
 'Assign Blink converter settings to HTML converter
 htmlConverter.ConverterSettings = blinkConverterSettings
@@ -4173,7 +4173,7 @@ BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 //Enable hyperlinks; By default - true
-blinkConverterSetings.EnableHyperLink = false;
+blinkConverterSettings.EnableHyperLink = false;
 
 //Assign Blink converter settings to HTML converter
 htmlConverter.ConverterSettings = blinkConverterSettings;
