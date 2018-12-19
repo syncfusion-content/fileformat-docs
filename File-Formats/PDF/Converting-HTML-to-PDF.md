@@ -10,7 +10,7 @@ documentation: UG
 Essential PDF support converting HTML pages to PDF document. The converter offers full support for HTML tags, HTML5, CSS3, JavaScript, SVG and page breaks. The following are the three rendering engines:
 
 * WebKit rendering
-*Blink rendering
+* Blink rendering
 * IE rendering
 
 ## Conversion using WebKit Rendering
@@ -122,9 +122,9 @@ This is mandatory to set WebKitPath property with QtBinariesDotNetCore folder, o
 		1. Syncfusion.Compression.Portable.dll
 		2. Syncfusion.Pdf.Portable.dll
 		3. Syncfusion.HtmlConverter.Portable.dll
-		4.QtBinaries
+		4. QtBinaries
 		
-*The QtBinaries folder is available in the Webkit HTML converter installed location. The physical path of this folder should be set to the WebKitPath property of WebkitConverterSettings.
+* The QtBinaries folder is available in the Webkit HTML converter installed location. The physical path of this folder should be set to the WebKitPath property of WebkitConverterSettings.
 		
 	<b>NuGet</b>
 		 <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
@@ -153,7 +153,7 @@ This is mandatory to set WebKitPath property with QtBinariesDotNetCore folder, o
 		3. Syncfusion.HtmlConverter.Portable.dll
 		4. QtBinaries
 		
-*The QtBinaries folder is available in the Webkit HTML converter installed location. The physical path of this folder should be set to the WebKitPath property of WebkitConverterSettings.
+* The QtBinaries folder is available in the Webkit HTML converter installed location. The physical path of this folder should be set to the WebKitPath property of WebkitConverterSettings.
 		
 	<b>NuGet</b>
 		<a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
@@ -4695,9 +4695,9 @@ document.Close(True)
 
 ### Temporary path
 
-The Blink HTML converter  launching chrome browser to perform  conversion. While launching chrome browser, temporary files are created in a temporary folder. This temporary folder requires read/write/execute permission for the respective user group.
+The Blink HTML converter  launching chrome browser to perform  conversion. While launching chrome browser, temporary files are created in a temporary folder. 
 <br/>
-By default, HTML converter takes system temporary path (C:\Users<<username»\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. If the temporary folder does not have the required permission, then the converter may throw access denied exception.
+By default, HTML converter takes system temporary path (C:\Users<<username»\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. 
 <br/>
 The temporary path can be changed by using the TempPath property of BlinkConverterSettings. If this property  is set, the converter uses the provided path to perform the conversion. Refer to the following code snippet.
 
