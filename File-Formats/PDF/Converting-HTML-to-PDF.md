@@ -4113,7 +4113,7 @@ BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 // Set additional delay; units in milliseconds
-blinkConverterSettings.AdditionalDelay=3000;
+blinkConverterSettings.AdditionalDelay= 3000;
 
 //Assign Blink converter settings to HTML converter
 htmlConverter.ConverterSettings = blinkConverterSettings;
@@ -4489,7 +4489,7 @@ BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 //Set Blink viewport size
-blinkConverterSettings.ViewPortSize= new Size(800, 0);
+blinkConverterSettings.ViewPortSize = new Size(800, 0);
 
 //Assign Blink converter settings to HTML converter
 htmlConverter.ConverterSettings = blinkConverterSettings;
@@ -4527,80 +4527,6 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
-
-{% endhighlight %}
-
-{% endtabs %}
-
-
-### Partial webpage to PDF
-
-The Blink HTML Converter supports converting partial webpage to PDF. Refer to the following code snippet.
-
-{% tabs %}
-
-{% highlight c# %}
-
-//Initialize the HTML to PDF converter with Blink rendering engine
-HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
-
-BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
-
-//Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
-
-//Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings;
-
-//Convert partial webpage to PDF
-PdfDocument document = htmlConverter.ConvertPartialHtml("input.html", "pic");
-
-//Save and close the PDF document
-document.Save("Output.pdf");
-
-document.Close(true);
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Initialize the HTML to PDF converter with Blink rendering engine
-Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
-
-Dim blinkConverterSettings As BlinkConverterSettings = New BlinkConverterSettings()
-
-'Set the BlinkBinaries folder path
-blinkConverterSettings.BlinkPath = "/BlinkBinaries/"
-
-'Assign Blink converter settings to HTML converter
-htmlConverter.ConverterSettings = blinkConverterSettings
-
-'Convert partial webpage to PDF
-Dim document As PdfDocument = htmlConverter.ConvertPartialHtml("input.html", "pic")
-
-'Save and close the PDF document
-document.Save("Output.pdf")
-
-document.Close(True)
-
-{% endhighlight %}
-
-{% highlight  html %}
-
-<html>
-<head>
-</head>
-<body>
-    Hello world
-    <div id="pic">
-        <img src=" syncfusion_logo.gif" alt="Smiley face" width="42" height="42"><br>
-        This is a Syncfusion Logo
-    </div>
-    <div>
-        Hello world
-    </div>
-</body>
-</html>
 
 {% endhighlight %}
 
