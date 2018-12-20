@@ -4053,7 +4053,7 @@ BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 //Disable JavaScript; By default, true
-blinkConverterSettings. EnableJavaScript = false;
+blinkConverterSettings.EnableJavaScript = false;
 
 //Assign Blink converter settings to HTML converter
 htmlConverter.ConverterSettings = blinkConverterSettings;
