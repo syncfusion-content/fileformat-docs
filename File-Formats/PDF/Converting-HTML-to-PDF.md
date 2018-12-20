@@ -4113,7 +4113,7 @@ BlinkConverterSettings blinkConverterSettings = new BlinkConverterSettings();
 blinkConverterSettings.BlinkPath = @"/BlinkBinaries/";
 
 // Set additional delay; units in milliseconds
-blinkConverterSettings.AdditionalDelay= 3000;
+blinkConverterSettings.AdditionalDelay = 3000;
 
 //Assign Blink converter settings to HTML converter
 htmlConverter.ConverterSettings = blinkConverterSettings;
@@ -4621,7 +4621,7 @@ document.Close(True)
 
 ### Temporary path
 
-The Blink HTML converter  launching chrome browser to perform  conversion. While launching chrome browser, temporary files are created in a temporary folder. 
+The Blink HTML converter launching chrome browser to perform conversion. While launching chrome browser, temporary files are created in a temporary folder. 
 <br/>
 By default, HTML converter takes system temporary path (C:\Users<<username»\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. 
 <br/>
