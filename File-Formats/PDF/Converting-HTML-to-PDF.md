@@ -13,6 +13,20 @@ Essential PDF supports converting HTML pages to PDF document. The converter offe
 * Blink rendering
 * IE rendering
 
+## Steps to download the HTML converter installer
+
+
+* Latest version of Essential HTML converter can be downloaded from the below link,
+
+    [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
+	
+
+* Click more downloads options from the required product version, refer below screeshot. 
+	![Download page](htmlconversion_images/download_page.png)
+	
+* The HTML converter will be available under the Add-On section, refer below screenshot.
+	![HTML converter](htmlconversion_images/htmlconverter.png)
+
 
 ## Supported and Unsupported Features by Rendering Engines
 
