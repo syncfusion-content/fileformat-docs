@@ -21,11 +21,11 @@ Essential PDF supports converting HTML pages to PDF document. The converter offe
     [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
 	
 
-* Click more downloads options from the required product version, refer below screeshot. 
-	![Download page](htmlconversion_images/download_page.png)
+* Click more downloads options from the required product version, refer below screenshot. 
+	![Download page](DocumentConversion_images/download_page.png)
 	
 * The HTML converter will be available under the Add-On section, refer below screenshot.
-	![HTML converter](htmlconversion_images/htmlconverter.png)
+	![HTML converter](DocumentConversion_images/htmlconverter.png)
 
 
 ## Supported and Unsupported Features by Rendering Engines
