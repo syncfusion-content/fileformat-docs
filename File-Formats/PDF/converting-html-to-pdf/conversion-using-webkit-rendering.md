@@ -2355,9 +2355,9 @@ Please find the steps to set the system proxy settings,
 
 <b>Please refer below screenshots:</b>
  
-![Manual proxy](DocumentConversion_images/proxy.png)
+![Manual proxy](htmlconversion_images/proxy.png)
 
-![Manual proxy settings](DocumentConversion_images/proxy2.png)
+![Manual proxy settings](htmlconversion_images/proxy2.png)
 
  
 To convert a web page to PDF using system proxy settings, please refer the below code snippet,
@@ -3410,7 +3410,7 @@ Instead, the required assemblies can be added in the Windows system folder.
 
 Syncfusion provides troubleshooting tool to find out the missing prerequisites. The tool is available in the location: <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\WebKitUtility)</i></span>
 
-![TroubleShootingTool](DocumentConversion_images/TroubleShootingTool.png)
+![TroubleShootingTool](htmlconversion_images/TroubleShootingTool.png)
 
 Please follow the below instructions for manual troubleshooting.
 
@@ -3539,7 +3539,7 @@ Issue
 </th>
 <td>Unblock the assembly if it is blocked by referring to the following screenshot of <i>Syncfusion.HtmlConverter.Base.dll</i>.
 <br/>
-<img src="DocumentConversion_images/TroubleShootDllProperties.png" alt="Syncfusion.HtmlConverter.Base.dll Properties">
+<img src="htmlconversion_images/TroubleShootDllProperties.png" alt="Syncfusion.HtmlConverter.Base.dll Properties">
 </td>
 </tr>
 
