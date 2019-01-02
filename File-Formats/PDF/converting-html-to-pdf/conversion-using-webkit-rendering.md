@@ -22,7 +22,10 @@ It does not require external dependencies like browsers, printer drivers, or vie
 
     [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
 
-* To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies needs to be added as reference to the project.	
+* To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies or NuGet packages needs to be added as reference to the project.	
+
+<b>Assemblies<.b>
+
 <table>
 <tr>
 <thead>
@@ -79,6 +82,71 @@ This is mandatory to set WebKitPath property with QtBinariesDotNetCore folder, o
 </td></tr>
 </table>
 
+<b>NuGet</b>
+
+<table>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tr>
+<td>
+Windows Forms
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.WinForms/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+WPF
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC4
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet.Mvc4/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC5
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.AspNet.Mvc5/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/)'| markdownify }}
+</td>
+</tr>
+</table>
+
+N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
+
+* The QtBinaries folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of BlinkConverterSettings. This is mandatory to set WebKitPath property with QtBinaries folder, otherwise the converter will throw WebKit assemblies are missing exception.
+
+### VC++ Redistributables
+
 * WebKit HTML conversion also requires VC++ 2010 redistributable, this should to be installed in the machine where the conversion takes place. Please use below download link to get the installer.
     
     X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555)
@@ -89,6 +157,8 @@ This is mandatory to set WebKitPath property with QtBinariesDotNetCore folder, o
 
 	1. MSVCP100.dll
 	2. MSVCR100.dll
+
+### OPENSSL
 
 * For converting HTTPS sites, HTML converter requires OPENSSL libraries to be installed in the machine where the conversion takes place. The OPENSSL libraries can be installed by downloading its setup from the below link,
 
