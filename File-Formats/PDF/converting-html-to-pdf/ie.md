@@ -5,8 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-
-## Conversion using IE Rendering
+# Conversion using IE Rendering
 
 Essential PDF makes use of the Microsoft MSHTML library to convert HTML pages to PDF. The output would like how it is viewed in the Internet Explorer browser.
 
