@@ -12,12 +12,67 @@ Essential PDF makes use of the Microsoft MSHTML library to convert HTML pages to
 
 ## Prerequisites
 
-To use the IE rendering engine in the application, the following assemblies needs to be added as reference to the project.
+To use the IE rendering engine in the application, the following assemblies or NuGet packages needs to be added as reference to the project.
+
+<b>Assemblies</b>
 
 * Syncfusion.Compression.Base.dll
 * Syncfusion.Pdf.Base.dll
 * Syncfusion.HtmlConverter.Base.dll
 * Microsoft.mshtml.dll
+
+<b>NuGet</b>
+
+<table>
+<tr>
+<thead>
+<th><b>Platform(s)</b></th>
+<th><b>NuGet Package</b></th>
+</thead>
+</tr>
+<tr>
+<td>
+Windows Forms
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.IE.WinForms.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.IE.WinForms/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+WPF
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.IE.Wpf.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.IE.Wpf/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.IE.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.IE.AspNet/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC4
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.IE.AspNet.Mvc4.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.IE.AspNet.Mvc4/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET MVC5
+</td>
+<td>
+{{'[Syncfusion.HtmlToPdfConverter.IE.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.IE.AspNet.Mvc5/)'| markdownify }}
+</td>
+</tr>
+</table>
+
+N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
 
 ## Converting the URL to a PDF document
