@@ -5,8 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-
-## Conversion using WebKit Rendering
+# Conversion using WebKit Rendering
 
 
 Syncfusion Essential PDF supports HTML to PDF conversion by using the advanced Qt WebKit rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, and ASP.NET MVC to convert URLs, HTML string, SVG and MHTML to PDF, and convert other formats like HTML to MHTML, HTML to SVG, and HTML to image.

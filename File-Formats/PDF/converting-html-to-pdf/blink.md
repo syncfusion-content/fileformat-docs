@@ -5,9 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-
-
-## Conversion using Blink Rendering
+# Conversion using Blink Rendering
 
 Syncfusion Essential HTML converter supports HTML to PDF conversion by using the advanced Blink rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, and ASP.NET MVC to convert URLs, HTML string, SVG and MHTML to PDF. 
 
