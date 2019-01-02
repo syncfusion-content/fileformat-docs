@@ -73,7 +73,7 @@ using Syncfusion.HtmlConverter;
 
 ### Converting HTML to PDF using WebKit rendering engine
 
-To convert website URL or local HTML file to PDF using WebKit rendering engine, Refer to the following code snippet. Refer this link for more details to convert the HTML to PDF using WebKit rendering engine. 
+To convert website URL or local HTML file to PDF using WebKit rendering engine, Refer to the following code snippet. Refer this [link](/file-formats/pdf/converting-html-to-pdf/conversion-using-webkit-rendering "Converting HTML To PDF") for more details to convert the HTML to PDF using WebKit rendering engine. 
 
 {% tabs %}
 
@@ -151,7 +151,7 @@ document.Close(true);
 
 ### Converting HTML to PDF using Blink rendering engine
 
-To convert website URL or local HTML file to PDF using Blink rendering engine, refer to the following code snippet. Refer this link for more details to convert the HTML to PDF using WebKit rendering engine.
+To convert website URL or local HTML file to PDF using Blink rendering engine, refer to the following code snippet. Refer this [link](/file-formats/pdf/converting-html-to-pdf/conversion-using-blink-rendering "Converting HTML To PDF") for more details to convert the HTML to PDF using Blink rendering engine.
 
 {% tabs %}
 
@@ -209,7 +209,7 @@ document.Close(True)
 
 ### Converting HTML to PDF using IE rendering engine
 
-To convert website URL or local HTML file to PDF using IE rendering engine, refer to the following code snippet. Refer this link for more details to convert the HTML to PDF using WebKit rendering engine.
+To convert website URL or local HTML file to PDF using IE rendering engine, refer to the following code snippet. Refer this [link](/file-formats/pdf/converting-html-to-pdf/conversion-using-ie-rendering "Converting HTML To PDF") for more details to convert the HTML to PDF using IE rendering engine.
 
 {% tabs %}
 
@@ -220,7 +220,7 @@ To convert website URL or local HTML file to PDF using IE rendering engine, refe
 
 IEConverterSettings settings = new IEConverterSettings();
             
-//Assign WebKit settings to HTML converter
+//Assign IE settings to HTML converter
 htmlConverter.ConverterSettings = settings;
 
 //Convert URL to PDF
@@ -239,7 +239,7 @@ Dim htmlConverter As New HtmlToPdfConverter(HtmlRenderingEngine.IE)
 
 Dim settings As New IEConverterSettings()
 
-'Assign WebKit settings to HTML converter
+'Assign IE settings to HTML converter
 htmlConverter.ConverterSettings = settings
 
 'Convert URL to PDF
