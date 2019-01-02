@@ -24,7 +24,7 @@ It does not require external dependencies like browsers, printer drivers, or vie
 
 * To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies or NuGet packages needs to be added as reference to the project.	
 
-<b>Assemblies<.b>
+<b>Assemblies</b>
 
 <table>
 <tr>
