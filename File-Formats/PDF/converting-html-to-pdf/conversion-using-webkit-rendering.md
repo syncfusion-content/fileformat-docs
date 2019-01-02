@@ -145,7 +145,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 
 * The QtBinaries folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of BlinkConverterSettings. This is mandatory to set WebKitPath property with QtBinaries folder, otherwise the converter will throw WebKit assemblies are missing exception.
 
-### VC++ Redistributables
+### VC++ Redistributable
 
 * WebKit HTML conversion also requires VC++ 2010 redistributable, this should to be installed in the machine where the conversion takes place. Please use below download link to get the installer.
     
