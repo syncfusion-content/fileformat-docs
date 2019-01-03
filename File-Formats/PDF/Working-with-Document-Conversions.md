@@ -1785,9 +1785,9 @@ documentViewer.Dispose()
 The MHTML file can be converted to PDF using WebKit rendering engine. Please refer the below code snippet,
 
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows)
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
 
 {% tabs %}
 
@@ -1902,9 +1902,9 @@ return File(stream, contentType, fileName);
 
 The WebKit HTML Converter provides support for converting the webpage to MHTML. Please refer the below code snippet,
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows)
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
 
 {% tabs %}
 
@@ -1969,9 +1969,9 @@ htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml")
 
 The WebKit HTML Converter provides support for converting webpage to Image. Please refer the below code snippet,
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows)
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
 
 {% tabs %}
 
@@ -2042,9 +2042,9 @@ image(0).Save("Sample.jpg")
 
 The WebKit HTML Converter provides support for converting HTML string to Image. Please refer the below code snippet,
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows)
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
 
 {% tabs %}
 
@@ -2121,9 +2121,9 @@ image(0).Save("Sample.jpg")
 
 The WebKit HTML Converter provides support for converting partial webpage to Image. Please refer the below code snippet,
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows)
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
 
 {% tabs %}
 
@@ -2227,9 +2227,9 @@ Hello world
 
 The WebKit HTML Converter provides support for converting HTML to SVG. Please refer the below code snippet,
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows)
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
 
 {% tabs %}
 
@@ -2294,9 +2294,9 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 
 The WebKit HTML Converter provides support for converting partial webpage to SVG. Please refer the below code snippet,
 
-Prerequisites - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#prerequisites-for-windows)
+Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     
-Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting](https://help.syncfusion.com/file-formats/pdf/converting-html-to-pdf#troubleshooting)
+Troubleshooting - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#troubleshooting)
 
 {% tabs %}
 
