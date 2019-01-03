@@ -22,6 +22,7 @@ Syncfusion Essential HTML converter supports HTML to PDF conversion by using the
 * To convert HTML to PDF using Blink rendering engine, add the following assemblies or NuGet packages as reference to the project.
 
 <b>Assemblies</b>
+
 * Syncfusion.Compression.Base.dll
 * Syncfusion.Pdf.Base.dll
 * Syncfusion.HtmlConverter.Base.dll

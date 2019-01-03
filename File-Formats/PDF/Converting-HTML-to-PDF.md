@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-## Converting HTML to PDF
+# Converting HTML to PDF
 
 Essential PDF supports converting HTML pages to PDF document. The converter offers full support for HTML tags, HTML5, CSS3, JavaScript, SVG and page breaks. The following are the three rendering engines:
 
@@ -73,7 +73,7 @@ using Syncfusion.HtmlConverter;
 
 ### Converting HTML to PDF using WebKit rendering engine
 
-To convert website URL or local HTML file to PDF using WebKit rendering engine, Refer to the following code snippet. Refer this [link](/file-formats/pdf/converting-html-to-pdf/webkit "Converting HTML To PDF") for more details to convert the HTML to PDF using WebKit rendering engine. 
+To convert website URL or local HTML file to PDF using WebKit rendering engine, Refer to the following code snippet. Refer this [link](/file-formats/pdf/convert-html-to-pdf/webkit "Converting HTML To PDF") for more details to convert the HTML to PDF using WebKit rendering engine. 
 
 {% tabs %}
 
@@ -151,7 +151,7 @@ document.Close(true);
 
 ### Converting HTML to PDF using Blink rendering engine
 
-To convert website URL or local HTML file to PDF using Blink rendering engine, refer to the following code snippet. Refer this [link](/file-formats/pdf/converting-html-to-pdf/blink "Converting HTML To PDF") for more details to convert the HTML to PDF using Blink rendering engine.
+To convert website URL or local HTML file to PDF using Blink rendering engine, refer to the following code snippet. Refer this [link](/file-formats/pdf/convert-html-to-pdf/blink "Converting HTML To PDF") for more details to convert the HTML to PDF using Blink rendering engine.
 
 {% tabs %}
 
@@ -209,7 +209,7 @@ document.Close(True)
 
 ### Converting HTML to PDF using IE rendering engine
 
-To convert website URL or local HTML file to PDF using IE rendering engine, refer to the following code snippet. Refer this [link](/file-formats/pdf/converting-html-to-pdf/ie "Converting HTML To PDF") for more details to convert the HTML to PDF using IE rendering engine.
+To convert website URL or local HTML file to PDF using IE rendering engine, refer to the following code snippet. Refer this [link](/file-formats/pdf/convert-html-to-pdf/ie "Converting HTML To PDF") for more details to convert the HTML to PDF using IE rendering engine.
 
 {% tabs %}
 
