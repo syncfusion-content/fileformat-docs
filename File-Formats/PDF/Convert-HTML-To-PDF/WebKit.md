@@ -21,6 +21,8 @@ It does not require external dependencies like browsers, printer drivers, or vie
 
     [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
 
+* Supports conversion from .NET Framework 2.0 and .NET Core 2.0.
+	
 * To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies or NuGet packages needs to be added as reference to the project.	
 
 <b>Assemblies</b>
@@ -142,7 +144,7 @@ ASP.NET Core
 
 N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
-* The QtBinaries folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of BlinkConverterSettings. This is mandatory to set WebKitPath property with QtBinaries folder, otherwise the converter will throw WebKit assemblies are missing exception.
+* The QtBinaries folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set WebKitPath property with QtBinaries folder, otherwise the converter will throw WebKit assemblies are missing exception.
 
 ### VC++ Redistributable
 
