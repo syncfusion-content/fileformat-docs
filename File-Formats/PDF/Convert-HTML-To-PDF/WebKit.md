@@ -21,6 +21,8 @@ It does not require external dependencies like browsers, printer drivers, or vie
 
     [https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
 
+* Supports conversion from .NET Framework 2.0 and .NET Core 2.0
+	
 * To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies or NuGet packages needs to be added as reference to the project.	
 
 <b>Assemblies</b>
