@@ -142,7 +142,7 @@ ASP.NET Core
 
 N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
-* The QtBinaries folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of BlinkConverterSettings. This is mandatory to set WebKitPath property with QtBinaries folder, otherwise the converter will throw WebKit assemblies are missing exception.
+* The QtBinaries folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set WebKitPath property with QtBinaries folder, otherwise the converter will throw WebKit assemblies are missing exception.
 
 ### VC++ Redistributable
 

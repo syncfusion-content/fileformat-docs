@@ -260,7 +260,7 @@ document.Close(True)
 
 ## Supported and Unsupported Features by Rendering Engines
 
-The following table shows the IE, WebKit and Blink rendering engines supported features,
+The following table shows the WebKit, Blink and IE rendering engines supported features,
 
 
 <table>
