@@ -535,8 +535,7 @@ document.Close(True)
 
 ## Media Type
 
-The Blink HTML Converter allows selection of media type while converting HTML to PDF. 
-Refer to the following code snippet to select Print MediaType.
+The Blink HTML Converter allows selection of media type while converting HTML to PDF. Blink rendering engine supports <b>Screen</b> and <b>Print</b> media types. Refer to the following code snippet to select Print MediaType.
 
 {% tabs %}
 
@@ -728,8 +727,8 @@ document.Close(True)
 
 Blink HTML converter supports converting HTML to PDF in offline mode. While converting HTML to PDF in offline mode, the converter does not access the resources from the Internet. This may increase the performance in slow Internet connection.
 
-<b>Note:</b>If an online URL is converted in offline mode, the converter will generate empty PDF as it will not try to load any resource from online.
-<br/>
+N> If an online URL is converted in offline mode, the converter will generate empty PDF as it will not try to load any resource from online.
+
 Refer to the following code snippet.
 
 {% tabs %}
@@ -854,7 +853,7 @@ document.Close(True)
 
 Windows status can be used instead of additional delay. In additional delay, the amount of time required for loading the resources is unpredictable. This behavior can be avoided by using windows status.
 
-<b>Note:</b> This feature requires changes in the HTML file.
+N> This feature requires changes in the HTML file.
 
 If windows status does not match in code and HTML, then the converter will meet with deadlock.
 Refer to the following code snippet,
