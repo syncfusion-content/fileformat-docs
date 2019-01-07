@@ -8,7 +8,7 @@ documentation: UG
 # Conversion using WebKit Rendering
 
 
-Syncfusion Essential PDF supports HTML to PDF conversion by using the advanced Qt WebKit rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, and ASP.NET MVC to convert URLs, HTML string, SVG and MHTML to PDF, and convert other formats like HTML to MHTML, HTML to SVG, and HTML to image.
+Syncfusion Essential PDF supports HTML to PDF conversion by using the advanced Qt WebKit rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core to convert URLs, HTML string, SVG and MHTML to PDF, and convert other formats like HTML to MHTML, HTML to SVG, and HTML to image.
 
 Qt WebKit rendering is accurate, and the result preserves all the graphics, images, texts, fonts, and the layout of the original HTML document/webpage.
 
@@ -72,14 +72,14 @@ QtBinaries
 <td>
 The QtBinaries folder is available in the WebKit HTML converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinaries)</i></span>. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings.
 
-This is mandatory to set the WebKitPath property with QtBinaries folder. If the WebKitPath is not mentioned, place the QtBinaries folder in bin folder of the project, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.  
+This is mandatory to set the <i>WebKitPath</i> property with QtBinaries folder. If the <i>WebKitPath</i> is not mentioned, place the QtBinaries folder in bin folder of the project, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.  
 </td></tr>
 <tr>
 <td> .NET Core </td>
 <td>
 The QtBinariesDotNetCore folder is available in the WebKit HTML converter installed location <span style="color:gray;font-size:14px"><i>($SystemDrive\Program Files (x86)\Syncfusion\WebKitHTMLConverter\xx.x.x.xx\QtBinariesDotNetCore)</i></span>. The physical path of this folder should be set  to the <i>WebKitPath</i> property of WebKitConverterSettings.
 
-This is mandatory to set WebKitPath property with QtBinariesDotNetCore folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+This is mandatory to set <i>WebKitPath</i> property with QtBinariesDotNetCore folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 </td></tr>
 </table>
 
@@ -144,15 +144,13 @@ ASP.NET Core
 
 N> The above mentioned NuGet packages are available in [nuget.org](https://www.nuget.org/)
 
-* The QtBinaries folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set WebKitPath property with QtBinaries folder, otherwise the converter will throw WebKit assemblies are missing exception.
+* The QtBinaries folder is available in the package installed location. Set the path of the QtBinaries folder from package location to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set <i>WebKitPath</i> property with QtBinaries folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 
 ### VC++ Redistributable
 
 * WebKit HTML conversion also requires VC++ 2010 redistributable, this should to be installed in the machine where the conversion takes place. Please use below download link to get the installer.
     
     X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555)
-    
-    X64 - [https://www.microsoft.com/en-in/download/details.aspx?id=14632](https://www.microsoft.com/en-in/download/details.aspx?id=14632)
 
 	Instead, the required assemblies can be placed in the Windows system folder (for 64-bit machine, it should be place in  <span style="color:gray;font-size:14px"><i>$SystemDrive\Windows\SysWOW64</i></span> and for 32-bit machine, it should be place in  <span style="color:gray;font-size:14px"><i>$SystemDrive\Windows\System32</i></span>),
 
@@ -180,7 +178,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 
 	[https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
 	
-* To convert HTML to PDF in the ASP.NET application using WebKit rendering engine, add the following assemblies or NuGet packages as reference to the project.  
+* To convert HTML to PDF in the ASP.NET Core application using WebKit rendering engine, add the following assemblies or NuGet packages as reference to the project.  
 
 	<b>Assemblies</b>
 		1. Syncfusion.Compression.Portable.dll
@@ -188,12 +186,12 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 		3. Syncfusion.HtmlConverter.Portable.dll
 		4. QtBinaries
 		
-* The QtBinaries folder is available in the WebKit HTML converter installed location. The physical path of this folder should be set to the WebKitPath property of WebkitConverterSettings.
+* The QtBinaries folder is available in the WebKit HTML converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebkitConverterSettings.
 		
 	<b>NuGet</b>
 		 <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
 
-* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the WebKitPath property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the </i>WebKitPath</i> property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 
 * To convert HTML to PDF in Linux using the WebKit rendering engine, the following packages should be installed in the Linux machine where the conversion takes place.
 	1. $ sudo apt-get update 
@@ -209,7 +207,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 
 	[https://www.syncfusion.com/downloads/latest-version](https://www.syncfusion.com/downloads/latest-version)
   
-* To convert HTML to PDF in the ASP.NET application using WebKit rendering engine, add the following assemblies or NuGet packages as reference to the project.  
+* To convert HTML to PDF in the ASP.NET Core application using WebKit rendering engine, add the following assemblies or NuGet packages as reference to the project.  
 
 	<b>Assemblies</b>
 		1. Syncfusion.Compression.Portable.dll
@@ -217,12 +215,12 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 		3. Syncfusion.HtmlConverter.Portable.dll
 		4. QtBinaries
 		
-* The QtBinaries folder is available in the WebKit HTML converter installed location. The physical path of this folder should be set to the WebKitPath property of WebkitConverterSettings.
+* The QtBinaries folder is available in the WebKit HTML converter installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebkitConverterSettings.
 		
 	<b>NuGet</b>
 		<a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
 
-* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the WebKitPath property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 	
 	
 ## URL to PDF
@@ -377,15 +375,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight html %}
-<html>
-<body>
-<img src="syncfusion_logo.gif" alt="Syncfusion_logo" width="200" height="70">
-<p> Hello World</p>
-</body>
-</html>
-
-{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
@@ -426,6 +415,16 @@ string fileName = " Output.pdf";
 
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight html %}
+<html>
+<body>
+<img src="syncfusion_logo.gif" alt="Syncfusion_logo" width="200" height="70">
+<p> Hello World</p>
+</body>
+</html>
 
 {% endhighlight %}
 
@@ -813,49 +812,6 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight html %}
-
-<html>
-<head>
-<style>
-body
-{
-text-align: left;
-font-size: large;
-padding-left: 5px;
-}
-</style>
-</head>
-<body>
-
-<h1>Syncfusion</h1>
-
-<h2>Introduction</h2>
-	Syncfusion is the enterprise technology partner of choice for software development, delivering a broad range of web, mobile, and desktop controls coupled with a service-oriented approach throughout the entire application life cycle. 
-<h2>Products</h2>
-	<h4>WEB</h4>
-		The most comprehensive suite for enterprise web development.
-	<h4>Desktop</h4>
-		Comprehensive suite of over 115 components including the fastest chart and grid components.
-	<h4>Mobile</h4>
-		Comprehensive suite of components for Xamarin.iOS, Xamarin.Android and Xamarin.Forms including the fastest chart and grid.
-<h2>Consulting</h2>
-	We can build web, mobile, and desktop applications better and faster than anyone since we build on top of our award-winning suite of components and frameworks, saving you time and money.
-<h2>Company</h2>
-	<h4>About us</h4>
-		Syncfusion has established itself as the trusted partner worldwide for use in mission-critical applications. Founded in 2001 and headquartered in Research Triangle Park, N.C., Syncfusion has more than 12,000 customers, including large financial institutions, Fortune 100 companies, and global IT consultancies.
-	<h4>contact us</h4>
-		Morrisville Office
-		Company Headquarters
-		2501 Aerial Center Parkway
-		Suite 200
-		Morrisville, NC 27560
-		USA
-</body>
-</html>
-
-{% endhighlight %}
-
 {% highlight ASP.NET Core %}
 
 //Initialize HTML converter 
@@ -905,6 +861,49 @@ string fileName = " Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 
 return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight html %}
+
+<html>
+<head>
+<style>
+body
+{
+text-align: left;
+font-size: large;
+padding-left: 5px;
+}
+</style>
+</head>
+<body>
+
+<h1>Syncfusion</h1>
+
+<h2>Introduction</h2>
+	Syncfusion is the enterprise technology partner of choice for software development, delivering a broad range of web, mobile, and desktop controls coupled with a service-oriented approach throughout the entire application life cycle. 
+<h2>Products</h2>
+	<h4>WEB</h4>
+		The most comprehensive suite for enterprise web development.
+	<h4>Desktop</h4>
+		Comprehensive suite of over 115 components including the fastest chart and grid components.
+	<h4>Mobile</h4>
+		Comprehensive suite of components for Xamarin.iOS, Xamarin.Android and Xamarin.Forms including the fastest chart and grid.
+<h2>Consulting</h2>
+	We can build web, mobile, and desktop applications better and faster than anyone since we build on top of our award-winning suite of components and frameworks, saving you time and money.
+<h2>Company</h2>
+	<h4>About us</h4>
+		Syncfusion has established itself as the trusted partner worldwide for use in mission-critical applications. Founded in 2001 and headquartered in Research Triangle Park, N.C., Syncfusion has more than 12,000 customers, including large financial institutions, Fortune 100 companies, and global IT consultancies.
+	<h4>contact us</h4>
+		Morrisville Office
+		Company Headquarters
+		2501 Aerial Center Parkway
+		Suite 200
+		Morrisville, NC 27560
+		USA
+</body>
+</html>
 
 {% endhighlight %}
 
@@ -989,49 +988,6 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight html %}
-
-<html>
-<head>
-<style>
-body
-{
-text-align: left;
-font-size: large;
-padding-left: 5px;
-}
-</style>
-</head>
-<body>
-
-<h1>Syncfusion</h1>
-
-<h2>Introduction</h2>
-	Syncfusion is the enterprise technology partner of choice for software development, delivering a broad range of web, mobile, and desktop controls coupled with a service-oriented approach throughout the entire application life cycle. 
-<h2>Products</h2>
-	<h4>WEB</h4>
-		The most comprehensive suite for enterprise web development.
-	<h4>Desktop</h4>
-		Comprehensive suite of over 115 components including the fastest chart and grid components.
-	<h4>Mobile</h4>
-		Comprehensive suite of components for Xamarin.iOS, Xamarin.Android and Xamarin.Forms including the fastest chart and grid.
-<h2>Consulting</h2>
-	We can build web, mobile, and desktop applications better and faster than anyone since we build on top of our award-winning suite of components and frameworks, saving you time and money.
-<h2>Company</h2>
-	<h4>About us</h4>
-		Syncfusion has established itself as the trusted partner worldwide for use in mission-critical applications. Founded in 2001 and headquartered in Research Triangle Park, N.C., Syncfusion has more than 12,000 customers, including large financial institutions, Fortune 100 companies, and global IT consultancies.
-	<h4>contact us</h4>
-		Morrisville Office
-		Company Headquarters
-		2501 Aerial Center Parkway
-		Suite 200
-		Morrisville, NC 27560
-		USA
-</body>
-</html>
-
-{% endhighlight %}
-
 {% highlight ASP.NET Core %}
 
 //Initialize HTML converter 
@@ -1081,6 +1037,49 @@ string fileName = " Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 
 return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight html %}
+
+<html>
+<head>
+<style>
+body
+{
+text-align: left;
+font-size: large;
+padding-left: 5px;
+}
+</style>
+</head>
+<body>
+
+<h1>Syncfusion</h1>
+
+<h2>Introduction</h2>
+	Syncfusion is the enterprise technology partner of choice for software development, delivering a broad range of web, mobile, and desktop controls coupled with a service-oriented approach throughout the entire application life cycle. 
+<h2>Products</h2>
+	<h4>WEB</h4>
+		The most comprehensive suite for enterprise web development.
+	<h4>Desktop</h4>
+		Comprehensive suite of over 115 components including the fastest chart and grid components.
+	<h4>Mobile</h4>
+		Comprehensive suite of components for Xamarin.iOS, Xamarin.Android and Xamarin.Forms including the fastest chart and grid.
+<h2>Consulting</h2>
+	We can build web, mobile, and desktop applications better and faster than anyone since we build on top of our award-winning suite of components and frameworks, saving you time and money.
+<h2>Company</h2>
+	<h4>About us</h4>
+		Syncfusion has established itself as the trusted partner worldwide for use in mission-critical applications. Founded in 2001 and headquartered in Research Triangle Park, N.C., Syncfusion has more than 12,000 customers, including large financial institutions, Fortune 100 companies, and global IT consultancies.
+	<h4>contact us</h4>
+		Morrisville Office
+		Company Headquarters
+		2501 Aerial Center Parkway
+		Suite 200
+		Morrisville, NC 27560
+		USA
+</body>
+</html>
 
 {% endhighlight %}
 
@@ -1259,8 +1258,7 @@ return File(stream, contentType, fileName);
 
 ## MediaType
 
-WebKit HTML Converter allows selection of media type while converting HTML to PDF. 
-Please refer the below code snippet to select Print MediaType.
+WebKit HTML Converter allows selection of media type while converting HTML to PDF. WebKit rendering engine supports <b>Screen</b> and <b>Print</b> media types. Please refer the below code snippet to select Print MediaType.
 
 
 {% tabs %}
@@ -1853,7 +1851,7 @@ return File(stream, contentType, fileName);
 
 WebKit HTML converter provides support for converting HTML to PDF in offline mode. While converting HTML to PDF in offline mode, the converter does not access the resources from the Internet. This may increase the performance in slow Internet connection. 
 
-<b>Note:</b> If an online URL is tried to convert in offline mode, the converter will generate empty PDF as it will not try to load any resource from online.
+N> If an online URL is tried to convert in offline mode, the converter will generate empty PDF as it will not try to load any resource from online.
 
 Please refer the below code snippet,
 
@@ -2036,44 +2034,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight html %}
-
-<!DOCTYPE html>
-<html>
-<head>
-<style type="text/css">
-    table {font-family: Helvetica, Arial, Verdana; font-size: 14pt
-    }
-</style>
-</head>
-<body>
-<h2>Repeat Table Header and Footer</h2>
-<table border = 3>
-<thead>
-    <tr>
-        <th>Employee ID</th>
-        <th>Salary</th>
-    </tr>
-</thead>
-<script>
-var count;         
-for(count = 1; count <= 100; count++){
-	document.write("<tr> <td>" + count + "</td>");
-	document.write("<td>" + count * 10000 + "</td></tr>");
-}
-</script>
-<tfoot>
-    <tr>
-        <th>EOL</th>
-        <th>EOL</th>
-    </tr>
-</tfoot>
-</table>
-</body>
-</html> 
-
-{% endhighlight %}
-
 {% highlight ASP.NET Core %}
 
 //Initialize HTML converter 
@@ -2127,6 +2087,44 @@ string fileName = " Output.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 
 return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight html %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+    table {font-family: Helvetica, Arial, Verdana; font-size: 14pt
+    }
+</style>
+</head>
+<body>
+<h2>Repeat Table Header and Footer</h2>
+<table border = 3>
+<thead>
+    <tr>
+        <th>Employee ID</th>
+        <th>Salary</th>
+    </tr>
+</thead>
+<script>
+var count;         
+for(count = 1; count <= 100; count++){
+	document.write("<tr> <td>" + count + "</td>");
+	document.write("<td>" + count * 10000 + "</td></tr>");
+}
+</script>
+<tfoot>
+    <tr>
+        <th>EOL</th>
+        <th>EOL</th>
+    </tr>
+</tfoot>
+</table>
+</body>
+</html> 
 
 {% endhighlight %}
 
@@ -2723,25 +2721,6 @@ document.Close(True)
 
 {% endhighlight %}
 
-{% highlight html %}
-
-<html>
-<head>
-</head>
-<body>
-Hello world
-	<div id="pic">
-		<img src=" syncfusion_logo.gif" alt="Smiley face" width="42" height="42"><br>
-		This is a Syncfusion Logo
-	</div>
-	<div>
-		Hello world
-	</div>
-</body>
-</html>
-
-{% endhighlight %}
-
 {% highlight ASP.NET Core %}
 
 //Initialize HTML converter
@@ -2777,6 +2756,26 @@ string fileName = "Sample.pdf";
 
 //Creates a FileContentResult object by using the file contents, content type, and file name
 return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+
+{% highlight html %}
+
+<html>
+<head>
+</head>
+<body>
+Hello world
+	<div id="pic">
+		<img src=" syncfusion_logo.gif" alt="Smiley face" width="42" height="42"><br>
+		This is a Syncfusion Logo
+	</div>
+	<div>
+		Hello world
+	</div>
+</body>
+</html>
 
 {% endhighlight %}
 
@@ -2954,7 +2953,7 @@ document.Close(true)
 
 The windows status can be used instead of addition delay. In additional delay, the amount of time required for loading the resources is unpredictable. This behavior can be avoiding by using windows status. 
 
-<b>Note:</b> This feature requires changes in the HTML file.
+N> This feature requires changes in the HTML file.
 
 If windows status does not match in code and HTML, then the converter will meet with deadlock.
 Please refer the below code snippet,
@@ -3029,26 +3028,6 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight html %}
-
-<html>
-<head>
-</head>
-<body >
-    <div id="message">
-        Wait for 2 Seconds
-    </div>
-    <script type="text/javascript">  
-        setTimeout(function () {
-            document.getElementById("message").innerHTML = "Hello World!!";
-            window.status = "completed";
-        }, 2000);
-    </script>
-</body>
-</html>
-
-{% endhighlight %}
-
 {% highlight ASP.NET Core %}
 
 //Initialize HTML converter 
@@ -3098,6 +3077,26 @@ string fileName = "Sample.pdf";
 //Creates a FileContentResult object by using the file contents, content type, and file name
 
 return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight html %}
+
+<html>
+<head>
+</head>
+<body >
+    <div id="message">
+        Wait for 2 Seconds
+    </div>
+    <script type="text/javascript">  
+        setTimeout(function () {
+            document.getElementById("message").innerHTML = "Hello World!!";
+            window.status = "completed";
+        }, 2000);
+    </script>
+</body>
+</html>
 
 {% endhighlight %}
 
