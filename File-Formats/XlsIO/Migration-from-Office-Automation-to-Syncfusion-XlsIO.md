@@ -12,7 +12,7 @@ documentation: UG
 
 * Office automation can be extremely slow when deployed on the server. It is highly unstable when multiple Excel objects are instantiated on a server. However, XlsIO is designed to work under these circumstances and is a 100% native .NET component, so it can easily handle concurrent requests from multiple users.
 * XlsIO has a very intuitive and easy to use object model. You can start creating richly formatted spreadsheets in just a few minutes.
-* Essential XlsIO has a royalty free licensing model compared to office automation where the end users are expected to have MS Excel licenses when deployed on the server.
+* Essential XlsIO has a royalty free licensing model compared to office automation where the end users are expected to have Microsoft Excel licenses when deployed on the server.
 
 When you wish to migrate from Microsoft's Interop to Syncfusion's XlsIO due to its stunning performance, but if you don't know how to use the features in it, here is an easy way.
 
