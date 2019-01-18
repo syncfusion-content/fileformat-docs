@@ -1,5 +1,5 @@
 ---
-title: Add Comments in Excel
+title: Add Comments in Excel | Syncfusion
 description: This page shows how to add comments in Excel to give feedback about the content of a cell.
 platform: file-formats
 control: XlsIO

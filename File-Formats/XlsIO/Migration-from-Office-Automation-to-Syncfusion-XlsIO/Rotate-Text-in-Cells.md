@@ -1,5 +1,5 @@
 ---
-title: Rotate Text in Cells
+title: Rotate Text in Cells | Syncfusion
 description: Text in cells can be rotated to add visual impact to a spreadsheet or a presentation.
 platform: file-formats
 control: XlsIO

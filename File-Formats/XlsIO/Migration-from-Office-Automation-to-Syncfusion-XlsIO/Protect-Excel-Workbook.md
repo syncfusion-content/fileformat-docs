@@ -1,5 +1,5 @@
 ---
-title: Protect Excel Workbook
+title: Protect Excel Workbook | Syncfusion
 description: This page shows how to protect Excel workbook with password.
 platform: file-formats
 control: XlsIO

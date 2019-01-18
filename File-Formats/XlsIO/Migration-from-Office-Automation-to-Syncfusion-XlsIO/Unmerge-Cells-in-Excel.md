@@ -1,5 +1,5 @@
 ---
-title: UnMerge Cells in Excel
+title: UnMerge Cells in Excel | Syncfusion
 description: This page shows how to unmerge cells in Excel.
 platform: file-formats
 control: XlsIO

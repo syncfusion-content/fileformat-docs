@@ -1,5 +1,5 @@
 ---
-title: Merge Cells in Excel
+title: Merge Cells in Excel | Syncfusion
 description: This page shows how to merge a range of cells in Excel into a single cell.
 platform: file-formats
 control: XlsIO

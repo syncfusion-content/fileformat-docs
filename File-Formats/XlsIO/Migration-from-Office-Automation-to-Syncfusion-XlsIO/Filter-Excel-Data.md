@@ -1,5 +1,5 @@
 ---
-title: Filter Excel Data
+title: Filter Excel Data | Syncfusion
 description: We can filter Excel data with specific conditions to show or hide certain rows.
 platform: file-formats
 control: XlsIO

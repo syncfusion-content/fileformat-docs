@@ -1,5 +1,5 @@
 ---
-title: Wrap Text in Excel
+title: Wrap Text in Excel | Syncfusion
 description: Wrap text in Excel allows to fit a long text in a single cell.
 platform: file-formats
 control: XlsIO

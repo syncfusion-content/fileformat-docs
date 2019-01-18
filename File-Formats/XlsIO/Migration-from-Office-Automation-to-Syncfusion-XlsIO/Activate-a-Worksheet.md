@@ -1,5 +1,5 @@
 ---
-title: Activate a Worksheet
+title: Activate a Worksheet | Syncfusion
 description: We can activate a worksheet in workbooks containing more than one worksheet.
 platform: file-formats
 control: XlsIO

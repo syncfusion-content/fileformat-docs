@@ -1,5 +1,5 @@
 ---
-title: Unhide Excel Worksheets
+title: Unhide Excel Worksheets | Syncfusion
 description: We can unhide Excel worksheets which are in hidden state.
 platform: file-formats
 control: XlsIO

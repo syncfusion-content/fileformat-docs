@@ -1,5 +1,5 @@
 ---
-title: Add Hyperlinks in Excel
+title: Add Hyperlinks in Excel | Syncfusion
 description: This page shows how to add hyperlinks in Excel, programmatically.
 platform: file-formats
 control: XlsIO

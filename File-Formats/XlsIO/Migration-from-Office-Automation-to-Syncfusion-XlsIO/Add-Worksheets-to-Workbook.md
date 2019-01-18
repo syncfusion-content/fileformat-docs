@@ -1,5 +1,5 @@
 ---
-title: Add Worksheets to Workbook
+title: Add Worksheets to Workbook | Syncfusion
 description: This page shows how to add worksheets to workbook when working with template Excel document.
 platform: file-formats
 control: XlsIO

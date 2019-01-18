@@ -1,5 +1,5 @@
 ---
-title: Create Pie Chart in Excel
+title: Create Pie Chart in Excel | Syncfusion
 description: This page shows how to create pie chart in Excel and to position the chart in a worksheet.
 platform: file-formats
 control: XlsIO
@@ -41,8 +41,8 @@ private void CreatePieChart()
     sheet.Cells[4, 2] = 12000;
 
     //Add a Pie Chart.
-    ChartObjects xlCharts = (ChartObjects)sheet.ChartObjects(Type.Missing);
-    ChartObject chartObject = (ChartObject)xlCharts.Add(10, 80, 300, 250);
+    ChartObjects charts = (ChartObjects)sheet.ChartObjects(Type.Missing);
+    ChartObject chartObject = (ChartObject)charts.Add(10, 80, 300, 250);
     Chart chart = chartObject.Chart;
     chart.ChartType = XlChartType.xlPie;
 
@@ -88,8 +88,8 @@ Private Sub CreatePieChart()
     sheet.Cells(4, 2) = 12000
 
     'Add a Pie Chart.
-    Dim xlCharts As ChartObjects = CType(sheet.ChartObjects(Type.Missing), ChartObjects)
-    Dim chartObject As ChartObject = CType(xlCharts.Add(10, 80, 300, 250), ChartObject)
+    Dim charts As ChartObjects = CType(sheet.ChartObjects(Type.Missing), ChartObjects)
+    Dim chartObject As ChartObject = CType(charts.Add(10, 80, 300, 250), ChartObject)
     Dim chart As Chart = chartObject.Chart
     chart.ChartType = XlChartType.xlPie
 

@@ -1,5 +1,5 @@
 ---
-title: Apply Borders in Excel
+title: Apply Borders in Excel | Syncfusion
 description: This page shows how to apply borders in Excel with different line styles.
 platform: file-formats
 control: XlsIO

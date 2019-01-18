@@ -1,5 +1,5 @@
 ---
-title: Unprotect Excel Workbook
+title: Unprotect Excel Workbook | Syncfusion
 description: This page shows how to unprotect Excel workbook with password.
 platform: file-formats
 control: XlsIO

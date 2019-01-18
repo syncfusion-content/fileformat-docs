@@ -1,5 +1,5 @@
 ---
-title: Use Formulas in Excel
+title: Use Formulas in Excel | Syncfusion
 description: This page shows how to use formulas or functions (predefined formulas) in Excel
 platform: file-formats
 control: XlsIO

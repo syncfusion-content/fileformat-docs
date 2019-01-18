@@ -1,5 +1,5 @@
 ---
-title: Delete Comments in Excel
+title: Delete Comments in Excel | Syncfusion
 description: This page shows how to delete comments in Excel.
 platform: file-formats
 control: XlsIO
