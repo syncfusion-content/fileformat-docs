@@ -14,11 +14,9 @@ documentation: UG
 * XlsIO has a very intuitive and easy to use object model. You can start creating richly formatted spreadsheets in just a few minutes.
 * Essential XlsIO has a royalty free licensing model compared to office automation where the end users are expected to have Microsoft Excel licenses when deployed on the server.
 
-When you wish to migrate from Microsoft's Interop to Syncfusion's XlsIO due to its stunning performance, but if you don't know how to use the features in it, here is an easy way.
+To migrate from Microsoft's Interop to Syncfusion's XlsIO due to its stunning performance, it is an easy way. If you don't know how to use the features, this section provides some important Excel features, which are listed below. When you click a topic, it navigates to the particular page. Each topic contains:
 
-This section covers some important Excel features which are listed below. A topic when clicked navigates to the particular page. Each topic contains:
-
-* Feature description.
+* Feature description
 * Interop and XlsIO codes(both in C# and VB) for comparison and easy migration.
 
 ## Topic links
