@@ -225,7 +225,7 @@ graphics.DrawRectangle(solidBrush, bounds);
 //Creates a font for adding the heading in the page
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
 //Creates a text element to add the invoice number
-PdfTextElement element = new PdfTextElement("INVOICE " + "id.ToString()", subHeadingFont);
+PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
 element.Brush = PdfBrushes.White;
 
 //Draws the heading on the page
@@ -293,7 +293,7 @@ PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
 // Creates layout format settings to allow the table pagination
 layoutFormat.Layout = PdfLayoutType.Paginate;
 //Draws the grid to the PDF page.
-PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(g.ClientSize.Width, g.ClientSize.Height - 100)), layoutFormat);
+PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
 
 
 {% endhighlight %}
