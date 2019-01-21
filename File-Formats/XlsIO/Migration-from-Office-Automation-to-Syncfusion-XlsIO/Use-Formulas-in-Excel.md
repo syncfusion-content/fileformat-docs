@@ -10,7 +10,7 @@ documentation: UG
 
 A formula is an expression that operates on values in a range of cells or a cell. Functions are predefined formulas in Excel.
 
-The following code shows how to use formulas in Excel by adding values in a range of cells using the formula function Sum and highlighting the resultant value with Interop and XlsIO for .NET.
+The following code shows how to use formulas in Excel by adding values in a range of cells using the formula function sum and highlighting the resultant value with Interop and XlsIO for .NET.
 
 ## Interop
 
