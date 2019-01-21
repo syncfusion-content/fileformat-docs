@@ -8,7 +8,7 @@ documentation: UG
 
 # Merge Cells in Excel
 
-You can merge a continuous range of cells into one large cell. Merged cell keeps the value in the upper-left cell and deletes all other values. Merging cells can be useful if we want to make clear that a label applies to multiple columns.
+You can merge a continuous range of cells into one large cell. Merged cell keeps the value in the upper-left cell and deletes all other values. Merging cells can be useful if you want to make clear that a label applies to multiple columns.
 
 The following code shows how to merge cells in Excel with Interop and XlsIO for .NET.
 
