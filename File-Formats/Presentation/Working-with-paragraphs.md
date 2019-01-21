@@ -867,7 +867,7 @@ using (IPresentation ppDoc = Presentation.Create())
   IShape textBox = slide.Shapes.AddTextBox(100, 100, 100, 100);
 
   //Add text to the text box. 
-  textBox.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetuer adipiscing elit");
+  textBox.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
   //Set the property to shrink text on overflow. 
   textBox.TextBody.FitTextOption = FitTextOption.ShrinkTextOnOverFlow;
@@ -890,7 +890,7 @@ Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 Dim textboxShape As IShape = slide.AddTextBox(0, 0, 500, 500)
 
 'Adds paragraph to the textbody of textbox
-Dim paragraph As IParagraph = textboxShape.TextBody.AddParagraph("Lorem ipsum dolor sit amet, consectetuer adipiscing elit")
+Dim paragraph As IParagraph = textboxShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
 'Set the property to shrink text on overflow.
 textboxShape.TextBody.FitTextOption = FitTextOption.ShrinkTextOnOverFlow
@@ -903,9 +903,9 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
-N> ShrinkTextOnOverFlow is not supported in UWP, ASP.NET CORE and Xamarin platforms
-
 {% endtabs %}
+
+N> The shrink text on overflow is not supported in UWP, ASP.NET CORE and Xamarin platforms.
 
 ## Removing the paragraph 
 
