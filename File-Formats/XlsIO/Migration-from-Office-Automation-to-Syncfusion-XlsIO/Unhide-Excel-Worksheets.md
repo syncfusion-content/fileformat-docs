@@ -8,9 +8,7 @@ documentation: UG
 
 # Unhide Excel Worksheets
 
-Hidden sheets can be unhidden or made visible to the users.
-
-The following code shows how to unhide Excel worksheets with Interop and XlsIO for .NET.
+Hidden sheets can be unhidden. The following code shows how to unhide Excel worksheets with Interop and XlsIO for .NET.
 
 ## Interop
 
