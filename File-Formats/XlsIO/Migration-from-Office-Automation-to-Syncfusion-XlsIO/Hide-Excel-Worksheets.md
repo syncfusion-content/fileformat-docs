@@ -9,10 +9,10 @@ documentation: UG
 # Hide Excel Worksheets
 
 You can hide any type of sheet in a workbook so that, users cannot see that when opening the workbook, but, you must always leave at least one sheet visible.
-A sheet can be Visible, Hidden or Very Hidden.
+A sheet can be Visible, hidden, or very hidden.
 
-* A visible sheets tab appears in the bottom of the Excel window enabling users to click the tab for navigation into the sheet. By default, all new sheets are visible.
-* If a sheet is hidden, the sheet’s tab is gone. The sheet itself however, is not gone. Formulas can still retrieve values stored on a hidden sheet. It just disappears from the user interface.
+* A visible sheets tab appears in the bottom of the Excel window enabling users to click the tab for navigating to the sheet. By default, all new sheets are visible.
+* If a sheet is hidden, the sheets tab will only disappear. Formulas can still retrieve values stored on a hidden sheet. It just disappears from the user interface.
 * The difference between a hidden sheet and a very hidden sheet is, very hidden sheets do not appear in the unhide dialog box.
 
 The following code shows how to hide Excel worksheets with Interop and XlsIO for .NET.
