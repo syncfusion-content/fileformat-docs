@@ -8,7 +8,7 @@ documentation: UG
 
 # Filter Excel Data
 
-Auto filtering data allows to view specific rows in a worksheet, while hiding the other rows. When an AutoFilter is added to the header row, a drop-down menu appears in each cell of the header row which provides filter options that can be used to specify the rows to be displayed. We can achieve it programmatically by specifying conditions.
+Auto filtering data allows you to view specific rows in a worksheet while hiding other rows. When an AutoFilter is added to the header row, a drop-down menu appears in each cell of the header row, which provides filter options that can be used to specify the rows to be displayed. This can be achieved programmatically by specifying the conditions.
 
 The following code shows how to auto filter Excel data with specific conditions using Interop and XlsIO for .NET.
 
@@ -41,16 +41,16 @@ private void FilterData()
     sheet.Cells[4, 2] = "Grapes";
     sheet.Cells[5, 2] = "Oranges";
 
-    //Enable Auto-filter
+    //Enable auto-filter
     sheet.EnableAutoFilter = true;
 
     //Create the range
     Range range = sheet.get_Range("A1", "B5");
 
-    //Auto-filter the range
+    //Auto filter the range
     range.AutoFilter("1", "<>", XlAutoFilterOperator.xlOr, "", true);
 
-    //Auto-fit the second column
+    //Auto fit the second column
     sheet.get_Range("B1", "B5").EntireColumn.AutoFit();
 
     //Save the Excel file
@@ -86,16 +86,16 @@ Private Sub FilterData()
     sheet.Cells(4, 2) = "Grapes"
     sheet.Cells(5, 2) = "Oranges"
 
-    'Enable Auto-filter
+    'Enable auto-filter
     sheet.EnableAutoFilter = True
 
     'Create the range
     Dim range As Range = sheet.Range("A1", "B5")
 
-    'Auto-filter the range
+    'Auto filter the range
     range.AutoFilter("1", "<>", XlAutoFilterOperator.xlOr, "", True)
 
-    'Auto-fit the second column
+    'Auto fit the second column
     sheet.Range("B1", "B5").EntireColumn.AutoFit()
 
     'Save the Excel file
@@ -138,10 +138,10 @@ private void FilterData()
         worksheet[4, 2].Value = "Grapes";
         worksheet[5, 2].Value = "Oranges";
 
-        //Create an Auto-filter in the first worksheet and specify the filter range
+        //Create an auto-filter in the first worksheet and specify the filter range
         worksheet.AutoFilters.FilterRange = worksheet.Range["A1:B5"];
 
-        //Column index to which Auto-filter must be applied
+        //Column index to which auto-filter must be applied
         IAutoFilter filter = worksheet.AutoFilters[0];
 
         //Specify first condition
@@ -149,7 +149,7 @@ private void FilterData()
         firstCondition.ConditionOperator = ExcelFilterCondition.Contains;
         firstCondition.String = "";
 
-        //Auto-fit the second column
+        //Auto fit the second column
         worksheet.Range["B1:B5"].EntireColumn.AutofitColumns();
 
         //Save the workbook
@@ -184,10 +184,10 @@ Private Sub FilterData()
         worksheet(4, 2).Value = "Grapes"
         worksheet(5, 2).Value = "Oranges"
 
-        'Create an Auto-filter in the first worksheet and specify the filter range
+        'Create an auto-filter in the first worksheet and specify the filter range
         worksheet.AutoFilters.FilterRange = worksheet.Range("A1:B5")
 
-        'Column index to which Auto-filter must be applied
+        'Column index to which auto-filter must be applied
         Dim filter As IAutoFilter = worksheet.AutoFilters(0)
 
         'Specify first condition
@@ -195,7 +195,7 @@ Private Sub FilterData()
         firstCondition.ConditionOperator = ExcelFilterCondition.Contains
         firstCondition.String = ""
 
-        'Auto-fit the second column
+        'Auto fit the second column
         worksheet.Range("B1:B5").EntireColumn.AutofitColumns()
 
         'Save as Excel file
