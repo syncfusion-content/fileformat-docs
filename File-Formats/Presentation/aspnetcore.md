@@ -180,3 +180,7 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% endtabs %}
+
+The output of the above code example with generate the below PowerPoint slide.
+
+![ASP.Net Core Output](Workingwith_Core/GettingStartedSample.png)
