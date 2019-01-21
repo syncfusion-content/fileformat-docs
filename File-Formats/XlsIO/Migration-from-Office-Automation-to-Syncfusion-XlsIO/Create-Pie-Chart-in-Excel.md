@@ -10,7 +10,7 @@ documentation: UG
 
 The pie charts are used to display the contribution of each value (slice) to a total (pie). So, it is easy to compare proportions. Pie charts always use one data series.
 
-The following code shows how to create pie chart in Excel and to place the chart in a worksheet with Interop and XlsIO for .NET.
+The following code shows how to create pie chart in Excel and to place it in a worksheet with Interop and XlsIO for .NET.
 
 ## Interop
 
