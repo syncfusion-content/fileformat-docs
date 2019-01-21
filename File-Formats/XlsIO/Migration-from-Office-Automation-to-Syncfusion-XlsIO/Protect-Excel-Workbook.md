@@ -8,7 +8,7 @@ documentation: UG
 
 # Protect Excel Workbook
 
-Workbooks are protected by its structure and its window. 
+Workbooks are protected by its structure and window. 
 
 * Workbook structure prevents from moving, deleting, hiding, unhiding, renaming, and inserting worksheets. 
 * Protecting window will retain the size and position of a workbook whenever opened.
