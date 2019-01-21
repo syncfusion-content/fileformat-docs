@@ -6,9 +6,11 @@ control: PowerPoint
 documentation: UG
 ---
 
+# Create PowerPoint file in ASP.NET Core
+
 [Syncfusion PowerPoint library for ASP.NET Core platform](https://www.syncfusion.com/powerpoint-framework/net-core) can be used to create, read and edit PowerPoint files.
 
-# Steps to create PowerPoint file programmatically:
+## Steps to create PowerPoint file programmatically:
 
 1.	Create a new C# ASP.NET Core web application project.
 
@@ -22,7 +24,7 @@ documentation: UG
 
 ![Install Presentation .Net Core Nuget](Workingwith_Core/install_nuget.png)
 
-4.	After installing the “Syncfusion.Presentation.Net.Core” nuget package, the following assemblies were included in our project.
+4.	After installing the **Syncfusion.Presentation.Net.Core** nuget package, the following assemblies were included in our project.
          * Syncfusion.Compression.Net.Core
          * Syncfusion.Licensing
          * Syncfusion.OfficeChart.Net.Core
@@ -52,7 +54,7 @@ IPresentation pptxDoc = Presentation.Create();
 {% highlight c# %}
 
 //Add a new slide to file and apply background color
-ISlide slide = presentation.Slides.Add(SlideLayoutType.TitleOnly);
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
 
 {% endhighlight %}
 
