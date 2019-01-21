@@ -90,7 +90,7 @@ A complete work sample can be downloaded from
 
 
 By executing the program, you will get the PDF document as follows.
-![](GettingStarted_images/Hello World.jpg)
+![output](GettingStarted_images/Hello World.jpg)
 
 ## Creating a PDF document with image
 
@@ -311,7 +311,7 @@ document.Close(true);
 
 The following screenshot shows the invoice PDF document created by using Essential PDF.
 
-![](GettingStarted_images/GettingStarted_img1.jpeg)
+![Getting Started](GettingStarted_images/GettingStarted_img1.jpeg)
 
 ## Filling forms
 
@@ -324,7 +324,7 @@ Essential PDF allows you to create and manipulate existing form in PDF document.
 
 The following guide shows how to fill a sample PDF form as shown.
 
-![](GettingStarted_images/GettingStarted_img2.jpeg)
+![Form Filling](GettingStarted_images/GettingStarted_img2.jpeg)
 
 
 Essential PDF allows you to fill the form fields by using PdfLoadedField class. You can get the form field either by using its field name or field index.
@@ -367,7 +367,7 @@ return File(stream, contentType, fileName);
 
 The filled form is shown in adobe reader application as follows.
 
-![](GettingStarted_images/GettingStarted_img3.jpeg)
+![output](GettingStarted_images/GettingStarted_img3.jpeg)
 
 ## Merge PDF Documents
 
