@@ -10,7 +10,7 @@ documentation: UG
 
 If there are more worksheets in a workbook, certain worksheets should be active while opening the workbook in Microsoft Excel.
 
-The following code shows how to activate a worksheet in workbook containing 3 worksheets with Interop and XlsIO for .NET.
+The following code shows how to activate a worksheet in workbook containing three worksheets with Interop and XlsIO for .NET.
 
 ## Interop
 
