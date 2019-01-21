@@ -8,7 +8,7 @@ documentation: UG
 
 # Rotate Text in Cells
 
-When a text is entered, it is placed horizontally by default. However, you may need to rotate text in cells to add visual impact to a spreadsheet or a presentation. Orientation or rotation allows rotating text in various ways.
+When a text is entered, it is placed horizontally by default. However, you may need to rotate text in cells to add visual impact to a spreadsheet or presentation. Orientation or rotation allows rotating text in various ways.
 
 The following code shows how to change the formatting of a cell to rotate text in the desired direction with Interop and XlsIO for .NET.
 
