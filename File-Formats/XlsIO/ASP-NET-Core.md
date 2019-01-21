@@ -16,15 +16,15 @@ The below code snippet illustrates creating an simple Invoice formatted Excel do
 
 *	Create a new C# ASP.NET Core Web Application project.
 
-![](ASP-NET-Core_images/ASP-NET-Core_images_img1.png)
+![Create ASP.NET Core web application in Visual Studio](ASP-NET-Core_images/ASP-NET-Core_images_img1.png)
 
 *	Select Web Application pattern (Model-View-Controller) for the project.
 
-![](ASP-NET-Core_images/ASP-NET-Core_images_img2.png)
+![Select Web application(Model-View-Controller)](ASP-NET-Core_images/ASP-NET-Core_images_img2.png)
 
 *	Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
-![](ASP-NET-Core_images/ASP-NET-Core_images_img3.png)
+![Add XlsIO reference to the project](ASP-NET-Core_images/ASP-NET-Core_images_img3.png)
 
 *	A default controller with named HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in the HomeController.cs file.
 
@@ -443,13 +443,13 @@ End Using
 A complete working example of how to create an Excel file in ASP.NET Core can be downloaded from [Create-Excel-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted_Core727789699.zip).
 
 By executing the program, you will get the Excel file as follows.
-![](ASP-NET-Core_images/ASP-NET-Core_images_img4.png)
+![Output File](ASP-NET-Core_images/ASP-NET-Core_images_img4.png)
 
 Take a moment to peruse the [documentation](https://help.syncfusion.com/file-formats/xlsio/overview), where you can find basic worksheet data manipulation options along with features like [Conditional Formatting](https://help.syncfusion.com/file-formats/xlsio/working-with-conditional-formatting), worksheet calculations through [Formulas](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas), adding Charts[https://help.syncfusion.com/file-formats/xlsio/working-with-charts] in worksheet or workbook, organizing and analyzing data through [Tables](https://help.syncfusion.com/file-formats/xlsio/working-with-tables) and [Pivot Tables](https://help.syncfusion.com/file-formats/xlsio/working-with-pivot-tables), appending multiple records to worksheet using [Template Markers](https://help.syncfusion.com/file-formats/xlsio/working-with-template-markers), and most importantly [PDF](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-conversion) and [Image conversions](https://help.syncfusion.com/file-formats/xlsio/worksheet-to-image-conversion) etc., with code examples.
 
-Refer here to explore the rich set of Syncfusion Essential XlsIO features.
+Refer [here](https://www.syncfusion.com/excel-framework/net) to explore the rich set of Syncfusion Essential XlsIO features.
 
-An online sample link to generate Excel file.
+An online sample link to [generate Excel file](https://aspnetcore.syncfusion.com/xlsio/create).
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
