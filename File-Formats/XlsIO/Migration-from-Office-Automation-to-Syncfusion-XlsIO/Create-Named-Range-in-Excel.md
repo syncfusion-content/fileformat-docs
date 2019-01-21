@@ -8,7 +8,7 @@ documentation: UG
 
 # Create Named Range in Excel
 
-Users can have a privilege to provide names to a specific cell, a range of cells, function, constant or table. Instead of using the cell reference, we can simply use the name assigned to the cell. By using names, we can make our formulas much easier to understand and maintain.
+Users can provide names to a specific cell, a range of cells, function, constant, or table. Instead of using the cell reference, you can simply use the name assigned to the cell. By using names, you can make the formulas much easier to understand and maintain.
 
 The following code shows how to create named range in Excel with Interop and XlsIO for .NET.
 
