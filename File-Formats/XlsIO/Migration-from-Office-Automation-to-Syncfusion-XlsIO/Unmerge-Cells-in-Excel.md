@@ -27,7 +27,7 @@ private void UnmergeCells()
     //Open the Excel file
     Workbook workbook = excelApp.Workbooks.Open(myPath, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
 
-    //Get the A1 cell (Merged Cell)
+    //Get the A1 cell (merged cell)
     Range rng1 = excelApp.get_Range("A1", Missing.Value);
 
     //Unmerge the cell
@@ -52,7 +52,7 @@ Private Sub UnmergeCells()
     'Open the Excel file
     Dim workbook As Workbook = excelApp.Workbooks.Open(myPath, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value)
 
-    'Get the A1 cell (Merged Cell)
+    'Get the A1 cell (merged cell)
     Dim rng1 As Range = excelApp.Range("A1")
 
     'Unmerge the cell
