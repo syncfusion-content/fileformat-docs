@@ -8,7 +8,7 @@ documentation: UG
 
 # Add Comments in Excel
 
-You can add comments in Excel in order to give feedback about the content of a cell. A red triangle in the upper-right corner of a cell indicates comment. By default, a comment can be seen only when you hover over the cell that contains the comment.
+You can add comments in Excel to give feedback about the content of a cell. A red triangle in the upper-right corner of a cell indicates comment. By default, a comment can be seen only when you hover over the cell that contains the comment.
 
 The following code shows how to add a comment with text to a cell using Interop and XlsIO for .NET.
 
