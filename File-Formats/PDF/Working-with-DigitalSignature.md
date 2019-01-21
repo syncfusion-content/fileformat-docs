@@ -1,5 +1,5 @@
 ---
-title: Working with Digital Signature
+title: Working with Digital Signature | Syncfusion
 description: This section explains how to create a Digital Signature in the PDF document by using Essential PDF
 platform: file-formats
 control: PDF
@@ -861,6 +861,266 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Adding a digital signature using X509Certificate2
+
+The following code example illustrates how to add digital signature in a PDF document using X509Certificate2 as follows.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page  
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key  
+
+X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "syncfusion");
+
+PdfCertificate pdfCertificate = new PdfCertificate(certificate);
+
+//Creates a digital signature  
+
+PdfSignature signature = new PdfSignature(document, page, pdfCertificate, "Signature");
+
+//Sets an image for signature field
+
+PdfBitmap signatureImage = new PdfBitmap(@"signature.jpg");
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Save the document
+
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a new PDF document
+
+Dim document As New PdfDocument()
+
+'Adds a new page  
+
+Dim page As PdfPage = document.Pages.Add()
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Creates a certificate instance from PFX file with private key  
+
+Dim certificate As New X509Certificate2("PDF.pfx", "syncfusion")
+
+Dim pdfCertificate As New PdfCertificate(certificate)
+
+'Creates a digital signature 
+
+Dim signature As New PdfSignature(document, page, pdfCertificate, "Signature")
+
+'Sets an image for signature field
+
+Dim signatureImage As New PdfBitmap("signature.jpg")
+
+'Sets signature information
+
+signature.Bounds = New RectangleF(New PointF(0, 0), signatureImage.PhysicalDimension)
+
+signature.ContactInfo = "johndoe@owned.us"
+
+signature.LocationInfo = "Honolulu, Hawaii"
+
+signature.Reason = "I am author of this document."
+
+'Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0)
+
+'Save the document
+
+document.Save("Output.pdf")
+
+'Close the document
+
+document.Close(True)      
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF supports adding a digital signature using X509Certificate2 only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core platforms. 
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page  
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key  
+
+X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "syncfusion");
+
+PdfCertificate pdfCertificate = new PdfCertificate(certificate);
+
+//Creates a digital signature  
+
+PdfSignature signature = new PdfSignature(document, page, pdfCertificate, "Signature");
+
+//Sets an image for signature field
+
+FileStream imageStream = new FileStream("signature.jpg", FileMode.Open, FileAccess.Read);
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0', then the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page  
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key  
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
+
+MemoryStream ms = new MemoryStream();
+certificateStream.CopyTo(ms);
+
+X509Certificate2 certificate = new X509Certificate2(ms.ToArray(), "syncfusion");
+
+PdfCertificate pdfCertificate = new PdfCertificate(certificate);
+
+//Creates a digital signature  
+
+PdfSignature signature = new PdfSignature(document, page, pdfCertificate, "Signature");
+
+//Sets an image for signature field
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signature.jpg");
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
 ## Signing an existing document
 
 You can load the signature field from the existing PDF document and add certificate to the document as follows.
@@ -2334,6 +2594,100 @@ else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
 }
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Retrieve certificate details from an existing signed PDF document
+
+You can get the certificate details such as subject name, issuer name, and expiry date from an existing signed PDF document using the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the existing signed PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Gets the page of the document
+
+PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Gets the signature field from the PDF document
+
+PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+
+//Get PDF Certificate instance from signature field
+
+PdfCertificate certificate = field.Signature.Certificate;
+
+//Get the certificate details
+
+string issuerName = certificate.IssuerName;
+
+string subjectName = certificate.SubjectName;
+
+DateTime validFrom = certificate.ValidFrom;
+
+DateTime validTo = certificate.ValidTo;
+
+//Close the document 
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing signed PDF document
+
+Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
+
+'Gets the page of the document
+
+Dim page As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
+
+'Gets the signature field from the PDF document
+
+Dim field As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
+
+'Get PDF certificate instance from signature field
+
+Dim certificate As PdfCertificate = field.Signature.Certificate
+
+'Get the certificate details
+
+Dim issuerName As String = certificate.IssuerName
+
+Dim subjectName As String = certificate.SubjectName
+
+Dim validFrom As DateTime = certificate.ValidFrom
+
+Dim validTo As DateTime = certificate.ValidTo
+
+'Close the document 
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Essential PDF supports retrieving certificate details from signed PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports retrieving certificate details from signed PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports retrieving certificate details from signed PDF document only in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms
 
 {% endhighlight %}
 

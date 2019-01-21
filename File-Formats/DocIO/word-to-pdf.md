@@ -1,5 +1,5 @@
 ---
-title: Word document to PDF Conversion
+title: Word document to PDF Conversion | Syncfusion
 description: Converting Word document to PDF using DocIO
 platform: file-formats
 control: DocIO
@@ -372,6 +372,87 @@ pdfDocument.Close(True)
 
 wordDocument.Close()
 {% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+// Open the file as Stream
+
+FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+
+//Loads file stream into Word document
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+// Sets true to embed TrueType fonts
+
+render.Settings.EmbedFonts = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the Word document as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+// Loads the stream into Word Document.
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+// Sets true to embed TrueType fonts
+
+render.Settings.EmbedFonts = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
 {% endtabs %}
 
 #### Embed Complete Fonts
@@ -452,6 +533,87 @@ pdfDocument.Close(True)
 
 wordDocument.Close()
 {% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+// Open the file as Stream
+
+FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+
+//Loads file stream into Word document
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+// Sets true to embed complete TrueType fonts
+
+render.Settings.EmbedCompleteFonts = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the Word document as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+// Loads the stream into Word Document.
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+// Sets true to embed complete TrueType fonts
+
+render.Settings.EmbedCompleteFonts = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Accessible PDF document
@@ -1121,6 +1283,87 @@ pdfDocument.Close(True)
 
 wordDocument.Close()
 {% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+// Open the file as Stream
+
+FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+
+//Loads file stream into Word document
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+// Set the conformance for PDF/A-1b conversion.
+
+render.Settings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the Word document as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+// Loads the stream into Word Document.
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+// Set the conformance for PDF/A-1b conversion.
+
+render.Settings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Enable Alternate Chunks
@@ -1201,8 +1444,581 @@ pdfDocument.Close(True)
 
 wordDocument.Close()
 {% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+// Open the file as Stream
+
+FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+
+//Loads file stream into Word document
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+// Sets false to disable converting the alternate chunks present in Word document to PDF.
+
+render.Settings.EnableAlternateChunks = false;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the Word document as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+// Loads the stream into Word Document.
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+// Sets false to disable converting the alternate chunks present in Word document to PDF.
+
+render.Settings.EnableAlternateChunks = false;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+{% endhighlight %}
+
 {% endtabs %}
 
+### Complex Script Text
+
+This setting allows you to preserve the complex script text in the converted PDF document.
+
+The following code sample shows how to preserve the complex script text in the converted PDF document.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument(@"Template.docx", FormatType.Docx);     
+
+//Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+
+DocToPDFConverter converter = new DocToPDFConverter();
+
+//Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
+
+converter.Settings.AutoDetectComplexScript = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+//Saves the PDF file to file system
+
+pdfDocument.Save("WordtoPDF.pdf");
+
+System.Diagnostics.Process.Start("WordtoPDF.pdf");
+
+//Closes the instance of document objects
+
+pdfDocument.Close(true);
+
+wordDocument.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads an existing Word document
+
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
+
+'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
+
+wordDocument.ChartToImageConverter = New ChartToImageConverter()
+
+'Creates an instance of the DocToPDFConverter
+
+Dim converter As New DocToPDFConverter()
+
+'Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
+
+converter.Settings.AutoDetectComplexScript = True
+
+'Converts Word document into PDF document
+
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+
+'Saves the PDF file 
+
+pdfDocument.Save("WordtoPDF.pdf")
+
+'Closes the instance of document objects
+
+pdfDocument.Close(True)
+
+wordDocument.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
+
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
+
+//Instantiates DocIORenderer instance for Word to PDF conversion
+
+DocIORenderer renderer = new DocIORenderer();
+
+//Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
+
+renderer.Settings.AutoDetectComplexScript = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument);
+
+//Closes the instance of Word document object
+
+wordDocument.Close();
+
+//Releases the resources occupied by DocIORenderer instance
+
+renderer.Dispose();
+
+//Saves the PDF file  
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the Word document as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+// Loads the stream into Word Document.
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Sets AutoDetectComplexScript property to true to detect the complex scripts automatically
+
+render.Settings.AutoDetectComplexScript = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Hyphenation in Word-to-PDF conversion
+
+Essential DocIO now allows hyphenating text in a Word document while converting it to PDF format based on the given language dictionaries. These dictionaries prescribe where words of a specific language can be hyphenated. Use the dictionary files as OpenOffice format dictionary.
+
+N> 1. If automatic hyphenation is not enabled in the Word document, you can enable it by using WordDocument. property of DocIO.
+
+The following code sample shows how to hyphenate text in a Word document while converting it to PDF format.
+{% tabs %}  
+
+{% highlight c# %}
+
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
+
+//Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
+
+ wordDocument.ChartToImageConverter = new ChartToImageConverter();
+
+//Creates an instance of the DocToPDFConverter
+
+DocToPDFConverter converter = new DocToPDFConverter();
+
+//Adds the hyphenation dictionary of the specified language
+
+FileStream dictionaryStream = new FileStream("hyphen_en_US.dic", FileMode.Open, FileAccess.Read);
+
+//Adds the hyphenation dictionary of the specified language
+
+Hyphenator.Dictionaries.Add("en-US", dictionaryStream);
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+//Saves the PDF file 
+
+pdfDocument.Save("WordtoPDF.pdf");
+
+//Closes the instance of document objects
+
+wordDocument.Close();
+
+pdfDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads an existing Word document
+
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
+
+'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
+
+wordDocument.ChartToImageConverter = New ChartToImageConverter()
+
+'Creates an instance of the DocToPDFConverter
+
+Dim converter As New DocToPDFConverter()
+
+'Adds the hyphenation dictionary of the specified language
+
+Dim dictionaryStream As New FileStream("hyphen_en_US .dic", mode:=FileMode.Open)
+
+'Adds the hyphenation dictionary of the specified language
+
+Hyphenator.Dictionaries.Add("en-US", dictionaryStream)
+
+'Converts Word document into PDF document
+
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+
+'Saves the PDF file 
+
+pdfDocument.Save("WordtoPDF.pdf")
+
+'Closes the instance of document objects
+
+pdfDocument.Close(True)
+
+wordDocument.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
+
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
+
+//Instantiates DocIORenderer instance for Word to PDF conversion
+
+DocIORenderer renderer = new DocIORenderer();
+
+//Reads the language dictionary for hyphenation
+
+FileStream dictionaryStream = new FileStream("hyphen_en_US.dic", FileMode.Open);
+
+//Adds the hyphenation dictionary of the specified language
+
+Hyphenator.Dictionaries.Add("en-US", dictionaryStream);
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument);
+
+//Closes the instance of Word document object
+
+wordDocument.Close();
+
+//Releases the resources occupied by DocIORenderer instance
+
+renderer.Dispose();
+
+//Saves the PDF file  
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the Word document as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+// Loads the stream into Word Document.
+
+WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic);
+
+//Instantiates DocIORenderer instance for Word to PDF conversion
+
+DocIORenderer renderer = new DocIORenderer();
+
+//Reads the language dictionary for hyphenation
+
+FileStream dictionaryStream = new FileStream("hyphen_en_US.dic", FileMode.Open);
+
+//Adds the hyphenation dictionary of the specified language
+
+Hyphenator.Dictionaries.Add("en-US", dictionaryStream);
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument);
+
+//Closes the instance of Word document object
+
+wordDocument.Close();
+
+//Releases the resources occupied by DocIORenderer instance
+
+renderer.Dispose();
+
+//Saves the PDF file  
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Track changes in Word-to-PDF conversion
+
+The following code sample shows how to preserve revision marks in a generated PDF when converting Word documents with tracked changes or revisions.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Loads an existing Word document
+
+WordDocument wordDocument =new WordDocument();
+
+//Sets revision types to preserve track changes in Word when converting to PDF
+
+wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
+
+//Creates an instance of the DocToPDFConverter
+
+DocToPDFConverter converter = new DocToPDFConverter();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+//Closes the instance of Word document object
+
+wordDocument.Close();
+
+//Releases the resources occupied by DocToPDFConverter instance
+
+converter.Dispose();
+
+//Saves the PDF file  pdfDocument.Save("WordtoPDF.pdf");
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads an existing Word document
+
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
+
+'Sets revision types to preserve track changes in when converting to PDF conversion.
+
+wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions Or
+
+RevisionType.Formatting Or RevisionType.Insertions
+
+'Creates an instance of the DocToPDFConverter
+
+Dim converter As New DocToPDFConverter()
+
+'Converts Word document into PDF document
+
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+
+'Closes the instance of Word document object
+
+wordDocument.Close()
+
+'Releases the resources occupied by DocToPDFConverter instance
+
+converter.Dispose()
+
+'Saves the PDF file
+
+pdfDocument.Save("WordtoPDF.pdf")
+
+'Closes the instance of PDF document object
+
+pdfDocument.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
+
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx);
+
+//Sets revision types to preserve track changes in  Word when converting to PDF.
+
+wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
+
+//Instantiates DocIORenderer instance for Word to PDF conversion
+
+DocIORenderer renderer = new DocIORenderer();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument);
+
+//Closes the instance of Word document object
+
+wordDocument.Close();
+
+//Releases the resources occupied by DocIORenderer instance
+
+renderer.Dispose();
+
+//Saves the PDF file  
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the Word document as stream
+
+Stream docStream =
+
+typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+//Loads the stream into Word Document
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Sets revision types to preserve track changes in  Word when converting to PDF
+
+wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer renderer = new DocIORenderer();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument);
+
+//Closes the instance of Word document object
+
+wordDocument.Close();
+
+//Releases the resources occupied by DocIORenderer instance
+
+renderer.Dispose();
+
+//Saves the PDF file  
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+{% endhighlight %}
+
+{% endtabs %}
 
 N> 1. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, and Universal applications.
 N> 2. Creating an instance of ChartToImageConverter class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF.
@@ -1303,14 +2119,6 @@ Not supported
 </tr>
 <tr>
 <td>
-Hyphenation
-</td>
-<td>
-Not supported
-</td>
-</tr>
-<tr>
-<td>
 Comments
 </td>
 <td>
@@ -1328,14 +2136,6 @@ Not supported
 <tr>
 <td>
 Equation
-</td>
-<td>
-Not supported
-</td>
-</tr>
-<tr>
-<td>
-Track changes
 </td>
 <td>
 Not supported
