@@ -8,7 +8,7 @@ documentation: UG
 
 # Set Background for Excel Worksheet
 
-Adding a picture to the background either as a watermark of company’s logo or a relevant image improves the appearance of the document. When you set a background picture of a worksheet, the picture is tiled so that, it fills the whole screen over and again.
+Adding a picture to the background either as a watermark of company's logo or a relevant image will improve the appearance of the document. When you set background picture to a worksheet, the picture is tiled so that it fills the whole screen over and again.
 
 The following code shows how to set Excel worksheet background image with Interop and XlsIO for .NET. The process will assume that you already have the picture on your computer to use as a background image.
 
