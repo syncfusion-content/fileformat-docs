@@ -66,7 +66,7 @@ private void ApplyBorders()
     borders.LineStyle = XlLineStyle.xlContinuous;
     borders.Weight = 4d;
 
-    //Auto-fit column A
+    //Autofit column A
     worksheet.get_Range("A2", "A2").EntireColumn.AutoFit();
 
     //Save the file
@@ -127,7 +127,7 @@ Private Sub ApplyBorders()
     borders.LineStyle = XlLineStyle.xlContinuous
     borders.Weight = 4.0R
 
-    'Auto-fit column A
+    'Autofit column A
     worksheet.Range("A2", "A2").EntireColumn.AutoFit()
 
     'Save the file
@@ -183,7 +183,7 @@ private void ApplyBorders()
         //Set the borders with thick lines style
         range.BorderAround(ExcelLineStyle.Thick);
 
-        //Auto-fit column A
+        //Autofit column A
         worksheet.AutofitColumn(1);
 
         //Save the workbook
@@ -231,7 +231,7 @@ Private Sub ApplyBorders()
         'Set the borders with thick lines style
         range.BorderAround(ExcelLineStyle.Thick)
 
-        'Auto-fit column A
+        'Autofit column A
         worksheet.AutofitColumn(1)
 
         'Save as Excel file
