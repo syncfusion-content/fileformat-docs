@@ -8,7 +8,7 @@ documentation: UG
 
 # Delete Comments in Excel
 
-You can also delete comments in Excel, which removes the red triangle in the cell.
+You can also delete comments in Excel, which removes the red triangle in a cell.
 
 The following code shows how to delete a comment from a cell with Interop and XlsIO for .NET.
 
