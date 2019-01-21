@@ -8,7 +8,7 @@ documentation: UG
 
 # Add Hyperlinks in Excel
 
-A hyperlink is a reference to a specific location, document or web-page that the user can jump to by clicking the link in a cell. Hyperlinks are easily recognizable because this is a text highlighted with underlined blue color.
+A hyperlink is a reference to a specific location, document, or webpage that the user can jump to by clicking the link in a cell. Hyperlinks are easily recognizable because this is a text highlighted with underlined blue color.
 
 The following code shows how to add hyperlinks in Excel with Interop and XlsIO for .NET.
 
