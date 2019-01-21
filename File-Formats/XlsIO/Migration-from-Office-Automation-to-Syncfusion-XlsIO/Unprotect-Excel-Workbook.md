@@ -8,7 +8,7 @@ documentation: UG
 
 # Unprotect Excel Workbook
 
-Workbooks protected by structure and window can be unprotected with the password specified during protection.
+The workbooks protected by structure and window can be unprotected with the password specified during protection.
 
 The following code shows how to unprotect Excel workbook using Interop and XlsIO for .NET.
 
