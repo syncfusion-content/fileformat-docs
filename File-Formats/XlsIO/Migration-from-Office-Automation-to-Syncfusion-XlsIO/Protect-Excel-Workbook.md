@@ -8,9 +8,9 @@ documentation: UG
 
 # Protect Excel Workbook
 
-Workbooks are protected by its structure and its window. 
+Workbooks are protected by its structure and window. 
 
-* Workbook structure prevents from moving, deleting, hiding, unhiding, renaming and inserting worksheets. 
+* Workbook structure prevents from moving, deleting, hiding, unhiding, renaming, and inserting worksheets. 
 * Protecting window will retain the size and position of a workbook whenever opened.
 
 The following code shows how to protect Excel workbook with password using Interop and XlsIO for .NET.
@@ -21,38 +21,38 @@ The following code shows how to protect Excel workbook with password using Inter
 {% highlight c# %}
 private void ProtectWorkbook()
 {
-    //Instantiate the Application object.
+    //Instantiate the application object
     var excelApp = new Microsoft.Office.Interop.Excel.Application();
 
-    //Add a Workbook.
+    //Add a workbook
     Workbook workbook = excelApp.Workbooks.Add(System.Reflection.Missing.Value);
 
-    //Protect the workbook specifying a password with Boolean attributes for Structure and Windows Protection.
+    //Protect the workbook specifying a password with Boolean attributes for structure and windows protection
     workbook.Protect("007", true, true);
 
-    //Save the file.
+    //Save the file
     workbook.SaveAs(@"d:\test\InteropOutput_ProtectedWorkbook.xlsx");
 
-    //Quit the Application.
+    //Quit the application
     excelApp.Quit();
 }
 {% endhighlight %}
 
 {% highlight vb %}
 Private Sub ProtectWorkbook()
-    'Instantiate the Application object.
+    'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
 
-    'Add a Workbook.
+    'Add a workbook
     Dim workbook As Workbook = excelApp.Workbooks.Add(System.Reflection.Missing.Value)
 
-    'Protect the workbook specifying a password with Boolean attributes for Structure and Windows Protection.
+    'Protect the workbook specifying a password with Boolean attributes for structure and windows protection
     workbook.Protect("007", True, True)
 
-    'Save the file.
+    'Save the file
     workbook.SaveCopyAs("d:\test1\InteropOutput_ProtectedWorkbook.xlsx")
 
-    'Quit the Application.
+    'Quit the application
     excelApp.Quit()
 End Sub
 {% endhighlight %}
@@ -66,18 +66,18 @@ private void ProtectWorkbook()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
     {
-        //Instantiate the Application object.
+        //Instantiate the application object
         IApplication application = excelEngine.Excel;
 
-        //Create a Workbook.
+        //Create a workbook
         IWorkbook workbook = application.Workbooks.Create(1);
 
-        //Protect the workbook specifying a password with Boolean attributes for Structure and Windows Protection.
+        //Protect the workbook specifying a password with Boolean attributes for structure and windows protection
         bool isProtectWindow = true;
         bool isProtectContent = true;
         workbook.Protect(isProtectWindow, isProtectContent, "password");
 
-        //Save the excel file
+        //Save the Excel file
         workbook.SaveAs(@"d:\test\XlsIOOutput_ProtectedWorkbook.xlsx");
     }
 }
@@ -86,18 +86,18 @@ private void ProtectWorkbook()
 {% highlight vb %}
 Private Sub ProtectWorkbook()
     Using excelEngine As ExcelEngine = New ExcelEngine()
-        'Instantiate the Application object.
+        'Instantiate the application object
         Dim application As IApplication = excelEngine.Excel
 
-        'Create a Workbook.
+        'Create a workbook
         Dim workbook As IWorkbook = application.Workbooks.Create(1)
 
-        'Protect the workbook specifying a password with Boolean attributes for Structure and Windows Protection.
+        'Protect the workbook specifying a password with Boolean attributes for structure and windows protection
         Dim isProtectWindow As Boolean = True
         Dim isProtectContent As Boolean = True
         workbook.Protect(isProtectWindow, isProtectContent, "password")
 
-        'Save as excel file.
+        'Save as Excel file
         workbook.SaveAs("d:\test1\XlsIOOutput_ProtectedWorkbook.xlsx")
     End Using
 End Sub
