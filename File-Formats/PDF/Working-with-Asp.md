@@ -109,8 +109,7 @@ End Using
 
 {% endtabs %}  
 
-A complete working sample can be downloaded from
-[Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1393143578.zip )
+A complete working sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample-1393143578.zip )
 
 By executing the program, you will get the PDF document as follows.
 ![output](GettingStarted_images/Hello World.jpg)
