@@ -1,6 +1,6 @@
 ---
 title: Apply Borders in Excel | Syncfusion
-description: This page shows how to apply borders in Excel with different line styles.
+description: Explains with an example on how to programmatically apply borders in Excel with different line styles using Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
