@@ -1,4 +1,4 @@
-﻿---
+---
 title: Hide Excel Worksheets | Syncfusion
 description: We can hide Excel worksheets so that a user cannot see them when opening the workbook.
 platform: file-formats
