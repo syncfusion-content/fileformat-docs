@@ -1,5 +1,5 @@
 ---
-title: Create a simple PDF file with basic elements such as text, image & tables
+title: Create a simple PDF file with basic elements such as text, image & tables | Syncfusion
 description: This section explains creating a simple PDF document with basic elements
 platform: file-formats
 control: PDF
@@ -7,22 +7,7 @@ documentation: UG
 ---
 # Getting Started
 
-To create a PDF document from scratch and saving it to disk or stream, the following assemblies have to be added as reference to the project.
-
-<table>
-  <tr>
-    <th>Assembly Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Syncfusion.Pdf.Base</td>
-    <td>This assembly contains the core feature for creating, manipulating and saving PDF documents.</td>
-  </tr>
-  <tr>
-    <td>Syncfusion.Compression.Base</td>
-    <td>This assembly is required for compressing the internal contents of a PDF document.</td>
-  </tr>
-</table>
+To create a PDF document from scratch and saving it to disk or stream, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
