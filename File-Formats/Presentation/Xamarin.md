@@ -166,6 +166,27 @@ secondPara.FirstLineIndent = -35;
 
 {% endtabs %}
 
+**Add an image:**
+
+{% tabs %}
+
+{% highlight c# %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Gets a picture as stream.
+Stream fileStream = assembly.GetManifestResourceStream("Image.jpg");
+
+//Adds the picture to a slide by specifying its size and position.
+slide.Shapes.AddPicture(fileStream, 499.79, 238.59, 364.54, 192.16);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download the image used in the sample from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Image-1995521764.zip).
+
 **Add a shape:**
 
 {% tabs %}
@@ -218,7 +239,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.pptx", "
   </tr>
   <tr>
   <td>
-    Protable project
+    Portable project
   </td>
   <td>
     ISave.cs
