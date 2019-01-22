@@ -1,245 +1,295 @@
 ---
-title: Working with Xamarin
-description: Working with presentation library in Xamarin Platform
+title: Create and edit PowerPoint files in Xamarin |Syncfusion|
+description: A Xamarin PowerPoint library to create, read and edit PowerPoint files in Xamarin applications. Supports text, shape, chart, table and combine PowerPoints.
 platform: file-formats
-control: Presentation
+control: PowerPoint
 documentation: UG
 keywords: Working with presentation library in Xamarin Platform
 ---
+# Create a PowerPoint file using Xamarin platform
 
-# Working with Xamarin
+[Syncfusion PowerPoint library for Xamarin platform](https://www.syncfusion.com/powerpoint-framework/xamarin) can be used to create, read and edit PowerPoint files.
 
-In your Xamarin Application, please add the required assemblies in order to use Presentation. [Refer here for assemblies required](/File-Formats/Presentation/Assemblies-Required)
+## Steps to create PowerPoint file programmatically:
 
-## Loading the Presentation
+1. Create a new C# **Xamarin.Forms** application project.
 
-The following code example illustrates how to load the PowerPoint Presentation by using stream in Xamarin.
+![Create Xamarin project](Workingwith_Xamarin/CreateProject.png)
+
+2. Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
+
+![Create Xamarin CodeSharing Option](Workingwith_Xamarin/CodeSharing.png)
+
+3.	Install [Syncfusion.Xamarin.Presentation](https://www.nuget.org/packages/Syncfusion.Xamarin.Presentation/) NuGet package as a reference to the .NET Standard project in your Xamarin applications from [NuGet.org](https://www.nuget.org/).
+
+![Install Xamarin Nuget](Workingwith_Xamarin/InstallNuget.png)
+
+4.	Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
+     i.	To add the new XAML page, right click on the project and select **Add > New Item** and add a Forms XAML Page from the list. Name it as MainXamlPage.
+	 ii. In App class of **portable project** (App.cs), replace the existing constructor of App class with the code snippet given below which invokes the **MainXamlPage**.
+	 
 {% tabs %}
+
 {% highlight c# %}
-//Loads the PowerPoint Presentation as stream.
+public App()
+{
+    // The root page of your application
+    MainPage = new MainXamlPage();
+  
+}
+{% endhighlight %}
 
-Assembly assembly = typeof(GettingStartedPresentation).GetTypeInfo().Assembly;
+{% endtabs %}
 
-string resourcePath = "SampleBrowser.Presentation.Assets.HelloWorld.pptx";
+5.	In the MainXamlPage.xaml add new button as shown below.
 
-Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
+{% tabs %}
 
-//Loads or opens existing Presentation using open method of Presentation class.
+{% highlight c# %}
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+ x:Class="GettingStarted. MainXamlPage">
+<StackLayout VerticalOptions="Center">
+  
+<Button Text="Generate Document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
+  
+</StackLayout> 
+</ContentPage>
+{% endhighlight %}
 
-IPresentation presentation = await Presentation.OpenAsync(fileStream);
+{% endtabs %}
 
-//Creates Memory stream to save Presentation.
+6.	Include the following namespace in the MainXamlPage.xaml.cs file.
 
+{% tabs %}
+
+{% highlight c# %}
+using Syncfusion.Presentation;
+{% endhighlight %}
+
+{% endtabs %}
+
+7.	Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an PowerPoint file and save it in a stream.
+
+**Create Presentation instance:**
+
+{% tabs %}
+
+{% highlight c# %}
+//Create a new PowerPoint presentation
+IPresentation powerpointDoc = Presentation.Create();
+{% endhighlight %}
+
+{% endtabs %}
+
+**Add a new slide**
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Add a new slide to file and apply background color
+ISlide slide = powerpointDoc.Slides.Add(SlideLayoutType.TitleOnly);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+**Apply Background**
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Specify the fill type and fill color for the slide background 
+slide.Background.Fill.FillType = FillType.Solid;
+slide.Background.Fill.SolidFill.Color = ColorObject.FromArgb(232, 241, 229);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+**Add title content:**
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Add title content to the slide by accessing the title placeholder of the TitleOnly layout-slide
+IShape titleShape = slide.Shapes[0] as IShape;
+titleShape.TextBody.AddParagraph("Company History").HorizontalAlignment = HorizontalAlignmentType.Center;
+
+{% endhighlight %}
+
+{% endtabs %}
+
+**Add description content:**
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Add description content to the slide by adding a new TextBox
+IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
+descriptionShape.TextBody.Text = "IMN Solutions PVT LTD is the software company, established in 1987, by George Milton. The company has been listed as the trusted partner for many high-profile organizations since 1988 and got awards for quality products from reputed organizations.";
+
+{% endhighlight %}
+
+{% endtabs %}
+
+**Add bullet points:**
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Add bullet points to the slide
+IShape bulletPointsShape = slide.AddTextBox(53.22, 270, 437.90, 116.32);
+
+//Add a paragraph for a bullet point
+IParagraph firstPara = bulletPointsShape.TextBody.AddParagraph("The company acquired the MCY corporation for 20 billion dollars and became the top revenue maker for the year 2015.");
+
+//Format how the bullets should be displayed
+firstPara.ListFormat.Type = ListType.Bulleted;
+firstPara.LeftIndent = 35;
+firstPara.FirstLineIndent = -35;
+
+// Add another paragraph for the next bullet point
+IParagraph secondPara = bulletPointsShape.TextBody.AddParagraph("The company is participating in top open source projects in automation industry.");
+
+//Format how the bullets should be displayed
+secondPara.ListFormat.Type = ListType.Bulleted;
+secondPara.LeftIndent = 35;
+secondPara.FirstLineIndent = -35;
+
+{% endhighlight %}
+
+{% endtabs %}
+
+**Add an image:**
+
+{% tabs %}
+
+{% highlight c# %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Gets a picture as stream.
+Stream fileStream = assembly.GetManifestResourceStream("Image.jpg");
+
+//Adds the picture to a slide by specifying its size and position.
+slide.Shapes.AddPicture(fileStream, 499.79, 238.59, 364.54, 192.16);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+You can download the image used in the sample from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/Image-1995521764.zip).
+
+**Add a shape:**
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Add an auto-shape to the slide
+IShape stampShape = slide.Shapes.AddShape(AutoShapeType.Explosion1, 48.93, 430.71, 104.13, 80.54);
+
+//Format the auto-shape color by setting the fill type and text
+stampShape.Fill.FillType = FillType.None;
+stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmentType.Center;
+
+{% endhighlight %}
+
+{% endtabs %}
+
+**Save and close the presentation:**
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Save the PowerPoint to stream in pptx format. 
 MemoryStream stream = new MemoryStream();
+powerpointDoc.Save(stream);
 
-//Saves Presentation in stream format.
+powerpointDoc.Close();
 
-presentation.Save(stream);
-
-presentation.Close();
-{% endhighlight %}
-{% endtabs %}
-
-## Saving the Presentation
-
-The following code example illustrates how to save the PowerPoint Presentation in Xamarin Windows Phone platform.
-{% tabs %}
-{% highlight c# %}
-
-//Creates new Presentation without slides.
-IPresentation presentation = Presentation.Create();
-
-//Adds new Blank type of slide.
-ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
-
-//Adds a shape with specified size and position.
-IShape shape = slide.Shapes.AddShape(AutoShapeType.Rectangle, 1.92 * 72, 1.51 * 72, 10.85 * 72, 4.12 * 72);
-
-//Adds text into the shape.
-shape.TextBody.AddParagraph("In 2000, AdventureWorks Cycles bought a small manufacturing plant, located in Mexico. It manufactures several critical subcomponents for the AdventureWorks Cycles product line. These subcomponents are shipped to the another location for final product assembly. In 2001, the plant became the sole manufacturer and distributor of the touring bicycle product group.");
-
-//Creates new memory stream to save Presentation.
-MemoryStream stream = new MemoryStream();
-
-//Saves Presentation in stream format.
-presentation.Save(stream);
-
-presentation.Close();
-
-stream.Position = 0;
-
-Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("GettingStartedSample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
 {% endtabs %}
 
-{% tabs %}  
-{% highlight c# %}
-using System.IO;
-using System.Threading.Tasks;
+8.	Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
-private interface ISave
-{
-	//Method to save document as a file and view the saved document
-	void SaveAndView(string filename, string contentType, MemoryStream stream);
-}
-{% endhighlight %}
-{% endtabs %}
+<table>
+  <tr>
+  <td>
+    **Project**
+  </td>
+  <td>
+    **File Name**
+  </td>
+  <td>
+    **Summary**
+  </td>
+  </tr>
+  <tr>
+  <td>
+    Portable project
+  </td>
+  <td>
+    ISave.cs
+  </td>
+  <td>Represent the base interface for save operation
+  </td>
+  </tr>
+  <tr>
+  <td rowspan="2">
+    iOS Project
+  </td>
+  <td>
+    SaveIOS.cs
+  </td>
+  <td>
+    Save implementation for iOS device
+  </td>
+  </tr>
+  <tr>
+  <td>
+    PreviewControllerDS.cs
+  </td>
+  <td>
+    Helper class for viewing the PowerPoint file in iOS device
+  </td>
+  </tr>
+  <tr>
+  <td>
+    Android project
+  </td>
+  <td>
+    SaveAndroid.cs
+  </td>
+  <td>Save implementation for Android device
+  </td>
+  </tr>
+  <tr>
+  <td>
+    UWP project
+  </td>
+  <td>
+    SaveWindows.cs
+  </td>
+  <td>Save implementation for UWP device.
+  </td>
+  </tr>
+</table>
 
-N> SaveAndView is helper method to save the stream as a physical file and open the file in default viewer. The operation varies between Windows Phone, Android and iOS platforms as described in the code samples below.
+9.	Compile and execute the application. 
 
-### Windows Phone
+The output of the above code example will generate the below PowerPoint slide.
 
-{% tabs %}  
-{% highlight c# %}
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Storage;
-using System.IO;
-using Xamarin.Forms;
-
-[assembly: Dependency(typeof(SaveWindowsPhone))]
-
-class SaveWindowsPhone: ISave
-{
-	//Method to save document as a file in Windows Phone and view the saved document.
-	public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
-    {
-        //Save the stream to a file. 
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        StorageFile outFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-        using (Stream outStream = await outFile.OpenStreamForWriteAsync())
-        {
-            outStream.Write(stream.ToArray(), 0, (int)stream.Length);
-        }
-
-        //Launch the saved file for viewing in default viewer.
-        await Windows.System.Launcher.LaunchFileAsync(outFile);
-    }
-}
-{% endhighlight %}
-{% endtabs %}
-
-### Android
-
-The following code example illustrates how to save the PowerPoint Presentation in Xamarin.Android platform.
-{% tabs %}
-
-{% highlight c# %}
-
-using System;
-using System.IO;
-using GettingStarted.Droid;
-using Android.Content;
-using Java.IO;
-using Xamarin.Forms;
-using System.Threading.Tasks;
-
-[assembly: Dependency(typeof(SaveAndroid))]
-
-class SaveAndroid: ISave
-{
-    //Method to save document as a file in Android and view the saved document.
-    public async Task SaveAndView(string fileName, String contentType, MemoryStream stream)
-    {
-        string root = null;
-		
-        //Get the root path of android device.
-        if (Android.OS.Environment.IsExternalStorageEmulated)
-        {
-            root = Android.OS.Environment.ExternalStorageDirectory.ToString();
-        }
-        else
-            root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-        //Create directory and file.
-        Java.IO.File myDir = new Java.IO.File(root + "/Syncfusion");
-        myDir.Mkdir();
-
-        Java.IO.File file = new Java.IO.File(myDir, fileName);
-
-        //Remove the file if exists.
-        if (file.Exists()) file.Delete();
-
-        //Write the stream into file.
-        FileOutputStream outs = new FileOutputStream(file);
-        outs.Write(stream.ToArray());
-
-        outs.Flush();
-        outs.Close();
-
-        //Launch the saved file for viewing in default viewer.
-        if (file.Exists())
-        {
-            Android.Net.Uri path = Android.Net.Uri.FromFile(file);
-            string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
-            string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
-            Intent intent = new Intent(Intent.ActionView);
-            intent.SetDataAndType(path, mimeType);
-            Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
-        }
-    }
-}
-{% endhighlight %}
-
-{% endtabs %}
-
-### iOS
-
-The following code example illustrates how to save the PowerPoint Presentation in Xamarin.iOS platform.
-
-{% tabs %}
-
-{% highlight c# %}
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using Xamarin.Forms;
-using GettingStarted.iOS;
-using UIKit;
-using QuickLook;
-
-[assembly: Dependency(typeof(SaveIOS))]
-
-class SaveIOS: ISave
-{
-    //Method to save document as a file in iOS and view the saved document.
-    public async Task SaveAndView(string filename, string contentType, MemoryStream stream)
-    {
-        //Get the root path of iOS device.
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-        string filePath = Path.Combine(path, filename);
-
-        //Create a file and write the stream into it.
-        FileStream fileStream = File.Open(filePath, FileMode.Create);
-        stream.Position = 0;
-        stream.CopyTo(fileStream);
-        
-		fileStream.Flush();
-        fileStream.Close();
-
-        //Launch the saved file for viewing in default viewer.
-        UIViewController currentController = UIApplication.SharedApplication.KeyWindow.RootViewController;
-        while (currentController.PresentedViewController != null)
-			currentController = currentController.PresentedViewController;
-        UIView currentView = currentController.View;
-
-        QLPreviewController preview = new QLPreviewController();
-        QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
-        preview.DataSource = new PreviewControllerDS(item);
-
-        currentController.PresentViewController(preview, true, null);
-    }
-}
-
-{% endhighlight %}
-{% endtabs %}
-
-N> The image and PDF conversions are not supported in Xamarin platforms.
+![Xamarin Output](Workingwith_Xamarin/GettingStartedSample.png)
