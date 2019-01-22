@@ -1,5 +1,5 @@
 ---
-title: Create a simple PDF file with basic elements such as text, image & tables | Syncfusion
+title: Create a PDF file with texts, images and tables | Syncfusion
 description: This section explains creating a simple PDF document with basic elements
 platform: file-formats
 control: PDF
