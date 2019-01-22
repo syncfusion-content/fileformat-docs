@@ -1,5 +1,5 @@
 ---
-title: Working with ASP.NET Core
+title: Working with ASP.NET Core | Syncfusion
 description: Loading and saving the PDF document in ASP.NET Core platform
 platform: file-formats
 control: PDF
