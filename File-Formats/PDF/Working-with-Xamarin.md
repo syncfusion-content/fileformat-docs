@@ -147,7 +147,7 @@ Download the helper files from this [link](http://www.syncfusion.com/downloads/s
 	<th>Summary</th>
   </tr>
   <tr>
-    <td>Protable project</td>
+    <td>portable project</td>
     <td>ISave.cs </td>
 	<td>Represent the base interface for save operation</td>	
   </tr>
@@ -168,7 +168,7 @@ Download the helper files from this [link](http://www.syncfusion.com/downloads/s
   <tr>
     <td>WinPhone project</td>
     <td>SaveWinPhone.cs</td>
-	<td>Save implementation for Windows phone device</td>	
+	<td>Save implementation for Windows Phone device</td>	
   </tr>
   <tr>
     <td>UWP project</td>
@@ -203,9 +203,9 @@ PdfPage page = doc.Pages.Add();
 //Create PDF graphics for the page
 PdfGraphics graphics = page.Graphics;
 //Load the image as stream
-Stream imgStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
+Stream imagegStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
 //Load the image from the disk.
-PdfBitmap image = new PdfBitmap(imgStream);
+PdfBitmap image = new PdfBitmap(imagegStream);
 //Draw the image
 graphics.DrawImage(image, 0, 0);
 ////Save the document to the stream
@@ -229,10 +229,10 @@ Dim page As PdfPage = doc.Pages.Add()
 'Create PDF graphics for the page
 Dim graphics As PdfGraphics = page.Graphics
 'Load the image as stream
-Dim imgStream As Stream = GetType(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf")
+Dim imgageStream As Stream = GetType(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg")
 
 'Load the image from the disk.
-Dim image As New PdfBitmap(imgStream)
+Dim image As New PdfBitmap(imgageStream)
 'Draw the image
 graphics.DrawImage(image, 0, 0)
 '''/Save the document to the stream
