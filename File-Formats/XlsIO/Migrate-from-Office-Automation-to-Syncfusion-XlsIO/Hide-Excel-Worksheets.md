@@ -1,6 +1,6 @@
 ---
 title: Hide Excel Worksheets | Syncfusion
-description: We can hide Excel worksheets so that a user cannot see them when opening the workbook.
+description: Explains with an example on how to hide Excel worksheets programmatically using Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
