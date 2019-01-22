@@ -5,26 +5,27 @@ platform: aspnet-core
 control: XlsIO
 documentation: UG
 ---
+# Create, read, and edit Excel files in ASP.NET Core
+
+Syncfusion Excel library for ASP.NET Core platform can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
 ## Create a simple Excel report
 
-Syncfusion Excel library for ASP.NET Core platform can be used to create, read, edit Excel files. This also convers Excel files to PDF.
+The below steps illustrates creating a simple Invoice formatted Excel document in ASP.NET Core.
 
-The below steps illustrates creating an simple Invoice formatted Excel document in ASP.NET Core.
-
-#### 1. Create a new C# ASP.NET Core Web Application project.
+1. Create a new C# ASP.NET Core Web Application project.
 
 ![Create ASP.NET Core web application in Visual Studio](ASP-NET-Core_images/ASP-NET-Core_images_img1.png)
 
-#### 2. Select Web Application pattern (Model-View-Controller) for the project.
+2. Select Web Application pattern (Model-View-Controller) for the project.
 
 ![Select Web application pattern](ASP-NET-Core_images/ASP-NET-Core_images_img2.png)
 
-#### 3. Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
+3. Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](ASP-NET-Core_images/ASP-NET-Core_images_img3.png)
 
-#### 4. A default controller with named HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in the HomeController.cs file.
+4. A default controller with named HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in the HomeController.cs file.
 
 {% tabs %}  
 {% highlight c# %}
@@ -40,9 +41,9 @@ Imports Syncfusion.Drawing
 {% endhighlight %}
 {% endtabs %}  
 
-#### 5. A default action method named Index will be present in HomeController.cs. Right click on Index method and select Go To View where you will be directed to its associated view page Index.cshtml.
+5. A default action method named Index will be present in HomeController.cs. Right click on Index method and select Go To View where you will be directed to its associated view page Index.cshtml.
 
-#### 6.	Add a new button in the Index.cshtml as shown below.
+6.	Add a new button in the Index.cshtml as shown below.
 
 {% tabs %}  
 {% highlight HTML %}
@@ -57,7 +58,7 @@ Imports Syncfusion.Drawing
 {% endhighlight %}
 {% endtabs %}  
 
-#### 7. Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
+7. Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
 
 {% tabs %}  
 {% highlight c# %}
@@ -448,7 +449,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 ## Read and Edit Excel file
 
-The below code snippet illustrates how to load and edit an Excel file in ASP.NET Core.
+The below code snippet illustrates how to read and edit an Excel file in ASP.NET Core.
 
 {% highlight c# %}
 //New instance of ExcelEngine is created 
