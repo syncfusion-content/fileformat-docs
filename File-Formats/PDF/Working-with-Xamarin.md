@@ -203,9 +203,9 @@ PdfPage page = doc.Pages.Add();
 //Create PDF graphics for the page
 PdfGraphics graphics = page.Graphics;
 //Load the image as stream
-Stream imagegStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
 //Load the image from the disk.
-PdfBitmap image = new PdfBitmap(imagegStream);
+PdfBitmap image = new PdfBitmap(imageStream);
 //Draw the image
 graphics.DrawImage(image, 0, 0);
 ////Save the document to the stream
@@ -229,10 +229,10 @@ Dim page As PdfPage = doc.Pages.Add()
 'Create PDF graphics for the page
 Dim graphics As PdfGraphics = page.Graphics
 'Load the image as stream
-Dim imgageStream As Stream = GetType(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg")
+Dim imageStream As Stream = GetType(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg")
 
 'Load the image from the disk.
-Dim image As New PdfBitmap(imgageStream)
+Dim image As New PdfBitmap(imageStream)
 'Draw the image
 graphics.DrawImage(image, 0, 0)
 '''/Save the document to the stream
