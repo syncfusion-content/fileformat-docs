@@ -1,6 +1,6 @@
 ---
 title: Unmerge Cells in Excel | Syncfusion
-description: This page shows how to unmerge cells in Excel.
+description: Explains with an example on how to unmerge cells in Excel using Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG

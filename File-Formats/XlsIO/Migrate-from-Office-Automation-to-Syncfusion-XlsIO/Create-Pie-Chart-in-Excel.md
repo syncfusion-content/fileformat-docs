@@ -1,6 +1,6 @@
 ---
 title: Create Pie Chart in Excel | Syncfusion
-description: This page shows how to create pie chart in Excel and to position the chart in a worksheet.
+description: Explains with an example on how to programmatically create pie chart in Excel and to position the chart in a worksheet using Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
