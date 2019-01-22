@@ -1,27 +1,27 @@
 ---
-title: ASP.NET MVC | Syncfusion
-description: Briefs about saving an Excel document in ASP.NET MVC platform.
+title: Create, read, and edit Excel files in ASP.NET MVC | Syncfusion
+description: Explains how to create, read, and edit Excel files in ASP.NET MVC applications using Syncfusion XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
-# ASP.NET MVC
+# Create, read, and edit Excel files in ASP.NET MVC
 
-In order to use XlsIO in your ASP.NET MVC application, please add the required assemblies in your ASP.NET MVC application. Refer [Assemblies Required](/File-Formats/XlsIO/Assemblies-Required).
+[Syncfusion Excel library for ASP.NET MVC platform](https://www.syncfusion.com/excel-framework/net) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
-## Getting Started
+## Create a simple Excel report
 
-The below steps illustrates creating an simple Invoice formatted Excel document in ASP.NET MVC application.
+The below steps illustrates creating an simple Invoice formatted Excel document in ASP.NET MVC.
 
-#### 1. Create a new ASP.NET MVC application project.
+1. Create a new ASP.NET MVC application project.
 
 ![Create ASP.NET MVC application in Visual Studio](ASP-NET-MVC_images/ASP-NET-MVC_images_img1.png)
 
-#### 2. Install the [Syncfusion.XlsIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.Mvc5) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
+2. Install the [Syncfusion.XlsIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.Mvc5) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](ASP-NET-MVC_images/ASP-NET-MVC_images_img2.png)
 
-#### 3. A default controller with named HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in the HomeController.cs file.
+3. A default controller with named HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in the HomeController.cs file.
 
 {% tabs %}  
 {% highlight c# %}
@@ -33,9 +33,9 @@ Imports Syncfusion.XlsIO
 {% endhighlight %}
 {% endtabs %}  
 
-#### 4. A default action method named Index will be present in HomeController.cs. Right click on this action method and select Go To View where you will be directed to its associated view page Index.cshtml
+4. A default action method named Index will be present in HomeController.cs. Right click on this action method and select Go To View where you will be directed to its associated view page Index.cshtml
 
-#### 5. Add a new button in the Index.cshtml as shown below.
+5. Add a new button in the Index.cshtml as shown below.
 
 {% tabs %}  
 {% highlight HTML %}
@@ -50,7 +50,7 @@ Imports Syncfusion.XlsIO
 {% endhighlight %}
 {% endtabs %}  
 
-#### 6.Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
+6.Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
 
 {% tabs %}  
 {% highlight c# %}
@@ -413,405 +413,4 @@ A complete working example of how to create an Excel file in ASP.NET MVC can be 
 By executing the program, you will get the Excel file as follows.
 ![Output File](ASP-NET-MVC_images/ASP-NET-MVC_images_img3.png)
 
-Take a moment to peruse the [documentation](https://help.syncfusion.com/file-formats/xlsio/overview), where you can find basic worksheet data manipulation options along with features like [Conditional Formatting](https://help.syncfusion.com/file-formats/xlsio/working-with-conditional-formatting), worksheet calculations through [Formulas](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas), adding [Charts](https://help.syncfusion.com/file-formats/xlsio/working-with-charts) in worksheet or workbook, organizing and analyzing data through [Tables](https://help.syncfusion.com/file-formats/xlsio/working-with-tables) and [Pivot Tables](https://help.syncfusion.com/file-formats/xlsio/working-with-pivot-tables), appending multiple records to worksheet using [Template Markers](https://help.syncfusion.com/file-formats/xlsio/working-with-template-markers), and most importantly [PDF](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-conversion) and [Image conversions](https://help.syncfusion.com/file-formats/xlsio/worksheet-to-image-conversion) etc., with code examples.
-
-An online sample link to [generate Excel file](https://mvc.syncfusion.com/demos/web/xlsio/create).
-
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
-
-## Saving a document
-
-The following code snippet illustrates how to save an Excel document in ASP.NET MVC.
-
-{% tabs %}  
-{% highlight c# %}
-//New instance of ExcelEngine is created 
-//Equivalent to launching Microsoft Excel with no workbooks open
-//Instantiate the spreadsheet creation engine
-ExcelEngine excelEngine = new ExcelEngine();
-
-//Instantiate the Excel application object.
-IApplication application = excelEngine.Excel;
-
-'A new workbook is created.
-IWorkbook workbook = application.Workbooks.Create(1);
-
-//Access first worksheet from the workbook.
-IWorksheet sheet = workbook.Worksheets[0];
-
-//Set Text in cell A3.
-sheet.Range["A3"].Text ="Hello World";
-
-//Assigns workbook version.
-workbook.Version = ExcelVersion.Excel2013;
-
-//Saving the workbook.
-return excelEngine.SaveAsActionResult(workbook, "output.xlsx", HttpContext.ApplicationInstance.Response, ExcelDownloadType.PromptDialog, ExcelHttpContentType.Excel2013);
-{% endhighlight %}
-
-{% highlight vb %}
-'New instance of ExcelEngine is created 
-'Equivalent to launching Microsoft Excel with no workbooks open
-'Instantiate the spreadsheet creation engine
-Dim excelEngine As ExcelEngine = New ExcelEngine()
-
-'Instantiate the Excel application object.
-Dim application As IApplication = excelEngine.Excel
-
-'A new workbook is created.  
-Dim workbook As IWorkbook = application.Workbooks.Create(1)
-
-'Access first worksheet from the workbook.
-Dim sheet As IWorksheet = workbook.Worksheets(0)
-
-'Set Text in cell A3.
-sheet.Range("A3").Text = "Hello World"
-
-'Assigns workbook version.
-workbook.Version = ExcelVersion.Excel2013
-
-'Saving the workbook.
-Return excelEngine.SaveAsActionResult(workbook, "output.xlsx", HttpContext.ApplicationInstance.Response, ExcelDownloadType.PromptDialog, ExcelHttpContentType.Excel2013)
-{% endhighlight %}
-{% endtabs %}  
-
-The below codes illustrates the extension "SaveAsActionResult" used in the controller code above.
-
-{% tabs %}  
-{% highlight c# %}
-public static class XlsIOExtension
-{
-	public static ExcelResult SaveAsActionResult(this ExcelEngine _engine, IWorkbook _workbook, string filename, HttpResponse response)
-	{
-		ExcelHttpContentType contentType = ExcelHttpContentType.Excel2007;
-
-		if (_workbook.Version == ExcelVersion.Excel2007)
-			contentType = ExcelHttpContentType.Excel2007;
-		else if (_workbook.Version == ExcelVersion.Excel97to2003)
-			contentType = ExcelHttpContentType.Excel2000;
-
-		return new ExcelResult(_engine, _workbook, filename, response, ExcelDownloadType.PromptDialog, contentType);
-	}
-
-	public static ExcelResult SaveAsActionResult(this ExcelEngine _engine, IWorkbook _workbook, string filename, HttpResponse response, ExcelDownloadType DownloadType)
-	{
-		ExcelHttpContentType contentType = ExcelHttpContentType.Excel2007;
-
-		if (_workbook.Version == ExcelVersion.Excel2007)
-			contentType = ExcelHttpContentType.Excel2007;
-		else if (_workbook.Version == ExcelVersion.Excel97to2003)
-			contentType = ExcelHttpContentType.Excel2000;
-
-		return new ExcelResult(_engine, _workbook, filename, response, DownloadType, contentType);
-	}
-
-	public static ExcelResult SaveAsActionResult(this ExcelEngine _engine, IWorkbook _workbook, string filename, HttpResponse response, ExcelHttpContentType contentType)
-	{
-		return new ExcelResult(_engine, _workbook, filename, response, ExcelDownloadType.PromptDialog, contentType);
-	}
-
-	public static ExcelResult SaveAsActionResult(this ExcelEngine _engine, IWorkbook _workbook, string filename, HttpResponse response, ExcelDownloadType DownloadType, ExcelHttpContentType contentType)
-	{
-		return new ExcelResult(_engine, _workbook, filename, response, DownloadType, contentType);
-	}
-
-	public static ExcelResult SaveAsActionResult(this ExcelEngine _engine, IWorkbook _workbook, string filename, ExcelSaveType saveType, HttpResponse response, ExcelDownloadType DownloadType, ExcelHttpContentType contentType)
-	{
-		return new ExcelResult(_engine, _workbook, filename, response, DownloadType, contentType);
-	}
-
-	public static ExcelResult SaveAsActionResult(this ExcelEngine _engine, IWorkbook _workbook, string filename, string separator, HttpResponse response, ExcelDownloadType DownloadType, ExcelHttpContentType contentType)
-	{
-		return new ExcelResult(_engine, _workbook, filename, separator, response, DownloadType, contentType);
-	}
-}
-
-public class ExcelResult : ActionResult
-{
-	private IWorkbook m_source;
-	private ExcelEngine m_engine;
-	private string m_filename;
-	private HttpResponse m_response;
-	private ExcelDownloadType m_downloadType;
-	private ExcelHttpContentType m_contentType;
-	private string m_separator;
-
-	public string FileName
-	{
-		get
-		{
-			return m_filename;
-		}
-		set
-		{
-			m_filename = value;
-		}
-	}
-
-	public IWorkbook Source
-	{
-		get
-		{
-			return m_source as IWorkbook;
-		}
-	}
-
-	public ExcelEngine Engine
-	{
-		get
-		{
-			return m_engine as ExcelEngine;
-		}
-	}
-
-	public HttpResponse Response
-	{
-		get
-		{
-			return m_response;
-		}
-	}
-
-	public ExcelDownloadType DownloadType
-	{
-		set
-		{
-			m_downloadType = value;
-		}
-		get
-		{
-			return m_downloadType;
-		}
-	}
-
-	public ExcelHttpContentType ContentType
-	{
-		set
-		{
-			m_contentType = value;
-		}
-		get
-		{
-			return m_contentType;
-		}
-	}
-
-	public string Separator
-	{
-		set
-		{
-			m_separator = value;
-		}
-		get
-		{
-			return m_separator;
-		}
-	}
-
-	public ExcelResult(ExcelEngine engine, IWorkbook source, string fileName, HttpResponse response, ExcelDownloadType downloadType, ExcelHttpContentType contentType)
-	{
-		this.FileName = fileName;
-		this.m_source = source;
-		this.m_engine = engine;
-		m_response = response;
-		DownloadType = downloadType;
-		ContentType = contentType;
-	}
-
-	public ExcelResult(ExcelEngine engine, IWorkbook source, string fileName, string separator, HttpResponse response, ExcelDownloadType downloadType, ExcelHttpContentType contentType)
-	{
-		this.FileName = fileName;
-		this.m_source = source;
-		this.m_engine = engine;
-		m_response = response;
-		DownloadType = downloadType;
-		ContentType = contentType;
-		Separator = separator;
-	}
-
-	public override void ExecuteResult(ControllerContext context)
-	{
-		if (context == null)
-			throw new ArgumentNullException("Context");
-
-		if (m_contentType == ExcelHttpContentType.CSV)
-		{
-			this.m_source.SaveAs(FileName, Separator, Response, DownloadType, ContentType);
-			this.m_source.Close();
-			this.m_engine.Dispose();
-		}
-		else
-		{
-			this.m_source.SaveAs(FileName, Response, DownloadType, ContentType);
-			this.m_source.Close();
-			this.m_engine.Dispose();
-		}
-	}
-}
-{% endhighlight %}
-
-{% highlight vb %}
-Public static Class XlsIOExtension
-
-	Public Shared Function SaveAsActionResult(ByVal ExcelEngine As Me, ByVal _workbook As IWorkbook, ByVal filename As String, ByVal response As HttpResponse) As ExcelResult
-
-		Dim contentType As ExcelHttpContentType = ExcelHttpContentType.Excel2007
-
-		If _workbook.Version = ExcelVersion.Excel2007 Then
-			contentType = ExcelHttpContentType.Excel2007
-		ElseIf _workbook.Version = ExcelVersion.Excel97to2003 Then
-			contentType = ExcelHttpContentType.Excel2000
-		End If
-
-		Return New ExcelResult(_engine, _workbook, filename, response, ExcelDownloadType.PromptDialog, contentType)
-
-	End Function
-
-	Public Shared Function SaveAsActionResult(ByVal ExcelEngine As Me, ByVal _workbook As IWorkbook, ByVal filename As String, ByVal response As HttpResponse, ByVal DownloadType As ExcelDownloadType) As ExcelResult
-
-	Dim contentType As ExcelHttpContentType = ExcelHttpContentType.Excel2007
-
-	If _workbook.Version = ExcelVersion.Excel2007 Then
-		contentType = ExcelHttpContentType.Excel2007
-	ElseIf _workbook.Version = ExcelVersion.Excel97to2003 Then
-		contentType = ExcelHttpContentType.Excel2000
-	End If
-
-	Return New ExcelResult(_engine, _workbook, filename, response, DownloadType, contentType)
-
-	End Function
-
-	Public Shared Function SaveAsActionResult(ByVal ExcelEngine As Me, ByVal _workbook As IWorkbook, ByVal filename As String, ByVal response As HttpResponse, ByVal contentType As ExcelHttpContentType) As ExcelResult
-
-		Return New ExcelResult(_engine, _workbook, filename, response, ExcelDownloadType.PromptDialog, contentType)
-
-	End Function
-
-	Public Shared Function SaveAsActionResult(ByVal ExcelEngine As Me, ByVal _workbook As IWorkbook, ByVal filename As String, ByVal response As HttpResponse, ByVal DownloadType As ExcelDownloadType, ByVal contentType As ExcelHttpContentType) As ExcelResult
-
-		Return New ExcelResult(_engine, _workbook, filename, response, DownloadType, contentType)
-
-	End Function
-
-	Public Shared Function SaveAsActionResult(ByVal ExcelEngine As Me, ByVal _workbook As IWorkbook, ByVal filename As String, ByVal saveType As ExcelSaveType, ByVal response As HttpResponse, ByVal DownloadType As ExcelDownloadType, ByVal contentType As ExcelHttpContentType) As ExcelResult
-
-		Return New ExcelResult(_engine, _workbook, filename, response, DownloadType, contentType)
-
-	End Function
-
-	Public Shared Function SaveAsActionResult(ByVal ExcelEngine As Me, ByVal _workbook As IWorkbook, ByVal filename As String, ByVal separator As String, ByVal response As HttpResponse, ByVal DownloadType As ExcelDownloadType, ByVal contentType As ExcelHttpContentType) As ExcelResult
-
-		Return New ExcelResult(_engine, _workbook, filename, separator, response, DownloadType, contentType)
-
-	End Function
-
-End Class
-
-Public Class ExcelResult Inherits ActionResult
-
-	Private m_source As IWorkbook
-	Private m_engine As ExcelEngine
-	Private m_filename As String
-	Private m_response As HttpResponse
-	Private m_downloadType As ExcelDownloadType
-	Private m_contentType As ExcelHttpContentType
-	Private m_separator As String
-
-	Public Property FileName() As String
-		Get
-			Return m_filename
-		End Get
-		Set(ByVal Value As String)
-			m_filename = value
-		End Set
-	End Property
-
-	Public ReadOnly Property Source() As IWorkbook
-		Get
-			Return m_source as IWorkbook
-		End Get
-	End Property
-
-	Public ReadOnly Property Engine() As ExcelEngine
-		Get
-			Return m_engine as ExcelEngine
-		End Get
-	End Property
-
-	Public ReadOnly Property Response() As HttpResponse
-		Get
-			Return m_response
-		End Get
-	End Property
-
-	Public Property DownloadType() As ExcelDownloadType
-		Get
-			Return m_downloadType
-		End Get
-		Set(ByVal Value As ExcelDownloadType)
-			m_downloadType = value
-		End Set
-	End Property
-
-	Public Property ContentType() As ExcelHttpContentType
-	Get
-		Return m_contentType
-	End Get
-	Set(ByVal Value As ExcelHttpContentType)
-		m_contentType = value
-	End Set
-	End Property
-
-	Public Property Separator() As String
-		Get
-			Return m_separator
-		End Get
-		Set(ByVal Value As String)
-			m_separator = value
-		End Set
-	End Property
-
-	Public Sub New(ByVal engine As ExcelEngine, ByVal source As IWorkbook, ByVal fileName As String, ByVal response As HttpResponse, ByVal downloadType As ExcelDownloadType, ByVal contentType As ExcelHttpContentType)
-
-		Me.FileName = fileName
-		Me.m_source = source
-		Me.m_engine = engine
-		m_response = response
-		DownloadType = downloadType
-		ContentType = contentType
-
-	End Sub
-
-	Public Sub New(ByVal engine As ExcelEngine, ByVal source As IWorkbook, ByVal fileName As String, ByVal separator As String, ByVal response As HttpResponse, ByVal downloadType As ExcelDownloadType, ByVal contentType As ExcelHttpContentType)
-
-		Me.FileName = fileName
-		Me.m_source = source
-		Me.m_engine = engine
-		m_response = response
-		DownloadType = downloadType
-		ContentType = contentType
-		Separator = separator
-
-	End Sub
-
-	Public Overrides Sub ExecuteResult(ByVal context As ControllerContext)
-
-	If context Is Nothing Then
-		Throw New ArgumentNullException("Context")
-	End If
-
-	If m_contentType = ExcelHttpContentType.CSV Then
-		Me.m_source.SaveAs(FileName, Separator, Response, DownloadType, ContentType)
-		Me.m_source.Close()
-		Me.m_engine.Dispose()
-	Else
-		Me.m_source.SaveAs(FileName, Response, DownloadType, ContentType)
-		Me.m_source.Close()
-		Me.m_engine.Dispose()
-	End If
-
-	End Sub
-
-End Class
-{% endhighlight %}
-{% endtabs %}  
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. 
