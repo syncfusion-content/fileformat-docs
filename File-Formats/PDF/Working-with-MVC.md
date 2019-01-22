@@ -483,7 +483,7 @@ The following screenshot shows the invoice PDF document created by using Essenti
 
 ![InvoiceSample](GettingStarted_images/GettingStarted_img1.jpeg)
 
-# Filling forms
+## Filling forms
 
 An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A PDF document can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
 
