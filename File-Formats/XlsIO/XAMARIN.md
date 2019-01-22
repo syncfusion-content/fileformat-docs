@@ -478,7 +478,7 @@ Summary
 <tbody>
 <tr>
 <td>
-Protable project
+Portable project
 </td>
 <td>
 ISave.cs
@@ -557,7 +557,7 @@ A complete working example of how to create an Excel file in Xamarin can be down
 By executing the program, you will get the Excel file as follows.
 ![Output File](XAMARIN_images/XAMARIAN_images_img4.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly referen
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
 ## Read and Edit Excel file
 
