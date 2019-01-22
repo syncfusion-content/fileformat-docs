@@ -9,7 +9,7 @@ documentation: UG
 # Hide Excel Worksheets
 
 You can hide any type of sheet in a workbook so that, users cannot see that when opening the workbook, but, you must always leave at least one sheet visible.
-A sheet can be Visible, hidden, or very hidden.
+A sheet can be visible, hidden, or very hidden.
 
 * A visible sheets tab appears in the bottom of the Excel window enabling users to click the tab for navigating to the sheet. By default, all new sheets are visible.
 * If a sheet is hidden, the sheets tab will only disappear. Formulas can still retrieve values stored on a hidden sheet. It just disappears from the user interface.
