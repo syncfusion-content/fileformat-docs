@@ -8,9 +8,9 @@ documentation: UG
 
 # Add Worksheets to Workbook
 
-While handling Excel templates, we have to add worksheets to workbook to fill certain data and manipulate it.
+While handling Excel templates, you should add worksheets to workbook to fill certain data and manipulate it.
 
-The following code shows how to add 5 worksheets within a workbook with Interop and XlsIO for .NET.
+The following code shows how to add five worksheets within a workbook with Interop and XlsIO for .NET.
 
 ## Interop
 
@@ -30,7 +30,7 @@ private void AddWorksheet()
     //Declare a worksheet object
     Worksheet newWorksheet;
 
-    //Add 5 new worksheets to the workbook and fill some data into the cells
+    //Add five new worksheets to the workbook and fill some data into the cells
     for (int i = 1; i <= 5; i++)
     {
         //Add a worksheet to the workbook
@@ -68,7 +68,7 @@ Private Sub AddWorksheet()
     'Declare a worksheet object
     Dim newWorksheet As Worksheet
 
-    'Add 5 new worksheets to the workbook And fill some data into the cells
+    'Add five new worksheets to the workbook And fill some data into the cells
     For i As Integer = 1 To 5
         'Add a worksheet to the workbook
         newWorksheet = excelApp.Worksheets.Add(Missing.Value, Missing.Value, Missing.Value, Missing.Value)
@@ -113,7 +113,7 @@ private void AddWorksheet()
         //Declare a worksheet object
         IWorksheet newWorksheet;
 
-        //Add 5 new worksheets to the workbook and fill some data into the cells
+        //Add five new worksheets to the workbook and fill some data into the cells
         for (int i = 1; i <= 5; i++)
         {
             //Add a worksheet to the workbook
@@ -148,7 +148,7 @@ Private Sub AddWorksheet()
         'Declare a worksheet object
         Dim newWorksheet As IWorksheet
 
-        'Add 5 new worksheets to the workbook and fill some data into the cells
+        'Add five new worksheets to the workbook and fill some data into the cells
         For i As Integer = 1 To 5
             'Add a worksheet to the workbook
             newWorksheet = workbook.Worksheets.Create("New_Sheet" & (i).ToString())
