@@ -1,18 +1,16 @@
 ---
-title: ASP.NET Core | Syncfusion
+title: Create, read, and edit Excel files in ASP.NET Core | Syncfusion
 description: Briefs about loading and saving an Excel document in ASP.NET Core platform.
 platform: aspnet-core
 control: XlsIO
 documentation: UG
 ---
 
-# ASP.NET Core
+## Create a simple Excel report
 
-To use XlsIO in your ASP.NET Core application, please add the required assemblies in the application by referring to [Getting Started](https://help.syncfusion.com/aspnet-core/xlsio/getting-started) section.
+Syncfusion Essential XlsIO is a [.NET Excel library](https://www.syncfusion.com/excel-framework/net) used to create, read, and edit Excel documents. Using this library, you can start creating an Excel document in Xamarin.
 
-## Getting Started
-
-The below code snippet illustrates creating an simple Invoice formatted Excel document in ASP.NET Core.
+The below steps illustrates creating an simple Invoice formatted Excel document in ASP.NET Core.
 
 #### 1. Create a new C# ASP.NET Core Web Application project.
 
@@ -26,7 +24,7 @@ The below code snippet illustrates creating an simple Invoice formatted Excel do
 
 ![Add XlsIO reference to the project](ASP-NET-Core_images/ASP-NET-Core_images_img3.png)
 
-#### 4. A default controller with named HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in the HomeController.cs file.
+#### 4. A default controller with named HomeController.cs gets added on creation of ASP.NET Core project. Include the following namespaces in the HomeController.cs file.
 
 {% tabs %}  
 {% highlight c# %}
@@ -446,15 +444,11 @@ A complete working example of how to create an Excel file in ASP.NET Core can be
 By executing the program, you will get the Excel file as follows.
 ![Output File](ASP-NET-Core_images/ASP-NET-Core_images_img4.png)
 
-Take a moment to peruse the [documentation](https://help.syncfusion.com/file-formats/xlsio/overview), where you can find basic worksheet data manipulation options along with features like [Conditional Formatting](https://help.syncfusion.com/file-formats/xlsio/working-with-conditional-formatting), worksheet calculations through [Formulas](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas), adding [Charts](https://help.syncfusion.com/file-formats/xlsio/working-with-charts) in worksheet or workbook, organizing and analyzing data through [Tables](https://help.syncfusion.com/file-formats/xlsio/working-with-tables) and [Pivot Tables](https://help.syncfusion.com/file-formats/xlsio/working-with-pivot-tables), appending multiple records to worksheet using [Template Markers](https://help.syncfusion.com/file-formats/xlsio/working-with-template-markers), and most importantly [PDF](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-conversion) and [Image conversions](https://help.syncfusion.com/file-formats/xlsio/worksheet-to-image-conversion) etc., with code examples.
-
-An online sample link to [generate Excel file](https://aspnetcore.syncfusion.com/xlsio/create).
-
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
-## Loading the document
+## Read and Edit Excel file
 
-The below code snippet illustrates how to load an Excel file in ASP.NET Core.
+The below code snippet illustrates how to load and edit an Excel file in ASP.NET Core.
 
 {% highlight c# %}
 //New instance of ExcelEngine is created 
@@ -475,7 +469,10 @@ FileStream sampleFile = new FileStream(basePath, FileMode.Open);
 IWorkbook workbook = application.Workbooks.Open(sampleFile);
 
 //Access first worksheet from the workbook.
-IWorksheet worksheet = workbook.Worksheets[0];             
+IWorksheet worksheet = workbook.Worksheets[0];   
+
+//Set Text in cell A3.
+sheet.Range["A3"].Text ="Hello World";          
 
 //Defining the ContentType for excel file.
 string ContentType = "Application/msexcel";
@@ -502,49 +499,3 @@ return File(stream, ContentType, fileName);
 {% endhighlight %}
 
 N> _hostingEnvironment is the base path for input files of type IHostingEnvironment.
-
-## Saving the document
-
-The following code snippet illustrates how to save an Excel document in ASP.NET Core.
-
-{% highlight c# %}
-//New instance of ExcelEngine is created 
-//Equivalent to launching Microsoft Excel with no workbooks open
-//Instantiate the spreadsheet creation engine
-ExcelEngine excelEngine = new ExcelEngine();
-
-//Instantiate the Excel application object
-IApplication application = excelEngine.Excel;
-
-//Assigns default application version
-application.DefaultVersion = ExcelVersion.Excel2013;
-
-//A new workbook is created.              
-IWorkbook workbook = application.Workbooks.Create(1);
-
-//Access first worksheet from the workbook.
-IWorksheet worksheet = workbook.Worksheets[0];             
-
-//Defining the ContentType for excel file.
-string ContentType = "Application/msexcel";
-
-//Define the file name.
-string fileName = "Output.xlsx";
-
-//Creating stream object.
-MemoryStream stream = new MemoryStream();
-
-//Saving the workbook to stream in XLSX format
-workbook.SaveAs(stream);
-
-stream.Position = 0;
-
-//Closing the workbook.
-workbook.Close();
-
-//Dispose the Excel engine
-excelEngine.Dispose();
-
-//Creates a FileContentResult object by using the file contents, content type, and file name.
-return File(stream, ContentType, fileName);
-{% endhighlight %}
