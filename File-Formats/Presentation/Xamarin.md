@@ -174,13 +174,12 @@ secondPara.FirstLineIndent = -35;
 
 //"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-string resource = "CreatePowerPoint.UWP.Assets.Image.png";
 
 //Gets a picture as stream.
-Stream pictureStream = assembly.GetManifestResourceStream(resource);
+Stream fileStream = assembly.GetManifestResourceStream("Image.jpg");
 
 //Adds the picture to a slide by specifying its size and position.
-slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+slide.Shapes.AddPicture(fileStream, 499.79, 238.59, 364.54, 192.16);
 
 {% endhighlight %}
 
@@ -240,7 +239,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.pptx", "
   </tr>
   <tr>
   <td>
-    Protable project
+    Portable project
   </td>
   <td>
     ISave.cs
