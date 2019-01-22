@@ -69,7 +69,7 @@ using Syncfusion.Presentation;
 
 {% endtabs %}
 
-7.	Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an PowerPoint file and save it in a stream.
+7.	Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create a PowerPoint file and save it in a stream.
 
 **Create Presentation instance:**
 
