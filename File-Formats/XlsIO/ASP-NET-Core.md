@@ -266,7 +266,7 @@ Html.EndForm();
             Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
             'Adding a picture
-            Dim imageStream As FileStream = New FileStream("D:\AdventureCycles-Logo.png", FileMode.Open, FileAccess.Read)
+            Dim imageStream As FileStream = New FileStream("AdventureCycles-Logo.png", FileMode.Open, FileAccess.Read)
             Dim shape As IPictureShape = worksheet.Pictures.AddPicture(1, 1, imageStream)
 
             'Disable gridlines in the worksheet
