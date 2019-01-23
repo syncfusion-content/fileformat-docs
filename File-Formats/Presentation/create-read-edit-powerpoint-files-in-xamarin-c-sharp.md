@@ -6,11 +6,11 @@ control: PowerPoint
 documentation: UG
 keywords: Working with presentation library in Xamarin Platform
 ---
-# Create a PowerPoint file using Xamarin platform
+# Create or edit a PowerPoint file in Xamarin
 
-[Syncfusion PowerPoint library for Xamarin platform](https://www.syncfusion.com/powerpoint-framework/xamarin) can be used to create, read and edit PowerPoint files.
+You can create or edit a PowerPoint file in Xamarin with Syncfusion PowerPoint library. The below are the steps.
 
-## Steps to create PowerPoint file programmatically:
+## Create a PowerPoint file in Xamarin
 
 1.Create a new C# **Xamarin.Forms** application project.
 
