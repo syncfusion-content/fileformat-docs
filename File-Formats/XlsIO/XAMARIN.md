@@ -521,7 +521,7 @@ WinPhone project
 SaveWinPhone.cs
 </td>
 <td>
-Save implementation for Windows phone device
+Save implementation for Windows Phone device
 </td>
 </tr>
 <tr>
