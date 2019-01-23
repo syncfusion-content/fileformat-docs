@@ -5,11 +5,11 @@ platform: file-formats
 control: PowerPoint
 documentation: UG
 ---
-# Create PowerPoint file in ASP.NET Core
+# Create or edit a PowerPoint file in ASP.NET Core
 
-[Syncfusion PowerPoint library for ASP.NET Core platform](https://www.syncfusion.com/powerpoint-framework/net-core) can be used to create, read and edit PowerPoint files.
+You can create or edit a PowerPoint file in ASP.NET Core with Syncfusion PowerPoint library. The below are the steps.
 
-## Steps to create PowerPoint file programmatically:
+## Create a PowerPoint file in ASP.NET Core
 
 1.Create a new C# ASP.NET Core web application project.
 
@@ -188,7 +188,7 @@ The output of the above code example will generate the below PowerPoint slide.
 
 ![ASP.Net Core Output](Workingwith_Core/GettingStartedSample.png)
 
-## Edit Existing PowerPoint File
+## Edit a PowerPoint file in ASP.NET Core
 
 You can edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
