@@ -56,7 +56,7 @@ using Windows.UI;
 Imports Syncfusion.XlsIO
 Imports Windows.Storage.Pickers
 Imports Windows.Storage
-Imports Windows.UI;
+Imports Windows.UI
 {% endhighlight %}
 {% endtabs %}   
 
