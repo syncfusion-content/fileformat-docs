@@ -13,7 +13,7 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in Xamarin application.
 
-1. Create a new C# Xamarin.Forms application project.
+#### Create a new C# Xamarin.Forms application project.
 
 ![Create ASP.NET Core web application in Visual Studio](XAMARIN_images/XAMARIAN_images_img1.png)
 
