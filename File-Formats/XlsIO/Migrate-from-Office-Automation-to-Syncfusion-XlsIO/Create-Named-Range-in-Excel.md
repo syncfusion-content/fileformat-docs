@@ -1,6 +1,6 @@
 ---
 title: Create Named Range in Excel | Syncfusion
-description: Named range can be created by giving unique name to one or more cells which makes us to call the range using their name instead of using the cell reference.
+description: Explains with an example on how to programmatically create a named range in Excel using Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG

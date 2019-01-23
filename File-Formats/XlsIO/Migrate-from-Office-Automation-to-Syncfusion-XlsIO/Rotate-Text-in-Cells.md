@@ -1,6 +1,6 @@
 ---
 title: Rotate Text in Cells | Syncfusion
-description: Text in cells can be rotated to add visual impact to a spreadsheet or a presentation.
+description: Explains with an example on how to rotate text in cells programmatically, to add visual impact to a spreadsheet or a presentation using Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
