@@ -6,27 +6,29 @@ control: PowerPoint
 documentation: UG
 keywords: Working with presentation library in Xamarin Platform
 ---
-# Create a PowerPoint file using Xamarin platform
+# Create, read and edit a PowerPoint file in Xamarin
 
-[Syncfusion PowerPoint library for Xamarin platform](https://www.syncfusion.com/powerpoint-framework/xamarin) can be used to create, read and edit PowerPoint files.
+You can create or edit a PowerPoint file in Xamarin with Syncfusion PowerPoint library. The below are the steps.
 
-## Steps to create PowerPoint file programmatically:
+## Create a PowerPoint file in Xamarin
 
-1. Create a new C# **Xamarin.Forms** application project.
+1.Create a new C# **Xamarin.Forms** application project.
 
 ![Create Xamarin project](Workingwith_Xamarin/CreateProject.png)
 
-2. Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
+2.Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 ![Create Xamarin CodeSharing Option](Workingwith_Xamarin/CodeSharing.png)
 
-3.	Install [Syncfusion.Xamarin.Presentation](https://www.nuget.org/packages/Syncfusion.Xamarin.Presentation/) NuGet package as a reference to the .NET Standard project in your Xamarin applications from [NuGet.org](https://www.nuget.org/).
+3.Install [Syncfusion.Xamarin.Presentation](https://www.nuget.org/packages/Syncfusion.Xamarin.Presentation/) NuGet package as a reference to the .NET Standard project in your Xamarin applications from [NuGet.org](https://www.nuget.org/).
 
 ![Install Xamarin Nuget](Workingwith_Xamarin/InstallNuget.png)
 
-4.	Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
-     i.	To add the new XAML page, right click on the project and select **Add > New Item** and add a Forms XAML Page from the list. Name it as MainXamlPage.
-	 ii. In App class of **portable project** (App.cs), replace the existing constructor of App class with the code snippet given below which invokes the **MainXamlPage**.
+4.Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
+<ul>
+<li>To add the new XAML page, right click on the project and select <b>Add > New Item</b> and add a Forms XAML Page from the list. Name it as MainXamlPage.</li>
+<li>In App class of <b>portable project</b> (App.cs), replace the existing constructor of App class with the code snippet given below which invokes the <b>MainXamlPage</b>.</li>
+</ul>
 	 
 {% tabs %}
 
@@ -41,7 +43,7 @@ public App()
 
 {% endtabs %}
 
-5.	In the MainXamlPage.xaml add new button as shown below.
+5.In the MainXamlPage.xaml add new button as shown below.
 
 {% tabs %}
 
@@ -59,7 +61,7 @@ public App()
 
 {% endtabs %}
 
-6.	Include the following namespace in the MainXamlPage.xaml.cs file.
+6.Include the following namespace in the MainXamlPage.xaml.cs file.
 
 {% tabs %}
 
@@ -69,7 +71,7 @@ using Syncfusion.Presentation;
 
 {% endtabs %}
 
-7.	Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an PowerPoint file and save it in a stream.
+7.Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create a PowerPoint file and save it in a stream.
 
 **Create Presentation instance:**
 
@@ -214,6 +216,7 @@ stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmen
 MemoryStream stream = new MemoryStream();
 powerpointDoc.Save(stream);
 
+//Close the PowerPoint presentation
 powerpointDoc.Close();
 
 //Save the stream as a file in the device and invoke it for viewing
@@ -223,18 +226,18 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.pptx", "
 
 {% endtabs %}
 
-8.	Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+8.Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
   <td>
-    **Project**
+    <b>Project</b>
   </td>
   <td>
-    **File Name**
+    <b>File Name</b>
   </td>
   <td>
-    **Summary**
+    <b>Summary</b>
   </td>
   </tr>
   <tr>
@@ -288,8 +291,49 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.pptx", "
   </tr>
 </table>
 
-9.	Compile and execute the application. 
+9.Compile and execute the application. 
 
 The output of the above code example will generate the below PowerPoint slide.
 
 ![Xamarin Output](Workingwith_Xamarin/GettingStartedSample.png)
+
+## Read and edit a PowerPoint file in Xamarin
+
+You can edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Open an existing PowerPoint presentation
+IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("CreatePowerPoint.Templates.Sample.pptx"));
+
+//Gets the first slide from the PowerPoint presentation
+ISlide slide = pptxDoc.Slides[0];
+
+//Gets the first shape of the slide
+IShape shape = slide.Shapes[0] as IShape;
+
+//Change the text of the shape
+if(shape.TextBody.Text == "Company History")
+    shape.TextBody.Text = "Company Profile";
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
+{% endtabs %}

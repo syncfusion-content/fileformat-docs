@@ -1,6 +1,6 @@
 ---
 title: Activate a Worksheet | Syncfusion
-description: We can activate a worksheet in workbooks containing more than one worksheet.
+description: Explains with an example on how to programmatically activate a worksheet in a workbook in Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
