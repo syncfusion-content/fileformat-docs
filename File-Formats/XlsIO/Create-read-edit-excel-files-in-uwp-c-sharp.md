@@ -42,7 +42,7 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 {% endhighlight %}
 {% endtabs %}  
 
-##### Step 4: Include the following namespaces in the Mainpage.xaml.cs file.
+##### Step 4: Include the following namespaces in the MainPage.xaml.cs file.
 
 {% tabs %}  
 {% highlight c# %}
