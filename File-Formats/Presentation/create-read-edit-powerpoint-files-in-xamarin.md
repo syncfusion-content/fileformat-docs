@@ -6,7 +6,7 @@ control: PowerPoint
 documentation: UG
 keywords: Working with presentation library in Xamarin Platform
 ---
-# Create or edit a PowerPoint file in Xamarin
+# Create, read and edit a PowerPoint file in Xamarin
 
 You can create or edit a PowerPoint file in Xamarin with Syncfusion PowerPoint library. The below are the steps.
 
@@ -216,6 +216,7 @@ stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmen
 MemoryStream stream = new MemoryStream();
 powerpointDoc.Save(stream);
 
+//Close the PowerPoint presentation
 powerpointDoc.Close();
 
 //Save the stream as a file in the device and invoke it for viewing
@@ -296,7 +297,7 @@ The output of the above code example will generate the below PowerPoint slide.
 
 ![Xamarin Output](Workingwith_Xamarin/GettingStartedSample.png)
 
-## Edit a PowerPoint file in Xamarin
+## Read and edit a PowerPoint file in Xamarin
 
 You can edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
@@ -317,7 +318,8 @@ ISlide slide = pptxDoc.Slides[0];
 IShape shape = slide.Shapes[0] as IShape;
 
 //Change the text of the shape
-shape.TextBody.Text = "Company Profile";
+if(shape.TextBody.Text == "Company History")
+    shape.TextBody.Text = "Company Profile";
 
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
