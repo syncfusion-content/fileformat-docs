@@ -354,7 +354,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 	worksheet.Range("A7").CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter
 
 	'Enter values in the cells A8 to A12
-	worksheet.Range("A8").Text = "Steven"
+	worksheet.Range("A8").Text = "Steyn"
 	worksheet.Range("A9").Text = "Great Lakes Food Market"
 	worksheet.Range("A10").Text = "20 Whitehall Rd"
 	worksheet.Range("A11").Text = "North Muskegon,USA"
@@ -363,7 +363,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 	'Create a Hyperlink for e-mail in the cell A13
 	Dim hyperlink As IHyperLink = worksheet.HyperLinks.Add(worksheet.Range("A13"))
 	hyperlink.Type = ExcelHyperLinkType.Url
-	hyperlink.Address = "Steven@greatlakes.com"
+	hyperlink.Address = "Steyn@greatlakes.com"
 	hyperlink.ScreenTip = "Send Mail"
 
 	'Merge column A and B from row 15 to 22
