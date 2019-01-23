@@ -553,7 +553,7 @@ Save implementation for WinRT device.
 ##### Step 9: Compile and execute the application. Now this application creates a simple Excel document.
 
 
-A complete working example of how to create an Excel file in Xamarin can be downloaded from [Create-Excel-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-Xamarin2081329134.zip).
+A complete working example of how to create an Excel file in Xamarin can be downloaded from [Create-Excel-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted79812135.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](XAMARIN_images/XAMARIAN_images_img4.png)
