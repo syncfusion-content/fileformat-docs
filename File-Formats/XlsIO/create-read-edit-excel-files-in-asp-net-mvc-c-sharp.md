@@ -410,7 +410,7 @@ End Using
 
 A complete working example of how to create an Excel file in ASP.NET MVC can be downloaded from [Create-Excel-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted-MVC-860065560.zip).
 
-By executing the program, you will get the Excel file as follows.
+By executing the program, you will get the Excel file as below.
 ![Output File](ASP-NET-MVC_images/ASP-NET-MVC_images_img3.png)
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. 
