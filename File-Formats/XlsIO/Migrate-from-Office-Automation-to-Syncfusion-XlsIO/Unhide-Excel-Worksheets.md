@@ -1,6 +1,6 @@
 ---
 title: Unhide Excel Worksheets | Syncfusion
-description: We can unhide Excel worksheets which are in hidden state.
+description: Explains with an example on how to unhide Excel worksheets which are in hidden state using Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG

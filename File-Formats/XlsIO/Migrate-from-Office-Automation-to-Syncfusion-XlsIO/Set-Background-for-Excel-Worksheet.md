@@ -1,22 +1,22 @@
 ---
-title: Create Named Range in Excel | Syncfusion
-description: Named range can be created by giving unique name to one or more cells which makes us to call the range using their name instead of using the cell reference.
+title: Set Background for Excel Worksheet | Syncfusion
+description: Explains with an example on how to set background for Excel Worksheet with a single image to be tiled to fill the whole screen using Interop and XlsIO.
 platform: file-formats
 control: XlsIO
 documentation: UG
 ---
 
-# Create Named Range in Excel
+# Set Background for Excel Worksheet
 
-Users can provide names to a specific cell, a range of cells, function, constant, or table. Instead of using the cell reference, you can simply use the name assigned to the cell. By using names, you can make the formulas much easier to understand and maintain.
+Adding a picture to the background either as a watermark of company's logo or a relevant image will improve the appearance of the document. When you set background picture to a worksheet, the picture is tiled so that it fills the whole screen over and again.
 
-The following code shows how to create named range in Excel with Interop and XlsIO for .NET.
+The following code shows how to set Excel worksheet background image with Interop and XlsIO for .NET. The process will assume that you already have the picture on your computer to use as a background image.
 
 ## Interop
 
 {% tabs %}
 {% highlight c# %}
-private void CreateNamedRange()
+private void SetWorksheetBackground()
 {
     //Instantiate the application object
     var excelApp = new Microsoft.Office.Interop.Excel.Application();
@@ -27,13 +27,11 @@ private void CreateNamedRange()
     //Get the first sheet
     Worksheet worksheet = (Worksheet)workbook.Sheets["Sheet1"];
 
-    //Create a named range
-    Range range = (Range)worksheet.get_Range("A1:B4", Type.Missing);
-    range.Name = "Test_Range";
-    worksheet.Range["Test_Range"].Value = "Test";
+    //Set a background picture for the sheet
+    worksheet.SetBackgroundPicture(@"d:\test\Syncfusion.png");
 
-    //Save the file
-    workbook.SaveCopyAs(@"d:\test\InteropOutput_NamedRange.xlsx");
+    //Save the Excel file
+    workbook.SaveCopyAs(@"d:\test\InteropOutput_BackgroundPicture.xlsx");
 
     //Quit the application
     excelApp.Quit();
@@ -41,7 +39,7 @@ private void CreateNamedRange()
 {% endhighlight %}
 
 {% highlight vb %}
-Private Sub CreateNamedRange()
+Private Sub SetWorksheetBackground()
     'Instantiate the application object
     Dim excelApp = New Microsoft.Office.Interop.Excel.Application()
 
@@ -51,13 +49,11 @@ Private Sub CreateNamedRange()
     'Get the first sheet
     Dim worksheet As Worksheet = workbook.Sheets("Sheet1")
 
-    'Create a named range
-    Dim range As Range = CType(worksheet.Range("A1:B4"), Range)
-    range.Name = "Test_Range"
-    worksheet.Range("Test_Range").Value = "Test"
+    'Set a background picture for the sheet
+    worksheet.SetBackgroundPicture("d:\test\Syncfusion.png")
 
     'Save the file
-    workbook.SaveCopyAs("d:\test1\InteropOutput_NamedRange.xlsx")
+    workbook.SaveCopyAs("d:\test1\InteropOutput_BackgroundPicture.xlsx")
 
     'Quit the application
     excelApp.Quit()
@@ -69,7 +65,7 @@ End Sub
 
 {% tabs %}
 {% highlight c# %}
-private void CreateNamedRange()
+private void SetWorksheetBackground()
 {
     using (ExcelEngine excelEngine = new ExcelEngine())
     {
@@ -82,19 +78,17 @@ private void CreateNamedRange()
         //Get the first sheet
         IWorksheet worksheet = workbook.Worksheets[0];
 
-        //Create a named range
-        IName name = workbook.Names.Add("Test_Range");
-        name.RefersToRange = worksheet.Range["A1:B4"];
-        worksheet.Range["Test_Range"].Text = "Test";
+        //Set a background picture for the sheet
+        worksheet.PageSetup.BackgoundImage = new Bitmap(@"d:\test\Syncfusion.png");
 
         //Save the workbook
-        workbook.SaveAs(@"d:\test\XlsIOOutput_NamedRange.xlsx");
+        workbook.SaveAs(@"d:\test\XlsIOOutput_BackgroundPicture.xlsx");
     }
 }
 {% endhighlight %}
 
 {% highlight vb %}
-Private Sub CreateNamedRange()
+Private Sub SetWorksheetBackground()
     Using excelEngine As ExcelEngine = New ExcelEngine()
         'Instantiate the application object
         Dim application As IApplication = excelEngine.Excel
@@ -105,13 +99,11 @@ Private Sub CreateNamedRange()
         'Get the first sheet
         Dim worksheet As IWorksheet = workbook.Worksheets(0)
 
-        'Create a named range
-        Dim name As IName = workbook.Names.Add("Test_Range")
-        name.RefersToRange = worksheet.Range("A1:B4")
-        worksheet.Range("Test_Range").Text = "Test"
+        'Set a background picture for the sheet
+        worksheet.PageSetup.BackgoundImage = New Bitmap("d:\test\Syncfusion.png")
 
         'Save as Excel file
-        workbook.SaveAs("d:\test1\XlsIOOutput_NamedRange.xlsx")
+        workbook.SaveAs("d:\test1\XlsIOOutput_BackgroundPicture.xlsx")
     End Using
 End Sub
 {% endhighlight %}
