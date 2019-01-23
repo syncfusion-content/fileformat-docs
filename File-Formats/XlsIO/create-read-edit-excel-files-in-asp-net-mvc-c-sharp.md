@@ -13,15 +13,15 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in ASP.NET MVC.
 
-1. Create a new ASP.NET MVC application project.
+##### Step 1: Create a new ASP.NET MVC application project.
 
 ![Create ASP.NET MVC application in Visual Studio](ASP-NET-MVC_images/ASP-NET-MVC_images_img1.png)
 
-2. Install the [Syncfusion.XlsIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.Mvc5) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
+##### Step 2: Install the [Syncfusion.XlsIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet.Mvc5) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](ASP-NET-MVC_images/ASP-NET-MVC_images_img2.png)
 
-3. A default controller with named HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in the HomeController.cs file.
+##### Step 3: A default controller with named HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in the HomeController.cs file.
 
 {% tabs %}  
 {% highlight c# %}
@@ -33,9 +33,9 @@ Imports Syncfusion.XlsIO
 {% endhighlight %}
 {% endtabs %}  
 
-4. A default action method named Index will be present in HomeController.cs. Right click on this action method and select Go To View where you will be directed to its associated view page Index.cshtml
+##### Step 4: A default action method named Index will be present in HomeController.cs. Right click on this action method and select Go To View where you will be directed to its associated view page Index.cshtml
 
-5. Add a new button in the Index.cshtml as shown below.
+##### Step 5: Add a new button in the Index.cshtml as shown below.
 
 {% tabs %}  
 {% highlight HTML %}
@@ -50,7 +50,7 @@ Imports Syncfusion.XlsIO
 {% endhighlight %}
 {% endtabs %}  
 
-6.Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
+##### Step 6:Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an Excel file and download it.
 
 {% tabs %}  
 {% highlight c# %}
