@@ -85,8 +85,7 @@ return fileStreamResult;
 
 {% endhighlight %}
 
-A complete work sample can be downloaded from
-[Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfFile_CoreWeb-983162689 )
+A complete work sample can be downloaded from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePdfFile_CoreWeb-983162689 )
 
 
 By executing the program, you will get the PDF document as follows.
