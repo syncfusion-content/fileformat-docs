@@ -1,5 +1,5 @@
 ---
-title: Working with Xamarin
+title: Working with Xamarin |Syncfusion
 description: This section explains how to load and save PDF document in Xamarin
 platform: file-formats
 control: PDF
@@ -9,909 +9,439 @@ documentation: UG
 
 In your Xamarin application, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
 
-## Loading the document 
+## Steps to create PDF document in Xamarin
 
-The following code example illustrates how to load the file by using stream in Xamarin.
-{% tabs %}
+Create a new C# Xamarin.Forms application project.
+![Creation1](Xamarin_images/Creation1.jpg)
+
+Select a project template and required platforms to deploy the application. In this application, the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing, refer here.
+
+N> If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
+
+![Creation2](Xamarin_images/Creation2.jpg)
+
+Install the Syncfusion.Xamarin.PDF NuGet package as a reference to your.NET Framework applications from NuGet.org.
+![Creation3](Xamarin_images/Creation3.jpg)
+
+Add new Forms XAML page in portable project if there is no XAML page is defined in the App class. Otherwise, proceed to the next step.
+
+a.  To add the new XAML page, right-click the project and select Add > New Item and add a Forms XAML Page from the list. Name it as MainXamlPage.
+
+b.	In App class of portable project (App.cs), replace the existing constructor of App class with the following code snippet, which invokes the MainXamlPage.
+
 {% highlight c# %}
 
-//Load the file as stream
+public App()
+{
+    // The root page of your application
+    MainPage = new MainXamlPage();
+}
 
-Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+{% endhighlight %}
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+In the MainXamlPage.xaml, add new button as follows.
 
-//Create booklet with two sides
+{% highlight c# %}
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GettingStarted. MainXamlPage">
+<StackLayout VerticalOptions="Center">
+  
+<Button Text="Generate Document" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
+  
+</StackLayout>
+</ContentPage>
+{% endhighlight %}
 
-PdfDocument document = PdfBookletCreator.CreateBooklet(loadedDocument, new SizeF(1000, 700), true);
+Include the following namespace in the MainXamlPage.xaml.cs file.
 
-MemoryStream memoryStream = new MemoryStream();
+{% highlight c# %}
 
-//Save the document into memory stream
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Parsing;
+using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Grid;
 
-document.Save(memoryStream);
+{% endhighlight %}
 
-//close the documents
+Include the following code snippet in the click event of the button in MainXamlPage.xaml.cs, to create a PDF file and save it in a stream. 
+ 
+{% highlight c# %}
 
+// Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
 document.Close(true);
 
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application / pdf", stream);
+
+{% endhighlight %}
+
+Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP ) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>File Name</th>
+	<th>Summary</th>
+  </tr>
+  <tr>
+    <td>portable project</td>
+    <td>ISave.cs </td>
+	<td>Represent the base interface for save operation</td>	
+  </tr>
+  <tr>
+    <td rowspan="2">iOS Project</td>
+    <td>SaveIOS.cs</td>
+	<td>Represent the base interface for save operation</td>	
+  </tr>
+   <tr>    
+    <td>PreviewControllerDS.cs</td>
+	<td>Helper class for viewing the PDF file in iOS device</td>	
+  </tr>
+  <tr>
+    <td>Android project</td>
+    <td>SaveAndroid.cs</td>
+	<td>Save implementation for Android device</td>	
+  </tr>
+  <tr>
+    <td>WinPhone project</td>
+    <td>SaveWinPhone.cs</td>
+	<td>Save implementation for Windows Phone device</td>	
+  </tr>
+  <tr>
+    <td>UWP project</td>
+    <td>SaveWindows.cs</td>
+	<td>Save implementation for UWP device.</td>	
+  </tr>
+  <tr>
+    <td>Windows(8.1) project </td>
+    <td>SaveWindows81.cs</td>
+	<td>Save implementation for WinRT device.</td>	
+  </tr>     
+</table>
+
+Compile and execute the application. This creates a simple PDF document.
+
+Download the complete work sample from [Create-PDF-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/CreatePDFSample1541042202.zip )
+
+By executing the program, you will get the PDF document as follows.
+![HellWorld](GettingStarted_images/Hello World.jpg)
+ 
+## Creating a PDF document with image
+
+The following code example shows how to create a PDF document with an image.
+
+{% highlight c# %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page to the document.
+PdfPage page = doc.Pages.Add();
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+//Load the image as stream
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
+//Load the image from the disk.
+PdfBitmap image = new PdfBitmap(imageStream);
+//Draw the image
+graphics.DrawImage(image, 0, 0);
+////Save the document to the stream
+MemoryStream stream = new MemoryStream();
+//Save the document.
+doc.Save(stream);
+//Close the document.
+doc.Close(true);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+
+## Creating a PDF document with table
+
+The following code example shows how to create a PDF document with a simple table.
+ 
+{% highlight c# %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page.
+PdfPage page = doc.Pages.Add();
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+//Add values to list
+List<object> data = new List<object>();
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "Andrew" };
+Object row4 = new { ID = "E04", Name = "Paul" };
+Object row5 = new { ID = "E05", Name = "Gray" };
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new PointF(10, 10));
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+//Close the document.
+doc.Close(true);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+
+## Creating a simple PDF document with basic elements
+The PdfDocument object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a page to it along with the page settings.
+
+{% highlight c# %}
+
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Adds page settings
+document.PageSettings.Orientation = PdfPageOrientation.Landscape;
+document.PageSettings.Margins.All = 50;
+//Adds a page to the document
+PdfPage page = document.Pages.Add();
+PdfGraphics graphics = page.Graphics;
+
+{% endhighlight %}
+
+1. Essential PDF has APIs similar to the .NET GDI plus which helps to draw elements to the PDF page just like 2D drawing in .NET. 
+2. Unlike System.Drawing APIs all the units are measured in point instead of pixel. 
+3. In PDF, all the elements are placed in absolute positions and has the possibility for content overlapping if misplaced. 
+4. Essential PDF provides the rendered bounds for each and every elements added through PdfLayoutResult objects. This can be used to add successive elements and prevent content overlap.
+
+The following code example explains how to add an image from disk to a PDF document, by providing the rectangle coordinates. 
+ 
+{% highlight c# %}
+
+//Loads the image as stream
+Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.AdventureCycle.jpg");
+RectangleF bounds = new RectangleF(176, 0, 390, 130);
+PdfImage image = PdfImage.FromStream(imageStream);
+//Draws the image to the PDF page
+page.Graphics.DrawImage(image, bounds);
+
+{% endhighlight %}
+
+The following methods can be used to add text to a PDF document.
+
+1. DrawString() method of the PdfGraphics
+2. PdfTextElement class.
+
+The PdfTextElement provides the layout result of the added text by using the location of the next element that decides to prevent content overlapping. This is not available in the DrawString method. 
+
+The following code example adds the necessary text such as address, invoice number and date to create a basic invoice application. 
+ 
+{% highlight c# %}
+
+PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
+bounds = new RectangleF(0, bounds.Bottom + 90, graphics.ClientSize.Width, 30);
+//Draws a rectangle to place the heading in that region.
+graphics.DrawRectangle(solidBrush, bounds);
+//Creates a font for adding the heading in the page
+PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
+//Creates a text element to add the invoice number
+PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
+element.Brush = PdfBrushes.White;
+
+//Draws the heading on the page
+PdfLayoutResult result = element.Draw(page, new PointF(10, bounds.Top + 8));
+string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
+//Measures the width of the text to place it in the correct location
+SizeF textSize = subHeadingFont.MeasureString(currentDate);
+PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
+//Draws the date by using DrawString method
+graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
+PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
+//Creates text elements to add the address and draw it to the page.
+element = new PdfTextElement("BILL TO ", timesRoman);
+element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
+result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
+PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
+PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
+PointF endPoint = new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3);
+//Draws a line at the bottom of the address
+graphics.DrawLine(linePen, startPoint, endPoint);
+
+{% endhighlight %}
+
+Essential PDF provides two types of table models. The difference between both the table models can be referred from the link 
+[Difference between PdfLightTable and PdfGrid](/file-formats/pdf/working-with-tables#difference-between-pdflighttable-and-pdfgrid "difference-between-pdflighttable-and-pdfgrid")
+
+Since the invoice document requires only simple cell customizations, the given code example explains how to create a simple invoice table by using PdfGrid.
+ 
+{% highlight c# %}
+
+//Creates the datasource for the table
+DataTable invoiceDetails = GetProductDetailsAsDataTable();
+//Creates a PDF grid
+PdfGrid grid = new PdfGrid();
+//Adds the data source
+grid.DataSource = invoiceDetails;
+//Creates the grid cell styles
+PdfGridCellStyle cellStyle = new PdfGridCellStyle();
+cellStyle.Borders.All = PdfPens.White;
+PdfGridRow header = grid.Headers[0];
+//Creates the header style
+PdfGridCellStyle headerStyle = new PdfGridCellStyle();
+headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
+headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
+headerStyle.TextBrush = PdfBrushes.White;
+headerStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f, PdfFontStyle.Regular);
+
+//Adds cell customizations
+for (int i = 0; i < header.Cells.Count; i++)
+{
+if (i == 0 || i == 1)
+header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+else
+header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
+}
+
+//Applies the header style
+header.ApplyStyle(headerStyle);
+cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
+cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
+cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
+//Creates the layout format for grid
+PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
+// Creates layout format settings to allow the table pagination
+layoutFormat.Layout = PdfLayoutType.Paginate;
+//Draws the grid to the PDF page.
+PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
+
+{% endhighlight %} 
+
+The following code example shows how to save the invoice document to disk and dispose the PdfDocument object.
+ 
+{% highlight c# %}
+
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+//Close the document.
+document.Close(true);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+
+{% endhighlight %}
+
+The following screenshot shows the invoice PDF document created by using Essential PDF.
+
+![invoice](GettingStarted_images/GettingStarted_img1.jpeg)
+
+## Filling forms
+
+An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A PDF document can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
+
+Essential PDF allows you to create and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
+
+1. Syncfusion.Pdf
+2. Syncfusion.Pdf.Parsing
+
+The following guide shows how to fill a sample PDF form as shown.
+
+![Form Fill](GettingStarted_images/GettingStarted_img2.jpeg)
+
+
+Essential PDF allows you to fill the form fields by using PdfLoadedField class. You can get the form field either by using its field name or field index.
+ 
+{% highlight c# %}
+
+//Loads the PDF form.
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(@"JobApplication.pdf");
+//Loads the form
+PdfLoadedForm form = loadedDocument.Form;
+//Fills the textbox field by using index
+(form.Fields[0] as PdfLoadedTextBoxField).Text = "John";
+//Fills the textbox fields by using field name
+(form.Fields["LastName"] as PdfLoadedTextBoxField).Text = "Doe";
+(form.Fields["Address"] as PdfLoadedTextBoxField).Text = " John Doe \n 123 Main St \n Anytown, USA";
+//Loads the radio button group
+PdfLoadedRadioButtonItemCollection radioButtonCollection = (form.Fields["Gender"] as PdfLoadedRadioButtonListField).Items;
+//Checks the 'Male' option
+radioButtonCollection[0].Checked = true;
+//Checks the 'business' checkbox field
+(form.Fields["Business"] as PdfLoadedCheckBoxField).Checked = true;
+//Checks the 'retiree' checkbox field
+(form.Fields["Retiree"] as PdfLoadedCheckBoxField).Checked = true;
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document.
 loadedDocument.Close(true);
 
-//Save the stream into pdf file
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
 
-Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", memoryStream);
+{% endhighlight %}  
 
-public interface ISave
+The filled form is shown in adobe reader application as follows.
 
-{
+![Form Fill](GettingStarted_images/GettingStarted_img3.jpeg)
 
-Task Save(string filename, string contentType, MemoryStream stream);
+## Merge PDF Documents
 
-}
+Essential PDF supports merging multiple PDF documents from disk and stream. You can merge the multiple PDF document from disk by specifying the path of the documents in a string array.
 
-class SaveWindowsPhone: ISave
-
-{
-
-public async Task Save(string filename, string contentType, MemoryStream stream)
-
-{
-
-StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-StorageFile outFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-
-using (Stream outStream = await outFile.OpenStreamForWriteAsync())
-
-{
-
-outStream.Write(stream.ToArray(), 0, (int)stream.Length);
-
-}
-
-await Windows.System.Launcher.LaunchFileAsync(outFile);
-
-}
-
-}
-
-
-
-
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Load the file as stream
-
-Dim docStream As Stream = GetType(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf")
-
-Dim loadedDocument As New PdfLoadedDocument(docStream)
-
-'Create booklet with two sides
-
-Dim document As PdfDocument = PdfBookletCreator.CreateBooklet(loadedDocument, New SizeF(1000, 700), True)
-
-Dim memoryStream As New MemoryStream()
-
-'Save the document into memory stream
-
-document.Save(memoryStream)
-
-'close the documents
-
-document.Close(True)
-
-loadedDocument.Close(True)
-
-'Save the stream into pdf file
-
-Xamarin.Forms.DependencyService.Get(Of ISave)().Save("sample.pdf", "application/pdf", memoryStream)
-
-Public Interface ISave
-
-Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-End Interface
-
-Friend Class SaveWindowsPhone
-
-Implements ISave
-
-Public async Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-Dim local As StorageFolder = Windows.Storage.ApplicationData.Current.LocalFolder
-
-Dim outFile As StorageFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting)
-
-Using outStream As Stream = await outFile.OpenStreamForWriteAsync()
-
-outStream.Write(stream.ToArray(), 0, CInt(stream.Length))
-
-End Using
-
-await Windows.System.Launcher.LaunchFileAsync(outFile)
-
-End Function
-
-End Class
-
-
-
-
-
-{% endhighlight %}
-{% endtabs %}
-## Saving the document 
-
-The following code example illustrates how to save the PDF document in Xamarin Windows Phone platform.
-{% tabs %}
+You can merge the PDF document streams by using the following code example.
+ 
 {% highlight c# %}
 
-//Create a new document
-
-PdfDocument document = new PdfDocument();
-
-//Add a page
-
-PdfPage page = document.Pages.Add();
-
-//Create Pdf graphics for the page
-
-PdfGraphics graphics = page.Graphics;
-
-//Create a solid brush
-
-PdfBrush brush = new PdfSolidBrush(Color.FromArgb(255, 0, 0, 0));
-
-//Set the font
-
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 36);
-
-//Draw the text
-
-graphics.DrawString("Hello world!", font, brush, new PointF(20, 20));
-
-//create the stream
-
-MemoryStream memoryStream = new MemoryStream();
-
-//save the document into stream
-
-document.Save(memoryStream);
-
-//close the document
-
-document.Close(true);
-
-Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
-
-public interface ISave
-
-{
-
-Task Save(string filename, string contentType, MemoryStream stream);
-
-}
-
-class SaveWindowsPhone: ISave
-
-{
-
-public async Task Save(string filename, string contentType, MemoryStream stream)
-
-{
-
-StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-StorageFile outFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-
-using (Stream outStream = await outFile.OpenStreamForWriteAsync())
-
-{
-
-outStream.Write(stream.ToArray(), 0, (int)stream.Length);
-
-}
-
-await Windows.System.Launcher.LaunchFileAsync(outFile);
-
-}
-
-}
-
-
-
-
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Create a new document.
-
-Dim document As New PdfDocument()
-
-'Add a page
-
-Dim page As PdfPage = document.Pages.Add()
-
-'Create Pdf graphics for the page
-
-Dim graphics As PdfGraphics = page.Graphics
-
-'Create a solid brush
-
-Dim brush As PdfBrush = New PdfSolidBrush(Color.FromArgb(255, 0, 0, 0))
-
-'Set the font
-
-Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 36)
-
-'Draw the text
-
-graphics.DrawString("Hello world!", font, brush, New PointF(20, 20))
-
-'create the stream
-
-Dim memoryStream As New MemoryStream()
-
-'save the document into stream
-
-document.Save(memoryStream)
-
-'close the document
-
-document.Close(True)
-
-Xamarin.Forms.DependencyService.Get(Of ISave)().Save("Output.pdf", "application/pdf", memoryStream)
-
-Public Interface ISave
-
-Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-End Interface
-
-Friend Class SaveWindowsPhone
-
-Implements ISave
-
-Public async Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-Dim local As StorageFolder = Windows.Storage.ApplicationData.Current.LocalFolder
-
-Dim outFile As StorageFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting)
-
-Using outStream As Stream = await outFile.OpenStreamForWriteAsync()
-
-outStream.Write(stream.ToArray(), 0, CInt(stream.Length))
-
-End Using
-
-await Windows.System.Launcher.LaunchFileAsync(outFile)
-
-End Function
-
-End Class
-
-
-
-
-
-{% endhighlight %}
-{% endtabs %}
-The following code example illustrates how to save the file by using stream in Xamarin.Android platform.
-{% tabs %}
-{% highlight c# %}
-
-//Create a new document
-
-PdfDocument document = new PdfDocument();
-
-//Add a page
-
-PdfPage page = document.Pages.Add();
-
-//Create Pdf graphics for the page
-
-PdfGraphics graphics = page.Graphics;
-
-//Create a solid brush
-
-PdfBrush brush = new PdfSolidBrush(Color.FromArgb(255, 0, 0, 0));
-
-//Set the font
-
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 36);
-
-//Draw the text
-
-graphics.DrawString("Hello world!", font, brush, new PointF(20, 20));
-
-//create the stream
-
-MemoryStream memoryStream = new MemoryStream();
-
-//save the document into stream
-
-document.Save(memoryStream);
-
-//close the document
-
-document.Close(true);
-
-Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
-
-public interface ISave
-
-{
-
-Task Save(string filename, string contentType, MemoryStream stream);
-
-}
-
-class SaveAndroid: ISave
-
-{
-
-public async Task Save(string fileName, String contentType, MemoryStream stream)
-
-{
-
-string root = null;
-
-if (Android.OS.Environment.IsExternalStorageEmulated)
-
-{
-
-root = Android.OS.Environment.ExternalStorageDirectory.ToString();
-
-}
-
-else
-
-root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-Java.IO.File myDir = new Java.IO.File(root + "/Syncfusion");
-
-myDir.Mkdir();
-
-Java.IO.File file = new Java.IO.File(myDir, fileName);
-
-if (file.Exists()) file.Delete();
-
-try
-
-{
-
-FileOutputStream outs = new FileOutputStream(file);
-
-outs.Write(stream.ToArray());
-
-outs.Flush();
-
-outs.Close();
-
-}
-
-catch (Exception e)
-
-{
-
-}
-
-if (file.Exists())
-
-{
-
-Android.Net.Uri path = Android.Net.Uri.FromFile(file);
-
-string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
-
-string mimeType = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension);
-
-Intent intent = new Intent(Intent.ActionView);
-
-intent.SetDataAndType(path, mimeType);
-
-Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"));
-
-}
-
-}
-
-}
-
-
-
-
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Create a new document
-
-Dim document As New PdfDocument()
-
-'Add a page
-
-Dim page As PdfPage = document.Pages.Add()
-
-'Create Pdf graphics for the page
-
-Dim graphics As PdfGraphics = page.Graphics
-
-'Create a solid brush
-
-Dim brush As PdfBrush = New PdfSolidBrush(Color.FromArgb(255, 0, 0, 0))
-
-'Set the font
-
-Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 36)
-
-'Draw the text
-
-graphics.DrawString("Hello world!", font, brush, New PointF(20, 20))
-
-'create the stream
-
-Dim memoryStream As New MemoryStream()
-
-'save the document into stream
-
-document.Save(memoryStream)
-
-'close the document
-
-document.Close(True)
-
-Xamarin.Forms.DependencyService.Get(Of ISave)().Save("Output.pdf", "application/pdf", memoryStream)
-
-Public Interface ISave
-
-Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-End Interface
-
-Friend Class SaveAndroid
-
-Implements ISave
-
-Public Async Function Save(ByVal fileName As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-Dim root As String = Nothing
-
-If Android.OS.Environment.IsExternalStorageEmulated Then
-
-root = Android.OS.Environment.ExternalStorageDirectory.ToString()
-
-Else
-
-root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-
-End If
-
-Dim myDir As New Java.IO.File(root & "/Syncfusion")
-
-myDir.Mkdir()
-
-Dim file As New Java.IO.File(myDir, fileName)
-
-If file.Exists() Then
-
-file.Delete()
-
-End If
-
-Try
-
-Dim outs As New FileOutputStream(file)
-
-outs.Write(stream.ToArray())
-
-outs.Flush()
-
-outs.Close()
-
-Catch e As Exception
-
-End Try
-
-If file.Exists() Then
-
-Dim path As Android.Net.Uri = Android.Net.Uri.FromFile(file)
-
-Dim extension As String = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString())
-
-Dim mimeType As String = Android.Webkit.MimeTypeMap.Singleton.GetMimeTypeFromExtension(extension)
-
-Dim intent As New Intent(Intent.ActionView)
-
-intent.SetDataAndType(path, mimeType)
-
-Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose App"))
-
-End If
-
-End Function
-
-End Class
-
-
-
-
-
-{% endhighlight %}
-{% endtabs %}
-The following code example illustrates how to save the file by using stream in Xamarin.iOS platform.
-{% tabs %}
-{% highlight c# %}
-
-//Create a new document
-
-PdfDocument document = new PdfDocument();
-
-//Add a page
-
-PdfPage page = document.Pages.Add();
-
-//Create Pdf graphics for the page
-
-PdfGraphics graphics = page.Graphics;
-
-//Create a solid brush
-
-PdfBrush brush = new PdfSolidBrush(Color.FromArgb(255, 0, 0, 0));
-
-//Set the font
-
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 36);
-
-//Draw the text
-
-graphics.DrawString("Hello world!", font, brush, new PointF(20, 20));
-
-//create the stream
-
-MemoryStream memoryStream = new MemoryStream();
-
-//save the document into stream
-
-document.Save(memoryStream);
-
-//close the document
-
-document.Close(true);
-
-Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", memoryStream);
-
-public interface ISave
-
-{
-
-Task Save(string filename, string contentType, MemoryStream stream);
-
-}
-
-class SaveIOS: ISave
-
-{
-
-public async Task Save(string filename, string contentType, MemoryStream stream)
-
-{
-
-string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-
-string filePath = Path.Combine(path, filename);
-
-try
-
-{
-
-FileStream fileStream = File.Open(filePath, FileMode.Create);
-
+//Creates a PDF document
+PdfDocument finalDoc = new PdfDocument();
+//Loads the Pdf as a stream.
+Stream stream1 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
+Stream stream2 = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file2.pdf");
+// Creates a PDF stream for merging
+Stream[] streams = { stream1, stream2 };
+// Merges PDFDocument.
+PdfDocumentBase.Merge(finalDoc, streams);
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+finalDoc.Save(stream);
+//If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
+//Close the document.
+finalDoc.Close(true);
 
-stream.CopyTo(fileStream);
-
-fileStream.Flush();
-
-fileStream.Close();
-
-}
-
-catch (Exception e)
-
-{
-
-}
-
-UIViewController currentController = UIApplication.SharedApplication.KeyWindow.RootViewController;
-
-while (currentController.PresentedViewController != null)
-
-currentController = currentController.PresentedViewController;
-
-UIView currentView = currentController.View;
-
-QLPreviewController preview = new QLPreviewController();
-
-QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
-
-preview.DataSource = new PreviewControllerDS(item);
-
-//UIViewController uiView = currentView as UIViewController;
-
-currentController.PresentViewController(preview, true, null);
-
-}
-
-}
-
-}
-
-
-
-
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
 
 {% endhighlight %}
 
-{% highlight vb.net %}
 
-'Create a new document
 
-Dim document As New PdfDocument()
 
-'Add a page
 
-Dim page As PdfPage = document.Pages.Add()
 
-'Create Pdf graphics for the page
 
-Dim graphics As PdfGraphics = page.Graphics
-
-'Create a solid brush
-
-Dim brush As PdfBrush = New PdfSolidBrush(Color.FromArgb(255, 0, 0, 0))
-
-'Set the font
-
-Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 36)
-
-'Draw the text
-
-graphics.DrawString("Hello world!", font, brush, New PointF(20, 20))
-
-'create the stream
-
-Dim memoryStream As New MemoryStream()
-
-'save the document into stream
-
-document.Save(memoryStream)
-
-'close the document
-
-document.Close(True)
-
-Xamarin.Forms.DependencyService.Get(Of ISave)().Save("Output.pdf", "application/pdf", memoryStream)
-
-Public Interface ISave
-
-Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-End Interface
-
-Friend Class SaveIOS
-
-Implements ISave
-
-Public async Function Save(ByVal filename As String, ByVal contentType As String, ByVal stream As MemoryStream) As Task
-
-Dim path As String = Environment.GetFolderPath(Environment.SpecialFolder.Personal)
-
-Dim filePath As String = Path.Combine(path, filename)
-
-Try
-
-Dim fileStream As FileStream = File.Open(filePath, FileMode.Create)
-
-stream.Position = 0
-
-stream.CopyTo(fileStream)
-
-fileStream.Flush()
-
-fileStream.Close()
-
-Catch e As Exception
-
-End Try
-
-Dim currentController As UIViewController = UIApplication.SharedApplication.KeyWindow.RootViewController
-
-Do While currentController.PresentedViewController IsNot Nothing
-
-currentController = currentController.PresentedViewController
-
-Loop
-
-Dim currentView As UIView = currentController.View
-
-Dim preview As New QLPreviewController()
-
-Dim item As QLPreviewItem = New QLPreviewItemBundle(filename, filePath)
-
-preview.DataSource = New PreviewControllerDS(item)
-
-'UIViewController uiView = currentView as UIViewController;
-
-currentController.PresentViewController(preview, True, Nothing)
-
-End Function
-
-End Class
-
-
-
-
-
-{% endhighlight %}
-{% endtabs %}
-
-N> Launching a file in default viewer is different in iOS when compared to Windows Phone and Android. This requires the helper class PreviewControllerDS, as described in the code samples below.
-
-{% tabs %}  
-{% highlight c# %}
-
-public class PreviewControllerDS : QLPreviewControllerDataSource
-{
-	private QLPreviewItem _item;
-
-	public PreviewControllerDS(QLPreviewItem item)
-	{
-		_item = item;
-	}
-
-	public override nint PreviewItemCount (QLPreviewController controller)
-	{
-		return (nint)1;
-	}
-
-	public override IQLPreviewItem GetPreviewItem (QLPreviewController controller, nint index)
-	{
-		return _item;
-	}
-}
-
-
-public class QLPreviewItemFileSystem : QLPreviewItem
-{
-	string _fileName, _filePath;
-
-	public QLPreviewItemFileSystem(string fileName, string filePath)
-	{
-		_fileName = fileName;
-		_filePath = filePath;
-	}
-
-	public override string ItemTitle
-	{
-		get
-		{
-			return _fileName;
-		}
-	}
-	public override NSUrl ItemUrl
-	{
-		get
-		{
-			return NSUrl.FromFilename(_filePath);
-		}
-	}
-}
-
-public class QLPreviewItemBundle : QLPreviewItem
-{
-	string _fileName, _filePath;
-	public QLPreviewItemBundle(string fileName, string filePath)
-	{
-		_fileName = fileName;
-		_filePath = filePath;
-	}
-
-	public override string ItemTitle
-	{
-		get
-		{
-			return _fileName;
-		}
-	}
-	public override NSUrl ItemUrl
-	{
-		get
-		{
-			var documents = NSBundle.MainBundle.BundlePath;
-			var lib = Path.Combine(documents, _filePath);
-			var url = NSUrl.FromFilename(lib);
-			return url;
-		}
-	}
-}
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-Public Class PreviewControllerDS
-        Inherits QLPreviewControllerDataSource
-
-        Private _item As QLPreviewItem
-
-        Public Sub New(ByVal item As QLPreviewItem)
-            _item = item
-        End Sub
-
-        Public Overrides Function PreviewItemCount(ByVal controller As QLPreviewController) As nint
-            Return CType(1, nint)
-        End Function
-
-        Public Overrides Function GetPreviewItem(ByVal controller As QLPreviewController, ByVal index As nint) As IQLPreviewItem
-            Return _item
-        End Function
-    End Class
-
-Public Class QLPreviewItemFileSystem
-    Inherits QLPreviewItem
-
-    Private _fileName, _filePath As String
-
-    Public Sub New(ByVal fileName As String, ByVal filePath As String)
-        _fileName = fileName
-        _filePath = filePath
-    End Sub
-
-    Public Overrides ReadOnly Property ItemTitle As String
-        Get
-            Return _fileName
-        End Get
-    End Property
-
-    Public Overrides ReadOnly Property ItemUrl As NSUrl
-        Get
-            Return NSUrl.FromFilename(_filePath)
-        End Get
-    End Property
-End Class
-
-Public Class QLPreviewItemBundle
-    Inherits QLPreviewItem
-
-    Private _fileName, _filePath As String
-
-    Public Sub New(ByVal fileName As String, ByVal filePath As String)
-        _fileName = fileName
-        _filePath = filePath
-    End Sub
-
-    Public Overrides ReadOnly Property ItemTitle As String
-        Get
-            Return _fileName
-        End Get
-    End Property
-
-    Public Overrides ReadOnly Property ItemUrl As NSUrl
-        Get
-            Dim documents = NSBundle.MainBundle.BundlePath
-            Dim [lib] = Path.Combine(documents, _filePath)
-            Dim url = NSUrl.FromFilename([lib])
-            Return url
-        End Get
-    End Property
-End Class
-
-{% endhighlight %}
-{% endtabs %}
