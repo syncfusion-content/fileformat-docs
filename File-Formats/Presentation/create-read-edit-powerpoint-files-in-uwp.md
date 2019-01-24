@@ -1,38 +1,65 @@
 ---
-title: Create and edit PowerPoint files in ASP.NET MVC |Syncfusion|
-description: ASP.NET MVC PowerPoint library to create, read, edit and convert PowerPoint files in ASP.NET MVC applications.
+title: Create and edit PowerPoint files in UWP |Syncfusion|
+description: A UWP PowerPoint library to create, read and edit PowerPoint files in UWP applications. Supports text, shape, chart, table and combine PowerPoints.
 platform: file-formats
 control: PowerPoint
 documentation: ug
 ---
 
-# Create, read and edit a PowerPoint file in ASP.NET MVC
+# Create, read and edit a PowerPoint file in UWP
 
-You can create or edit a PowerPoint file in ASP.NET MVC with Syncfusion PowerPoint library. The below are the steps.
+You can create or edit a PowerPoint file in UWP with Syncfusion PowerPoint library. The below are the steps.
 
-## Create a PowerPoint file in ASP.NET MVC
+## Create a PowerPoint file in UWP
 
-1.Create a new C# ASP.NET MVC application project.
+1.Create a new C# UWP application project.
 
-![Create ASP.NET MVC project](Workingwith_MVC/CreateMVC.png)
+![Create UWP project](Workingwith_UWP/CreateUWP.png)
 
-2.Select the **MVC** template to create the project.
+2.Install the [Syncfusion.Presentation.UWP](https://www.nuget.org/packages/Syncfusion.Presentation.UWP/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
-![Select MVC template](Workingwith_MVC/Select_template.png)
+![Install UWP Nuget](Workingwith_UWP/Install_Nuget.png)
 
-3.Install the [Syncfusion.Presentation.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet.Mvc5/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+3.Add a new button in the MainPage.xaml as shown below.
 
-![Install ASP.NET MVC Nuget](Workingwith_MVC/Install_Nuget.png)
+{% tabs %}
 
-4.After installing the **Syncfusion.Presentation.AspNet.Mvc5** nuget package, the following assemblies were included in our project.
-<ul>
-<li>Syncfusion.Compression.Base</li>
-<li>Syncfusion.Licensing</li>
-<li>Syncfusion.OfficeChart.Base</li>
-<li>Syncfusion.Presentation.Base</li>
-</ul>
+{% highlight c# %}
 
-5.The below code snippets demonstrate how to create a PowerPoint Presentation in ASP.NET MVC platform.
+<Page
+    x:Class="CreateUWPPowerPoint.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CreateUWPPowerPoint"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button x:Name="button" Content="Create Document" Click="OnButtonClicked" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+</Page>
+
+{% endhighlight %}
+
+{% endtabs %}
+
+4.Include the following namespaces in the MainPage.xaml.cs file.
+
+{% tabs %}
+
+{% highlight c# %}
+
+using Syncfusion.Presentation;
+using Windows.Storage.Pickers;
+using Windows.Storage;
+
+{% endhighlight %}
+
+{% endtabs %}
+
+5.Include the below code snippet in the click event of the button in MainPage.xaml.cs, to create a **PowerPoint** file and save the **PowerPoint** document as a physical file.
 
 **Create Presentation instance:**
 
@@ -138,7 +165,8 @@ secondPara.FirstLineIndent = -35;
 {% highlight c# %}
 
 //Gets a picture as stream.
-FileStream pictureStream = new FileStream("Image.jpg", FileMode.Open);
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream pictureStream = assembly.GetManifestResourceStream("CreateUWPPowerPoint.Assets.Image.jpg"); 
 
 //Adds the picture to a slide by specifying its size and position.
 slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
@@ -172,8 +200,17 @@ stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmen
 
 {% highlight c# %}
 
-//Save the PowerPoint Presentation
-pptxDoc.Save("Sample.pptx", FormatType.Pptx, HttpContext.ApplicationInstance.Response);
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Sample";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
 
 //Close the PowerPoint presentation
 pptxDoc.Close();
@@ -184,9 +221,9 @@ pptxDoc.Close();
 
 The output of the above code example will generate the below PowerPoint slide.
 
-![ASP.Net MVC Output](Workingwith_MVC/GettingStartedSample.png)
+![UWP Output](Workingwith_UWP/GettingStartedSample.png)
 
-## Read and edit a PowerPoint file in ASP.NET MVC
+## Read and edit a PowerPoint file in UWP
 
 You can edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
@@ -194,8 +231,11 @@ You can edit an existing PowerPoint file using this library. The below code snip
 
 {% highlight c# %}
 
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
 //Open an existing PowerPoint presentation
-IPresentation pptxDoc = Presentation.Open("Sample.pptx");
+IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("CreateUWPPowerPoint.Assets.Sample_UWP.pptx"));
 
 //Gets the first slide from the PowerPoint presentation
 ISlide slide = pptxDoc.Slides[0];
@@ -207,8 +247,17 @@ IShape shape = slide.Shapes[0] as IShape;
 if(shape.TextBody.Text == "Company History")
     shape.TextBody.Text = "Company Profile";
 
-//Save the PowerPoint presentation
-pptxDoc.Save("Output.pptx", FormatType.Pptx, HttpContext.ApplicationInstance.Response);
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
 
 //Close the PowerPoint presentation
 pptxDoc.Close();

@@ -1,6 +1,6 @@
 ---
-title: Working with images in PowerPoint Presentation
-description: Working with images in PowerPoint Presentation
+title: Add and edit images in PowerPoint slides |C# PowerPoint| |Syncfusion|
+description: C# PowerPoint library to create, read, edit and convert PowerPoint files in .NET applications, ASP.NET Web, MVC, ASP.NET Core, Xamarin and Azure platforms
 platform: file-formats
 control: Presentation
 documentation: UG
@@ -73,9 +73,7 @@ ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Gets a picture as stream.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 Stream pictureStream = assembly.GetManifestResourceStream("UWP.Data.Image.png");
-//Adds the picture to a slide by specifying its size and position.
 
 //Adds the picture to a slide by specifying its size and position.
 IPicture picture = slide.Pictures.AddPicture(pictureStream, 0, 0, 250, 250);
