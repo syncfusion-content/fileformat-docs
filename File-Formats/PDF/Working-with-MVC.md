@@ -14,10 +14,10 @@ In your ASP.NET MVC application, please add the required assemblies in order to 
 Create a new ASP.NET MVC application project.
 ![Creation1](MVC_images/Creation1.jpg)
 
-Install the Syncfusion.Pdf.AspNet.Mvc NuGet package as a reference to your .NET Framework applications from NuGet.org.
+Install the [Syncfusion.Pdf.AspNet.Mvc](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5/) NuGet package as a reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org/).
 ![Creation2](MVC_images/Creation2.jpg)
 
-A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
+A default controller with name **HomeController.cs** gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
  
 {% highlight c# %}
 
@@ -27,9 +27,9 @@ using System.Drawing;
 
 {% endhighlight %}
 
-A default action method named Index will be present in HomeController.cs. Right-click on this action method and select Go To View, where you will be directed to its associated view page Index.cshtml.
+A default action method named **Index** will be present in HomeController.cs. Right-click on this action method and select **Go To View**, where you will be directed to its associated view page **Index.cshtml**.
 
-Add a new button in the Index.cshtml as follows.
+Add a new button in the **Index.cshtml** as follows.
 
 {% highlight c# %}
 
@@ -44,7 +44,7 @@ Html.EndForm();
 
 {% endhighlight %}
 
-Add a new action method named CreateDocument in HomeController.cs and include the following code snippet to create an PDF file and download it.
+Add a new action method named **CreateDocument** in HomeController.cs and include the following code snippet to create an PDF file and download it.
 
 {% highlight c# %}
 
