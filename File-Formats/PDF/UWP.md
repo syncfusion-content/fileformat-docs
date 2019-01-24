@@ -105,12 +105,12 @@ st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
 st.Flush();
 st.Dispose();
 fileStream.Dispose();
-MessageDialog msgDialog = new MessageDialog("Do you want to view the Document?", "File created.");
+MessageDialog messageDialog = new MessageDialog("Do you want to view the Document?", "File created.");
 UICommand yesCmd = new UICommand("Yes");
-msgDialog.Commands.Add(yesCmd);
+messageDialog.Commands.Add(yesCmd);
 UICommand noCmd = new UICommand("No");
-msgDialog.Commands.Add(noCmd);
-IUICommand cmd = await msgDialog.ShowAsync();
+messageDialog.Commands.Add(noCmd);
+IUICommand cmd = await messageDialog.ShowAsync();
 if (cmd == yesCmd)
 {
 // Launch the retrieved file
