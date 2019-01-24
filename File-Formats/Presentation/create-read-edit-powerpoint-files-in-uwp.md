@@ -45,7 +45,7 @@ You can create or edit a PowerPoint file in UWP with Syncfusion PowerPoint libra
 
 {% endtabs %}
 
-4.Include the following namespaces in the Mainpage.xamal.cs file.
+4.Include the following namespaces in the Mainpage.xaml.cs file.
 
 {% tabs %}
 

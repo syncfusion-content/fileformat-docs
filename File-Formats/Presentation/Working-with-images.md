@@ -1,5 +1,5 @@
 ---
-title: Working with images in PowerPoint Presentation
+title: Working with images in PowerPoint Presentation |Syncfusion|
 description: Working with images in PowerPoint Presentation
 platform: file-formats
 control: Presentation
