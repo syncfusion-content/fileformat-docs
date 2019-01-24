@@ -231,11 +231,11 @@ You can edit an existing PowerPoint file using this library. The below code snip
 
 {% highlight c# %}
 
+//"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream("CreateUWPPowerPoint.Assets.Sample_UWP.pptx");
 
 //Open an existing PowerPoint presentation
-IPresentation pptxDoc = Presentation.Open(fileStream);
+IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("CreateUWPPowerPoint.Assets.Sample_UWP.pptx"));
 
 //Gets the first slide from the PowerPoint presentation
 ISlide slide = pptxDoc.Slides[0];

@@ -73,9 +73,7 @@ ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Gets a picture as stream.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 Stream pictureStream = assembly.GetManifestResourceStream("UWP.Data.Image.png");
-//Adds the picture to a slide by specifying its size and position.
 
 //Adds the picture to a slide by specifying its size and position.
 IPicture picture = slide.Pictures.AddPicture(pictureStream, 0, 0, 250, 250);
