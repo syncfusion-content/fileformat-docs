@@ -1,5 +1,5 @@
 ---
-title: Syncfusion PDF control for Windows Forms
+title: Syncfusion PDF control for Windows Forms | Syncfusion
 description: Loading and saving the PDF document in Windows Forms platform
 platform: file-formats
 control: PDF
@@ -64,28 +64,23 @@ private void InitializeComponent()
 Create the btnCreate_Click event and add the following code in btnCreate_Click to create PDF file with simple text.
 
 {% highlight c# %}
-
-private void btnCreate_Click(object sender, EventArgs e)
-{
-//Create a new PDF document
+ 
 using (PdfDocument document = new PdfDocument())
 {
-//Add a page to the document
-PdfPage page = document.Pages.Add();
+  //Add a page to the document
+  PdfPage page = document.Pages.Add();
 
-//Create PDF graphics for a page
-PdfGraphics graphics = page.Graphics;
+  //Create PDF graphics for a page
+  PdfGraphics graphics = page.Graphics;
 
-//Set the standard font
-PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+  //Set the standard font
+  PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 
-//Draw the text
-graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+  //Draw the text
+  graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
 
-//Save the document
-document.Save("Output.pdf");
-
-}
+  //Save the document
+  document.Save("Output.pdf");
 }
 
 {% endhighlight %}
