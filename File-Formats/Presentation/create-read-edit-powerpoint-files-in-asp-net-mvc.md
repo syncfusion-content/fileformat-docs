@@ -1,6 +1,6 @@
 ---
 title: Create and edit PowerPoint files in ASP.NET MVC |Syncfusion|
-description: .NET PowerPoint library to create, read, edit and convert PowerPoint files in ASP.NET MVC applications.
+description: C# PowerPoint library to create, read, edit and convert PowerPoint files in .NET applications, ASP.NET Web, MVC, ASP.NET Core, Xamarin and Azure platforms
 platform: file-formats
 control: PowerPoint
 documentation: ug

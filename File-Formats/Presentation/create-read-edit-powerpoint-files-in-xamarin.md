@@ -1,6 +1,6 @@
 ---
 title: Create and edit PowerPoint files in Xamarin |Syncfusion|
-description: A Xamarin PowerPoint library to create, read and edit PowerPoint files in Xamarin applications. Supports text, shape, chart, table and combine PowerPoints.
+description: C# PowerPoint library to create, read, edit and convert PowerPoint files in .NET applications, ASP.NET Web, MVC, ASP.NET Core, Xamarin and Azure platforms
 platform: file-formats
 control: PowerPoint
 documentation: UG
