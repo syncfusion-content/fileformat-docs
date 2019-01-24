@@ -17,9 +17,9 @@ Create a new ASP.NET Web application project.
 Install the [Syncfusion.Pdf.AspNet](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet/) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org/).
 ![Creation1](Asp.Net_images/Creation2.jpg)
 
-Add a new Web Form in ASP .NET project. Right-click on the project and select **Add > New Item** and add a Web Form from the list. Name it as **MainPage**.
+Add a new Web Form in ASP .NET project. Right-click on the project and select Add > New Item and add a Web Form from the list. Name it as MainPage.
 
-Add a new button in the **MainPage.aspx** as follows.
+Add a new button in the MainPage.aspx as follows.
 
 {% highlight c# %}
 
@@ -38,7 +38,7 @@ Add a new button in the **MainPage.aspx** as follows.
 
 {% endhighlight %} 
 
-Include the following namespaces in your **MainPage.aspx.cs** file.
+Include the following namespaces in your MainPage.aspx.cs file.
    
 {% highlight c# %}
 
@@ -48,7 +48,7 @@ using System.Drawing;
 
 {% endhighlight %}
 
-Include the following code snippet in the click event of the button in **MainPage.aspx.cs** to create the PDF file and download it.
+Include the following code snippet in the click event of the button in MainPage.aspx.cs to create the PDF file and download it.
 
 {% highlight c# %}
 

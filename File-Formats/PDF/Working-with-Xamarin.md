@@ -23,11 +23,11 @@ N> If .NET Standard is not available in the code sharing strategy, the Portable 
 Install the [Syncfusion.Xamarin.PDF](https://www.nuget.org/packages/Syncfusion.Xamarin.PDF/) NuGet package as a reference to your.NET Framework applications from [NuGet.org](https://www.nuget.org/).
 ![Creation3](Xamarin_images/Creation3.jpg)
 
-Add new Forms XAML page in **portable project** if there is no XAML page is defined in the App class. Otherwise, proceed to the next step.
+Add new Forms XAML page in portable project if there is no XAML page is defined in the App class. Otherwise, proceed to the next step.
 
-a.  To add the new XAML page, right-click the project and select **Add > New Item** and add a Forms XAML Page from the list. Name it as MainXamlPage.
+a.  To add the new XAML page, right-click the project and select Add > New Item and add a Forms XAML Page from the list. Name it as MainXamlPage.
 
-b.	In App class of **portable project** (App.cs), replace the existing constructor of App class with the following code snippet, which invokes the MainXamlPage.
+b.	In App class of portable project (App.cs), replace the existing constructor of App class with the following code snippet, which invokes the MainXamlPage.
 
 {% highlight c# %}
 
@@ -39,7 +39,7 @@ public App()
 
 {% endhighlight %}
 
-In the **MainXamlPage.xaml**, add new button as follows.
+In the MainXamlPage.xaml, add new button as follows.
 
 {% highlight c# %}
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
@@ -53,7 +53,7 @@ In the **MainXamlPage.xaml**, add new button as follows.
 </ContentPage>
 {% endhighlight %}
 
-Include the following namespace in the **MainXamlPage.xaml.cs** file.
+Include the following namespace in the MainXamlPage.xaml.cs file.
 
 {% highlight c# %}
 

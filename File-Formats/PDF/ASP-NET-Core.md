@@ -22,7 +22,7 @@ Select Web Application pattern (Model-View-Controller) for the project.
 Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 ![Creation3](Asp.Net.Core_images/Creation3.jpg)
 
-A default controller with name **HomeController.cs** gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
+A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
 
 {% highlight c# %}
 
@@ -33,7 +33,7 @@ using System.IO;
 
 {% endhighlight %}
 
-A default action method named Index will be present in HomeController.cs. Right click on Index method and select **Go To View** where you will be directed to its associated view page **Index.cshtml**.
+A default action method named Index will be present in HomeController.cs. Right click on Index method and select Go To View where you will be directed to its associated view page Index.cshtml.
 
 Add a new button in the Index.cshtml as shown below.
 
@@ -49,7 +49,7 @@ Html.EndForm();
 }
 {% endhighlight %}
 
-Add a new action method **CreateDocument** in HomeController.cs and include the below code snippet to create an PDF file and download it.
+Add a new action method CreateDocument in HomeController.cs and include the below code snippet to create an PDF file and download it.
 
 {% highlight c# %}
 

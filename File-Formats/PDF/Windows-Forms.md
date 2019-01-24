@@ -18,7 +18,7 @@ Create a new Windows Forms application project.
 Install the [Syncfusion.Pdf.WinForms](https://www.nuget.org/packages/Syncfusion.Pdf.WinForms/) NuGet package as a reference to your  .NET Framework applications from [NuGet.org](https://www.nuget.org/).
 ![Creation1](WF_images/Creation2.jpeg)
 
-Include the following namespaces in the **Form1.Designer.cs** file.
+Include the following namespaces in the Form1.Designer.cs file.
 
 {% highlight c# %}
 
@@ -28,7 +28,7 @@ using System.Drawing;
 
 {% endhighlight %}
 
-Add a new button in **Form1.Designer.cs** to create PDF document as follows.
+Add a new button in Form1.Designer.cs to create PDF document as follows.
 
 {% highlight c# %}
 
@@ -61,7 +61,7 @@ private void InitializeComponent()
 
 {% endhighlight %}
 
-Create the **btnCreate_Click** event and add the following code in btnCreate_Click to create PDF file with simple text.
+Create the btnCreate_Click event and add the following code in btnCreate_Click to create PDF file with simple text.
 
 {% highlight c# %}
  
