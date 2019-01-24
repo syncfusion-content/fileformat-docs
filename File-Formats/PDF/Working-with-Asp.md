@@ -185,7 +185,7 @@ graphics.DrawRectangle(solidBrush, bounds);
 //Creates a font for adding the heading in the page
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
 //Creates a text element to add the invoice number
-PdfTextElement element = new PdfTextElement("INVOICE " + "id.ToString()", subHeadingFont);
+PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
 element.Brush = PdfBrushes.White;
 
 //Draws the heading on the page
@@ -281,7 +281,6 @@ Essential PDF allows you to create and manipulate existing form in PDF document.
 The following guide shows how to fill a sample PDF form as shown.
 
 ![Form Fill](GettingStarted_images/GettingStarted_img2.jpeg)
-
 
 Essential PDF allows you to fill the form fields by using PdfLoadedField class. You can get the form field either by using its field name or field index.
 
