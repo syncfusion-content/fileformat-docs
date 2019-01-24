@@ -14,7 +14,7 @@ In your ASP.NET MVC application, please add the required assemblies in order to 
 Create a new ASP.NET MVC application project.
 ![Creation1](MVC_images/Creation1.jpg)
 
-Install the Syncfusion.Pdf.AspNet.Mvc NuGet package as a reference to your .NET Framework applications from NuGet.org.
+Install the [Syncfusion.Pdf.AspNet.Mvc](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet.Mvc5/) NuGet package as a reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org/).
 ![Creation2](MVC_images/Creation2.jpg)
 
 A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.
