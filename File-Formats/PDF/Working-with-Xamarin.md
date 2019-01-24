@@ -17,9 +17,10 @@ Create a new C# Xamarin.Forms application project.
 Select a project template and required platforms to deploy the application. In this application, the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing, refer here.
 
 N> If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
+
 ![Creation2](Xamarin_images/Creation2.jpg)
 
-Install the Syncfusion.Xamarin.PDF NuGet package as a reference to your.NET Framework applications from NuGet.org.
+Install the [Syncfusion.Xamarin.PDF](https://www.nuget.org/packages/Syncfusion.Xamarin.PDF/) NuGet package as a reference to your.NET Framework applications from [NuGet.org](https://www.nuget.org/).
 ![Creation3](Xamarin_images/Creation3.jpg)
 
 Add new Forms XAML page in portable project if there is no XAML page is defined in the App class. Otherwise, proceed to the next step.
