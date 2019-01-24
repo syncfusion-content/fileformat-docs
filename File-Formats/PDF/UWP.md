@@ -1,5 +1,5 @@
 ---
-title: Working with UWP
+title: Working with UWP | Syncfusion
 description: Create a UWP application and load the document
 platform: file-formats
 control: PDF
@@ -10,48 +10,85 @@ documentation: UG
 
 In your UWP application, please add the required assemblies in order to use PDF. [Refer here for assemblies required](/File-Formats/pdf/Assemblies-Required).
 
-## Loading the document
+## Steps to create PDF document in UWP
 
-You can load and save the PDF document asynchronously using PDF.
+Create a new UWP application project. 
+![Creation1](UWP_images/Creation1.jpg)
 
-The following code example illustrates how to load the PDF document by using stream in UWP.
+Install the [Syncfusion.Pdf.UWP](https://www.nuget.org/packages/Syncfusion.Pdf.UWP/) NuGet package as reference to your UWP applications from [NuGet.org](https://www.nuget.org/).
+![Creation1](UWP_images/Creation2.jpeg)
 
-{% tabs %}
+Create button in MainPage.Xaml page using below code snippet and create Button_Click event.
+{% highlight c# %}
+
+<Grid>
+  <Button Content="CreatePDF" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="150" Height="100" Click="Button_Click" />
+</Grid>
+
+{% endhighlight %}
+
+Include the following namespaces in the MainPage.xaml.cs file.
 
 {% highlight c# %}
 
-//Load the PDF document as stream
-Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Sample.pdf");
-            
-//Creates an empty PDF loaded document instance
-PdfLoadedDocument document = new PdfLoadedDocument();
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
-//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await document.OpenAsync(pdfStream);
+{% endhighlight %}
 
-MemoryStream stream = new MemoryStream();
+Include the following code snippet in the click event of the button in MainPage.xaml.cs to Create PDF and save it in a stream.
 
-await document.SaveAsync(stream);
+{% highlight c# %}
 
-//Close the documents
+using (PdfDocument document = new PdfDocument())
+{
+//Add a page to the document
+PdfPage page = document.Pages.Add();
 
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Set the standard font
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+// Open the document in browser after saving it
+document.Save(ms);
+
+//Close the document
 document.Close(true);
 
-//Save the stream as PDF document file in local machine
+Save(ms, "Sample.pdf");
+}
+{% endhighlight %}
 
-Save(stream, "Result.pdf");
+Use the following helper method to save the stream as a physical file and open the file for viewing.
+{% highlight c# %}
 
-async void Save(Stream stream, string filename)
+#region Helper Methods
+public async void Save(Stream stream, string filename)
 {
-
 stream.Position = 0;
-
 StorageFile stFile;
 if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
 {
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.DefaultFileExtension = ".pdf";
-savePicker.SuggestedFileName = "Sample";
+savePicker.SuggestedFileName = "Output";
 savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
 stFile = await savePicker.PickSaveFileAsync();
 }
@@ -68,356 +105,289 @@ st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
 st.Flush();
 st.Dispose();
 fileStream.Dispose();
+MessageDialog msgDialog = new MessageDialog("Do you want to view the Document?", "File created.");
+UICommand yesCmd = new UICommand("Yes");
+msgDialog.Commands.Add(yesCmd);
+UICommand noCmd = new UICommand("No");
+msgDialog.Commands.Add(noCmd);
+IUICommand cmd = await msgDialog.ShowAsync();
+if (cmd == yesCmd)
+{
+// Launch the retrieved file
+bool success = await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+}
+}
+#endregion
+
+{% endhighlight %}
+
+A complete working sample can be downloaded from [Create PDF file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/UWP_Sample1746484692 )
+
+By executing the program, you will get the PDF document as follows.
+![output](GettingStarted_images/Hello World.jpg)
+
+## Creating a PDF document with image
+
+The following code example shows how to create a PDF document with an image.
+
+{% highlight c# %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page to the document.
+PdfPage page = doc.Pages.Add();
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+//Load the image as stream
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Autumn Leaves.jpg");
+//Load the image from the disk.
+PdfBitmap image = new PdfBitmap(imageStream);
+//Draw the image
+graphics.DrawImage(image, 0, 0);
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+//Open the document in browser after saving it
+doc.Save(ms);
+//Close the document
+doc.Close(true);
+Save(ms, "Sample.pdf");
+
+{% endhighlight %}
+{% highlight c# %}
+
+//Create a new PDF document.
+PdfDocument doc = new PdfDocument();
+//Add a page.
+PdfPage page = doc.Pages.Add();
+//Create a PdfGrid.
+PdfGrid pdfGrid = new PdfGrid();
+//Add values to list
+List<object> data = new List<object>();
+Object row1 = new { ID = "E01", Name = "Clay" };
+Object row2 = new { ID = "E02", Name = "Thomas" };
+Object row3 = new { ID = "E03", Name = "Andrew" };
+Object row4 = new { ID = "E04", Name = "Paul" };
+Object row5 = new { ID = "E05", Name = "Gray" };
+data.Add(row1);
+data.Add(row2);
+data.Add(row3);
+data.Add(row4);
+data.Add(row5);
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+//Assign data source.
+pdfGrid.DataSource = dataTable;
+//Draw grid to the page of PDF document.
+pdfGrid.Draw(page, new PointF(10, 10));
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+await doc.SaveAsync(stream);
+//Close the document.
+doc.Close(true);
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+## Creating a simple PDF document with basic elements
+The PdfDocument object represents an entire PDF document that is being created. The following code example shows how to create a PDF document and add a page to it along with the page settings.
+
+{% highlight c# %}
+
+//Creates a new PDF document
+PdfDocument document = new PdfDocument();
+//Adds page settings
+document.PageSettings.Orientation = PdfPageOrientation.Landscape;
+document.PageSettings.Margins.All = 50;
+//Adds a page to the document
+PdfPage page = document.Pages.Add();
+PdfGraphics graphics = page.Graphics;
+
+{% endhighlight %}
+
+1. Essential PDF has APIs similar to the .NET GDI plus which helps to draw elements to the PDF page just like 2D drawing in .NET. 
+2. Unlike System.Drawing APIs all the units are measured in point instead of pixel. 
+3. In PDF, all the elements are placed in absolute positions and has the possibility for content overlapping if misplaced. 
+4. Essential PDF provides the rendered bounds for each and every elements added through PdfLayoutResult objects. This can be used to add successive elements and prevent content overlap.
+
+The following code example explains how to add an image from disk to a PDF document, by providing the rectangle coordinates. 
+{% highlight c# %}
+
+//Load the image as stream
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.AdventureCycle.jpg");
+//Load the image from the stream.
+PdfImage image = PdfImage.FromStream(imageStream);
+RectangleF bounds = new RectangleF(176, 0, 390, 130);
+//Draws the image to the PDF page
+page.Graphics.DrawImage(image, bounds);
+
+{% endhighlight %}
+
+The following methods can be used to add text to a PDF document.
+
+1. DrawString() method of the PdfGraphics
+2. PdfTextElement class.
+
+The PdfTextElement provides the layout result of the added text by using the location of the next element that decides to prevent content overlapping. This is not available in the DrawString method. 
+
+The following code example adds the necessary text such as address, invoice number and date to create a basic invoice application. 
+{% highlight c# %}
+
+PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
+bounds = new RectangleF(0, bounds.Bottom + 90, graphics.ClientSize.Width, 30);
+//Draws a rectangle to place the heading in that region.
+graphics.DrawRectangle(solidBrush, bounds);
+//Creates a font for adding the heading in the page
+PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
+//Creates a text element to add the invoice number
+PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
+element.Brush = PdfBrushes.White;
+
+//Draws the heading on the page
+PdfLayoutResult result = element.Draw(page, new PointF(10, bounds.Top + 8));
+string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
+//Measures the width of the text to place it in the correct location
+SizeF textSize = subHeadingFont.MeasureString(currentDate);
+PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
+//Draws the date by using DrawString method
+graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
+PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
+//Creates text elements to add the address and draw it to the page.
+element = new PdfTextElement("BILL TO ", timesRoman);
+element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
+result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
+PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
+PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
+PointF endPoint = new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3);
+//Draws a line at the bottom of the address
+graphics.DrawLine(linePen, startPoint, endPoint);
+
+{% endhighlight %}
+
+Essential PDF provides two types of table models. The difference between both the table models can be referred from the link 
+[Difference between PdfLightTable and PdfGrid](/file-formats/pdf/working-with-tables#difference-between-pdflighttable-and-pdfgrid "difference-between-pdflighttable-and-pdfgrid")
+
+Since the invoice document requires only simple cell customizations, the given code example explains how to create a simple invoice table by using PdfGrid.
+
+{% highlight c# %}
+
+//Creates the datasource for the table
+DataTable invoiceDetails = GetProductDetailsAsDataTable();
+//Creates a PDF grid
+PdfGrid grid = new PdfGrid();
+//Adds the data source
+grid.DataSource = invoiceDetails;
+//Creates the grid cell styles
+PdfGridCellStyle cellStyle = new PdfGridCellStyle();
+cellStyle.Borders.All = PdfPens.White;
+PdfGridRow header = grid.Headers[0];
+//Creates the header style
+PdfGridCellStyle headerStyle = new PdfGridCellStyle();
+headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
+headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
+headerStyle.TextBrush = PdfBrushes.White;
+headerStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f, PdfFontStyle.Regular);
+
+//Adds cell customizations
+for (int i = 0; i < header.Cells.Count; i++)
+{
+if (i == 0 || i == 1)
+header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+else
+header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
 }
 
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Load the PDF document as stream
-
-Dim docStream As Stream = GetType(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Sample.pdf")
-
-'Creates an empty PdfLoaded document instance
-
-Dim document As New PdfLoadedDocument()
-
-'Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-
-Await document.OpenAsync(docStream)
-
-Dim stream As New MemoryStream()
-
-'Save the PDF document into memory stream
-
-Await document.SaveAsync(stream)
-
-'Close the PDF documents
-
-document.Close(True)
-
-'Save the stream as PDF document file in local machine
-
-Save(stream, "Result.pdf")
-
-Private Async Sub Save(stream As MemoryStream, filename As String)
-
-stream.Position = 0
-
-Dim stFile As StorageFile
-
-If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")) Then
-
-Dim savePicker As New FileSavePicker()
-
-savePicker.DefaultFileExtension = ".pdf"
-
-savePicker.SuggestedFileName = filename
-
-savePicker.FileTypeChoices.Add("PDF Documents", New List(Of String)(New String() {".pdf"}))
-
-stFile = Await savePicker.PickSaveFileAsync()
-
-Else
-
-Dim local As StorageFolder = Windows.Storage.ApplicationData.Current.LocalFolder
-
-stFile = Await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting)
-
-End If
-
-If stFile IsNot Nothing Then
-
-Dim pdfStream As IRandomAccessStream = Await stFile.OpenAsync(FileAccessMode.ReadWrite)
-Dim st As Stream = pdfStream.AsStreamForWrite()
-Dim buffer As Byte() = stream.ToArray()
-st.Write(buffer, 0, buffer.Length)
-st.Flush()
-st.Dispose()
-pdfStream.Dispose()
-
-End If
-
-End Sub
+//Applies the header style
+header.ApplyStyle(headerStyle);
+cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
+cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
+cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
+//Creates the layout format for grid
+PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
+// Creates layout format settings to allow the table pagination
+layoutFormat.Layout = PdfLayoutType.Paginate;
+//Draws the grid to the PDF page.
+PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
 
 {% endhighlight %}
 
-{% endtabs %}
+The following code example shows how to save the invoice document to disk and dispose the PdfDocument object.
+{% highlight c# %}
+//Save the PDF document to stream.
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream);
+//Close the document.
+document.Close(true);
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "Sample.pdf");
+{% endhighlight %}
 
-The following code example illustrates how to load the PDF document by using file open picker in UWP.
+The following screenshot shows the invoice PDF document created by using Essential PDF.
+![invoice](GettingStarted_images/GettingStarted_img1.jpeg)
 
-{% tabs %}
+## Filling forms
+
+An interactive form, sometimes referred to as an AcroForm is a collection of fields for gathering information interactively from the user. A PDF document can contain any number of fields appearing in any combination of pages, all of that make a single, globally interactive form spanning the entire document.
+
+Essential PDF allows you to create and manipulate existing form in PDF document. To work with existing form documents, the following namespaces are required.
+
+1. Syncfusion.Pdf
+2. Syncfusion.Pdf.Parsing
+
+The following guide shows how to fill a sample PDF form as shown.
+
+![Form Fill](GettingStarted_images/GettingStarted_img2.jpeg)
+
+Essential PDF allows you to fill the form fields by using PdfLoadedField class. You can get the form field either by using its field name or field index.
 
 {% highlight c# %}
 
 //Create the file open picker
-
 var picker = new FileOpenPicker();
-
 picker.FileTypeFilter.Add(".pdf");
-
 //Browse and chose the file
-
 StorageFile file = await picker.PickSingleFileAsync();
-
 //Creates an empty PDF loaded document instance
-PdfLoadedDocument document = new PdfLoadedDocument();
-
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
 //Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
-await document.OpenAsync(file);
-
+await loadedDocument.OpenAsync(file);
+//Loads the form
+PdfLoadedForm form = loadedDocument.Form;
+//Fills the textbox field by using index
+(form.Fields[0] as PdfLoadedTextBoxField).Text = "John";
+//Fills the textbox fields by using field name
+(form.Fields["LastName"] as PdfLoadedTextBoxField).Text = "Doe";
+(form.Fields["Address"] as PdfLoadedTextBoxField).Text = " John Doe \n 123 Main St \n Anytown, USA";
+//Loads the radio button group
+PdfLoadedRadioButtonItemCollection radioButtonCollection = (form.Fields["Gender"] as PdfLoadedRadioButtonListField).Items;
+//Checks the 'Male' option
+radioButtonCollection[0].Checked = true;
+//Checks the 'business' checkbox field
+(form.Fields["Business"] as PdfLoadedCheckBoxField).Checked = true;
+//Checks the 'retiree' checkbox field
+(form.Fields["Retiree"] as PdfLoadedCheckBoxField).Checked = true;
+//Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
-
-await document.SaveAsync(stream);
-
-//Close the documents
-
-document.Close(true);
-
-//Save the stream as PDF document file in local machine
-
-Save(stream, "Result.pdf");
-
-async void Save(Stream stream, string filename)
-{
-
-stream.Position = 0;
-
-StorageFile stFile;
-if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-{
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.DefaultFileExtension = ".pdf";
-savePicker.SuggestedFileName = "Sample";
-savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-stFile = await savePicker.PickSaveFileAsync();
-}
-else
-{
-StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-}
-if (stFile != null)
-{
-Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-Stream st = fileStream.AsStreamForWrite();
-st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-st.Flush();
-st.Dispose();
-fileStream.Dispose();
-}
+await loadedDocument.SaveAsync(stream);
+//Close the document.
+loadedDocument.Close(true);
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+Save(stream, "output.pdf");
 
 {% endhighlight %}
 
-{% highlight vb.net %}
+The filled form is shown in adobe reader application as follows.
 
-'Create the file open picker
+![Form Fill](GettingStarted_images/GettingStarted_img3.jpeg)
 
-Dim picker = New FileOpenPicker()
 
-picker.FileTypeFilter.Add(".pdf")
 
-'Browse and chose the file
 
-Dim file As StorageFile = Await picker.PickSingleFileAsync()
 
-'Creates an empty PdfLoaded document instance
 
-Dim document As New PdfLoadedDocument()
 
-'Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
 
-Await document.OpenAsync(file)
 
-Dim stream As New MemoryStream()
 
-'Save the PDF document into memory stream
 
-Await document.SaveAsync(stream)
-
-'Close the PDF documents
-
-document.Close(True)
-
-'Save the stream as PDF document file in local machine
-
-Save(stream, "Result.pdf")
-
-Private Async Sub Save(stream As MemoryStream, filename As String)
-
-stream.Position = 0
-
-Dim stFile As StorageFile
-
-If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")) Then
-
-Dim savePicker As New FileSavePicker()
-
-savePicker.DefaultFileExtension = ".pdf"
-
-savePicker.SuggestedFileName = filename
-
-savePicker.FileTypeChoices.Add("PDF Documents", New List(Of String)(New String() {".pdf"}))
-
-stFile = Await savePicker.PickSaveFileAsync()
-
-Else
-
-Dim local As StorageFolder = Windows.Storage.ApplicationData.Current.LocalFolder
-
-stFile = Await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting)
-
-End If
-
-If stFile IsNot Nothing Then
-
-Dim pdfStream As IRandomAccessStream = Await stFile.OpenAsync(FileAccessMode.ReadWrite)
-Dim st As Stream = pdfStream.AsStreamForWrite()
-Dim buffer As Byte() = stream.ToArray()
-st.Write(buffer, 0, buffer.Length)
-st.Flush()
-st.Dispose()
-pdfStream.Dispose()
-
-End If
-
-End Sub
-
-{% endhighlight %}
-
-{% endtabs %}
-
-## Save the document 
-
-The following code example illustrates how to save the PDF document in UWP by using file save picker.
-
-{% tabs %}
-
-{% highlight c# %}
-
-//Creates an empty PDF document instance
-PdfDocument document = new PdfDocument();
-
-//Adding new page to the PDF document
-PdfPage page = document.Pages.Add();
-
-//Creates new PDF font
-PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
-
-//Drawing text to the PDF document
-page.Graphics.DrawString("Hello world", font, PdfBrushes.Black, 10, 10);
-
-MemoryStream stream = new MemoryStream();
-
-//Saves the PDF document to stream
-await document.SaveAsync(stream);
-
-//Close the document
-
-document.Close(true);
-
-//Save the stream as PDF document file in local machine
-
-Save(stream, "Result.pdf");
-
-async void Save(Stream stream, string filename)
-{
-
-stream.Position = 0;
-
-StorageFile stFile;
-if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-{
-FileSavePicker savePicker = new FileSavePicker();
-savePicker.DefaultFileExtension = ".pdf";
-savePicker.SuggestedFileName = "Sample";
-savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-stFile = await savePicker.PickSaveFileAsync();
-}
-else
-{
-StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-}
-if (stFile != null)
-{
-Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
-Stream st = fileStream.AsStreamForWrite();
-st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
-st.Flush();
-st.Dispose();
-fileStream.Dispose();
-}
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Creates an empty PDF document instance
-Dim document As New PdfDocument()
-
-'Adding new page to the PDF document
-Dim page As PdfPage = document.Pages.Add()
-
-'Creates new PDF font
-Dim font As New PdfStandardFont(PdfFontFamily.TimesRoman, 12)
-
-'Drawing text to the PDF document
-page.Graphics.DrawString("Hello world", font, PdfBrushes.Black, 10, 10)
-
-Dim stream As New MemoryStream()
-
-'Saves the PDF document to stream
-Await document.SaveAsync(stream)
-
-'Close the document
-
-document.Close(True)
-
-'Save the stream as PDF document file in local machine
-
-Save(stream, "Result.pdf")
-
-Private Async Sub Save(stream As MemoryStream, filename As String)
-
-stream.Position = 0
-
-Dim stFile As StorageFile
-
-If Not (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")) Then
-
-Dim savePicker As New FileSavePicker()
-
-savePicker.DefaultFileExtension = ".pdf"
-
-savePicker.SuggestedFileName = filename
-
-savePicker.FileTypeChoices.Add("PDF Documents", New List(Of String)(New String() {".pdf"}))
-
-stFile = Await savePicker.PickSaveFileAsync()
-
-Else
-
-Dim local As StorageFolder = Windows.Storage.ApplicationData.Current.LocalFolder
-
-stFile = Await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting)
-
-End If
-
-If stFile IsNot Nothing Then
-
-Dim pdfStream As IRandomAccessStream = Await stFile.OpenAsync(FileAccessMode.ReadWrite)
-Dim st As Stream = pdfStream.AsStreamForWrite()
-Dim buffer As Byte() = stream.ToArray()
-st.Write(buffer, 0, buffer.Length)
-st.Flush()
-st.Dispose()
-pdfStream.Dispose()
-
-End If
-
-End Sub
-
-{% endhighlight %}
-
-{% endtabs %}
