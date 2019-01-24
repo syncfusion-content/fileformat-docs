@@ -1,6 +1,6 @@
 ---
 title: Create and edit PowerPoint files in UWP |Syncfusion|
-description: .NET PowerPoint library to create, read, edit and convert PowerPoint files in UWP applications. Supports text, shape, chart, table and combine PowerPoints.
+description: A UWP PowerPoint library to create, read and edit PowerPoint files in UWP applications. Supports text, shape, chart, table and combine PowerPoints.
 platform: file-formats
 control: PowerPoint
 documentation: ug
@@ -45,7 +45,7 @@ You can create or edit a PowerPoint file in UWP with Syncfusion PowerPoint libra
 
 {% endtabs %}
 
-4.Include the following namespaces in the Mainpage.xamal.cs file.
+4.Include the following namespaces in the MainPage.xaml.cs file.
 
 {% tabs %}
 
