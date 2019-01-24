@@ -19,7 +19,7 @@ Create a new C# ASP.NET Core Web Application project.
 Select Web Application pattern (Model-View-Controller) for the project.
 ![Creation2](Asp.Net.Core_images/Creation2.jpg)
 
-Install the Syncfusion.Pdf.Net.Core NuGet package as reference to your .NET Standard applications from NuGet.org.
+Install the [Syncfusion.Pdf.Net.Core](https://www.nuget.org/packages/Syncfusion.Pdf.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 ![Creation3](Asp.Net.Core_images/Creation3.jpg)
 
 A default controller with name HomeController.cs gets added on creation of ASP.NET MVC project. Include the following namespaces in that HomeController.cs file.

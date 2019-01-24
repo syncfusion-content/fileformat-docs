@@ -14,7 +14,7 @@ In your ASP.NET application, please add the required assemblies in order to use 
 Create a new ASP.NET Web application project.
 ![Creation1](Asp.Net_images/Creation1.jpg)
 
-Install the Syncfusion.Pdf.AspNet NuGet package as reference to your .NET Framework applications from NuGet.org.
+Install the [Syncfusion.Pdf.AspNet](https://www.nuget.org/packages/Syncfusion.Pdf.AspNet/) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org/).
 ![Creation1](Asp.Net_images/Creation2.jpg)
 
 Add a new Web Form in ASP .NET project. Right-click on the project and select Add > New Item and add a Web Form from the list. Name it as MainPage.
@@ -185,7 +185,7 @@ graphics.DrawRectangle(solidBrush, bounds);
 //Creates a font for adding the heading in the page
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
 //Creates a text element to add the invoice number
-PdfTextElement element = new PdfTextElement("INVOICE " + "id.ToString()", subHeadingFont);
+PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
 element.Brush = PdfBrushes.White;
 
 //Draws the heading on the page
@@ -281,7 +281,6 @@ Essential PDF allows you to create and manipulate existing form in PDF document.
 The following guide shows how to fill a sample PDF form as shown.
 
 ![Form Fill](GettingStarted_images/GettingStarted_img2.jpeg)
-
 
 Essential PDF allows you to fill the form fields by using PdfLoadedField class. You can get the form field either by using its field name or field index.
 
