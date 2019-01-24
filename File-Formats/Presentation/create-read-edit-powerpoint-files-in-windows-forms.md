@@ -16,11 +16,11 @@ You can create or edit a PowerPoint file in Windows Forms with Syncfusion PowerP
 
 ![Create Windows Forms project](Workingwith_Windows/Create_Windows.png)
 
-2.Install the [Syncfusion.Presentation.Winforms](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+2.Install the [Syncfusion.Presentation.WinForms](https://www.nuget.org/packages/Syncfusion.Presentation.WinForms/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
 ![Install Presentation Winforms Nuget](Workingwith_Windows/Install_Nuget.png)
 
-3.After installing the **Syncfusion.Presentation.Winforms** nuget package, the following assemblies were included in our project.
+3.After installing the **Syncfusion.Presentation.WinForms** nuget package, the following assemblies were included in our project.
 <ul>
 <li>Syncfusion.Compression.Base</li>
 <li>Syncfusion.Licensing</li>
