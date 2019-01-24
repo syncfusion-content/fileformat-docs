@@ -1,39 +1,38 @@
 ---
-title: Create and edit PowerPoint files in ASP.NET Core |Syncfusion|
-description: A .NET Core PowerPoint library to create, read and edit PowerPoint files in .NET Core applications. Supports text, shape, chart, table and combine PowerPoints.
+title: Create and edit PowerPoint files in ASP.NET |Syncfusion|
+description: ASP.NET PowerPoint library to create, read, edit and convert PowerPoint files in ASP.NET applications.
 platform: file-formats
 control: PowerPoint
-documentation: UG
+documentation: ug
 ---
-# Create, read and edit a PowerPoint file in ASP.NET Core
 
-You can create or edit a PowerPoint file in ASP.NET Core with Syncfusion PowerPoint library. The below are the steps.
+# Create, read and edit a PowerPoint file in ASP.NET
 
-## Create a PowerPoint file in ASP.NET Core
+You can create or edit a PowerPoint file in ASP.NET with Syncfusion PowerPoint library. The below are the steps.
 
-1.Create a new C# ASP.NET Core web application project.
+## Create a PowerPoint file in ASP.NET
 
-![Create ASP.NET Core Web project](Workingwith_Core/CreateCore.png)
+1.Create a new C# ASP.NET web application project.
 
-2.Select Web Application pattern (Model-View-Controller) for the project.
+![Create ASP.NET Web project](Workingwith_Web/CreateProject.png)
 
-![Select Web Application pattern](Workingwith_Core/MVC.png)
+2.Select the **Web Forms** template to create the project.
 
-3.Install the [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
+![Select Web Forms template](Workingwith_Web/SelectWeb.png)
 
-![Install Presentation .Net Core Nuget](Workingwith_Core/install_nuget.png)
+3.Install the [Syncfusion.Presentation.AspNet](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org/).
 
-4.After installing the **Syncfusion.Presentation.Net.Core** nuget package, the following assemblies were included in our project.
+![Install Presentation Web Nuget](Workingwith_Web/InstallNuget.png)
+
+4.After installing the **Syncfusion.Presentation.AspNet** nuget package, the following assemblies were included in our project.
 <ul>
-<li>Syncfusion.Compression.Net.Core</li>
+<li>Syncfusion.Compression.Base</li>
 <li>Syncfusion.Licensing</li>
-<li>Syncfusion.OfficeChart.Net.Core</li>
-<li>Syncfusion.Presentation.Portable</li>
+<li>Syncfusion.OfficeChart.Base</li>
+<li>Syncfusion.Presentation.Base</li>
 </ul>
-		 
-![Installed Assemblies in Presentation ASP.NET Core](Workingwith_Core/installed_assemblies.png)
 
-5.The below code snippets demonstrate how to create a PowerPoint Presentation in ASP.NET Core platform.
+5.The below code snippets demonstrate how to create a PowerPoint Presentation in ASP.NET platform.
 
 **Create Presentation instance:**
 
@@ -173,9 +172,8 @@ stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmen
 
 {% highlight c# %}
 
-//Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation
+pptxDoc.Save("Sample.pptx", FormatType.Pptx, Response);
 
 //Close the PowerPoint presentation
 pptxDoc.Close();
@@ -186,9 +184,9 @@ pptxDoc.Close();
 
 The output of the above code example will generate the below PowerPoint slide.
 
-![ASP.Net Core Output](Workingwith_Core/GettingStartedSample.png)
+![ASP.Net Web Output](Workingwith_Web/GettingStartedSample.png)
 
-## Read and edit a PowerPoint file in ASP.NET Core
+## Read and edit a PowerPoint file in ASP.NET
 
 You can edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
 
@@ -197,7 +195,7 @@ You can edit an existing PowerPoint file using this library. The below code snip
 {% highlight c# %}
 
 //Open an existing PowerPoint presentation
-IPresentation pptxDoc = Presentation.Open(new FileStream("Sample.pptx",FileMode.Open));
+IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
 //Gets the first slide from the PowerPoint presentation
 ISlide slide = pptxDoc.Slides[0];
@@ -209,12 +207,8 @@ IShape shape = slide.Shapes[0] as IShape;
 if(shape.TextBody.Text == "Company History")
     shape.TextBody.Text = "Company Profile";
 
-//Save the PowerPoint presentation as stream
-FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
-pptxDoc.Save(outputStream);
-outputStream.Position = 0;
-outputStream.Flush();
-outputStream.Dispose();
+//Save the PowerPoint presentation
+pptxDoc.Save("Output.pptx", FormatType.Pptx, Response);
 
 //Close the PowerPoint presentation
 pptxDoc.Close();
