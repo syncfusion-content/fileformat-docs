@@ -370,7 +370,7 @@ The filled form is shown in adobe reader application as follows.
 
 ## Merge PDF Documents
 
-Essential PDF supports merging multiple PDF documents from disk and stream. You can merge the multiple PDF document from disk by specifying the path of the documents in a string array.
+Essential PDF supports merging multiple PDF documents from stream.
 
 You can merge the PDF document streams by using the following code example.
 
