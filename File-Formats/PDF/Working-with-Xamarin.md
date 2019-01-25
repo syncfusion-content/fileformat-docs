@@ -20,7 +20,7 @@ N> If .NET Standard is not available in the code sharing strategy, the Portable 
 
 ![Creation2](Xamarin_images/Creation2.jpg)
 
-Install the Syncfusion.Xamarin.PDF NuGet package as a reference to your.NET Framework applications from NuGet.org.
+Install the [Syncfusion.Xamarin.PDF](https://www.nuget.org/packages/Syncfusion.Xamarin.PDF/) NuGet package as a reference to your.NET Framework applications from [NuGet.org](https://www.nuget.org/).
 ![Creation3](Xamarin_images/Creation3.jpg)
 
 Add new Forms XAML page in portable project if there is no XAML page is defined in the App class. Otherwise, proceed to the next step.
@@ -372,7 +372,6 @@ The following guide shows how to fill a sample PDF form as shown.
 
 ![Form Fill](GettingStarted_images/GettingStarted_img2.jpeg)
 
-
 Essential PDF allows you to fill the form fields by using PdfLoadedField class. You can get the form field either by using its field name or field index.
  
 {% highlight c# %}
@@ -411,7 +410,7 @@ The filled form is shown in adobe reader application as follows.
 
 ## Merge PDF Documents
 
-Essential PDF supports merging multiple PDF documents from disk and stream. You can merge the multiple PDF document from disk by specifying the path of the documents in a string array.
+Essential PDF supports merging multiple PDF documents from stream.
 
 You can merge the PDF document streams by using the following code example.
  
