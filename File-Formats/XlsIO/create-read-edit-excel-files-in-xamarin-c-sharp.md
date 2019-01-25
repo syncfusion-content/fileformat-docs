@@ -501,6 +501,7 @@ iOS Project
 <ul>
 <li>Save implementation for iOS device</li>
 <li>Helper class for viewing the Excel file in iOS device</li>
+</ul>
 </td>
 </tr>
 <tr>
