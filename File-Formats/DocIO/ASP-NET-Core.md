@@ -131,7 +131,7 @@ Html.EndForm();
         paragraph = section.AddParagraph();
         paragraph.ParagraphFormat.FirstLineIndent = 36;
         paragraph.BreakCharacterFormat.FontSize = 12f;
-        textRange = paragraph.AppendText("In 2000, Adventure Works Cycles bought a small manufacturing plant, Importers Neptune, located in Mexico. Importers Neptune manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importers Neptune, became the sole manufacturer and distributor of the touring bicycle product group.") as WTextRange;
+        textRange = paragraph.AppendText("In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.") as WTextRange;
         textRange.CharacterFormat.FontSize = 12f;
 
         paragraph = section.AddParagraph();
