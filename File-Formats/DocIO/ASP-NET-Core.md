@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Create a Word document in ASP.NET Core
+# Create Word document in ASP.NET Core
 
 Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.com/word-framework/net-core/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or interop dependencies. Using this library, you can **create a Word document in ASP.NET Core**.
 
@@ -14,15 +14,15 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 1.Create a new ASP.NET Core Web application project.
 
-![Create ASP.NET Core Web project](WorkingwithCore_images/CreateProject.png)
+![Create ASP.NET Core Web application in Visual Studio](ASP-NET-Core_images/CreateProject.png)
 
 2.Select Web Application pattern (Model-View-Controller) for the project.
 
-![Select Web Application pattern](WorkingwithCore_images/SelectWebMVC.png)
+![Select Web Application pattern](ASP-NET-Core_images/SelectWebMVC.png)
 
-3.Install the **Syncfusion.DocIO.Net.Core** NuGet package as a reference to your project from **NuGet.org**.
+3.Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
-![Install DocIO .NET Core Nuget](WorkingwithCore_images/Install_Nuget.png)
+![Install DocIO .NET Core NuGet package](ASP-NET-Core_images/Install_Nuget.png)
 
 4.Include the following namespaces in the HomeController.cs file.
 
@@ -124,7 +124,7 @@ Html.EndForm();
         paragraph = section.AddParagraph();
         paragraph.ParagraphFormat.FirstLineIndent = 36;
         paragraph.BreakCharacterFormat.FontSize = 12f;
-        textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
+        textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the Adventure Works sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
         textRange.CharacterFormat.FontSize = 12f;
 
         //Appends paragraph.
@@ -279,10 +279,8 @@ Html.EndForm();
         //Appends paragraph.
         section.AddParagraph();
 
-
-        MemoryStream stream = new MemoryStream();
-
         //Saves the Word document to  MemoryStream
+		MemoryStream stream = new MemoryStream();
         document.Save(stream, FormatType.Docx);
         stream.Position = 0;
 
@@ -295,5 +293,5 @@ Html.EndForm();
 
 By executing the program, you will get the **Word document** as follows.
 
-![ASP.Net Core Output](WorkingwithCore_images/GettingStartedOutput.jpg)
+![ASP.Net Core Output](ASP-NET-Core_images/GettingStartedOutput.jpg)
 
