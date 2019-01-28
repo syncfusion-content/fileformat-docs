@@ -379,7 +379,7 @@ void OnButtonClicked(object sender, EventArgs args)
   <td>
     SaveWinPhone.cs
   </td>
-  <td>Save implementation for Windows phone device
+  <td>Save implementation for Windows Phone device
   </td>
   </tr>
   <tr>
