@@ -18,7 +18,7 @@ Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/w
 
 2.Install the [Syncfusion.DocIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet.Mvc5) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
-![Install DocIO ASP.NET MVC NuGet package](ASP-NET-MVC_images/Install_Nuget.png)
+![Install DocIO ASP.NET MVC NuGet package](ASP-NET-MVC_images/Install_Nuget.jpg)
 
 3.Include the following namespace in that HomeController.cs file.
 
