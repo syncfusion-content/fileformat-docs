@@ -120,7 +120,7 @@ Html.EndForm();
 	paragraph = section.AddParagraph();
 	paragraph.ParagraphFormat.FirstLineIndent = 36;
 	paragraph.BreakCharacterFormat.FontSize = 12f;
-	textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
+	textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
 	textRange.CharacterFormat.FontSize = 12f;
 
 	//Appends paragraph.
