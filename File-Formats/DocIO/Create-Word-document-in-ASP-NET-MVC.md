@@ -14,7 +14,7 @@ Syncfusion Essential DocIO is a [.NET Word library](https://www.syncfusion.com/w
 
 1.Create a new ASP.NET MVC application project.
 
-![Create ASP.NET MVC Web application in Visual Studio](ASP-NET-MVC_images/CreateProject.png)
+![Create ASP.NET MVC application in Visual Studio](ASP-NET-MVC_images/CreateProject.png)
 
 2.Install the [Syncfusion.DocIO.AspNet.Mvc5](https://www.nuget.org/packages/Syncfusion.DocIO.AspNet.Mvc5) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
