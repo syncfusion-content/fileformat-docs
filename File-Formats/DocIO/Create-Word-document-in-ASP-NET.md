@@ -288,4 +288,4 @@ document.Save("Sample.docx", FormatType.Docx, HttpContext.Current.Response, Http
 
 By executing the program, you will get the **Word document** as follows.
 
-![ASP.Net Web Output](ASP-NET_images/GettingStartedOutput.jpg)
+![ASP.Net Web output Word document](ASP-NET_images/GettingStartedOutput.jpg)
