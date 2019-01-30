@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Create a Word document in Xamarin
+# Create Word document in Xamarin
 
 Syncfusion Essential DocIO is a [Xamarin Word library](https://www.syncfusion.com/word-framework/xamarin/word-library) used to create, read, and edit **Word** documents programmatically without **Microsoft Word** or **interop** dependencies. Using this library, you can **create a Word document in Xamarin**.
 
@@ -14,17 +14,17 @@ Syncfusion Essential DocIO is a [Xamarin Word library](https://www.syncfusion.co
 
 1.Create a new Xamarin.Forms application project.
 
-![Create Xamarin project](WorkingwithXamarin_images/create.png)
+![Create Xamarin application in Visual Studio](Xamarin_images/create.png)
 
 2.Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N> If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
-![Create Xamarin CodeSharing Option](WorkingwithXamarin_images/xamarin_cross.png)
+![Create Xamarin CodeSharing Option](Xamarin_images/xamarin_cross.png)
 
 3.Install [Syncfusion.Xamarin.DocIO](https://www.nuget.org/packages/Syncfusion.Xamarin.DocIO) NuGet package as a reference to the .NET Standard project in your application from [NuGet.org](https://www.nuget.org/).
 
-![Install Xamarin Nuget](WorkingwithXamarin_images/Install_Nuget.png)
+![Install DocIO Xamarin NuGet package](Xamarin_images/Install_Nuget.png)
 
 4.Add new Forms XAML page in **portable project**. If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
 <ul>
@@ -77,6 +77,8 @@ public App()
 
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
+using System.Reflection;
+using System.IO;
 
 {% endhighlight %}
 
@@ -152,7 +154,7 @@ void OnButtonClicked(object sender, EventArgs args)
     paragraph = section.AddParagraph();
     paragraph.ParagraphFormat.FirstLineIndent = 36;
     paragraph.BreakCharacterFormat.FontSize = 12f;
-    textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
+    textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
     textRange.CharacterFormat.FontSize = 12f;
 
     //Appends paragraph.
@@ -319,7 +321,7 @@ void OnButtonClicked(object sender, EventArgs args)
 
 {% endtabs %}
 
-8.Download the helper files from this [link](www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+8.Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
@@ -408,4 +410,4 @@ void OnButtonClicked(object sender, EventArgs args)
 
 By executing the program, you will get the Word document as follows.
 
-![Xamarin Output](WorkingwithXamarin_images/GettingStartedOutput.jpg)
+![Xamarin Getting Started Output](Xamarin_images/GettingStartedOutput.jpg)
