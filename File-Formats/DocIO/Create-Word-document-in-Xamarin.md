@@ -26,6 +26,8 @@ N> If .NET Standard is not available in the code sharing strategy, the Portable 
 
 ![Install DocIO Xamarin NuGet package](Xamarin_images/Install_Nuget.png)
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+
 4.Add new Forms XAML page in **portable project**. If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
 <ul>
 <li>
@@ -410,4 +412,4 @@ void OnButtonClicked(object sender, EventArgs args)
 
 By executing the program, you will get the Word document as follows.
 
-![Xamarin Getting Started Output](Xamarin_images/GettingStartedOutput.jpg)
+![Xamarin output Word document](Xamarin_images/GettingStartedOutput.jpg)
