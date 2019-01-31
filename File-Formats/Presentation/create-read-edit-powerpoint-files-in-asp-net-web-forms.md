@@ -186,6 +186,8 @@ The output of the above code example will generate the below PowerPoint slide.
 
 ![ASP.Net Web Output](Workingwith_Web/GettingStartedSample.png)
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+
 ## Read and edit a PowerPoint file in ASP.NET
 
 You can edit an existing PowerPoint file using this library. The below code snippet demonstrates accessing a shape from a slide and changing the text within it.
