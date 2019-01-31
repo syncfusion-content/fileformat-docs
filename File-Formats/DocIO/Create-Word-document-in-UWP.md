@@ -292,42 +292,42 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 
 	//Saves the stream as Word document file in local machine
 	Save(stream, "Sample.docx");
+}
 
-	// Saves the Word document
-	async void Save(MemoryStream streams, string filename)
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
 	{
-		streams.Position = 0;
-		StorageFile stFile;
-		if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			FileSavePicker savePicker = new FileSavePicker();
-			savePicker.DefaultFileExtension = ".docx";
-			savePicker.SuggestedFileName = filename;
-			savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-			stFile = await savePicker.PickSaveFileAsync();
-		}
-		else
-		{
-			StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-			stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-		}
-		if (stFile != null)
-		{
-			using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+			// Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
-				// Write compressed data from memory to file
-				using (Stream outstream = zipStream.AsStreamForWrite())
-				{
-					byte[] buffer = streams.ToArray();
-					outstream.Write(buffer, 0, buffer.Length);
-					outstream.Flush();
-				}
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
 			}
 		}
-		// Launch the saved Word file
-		await Windows.System.Launcher.LaunchFileAsync(stFile);
 	}
-}	
+	// Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
 
 {% endhighlight %}
 
