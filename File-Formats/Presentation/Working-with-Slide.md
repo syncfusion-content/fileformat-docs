@@ -1,8 +1,8 @@
 ---
-title: Working with slides in PowerPoint presentation
-description: Working with slides in PowerPoint presentation; Adding and modifying the slides in PowerPoint presentation
+title: Create, read and edit PowerPoint slides in CSharp |Syncfusion|
+description: Create, read and edit PowerPoint slides in CSharp; Adding and modifying the slides in PowerPoint presentation
 platform: file-formats
-control: Presentation
+control: PowerPoint
 documentation: UG
 ---
 # Working with Slide
@@ -21,7 +21,7 @@ The following code example demonstrates how to add a blank slide to the Presenta
 IPresentation pptxDoc = Presentation.Create();
 
 //Adds a slide to the PowerPoint presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+ISlide slide = pptxDoc.Slides.Add();
 
 //Saves the Presentation to the file system.
 pptxDoc.Save("Sample.pptx");
@@ -37,7 +37,7 @@ pptxDoc.Close();
 Dim pptxDoc As IPresentation = Presentation.Create()
 
 'Adds a slide to the PowerPoint presentation
-Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+Dim slide As ISlide = pptxDoc.Slides.Add()
 
 'Saves the Presentation to the file system.
 pptxDoc.Save("Sample.pptx")
@@ -53,7 +53,7 @@ pptxDoc.Close()
 IPresentation pptxDoc = Presentation.Create();
 
 //Adds new Blank type of slide.
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+ISlide slide = pptxDoc.Slides.Add();
  
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
@@ -75,7 +75,7 @@ await pptxDoc.SaveAsync(storageFile);
 IPresentation pptxDoc = Presentation.Create();
 
 //Adds a slide to the PowerPoint presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+ISlide slide = pptxDoc.Slides.Add();
 
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
@@ -92,7 +92,7 @@ pptxDoc.Close();
 IPresentation pptxDoc = Presentation.Create();
 
 //Adds a slide to the PowerPoint presentation
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+ISlide slide = pptxDoc.Slides.Add();
 
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
@@ -109,6 +109,69 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Create a slide with pre-defined LayoutSlide
+
+The Syncfusion PowerPoint library supports the below pre-defined slide layout types to create a slide as equivalent to Microsoft PowerPoint.
+
+<ol>
+<li>Blank</li>
+<li>Comparison</li>
+<li>Content with caption</li>
+<li>Picture with caption</li>
+<li>Section header</li>
+<li>Title</li>
+<li>Title and content</li>
+<li>Title and vertical text</li>
+<li>Title only</li>
+<li>Two content</li>
+<li>Vertical title and text</li>
+</ol>
+
+The following example demonstrates how to access the slide from pre-defined blank slide layout type.
+
+{% tabs %}
+
+{% highlight c# %}
+
+// Create a PowerPoint presentation.
+
+IPresentation pptxDoc = Presentation.Create();
+
+// Add a slide of blank layout type.
+
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+// Save the PowerPoint file.
+
+pptxDoc.Save("Sample.pptx");
+
+//Close the PowerPoint instance
+
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+' Create a PowerPoint file.
+
+Dim pptxDoc As IPresentation = Presentation.Create()
+
+' Add a slide of blank layout type.
+
+Dim slide1 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+' Save the PowerPoint file.
+
+pptxDoc.Save("Sample.pptx")
+
+' Close the PowerPoint instance
+pptxDoc.Close()
 
 {% endhighlight %}
 
