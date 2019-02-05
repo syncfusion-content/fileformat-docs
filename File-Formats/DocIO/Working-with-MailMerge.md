@@ -1674,29 +1674,17 @@ args.CharacterFormat.TextColor = Color.FromArgb(255, 102, 0);
 
 {% highlight vb.net %}
 
-Private Function GetDataTable() As DataTable
+Private Sub ApplyAlternateRecordsTextColor(ByVal sender As Object, ByVal args As MergeFieldEventArgs)
 
-Dim dataTable As New DataTable("Employee")
+'Sets text color to the alternate mail merge record
 
-dataTable.Columns.Add("EmployeeName")
+If ((args.RowIndex Mod 2) = 0) Then
+ 
+args.CharacterFormat.TextColor = Color.FromArgb(255, 102, 0)
 
-dataTable.Columns.Add("EmployeeNumber")
+End If
 
-For i As Integer = 0 To 19
-
-Dim datarow As DataRow = dataTable.NewRow()
-
-dataTable.Rows.Add(datarow)
-
-datarow(0) = "Employee" + i.ToString()
-
-datarow(1) = "Employee" + i.ToString()
-
-Next
-
-Return dataTable
-
-End Function
+End Sub
 
 {% endhighlight %} 
 

@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core
+title: ASP.NET Core | Syncfusion
 description: Briefs about loading and saving an Excel document in ASP.NET Core platform.
 platform: aspnet-core
 control: XlsIO
