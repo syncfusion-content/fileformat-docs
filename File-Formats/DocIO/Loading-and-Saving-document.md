@@ -1,4 +1,4 @@
----
+﻿---
 title: Loading & Saving document
 description: This section illustrate how to load and save the Word document
 platform: file-formats
@@ -160,6 +160,46 @@ Dim document As New WordDocument()
 document.Open(wordDocumentStream, FormatType.Automatic, "password")
 
 {% endhighlight %} 
+
+{% endtabs %}  
+
+## Opening an existing pre-97 DOC format Word documents
+
+Essential DOCIO supports Word 97-2003 and later version documents. If you need to open unsupported version (pre-97 DOC format), you can enable 'SupressOldFileFormatException' property while opening the unsupported DOC format Word documents.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Creates an empty Word document instance
+
+WordDocument document = new WordDocument();
+
+//Sets flag to skip old file format exception while opening document
+
+document.Settings.SupressOldFileFormatException = true;
+
+//Loads or opens an existing word document through Open method of WordDocument class
+
+document.Open(fileName);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates an empty Word document instance
+
+Dim document As New WordDocument()
+
+'Sets flag to skip old file format exception while opening document
+
+document.Settings.SupressOldFileFormatException = True
+
+'Loads or opens an existing word document through Open method of WordDocument class
+
+document.Open(fileName)
+
+{% endhighlight %}
 
 {% endtabs %}  
 
