@@ -165,7 +165,7 @@ document.Open(wordDocumentStream, FormatType.Automatic, "password")
 
 ## Opening an existing pre-97 DOC format Word documents
 
-Essential DOCIO supports Word 97-2003 and later version documents. If you need to open unsupported version (pre-97 DOC format), you can enable 'SupressOldFileFormatException' property while opening the unsupported DOC format Word documents.
+Essential DocIO supports Word 97-2003 and later version documents. If you need to open unsupported version (pre-97 DOC format), you can enable 'SuppressOldFileFormatException' property while opening the unsupported DOC format Word documents.
 
 {% tabs %}  
 
@@ -177,7 +177,7 @@ WordDocument document = new WordDocument();
 
 //Sets flag to skip old file format exception while opening document
 
-document.Settings.SupressOldFileFormatException = true;
+document.Settings.SuppressOldFileFormatException = true;
 
 //Loads or opens an existing word document through Open method of WordDocument class
 
@@ -193,7 +193,7 @@ Dim document As New WordDocument()
 
 'Sets flag to skip old file format exception while opening document
 
-document.Settings.SupressOldFileFormatException = True
+document.Settings.SuppressOldFileFormatException = True
 
 'Loads or opens an existing word document through Open method of WordDocument class
 
