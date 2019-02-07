@@ -1,5 +1,5 @@
 ---
-title: Working with Tagged PDF
+title: Working with Tagged PDF | Syncfusion
 description: This section explains how to create a tagged PDF document by using Essential PDF
 platform: file-formats
 control: PDF
@@ -10,14 +10,14 @@ documentation: UG
 
 ## Introduction
 
-The Tagged PDF is PDF that includes structure in terms for a set of instruction that defines, reading order, and meaning of significant elements such as figures, images, lists, tables and so on. 
+The Tagged PDF is a PDF that includes structure in terms for a set of instruction that defines reading order and meaning of significant elements such as figures, images, lists, tables and more. Tagged PDF documents created using Syncfusion PDF library are compliant with section 508 (PDF/UA) standard or WCAG 2.0 standard (ISO 14289-1:2014).
 Usually tagged PDF used to making content accessible to users who rely on assistive technology.
 
-This section explains how to add tags to PDF elements such as text element, Image, Shapes, Form fields, Annotations, Table, List, etc.,
+This section explains how to add tags to PDF elements such as text element, image, shapes, form fields, annotations, table, list, and more
 
-## Adding tag to Text Element
+## Adding tag to text element
 
-You can add tag to text/paragraphs in PDF document by specifying the ```PdfTag``` property available in the ```PdfTextElement``` class and specifying the tag type as ```PdfTagType.Paragraph``` in the ```PdfStructureElement``` class.
+You can add tag to text or paragraphs in PDF document by specifying the ```PdfTag``` property available in the ```PdfTextElement``` class and specify the tag type as ```PdfTagType.Paragraph``` in the ```PdfStructureElement``` class.
 
 The following code sample explains you how to add tag for the text element in PDF document.
 
@@ -30,10 +30,10 @@ PdfDocument doc = new PdfDocument();
 //Set the document title
 doc.DocumentInformation.Title = "PdfTextElement";
 
-//Creates new page.
+//Creates new page
 PdfPage page = doc.Pages.Add();
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
 
 //represents the text that is exact replacement for PdfTextElement
@@ -44,7 +44,7 @@ string text = "Adventure Works Cycles, the fictitious company on which the Adven
 //Initialize the PDF text element
 PdfTextElement element = new PdfTextElement(text);
 
-//Adding tag to the text element.
+//Adding tag to the text element
 element.PdfTag = structureElement;
 
 //Creates font for the text element
@@ -52,10 +52,10 @@ element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
 
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 
-//Draws Text
+//Draws text
 PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width, 200));
 
-//Save the document and dispose it.
+//Save the document and dispose it
 doc.Save("Output.pdf");
 
 doc.Close(true);
@@ -69,10 +69,10 @@ Dim doc As PdfDocument = New PdfDocument()
 'Set the document title
 doc.DocumentInformation.Title = "PdfTextElement"
 
-'Creates new page.
+'Creates new page
 Dim page As PdfPage = doc.Pages.Add()
 
-'Initialize the structure element with tag type paragraph.
+'Initialize the structure element with tag type paragraph
 Dim structureElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Paragraph)
 
 'represents the text that is exact replacement for PdfTextElement
@@ -83,7 +83,7 @@ Dim text As String = "Adventure Works Cycles, the fictitious company on which th
 'Initialize the PDF text element
 Dim element As PdfTextElement = New PdfTextElement(text)
 
-'Adding tag to the text element.
+'Adding tag to the text element
 element.PdfTag = structureElement
 
 'Creates font for the text element
@@ -91,10 +91,10 @@ element.Font = New PdfStandardFont(PdfFontFamily.TimesRoman, 12)
 
 element.Brush = New PdfSolidBrush(New PdfColor(89, 89, 93))
 
-'Draws Text
+'Draws text
 Dim result As PdfLayoutResult = element.Draw(page, New RectangleF(0, 0, page.Graphics.ClientSize.Width, 200))
 
-'Save the document and dispose it.
+'Save the document and dispose it
 doc.Save("Output.pdf")
 
 doc.Close(True)
@@ -109,13 +109,13 @@ PdfDocument doc = new PdfDocument();
 //Set the document title
 doc.DocumentInformation.Title = "PdfTextElement";
 
-//Creates new page.
+//Creates new page
 PdfPage page = doc.Pages.Add();
 
 //Initialize the structure element with tag type paragraph.
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
 
-//represents the text that is exact replacement for PdfTextElement
+//Represents the text that is exact replacement for PdfTextElement
 structureElement.ActualText = "Simple paragraph element";
 
 string text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
@@ -123,7 +123,7 @@ string text = "Adventure Works Cycles, the fictitious company on which the Adven
 //Initialize the PDF text element
 PdfTextElement element = new PdfTextElement(text);
 
-//Adding tag to the text element.
+//Adding tag to the text element
 element.PdfTag = structureElement;
 
 //Creates font for the text element
@@ -131,7 +131,7 @@ element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
 
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 
-//Draws Text
+//Draws text
 PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width, 200));
 
 //Save the PDF document to stream
@@ -142,7 +142,7 @@ await doc.SaveAsync(stream);
 //Close the document
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 Save(stream, "Output.pdf");
 
 {% endhighlight %}
@@ -155,13 +155,13 @@ PdfDocument doc = new PdfDocument();
 //Set the document title
 doc.DocumentInformation.Title = "PdfTextElement";
 
-//Creates new page.
+//Creates new page
 PdfPage page = doc.Pages.Add();
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
 
-//represents the text that is exact replacement for PdfTextElement
+//Represents the text that is exact replacement for PdfTextElement
 structureElement.ActualText = "Simple paragraph element";
 
 string text = "Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is located in Washington with 290 employees, several regional sales teams are located throughout their market base.";
@@ -169,7 +169,7 @@ string text = "Adventure Works Cycles, the fictitious company on which the Adven
 //Initialize the PDF text element
 PdfTextElement element = new PdfTextElement(text);
 
-//Adding tag to the text element.
+//Adding tag to the text element
 element.PdfTag = structureElement;
 
 //Creates font for the text element
@@ -177,7 +177,7 @@ element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
 
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 
-//Draws Text
+//Draws text
 PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width, 200));
 
 //Save the document into stream
@@ -190,7 +190,7 @@ stream.Position = 0;
 //Closes the document
 doc.Close(true);
 
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 string contentType = "application/pdf";
 
 //Define the file name
@@ -209,10 +209,10 @@ PdfDocument doc = new PdfDocument();
 //Set the document title
 doc.DocumentInformation.Title = "PdfTextElement";
 
-//Creates new page.
+//Creates new page
 PdfPage page = doc.Pages.Add();
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
 
 //represents the text that is exact replacement for PdfTextElement
@@ -231,18 +231,18 @@ element.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
 
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 
-//Draws Text
+//Draws text
 PdfLayoutResult result = element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width, 200));
 
-//Save the document into stream.
+//Save the document into stream
 MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//Close the document.
+//Close the document
 doc.Close(true);
 
-//Save the stream into pdf file
+//Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -257,11 +257,11 @@ else
 
 {% endtabs %}
 
-## Adding tag to Image
+## Adding tag to image
 
-You can add tag to image in the PDF document by using the ```PdfTag``` property available in the ```PdfBitmap``` class and specifying the tag type as ```PdfTagType.Figure``` available in ```PdfStructureElement``` class. You can add alternate text to image by using ```AlternateText``` property available in the ```PdfStructureElement``` class.
+You can add tag to image in the PDF document by using the ```PdfTag``` property available in the ```PdfBitmap``` class and specify the tag type as ```PdfTagType.Figure``` available in ```PdfStructureElement``` class. You can add alternate text to image by using the the ```AlternateText``` property available in the ```PdfStructureElement``` class.
 
-The following code explains how to add tag for Image element in PDF document.
+The following code explains how to add tag for image element in PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -272,7 +272,7 @@ PdfDocument doc = new PdfDocument();
 //Set the document title
 doc.DocumentInformation.Title = "Image";
 
-//Creates new page.
+//Creates new page
 PdfPage page = doc.Pages.Add();
 
 //Draw string
@@ -281,10 +281,10 @@ page.Graphics.DrawString("JPEG Image:", new PdfStandardFont(PdfFontFamily.Helvet
 //Create a new PDF bitmap object
 PdfBitmap bitmap = new PdfBitmap("syncfusion.jpg");
 
-//Set the tag type.
+//Set the tag type
 PdfStructureElement imageElement = new PdfStructureElement(PdfTagType.Figure);
 
-//Set the alternate text.
+//Set the alternate text
 imageElement.AlternateText = "GreenTree";
 
 //adding tag to the PDF image
@@ -293,7 +293,7 @@ bitmap.PdfTag = imageElement;
 //Draw image
 bitmap.Draw(page.Graphics, new PointF(50, 20));
 
-//Save the document and dispose it.
+//Save the document and dispose it
 doc.Save("Image.pdf");
 
 doc.Close(true);
@@ -307,7 +307,7 @@ Dim doc As PdfDocument = New PdfDocument()
 'Set the document title
 doc.DocumentInformation.Title = "Image"
 
-'Creates new page.
+'Creates new page
 Dim page As PdfPage = doc.Pages.Add()
 
 'Draw string
@@ -316,10 +316,10 @@ page.Graphics.DrawString("JPEG Image:", New PdfStandardFont(PdfFontFamily.Helvet
 'Create a new PDF bitmap object
 Dim bitmap As PdfBitmap = New PdfBitmap("syncfusion.jpg")
 
-'Set the tag type.
+'Set the tag type
 Dim imageElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Figure)
 
-'Set the alternate text.
+'Set the alternate text
 imageElement.AlternateText = "GreenTree"
 
 'adding tag to the PDF image
@@ -328,7 +328,7 @@ bitmap.PdfTag = imageElement
 'Draw image
 bitmap.Draw(page.Graphics, New PointF(50, 20))
 
-'Save the document and dispose it.
+'Save the document and dispose it
 doc.Save("Image.pdf")
 
 doc.Close(True) 
@@ -343,7 +343,7 @@ PdfDocument doc = new PdfDocument();
 //Set the document title
 doc.DocumentInformation.Title = "Image";
 
-//Creates new page.
+//Creates new page
 PdfPage page = doc.Pages.Add();
 
 //Draw string
@@ -355,13 +355,13 @@ Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResource
 //Create a new PDF bitmap object
 PdfBitmap bitmap = new PdfBitmap(imageStream);
 
-//Set the tag type.
+//Set the tag type
 PdfStructureElement imageElement = new PdfStructureElement(PdfTagType.Figure);
 
-//Set the alternate text.
+//Set the alternate text
 imageElement.AlternateText = "GreenTree";
 
-//adding tag to the PDF image
+//Adding tag to the PDF image
 bitmap.PdfTag = imageElement;
 
 //Draw image
@@ -377,7 +377,7 @@ await doc.SaveAsync(stream);
 
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
 Save(stream, "Image.pdf");
 
@@ -391,7 +391,7 @@ PdfDocument doc = new PdfDocument();
 //Set the document title
 doc.DocumentInformation.Title = "Image";
 
-//Creates new page.
+//Creates new page
 PdfPage page = doc.Pages.Add();
 
 //Draw string
@@ -403,10 +403,10 @@ FileStream imageStream = new FileStream("syncfusion.jpg", FileMode.Open, FileAcc
 //Create a new PDF bitmap object
 PdfBitmap bitmap = new PdfBitmap(imageStream);
 
-//Set the tag type.
+//Set the tag type
 PdfStructureElement imageElement = new PdfStructureElement(PdfTagType.Figure);
 
-//Set the alternate text.
+//Set the alternate text
 imageElement.AlternateText = "GreenTree";
 
 //adding tag to the PDF image
@@ -427,7 +427,7 @@ stream.Position = 0;
 
 doc.Close(true);
 
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
@@ -449,7 +449,7 @@ PdfDocument doc = new PdfDocument();
 //Set the document title
 doc.DocumentInformation.Title = "Image";
 
-//Creates new page.
+//Creates new page
 PdfPage page = doc.Pages.Add();
 
 //Draw string
@@ -461,10 +461,10 @@ Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStrea
 //Create a new PDF bitmap object
 PdfBitmap bitmap = new PdfBitmap(imageStream);
 
-//Set the tag type.
+//Set the tag type
 PdfStructureElement imageElement = new PdfStructureElement(PdfTagType.Figure);
 
-//Set the alternate text.
+//Set the alternate text
 imageElement.AlternateText = "GreenTree";
 
 //adding tag to the PDF image
@@ -473,17 +473,17 @@ bitmap.PdfTag = imageElement;
 //Draw image
 bitmap.Draw(page.Graphics, new PointF(50, 20));
 
-//Save the document into stream.
+//Save the document into stream
 
 MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Save the stream into pdf file
+//Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -498,16 +498,16 @@ else
 
 {% endtabs %}
 
-## Adding tag to Shapes
+## Adding tag to shapes
 
-You can add tag to shapes such as rectangle, line, circle and polygon etc., by using ```PdfTag``` property and specifying the tag type as ```PdfTagType.Figure```. you can set alternate text to shapes by using ```AlternateText``` property available in ```PdfStructureElement``` class.
+You can add tag to shapes such as rectangle, line, circle, polygon, and more by using the ```PdfTag``` property and specify the tag type as ```PdfTagType.Figure```. You can set alternate text to shapes by using the ```AlternateText``` property available in ```PdfStructureElement``` class.
 
-The following code explains how to add tag for Shape element in PDF document.
+The following code explains how to add tag for shape element in the PDF document.
 
 {% tabs %}
 {% highlight c# %}
 
-//Creates new PDF document.
+//Creates new PDF document
 PdfDocument doc = new PdfDocument();
 
 //Set the document title
@@ -516,7 +516,7 @@ doc.DocumentInformation.Title = "LineShape";
 //Add new page
 PdfPage page = doc.Pages.Add();
 
-//Draw text.
+//Draw text
 page.Graphics.DrawString("Line Shape:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(30, 80));
 
 //Initialize structure element with tag type as Figure
@@ -536,13 +536,13 @@ line.PdfTag = element;
 //Draws the line
 line.Draw(page.Graphics);
 
-//Save the document and dispose it.
+//Save the document and dispose it
 doc.Save("Output.pdf"); 
 
 {% endhighlight %}
 {% highlight vb.net %}
 
-'Creates new PDF document.
+'Creates new PDF document
 Dim doc As PdfDocument = New PdfDocument()
 
 'Set the document title
@@ -551,7 +551,7 @@ doc.DocumentInformation.Title = "LineShape"
 'Add new page
 Dim page As PdfPage = doc.Pages.Add()
 
-'Draw text.
+'Draw text
 page.Graphics.DrawString("Line Shape:", New PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, New PointF(30, 80))
 
 'Initialize structure element with tag type as Figure
@@ -571,14 +571,14 @@ line.PdfTag = element
 'Draws the line
 line.Draw(page.Graphics)
 
-'Save the document and dispose it.
+'Save the document and dispose it
 doc.Save("Output.pdf")
 
 {% endhighlight %}
 
 {% highlight UWP %}
 
-//Creates new PDF document.
+//Creates new PDF document
 PdfDocument doc = new PdfDocument();
 
 //Set the document title
@@ -587,7 +587,7 @@ doc.DocumentInformation.Title = "LineShape";
 //Add new page
 PdfPage page = doc.Pages.Add();
 
-//Draw text.
+//Draw text
 page.Graphics.DrawString("Line Shape:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(30, 80));
 
 //Initialize structure element with tag type as Figure
@@ -615,14 +615,14 @@ await doc.SaveAsync(stream);
 //Close the document
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//Creates new PDF document.
+//Creates new PDF document
 PdfDocument doc = new PdfDocument();
 
 //Set the document title
@@ -631,10 +631,10 @@ doc.DocumentInformation.Title = "LineShape";
 //Add new page
 PdfPage page = doc.Pages.Add();
 
-//Draw text.
+//Draw text
 page.Graphics.DrawString("Line Shape:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(30, 80));
 
-//Initialize structure element with tag type as Figure
+//Initialize structure element with tag type as figure
 PdfStructureElement element = new PdfStructureElement(PdfTagType.Figure);
 
 //Set alternate text
@@ -663,7 +663,7 @@ stream.Position = 0;
 
 doc.Close(true);
 
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
@@ -679,7 +679,7 @@ return File(stream, contentType, fileName);
 
 {% highlight Xamarin %}
 
-//Creates new PDF document.
+//Creates new PDF document
 PdfDocument doc = new PdfDocument();
 
 //Set the document title
@@ -688,10 +688,10 @@ doc.DocumentInformation.Title = "LineShape";
 //Add new page
 PdfPage page = doc.Pages.Add();
 
-//Draw text.
+//Draw text
 page.Graphics.DrawString("Line Shape:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(30, 80));
 
-//Initialize structure element with tag type as Figure
+//Initialize structure element with tag type as figure
 PdfStructureElement element = new PdfStructureElement(PdfTagType.Figure);
 
 //Set alternate text
@@ -714,11 +714,11 @@ MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Save the stream into pdf file
+//Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -735,7 +735,7 @@ else
 
 ## Adding tag to Form Fields
 
-You can tag the form fields in the PDF document by using ```PdfTag``` property, the supported tag type is ```PdfTagType.Form```.
+You can tag the form fields in the PDF document by using the ```PdfTag``` property. The supported tag type is ```PdfTagType.Form```.
 
 The following code explains how to add tag for the form fields in PDF document.
 
@@ -750,7 +750,7 @@ doc.DocumentInformation.Title = "Form Fields";
 //Adds new page
 PdfPage page = doc.Pages.Add();
 
-// Create a Text box field.
+// Create a text box field
 PdfTextBoxField textBoxField = new PdfTextBoxField(page, "This is form field text box");
 
 //Adding tag to the text box field
@@ -758,7 +758,7 @@ textBoxField.PdfTag = new PdfStructureElement(PdfTagType.Form);
 
 textBoxField.Text = "Filled text box";
 
-//Set properties to the textbox.
+//Set properties to the text box
 textBoxField.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
 
 textBoxField.BorderColor = new PdfColor(Color.Gray);
@@ -771,7 +771,7 @@ textBoxField.ToolTip = "TextBox field";
 
 doc.Form.Fields.Add(textBoxField);
 
-//Save the document and dispose it.
+//Save the document and dispose it
 doc.Save("Output.pdf");
 
 doc.Close(true);
@@ -787,7 +787,7 @@ doc.DocumentInformation.Title = "Form Fields"
 'Adds new page
 Dim page As PdfPage = doc.Pages.Add()
 
-' Create a Text box field.
+' Create a text box field
 Dim textBoxField As PdfTextBoxField = New PdfTextBoxField(page, "This is form field text box")
 
 'Adding tag to the text box field
@@ -795,7 +795,7 @@ textBoxField.PdfTag = New PdfStructureElement(PdfTagType.Form)
 
 textBoxField.Text = "Filled text box"
 
-'Set properties to the textbox.
+'Set properties to the text box
 textBoxField.Font = New PdfStandardFont(PdfFontFamily.Helvetica, 12)
 
 textBoxField.BorderColor = New PdfColor(Color.Gray)
@@ -808,7 +808,7 @@ textBoxField.ToolTip = "TextBox field"
 
 doc.Form.Fields.Add(textBoxField)
 
-'Save the document and dispose it.
+'Save the document and dispose it
 doc.Save("Output.pdf")
 
 doc.Close(True)
@@ -825,7 +825,7 @@ doc.DocumentInformation.Title = "Form Fields";
 //Adds new page
 PdfPage page = doc.Pages.Add();
 
-// Create a Text box field.
+// Create a text box field
 PdfTextBoxField textBoxField = new PdfTextBoxField(page, "This is form field text box");
 
 //Adding tag to the text box field
@@ -833,7 +833,7 @@ textBoxField.PdfTag = new PdfStructureElement(PdfTagType.Form);
 
 textBoxField.Text = "Filled text box";
 
-//Set properties to the textbox.
+//Set properties to the text box
 textBoxField.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
 
 textBoxField.BorderColor = new PdfColor(128,128,128);
@@ -856,7 +856,7 @@ await doc.SaveAsync(stream);
 
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
 Save(stream, "Output.pdf");
 
@@ -872,7 +872,7 @@ doc.DocumentInformation.Title = "Form Fields";
 //Adds new page
 PdfPage page = doc.Pages.Add();
 
-// Create a Text box field.
+// Create a text box field
 PdfTextBoxField textBoxField = new PdfTextBoxField(page, "This is form field text box");
 
 //Adding tag to the text box field
@@ -880,7 +880,7 @@ textBoxField.PdfTag = new PdfStructureElement(PdfTagType.Form);
 
 textBoxField.Text = "Filled text box";
 
-//Set properties to the textbox.
+//Set properties to the text box
 textBoxField.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
 
 textBoxField.BorderColor = new PdfColor(Color.Gray);
@@ -905,7 +905,7 @@ stream.Position = 0;
 
 doc.Close(true);
 
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
@@ -929,7 +929,7 @@ doc.DocumentInformation.Title = "Form Fields";
 //Adds new page
 PdfPage page = doc.Pages.Add();
 
-// Create a Text box field.
+// Create a text box field
 PdfTextBoxField textBoxField = new PdfTextBoxField(page, "This is form field text box");
 
 //Adding tag to the text box field
@@ -937,7 +937,7 @@ textBoxField.PdfTag = new PdfStructureElement(PdfTagType.Form);
 
 textBoxField.Text = "Filled text box";
 
-//Set properties to the textbox.
+//Set properties to the text box
 textBoxField.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
 
 textBoxField.BorderColor = new PdfColor(Syncfusion.Drawing.Color.Gray);
@@ -950,13 +950,13 @@ textBoxField.ToolTip = "TextBox field";
 
 doc.Form.Fields.Add(textBoxField);
 
-//Save the document into stream.
+//Save the document into stream
 
 MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
@@ -977,14 +977,14 @@ else
 
 ## Adding tag to Annotation
 
-You can add tags to annotation in PDF document by using ```PdfTag``` property available in the Annotation class, you need to specify the tag type as ```PdfTagType.Annotation```.
+You can add tags to annotation in PDF document by using the PdfTag``` property available in the Annotation class and you should specify the tag type as ```PdfTagType.Annotation```.
 
 The following code explains how to add tag for the annotations in PDF document.
 
 {% tabs %}
 {% highlight c# %}
 
-//Creates new PDF document.
+//Creates new PDF document
 PdfDocument doc = new PdfDocument();
 
 //Set the document title
@@ -1011,13 +1011,13 @@ popupAnnotation.Border.HorizontalRadius = 20;
 
 popupAnnotation.Border.VerticalRadius = 30;
 
-//Sets the PDF pop-up icon.
+//Sets the PDF pop-up icon
 popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
 
-//Adds this annotation to a new page.
+//Adds this annotation to a new page
 page.Annotations.Add(popupAnnotation);
 
-//Saves the document to disk.
+//Saves the document to disk
 doc.Save("PopupAnnotation.pdf");
 
 //Close the PDF document
@@ -1026,7 +1026,7 @@ doc.Close(true);
 {% endhighlight %}
 {% highlight vb.net %}
 
-'Creates new PDF document.
+'Creates new PDF document
 Dim doc As PdfDocument = New PdfDocument()
 
 'Set the document title
@@ -1053,13 +1053,13 @@ popupAnnotation.Border.HorizontalRadius = 20
 
 popupAnnotation.Border.VerticalRadius = 30
 
-'Sets the PDF pop-up icon.
+'Sets the PDF pop-up icon
 popupAnnotation.Icon = PdfPopupIcon.NewParagraph
 
-'Adds this annotation to a new page.
+'Adds this annotation to a new page
 page.Annotations.Add(popupAnnotation)
 
-'Saves the document to disk.
+'Saves the document to disk
 doc.Save("PopupAnnotation.pdf")
 
 'Close the PDF document
@@ -1069,7 +1069,7 @@ doc.Close(True)
 
 {% highlight UWP %}
 
-//Creates new PDF document.
+//Creates new PDF document
 PdfDocument doc = new PdfDocument();
 
 //Set the document title
@@ -1096,10 +1096,10 @@ popupAnnotation.Border.HorizontalRadius = 20;
 
 popupAnnotation.Border.VerticalRadius = 30;
 
-//Sets the PDF pop-up icon.
+//Sets the PDF pop-up icon
 popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
 
-//Adds this annotation to a new page.
+//Adds this annotation to a new page
 page.Annotations.Add(popupAnnotation);
 
 //Save the PDF document to stream
@@ -1112,7 +1112,7 @@ await doc.SaveAsync(stream);
 
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
 Save(stream, "PopupAnnotation.pdf");
 
@@ -1120,7 +1120,7 @@ Save(stream, "PopupAnnotation.pdf");
 
 {% highlight ASP.NET Core %}
 
-//Creates new PDF document.
+//Creates new PDF document
 PdfDocument doc = new PdfDocument();
 
 //Set the document title
@@ -1147,10 +1147,10 @@ popupAnnotation.Border.HorizontalRadius = 20;
 
 popupAnnotation.Border.VerticalRadius = 30;
 
-//Sets the PDF pop-up icon.
+//Sets the PDF pop-up icon
 popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
 
-//Adds this annotation to a new page.
+//Adds this annotation to a new page
 page.Annotations.Add(popupAnnotation);
 
 //Save the document into stream
@@ -1165,7 +1165,7 @@ stream.Position = 0;
 
 doc.Close(true);
 
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
@@ -1181,7 +1181,7 @@ return File(stream, contentType, fileName);
 
 {% highlight Xamarin %}
 
-//Creates new PDF document.
+//Creates new PDF document
 PdfDocument doc = new PdfDocument();
 
 //Set the document title
@@ -1208,23 +1208,23 @@ popupAnnotation.Border.HorizontalRadius = 20;
 
 popupAnnotation.Border.VerticalRadius = 30;
 
-//Sets the PDF pop-up icon.
+//Sets the PDF pop-up icon
 popupAnnotation.Icon = PdfPopupIcon.NewParagraph;
 
-//Adds this annotation to a new page.
+//Adds this annotation to a new page
 page.Annotations.Add(popupAnnotation);
 
-//Save the document into stream.
+//Save the document into stream
 
 MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Save the stream into pdf file
+//Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -1248,24 +1248,24 @@ The following code example shows how to add tag for hyperlink in PDF document
 {% tabs %}
 {% highlight c# %}
 
-//Create a new PDF document.
+//Create a new PDF document
 PdfDocument document = new PdfDocument();
 
 document.DocumentInformation.Title = "Link";
 
-//Add a page to the document.
+//Add a page to the document
 PdfPage page = document.Pages.Add();
 
-//Creates new pdf structure element with tag type link.
+//Creates new PDF structure element with tag type link
 PdfStructureElement linkStructureElement = new PdfStructureElement(PdfTagType.Link);
 
-//Create the font.
+//Create the font
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
 
-//Create the Text Web Link.
+//Create the text web link
 PdfTextWebLink textLink = new PdfTextWebLink();
 
-//Adding tag to text web link.
+//Adding tag to text web link
 textLink.PdfTag = linkStructureElement;
 
 //Set the hyperlink
@@ -1282,33 +1282,33 @@ textLink.Brush = PdfBrushes.Blue;
 //Draw the hyperlink in PDF page
 textLink.DrawTextWebLink(page, new PointF(10, 40));
 
-//Save the document.
+//Save the document
 document.Save("Output.pdf");
 
-//Close the document.
+//Close the document
 document.Close(true);
 
 {% endhighlight %}
 {% highlight vb.net %}
 
-'Create a new PDF document.
+'Create a new PDF document
 Dim document As PdfDocument = New PdfDocument()
 
 document.DocumentInformation.Title = "Link"
 
-'Add a page to the document.
+'Add a page to the document
 Dim page As PdfPage = document.Pages.Add()
 
-'Creates new pdf structure element with tag type link.
+'Creates new PDF structure element with tag type link
 Dim linkStructureElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Link)
 
-'Create the font.
+'Create the font
 Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 12.0F)
 
-'Create the Text Web Link.
+'Create the text web link
 Dim textLink As PdfTextWebLink = New PdfTextWebLink()
 
-'Adding tag to text web link.
+'Adding tag to text web link
 textLink.PdfTag = linkStructureElement
 
 'Set the hyperlink
@@ -1325,34 +1325,34 @@ textLink.Brush = PdfBrushes.Blue
 'Draw the hyperlink in PDF page
 textLink.DrawTextWebLink(page, New PointF(10, 40))
 
-'Save the document.
+'Save the document
 document.Save("Output.pdf")
 
-'Close the document.
+'Close the document
 document.Close(True)
 
 {% endhighlight %}
 
 {% highlight UWP %}
 
-//Create a new PDF document.
+//Create a new PDF document
 PdfDocument document = new PdfDocument();
 
 document.DocumentInformation.Title = "Link";
 
-//Add a page to the document.
+//Add a page to the document
 PdfPage page = document.Pages.Add();
 
-//Creates new pdf structure element with tag type link.
+//Creates new PDF structure element with tag type link
 PdfStructureElement linkStructureElement = new PdfStructureElement(PdfTagType.Link);
 
-//Create the font.
+//Create the font
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
 
-//Create the Text Web Link.
+//Create the text web link
 PdfTextWebLink textLink = new PdfTextWebLink();
 
-//Adding tag to text web link.
+//Adding tag to text web link
 textLink.PdfTag = linkStructureElement;
 
 //Set the hyperlink
@@ -1379,7 +1379,7 @@ await document.SaveAsync(stream);
 
 document.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
 Save(stream, "Output.pdf");
 
@@ -1387,24 +1387,24 @@ Save(stream, "Output.pdf");
 
 {% highlight ASP.NET Core %}
 
-//Create a new PDF document.
+//Create a new PDF document
 PdfDocument document = new PdfDocument();
 
 document.DocumentInformation.Title = "Link";
 
-//Add a page to the document.
+//Add a page to the document
 PdfPage page = document.Pages.Add();
 
-//Creates new pdf structure element with tag type link.
+//Creates new PDF structure element with tag type link
 PdfStructureElement linkStructureElement = new PdfStructureElement(PdfTagType.Link);
 
-//Create the font.
+//Create the font
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
 
-//Create the Text Web Link.
+//Create the text web link
 PdfTextWebLink textLink = new PdfTextWebLink();
 
-//Adding tag to text web link.
+//Adding tag to text web link
 textLink.PdfTag = linkStructureElement;
 
 //Set the hyperlink
@@ -1433,7 +1433,7 @@ stream.Position = 0;
 
 document.Close(true);
 
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
@@ -1449,24 +1449,24 @@ return File(stream, contentType, fileName);
 
 {% highlight Xamarin %}
 
-//Create a new PDF document.
+//Create a new PDF document
 PdfDocument document = new PdfDocument();
 
 document.DocumentInformation.Title = "Link";
 
-//Add a page to the document.
+//Add a page to the document
 PdfPage page = document.Pages.Add();
 
-//Creates new pdf structure element with tag type link.
+//Creates new pdf structure element with tag type link
 PdfStructureElement linkStructureElement = new PdfStructureElement(PdfTagType.Link);
 
-//Create the font.
+//Create the font
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f);
 
-//Create the Text Web Link.
+//Create the text web link
 PdfTextWebLink textLink = new PdfTextWebLink();
 
-//Adding tag to text web link.
+//Adding tag to text web link
 textLink.PdfTag = linkStructureElement;
 
 //Set the hyperlink
@@ -1483,17 +1483,17 @@ textLink.Brush = PdfBrushes.Blue;
 //Draw the hyperlink in PDF page
 textLink.DrawTextWebLink(page, new PointF(10, 40));
 
-//Save the document into stream.
+//Save the document into stream
 
 MemoryStream stream = new MemoryStream();
 
 document.Save(stream);
 
-//Close the document.
+//Close the document
 
 document.Close(true);
 
-//Save the stream into pdf file
+//Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -1510,7 +1510,7 @@ else
 
 ## Adding tag to Template
 
-You can add tags to template in PDF document by using ```PdfTag``` property available in the ```PdfTemplate``` class. 
+You can add tags to template in PDF document by using the ```PdfTag``` property available in the ```PdfTemplate``` class. 
 
 The following code sample explains how to add tag support for the template element.
 
@@ -1522,21 +1522,21 @@ PdfDocument pdfDocument = new PdfDocument();
 
 pdfDocument.DocumentInformation.Title = "TemplateDocument";
 
-//Add a page to the PDF document.
+//Add a page to the PDF document
 PdfPage pdfPage = pdfDocument.Pages.Add();
 
 pdfPage.Graphics.DrawString("Rectangle:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(0, 0));
 
-//Create a PDF Template.
+//Create a PDF template
 PdfTemplate template = new PdfTemplate(100, 50);
 
-//Initialize the structure element with tag type figure.
+//Initialize the structure element with tag type figure
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Figure);
 
-//Set alternative description for figure.
+//Set alternative description for figure
 structureElement.AlternateText = "Template Figure";
 
-//Adding tag to the template element.
+//Adding tag to the template element
 template.PdfTag = structureElement;
 
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
@@ -1546,10 +1546,10 @@ PdfBrush brush = new PdfSolidBrush(Color.Pink);
 //Draw rectangle using template graphics
 template.Graphics.DrawRectangle(brush, new RectangleF(0, 30, 150, 90));
 
-//Draw the template on the page graphics of the document.
+//Draw the template on the page graphics of the document
 pdfPage.Graphics.DrawPdfTemplate(template, PointF.Empty);
 
-//Save the document and dispose it.
+//Save the document and dispose it
 pdfDocument.Save("Output.pdf");
 
 pdfDocument.Close(true);
@@ -1562,21 +1562,21 @@ Dim pdfDocument As PdfDocument = New PdfDocument()
 
 pdfDocument.DocumentInformation.Title = "TemplateDocument"
 
-'Add a page to the PDF document.
+'Add a page to the PDF document
 Dim pdfPage As PdfPage = pdfDocument.Pages.Add()
 
 pdfPage.Graphics.DrawString("Rectangle:", New PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, New PointF(0, 0))
 
-'Create a PDF Template.
+'Create a PDF template
 Dim template As PdfTemplate = New PdfTemplate(100, 50)
 
-'Initialize the structure element with tag type figure.
+'Initialize the structure element with tag type figure
 Dim structureElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Figure)
 
-'Set alternative description for figure.
+'Set alternative description for figure
 structureElement.AlternateText = "Template Figure"
 
-'Adding tag to the template element.
+'Adding tag to the template element
 template.PdfTag = structureElement
 
 Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 14)
@@ -1586,10 +1586,10 @@ Dim brush As PdfBrush = New PdfSolidBrush(Color.Pink)
 'Draw rectangle using template graphics
 template.Graphics.DrawRectangle(brush, New RectangleF(0, 30, 150, 90))
 
-'Draw the template on the page graphics of the document.
+'Draw the template on the page graphics of the document
 pdfPage.Graphics.DrawPdfTemplate(template, PointF.Empty)
 
-'Save the document and dispose it.
+'Save the document and dispose it
 pdfDocument.Save("Output.pdf")
 
 pdfDocument.Close(True)
@@ -1608,21 +1608,21 @@ PdfDocument pdfDocument = new PdfDocument();
 
 pdfDocument.DocumentInformation.Title = "TemplateDocument";
 
-//Add a page to the PDF document.
+//Add a page to the PDF document
 PdfPage pdfPage = pdfDocument.Pages.Add();
 
 pdfPage.Graphics.DrawString("Rectangle:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(0, 0));
 
-//Create a PDF Template.
+//Create a PDF template
 PdfTemplate template = new PdfTemplate(100, 50);
 
-//Initialize the structure element with tag type figure.
+//Initialize the structure element with tag type figure
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Figure);
 
-//Set alternative description for figure.
+//Set alternative description for figure
 structureElement.AlternateText = "Template Figure";
 
-//Adding tag to the template element.
+//Adding tag to the template element
 template.PdfTag = structureElement;
 
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
@@ -1632,7 +1632,7 @@ PdfBrush brush = new PdfSolidBrush(Color.Pink);
 //Draw rectangle using template graphics
 template.Graphics.DrawRectangle(brush, new RectangleF(0, 30, 150, 90));
 
-//Draw the template on the page graphics of the document.
+//Draw the template on the page graphics of the document
 pdfPage.Graphics.DrawPdfTemplate(template, PointF.Empty);
 
 //Save the document into stream
@@ -1647,7 +1647,7 @@ stream.Position = 0;
 
 pdfDocument.Close(true);
 
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
@@ -1668,21 +1668,21 @@ PdfDocument pdfDocument = new PdfDocument();
 
 pdfDocument.DocumentInformation.Title = "TemplateDocument";
 
-//Add a page to the PDF document.
+//Add a page to the PDF document
 PdfPage pdfPage = pdfDocument.Pages.Add();
 
 pdfPage.Graphics.DrawString("Rectangle:", new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold), PdfBrushes.Blue, new PointF(0, 0));
 
-//Create a PDF Template.
+//Create a PDF template
 PdfTemplate template = new PdfTemplate(100, 50);
 
-//Initialize the structure element with tag type figure.
+//Initialize the structure element with tag type figure
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Figure);
 
-//Set alternative description for figure.
+//Set alternative description for figure
 structureElement.AlternateText = "Template Figure";
 
-//Adding tag to the template element.
+//Adding tag to the template element
 template.PdfTag = structureElement;
 
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
@@ -1692,20 +1692,20 @@ PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.Pink);
 //Draw rectangle using template graphics
 template.Graphics.DrawRectangle(brush, new RectangleF(0, 30, 150, 90));
 
-//Draw the template on the page graphics of the document.
+//Draw the template on the page graphics of the document
 pdfPage.Graphics.DrawPdfTemplate(template, PointF.Empty);
 
-//Save the document into stream.
+//Save the document into stream
 
 MemoryStream stream = new MemoryStream();
 
 pdfDocument.Save(stream);
 
-//Close the document.
+//Close the document
 
 pdfDocument.Close(true);
 
-//Save the stream into pdf file
+//Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -1722,7 +1722,7 @@ else
 
 ## Adding tag to Table
 
-You can tag the table in the PDF document by using the tag type ```PdfTagType.Table```. The following tag types are used to mention the table header, rows and cells.
+You can tag the table in the PDF document by using the tag type ```PdfTagType.Table```. The following tag types are used to mention the table header, rows, and cells:
 
 1. PdfTagType.TableHeader
 2. PdfTagType.TableRow
@@ -1733,7 +1733,7 @@ The following code snippet illustrates how to add tag for table element.
 {% tabs %}
 {% highlight c# %}
 
-//Creates a new PDF document.
+//Creates a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
 
 pdfDocument.DocumentInformation.Title = "Table";
@@ -1744,16 +1744,16 @@ PdfPage pdfPage = pdfDocument.Pages.Add();
 //Initialize the new structure element with tag type table
 PdfStructureElement element = new PdfStructureElement(PdfTagType.Table);
 
-//Create a new PdfGrid.
+//Create a new PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
 
-//Adding tag to PDF grid.
+//Adding tag to PDF grid
 pdfGrid.PdfTag = element;
 
-//Add three columns.
+//Add three columns
 pdfGrid.Columns.Add(3);
 
-//Add header.
+//Add header
 pdfGrid.Headers.Add(1);
 
 PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
@@ -1798,7 +1798,7 @@ pdfGridRow.Cells[1].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
 
 pdfGridRow.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
 
-//Draw the PdfGrid.
+//Draw the PdfGrid
 pdfGrid.Draw(pdfPage, PointF.Empty);
 
 //save the document and dispose it
@@ -1809,7 +1809,7 @@ pdfDocument.Close(true);
 {% endhighlight %}
 {% highlight vb.net %}
 
-'Creates a new PDF document.
+'Creates a new PDF document
 Dim pdfDocument As PdfDocument = New PdfDocument()
 
 pdfDocument.DocumentInformation.Title = "Table"
@@ -1820,13 +1820,13 @@ Dim pdfPage As PdfPage = pdfDocument.Pages.Add()
 'Initialize the new structure element with tag type table
 Dim element As PdfStructureElement = New PdfStructureElement(PdfTagType.Table)
 
-'Create a new PdfGrid.
+'Create a new PdfGrid
 Dim pdfGrid As PdfGrid = New PdfGrid()
 
-'Adding tag to PDF grid.
+'Adding tag to PDF grid
 pdfGrid.PdfTag = element
 
-'Add three columns.
+'Add three columns
 pdfGrid.Columns.Add(3)
 
 'Add header.
@@ -1874,7 +1874,7 @@ pdfGridRow.Cells(1).PdfTag = New PdfStructureElement(PdfTagType.TableDataCell)
 
 pdfGridRow.Cells(2).PdfTag = New PdfStructureElement(PdfTagType.TableDataCell)
 
-'Draw the PdfGrid.
+'Draw the PdfGrid
 pdfGrid.Draw(pdfPage, PointF.Empty)
 
 'save the document and dispose it
@@ -1886,7 +1886,7 @@ pdfDocument.Close(True)
 
 {% highlight UWP %}
 
-//Creates a new PDF document.
+//Creates a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
 
 pdfDocument.DocumentInformation.Title = "Table";
@@ -1897,16 +1897,16 @@ PdfPage pdfPage = pdfDocument.Pages.Add();
 //Initialize the new structure element with tag type table
 PdfStructureElement element = new PdfStructureElement(PdfTagType.Table);
 
-//Create a new PdfGrid.
+//Create a new PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
 
-//Adding tag to PDF grid.
+//Adding tag to PDF grid
 pdfGrid.PdfTag = element;
 
-//Add three columns.
+//Add three columns
 pdfGrid.Columns.Add(3);
 
-//Add header.
+//Add header
 pdfGrid.Headers.Add(1);
 
 PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
@@ -1933,7 +1933,7 @@ pdfGridHeader.Cells[2].Value = "Salary";
 //Adding tag for header cell with tag type TH
 pdfGridHeader.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableHeader);
 
-//Add rows.
+//Add rows
 PdfGridRow pdfGridRow = pdfGrid.Rows.Add();
 
 pdfGridRow.PdfTag = new PdfStructureElement(PdfTagType.TableRow);
@@ -1951,7 +1951,7 @@ pdfGridRow.Cells[1].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
 
 pdfGridRow.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
 
-//Draw the PdfGrid.
+//Draw the PdfGrid
 pdfGrid.Draw(pdfPage, PointF.Empty);
 
 //Save the PDF document to stream
@@ -1964,7 +1964,7 @@ await pdfDocument.SaveAsync(stream);
 
 pdfDocument.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for the respective code samples
 
 Save(stream, "Output.pdf");
 
@@ -1972,7 +1972,7 @@ Save(stream, "Output.pdf");
 
 {% highlight ASP.NET Core %}
 
-//Creates a new PDF document.
+//Creates a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
 
 pdfDocument.DocumentInformation.Title = "Table";
@@ -1983,16 +1983,16 @@ PdfPage pdfPage = pdfDocument.Pages.Add();
 //Initialize the new structure element with tag type table
 PdfStructureElement element = new PdfStructureElement(PdfTagType.Table);
 
-//Create a new PdfGrid.
+//Create a new PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
 
-//Adding tag to PDF grid.
+//Adding tag to PDF grid
 pdfGrid.PdfTag = element;
 
-//Add three columns.
+//Add three columns
 pdfGrid.Columns.Add(3);
 
-//Add header.
+//Add header
 pdfGrid.Headers.Add(1);
 
 PdfGridRow pdfGridHeader = pdfGrid.Headers[0];
@@ -2019,7 +2019,7 @@ pdfGridHeader.Cells[2].Value = "Salary";
 //Adding tag for header cell with tag type TH
 pdfGridHeader.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableHeader);
 
-//Add rows.
+//Add rows
 PdfGridRow pdfGridRow = pdfGrid.Rows.Add();
 
 pdfGridRow.PdfTag = new PdfStructureElement(PdfTagType.TableRow);
@@ -2037,7 +2037,7 @@ pdfGridRow.Cells[1].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
 
 pdfGridRow.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
 
-//Draw the PdfGrid.
+//Draw the PdfGrid
 pdfGrid.Draw(pdfPage, PointF.Empty);
 
 //Save the document into stream
@@ -2068,7 +2068,7 @@ return File(stream, contentType, fileName);
 
 {% highlight Xamarin %}
 
-//Creates a new PDF document.
+//Creates a new PDF document
 PdfDocument pdfDocument = new PdfDocument();
 
 pdfDocument.DocumentInformation.Title = "Table";
@@ -2079,10 +2079,10 @@ PdfPage pdfPage = pdfDocument.Pages.Add();
 //Initialize the new structure element with tag type table
 PdfStructureElement element = new PdfStructureElement(PdfTagType.Table);
 
-//Create a new PdfGrid.
+//Create a new PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
 
-//Adding tag to PDF grid.
+//Adding tag to PDF grid
 pdfGrid.PdfTag = element;
 
 //Add three columns.
@@ -2115,7 +2115,7 @@ pdfGridHeader.Cells[2].Value = "Salary";
 //Adding tag for header cell with tag type TH
 pdfGridHeader.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableHeader);
 
-//Add rows.
+//Add rows
 PdfGridRow pdfGridRow = pdfGrid.Rows.Add();
 
 pdfGridRow.PdfTag = new PdfStructureElement(PdfTagType.TableRow);
@@ -2133,20 +2133,20 @@ pdfGridRow.Cells[1].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
 
 pdfGridRow.Cells[2].PdfTag = new PdfStructureElement(PdfTagType.TableDataCell);
 
-//Draw the PdfGrid.
+//Draw the PdfGrid
 pdfGrid.Draw(pdfPage, PointF.Empty);
 
-//Save the document into stream.
+//Save the document into stream
 
 MemoryStream stream = new MemoryStream();
 
 pdfDocument.Save(stream);
 
-//Close the document.
+//Close the document
 
 pdfDocument.Close(true);
 
-//Save the stream into pdf file
+//Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -2163,9 +2163,9 @@ else
 
 ## Adding tag to List Element
 
-You can add the tags to list element in PDF document by using tag type ```PdfTagType.List``` available in the class ```PdfStructureElement```. 
+You can add the tags to list element in PDF document by using tag type ```PdfTagType.List``` available in the ```PdfStructureElement``` class. 
 
-The following code example illustrates how to add tag support for List element.
+The following code example illustrates how to add tag support for list element.
 
 {% tabs %}
 {% highlight c# %}
@@ -2176,7 +2176,7 @@ PdfDocument document = new PdfDocument();
 //Sets document title
 document.DocumentInformation.Title = "List";
 
-//Add a new page to the document.
+//Add a new page to the document
 PdfPage page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
@@ -2198,7 +2198,7 @@ format.LineSpacing = 10f;
 //Initialize new structure element with tag type List.
 PdfStructureElement listElement = new PdfStructureElement(PdfTagType.List);
 
-//Create Ordered list
+//Create ordered list
 PdfOrderedList pdfList = new PdfOrderedList();
 
 //Adding tag for list element
@@ -2224,7 +2224,7 @@ pdfList.Items[i].PdfTag = new PdfStructureElement(PdfTagType.ListItem);
 //Draw the list
 pdfList.Draw(page, new RectangleF(0, 20, size.Width, size.Height));
 
-// Save and close the document.
+//Save and close the document
 document.Save("Output.pdf");
 
 document.Close(true);
@@ -2238,7 +2238,7 @@ Dim document As PdfDocument = New PdfDocument()
 'Sets document title
 document.DocumentInformation.Title = "List"
 
-'Add a new page to the document.
+'Add a new page to the document
 Dim page As PdfPage = document.Pages.Add()
 
 Dim graphics As PdfGraphics = page.Graphics
@@ -2258,10 +2258,10 @@ Dim format As PdfStringFormat = New PdfStringFormat()
 
 format.LineSpacing = 10.0F
 
-'Initialize new structure element with tag type List.
+'Initialize new structure element with tag type list
 Dim listElement As PdfStructureElement = New PdfStructureElement(PdfTagType.List)
 
-'Create Ordered list
+'Create ordered list
 Dim pdfList As PdfOrderedList = New PdfOrderedList()
 
 'Adding tag for list element
@@ -2289,7 +2289,7 @@ Next
 'Draw the list
 pdfList.Draw(page, New RectangleF(0, 20, size.Width, size.Height))
 
-' Save and close the document.
+' Save and close the document
 document.Save("Output.pdf")
 
 document.Close(True)
@@ -2304,7 +2304,7 @@ PdfDocument document = new PdfDocument();
 //Sets document title
 document.DocumentInformation.Title = "List";
 
-//Add a new page to the document.
+//Add a new page to the document
 PdfPage page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
@@ -2323,7 +2323,7 @@ PdfStringFormat format = new PdfStringFormat();
 
 format.LineSpacing = 10f;
 
-//Initialize new structure element with tag type List.
+//Initialize new structure element with tag type list
 PdfStructureElement listElement = new PdfStructureElement(PdfTagType.List);
 
 //Create Ordered list
@@ -2362,7 +2362,7 @@ await document.SaveAsync(stream);
 
 document.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
 Save(stream, "Output.pdf");
 
@@ -2376,7 +2376,7 @@ PdfDocument document = new PdfDocument();
 //Sets document title
 document.DocumentInformation.Title = "List";
 
-//Add a new page to the document.
+//Add a new page to the document
 PdfPage page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
@@ -2398,7 +2398,7 @@ format.LineSpacing = 10f;
 //Initialize new structure element with tag type List.
 PdfStructureElement listElement = new PdfStructureElement(PdfTagType.List);
 
-//Create Ordered list
+//Create ordered list
 PdfOrderedList pdfList = new PdfOrderedList();
 
 //Adding tag for list element
@@ -2436,7 +2436,7 @@ stream.Position = 0;
 
 document.Close(true);
 
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
@@ -2458,7 +2458,7 @@ PdfDocument document = new PdfDocument();
 //Sets document title
 document.DocumentInformation.Title = "List";
 
-//Add a new page to the document.
+//Add a new page to the document
 PdfPage page = document.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
@@ -2480,7 +2480,7 @@ format.LineSpacing = 10f;
 //Initialize new structure element with tag type List.
 PdfStructureElement listElement = new PdfStructureElement(PdfTagType.List);
 
-//Create Ordered list
+//Create ordered list
 PdfOrderedList pdfList = new PdfOrderedList();
 
 //Adding tag for list element
@@ -2506,13 +2506,13 @@ for (int i = 0; i < products.Length; i++)
 //Draw the list
 pdfList.Draw(page, new RectangleF(0, 20, size.Width, size.Height));
 
-//Save the document into stream.
+//Save the document into stream
 
 MemoryStream stream = new MemoryStream();
 
 document.Save(stream);
 
-//Close the document.
+//Close the document
 
 document.Close(true);
 
@@ -2531,12 +2531,12 @@ else
 
 {% endtabs %}
 
-## Marking PDF content as an Artifact
+## Marking PDF content as an artifact
 
-Artifacts in PDF document can be graphic objects or other markings that are not part of the authored content and would include such things as: headers, footers, page numbers, watermarks, cut marks, color bars, background images, lines separating content, or decorative images. 
-You can add artifact tag to PDF element by using ```PdfArtifact``` class. We can specify the artifact type by using ```PdfArtifactType``` property available in the ```PdfArtifact``` class.
+Artifacts in the PDF document can be graphic objects or other markings that are not a part of the authored content and will include such things as: headers, footers, page numbers, watermarks, cut marks, color bars, background images, lines separating content, or decorative images. 
+You can add artifact tag to PDF element by using the ```PdfArtifact``` class. The artifact type can be speified by using the ```PdfArtifactType``` property available in the ```PdfArtifact``` class.
 
-The following code explains how to add tag for header and footers in PDF document.
+The following code explains how to add tag for header and footers in the PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -2552,7 +2552,7 @@ pdfDocument.DocumentInformation.Title = "HeaderFooter";
 //Creating artifact type for the header
 PdfArtifact headerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new RectangleF(30, 40, 100, 100), new PdfAttached(PdfEdge.Top), PdfArtifactSubType.Header);
 
-//Create a header and draw the image.
+//Create a header and draw the image
 RectangleF bounds = new RectangleF(0, 0, pdfDocument.Pages[0].GetClientSize().Width, 50);
 
 PdfPageTemplateElement header = new PdfPageTemplateElement(bounds);
@@ -2562,40 +2562,40 @@ header.PdfTag = headerArtifact;
 
 PdfImage image = new PdfBitmap("syncfusion.jpg");
 
-//Draw the image in the header.            
+//Draw the image in the header           
 header.Graphics.DrawImage(image, new PointF(200, 0), new SizeF(100, 50));
 
-//Add the header at the top.
+//Add the header at the top
 pdfDocument.Template.Top = header;
 
 //Creating artifact type for the footer
 PdfArtifact footerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new PdfAttached(PdfEdge.Bottom), PdfArtifactSubType.Footer);
 
-//Create a Page template that can be used as footer.
+//Create a Page template that can be used as footer
 PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
 
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
 
 PdfBrush brush = new PdfSolidBrush(Color.Black);
 
-//Create page number field.
+//Create page number field
 PdfPageNumberField pageNumber = new PdfPageNumberField(font, brush);
 
-//Create page count field.
+//Create page count field
 PdfPageCountField count = new PdfPageCountField(font, brush);
 
-//Add the fields in composite fields.
+//Add the fields in composite fields
 PdfCompositeField compositeField = new PdfCompositeField(font, brush, "Page {0} of {1}", pageNumber, count);
 
 compositeField.Bounds = footer.Bounds;
 
-//Adding artifact type to the footer.
+//Adding artifact type to the footer
 compositeField.PdfTag = footerArtifact;
 
-//Draw the composite field in footer.
+//Draw the composite field in footer
 compositeField.Draw(footer.Graphics, new PointF(470, 40));
 
-//Add the footer template at the bottom.
+//Add the footer template at the bottom
 pdfDocument.Template.Bottom = footer;
 
 //Save the document and dispose it
@@ -2617,7 +2617,7 @@ pdfDocument.DocumentInformation.Title = "HeaderFooter"
 'Creating artifact type for the header
 Dim headerArtifact As PdfArtifact = New PdfArtifact(PdfArtifactType.Pagination, New RectangleF(30, 40, 100, 100), New PdfAttached(PdfEdge.Top), PdfArtifactSubType.Header)
 
-'Create a header and draw the image.
+'Create a header and draw the image
 Dim bounds As RectangleF = New RectangleF(0, 0, pdfDocument.Pages(0).GetClientSize().Width, 50)
 
 Dim header As PdfPageTemplateElement = New PdfPageTemplateElement(bounds)
@@ -2627,40 +2627,40 @@ header.PdfTag = headerArtifact
 
 Dim image As PdfImage = New PdfBitmap("syncfusion.jpg")
 
-'Draw the image in the header.            
+'Draw the image in the header           
 header.Graphics.DrawImage(image, New PointF(200, 0), New SizeF(100, 50))
 
-'Add the header at the top.
+'Add the header at the top
 pdfDocument.Template.Top = header
 
 'Creating artifact type for the footer
 Dim footerArtifact As PdfArtifact = New PdfArtifact(PdfArtifactType.Pagination, New PdfAttached(PdfEdge.Bottom), PdfArtifactSubType.Footer)
 
-'Create a Page template that can be used as footer.
+'Create a Page template that can be used as footer
 Dim footer As PdfPageTemplateElement = New PdfPageTemplateElement(bounds)
 
 Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 7)
 
 Dim brush As PdfBrush = New PdfSolidBrush(Color.Black)
 
-'Create page number field.
+'Create page number field
 Dim pageNumber As PdfPageNumberField = New PdfPageNumberField(font, brush)
 
-'Create page count field.
+'Create page count field
 Dim count As PdfPageCountField = New PdfPageCountField(font, brush)
 
-'Add the fields in composite fields.
+'Add the fields in composite fields
 Dim compositeField As PdfCompositeField = New PdfCompositeField(font, brush, "Page {0} of {1}", pageNumber, count)
 
 compositeField.Bounds = footer.Bounds
 
-'Adding artifact type to the footer.
+'Adding artifact type to the footer
 compositeField.PdfTag = footerArtifact
 
-'Draw the composite field in footer.
+'Draw the composite field in footer
 compositeField.Draw(footer.Graphics, New PointF(470, 40))
 
-'Add the footer template at the bottom.
+'Add the footer template at the bottom
 pdfDocument.Template.Bottom = footer
 
 'Save the document and dispose it
@@ -2683,7 +2683,7 @@ pdfDocument.DocumentInformation.Title = "HeaderFooter";
 //Creating artifact type for the header
 PdfArtifact headerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new RectangleF(30, 40, 100, 100), new PdfAttached(PdfEdge.Top
 
-//Create a header and draw the image.
+//Create a header and draw the image
 RectangleF bounds = new RectangleF(0, 0, pdfDocument.Pages[0].GetClientSize().Width, 50);
 
 PdfPageTemplateElement header = new PdfPageTemplateElement(bounds);
@@ -2695,40 +2695,40 @@ header.PdfTag = headerArtifact;
 Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.syncfusion.jpg");
 PdfImage image = new PdfBitmap(imageStream);
 
-//Draw the image in the header.            
+//Draw the image in the header            
 header.Graphics.DrawImage(image, new PointF(200, 0), new SizeF(100, 50));
 
-//Add the header at the top.
+//Add the header at the top
 pdfDocument.Template.Top = header;
 
 //Creating artifact type for the footer
 PdfArtifact footerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new PdfAttached(PdfEdge.Bottom), PdfArtifactSubType.Footer);
 
-//Create a Page template that can be used as footer.
+//Create a Page template that can be used as footer
 PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
 
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
 
 PdfBrush brush = new PdfSolidBrush(Color.FromArgb(0,0,0,0));
 
-//Create page number field.
+//Create page number field
 PdfPageNumberField pageNumber = new PdfPageNumberField(font, brush);
 
-//Create page count field.
+//Create page count field
 PdfPageCountField count = new PdfPageCountField(font, brush);
 
-//Add the fields in composite fields.
+//Add the fields in composite fields
 PdfCompositeField compositeField = new PdfCompositeField(font, brush, "Page {0} of {1}", pageNumber, count);
 
 compositeField.Bounds = footer.Bounds;
 
-//Adding artifact type to the footer.
+//Adding artifact type to the footer
 compositeField.PdfTag = footerArtifact;
 
-//Draw the composite field in footer.
+//Draw the composite field in footer
 compositeField.Draw(footer.Graphics, new PointF(470, 40));
 
-//Add the footer template at the bottom.
+//Add the footer template at the bottom
 pdfDocument.Template.Bottom = footer;
 
 //Save the PDF document to stream
@@ -2741,7 +2741,7 @@ await pdfDocument.SaveAsync(stream);
 
 pdfDocument.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for the respective code samples
 
 Save(stream, "HeaderFooter.pdf");
 
@@ -2760,7 +2760,7 @@ pdfDocument.DocumentInformation.Title = "HeaderFooter";
 //Creating artifact type for the header
 PdfArtifact headerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new RectangleF(30, 40, 100, 100), new PdfAttached(PdfEdge.Top), PdfArtifactSubType.Header);
 
-//Create a header and draw the image.
+//Create a header and draw the image
 RectangleF bounds = new RectangleF(0, 0, pdfDocument.Pages[0].GetClientSize().Width, 50);
 
 PdfPageTemplateElement header = new PdfPageTemplateElement(bounds);
@@ -2772,40 +2772,40 @@ header.PdfTag = headerArtifact;
 FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open, FileAccess.Read);
 PdfImage image = new PdfBitmap(imageStream);
 
-//Draw the image in the header.            
+//Draw the image in the header          
 header.Graphics.DrawImage(image, new PointF(200, 0), new SizeF(100, 50));
 
-//Add the header at the top.
+//Add the header at the top
 pdfDocument.Template.Top = header;
 
 //Creating artifact type for the footer
 PdfArtifact footerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new PdfAttached(PdfEdge.Bottom), PdfArtifactSubType.Footer);
 
-//Create a Page template that can be used as footer.
+//Create a Page template that can be used as footer
 PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
 
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
 
 PdfBrush brush = new PdfSolidBrush(Color.Black);
 
-//Create page number field.
+//Create page number field
 PdfPageNumberField pageNumber = new PdfPageNumberField(font, brush);
 
-//Create page count field.
+//Create page count field
 PdfPageCountField count = new PdfPageCountField(font, brush);
 
-//Add the fields in composite fields.
+//Add the fields in composite fields
 PdfCompositeField compositeField = new PdfCompositeField(font, brush, "Page {0} of {1}", pageNumber, count);
 
 compositeField.Bounds = footer.Bounds;
 
-//Adding artifact type to the footer.
+//Adding artifact type to the footer
 compositeField.PdfTag = footerArtifact;
 
-//Draw the composite field in footer.
+//Draw the composite field in footer
 compositeField.Draw(footer.Graphics, new PointF(470, 40));
 
-//Add the footer template at the bottom.
+//Add the footer template at the bottom
 pdfDocument.Template.Bottom = footer;
 
 //Save the document into stream
@@ -2820,7 +2820,7 @@ stream.Position = 0;
 
 pdfDocument.Close(true);
 
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
@@ -2847,7 +2847,7 @@ pdfDocument.DocumentInformation.Title = "HeaderFooter";
 //Creating artifact type for the header
 PdfArtifact headerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new RectangleF(30, 40, 100, 100), new PdfAttached(PdfEdge.Top), PdfArtifactSubType.Header);
 
-//Create a header and draw the image.
+//Create a header and draw the image
 RectangleF bounds = new RectangleF(0, 0, pdfDocument.Pages[0].GetClientSize().Width, 50);
 
 PdfPageTemplateElement header = new PdfPageTemplateElement(bounds);
@@ -2859,43 +2859,43 @@ header.PdfTag = headerArtifact;
 Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Signature.Assets.Autumn Leaves.jpg");
 PdfImage image = new PdfBitmap(imageStream);
 
-//Draw the image in the header.            
+//Draw the image in the header          
 header.Graphics.DrawImage(image, new PointF(200, 0), new SizeF(100, 50));
 
-//Add the header at the top.
+//Add the header at the top
 pdfDocument.Template.Top = header;
 
 //Creating artifact type for the footer
 PdfArtifact footerArtifact = new PdfArtifact(PdfArtifactType.Pagination, new PdfAttached(PdfEdge.Bottom), PdfArtifactSubType.Footer);
 
-//Create a Page template that can be used as footer.
+//Create a Page template that can be used as footer
 PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds);
 
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
 
 PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.Black);
 
-//Create page number field.
+//Create page number field
 PdfPageNumberField pageNumber = new PdfPageNumberField(font, brush);
 
-//Create page count field.
+//Create page count field
 PdfPageCountField count = new PdfPageCountField(font, brush);
 
-//Add the fields in composite fields.
+//Add the fields in composite fields
 PdfCompositeField compositeField = new PdfCompositeField(font, brush, "Page {0} of {1}", pageNumber, count);
 
 compositeField.Bounds = footer.Bounds;
 
-//Adding artifact type to the footer.
+//Adding artifact type to the footer
 compositeField.PdfTag = footerArtifact;
 
-//Draw the composite field in footer.
+//Draw the composite field in footer
 compositeField.Draw(footer.Graphics, new PointF(470, 40));
 
-//Add the footer template at the bottom.
+//Add the footer template at the bottom
 pdfDocument.Template.Bottom = footer;
 
-//Save the document into stream.
+//Save the document into stream
 
 MemoryStream stream = new MemoryStream();
 
@@ -2905,8 +2905,8 @@ pdfDocument.Save(stream);
 
 pdfDocument.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("HeaderFooter.pdf", "application/pdf", stream);
@@ -2922,9 +2922,9 @@ else
 
 ## Tag Reading Order
 
-Basically, the element which draws first takes precedence over the tag reading order. You can re-order the tagged elements in document using order property. 
+Basically, the element which draws first takes precedence over the tag reading order. You can re-order the tagged elements in document using the order property. 
 
-The following code example illustrates how to order the tagged elements in PDF document.
+The following code example illustrates how to order the tagged elements in a PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -2935,13 +2935,13 @@ PdfDocument document = new PdfDocument();
 //Sets document title
 document.DocumentInformation.Title = "Order";
 
-//Add a new page to the document.
+//Add a new page to the document
 PdfPage page = document.Pages.Add();
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
 
-//Order the tag in third position.
+//Order the tag in third position
 structureElement.Order = 3;
 
 PdfTextElement element = new PdfTextElement("This is paragraph ONE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
@@ -2953,7 +2953,7 @@ element.PdfTag = structureElement;
 
 element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200));
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement paraStruct1 = new PdfStructureElement(PdfTagType.Paragraph);
 
 //Order the tag in first position
@@ -2969,7 +2969,7 @@ element1.PdfTag = paraStruct1;
 
 element1.Draw(page, new RectangleF(0, 50, page.Graphics.ClientSize.Width / 2, 200));
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement paraStruct2 = new PdfStructureElement(PdfTagType.Paragraph);
 
 //Order the tag in second position
@@ -2985,7 +2985,7 @@ element2.PdfTag = paraStruct2;
 
 element2.Draw(page.Graphics, new PointF(0, 100));
 
-//Save the document and dispose it.
+//Save the document and dispose it
 document.Save("Output.pdf");
 
 document.Close(true);
@@ -2999,13 +2999,13 @@ Dim document As PdfDocument = New PdfDocument()
 'Sets document title
 document.DocumentInformation.Title = "Order"
 
-'Add a new page to the document.
+'Add a new page to the document
 Dim page As PdfPage = document.Pages.Add()
 
 'Initialize the structure element with tag type paragraph.
 Dim structureElement As PdfStructureElement = New PdfStructureElement(PdfTagType.Paragraph)
 
-'Order the tag in third position.
+'Order the tag in third position
 structureElement.Order = 3
 
 Dim element As PdfTextElement = New PdfTextElement("This is paragraph ONE.", New PdfStandardFont(PdfFontFamily.Helvetica, 12))
@@ -3017,7 +3017,7 @@ element.PdfTag = structureElement
 
 element.Draw(page, New RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200))
 
-'Initialize the structure element with tag type paragraph.
+'Initialize the structure element with tag type paragraph
 Dim paraStruct1 As PdfStructureElement = New PdfStructureElement(PdfTagType.Paragraph)
 
 'Order the tag in first position
@@ -3033,7 +3033,7 @@ element1.PdfTag = paraStruct1
 
 element1.Draw(page, New RectangleF(0, 50, page.Graphics.ClientSize.Width / 2, 200))
 
-'Initialize the structure element with tag type paragraph.
+'Initialize the structure element with tag type paragraph
 Dim paraStruct2 As PdfStructureElement = New PdfStructureElement(PdfTagType.Paragraph)
 
 'Order the tag in second position
@@ -3049,7 +3049,7 @@ element2.PdfTag = paraStruct2
 
 element2.Draw(page.Graphics, New PointF(0, 100))
 
-'Save the document and dispose it.
+'Save the document and dispose it
 document.Save("Output.pdf")
 
 document.Close(True)
@@ -3064,13 +3064,13 @@ PdfDocument document = new PdfDocument();
 //Sets document title
 document.DocumentInformation.Title = "Order";
 
-//Add a new page to the document.
+//Add a new page to the document
 PdfPage page = document.Pages.Add();
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
 
-//Order the tag in third position.
+//Order the tag in third position
 structureElement.Order = 3;
 
 PdfTextElement element = new PdfTextElement("This is paragraph ONE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
@@ -3098,7 +3098,7 @@ element1.PdfTag = paraStruct1;
 
 element1.Draw(page, new RectangleF(0, 50, page.Graphics.ClientSize.Width / 2, 200));
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement paraStruct2 = new PdfStructureElement(PdfTagType.Paragraph);
 
 //Order the tag in second position
@@ -3124,7 +3124,7 @@ await document.SaveAsync(stream);
 
 document.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
 Save(stream, "Output.pdf");
 
@@ -3138,13 +3138,13 @@ PdfDocument document = new PdfDocument();
 //Sets document title
 document.DocumentInformation.Title = "Order";
 
-//Add a new page to the document.
+//Add a new page to the document
 PdfPage page = document.Pages.Add();
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
 
-//Order the tag in third position.
+//Order the tag in third position
 structureElement.Order = 3;
 
 PdfTextElement element = new PdfTextElement("This is paragraph ONE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
@@ -3156,7 +3156,7 @@ element.PdfTag = structureElement;
 
 element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200));
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement paraStruct1 = new PdfStructureElement(PdfTagType.Paragraph);
 
 //Order the tag in first position
@@ -3172,7 +3172,7 @@ element1.PdfTag = paraStruct1;
 
 element1.Draw(page, new RectangleF(0, 50, page.Graphics.ClientSize.Width / 2, 200));
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement paraStruct2 = new PdfStructureElement(PdfTagType.Paragraph);
 
 //Order the tag in second position
@@ -3200,7 +3200,7 @@ stream.Position = 0;
 
 document.Close(true);
 
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
@@ -3222,13 +3222,13 @@ PdfDocument document = new PdfDocument();
 //Sets document title
 document.DocumentInformation.Title = "Order";
 
-//Add a new page to the document.
+//Add a new page to the document
 PdfPage page = document.Pages.Add();
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement structureElement = new PdfStructureElement(PdfTagType.Paragraph);
 
-//Order the tag in third position.
+//Order the tag in third position
 structureElement.Order = 3;
 
 PdfTextElement element = new PdfTextElement("This is paragraph ONE.", new PdfStandardFont(PdfFontFamily.Helvetica, 12));
@@ -3240,7 +3240,7 @@ element.PdfTag = structureElement;
 
 element.Draw(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 200));
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement paraStruct1 = new PdfStructureElement(PdfTagType.Paragraph);
 
 //Order the tag in first position
@@ -3256,7 +3256,7 @@ element1.PdfTag = paraStruct1;
 
 element1.Draw(page, new RectangleF(0, 50, page.Graphics.ClientSize.Width / 2, 200));
 
-//Initialize the structure element with tag type paragraph.
+//Initialize the structure element with tag type paragraph
 PdfStructureElement paraStruct2 = new PdfStructureElement(PdfTagType.Paragraph);
 
 //Order the tag in second position
@@ -3272,17 +3272,17 @@ element2.PdfTag = paraStruct2;
 
 element2.Draw(page.Graphics, new PointF(0, 100));
 
-//Save the document into stream.
+//Save the document into stream
 
 MemoryStream stream = new MemoryStream();
 
 document.Save(stream);
 
-//Close the document.
+//Close the document
 
 document.Close(true);
 
-//Save the stream into pdf file
+//Save the stream into PDF file
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -3299,11 +3299,11 @@ else
 
 ## Auto Tagging a new document
 
-When the auto-tag feature is enabled all the elements in the document is tagged with appropriate tag type i.e. Paragraph, Figure, Annotation etc. 
+When the auto-tag feature is enabled, all the elements in the document is tagged with appropriate tag type that is Paragraph, Figure, Annotation, and more. 
 
-The following code example explains how to auto-tag the elements in PDF document.
+The following code example explains how to auto-tag the elements in a PDF document.
 
-N> While enabling the auto-tag feature, it will never add alternate texts/descriptions for figures, images and other properties related to tag
+N> Enabling the auto-tag feature will never add alternate texts/descriptions for figures, images, and other properties related to tag.
 
 {% tabs %}
 {% highlight c# %}
@@ -3316,7 +3316,7 @@ document.AutoTag = true;
 
 document.DocumentInformation.Title = "AutoTag";
 
-// Add a new page to the document.
+// Add a new page to the document
 PdfPage page = document.Pages.Add();
 
 //Creates new text element
@@ -3340,7 +3340,7 @@ element2.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 
 element2.Draw(page.Graphics, new PointF(0, 100));
 
-//Save the document and dispose it.
+//Save the document and dispose it
 document.Save("AutoTag.pdf");
 
 document.Close(true);
@@ -3356,7 +3356,7 @@ document.AutoTag = True
 
 document.DocumentInformation.Title = "AutoTag"
 
-'Add a new page to the document.
+'Add a new page to the document
 Dim page As PdfPage = document.Pages.Add()
 
 'Creates new text element
@@ -3380,7 +3380,7 @@ element2.Brush = New PdfSolidBrush(New PdfColor(89, 89, 93))
 
 element2.Draw(page.Graphics, New PointF(0, 100))
 
-'Save the document and dispose it.
+'Save the document and dispose it
 document.Save("AutoTag.pdf")
 
 document.Close(True)
@@ -3389,7 +3389,7 @@ document.Close(True)
 
 {% highlight UWP %}
 
-//Creates new PDF document
+//Creates a new PDF document
 PdfDocument document = new PdfDocument();
 
 //Set true to auto tag all elements in document
@@ -3397,7 +3397,7 @@ document.AutoTag = true;
 
 document.DocumentInformation.Title = "AutoTag";
 
-// Add a new page to the document.
+//Add a new page to the document
 PdfPage page = document.Pages.Add();
 
 //Creates new text element
@@ -3431,7 +3431,7 @@ await document.SaveAsync(stream);
 
 document.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
 Save(stream, "AutoTag.pdf");
 
@@ -3447,7 +3447,7 @@ document.AutoTag = true;
 
 document.DocumentInformation.Title = "AutoTag";
 
-// Add a new page to the document.
+// Add a new page to the document
 PdfPage page = document.Pages.Add();
 
 //Creates new text element
@@ -3483,7 +3483,7 @@ stream.Position = 0;
 
 document.Close(true);
 
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
@@ -3507,7 +3507,7 @@ document.AutoTag = true;
 
 document.DocumentInformation.Title = "AutoTag";
 
-// Add a new page to the document.
+// Add a new page to the document
 PdfPage page = document.Pages.Add();
 
 //Creates new text element
@@ -3531,18 +3531,18 @@ element2.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 
 element2.Draw(page.Graphics, new PointF(0, 100));
 
-//Save the document into stream.
+//Save the document into stream
 
 MemoryStream stream = new MemoryStream();
 
 document.Save(stream);
 
-//Close the document.
+//Close the document
 
 document.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("AutoTag.pdf", "application/pdf", stream);
@@ -3556,38 +3556,38 @@ else
 
 {% endtabs %}
 
-N> Once the document is auto tagged, and if any element tagged manually then manually tagged element takes the precedence.
+N> After the document is auto tagged and if any element tagged manually, then the manually tagged element takes the precedence.
 
 ## How to pass accessibility full check
 
-To pass the full check accessibility, you need to follow below conventions while tagging the document.
+To pass the full check accessibility, follow the below conventions while tagging the document:
 
-1. PDF document “Title” need to be mentioned in the document properties.
-2. Make sure images in the document either has alternate text or marked as artifact.
-3. Bookmarks need to be included, for tagged PDF with more than 21 pages.
-4. All the form fields require text description (Tool tip).
+1. Mention the PDF document “Title” in the document properties.
+2. Make sure that the images in the document has alternate text or marked as artifact.
+3. The bookmarks should be included for tagged PDF with more than 21 pages.
+4. All the form fields require text description (tooltip).
 5. All tables in a document should have a header.
 6. Tables must contain same number of columns in each row.
-7. A List element must contain list Item element(LI), and list Item element can only contain label (Lbl) or body elements(LBody).
+7. A list element must contain list item element (LI), and list item element can only contain label (Lbl) or body elements(LBody).
 
 ## Tagged PDF support for converting HTML to PDF
 
-Essential PDF provides the support to convert HTML to TaggedPDF by using MSHTML rendering library.
+Essential PDF provides support to convert HTML to TaggedPDF by using the MSHTML rendering library.
 
-Tagged PDF is a stylized use of PDF that builds the logical structure Framework. It defines a set of standard structure types and attributes that allow page content (text, graphics, and images) to be extracted and reused. The contents are accessible to users with visual impairments.
+The Tagged PDF is a stylized use of PDF that builds the logical structure Framework. It defines a set of standard structure types and attributes that allows the page content (text, graphics, and images) to be extracted and reused. The contents are accessible to users with visual impairments.
 
-To convert HTML to Tagged PDF, you can use ConvertToTaggedPDF method in HtmlConverter class.
+To convert HTML to Tagged PDF, you can use the ConvertToTaggedPDF method in HtmlConverter class.
 
-The following code illustrates how to convert HTML to TaggedPDF:
+The following code illustrates how to convert HTML to TaggedPDF.
 
 {% tabs %}
 {% highlight c# %}
 
-//Creates a new PdfDocument.
+//Creates a new PdfDocument
 
 PdfDocument document = new PdfDocument();
 
-//Creates a new instance of HtmlConverter class.
+//Creates a new instance of HtmlConverter class
 
 using (HtmlConverter html = new HtmlConverter())
 
@@ -3597,13 +3597,13 @@ using (HtmlConverter html = new HtmlConverter())
 
 html.EnableJavaScript = true;
 
-//Converts to Tagged PDF.
+//Converts to Tagged PDF
 
 html.ConvertToTaggedPDF(document,"http://www.google.com");
 
 }
 
-//Saves and closes the document.
+//Saves and closes the document
 
 document.Save("Sample.pdf");
 
@@ -3612,11 +3612,11 @@ document.Close(true);
 {% endhighlight %}
 {% highlight vb.net %}
 
-'Creates a new PdfDocument.
+'Creates a new PdfDocument
 
 Dim document As New PdfDocument()
 
-'Creates a new instance of HtmlConverter class.
+'Creates a new instance of HtmlConverter class
 
 Using html As New HtmlConverter()
 
@@ -3624,13 +3624,13 @@ Using html As New HtmlConverter()
 
 html.EnableJavaScript = True
 
-'Converts to Tagged PDF.
+'Converts to Tagged PDF
 
 html.ConvertToTaggedPDF(document, "http://www.google.com")
 
 End Using
 
-'Saves and closes the document.
+'Saves and closes the document
 
 document.Save("Sample.pdf")
 
