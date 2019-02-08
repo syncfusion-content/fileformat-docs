@@ -2082,7 +2082,9 @@ Mail merge operation automatically removes the merge fields that doesn't have da
 
 Essential DocIO removes or keeps the unmerge fields in the output document based on the value of ClearFields property on each mail merge execution.
 
-T> 1. Set ClearFields property as false before the mail merge execution statement. If your requirement is to keep the unmerged fields in the output document. T> 2. Modify ClearFields property before each mail merge execution statement, while performing multiple mail merge executions. If your requirement is to remove the unmerged fields in one mail merge execution statement and keep the unmerged fields in another mail merge execution statement. T> 3. Order the mail merge executions with ClearFields property false as first, to avoid removal merge fields that are required for next mail merge execution in the same document. 
+T> 1. Set ClearFields property as false before the mail merge execution statement. If your requirement is to keep the unmerged fields in the output document. 
+T> 2. Modify ClearFields property before each mail merge execution statement, while performing multiple mail merge executions. If your requirement is to remove the unmerged fields in one mail merge execution statement and keep the unmerged fields in another mail merge execution statement. 
+T> 3. Order the mail merge executions with ClearFields property false as first, to avoid removal merge fields that are required for next mail merge execution in the same document. 
 
 The following code example shows how to keep the merge fields in the generated Word document when the merge field name doesn't have data in data source during Mail merge process.
 
