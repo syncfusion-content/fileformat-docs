@@ -128,7 +128,7 @@ The Syncfusion PowerPoint library supports the following predefined slide layout
 <li>Title and content</li>
 <li>Title and vertical text</li>
 <li>Title only</li>
-<li>Two contents</li>
+<li>Two content</li>
 <li>Vertical title and text</li>
 </ol>
 
