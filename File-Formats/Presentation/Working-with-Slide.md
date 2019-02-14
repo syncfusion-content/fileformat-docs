@@ -130,7 +130,7 @@ The Syncfusion PowerPoint library supports the following predefined slide layout
 <li>Title only</li>
 <li>Two content</li>
 <li>Vertical title and text</li>
-</ol>
+</ul>
 
 The following example demonstrates how to access a slide from the predefined blank slide layout type.
 
