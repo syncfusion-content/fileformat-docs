@@ -114,11 +114,11 @@ else
 
 {% endtabs %}
 
-## Create a slide with pre-defined LayoutSlide
+## Create a slide with predefined LayoutSlide
 
-The Syncfusion PowerPoint library supports the below pre-defined slide layout types to create a slide as equivalent to Microsoft PowerPoint.
+The Syncfusion PowerPoint library supports the following predefined slide layout types to create a slide as equivalent to Microsoft PowerPoint:
 
-<ol>
+<ul>
 <li>Blank</li>
 <li>Comparison</li>
 <li>Content with caption</li>
@@ -132,21 +132,21 @@ The Syncfusion PowerPoint library supports the below pre-defined slide layout ty
 <li>Vertical title and text</li>
 </ol>
 
-The following example demonstrates how to access the slide from pre-defined blank slide layout type.
+The following example demonstrates how to access a slide from the predefined blank slide layout type.
 
 {% tabs %}
 
 {% highlight c# %}
 
-// Create a PowerPoint presentation.
+//Create a PowerPoint presentation
 
 IPresentation pptxDoc = Presentation.Create();
 
-// Add a slide of blank layout type.
+//Add a slide of blank layout type
 
 ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
-// Save the PowerPoint file.
+//Save the PowerPoint file
 
 pptxDoc.Save("Sample.pptx");
 
@@ -158,19 +158,19 @@ pptxDoc.Close();
 
 {% highlight vb.net %}
 
-' Create a PowerPoint file.
+'Create a PowerPoint file
 
 Dim pptxDoc As IPresentation = Presentation.Create()
 
-' Add a slide of blank layout type.
+'Add a slide of blank layout type
 
 Dim slide1 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 
-' Save the PowerPoint file.
+'Save the PowerPoint file
 
 pptxDoc.Save("Sample.pptx")
 
-' Close the PowerPoint instance
+'Close the PowerPoint instance
 pptxDoc.Close()
 
 {% endhighlight %}
