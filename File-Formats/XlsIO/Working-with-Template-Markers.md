@@ -1,5 +1,5 @@
 ---
-title: Working with Template Markers
+title: Working with Template Markers | Syncfusion
 description: Briefs about template markers operations
 platform: File-formats
 control: XlsIO
