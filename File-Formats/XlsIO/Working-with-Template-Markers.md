@@ -1532,7 +1532,7 @@ The following screenshot represents generated Excel file in which the conditiona
 
 ![](Working-with-Template-Markers_images/Working-with-Template_Markers_img17.jpeg)
 
-## Template marker with conditional formatting
+## Template marker with Hyperlink
 
 You can add hyperlink to the template marker range.
 
