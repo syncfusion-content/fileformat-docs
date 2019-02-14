@@ -1,5 +1,5 @@
 ---
-title: Working with Template Markers
+title: Working with Template Markers | Syncfusion
 description: Briefs about template markers operations
 platform: File-formats
 control: XlsIO
@@ -60,7 +60,7 @@ An array of data can be binded to the marker in the template document.
 
 The following screenshot represents the input template which has a template marker.
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img1.jpeg)
+![Bind from Array Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img1.jpeg)
 
 
 Following code example illustrates how to bind the data from an array to a marker.
@@ -246,7 +246,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The following screenshot represents generated Excel file in which the array of data is bounded.
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img2.jpeg)
+![Bind from Array Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img2.jpeg)
 
 
 You can also add or insert template markers using XlsIO APIs as follows.
@@ -476,7 +476,7 @@ By default, DataTable values will be filled in the worksheet as a string format.
 
  The following screenshot represents the input template which has a template marker.
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img3.jpeg)
+![Bind from DataTable Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img3.jpeg)
 
 
 The following code snippet illustrates how to detect data type and apply number format with template marker.
@@ -592,7 +592,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The following screenshot represents an Excel file in which the data type is detected and then number format is applied.
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg)
+![Bind from DataTable Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg)
 
 
 ## Bind from CLR objects with images
@@ -636,7 +636,7 @@ Image is positioned (top-left, top-center, etc.,) within the cell.<br/><br/></td
 </table>
 In the following example, a marker is added for merging images. Data source and property name is specified (%Reports.Image;) for image also. 
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img5.jpeg)
+![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img5.jpeg)
 
 
 __Marker__ __added__ __for__ __merging__ __images__
@@ -651,60 +651,60 @@ The output of all the image insertion options with input templates are as follow
 
 Input template
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img6.jpeg)
+![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img6.jpeg)
 
 
 Generated output
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img7.jpeg)
+![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img7.jpeg)
 
 
 **Image** **with** **FitToCell** **attribute**
 
 Input template
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img8.jpeg)
+![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img8.jpeg)
 
 
 Generated output
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img9.jpeg)
+![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img9.jpeg)
 
 
 **Image** **with** **Size**
 
 Input template
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img10.jpeg)
+![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img10.jpeg)
 
 
 Generated output
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img11.jpeg)
+![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img11.jpeg)
 
 
 **Image** **with** **Position**
 
 Input template
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img12.jpeg)
+![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img12.jpeg)
 
 
 Generated output
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img13.jpeg)
+![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img13.jpeg)
 
 
 **Image** **with** **position** **and** **size**
 
 Input template
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img14.jpeg)
+![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img14.jpeg)
 
 
 Generated output
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg)
+![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg)
 
 
 You can also refer to the [Template based data filling using Template Markers](/file-formats/xlsio/getting-started#template-based-data-filling-using-template-markers) section in [Getting Started](/file-formats/xlsio/getting-started) for the sample regarding template marker with images.
@@ -715,7 +715,7 @@ You can create or apply conditional format to the template marker range.
 
 The following screenshot represents the input template, which has a template marker.
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img16.jpeg)
+![Template marker with conditional formatting Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img16.jpeg)
 
 
 The following code sample illustrates how to create or apply conditional format to the marker.
@@ -1530,15 +1530,15 @@ public class Sales
 
 The following screenshot represents generated Excel file in which the conditional format is applied.
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img17.jpeg)
+![Template marker with conditional formatting Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img17.jpeg)
 
-## Template marker with conditional formatting
+## Template marker with Hyperlink
 
 You can add hyperlink to the template marker range.
 
 The following screenshot represents the input template, which has a template marker.
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img18.jpeg)
+![Template marker with Hyperlink Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img18.jpeg)
 
 The following code snippet illustrates how to detect data type and apply number format with template marker.
 
@@ -1981,5 +1981,5 @@ public class Company
 
 The following screenshot represents generated Excel file in which the hyperlink is added.
 
-![](Working-with-Template-Markers_images/Working-with-Template_Markers_img19.jpeg)
+![Template marker with Hyperlink Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img19.jpeg)
 
