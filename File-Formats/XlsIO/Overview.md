@@ -41,3 +41,4 @@ The library can be used in Windows Forms, WPF, UWP, ASP.NET Web, ASP.NET MVC, AS
 * Microsoft Excel 2010
 * Microsoft Excel 2013
 * Microsoft Excel 2016
+* Microsoft Excel 2019
