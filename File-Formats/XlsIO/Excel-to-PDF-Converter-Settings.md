@@ -1,6 +1,6 @@
 ---
 title: Syncfusion Excel to PDF Converter Settings
-description: In this section, you can learn how to use Excel to PDF converter settings while convert Excel Workbook to PDF & Worksheet to PDF file;
+description: In this section, you can learn how to convert Excel Workbook to PDF & Worksheet to PDF file using conversion settings of Excel to PDF converter;
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -8,14 +8,17 @@ documentation: UG
 
 # Excel to PDF Converter Settings
 
-XlsIO allows you to convert an entire workbook or a single worksheet into PDF document with Excel to PDF converter settings. Refer to the following links for assemblies/nuget packages required based on platforms to convert Excel document into PDF.
+XlsIO allows you to convert an entire workbook or a single worksheet into PDF document with conversion settings of Excel to PDF converter. Refer to the following links for assemblies/nuget packages required based on platforms to convert Excel document into PDF.
 
 * [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-document-to-pdf) 
 * [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-document-into-pdf)
 
 ## PDF Conformance Level
 
-Excel to PDF converter settings allows you to set the PDF conformance level. There are two conformance levels Pdf_A1B and Pdf_X1A2001.
+Excel to PDF converter settings allows you to set the PDF conformance level. Excel to PDF currently supports following PDF conformances.
+* PDF/A-1b conformance
+* PDF/X-1a conformance
+
 N> 1. To know more details about PDF conformance refer [https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance](https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance)
 N> 2. Pdf_X1A2001 is not supported for NETStandard.
 
@@ -102,7 +105,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Save the PDF document to stream.
     MemoryStream stream = new MemoryStream();
 
-    await doc.SaveAsync(stream);
+    await pdfDocument.SaveAsync(stream);
     Save(stream, "ExcelToPDF.pdf");
 
     excelStream.Dispose();
@@ -151,17 +154,17 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    FileStream excelStream = new FileStream("ExcelToPDF.xlsx", FileMode.Open, FileAccess.Read);
    IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-    //Initialize XlsIO renderer.
-    XlsIORenderer renderer = new XlsIORenderer();
+   //Initialize XlsIO renderer.
+   XlsIORenderer renderer = new XlsIORenderer();
 	
-	//Initialize XlsIO renderer settings
-	XlsIORendererSettings settings = new XlsIORendererSettings();
+   //Initialize XlsIO renderer settings
+   XlsIORendererSettings settings = new XlsIORendererSettings();
 
-    // Set the conformance for PDF/A-1b conversion
-    settings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B;
+   // Set the conformance for PDF/A-1b conversion
+   settings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B;
   
-    //Convert Excel document into PDF document 
-    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook, settings);
+   //Convert Excel document into PDF document 
+   PdfDocument pdfDocument = renderer.ConvertToPDF(workbook, settings);
 
    Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
    pdfDocument.Save(stream);
