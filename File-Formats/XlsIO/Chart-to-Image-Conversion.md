@@ -67,19 +67,122 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
-//XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//Chart To Image conversion can be performed by referring .NET Standard assemblies in UWP platform.
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  
+  //Initializing XlsIORenderer
+  application.XlsIORenderer = new XlsIORenderer();
+
+  //Set converter chart image format to PNG
+  application.XlsIORenderer.ExportChartImageOptions.ImageFormat = ExportImageFormat.Png;
+
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  IChart chart = worksheet.Charts[0];  
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "Output";
+  savePicker.FileTypeChoices.Add("Image Files", new List<string>() { ".png",".jpeg",".jpg" });
+
+  //Creates a storage file from the FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Converts and save to stream
+  var file = await storageFile.OpenAsync(FileAccessMode.ReadWrite);
+  Stream stream = file.AsStreamForWrite();
+  chart.SaveAsImage(stream);
+  await file.FlushAsync();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight asp.net core %}
-//XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  // Initialize XlsIORenderer
+  application.XlsIORenderer = new XlsIORenderer();
+  
+  //Set converter chart image format to PNG
+  application.XlsIORenderer.ExportChartImageOptions.ImageFormat = ExportImageFormat.Png;
+  
+  IWorkbook workbook = application.Workbooks.Open(File.OpenRead("Sample.xlsx"), ExcelOpenType.Automatic);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  IChart chart = worksheet.Charts[0];
+
+  //Creating the memory stream for chart image
+  MemoryStream stream = new MemoryStream();
+
+  //Saving the chart as image
+  chart.SaveAsImage(stream);
+
+   //Close and Dispose
+  workbook.Close();
+  stream.Dispose();
+}
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//XlsIO supports chart to image conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+
+  //Initializing XlsIORenderer
+  application.XlsIORenderer = new XlsIORenderer();
+
+  //Set converter chart image format to PNG
+  application.XlsIORenderer.ExportChartImageOptions.ImageFormat = ExportImageFormat.Png;
+  
+  //Gets assembly
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+  //Gets input Excel document from an embedded resource collection
+  Stream inputStream = assembly.GetManifestResourceStream("Sample.xlsx");
+
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  IChart chart = worksheet.Charts[0];  
+  
+   //Creating the memory stream for chart image
+  MemoryStream stream = new MemoryStream();
+
+  //Saving the chart as image
+  chart.SaveAsImage(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+      DependencyService.Get<ISaveWindowsPhone>()
+          .SaveAndView("Test.png", "image/png", stream);
+  else
+      DependencyService.Get<ISave>().SaveAndView("Test.png", "image/png", stream);
+}
 {% endhighlight %}
 {% endtabs %}  
 
-N> Chart conversion to image and PDF are supported from .NET Framework 4.0 onwards.
+N> 1. Instance of XlsIORenderer class is mandatory to convert the chart to image using .NET Standard 2.0 assemblies.
+N> 2. In .NET Standard, the Image format and quality can be specified using the ExportChartImageOptions property of XlsIORenderer class. By default the ImageFormat for chart is set to JPEG and ScalingMode is set to Best.
+N> 3. Chart conversion to image and PDF are supported from .NET Framework 4.0 and .NET Standard 2.0 onwards 
 
 ## Supported chart types
 XlsIO supports the following chart types in image conversion.
@@ -207,6 +310,8 @@ Excel 2016 Charts
 * Funnel<br/>* Waterfall<br/>* Histogram<br/>* Pareto<br/></td>
 </tr>
 </table>
+
+N> From the above supported chart types table, Waterfall and Line_3D charts are not supported in chart to image conversion in netstandard 2.0 platform.
 
 ## Supported chart elements
 XlsIO supports the following chart elements in image conversion:

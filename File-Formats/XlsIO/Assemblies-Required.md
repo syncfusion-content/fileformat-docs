@@ -173,6 +173,7 @@ UWP, .NET Core and Xamarin
 Syncfusion.Compression.Portable<br/>
 Syncfusion.XlsIO.Portable<br/>
 Syncfusion.Pdf.Portable<br/>
+Syncfusion.SkiaSharpHelper.Portable<br/>
 Syncfusion.XlsIORenderer.Portable
 </td>
 </tr>
@@ -211,6 +212,7 @@ UWP, .NET Core and Xamarin
 <td>
 Syncfusion.Compression.Portable<br/>
 Syncfusion.XlsIO.Portable<br/>
+Syncfusion.SkiaSharpHelper.Portable<br/>
 Syncfusion.XlsIORenderer.Portable
 </td>
 </tr>
@@ -221,7 +223,7 @@ N> Worksheet to image conversion is supported from .NET Framework 2.0 and .NET S
 
 ## Converting Excel Chart to Image
 
-The following assemblies are to be referred in addition to the above mentioned assemblies for converting charts present in the Excel document into PDF/Image.
+For converting an Excel Chart to image, the following assemblies need to be referenced in your application.
 <table>
 <tr>
 <th>
@@ -237,14 +239,26 @@ Assembly
 WPF, Windows Forms, ASP. NET and ASP.NET MVC
 </td>
 <td>
+Syncfusion.Compression.Base<br/>
+Syncfusion.XlsIO.Base<br/>
 Syncfusion.ExcelChartToImageConverter.WPF<br/>
 Syncfusion.SfChart.WPF
+</td>
+</tr>
+<tr>
+<td>
+UWP, .NET Core and Xamarin
+</td>
+<td>
+Syncfusion.Compression.Portable<br/>
+Syncfusion.XlsIO.Portable<br/>
+Syncfusion.SkiaSharpHelper.Portable<br/>
+Syncfusion.XlsIORenderer.Portable
 </td>
 </tr>
 </tbody>
 </table>
 
-N> 1. Chart to image conversion is supported from .NET Framework 4.0 onwards.
-N> 2. Chart to image conversion is not supported in .NET Standard.
+N>  Chart to image conversion is supported from .NET Framework 4.0 and .NET Standard 2.0 onwards.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your Xamarin application to use our components.

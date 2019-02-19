@@ -281,10 +281,26 @@ ASP.NET MVC5
 {{'[Syncfusion.ExcelChartToImageConverter.AspNet.Mvc5.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.AspNet.Mvc5/)'| markdownify }}
 </td>
 </tr>
+<tr>
+<td>
+UWP and .NET Core
+</td>
+<td>
+{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+Xamarin
+</td>
+<td>
+{{'[Syncfusion.Xamarin.XlsIORenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer/)'| markdownify }}
+</td>
+</tr>
 </table>
 
 N> 1. The "Syncfusion.ExcelChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards. 
-N> 2. Chart to image conversion is not supported in .NET Standard.
+N> 2. The "Syncfusion.Xamarin.XlsIORenderer.nupkg" or "Syncfusion.XlsIORenderer.Net.Core.nupkg" Nuget packages supports chart to image conversion only from .NET Standard 2.0 onwards.
 
 ## NuGet Package Installation and Uninstallation
 
@@ -393,10 +409,12 @@ Uninstall-package Syncfusion.XlsIO.UWP –RemoveDependencies
 ASP.NET Core
 </td>
 <td>
-Install-package Syncfusion.XlsIO.Net.Core
+* Install-package Syncfusion.XlsIO.Net.Core <br/><br/>
+* Install-package Syncfusion.XlsIORenderer.Net.Core
 </td>
 <td>
-Uninstall-package Syncfusion.XlsIO.Net.Core –RemoveDependencies
+* Uninstall-package Syncfusion.XlsIO.Net.Core –RemoveDependencies<br/><br/>
+* Uninstall-package Syncfusion.XlsIORenderer.Net.Core –RemoveDependencies
 </td>
 </tr>
 <tr>
@@ -404,10 +422,12 @@ Uninstall-package Syncfusion.XlsIO.Net.Core –RemoveDependencies
 Xamarin
 </td>
 <td>
-Install-package Syncfusion.Xamarin.XlsIO
+* Install-package Syncfusion.Xamarin.XlsIO <br/><br/>
+* Install-package Syncfusion.Xamarin.XlsIORenderer
 </td>
 <td>
-Uninstall-package Syncfusion.Xamarin.XlsIO –RemoveDependencies
+* Uninstall-package Syncfusion.Xamarin.XlsIO –RemoveDependencies <br/><br/>
+* Uninstall-package Syncfusion.Xamarin.XlsIORenderer –RemoveDependencies
 </td>
 </tr>
 </table>
