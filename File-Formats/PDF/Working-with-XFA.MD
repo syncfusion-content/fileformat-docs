@@ -1,5 +1,5 @@
 ---
-title: Working with XFA Forms
+title: Working with XFA Forms | Syncfusion
 description: This section explains how to create, fill, edit and modify the forms fields in the XFA document
 platform: file-formats
 control: PDF
