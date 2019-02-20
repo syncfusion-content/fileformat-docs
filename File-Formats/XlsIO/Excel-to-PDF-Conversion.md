@@ -621,7 +621,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IApplication application = excelEngine.Excel;
     
 	//Initializing XlsIORenderer
-	application.XlsIORenderer = new XlsIORenderer();
+	XlsIORenderer renderer = new XlsIORenderer();
 	
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -686,7 +686,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    IApplication application = excelEngine.Excel;
    
    //Initialize XlsIO renderer.
-   application.XlsIORenderer = new XlsIORenderer();
+   XlsIORenderer renderer = new XlsIORenderer();
    
    FileStream excelStream = new FileStream("chart.xlsx", FileMode.Open, FileAccess.Read);
    IWorkbook workbook = application.Workbooks.Open(excelStream);
@@ -710,7 +710,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     IApplication application = excelEngine.Excel;
 
 	//Initialize XlsIO renderer.
-    application.XlsIORenderer = new XlsIORenderer();
+    XlsIORenderer renderer = new XlsIORenderer();
 	
     //Gets assembly
     Assembly assembly = typeof(App).GetTypeInfo().Assembly;
