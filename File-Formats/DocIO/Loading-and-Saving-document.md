@@ -163,46 +163,6 @@ document.Open(wordDocumentStream, FormatType.Automatic, "password")
 
 {% endtabs %}  
 
-## Opening an existing incrementally saved DOC format Word documents
-
-Essential DocIO supports Word 97-2003 and later version documents. If you need to open unsupported version (incrementally saved DOC format), you can enable 'SkipIncrementalSaveValidation' property while opening the incrementally saved DOC format Word documents.
-
-{% tabs %}  
-
-{% highlight c# %}
-
-//Creates an empty Word document instance
-
-WordDocument document = new WordDocument();
-
-//Sets flag to skip old file format exception while opening document
-
-document.Settings.SkipIncrementalSaveValidation = true;
-
-//Loads or opens an existing incrementally saved DOC format through Open method of WordDocument class
-
-document.Open(fileName);
-
-{% endhighlight %}
-
-{% highlight vb.net %}
-
-'Creates an empty Word document instance
-
-Dim document As New WordDocument()
-
-'Sets flag to skip old file format exception while opening document
-
-document.Settings.SkipIncrementalSaveValidation = True
-
-'Loads or opens an existing incrementally saved DOC format through Open method of WordDocument class
-
-document.Open(fileName)
-
-{% endhighlight %}
-
-{% endtabs %}  
-
 ## Saving a Word document to file system
 
 You can save the created or manipulated word document to file system using `Save` method of `WordDocument` class. When you do not provide the format type, then the document is saved in Word 97-2003 (*.doc) format.
