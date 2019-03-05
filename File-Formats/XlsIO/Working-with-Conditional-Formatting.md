@@ -1,8 +1,8 @@
 ---
 title: Conditional Formatting | Excel library | Syncfusion
 description: Briefs about conditional formatting operations
-platform: XlsIO
-control: File-formats
+platform: File-formats
+control: XlsIO
 documentation: UG
 ---
 # Working with Conditional Formatting
@@ -447,7 +447,7 @@ N> The conditional formats for a single range should be added in descending orde
 
 When proper criteria is met, the output file looks as follows:
 
-![](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img1.jpeg)
+![working with conditional format](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img1.jpeg)
 
 
 ## Reading Conditional Formats in XlsIO
@@ -1950,7 +1950,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-![](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img2.jpeg)
+![Advanced conditional Formatting](Working-with-Conditional-Formatting_images/Working-with-Conditional-Formatting_img2.jpeg)
 
 
 __Excel__ __with__ __Conditional__ __Formatting__
