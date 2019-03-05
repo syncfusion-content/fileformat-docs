@@ -1,6 +1,6 @@
 ---
-title: Create, read, edit, convert Excel file in .NET applications [C#, VB.NET]
-description: Essential XlsIO is a .NET Excel library to create, read, edit, & convert Excel spreadsheet in WinForms, WPF, UWP, ASP.NET Core, ASP.NET MVC, Xamarin applications
+title: Overview of Syncfusion XlsIO library | C# / VB.NET Excel API
+description: Essential XlsIO is a .NET Excel library to create, read, edit & convert Excel file in WinForms, WPF, UWP, ASP.NET Core, ASP.NET MVC, Xamarin applications
 platform: file-formats
 control: XlsIO
 documentation: UG
