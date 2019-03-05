@@ -1,5 +1,5 @@
 ---
-title: NuGet Packages for XlsIO
+title: NuGet Packages for XlsIO | Syncfusion
 description: NuGet Packages for XlsIO library
 platform: file-formats
 control: XlsIO
@@ -300,7 +300,7 @@ Xamarin
 </table>
 
 N> 1. The "Syncfusion.ExcelChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards. 
-N> 2. The "Syncfusion.Xamarin.XlsIORenderer.nupkg" or "Syncfusion.XlsIORenderer.Net.Core.nupkg" Nuget packages supports chart to image conversion only from .NET Standard 2.0 onwards.
+N> 2. The "Syncfusion.Xamarin.XlsIORenderer.nupkg" or "Syncfusion.XlsIORenderer.Net.Core.nupkg" NuGet packages supports chart to image conversion only from .NET Standard 2.0 onwards.
 
 ## NuGet Package Installation and Uninstallation
 

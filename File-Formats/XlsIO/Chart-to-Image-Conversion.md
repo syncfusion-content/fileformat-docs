@@ -1,5 +1,5 @@
 ---
-title: Chart to Image Conversion
+title: Syncfusion Chart to Image Conversion 
 description: Briefs about Chart to Image conversion supported in XlsIO
 platform: File-formats
 control: XlsIO
@@ -311,11 +311,11 @@ Excel 2016 Charts
 </tr>
 </table>
 
-N> From the above supported chart types table, Waterfall and Line_3D charts are not supported in chart to image conversion in netstandard 2.0 platform.
+N> From the above supported chart types table, Waterfall and Line_3D charts are not supported in chart to image conversion in .NET Standard 2.0 platform.
 
 ## Supported chart elements
 XlsIO supports the following chart elements in image conversion:
-![](Working-With-Charts_images/chart-elements.jpeg)
+![chart elements](Working-With-Charts_images/chart-elements.jpeg)
 
 **Chart Elements:**
 1. Axis
