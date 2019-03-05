@@ -6,6 +6,8 @@ control: Syncfusion PowerPoint presentation
 documentation: 
 keywords: PowerPoint, slide, table, format-table, rows, columns, pptx
 ---
+# Working with PowerPoint Tables
+
 ## Create a table by adding rows
 
 Essential Presentation supports creating and editing tables in PowerPoint slides by adding rows. Refer to the following code example.
