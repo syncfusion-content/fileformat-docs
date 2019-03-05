@@ -1,5 +1,5 @@
 ---
-title: Conditional Formatting
+title: Conditional Formatting | Excel library | Syncfusion
 description: Briefs about conditional formatting operations
 platform: XlsIO
 control: File-formats
