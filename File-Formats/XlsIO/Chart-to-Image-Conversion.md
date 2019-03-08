@@ -1,5 +1,5 @@
 ---
-title: Syncfusion Chart to Image Conversion 
+title: Chart to Image Conversion | Syncfusion
 description: Briefs about Chart to Image conversion supported in XlsIO
 platform: File-formats
 control: XlsIO
