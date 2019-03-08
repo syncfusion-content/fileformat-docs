@@ -1,5 +1,5 @@
 ---
-title: Syncfusion XlsIO Supported Features by Platforms
+title: Syncfusion Excel (XlsIO) Supported Features by Platforms
 description: Briefs about supported and non-supported features of XlsIO in different platforms.
 platform: File-formats
 control: XlsIO

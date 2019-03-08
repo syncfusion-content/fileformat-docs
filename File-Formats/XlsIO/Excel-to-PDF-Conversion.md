@@ -561,7 +561,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 XlsIO allows you to convert a workbook/worksheet with charts or a single chart into PDF document.
 
-To preserve the charts during Excel To PDF conversion, initialize the ChartToImageConverter(<i> for .NET Framework</i>) or XlsIORenderer(<i> for .NET Standard</i>)  of **IApplication** interface otherwise the charts present in worksheet gets skipped. 
+To preserve the charts during Excel To PDF conversion in .NET Framework, initialize the ChartToImageConverter of **IApplication** interface otherwise the charts present in worksheet gets skipped.
 
 The following code illustrates how to convert an Excel with chart to PDF document.
 

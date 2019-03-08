@@ -223,7 +223,7 @@ N> Worksheet to image conversion is supported from .NET Framework 2.0 and .NET S
 
 ## Converting Excel Chart to Image
 
-For converting an Excel Chart to image, the following assemblies need to be referenced in your application.
+For converting an Excel chart to image, the following assemblies need to be referenced in your application.
 <table>
 <tr>
 <th>

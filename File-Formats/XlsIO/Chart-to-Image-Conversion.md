@@ -78,7 +78,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   application.XlsIORenderer = new XlsIORenderer();
 
   //Set converter chart image format to PNG
-  application.XlsIORenderer.ExportChartImageOptions.ImageFormat = ExportImageFormat.Png;
+  application.XlsIORenderer.ChartRenderingOptions.ImageFormat = ExportImageFormat.Png;
 
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -119,7 +119,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   application.XlsIORenderer = new XlsIORenderer();
   
   //Set converter chart image format to PNG
-  application.XlsIORenderer.ExportChartImageOptions.ImageFormat = ExportImageFormat.Png;
+  application.XlsIORenderer.ChartRenderingOptions.ImageFormat = ExportImageFormat.Png;
   
   IWorkbook workbook = application.Workbooks.Open(File.OpenRead("Sample.xlsx"), ExcelOpenType.Automatic);
   IWorksheet worksheet = workbook.Worksheets[0];
@@ -147,7 +147,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   application.XlsIORenderer = new XlsIORenderer();
 
   //Set converter chart image format to PNG
-  application.XlsIORenderer.ExportChartImageOptions.ImageFormat = ExportImageFormat.Png;
+  application.XlsIORenderer.ChartRenderingOptions.ImageFormat = ExportImageFormat.Png;
   
   //Gets assembly
   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -181,7 +181,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endtabs %}  
 
 N> 1. Instance of XlsIORenderer class is mandatory to convert the chart to image using .NET Standard 2.0 assemblies.
-N> 2. In .NET Standard, the Image format and quality can be specified using the ExportChartImageOptions property of XlsIORenderer class. By default the ImageFormat for chart is set to JPEG and ScalingMode is set to Best.
+N> 2. In .NET Standard, the Image format and quality can be specified using the ChartRenderingOptions property of XlsIORenderer class. By default the ImageFormat for chart is set to JPEG and ScalingMode is set to Best.
 N> 3. Chart conversion to image and PDF are supported from .NET Framework 4.0 and .NET Standard 2.0 onwards 
 
 ## Supported chart types
@@ -311,7 +311,7 @@ Excel 2016 Charts
 </tr>
 </table>
 
-N> From the above supported chart types table, Waterfall and Line_3D charts are not supported in chart to image conversion in .NET Standard 2.0 platform.
+N> From the above supported chart types table, Waterfall and Line_3D charts are not supported in chart to image conversion in .NET Standard 2.0 onwards.
 
 ## Supported chart elements
 XlsIO supports the following chart elements in image conversion:
