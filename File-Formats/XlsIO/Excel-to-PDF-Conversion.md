@@ -559,9 +559,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   
 ## Excel with chart to PDF
 
-XlsIO supports Excel To PDF conversion with chart in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. To achieve Excel to PDF conversion with chart in other platforms like UWP, Xamarin, ASP.NET Core it is recommended to use web service.
+XlsIO allows you to convert a workbook/worksheet with charts or a single chart into PDF document.
 
-To preserve the charts during Excel To PDF conversion, initialize the ChartToImageConverter of **IApplication** interface otherwise the charts present in worksheet gets skipped. The following code illustrates how to convert an Excel with chart to PDF document.
+To preserve the charts during Excel To PDF conversion in .NET Framework, initialize the ChartToImageConverter of **IApplication** interface otherwise the charts present in worksheet gets skipped.
+
+The following code illustrates how to convert an Excel with chart to PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -611,261 +613,139 @@ End Using
 {% endhighlight %}
 
 {% highlight UWP %}
+//Excel To PDF conversion can be performed by referring .NET Standard 2.0 assemblies in UWP platform
 
 #region Excel To PDF
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Gets input Excel document from an embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.Data.ExcelToPDF.xlsx");
-
-//Output stream to save PDF
-MemoryStream outputStream = null;
-
-//Creates new instance of HttpClient to access service
-HttpClient client = new HttpClient();
-
-//Web service URI 
-string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
-
-//Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
-HttpResponseMessage response = null;
-try
+using (ExcelEngine excelEngine = new ExcelEngine())
 {
-  response = await client.PostAsync(requestUri, new StreamContent(inputStream));
+    IApplication application = excelEngine.Excel;
+    
+	//Initializing XlsIORenderer
+	XlsIORenderer renderer = new XlsIORenderer();
+	
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-  //Dispose the input stream and client instances
-  inputStream.Dispose();
-  client.Dispose();
-}
-catch (Exception ex)
-{
-  return;
-}
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("chart.xlsx");
+	
+    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
+	    
+	//Convert Excel document with charts into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);	
+	
+	//Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
 
-//Gets PDF from content stream if the service get success
-if (response.IsSuccessStatusCode)
-{
-  var responseHeaders = response.Headers;
-  outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
+    await doc.SaveAsync(stream);
+    Save(stream, "ExcelToPDF.pdf");
 
-  //Dispose the response instance
-  response.Dispose();
-}
-
-else
-{
-  return;
+    excelStream.Dispose();
+    stream.Dispose();
 }
 #endregion
 
 //Save the workbook stream as a file.
 
 #region Setting output location
-StorageFile storageFile;
-if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+async void Save(Stream stream, string filename)
 {
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "ExcelToPDF";
-  savePicker.FileTypeChoices.Add("PDF File", new List<string>() { ".pdf", });
-  storageFile = await savePicker.PickSaveFileAsync();
-}
-else
-{
-  StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-  storageFile = await local.CreateFileAsync("ExcelToPDF.xlsx", CreationCollisionOption.ReplaceExisting);
-}
+    stream.Position = 0;
 
-if (storageFile == null)
-  return;
-
-using (Stream storageStream = await storageFile.OpenStreamForWriteAsync())
-{
-    if (storageStream.CanSeek)
-      storageStream.SetLength(0);
-    storageStream.Write(outputStream.ToArray(), 0, (int)outputStream.Length);
-    outputStream.Dispose();
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = "Sample";
+        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+        Stream st = fileStream.AsStreamForWrite();
+        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+        st.Flush();
+        st.Dispose();
+        fileStream.Dispose();
+    }
 }
 #endregion
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//Gets assembly
-Assembly assembly = typeof(Program).GetTypeInfo().Assembly;
-
-//Gets input Excel document from an embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.Spreadsheet.xlsx");
-
-//Creates new instance of HttpClient to access the service
-HttpClient client = new HttpClient();
-
-//Web service URI 
-string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
-
-//Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
-HttpResponseMessage response = null;
-try
+using (ExcelEngine excelEngine = new ExcelEngine())
 {
-    response = await client.PostAsync(requestUri, new StreamContent(inputStream));
+   IApplication application = excelEngine.Excel;
+   
+   //Initialize XlsIO renderer.
+   XlsIORenderer renderer = new XlsIORenderer();
+   
+   FileStream excelStream = new FileStream("chart.xlsx", FileMode.Open, FileAccess.Read);
+   IWorkbook workbook = application.Workbooks.Open(excelStream);
 
-    //Dispose the input stream and client instances
-    inputStream.Dispose();
-    client.Dispose();
+   //Convert Excel document with charts into PDF document 
+   PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+   Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+   pdfDocument.Save(stream);
+
+   excelStream.Dispose();
+   stream.Dispose();
 }
-catch (Exception ex)
-{
-    return;
-}
-
-MemoryStream outputStream = null;
-
-//Gets PDF from content stream if the service get success
-if (response.IsSuccessStatusCode)
-{
-    var responseHeaders = response.Headers;
-    outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
-    //Dispose the response instance.
-    response.Dispose();
-}
-else
-{
-    return;
-}
-
-//Saving the workbook as stream
-FileStream stream = new FileStream("Output.pdf", FileMode.Create, FileAccess.ReadWrite);
-outputStream.CopyTo(stream);
-
-outputStream.Close();
-outputStream.Dispose();
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//Gets assembly
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Gets input Excel document from an embedded resource collection
-Stream inputStream = assembly.GetManifestResourceStream("ExcelToPDF.ExcelToPDF.xlsx");
-
-//Creates new instance of HttpClient to access service
-HttpClient client = new HttpClient();
-
-//Web service URI 
-string requestUri = "http://js.syncfusion.com/demos/ioservices/api/excel/converttopdf";
-
-//Posts input Excel document to service and gets resultant PDF as content of HttpResponseMessage
-HttpResponseMessage response = null;
-response = await client.PostAsync(requestUri, new StreamContent(inputStream));
-
-//Dispose the input stream and client instances
-inputStream.Dispose();
-client.Dispose();
-
-MemoryStream outputStream = null;
-
-//Gets PDF from content stream if the service get success
-if (response.IsSuccessStatusCode)
+using (ExcelEngine excelEngine = new ExcelEngine())
 {
-  var responseHeaders = response.Headers;
-  outputStream = new MemoryStream(await response.Content.ReadAsByteArrayAsync());
-  //Dispose the response instance.
-  response.Dispose();
-}
-else
-{
-  return;
-}
+    IApplication application = excelEngine.Excel;
 
-//Save the stream as Excel document and view the saved document
+	//Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+	
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("chart.xlsx");
 
-if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-{
-  await DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", outputStream);
-}
-else
-{
-  DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", outputStream);
-}
-
-//Dispose the output stream instance
-outputStream.Dispose();
-{% endhighlight %}
-{% endtabs %}  
-
-**Web Service**
-
-The web service code that converts Excel document at server-side and returns the resultant PDF document as content of HttpResponseMessage at client-side.
-
-> The following server-side code can be invoked from client-side using web service URI.
-
-{% tabs %}
-{% highlight c# %}
-HttpFileCollection files = HttpContext.Current.Request.Files;
-
-if (files.Count == 0)
-    return;
+    IWorkbook workbook = application.Workbooks.Open(excelStream);
     
-//Loads an existing Excel document stream	
-using (Stream stream = files[0].InputStream)
-{
-  using (ExcelEngine engine = new ExcelEngine())
-  {
-    IApplication application = engine.Excel;
-	
-    //Initializes the ChartToImageConverter for converting charts during Excel To PDF conversion
-    application.ChartToImageConverter = new ChartToImageConverter();
-    application.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
-	
-    //Creates an instance of the ExcelToPDFConverter
-    using (ExcelToPdfConverter excelToPDFConverter = new ExcelToPdfConverter(stream))
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+    doc.Save(stream);
+
+    stream.Position = 0;
+
+    //Save the stream into pdf file
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     {
-      //Converts Excel document into PDF document
-      using (PdfDocument pdfDocument = excelToPDFConverter.Convert())
-      {
-        //Saves the PDF document to response stream
-        pdfDocument.Save("ExcelToPDF.pdf", HttpContext.Current.Response, HttpReadType.Save);
-        pdfDocument.Close(true);
-      }
-    } 
-  }
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+
+    excelStream.Dispose();
+    stream.Dispose();
 }
-{% endhighlight %}
-{% highlight vb %}
-Dim files As HttpFileCollection = HttpContext.Current.Request.Files
 
-If files.Count = 0 Then Return
-
-'Loads an existing Excel document stream
-Using stream As Stream = files(0).InputStream
-      Using engine As ExcelEngine = New ExcelEngine()
-          Dim application As IApplication = engine.Excel
-          
-          'Initializes the ChartToImageConverter for converting charts during Excel To PDF conversion
-          application.ChartToImageConverter = New ChartToImageConverter()
-          application.ChartToImageConverter.ScalingMode = ScalingMode.Normal
-          
-          'Creates an instance of the ExcelToPDFConverter
-          Using excelToPDFConverter As ExcelToPdfConverter = New ExcelToPdfConverter(stream)
-          
-             'Converts Excel document into PDF document
-              Using pdfDocument As PdfDocument = excelToPDFConverter.Convert()
-              
-                 'Saves the PDF document to response stream
-                  pdfDocument.Save("ExcelToPDF.pdf", HttpContext.Current.Response, HttpReadType.Save)
-                  pdfDocument.Close(True)
-                  
-              End Using
-          End Using
-      End Using
-End Using
 {% endhighlight %}
-{% endtabs %}
+
+{% endtabs %}  
 
 ## Excel to PDF conversion in Linux OS
 
