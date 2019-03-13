@@ -98,7 +98,7 @@ N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 N> 3. Starting with v15.3.0.x, a new Visual Studio add-in "Syncfusion Reference Manager" for WPF, and Windows Forms platforms is included. Using this add-in, you can easily add the necessary reference assemblies to your projects in an automated way. Please refer to this [link](https://help.syncfusion.com/extension/syncfusion-reference-manager/overview) for more information.
 N> 4. Word to PDF conversion is supported in ASP.NET Core and Xamarin from 2018 Volume 1 release (v16.1.0.24) using SkiaSharp graphics library.
 N> 5. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal applications.
-N> 6. Starting with v17.1.0.x, if you reference Syncfusion assemblies, you also have to add "Syncfusion.SkiaSharpHelper" assembly reference in your projects.
+N> 6. Starting with v17.1.0.x, if you reference "Syncfusion.DocIORenderer", you also have to add "Syncfusion.SkiaSharpHelper" assembly reference in your projects to perform Word to PDF conversion.
 
 ## Converting Charts
 
