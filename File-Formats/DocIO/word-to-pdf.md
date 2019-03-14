@@ -105,6 +105,10 @@ WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatT
 
 DocIORenderer render = new DocIORenderer();
 
+//Sets Chart rendering Options.
+
+renderer.Settings.ChartRenderingOptions.ImageFormat =  ExportImageFormat.Jpeg;
+
 //Converts Word document into PDF document
 
 PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
@@ -138,6 +142,10 @@ WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatT
 //Instantiation of DocIORenderer for Word to PDF conversion
 
 DocIORenderer render = new DocIORenderer();
+
+//Sets Chart rendering Options.
+
+renderer.Settings.ChartRenderingOptions.ImageFormat =  ExportImageFormat.Jpeg;
 
 //Converts Word document into PDF document
 

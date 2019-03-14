@@ -118,4 +118,3 @@ N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 N> 3. Starting with v15.3.0.x, a new Visual Studio add-in "Syncfusion Reference Manager" for WPF, and Windows Forms platforms is included. Using this add-in, you can easily add the necessary reference assemblies to your projects in an automated way. Please refer to this [link](https://help.syncfusion.com/extension/syncfusion-reference-manager/overview) for more information.
 N> 4. The above mentioned assemblies is supported from .NET Framework 4.0 onwards.
-N> 5. Chart conversion is not supported in ASP.NET Core (Targeting .netcoreapp) and Xamarin platforms.
