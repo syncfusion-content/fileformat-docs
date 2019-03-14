@@ -6669,6 +6669,211 @@ else
 
 {% endtabs %}  
 
+## Fill the XFA form fields along with Acroform in a same API
+
+The static XFA document contains both the XFA and Acroforms.
+ 
+The Essential PDF supports filling both the XFA and Acroforms in a same instance (Fills the XFA form via Acorform instance) by enabling the EnableXfaFormFill property available in the PdfLoadedForm instance.
+
+The following code snippet illustrates how to fill XFA forms via Acroform API
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Load the existing XFA PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Form.pdf");
+
+//Get the existing Acroform
+
+PdfLoadedForm acroform = loadedDocument.Form;
+
+//Enable XFA form filling
+
+acroform.EnableXfaFormFill = true;
+
+//Get the existing text box field
+
+PdfLoadedTextBoxField firstName = acroform.Fields["FirstName"] as PdfLoadedTextBoxField;
+
+//Set text
+
+firstName.Text = "Simons";
+
+PdfLoadedTextBoxField lastName = acroform.Fields["LastName"] as PdfLoadedTextBoxField;
+
+//Set text
+
+lastName.Text = "Bistro";
+
+//Save the document
+
+loadedDocument.Save("output.pdf");
+
+//Close the document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing XFA PDF document
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Form.pdf")
+
+'Get the existing Acroform
+
+Dim acroform As PdfLoadedForm = loadedDocument.Form
+
+'Enable XFA form filling
+
+acroform.EnableXfaFormFill = True
+
+'Get the existing text box field
+
+Dim firstName As PdfLoadedTextBoxField = TryCast(acroform.Fields("FirstName"), PdfLoadedTextBoxField)
+
+'Set text
+
+firstName.Text = "Simons"
+
+Dim lastName As PdfLoadedTextBoxField = TryCast(acroform.Fields("LastName"), PdfLoadedTextBoxField)
+
+'Set text
+
+lastName.Text = "Bistro"
+
+'Save the document
+
+loadedDocument.Save("output.pdf")
+
+'Close the document
+
+loadedDocument.Close(True)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Get the existing Acroform
+
+PdfLoadedForm acroform = loadedDocument.Form;
+
+//Enable XFA form filling
+
+acroform.EnableXfaFormFill = true;
+
+//Get the existing text box field
+
+PdfLoadedTextBoxField firstName = acroform.Fields["FirstName"] as PdfLoadedTextBoxField;
+
+//Set text
+
+firstName.Text = "Simons";
+
+PdfLoadedTextBoxField lastName = acroform.Fields["LastName"] as PdfLoadedTextBoxField;
+
+//Set text
+
+lastName.Text = "Bistro";
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Form.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the existing Acroform
+
+PdfLoadedForm acroform = loadedDocument.Form;
+
+//Enable XFA form filling
+
+acroform.EnableXfaFormFill = true;
+
+//Get the existing text box field
+
+PdfLoadedTextBoxField firstName = acroform.Fields["FirstName"] as PdfLoadedTextBoxField;
+
+//Set text
+
+firstName.Text = "Simons";
+
+PdfLoadedTextBoxField lastName = acroform.Fields["LastName"] as PdfLoadedTextBoxField;
+
+//Set text
+
+lastName.Text = "Bistro";
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0', then the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% endtabs %}  
+
+
 ## Removing editing capability of form fields
 
 The form field editing or filling capabilities can be removed by either flattening the PDF document or by marking the form or field as read only.
