@@ -5532,3 +5532,635 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Importing annotations from FDF file
+
+FDF stands for Forms Data Format. FDF is a file format for representing annotations present in a PDF document. You can import annotation data from the FDF file to PDF using the ImportAnnotations method in PdfLoadedDocument class.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Loads the document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
+
+//Import annotation data from FDF file
+
+lDoc.ImportAnnotations("Annotations.fdf", AnnotationDataFormat.Fdf);
+
+//Saves the document
+
+lDoc.Save("Annotation.pdf");
+
+lDoc.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads the document
+
+Dim lDoc As New PdfLoadedDocument("input.pdf")
+
+'Import annotation data from FDF file
+
+lDoc.ImportAnnotations("Annotations.fdf", AnnotationDataFormat.Fdf)
+
+'Saves the document
+
+lDoc.Save("Annotation.pdf")
+
+lDoc.Close(True)
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class
+
+await lDoc.OpenAsync(file);
+
+//Load the FDF file stream from the disk
+
+Stream fdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Annotations.fdf");
+
+'Import annotation data from FDF stream
+
+lDoc.ImportAnnotations(fdfStream, AnnotationDataFormat.Fdf)
+
+MemoryStream stream = new MemoryStream();
+
+await lDoc.SaveAsync(stream);
+
+//Close the document
+
+lDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Annotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Import annotation data from FDF stream
+
+FileStream fdfStream = new FileStream("Annotations.fdf", FileMode.Open, FileAccess.Read);
+
+lDoc.ImportAnnotations(fdfStream, AnnotationDataFormat.Fdf)
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+lDoc.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Annotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Import annotation data from FDF stream
+
+Stream fdfStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Annotations.fdf");
+
+lDoc.ImportAnnotations(fdfStream, AnnotationDataFormat.Fdf)
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+//Close the document
+
+lDoc.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Annotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Annotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Importing annotations from XFDF file
+
+XFDF stands for XML Forms Data Format. XFDF is the XML version of FDF for representing annotations that are contained in a PDF document. You can import annotation data from the XFDF file to PDF using the ImportAnnotations method in PdfLoadedDocument class.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Loads the document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
+
+//Import annotation data from XFDF file
+
+lDoc.ImportAnnotations("Annotations.xfdf", AnnotationDataFormat.XFdf);
+
+//Saves the document
+
+lDoc.Save("Annotation.pdf");
+
+lDoc.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads the document
+
+Dim lDoc As New PdfLoadedDocument("input.pdf")
+
+'Import annotation data from XFDF file
+
+lDoc.ImportAnnotations("Annotations.xfdf", AnnotationDataFormat.XFdf)
+
+'Saves the document
+
+lDoc.Save("Annotation.pdf")
+
+lDoc.Close(True)
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class
+
+await lDoc.OpenAsync(file);
+
+//Load the XFDF file stream from the disk
+
+Stream xfdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Annotations.xfdf");
+
+'Import annotation data from XFDF stream
+
+lDoc.ImportAnnotations(xfdfStream, AnnotationDataFormat.XFdf)
+
+MemoryStream stream = new MemoryStream();
+
+await lDoc.SaveAsync(stream);
+
+//Close the document
+
+lDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Annotation.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Import annotation data from XFDF stream
+
+FileStream xfdfStream = new FileStream("Annotations.xfdf", FileMode.Open, FileAccess.Read);
+
+lDoc.ImportAnnotations(xfdfStream, AnnotationDataFormat.XFdf)
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+lDoc.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Annotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Import annotation data from XFDF stream
+
+Stream xfdfStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Annotations.xfdf");
+
+lDoc.ImportAnnotations(xfdfStream, AnnotationDataFormat.XFdf)
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+//Close the document
+
+lDoc.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Annotation.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Annotation.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Exporting annotations to FDF file
+
+To export annotation data to the FDF file from PDF document, you can use the ExportAnnotations method in PdfLoadedDocument class.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Loads the document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
+
+//Export annotation data to FDF file
+
+lDoc.ExportAnnotations("Annotations.fdf", AnnotationDataFormat.Fdf);
+
+//Close the document
+
+lDoc.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads the document
+
+Dim lDoc As New PdfLoadedDocument("input.pdf")
+
+'Export annotation data to FDF file
+
+lDoc.ExportAnnotations("Annotations.fdf", AnnotationDataFormat.Fdf)
+
+'Close the document
+
+lDoc.Close(True)
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class
+
+await lDoc.OpenAsync(file);
+
+//Load the FDF file stream from the disk
+
+Stream fdfStream = new MemoryStream();
+
+//Export annotation data from FDF stream
+
+lDoc.ExportAnnotations(fdfStream, AnnotationDataFormat.Fdf)
+
+//Save the fdfStream as FDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(fdfStream, "Annotations.fdf");
+
+//Close the document
+
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Export annotation data from FDF stream
+
+Stream fdfStream = new MemoryStream();
+
+lDoc.ExportAnnotations(fdfStream, AnnotationDataFormat.Fdf)
+
+//Close the document
+
+lDoc.Close(true);
+
+fdfStream.Position = 0;
+
+//Defining the ContentType for FDF file
+
+string contentType = "application/fdf";
+
+//Define the file name
+
+string fileName = "Annotations.fdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(fdfStream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Export annotation data from FDF stream
+
+Stream fdfStream = new MemoryStream();
+
+lDoc.ExportAnnotations(fdfStream, AnnotationDataFormat.Fdf)
+
+//Close the document
+
+lDoc.Close(true);
+
+//Save the stream into FDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Annotations.fdf", "application/fdf", fdfStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Annotations.fdf", "application/fdf", fdfStream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Exporting annotations to XFDF file
+
+To export annotation data to the XFDF file from PDF document, you can use the ExportAnnotations method in PdfLoadedDocument class.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Loads the document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf");
+
+//Export annotation data to XFDF file
+
+lDoc.ExportAnnotations("Annotations.xfdf", AnnotationDataFormat.XFdf);
+
+//Close the document
+
+lDoc.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loads the document
+
+Dim lDoc As New PdfLoadedDocument("input.pdf")
+
+'Export annotation data to XFDF file
+
+lDoc.ExportAnnotations("Annotations.xfdf", AnnotationDataFormat.XFdf)
+
+'Close the document
+
+lDoc.Close(True)
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class
+
+await lDoc.OpenAsync(file);
+
+//Load the XFDF file stream from the disk
+
+Stream xfdfStream = new MemoryStream();
+
+//Export annotation data from XFDF stream
+
+lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf)
+
+//Save the xfdfStream as XFDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(xfdfStream, "Annotations.xfdf");
+
+//Close the document
+
+lDoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Export annotation data from XFDF stream
+
+Stream xfdfStream = new MemoryStream();
+
+lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf)
+
+//Close the document
+
+lDoc.Close(true);
+
+xfdfStream.Position = 0;
+
+//Defining the ContentType for XFDF file
+
+string contentType = "application/xfdf";
+
+//Define the file name
+
+string fileName = "Annotations.xfdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(xfdfStream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Export annotation data from XFDF stream
+
+Stream xfdfStream = new MemoryStream();
+
+lDoc.ExportAnnotations(xfdfStream, AnnotationDataFormat.XFdf)
+
+//Close the document
+
+lDoc.Close(true);
+
+//Save the stream into XFDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Annotations.xfdf", "application/xfdf", fdfStream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Annotations.xfdf", "application/xfdf", fdfStream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
