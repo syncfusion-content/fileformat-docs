@@ -5871,7 +5871,7 @@ else
 
 ## Exporting annotations to FDF file
 
-To export annotation data to the FDF file from PDF document, you can use the ImportAnnotations method in PdfLoadedDocument class.
+To export annotation data to the FDF file from PDF document, you can use the ExportAnnotations method in PdfLoadedDocument class.
 
 {% tabs %}
 
@@ -6019,7 +6019,7 @@ else
 
 ## Exporting annotations to XFDF file
 
-To export annotation data to the XFDF file from PDF document, you can use the ImportAnnotations method in PdfLoadedDocument class.
+To export annotation data to the XFDF file from PDF document, you can use the ExportAnnotations method in PdfLoadedDocument class.
 
 {% tabs %}
 
