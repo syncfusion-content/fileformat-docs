@@ -5533,7 +5533,7 @@ else
 
 {% endtabs %}
 
-## Importing FDF file to PDF
+## Importing annotations from FDF file
 
 FDF stands for Forms Data Format. FDF is a file format for representing annotations present in a PDF document. You can import annotation data from the FDF file to PDF using the ImportAnnotations method in PdfLoadedDocument class.
 
@@ -5701,7 +5701,7 @@ else
 
 {% endtabs %}
 
-## Importing XFDF file to PDF
+## Importing annotations from XFDF file
 
 XFDF stands for XML Forms Data Format. XFDF is the XML version of FDF for representing annotations that are contained in a PDF document. You can import annotation data from the XFDF file to PDF using the ImportAnnotations method in PdfLoadedDocument class.
 
@@ -5869,7 +5869,7 @@ else
 
 {% endtabs %}
 
-## Exporting PDF file to FDF
+## Exporting annotations to FDF file
 
 To export annotation data to the FDF file from PDF document, you can use the ImportAnnotations method in PdfLoadedDocument class.
 
@@ -6017,7 +6017,7 @@ else
 
 {% endtabs %}
 
-## Exporting PDF file to XFDF
+## Exporting annotations to XFDF file
 
 To export annotation data to the XFDF file from PDF document, you can use the ImportAnnotations method in PdfLoadedDocument class.
 
