@@ -1693,6 +1693,313 @@ else
 
 {% endtabs %}  
 
+### Retrieving option values from acroform radio button
+
+The Essential PDF supports retrieving option values from acroform radio button. The OptionValue property is used to get option values of PdfLoadedRadioButtonItem instance.
+
+The following code example illustrates how to get option values from acroform radio button.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Load an existing document
+
+PdfLoadedDocument doc = new PdfLoadedDocument("SourceForm.pdf");
+
+//Gets the loaded form
+
+PdfLoadedForm form = doc.Form;
+
+//Set default appearance to false
+
+form.SetDefaultAppearance(false);
+
+//Gets the 'Gender' radio button field   
+
+PdfLoadedRadioButtonListField radioButtonField = form.Fields["Gender"] as PdfLoadedRadioButtonListField;
+
+//Select the item that contains option value as "Male"
+
+foreach (PdfLoadedRadioButtonItem item in radioButtonField.Items)
+
+{
+
+//Gets an option value of the item
+
+if (item.OptionValue == "Male")
+
+{
+
+item.Selected = true;
+
+}
+
+}
+
+//Save and close the PDF document
+
+doc.Save("Form.pdf");
+
+doc.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Load an existing document
+
+Dim doc As New PdfLoadedDocument("SourceForm.pdf")
+
+'Gets the loaded form
+
+Dim form As PdfLoadedForm = doc.Form
+
+'Set default appearance to false
+
+form.SetDefaultAppearance(False)
+
+'Gets the 'Gender' radio button field   
+
+Dim radioButtonField As PdfLoadedRadioButtonListField = TryCast(form.Fields("Gender"), PdfLoadedRadioButtonListField)
+
+'Select the item that contains option value as "Male"
+
+For Each item As PdfLoadedRadioButtonItem In radioButtonField.Items
+
+'Gets an option value of the item
+
+If item.OptionValue = "Male" Then
+
+item.Selected = True
+
+End If
+
+Next
+
+'Save and close the PDF document
+
+doc.Save("Form.pdf")
+
+doc.Close(True)
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument doc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class
+
+await doc.OpenAsync(file);
+
+//Gets the loaded form
+
+
+PdfLoadedForm form = doc.Form;
+
+//Set default appearance to false
+
+form.SetDefaultAppearance(false);
+
+//Gets the 'Gender' radio button field   
+
+PdfLoadedRadioButtonListField radioButtonField = form.Fields["Gender"] as PdfLoadedRadioButtonListField;
+
+//Select the item that contains option value as "Male"
+
+foreach (PdfLoadedRadioButtonItem item in radioButtonField.Items)
+
+{
+
+//Gets an option value of the item
+
+if (item.OptionValue == "Male")
+
+{
+
+item.Selected = true;
+
+}
+
+}
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Gets the loaded form
+
+PdfLoadedForm form = doc.Form;
+
+//Set default appearance to false
+
+form.SetDefaultAppearance(false);
+
+//Gets the 'Gender' radio button field   
+
+PdfLoadedRadioButtonListField radioButtonField = form.Fields["Gender"] as PdfLoadedRadioButtonListField;
+
+//Select the item that contains option value as "Male"
+
+foreach (PdfLoadedRadioButtonItem item in radioButtonField.Items)
+
+{
+
+//Gets an option value of the item
+
+if (item.OptionValue == "Male")
+
+{
+
+item.Selected = true;
+
+}
+
+}
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+doc.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Get the loaded form
+
+PdfLoadedForm form = doc.Form;
+
+//Set default appearance to false
+
+form.SetDefaultAppearance(false);
+
+//Gets the 'Gender' radio button field   
+
+PdfLoadedRadioButtonListField radioButtonField = form.Fields["Gender"] as PdfLoadedRadioButtonListField;
+
+//Select the item that contains option value as "Male"
+
+foreach (PdfLoadedRadioButtonItem item in radioButtonField.Items)
+
+{
+
+//Gets an option value of the item
+
+if (item.OptionValue == "Male")
+
+{
+
+item.Selected = true;
+
+}
+
+}
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document
+
+doc.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+
+{
+
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+
+}
+
+else
+
+{
+
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+
+}
+
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ### Adding the list box field
 
 You can create the list box field in PDF forms using PdfListBoxField class.
