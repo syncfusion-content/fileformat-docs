@@ -2604,15 +2604,10 @@ else
 The Essential PDF provides support to get the certificate details from an existing signed PDF document such as,
 
 * Signed date
-
 * Expiry date
-
 * Signed name
-
 * Subject name
-
 * Issuer name
-
 * Certificate distinguished names (country, state, street, email, organization, organization unit, locality, and more).
 
 You can get the above certificate details from an existing signed PDF document by using the following code snippet.
