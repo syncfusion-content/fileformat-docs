@@ -1693,6 +1693,313 @@ else
 
 {% endtabs %}  
 
+### Retrieving option values from acroform radio button
+
+The Essential PDF supports retrieving option values from acroform radio button. The OptionValue property is used to get option values of PdfLoadedRadioButtonItem instance.
+
+The following code example illustrates how to get option values from acroform radio button.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Load an existing document
+
+PdfLoadedDocument doc = new PdfLoadedDocument("SourceForm.pdf");
+
+//Gets the loaded form
+
+PdfLoadedForm form = doc.Form;
+
+//Set default appearance to false
+
+form.SetDefaultAppearance(false);
+
+//Gets the 'Gender' radio button field   
+
+PdfLoadedRadioButtonListField radioButtonField = form.Fields["Gender"] as PdfLoadedRadioButtonListField;
+
+//Select the item that contains option value as "Male"
+
+foreach (PdfLoadedRadioButtonItem item in radioButtonField.Items)
+
+{
+
+//Gets an option value of the item
+
+if (item.OptionValue == "Male")
+
+{
+
+item.Selected = true;
+
+}
+
+}
+
+//Save and close the PDF document
+
+doc.Save("Form.pdf");
+
+doc.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Load an existing document
+
+Dim doc As New PdfLoadedDocument("SourceForm.pdf")
+
+'Gets the loaded form
+
+Dim form As PdfLoadedForm = doc.Form
+
+'Set default appearance to false
+
+form.SetDefaultAppearance(False)
+
+'Gets the 'Gender' radio button field   
+
+Dim radioButtonField As PdfLoadedRadioButtonListField = TryCast(form.Fields("Gender"), PdfLoadedRadioButtonListField)
+
+'Select the item that contains option value as "Male"
+
+For Each item As PdfLoadedRadioButtonItem In radioButtonField.Items
+
+'Gets an option value of the item
+
+If item.OptionValue = "Male" Then
+
+item.Selected = True
+
+End If
+
+Next
+
+'Save and close the PDF document
+
+doc.Save("Form.pdf")
+
+doc.Close(True)
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument doc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through the Open method of PdfLoadedDocument class
+
+await doc.OpenAsync(file);
+
+//Gets the loaded form
+
+
+PdfLoadedForm form = doc.Form;
+
+//Set default appearance to false
+
+form.SetDefaultAppearance(false);
+
+//Gets the 'Gender' radio button field   
+
+PdfLoadedRadioButtonListField radioButtonField = form.Fields["Gender"] as PdfLoadedRadioButtonListField;
+
+//Select the item that contains option value as "Male"
+
+foreach (PdfLoadedRadioButtonItem item in radioButtonField.Items)
+
+{
+
+//Gets an option value of the item
+
+if (item.OptionValue == "Male")
+
+{
+
+item.Selected = true;
+
+}
+
+}
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await doc.SaveAsync(stream);
+
+//Close the document
+
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Gets the loaded form
+
+PdfLoadedForm form = doc.Form;
+
+//Set default appearance to false
+
+form.SetDefaultAppearance(false);
+
+//Gets the 'Gender' radio button field   
+
+PdfLoadedRadioButtonListField radioButtonField = form.Fields["Gender"] as PdfLoadedRadioButtonListField;
+
+//Select the item that contains option value as "Male"
+
+foreach (PdfLoadedRadioButtonItem item in radioButtonField.Items)
+
+{
+
+//Gets an option value of the item
+
+if (item.OptionValue == "Male")
+
+{
+
+item.Selected = true;
+
+}
+
+}
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+doc.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument doc = new PdfLoadedDocument(docStream);
+
+//Get the loaded form
+
+PdfLoadedForm form = doc.Form;
+
+//Set default appearance to false
+
+form.SetDefaultAppearance(false);
+
+//Gets the 'Gender' radio button field   
+
+PdfLoadedRadioButtonListField radioButtonField = form.Fields["Gender"] as PdfLoadedRadioButtonListField;
+
+//Select the item that contains option value as "Male"
+
+foreach (PdfLoadedRadioButtonItem item in radioButtonField.Items)
+
+{
+
+//Gets an option value of the item
+
+if (item.OptionValue == "Male")
+
+{
+
+item.Selected = true;
+
+}
+
+}
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+doc.Save(stream);
+
+//Close the document
+
+doc.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+
+{
+
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+
+}
+
+else
+
+{
+
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+
+}
+
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ### Adding the list box field
 
 You can create the list box field in PDF forms using PdfListBoxField class.
@@ -6361,6 +6668,211 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Fill the XFA form fields along with Acroform in a same API
+
+The static XFA document contains both the XFA and Acroforms.
+ 
+The Essential PDF supports filling both the XFA and Acroforms in a same instance (Fills the XFA form via Acorform instance) by enabling the EnableXfaFormFill property available in the PdfLoadedForm instance.
+
+The following code snippet illustrates how to fill XFA forms via Acroform API
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Load the existing XFA PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Form.pdf");
+
+//Get the existing Acroform
+
+PdfLoadedForm acroform = loadedDocument.Form;
+
+//Enable XFA form filling
+
+acroform.EnableXfaFormFill = true;
+
+//Get the existing text box field
+
+PdfLoadedTextBoxField firstName = acroform.Fields["FirstName"] as PdfLoadedTextBoxField;
+
+//Set text
+
+firstName.Text = "Simons";
+
+PdfLoadedTextBoxField lastName = acroform.Fields["LastName"] as PdfLoadedTextBoxField;
+
+//Set text
+
+lastName.Text = "Bistro";
+
+//Save the document
+
+loadedDocument.Save("output.pdf");
+
+//Close the document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing XFA PDF document
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Form.pdf")
+
+'Get the existing Acroform
+
+Dim acroform As PdfLoadedForm = loadedDocument.Form
+
+'Enable XFA form filling
+
+acroform.EnableXfaFormFill = True
+
+'Get the existing text box field
+
+Dim firstName As PdfLoadedTextBoxField = TryCast(acroform.Fields("FirstName"), PdfLoadedTextBoxField)
+
+'Set text
+
+firstName.Text = "Simons"
+
+Dim lastName As PdfLoadedTextBoxField = TryCast(acroform.Fields("LastName"), PdfLoadedTextBoxField)
+
+'Set text
+
+lastName.Text = "Bistro"
+
+'Save the document
+
+loadedDocument.Save("output.pdf")
+
+'Close the document
+
+loadedDocument.Close(True)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Get the existing Acroform
+
+PdfLoadedForm acroform = loadedDocument.Form;
+
+//Enable XFA form filling
+
+acroform.EnableXfaFormFill = true;
+
+//Get the existing text box field
+
+PdfLoadedTextBoxField firstName = acroform.Fields["FirstName"] as PdfLoadedTextBoxField;
+
+//Set text
+
+firstName.Text = "Simons";
+
+PdfLoadedTextBoxField lastName = acroform.Fields["LastName"] as PdfLoadedTextBoxField;
+
+//Set text
+
+lastName.Text = "Bistro";
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Form.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the existing Acroform
+
+PdfLoadedForm acroform = loadedDocument.Form;
+
+//Enable XFA form filling
+
+acroform.EnableXfaFormFill = true;
+
+//Get the existing text box field
+
+PdfLoadedTextBoxField firstName = acroform.Fields["FirstName"] as PdfLoadedTextBoxField;
+
+//Set text
+
+firstName.Text = "Simons";
+
+PdfLoadedTextBoxField lastName = acroform.Fields["LastName"] as PdfLoadedTextBoxField;
+
+//Set text
+
+lastName.Text = "Bistro";
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+loadedDocument.Save(stream);
+
+//If the position is not set to '0', then the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% endtabs %}  
+
 
 ## Removing editing capability of form fields
 
