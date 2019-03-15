@@ -82,9 +82,8 @@ Xamarin
 </tr>
 </table>
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
-
-N> From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package names to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
+N> 1.Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> 2.From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package names to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
 
 ## Converting PowerPoint Presentation into PDF
 
@@ -142,7 +141,7 @@ ASP.NET MVC5
 UWP and .NET Core
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}
+{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
 {{'[Syncfusion.SkiaSharpHelper.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.Net.Core/)'| markdownify }}
 </td>
 </tr>
@@ -151,7 +150,7 @@ UWP and .NET Core
 Xamarin
 </td>
 <td>
-{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}
+{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/><br/>
 {{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
 </td>
 </tr>
@@ -224,7 +223,7 @@ UWP
 .NET Core
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}
+{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
 {{'[Syncfusion.SkiaSharpHelper.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.Net.Core/)'| markdownify }}
 </td>
 </tr>
@@ -233,7 +232,7 @@ UWP
 Xamarin
 </td>
 <td>
-{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}
+{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/><br/>
 {{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
 </td>
 </tr>
@@ -306,7 +305,7 @@ UWP
 .NET Core
 </td>
 <td>
-{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}
+{{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
 {{'[Syncfusion.SkiaSharpHelper.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.SkiaSharpHelper.Net.Core/)'| markdownify }}
 </td>
 </tr>
@@ -315,7 +314,7 @@ UWP
 Xamarin
 </td>
 <td>
-{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}
+{{'[Syncfusion.Xamarin.PresentationRenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.PresentationRenderer/)'| markdownify }}<br/><br/>
 {{'[Syncfusion.Xamarin.SkiaSharpHelper.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.SkiaSharpHelper/)'| markdownify }}
 </td>
 </tr>
@@ -420,11 +419,11 @@ ASP.NET MVC5
 UWP
 </td>
 <td>
-* Install-package Syncfusion.Presentation.UWP
+* Install-package Syncfusion.Presentation.UWP<br/><br/>
 * Install-package Syncfusion.OfficeChartToImageConverter.UWP
 </td>
 <td>
-* Uninstall-package Syncfusion.Presentation.UWP –RemoveDependencies
+* Uninstall-package Syncfusion.Presentation.UWP –RemoveDependencies<br/><br/>
 * Uninstall-package Syncfusion.OfficeChartToImageConverter.UWP -RemoveDependencies 
 </td>
 </tr>
@@ -433,13 +432,13 @@ UWP
 ASP.NET Core
 </td>
 <td>
-* Install-package Syncfusion.Presentation.Net.Core
-* Install-package Syncfusion.PresentationRenderer.Net.Core
+* Install-package Syncfusion.Presentation.Net.Core<br/><br/>
+* Install-package Syncfusion.PresentationRenderer.Net.Core<br/><br/>
 * Install-package Syncfusion.SkiaSharpHelper.Net.Core
 </td>
 <td>
-* Uninstall-package Syncfusion.Presentation.Net.Core –RemoveDependencies
-* Uninstall-package Syncfusion.PresentationRenderer.Net.Core - RemoveDependencies
+* Uninstall-package Syncfusion.Presentation.Net.Core –RemoveDependencies<br/><br/>
+* Uninstall-package Syncfusion.PresentationRenderer.Net.Core - RemoveDependencies<br/><br/>
 * Uninstall-package Syncfusion.SkiaSharpHelper.Net.Core – RemoveDependencies
 </td>
 </tr>
@@ -448,13 +447,13 @@ ASP.NET Core
 Xamarin
 </td>
 <td>
-* Install-package Syncfusion.Xamarin.Presentation
-* Install-package Syncfusion.Xamarin.PresentationRenderer 
+* Install-package Syncfusion.Xamarin.Presentation<br/><br/>
+* Install-package Syncfusion.Xamarin.PresentationRenderer<br/><br/>
 * Install-package Syncfusion.Xamarin.SkiaSharpHelper
 </td>
 <td>
-* Uninstall-package Syncfusion.Xamarin.Presentation –RemoveDependencies
-* Uninstall-package Syncfusion.Xamarin.PresentationRenderer - RemoveDependencies
+* Uninstall-package Syncfusion.Xamarin.Presentation –RemoveDependencies<br/><br/>
+* Uninstall-package Syncfusion.Xamarin.PresentationRenderer - RemoveDependencies<br/><br/>
 * Uninstall-package Syncfusion.Xamarin.SkiaSharpHelper - RemoveDependencies 
 </td>
 </tr>
