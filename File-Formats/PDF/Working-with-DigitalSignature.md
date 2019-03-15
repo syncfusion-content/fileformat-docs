@@ -2694,7 +2694,7 @@ Dim certificate As PdfCertificate = signatureField.Signature.Certificate
 
 'Get the signed date
 
-Dim signdate As DateTime = signatureField.Signature.SignedDate
+Dim signedDate As DateTime = signatureField.Signature.SignedDate
 
 'Get the signed name
 
@@ -2716,7 +2716,7 @@ Dim issuerOrganization As String = certificate.GetValue(PdfCertificateDistinguis
 
 Dim issuerCountry As String = certificate.GetValue(PdfCertificateDistinguishedName.Country, PdfCertificateField.Issuer)
 
-'Get certificate validataion date information
+'Get certificate validation date information
 
 Dim validFrom As DateTime = certificate.ValidFrom
 
