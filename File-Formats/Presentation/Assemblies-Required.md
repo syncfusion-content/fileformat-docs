@@ -1,5 +1,5 @@
 ---
-title: Assemblies Required
+title: Assemblies Required for PowerPoint Presentation |Syncfusion|
 description: Briefs the assemblies required for various platforms and frameworks.
 platform: file-formats
 control: Presentation
@@ -81,7 +81,7 @@ Assembly
 </tr>
 <tr>
 <td>
-WPF, Windows Forms, ASP. NET and ASP.NET MVC</br>
+WPF, Windows Forms, ASP. NET and ASP.NET MVC<br/>
 </td>
 <td>
 Syncfusion.OfficeChartToImageConverter.WPF<br/>
@@ -89,6 +89,4 @@ Syncfusion.SfChart.WPF<br/>
 </td>
 </tr>
 </table>
-N> 1.Presentation to Image conversion is not supported in Xamarin and ASP.NET Core applications.
-N> 2.Presentation to PDF conversion is not supported in UWP, Xamarin and ASP.NET Core applications.
-N> 3.The “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards
+N> 1.The “Syncfusion.OfficeChartToImageConverter.WPF” assembly is supported from .NET Framework 4.0 onwards
