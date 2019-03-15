@@ -777,13 +777,62 @@ pptxDoc.Close()
 
 {% highlight ASP.NET CORE %}
 
-//Essential Presentation Library does not support presentation to Pdf conversion in ASP.NET Core platforms.
+//Open the existing PowerPoint presentation.
+string basePath = _hostingEnvironment.WebRootPath;
+FileStream fileStreamInput = new FileStream(basePath + @"/Presentation/ConversionTemplate.pptx", FileMode.Open, FileAccess.Read);
+IPresentation pptxDoc = Presentation.Open(fileStreamInput);
+
+//Convert the PowerPoint document to PDF document.
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
+
+//Save the converted PDF document to Memory stream.
+MemoryStream pdfStream = new MemoryStream();
+pdfDocument.Save(pdfStream);
+pdfStream.Position = 0;
+
+//Close the PDF document.
+pdfDocument.Close(true);
+
+//Close the PowerPoint Presentation.
+pptxDoc.Close();
+
+//Initialize the file stream to download the converted PDF.
+FileStreamResult fileStreamResult = new FileStreamResult(pdfStream, "application/pdf");
+
+//Set the file name.
+fileStreamResult.FileDownloadName = "Sample.pdf";
+return fileStreamResult;
 
 {% endhighlight %}
 
 {% highlight XAMARIN %}
 
-//Essential Presentation Library does not support presentation to Pdf conversion in ASP.NET Core platforms.
+string resourcePath = "SampleBrowser.Presentation.Samples.Templates.Template.pptx";
+
+Assembly assembly = typeof(GettingStarted).GetTypeInfo().Assembly;
+Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
+
+//Open a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Open(fileStream);
+
+//Convert the PowerPoint document to PDF document.
+PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
+
+//Save the converted PDF document.
+MemoryStream pdfStream = new MemoryStream();
+pdfDocument.Save(pdfStream);
+pdfStream.Position = 0; 
+
+//Close the PDF document.
+pdfDocument.Close(true);
+
+//Close the PowerPoint Presentation.
+pptxDoc.Close();
+
+if (Device.RuntimePlatform == Device.UWP)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("PPTXToPDF.pdf", "application/pdf", pdfStream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("PPTXToPDF.pdf", "application/pdf", pdfStream);
 
 {% endhighlight %}
 
