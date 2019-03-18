@@ -3644,3 +3644,156 @@ document.Close(True)
 N> Hyperlinks are not supported in tagged PDF
 
 
+## Converting Word document to Tagged PDF
+
+This setting allows you to determine whether to preserve document structured tags in the converted PDF document for accessibility (508 compliance) support. This property will set the title and description for images, diagrams, and other objects in the generated PDF document. This information will be useful for people with vision or cognitive impairments who cannot see or understand the object.
+
+This setting allows you to determine whether to preserve document structured tags in the converted PDF document for accessibility (508 compliance) support. This property will set the title and description for images, diagrams and other objects in the generated PDF document. This information will be useful for people with vision or cognitive impairments who may not able to see or understand the object
+
+The following code sample shows how to preserve document structured tags in the converted PDF document.
+
+{% tabs %}
+{% highlight c# %}
+//Loads an existing Word document
+
+WordDocument wordDocument = new WordDocument("Sample.docx", FormatType.Docx);
+
+//Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+
+DocToPDFConverter converter = new DocToPDFConverter();
+
+//Sets true to preserve document structured tags in the converted PDF document 
+
+converter.Settings.AutoTag = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+//Saves the PDF file to file system
+
+pdfDocument.Save("WordtoPDF.pdf");
+
+//Closes the instance of document objects
+
+pdfDocument.Close(true);
+
+wordDocument.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads an existing Word document
+
+Dim wordDocument As New WordDocument("Sample.docx", FormatType.Docx)
+
+'Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+
+Dim converter As New DocToPDFConverter()
+
+'Sets true to preserve document structured tags in the converted PDF document 
+
+converter.Settings.AutoTag = True
+
+'Converts Word document into PDF document
+
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+
+'Saves the PDF file to file system
+
+pdfDocument.Save("WordtoPDF.pdf")
+
+'Closes the instance of document objects
+
+pdfDocument.Close(True)
+
+wordDocument.Close()
+{% endhighlight %}
+
+{% highlight asp.net core %}
+
+//Open the file as Stream
+FileStream docStream = new FileStream(@"D:\Template.docx", FileMode.Open, FileAccess.Read);
+
+//Loads file stream into Word document
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Sets true to preserve document structured tags in the converted PDF document 
+
+render.Settings.AutoTag = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+{% endhighlight %}
+
+{% highlight xamarin %}
+//Load the Word document as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+
+//Loads the stream into Word Document.
+
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+	
+//Instantiation of DocIORenderer for Word to PDF conversion
+
+DocIORenderer render = new DocIORenderer();
+
+//Sets true to preserve document structured tags in the converted PDF document 
+
+render.Settings.AutoTag = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+
+//Releases all resources used by the Word document and DocIO Renderer objects
+
+render.Dispose();
+
+wordDocument.Dispose();
+
+//Saves the PDF file
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+{% endhighlight %}
+{% endtabs %}
+
+## Validating tagged PDF in Acrobat
+
+Follow the below steps to validate the tagged PDF information in Adobe Acrobat:
+
+1.	Choose Tools > Accessibility.
+2.	In the secondary toolbar, click Full Check. 
+3.	The Accessibility Checker Option dialog box will be displayed, from that you can ensure the validity of tagged information. 
+
+The following screenshot shows the Accessibility checker dialog box.
+
+![TaggedPDF](TaggedPDF_images/TaggedPDF_img0.png) 
