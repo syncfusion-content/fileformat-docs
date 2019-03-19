@@ -2601,75 +2601,124 @@ else
 
 ## Retrieve certificate details from an existing signed PDF document
 
-You can get the certificate details such as subject name, issuer name, and expiry date from an existing signed PDF document using the following code snippet.
+The Essential PDF provides support to get the certificate details from an existing signed PDF document such as,
+
+* Signed date
+* Expiry date
+* Signed name
+* Subject name
+* Issuer name
+* Certificate distinguished names (country, state, street, email, organization, organization unit, locality, and more).
+
+You can get the above certificate details from an existing signed PDF document by using the following code snippet.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Load the existing signed PDF document
+//Load the existing signed PDF
 
-PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("SignedDocument.pdf");
 
-//Gets the page of the document
+//Load the PDF form
 
-PdfLoadedPage page = loadedDocument.Pages[0] as PdfLoadedPage;
+PdfLoadedForm loadedForm = loadedDocument.Form as PdfLoadedForm;
 
-//Gets the signature field from the PDF document
+//Get the signature field
 
-PdfLoadedSignatureField field = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+PdfLoadedSignatureField signatureField = loadedForm.Fields[0] as PdfLoadedSignatureField;
 
-//Get PDF Certificate instance from signature field
+//Get the certificate
 
-PdfCertificate certificate = field.Signature.Certificate;
+PdfCertificate certificate = signatureField.Signature.Certificate;
 
-//Get the certificate details
+//Get the signed date
+
+DateTime date = signatureField.Signature.SignedDate;
+
+//Get the signed name
+
+string name = signatureField.Signature.SignedName;
+
+//Get the certificate names based on their distinguished name.
+
+string subjectName = certificate.SubjectName;
+
+string subjectCountry = certificate.GetValue(PdfCertificateDistinguishedName.Country, PdfCertificateField.Subject);
+
+string subjectOrganization = certificate.GetValue(PdfCertificateDistinguishedName.Organization, PdfCertificateField.Subject);
+
+//Issuer details
 
 string issuerName = certificate.IssuerName;
 
-string subjectName = certificate.SubjectName;
+string issuerOrganization = certificate.GetValue(PdfCertificateDistinguishedName.Organization, PdfCertificateField.Issuer);
+
+string issuerCountry = certificate.GetValue(PdfCertificateDistinguishedName.Country, PdfCertificateField.Issuer);
+
+//Get certificate validation date information
 
 DateTime validFrom = certificate.ValidFrom;
 
 DateTime validTo = certificate.ValidTo;
 
-//Close the document 
+//Close the document
 
 loadedDocument.Close(true);
+
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
-'Load the existing signed PDF document
+'Load the existing signed PDF
 
-Dim loadedDocument As New PdfLoadedDocument("Input.pdf")
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("../../Signed.pdf")
 
-'Gets the page of the document
+'Load the PDF form
 
-Dim page As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
+Dim loadedForm As PdfLoadedForm = TryCast(loadedDocument.Form, PdfLoadedForm)
 
-'Gets the signature field from the PDF document
+'Get the signature field
 
-Dim field As PdfLoadedSignatureField = TryCast(loadedDocument.Form.Fields(0), PdfLoadedSignatureField)
+Dim signatureField As PdfLoadedSignatureField = TryCast(loadedForm.Fields(0), PdfLoadedSignatureField)
 
-'Get PDF certificate instance from signature field
+'Get the certificate
 
-Dim certificate As PdfCertificate = field.Signature.Certificate
+Dim certificate As PdfCertificate = signatureField.Signature.Certificate
 
-'Get the certificate details
+'Get the signed date
+
+Dim signedDate As DateTime = signatureField.Signature.SignedDate
+
+'Get the signed name
+
+Dim name As String = signatureField.Signature.SignedName
+
+'Get the certificate names based on their distinguished name
+
+Dim subjectName As String = certificate.SubjectName
+
+Dim subjectCountry As String = certificate.GetValue(PdfCertificateDistinguishedName.Country, PdfCertificateField.Subject)
+
+Dim subjectOrganization As String = certificate.GetValue(PdfCertificateDistinguishedName.Organization, PdfCertificateField.Subject)
+
+'Issuer details
 
 Dim issuerName As String = certificate.IssuerName
 
-Dim subjectName As String = certificate.SubjectName
+Dim issuerOrganization As String = certificate.GetValue(PdfCertificateDistinguishedName.Organization, PdfCertificateField.Issuer)
+
+Dim issuerCountry As String = certificate.GetValue(PdfCertificateDistinguishedName.Country, PdfCertificateField.Issuer)
+
+'Get certificate validation date information
 
 Dim validFrom As DateTime = certificate.ValidFrom
 
 Dim validTo As DateTime = certificate.ValidTo
 
-'Close the document 
-
 loadedDocument.Close(True)
+
 
 {% endhighlight %}
 
