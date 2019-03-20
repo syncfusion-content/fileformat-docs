@@ -1476,6 +1476,10 @@ graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 0, page.GetC
 
 format.TextDirection = PdfTextDirection.LeftToRight;
 
+//Set the text alignment
+
+format.Alignment = PdfTextAlignment.Left;
+
 //Draw string with left-to-right format
 
 graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 100, page.GetClientSize().Width, page.GetClientSize().Height), format);
@@ -1538,6 +1542,10 @@ graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 0, page.GetC
 'Set left-to-right text direction for RTL text
 
 format.TextDirection = PdfTextDirection.LeftToRight
+
+'Set the text alignment
+
+format.Alignment = PdfTextAlignment.Left
 
 'Draw string with left-to-right format
 
@@ -1606,6 +1614,10 @@ graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 0, page.GetC
 //Set left-to-right text direction for RTL text
 
 format.TextDirection = PdfTextDirection.LeftToRight;
+
+//Set the text alignment
+
+format.Alignment = PdfTextAlignment.Left;
 
 //Draw string with left-to-right format
 
@@ -1678,6 +1690,10 @@ graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 0, page.GetC
 //Set left-to-right text direction for RTL text
 
 format.TextDirection = PdfTextDirection.LeftToRight;
+
+//Set the text alignment
+
+format.Alignment = PdfTextAlignment.Left;
 
 //Draw string with left-to-right format
 
@@ -1766,6 +1782,10 @@ graphics.DrawString(text, font, PdfBrushes.Black, new Syncfusion.Drawing.Rectang
 //Set left-to-right text direction for RTL text
 
 format.TextDirection = PdfTextDirection.LeftToRight;
+
+//Set the text alignment
+
+format.Alignment = PdfTextAlignment.Left;
 
 //Draw string with left-to-right format
 
