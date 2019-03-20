@@ -1169,7 +1169,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -1407,7 +1407,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -1664,7 +1664,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -2148,7 +2148,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -2556,7 +2556,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-% highlight ASP.NET Core %}
+{% highlight ASP.NET Core %}
 
 //Load the PDF document
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
@@ -2575,7 +2575,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -2784,7 +2784,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -2993,7 +2993,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -3199,7 +3199,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -3405,7 +3405,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -3605,7 +3605,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5103,7 +5103,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5193,7 +5193,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5283,7 +5283,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5385,7 +5385,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5475,7 +5475,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5563,7 +5563,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5653,7 +5653,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5743,7 +5743,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5841,7 +5841,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -6041,7 +6041,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -6181,7 +6181,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -6283,7 +6283,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
