@@ -1424,7 +1424,7 @@ document.Close(True)
 
 ## Drawing Right-To-Left text 
 
-Essential PDF allows you to draw right-to-left language text in PDF document. To draw RTL scripts such as Arabic, Hebrew, Persian, Urdu and more, the value of TextDiction property in the PdfStringFormat class has to be set to RightToLeft. There are also languages which have more than one script and can be written either right-to-left or left-to-right, such as Sindhi or Kurdish. LeftToRight value of the TextDirection propery is used to draw RTL text in left-to-right format. The following code illustrates the same.
+Essential PDF allows you to draw right-to-left language text in PDF document. To draw RTL scripts such as Arabic, Hebrew, Persian, Urdu and more, the value of TextDiction property in the PdfStringFormat class has to be set to RightToLeft. There are also languages which have more than one script and can be written either right-to-left or left-to-right, such as Sindhi or Kurdish. LeftToRight value of the TextDirection property is used to draw RTL text in left-to-right format. The following code illustrates the same.
 
 {% tabs %}
 
