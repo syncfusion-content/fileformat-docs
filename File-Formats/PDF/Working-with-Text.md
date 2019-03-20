@@ -1424,7 +1424,7 @@ document.Close(True)
 
 ## Drawing Right-To-Left text 
 
-Essential PDF allows you to draw right-to-left language text in PDF document. To draw RTL scripts such as Arabic, Hebrew, Persian, Urdu and more, the value of TextDiction property in the PdfStringFormat class has to be set to RightToLeft. There are also languages which have more than one script and can be written either right-to-left or left-to-right, such as Sindhi or Kurdish. LeftToRight value of the TextDirection property is used to draw RTL text in left-to-right format. The following code illustrates the same.
+The Essential PDF allows you draw the right-to-left language text in a PDF document. To draw RTL scripts such as Arabic, Hebrew, Persian, and Urdu, set the value of TextDiction property in the PdfStringFormat class to RightToLeft. The languages (e.g., Sindhi and Kurdish) that have more than one script and can be written in either right-to-left or left-to-right format. The LeftToRight value of the TextDirection property is used to draw RTL text in the left-to-right format. Refer to the following code sample.
 
 {% tabs %}
 
@@ -1621,7 +1621,7 @@ await doc.SaveAsync(stream);
 
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
 Save(stream, "Output.pdf");
 
@@ -1691,7 +1691,7 @@ MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//If the position is not set to '0' then the PDF will be empty
+//If the position is not set to '0', then the PDF will be empty
 
 stream.Position = 0;
 
@@ -1699,7 +1699,7 @@ stream.Position = 0;
 
 doc.Close(true);
 
-//Defining the ContentType for pdf file
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
@@ -1781,9 +1781,9 @@ doc.Save(stream);
 
 doc.Close(true);
 
-//Save the stream into pdf file
+//Save the stream into PDF file
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
