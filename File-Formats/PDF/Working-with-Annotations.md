@@ -6164,3 +6164,380 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Retrieve review status and comments from PDF annotation
+
+The PDF annotations may have an author-specific state associated with them. The state is not specified in the annotation itself, but it represents a separate text annotation (pop-up annotation).
+
+The Essential PDF supports retrieving the annotation comments and review history from the existing PDF document annotations.
+
+### Retrieve review status from PDF annotation
+
+The following code example explains how to retrieve the annotation review history from the existing PDF document annotations.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Get the existing PDF page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
+
+//Get the annotation
+
+PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
+
+//Get the review history collection for the annotation
+
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedMarkup.ReviewHistory;
+
+//Get annotation state
+
+PdfAnnotationState state = reviewCollection[0].State;
+
+//Get annotation state model
+
+PdfAnnotationStateModel model = reviewCollection[0].StateModel;
+
+//Get the comments of the annotation
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
+
+//Get the review history of the comment
+
+PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].ReviewHistory;
+
+//Close the PDF document
+
+loadedDocument.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing PDF document
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+
+'Get the existing PDF page
+
+Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
+
+'Get the annotation
+
+Dim loadedMarkup As PdfLoadedTextMarkupAnnotation = TryCast(loadedPage.Annotations(0), PdfLoadedTextMarkupAnnotation)
+
+'Get the review history collection for the annotation
+
+Dim reviewCollection As PdfLoadedPopupAnnotationCollection = loadedMarkup.ReviewHistory
+
+'Get annotation state
+
+Dim state As PdfAnnotationState = reviewCollection(0).State
+
+'Get annotation state model
+
+Dim model As PdfAnnotationStateModel = reviewCollection(0).StateModel
+
+'Get the comments of the annotation
+
+Dim commentsCollection As PdfLoadedPopupAnnotationCollection = loadedMarkup.Comments
+
+'Get the review history of the comment
+
+Dim reviewCollection1 As PdfLoadedPopupAnnotationCollection = commentsCollection(0).ReviewHistory
+
+'Close the PDF document
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the existing PDF page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
+
+//Get the annotation
+
+PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
+
+//Get the review history collection for the annotation
+
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedMarkup.ReviewHistory;
+
+//Get annotation state
+
+PdfAnnotationState state = reviewCollection[0].State;
+
+//Get annotation state model
+
+PdfAnnotationStateModel model = reviewCollection[0].StateModel;
+
+//Get the comments of the annotation
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
+
+//Get the review history of the comment
+
+PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].ReviewHistory;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
+
+//Get the annotation
+
+PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
+
+//Get the review history collection for the annotation
+
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedMarkup.ReviewHistory;
+
+//Get annotation state
+
+PdfAnnotationState state = reviewCollection[0].State;
+
+//Get annotation state model
+
+PdfAnnotationStateModel model = reviewCollection[0].StateModel;
+
+//Get the comments of the annotation
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
+
+//Get the review history of the comment
+
+PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].ReviewHistory;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
+
+//Get the annotation
+
+PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
+
+//Get the review history collection for the annotation
+
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedMarkup.ReviewHistory;
+
+//Get annotation state
+
+PdfAnnotationState state = reviewCollection[0].State;
+
+//Get annotation state model
+
+PdfAnnotationStateModel model = reviewCollection[0].StateModel;
+
+//Get the comments of the annotation
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
+
+//Get the review history of the comment
+
+PdfLoadedPopupAnnotationCollection reviewCollection1 = commentsCollection[0].ReviewHistory;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Retrieve comments from PDF annotation
+
+The following code example explains how to retrieve the annotation comments from the existing PDF document annotations.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the existing PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("input.pdf");
+
+//Get the existing PDF page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
+
+//Get the annotation
+
+PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
+
+//Get the comments of the annotation
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
+
+//Close the PDF document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing PDF document
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("input.pdf")
+
+'Get the existing PDF page
+
+Dim loadedPage As PdfLoadedPage = TryCast(loadedDocument.Pages(0), PdfLoadedPage)
+
+'Get the annotation
+
+Dim loadedMarkup As PdfLoadedTextMarkupAnnotation = TryCast(loadedPage.Annotations(0), PdfLoadedTextMarkupAnnotation)
+
+'Get the comments of the annotation
+
+Dim commentsCollection As PdfLoadedPopupAnnotationCollection = loadedMarkup.Comments
+
+'Close the PDF document
+
+loadedDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the existing PDF page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
+
+//Get the annotation
+
+PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
+
+//Get the comments of the annotation
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("input.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
+
+//Get the annotation
+
+PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
+
+//Get the comments of the annotation
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage; 
+
+//Get the annotation
+
+PdfLoadedTextMarkupAnnotation loadedMarkup = loadedPage.Annotations[0] as PdfLoadedTextMarkupAnnotation;
+
+//Get the comments of the annotation
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedMarkup.Comments;
+
+//Closes the document
+
+loadedDocument.Close(true);
+
+{% endhighlight %}
+
+{% endtabs %}
+

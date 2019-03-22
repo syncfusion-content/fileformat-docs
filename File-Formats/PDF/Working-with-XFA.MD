@@ -1169,7 +1169,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -1407,7 +1407,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -1664,7 +1664,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -2148,7 +2148,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -2556,7 +2556,7 @@ Save(stream, "XfaForm.pdf");
 
 {% endhighlight %}
 
-% highlight ASP.NET Core %}
+{% highlight ASP.NET Core %}
 
 //Load the PDF document
 FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
@@ -2575,7 +2575,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -2784,7 +2784,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -2993,7 +2993,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -3199,7 +3199,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -3405,7 +3405,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -3605,7 +3605,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5103,7 +5103,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5193,7 +5193,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5283,7 +5283,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5385,7 +5385,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5475,7 +5475,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5563,7 +5563,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5653,7 +5653,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5743,7 +5743,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -5841,7 +5841,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -6041,7 +6041,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -6181,7 +6181,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -6283,7 +6283,7 @@ loadedDocument.Save(stream);
 //If the position is not set to '0' then the PDF will be empty.
 stream.Position = 0;
 //Close the document.
-document.Close();
+loadedDocument.Close();
 //Defining the ContentType for pdf file.
 string contentType = "application/pdf";
 //Define the file name.
@@ -6294,6 +6294,88 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+## Clear XFA date time field value
+
+The Essential PDF supports clearing XFA form date time fields values, you can clear the date time values by using the ClearValue instance available in the PdfLoadedXfaDateTimeField.
+
+The following sample illustrates how to clear the date time field in an existing XFA document.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Load the existing XFA PDF document
+PdfLoadedXfaDocument loadedXfaDocument = new PdfLoadedXfaDocument("input.pdf");
+//Get the date time field
+PdfLoadedXfaDateTimeField dateTimeField = loadedXfaDocument.XfaForm.TryGetFieldByCompleteName("form[0].subform[0].dateTime[0]") as PdfLoadedXfaDateTimeField;
+//Clear the date time field value
+dateTimeField.ClearValue(); 
+//Save and close the document
+loadedXfaDocument.Save("output.pdf");
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing XFA PDF document
+Dim loadedXfaDocument As PdfLoadedXfaDocument = New PdfLoadedXfaDocument("input.pdf")
+'Get the date time field
+Dim dateTimeField As PdfLoadedXfaDateTimeField = TryCast(loadedXfaDocument.XfaForm.TryGetFieldByCompleteName("form[0].subform[0].dateTime[0]"), PdfLoadedXfaDateTimeField)
+'Clear the date time field value
+dateTimeField.ClearValue()
+'Save and close the document
+loadedXfaDocument.Save("output.pdf")
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Load the PDF document as stream
+Stream docStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.input.pdf");
+//Load the existing XFA document
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Get the date time field
+PdfLoadedXfaDateTimeField dateTimeField = loadedDocument.XfaForm.TryGetFieldByCompleteName("form[0].subform[0].dateTime[0]") as PdfLoadedXfaDateTimeField;
+//Clear the date time field value
+dateTimeField.ClearValue();
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//Close the document
+loadedDocument.Close();
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+//Load the existing XFA document
+PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+//Get the date time field
+PdfLoadedXfaDateTimeField dateTimeField = loadedDocument.XfaForm.TryGetFieldByCompleteName("form[0].subform[0].dateTime[0]") as PdfLoadedXfaDateTimeField;
+//Clear the date time field value
+dateTimeField.ClearValue();
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+//If the position is not set to '0', then the PDF will be empty
+stream.Position = 0;
+//Close the document
+loadedDocument.Close();
+//Defining the ContentType for PDF file
+string contentType = "application/pdf";
+//Define the file name
+string fileName = "output.pdf";
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
 
 ## Supported fields for XFA form
 
