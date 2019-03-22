@@ -1424,17 +1424,17 @@ document.Close(True)
 
 ## Drawing Right-To-Left text 
 
-Essential PDF allows you to add RTL text in the PDF document by using the RightToLeft property in the PdfStringFormat class, the following code snippet illustrates how to add RTL text in the PDF document.
+The Essential PDF allows you draw the right-to-left language text in a PDF document. To draw RTL scripts such as Arabic, Hebrew, Persian, and Urdu, set the value of TextDiction property in the PdfStringFormat class to RightToLeft. The languages (e.g., Sindhi and Kurdish) that have more than one script and can be written in either right-to-left or left-to-right format. The LeftToRight value of the TextDirection property is used to draw RTL text in the left-to-right format. Refer to the following code sample.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Create a new PDF document.
+//Create a new PDF document
 
 PdfDocument doc = new PdfDocument();
 
-//Add a page to the document.
+//Add a page to the document
 
 PdfPage page = doc.Pages.Add();
 
@@ -1442,25 +1442,25 @@ PdfPage page = doc.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Create font.
+//Create font
 
 PdfFont font = new PdfTrueTypeFont(new Font("Arial", 14), true);
 
-//Set the format for string.
+//Set the format for string
 
 PdfStringFormat format = new PdfStringFormat();
 
-//Set the property for RTL text.
+//Set right-to-left text direction for RTL text
 
 format.TextDirection = PdfTextDirection.RightToLeft;
 
-//Set the alignment.
+//Set the text alignment
 
 format.Alignment = PdfTextAlignment.Right;
 
 format.ParagraphIndent = 35f;
 
-//Read the text from file.
+//Read the text from file
 
 StreamReader reader = new StreamReader("Arabic.txt", Encoding.Unicode);
 
@@ -1468,9 +1468,21 @@ string text = reader.ReadToEnd();
 
 reader.Close();
 
-//Draw string with Right alignment.
+//Draw string with right-to-left format
 
 graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Set left-to-right text direction for RTL text
+
+format.TextDirection = PdfTextDirection.LeftToRight;
+
+//Set the text alignment
+
+format.Alignment = PdfTextAlignment.Left;
+
+//Draw string with left-to-right format
+
+graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 100, page.GetClientSize().Width, page.GetClientSize().Height), format);
 
 //Save the document
 
@@ -1485,11 +1497,11 @@ doc.Close(true);
 
 {% highlight vb.net %}
 
-'Create a new PDF document.
+'Create a new PDF document
 
 Dim doc As PdfDocument = New PdfDocument()
 
-'Add a page to the document.
+'Add a page to the document
 
 Dim page As PdfPage = doc.Pages.Add()
 
@@ -1497,25 +1509,25 @@ Dim page As PdfPage = doc.Pages.Add()
 
 Dim graphics As PdfGraphics = page.Graphics
 
-'Create font.
+'Create font
 
 Dim font As PdfFont = New PdfTrueTypeFont(New Font("Arial", 14), True)
 
-'Set the format for string.
+'Set the format for string
 
 Dim format As PdfStringFormat = New PdfStringFormat()
 
-'Set the property for RTL text.
+'Set right-to-left text direction for RTL text
 
 format.TextDirection = PdfTextDirection.RightToLeft
 
-'Set the alignment.
+'Set the alignment
 
 format.Alignment = PdfTextAlignment.Right
 
 format.ParagraphIndent = 35.0F
 
-'Read the text from file.
+'Read the text from file
 
 Dim reader As StreamReader = New StreamReader("Arabic.txt", Encoding.Unicode)
 
@@ -1523,9 +1535,21 @@ Dim text As String = reader.ReadToEnd()
 
 reader.Close()
 
-'Draw string with Right alignment.
+'Draw string with right-to-left format
 
-graphics.DrawString(text, font, PdfBrushes.Black, New RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format)
+graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format)
+
+'Set left-to-right text direction for RTL text
+
+format.TextDirection = PdfTextDirection.LeftToRight
+
+'Set the text alignment
+
+format.Alignment = PdfTextAlignment.Left
+
+'Draw string with left-to-right format
+
+graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 100, page.GetClientSize().Width, page.GetClientSize().Height), format)
 
 'Save the document
 
@@ -1539,41 +1563,41 @@ doc.Close(True)
 
 {% highlight UWP %}
 
- //Create a new PDF document.
+ //Create a new PDF document
 
 PdfDocument doc = new PdfDocument();
 
-//Add a page to the document.
+//Add a page to the document
 
 PdfPage page = doc.Pages.Add();
 
-//Create PDF graphics for the page.
+//Create PDF graphics for the page
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the TrueType font. 
+//Load the TrueType font
 
 Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.arial.ttf");
 
-//Initialize the PDF TrueType font.  
+//Initialize the PDF TrueType font
 
 PdfFont font = new PdfTrueTypeFont(fontStream, 14, PdfFontStyle.Regular);
 
-//Set the format for string.
+//Set the format for string
 
 PdfStringFormat format = new PdfStringFormat();
 
-//Set the property for RTL text.
+//Set right-to-left text direction for RTL text
 
 format.TextDirection = PdfTextDirection.RightToLeft;
 
-//Set the alignment.
+//Set the alignment
 
 format.Alignment = PdfTextAlignment.Right;
 
 format.ParagraphIndent = 35f;
 
-//Read the unicode text from the text file.
+//Read the text from file
 
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Arabic.txt");
 
@@ -1583,21 +1607,33 @@ string text = reader.ReadToEnd();
 
 reader.Dispose();
 
-//Draw the text.
+//Draw string with right-to-left format
 
 graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
 
-//Save the document into memory stream.
+//Set left-to-right text direction for RTL text
+
+format.TextDirection = PdfTextDirection.LeftToRight;
+
+//Set the text alignment
+
+format.Alignment = PdfTextAlignment.Left;
+
+//Draw string with left-to-right format
+
+graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 100, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Save the document into memory stream
 
 MemoryStream stream = new MemoryStream();
 
 await doc.SaveAsync(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
 Save(stream, "Output.pdf");
 
@@ -1605,11 +1641,11 @@ Save(stream, "Output.pdf");
 
 {% highlight ASP.NET Core %}
 
-//Create a new PDF document.
+//Create a new PDF document
 
 PdfDocument doc = new PdfDocument();
 
-//Add a page to the document.
+//Add a page to the document
 
 PdfPage page = doc.Pages.Add();
 
@@ -1617,27 +1653,27 @@ PdfPage page = doc.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Create font.
+//Create font
 
 FileStream fontStream = new FileStream("arial.ttf", FileMode.Open, FileAccess.Read);
 
 PdfFont font = new PdfTrueTypeFont(fontStream, 14);
 
-//Set the format for string.
+//Set the format for string
 
 PdfStringFormat format = new PdfStringFormat();
 
-//Set the property for RTL text.
+//Set right-to-left text direction for RTL text
 
 format.TextDirection = PdfTextDirection.RightToLeft;
 
-//Set the alignment.
+//Set the alignment
 
 format.Alignment = PdfTextAlignment.Right;
 
 format.ParagraphIndent = 35f;
 
-//Read the text from file.
+//Read the text from file
 
 FileStream rtlText = new FileStream("Arabic.txt", FileMode.Open, FileAccess.Read);
 
@@ -1647,9 +1683,21 @@ string text = reader.ReadToEnd();
 
 reader.Dispose();
 
-//Draw string with Right alignment.
+//Draw string with right-to-left format
 
 graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Set left-to-right text direction for RTL text
+
+format.TextDirection = PdfTextDirection.LeftToRight;
+
+//Set the text alignment
+
+format.Alignment = PdfTextAlignment.Left;
+
+//Draw string with left-to-right format
+
+graphics.DrawString(text, font, PdfBrushes.Black, new RectangleF(0, 100, page.GetClientSize().Width, page.GetClientSize().Height), format);
 
 //Creating the stream object
 
@@ -1659,23 +1707,23 @@ MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//If the position is not set to '0' then the PDF will be empty.
+//If the position is not set to '0', then the PDF will be empty
 
 stream.Position = 0;
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Defining the ContentType for pdf file.
+//Defining the ContentType for PDF file
 
 string contentType = "application/pdf";
 
-//Define the file name.
+//Define the file name
 
 string fileName = "Output.pdf";
 
-//Creates a FileContentResult object by using the file contents, content type, and file name.
+//Creates a FileContentResult object by using the file contents, content type, and file name
 
 return File(stream, contentType, fileName);
 
@@ -1683,27 +1731,27 @@ return File(stream, contentType, fileName);
 
 {% highlight Xamarin %}
 
-//Create a new PDF document.
+//Create a new PDF document
 
 PdfDocument doc = new PdfDocument();
 
-//Add a page to the document.
+//Add a page to the document
 
 PdfPage page = doc.Pages.Add();
 
-//Create PDF graphics for the page.
+//Create PDF graphics for the page
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the TrueType font. 
+//Load the TrueType font
 
 Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.arial.ttf");
 
-//Initialize the PDF TrueType font.  
+//Initialize the PDF TrueType font
 
 PdfFont font = new PdfTrueTypeFont(fontStream, 14, PdfFontStyle.Regular);
 
-//Read the unicode text from the text file.
+//Read the text from file
 
 Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arabic.txt");
 
@@ -1713,37 +1761,49 @@ string text = reader.ReadToEnd();
 
 reader.Dispose();
 
-//Set the format for string.
+//Set the format for string
 
 PdfStringFormat format = new PdfStringFormat();
 
-//Set the property for RTL text.
+//Set the property for RTL text
 
 format.TextDirection = PdfTextDirection.RightToLeft;
 
-//Set the alignment.
+//Set the alignment
 
 format.Alignment = PdfTextAlignment.Right;
 
 format.ParagraphIndent = 35f;
 
-//Draw the text.
+//Draw string with right-to-left format
 
 graphics.DrawString(text, font, PdfBrushes.Black, new Syncfusion.Drawing.RectangleF(0, 0, page.GetClientSize().Width, page.GetClientSize().Height), format);
 
-//Save the document into memory stream.
+//Set left-to-right text direction for RTL text
+
+format.TextDirection = PdfTextDirection.LeftToRight;
+
+//Set the text alignment
+
+format.Alignment = PdfTextAlignment.Left;
+
+//Draw string with left-to-right format
+
+graphics.DrawString(text, font, PdfBrushes.Black, new Syncfusion.Drawing.RectangleF(0, 100, page.GetClientSize().Width, page.GetClientSize().Height), format);
+
+//Save the document into memory stream
 
 MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Save the stream into pdf file
+//Save the stream into PDF file
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {

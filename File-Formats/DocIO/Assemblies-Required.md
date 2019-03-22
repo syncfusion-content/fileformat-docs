@@ -90,7 +90,7 @@ Syncfusion.DocIO.ClientProfile<br/>Syncfusion.Compression.Base<br/>Syncfusion.Of
 <tr>
 <td>
 ASP.NET Core (Targeting .netcoreapp) and Xamarin<br/></td><td>
-Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>SkiaSharp</td></tr>
+Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>SkiaSharp<br/>Syncfusion.SkiaSharpHelper.Portable</td></tr>
 </table>
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
@@ -98,6 +98,7 @@ N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 N> 3. Starting with v15.3.0.x, a new Visual Studio add-in "Syncfusion Reference Manager" for WPF, and Windows Forms platforms is included. Using this add-in, you can easily add the necessary reference assemblies to your projects in an automated way. Please refer to this [link](https://help.syncfusion.com/extension/syncfusion-reference-manager/overview) for more information.
 N> 4. Word to PDF conversion is supported in ASP.NET Core and Xamarin from 2018 Volume 1 release (v16.1.0.24) using SkiaSharp graphics library.
 N> 5. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, Universal applications.
+N> 6. Starting with v17.1.0.x, if you reference "Syncfusion.DocIORenderer", you also have to add "Syncfusion.SkiaSharpHelper" assembly reference in your projects to perform Word to PDF conversion.
 
 ## Converting Charts
 
@@ -117,4 +118,3 @@ N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
 N> 3. Starting with v15.3.0.x, a new Visual Studio add-in "Syncfusion Reference Manager" for WPF, and Windows Forms platforms is included. Using this add-in, you can easily add the necessary reference assemblies to your projects in an automated way. Please refer to this [link](https://help.syncfusion.com/extension/syncfusion-reference-manager/overview) for more information.
 N> 4. The above mentioned assemblies is supported from .NET Framework 4.0 onwards.
-N> 5. Chart conversion is not supported in ASP.NET Core (Targeting .netcoreapp) and Xamarin platforms.
