@@ -7,7 +7,7 @@ documentation: UG
 ---
 # NuGet Packages Required
 
-To work with PowerPoint Presentations, the following NuGet packages need to be installed in your application.
+To work with PowerPoint Presentations, install the following NuGet packages in your application:
 
 <table>
 <tr>
@@ -66,7 +66,7 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting .net core application)
+ASP.NET Core (Targeting .NET core application)
 </td>
 <td>
 {{'[Syncfusion.Presentation.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/)'| markdownify }}
@@ -82,12 +82,12 @@ Xamarin
 </tr>
 </table>
 
-N> 1.Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
+N> 1.Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, add the "Syncfusion.Licensing" assembly reference and include a license key in your projects. Refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to learn about registering Syncfusion license key in your applications to use the components.
 N> 2.From the Essential Studio 2018 Volume 3 release(v16.3.0.21), Syncfusion has changed some of the NuGet package names to search and find the required Syncfusion NuGet packages in nuget.org easily based on the control and its platforms.
 
 ## Converting PowerPoint Presentation into PDF
 
-For converting PowerPoint Presentation into PDF, the following NuGet packages need to be installed in your application.
+For converting PowerPoint Presentation into PDF, install the following NuGet packages in your application:
 
 <table>
 <tr>
@@ -158,9 +158,9 @@ Xamarin
 
 N> PowerPoint Presentation to PDF conversion is supported from .NET Standard 1.4 onwards.
 
-## Converting PowerPoint Presentation to Image
+## Converting PowerPoint Presentation to image
 
-For converting a PowerPoint Presentation to image, the following NuGet packages need to be installed in your application.
+For converting a PowerPoint Presentation to image, install the following NuGet packages in your application:
 
 <table>
 <tr>
@@ -241,9 +241,9 @@ Xamarin
 
 N> PowerPoint Presentation to image conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
 
-## Converting Charts in Presentation
+## Converting charts in Presentation
 
-The below NuGet package need to be installed additionally to convert the charts present in PowerPoint Presentation.
+The following NuGet package should be installed additionally to convert the charts present in PowerPoint Presentation:
 
 <table>
 <tr>
@@ -320,23 +320,23 @@ Xamarin
 </tr>
 </table>
 
-N> 1. The "Syncfusion.OfficeChartToImageConverter.Wpf.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards. 
+N> 1. The "Syncfusion.OfficeChartToImageConverter.Wpf.nupkg" NuGet package is supported only from 4.0 .NET Framework onwards. 
 N> 2. The “Syncfusion.Xamarin.PresentationRenderer.nupkg” and “Syncfusion.PresentationRenderer.Net.Core.nupkg” NuGet packages supports chart to image conversion only from .NET Standard 2.0 onwards.
 
-## NuGet Package Installation and Uninstallation
+## NuGet package installation and uninstallation
 
-To use NuGet package in your project, please refer the NuGet Package [Installation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-install-and-configuration) and [Uninstallation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-uninstallation-process) sections.
+To use NuGet package in your project, refer to the NuGet package [Installation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-install-and-configuration) and [Uninstallation](https://help.syncfusion.com/extension/syncfusion-nuget-packages/nuget-uninstallation-process) sections.
 
-PowerPoint Presentation NuGet packages can be installed and uninstalled using Package Manager Console. In Visual Studio, select **Tools > NuGet Package Manager > Package Manager Console** and execute the below commands in respective platforms.
+The PowerPoint Presentation NuGet packages can be installed and uninstalled using the Package Manager Console. In Visual Studio, select **Tools > NuGet Package Manager > Package Manager Console** and execute the following commands in respective platforms.
 
-N> Syncfusion components are available in nuget.org
+N> The Syncfusion components are available in nuget.org
 
 <table>
 <tr>
 <thead>
 <th><b>Platform(s)</b></th>
 <th><b>Install</b></th>
-<th><b>UnInstall</b></th>
+<th><b>Uninstall</b></th>
 </thead>
 </tr>
 <tr>
