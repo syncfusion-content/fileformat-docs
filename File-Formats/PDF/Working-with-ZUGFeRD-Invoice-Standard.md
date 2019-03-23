@@ -15,7 +15,7 @@ The Essential PDF provides support to create PDF document with ZUGFeRD invoice s
 
 The Essential PDF has support to create PDF document with PDF/A-3b conformance and PDF/A-3b conformance, which allow to add external file to the PDF document as attachment.
 
-The ZUGFeRD has three conformance levels”
+The ZUGFeRD has three conformance levels
 
 * Basic: Represents the structured data for simple invoices. Additional information can be included as free text.
 * Comfort: Represents the structured data for fully automated invoice processing.
@@ -37,7 +37,7 @@ document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic;
 
 {% highlight vb.net %}
 
-‘Create ZUGFeRD invoice PDF
+'Create ZUGFeRD invoice PDF
 
 Dim document As PdfDocument = New PdfDocument(PdfConformanceLevel.Pdf_A3B) 
 
@@ -227,13 +227,13 @@ document.Close(true);
 
 {% highlight vb.net %}
 
-‘Create ZUGFeRD invoice PDF
+'Create ZUGFeRD invoice PDF
 
 Dim document As PdfDocument = New PdfDocument(PdfConformanceLevel.Pdf_A3B)
 
 document.ZugferdConformanceLevel = ZugferdConformanceLevel.Basic
 
-‘Creates an attachment
+'Creates an attachment
 
 Dim invoiceStream As FileStream = New FileStream("../../ Data / ZUGFeRD - invoice.xml", FileMode.Open, FileAccess.Read)
 
@@ -249,7 +249,7 @@ attachment.MimeType = "application/xml"
 
 document.Attachments.Add(attachment)
 
-‘Save and close the document
+'Save and close the document
 
 document.Save("Zugferd.pdf")
 
@@ -428,7 +428,7 @@ document.Close(true);
 
 {% highlight vb.net %}
 
-‘Loads the PDF document
+'Loads the PDF document
 
 Dim document As New PdfLoadedDocument("Sample.pdf")
 
