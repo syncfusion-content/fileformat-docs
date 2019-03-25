@@ -699,7 +699,7 @@ pdfDoc.Close()
 
 ## PowerPoint to PDF conversion in ASP.NET Core platform
 
-The Syncfusion PowerPoint library supports converting the PowerPoint document to PDF in ASP.NET Core platform. The following code sample demonstrates how to convert a PowerPoint presentation to PDF in ASP.NET Core platform.
+The Syncfusion PowerPoint library supports converting the PowerPoint document to PDF in ASP.NET Core platform. The following code sample demonstrates this.
 
 {% tabs %}
 
@@ -713,7 +713,7 @@ IPresentation pptxDoc = Presentation.Open(fileStreamInput);
 //Convert the PowerPoint document to PDF document.
 PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
 
-//Save the converted PDF document to Memory stream.
+//Save the converted PDF document to memory stream.
 MemoryStream pdfStream = new MemoryStream();
 pdfDocument.Save(pdfStream);
 pdfStream.Position = 0;
@@ -737,7 +737,7 @@ return fileStreamResult;
 
 ## PowerPoint to PDF conversion in Xamarin platform
 
-The Syncfusion PowerPoint library supports converting the PowerPoint document to PDF in Xamarin platform. The following code sample demonstrates how to convert a PowerPoint presentation to PDF in Xamarin platform.
+The Syncfusion PowerPoint library supports converting the PowerPoint document to PDF in Xamarin platform. The following code sample demonstrates this.
 
 {% tabs %}
 
