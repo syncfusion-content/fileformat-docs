@@ -522,7 +522,7 @@ End Sub
 
 ## PowerPoint to Image conversion in ASP.NET Core platform
 
-The Syncfusion PowerPoint library supports converting the PowerPoint to PDF in ASP.NET Core platform. The following code sample demonstrates how to convert a PowerPoint presentation to Image in ASP.NET Core platform.
+The Syncfusion PowerPoint library supports converting the PowerPoint to PDF in ASP.NET Core platform. The following code sample demonstrates this.
 
 {% tabs %}
 
@@ -534,7 +534,7 @@ FileStream fileStreamInput = new FileStream(@"/Presentation/ConversionTemplate.p
 //Open the existing PowerPoint presentation.
 IPresentation pptxDoc = Presentation.Open(fileStreamInput);
 
-//Initialize PresentationRenderer to perform image conversion.
+//Initialize the PresentationRenderer to perform image conversion.
 pptxDoc.PresentationRenderer = new PresentationRenderer();
 
 //Convert PowerPoint slide to image stream.
@@ -560,7 +560,7 @@ return fileStreamResult;
 
 ## PowerPoint to Image conversion in Xamarin platform
 
-The Syncfusion PowerPoint library supports converting the PowerPoint to Image in Xamarin platform. The following code sample demonstrates how to convert a PowerPoint presentation to Image in Xamarin platform.
+The Syncfusion PowerPoint library supports converting the PowerPoint to Image in Xamarin platform. The following code sample demonstrates this.
 
 {% tabs %}
 
@@ -573,7 +573,7 @@ Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
 //Open a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open(fileStream);
 
-//Initialize PresentationRenderer to perform image conversion.
+//Initialize the PresentationRenderer to perform image conversion.
 pptxDoc.PresentationRenderer = new PresentationRenderer();
 
 string fileName = "Image.jpeg";
