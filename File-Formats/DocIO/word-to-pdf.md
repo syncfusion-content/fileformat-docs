@@ -216,9 +216,9 @@ The output directory can be customized as per your need.
 Now, SkiaSharp.Linux NuGet will be generated in the mentioned output directory and add the generated NuGet as additional reference. You can also find the SkiaSharp.Linux NuGet package created by us from [here](http://www.syncfusion.com/downloads/support/directtrac/general/ze/SkiaSharp.Linux.1.59.3-2103435070#).
 
 Frequently Asked Questions
-[How to copy necessary fonts to Linux containers?](https://help.syncfusion.com/file-formats/docio/faq/how-to-copy-necessary-fonts-to-linux-containers)
-[How to set culture / locale in Docker containers (Windows & Linux containers)?](https://help.syncfusion.com/file-formats/docio/faq/how-to-set-culture-locale-in-docker-containers-windows-linux-containers)
-[How to resolve LibSkiaSharp not found Exception?](https://help.syncfusion.com/file-formats/docio/faq/how-to-resolve-libskiasharp-not-found-exception)
+* [How to copy necessary fonts to Linux containers?](https://help.syncfusion.com/file-formats/docio/faq/how-to-copy-necessary-fonts-to-linux-containers)
+* [How to set culture / locale in Docker containers (Windows & Linux containers)?](https://help.syncfusion.com/file-formats/docio/faq/how-to-set-culture-locale-in-docker-containers-windows-linux-containers)
+* [How to resolve LibSkiaSharp not found Exception?](https://help.syncfusion.com/file-formats/docio/faq/how-to-resolve-libskiasharp-not-found-exception)
 
 ## Customization settings
 The Essential DocIO provides settings while performing Word to PDF conversion mentioned below, 

@@ -4181,7 +4181,7 @@ ENV LANG="en_US.UTF-8"
 
 {% endtabs %}  
 
-## How to resolve LibSkiaSharp not found Exception?
+## How to resolve LibSkiaSharp not found exception?
 
 This issue may arise due to the following reasons. 
 
