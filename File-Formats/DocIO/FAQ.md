@@ -4155,7 +4155,7 @@ Refer to the online documentation link for more information about adding the tab
 ## How to Copy necessary fonts to Linux Containers?
 
 Fonts present in the location(in Docker container) "/usr/local/share/fonts/" will be used for conversion. By default there will be limited number of fonts available in the container.
-Copy fonts to your linux containers so that you can use them in your documents. To copy fonts to containers add the following code in your Docker file.
+You have to move necessary fonts to the .Kindly make use of following code snippet to copy fonts to containers.
 
 {% tabs %} 
 
@@ -4171,7 +4171,7 @@ In containers by default, there will be no default culture. So if we perform for
 
 For example Overloaded ToString method will respond differently in different locale. In en_IN currency will be shown as ₹ and in en_US currency will be shown as $.
 
-To set culture in Docker container add the below line to your docker file.Here The example code will set en_US locale to our container by setting Language to en_US.
+Kindly make use of the following code snippet to set Locale / Culture in containers. Here The example code will set en_US locale to our container by setting Language to en_US.
 
 {% tabs %} 
 
@@ -4183,7 +4183,7 @@ ENV LANG="en_US.UTF-8"
 
 ## How to resolve LibSkiaSharp not found Exception?
 
-This issue may arise due to number of problems. If you have all environment set but missed a line in the docker file this exception could be thrown. Add the following line in your docker file to resolve this exception.
+This issue may arise due to the following reasons. In Docker environment, Kindly add the following line in your docker file to resolve this exception.
 {% tabs %} 
 
 {% highlight Dockerfile %}
@@ -4193,7 +4193,7 @@ RUN apt-get update -y && apt-get install libfontconfig -y
 {% endtabs %}  
 
 
-If you are running the published application in production environment and face this LibSkiaSharp not found Exception then this could be a problem with the Visual C++ Redistributable installation.
+In Production environment, Kindly ensure Visual C++ Redistributable installation or check whether it need's repairing.
 
-[Download](https://www.microsoft.com/en-us/download/details.aspx?id=53587) and install Visual C++.
+[Download](https://www.microsoft.com/en-us/download/details.aspx?id=53587) and install Visual C++, If not installed.
 
