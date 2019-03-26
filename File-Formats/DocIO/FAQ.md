@@ -4152,9 +4152,10 @@ Refer to the online documentation link for more information about adding the tab
 
 
 
-## Bring your own fonts to Linux Containers.
+## Copy necessary fonts to Linux Containers.
 
-You can copy your favourite fonts to your linux containers so that you can use them in your documents without any limiation. To copy fonts to containers add the following code in your Docker file.
+Fonts present in the location(in Docker container) "/usr/local/share/fonts/" will be used for conversion. By default there will be limited number of fonts available in the container.
+Copy fonts to your linux containers so that you can use them in your documents without any limiation. To copy fonts to containers add the following code in your Docker file.
 
 {% tabs %} 
 
@@ -4194,5 +4195,5 @@ RUN apt-get update -y && apt-get install libfontconfig -y
 
 If you are running the published application in production environment and face this LibSkiaSharp not found Exception then this could be a problem with the Visual C++ Redistributable installation.
 
-Download and install Visual C++ from the below link.
-[https://www.microsoft.com/en-us/download/details.aspx?id=53587](https://www.microsoft.com/en-us/download/details.aspx?id=53587)
+[Download](https://www.microsoft.com/en-us/download/details.aspx?id=53587) and install Visual C++.
+
