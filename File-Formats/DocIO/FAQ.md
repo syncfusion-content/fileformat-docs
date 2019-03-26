@@ -4155,7 +4155,7 @@ Refer to the online documentation link for more information about adding the tab
 ## How to Copy necessary fonts to Linux Containers?
 
 Fonts present in the location(in Docker container) "/usr/local/share/fonts/" will be used for conversion. By default there will be limited number of fonts available in the container.
-You have to move necessary fonts to the .Kindly make use of following code snippet to copy fonts to containers.
+You have to move necessary fonts to the corresponding location "/usr/local/share/fonts/".Kindly make use of following code snippet to copy fonts to containers.
 
 {% tabs %} 
 
@@ -4183,7 +4183,9 @@ ENV LANG="en_US.UTF-8"
 
 ## How to resolve LibSkiaSharp not found Exception?
 
-This issue may arise due to the following reasons. In Docker environment, Kindly add the following line in your docker file to resolve this exception.
+This issue may arise due to the following reasons. 
+
+In Docker environment, Kindly add the following line in your docker file to resolve this exception.
 {% tabs %} 
 
 {% highlight Dockerfile %}
