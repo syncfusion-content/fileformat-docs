@@ -4150,3 +4150,49 @@ Refer to the online documentation link for more information about adding the tab
 
 [Working with table of contents](/File-Formats/DocIO/Working-with-Table-Of-Contents)
 
+
+
+## Bring your own fonts to Linux Containers.
+
+You can copy your favourite fonts to your linux containers so that you can use them in your documents without any limiation. To copy fonts to containers add the following code in your Docker file.
+
+{% tabs %} 
+
+{% highlight Dockerfile %}
+COPY ["ProjectName/FontsFolder/*.*", "/usr/local/share/fonts/"]
+{% endhighlight %}
+
+ {% endtabs %}  
+ 
+## How to set culture / locale in docker containers (Windows & Linux containers)?
+ 
+In containers by default, there will be no default culture. So if we perform formatting that depends on CurrentCulture or UICulture then the results will be incorrect.
+
+For example Overloaded ToString method will respond differently in different locale. In en_IN currency will be shown as ₹ and in en_US currency will be shown as $.
+
+To set culture in Docker container add the below line to your docker file.Here The example code will set en_US locale to our container by setting Language to en_US.
+
+{% tabs %} 
+
+{% highlight Dockerfile %}
+ENV LANG="en_US.UTF-8"
+{% endhighlight %}
+
+{% endtabs %}  
+
+## LibSkiaSharp not found Exception.
+
+This issue may arise due to number of problems. If you have all environment set but missed a line in the docker file this exception could be thrown. Add the following line in your docker file to resolve this exception.
+{% tabs %} 
+
+{% highlight Dockerfile %}
+RUN apt-get update -y && apt-get install libfontconfig -y
+{% endhighlight %}
+
+{% endtabs %}  
+
+
+If you are running the published application in production environment and face this LibSkiaSharp not found Exception then this could be a problem with the Visual C++ Redistributable installation.
+
+Download and install Visual C++ from the below link.
+[https://www.microsoft.com/en-us/download/details.aspx?id=53587](https://www.microsoft.com/en-us/download/details.aspx?id=53587)
