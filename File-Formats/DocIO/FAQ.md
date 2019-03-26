@@ -4165,7 +4165,7 @@ COPY ["ProjectName/FontsFolder/*.*", "/usr/local/share/fonts/"]
 
  {% endtabs %}  
  
-## How to set culture / locale in docker containers (Windows & Linux containers)?
+## How to set culture / locale in Docker containers (Windows & Linux containers)?
  
 In containers by default, there will be no default culture. So if we perform formatting that depends on CurrentCulture or UICulture then the results will be incorrect.
 
