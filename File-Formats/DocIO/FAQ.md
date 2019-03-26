@@ -4152,10 +4152,10 @@ Refer to the online documentation link for more information about adding the tab
 
 
 
-## How to copy necessary fonts to Linux containers?
+## How to copy necessary fonts to Linux containers
 
-Fonts present in the location(in Docker container) "/usr/local/share/fonts/" will be used for conversion. By default there will be limited number of fonts available in the container.
-You have to move necessary fonts to the corresponding location "/usr/local/share/fonts/".Kindly make use of following code snippet to copy fonts to containers.
+The fonts present in the location(in Docker container) "/usr/local/share/fonts/" is used for conversion. By default there will be limited number of fonts available in the container.
+You should move necessary fonts to the corresponding location "/usr/local/share/fnts/". Use the following code snippet to copy fonts to containers.
 
 {% tabs %} 
 
@@ -4165,13 +4165,13 @@ COPY ["ProjectName/FontsFolder/*.*", "/usr/local/share/fonts/"]
 
  {% endtabs %}  
  
-## How to set culture / locale in Docker containers (Windows & Linux containers)?
+## How to set culture / locale in Docker containers (Windows and Linux containers)
  
-In containers by default, there will be no default culture. So if we perform formatting that depends on CurrentCulture or UICulture then the results will be incorrect.
+In containers, there will be no default culture. So, if you perform formatting depends on CurrentCulture or UICulture then the results will be incorrect.
 
-For example Overloaded ToString method will respond differently in different locale. In en_IN currency will be shown as ₹ and in en_US currency will be shown as $.
+For example, Overloaded ToString method will respond differently in different locale. In en_IN currency will be shown as ₹ and in en_US currency will be shown as $.
 
-Kindly make use of the following code snippet to set Locale / Culture in containers. Here The example code will set en_US locale to our container by setting Language to en_US.
+Use the following code snippet to set Locale / Culture in containers. The following code example will set en_US locale to the container by setting Language to en_US.
 
 {% tabs %} 
 
@@ -4181,11 +4181,11 @@ ENV LANG="en_US.UTF-8"
 
 {% endtabs %}  
 
-## How to resolve LibSkiaSharp not found exception?
+## How to resolve LibSkiaSharp not found exception
 
 This issue may arise due to the following reasons. 
 
-In Docker environment, Kindly add the following line in your docker file to resolve this exception.
+In Docker environment, add the following line in your docker file to resolve this exception.
 {% tabs %} 
 
 {% highlight Dockerfile %}
@@ -4195,7 +4195,7 @@ RUN apt-get update -y && apt-get install libfontconfig -y
 {% endtabs %}  
 
 
-In Production environment, Kindly ensure Visual C++ Redistributable installation or check whether it need's repairing.
+In Production environment, ensure Visual C++ Redistributable installation or check whether it requires repairing.
 
 [Download](https://www.microsoft.com/en-us/download/details.aspx?id=53587) and install Visual C++, If not installed.
 
