@@ -4152,7 +4152,7 @@ Refer to the online documentation link for more information about adding the tab
 
 
 
-## How to Copy necessary fonts to Linux Containers?
+## How to copy necessary fonts to Linux containers?
 
 Fonts present in the location(in Docker container) "/usr/local/share/fonts/" will be used for conversion. By default there will be limited number of fonts available in the container.
 You have to move necessary fonts to the corresponding location "/usr/local/share/fonts/".Kindly make use of following code snippet to copy fonts to containers.
