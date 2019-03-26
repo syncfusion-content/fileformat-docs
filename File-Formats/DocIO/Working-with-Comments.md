@@ -48,6 +48,10 @@ comment.Format.User = "Peter";
 
 comment.Format.UserInitials = "St";
 
+//Set the date and time for comment. 
+
+comment.Format.DateTime = DateTime.Now;
+
 //Saves and closes the Word document
 
 document.Save("Comment.docx", FormatType.Docx);
