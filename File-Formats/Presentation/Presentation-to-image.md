@@ -37,6 +37,12 @@ The following code example demonstrates how to convert a slide to image.
 
 {% highlight c# %}
 
+//Namespaces to perform PPTX to Image conversion
+using Syncfusion.Presentation;
+using Syncfusion.OfficeChartToImageConverter;
+using System.IO;
+using Syncfusion.Drawing;
+    
 //Opens a PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Open(fileName);
 
@@ -61,6 +67,12 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
+
+'Namespaces to perform PPTX to Image conversion
+Imports Syncfusion.Presentation;
+Imports Syncfusion.OfficeChartToImageConverter;
+Imports Syncfusion.Drawing;
+Imports System.IO;
 
 'Opens a PowerPoint Presentation file
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
