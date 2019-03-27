@@ -4200,5 +4200,5 @@ RUN apt-get update -y && apt-get install libfontconfig -y
 
 * In Production environment, Ensure whether the Visual C++ Redistributable is properly installed.
 
-[Download](https://www.microsoft.com/en-us/download/details.aspx?id=53587) and install Visual C++.
+[Download](https://www.microsoft.com/en-us/download/details.aspx?id=53587) and install Visual C++, If not installed.
 
