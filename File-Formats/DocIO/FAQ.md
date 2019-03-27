@@ -4172,6 +4172,8 @@ COPY ["ProjectName/FontsFolder/*.*", "/usr/local/share/fonts/"]
  
 In containers, there will be no default culture. So, if you perform formatting depends on CurrentCulture or UICulture then the results will be incorrect.
 
+You should set the required Locale / Culture in containers.
+
 For example, Overloaded ToString method will respond differently in different locale. In en_IN currency will be shown as ₹ and in en_US currency will be shown as $.
 
 Use the following code snippet to set Locale / Culture in containers. The following code example will set en_US locale to the container by setting Language to en_US.
