@@ -7,64 +7,10 @@ documentation: UG
 ---
 # Presentation to PDF conversion
 
-## Converting PowerPoint Presentation to PDF
+PowerPoint allows you to convert an entire Presentation or a single slide into PDF document. Refer to the following links for assemblies/nuget packages required based on platforms to convert PowerPoint document into PDF.
 
-To convert a PowerPoint Presentation to PDF, include the following assemblies in the application.
-
-<table>
-    <thead>
-        <tr>
-            <th>
-                Assembly Name</th>
-            <th>
-                Short Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                Syncfusion.Presentation.Base</td>
-            <td>
-                This assembly contains the core features needed for creating, reading, manipulating a Presentation file.</td>
-        </tr>
-        <tr>
-            <td>
-                Syncfusion.OfficeChart.Base</td>
-            <td>
-                This assembly contains the Office Chart Object model and core features needed for chart creation.</td>
-        </tr>
-        <tr>
-            <td>
-                Syncfusion.OfficeChartToImageConverter.WPF</td>
-            <td>
-                This assembly is used to convert Office Chart into Image. </td>
-        </tr>
-        <tr>
-            <td>
-                Syncfusion.Pdf.Base</td>
-            <td>
-                This assembly is used for PDF file creation. </td>
-        </tr>
-		<tr>
-            <td>
-                Syncfusion.PresentationToPDFConverter.Base</td>
-            <td>
-                This assembly is used to convert PowerPoint presentation to PDF document.</td>		   
-        </tr>
-        <tr>
-            <td>
-                Syncfusion.SfChart.WPF</td>
-            <td>
-                Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF</td>
-        </tr>       
-        <tr>
-            <td>
-                Syncfusion.Compression.Base</td>
-            <td>
-                This assembly is used to pack the Presentation contents.</td>
-        </tr>
-    </tbody>
-</table>
+* [Assemblies Information](https://help.syncfusion.com/file-formats/presentation/assemblies-required)
+* [NuGet Information](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-into-pdf)
 
 The following namespaces are required to compile the code in this topic.
 
@@ -118,6 +64,66 @@ pdfDocument.Close(True)
 
 'Closes the Presentation
 pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PowerPoint presentation into stream.
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream.
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+        //Create the MemoryStream to save the converted PDF.
+        using (MemoryStream pdfStream = new MemoryStream())
+        {
+            //Convert the PowerPoint document to PDF document.
+            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+            {
+                //Save the converted PDF document to MemoryStream.
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
+            }
+            //Create the output PDF file stream
+            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
+            {
+                //Copy the converted PDF stream into created output PDF stream
+                pdfStream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the PowerPoint presentation into stream.
+using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream.
+    using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+    {
+        //Create the MemoryStream to save the converted PDF.
+        using (MemoryStream pdfStream = new MemoryStream())
+        {
+            //Convert the PowerPoint document to PDF document.
+            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+            {
+                //Save the converted PDF document to MemoryStream.
+                pdfDocument.Save(pdfStream);
+                pdfStream.Position = 0;
+            }
+            //Create the output PDF file stream
+            using (FileStream fileStreamOutput = File.Create("Output.pdf"))
+            {
+                //Copy the converted PDF stream into created output PDF stream
+                pdfStream.CopyTo(fileStreamOutput);
+            }
+        }
+    }
+}
 
 {% endhighlight %}
 
@@ -692,83 +698,6 @@ pptxDoc.Close()
  
 'Close the PDF instance
 pdfDoc.Close()
-
-{% endhighlight %}
-
-{% endtabs %}
-
-## PowerPoint to PDF conversion in ASP.NET Core platform
-
-The Syncfusion PowerPoint library supports converting the PowerPoint document to PDF in ASP.NET Core platform. The following code sample demonstrates this.
-
-{% tabs %}
-
-{% highlight c# %}
-
-//Open the existing PowerPoint presentation.
-string basePath = _hostingEnvironment.WebRootPath;
-FileStream fileStreamInput = new FileStream(basePath + @"/Presentation/ConversionTemplate.pptx", FileMode.Open, FileAccess.Read);
-IPresentation pptxDoc = Presentation.Open(fileStreamInput);
-
-//Convert the PowerPoint document to PDF document.
-PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
-
-//Save the converted PDF document to memory stream.
-MemoryStream pdfStream = new MemoryStream();
-pdfDocument.Save(pdfStream);
-pdfStream.Position = 0;
-
-//Close the PDF document.
-pdfDocument.Close(true);
-
-//Close the PowerPoint Presentation.
-pptxDoc.Close();
-
-//Initialize the file stream to download the converted PDF.
-FileStreamResult fileStreamResult = new FileStreamResult(pdfStream, "application/pdf");
-
-//Set the file name.
-fileStreamResult.FileDownloadName = "Sample.pdf";
-return fileStreamResult;
-
-{% endhighlight %}
-
-{% endtabs %}
-
-## PowerPoint to PDF conversion in Xamarin platform
-
-The Syncfusion PowerPoint library supports converting the PowerPoint document to PDF in Xamarin platform. The following code sample demonstrates this.
-
-{% tabs %}
-
-{% highlight c# %}
-
-string resourcePath = "SampleBrowser.Presentation.Samples.Templates.Template.pptx";
-
-Assembly assembly = typeof(GettingStarted).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
-
-//Open a PowerPoint presentation
-IPresentation pptxDoc = Presentation.Open(fileStream);
-
-//Convert the PowerPoint document to PDF document.
-PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
-
-//Save the converted PDF document.
-MemoryStream pdfStream = new MemoryStream();
-pdfDocument.Save(pdfStream);
-pdfStream.Position = 0; 
-
-//Close the PDF document.
-pdfDocument.Close(true);
-
-//Close the PowerPoint Presentation.
-pptxDoc.Close();
-
-if (Device.RuntimePlatform == Device.UWP)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("PPTXToPDF.pdf", "application/pdf", pdfStream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save("PPTXToPDF.pdf", "application/pdf", pdfStream);
 
 {% endhighlight %}
 
