@@ -87,6 +87,11 @@ Presentation_1.Close()
 
 {% highlight ASP.NET Core %}
 
+//Namespaces to perform PPTX to Image conversion
+using Syncfusion.Presentation;
+using Syncfusion.PresentationRenderer;
+using System.IO;
+
 //Open the existing PowerPoint presentation with stream.
 using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
 {
@@ -111,6 +116,11 @@ using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
 {% endhighlight %}
 
 {% highlight Xamarin %}
+
+//Namespaces to perform PPTX to Image conversion
+using Syncfusion.Presentation;
+using Syncfusion.PresentationRenderer;
+using System.IO;
 
 //Open the existing PowerPoint presentation with stream.
 using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
