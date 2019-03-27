@@ -4156,7 +4156,7 @@ Refer to the online documentation link for more information about adding the tab
 
 The fonts present in the location(in Docker container) "/usr/local/share/fonts/" is used for conversion. By default there will be limited number of fonts available in the container.
 
-You should copy necessary fonts to this location "/usr/local/share/fnts/" before conversion.
+You should copy necessary fonts to this location "/usr/local/share/fonts/" before conversion.
 
 Use the following code example to copy fonts to containers.
 
