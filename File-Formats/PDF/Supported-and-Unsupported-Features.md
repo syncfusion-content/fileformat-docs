@@ -1,5 +1,5 @@
 ---
-title: Supported and Unsupported Features
+title: Supported and Unsupported Features | Syncfusion 
 description: This section explains about features available in Essential PDF and their availability in different platforms.
 platform: file-formats
 control: PDF
