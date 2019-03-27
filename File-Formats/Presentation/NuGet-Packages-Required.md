@@ -156,7 +156,7 @@ Xamarin
 </tr>
 </table>
 
-N> PowerPoint Presentation to PDF conversion is supported from .NET Standard 1.4 onwards.
+N> PowerPoint Presentation to PDF conversion is supported from .NET Standard 1.4 onwards for ASP.NET Core and Xamarin.
 
 ## Converting PowerPoint Presentation to image
 
@@ -239,7 +239,7 @@ Xamarin
 </tbody>
 </table>
 
-N> PowerPoint Presentation to image conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
+N> PowerPoint Presentation to image conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards for ASP.NET Core and Xamarin.
 
 ## Converting charts in Presentation
 
