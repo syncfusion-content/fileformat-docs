@@ -12,18 +12,16 @@ PowerPoint allows you to convert an entire Presentation or a single slide into P
 * [Assemblies Information](https://help.syncfusion.com/file-formats/presentation/assemblies-required)
 * [NuGet Information](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-into-pdf)
 
-The following namespaces are required to compile the code in this topic.
-
-1. Syncfusion.OfficeChartToImageConverter
-2. Syncfusion.Presentation
-3. Syncfusion.PresentationToPdfConverter
-4. Syncfusion.Pdf
-
 **PresentationToPdfConverter** class is responsible for converting an entire Presentation or a slide into PDF. The following code example demonstrates how to convert a PowerPoint presentation to PDF.
 
 {% tabs %}
 
 {% highlight c# %}
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.OfficeChartToImageConverter
+using Syncfusion.Presentation
+using Syncfusion.PresentationToPdfConverter
+using Syncfusion.Pdf
 
 //Opens a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
@@ -46,6 +44,11 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
+'Namespaces to perform PPTX to PDF conversion
+Imports Syncfusion.OfficeChartToImageConverter
+Imports Syncfusion.Presentation
+Imports Syncfusion.PresentationToPdfConverter
+Imports Syncfusion.Pdf
 
 'Opens a PowerPoint Presentation
 Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
@@ -68,6 +71,12 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
+
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.Pdf;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationToPdfConverter;
+using System.IO;
 
 //Load the PowerPoint presentation into stream.
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -98,6 +107,12 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 {% endhighlight %}
 
 {% highlight Xamarin %}
+
+//Namespaces to perform PPTX to PDF conversion
+using Syncfusion.Pdf;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationToPdfConverter;
+using System.IO;
 
 //Load the PowerPoint presentation into stream.
 using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Open, FileAccess.Read))
@@ -137,11 +152,13 @@ N> 3. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal 
 
 Essential Presentation library provides you the ability to customize the Presentation to PDF conversion with the following options:
 
-* Allows to specify the number of slides per PDF page with 'Handouts' option. 
-* Allows to convert slides with notes pages to PDF.
-* Allows to include the hidden slide during conversion. 
-* Allows to optimize the images in the PowerPoint slides to reduce the converted PDF document size.
-* Allows to decide the quality of the charts in the converted PDF.
+* Specify the number of slides per PDF page with ‘Handouts’ option. 
+* Convert slides with notes pages to PDF.
+* Embed fonts in a PowerPoint file into the converted PDF document to avoid font-related issues across different machines and different platforms. 
+* Convert a PowerPoint document to PDF with the PDF-A1B conformance standards.
+* Specify fallback fonts to be used in place of missing fonts.
+* Skip or include hidden slides
+* Set the quality of images in the PowerPoint slides to reduce the converted PDF document size.
 
 ## Font substitution for unavailable fonts
 
