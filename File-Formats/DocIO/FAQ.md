@@ -4174,6 +4174,8 @@ By default, Culture / Locale which is specified in the container image will be u
 
 If you want to change or set Culture / Locale in the Docker container, You should set the required Culture / Locale in Docker file.
 
+T> We recommend ensuring whether required Culture / Locale is set to the Docker container. Since some Docker container may not have Culture / Locale.
+
 The following code example will set en_US locale to the container by setting Language to en_US.
 
 {% tabs %} 
@@ -4186,9 +4188,7 @@ ENV LANG="en_US.UTF-8"
 
 ## How to resolve LibSkiaSharp not found exception
 
-Try
-
-* In Docker environment, Ensure whether the libfontconfig package properly installed by adding the following line in your Docker file.
+* In Docker container, Ensure whether the libfontconfig package properly installed by adding the following line in your Docker file.
 {% tabs %} 
 
 {% highlight Dockerfile %}
@@ -4198,7 +4198,7 @@ RUN apt-get update -y && apt-get install libfontconfig -y
 {% endtabs %}  
 
 
-* In Production environment, Ensure whether the Visual C++ Redistributable is properly installed.
+* In production environment (hosted server machine), Ensure whether the Visual C++ Redistributable is properly installed.
 
 [Download](https://www.microsoft.com/en-us/download/details.aspx?id=53587) and install Visual C++, If not installed.
 
