@@ -7,10 +7,12 @@ documentation: UG
 ---
 # Working with PDF Conformance
 
-Essential PDF Currently supports following PDF conformances.
+The Essential PDF currently supports the following PDF conformances:
 
 * PDF/A-1b conformance
 * PDF/X-1a conformance
+* PDF/A-2b conformance
+* PDF/A-3b conformance
 
 N> 1. To know more details about PDF/A standard refer [https://en.wikipedia.org/wiki/PDF/A#Description](https://en.wikipedia.org/wiki/PDF/A#Description )
 N> 2. To know more details about PDF/X standard refer [https://en.wikipedia.org/wiki/PDF/X](https://en.wikipedia.org/wiki/PDF/X)
@@ -259,6 +261,550 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Adding support for PDF/A-2b conformance.
+
+You can create a PDF/A-2b document by specifying the conformance level PdfConformanceLevel.Pdf_A2B when creating the new PDF document as follows.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Create a new document with PDF/A-2b standard
+
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A2B);
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a solid brush
+
+PdfBrush brush = new PdfSolidBrush(Color.Black);
+
+Font font = new Font("Arial", 20f, FontStyle.Regular);
+
+//Set the font
+
+PdfFont pdfFont = new PdfTrueTypeFont(font, FontStyle.Regular, 12, false, true);
+
+//Draw the text
+
+graphics.DrawString("Hello world!", pdfFont, brush, new PointF(20, 20));
+
+//Save and close the document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new document with PDF/A-2b standard
+
+Dim document As New PdfDocument(PdfConformanceLevel.Pdf_A2B)
+
+'Add a page
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Create PDF graphics for the page
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Create a solid brush
+
+Dim brush As PdfBrush = New PdfSolidBrush(Color.Black)
+
+Dim font As New Font("Arial", 20.0F, FontStyle.Regular)
+
+'Set the font
+
+Dim pdfFont As PdfFont = New PdfTrueTypeFont(font, FontStyle.Regular, 12, False, True)
+
+'Draw the text
+
+graphics.DrawString("Hello world!", pdfFont, brush, New PointF(20, 20))
+
+'Save and close the document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new document with PDF/A-2b standard
+
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A2B);
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TrueType font from the local file
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Arial.ttf");
+
+//Initialize the PDF TrueType font
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Draw the text
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+
+//Save the document into memory stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new document with PDF/A-2b standard
+
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A2B);
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TrueType font from the local file
+
+FileStream fontStream = new FileStream("Arial.ttf", FileMode.Open, FileAccess.Read);
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Draw the text
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream
+
+document.Save(stream);
+
+//If the position is not set to '0', then the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new document with PDF/A-2b standard
+
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A2B);
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TrueType font
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.ttf");
+
+//Initialize the PDF TrueType font 
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Draw the text
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Save the document into memory stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
+
+## Adding support for PDF/A-3b conformance.
+
+The PDF/A-3b conformance supports the external files as attachment to the PDF document, so you can attach any document format such as Excel, Word, HTML, CAD, or XML files.
+
+
+You can create a PDF/A-3b document by specifying the conformance level PdfConformanceLevel.Pdf_A3B when creating the new PDF document as follows.
+
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Create a new document with PDF/A-3b standard
+
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
+
+//Add a page
+
+PdfPage page = document.Pages.Add();
+
+//Creates an attachment
+
+PdfAttachment attachment = new PdfAttachment("Input.txt");
+
+attachment.Relationship = PdfAttachmentRelationship.Alternative;
+
+attachment.ModificationDate = DateTime.Now;
+
+attachment.Description = "Input.txt";
+
+attachment.MimeType = "application/txt";
+
+//Adds the attachment to the document
+
+document.Attachments.Add(attachment);
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Create a solid brush
+
+PdfBrush brush = new PdfSolidBrush(Color.Black);
+
+Font font = new Font("Arial", 20f, FontStyle.Regular);
+
+//Set the font
+
+PdfFont pdfFont = new PdfTrueTypeFont(font, FontStyle.Regular, 12, false, true);
+
+//Draw the text
+
+graphics.DrawString("Hello world!", pdfFont, brush, new PointF(20, 20));
+
+//Save and close the document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new document with PDF/A-3b standard
+
+Dim document As New PdfDocument(PdfConformanceLevel.Pdf_A3B)
+
+'Add a page
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Creates an attachment
+
+Dim attachment As New PdfAttachment("Input.txt")
+
+attachment.Relationship = PdfAttachmentRelationship.Alternative
+
+attachment.ModificationDate = DateTime.Now
+
+attachment.Description = "Input.txt"
+
+attachment.MimeType = "application/txt"
+
+'Adds the attachment to the document
+
+document.Attachments.Add(attachment)
+
+'Create PDF graphics for the page
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Create a solid brush
+
+Dim brush As PdfBrush = New PdfSolidBrush(Color.Black)
+
+Dim font As New Font("Arial", 20.0F, FontStyle.Regular)
+
+'Set the font
+
+Dim pdfFont As PdfFont = New PdfTrueTypeFont(font, FontStyle.Regular, 12, False, True)
+
+'Draw the text
+
+graphics.DrawString("Hello world!", pdfFont, brush, New PointF(20, 20))
+
+'Save and close the document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new document with PDF/A-3b standard
+
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//Creates an attachment
+
+Stream fileStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.txt");
+
+PdfAttachment attachment = new PdfAttachment(@"Input.txt", fileStream);
+
+attachment.Relationship = PdfAttachmentRelationship.Alternative;
+
+attachment.ModificationDate = DateTime.Now;
+
+attachment.Description = "Input.txt";
+
+attachment.MimeType = "application/txt";
+
+//Adds the attachment to the document
+
+document.Attachments.Add(attachment);
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TrueType font from the local file
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Arial.ttf");
+
+//Initialize the PDF TrueType font
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Draw the text
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+
+//Save the document into memory stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respected code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new document with PDF/A-3b standard
+
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+//Creates an attachment
+
+Stream fileStream = new FileStream("Input.txt", FileMode.Open, FileAccess.Read);
+
+PdfAttachment attachment = new PdfAttachment("Input.txt", fileStream);
+
+attachment.Relationship = PdfAttachmentRelationship.Alternative;
+
+attachment.ModificationDate = DateTime.Now;
+
+attachment.Description = "Input.txt";
+
+attachment.MimeType = "application/txt";
+
+//Adds the attachment to the document
+
+document.Attachments.Add(attachment);
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TrueType font from the local file
+
+FileStream fontStream = new FileStream("Arial.ttf", FileMode.Open, FileAccess.Read);
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Draw the text
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document into memory stream
+
+document.Save(stream);
+
+//If the position is not set to '0', then the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document
+
+document.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new document with PDF/A-3b standard
+
+PdfDocument document = new PdfDocument(PdfConformanceLevel.Pdf_A3B);
+
+//Add a page to the document
+
+PdfPage page = document.Pages.Add();
+
+Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.txt");
+
+PdfAttachment attachment = new PdfAttachment("Input.txt", fileStream);
+
+attachment.Relationship = PdfAttachmentRelationship.Alternative;
+
+attachment.ModificationDate = DateTime.Now;
+
+attachment.Description = "Input.txt";
+
+attachment.MimeType = "application/txt";
+
+//Adds the attachment to the document
+
+document.Attachments.Add(attachment);
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TrueType font
+
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.ttf");
+
+//Initialize the PDF TrueType font 
+
+PdfFont font = new PdfTrueTypeFont(fontStream, 14);
+
+//Draw the text
+
+graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(0, 0));
+
+//Save the document into memory stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
+
 
 
 ## Adding support for PDF/X-1a conformance.
