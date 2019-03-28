@@ -1,6 +1,6 @@
 ---
 title: FAQ/How to
-description: This section illustrates about FAQs
+description: This section illustrates about FAQs | Syncfusion
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -4154,7 +4154,7 @@ Refer to the online documentation link for more information about adding the tab
 
 ## How to copy necessary fonts to Linux containers
 
-The fonts present in the location(in Docker container) "/usr/local/share/fonts/" is used for conversion. By default there will be limited number of fonts available in the container.
+The fonts present in the location(in Docker container) "/usr/local/share/fonts/" is used for conversion. By default, there will be limited number of fonts available in the container.
 
 You should copy necessary fonts to this location "/usr/local/share/fonts/" before conversion.
 
@@ -4168,13 +4168,13 @@ COPY ["ProjectName/FontsFolder/*.*", "/usr/local/share/fonts/"]
 
  {% endtabs %}  
  
-## How to set culture / locale in Docker containers (Windows and Linux containers)
+## How to set culture/locale in Docker containers (Windows and Linux containers)
  
-By default, Culture / Locale which is specified in the container image will be used in Docker containers.
+By default, Culture/Locale that is specified in the container image will be used in Docker containers.
 
-If you want to change or set Culture / Locale in the Docker container, You should set the required Culture / Locale in Docker file.
+If you want to change or set Culture/Locale in the Docker container, set the required Culture/Locale in Docker file.
 
-T> We recommend ensuring whether required Culture / Locale is set to the Docker container. Since some Docker container may not have Culture / Locale.
+T> We recommend you check whether the required Culture/Locale is set to the Docker containers since some Docker container may not have Culture/Locale.
 
 The following code example will set en_US locale to the container by setting Language to en_US.
 
@@ -4188,7 +4188,7 @@ ENV LANG="en_US.UTF-8"
 
 ## How to resolve LibSkiaSharp not found exception
 
-* In Docker container, Ensure whether the libfontconfig package properly installed by adding the following line in your Docker file.
+* In Docker container, ensure whether the libfontconfig package properly installed by adding the following line in your Docker file.
 {% tabs %} 
 
 {% highlight Dockerfile %}
@@ -4198,7 +4198,7 @@ RUN apt-get update -y && apt-get install libfontconfig -y
 {% endtabs %}  
 
 
-* In production environment (hosted server machine), Ensure whether the Visual C++ Redistributable is properly installed.
+* In production environment (hosted server machine), ensure whether the Visual C++ Redistributable is properly installed.
 
-[Download](https://www.microsoft.com/en-us/download/details.aspx?id=53587) and install Visual C++, If not installed.
+[Download](https://www.microsoft.com/en-us/download/details.aspx?id=53587) and install Visual C++, if not installed.
 
