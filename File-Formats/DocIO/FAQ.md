@@ -1,6 +1,6 @@
 ---
-title: FAQ/How to
-description: This section illustrates about FAQs | Syncfusion
+title: FAQ/How to | Syncfusion
+description: This section illustrates about FAQs
 platform: file-formats
 control: DocIO
 documentation: UG
