@@ -22,80 +22,12 @@ This section covers converting an entire Presentation or a single slide to image
 * MemoryBmp
 * TIFF
 
-To convert a Presentation or a single slide to image, the following assemblies are required in an application:
+## Assemblies Required
 
-<table>
-    <thead>
-        <tr>
-            <th>
-                Assembly Name</th>
-            <th>
-                Short Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                Syncfusion.Presentation.Base
-                
-                
-            </td>
-            <td>
-                This assembly contains the core features required for creating, reading, manipulating a Presentation file.
-                
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Syncfusion.Compression.Base
-                
-                
-            </td>
-            <td>
-                This assembly is used to package the Presentation contents.
-                
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Syncfusion.OfficeChart.Base
-                
-                
-            </td>
-            <td>
-                This assembly contains the Office Chart Object model and core features needed for chart creation.
-                
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Syncfusion.OfficeChartToImageConverter.WPF
-                
-                
-            </td>
-            <td>
-                This assembly is used to convert Office Chart into Image. This assembly depends on Syncfusion.SfChart.WPF and Syncfusion.Shared.WPF for chart conversion.
-                
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Syncfusion.SfChart.WPF
-                
-                
-            </td>
-            <td>
-                Supporting assembly for Syncfusion.OfficeChartToImageConverter.WPF
-                
-                
-            </td>
-        </tr>        
-    </tbody>
-</table>
+Refer to the following links for assemblies required based on platforms to convert the worksheet to image.
+
+* [Assemblies Information](https://help.syncfusion.com/file-formats/presentation/assemblies-required) 
+* [NuGet Information](https://help.syncfusion.com/file-formats/presentation/nuget-packages-required#converting-powerpoint-presentation-to-image)
 
 T> When converting a slide to image, use 'Metafile' format for good image resolution.
 
@@ -105,6 +37,12 @@ The following code example demonstrates how to convert a slide to image.
 
 {% highlight c# %}
 
+//Namespaces to perform PPTX to Image conversion
+using Syncfusion.Presentation;
+using Syncfusion.OfficeChartToImageConverter;
+using System.IO;
+using Syncfusion.Drawing;
+    
 //Opens a PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Open(fileName);
 
@@ -130,6 +68,12 @@ pptxDoc.Close();
 
 {% highlight vb.net %}
 
+'Namespaces to perform PPTX to Image conversion
+Imports Syncfusion.Presentation;
+Imports Syncfusion.OfficeChartToImageConverter;
+Imports Syncfusion.Drawing;
+Imports System.IO;
+
 'Opens a PowerPoint Presentation file
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
 
@@ -150,6 +94,66 @@ image.Dispose()
 
 'Closes the Presentation instance
 Presentation_1.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Namespaces to perform PPTX to Image conversion
+using Syncfusion.Presentation;
+using Syncfusion.PresentationRenderer;
+using System.IO;
+
+//Open the existing PowerPoint presentation with stream.
+using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+{
+	//Initialize the PresentationRenderer to perform image conversion.
+	pptxDoc.PresentationRenderer = new PresentationRenderer();
+ 
+	//Convert PowerPoint slide to image as stream.
+	using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+	{
+		//Reset the stream position
+		stream.Position = 0;
+ 
+		//Create the output image file stream
+		using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+		{
+			//Copy the converted image stream into created output stream
+			stream.CopyTo(fileStreamOutput);
+		}
+	}
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Namespaces to perform PPTX to Image conversion
+using Syncfusion.Presentation;
+using Syncfusion.PresentationRenderer;
+using System.IO;
+
+//Open the existing PowerPoint presentation with stream.
+using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
+{
+	//Initialize the PresentationRenderer to perform image conversion.
+	pptxDoc.PresentationRenderer = new PresentationRenderer();
+ 
+	//Convert PowerPoint slide to image as stream.
+	using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
+	{
+		//Reset the stream position
+		stream.Position = 0;
+ 
+		//Create the output image file stream
+		using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+		{
+			//Copy the converted image stream into created output stream
+			stream.CopyTo(fileStreamOutput);
+		}
+	}
+}
 
 {% endhighlight %}
 
@@ -519,80 +523,3 @@ End Sub
 {% endhighlight %}
 
 {% endtabs %} 
-
-## PowerPoint to Image conversion in ASP.NET Core platform
-
-The Syncfusion PowerPoint library supports converting the PowerPoint to PDF in ASP.NET Core platform. The following code sample demonstrates this.
-
-{% tabs %}
-
-{% highlight c# %}
-
-//Load the PowerPoint presentation into stream.
-FileStream fileStreamInput = new FileStream(@"/Presentation/ConversionTemplate.pptx", FileMode.Open, FileAccess.Read);
-
-//Open the existing PowerPoint presentation.
-IPresentation pptxDoc = Presentation.Open(fileStreamInput);
-
-//Initialize the PresentationRenderer to perform image conversion.
-pptxDoc.PresentationRenderer = new PresentationRenderer();
-
-//Convert PowerPoint slide to image stream.
-Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
-
-//Reset the stream position
-stream.Position = 0;
-
-//Close the PowerPoint Presentation.
-pptxDoc.Close();
-
-//Initialize the file stream to download the converted image.
-FileStreamResult fileStreamResult = new FileStreamResult(stream, "image/jpeg");
-
-//Set the file name.
-fileStreamResult.FileDownloadName = "Slide1.jpg";
-
-return fileStreamResult;
-
-{% endhighlight %}
-
-{% endtabs %}
-
-## PowerPoint to Image conversion in Xamarin platform
-
-The Syncfusion PowerPoint library supports converting the PowerPoint to Image in Xamarin platform. The following code sample demonstrates this.
-
-{% tabs %}
-
-{% highlight c# %}
-
-string resourcePath = "SampleBrowser.Presentation.Samples.Templates.Template.pptx";
-Assembly assembly = typeof(GettingStarted).GetTypeInfo().Assembly;
-Stream fileStream = assembly.GetManifestResourceStream(resourcePath);
-
-//Open a PowerPoint presentation
-IPresentation pptxDoc = Presentation.Open(fileStream);
-
-//Initialize the PresentationRenderer to perform image conversion.
-pptxDoc.PresentationRenderer = new PresentationRenderer();
-
-string fileName = "Image.jpeg";
-string contentType = "image/jpeg";
-ExportImageFormat imageFormat = ExportImageFormat.Jpeg;
-
-//Convert PowerPoint slide to image stream.
-Stream stream = pptxDoc.Slides[0].ConvertToImage(imageFormat);
-
-//Close the PowerPoint Presentation.
-pptxDoc.Close();
-
-//Reset the stream position.
-stream.Position = 0;
-if (Device.RuntimePlatform == Device.UWP)
-    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save(fileName, contentType, stream as MemoryStream);
-else
-    Xamarin.Forms.DependencyService.Get<ISave>().Save(fileName, contentType, stream as MemoryStream);
-
-{% endhighlight %}
-
-{% endtabs %}
