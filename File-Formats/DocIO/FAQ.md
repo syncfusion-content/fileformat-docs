@@ -1,5 +1,5 @@
 ---
-title: FAQ/How to | Syncfusion
+title: FAQ/How to | DocIO | Syncfusion
 description: This section illustrates about FAQs
 platform: file-formats
 control: DocIO

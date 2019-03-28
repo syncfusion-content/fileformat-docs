@@ -1,5 +1,5 @@
 ---
-title: Working with Comments | Syncfusion
+title: Working with Comments | DocIO | Syncfusion
 description: This section illustrates how to add, modify and remove the comments
 platform: file-formats
 control: DocIO
