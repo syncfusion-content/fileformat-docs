@@ -18,10 +18,10 @@ PowerPoint allows you to convert an entire Presentation or a single slide into P
 
 {% highlight c# %}
 //Namespaces to perform PPTX to PDF conversion
-using Syncfusion.OfficeChartToImageConverter
-using Syncfusion.Presentation
-using Syncfusion.PresentationToPdfConverter
-using Syncfusion.Pdf
+using Syncfusion.OfficeChartToImageConverter;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationToPdfConverter;
+using Syncfusion.Pdf;
 
 //Opens a PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
