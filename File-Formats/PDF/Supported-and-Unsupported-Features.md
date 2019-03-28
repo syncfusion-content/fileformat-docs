@@ -1,5 +1,5 @@
 ---
-title: Supported and Unsupported Features
+title: Supported and Unsupported Features | Syncfusion 
 description: This section explains about features available in Essential PDF and their availability in different platforms.
 platform: file-formats
 control: PDF
@@ -43,6 +43,7 @@ Drawing RTL text<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+<tr>
 <td>
 Drawing complex script text<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -291,15 +292,17 @@ Xamarin and .NET Core <br/><br/></th></tr>
 Fields<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td></tr>
+Yes*<br/><br/></td></tr>
 <tr>
 <td>
 Form Filling<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td></tr>
+Yes*<br/><br/></td></tr>
 </tbody>
 </table>
+
+*Supported on ASP.NET Core 2.0 and above
 
 Document Conversion:
 
@@ -324,7 +327,7 @@ No<br/><br/></td></tr>
 HTML to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td></tr>
+Yes*<br/><br/></td></tr>
 <tr>
 <td>
 RTF To PDF<br/><br/></td><td>
@@ -341,8 +344,8 @@ Yes<br/><br/></td></tr>
 <td>
 Excel To PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td></tr>
+Yes*<br/><br/></td><td>
+Yes*<br/><br/></td></tr>
 <tr>
 <td>
 PDF OCR<br/><br/></td><td>
@@ -353,7 +356,7 @@ No<br/><br/></td></tr>
 <td>
 XPS to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td><td>
+Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>
 <td>
@@ -376,6 +379,8 @@ No<br/><br/></td></tr>
 </tbody>
 </table>
 
+*Supported on .NETStandard 2.0 and above
+
 PDF Standards:
 
 <table>
@@ -393,13 +398,31 @@ Xamarin and .NET Core <br/><br/></th></tr>
 PDF/ A-1b Compliance<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td></tr>
+Yes<br/><br/></td></tr>
+<tr>
+<td>
+PDF/ A-2b Compliance<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td></tr>
+<tr>
+<td>
+PDF/ A-3b Compliance<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td></tr>
 <tr>
 <td>
 PDF/x1a: 2001 Compliance<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td></tr>
+<tr>
+<td>
+ZUGFeRD Invoice<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td></tr>
 </tbody>
 </table>
 
@@ -629,6 +652,18 @@ Yes<br/><br/></td></tr>
 <tr>
 <td>
 Portfolio<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td></tr>
+<tr>
+<td>
+Import Annotation Data<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td></tr>
+<tr>
+<td>
+Export Annotation Data<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>

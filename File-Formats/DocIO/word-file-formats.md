@@ -1,5 +1,5 @@
 ---
-title: Word file format conversions
+title: Word file format conversions | DocIO | Syncfusion
 description: Word file format conversions supported in DocIO
 platform: file-formats
 control: DocIO
@@ -409,3 +409,65 @@ document.Save("DocxToBinary.doc", FormatType.Doc)
 document.Close()
 {% endhighlight %}
 {% endtabs %}
+
+### Open a Word (*.doc) document containing incremental save information
+
+Essential DocIO process the content that are preserved in the last complete save operation alone from a Word (.doc) document and it doesn't process the incremental save information. 
+Hence it throws "Complex format is not supported" exception when attempting to open a Word (.doc) document containing incremental save information.
+
+You can open the Word (*.doc) documents containing incremental save information without exception by setting SkipIncrementalSaveValidation property of Settings class as true. 
+Whereas the recent changes saved as incremental save information using older Microsoft Word application can't be preserved.
+
+The following code example shows how to open a Word (*.doc) document containing incremental save information without exception.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Creates an empty Word document instance
+
+WordDocument document = new WordDocument();
+
+//Sets flag to skip old file format exception while opening document
+
+document.Settings.SkipIncrementalSaveValidation = true;
+
+//Loads or opens an existing incrementally saved DOC format through Open method of WordDocument class
+
+document.Open(fileName);
+
+//Saves the Word Document
+
+document.Save("Result.doc", FormatType.Doc);
+
+//Closes the document
+
+document.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates an empty Word document instance
+
+Dim document As New WordDocument()
+
+'Sets flag to skip old file format exception while opening document
+
+document.Settings.SkipIncrementalSaveValidation = True
+
+'Loads or opens an existing incrementally saved DOC format through Open method of WordDocument class
+
+document.Open(fileName)
+
+' Saves the Word Document
+
+document.Save("Result.doc", FormatType.Doc)
+
+'Closes the document
+
+document.Close()
+
+{% endhighlight %}
+
+{% endtabs %}  
