@@ -12,15 +12,10 @@ documentation: UG
 This section covers converting an entire Presentation or a single slide to image in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms. The supported image formats are listed as follows.
 
 * BMP
-* Emf
-* GIF
+* EMF
+* JPG
 * JPEG
 * PNG
-* WMF
-* Icon
-* Exif
-* MemoryBmp
-* TIFF
 
 ## Assemblies Required
 
@@ -69,10 +64,10 @@ pptxDoc.Close();
 {% highlight vb.net %}
 
 'Namespaces to perform PPTX to Image conversion
-Imports Syncfusion.Presentation;
-Imports Syncfusion.OfficeChartToImageConverter;
-Imports Syncfusion.Drawing;
-Imports System.IO;
+Imports Syncfusion.Presentation
+Imports Syncfusion.OfficeChartToImageConverter
+Imports Syncfusion.Drawing
+Imports System.IO
 
 'Opens a PowerPoint Presentation file
 Dim pptxDoc As IPresentation = Presentation.Open(fileName)
