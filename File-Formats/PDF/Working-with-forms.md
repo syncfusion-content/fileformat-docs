@@ -6671,9 +6671,9 @@ else
 
 ## Fill the XFA form fields along with Acroform in a same API
 
-The static XFA document contains both the XFA and Acroforms.
+The static XFA document contains both the XFA and Acroform.
  
-The Essential PDF supports filling both the XFA and Acroforms in a same instance (Fills the XFA form via Acorform instance) by enabling the EnableXfaFormFill property available in the PdfLoadedForm instance.
+The Essential PDF supports filling both the XFA and Acroform in a same instance (Fills the XFA form via Acroform instance) by enabling the EnableXfaFormFill property available in the PdfLoadedForm instance.
 
 The following code snippet illustrates how to fill XFA forms via Acroform API
 
