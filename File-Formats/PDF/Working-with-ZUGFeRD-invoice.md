@@ -1,5 +1,5 @@
 ---
-title: Working with ZUGFeRD Invoice | Syncfusion
+title: Working with ZUGFeRD invoice | Syncfusion
 description: This section explains how to generate,add and extract process on ZUGFeRD invoice 
 platform: file-formats
 control: PDF
