@@ -5,7 +5,7 @@ platform: file-formats
 control: PDF
 documentation: UG
 ---
-# Working with ZUGFeRD invoice standard
+# Working with ZUGFeRD invoice 
 
 The ZUGFeRD invoice is one of the uniformed data format for electronic invoices based on the ISO standard PDF/A-3, which is specifically designed for long term archiving. The ZUGFeRD invoice contains both human-readable invoice and machine-readable structured invoice data (XML).
 
@@ -13,7 +13,7 @@ The Essential PDF provides support to create PDF document with ZUGFeRD invoice s
 
 ## Generating ZUGFeRD invoice standard
 
-The Essential PDF has support to create PDF document with PDF/A-3b conformance and PDF/A-3b conformance, which allow to add external file to the PDF document as attachment.
+The Essential PDF has support to create PDF document with PDF/A-3b conformance, which allow to add external file to the PDF document as attachment.
 
 The ZUGFeRD has three conformance levels
 
