@@ -1,6 +1,6 @@
 ---
-title: Working with ZUGFeRD Invoice standard | Syncfusion
-description: This section explains how to generate,add and extract process on ZUGFeRD Invoice standard
+title: Working with ZUGFeRD invoice | Syncfusion
+description: This section explains how to generate,add and extract process on ZUGFeRD invoice 
 platform: file-formats
 control: PDF
 documentation: UG
@@ -9,9 +9,9 @@ documentation: UG
 
 The ZUGFeRD invoice is one of the uniformed data format for electronic invoices based on the ISO standard PDF/A-3, which is specifically designed for long term archiving. The ZUGFeRD invoice contains both human-readable invoice and machine-readable structured invoice data (XML).
 
-The Essential PDF provides support to create PDF document with ZUGFeRD invoice standard.
+The Essential PDF provides support to create PDF document with ZUGFeRD invoice.
 
-## Generating ZUGFeRD invoice standard
+## Generating ZUGFeRD invoice 
 
 The Essential PDF has support to create PDF document with PDF/A-3b conformance, which allow to add external file to the PDF document as attachment.
 
