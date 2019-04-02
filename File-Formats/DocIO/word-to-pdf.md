@@ -107,7 +107,7 @@ DocIORenderer render = new DocIORenderer();
 
 //Sets Chart rendering Options.
 
-renderer.Settings.ChartRenderingOptions.ImageFormat =  ExportImageFormat.Jpeg;
+render.Settings.ChartRenderingOptions.ImageFormat =  ExportImageFormat.Jpeg;
 
 //Converts Word document into PDF document
 
@@ -145,7 +145,7 @@ DocIORenderer render = new DocIORenderer();
 
 //Sets Chart rendering Options.
 
-renderer.Settings.ChartRenderingOptions.ImageFormat =  ExportImageFormat.Jpeg;
+render.Settings.ChartRenderingOptions.ImageFormat =  ExportImageFormat.Jpeg;
 
 //Converts Word document into PDF document
 
