@@ -1,5 +1,5 @@
 ---
-title: Working with Watermarks
+title: Working with Watermarks | Syncfusion
 description: This section explains how to add text and image watermarks to the newly PDF document and to an existing PDF document using Syncfusion .NET PDF library.
 platform: file-formats
 control: PDF
@@ -234,6 +234,10 @@ else
 
 {% endtabs %}
 
+The following screenshot shows the output of adding text watermark to PDF document. 
+
+![watermark](Watermark_images/Watermark_img1.png)
+
 The below code illustrates how to draw the text watermark in existing PDF document:
 
 {% tabs %}
@@ -459,6 +463,10 @@ else
 
 {% endtabs %}
 
+The following screenshot shows the output of adding text watermark to an existing PDF document. 
+
+![watermark](Watermark_images/Watermark_img2.png)
+
 ## Adding image watermark in PDF document
 
 To add the image watermark in PDF document, you can draw the image with transparency in PdfGraphics.
@@ -671,6 +679,10 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+The following screenshot shows the output of adding image watermark to PDF document. 
+
+![watermark](Watermark_images/Watermark_img3.jpg)
 
 The below code illustrates how to draw the image watermark in existing PDF document.
 
@@ -886,3 +898,7 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+The following screenshot shows the output of adding image watermark to an existing PDF document. 
+
+![watermark](Watermark_images/Watermark_img4.jpg)
