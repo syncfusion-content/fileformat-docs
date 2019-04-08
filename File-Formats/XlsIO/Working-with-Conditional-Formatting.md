@@ -1495,6 +1495,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 	 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.xlsx", "application/msexcel", stream);
     }    
 }
+{% endhighlight %}
 {% endtabs %}
 
 The following screenshot represents generated Excel file with unique and duplicate conditional format in XlsIO.
