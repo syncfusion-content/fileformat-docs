@@ -787,6 +787,140 @@ document.Close(True)
 
 {% endtabs %}
 
+## HTTP GET and POST
+
+The Blink HTML converter supports transmitting the parameter to the webpage. There are two methods to access a webpage. By default, Blink uses GET method. By using HTTP GET method, the parameters can be passed in the query string. In POST method, the parameters can be passed by using the <i>HttpPostFields</i> property.
+Refer to the following code snippet to access a webpage using HTTP POST.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Add HTTP post parameters to HttpPostFields
+settings.HttpPostFields.Add("firstName", "Andrew");
+settings.HttpPostFields.Add("lastName", "Fuller");
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.example.com");
+
+//Save and close the PDF document
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+settings.BlinkPath = "/BlinkBinaries/"
+
+'Add HTTP Post parameters to HttpPostFields 
+settings.HttpPostFields.Add("firstName", "Andrew")
+settings.HttpPostFields.Add("lastName", "Fuller")
+
+'Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = settings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("https://www.example.com")
+
+'Save and close the PDF document
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+Use the following code snippet to access a webpage using HTTP GET.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+settings.BlinkPath = @"/BlinkBinaries/";
+
+string url = "https://www.example.com";
+
+Uri getMethodUri = new Uri(url);
+string httpGetData = getMethodUri.Query.Length > 0 ? "&" : "?" + String.Format("{0}={1}", "firstName", "Andrew");
+
+httpGetData += String.Format("&{0}={1}", "lastName", "Fuller");
+
+string urlToConvert = url + httpGetData;
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert(urlToConvert);
+
+//Save and close the PDF document
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+settings.BlinkPath = "/BlinkBinaries/"
+
+Dim url As String = "https://www.example.com"
+
+Dim getMethodUri As New Uri(url)
+
+Dim httpGetData As String = If(getMethodUri.Query.Length > 0, "&", "?" + [String].Format("{0}={1}", "firstName", "Andrew"))
+
+httpGetData += [String].Format("&{0}={1}", "lastName", "Fuller")
+
+Dim urlToConvert As String = url & httpGetData
+
+'Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = settings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert(urlToConvert)
+
+'Save and close the PDF document
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Viewport
 
 Adjusting HTML content size in PDF is possible by using the <i>ViewPortSize</i> property of Blink HTML converter. 
@@ -848,6 +982,141 @@ document.Close(True)
 
 {% endtabs %}
 
+## HTML to single PDF page
+
+By using this option, you can render the whole HTML content into a single PDF page. The PDF page size is limited to 14400 points. There are two options to enable this feature since this is disabled by default.
+
+	1. FitWidth
+	2. FitHeight
+
+<b>Fit width option:</b> Using this option, the HTML converter adjust the PDF page height based on the HTML content height. PDF page width remains constant for this option. 
+<b>Fit height option:</b> Using this option, the HTML converter scale the HTML content and PDF page width to render the whole HTML content within the height. PDF page height remains constant for this option. 
+
+Refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Set singlePageLayout option to render the whole HTML content in a single PDF page
+settings.SinglePageLayout = SinglePageLayout.FitWidth;
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+//Save and close the PDF document
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+settings.BlinkPath = "/BlinkBinaries/"
+
+'Set singlePageLayout option to render the whole HTML content in a single PDF page
+settings.SinglePageLayout = SinglePageLayout.FitWidth
+
+'Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = settings
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
+
+'Save and close the PDF document
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Layout Result
+
+Getting height of the HTML content in PDF document is possible by using the PdfLayoutResult. Using this result, you can add contents after converting HTML to PDF. Refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = settings;
+
+PdfLayoutResult layoutResult = null;
+
+//Convert URL to PDF
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com", out layoutResult); 
+
+//Draw the text at the end of HTML content
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 11);
+
+document.Pages[document.Pages.Count - 1].Graphics.DrawString("End of HTML content", font, PdfBrushes.Red, new PointF(0, layoutResult.Bounds.Bottom));
+
+//Save and close the PDF document
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+settings.BlinkPath = "/BlinkBinaries/"
+
+'Assign Blink converter settings to HTML converter
+htmlConverter.ConverterSettings = settings
+
+Dim layoutResult As PdfLayoutResult = Nothing
+
+'Convert URL to PDF
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com", layoutResult)
+
+'Draw the text at the end of HTML content
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 11)
+
+document.Pages((document.Pages.Count - 1)).Graphics.DrawString("End of HTML content", font, PdfBrushes.Red, New PointF(0, layoutResult.Bounds.Bottom))
+
+'Save and close the PDF document
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
 
 ## Windows status
 

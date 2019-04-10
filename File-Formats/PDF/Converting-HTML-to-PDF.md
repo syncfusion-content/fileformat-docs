@@ -425,7 +425,7 @@ The following table shows the WebKit, Blink and IE rendering engines supported f
 <tr>
 <td>HTTP GET and POST</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/no.jpg" alt="Yes"></td>
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 </tr>
 
@@ -481,7 +481,7 @@ The following table shows the WebKit, Blink and IE rendering engines supported f
 <tr>
 <td>System proxy</td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
-<td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
+<td><img src="DocumentConversion_images/no.jpg" alt="Yes"></td>
 <td><img src="DocumentConversion_images/yes.jpg" alt="Yes"></td>
 </tr>
 
