@@ -789,7 +789,7 @@ document.Close(True)
 
 ## HTTP GET and POST
 
-The Blink HTML converter supports transmitting the parameter to the webpage. There are two methods to access a webpage. By default, Blink uses GET method. By using HTTP GET method, the parameters can be passed in the query string. In POST method, the parameters can be passed by using the <i>HttpPostFields</i> property.
+The Blink HTML converter supports transmitting the parameter to the webpage. There are two methods to access a webpage. By default, Blink uses GET method. By using HTTP GET method, the parameters can be passed in the query string. In POST method, the parameters can be passed by using the ```HttpPostFields``` property.
 Refer to the following code snippet to access a webpage using HTTP POST.
 
 {% tabs %}
@@ -1052,7 +1052,7 @@ document.Close(True)
 
 ## Layout Result
 
-Getting height of the HTML content in PDF document is possible by using the PdfLayoutResult. Using this result, you can add contents after converting HTML to PDF. Refer to the following code snippet.
+Getting height of the HTML content in PDF document is possible by using the ```PdfLayoutResult```. Using this result, you can add contents after converting HTML to PDF. Refer to the following code snippet.
 
 {% tabs %}
 
