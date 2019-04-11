@@ -725,7 +725,7 @@ document.Close(True)
 
 ## Token based authentication
 
-The Blink HTML Converter supports token-based authentication by using the HTTP request headers. The token values will be send to web server when the HTML page is requested. Refer to the following code snippet.
+The Blink HTML converter supports token-based authentication by using the HTTP request headers. The token values will be send to web server when the HTML page is requested. Refer to the following code snippet.
 
 {% tabs %}
 
