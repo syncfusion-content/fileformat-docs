@@ -161,37 +161,69 @@ Save(stream, "Result.docx");
 // Saves the Word document
 
 async void Save(MemoryStream streams, string filename)
+
 {
+
 streams.Position = 0;
+
 StorageFile stFile;
+
 if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
 {
+
 FileSavePicker savePicker = new FileSavePicker();
+
 savePicker.DefaultFileExtension = ".docx";
+
 savePicker.SuggestedFileName = filename;
+
 savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
 stFile = await savePicker.PickSaveFileAsync();
+
 }
+
 else
+
 {
+
 StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
 stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
 }
+
 if (stFile != null)
+
 {
+
 using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
 {
+
 // Write compressed data from memory to file
+
 using (Stream outstream = zipStream.AsStreamForWrite())
+
 {
+
 byte[] buffer = streams.ToArray();
+
 outstream.Write(buffer, 0, buffer.Length);
+
 outstream.Flush();
+
 }
+
 }
+
 }
+
 // Launch the saved Word file
+
 await Windows.System.Launcher.LaunchFileAsync(stFile);
+
 }
 
 {% endhighlight %} 
@@ -2784,15 +2816,15 @@ public List<Employee> GetEmployees()
 
 List<Employee> employees = new List<Employee>();
 
-employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "SampleImage.png"));
+employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
 
-employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "SampleImage.png"));
+employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
 
-employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "SampleImage.png"));
+employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
 
-employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "SampleImage.png"));
+employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
 
-employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "SampleImage.png"));
+employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
 
 return employees;
 
@@ -2853,15 +2885,15 @@ public List<Employee> GetEmployees()
 
 List<Employee> employees = new List<Employee>();
 
-employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "SampleImage.png"));
+employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
 
-employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "SampleImage.png"));
+employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
 
-employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "SampleImage.png"));
+employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
 
-employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "SampleImage.png"));
+employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
 
-employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "SampleImage.png"));
+employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
 
 return employees;
 
@@ -2928,15 +2960,15 @@ public List<Employee> GetEmployees()
 
 List<Employee> employees = new List<Employee>();
 
-employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "SampleImage.png"));
+employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
 
-employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "SampleImage.png"));
+employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
 
-employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "SampleImage.png"));
+employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
 
-employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "SampleImage.png"));
+employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
 
-employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "SampleImage.png"));
+employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
 
 return employees;
 
