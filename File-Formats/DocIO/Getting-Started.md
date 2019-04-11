@@ -3009,7 +3009,19 @@ For converting a Word document to PDF, the following assemblies are required to 
 * Syncfusion.OfficeChartToImageConverter.WPF
 * Syncfusion.SfChart.WPF
 
-`DocToPDFConverter` class is responsible for converting a Word document into PDF. The following code example illustrates how to convert a Word document into PDF document.
+For converting a word socument to PDF in Xamarin, UWP and Asp.Net Core platform, the following assemblies are required.
+
+* Syncfusion.DocIO.Portable
+* Syncfusion.OfficeChart.Portable
+* Syncfusion.Compression.Portable
+* Syncfusion.Pdf.Portable
+* Syncfusion.DocIORenderer.Portable
+
+`DocToPDFConverter` class is responsible for converting a Word document into PDF. 
+
+In portable projects, `DocIORenderer` is responsible for converting a Word document into PDF.
+
+The following code example illustrates how to convert a Word document into PDF document.
 
 {% tabs %} 
 
@@ -3076,6 +3088,174 @@ pdfDocument.Close()
 wordDocument.Close()
 
 {% endhighlight %}  
+
+{% highlight UWP %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream inputWordDocument = assembly.GetManifestResourceStream("CreateWordSample.Assets.WordToPDF.docx");
+
+//Loads the template document
+
+WordDocument wordDocument = new WordDocument(inputWordDocument, FormatType.Automatic);
+
+//Creates an instance of DocToPDFConverter - responsible for Word to PDF conversion
+
+DocIORenderer converter = new DocIORenderer();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+//Save the document into stream.
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(outputStream, "Output.pdf");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("PDF Documents", new List<string>() { ".pdf" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic);
+
+//Creates an instance of DocToPDFConverter - responsible for Word to PDF conversion
+
+DocIORenderer converter = new DocIORenderer();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+//Save the document into stream.
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+wordDocument.Close();
+
+outputStream.Position = 0;
+
+//Download Word document in the browser
+
+return File(outputStream, "application/pdf", "Result.pdf");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream inputWordDocument = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.EmployeesTemplate.docx");
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument wordDocument = new WordDocument(inputWordDocument, FormatType.Automatic);
+           
+//document.Save(stream, FormatType.Docx);
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(wordDocument);
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+pdfDocument.Close();
+
+wordDocument.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.pdf", "application/pdf", stream);
+
+{% endhighlight %} 
 
 {% endtabs %}  
 
