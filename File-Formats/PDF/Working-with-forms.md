@@ -9356,6 +9356,227 @@ Please refer to the [actions](/file-formats/pdf/working-with-action#adding-an-ac
 
 N> Essential PDF allows users to preserve the extended rights for form filling alone.
 
+## Auto resizing text box field text
+
+The Essential PDF provides support to automatically resize the text box field’s text size based on the current field width and height. You can auto resize the text box text by using the AutoResizeText property available in PdfLoadedTextBox instance.
+
+The following code illustrates how to set AutoResizeText in an existing PDF text box field. 
+
+{% tabs %}  
+
+{% highlight c# %}
+
+//Load an existing document
+
+PdfLoadedDocument doc = new PdfLoadedDocument("SourceForm.pdf");
+
+//Read the text box field
+
+PdfLoadedForm form = doc.Form;
+
+PdfLoadedTextBoxField ldField = doc.Form.Fields[0] as PdfLoadedTextBoxField;
+
+//Enable auto resize
+
+ldField.AutoResizeText = true;
+
+//Flatten the form
+
+form.Flatten = true;
+
+//Save the document
+
+doc.Save("Form.pdf");
+
+//Close the document
+
+ doc.Close(true);
+ 
+ {% endhighlight %}
+
+{% highlight vb.net %}
+
+‘Load an existing document
+
+Dim doc As PdfLoadedDocument = New PdfLoadedDocument("SourceForm.pdf")
+
+Dim form As PdfLoadedForm = doc.Form
+
+‘Read the text box field
+
+Dim ldField As PdfLoadedTextBoxField = TryCast(doc.Form.Fields(0), PdfLoadedTextBoxField)
+
+‘Enable auto resize.
+
+ldField.AutoResizeText = True
+
+‘Flatten the form
+
+form.Flatten = True
+
+‘Save the document
+
+doc.Save("Form.pdf")
+
+‘Close the document
+
+doc.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of the PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Read the text box field
+
+PdfLoadedTextBoxField ldField = loadedDocument.Form.Fields[0] as PdfLoadedTextBoxField;
+            
+//Enable auto resize
+
+dField.AutoResizeText = true;
+
+//Flatten the form
+
+form.Flatten = true;
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Read the text box field
+
+PdfLoadedTextBoxField ldField = loadedDocument.Form.Fields[0] as PdfLoadedTextBoxField;
+
+//Enable auto resize
+
+ldField.AutoResizeText = true;
+
+//Flatten the form
+
+form.Flatten = true;
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "sample.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Read the text box field
+
+PdfLoadedTextBoxField ldField = loadedDocument.Form.Fields[0] as PdfLoadedTextBoxField;
+
+//Enable auto resize
+
+ldField.AutoResizeText = true;
+
+//Flatten the form
+      
+form.Flatten = true;
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
+
 ## Troubleshooting
 
 
