@@ -9374,11 +9374,11 @@ PdfLoadedDocument doc = new PdfLoadedDocument("SourceForm.pdf");
 
 PdfLoadedForm form = doc.Form;
 
-PdfLoadedTextBoxField ldField = doc.Form.Fields[0] as PdfLoadedTextBoxField;
+PdfLoadedTextBoxField loadedField = doc.Form.Fields[0] as PdfLoadedTextBoxField;
 
 //Enable auto resize
 
-ldField.AutoResizeText = true;
+loadedField.AutoResizeText = true;
 
 //Flatten the form
 
@@ -9404,11 +9404,11 @@ Dim form As PdfLoadedForm = doc.Form
 
 ‘Read the text box field
 
-Dim ldField As PdfLoadedTextBoxField = TryCast(doc.Form.Fields(0), PdfLoadedTextBoxField)
+Dim loadedField As PdfLoadedTextBoxField = TryCast(doc.Form.Fields(0), PdfLoadedTextBoxField)
 
 ‘Enable auto resize.
 
-ldField.AutoResizeText = True
+loadedField.AutoResizeText = True
 
 ‘Flatten the form
 
@@ -9450,7 +9450,7 @@ PdfLoadedForm loadedForm = loadedDocument.Form;
 
 //Read the text box field
 
-PdfLoadedTextBoxField ldField = loadedDocument.Form.Fields[0] as PdfLoadedTextBoxField;
+PdfLoadedTextBoxField loadedField = loadedDocument.Form.Fields[0] as PdfLoadedTextBoxField;
             
 //Enable auto resize
 
@@ -9490,11 +9490,11 @@ PdfLoadedForm loadedForm = loadedDocument.Form;
 
 //Read the text box field
 
-PdfLoadedTextBoxField ldField = loadedDocument.Form.Fields[0] as PdfLoadedTextBoxField;
+PdfLoadedTextBoxField loadedField = loadedDocument.Form.Fields[0] as PdfLoadedTextBoxField;
 
 //Enable auto resize
 
-ldField.AutoResizeText = true;
+loadedField.AutoResizeText = true;
 
 //Flatten the form
 
@@ -9540,11 +9540,11 @@ PdfLoadedForm loadedForm = loadedDocument.Form;
 
 //Read the text box field
 
-PdfLoadedTextBoxField ldField = loadedDocument.Form.Fields[0] as PdfLoadedTextBoxField;
+PdfLoadedTextBoxField loadedField = loadedDocument.Form.Fields[0] as PdfLoadedTextBoxField;
 
 //Enable auto resize
 
-ldField.AutoResizeText = true;
+loadedField.AutoResizeText = true;
 
 //Flatten the form
       
