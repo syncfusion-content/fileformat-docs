@@ -492,59 +492,9 @@ Save(stream, "Result.docx");
 
 }
 
-{% endhighlight %}
-
-{% highlight Xamarin Forms %}
-
-//"App" is the class of Portable project.
-
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Creates an empty WordDocument instance 
-          
-using (WordDocument document = new WordDocument());
-
-{
-
-//Loads or opens an existing Word document from stream
-
-Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
-
-//Loads or opens an existing Word document through Open method of WordDocument class
-
-document.Open(inputStream, FormatType.Automatic);
-
-//To-Do some manipulation
-
-//To-Do some manipulation
-
-//Creates an instance of memory stream
-
-MemoryStream stream = new MemoryStream();
-
-//Saves the document to stream
-
-document.Save(stream, FormatType.Docx);
-
-//Save the stream as a file in the device and invoke it for viewing
-
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
-}
-
-{% endhighlight %}
-
-{% endtabs %}  
-
-The following code example provides supporting methods for the above UWP code.
-
-{% tabs %}  
-
-{% highlight UWP %}
-
 // Saves the Word document
 
-Private async void Save(MemoryStream streams, string filename)
+async void Save(MemoryStream streams, string filename)
 
 {
 
@@ -601,6 +551,46 @@ outstream.Flush();
 }
 
 }
+
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin Forms %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Creates an empty WordDocument instance 
+          
+using (WordDocument document = new WordDocument());
+
+{
+
+//Loads or opens an existing Word document from stream
+
+Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
+
+//Loads or opens an existing Word document through Open method of WordDocument class
+
+document.Open(inputStream, FormatType.Automatic);
+
+//To-Do some manipulation
+
+//To-Do some manipulation
+
+//Creates an instance of memory stream
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the document to stream
+
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 
 }
 
