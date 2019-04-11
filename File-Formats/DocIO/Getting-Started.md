@@ -1616,11 +1616,11 @@ document.Close()
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-Stream FileStraem = assembly.GetManifestResourceStream("CreateWordSample.Assets.Giant Panda.docx");
+Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Giant Panda.docx");
 
 //Loads an existing Word document into DocIO instance
 
-WordDocument document = new WordDocument(FileStraem);
+WordDocument document = new WordDocument(FileStream);
 
 //Replaces the word "bear" as "panda"
 
@@ -1740,11 +1740,11 @@ return File(stream, "application/msword", "Result.docx");
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-Stream FileStraem = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Giant Panda.docx");
+Stream FileStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Giant Panda.docx");
 
 //Loads an existing Word document into DocIO instance
 
-WordDocument document = new WordDocument(FileStraem,FormatType.Automatic);
+WordDocument document = new WordDocument(FileStream,FormatType.Automatic);
 
 //Replaces the word "bear" as "panda"
 
@@ -1831,11 +1831,11 @@ document.Close()
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-Stream FileStraem = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
+Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
 
 //Loads an existing Word document into DocIO instance
 
-WordDocument document = new WordDocument(FileStraem);
+WordDocument document = new WordDocument(FileStream);
 
 //Finds the occurrence of the Word "panda" in the document
 
@@ -1979,11 +1979,11 @@ return File(stream, "application/msword", "Result.docx");
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-Stream FileStraem = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx");
+Stream FileStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx");
 
 //Loads an existing Word document into DocIO instance
 
-WordDocument document = new WordDocument(FileStraem,FormatType.Automatic);
+WordDocument document = new WordDocument(FileStream,FormatType.Automatic);
 
 //Finds the occurrence of the Word "panda" in the document
 
@@ -2099,11 +2099,11 @@ document.Close()
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-Stream FileStraem = assembly.GetManifestResourceStream("CreateWordSample.Assets.SimpleMailMergeTemplate.docx");
+Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.SimpleMailMergeTemplate.docx");
 
 //Loads an existing Word document into DocIO instance
 
-WordDocument document = new WordDocument(FileStraem);
+WordDocument document = new WordDocument(FileStream);
 
 //Initializes the string array with field names
 
@@ -2241,11 +2241,11 @@ return File(stream, "application/msword", "Result.docx");
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-Stream FileStraem = assembly.GetManifestResourceStream("CreateWordSample.Assets.SimpleMailMergeTemplate.docx");
+Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.SimpleMailMergeTemplate.docx");
 
 //Loads an existing Word document into DocIO instance
 
-WordDocument document = new WordDocument(FileStraem,FormatType.Automatic);
+WordDocument document = new WordDocument(FileStream,FormatType.Automatic);
 
 //Initializes the string array with field names
 
@@ -2361,11 +2361,11 @@ document.Close()
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-Stream FileStraem = assembly.GetManifestResourceStream("CreateWordSample.Assets.EmployeesTemplate.docx");
+Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.EmployeesTemplate.docx");
 
 //Loads an existing Word document into DocIO instance
 
-WordDocument document = new WordDocument(FileStraem);
+WordDocument document = new WordDocument(FileStream);
             
 //Gets the employee details as IEnumerable collection
 
@@ -2500,11 +2500,11 @@ return File(stream, "application/msword", "Result.docx");
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-Stream FileStraem = assembly.GetManifestResourceStream("CreateWordSample.Assets.EmployeesTemplate.docx");
+Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.EmployeesTemplate.docx");
 
 //Loads an existing Word document into DocIO instance
 
-WordDocument document = new WordDocument(FileStraem,FormatType.Automatic);
+WordDocument document = new WordDocument(FileStream,FormatType.Automatic);
 
 //Gets the employee details as IEnumerable collection
 
@@ -3041,7 +3041,7 @@ For converting a Word document to PDF, the following assemblies are required to 
 * Syncfusion.OfficeChartToImageConverter.WPF
 * Syncfusion.SfChart.WPF
 
-For converting a word socument to PDF in Xamarin, UWP and Asp.Net Core platform, the following assemblies are required.
+For converting a word socument to PDF in Xamarin, UWP and ASP.NET Core platform, the following assemblies are required.
 
 * Syncfusion.DocIO.Portable
 * Syncfusion.OfficeChart.Portable
