@@ -3041,7 +3041,7 @@ For converting a Word document to PDF, the following assemblies are required to 
 * Syncfusion.OfficeChartToImageConverter.WPF
 * Syncfusion.SfChart.WPF
 
-For converting a word socument to PDF in Xamarin, UWP and ASP.NET Core platform, the following assemblies are required.
+For converting a word document to PDF in Xamarin, UWP and ASP.NET Core platform, the following assemblies are required.
 
 * Syncfusion.DocIO.Portable
 * Syncfusion.OfficeChart.Portable
