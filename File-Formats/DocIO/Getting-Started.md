@@ -1,5 +1,5 @@
 ﻿---
-title: Create a simple Word document in C#, VB.NET without office or interop | DocIO | Syncfusion
+title: Create a simple Word document in C#, VB.NET without office or interop | Syncfusion
 description: This section illustrate how to create a new Word document from scratch
 platform: file-formats
 control: DocIO
