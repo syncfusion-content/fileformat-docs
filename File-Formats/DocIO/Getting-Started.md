@@ -1,5 +1,5 @@
 ﻿---
-title: Create a simple Word document in C#, VB.NET without office or interop
+title: Create a simple Word document in C#, VB.NET without office or interop | DocIO | Syncfusion
 description: This section illustrate how to create a new Word document from scratch
 platform: file-formats
 control: DocIO
@@ -1559,7 +1559,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(outputFileName, "applic
 
 The resultant Word document looks as follows.
 
-![](GettingStarted_images/GettingStarted_img1.jpeg)
+![Creating a new Word document from scratch with basic elements](GettingStarted_images/GettingStarted_img1.jpeg)
 
 
 ## Modifying an existing Word document
@@ -2034,7 +2034,7 @@ Follow the given steps to perform simple Mail merge in a Word document.
 
 Let’s consider that you have a template Word document with merge fields as shown.
 
-![](GettingStarted_images/GettingStarted_img2.jpeg)
+![Performing Mail merge input document](GettingStarted_images/GettingStarted_img2.jpeg)
 
 
 The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data source. The Mail merge operation replaces the matching merge fields with the respective data.
@@ -2278,7 +2278,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStartedSample.d
 
 The resultant Word document look as follows.
 
-![](GettingStarted_images/GettingStarted_img3.jpeg)
+![Performing Mail merge output document](GettingStarted_images/GettingStarted_img3.jpeg)
 
 
 ### Simple Mail merge with Group
@@ -2292,7 +2292,7 @@ The region between these two merge fields get repeated for every record from the
 
 For example – let’s consider that you have a template document as shown.
 
-![](GettingStarted_images/GettingStarted_img4.jpeg)
+![Simple Mail merge with Group input document](GettingStarted_images/GettingStarted_img4.jpeg)
 
 
 Here, in this template, Employees is the group name and exact same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the Mail merge group. 
@@ -3024,7 +3024,7 @@ Photo = Syncfusion.Drawing.Image.FromStream(stream);
 
 The resultant document looks as follows.
 
-![](GettingStarted_images/GettingStarted_img5.jpeg)
+![Simple Mail merge with Group output document](GettingStarted_images/GettingStarted_img5.jpeg)
 
 
 ## Converting Word document to PDF
