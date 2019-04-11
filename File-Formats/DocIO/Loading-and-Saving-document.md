@@ -134,7 +134,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Autom
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Loads or opens an existing word document from stream
+//Loads or opens an existing Word document from stream
 
 Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
 
@@ -151,7 +151,7 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Automati
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-//Loads or opens an existing word document from stream
+//Loads or opens an existing Word document from stream
 
 Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
 
@@ -171,7 +171,7 @@ using (WordDocument document = new WordDocument(inputStream, FormatType.Automati
 
 WordDocument document = new WordDocument();
 
-//Loads or opens an existing word document through Open method of WordDocument class
+//Loads or opens an existing Word document through Open method of WordDocument class
 
 document.Open(wordDocumentStream, FormatType.Automatic);
 
@@ -197,11 +197,11 @@ using (WordDocument document = new WordDocument())
 
 {
 
-//Loads or opens an existing word document from stream
+//Loads or opens an existing Word document from stream
 
 FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
-//Loads or opens an existing word document through Open method of WordDocument class 
+//Loads or opens an existing Word document through Open method of WordDocument class 
 
 document.Open(fileStreamPath, FormatType.Automatic);
 
@@ -222,11 +222,11 @@ using (WordDocument document = new WordDocument());
 
 {
 
-//Loads or opens an existing word document from stream
+//Loads or opens an existing Word document from stream
 
 Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
 
-//Loads or opens an existing word document through Open method of WordDocument class
+//Loads or opens an existing Word document through Open method of WordDocument class
 
 document.Open(inputStream, FormatType.Automatic);
 
@@ -246,11 +246,11 @@ using (WordDocument document = new WordDocument());
 
 {
 
-//Loads or opens an existing word document from stream
+//Loads or opens an existing Word document from stream
 
 Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
 
-//Loads or opens an existing word document through Open method of WordDocument class
+//Loads or opens an existing Word document through Open method of WordDocument class
 
 document.Open(inputStream, FormatType.Automatic);
 
@@ -262,7 +262,7 @@ document.Open(inputStream, FormatType.Automatic);
 
 ## Opening an Encrypted Word document
 
-You can open an existing encrypted word document from either the file system or the stream by using the following overloads as shown. 
+You can open an existing encrypted Word document from either the file system or the stream by using the following overloads as shown. 
 
 {% tabs %} 
 
@@ -292,7 +292,7 @@ Dim document As New WordDocument(fileName, FormatType.Automatic, "password")
 
 WordDocument document = new WordDocument();
 
-//Loads or opens an existing encrypted word document through Open method of WordDocument class
+//Loads or opens an existing encrypted Word document through Open method of WordDocument class
 
 document.Open(wordDocumentStream, FormatType.Automatic, "password");
 
@@ -304,7 +304,7 @@ document.Open(wordDocumentStream, FormatType.Automatic, "password");
 
 Dim document As New WordDocument()
 
-'Loads or opens an existing encrypted word document through Open method of WordDocument class
+'Loads or opens an existing encrypted Word document through Open method of WordDocument class
 
 document.Open(wordDocumentStream, FormatType.Automatic, "password")
 
@@ -314,7 +314,7 @@ document.Open(wordDocumentStream, FormatType.Automatic, "password")
 
 ## Saving a Word document to file system
 
-You can save the created or manipulated word document to file system using `Save` method of `WordDocument` class. When you do not provide the format type, then the document is saved in Word 97-2003 (*.doc) format.
+You can save the created or manipulated Word document to file system using `Save` method of `WordDocument` class. When you do not provide the format type, then the document is saved in Word 97-2003 (*.doc) format.
 
 {% tabs %}  
 
@@ -324,7 +324,7 @@ You can save the created or manipulated word document to file system using `Save
 
 WordDocument document = new WordDocument();
 
-//opens an existing word document through Open method of WordDocument class
+//opens an existing Word document through Open method of WordDocument class
 
 document.Open(fileName);
 
@@ -344,7 +344,7 @@ document.Save(outputFileName, FormatType.Docx);
 
 Dim document As New WordDocument()
 
-'opens an existing word document through Open method of WordDocument class
+'opens an existing Word document through Open method of WordDocument class
 
 document.Open(fileName)
 
@@ -427,7 +427,7 @@ using (WordDocument document = new WordDocument())
 
 FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
-//Loads or opens an existing word document through Open method of WordDocument class 
+//Loads or opens an existing Word document through Open method of WordDocument class 
 
 document.Open(fileStreamPath, FormatType.Automatic);
 
@@ -470,7 +470,7 @@ using (WordDocument document = new WordDocument());
 
 Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
 
-//Loads or opens an existing word document through Open method of WordDocument class
+//Loads or opens an existing Word document through Open method of WordDocument class
 
 document.Open(inputStream, FormatType.Automatic);
 
@@ -738,7 +738,7 @@ using (WordDocument document = new WordDocument())
 
 FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
-//Loads or opens an existing word document through Open method of WordDocument class 
+//Loads or opens an existing Word document through Open method of WordDocument class 
 
 document.Open(fileStreamPath, FormatType.Automatic);
 
@@ -784,7 +784,7 @@ using (WordDocument document = new WordDocument());
 
 Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
 
-//Loads or opens an existing word document through Open method of WordDocument class
+//Loads or opens an existing Word document through Open method of WordDocument class
 
 document.Open(inputStream, FormatType.Automatic);
 
