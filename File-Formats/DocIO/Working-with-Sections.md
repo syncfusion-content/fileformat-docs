@@ -4741,11 +4741,11 @@ return File(stream, "application/msword", "Result.docx");
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
-Stream inputFileStraem = assembly.GetManifestResourceStream(inputFileName);
+Stream inputFileStream = assembly.GetManifestResourceStream(inputFileName);
 
 //Loads an existing Word document into DocIO instance
 
-WordDocument document = new WordDocument(inputFileStraem, FormatType.Automatic);
+WordDocument document = new WordDocument(inputFileStream, FormatType.Automatic);
 
 //Removes the second section from the collection
 
