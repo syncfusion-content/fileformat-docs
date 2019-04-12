@@ -723,6 +723,77 @@ document.Close(True)
 {% endtabs %}
 
 
+## Token based authentication
+
+The Blink HTML converter supports token-based authentication by using the HTTP request headers. The token values will be send to web server when the HTML page is requested. Refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize HTML to PDF converter 
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set BlinkBinaries path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Add a bearer token to login a webpage
+
+settings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>");
+
+//Assign Blink settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+
+PdfDocument document = htmlConverter.Convert("https://www.example.com");
+
+//Save and close the PDF document 
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize HTML to PDF converter 
+
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim settings As BlinkConverterSettings = New BlinkConverterSettings
+
+'Set BlinkBinaries path
+
+settings.BlinkPath = "/BlinkBinaries/"
+
+'Add a bearer token to login a webpage
+
+settings.HttpRequestHeaders.Add("Authorization", "bearer <<token value here>>")
+
+'Assign Blink settings to HTML converter
+
+htmlConverter.ConverterSettings = settings
+
+Dim document As PdfDocument = htmlConverter.Convert("https://www.example.com")
+
+'Save and close the PDF document 
+
+document.Save("Output.pdf")
+
+document.Close(true)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
 ## Offline conversion
 
 Blink HTML converter supports converting HTML to PDF in offline mode. While converting HTML to PDF in offline mode, the converter does not access the resources from the Internet. This may increase the performance in slow Internet connection.
