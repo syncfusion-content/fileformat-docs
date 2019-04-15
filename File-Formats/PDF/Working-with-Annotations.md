@@ -6541,3 +6541,288 @@ loadedDocument.Close(true);
 
 {% endtabs %}
 
+## Printing Annotations
+
+The Essential PDF supports printing the annotation in a PDF document by setting the annotation flag to Print using the AnnotationFlags property.
+
+The following code example illustrates how to print annotation in the PDF document.
+
+{% tabs %}
+
+{% highlight C# %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page 
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new PDF rubber stamp annotation
+
+RectangleF rectangle = new RectangleF(40, 60, 80, 20);
+
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
+
+rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
+
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+
+//Set the AnnotationFlags to print 
+
+rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print;
+
+//Adds annotation to the page 
+
+page.Annotations.Add(rubberStampAnnotation);
+
+//Saves the document
+
+document.Save("RubberStamp.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Creates a new PDF document
+
+Dim document As PdfDocument = New PdfDocument()
+
+'Creates a new page 
+
+Dim page As PdfPage = document.Pages.Add()
+
+'Creates a new PDF rubber stamp annotation
+
+Dim rectangle As RectangleF = New RectangleF(40, 60, 80, 20)
+
+Dim rubberStampAnnotation As PdfRubberStampAnnotation = New 
+
+PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation")
+
+rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft
+
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation"
+
+'Set the AnnotationFlags to print 
+
+rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print
+
+'Adds annotation to the page 
+
+page.Annotations.Add(rubberStampAnnotation)
+
+'Saves the document
+
+document.Save("RubberStamp.pdf")
+
+'Close the document
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page 
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new PDF rubber stamp annotation
+
+RectangleF rectangle = new RectangleF(40, 60, 80, 20);
+
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
+
+rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
+
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+
+//Set the AnnotationFlags to print 
+
+rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print;
+
+//Adds annotation to the page 
+
+page.Annotations.Add(rubberStampAnnotation);
+
+//Saves the document
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page 
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new PDF rubber stamp annotation
+
+RectangleF rectangle = new RectangleF(40, 60, 80, 20);
+
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
+
+rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
+
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+
+//Set the AnnotationFlags to print 
+
+rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print;
+
+//Adds annotation to the page 
+
+page.Annotations.Add(rubberStampAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "RubberStamp.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Creates a new page 
+
+PdfPage page = document.Pages.Add();
+
+//Creates a new PDF rubber stamp annotation
+
+RectangleF rectangle = new RectangleF(40, 60, 80, 20);
+
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangle, " Text Rubber Stamp Annotation");
+
+rubberStampAnnotation.Icon = PdfRubberStampAnnotationIcon.Draft;
+
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+
+//Set the AnnotationFlags to print 
+
+rubberStampAnnotation.AnnotationFlags = PdfAnnotationFlags.Print;
+
+//Adds annotation to the page 
+
+page.Annotations.Add(rubberStampAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+   Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("RubberStamp.pdf", "application/pdf", stream);
+}
+else
+{
+   Xamarin.Forms.DependencyService.Get<ISave>().Save("RubberStamp.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following table explains annotation flags.
+
+<table>
+<thead>
+<tr>
+<th>
+Member<br/><br/></th><th>
+Meaning<br/><br/></th></tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Invisible<br/><br/></td><td>
+If set, do not display the annotation if it does not belong to one of the standard annotation types and no annotation handler is available.<br/><br/></td></tr>
+<tr>
+<td>
+Hidden<br/><br/></td><td>
+If set, do not display or print the annotation, or allow user interact with annotation, regardless of annotation type or annotation handler.<br/><br/></td></tr>
+<tr>
+<td>
+Print<br/><br/></td><td>
+If set, prints the annotation when the page is printed.<br/><br/></td></tr>
+<tr>
+<td>
+NoZoom<br/><br/></td><td>
+If set, do not scale the annotation’s appearance to match the magnification of the page.<br/><br/></td></tr>
+<tr>
+<td>
+NoRotate<br/><br/></td><td>
+If set, do not rotate the annotation’s appearance to match the rotation of the page.<br/><br/></td></tr>
+<tr>
+<td>
+NoView<br/><br/></td><td>
+If set, do not display the annotation on the screens or allow user interact with annotation.<br/><br/></td></tr>
+<tr>
+<td>
+ReadOnly<br/><br/></td><td>
+If set, do not allow user interact with annotation.<br/><br/></td></tr>
+<tr>
+<td>
+Locked<br/><br/></td><td>
+If set, do not allow the annotation to be deleted or its properties to be modified by the user.<br/><br/></td></tr>
+<tr>
+<td>
+ToggleNoView<br/><br/></td><td>
+If set, inverts the interpretation of the NoView flat for certain events.<br/><br/></td></tr>
+</tbody>
+</table>
+
