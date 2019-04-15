@@ -1,5 +1,5 @@
----
-title: Working with Word document | Syncfusion
+﻿---
+title: Working with Word document | DocIO | Syncfusion
 description: Learn about combining multiple Word documents as one, printing Word document, applying styles, document properties, & iterating through DOM elements
 platform: file-formats
 control: DocIO
@@ -287,6 +287,541 @@ End Sub
 End Class
 
 End Namespace
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+using Syncfusion.DocIO.DLS;
+
+namespace RemoveParagraphs
+
+{
+
+class Program
+
+{
+
+static void Main(string[] args)
+
+{
+
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
+
+{
+
+foreach (WSection section in document.Sections)
+
+{
+
+//Accesses the Body of section where all the contents in document are apart
+
+WTextBody sectionBody = section.Body;
+
+IterateTextBody(sectionBody);
+
+WHeadersFooters headersFooters = section.HeadersFooters;
+
+//Consider that OddHeader and OddFooter are applied to this document
+
+//Iterates through the TextBody of OddHeader and OddFooter
+
+IterateTextBody(headersFooters.OddHeader);
+
+IterateTextBody(headersFooters.OddFooter);
+
+}
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Closes the Word document
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+}
+
+private static void IterateTextBody(WTextBody textBody)
+
+{
+
+//Iterates through each of the child items of WTextBody
+
+for (int i = 0; i < textBody.ChildEntities.Count; i++)
+
+{
+
+//IEntity is the basic unit in DocIO DOM. 
+
+//Accesses the body items (should be either paragraph or table) as IEntity
+
+IEntity bodyItemEntity = textBody.ChildEntities[i];
+
+//A Text body has 2 types of elements - Paragraph and Table
+
+//Decides the element type by using EntityType
+
+switch (bodyItemEntity.EntityType)
+
+{
+
+case EntityType.Paragraph:
+
+WParagraph paragraph = bodyItemEntity as WParagraph;
+
+//Checks for particular style name and removes the paragraph from DOM
+
+if (paragraph.StyleName == "MyStyle")
+
+{
+
+int index = textBody.ChildEntities.IndexOf(paragraph);
+
+textBody.ChildEntities.RemoveAt(index);
+
+}
+
+break;
+
+case EntityType.Table:
+
+//Table is a collection of rows and cells
+
+//Iterates through table's DOM
+
+IterateTable(bodyItemEntity as WTable);
+
+break;
+
+}
+
+}
+
+}
+
+private static void IterateTable(WTable table)
+
+{
+
+//Iterates the row collection in a table
+
+foreach (WTableRow row in table.Rows)
+
+{
+
+//Iterates the cell collection in a table row
+
+foreach (WTableCell cell in row.Cells)
+
+{
+
+//Table cell is derived from (also a) TextBody
+
+//Reusing the code meant for iterating TextBody
+
+IterateTextBody(cell);
+
+}
+
+}
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+using Syncfusion.DocIO.DLS;
+
+namespace RemoveParagraphs
+
+{
+
+class Program
+
+{
+
+async void Main(string[] args)
+
+{
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Automatic))
+{
+
+foreach (WSection section in document.Sections)
+
+{
+
+//Accesses the Body of section where all the contents in document are apart
+
+WTextBody sectionBody = section.Body;
+
+IterateTextBody(sectionBody);
+
+WHeadersFooters headersFooters = section.HeadersFooters;
+
+//Consider that OddHeader and OddFooter are applied to this document
+
+//Iterates through the TextBody of OddHeader and OddFooter
+
+IterateTextBody(headersFooters.OddHeader);
+
+IterateTextBody(headersFooters.OddFooter);
+
+}
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+                
+//Closes the Word document
+
+document.Close();
+
+}
+
+}
+
+async void IterateTextBody(WTextBody textBody)
+
+{
+
+//Iterates through each of the child items of WTextBody
+
+for (int i = 0; i < textBody.ChildEntities.Count; i++)
+
+{
+
+//IEntity is the basic unit in DocIO DOM. 
+
+//Accesses the body items (should be either paragraph or table) as IEntity
+
+IEntity bodyItemEntity = textBody.ChildEntities[i];
+
+//A Text body has 2 types of elements - Paragraph and Table
+
+//Decides the element type by using EntityType
+
+switch (bodyItemEntity.EntityType)
+
+{
+
+case EntityType.Paragraph:
+
+WParagraph paragraph = bodyItemEntity as WParagraph;
+
+//Checks for particular style name and removes the paragraph from DOM
+
+if (paragraph.StyleName == "MyStyle")
+
+{
+
+int index = textBody.ChildEntities.IndexOf(paragraph);
+
+textBody.ChildEntities.RemoveAt(index);
+
+}
+
+break;
+
+case EntityType.Table:
+
+//Table is a collection of rows and cells
+
+//Iterates through table's DOM
+
+IterateTable(bodyItemEntity as WTable);
+
+break;
+
+}
+
+}
+
+}
+
+async void IterateTable(WTable table)
+
+{
+
+//Iterates the row collection in a table
+
+foreach (WTableRow row in table.Rows)
+
+{
+
+//Iterates the cell collection in a table row
+
+foreach (WTableCell cell in row.Cells)
+
+{
+
+//Table cell is derived from (also a) TextBody
+
+//Reusing the code meant for iterating TextBody
+
+IterateTextBody(cell);
+
+}
+
+}
+
+}
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+using Syncfusion.DocIO.DLS;
+
+namespace RemoveParagraphs
+
+{
+
+class Program
+
+{
+
+static void Main(string[] args)
+
+{
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+              FormatType.Automatic))
+{
+foreach (WSection section in document.Sections)
+
+{
+
+//Accesses the Body of section where all the contents in document are apart
+
+WTextBody sectionBody = section.Body;
+
+IterateTextBody(sectionBody);
+
+WHeadersFooters headersFooters = section.HeadersFooters;
+
+//Consider that OddHeader and OddFooter are applied to this document
+
+//Iterates through the TextBody of OddHeader and OddFooter
+
+IterateTextBody(headersFooters.OddHeader);
+
+IterateTextBody(headersFooters.OddFooter);
+
+}
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("Result.docx", "application/msword", stream);
+
+//Closes the Word document
+
+document.Close();
+
+}
+
+}
+
+private static void IterateTextBody(WTextBody textBody)
+
+{
+
+//Iterates through each of the child items of WTextBody
+
+for (int i = 0; i < textBody.ChildEntities.Count; i++)
+
+{
+
+//IEntity is the basic unit in DocIO DOM. 
+
+//Accesses the body items (should be either paragraph or table) as IEntity
+
+IEntity bodyItemEntity = textBody.ChildEntities[i];
+
+//A Text body has 2 types of elements - Paragraph and Table
+
+//Decides the element type by using EntityType
+
+switch (bodyItemEntity.EntityType)
+
+{
+
+case EntityType.Paragraph:
+
+WParagraph paragraph = bodyItemEntity as WParagraph;
+
+//Checks for particular style name and removes the paragraph from DOM
+
+if (paragraph.StyleName == "MyStyle")
+
+{
+
+int index = textBody.ChildEntities.IndexOf(paragraph);
+
+textBody.ChildEntities.RemoveAt(index);
+
+}
+
+break;
+
+case EntityType.Table:
+
+//Table is a collection of rows and cells
+
+//Iterates through table's DOM
+
+IterateTable(bodyItemEntity as WTable);
+
+break;
+
+}
+
+}
+
+}
+
+private static void IterateTable(WTable table)
+
+{
+
+//Iterates the row collection in a table
+
+foreach (WTableRow row in table.Rows)
+
+{
+
+//Iterates the cell collection in a table row
+
+foreach (WTableCell cell in row.Cells)
+
+{
+
+//Table cell is derived from (also a) TextBody
+
+//Reusing the code meant for iterating TextBody
+
+IterateTextBody(cell);
+
+}
+
+}
+
+}
+
+}
+
+}
 
 {% endhighlight %}
 
@@ -678,6 +1213,728 @@ End Namespace
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+using Syncfusion.DocIO.DLS;
+
+using Syncfusion.DocIO;
+
+namespace UpdateText
+
+{
+
+class Program
+
+{
+
+static void Main(string[] args)
+
+{
+
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
+
+{
+
+foreach (WSection section in document.Sections)
+
+{
+
+//Accesses the Body of section where all the contents in document are apart
+
+WTextBody sectionBody = section.Body;
+
+IterateTextBody(sectionBody);
+
+WHeadersFooters headersFooters = section.HeadersFooters;
+
+//Consider that OddHeader and OddFooter are applied to this document
+
+//Iterates through the TextBody of OddHeader and OddFooter
+
+IterateTextBody(headersFooters.OddHeader);
+
+IterateTextBody(headersFooters.OddFooter);
+
+}
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Closes the Word document
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+}
+
+private static void IterateTextBody(WTextBody textBody)
+
+{
+
+//Iterates through each of the child items of WTextBody
+
+for (int i = 0; i < textBody.ChildEntities.Count; i++)
+
+{
+
+//IEntity is the basic unit in DocIO DOM. 
+
+//Accesses the body items (should be either paragraph or table) as IEntity
+
+IEntity bodyItemEntity = textBody.ChildEntities[i];
+
+//A Text body has 2 types of elements - Paragraph and Table
+
+//Decides the element type by using EntityType
+
+switch (bodyItemEntity.EntityType)
+
+{
+
+case EntityType.Paragraph:
+
+WParagraph paragraph = bodyItemEntity as WParagraph;
+
+//Processes the paragraph contents
+
+//Iterates through the paragraph's DOM
+
+IterateParagraph(paragraph);
+
+break;
+
+case EntityType.Table:
+
+//Table is a collection of rows and cells
+
+//Iterates through table's DOM
+
+IterateTable(bodyItemEntity as WTable);
+
+break;
+
+}
+
+}
+
+}
+
+private static void IterateTable(WTable table)
+
+{
+
+//Iterates the row collection in a table
+
+foreach (WTableRow row in table.Rows)
+
+{
+
+//Iterates the cell collection in a table row
+
+foreach (WTableCell cell in row.Cells)
+
+{
+
+//Table cell is derived from (also a) TextBody
+
+//Reusing the code meant for iterating TextBody
+
+IterateTextBody(cell);
+
+}
+
+}
+
+}
+
+private static void IterateParagraph(WParagraph paragraph)
+
+{
+
+for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+
+{
+
+Entity entity = paragraph.ChildEntities[i];
+
+//A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+
+//Decides the element type by using EntityType
+
+switch (entity.EntityType)
+
+{
+
+case EntityType.TextRange:
+
+//Replaces the text with another
+
+WTextRange textRange = entity as WTextRange;
+
+if (textRange.Text == "Andrew")
+
+{
+
+(entity as WTextRange).Text = "Fuller";
+
+}
+
+break;
+
+case EntityType.Field:
+
+WField field = entity as WField;
+
+if (field.FieldType == FieldType.FieldHyperlink)
+
+{
+
+//Creates hyperlink instance from field to manipulate the hyperlink
+
+Hyperlink hyperlink = new Hyperlink(entity as WField);
+
+//Modifies the Uri of the hyperlink
+
+if (hyperlink.Type == HyperlinkType.WebLink && hyperlink.TextToDisplay == "HTML")
+
+{
+
+hyperlink.Uri = "http://www.w3schools.com/";
+
+}
+
+}
+
+break;
+
+}
+
+}
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+using Syncfusion.DocIO.DLS;
+
+using Syncfusion.DocIO;
+
+namespace UpdateText
+
+{
+
+class Program
+
+{
+
+async void Main(string[] args)
+
+{
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Automatic))
+{
+
+foreach (WSection section in document.Sections)
+
+{
+
+//Accesses the Body of section where all the contents in document are apart
+
+WTextBody sectionBody = section.Body;
+
+IterateTextBody(sectionBody);
+
+WHeadersFooters headersFooters = section.HeadersFooters;
+
+//Consider that OddHeader and OddFooter are applied to this document
+
+//Iterates through the TextBody of OddHeader and OddFooter
+
+IterateTextBody(headersFooters.OddHeader);
+
+IterateTextBody(headersFooters.OddFooter);
+
+}
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+                
+//Closes the Word document
+
+document.Close();
+
+}
+
+}
+
+async void IterateTextBody(WTextBody textBody)
+
+{
+
+//Iterates through each of the child items of WTextBody
+
+for (int i = 0; i < textBody.ChildEntities.Count; i++)
+
+{
+
+//IEntity is the basic unit in DocIO DOM. 
+
+//Accesses the body items (should be either paragraph or table) as IEntity
+
+IEntity bodyItemEntity = textBody.ChildEntities[i];
+
+//A Text body has 2 types of elements - Paragraph and Table
+
+//Decides the element type by using EntityType
+
+switch (bodyItemEntity.EntityType)
+
+{
+
+case EntityType.Paragraph:
+
+WParagraph paragraph = bodyItemEntity as WParagraph;
+
+//Processes the paragraph contents
+
+//Iterates through the paragraph's DOM
+
+IterateParagraph(paragraph);
+
+break;
+
+case EntityType.Table:
+
+//Table is a collection of rows and cells
+
+//Iterates through table's DOM
+
+IterateTable(bodyItemEntity as WTable);
+
+break;
+
+}
+
+}
+
+}
+
+async void IterateTable(WTable table)
+
+{
+
+//Iterates the row collection in a table
+
+foreach (WTableRow row in table.Rows)
+
+{
+
+//Iterates the cell collection in a table row
+
+foreach (WTableCell cell in row.Cells)
+
+{
+
+//Table cell is derived from (also a) TextBody
+
+//Reusing the code meant for iterating TextBody
+
+IterateTextBody(cell);
+
+}
+
+}
+
+}
+
+async void IterateParagraph(WParagraph paragraph)
+
+{
+
+for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+
+{
+
+Entity entity = paragraph.ChildEntities[i];
+
+//A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+
+//Decides the element type by using EntityType
+
+switch (entity.EntityType)
+
+{
+
+case EntityType.TextRange:
+
+//Replaces the text with another
+
+WTextRange textRange = entity as WTextRange;
+
+if (textRange.Text == "Andrew")
+
+{
+
+(entity as WTextRange).Text = "Fuller";
+
+}
+
+break;
+
+case EntityType.Field:
+
+WField field = entity as WField;
+
+if (field.FieldType == FieldType.FieldHyperlink)
+
+{
+
+//Creates hyperlink instance from field to manipulate the hyperlink
+
+Hyperlink hyperlink = new Hyperlink(entity as WField);
+
+//Modifies the Uri of the hyperlink
+
+if (hyperlink.Type == HyperlinkType.WebLink && hyperlink.TextToDisplay == "HTML")
+
+{
+
+hyperlink.Uri = "http://www.w3schools.com/";
+
+}
+
+}
+
+break;
+
+}
+
+}
+
+}
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+using Syncfusion.DocIO.DLS;
+
+using Syncfusion.DocIO;
+
+namespace UpdateText
+
+{
+
+class Program
+
+{
+
+static void Main(string[] args)
+
+{
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+              FormatType.Automatic))
+{
+
+foreach (WSection section in document.Sections)
+
+{
+
+//Accesses the Body of section where all the contents in document are apart
+
+WTextBody sectionBody = section.Body;
+
+IterateTextBody(sectionBody);
+
+WHeadersFooters headersFooters = section.HeadersFooters;
+
+//Consider that OddHeader and OddFooter are applied to this document
+
+//Iterates through the TextBody of OddHeader and OddFooter
+
+IterateTextBody(headersFooters.OddHeader);
+
+IterateTextBody(headersFooters.OddFooter);
+
+}
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("Result.docx", "application/msword", stream);
+
+//Closes the Word document
+
+document.Close();
+
+}
+
+}
+
+private static void IterateTextBody(WTextBody textBody)
+
+{
+
+//Iterates through each of the child items of WTextBody
+
+for (int i = 0; i < textBody.ChildEntities.Count; i++)
+
+{
+
+//IEntity is the basic unit in DocIO DOM. 
+
+//Accesses the body items (should be either paragraph or table) as IEntity
+
+IEntity bodyItemEntity = textBody.ChildEntities[i];
+
+//A Text body has 2 types of elements - Paragraph and Table
+
+//Decides the element type by using EntityType
+
+switch (bodyItemEntity.EntityType)
+
+{
+
+case EntityType.Paragraph:
+
+WParagraph paragraph = bodyItemEntity as WParagraph;
+
+//Processes the paragraph contents
+
+//Iterates through the paragraph's DOM
+
+IterateParagraph(paragraph);
+
+break;
+
+case EntityType.Table:
+
+//Table is a collection of rows and cells
+
+//Iterates through table's DOM
+
+IterateTable(bodyItemEntity as WTable);
+
+break;
+
+}
+
+}
+
+}
+
+private static void IterateTable(WTable table)
+
+{
+
+//Iterates the row collection in a table
+
+foreach (WTableRow row in table.Rows)
+
+{
+
+//Iterates the cell collection in a table row
+
+foreach (WTableCell cell in row.Cells)
+
+{
+
+//Table cell is derived from (also a) TextBody
+
+//Reusing the code meant for iterating TextBody
+
+IterateTextBody(cell);
+
+}
+
+}
+
+}
+
+private static void IterateParagraph(WParagraph paragraph)
+
+{
+
+for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+
+{
+
+Entity entity = paragraph.ChildEntities[i];
+
+//A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+
+//Decides the element type by using EntityType
+
+switch (entity.EntityType)
+
+{
+
+case EntityType.TextRange:
+
+//Replaces the text with another
+
+WTextRange textRange = entity as WTextRange;
+
+if (textRange.Text == "Andrew")
+
+{
+
+(entity as WTextRange).Text = "Fuller";
+
+}
+
+break;
+
+case EntityType.Field:
+
+WField field = entity as WField;
+
+if (field.FieldType == FieldType.FieldHyperlink)
+
+{
+
+//Creates hyperlink instance from field to manipulate the hyperlink
+
+Hyperlink hyperlink = new Hyperlink(entity as WField);
+
+//Modifies the Uri of the hyperlink
+
+if (hyperlink.Type == HyperlinkType.WebLink && hyperlink.TextToDisplay == "HTML")
+
+{
+
+hyperlink.Uri = "http://www.w3schools.com/";
+
+}
+
+}
+
+break;
+
+}
+
+}
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ## Cloning a Word document
@@ -727,6 +1984,163 @@ clonedDocument.Close()
 'Closes the input template document instance
 
 sourceDocument.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
+
+{
+
+//Creates a clone of Input Template 
+
+WordDocument clonedDocument = document.Clone();
+
+MemoryStream stream = new MemoryStream();
+
+//Saves and closes the cloned document instance
+
+clonedDocument.Save(stream, FormatType.Docx);
+
+clonedDocument.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),
+                FormatType.Docx))
+
+{
+
+WordDocument clonedDocument = document.Clone();
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await clonedDocument.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),
+                FormatType.Automatic))
+
+{
+
+WordDocument clonedDocument = document.Clone();
+
+MemoryStream stream = new MemoryStream();
+
+clonedDocument.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+               
+document.Close();
+
+}
 
 {% endhighlight %}
 
@@ -802,6 +2216,25 @@ sourceDocument.Close()
 
 {% endhighlight %}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endtabs %}  
    
 ## Merging Word documents
@@ -861,6 +2294,192 @@ sourceDocument.Close()
 destinationDocument.Close()
 
 {% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+FileStream destinationStreamPath = new FileStream(destinationFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an source document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+
+{
+
+//Opens the destination document 
+
+WordDocument Destinationdocument = new WordDocument(destinatonStreamPath, FormatType.Docx);
+
+//Imports the contents of source document at the end of destination document
+
+Destinationdocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves and closes the destination document to  MemoryStream
+
+Destinationdocument.Save(stream, FormatType.Docx);
+
+Destinationdocument.Close();
+
+document.Close(); 
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),
+                FormatType.Docx))
+
+{
+
+//Opens the destination document 
+
+WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Letter Formatting.docx"),
+                    FormatType.Docx);
+
+//Imports the contents of source document at the end of destination document
+
+destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await destinationDocument.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+destinationDocument.Close();
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"),
+                FormatType.Docx))
+
+{
+
+//Opens the destination document 
+
+WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Letter Formatting.docx"),
+                    FormatType.Docx);
+
+//Imports the contents of source document at the end of destination document
+
+destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+
+MemoryStream stream = new MemoryStream();
+
+destinationDocument.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the documents               
+
+document.Close();
+
+destinationDocument.Close();
+
+}
+
+{% endhighlight %}
 
 {% endtabs %}  
 
@@ -929,6 +2548,206 @@ sourceDocument.Close()
 destinationDocument.Close()
 
 {% endhighlight %}
+
+
+{% highlight ASP.NET CORE %}
+
+
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+FileStream destinationStreamPath = new FileStream(destinationFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an source document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+
+{
+
+//Opens the destination document 
+
+WordDocument Destinationdocument = new WordDocument(destinatonStreamPath, FormatType.Docx);
+
+//Sets the break-code of First section of source document as NoBreak to avoid imported from a new page
+
+document.Sections[0].BreakCode = SectionBreakCode.NoBreak; 
+
+//Imports the contents of source document at the end of destination document
+
+Destinationdocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves and closes the destination document to  MemoryStream
+
+Destinationdocument.Save(stream, FormatType.Docx);
+
+Destinationdocument.Close();
+
+document.Close(); 
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),
+                FormatType.Docx))
+
+{
+
+//Opens the destination document 
+
+WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Letter Formatting.docx"),
+                    FormatType.Docx);
+
+//Sets the break-code of First section of source document as NoBreak to avoid imported from a new page
+
+document.Sections[0].BreakCode = SectionBreakCode.NoBreak; 
+
+//Imports the contents of source document at the end of destination document
+
+destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await destinationDocument.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+destinationDocument.Close();
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"),
+                FormatType.Docx))
+
+{
+
+//Opens the destination document 
+
+WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Letter Formatting.docx"),
+                    FormatType.Docx);
+
+//Sets the break-code of First section of source document as NoBreak to avoid imported from a new page
+
+document.Sections[0].BreakCode = SectionBreakCode.NoBreak; 
+
+//Imports the contents of source document at the end of destination document
+
+destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+
+MemoryStream stream = new MemoryStream();
+
+destinationDocument.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the documents               
+
+document.Close();
+
+destinationDocument.Close();
+
+}
+
+{% endhighlight %}
+
 
 {% endtabs %}  
 
@@ -1187,6 +3006,12 @@ Dim images As Image() = document.RenderAsImages(ImageType.Metafile)
 document.Close()
 
 {% endhighlight %}
+
+
+
+
+
+
 
 {% endtabs %}  
 
@@ -2002,6 +3827,198 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 
 document.Close()
+
+
+{% highlight ASP.NET CORE %}
+
+
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an source document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+
+{
+//Sets the background type as picture
+
+document.Background.Type = BackgroundType.Picture;
+
+//Opens the existing image 
+
+FileStream imageStream = new FileStream(@"Data/Picture.png", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+MemoryStream memoryStream = new MemoryStream();
+
+imageStream.CopyTo(memoryStream);
+
+document.Background.Picture = memoryStream.ToArray();
+
+MemoryStream stream = new MemoryStream();
+
+//Saves and closes the destination document to  MemoryStream
+
+Destinationdocument.Save(stream, FormatType.Docx);
+
+Destinationdocument.Close();
+
+document.Close(); 
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),
+                FormatType.Docx))
+
+{
+
+document.Background.Type = BackgroundType.Picture;
+
+//Opens the existing image 
+
+Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Picture.png");
+
+MemoryStream memoryStream = new MemoryStream();
+
+imageStream.CopyTo(memoryStream);
+
+document.Background.Picture = memoryStream.ToArray();
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"),
+                FormatType.Docx))
+
+{
+
+document.Background.Type = BackgroundType.Picture;
+
+//Opens the existing image 
+
+Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Picture.png");
+
+MemoryStream memoryStream = new MemoryStream();
+
+imageStream.CopyTo(memoryStream);
+
+document.Background.Picture = memoryStream.ToArray();
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the document              
+
+document.Close();
+
+}
+
+{% endhighlight %}
 
 {% endhighlight %}
 
