@@ -9,9 +9,9 @@ documentation: UG
 
 ## Adding the document settings
 
-Essential PDF supports various page setting options to control the page display. 
+Essential PDF supports various page setting options to control the page display, through [PageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument~PageSettings.html) property of [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument.html).
 
-You can choose the standard or custom page size when you add a page to the PDF document. This sample below illustrates how to create a PDF document with standard page size.
+You can choose the standard or custom page size when you add a page to the PDF document. This below sample illustrates how to create a PDF document with standard page size.
 
 {% tabs %}
 
@@ -238,7 +238,7 @@ else
 
 {% endtabs %}
 
-You can create a custom page size in the PDF document by using following code snippet.
+You can create a PDF document with custom page size by using the following code snippet.
 
 {% tabs %}
 
@@ -465,7 +465,7 @@ else
 
 {% endtabs %}
 
-You can change page orientation from portrait to landscape by using the following code snippet.
+You can change page orientation from portrait to landscape, through [PdfPageOrientation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageOrientation.html) Enum by using the following code snippet.
 
 {% tabs %}
 
@@ -719,7 +719,7 @@ else
 
 {% endtabs %}
 
-You can also change orientation by setting the rotation angle using PdfPageRotateAngle Enum. The following code snippets illustrates the same.
+You can also change orientation by setting the rotation angle using [PdfPageRotateAngle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageRotateAngle.html) Enum. The following code snippet illustrates the same.
 
 {% tabs %}
 
@@ -970,7 +970,7 @@ else
 
 ## Creating sections in a PDF
 
-PDF sections are parts of the PDF document, which may contain one or more pages with their unique page settings. The following code snippet illustrates the same.
+PDF sections are parts of the PDF document, which may contain one or more pages with their unique page settings. The following code snippet illustrates how to create a [PdfSection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfSection.html) in a PDF document.
 
 {% tabs %}
 
@@ -1276,7 +1276,7 @@ viewer.Dispose()
 
 ## Working with document properties
 
-Essential PDF allows you to set, read and modify the document information of a PDF like Author, CreationDate, Subject, Title, and Producer etc. The **DocumentInformation** **property** of the PdfDocument or PdfLoadedDocument provides access to this information.
+Essential PDF allows you to set, read and modify the document information of a PDF like Author, CreationDate, Subject, Title, and Producer etc. The [DocumentInformation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase~DocumentInformation.html) property of the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument.html) or [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) provides access to this information.
 
 The following code snippet illustrates how to set PDF document information.
 
@@ -1776,7 +1776,7 @@ else
 
 ## Performing incremental update for PDF document
 
-The Essential PDF supports an incremental update for PDF document. The content of a PDF file can be updated incrementally without rewriting the entire file. Changes are appended to the end of the file, leaving its original contents intact. The main benefit is small changes to a large PDF document can be saved quickly but the resultant document size gets increased compared with the original PDF document. Disabling the incremental update will rewrite the entire file, which results in a smaller PDF. This is illustrated in the following code sample.
+The Essential PDF supports incremental update for PDF document. The content of a PDF file can be updated incrementally without rewriting the entire file. Changes are appended to the end of the file, leaving its original contents intact. The main benefit is small changes to a large PDF document can be saved quickly but the resultant document size gets increased compared with the original PDF document. Disabling the [IncrementalUpdate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfFileStructure~IncrementalUpdate.html) of [PdfFileStructure](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfFileStructure.html) will rewrite the entire file, which results in a smaller PDF. This is illustrated in the following code sample.
 
 {% tabs %}
 
@@ -1970,7 +1970,7 @@ else
 
 Essential PDF allows you to set various PDF viewer preferences to be used when the generated PDF document is displayed in a PDF reader application.
 
-You can hide the menu bar and toolbar by using the following code snippet.
+You can hide the menu bar and toolbar by enabling [HideMenubar](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfViewerPreferences~HideMenubar.html) and [HideToolbar](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfViewerPreferences~HideToolbar.html) properies of [PdfViewerPreferences](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfViewerPreferences.html) respectively. This is illustrated in the following code sample.
 
 {% tabs %}
 
@@ -2239,7 +2239,7 @@ else
 
 {% endtabs %}
 
-You can also allow the reader application to initially display the bookmarks, thumbnails or attachments using  PdfPageMode ENUM
+You can also allow the reader application to initially display the bookmarks, thumbnails or attachments using [PdfPageMode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageMode.html) Enum.
 
 {% tabs %}
 
@@ -2471,9 +2471,9 @@ Please refer to the [actions](/file-formats/pdf/working-with-action "Working wit
 
 ## Working in Multi-Threading Environment
 
-Essential PDF allows you to create or modify PDF documents simultaneously in multi-threading environment by using ```PdfDocument.EnableThreadSafe``` instance.
+Essential PDF allows you to create or modify PDF documents simultaneously in multi-threading environment using [EnableThreadSafe](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument~EnableThreadSafe.html) property of [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument.html) class.
 
-The following code illustrates how to create a PDF document in multi-threading environment.
+The following code sample illustrates how to create a PDF document in multi-threading environment.
 
 {% tabs %}
 {% highlight c# %}
@@ -2552,7 +2552,7 @@ End Sub
 
 {% endtabs %}
 
-You can also modify the existing document in multi-threading environment. The below samples explain how to modify the existing PDF document in multi-threading environment.
+You can also modify the existing PDF document in multi-threading environment by using the following code snippet.
 
 {% tabs %}
 {% highlight c# %}
