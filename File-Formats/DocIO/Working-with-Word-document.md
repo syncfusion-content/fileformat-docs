@@ -3007,12 +3007,6 @@ document.Close()
 
 {% endhighlight %}
 
-
-
-
-
-
-
 {% endtabs %}  
 
 You can specify the printer settings and page settings through the [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx#) class. The [PrintDocument.PrintPage](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument.printpage%28v=vs.110%29.aspx#) event should be handled to layout the document for printing. 
@@ -3351,6 +3345,206 @@ document.Close()
 
 {% endhighlight %} 
 
+{% highlight ASP.NET CORE %}
+
+
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an source document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+
+{
+
+//Accesses the styles collection that contains paragraph and character styles in Word document
+
+IStyleCollection styleCollection = document.Styles;
+
+//Finds the style with the name "Heading 1"
+
+WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
+
+//Changes the text color of style "Heading 1" as DarkBlue
+
+heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+
+//Changes the first line indent of Paragraph as 36 points
+
+heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
+
+MemoryStream stream = new MemoryStream();
+
+//Saves and closes the destination document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),
+                FormatType.Docx))
+
+{
+
+//Accesses the styles collection that contains paragraph and character styles in Word document
+
+IStyleCollection styleCollection = document.Styles;
+
+//Finds the style with the name "Heading 1"
+
+WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
+
+//Changes the text color of style "Heading 1" as DarkBlue
+
+heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.DocIO.DLS.Color.DarkBlue;
+
+//Changes the first line indent of Paragraph as 36 points
+
+heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"),
+                FormatType.Docx))
+
+{
+
+//Accesses the styles collection that contains paragraph and character styles in Word document
+
+IStyleCollection styleCollection = document.Styles;
+
+//Finds the style with the name "Heading 1"
+
+WParagraphStyle heading1ParagraphStyle = styleCollection.FindByName("Heading 1") as WParagraphStyle;
+
+//Changes the text color of style "Heading 1" as DarkBlue
+
+heading1ParagraphStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+
+//Changes the first line indent of Paragraph as 36 points
+
+heading1ParagraphStyle.ParagraphFormat.FirstLineIndent = 36;
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the document              
+
+document.Close();
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ### Creating a new Paragraph Style
@@ -3429,8 +3623,214 @@ document.Save(outputFileName, FormatType.Docx)
 
 document.Close()
 
-{% endhighlight %} 
+{% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an source document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+
+{
+
+IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
+
+//Sets the formatting of the style
+
+myStyle.CharacterFormat.FontSize = 16f;
+
+myStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+
+myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+
+//Appends the contents into the paragraph
+
+document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+//Applies the style to paragraph
+
+document.LastParagraph.ApplyStyle("MyStyle");
+
+MemoryStream stream = new MemoryStream();
+
+//Saves and closes the destination document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),
+                FormatType.Docx))
+
+{
+
+IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
+
+//Sets the formatting of the style
+
+myStyle.CharacterFormat.FontSize = 16f;
+
+myStyle.CharacterFormat.TextColor = Syncfusion.DocIO.DLS.Color.DarkBlue;
+
+myStyle.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
+
+//Appends the contents into the paragraph
+
+document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+//Applies the style to paragraph
+
+document.LastParagraph.ApplyStyle("MyStyle");
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"),
+                FormatType.Docx))
+
+{
+
+IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");
+
+//Sets the formatting of the style
+
+myStyle.CharacterFormat.FontSize = 16f;
+
+myStyle.CharacterFormat.TextColor = Syncfusion.Drawing.Color.DarkBlue;
+
+myStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+
+//Appends the contents into the paragraph
+
+document.LastParagraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+//Applies the style to paragraph
+
+document.LastParagraph.ApplyStyle("MyStyle");
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the document              
+
+document.Close();
+
+}
+
+{% endhighlight %}
+ 
 {% endtabs %}  
  
 ### Applying built-in styles
@@ -3488,6 +3888,169 @@ paragraph.ApplyStyle(BuiltinStyle.Emphasis)
 document.Save(outputFileName, FormatType.Docx)
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an source document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+
+{
+//Applies the style to paragraph
+
+document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves and closes the destination document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),
+                FormatType.Docx))
+
+{
+
+//Applies the style to paragraph
+
+document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"),
+                FormatType.Docx))
+
+{
+
+//Applies the style to paragraph
+
+document.LastParagraph.ApplyStyle(BuiltinStyle.Emphasis);
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the document              
+
+document.Close();
+
+}
 
 {% endhighlight %}
 
@@ -3556,6 +4119,192 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an source document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+
+{
+//Accesses the built-in document properties
+
+Console.WriteLine("Title - {0}",document.BuiltinDocumentProperties.Title);
+
+Console.WriteLine("Author - {0}", document.BuiltinDocumentProperties.Author);
+
+//Modifies or sets the category and company Built-in document properties
+
+document.BuiltinDocumentProperties.Category = "Sales reports";
+
+document.BuiltinDocumentProperties.Company = "Northwind traders";
+
+MemoryStream stream = new MemoryStream();
+
+//Saves and closes the destination document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),
+                FormatType.Docx))
+
+{
+
+//Accesses the built-in document properties
+
+Console.WriteLine("Title - {0}",document.BuiltinDocumentProperties.Title);
+
+Console.WriteLine("Author - {0}", document.BuiltinDocumentProperties.Author);
+
+//Modifies or sets the category and company Built-in document properties
+
+document.BuiltinDocumentProperties.Category = "Sales reports";
+
+document.BuiltinDocumentProperties.Company = "Northwind traders";
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"),
+                FormatType.Docx))
+
+{
+
+//Accesses the built-in document properties
+
+Console.WriteLine("Title - {0}",document.BuiltinDocumentProperties.Title);
+
+Console.WriteLine("Author - {0}", document.BuiltinDocumentProperties.Author);
+
+//Modifies or sets the category and company Built-in document properties
+
+document.BuiltinDocumentProperties.Category = "Sales reports";
+
+document.BuiltinDocumentProperties.Company = "Northwind traders";
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the document              
+
+document.Close();
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
  
@@ -3613,6 +4362,187 @@ document.Close()
 
 {% endhighlight %} 
 
+{% highlight ASP.NET CORE %}
+
+
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an source document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+
+{
+//Adds the custom document properties of various data types
+
+document.CustomDocumentProperties.Add("PropertyA", "Value of A");
+
+document.CustomDocumentProperties.Add("PropertyB", 12.5);
+
+document.CustomDocumentProperties.Add("PropertyC", true);
+
+document.CustomDocumentProperties.Add("PropertyD", new DateTime(2015,7,20));
+
+MemoryStream stream = new MemoryStream();
+
+//Saves and closes the destination document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),
+                FormatType.Docx))
+
+{
+
+//Adds the custom document properties of various data types
+
+document.CustomDocumentProperties.Add("PropertyA", "Value of A");
+
+document.CustomDocumentProperties.Add("PropertyB", 12.5);
+
+document.CustomDocumentProperties.Add("PropertyC", true);
+
+document.CustomDocumentProperties.Add("PropertyD", new DateTime(2015,7,20));
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"),
+                FormatType.Docx))
+
+{
+
+//Adds the custom document properties of various data types
+
+document.CustomDocumentProperties.Add("PropertyA", "Value of A");
+
+document.CustomDocumentProperties.Add("PropertyB", 12.5);
+
+document.CustomDocumentProperties.Add("PropertyC", true);
+
+document.CustomDocumentProperties.Add("PropertyD", new DateTime(2015,7,20));
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the document              
+
+document.Close();
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ### Accessing & Modifying Custom Document Properties
@@ -3657,6 +4587,180 @@ document.Save(outputFileName, FormatType.Docx)
 document.Close()
 
 {% endhighlight %}  
+
+{% highlight ASP.NET CORE %}
+
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an source document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+
+{
+//Accesses an existing custom document property
+
+DocumentProperty property = document.CustomDocumentProperties["PropertyA"];
+
+//Modifies the value of DocumentProperty instance
+
+property.Value = "Hello world";
+
+MemoryStream stream = new MemoryStream();
+
+//Saves and closes the destination document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),
+                FormatType.Docx))
+
+{
+
+//Accesses an existing custom document property
+
+DocumentProperty property = document.CustomDocumentProperties["PropertyA"];
+
+//Modifies the value of DocumentProperty instance
+
+property.Value = "Hello world";
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"),
+                FormatType.Docx))
+
+{
+
+//Accesses an existing custom document property
+
+DocumentProperty property = document.CustomDocumentProperties["PropertyA"];
+
+//Modifies the value of DocumentProperty instance
+
+property.Value = "Hello world";
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the document              
+
+document.Close();
+
+}
+
+{% endhighlight %}
 
 {% endtabs %}  
   
@@ -3756,8 +4860,203 @@ document.Close()
 
 {% endhighlight %}
 
- {% endtabs %}  
- 
+{% highlight ASP.NET CORE %}
+
+
+FileStream sourceStreamPath = new FileStream(sourceFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an source document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
+
+{
+//Sets the background type as picture
+
+document.Background.Type = BackgroundType.Picture;
+
+//Sets color for gradient
+
+document.Background.Gradient.Color1 = Syncfusion.Drawing.Color.LightGray;
+
+document.Background.Gradient.Color2 = Syncfusion.Drawing.Color.LightGreen;
+
+//Sets the shading style 
+
+document.Background.Gradient.ShadingStyle = GradientShadingStyle.DiagonalUp;
+
+document.Background.Gradient.ShadingVariant = GradientShadingVariant.ShadingDown;
+
+MemoryStream stream = new MemoryStream();
+
+//Saves and closes the destination document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),
+                FormatType.Docx))
+
+{
+
+document.Background.Type = BackgroundType.Picture;
+
+//Sets color for gradient
+
+document.Background.Gradient.Color1 = Syncfusion.DocIO.DLS.Color.LightGray;
+
+document.Background.Gradient.Color2 = Syncfusion.DocIO.DLS.Color.LightGreen;
+
+//Sets the shading style 
+
+document.Background.Gradient.ShadingStyle = GradientShadingStyle.DiagonalUp;
+
+document.Background.Gradient.ShadingVariant = GradientShadingVariant.ShadingDown;
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx"),
+                FormatType.Docx))
+
+{
+
+document.Background.Type = BackgroundType.Picture;
+
+//Sets color for gradient
+
+document.Background.Gradient.Color1 = Syncfusion.Drawing.Color.LightGray;
+
+document.Background.Gradient.Color2 = Syncfusion.Drawing.Color.LightGreen;
+
+//Sets the shading style 
+
+document.Background.Gradient.ShadingStyle = GradientShadingStyle.DiagonalUp;
+
+document.Background.Gradient.ShadingVariant = GradientShadingVariant.ShadingDown;
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the document              
+
+document.Close();
+
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
+
 The following code illustrates how to apply image as background for the document.
 
 {% tabs %} 
