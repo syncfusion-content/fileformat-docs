@@ -1970,7 +1970,7 @@ else
 
 Essential PDF allows you to set various PDF viewer preferences to be used when the generated PDF document is displayed in a PDF reader application.
 
-You can hide the menu bar and toolbar by enabling [HideMenubar](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfViewerPreferences~HideMenubar.html) and [HideToolbar](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfViewerPreferences~HideToolbar.html) properies of [PdfViewerPreferences](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfViewerPreferences.html) respectively. This is illustrated in the following code sample.
+You can hide the menu bar and toolbar by enabling [HideMenubar](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfViewerPreferences~HideMenubar.html) and [HideToolbar](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfViewerPreferences~HideToolbar.html) properties of [PdfViewerPreferences](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfViewerPreferences.html) respectively. This is illustrated in the following code sample.
 
 {% tabs %}
 

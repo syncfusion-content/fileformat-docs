@@ -2508,7 +2508,7 @@ else
 
 ## Inserting Rich Text Format contents 
 
-Essential PDF allows you to insert a RTF text into a PDF document by converting it as bitmap or meatfile image and rendering it using [FromRtf](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfImage~FromRtf.html) method of [PdfImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfImage.html) class.
+Essential PDF allows you to insert a RTF text into a PDF document by converting it as bitmap or metafile image and rendering it using [FromRtf](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfImage~FromRtf.html) method of [PdfImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfImage.html) class.
 
 The following code example illustrates how to insert RTF text in PDF document.
 
