@@ -13,7 +13,7 @@ Syncfusion Essential HTML converter supports HTML to PDF conversion by using the
 
 <b>Minimum product version:</b> 16.3.0.21
 
-<b>Minimum .NET Framework version:</b> 4.5 and above
+* Supports conversion from .NET Framework 4.5
 
 * Latest version of Essential HTML converter can be downloaded from the below link,
 

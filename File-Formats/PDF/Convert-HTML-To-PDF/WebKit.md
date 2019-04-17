@@ -172,7 +172,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 	
 ## Prerequisites for Linux
 
-* [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/linux/ubuntu16-04) should be installed in the Linux machine where the conversion takes place. 
+* Supports conversion from [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/linux/ubuntu16-04). 
 
 * The latest WebKit HTML converter for Linux can be downloaded as ZIP file from the following link,
 
@@ -201,7 +201,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 
 ## Prerequisites for Mac
 
-* [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/macos) should be installed in the machine where the conversion takes place. 
+* Supports conversion from [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/macos). 
 
 * The latest WebKit HTML converter for Mac can be downloaded as PKG file from the following link,
 
@@ -220,7 +220,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 	<b>NuGet</b>
 		<a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
 
-* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+* The <b>QtBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 	
 	
 ## URL to PDF
