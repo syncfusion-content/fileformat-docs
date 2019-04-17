@@ -1,5 +1,5 @@
 ---
-title: Working with Images
+title: Working with Images | Syncfusion
 description: This section explains how to add and replace images in the PDF document using Essential PDF
 platform: file-formats
 control: PDF

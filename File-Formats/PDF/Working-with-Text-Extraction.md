@@ -1,5 +1,5 @@
 ---
-title: Working with Text Extraction
+title: Working with Text Extraction | Syncfusion
 description: This section explains how to extract text from the particular page of the PDF document
 platform: file-formats
 control: PDF
