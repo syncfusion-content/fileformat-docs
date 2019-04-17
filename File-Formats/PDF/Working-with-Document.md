@@ -1,5 +1,5 @@
 ---
-title: Working with Document
+title: Working with Document | Syncfusion
 description: This section explains how to set document Settings and properties to the PDF document using Essential PDF
 platform: file-formats
 control: PDF
