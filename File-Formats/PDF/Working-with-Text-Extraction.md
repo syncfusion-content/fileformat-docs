@@ -11,7 +11,7 @@ Essential PDF allows you to extract the text from a particular page or the entir
 
 ## Working with basic text extraction
 
-You can extract the text from a page using ExtractText method in PdfPageBase class.
+You can extract the text from a page using [ExtractText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase~ExtractText().html) method in [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase.html) class.
 
 The following code snippet explains how to extract the texts from a page.
 
@@ -314,7 +314,7 @@ loadedDocument.Close(true);
 
 ## Working with layout based text extraction
 
-You can extract text from the given PDF page based on its layout using ExtractText(bool) overload. In this method, the text is extracted in the layout as it is viewed in the reader application.
+You can extract text from the given PDF page based on its layout using [ExtractText(bool)](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase~ExtractText(Boolean).html) overload. In this method, the text is extracted in the layout as it is viewed in the reader application.
 
 Please refer the following code snippet to extract the text with layout.
 
@@ -444,7 +444,7 @@ N> Layout based text extraction may take additional processing time when compare
 
 ### Working with Lines
 
-You can get the line and its properties that contains texts by using TextLine. Refer to the following code sample.
+You can get the line and its properties that contains texts by using [TextLine](https://help.syncfusion.com/cr/xamarin/Syncfusion.Pdf.Portable~Syncfusion.Pdf.TextLine.html). Refer to the following code sample.
 
 {% tabs %}
 
@@ -511,7 +511,7 @@ List<TextWord> textWordCollection = line.WordCollection;
 
 ### Working with words
  
-You can get the single word and its properties by using TextWord. Refer to the following code sample.
+You can get the single word and its properties by using [TextWord](https://help.syncfusion.com/cr/xamarin/Syncfusion.Pdf.Portable~Syncfusion.Pdf.TextWord.html). Refer to the following code sample.
 
 {% tabs %}
 
@@ -585,7 +585,7 @@ List<TextGlyph> textGlyphCollection = textWord.Glyphs;
 
 ### Working with characters
 
-You can get single character and its properties by using TextGlyph. Refer to the following code sample. 
+You can get single character and its properties by using [TextGlyph](https://help.syncfusion.com/cr/xamarin/Syncfusion.Pdf.Portable~Syncfusion.Pdf.TextGlyph.html). Refer to the following code sample. 
 
 {% tabs %}
 

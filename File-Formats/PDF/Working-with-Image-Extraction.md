@@ -7,7 +7,7 @@ documentation: UG
 ---
 # Working with image extraction
 
-Essential PDF provides the support to extract images from a particular page or an entire PDF document.You can extract the images from a page using the ExtractImages method in the PdfPageBase class.
+Essential PDF provides the support to extract images from a particular page or an entire PDF document.You can extract the images from a page using the [ExtractImages](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase~ExtractImages().html) method in the [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase.html) class.
 
 Please refer the below code snippet to extract the images from a PDF page.
 
@@ -86,7 +86,7 @@ loadedDocument.Close(True)
 
 ## Image informations
 
-To extract the image properties like bounds, image index etc. from a page, you can use ImageInfo property in the PdfPageBase class.
+To extract the image properties like bounds, image index etc. from a page, you can use [ImagesInfo](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase~ImagesInfo.html) property in the [PdfPageBase](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase.html) class.
 
 Please refer the below code snippet to extract the image info from PDF page.
 

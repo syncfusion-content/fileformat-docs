@@ -9,19 +9,19 @@ documentation: UG
 
 Essential PDF provides support for two types of table models, both having a different levels of customization, which is explained below. The two types of table models are
 
-1. PdfGrid
-2. PdfLightTable.
+1. [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html)
+2. [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html)
 
 ## Creating a simple table 
 
 ### Creating a simple table using PdfLightTable in a new document
 
 
-Essential PDF allows you to create the table with data sources from DataSet, Data Table, arrays and IEnumerable objects using PdfLightTable class. It allows you to perform simple formatting.
+Essential PDF allows you to create the table with [DataSource](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable~DataSource.html) from DataSet, Data Table, arrays and IEnumerable objects using [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html) class. It allows you to perform simple formatting.
 
 N> In Silverlight, Windows store apps and Xamarin only strongly typed IEnumerable objects are supported. 
 
-The below code snippet illustrates how to create a simple table from a data source using PdfLightTable.
+The below code snippet illustrates how to create a simple table from a data source using ``PdfLightTable``.
 
 {% tabs %}
 
@@ -295,9 +295,9 @@ else
 {% endhighlight %}
 {% endtabs %}
 
-You can directly add rows and columns, instead of a data source by setting DataSourceType property to PdfLightTableDataSourceType.TableDirect.
+You can directly add rows and columns instead of a data source, by setting [DataSourceType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable~DataSourceType.html) property to **TableDirect** of [PdfLightTableDataSourceType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTableDataSourceType.html) Enum.
 
-The following code illustrates how to add the data directly into the PdfLightTable.
+The following code illustrates how to add the data directly into the [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html).
 
 {% tabs %}
 {% highlight c# %}
@@ -586,7 +586,7 @@ else
 
 ### Creating a simple table using PdfLightTable in an existing document
 
-You can create table using PdfLightTable in the existing document by using the following code sample
+You can create table using [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html) in the existing document by using the following code sample.
 
 {% tabs %}
 
@@ -834,11 +834,11 @@ else
 
 ### Creating a simple table using PdfGrid in a new document
 
-PdfGrid allows you to create table by entering the data manually or from an external data source. The datasource can be a data set, data table, arrays or a IEnumerable object.
+[PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html) allows you to create table by entering the data manually or from an external data source. The [DataSource](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid~DataSource.html) can be a data set, data table, arrays or a IEnumerable object.
 
 N> In Silverlight, Windows store apps and Xamarin only strongly typed IEnumerable objects are supported. 
 
-The below code snippet illustrates how to create a simple table from a data source using PdfGrid.
+The below code snippet illustrates how to create a simple table from a data source using ``PdfGrid``.
 
 {% tabs %}
 
@@ -1135,9 +1135,9 @@ else
 
 {% endtabs %}
 
-You can set the data directly without setting any data source using PdfGridRow and PdfGridColumn classes. 
+You can set the data directly without setting any data source using [PdfGridRow](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridRow.html) and [PdfGridColumn](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridColumn.html) classes. 
 
-The below code snippet illustrates how to create the simple table directly using PdfGrid.
+The below code snippet illustrates how to create the simple table directly using [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html).
 
 {% tabs %}
 
@@ -1451,7 +1451,7 @@ else
 
 {% endtabs %}
 
-You can create table using PdfGrid by loading the IEnumerable data source. Refer to the following code.
+You can create table using [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html) by loading the IEnumerable data source. Refer to the following code.
 
 {% tabs %}
 
@@ -1767,7 +1767,7 @@ else
 
 ### Creating a simple table using PdfGrid in an existing document
 
-You can create a table using PdfGrid in the existing document by using the following code sample
+You can create a table using [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html) in the existing document by using the following code sample.
 
 {% tabs %}
 
@@ -2070,9 +2070,9 @@ else
 
 ### Cell customization in PdfLightTable
 
-PdfLightTable allows users to customize cell font, background, border, etc. using PdfCellStyle class.
+[PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html) allows users to customize cell font, background, border, etc. using [PdfCellStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfCellStyle.html) class.
 
-The below code snippet illustrates how to customize the cell properties in PdfLightTable.
+The below code snippet illustrates how to customize the cell properties in ``PdfLightTable``.
 
 {% tabs %}
 
@@ -2475,7 +2475,7 @@ else
 
 {% endtabs %}
 
-You can set different styles for particular cell using BeginCellLayout event and EndCellLayout events in PdfLightTable class.
+You can set different styles for particular cell using [BeginCellLayout](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable~BeginCellLayout_EV.html) and [EndCellLayout](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable~EndCellLayout_EV.html) events in [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html) class.
 
 The following code example illustrates how to draw the graphics elements in particular cell using these event handlers.
 
@@ -2950,9 +2950,9 @@ private void pdfLightTable_BeginCellLayout(object sender, BeginCellLayoutEventAr
 
 ### Cell customization in PdfGrid
 
-PdfGridCell provides various direct options to customize cells like column span, row span, text color, background color, and etc.
+[PdfGridCell](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridCell.html) provides various direct options to customize cells like [ColumnSpan](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridCell~ColumnSpan.html), [RowSpan](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridCell~RowSpan.html), text color, background color, and etc.
 
-The following code example illustrates you how to customize the cell in PdfGrid.
+The following code example illustrates you how to customize the cell in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html).
 
 {% tabs %}
 
@@ -3489,7 +3489,7 @@ else
 
 ### Row customization in PdfLightTable
 
-PdfLightTable doesn’t provide direct support for row customizations. However, this can be done through the event handlers.The following code snippet illustrates how to customize the row in PdfLightTable using BeginRowLayout and EndRowLayout event handlers.
+[PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html) doesn’t provide direct support for row customizations. However, this can be done through the event handlers.The following code snippet illustrates how to customize the row in ``PdfLightTable`` using [BeginRowLayout](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable~BeginRowLayout_EV.html) and [EndRowLayout](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable~EndRowLayout_EV.html) event handlers.
 
 {% tabs %}
 
@@ -3976,7 +3976,7 @@ else
 
 ### Column customization in PdfLightTable
 
-The following code snippet illustrates how to customize the column in PdfLightTable using the PdfStringFormat class.
+The following code snippet illustrates how to customize the column in [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html) using the [PdfStringFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html) class.
 
 {% tabs %}
 
@@ -4365,9 +4365,9 @@ else
 
 ### Row customization in PdfGrid 
 
-You can customize row height and styles using Rows property in PdfGrid class.
+You can customize row height and styles using [Rows](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid~Rows.html) property in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html) class.
 
-The following code snippet illustrates how to customize the row in PdfGrid.
+The following code snippet illustrates how to customize the row in ``PdfGrid``.
 
 {% tabs %}
 
@@ -4762,9 +4762,9 @@ else
 
 ### Columns customization in PdfGrid
 
-You can customize column width and text formats using Column property in PdfGrid class.
+You can customize column width and text formats using [Columns](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid~Columns.html) property in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html) class.
 
-The following code snippet illustrates how to customize the column in PdfGrid.
+The following code snippet illustrates how to customize the column in ``PdfGrid``.
 
 {% tabs %}
 
@@ -5142,9 +5142,9 @@ else
 
 ### Table customization in PdfLightTable
 
-Essential PDF supports users to create a customizable PDF table like cell spacing, cell padding, repeat header, show header, etc. This can be achieved by using the ```PdfLightTableStyle``` instance.
+Essential PDF supports users to create a customizable PDF table like [CellSpacing](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTableStyle~CellSpacing.html), [CellPadding](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTableStyle~CellPadding.html), [RepeatHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTableStyle~RepeatHeader.html), [ShowHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTableStyle~ShowHeader.html), etc. This can be achieved by using the [PdfLightTableStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTableStyle.html) class.
 
-The following code snippet illustrates how to customize the table using ```PdfLightTable```. 
+The following code snippet illustrates how to customize the table using [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html). 
 
 {% tabs %}
 
@@ -5541,9 +5541,9 @@ else
 
 ### Table customization in PdfGrid
 
-Essential PDF supports users to create a customizable PDF table like cell spacing, cell padding, horizonal overflow, etc. This can be achieved by using ```PdfGridStyle``` instance. 
+Essential PDF supports users to create a customizable PDF table like [CellSpacing](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridStyle~CellSpacing.html), [CellPadding](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridStyle~CellPadding.html), [HorizontalOverflow](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridStyle~AllowHorizontalOverflow.html), etc. This can be achieved by using [PdfGridStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridStyle.html) class.
 
-The following code snippet illustrates how to customize the table using ```PdfGrid```. 
+The following code snippet illustrates how to customize the table using [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html). 
 
 {% tabs %}
 
@@ -5936,7 +5936,7 @@ else
 
 ## Built-in table styles
 
-In-built table styles can be applied to both PdfGrid and PdfLightTable models and the appearance is made similar to Microsoft Word’s built-in table styles. You can also apply in-built table styles with the following additional table style options.
+In-built table styles can be applied to both [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html) and [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html) models and the appearance is made similar to Microsoft Word’s built-in table styles. You can also apply in-built table styles with the following additional table style options.
 
 
 * Banded columns
@@ -5946,7 +5946,7 @@ In-built table styles can be applied to both PdfGrid and PdfLightTable models an
 * Header row
 * Last row
 
-The below code example illustrates how to apply built-in table styles to the PdfGrid
+The below code example illustrates how to apply built-in table style using [ApplyBuiltinStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid~ApplyBuiltinStyle.html) method of the ``PdfGrid`` with styles from [PdfGridBuiltinStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfGridBuiltinStyle.html) Enum.
 
 {% tabs %}
 
@@ -6202,7 +6202,7 @@ else
 The following image shows the PDF document with ```PdfGridBuiltinStyle.GridTable4Accent1```.
 ![GridTable4Accent1 image](Table_images/Gridtable4Accent1.png)
 
-The below code example illustrates how to apply built-in table styles to the PdfLightTable.
+The below code example illustrates how to apply built-in table style using [ApplyBuiltinStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable~ApplyBuiltinStyle.html) method of the ``PdfLightTable`` with styles from [PdfLightTableBuiltinStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfLightTableBuiltinStyle.html) Enum.
 
 {% tabs %}
 
@@ -6461,7 +6461,7 @@ else
 The following image shows the PDF document with ```PdfGridBuiltinStyle.Gridtable4Accent2```.
 ![Gridtable4Accent2 image](Table_images/Gridtable4Accent2.png)
 
-The below code example illustrates how to apply built-in table styles with table options to the PdfGrid.
+The below code example illustrates how to apply built-in table styles with table options to the [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html).
 
 {% tabs %}
 
@@ -6739,9 +6739,9 @@ The following image shows the PDF document with `PdfGridBuiltinStyle.Gridtable4A
 
 ### Pagination in PdfLightTable
 
-Essential PDF provides support to paginate the PdfLightTable using PdfLightTableLayoutFormat class.
+Essential PDF provides support to paginate the [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html) using [PdfLightTableLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTableLayoutFormat.html) class.
 
-The below sample illustrates how to allow the PdfLightTable to flow across pages.
+The below sample illustrates how to allow the ``PdfLightTable`` to flow across pages.
 
 {% tabs %}
 
@@ -7064,9 +7064,9 @@ else
 
 ### Pagination in PdfGrid
 
-Essential PDF supports to paginate the grid table using PdfGridLayoutFormat class.
+Essential PDF supports to paginate the [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html) using [PdfGridLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridLayoutFormat.html) class.
 
-The below sample illustrates how to allow the PdfGrid to flow across pages.
+The below sample illustrates how to allow the ``PdfGrid`` to flow across pages.
 
 {% tabs %}
 
@@ -7401,7 +7401,7 @@ else
 
 ## Difference between PdfLightTable and PdfGrid
 
-Both the PdfGrid and PdfLightTable models are supported across all the platforms and the below table explains the level of customizations both the models provide.
+Both the [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html) and [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html) models are supported across all the platforms and the below table explains the level of customizations both the models provide.
 
 <table>
     <thead>
