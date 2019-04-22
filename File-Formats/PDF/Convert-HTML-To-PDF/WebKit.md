@@ -2671,7 +2671,7 @@ return File(stream, contentType, fileName);
 
 ## Partial webpage to PDF
 
-WebKit rendering engine provides support for converting only the part of the HTML document like a table, div or image elements from the URL/HTML string. We can convert the element by specifying the element ID, please refer the below code snippet.
+WebKit rendering engine provides support for converting only the part of the HTML document like a table, div or image elements from the URL/HTML string. We can convert the particular HTML element by specifying the element ID, please refer the below code snippet.
 
 {% tabs %}
 
