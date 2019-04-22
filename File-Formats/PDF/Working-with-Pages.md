@@ -9,7 +9,7 @@ documentation: UG
 
 ## Adding a new page to the document
 
-The following code sample explains you on how to add a page in a PDF document. When multiple pages are added, the new page is always added to the end of the document.
+The following code sample explains you on how to add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPage.html) in a PDF document. When multiple pages are added, the new page is always added to the end of the document.
 
 {% tabs %}  
 
@@ -243,7 +243,7 @@ else
 
 ## Inserting pages in a document
 
-You can insert an empty page at any location of the existing PDF document. The below code snippet explains the same.
+You can insert an empty page at any location in the existing PDF document using [Insert](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedPageCollection~Insert.html) method. The below code snippet explains the same.
 
 {% tabs %} 
 
@@ -415,7 +415,7 @@ else
 
 ## Adding margin to the PDF pages
 
-You can add margin to all the PDF pages of the PDF document using the PageSettings property. The following code snippet illustrates the same.
+You can add margin to all the PDF pages of the PDF document using the [PageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument~PageSettings.html) property. The following code snippet illustrates the same.
 
 {% tabs %}  
 
@@ -785,7 +785,7 @@ loadedDocument.Close(true);
 
 ## Importing pages from an existing document.
 
-Essential PDF allows you to import a page or import a range of pages from one document to the other. The following code sample illustrates how to import a page from an existing document
+Essential PDF allows you to import a page or import a range of pages from one document to the other. The following code sample illustrates how to import a range of pages from an existing document using [ImportPageRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase~ImportPageRange.html) method.
 
 {% tabs %}   
 
@@ -1013,7 +1013,7 @@ else
 
 ## Rearranging pages in an existing document
 
-You can rearrange the pages in an existing PDF document using ReArrange method. This method uses zero based start index. The following code snippet illustrates the same.
+You can rearrange the pages in an existing PDF document using [ReArrange](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedPageCollection~ReArrange.html) method. This method uses zero based start index. The following code snippet illustrates the same.
 
 {% tabs %}  
 
@@ -1185,7 +1185,7 @@ else
 
 ## Changing the page numbers in a PDF document
 
-You can alter the page label for the existing PDF document using ```PdfPageLabel``` class. Refer to the following code snippet. 
+You can alter the page label for the existing PDF document using [PdfPageLabel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageLabel.html) class. Refer to the following code snippet. 
 
 {% tabs %}  
 
@@ -1405,7 +1405,7 @@ else
 
 ## Removing pages from a document
 
-You can remove the pages from the existing PDF document as shown in the below code snippet. 
+You can remove the pages from the existing PDF document using [RemoveAt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedPageCollection~RemoveAt.html) method as shown in the below code snippet. 
 
 {% tabs %}  
 
@@ -1583,7 +1583,7 @@ else
 
 ## Rotating a PDF page
 
-You can rotate a particular PDF page in the PDF document, using the following code snippet. 
+You can rotate a particular PDF page in the PDF document using [PdfPageRotateAngle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageRotateAngle.html) Enum as shown the following code snippet. 
 
 {% tabs %}  
 
@@ -1847,7 +1847,7 @@ else
 
 ## Rotating an existing PDF page
 
-You can rotate a PDF page in the existing PDF document, using the following code snippet.
+You can also rotate a PDF page in the existing PDF document using PdfPageRotateAngle(https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageRotateAngle.html) as shown in the following code snippet.
 
 {% tabs %}  
 
@@ -2028,7 +2028,7 @@ else
 
 ## Splitting a PDF file to individual pages
 
-Essential PDF allows to split the pages of an existing PDF document into multiple individual PDF documents. The following code snippet explains the same.
+Essential PDF allows to split the pages of an existing PDF document into multiple individual PDF documents using [Split](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument~Split.html) method of [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class. The following code snippet explains the same.
 
 {% tabs %}  
 
