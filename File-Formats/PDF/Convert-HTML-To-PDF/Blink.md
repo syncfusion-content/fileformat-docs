@@ -595,7 +595,7 @@ document.Close(True)
 
 ## Windows authentication
 
-To convert the Windows authenticated webpage to the PDF document by providing the username and password. Refer the following code snippet.
+The web page you want to convert may protected with windows authentication. Blink rendering engine provides support for converting the Windows Authenticated web page to PDF document by providing the username and password. Please refer the below code snippet,
 
 {% tabs %}
 

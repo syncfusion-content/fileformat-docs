@@ -191,7 +191,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 	<b>NuGet</b>
 		 <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
 
-* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the </i>WebKitPath</i> property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 
 * To convert HTML to PDF in Linux using the WebKit rendering engine, the following packages should be installed in the Linux machine where the conversion takes place.
 	1. $ sudo apt-get update 
@@ -220,12 +220,14 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 	<b>NuGet</b>
 		<a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
 
-* The <b>QtBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+* The <b>QtBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesMac folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 	
 	
 ## URL to PDF
 
 To convert website URL or local HTML file to PDF using WebKit rendering engine, please refer the below code snippet.
+
+N> Please make sure the OPENSSL assemblies are configured properly for converting HTTPS sites. Refer pre-requisites section for more information.
 
 {% tabs %}
 
@@ -1489,7 +1491,7 @@ return File(stream, contentType, fileName);
 
 ## Windows Authentication
 
-To convert the Windows Authenticated web page to PDF document by providing the username and password, please refer the below code snippet,
+The web page you want to convert may protected with windows authentication. WebKit rendering engine provides support for converting the Windows Authenticated web page to PDF document by providing the username and password. Please refer the below code snippet,
 
 {% tabs %}
 
@@ -2669,7 +2671,7 @@ return File(stream, contentType, fileName);
 
 ## Partial webpage to PDF
 
-The WebKit HTML Converter provides support for converting partial webpage to PDF. Please refer the below code snippet.
+WebKit rendering engine provides support for converting only the part of the HTML document like a table, div or image elements from the URL/HTML string. We can convert the element by specifying the element ID, please refer the below code snippet.
 
 {% tabs %}
 
