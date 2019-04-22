@@ -13,7 +13,7 @@ Syncfusion Essential HTML converter supports HTML to PDF conversion by using the
 
 <b>Minimum product version:</b> 16.3.0.21
 
-* Supports conversion from .NET Framework 4.5
+* Supports conversion from .NET Framework 4.5.
 
 * Latest version of Essential HTML converter can be downloaded from the below link,
 
@@ -415,7 +415,7 @@ document.Close(True)
 
 ## Additional delay
 
-The Blink HTML converter provides option to set the AdditionalDelay property, while converting HTML to PDF. Additional delay is the waiting time of the converter for loading the external resources (styles, scripts, images and more). Refer to the following code snippet.
+The Blink HTML converter provides option to set the ```AdditionalDelay``` property, while converting HTML to PDF. Additional delay is the waiting time of the converter for loading the external resources (styles, scripts, images and more). Refer to the following code snippet.
 
 {% tabs %}
 
@@ -535,7 +535,7 @@ document.Close(True)
 
 ## Media Type
 
-The Blink HTML Converter allows selection of media type while converting HTML to PDF. Blink rendering engine supports <b>Screen</b> and <b>Print</b> media types. Refer to the following code snippet to select Print MediaType.
+The Blink HTML Converter allows selection of media type while converting HTML to PDF. Blink rendering engine supports <b>Screen</b> and <b>Print</b> media types. Refer to the following code snippet to select Print ```MediaType```.
 
 {% tabs %}
 
@@ -994,7 +994,7 @@ document.Close(True)
 
 ## Viewport
 
-Adjusting HTML content size in PDF is possible by using the <i>ViewPortSize</i> property of Blink HTML converter. 
+Adjusting HTML content size in PDF is possible by using the ```ViewPortSize``` property of Blink HTML converter. 
 Refer to the following code snippet to adjust Blink viewport.
 
 {% tabs %}
@@ -1281,7 +1281,7 @@ The Blink HTML converter launching chrome browser to perform conversion. While l
 <br/>
 By default, HTML converter takes system temporary path (C:\Users<<username»\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. 
 <br/>
-The temporary path can be changed by using the TempPath property of BlinkConverterSettings. If this property  is set, the converter uses the provided path to perform the conversion. Refer to the following code snippet.
+The temporary path can be changed by using the ```TempPath``` property of ```BlinkConverterSettings```. If this property  is set, the converter uses the provided path to perform the conversion. Refer to the following code snippet.
 
 {% tabs %}
 
