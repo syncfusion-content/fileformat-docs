@@ -13,7 +13,7 @@ Syncfusion Essential HTML converter supports HTML to PDF conversion by using the
 
 <b>Minimum product version:</b> 16.3.0.21
 
-<b>Minimum .NET Framework version:</b> 4.5 and above
+* Supports conversion from .NET Framework 4.5.
 
 * Latest version of Essential HTML converter can be downloaded from the below link,
 
@@ -415,7 +415,7 @@ document.Close(True)
 
 ## Additional delay
 
-The Blink HTML converter provides option to set the AdditionalDelay property, while converting HTML to PDF. Additional delay is the waiting time of the converter for loading the external resources (styles, scripts, images and more). Refer to the following code snippet.
+The Blink HTML converter provides option to set the [AdditionalDelay] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~AdditionalDelay.html) property, while converting HTML to PDF. Additional delay is the waiting time of the converter for loading the external resources (styles, scripts, images and more). Refer to the following code snippet.
 
 {% tabs %}
 
@@ -535,7 +535,7 @@ document.Close(True)
 
 ## Media Type
 
-The Blink HTML Converter allows selection of media type while converting HTML to PDF. Blink rendering engine supports <b>Screen</b> and <b>Print</b> media types. Refer to the following code snippet to select Print MediaType.
+The Blink HTML Converter allows selection of media type while converting HTML to PDF. Blink rendering engine supports <b>Screen</b> and <b>Print</b> media types. Refer to the following code snippet to select Print [MediaType] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~MediaType.html).
 
 {% tabs %}
 
@@ -595,7 +595,7 @@ document.Close(True)
 
 ## Windows authentication
 
-To convert the Windows authenticated webpage to the PDF document by providing the username and password. Refer the following code snippet.
+The webpage you want to convert may protected with windows authentication. Blink rendering engine provides support for converting the Windows Authenticated webpage to PDF document by providing the username and password. Refer to the following code snippet,
 
 {% tabs %}
 
@@ -860,7 +860,7 @@ document.Close(True)
 
 ## HTTP GET and POST
 
-The Blink HTML converter supports transmitting the parameter to the webpage. There are two methods to access a webpage. By default, Blink uses GET method. By using HTTP GET method, the parameters can be passed in the query string. In POST method, the parameters can be passed by using the ```HttpPostFields``` property.
+The Blink HTML converter supports transmitting the parameter to the webpage. There are two methods to access a webpage. By default, Blink uses GET method. By using HTTP GET method, the parameters can be passed in the query string. In POST method, the parameters can be passed by using the [HttpPostFields] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~HttpPostFields.html) property.
 Refer to the following code snippet to access a webpage using HTTP POST.
 
 {% tabs %}
@@ -994,7 +994,7 @@ document.Close(True)
 
 ## Viewport
 
-Adjusting HTML content size in PDF is possible by using the <i>ViewPortSize</i> property of Blink HTML converter. 
+Adjusting HTML content size in PDF is possible by using the [ViewPortSize] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~ViewPortSize.html) property of Blink HTML converter. 
 Refer to the following code snippet to adjust Blink viewport.
 
 {% tabs %}
@@ -1281,7 +1281,7 @@ The Blink HTML converter launching chrome browser to perform conversion. While l
 <br/>
 By default, HTML converter takes system temporary path (C:\Users<<username»\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. 
 <br/>
-The temporary path can be changed by using the TempPath property of BlinkConverterSettings. If this property  is set, the converter uses the provided path to perform the conversion. Refer to the following code snippet.
+The temporary path can be changed by using the [TempPath] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~TempPath.html) property of [BlinkConverterSettings] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings.html). If this property  is set, the converter uses the provided path to perform the conversion. Refer to the following code snippet.
 
 {% tabs %}
 
