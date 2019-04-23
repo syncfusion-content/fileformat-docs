@@ -73,7 +73,7 @@ using Syncfusion.HtmlConverter;
 
 ### Converting HTML to PDF using WebKit rendering engine
 
-To convert website URL or local HTML file to PDF using WebKit rendering engine, Refer to the following code snippet. Refer below link for more details to convert the HTML to PDF using WebKit rendering engine. 
+To convert website URL or local HTML file to PDF using WebKit rendering engine, refer to the following code snippet. Click the following link for more details to convert the HTML to PDF using WebKit rendering engine.
 
 [Conversion using WebKit Rendering](/file-formats/pdf/convert-html-to-pdf/webkit "Conversion using WebKit Rendering")
 
@@ -153,7 +153,7 @@ document.Close(true);
 
 ### Converting HTML to PDF using Blink rendering engine
 
-To convert website URL or local HTML file to PDF using Blink rendering engine, refer to the following code snippet. Refer below link for more details to convert the HTML to PDF using Blink rendering engine.
+To convert website URL or local HTML file to PDF using Blink rendering engine, refer to the following code snippet. Click the following link for more details to convert the HTML to PDF using Blink rendering engine.
 
 [Conversion using Blink Rendering](/file-formats/pdf/convert-html-to-pdf/blink "Conversion using Blink Rendering")
 
@@ -213,7 +213,7 @@ document.Close(True)
 
 ### Converting HTML to PDF using IE rendering engine
 
-To convert website URL or local HTML file to PDF using IE rendering engine, refer to the following code snippet. Refer below link for more details to convert the HTML to PDF using IE rendering engine.
+To convert website URL or local HTML file to PDF using IE rendering engine, refer to the following code snippet. Click the following link for more details to convert the HTML to PDF using IE rendering engine.
 
 [Conversion using IE Rendering](/file-formats/pdf/convert-html-to-pdf/ie "Conversion using IE Rendering")
 
@@ -266,7 +266,7 @@ document.Close(True)
 
 ## Supported and Unsupported Features by Rendering Engines
 
-The following table shows the WebKit, Blink and IE rendering engines supported features,
+The following table shows the WebKit, Blink and IE rendering engines supported features:
 
 
 <table>

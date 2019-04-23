@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion Essential PDF supports HTML to PDF conversion by using the advanced Qt WebKit rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core to convert URLs, HTML string, SVG and MHTML to PDF, and convert other formats like HTML to MHTML, HTML to SVG, and HTML to image.
 
-Qt WebKit rendering is accurate, and the result preserves all the graphics, images, texts, fonts, and the layout of the original HTML document/webpage.
+Qt WebKit rendering is accurate, and the result preserves all the graphics, images, text, fonts, and the layout of the original HTML document/webpage.
 
 It does not require external dependencies like browsers, printer drivers, or viewers.
 
@@ -23,7 +23,7 @@ It does not require external dependencies like browsers, printer drivers, or vie
 
 * Supports conversion from .NET Framework 2.0 and .NET Core 2.0.
 	
-* To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies or NuGet packages needs to be added as reference to the project.	
+* To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies or NuGet packages should be added as reference to the project.	
 
 <b>Assemblies</b>
 
@@ -148,7 +148,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 
 ### VC++ Redistributable
 
-* WebKit HTML conversion also requires VC++ 2010 redistributable, this should to be installed in the machine where the conversion takes place. Please use below download link to get the installer.
+* WebKit HTML conversion also requires VC++ 2010 redistributable, this should be installed in the machine where the conversion takes place. Please use below download link to get the installer.
     
     X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555)
 
@@ -159,7 +159,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 
 ### OPENSSL
 
-* For converting HTTPS sites, HTML converter requires OPENSSL libraries to be installed in the machine where the conversion takes place. The OPENSSL libraries can be installed by downloading its setup from the below link,
+* For converting HTTPS sites, the HTML converter requires OPENSSL libraries to be installed in the machine where the conversion takes place. The OPENSSL libraries can be installed by downloading its setup from the below link,
 
     [http://files2.syncfusion.com/dtsupport/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064.zip](http://files2.syncfusion.com/dtsupport/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064.zip) 
 
@@ -227,7 +227,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 
 To convert website URL or local HTML file to PDF using WebKit rendering engine, please refer the below code snippet.
 
-N> Please make sure the OPENSSL assemblies are configured properly for converting HTTPS sites. Refer pre-requisites section for more information.
+N> Ensure that the OPENSSL assemblies are configured properly for converting HTTPS sites. Refer to the pre-requisites section for more information.
 
 {% tabs %}
 
@@ -914,11 +914,11 @@ padding-left: 5px;
 
 ## Table of Contents
 
-The WebKit HTML Converter provides support for creating a table of contents automatically by [EnableToc] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~Toc.html) property.
+The WebKit HTML Converter provides support for creating a table of contents automatically by using the [EnableToc] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~Toc.html) property.
 
 N> TOC are added from the ```<h>``` tag, it supports from ```<h1>``` to ```<h6>```.
 
-Please refer the below code snippet,
+Refer to the following code snippet.
 
 {% tabs %}
 
@@ -1090,7 +1090,7 @@ padding-left: 5px;
 
 ### Table of Contents with custom style
 
-The WebKit HTML Converter provides support for customizing the table of contents style. Each header tag style can be customizing by using [HtmlToPdfTocStyle] (https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.HtmlToPdf.HtmlToPdfTocStyle.html). Please refer the below code snippet,
+The WebKit HTML Converter provides support for customizing the table of contents style. Each header tag style can be customized by using [HtmlToPdfTocStyle] (https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.HtmlToPdf.HtmlToPdfTocStyle.html). Please refer the below code snippet,
 
 {% tabs %}
 
@@ -1491,7 +1491,7 @@ return File(stream, contentType, fileName);
 
 ## Windows Authentication
 
-The web page you want to convert may protected with windows authentication. WebKit rendering engine provides support for converting the Windows Authenticated web page to PDF document by providing the username and password. Please refer the below code snippet,
+The webpage you want to convert may protected with windows authentication. WebKit rendering engine provides support for converting the Windows Authenticated webpage to PDF document by providing the username and password. Refer to the following code snippet,
 
 {% tabs %}
 
@@ -2420,7 +2420,7 @@ return File(stream, contentType, fileName);
 
 Please find the steps to set the system proxy settings,
 
-1. Control Panel -> Network and Internet -> Internet Options 
+1. Control Panel > Network and Internet > Internet Options 
 2. From Internet properties window, open LAN settings under connections tab
 3. Then set proxy server address and port in LAN settings window
 
@@ -2671,7 +2671,7 @@ return File(stream, contentType, fileName);
 
 ## Partial webpage to PDF
 
-WebKit rendering engine provides support for converting only the part of the HTML document like a table, div or image elements from the URL/HTML string. We can convert the particular HTML element by specifying the element ID, please refer the below code snippet.
+WebKit rendering engine provides support for converting only the part of the HTML document like a table, div, or image elements from the URL/HTML string. You can convert the particular HTML element by specifying the element ID, refer to the following code snippet.
 
 {% tabs %}
 
