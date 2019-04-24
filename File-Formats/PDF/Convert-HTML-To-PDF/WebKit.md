@@ -536,7 +536,7 @@ return File(stream, contentType, fileName);
 
 ## Additional delay
 
-WebKit HTML converter provides option to set the [AdditionalDelay] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~AdditionalDelay.html), while converting HTML to PDF. Additional delay is the time to wait the converter for loading the external resources (styles, scripts, images, etc.,). Please refer the below code snippet,
+WebKit HTML converter provides option to set the [AdditionalDelay](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~AdditionalDelay.html), while converting HTML to PDF. Additional delay is the time to wait the converter for loading the external resources (styles, scripts, images, etc.,). Please refer the below code snippet,
 
 {% tabs %}
 
@@ -738,7 +738,7 @@ return File(stream, contentType, fileName);
 
 ## Bookmarks
 
-The WebKit HTML Converter provides support for creating bookmarks automatically by enabling [EnableBookmarks] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~EnableBookmarks.html) property. 
+The WebKit HTML Converter provides support for creating bookmarks automatically by enabling [EnableBookmarks](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~EnableBookmarks.html) property. 
 
 N> The bookmarks are added from the ```<h>``` tag, it supports from ```<h1>``` to ```<h6>```.
 
@@ -914,7 +914,7 @@ padding-left: 5px;
 
 ## Table of Contents
 
-The WebKit HTML Converter provides support for creating a table of contents automatically by using the [EnableToc] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~Toc.html) property.
+The WebKit HTML Converter provides support for creating a table of contents automatically by using the [EnableToc](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~Toc.html) property.
 
 N> TOC are added from the ```<h>``` tag, it supports from ```<h1>``` to ```<h6>```.
 
@@ -1090,7 +1090,7 @@ padding-left: 5px;
 
 ### Table of Contents with custom style
 
-The WebKit HTML Converter provides support for customizing the table of contents style. Each header tag style can be customized by using [HtmlToPdfTocStyle] (https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.HtmlToPdf.HtmlToPdfTocStyle.html). Please refer the below code snippet,
+The WebKit HTML Converter provides support for customizing the table of contents style. Each header tag style can be customized by using [HtmlToPdfTocStyle](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.HtmlToPdf.HtmlToPdfTocStyle.html). Please refer the below code snippet,
 
 {% tabs %}
 
@@ -1260,7 +1260,7 @@ return File(stream, contentType, fileName);
 
 ## MediaType
 
-WebKit HTML Converter allows selection of media type while converting HTML to PDF. WebKit rendering engine supports <b>Screen</b> and <b>Print</b> media types. Please refer the below code snippet to select Print [MediaType] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~MediaType.html).
+WebKit HTML Converter allows selection of media type while converting HTML to PDF. WebKit rendering engine supports <b>Screen</b> and <b>Print</b> media types. Please refer the below code snippet to select Print [MediaType](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~MediaType.html).
 
 
 {% tabs %}
@@ -1956,7 +1956,7 @@ return File(stream, contentType, fileName);
 
 ## Table Header and Footer
 
-The WebKit HTML Converter supports repeating html table header and footer on every PDF page. This can be enabled by using [EnableRepeatTableHeader] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~EnableRepeatTableHeader.html) and [EnableRepeatTableFooter] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~EnableRepeatTableFooter.html) properties. Please refer the below code snippet,
+The WebKit HTML Converter supports repeating html table header and footer on every PDF page. This can be enabled by using [EnableRepeatTableHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~EnableRepeatTableHeader.html) and [EnableRepeatTableFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~EnableRepeatTableFooter.html) properties. Please refer the below code snippet,
 
 {% tabs %}
 
@@ -2135,7 +2135,7 @@ for(count = 1; count <= 100; count++){
 
 ## HTTP GET and POST
 
-WebKit HTML Converter provides support for transmitting the parameter to the webpage. There are two methods to access a webpage. By default, WebKit uses GET method. By using HTTP GET method the parameters can be passed in the query string. In POST method, the parameters can be passed by using [HttpPostFields] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~HttpPostFields.html) property.
+WebKit HTML Converter provides support for transmitting the parameter to the webpage. There are two methods to access a webpage. By default, WebKit uses GET method. By using HTTP GET method the parameters can be passed in the query string. In POST method, the parameters can be passed by using [HttpPostFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~HttpPostFields.html) property.
 Please refer the below code snippet to access a web page using HTTP POST,
 
 {% tabs %}
@@ -2569,7 +2569,7 @@ document.Close()
 
 ## Viewport
 
-Adjusting HTML content size in PDF is possible by using [WebKitViewPort] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~WebKitViewPort.html) property of WebKit HTML converter. WebKit viewport size will set to WebKit browser’s window size. 
+Adjusting HTML content size in PDF is possible by using [WebKitViewPort](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~WebKitViewPort.html) property of WebKit HTML converter. WebKit viewport size will set to WebKit browser’s window size. 
 Please refer the below code snippet to adjust WebKit viewport,
 
 {% tabs %}
@@ -3110,7 +3110,7 @@ The WebKit HTML converter internally creates temporary files in the temporary fo
 
 By default, HTML converter takes system temporary path (C:\Users\<<username>>\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. If the temporary folder does not have the required permission, then the converter may throw access denied exception. . 
 
-The temporary path can be changed by using the [TempPath] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~TempPath.html) property of [WebKitConverterSettings] (https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings.html). If this property has been set, then the converter use the provided path to perform the conversion. Refer to the following code snippet.
+The temporary path can be changed by using the [TempPath](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~TempPath.html) property of [WebKitConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings.html). If this property has been set, then the converter use the provided path to perform the conversion. Refer to the following code snippet.
 
 {% tabs %}
 
