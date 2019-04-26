@@ -1,6 +1,6 @@
 ---
-title: Overview of Syncfusion Word (DocIO) library
-description: Essential DocIO is a .NET Word library to create, read, write, & convert Word files in Windows Forms, WPF, UWP, ASP.NET Core, ASP.NET MVC, Xamarin applications
+title: Overview of Word library (DocIO) | Syncfusion
+description: .NET Word library to create, read, edit, and convert Word documents in C#, VB.NET, Windows Forms, WPF, ASP.NET, MVC, .NET Core, UWP, and Xamarin applications.
 platform: file-formats
 control: DocIO
 documentation: UG
