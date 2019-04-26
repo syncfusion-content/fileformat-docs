@@ -35,3 +35,4 @@ It is a non-UI component that provides a full-fledged document instance model si
 * Microsoft Word 2010
 * Microsoft Word 2013
 * Microsoft Word 2016
+* Microsoft Word 2019
