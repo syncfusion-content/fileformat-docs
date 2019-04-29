@@ -33,6 +33,7 @@ It is a non-UI component that provides a full-fledged PowerPoint presentation in
 * Microsoft PowerPoint 2010
 * Microsoft PowerPoint 2013
 * Microsoft PowerPoint 2016
+* Microsoft PowerPoint 2019
 
 
 N> 1. The current version of Essential Presentation supports the .PPTX, .PPTM, .POTX, .POTM file formats only.
