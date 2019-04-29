@@ -15,8 +15,6 @@ The [Microsoft Word's](https://en.wikipedia.org/wiki/Microsoft_Word#) native fil
 2. Word Processing XML (.xml)
 3. Word Binary (97-2003) format (classic)
 
-N> Use DOCX file formats, because Microsoft corporation stopped their development in DOC file format and new features inclusion done in DOCX file format alone.  
-
 ## Word Open XML formats (2007 & later)
 
 [Office Open XML](http://en.wikipedia.org/wiki/Office_Open_XML#) (OOXML or Microsoft Open XML (MOX)) is a zipped, new XML-based file format introduced by Microsoft in Office 2007 applications. WordprocessingML is the markup language used by Microsoft Office Word to store its DOCX documents.
