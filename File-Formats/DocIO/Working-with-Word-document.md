@@ -2136,7 +2136,7 @@ clonedDocument.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
                 
 Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+                    .SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
                
 document.Close();
 
@@ -2310,19 +2310,19 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 
 //Opens the destination document 
 
-WordDocument Destinationdocument = new WordDocument(destinationStreamPath, FormatType.Docx);
+WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Docx);
 
 //Imports the contents of source document at the end of destination document
 
-Destinationdocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
 
 MemoryStream stream = new MemoryStream();
 
 //Saves and closes the destination document to  MemoryStream
 
-Destinationdocument.Save(stream, FormatType.Docx);
+destinationDocument.Save(stream, FormatType.Docx);
 
-Destinationdocument.Close();
+destinationDocument.Close();
 
 document.Close(); 
 
@@ -2469,7 +2469,7 @@ destinationDocument.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
                 
 Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+                    .SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
 
 //Closes the documents               
 
@@ -2736,7 +2736,7 @@ destinationDocument.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
                 
 Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+                    .SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
 
 //Closes the documents               
 
@@ -3535,7 +3535,7 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
                 
 Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+                    .SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
 
 //Closes the document              
 
@@ -3821,7 +3821,7 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
                 
 Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+                    .SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
 
 //Closes the document              
 
@@ -4044,7 +4044,7 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
                 
 Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+                    .SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
 
 //Closes the document              
 
@@ -4295,7 +4295,7 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
                 
 Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+                    .SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
 
 //Closes the document              
 
@@ -4533,7 +4533,7 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
                 
 Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+                    .SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
 
 //Closes the document              
 
@@ -4752,7 +4752,7 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
                 
 Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+                    .SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
 
 //Closes the document              
 
@@ -5045,7 +5045,7 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
                 
 Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+                    .SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
 
 //Closes the document              
 
@@ -5156,9 +5156,7 @@ MemoryStream stream = new MemoryStream();
 
 //Saves and closes the destination document to  MemoryStream
 
-Destinationdocument.Save(stream, FormatType.Docx);
-
-Destinationdocument.Close();
+document.Save(stream, FormatType.Docx);
 
 document.Close(); 
 
@@ -5309,7 +5307,7 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
                 
 Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+                    .SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
 
 //Closes the document              
 
