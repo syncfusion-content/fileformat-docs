@@ -1,4 +1,4 @@
----
+﻿---
 title: Working with Charts
 description: This section illustrates how to work with Charts
 platform: file-formats
@@ -252,6 +252,428 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Creates a new instance of WordDocument (Empty Word Document)
+
+using (WordDocument document = new WordDocument())
+
+{
+
+//Adds section to the document
+
+IWSection sec = document.AddSection();
+
+//Adds paragraph to the section
+
+IWParagraph paragraph = sec.AddParagraph();
+
+//Creates and Appends chart to the paragraph
+
+WChart chart = paragraph.AppendChart(446, 270);
+
+//Sets chart type
+
+chart.ChartType = OfficeChartType.Pie;
+
+//Sets chart title
+
+chart.ChartTitle = "Best Selling Products";
+
+chart.ChartTitleArea.FontName = "Calibri";
+
+chart.ChartTitleArea.Size = 14;
+
+//Sets data for chart
+
+chart.ChartData.SetValue(1, 1, "");
+
+chart.ChartData.SetValue(1, 2, "Sales");
+
+chart.ChartData.SetValue(2, 1, "Phyllis Lapin");
+
+chart.ChartData.SetValue(2, 2, 141.396);
+
+chart.ChartData.SetValue(3, 1, "Stanley Hudson");
+
+chart.ChartData.SetValue(3, 2, 80.368);
+
+chart.ChartData.SetValue(4, 1, "Bernard Shah");
+
+chart.ChartData.SetValue(4, 2, 71.155);
+
+chart.ChartData.SetValue(5, 1, "Patricia Lincoln");
+
+chart.ChartData.SetValue(5, 2, 47.234);
+
+chart.ChartData.SetValue(6, 1, "Camembert Pierrot");
+
+chart.ChartData.SetValue(6, 2, 46.825);
+
+chart.ChartData.SetValue(7, 1, "Thomas Hardy");
+
+chart.ChartData.SetValue(7, 2, 42.593);
+
+chart.ChartData.SetValue(8, 1, "Hanna Moos");
+
+chart.ChartData.SetValue(8, 2, 41.819);
+
+chart.ChartData.SetValue(9, 1, "Alice Mutton");
+
+chart.ChartData.SetValue(9, 2, 32.698);
+
+chart.ChartData.SetValue(10, 1, "Christina Berglund");
+
+chart.ChartData.SetValue(10, 2, 29.171);
+
+chart.ChartData.SetValue(11, 1, "Elizabeth Lincoln");
+
+chart.ChartData.SetValue(11, 2, 25.696);
+
+//Creates a new chart series with the name “Sales”
+
+IOfficeChartSerie pieSeries = chart.Series.Add("Sales");
+
+pieSeries.Values = chart.ChartData[2, 2, 11, 2];
+
+//Sets data label
+
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Outside;
+
+//Sets background color
+
+chart.ChartArea.Fill.ForeColor = Syncfusion.Drawing.Color.FromArgb(242, 242, 242);
+
+chart.PlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.FromArgb(242, 242, 242);
+
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
+
+//Sets category labels
+
+chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 11, 1]; 
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+using (WordDocument document = new WordDocument())
+
+{
+
+//Adds section to the document
+
+IWSection sec = document.AddSection();
+
+//Adds paragraph to the section
+
+IWParagraph paragraph = sec.AddParagraph();
+
+//Creates and Appends chart to the paragraph
+
+WChart chart = paragraph.AppendChart(446, 270);
+
+//Sets chart type
+
+chart.ChartType = OfficeChartType.Pie;
+
+//Sets chart title
+
+chart.ChartTitle = "Best Selling Products";
+
+chart.ChartTitleArea.FontName = "Calibri";
+
+chart.ChartTitleArea.Size = 14;
+
+//Sets data for chart
+
+chart.ChartData.SetValue(1, 1, "");
+
+chart.ChartData.SetValue(1, 2, "Sales");
+
+chart.ChartData.SetValue(2, 1, "Phyllis Lapin");
+
+chart.ChartData.SetValue(2, 2, 141.396);
+
+chart.ChartData.SetValue(3, 1, "Stanley Hudson");
+
+chart.ChartData.SetValue(3, 2, 80.368);
+
+chart.ChartData.SetValue(4, 1, "Bernard Shah");
+
+chart.ChartData.SetValue(4, 2, 71.155);
+
+chart.ChartData.SetValue(5, 1, "Patricia Lincoln");
+
+chart.ChartData.SetValue(5, 2, 47.234);
+
+chart.ChartData.SetValue(6, 1, "Camembert Pierrot");
+
+chart.ChartData.SetValue(6, 2, 46.825);
+
+chart.ChartData.SetValue(7, 1, "Thomas Hardy");
+
+chart.ChartData.SetValue(7, 2, 42.593);
+
+chart.ChartData.SetValue(8, 1, "Hanna Moos");
+
+chart.ChartData.SetValue(8, 2, 41.819);
+
+chart.ChartData.SetValue(9, 1, "Alice Mutton");
+
+chart.ChartData.SetValue(9, 2, 32.698);
+
+chart.ChartData.SetValue(10, 1, "Christina Berglund");
+
+chart.ChartData.SetValue(10, 2, 29.171);
+
+chart.ChartData.SetValue(11, 1, "Elizabeth Lincoln");
+
+chart.ChartData.SetValue(11, 2, 25.696);
+
+//Creates a new chart series with the name “Sales”
+
+IOfficeChartSerie pieSeries = chart.Series.Add("Sales");
+
+pieSeries.Values = chart.ChartData[2, 2, 11, 2];
+
+//Sets data label
+
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Outside;
+
+//Sets background color
+
+chart.ChartArea.Fill.ForeColor = Syncfusion.Drawing.Color.FromArgb(242, 242, 242);
+
+chart.PlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.FromArgb(242, 242, 242);
+
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
+
+//Sets category labels
+
+chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 11, 1]; 
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+using (WordDocument document = new WordDocument())
+
+{
+
+//Adds section to the document
+
+IWSection sec = document.AddSection();
+
+//Adds paragraph to the section
+
+IWParagraph paragraph = sec.AddParagraph();
+
+//Creates and Appends chart to the paragraph
+
+WChart chart = paragraph.AppendChart(446, 270);
+
+//Sets chart type
+
+chart.ChartType = OfficeChartType.Pie;
+
+//Sets chart title
+
+chart.ChartTitle = "Best Selling Products";
+
+chart.ChartTitleArea.FontName = "Calibri";
+
+chart.ChartTitleArea.Size = 14;
+
+//Sets data for chart
+
+chart.ChartData.SetValue(1, 1, "");
+
+chart.ChartData.SetValue(1, 2, "Sales");
+
+chart.ChartData.SetValue(2, 1, "Phyllis Lapin");
+
+chart.ChartData.SetValue(2, 2, 141.396);
+
+chart.ChartData.SetValue(3, 1, "Stanley Hudson");
+
+chart.ChartData.SetValue(3, 2, 80.368);
+
+chart.ChartData.SetValue(4, 1, "Bernard Shah");
+
+chart.ChartData.SetValue(4, 2, 71.155);
+
+chart.ChartData.SetValue(5, 1, "Patricia Lincoln");
+
+chart.ChartData.SetValue(5, 2, 47.234);
+
+chart.ChartData.SetValue(6, 1, "Camembert Pierrot");
+
+chart.ChartData.SetValue(6, 2, 46.825);
+
+chart.ChartData.SetValue(7, 1, "Thomas Hardy");
+
+chart.ChartData.SetValue(7, 2, 42.593);
+
+chart.ChartData.SetValue(8, 1, "Hanna Moos");
+
+chart.ChartData.SetValue(8, 2, 41.819);
+
+chart.ChartData.SetValue(9, 1, "Alice Mutton");
+
+chart.ChartData.SetValue(9, 2, 32.698);
+
+chart.ChartData.SetValue(10, 1, "Christina Berglund");
+
+chart.ChartData.SetValue(10, 2, 29.171);
+
+chart.ChartData.SetValue(11, 1, "Elizabeth Lincoln");
+
+chart.ChartData.SetValue(11, 2, 25.696);
+
+//Creates a new chart series with the name “Sales”
+
+IOfficeChartSerie pieSeries = chart.Series.Add("Sales");
+
+pieSeries.Values = chart.ChartData[2, 2, 11, 2];
+
+//Sets data label
+
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+
+pieSeries.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Outside;
+
+//Sets background color
+
+chart.ChartArea.Fill.ForeColor = Syncfusion.Drawing.Color.FromArgb(242, 242, 242);
+
+chart.PlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.FromArgb(242, 242, 242);
+
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
+
+//Sets category labels
+
+chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 11, 1]; 
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the documents               
+
+document.Close();
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ## Creating a Chart from Excel file
@@ -382,6 +804,273 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 
+
+{% endhighlight %}
+
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new instance of WordDocument (Empty Word Document)
+
+using (WordDocument document = new WordDocument())
+
+{
+
+//Adds section to the document
+
+IWSection sec = document.AddSection();
+
+//Adds paragraph to the section
+
+IWParagraph paragraph = sec.AddParagraph();
+
+//Loads the excel file as stream
+
+Stream excelStream = File.OpenRead("Excel_Template.xlsx");
+
+//Creates and Appends chart to the paragraph with excel stream as parameter
+
+WChart chart = paragraph.AppendChart(excelStream, 1, "B2:C6", 470, 300);
+
+//Sets chart type and title
+
+chart.ChartType = OfficeChartType.Column_Clustered;
+
+chart.ChartTitle = "Purchase Details";
+
+chart.ChartTitleArea.FontName = "Calibri";
+
+chart.ChartTitleArea.Size = 14;
+
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;       
+
+//Sets name to chart series            
+
+chart.Series[0].Name = "Sum of Purchases";
+
+chart.Series[1].Name = "Sum of Future Expenses";
+
+chart.PrimaryCategoryAxis.Title = "Products";
+
+chart.PrimaryValueAxis.Title = "In Dollars";
+
+//Sets position of legend
+
+chart.Legend.Position = OfficeLegendPosition.Bottom; 
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+using (WordDocument document = new WordDocument())
+
+{
+
+//Adds section to the document
+
+IWSection sec = document.AddSection();
+
+//Adds paragraph to the section
+
+IWParagraph paragraph = sec.AddParagraph();
+
+//Loads the excel file as stream
+
+Stream excelStream = File.OpenRead("Excel_Template.xlsx");
+
+//Creates and Appends chart to the paragraph with excel stream as parameter
+
+WChart chart = paragraph.AppendChart(excelStream, 1, "B2:C6", 470, 300);
+
+//Sets chart type and title
+
+chart.ChartType = OfficeChartType.Column_Clustered;
+
+chart.ChartTitle = "Purchase Details";
+
+chart.ChartTitleArea.FontName = "Calibri";
+
+chart.ChartTitleArea.Size = 14;
+
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;       
+
+//Sets name to chart series            
+
+chart.Series[0].Name = "Sum of Purchases";
+
+chart.Series[1].Name = "Sum of Future Expenses";
+
+chart.PrimaryCategoryAxis.Title = "Products";
+
+chart.PrimaryValueAxis.Title = "In Dollars";
+
+//Sets position of legend
+
+chart.Legend.Position = OfficeLegendPosition.Bottom;
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+using (WordDocument document = new WordDocument())
+
+{
+
+//Adds section to the document
+
+IWSection sec = document.AddSection();
+
+//Adds paragraph to the section
+
+IWParagraph paragraph = sec.AddParagraph();
+
+//Loads the excel file as stream
+
+Stream excelStream = File.OpenRead("Excel_Template.xlsx");
+
+//Creates and Appends chart to the paragraph with excel stream as parameter
+
+WChart chart = paragraph.AppendChart(excelStream, 1, "B2:C6", 470, 300);
+
+//Sets chart type and title
+
+chart.ChartType = OfficeChartType.Column_Clustered;
+
+chart.ChartTitle = "Purchase Details";
+
+chart.ChartTitleArea.FontName = "Calibri";
+
+chart.ChartTitleArea.Size = 14;
+
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;       
+
+//Sets name to chart series            
+
+chart.Series[0].Name = "Sum of Purchases";
+
+chart.Series[1].Name = "Sum of Future Expenses";
+
+chart.PrimaryCategoryAxis.Title = "Products";
+
+chart.PrimaryValueAxis.Title = "In Dollars";
+
+//Sets position of legend
+
+chart.Legend.Position = OfficeLegendPosition.Bottom;
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the documents               
+
+document.Close();
+
+}
 
 {% endhighlight %}
 
@@ -595,6 +1284,388 @@ document.Close()
 
 {% endhighlight %}
 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new instance of WordDocument (Empty Word Document)
+
+using (WordDocument document = new WordDocument())
+
+{
+
+//Adds section to the document
+
+IWSection sec = document.AddSection();
+
+//Adds paragraph to the section
+
+IWParagraph paragraph = sec.AddParagraph();
+
+//Inputs data for chart
+
+object[][] data = new object[6][];
+
+for (int i = 0; i < 6; i++)
+
+data[i] = new object[3];
+
+data[0][0] = "";
+
+data[1][0] = "Camembert Pierrot";
+
+data[2][0] = "Alice Mutton";
+
+data[3][0] = "Roasted Tigers";
+
+data[4][0] = "Orange Shake";
+
+data[5][0] = "Dried Apples";
+
+data[0][1] = "Sum of Purchases";
+
+data[1][1] = 286;
+
+data[2][1] = 680;
+
+data[3][1] = 288;
+
+data[4][1] = 200;
+
+data[5][1] = 731;
+
+data[0][2] = "Sum of Future Expenses";
+
+data[1][2] = 1300;
+
+data[2][2] = 700;
+
+data[3][2] = 1280;
+
+data[4][2] = 1200;
+
+data[5][2] = 2660;
+
+//Creates and Appends chart to the paragraph
+
+WChart chart = paragraph.AppendChart(data, 470, 300);
+
+//Sets chart type and title
+
+chart.ChartTitle = "Purchase Details";
+
+chart.ChartTitleArea.FontName = "Calibri";
+
+chart.ChartTitleArea.Size = 14;
+
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;          
+
+//Sets series type 
+
+chart.Series[0].SerieType = OfficeChartType.Line_Markers;
+
+chart.Series[1].SerieType = OfficeChartType.Bar_Clustered;
+
+chart.PrimaryCategoryAxis.Title = "Products";
+
+chart.PrimaryValueAxis.Title = "In Dollars";
+
+//Sets position of legend
+
+chart.Legend.Position = OfficeLegendPosition.Bottom; 
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+using (WordDocument document = new WordDocument())
+
+{
+
+//Adds section to the document
+
+IWSection sec = document.AddSection();
+
+//Adds paragraph to the section
+
+IWParagraph paragraph = sec.AddParagraph();
+
+//Inputs data for chart
+
+object[][] data = new object[6][];
+
+for (int i = 0; i < 6; i++)
+
+data[i] = new object[3];
+
+data[0][0] = "";
+
+data[1][0] = "Camembert Pierrot";
+
+data[2][0] = "Alice Mutton";
+
+data[3][0] = "Roasted Tigers";
+
+data[4][0] = "Orange Shake";
+
+data[5][0] = "Dried Apples";
+
+data[0][1] = "Sum of Purchases";
+
+data[1][1] = 286;
+
+data[2][1] = 680;
+
+data[3][1] = 288;
+
+data[4][1] = 200;
+
+data[5][1] = 731;
+
+data[0][2] = "Sum of Future Expenses";
+
+data[1][2] = 1300;
+
+data[2][2] = 700;
+
+data[3][2] = 1280;
+
+data[4][2] = 1200;
+
+data[5][2] = 2660;
+
+//Creates and Appends chart to the paragraph
+
+WChart chart = paragraph.AppendChart(data, 470, 300);
+
+//Sets chart type and title
+
+chart.ChartTitle = "Purchase Details";
+
+chart.ChartTitleArea.FontName = "Calibri";
+
+chart.ChartTitleArea.Size = 14;
+
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;          
+
+//Sets series type 
+
+chart.Series[0].SerieType = OfficeChartType.Line_Markers;
+
+chart.Series[1].SerieType = OfficeChartType.Bar_Clustered;
+
+chart.PrimaryCategoryAxis.Title = "Products";
+
+chart.PrimaryValueAxis.Title = "In Dollars";
+
+//Sets position of legend
+
+chart.Legend.Position = OfficeLegendPosition.Bottom;
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+using (WordDocument document = new WordDocument())
+
+{
+
+//Adds section to the document
+
+IWSection sec = document.AddSection();
+
+//Adds paragraph to the section
+
+IWParagraph paragraph = sec.AddParagraph();
+
+//Inputs data for chart
+
+object[][] data = new object[6][];
+
+for (int i = 0; i < 6; i++)
+
+data[i] = new object[3];
+
+data[0][0] = "";
+
+data[1][0] = "Camembert Pierrot";
+
+data[2][0] = "Alice Mutton";
+
+data[3][0] = "Roasted Tigers";
+
+data[4][0] = "Orange Shake";
+
+data[5][0] = "Dried Apples";
+
+data[0][1] = "Sum of Purchases";
+
+data[1][1] = 286;
+
+data[2][1] = 680;
+
+data[3][1] = 288;
+
+data[4][1] = 200;
+
+data[5][1] = 731;
+
+data[0][2] = "Sum of Future Expenses";
+
+data[1][2] = 1300;
+
+data[2][2] = 700;
+
+data[3][2] = 1280;
+
+data[4][2] = 1200;
+
+data[5][2] = 2660;
+
+//Creates and Appends chart to the paragraph
+
+WChart chart = paragraph.AppendChart(data, 470, 300);
+
+//Sets chart type and title
+
+chart.ChartTitle = "Purchase Details";
+
+chart.ChartTitleArea.FontName = "Calibri";
+
+chart.ChartTitleArea.Size = 14;
+
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;          
+
+//Sets series type 
+
+chart.Series[0].SerieType = OfficeChartType.Line_Markers;
+
+chart.Series[1].SerieType = OfficeChartType.Bar_Clustered;
+
+chart.PrimaryCategoryAxis.Title = "Products";
+
+chart.PrimaryValueAxis.Title = "In Dollars";
+
+//Sets position of legend
+
+chart.Legend.Position = OfficeLegendPosition.Bottom;
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+                
+//Save the stream as a file in the device and invoke it for viewing
+                
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
+
+//Closes the documents               
+
+document.Close();
+
+}
+
+{% endhighlight %}
+
+
 {% endtabs %}  
 
 ## Refreshing the Chart
@@ -663,6 +1734,197 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+
+{
+//Gets the last paragraph
+
+WParagraph paragraph = document.LastParagraph;
+
+//Gets the chart entity from the paragraph items
+
+WChart chart = paragraph.ChildEntities[1] as WChart;
+
+//Refreshes chart data
+
+chart.Refresh();
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.docx);
+
+//Closes the Word document
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Protection.docx");
+
+}
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Gets the last paragraph
+
+WParagraph paragraph = document.LastParagraph;
+
+//Gets the chart entity from the paragraph items
+
+WChart chart = paragraph.ChildEntities[1] as WChart;
+
+//Refreshes chart data
+
+chart.Refresh();
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Protection.docx");
+                
+//Closes the Word document
+
+document.Close();
+
+}
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx;
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+              FormatType.Docx))
+{
+
+//Gets the last paragraph
+
+WParagraph paragraph = document.LastParagraph;
+
+//Gets the chart entity from the paragraph items
+
+WChart chart = paragraph.ChildEntities[1] as WChart;
+
+//Refreshes chart data
+
+chart.Refresh();
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("Protection.docx", "application/msword", stream);
+
+//Closes the Word document
+
+document.Close();
+
+}
+
+{% endhighlight %}
 
 {% endtabs %}  
 
@@ -742,7 +2004,222 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+
+{
+
+//Gets the last paragraph
+
+WParagraph paragraph = document.LastParagraph;
+
+//Gets the chart entity from the paragraph items
+
+WChart chart = paragraph.ChildEntities[0] as WChart;
+
+//Modifies the data values of chart
+
+chart.ChartData.SetValue(2, 2, 120);
+
+chart.ChartData.SetValue(3, 2, 60);
+
+chart.ChartData.SetValue(4, 2, 70);
+
+//Refreshes chart data to set the modified values
+
+chart.Refresh();
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.docx);
+
+//Closes the Word document
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Gets the last paragraph
+
+WParagraph paragraph = document.LastParagraph;
+
+//Gets the chart entity from the paragraph items
+
+WChart chart = paragraph.ChildEntities[0] as WChart;
+
+//Modifies the data values of chart
+
+chart.ChartData.SetValue(2, 2, 120);
+
+chart.ChartData.SetValue(3, 2, 60);
+
+chart.ChartData.SetValue(4, 2, 70);
+
+//Refreshes chart data to set the modified values
+
+chart.Refresh();
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+                
+//Closes the Word document
+
+document.Close();
+
+}
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx;
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+              FormatType.Docx))
+{
+
+//Gets the last paragraph
+
+WParagraph paragraph = document.LastParagraph;
+
+//Gets the chart entity from the paragraph items
+
+WChart chart = paragraph.ChildEntities[0] as WChart;
+
+//Modifies the data values of chart
+
+chart.ChartData.SetValue(2, 2, 120);
+
+chart.ChartData.SetValue(3, 2, 60);
+
+chart.ChartData.SetValue(4, 2, 70);
+
+//Refreshes chart data to set the modified values
+
+chart.Refresh();
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("Result.docx", "application/msword", stream);
+
+//Closes the Word document
+
+document.Close();
+
+}
 
 {% endhighlight %}
 
@@ -950,8 +2427,386 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+
+{
+//Gets the paragraph
+
+WParagraph paragraph = document.LastParagraph;
+
+//Gets the chart entity
+
+WChart chart = paragraph.ChildEntities[0] as WChart;
+
+//Modifies the chart height and width
+
+chart.Height = 300;
+
+chart.Width = 500;
+
+//Changes the title
+
+chart.ChartTitle = "New title";
+
+//Changes the series name of first chart series
+
+chart.Series[0].Name = "Modified series name";
+
+//Hides the category labels
+
+chart.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNone;
+
+//Shows data Table.
+
+chart.HasDataTable = true;
+
+//Formats the chart area.
+
+IOfficeChartFrameFormat chartArea = chart.ChartArea;
+
+//Sets border line pattern, color, line weight
+
+chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+
+chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+
+chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+//Sets fill type and fill colors
+
+chartArea.Fill.FillType = OfficeFillType.Gradient;
+
+chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+
+chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+
+chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
+
+//Plots Area
+
+IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
+
+//Plots area border settings - line pattern, color, weight
+
+chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+
+chartPlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+
+chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+//Sets fill type and color
+
+chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
+
+chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+
+chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+
+chartPlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.docx);
+
+//Closes the Word document
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Gets the paragraph
+
+WParagraph paragraph = document.LastParagraph;
+
+//Gets the chart entity
+
+WChart chart = paragraph.ChildEntities[0] as WChart;
+
+//Modifies the chart height and width
+
+chart.Height = 300;
+
+chart.Width = 500;
+
+//Changes the title
+
+chart.ChartTitle = "New title";
+
+//Changes the series name of first chart series
+
+chart.Series[0].Name = "Modified series name";
+
+//Hides the category labels
+
+chart.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNone;
+
+//Shows data Table.
+
+chart.HasDataTable = true;
+
+//Formats the chart area.
+
+IOfficeChartFrameFormat chartArea = chart.ChartArea;
+
+//Sets border line pattern, color, line weight
+
+chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+
+chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+
+chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+//Sets fill type and fill colors
+
+chartArea.Fill.FillType = OfficeFillType.Gradient;
+
+chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+
+chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+
+chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
+
+//Plots Area
+
+IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
+
+//Plots area border settings - line pattern, color, weight
+
+chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+
+chartPlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+
+chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+//Sets fill type and color
+
+chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
+
+chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+
+chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+
+chartPlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+                
+//Closes the Word document
+
+document.Close();
+
+}
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx;
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+              FormatType.Docx))
+{
+
+//Gets the paragraph
+
+WParagraph paragraph = document.LastParagraph;
+
+//Gets the chart entity
+
+WChart chart = paragraph.ChildEntities[0] as WChart;
+
+//Modifies the chart height and width
+
+chart.Height = 300;
+
+chart.Width = 500;
+
+//Changes the title
+
+chart.ChartTitle = "New title";
+
+//Changes the series name of first chart series
+
+chart.Series[0].Name = "Modified series name";
+
+//Hides the category labels
+
+chart.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNone;
+
+//Shows data Table.
+
+chart.HasDataTable = true;
+
+//Formats the chart area.
+
+IOfficeChartFrameFormat chartArea = chart.ChartArea;
+
+//Sets border line pattern, color, line weight
+
+chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+
+chartArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+
+chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+//Sets fill type and fill colors
+
+chartArea.Fill.FillType = OfficeFillType.Gradient;
+
+chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+
+chartArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+
+chartArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
+
+//Plots Area
+
+IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
+
+//Plots area border settings - line pattern, color, weight
+
+chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
+
+chartPlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+
+chartPlotArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
+
+//Sets fill type and color
+
+chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
+
+chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
+
+chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
+
+chartPlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("Result.docx", "application/msword", stream);
+
+//Closes the Word document
+
+document.Close();
+
+}
+
+{% endhighlight %}
+
 
  {% endtabs %}  
 
@@ -1163,7 +3018,422 @@ document.Close()
 
 {% endhighlight %}
 
- {% endtabs %}  
+
+{% highlight ASP.NET CORE %}
+
+FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+
+{
+//Gets the paragraph
+
+ WParagraph paragraph = document.LastParagraph;
+
+//Gets the chart entity
+
+WChart chart = paragraph.ChildEntities[0] as WChart;
+
+//Sets border settings - line color, pattern, weight, transparency
+
+chart.PlotArea.Border.AutoFormat = false;
+
+chart.PlotArea.Border.IsAutoLineColor = false;
+
+chart.PlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+
+chart.PlotArea.Border.LinePattern = OfficeChartLinePattern.DashDot;
+
+chart.PlotArea.Border.LineWeight = OfficeChartLineWeight.Wide;
+
+chart.PlotArea.Border.Transparency = 0.6;
+
+//Sets the plot area’s fill type, color
+
+chart.PlotArea.Fill.FillType = OfficeFillType.SolidColor;
+
+chart.PlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.LightPink;
+
+//Sets the plot area shadow presence
+
+chart.PlotArea.Shadow.ShadowInnerPresets = Office2007ChartPresetsInner.InsideDiagonalTopLeft;
+
+//Sets the legend position
+
+chart.Legend.Position = OfficeLegendPosition.Left;
+
+//Sets the layout inclusion
+
+chart.Legend.IncludeInLayout = true;
+
+//Sets the legend border format - color, pattern, weight
+
+chart.Legend.FrameFormat.Border.AutoFormat = false;
+
+chart.Legend.FrameFormat.Border.IsAutoLineColor = false;
+
+chart.Legend.FrameFormat.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+
+chart.Legend.FrameFormat.Border.LinePattern = OfficeChartLinePattern.DashDot;
+
+chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide;
+
+//Sets the legend's text area formatting - font name, weight, color, size
+
+chart.Legend.TextArea.Bold = true;
+
+chart.Legend.TextArea.Color = OfficeKnownColors.Bright_green;
+
+chart.Legend.TextArea.FontName = "Times New Roman";
+
+chart.Legend.TextArea.Size = 20;
+
+chart.Legend.TextArea.Strikethrough = true;
+
+//Modifies the legend entry
+
+chart.Legend.LegendEntries[0].IsDeleted = true;
+
+//Modifies the legend layout - height, left, top, width
+
+chart.Legend.Layout.Height = 50;
+
+chart.Legend.Layout.HeightMode = LayoutModes.factor;
+
+chart.Legend.Layout.Left = 10;
+
+chart.Legend.Layout.LeftMode = LayoutModes.factor;
+
+chart.Legend.Layout.Top = 30;
+
+chart.Legend.Layout.TopMode = LayoutModes.factor;
+
+chart.Legend.Layout.Width = 100;
+
+chart.Legend.Layout.WidthMode = LayoutModes.factor;
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.docx);
+
+//Closes the Word document
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Gets the paragraph
+
+ WParagraph paragraph = document.LastParagraph;
+
+//Gets the chart entity
+
+WChart chart = paragraph.ChildEntities[0] as WChart;
+
+//Sets border settings - line color, pattern, weight, transparency
+
+chart.PlotArea.Border.AutoFormat = false;
+
+chart.PlotArea.Border.IsAutoLineColor = false;
+
+chart.PlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+
+chart.PlotArea.Border.LinePattern = OfficeChartLinePattern.DashDot;
+
+chart.PlotArea.Border.LineWeight = OfficeChartLineWeight.Wide;
+
+chart.PlotArea.Border.Transparency = 0.6;
+
+//Sets the plot area’s fill type, color
+
+chart.PlotArea.Fill.FillType = OfficeFillType.SolidColor;
+
+chart.PlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.LightPink;
+
+//Sets the plot area shadow presence
+
+chart.PlotArea.Shadow.ShadowInnerPresets = Office2007ChartPresetsInner.InsideDiagonalTopLeft;
+
+//Sets the legend position
+
+chart.Legend.Position = OfficeLegendPosition.Left;
+
+//Sets the layout inclusion
+
+chart.Legend.IncludeInLayout = true;
+
+//Sets the legend border format - color, pattern, weight
+
+chart.Legend.FrameFormat.Border.AutoFormat = false;
+
+chart.Legend.FrameFormat.Border.IsAutoLineColor = false;
+
+chart.Legend.FrameFormat.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+
+chart.Legend.FrameFormat.Border.LinePattern = OfficeChartLinePattern.DashDot;
+
+chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide;
+
+//Sets the legend's text area formatting - font name, weight, color, size
+
+chart.Legend.TextArea.Bold = true;
+
+chart.Legend.TextArea.Color = OfficeKnownColors.Bright_green;
+
+chart.Legend.TextArea.FontName = "Times New Roman";
+
+chart.Legend.TextArea.Size = 20;
+
+chart.Legend.TextArea.Strikethrough = true;
+
+//Modifies the legend entry
+
+chart.Legend.LegendEntries[0].IsDeleted = true;
+
+//Modifies the legend layout - height, left, top, width
+
+chart.Legend.Layout.Height = 50;
+
+chart.Legend.Layout.HeightMode = LayoutModes.factor;
+
+chart.Legend.Layout.Left = 10;
+
+chart.Legend.Layout.LeftMode = LayoutModes.factor;
+
+chart.Legend.Layout.Top = 30;
+
+chart.Legend.Layout.TopMode = LayoutModes.factor;
+
+chart.Legend.Layout.Width = 100;
+
+chart.Legend.Layout.WidthMode = LayoutModes.factor;
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+                
+//Closes the Word document
+
+document.Close();
+
+}
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx;
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+              FormatType.Docx))
+{
+
+//Gets the paragraph
+
+WParagraph paragraph = document.LastParagraph;
+
+//Gets the chart entity
+
+WChart chart = paragraph.ChildEntities[0] as WChart;
+
+//Sets border settings - line color, pattern, weight, transparency
+
+chart.PlotArea.Border.AutoFormat = false;
+
+chart.PlotArea.Border.IsAutoLineColor = false;
+
+chart.PlotArea.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+
+chart.PlotArea.Border.LinePattern = OfficeChartLinePattern.DashDot;
+
+chart.PlotArea.Border.LineWeight = OfficeChartLineWeight.Wide;
+
+chart.PlotArea.Border.Transparency = 0.6;
+
+//Sets the plot area’s fill type, color
+
+chart.PlotArea.Fill.FillType = OfficeFillType.SolidColor;
+
+chart.PlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.LightPink;
+
+//Sets the plot area shadow presence
+
+chart.PlotArea.Shadow.ShadowInnerPresets = Office2007ChartPresetsInner.InsideDiagonalTopLeft;
+
+//Sets the legend position
+
+chart.Legend.Position = OfficeLegendPosition.Left;
+
+//Sets the layout inclusion
+
+chart.Legend.IncludeInLayout = true;
+
+//Sets the legend border format - color, pattern, weight
+
+chart.Legend.FrameFormat.Border.AutoFormat = false;
+
+chart.Legend.FrameFormat.Border.IsAutoLineColor = false;
+
+chart.Legend.FrameFormat.Border.LineColor = Syncfusion.Drawing.Color.Blue;
+
+chart.Legend.FrameFormat.Border.LinePattern = OfficeChartLinePattern.DashDot;
+
+chart.Legend.FrameFormat.Border.LineWeight = OfficeChartLineWeight.Wide;
+
+//Sets the legend's text area formatting - font name, weight, color, size
+
+chart.Legend.TextArea.Bold = true;
+
+chart.Legend.TextArea.Color = OfficeKnownColors.Bright_green;
+
+chart.Legend.TextArea.FontName = "Times New Roman";
+
+chart.Legend.TextArea.Size = 20;
+
+chart.Legend.TextArea.Strikethrough = true;
+
+//Modifies the legend entry
+
+chart.Legend.LegendEntries[0].IsDeleted = true;
+
+//Modifies the legend layout - height, left, top, width
+
+chart.Legend.Layout.Height = 50;
+
+chart.Legend.Layout.HeightMode = LayoutModes.factor;
+
+chart.Legend.Layout.Left = 10;
+
+chart.Legend.Layout.LeftMode = LayoutModes.factor;
+
+chart.Legend.Layout.Top = 30;
+
+chart.Legend.Layout.TopMode = LayoutModes.factor;
+
+chart.Legend.Layout.Width = 100;
+
+chart.Legend.Layout.WidthMode = LayoutModes.factor;
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("Result.docx", "application/msword", stream);
+
+//Closes the Word document
+
+document.Close();
+
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
 
 ### Positioning Chart Elements
 
