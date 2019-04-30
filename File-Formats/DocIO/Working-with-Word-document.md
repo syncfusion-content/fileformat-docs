@@ -2310,7 +2310,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 
 //Opens the destination document 
 
-WordDocument Destinationdocument = new WordDocument(destinatonStreamPath, FormatType.Docx);
+WordDocument Destinationdocument = new WordDocument(destinationStreamPath, FormatType.Docx);
 
 //Imports the contents of source document at the end of destination document
 
@@ -2565,7 +2565,7 @@ using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Aut
 
 //Opens the destination document 
 
-WordDocument Destinationdocument = new WordDocument(destinatonStreamPath, FormatType.Docx);
+WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Docx);
 
 //Sets the break-code of First section of source document as NoBreak to avoid imported from a new page
 
@@ -2573,15 +2573,15 @@ document.Sections[0].BreakCode = SectionBreakCode.NoBreak;
 
 //Imports the contents of source document at the end of destination document
 
-Destinationdocument.ImportContent(document, ImportOptions.UseDestinationStyles);
+destinationDocument.ImportContent(document, ImportOptions.UseDestinationStyles);
 
 MemoryStream stream = new MemoryStream();
 
 //Saves and closes the destination document to  MemoryStream
 
-Destinationdocument.Save(stream, FormatType.Docx);
+destinationDocument.Save(stream, FormatType.Docx);
 
-Destinationdocument.Close();
+destinationDocument.Close();
 
 document.Close(); 
 
