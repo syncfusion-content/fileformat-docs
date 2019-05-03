@@ -1624,3 +1624,195 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Converting multi page TIFF to PDF
+
+Multi frame TIFF image can be converted to PDF document. This can be done by accessing each frame of the multi frame TIFF image and rendering it in each page of the PDF document.
+
+The code snippet to illustrate the same is given below.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Create a PDF document
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Add a section to the PDF document
+
+PdfSection section = pdfDocument.Sections.Add();
+
+//Declare the PDF page
+
+PdfPage page;
+
+//Declare PDF page graphics
+
+PdfGraphics graphics;
+
+//Load multi frame TIFF image
+
+PdfBitmap tiffImage = new PdfBitmap("image.tiff");
+
+//Get the frame count
+
+int frameCount = tiffImage.FrameCount;
+
+//Access each frame draw into the page
+
+for (int i = 0; i < frameCount; i++)
+
+{
+
+page = section.Pages.Add();
+
+section.PageSettings.Margins.All = 0;
+
+graphics = page.Graphics;
+
+tiffImage.ActiveFrame = i;
+
+graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
+
+}
+
+//Save and close the document
+
+pdfDocument.Save("Sample.pdf");
+
+pdfDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+
+
+{% highlight vb.net %}
+
+
+'Create a PDF document
+
+Dim pdfDocument As New PdfDocument()
+
+'Add a section to the PDF document
+
+Dim section As PdfSection = pdfDocument.Sections.Add()
+
+'Declare the PDF page
+
+Dim page As PdfPage
+
+'Declare PDF page graphics
+
+Dim graphics As PdfGraphics
+
+'Load multi frame TIFF image
+
+Dim tiffImage As New PdfBitmap("image.tiff")
+
+'Get the frame count
+
+Dim frameCount As Integer = tiffImage.FrameCount
+
+'Access each frame draw into the page
+
+For i As Integer = 0 To frameCount - 1
+
+page = section.Pages.Add()
+
+section.PageSettings.Margins.All = 0
+
+graphics = page.Graphics
+
+tiffImage.ActiveFrame = i
+
+graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
+
+Next
+
+'Save and close the document
+
+pdfDocument.Save("Sample.pdf")
+
+pdfDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a PDF document
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Add a section to the PDF document
+
+PdfSection section = pdfDocument.Sections.Add();
+
+//Declare the PDF page
+
+PdfPage page;
+
+//Declare PDF page graphics
+
+PdfGraphics graphics;
+
+//Load multi frame TIFF image
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.image.tiff");
+
+PdfBitmap tiffImage = new PdfBitmap(imageStream);
+
+//Get the frame count
+
+int frameCount = tiffImage.FrameCount;
+
+//Access each frame draw into the page
+
+for (int i = 0; i < frameCount; i++)
+
+{
+
+    page = section.Pages.Add();
+
+    section.PageSettings.Margins.All = 0;
+
+    graphics = page.Graphics;
+
+    tiffImage.ActiveFrame = i;
+
+    graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
+
+}
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await pdfDocument.SaveAsync(memoryStream);
+
+//Close the documents.
+
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports converting multi page TIFF to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports converting multi page TIFF to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+{% endhighlight %}
+
+{% endtabs %}
