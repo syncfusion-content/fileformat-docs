@@ -7401,7 +7401,7 @@ else
 
 ## String formatting
 
-Essential PDF supports applying string formatting for whole table, a column in table, a row in table and a cell in table using [PdfStingFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html) class.
+Essential PDF supports applying string formatting for whole table, a column in table, a row in table and a cell in table using the [PdfStingFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html) class.
 
 ### String formatting for whole table in PdfGrid
 
@@ -7653,8 +7653,8 @@ document.Save(stream);
 //Close the document
 document.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -7919,8 +7919,8 @@ document.Save(stream);
 //Close the document
 document.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -8167,8 +8167,8 @@ document.Save(stream);
 //Close the document
 document.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -8418,8 +8418,8 @@ document.Save(stream);
 //Close the document
 document.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -8666,8 +8666,8 @@ document.Save(stream);
 //Close the document
 document.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -8929,8 +8929,8 @@ document.Save(stream);
 //Close the document
 document.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -8977,11 +8977,11 @@ for (int i = 0; i < pdfGrid.Columns.Count; i++)
 }
 
 //Add RowSpan
-PdfGridCell girdCell = pdfGrid.Rows[1].Cells[3];
-girdCell.RowSpan = 3;
-girdCell.StringFormat = format;
-girdCell.Value = "Row Span";
-girdCell.Style.BackgroundBrush = PdfBrushes.Yellow;
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[3];
+gridCell.RowSpan = 3;
+gridCell.StringFormat = format;
+gridCell.Value = "Row Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
 
 //Draw the PdfGrid
 pdfGrid.Draw(page, new PointF(10, 10));
@@ -9018,11 +9018,11 @@ For i = 0 To pdfGrid.Columns.Count - 1 Step 1
 Next
 
 'Add RowSpan
-Dim girdCell As PdfGridCell = pdfGrid.Rows(1).Cells(3)
-girdCell.RowSpan = 3
-girdCell.StringFormat = format
-girdCell.Value = "Row Span"
-girdCell.Style.BackgroundBrush = PdfBrushes.Yellow
+Dim gridCell As PdfGridCell = pdfGrid.Rows(1).Cells(3)
+gridCell.RowSpan = 3
+gridCell.StringFormat = format
+gridCell.Value = "Row Span"
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow
 
 'Draw the PdfGrid
 pdfGrid.Draw(page, New PointF(10, 10))
@@ -9060,11 +9060,11 @@ for (int i = 0; i < pdfGrid.Columns.Count; i++)
 }
 
 //Add RowSpan
-PdfGridCell girdCell = pdfGrid.Rows[1].Cells[3];
-girdCell.RowSpan = 3;
-girdCell.StringFormat = format;
-girdCell.Value = "Row Span";
-girdCell.Style.BackgroundBrush = PdfBrushes.Yellow;
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[3];
+gridCell.RowSpan = 3;
+gridCell.StringFormat = format;
+gridCell.Value = "Row Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
 
 //Draw the PdfGrid
 pdfGrid.Draw(page, new PointF(10, 10));
@@ -9108,11 +9108,11 @@ for (int i = 0; i < pdfGrid.Columns.Count; i++)
 }
 
 //Add RowSpan
-PdfGridCell girdCell = pdfGrid.Rows[1].Cells[3];
-girdCell.RowSpan = 3;
-girdCell.StringFormat = format;
-girdCell.Value = "Row Span";
-girdCell.Style.BackgroundBrush = PdfBrushes.Yellow;
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[3];
+gridCell.RowSpan = 3;
+gridCell.StringFormat = format;
+gridCell.Value = "Row Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
 
 //Draw the PdfGrid
 pdfGrid.Draw(page, new PointF(10, 10));
@@ -9156,11 +9156,11 @@ for (int i = 0; i < pdfGrid.Columns.Count; i++)
 }
 
 //Add RowSpan
-PdfGridCell girdCell = pdfGrid.Rows[1].Cells[3];
-girdCell.RowSpan = 3;
-girdCell.StringFormat = format;
-girdCell.Value = "Row Span";
-girdCell.Style.BackgroundBrush = PdfBrushes.Yellow;
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[3];
+gridCell.RowSpan = 3;
+gridCell.StringFormat = format;
+gridCell.Value = "Row Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
 
 //Draw the PdfGrid
 pdfGrid.Draw(page, new PointF(10, 10));
@@ -9217,10 +9217,10 @@ for (int i = 0; i < pdfGrid.Columns.Count; i++)
 
 //Add ColumnSpan
 PdfGridCell gridCell = pdfGrid.Rows[1].Cells[0];
-girdCell.ColumnSpan = 2;
-girdcell.StringFormat = format;
-girdcell.Value = "Column Span";
-girdcell.Style.BackgroundBrush = PdfBrushes.Yellow;
+gridCell.ColumnSpan = 2;
+gridCell.StringFormat = format;
+gridCell.Value = "Column Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
 
 //Draw the PdfGrid
 pdfGrid.Draw(page, new PointF(10, 10));
@@ -9299,11 +9299,11 @@ for (int i = 0; i < pdfGrid.Columns.Count; i++)
 }
 
 //Add ColumnSpan
-PdfGridCell girdcell = pdfGrid.Rows[1].Cells[0];
-girdcell.ColumnSpan = 2;
-girdcell.StringFormat = format;
-girdcell.Value = "Column Span";
-girdcell.Style.BackgroundBrush = PdfBrushes.Yellow;
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[0];
+gridCell.ColumnSpan = 2;
+gridCell.StringFormat = format;
+gridCell.Value = "Column Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
 
 //Draw the PdfGrid
 pdfGrid.Draw(page, new PointF(10, 10));
@@ -9347,11 +9347,11 @@ for (int i = 0; i < pdfGrid.Columns.Count; i++)
 }
 
 //Add ColumnSpan
-PdfGridCell girdcell = pdfGrid.Rows[1].Cells[0];
-girdcell.ColumnSpan = 2;
-girdcell.StringFormat = format;
-girdcell.Value = "Column Span";
-girdcell.Style.BackgroundBrush = PdfBrushes.Yellow;
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[0];
+gridCell.ColumnSpan = 2;
+gridCell.StringFormat = format;
+gridCell.Value = "Column Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
 
 //Draw the PdfGrid
 pdfGrid.Draw(page, new PointF(10, 10));
@@ -9395,11 +9395,11 @@ for (int i = 0; i < pdfGrid.Columns.Count; i++)
 }
 
 //Add ColumnSpan
-PdfGridCell girdcell = pdfGrid.Rows[1].Cells[0];
-girdcell.ColumnSpan = 2;
-girdcell.StringFormat = format;
-girdcell.Value = "Column Span";
-girdcell.Style.BackgroundBrush = PdfBrushes.Yellow;
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[0];
+gridCell.ColumnSpan = 2;
+gridCell.StringFormat = format;
+gridCell.Value = "Column Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
 
 //Draw the PdfGrid
 pdfGrid.Draw(page, new PointF(10, 10));
