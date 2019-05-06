@@ -17,7 +17,7 @@ Brushes are used to draw the content on PDF document with specific color and sty
 
 ## Solid Brush
 
-Solid brush is used to fill an object with solid color. Essential PDF supports drawing shapes on PDF document with solid brush using [PdfSolidBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfSolidBrush.html) class. The following code snippet illustrates this.
+The solid brush is used to fill an object with solid color. Essential PDF supports drawing shapes on PDF document with solid brush using the [PdfSolidBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfSolidBrush.html) class. The following code snippet illustrates this.
 
 {% tabs %}
 {% highlight C# %}
@@ -145,8 +145,8 @@ doc.Save(stream);
 //Close the instance of PdfDocument
 doc.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("SolidBrush.pdf", "application/pdf", stream);
@@ -158,9 +158,9 @@ else
 {% endhighlight %}
 {% endtabs %}
 
-## Linear Gradient Brush
+## Linear gradient brush
 
-Gradient brush is used to fill an object with blend of two or more colors. Essential PDF supports drawing shapes on PDF document with linear gradient brush using [PdfLinearGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLinearGradientBrush.html). The following code snippet illustrates this.
+The gradient brush is used to fill an object with blend of two or more colors. Essential PDF supports drawing shapes on PDF document with linear gradient brush using [PdfLinearGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLinearGradientBrush.html). The following code snippet illustrates this.
 
 {% tabs %}
 {% highlight C# %}
@@ -288,8 +288,8 @@ doc.Save(stream);
 //Close the instance of PdfDocument
 doc.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
       Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("LinearGradientBrush.pdf", "application/pdf", stream);
@@ -303,7 +303,7 @@ else
 
 ## Radial Gradient Brush
 
-Gradient brush is used to fill an object with blend of two or more colors. You can draw any shape on PDF document with radial gradient brush using [PdfRadialGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfRadialGradientBrush.html). The following code snippet explains this.
+The gradient brush is used to fill an object with blend of two or more colors. You can draw any shape on PDF document with radial gradient brush using [PdfRadialGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfRadialGradientBrush.html). The following code snippet explains this.
 
 {% tabs %}
 {% highlight C# %}
@@ -431,8 +431,8 @@ doc.Save(stream);
 //Close the instance of PdfDocument
 doc.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("RadialGradientBrush.pdf", "application/pdf", stream);
@@ -446,7 +446,7 @@ else
 
 ## Tiling Brush
 
-Tiling brush is used to draw an object repeatedly. You can draw any shape on PDF page with tiling brush using [PdfTilingBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTilingBrush.html). The following code snippet explains this.
+The tiling brush is used to draw an object repeatedly. You can draw any shape on PDF page with tiling brush using [PdfTilingBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTilingBrush.html). The following code snippet explains this.
 
 {% tabs %}
 {% highlight C# %}
@@ -589,8 +589,8 @@ doc.Save(stream);
 //Close the instance of PdfDocument
 doc.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("TilingBrush.pdf", "application/pdf", stream);
