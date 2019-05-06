@@ -1,5 +1,5 @@
 ---
-title: Working with Brushes
+title: Working with Brushes | Syncfusion
 description: This section explains how to add shapes using different brushes
 platform: file-formats
 control: PDF
