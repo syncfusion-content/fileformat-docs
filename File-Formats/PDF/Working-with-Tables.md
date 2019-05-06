@@ -7709,7 +7709,7 @@ for (int i = 0; i < lightTable.Columns.Count; i++)
     lightTable.Columns[i].StringFormat = stringFormat;
 }
 
-//Draw the PdfLighTable on page
+//Draw the PdfLightTable on page
 lightTable.Draw(page, new PointF(10, 10));
 
 //Save the document and close the instance of PdfDocument
@@ -7755,7 +7755,7 @@ For i = 0 To lightTable.Columns.Count - 1 Step 1
     lightTable.Columns(i).StringFormat = stringFormat
 Next
 
-'Draw the PdfLighTable on page
+'Draw the PdfLightTable on page
 lightTable.Draw(page, New PointF(10, 10))
 
 'Save the document and close the instance of PdfDocument
@@ -7801,7 +7801,7 @@ for (int i = 0; i < lightTable.Columns.Count; i++)
     lightTable.Columns[i].StringFormat = stringFormat;
 }
 
-//Draw the PdfLighTable on page
+//Draw the PdfLightTable on page
 lightTable.Draw(page, new PointF(10, 10));
 
 //Create memory stream
@@ -7855,7 +7855,7 @@ for (int i = 0; i < lightTable.Columns.Count; i++)
     lightTable.Columns[i].StringFormat = stringFormat;
 }
 
-//Draw the PdfLighTable on page
+//Draw the PdfLightTable on page
 lightTable.Draw(page, new PointF(10, 10));
 
 //Saving the PDF to the MemoryStream
@@ -7909,7 +7909,7 @@ for (int i = 0; i < lightTable.Columns.Count; i++)
     lightTable.Columns[i].StringFormat = stringFormat;
 }
 
-//Draw the PdfLighTable on page
+//Draw the PdfLightTable on page
 lightTable.Draw(page, new PointF(10, 10));
 
 //Save the document to the stream
@@ -8182,7 +8182,7 @@ else
 
 ### String formatting to a column in PdfLightTable
 
-The following code snippet expalins how to add string formatting to a column in [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html).
+The following code snippet explains how to add string formatting to a column in [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html).
 
 {% tabs %}
 {% highlight C# %}
@@ -9216,8 +9216,8 @@ for (int i = 0; i < pdfGrid.Columns.Count; i++)
 }
 
 //Add ColumnSpan
-PdfGridCell girdcell = pdfGrid.Rows[1].Cells[0];
-girdcell.ColumnSpan = 2;
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[0];
+girdCell.ColumnSpan = 2;
 girdcell.StringFormat = format;
 girdcell.Value = "Column Span";
 girdcell.Style.BackgroundBrush = PdfBrushes.Yellow;
