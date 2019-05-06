@@ -689,9 +689,9 @@ document.Save("Output.pdf")
 document.Close(True)
 
 {% endhighlight %}
-
+{% endtabs %}
 You can add text using the font file from local file system by providing the path of the TrueType font location. The following code snippet explains the same.
-
+{% tabs %}
 {% highlight c# %}
 
 //Create a new PDF document.
