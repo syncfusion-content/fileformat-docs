@@ -8961,7 +8961,7 @@ PdfPage page = document.Pages.Add();
 //Create a PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
 
-//create and customize the string formats
+//Create and customize the string formats
 PdfStringFormat format = new PdfStringFormat();
 format.Alignment = PdfTextAlignment.Center;
 format.LineAlignment = PdfVerticalAlignment.Middle;
@@ -8989,7 +8989,7 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Save the document
 document.Save("Output.pdf");
 
-//close the document
+//Close the document
 document.Close(true);
 {% endhighlight %}
 
@@ -9003,7 +9003,7 @@ Dim page As PdfPage = document.Pages.Add
 'Create a PdfGrid
 Dim pdfGrid As PdfGrid = New PdfGrid
 
-'create and customize the string formats
+'Create and customize the string formats
 Dim format As PdfStringFormat = New PdfStringFormat
 format.Alignment = PdfTextAlignment.Center
 format.LineAlignment = PdfVerticalAlignment.Middle
@@ -9030,7 +9030,7 @@ pdfGrid.Draw(page, New PointF(10, 10))
 'Save the document
 document.Save("Output.pdf")
 
-'close the document
+'Close the document
 document.Close(True)
 {% endhighlight %}
 
@@ -9044,7 +9044,7 @@ PdfPage page = document.Pages.Add();
 //Create a PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
 
-//create and customize the string formats
+//Create and customize the string formats
 PdfStringFormat format = new PdfStringFormat();
 format.Alignment = PdfTextAlignment.Center;
 format.LineAlignment = PdfVerticalAlignment.Middle;
@@ -9078,7 +9078,7 @@ document.Save(ms);
 //Close the document
 document.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 Save(ms, "Sample.pdf");
 {% endhighlight %}
 
@@ -9092,7 +9092,7 @@ PdfPage page = document.Pages.Add();
 //Create a PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
 
-//create and customize the string formats
+//Create and customize the string formats
 PdfStringFormat format = new PdfStringFormat();
 format.Alignment = PdfTextAlignment.Center;
 format.LineAlignment = PdfVerticalAlignment.Middle;
@@ -9140,7 +9140,7 @@ PdfPage page = document.Pages.Add();
 //Create a PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
 
-//create and customize the string formats
+//Create and customize the string formats
 PdfStringFormat format = new PdfStringFormat();
 format.Alignment = PdfTextAlignment.Center;
 format.LineAlignment = PdfVerticalAlignment.Middle;
@@ -9172,8 +9172,8 @@ document.Save(stream);
 //Close the document
 document.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -9200,7 +9200,7 @@ PdfPage page = document.Pages.Add();
 //Create a PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
 
-//create and customize the string formats
+//Create and customize the string formats
 PdfStringFormat format = new PdfStringFormat();
 format.Alignment = PdfTextAlignment.Center;
 format.LineAlignment = PdfVerticalAlignment.Middle;
@@ -9228,7 +9228,7 @@ pdfGrid.Draw(page, new PointF(10, 10));
 //Save the document
 document.Save("Output.pdf");
 
-//close the document
+//Close the document
 document.Close(true);
 {% endhighlight %}
 
@@ -9242,7 +9242,7 @@ Dim page As PdfPage = document.Pages.Add
 'Create a PdfGrid
 Dim pdfGrid As PdfGrid = New PdfGrid
 
-'create and customize the string formats
+'Create and customize the string formats
 Dim format As PdfStringFormat = New PdfStringFormat
 format.Alignment = PdfTextAlignment.Center
 format.LineAlignment = PdfVerticalAlignment.Middle
@@ -9269,7 +9269,7 @@ pdfGrid.Draw(page, New PointF(10, 10))
 'Save the document
 document.Save("Output.pdf")
 
-'close the document
+'Close the document
 document.Close(True)
 {% endhighlight %}
 
@@ -9283,7 +9283,7 @@ PdfPage page = document.Pages.Add();
 //Create a PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
 
-//create and customize the string formats
+//Create and customize the string formats
 PdfStringFormat format = new PdfStringFormat();
 format.Alignment = PdfTextAlignment.Center;
 format.LineAlignment = PdfVerticalAlignment.Middle;
@@ -9317,7 +9317,7 @@ document.Save(ms);
 //Close the document
 document.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 Save(ms, "Sample.pdf");
 {% endhighlight %}
 
@@ -9331,7 +9331,7 @@ PdfPage page = document.Pages.Add();
 //Create a PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
 
-//create and customize the string formats
+//Create and customize the string formats
 PdfStringFormat format = new PdfStringFormat();
 format.Alignment = PdfTextAlignment.Center;
 format.LineAlignment = PdfVerticalAlignment.Middle;
@@ -9379,7 +9379,7 @@ PdfPage page = document.Pages.Add();
 //Create a PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
 
-//create and customize the string formats
+//Create and customize the string formats
 PdfStringFormat format = new PdfStringFormat();
 format.Alignment = PdfTextAlignment.Center;
 format.LineAlignment = PdfVerticalAlignment.Middle;
@@ -9411,8 +9411,8 @@ document.Save(stream);
 //Close the document
 document.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -9682,7 +9682,7 @@ pdfDocument.Save(ms);
 //Close the document
 pdfDocument.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 Save(ms, "Output.pdf");
 {% endhighlight %}
 
@@ -9858,8 +9858,8 @@ pdfDocument.Save(stream);
 //Close the document
 pdfDocument.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
@@ -10088,7 +10088,7 @@ pdfDocument.Save(ms);
 //Close the document
 pdfDocument.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 Save(ms, "Output.pdf");
 {% endhighlight %}
 
@@ -10238,8 +10238,8 @@ pdfDocument.Save(stream);
 //Close the document
 pdfDocument.Close(true);
 
-//Save the stream into pdf file
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
