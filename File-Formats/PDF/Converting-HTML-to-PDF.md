@@ -500,7 +500,7 @@ The following table shows the WebKit, Blink and IE rendering engines supported f
 
 <tr>
 <td>Azure App Service</td>
-<td><img src="DocumentConversion_images/yes.jpg" alt="Yes">(Except free or shared plan</td>
+<td><img src="DocumentConversion_images/yes.jpg" alt="Yes">(Except free and shared plan)</td>
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 <td><img src="DocumentConversion_images/no.jpg" alt="No"></td>
 </tr>
