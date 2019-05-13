@@ -1,5 +1,5 @@
 ---
-title: Working with Comments
+title: Working with Comments | DocIO | Syncfusion
 description: This section illustrates how to add, modify and remove the comments
 platform: file-formats
 control: DocIO
@@ -47,6 +47,10 @@ comment.Format.User = "Peter";
 //Specifies the initial of the author
 
 comment.Format.UserInitials = "St";
+
+//Set the date and time for comment. 
+
+comment.Format.DateTime = DateTime.Now;
 
 //Saves and closes the Word document
 
