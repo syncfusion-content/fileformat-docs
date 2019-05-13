@@ -1,5 +1,5 @@
 ---
-title: Working with Table Of Contents
+title: Working with Table Of Contents | Syncfusion
 description: This section illustrates how to insert and update the Table Of Content in a Word document
 platform: file-formats
 control: DocIO
@@ -405,7 +405,7 @@ paragraph.AppendText("Third Chapter");
 
 //Sets the built-in heading style
 
-paragraph.ApplyStyle("My style");
+paragraph.ApplyStyle("MyStyle");
 
 //Adds the text to the paragraph
 
