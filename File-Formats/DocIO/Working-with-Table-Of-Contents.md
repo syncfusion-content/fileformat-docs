@@ -405,7 +405,7 @@ paragraph.AppendText("Third Chapter");
 
 //Sets the built-in heading style
 
-paragraph.ApplyStyle("My style");
+paragraph.ApplyStyle("MyStyle");
 
 //Adds the text to the paragraph
 
