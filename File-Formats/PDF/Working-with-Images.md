@@ -1691,7 +1691,7 @@ PdfBitmap tiffImage = new PdfBitmap("image.tiff");
 
 int frameCount = tiffImage.FrameCount;
 
-//Access each frame draw into the page
+//Access each frame and draw into the page
 
 for (int i = 0; i < frameCount; i++)
 
@@ -1746,7 +1746,7 @@ Dim tiffImage As New PdfBitmap("image.tiff")
 
 Dim frameCount As Integer = tiffImage.FrameCount
 
-'Access each frame draw into the page
+'Access each frame and draw into the page
 
 For i As Integer = 0 To frameCount - 1
 
@@ -1801,7 +1801,7 @@ PdfBitmap tiffImage = new PdfBitmap(imageStream);
 
 int frameCount = tiffImage.FrameCount;
 
-//Access each frame draw into the page
+//Access each frame and draw into the page
 
 for (int i = 0; i < frameCount; i++)
 
@@ -1862,7 +1862,7 @@ PdfBitmap tiffImage = new PdfBitmap(imageStream);
 
 int frameCount = tiffImage.FrameCount;
 
-//Access each frame draw into the page
+//Access each frame and draw into the page
 
 for (int i = 0; i < frameCount; i++)
 
