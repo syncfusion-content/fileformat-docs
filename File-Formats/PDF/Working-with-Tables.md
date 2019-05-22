@@ -7398,6 +7398,315 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+## Adding multiple tables
+
+The Essential PDF supports maintaining the position of a PDF grid drawn on PDF page using [PdfGridLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridLayoutResult.html). It provides the rendered bounds of previously added grid, which can be used to place successive elements without overlapping. You can add multiple PDF grids using the bottom position of previously rendered PDF grid. The following code snippet illustrates this.
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create a DataTable
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+dataTable.Columns.Add("Salary");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+dataTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw grid on the page of PDF document and store the grid position in PdfGridLayoutResult
+PdfGridLayoutResult pdfGridLayoutResult = pdfGrid.Draw(page, new PointF(10, 10));
+
+//Initialize PdfGrid and DataTable
+pdfGrid = new PdfGrid();
+dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("Name");
+dataTable.Columns.Add("Age");
+dataTable.Columns.Add("Sex");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "Andrew", "21", "Male" });
+dataTable.Rows.Add(new object[] { "Steven", "22", "Female" });
+dataTable.Rows.Add(new object[] { "Michael", "24", "Male" });
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw the grid on page using previous result
+pdfGrid.Draw(page, new PointF(10, pdfGridLayoutResult.Bounds.Bottom + 20));
+
+//Save the document
+document.Save("Output.pdf");
+
+//Close the document
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Add a page
+Dim page As PdfPage = document.Pages.Add
+
+'Create a new PdfGrid instance
+Dim pdfGrid As PdfGrid = New PdfGrid
+
+'Create a DataTable
+Dim dataTable As DataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+dataTable.Columns.Add("Salary")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"E01", "Clay", "$10,000"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas", "$10,500"})
+dataTable.Rows.Add(New Object() {"E03", "Simon", "$12,000"})
+
+'Assign data source
+pdfGrid.DataSource = dataTable
+
+'Draw grid on the page of PDF document and store the grid position in PdfGridLayoutResult
+Dim pdfGridLayoutResult As PdfGridLayoutResult = pdfGrid.Draw(page, New PointF(10, 10))
+
+'Initialize PdfGrid and DataTable
+pdfGrid = New PdfGrid
+dataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("Name")
+dataTable.Columns.Add("Age")
+dataTable.Columns.Add("Sex")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"Andrew", "21", "Male"})
+dataTable.Rows.Add(New Object() {"Steven", "22", "Female"})
+dataTable.Rows.Add(New Object() {"Michael", "24", "Male"})
+
+'Assign data source
+pdfGrid.DataSource = dataTable
+
+'Draw the grid on page using previous result
+pdfGrid.Draw(page, New PointF(10, (pdfGridLayoutResult.Bounds.Bottom + 20)))
+
+'Save the document
+document.Save("Output.pdf")
+
+'Close the document
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw grid on the page of PDF document and store the grid position in PdfGridLayoutResult
+PdfGridLayoutResult pdfGridLayoutResult = pdfGrid.Draw(page, new PointF(10, 10));
+
+//Initialize PdfGrid and list
+pdfGrid = new PdfGrid();
+data = new List<object>();
+
+//Add values to list
+Object grid2row1 = new { Name = "Andrew", Age = "21", Sex = "Male" };
+Object grid2row2 = new { Name = "Steven", Age = "22", Sex = "Female" };
+Object grid2row3 = new { Name = "Michael", Age = "24", Sex = "Male" };
+data.Add(grid2row1);
+data.Add(grid2row2);
+data.Add(grid2row3);
+
+//Add list to IEnumerable
+dataTable = data;
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw the grid on page using previously result
+pdfGrid.Draw(page, new PointF(10, pdfGridLayoutResult.Bounds.Bottom + 20));
+
+//Create memory stream
+MemoryStream stream = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(stream, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw grid on the page of PDF document and store the grid position in PdfGridLayoutResult
+PdfGridLayoutResult pdfGridLayoutResult = pdfGrid.Draw(page, new PointF(10, 10));
+
+//Initialize PdfGrid and list
+pdfGrid = new PdfGrid();
+data = new List<object>();
+
+//Add values to the list
+Object grid2row1 = new { Name = "Andrew", Age = "21", Sex = "Male" };
+Object grid2row2 = new { Name = "Steven", Age = "22", Sex = "Female" };
+Object grid2row3 = new { Name = "Michael", Age = "24", Sex = "Male" };
+data.Add(grid2row1);
+data.Add(grid2row2);
+data.Add(grid2row3);
+
+//Add list to IEnumerable
+dataTable = data;
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw the grid on page using previous result
+pdfGrid.Draw(page, new PointF(10, pdfGridLayoutResult.Bounds.Bottom + 20));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw grid on the page of PDF document and store the grid position in PdfGridLayoutResult
+PdfGridLayoutResult pdfGridLayoutResult = pdfGrid.Draw(page, new PointF(10, 10));
+
+//Initialize PdfGrid and list
+pdfGrid = new PdfGrid();
+data = new List<object>();
+
+//Add values to list
+Object grid2row1 = new { Name = "Andrew", Age = "21", Sex = "Male" };
+Object grid2row2 = new { Name = "Steven", Age = "22", Sex = "Female" };
+Object grid2row3 = new { Name = "Michael", Age = "24", Sex = "Male" };
+data.Add(grid2row1);
+data.Add(grid2row2);
+data.Add(grid2row3);
+
+//Add list to IEnumerable
+dataTable = data;
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw the grid on page using previous result
+pdfGrid.Draw(page, new PointF(10, pdfGridLayoutResult.Bounds.Bottom + 20));
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## String formatting
 
