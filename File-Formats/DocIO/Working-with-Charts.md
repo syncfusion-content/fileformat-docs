@@ -1,5 +1,5 @@
 ﻿---
-title: Working with Charts
+title: Working with Charts | DocIO | Syncfusion
 description: This section illustrates how to work with Charts
 platform: file-formats
 control: DocIO

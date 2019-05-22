@@ -1,5 +1,5 @@
 ﻿---
-title: Working with Security
+title: Working with Security | DocIO | Syncfusion
 description: This section illustrate how to encrypt and protect the Word document
 platform: file-formats
 control: DocIO
