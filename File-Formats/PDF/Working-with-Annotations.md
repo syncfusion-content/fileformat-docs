@@ -6826,3 +6826,382 @@ If set, inverts the interpretation of the NoView flat for certain events.<br/><b
 </tbody>
 </table>
 
+## Add Custom Stamp using Rubber Stamp Annotation
+
+Essential PDF supports adding custom stamp in an existing PDF document by using the [PdfRubberStampAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfRubberStampAnnotation.html) class along with different appearance settings through [PdfAppearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfAppearance.html). This custom stamp is movable and resizable.
+
+Rubber stamp annotation displays text or graphics intended to look like it is stamped on the page with a rubber stamp. When opened, it displays a pop-up window containing the text of the associated note. 
+
+The following code snippet explains how to add custom stamp in an existing PDF document using rubber stamp annotation.
+
+{% tabs %}
+
+{% highlight C# %}
+//Load an existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Get the page from loaded PDF document
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a new pdf rubber stamp annotation
+RectangleF rectangleF = new RectangleF(350, 20, 200, 80);
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangleF);
+
+//Custom stamp the rubber stamp annotation
+PdfSolidBrush brush = new PdfSolidBrush(new PdfColor(Color.LightBlue));
+PdfPath path = RoundedRect(new RectangleF(0, 0, 200, 80), 20);
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
+
+//Add text in rubber stamp annotation
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss zzz"), font, PdfBrushes.Black, new PointF(10, 40));
+
+//Set the content of annotation
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+
+//Add annotation to the page
+loadedPage.Annotations.Add(rubberStampAnnotation);
+
+//Save the PDF document
+loadedDocument.Save("Output.pdf");
+
+//Close the instance of PdfLoadedDocument
+loadedDocument.Close(true);
+
+public static PdfPath RoundedRect(RectangleF bounds, int radius)
+{
+    int diameter = radius * 2;
+    SizeF size = new SizeF(diameter, diameter);
+    RectangleF arc = new RectangleF(bounds.Location, size);
+    PdfPath path = new PdfPath();
+
+    if (radius == 0)
+    {
+        path.AddRectangle(bounds);
+        return path;
+    }
+
+    //Draw the top left arc  
+    path.AddArc(arc, 180, 90);
+
+    //Draw the top right arc  
+    arc.X = bounds.Right - diameter;
+    path.AddArc(arc, 270, 90);
+
+    //Draw the bottom right arc  
+    arc.Y = bounds.Bottom - diameter;
+    path.AddArc(arc, 0, 90);
+
+    //Draw the bottom left arc 
+    arc.X = bounds.Left;
+    path.AddArc(arc, 90, 90);
+
+    //Close the figure
+    path.CloseFigure();
+
+    //Return the path
+    return path;
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Load an existing PDF document
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get the page from loaded PDF document
+Dim loadedPage As PdfLoadedPage = CType(loadedDocument.Pages(0), PdfLoadedPage)
+
+'Create a new pdf rubber stamp annotation
+Dim rectangleF As RectangleF = New RectangleF(350, 20, 200, 80)
+Dim rubberStampAnnotation As PdfRubberStampAnnotation = New PdfRubberStampAnnotation(rectangleF)
+
+'Custom stamp the rubber stamp annotation
+Dim brush As PdfSolidBrush = New PdfSolidBrush(New PdfColor(Color.LightBlue))
+Dim path As PdfPath = RoundedRect(New RectangleF(0, 0, 200, 80), 20)
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path)
+
+'Add text in rubber stamp annotation
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold)
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, New PointF(10, 20))
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss zzz"), font, PdfBrushes.Black, New PointF(10, 40))
+
+'Set the content of annotation
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation"
+
+'Adds annotation to the page
+loadedPage.Annotations.Add(rubberStampAnnotation)
+
+'Save the PDF document
+loadedDocument.Save("Output.pdf")
+
+'Close the instance of PdfLoadedDocument
+loadedDocument.Close(True)
+
+Private Function RoundedRect(bounds As RectangleF, radius As Integer) As PdfPath
+    Dim diameter As Integer = (radius * 2)
+    Dim size As SizeF = New SizeF(diameter, diameter)
+    Dim arc As RectangleF = New RectangleF(bounds.Location, size)
+    Dim path As PdfPath = New PdfPath
+    If (radius = 0) Then
+        path.AddRectangle(bounds)
+        Return path
+    End If
+
+    'Draw the top left arc  
+    path.AddArc(arc, 180, 90)
+
+    'Draw the top right arc  
+    arc.X = (bounds.Right - diameter)
+    path.AddArc(arc, 270, 90)
+
+    'Draw the bottom right arc  
+    arc.Y = (bounds.Bottom - diameter)
+    path.AddArc(arc, 0, 90)
+
+    'Draw the bottom left arc 
+    arc.X = bounds.Left
+    path.AddArc(arc, 90, 90)
+
+    'Close the figure
+    path.CloseFigure()
+
+    'Return the path
+    Return path
+End Function
+{% endhighlight %}
+
+{% highlight UWP %}
+//Load an existing PDF document
+Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+
+//Get the page from loaded PDF document
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a new pdf rubber stamp annotation
+RectangleF rectangleF = new RectangleF(350, 20, 200, 80);
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangleF);
+
+//Custom stamp the rubber stamp annotation
+PdfSolidBrush brush = new PdfSolidBrush(new PdfColor(Color.FromArgb(255, 173, 216, 230)));
+PdfPath path = RoundedRect(new RectangleF(0, 0, 200, 80), 20);
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
+
+//Add text in rubber stamp annotation
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss zzz"), font, PdfBrushes.Black, new PointF(10, 40));
+
+//Set the content of annotation
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+
+//Add annotation to the page
+loadedPage.Annotations.Add(rubberStampAnnotation);
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in browser after saving it
+loadedDocument.Save(ms);
+
+//Close the document
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code sample
+Save(ms, "Output.pdf");
+
+private PdfPath RoundedRect(RectangleF bounds, int radius)
+{
+    int diameter = radius * 2;
+    SizeF size = new SizeF(diameter, diameter);
+    RectangleF arc = new RectangleF(bounds.Location, size);
+    PdfPath path = new PdfPath();
+
+    if (radius == 0)
+    {
+        path.AddRectangle(bounds);
+        return path;
+    }
+
+    //Draw the top left arc  
+    path.AddArc(arc, 180, 90);
+
+    //Draw the top right arc  
+    arc.X = bounds.Right - diameter;
+    path.AddArc(arc, 270, 90);
+
+    //Draw the bottom right arc  
+    arc.Y = bounds.Bottom - diameter;
+    path.AddArc(arc, 0, 90);
+
+    //Draw the bottom left arc 
+    arc.X = bounds.Left;
+    path.AddArc(arc, 90, 90);
+
+    //Close the figure
+    path.CloseFigure();
+
+    //Return the path
+    return path;
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Load an existing PDF document
+FileStream inputStream = new FileStream("Input.pdf", FileMode.Open);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+
+//Get the page from loaded PDF document
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a new pdf rubber stamp annotation
+RectangleF rectangleF = new RectangleF(350, 20, 200, 80);
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangleF);
+
+//Custom stamp the rubber stamp annotation
+PdfSolidBrush brush = new PdfSolidBrush(new PdfColor(Color.FromArgb(255, 173, 216, 230)));
+PdfPath path = RoundedRect(new RectangleF(0, 0, 200, 80), 20);
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
+
+//Add text in rubber stamp annotation
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss zzz"), font, PdfBrushes.Black, new PointF(10, 40));
+
+//Set the content of annotation
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+
+//Add annotation to the page
+loadedPage.Annotations.Add(rubberStampAnnotation);
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+
+private PdfPath RoundedRect(RectangleF bounds, int radius)
+{
+    int diameter = radius * 2;
+    SizeF size = new SizeF(diameter, diameter);
+    RectangleF arc = new RectangleF(bounds.Location, size);
+    PdfPath path = new PdfPath();
+
+    if (radius == 0)
+    {
+        path.AddRectangle(bounds);
+        return path;
+    }
+
+    //Draw the top left arc  
+    path.AddArc(arc, 180, 90);
+
+    //Draw the top right arc  
+    arc.X = bounds.Right - diameter;
+    path.AddArc(arc, 270, 90);
+
+    //Draw the bottom right arc  
+    arc.Y = bounds.Bottom - diameter;
+    path.AddArc(arc, 0, 90);
+
+    //Draw the bottom left arc 
+    arc.X = bounds.Left;
+    path.AddArc(arc, 90, 90);
+
+    //Close the figure
+    path.CloseFigure();
+
+    //Return the path
+    return path;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Load an existing PDF document
+Stream inputStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+
+//Get the page from loaded PDF document
+PdfLoadedPage loadedPage = loadedDocument.Pages[0] as PdfLoadedPage;
+
+//Create a new pdf rubber stamp annotation
+RectangleF rectangleF = new RectangleF(350, 20, 200, 80);
+PdfRubberStampAnnotation rubberStampAnnotation = new PdfRubberStampAnnotation(rectangleF);
+
+//Custom stamp the rubber stamp annotation
+PdfSolidBrush brush = new PdfSolidBrush(new PdfColor(Syncfusion.Drawing.Color.FromArgb(255, 173, 216, 230)));
+PdfPath path = RoundedRect(new RectangleF(0, 0, 200, 80), 20);
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
+
+//Add text in rubber stamp annotation
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss zzz"), font, PdfBrushes.Black, new PointF(10, 40));
+
+//Set the content of annotation
+rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
+
+//Add annotation to the page
+loadedPage.Annotations.Add(rubberStampAnnotation);
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Close the document
+loadedDocument.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+private PdfPath RoundedRect(RectangleF bounds, int radius)
+{
+    int diameter = radius * 2;
+    SizeF size = new SizeF(diameter, diameter);
+    RectangleF arc = new RectangleF(bounds.Location, size);
+    PdfPath path = new PdfPath();
+
+    if (radius == 0)
+    {
+        path.AddRectangle(bounds);
+        return path;
+    }
+
+    //Draw the top left arc  
+    path.AddArc(arc, 180, 90);
+
+    //Draw the top right arc  
+    arc.X = bounds.Right - diameter;
+    path.AddArc(arc, 270, 90);
+
+    //Draw the bottom right arc  
+    arc.Y = bounds.Bottom - diameter;
+    path.AddArc(arc, 0, 90);
+
+    //Draw the bottom left arc 
+    arc.X = bounds.Left;
+    path.AddArc(arc, 90, 90);
+
+    //Close the figure
+    path.CloseFigure();
+
+    //Return the path
+    return path;
+}
+{% endhighlight %}
+{% endtabs %}
