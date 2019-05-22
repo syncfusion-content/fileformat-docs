@@ -2229,7 +2229,7 @@ document.Close();
 
 A Chart is composed of various elements such as plot area, chart area, title area, legend, data labels, axis etc. The following screenshot illustrates the various elements of chart.
 
-![C:/Users/meikandai/Desktop/charts.jpg](WorkingwithCharts/WorkingwithCharts.jpeg)
+![C:/Users/meikandai/Desktop/charts.jpg](WorkingwithChartsimages/WorkingwithChartsimg1.jpeg)
 
 
 1. The chart area of the chart.
