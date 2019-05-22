@@ -1,5 +1,5 @@
 ---
-title: Word document to Text Conversion
+title: Word document to Text Conversion | DocIO | Syncfusion
 description: Converting Word document to Text using DocIO
 platform: file-formats
 control: DocIO
