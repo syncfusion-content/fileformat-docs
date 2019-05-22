@@ -748,7 +748,7 @@ barcodeImage.Save("Image.png", ImageFormat.Png)
 {% endhighlight %}
 {% endtabs %}
 
-Essential PDF supports converting a two-dimensional bar codes such as QR Code and Data Matrix bar code to image. The following code snippet illustrates how to convert a QR code to image using [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfQRBarcode~ToImage.html) method of [PdfQRBacode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfQRBarcode.html) instance.
+Essential PDF supports converting a two-dimensional bar codes such as QR Code and Data Matrix bar code to image. The following code snippet illustrates how to convert a QR code to image using [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfQRBarcode~ToImage.html) method of [PdfQRBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfQRBarcode.html) instance.
 
 {% tabs %}
 {% highlight C# %}
