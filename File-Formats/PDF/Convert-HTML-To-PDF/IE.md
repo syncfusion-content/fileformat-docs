@@ -197,7 +197,7 @@ document.Close(True)
 
 ## Converting Windows Authenticated web page to PDF document
 
-To convert the Windows Authenticated web page to PDF document by providing the username and password, use the following code snippet below.
+The webpage you want to convert may protected with windows authentication. IE rendering engine provides support for converting the Windows Authenticated webpage to PDF document by providing the username and password. Refer to the following code snippet,
 
 {% tabs %}
 
