@@ -1,5 +1,5 @@
 ---
-title: Flow layout
+title: Flow layout | Syncfusion
 description: This section explains creating PDF document using flow layout model
 platform: file-formats
 control: PDF
@@ -234,7 +234,7 @@ else
 {% endtabs %}
 
 The following image shows the PDF document with multiple paragraphs created using the flow model.
-![](FlowLayout_images/WorkingWithText.jpeg)
+![multiple paragraph text using flow model](FlowLayout_images/WorkingWithText.jpeg)
 
 ## Working with text and images
 
@@ -492,7 +492,7 @@ else
 {% endtabs %}
 
 The following image shows the PDF document with multiple paragraphs and image created using the flow model.
-![](FlowLayout_images/WorkingWithImages.jpeg)
+![text and image using flow model](FlowLayout_images/WorkingWithImages.jpeg)
 
 ## Working with table
 
@@ -826,7 +826,7 @@ else
 {% endtabs %}
 
 The following image shows the PDF document with simple table created using the flow model.
-![](FlowLayout_images/WorkingWithTable.jpeg)
+![table using flow model](FlowLayout_images/WorkingWithTable.jpeg)
 
 ## Flow model using PdfLayoutResult
 
