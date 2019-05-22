@@ -2631,3 +2631,224 @@ End Sub
 
 {% endhighlight %}
 {% endtabs %}
+
+##Uniform Resource Naming in PDF document
+
+The Essential PDF allows you to create a PDF document with proper uniform resource naming by using the [EnableUniqueResourceNaming](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument~EnableUniqueResourceNaming.html) property available in the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument.html) instance. By default, the resource naming is added uniquely. Disabling the ```EnableUniqueResourceNaming``` property will create a PDF document with uniform resource names.
+
+The following code snippet explains how to have uniform resource naming in a PDF document.
+
+{% tabs %}
+{% highlight C# %}
+//Disable unique resource naming
+PdfDocument.EnableUniqueResourceNaming = false;
+
+//Create a new PDF document
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Create new instance for PDF font
+PdfFont font1 = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text
+graphics.DrawString("Hello World!!!", font1, PdfBrushes.Blue, new PointF(50, 50));
+
+//Create new instance for PDF font
+PdfFont font2 = new PdfTrueTypeFont(new Font("Arial", 20), true);
+
+//Draw the text
+graphics.DrawString("Hello World!!!", font2, PdfBrushes.Blue, new PointF(50, 100));
+
+//Create new instance for PDF font
+PdfFont font3 = new PdfCjkStandardFont(PdfCjkFontFamily.HeiseiMinchoW3, 20);
+        
+//Draw the text
+graphics.DrawString("こんにちは世界", font3, PdfBrushes.Blue, new PointF(50, 150));
+
+//Save and close the document
+doc.Save("Output.pdf");
+doc.Close(true);
+{%endhighlight %}
+
+{% highlight vb.net %}
+'Disable unique resource naming
+PdfDocument.EnableUniqueResourceNaming = False
+
+'Create a new PDF document
+Dim doc As PdfDocument = New PdfDocument
+
+'Add a page to the document
+Dim page As PdfPage = doc.Pages.Add
+
+'Create PDF graphics for the page
+Dim graphics As PdfGraphics = page.Graphics
+
+'Create new instance for PDF font
+Dim font1 As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 20)
+
+'Draw the text
+graphics.DrawString("Hello World!!!", font1, PdfBrushes.Blue, New PointF(50, 50))
+
+'Create new instance for PDF font
+Dim font2 As PdfFont = New PdfTrueTypeFont(New Font("Arial", 20), True)
+
+'Draw the text
+graphics.DrawString("Hello World!!!", font2, PdfBrushes.Blue, New PointF(50, 100))
+
+'Create new instance for PDF font
+Dim font3 As PdfFont = New PdfCjkStandardFont(PdfCjkFontFamily.HeiseiMinchoW3, 20)
+
+'Draw the text
+graphics.DrawString("こんにちは世界", font3, PdfBrushes.Blue, New PointF(50, 150))
+
+'Save and close the document
+doc.Save("Output.pdf")
+doc.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Disable unique resource naming
+PdfDocument.EnableUniqueResourceNaming = false;
+
+//Create a new PDF document
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Create new instance for PDF font
+PdfFont font1 = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text
+graphics.DrawString("Hello World!!!", font1, PdfBrushes.Blue, new PointF(50, 50));
+
+//Create new instance for PDF font
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.ttf");
+PdfFont font2 = new PdfTrueTypeFont(fontStream, 20);
+
+//Draw the text
+graphics.DrawString("Hello World!!!", font2, PdfBrushes.Blue, new PointF(50, 100));
+
+//Create new instance for PDF font
+PdfFont font3 = new PdfCjkStandardFont(PdfCjkFontFamily.HeiseiMinchoW3, 20);
+
+//Draw the text
+graphics.DrawString("こんにちは世界", font3, PdfBrushes.Blue, new PointF(50, 150));
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in browser after saving it
+doc.Save(ms);
+
+//Close the document
+doc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+Save(ms, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Disable unique resource naming
+PdfDocument.EnableUniqueResourceNaming = false;
+
+//Create a new PDF document
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Create new instance for PDF font
+PdfFont font1 = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text
+graphics.DrawString("Hello World!!!", font1, PdfBrushes.Blue, new PointF(50, 50));
+
+//Create new instance for PDF font
+FileStream fontStream = new FileStream("Arial.ttf", FileMode.Open, FileAccess.Read);
+PdfFont font2 = new PdfTrueTypeFont(fontStream, 20);
+
+//Draw the text
+graphics.DrawString("Hello World!!!", font2, PdfBrushes.Blue, new PointF(50, 100));
+
+//Create new instance for PDF font
+PdfFont font3 = new PdfCjkStandardFont(PdfCjkFontFamily.HeiseiMinchoW3, 20);
+
+//Draw the text
+graphics.DrawString("こんにちは世界", font3, PdfBrushes.Blue, new PointF(50, 150));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Disable unique resource naming
+PdfDocument.EnableUniqueResourceNaming = false;
+
+//Create a new PDF document
+PdfDocument doc = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Create new instance for PDF font
+PdfFont font1 = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+
+//Draw the text
+graphics.DrawString("Hello World!!!", font1, PdfBrushes.Blue, new PointF(50, 50));
+
+//Create new instance for PDF font
+Stream fontStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Arial.ttf");
+PdfFont font2 = new PdfTrueTypeFont(fontStream, 20);
+
+//Draw the text
+graphics.DrawString("Hello World!!!", font2, PdfBrushes.Blue, new PointF(50, 100));
+
+//Create new instance for PDF font
+PdfFont font3 = new PdfCjkStandardFont(PdfCjkFontFamily.HeiseiMinchoW3, 20);
+
+//Draw the text
+graphics.DrawString("こんにちは世界", font3, PdfBrushes.Blue, new PointF(50, 150));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+doc.Save(stream);
+
+//Close the document
+doc.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
