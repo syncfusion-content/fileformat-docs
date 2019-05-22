@@ -1,5 +1,5 @@
 ---
-title: Working with Layers
+title: Working with Layers | Syncfusion
 description: This section explains adding the layer in the PDF document and the layers refers to section of Content of PDF document
 platform: file-formats
 control: PDF
@@ -1651,6 +1651,123 @@ else
 
  {% endtabs %}  
  
+## Flattening the layers in an existing PDF document
+
+You can flatten a layer in a PDF document by removing it from the [PdfDocumentLayerCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentLayerCollection.html). The following code snippet explains this.
+
+{% tabs %}
+{% highlight C# %}
+//Load the existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Layers.pdf");
+
+//Get the layer collection
+PdfDocumentLayerCollection layers = loadedDocument.Layers;
+
+//Flatten a layer in the PDF document
+layers.RemoveAt(0);
+
+//Save the PDF document
+loadedDocument.Save("Output.pdf");
+
+//Close the instance of PdfLoadedDocument
+loadedDocument.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Load the existing PDF document
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Layers.pdf")
+
+'Get the layer collection
+Dim layers As PdfDocumentLayerCollection = loadedDocument.Layers
+
+'Flatten a layer in the PDF document
+layers.RemoveAt(0)
+
+'Save the PDF document
+loadedDocument.Save("Output.pdf")
+
+'Close the instance of PdfLoadedDocument
+loadedDocument.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Load the existing PDF document
+Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Layers.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+
+//Get the layer collection
+PdfDocumentLayerCollection layers = loadedDocument.Layers;
+
+//Flatten a layer in the PDF document
+layers.RemoveAt(0);
+
+//Create memory stream
+MemoryStream stream = new MemoryStream();
+
+//Open the document in browser after saving it
+loadedDocument.Save(stream);
+
+//Close the instance of PdfLoadedDocument
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(stream, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Load the existing PDF document
+FileStream inputStream = new FileStream("Layers.pdf", FileMode.Open);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+
+//Get the layer collection
+PdfDocumentLayerCollection layers = loadedDocument.Layers;
+
+//Flatten a layer in the PDF document
+layers.RemoveAt(0);
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Load the existing PDF document
+Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Layers.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputStream);
+
+//Get the layer collection
+PdfDocumentLayerCollection layers = loadedDocument.Layers;
+
+//Flatten a layer in the PDF document
+layers.RemoveAt(0);
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+loadedDocument.Save(stream);
+
+//Close the document
+loadedDocument.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Toggling the visibility of layers
 
