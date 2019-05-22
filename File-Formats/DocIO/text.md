@@ -1,5 +1,5 @@
 ---
-title: Word document to Text Conversion
+title: Word document to Text Conversion | DocIO | Syncfusion
 description: Converting Word document to Text using DocIO
 platform: file-formats
 control: DocIO
@@ -38,6 +38,162 @@ document.Save("WordToText.txt", FormatType.Txt)
 
 document.Close()
 {% endhighlight %}
+{% highlight ASP.NET CORE %}
+
+FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+
+{
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Txt);
+
+//Closes the Word document
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "WordToText.txt");
+
+}
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Txt);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "WordToText.txt");
+                
+//Closes the Word document
+
+document.Close();
+
+}
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".txt";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".txt"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+              FormatType.Docx))
+{
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Txt);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("WordToText.txt", "application/msword", stream);
+
+//Closes the Word document
+
+document.Close();
+
+}
+
+{% endhighlight %}
 {% endtabs %}
 
 The following code example shows how to convert a Text file into Word document.
@@ -70,6 +226,163 @@ document.Save("TextToWord.docx", FormatType.Docx)
 
 document.Close()
 {% endhighlight %}
+{% highlight ASP.NET CORE %}
+
+FileStream fileStreamPath = new FileStream(@"Data/Template.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Txt))
+
+{
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Closes the Word document
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "TextToWord.docx");
+
+}
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.txt")),
+              FormatType.Txt))
+{
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "TextToWord.docx");
+                
+//Closes the Word document
+
+document.Close();
+
+}
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.txt")),
+              FormatType.Txt))
+{
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("TextToWord.docx", "application/msword", stream);
+
+//Closes the Word document
+
+document.Close();
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 The following code example shows how to retrieve the Word document contents as a plain text.
@@ -141,5 +454,228 @@ newdocument.Save("Sample.docx")
 newdocument.Close()
 
 document.Close()
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+
+{
+
+//Gets the document text
+
+string text = document.GetText();
+
+//Creates new Word document
+
+WordDocument newdocument = new WordDocument();
+
+//Adds new section
+
+IWSection section = newdocument.AddSection();
+
+//Adds new paragraph
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Appends the text to the paragraph
+
+paragraph.AppendText(text);
+
+MemoryStream stream = new MemoryStream();
+
+newdocument.Save(stream, FormatType.Docx);
+
+//Closes the Word document
+
+document.Close();
+
+newdocument.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+}
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Gets the document text
+
+string text = document.GetText();
+
+//Creates new Word document
+
+WordDocument newdocument = new WordDocument();
+
+//Adds new section
+
+IWSection section = newdocument.AddSection();
+
+//Adds new paragraph
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Appends the text to the paragraph
+
+paragraph.AppendText(text);
+
+MemoryStream stream = new MemoryStream();
+
+await newdocument.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+                
+//Closes the Word document
+
+document.Close();
+
+newdocument.Close();
+
+}
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
+              FormatType.Docx))
+{
+
+//Gets the document text
+
+string text = document.GetText();
+
+//Creates new Word document
+
+WordDocument newdocument = new WordDocument();
+
+//Adds new section
+
+IWSection section = newdocument.AddSection();
+
+//Adds new paragraph
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Appends the text to the paragraph
+
+paragraph.AppendText(text);
+
+MemoryStream stream = new MemoryStream();
+
+newdocument.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>()
+                    .SaveAndView("Result.docx", "application/msword", stream);
+
+//Closes the Word document
+
+newdocument.Close();
+
+document.Close();
+
+}
+
 {% endhighlight %}
 {% endtabs %}
