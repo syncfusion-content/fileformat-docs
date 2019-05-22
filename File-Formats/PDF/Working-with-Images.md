@@ -1,5 +1,5 @@
 ---
-title: Working with Images
+title: Working with Images | Syncfusion
 description: This section explains how to add and replace images in the PDF document using Essential PDF
 platform: file-formats
 control: PDF
@@ -10,7 +10,7 @@ documentation: UG
 
 Essential PDF supports both raster and vector images.
 
-Images are supported through the PdfImage class, which is an abstract base class that provides the common functionality for PdfBitmap and PdfMetafile classes.
+Images are supported through the [PdfImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfImage.html) class, which is an abstract base class that provides the common functionality for [PdfBitmap](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfBitmap.html) and [PdfMetafile](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfMetafile.html) classes.
 
 ## Inserting an image in a new document
 
@@ -24,7 +24,7 @@ The following raster images are supported in Essential PDF.
 * TIFF
 * ICO and ICON
 
-You can load image streams, files on disk, and use System.Drawing.Bitmap objects to draw the images through the DrawImage method of the PdfGraphics class.
+You can load image streams, files on disk, and use System.Drawing.Bitmap objects to draw the images through the [DrawImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics~DrawImage.html) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics.html) class.
 
 The following code snippet shows how to add a file from disk to the PDF document.
 
@@ -752,7 +752,7 @@ Essential PDF supports adding Metafile vector image. During the insertion, Metaf
 * EMF plus dual
 * WMF
 
-PdfMetafile class is used to load EMF images. Additionally the PdfMetafileLayoutFormat class allows you to prevent text and image split across pages in the PDF document.
+[PdfMetafile](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfMetafile.html) class is used to load EMF images. Additionally the [PdfMetafileLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfMetafileLayoutFormat.html) class allows you to prevent text and image split across pages in the PDF document.
 
 The following code illustrate this,
 
@@ -876,7 +876,7 @@ doc.Close(True)
 
 ## Working with image masking
 
-Essential PDF supports image masking through the PdfImageMask class.
+Essential PDF supports image masking through the [PdfImageMask](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfImageMask.html) class.
 
 The following code illustrate shows how to add a mask to TIFF image.
 
@@ -989,7 +989,7 @@ doc.Close(True)
 
 ## Replacing Images in an existing PDF document
 
-Essential PDF allows you to replace images in an existing document. The ReplaceImage method of the page collection allows you to replace an image.
+Essential PDF allows you to replace images in an existing document. The [ReplaceImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageBase~ReplaceImage.html) method of the page collection allows you to replace an image.
 
 {% tabs %} 
 
@@ -1077,7 +1077,7 @@ doc.Close(True)
 
 ## Image Pagination
 
-You can allow a large image to paginate across multiple pages in the PDF document. This can be done through the PdfLayoutFormat class as shown below.
+You can allow a large image to paginate across multiple pages in the PDF document. This can be done through the [PdfLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutFormat.html) class as shown below.
 
 {% tabs %} 
 
@@ -1319,7 +1319,7 @@ else
 
 ## Applying transparency and rotation to the image
 
-You can add transparency and rotation to the image. This is explained in the below code snippet.
+You can add transparency and rotation to the image using [SetTransparency](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics~SetTransparency.html) and [RotateTransform](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics~RotateTransform(Single).html) methods of [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics.html) respectively. This is explained in the below code snippet.
 
 {% tabs %}  
 
@@ -1624,3 +1624,195 @@ else
 {% endhighlight %}
 
 {% endtabs %}  
+
+## Converting multi page TIFF to PDF
+
+Multi frame TIFF image can be converted to PDF document. This can be done by accessing each frame of the multi frame TIFF image and rendering it in each page of the PDF document.
+
+The code snippet to illustrate the same is given below.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Create a PDF document
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Add a section to the PDF document
+
+PdfSection section = pdfDocument.Sections.Add();
+
+//Declare the PDF page
+
+PdfPage page;
+
+//Declare PDF page graphics
+
+PdfGraphics graphics;
+
+//Load multi frame TIFF image
+
+PdfBitmap tiffImage = new PdfBitmap("image.tiff");
+
+//Get the frame count
+
+int frameCount = tiffImage.FrameCount;
+
+//Access each frame draw into the page
+
+for (int i = 0; i < frameCount; i++)
+
+{
+
+page = section.Pages.Add();
+
+section.PageSettings.Margins.All = 0;
+
+graphics = page.Graphics;
+
+tiffImage.ActiveFrame = i;
+
+graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
+
+}
+
+//Save and close the document
+
+pdfDocument.Save("Sample.pdf");
+
+pdfDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+
+
+{% highlight vb.net %}
+
+
+'Create a PDF document
+
+Dim pdfDocument As New PdfDocument()
+
+'Add a section to the PDF document
+
+Dim section As PdfSection = pdfDocument.Sections.Add()
+
+'Declare the PDF page
+
+Dim page As PdfPage
+
+'Declare PDF page graphics
+
+Dim graphics As PdfGraphics
+
+'Load multi frame TIFF image
+
+Dim tiffImage As New PdfBitmap("image.tiff")
+
+'Get the frame count
+
+Dim frameCount As Integer = tiffImage.FrameCount
+
+'Access each frame draw into the page
+
+For i As Integer = 0 To frameCount - 1
+
+page = section.Pages.Add()
+
+section.PageSettings.Margins.All = 0
+
+graphics = page.Graphics
+
+tiffImage.ActiveFrame = i
+
+graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height)
+
+Next
+
+'Save and close the document
+
+pdfDocument.Save("Sample.pdf")
+
+pdfDocument.Close(True)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a PDF document
+
+PdfDocument pdfDocument = new PdfDocument();
+
+//Add a section to the PDF document
+
+PdfSection section = pdfDocument.Sections.Add();
+
+//Declare the PDF page
+
+PdfPage page;
+
+//Declare PDF page graphics
+
+PdfGraphics graphics;
+
+//Load multi frame TIFF image
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.image.tiff");
+
+PdfBitmap tiffImage = new PdfBitmap(imageStream);
+
+//Get the frame count
+
+int frameCount = tiffImage.FrameCount;
+
+//Access each frame draw into the page
+
+for (int i = 0; i < frameCount; i++)
+
+{
+
+    page = section.Pages.Add();
+
+    section.PageSettings.Margins.All = 0;
+
+    graphics = page.Graphics;
+
+    tiffImage.ActiveFrame = i;
+
+    graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
+
+}
+
+MemoryStream memoryStream = new MemoryStream();
+
+//Save the document.
+
+await pdfDocument.SaveAsync(memoryStream);
+
+//Close the documents.
+
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(memoryStream, "Sample.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Essential PDF supports converting multi page TIFF to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Essential PDF supports converting multi page TIFF to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+{% endhighlight %}
+
+{% endtabs %}

@@ -9,7 +9,7 @@ documentation: UG
 
 ## Adding a new page to the document
 
-The following code sample explains you on how to add a page in a PDF document. When multiple pages are added, the new page is always added to the end of the document.
+The following code sample explains you on how to add a [PdfPage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPage.html) in a PDF document. When multiple pages are added, the new page is always added to the end of the document.
 
 {% tabs %}  
 
@@ -243,7 +243,7 @@ else
 
 ## Inserting pages in a document
 
-You can insert an empty page at any location of the existing PDF document. The below code snippet explains the same.
+You can insert an empty page at any location in the existing PDF document using [Insert](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedPageCollection~Insert.html) method. The below code snippet explains the same.
 
 {% tabs %} 
 
@@ -415,7 +415,7 @@ else
 
 ## Adding margin to the PDF pages
 
-You can add margin to all the PDF pages of the PDF document using the PageSettings property. The following code snippet illustrates the same.
+You can add margin to all the PDF pages of the PDF document using the [PageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument~PageSettings.html) property. The following code snippet illustrates the same.
 
 {% tabs %}  
 
@@ -666,6 +666,434 @@ else
 
 {% endtabs %}  
 
+## Adding sections with different page settings
+
+Essential PDF supports adding sections with different page settings like [Height](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageSettings~Height.html), [Margins](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageSettings~Margins.html), [Orientation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageSettings~Orientation.html), [Rotate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageSettings~Rotate.html), [Size](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageSettings~Size.html), [Transition](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageSettings~Transition.html) and [Width](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageSettings~Width.html). You can add sections to a PDF document by using the [PdfSection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfSection.html) available in [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument.html) instance and create page settings to the ``PdfSection`` using the [PageSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfSection~PageSettings.html) property. 
+
+The following code snippet explains how to add more sections to a PDF document with different page settings.
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Create a solid brush and standard font
+PdfBrush brush = new PdfSolidBrush(Color.Black);
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Section - 1
+//Add new section to the document
+PdfSection section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle0;
+section.PageSettings.Size = PdfPageSize.A5;
+section.PageSettings.Width = 300;
+section.PageSettings.Height = 400;
+
+//Add page to the section and initialize graphics for the page
+PdfPage page = section.Pages.Add();
+PdfGraphics graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 0 degrees", font, brush, new PointF(20, 20));
+
+//Section - 2
+//Add new section to the document
+section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle90;
+section.PageSettings.Width = 300;
+section.PageSettings.Height = 400;
+
+//Add page to the section and initialize graphics for the page
+page = section.Pages.Add();
+graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 90 degrees", font, brush, new PointF(20, 20));
+
+//Section - 3
+//Add new section to the document
+section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle180;
+section.PageSettings.Width = 500;
+section.PageSettings.Height = 200;
+
+//Add page to the section and initialize graphics for the page
+page = section.Pages.Add();
+graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 180 degrees", font, brush, new PointF(20, 20));
+
+//Section - 4
+//Add new section to the document
+section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle270;
+section.PageSettings.Width = 300;
+section.PageSettings.Height = 200;
+
+//Add page to the section and initialize graphics for the page
+page = section.Pages.Add();
+graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 270 degrees", font, brush, new PointF(20, 20));
+
+//Save the document
+document.Save("Output.pdf");
+
+//Close the instance of PdfDocument
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Create a solid brush and standard font
+Dim brush As PdfBrush = New PdfSolidBrush(Color.Black)
+Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 14)
+
+'Section - 1
+'Add new section to the document
+Dim section As PdfSection = document.Sections.Add
+
+'Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle0
+section.PageSettings.Size = PdfPageSize.A5
+section.PageSettings.Width = 300
+section.PageSettings.Height = 400
+
+'Add page to the section and initialize graphics for the page
+Dim page As PdfPage = section.Pages.Add
+Dim graphics As PdfGraphics = page.Graphics
+
+'Draw simple text on the page
+graphics.DrawString("Rotated by 0 degrees", font, brush, New PointF(20, 20))
+
+'Section - 2
+'Add new section to the document
+section = document.Sections.Add
+
+'Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle90
+section.PageSettings.Width = 300
+section.PageSettings.Height = 400
+
+'Add page to the section and initialize graphics for the page
+page = section.Pages.Add
+graphics = page.Graphics
+
+'Draw simple text on the page
+graphics.DrawString("Rotated by 90 degrees", font, brush, New PointF(20, 20))
+
+'Section - 3
+'Add new section to the document
+section = document.Sections.Add
+
+'Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle180
+section.PageSettings.Width = 500
+section.PageSettings.Height = 200
+
+'Add page to the section and initialize graphics for the page
+page = section.Pages.Add
+graphics = page.Graphics
+
+'Draw simple text on the page
+graphics.DrawString("Rotated by 180 degrees", font, brush, New PointF(20, 20))
+
+'Section - 4
+'Add new section to the document
+section = document.Sections.Add
+
+'Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle270
+section.PageSettings.Width = 300
+section.PageSettings.Height = 200
+
+'Add page to the section and initialize graphics for the page
+page = section.Pages.Add
+graphics = page.Graphics
+
+'Draw simple text on the page
+graphics.DrawString("Rotated by 270 degrees", font, brush, New PointF(20, 20))
+
+'Save the document
+document.Save("Output.pdf")
+
+'Close the instance of PdfDocument
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Create a solid brush and standard font
+PdfBrush brush = new PdfSolidBrush(Color.FromArgb(255, 0, 0, 0));
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Section - 1
+//Add new section to the document
+PdfSection section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle0;
+section.PageSettings.Size = PdfPageSize.A5;
+section.PageSettings.Width = 300;
+section.PageSettings.Height = 400;
+
+//Add page to the section and initialize graphics for the page
+PdfPage page = section.Pages.Add();
+PdfGraphics graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 0 degrees", font, brush, new PointF(20, 20));
+
+//Section - 2
+//Add new section to the document
+section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle90;
+section.PageSettings.Width = 300;
+section.PageSettings.Height = 400;
+
+//Add page to the section and initialize graphics for the page
+page = section.Pages.Add();
+graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 90 degrees", font, brush, new PointF(20, 20));
+
+//Section - 3
+//Add new section to the document
+section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle180;
+section.PageSettings.Width = 500;
+section.PageSettings.Height = 200;
+
+//Add page to the section and initialize graphics for the page
+page = section.Pages.Add();
+graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 180 degrees", font, brush, new PointF(20, 20));
+
+//Section - 4
+//Add new section to the document
+section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle270;
+section.PageSettings.Width = 300;
+section.PageSettings.Height = 200;
+
+//Add page to the section and initialize graphics for the page
+page = section.Pages.Add();
+graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 270 degrees", font, brush, new PointF(20, 20));
+
+//Create memory stream
+MemoryStream stream = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Create a solid brush and standard font
+PdfBrush brush = new PdfSolidBrush(Color.Black);
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Section - 1
+//Add new section to the document
+PdfSection section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle0;
+section.PageSettings.Size = PdfPageSize.A5;
+section.PageSettings.Width = 300;
+section.PageSettings.Height = 400;
+
+//Add page to the section and initialize graphics for the page
+PdfPage page = section.Pages.Add();
+PdfGraphics graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 0 degrees", font, brush, new PointF(20, 20));
+
+//Section - 2
+//Add new section to the document
+section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle90;
+section.PageSettings.Width = 300;
+section.PageSettings.Height = 400;
+
+//Add page to the section and initialize graphics for the page
+page = section.Pages.Add();
+graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 90 degrees", font, brush, new PointF(20, 20));
+
+//Section - 3
+//Add new section to the document
+section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle180;
+section.PageSettings.Width = 500;
+section.PageSettings.Height = 200;
+
+//Add page to the section and initialize graphics for the page
+page = section.Pages.Add();
+graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 180 degrees", font, brush, new PointF(20, 20));
+
+//Section - 4
+//Add new section to the document
+section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle270;
+section.PageSettings.Width = 300;
+section.PageSettings.Height = 200;
+
+//Add page to the section and initialize graphics for the page
+page = section.Pages.Add();
+graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 270 degrees", font, brush, new PointF(20, 20));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Create a solid brush and standard font
+PdfBrush brush = new PdfSolidBrush(Syncfusion.Drawing.Color.FromArgb(255, 0, 0, 0));
+PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 14);
+
+//Section - 1
+//Add new section to the document
+PdfSection section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle0;
+section.PageSettings.Size = PdfPageSize.A5;
+section.PageSettings.Width = 300;
+section.PageSettings.Height = 400;
+
+//Add page to the section and initialize graphics for the page
+PdfPage page = section.Pages.Add();
+PdfGraphics graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 0 degrees", font, brush, new PointF(20, 20));
+
+//Section - 2
+//Add new section to the document
+section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle90;
+section.PageSettings.Width = 300;
+section.PageSettings.Height = 400;
+
+//Add page to the section and initialize graphics for the page
+page = section.Pages.Add();
+graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 90 degrees", font, brush, new PointF(20, 20));
+
+//Section - 3
+//Add new section to the document
+section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle180;
+section.PageSettings.Width = 500;
+section.PageSettings.Height = 200;
+
+//Add page to the section and initialize graphics for the page
+page = section.Pages.Add();
+graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 180 degrees", font, brush, new PointF(20, 20));
+
+//Section - 4
+//Add new section to the document
+section = document.Sections.Add();
+
+//Create page settings to the section
+section.PageSettings.Rotate = PdfPageRotateAngle.RotateAngle270;
+section.PageSettings.Width = 300;
+section.PageSettings.Height = 200;
+
+//Add page to the section and initialize graphics for the page
+page = section.Pages.Add();
+graphics = page.Graphics;
+
+//Draw simple text on the page
+graphics.DrawString("Rotated by 270 degrees", font, brush, new PointF(20, 20));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Get number of pages from a PDF document 
 
@@ -785,7 +1213,7 @@ loadedDocument.Close(true);
 
 ## Importing pages from an existing document.
 
-Essential PDF allows you to import a page or import a range of pages from one document to the other. The following code sample illustrates how to import a page from an existing document
+Essential PDF allows you to import a page or import a range of pages from one document to the other. The following code sample illustrates how to import a range of pages from an existing document using [ImportPageRange](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase~ImportPageRange.html) method.
 
 {% tabs %}   
 
@@ -1013,7 +1441,7 @@ else
 
 ## Rearranging pages in an existing document
 
-You can rearrange the pages in an existing PDF document using ReArrange method. This method uses zero based start index. The following code snippet illustrates the same.
+You can rearrange the pages in an existing PDF document using [ReArrange](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedPageCollection~ReArrange.html) method. This method uses zero based start index. The following code snippet illustrates the same.
 
 {% tabs %}  
 
@@ -1185,7 +1613,7 @@ else
 
 ## Changing the page numbers in a PDF document
 
-You can alter the page label for the existing PDF document using ```PdfPageLabel``` class. Refer to the following code snippet. 
+You can alter the page label for the existing PDF document using [PdfPageLabel](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageLabel.html) class. Refer to the following code snippet. 
 
 {% tabs %}  
 
@@ -1405,7 +1833,7 @@ else
 
 ## Removing pages from a document
 
-You can remove the pages from the existing PDF document as shown in the below code snippet. 
+You can remove the pages from the existing PDF document using [RemoveAt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedPageCollection~RemoveAt.html) method as shown in the below code snippet. 
 
 {% tabs %}  
 
@@ -1583,7 +2011,7 @@ else
 
 ## Rotating a PDF page
 
-You can rotate a particular PDF page in the PDF document, using the following code snippet. 
+You can rotate a particular PDF page in the PDF document using [PdfPageRotateAngle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageRotateAngle.html) Enum as shown the following code snippet. 
 
 {% tabs %}  
 
@@ -1847,7 +2275,7 @@ else
 
 ## Rotating an existing PDF page
 
-You can rotate a PDF page in the existing PDF document, using the following code snippet.
+You can also rotate a PDF page in the existing PDF document using PdfPageRotateAngle(https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPageRotateAngle.html) as shown in the following code snippet.
 
 {% tabs %}  
 
@@ -2028,7 +2456,7 @@ else
 
 ## Splitting a PDF file to individual pages
 
-Essential PDF allows to split the pages of an existing PDF document into multiple individual PDF documents. The following code snippet explains the same.
+Essential PDF allows to split the pages of an existing PDF document into multiple individual PDF documents using [Split](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument~Split.html) method of [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class. The following code snippet explains the same.
 
 {% tabs %}  
 

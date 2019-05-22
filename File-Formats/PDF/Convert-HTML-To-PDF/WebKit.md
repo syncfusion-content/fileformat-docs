@@ -10,7 +10,7 @@ documentation: UG
 
 Syncfusion Essential PDF supports HTML to PDF conversion by using the advanced Qt WebKit rendering engine. This converter can be easily integrated into any application on .NET platforms such as Windows Forms, WPF, ASP.NET, ASP.NET MVC and ASP.NET Core to convert URLs, HTML string, SVG and MHTML to PDF, and convert other formats like HTML to MHTML, HTML to SVG, and HTML to image.
 
-Qt WebKit rendering is accurate, and the result preserves all the graphics, images, texts, fonts, and the layout of the original HTML document/webpage.
+Qt WebKit rendering is accurate, and the result preserves all the graphics, images, text, fonts, and the layout of the original HTML document/webpage.
 
 It does not require external dependencies like browsers, printer drivers, or viewers.
 
@@ -23,7 +23,7 @@ It does not require external dependencies like browsers, printer drivers, or vie
 
 * Supports conversion from .NET Framework 2.0 and .NET Core 2.0.
 	
-* To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies or NuGet packages needs to be added as reference to the project.	
+* To convert HTML to PDF in the application using WebKit rendering engine, the following assemblies or NuGet packages should be added as reference to the project.	
 
 <b>Assemblies</b>
 
@@ -148,7 +148,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 
 ### VC++ Redistributable
 
-* WebKit HTML conversion also requires VC++ 2010 redistributable, this should to be installed in the machine where the conversion takes place. Please use below download link to get the installer.
+* WebKit HTML conversion also requires VC++ 2010 redistributable, this should be installed in the machine where the conversion takes place. Please use below download link to get the installer.
     
     X86 - [https://www.microsoft.com/en-in/download/details.aspx?id=5555](https://www.microsoft.com/en-in/download/details.aspx?id=5555)
 
@@ -159,7 +159,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 
 ### OPENSSL
 
-* For converting HTTPS sites, HTML converter requires OPENSSL libraries to be installed in the machine where the conversion takes place. The OPENSSL libraries can be installed by downloading its setup from the below link,
+* For converting HTTPS sites, the HTML converter requires OPENSSL libraries to be installed in the machine where the conversion takes place. The OPENSSL libraries can be installed by downloading its setup from the below link,
 
     [http://files2.syncfusion.com/dtsupport/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064.zip](http://files2.syncfusion.com/dtsupport/directtrac/general/ze/Win32OpenSSL-1_0_1h1593443064.zip) 
 
@@ -172,7 +172,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 	
 ## Prerequisites for Linux
 
-* [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/linux/ubuntu16-04) should be installed in the Linux machine where the conversion takes place. 
+* Supports conversion from [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/linux/ubuntu16-04). 
 
 * The latest WebKit HTML converter for Linux can be downloaded as ZIP file from the following link,
 
@@ -191,7 +191,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 	<b>NuGet</b>
 		 <a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
 
-* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the </i>WebKitPath</i> property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 
 * To convert HTML to PDF in Linux using the WebKit rendering engine, the following packages should be installed in the Linux machine where the conversion takes place.
 	1. $ sudo apt-get update 
@@ -201,7 +201,7 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 
 ## Prerequisites for Mac
 
-* [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/macos) should be installed in the machine where the conversion takes place. 
+* Supports conversion from [.NET Core 2.0](https://www.microsoft.com/net/learn/get-started/macos). 
 
 * The latest WebKit HTML converter for Mac can be downloaded as PKG file from the following link,
 
@@ -220,12 +220,14 @@ N> The above mentioned NuGet packages are available in [nuget.org](https://www.n
 	<b>NuGet</b>
 		<a href="https://www.nuget.org/packages/Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core/">Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core</a>
 
-* The <b>QtBinariesLinux</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesLinux folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
+* The <b>QtBinariesMac</b> folder is available in the HTML to PDF Converter NuGet package installed location. The physical path of this folder should be set to the <i>WebKitPath</i> property of WebKitConverterSettings. This is mandatory to set the <i>WebKitPath</i> property with QtBinariesMac folder, otherwise the converter will throw <b>WebKit assemblies are missing</b> exception.
 	
 	
 ## URL to PDF
 
 To convert website URL or local HTML file to PDF using WebKit rendering engine, please refer the below code snippet.
+
+N> Ensure that the OPENSSL assemblies are configured properly for converting HTTPS sites. Refer to the pre-requisites section for more information.
 
 {% tabs %}
 
@@ -534,7 +536,7 @@ return File(stream, contentType, fileName);
 
 ## Additional delay
 
-WebKit HTML converter provides option to set the AdditionalDelay, while converting HTML to PDF. Additional delay is the time to wait the converter for loading the external resources (styles, scripts, images, etc.,). Please refer the below code snippet,
+WebKit HTML converter provides option to set the [AdditionalDelay](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~AdditionalDelay.html), while converting HTML to PDF. Additional delay is the time to wait the converter for loading the external resources (styles, scripts, images, etc.,). Please refer the below code snippet,
 
 {% tabs %}
 
@@ -736,9 +738,9 @@ return File(stream, contentType, fileName);
 
 ## Bookmarks
 
-The WebKit HTML Converter provides support for creating bookmarks automatically by enabling <i>EnableBookmarks</i> option. 
+The WebKit HTML Converter provides support for creating bookmarks automatically by enabling [EnableBookmarks](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~EnableBookmarks.html) property. 
 
-<b>Note:</b> The bookmarks are calculated from the ```<h>``` tag, it supports from ```<h1>``` to ```<h6>```.
+N> The bookmarks are added from the ```<h>``` tag, it supports from ```<h1>``` to ```<h6>```.
 
 Please refer the below code snippet,
 
@@ -912,11 +914,11 @@ padding-left: 5px;
 
 ## Table of Contents
 
-The WebKit HTML Converter provides support for creating a table of contents automatically by <i>EnableToc</i> property.
+The WebKit HTML Converter provides support for creating a table of contents automatically by using the [EnableToc](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~Toc.html) property.
 
-<b>Note:</b> TOC are calculated from the ```<h>``` tag, it supports from ```<h1>``` to ```<h6>```.
+N> TOC are added from the ```<h>``` tag, it supports from ```<h1>``` to ```<h6>```.
 
-Please refer the below code snippet,
+Refer to the following code snippet.
 
 {% tabs %}
 
@@ -1088,7 +1090,7 @@ padding-left: 5px;
 
 ### Table of Contents with custom style
 
-The WebKit HTML Converter provides support for customizing the table of contents style. Each header tag style can be customizing by using <i>HtmlToPdfTocStyle</i>. Please refer the below code snippet,
+The WebKit HTML Converter provides support for customizing the table of contents style. Each header tag style can be customized by using [HtmlToPdfTocStyle](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.HtmlToPdf.HtmlToPdfTocStyle.html). Please refer the below code snippet,
 
 {% tabs %}
 
@@ -1258,7 +1260,7 @@ return File(stream, contentType, fileName);
 
 ## MediaType
 
-WebKit HTML Converter allows selection of media type while converting HTML to PDF. WebKit rendering engine supports <b>Screen</b> and <b>Print</b> media types. Please refer the below code snippet to select Print MediaType.
+WebKit HTML Converter allows selection of media type while converting HTML to PDF. WebKit rendering engine supports <b>Screen</b> and <b>Print</b> media types. Please refer the below code snippet to select Print [MediaType](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~MediaType.html).
 
 
 {% tabs %}
@@ -1489,7 +1491,7 @@ return File(stream, contentType, fileName);
 
 ## Windows Authentication
 
-To convert the Windows Authenticated web page to PDF document by providing the username and password, please refer the below code snippet,
+The webpage you want to convert may protected with windows authentication. WebKit rendering engine provides support for converting the Windows Authenticated webpage to PDF document by providing the username and password. Refer to the following code snippet,
 
 {% tabs %}
 
@@ -1954,7 +1956,7 @@ return File(stream, contentType, fileName);
 
 ## Table Header and Footer
 
-The WebKit HTML Converter supports repeating html table header and footer on every PDF page. This can be enabled by using <i>EnableRepeatTableHeader</i> and <i>EnableRepeatTableFooter</i> properties. Please refer the below code snippet,
+The WebKit HTML Converter supports repeating html table header and footer on every PDF page. This can be enabled by using [EnableRepeatTableHeader](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~EnableRepeatTableHeader.html) and [EnableRepeatTableFooter](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~EnableRepeatTableFooter.html) properties. Please refer the below code snippet,
 
 {% tabs %}
 
@@ -2133,7 +2135,7 @@ for(count = 1; count <= 100; count++){
 
 ## HTTP GET and POST
 
-WebKit HTML Converter provides support for transmitting the parameter to the webpage. There are two methods to access a webpage. By default, WebKit uses GET method. By using HTTP GET method the parameters can be passed in the query string. In POST method, the parameters can be passed by using <i>HttpPostFields</i> property.
+WebKit HTML Converter provides support for transmitting the parameter to the webpage. There are two methods to access a webpage. By default, WebKit uses GET method. By using HTTP GET method the parameters can be passed in the query string. In POST method, the parameters can be passed by using [HttpPostFields](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~HttpPostFields.html) property.
 Please refer the below code snippet to access a web page using HTTP POST,
 
 {% tabs %}
@@ -2418,7 +2420,7 @@ return File(stream, contentType, fileName);
 
 Please find the steps to set the system proxy settings,
 
-1. Control Panel -> Network and Internet -> Internet Options 
+1. Control Panel > Network and Internet > Internet Options 
 2. From Internet properties window, open LAN settings under connections tab
 3. Then set proxy server address and port in LAN settings window
 
@@ -2567,7 +2569,7 @@ document.Close()
 
 ## Viewport
 
-Adjusting HTML content size in PDF is possible by using <i>WebKitViewPort</i> property of WebKit HTML converter. WebKit viewport size will set to WebKit browser’s window size. 
+Adjusting HTML content size in PDF is possible by using [WebKitViewPort](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~WebKitViewPort.html) property of WebKit HTML converter. WebKit viewport size will set to WebKit browser’s window size. 
 Please refer the below code snippet to adjust WebKit viewport,
 
 {% tabs %}
@@ -2669,7 +2671,7 @@ return File(stream, contentType, fileName);
 
 ## Partial webpage to PDF
 
-The WebKit HTML Converter provides support for converting partial webpage to PDF. Please refer the below code snippet.
+WebKit rendering engine provides support for converting only the part of the HTML document like a table, div, or image elements from the URL/HTML string. You can convert the particular HTML element by specifying the element ID, refer to the following code snippet.
 
 {% tabs %}
 
@@ -2889,7 +2891,7 @@ return File(stream, contentType, fileName);
 
 ## Layout Result
 
-Getting height of the HTML content in PDF document is possible by using the PdfLayoutResult. Using this result, you can add contents after converting HTML to PDF. Refer to the following code snippet.
+Getting height of the HTML content in PDF document is possible by using the ```PdfLayoutResult```. Using this result, you can add contents after converting HTML to PDF. Refer to the following code snippet.
 
 {% tabs %}
 
@@ -3108,7 +3110,7 @@ The WebKit HTML converter internally creates temporary files in the temporary fo
 
 By default, HTML converter takes system temporary path (C:\Users\<<username>>\AppData\Local\Temp or C:\Windows\Temp) to perform the conversion. If the temporary folder does not have the required permission, then the converter may throw access denied exception. . 
 
-The temporary path can be changed by using the TempPath property of WebKitConverterSettings. If this property has been set, then the converter use the provided path to perform the conversion. Refer to the following code snippet.
+The temporary path can be changed by using the [TempPath](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings~TempPath.html) property of [WebKitConverterSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.WebKitConverterSettings.html). If this property has been set, then the converter use the provided path to perform the conversion. Refer to the following code snippet.
 
 {% tabs %}
 

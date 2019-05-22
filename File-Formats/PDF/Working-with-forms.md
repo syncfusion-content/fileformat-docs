@@ -11,9 +11,11 @@ An interactive form, sometimes referred to as an AcroForm is a collection of fie
 
 ## Creating a new PDF form
 
-Essential PDF allows you to create and manage the form (AcroForm) in PDF document by using PdfForm class. The PdfFormFieldCollection class represents the entire field collection of the form.
+Essential PDF allows you to create and manage the form (AcroForm) in PDF document by using [PdfForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfForm.html) class. The [PdfFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfFormFieldCollection.html) class represents the entire field collection of the form.
 
 ### Adding the text box field 
+
+[PdfTextBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfTextBoxField.html) class is used to create a text box field in PDF forms. 
 
 The below code snippet illustrates how to add a textbox field to a new PDF document.
 
@@ -225,7 +227,7 @@ else
 
 {% endtabs %}  
 
-The below code snippet illustrates how to add the textbox to an existing PDF document:
+The below code snippet illustrates how to add the textbox to an existing PDF document.
 
 {% tabs %}  
 
@@ -492,9 +494,9 @@ else
 
 ### Adding the combo box field
 
-PdfComboBoxField class is used to create a combo box field in PDF forms. You can add a list of items to the combo box by using the PdfListFieldItem class.
+[PdfComboBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfComboBoxField.html) class is used to create a combo box field in PDF forms. You can add a list of items to the combo box by using the [PdfListFieldItem](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfListFieldItem.html) class.
 
-Please refer the below code snippet for adding the combo box in new PDF document:
+Please refer the below code snippet for adding the combo box in new PDF document.
 
 {% tabs %} 
 
@@ -1095,9 +1097,9 @@ else
 
 ### Adding the radio button field
 
-To create the radio button in the PDF Forms, you can use PdfRadioButtonListField class and you can create the radio button list items by using the PdfRadioButtonListItem class.
+To create the radio button in the PDF forms, you can use [PdfRadioButtonListField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfRadioButtonListField.html) class and you can create the radio button list items by using the [PdfRadioButtonListItem](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfRadioButtonListItem.html) class.
 
-Please refer the below code snippet for adding the radio button in new PDF document:
+Please refer the below code snippet for adding the radio button in new PDF document.
 
 {% tabs %} 
 
@@ -1370,7 +1372,7 @@ else
 
 {% endtabs %}  
 
-The below code snippet illustrates how to add the radio button in existing PDF document:
+The below code snippet illustrates how to add the radio button in existing PDF document.
 
 {% tabs %}  
 
@@ -1695,7 +1697,7 @@ else
 
 ### Retrieving option values from acroform radio button
 
-The Essential PDF supports retrieving option values from acroform radio button. The OptionValue property is used to get option values of PdfLoadedRadioButtonItem instance.
+The Essential PDF supports retrieving option values from acroform radio button. The [OptionValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedRadioButtonItem~OptionValue.html) property is used to get option values of [PdfLoadedRadioButtonItem](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedRadioButtonItem.html) instance.
 
 The following code example illustrates how to get option values from acroform radio button.
 
@@ -2002,9 +2004,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf",
 
 ### Adding the list box field
 
-You can create the list box field in PDF forms using PdfListBoxField class.
+You can create the list box field in PDF forms using [PdfListBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfListBoxField.html) class.
 
-Please refer the below code snippet for adding the list box field in new PDF document:
+Please refer the below code snippet for adding the list box field in new PDF document.
 
 {% tabs %}  
 
@@ -2297,7 +2299,7 @@ else
 
 {% endtabs %}  
 
-Please refer the below code snippet for adding the list box field in existing PDF document:
+Please refer the below code snippet for adding the list box field in existing PDF document.
 
 {% tabs %} 
 
@@ -2644,9 +2646,9 @@ else
 
 ### Adding the check Box field
 
-You can create the check box field in PDF forms using PdfCheckBoxField class. 
+You can create the check box field in PDF forms using [PdfCheckBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfCheckBoxField.html) class. 
 
-Please refer the below code snippet for adding the check box field in new PDF document:
+Please refer the below code snippet for adding the check box field in new PDF document.
 
 {% tabs %}  
 
@@ -2868,7 +2870,7 @@ else
 
 {% endtabs %}  
 
-Please refer the below code snippet for adding the check box field in existing PDF document:
+Please refer the below code snippet for adding the check box field in existing PDF document.
 
 {% tabs %}
 
@@ -3144,9 +3146,9 @@ else
 
 ### Adding the signature field
 
-You can add the signature field in PDF forms using PdfSignatureField class.
+You can add the signature field in PDF forms using [PdfSignatureField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfSignatureField.html) class.
 
-Please refer the below code snippet for adding the signature field in new PDF document:
+Please refer the below code snippet for adding the signature field in new PDF document.
 
 {% tabs %} 
 
@@ -3372,7 +3374,7 @@ else
 
 {% endtabs %}  
 
-Please refer the below code snippet for adding the signature field in existing PDF document:
+Please refer the below code snippet for adding the signature field in existing PDF document.
 
 {% tabs %} 
 
@@ -3647,9 +3649,9 @@ else
 
 ### Adding the button field 
 
-To create Button fields in PDF forms, you can use PdfButtonField class.
+To create button fields in PDF forms, you can use [PdfButtonField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfButtonField.html) class.
 
-The below code illustrates how to add the button field in new PDF document:
+The below code illustrates how to add the button field in new PDF document.
 
 {% tabs %}  
 
@@ -3872,7 +3874,7 @@ else
 
 {% endtabs %}  
 
-Please refer the below code snippet for adding the button field in existing PDF document:
+Please refer the below code snippet for adding the button field in existing PDF document.
 
 {% tabs %}  
 
@@ -4138,7 +4140,7 @@ else
 
 ## Modifying the existing form field in PDF document 
 
-You can modify an existing form field by getting the field from the form field collection. You can retrieve a field from the field collection by index or by field name. 
+You can modify an existing form field by getting the field from the [PdfFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfFormFieldCollection.html). You can retrieve a field from the field collection by index or by field name. 
 
 The following code snippet explains how to modify an existing form field in a PDF document.
 
@@ -4384,7 +4386,7 @@ else
 
 ## Retrieving/Modifying the fore and back color of an existing form fields
 
-You can retrieve/modify the fore and background color of an existing form fields in a PDF document by using ```ForeColor``` and ```BackColor``` properties of the respective form fields. The following code snippet illustrate this. 
+You can retrieve/modify the fore and background color of existing form fields in a PDF document by using ```ForeColor``` and ```BackColor``` properties of the respective form fields. The following code snippet illustrate this. 
 
 {% tabs %}  
 
@@ -4647,11 +4649,11 @@ else
 
 ## Filling form fields in an existing PDF Document
 
-Essential PDF allows you to fill the form fields using PdfLoadedField class. 
+Essential PDF allows you to fill the form fields using [PdfLoadedField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedField.html) class. 
 
 ### Filling the text box field
 
-Please refer the below sample for filling a textbox field.
+You can fill a text box field using [Text](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedTextBoxField~Text.html) property of [PdfLoadedTextBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedTextBoxField.html) class. The below code snippet illustrates this.
 
 {% tabs %}  
 
@@ -4850,7 +4852,7 @@ else
 
 ### Filling the combo box field
 
-The below code snippet illustrates how to fill the combo box field in an existing PDF document.
+You can fill a combo box field using [SelectedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedComboBoxField~SelectedValue.html) or [SelectedIndex](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedComboBoxField~SelectedIndex.html) properties of [PdfLoadedComboBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedComboBoxField.html) class. Please refer the below code snippet to fill the combo box field in an existing PDF document.
 
 {% tabs %} 
 
@@ -5050,7 +5052,7 @@ else
 
 ### Filling the radio button field
 
-Please refer the below code snippet to fill the radio button field in an existing PDF document.
+You can fill a radio button field using [SelectedValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedRadioButtonListField~SelectedValue.html) or [SelectedIndex](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedRadioButtonListField~SelectedIndex.html) properties of [PdfLoadedRadioButtonListField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedRadioButtonListField.html) class. Please refer the below code snippet to fill the radio button field in an existing PDF document.
 
 {% tabs %}  
 
@@ -5250,7 +5252,7 @@ else
 
 ### Filling the list box field
 
-The below code snippet illustrates how to fill the list box field in an existing PDF document.
+The below code snippet illustrates how to fill the list box field in an existing PDF document, using [SelectedIndex](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedChoiceField~SelectedIndex.html) property of [PdfLoadedListBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedListBoxField.html) class.
 
 {% tabs %} 
 
@@ -5459,7 +5461,7 @@ else
 
 ### Filling the check Box field
 
-Please refer the below code snippet to fill the check box field.
+You can fill a check box field by enabling [Checked](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedCheckBoxField~Checked.html) property of [PdfLoadedCheckBoxField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedCheckBoxField.html) class. Please refer the below code snippet to fill the check box field.
 
 {% tabs %} 
 
@@ -5688,7 +5690,7 @@ else
 
 ### Filling the signature field
 
-The below code snippet illustrates how to fill the signature field with certificate:
+The below code snippet illustrates how to fill the signature field with certificate using [Certificate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignature~Certificate.html) property.
 
 {% tabs %} 
 
@@ -5945,9 +5947,9 @@ else
 
 ### Enumerate the form fields
 
-You can enumerate the fields from form field collection and fill them. 
+All the form fields are maintained in [PdfLoadedFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class. You can enumerate the fields from this form field collection and fill them. 
 
-The following code example illustrates how to enumerate the form fields.
+The following code example illustrates this.
 
 {% tabs %} 
 
@@ -6209,9 +6211,9 @@ else
 
 ### TryGetField
 
-To get a form field from an existing document using the field name, you can use the TryGetField method in the PdfFormFieldCollection class. It specifies whether the particular field is available in the form or not by returning a Boolean value.
+To get a form field from an existing document using the field name, you can use the [TryGetField](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection~TryGetField.html) method in the [PdfFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class. It specifies whether the particular field is available in the form or not by returning a boolean value.
 
-The below code snippet explains how to get the field from collection using TryGetField method.
+The below code snippet explains how to get the field from collection using ```TryGetField``` method.
 
 {% tabs %} 
 
@@ -6454,9 +6456,9 @@ else
 
 ### TryGetValue
 
-To get the field value from the given field name, you can use TryGetValue method in PdfFormFieldCollection class. It specifies whether the particular field is available in the form or not by returning a boolean value.
+To get the field value from the given field name, you can use [TryGetValue](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection~TryGetValue.html) method in [PdfFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class. It specifies whether the particular field is available in the form or not by returning a boolean value.
 
-Please refer the below code snippet to get the field value from collection using TryGetValue method.
+Please refer the below code snippet to get the field value from collection using ```TryGetValue``` method.
 
 {% tabs %} 
 
@@ -6673,7 +6675,7 @@ else
 
 The static XFA document contains both the XFA and Acroform.
  
-The Essential PDF supports filling both the XFA and Acroform in a same instance (Fills the XFA form via Acroform instance) by enabling the EnableXfaFormFill property available in the PdfLoadedForm instance.
+The Essential PDF supports filling both the XFA and Acroform in a same instance (Fills the XFA form via Acroform instance) by enabling the [EnableXfaFormFill](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedForm~EnableXfaFormFill.html) property available in the [PdfLoadedForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedForm.html) class.
 
 The following code snippet illustrates how to fill XFA forms via Acroform API
 
@@ -6878,7 +6880,7 @@ return File(stream, contentType, fileName);
 
 The form field editing or filling capabilities can be removed by either flattening the PDF document or by marking the form or field as read only.
 
-Essential PDF provides support to flatten a form field by removing the existing form field and replacing it with graphical objects that would resemble the form field and cannot be edited.
+Essential PDF provides support to [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfField~Flatten.html) a form field by removing the existing form field and replacing it with graphical objects that would resemble the form field and cannot be edited.
 
 Please refer the sample for flattening the form fields in new PDF document.
 
@@ -7117,7 +7119,7 @@ else
 
 {% endtabs %}  
 
-Please refer the sample for flattening the form fields in existing PDF document:
+Please refer the sample for flattening the form fields in existing PDF document.
 
 {% tabs %}  
 
@@ -7344,9 +7346,9 @@ else
 {% endtabs %}  
 
 
-To prevent the user from changing the form field content, you can also use Read-only property.
+To prevent the user from changing the form field content, you can also use [Readonly](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfField~ReadOnly.html) property.
 
-The below code snippet illustrates how to set the read only property to a new PDF document.
+The below code snippet illustrates how to set the ``ReadOnly`` property to a new PDF document.
 
 {% tabs %} 
 
@@ -7628,7 +7630,7 @@ else
 
 {% endtabs %}  
 
-The below code snippet illustrates how to set the read only property to an existing PDF document.
+The below code snippet illustrates how to set the ``ReadOnly`` property to an existing PDF document.
 
 {% tabs %}  
 
@@ -7817,11 +7819,11 @@ else
 
 N> Flattening and adding Read-only properties can be done to the entire form or an individual form field.
 
-## Removing the form fields from existing PDF document:
+## Removing the form fields from existing PDF document
 
-You can remove the form fields from an existing PDF document using PdfLoadedFormFieldCollection class.
+You can remove the form fields from an existing PDF document using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfFieldCollection~Remove.html) or [RemoveAt](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfFieldCollection~RemoveAt.html) methods of [PdfFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfFieldCollection.html) class.
 
-The below code illustrates how to remove the form fields from the existing PDF document:
+The below code illustrates how to remove the form fields from the existing PDF document.
 
 {% tabs %}  
 
@@ -8075,7 +8077,7 @@ else
 
 ## Importing FDF file to PDF
 
-FDF stands for Forms Data Format. FDF is a file format for representing form data and annotations that are contained in a PDF form. You can import the FDF file to PDF using ImportDataFDF method in PdfLoadedForm class.
+FDF stands for Forms Data Format. FDF is a file format for representing form data and annotations that are contained in a PDF form. You can import the FDF file to PDF using [ImportDataFDF](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedForm~ImportDataFDF.html) method in [PdfLoadedForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedForm.html) class.
 
 The below code illustrates how to import FDF file to PDF.
 
@@ -8140,7 +8142,7 @@ loadedDocument.Close(True)
 
 ## Export PDF file to FDF
 
-To export the FDF file from PDF document, you can use ExportData method in PdfLoadedForm class.
+To export the FDF file from PDF document, you can use [ExportData](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedForm~ExportData.html) method in [PdfLoadedForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedForm.html) class.
 
 The below code illustrates how to export FDF file from PDF document.
 
@@ -8170,7 +8172,6 @@ loadedDocument.Close(true);
 {% endhighlight %}
 
 {% highlight vb.net %}
-VB:
 
 ' Load an existing document
 
@@ -8196,7 +8197,7 @@ loadedDocument.Close(True)
 
 ## Complex script support for form fields
 
-You can add a complex script language text in PDF AcroForm fields by using the ```ComplexScript``` property of the form fields instance. The following code snippet illustrates this.
+You can add a complex script language text in PDF AcroForm fields by using the [ComplexScript](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfTextBoxField~ComplexScript.html) property of the form field instance. The following code snippet illustrates this.
 
 {% tabs %}
 
@@ -8505,7 +8506,7 @@ else
 
 {% endtabs %}
 
-You can add the complex script support for all the supported form fields by enabling the ```ComplexScript``` property of ```PdfForm```/```PdfLoadedForm``` instance.
+You can add the complex script for all the supported form fields by enabling the [ComplexScript](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfForm~ComplexScript.html) property of [PdfForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfForm.html) or [PdfLoadedForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedForm.html) instance.
 
 Supported form fields:
 
@@ -9012,7 +9013,7 @@ else
 
 ## Auto naming of form fields
 
-The Essential PDF supports auto naming of form fields in a PDF document while creating form fields with same name. The ```FieldAutoNaming ``` property is used to enable or disable auto naming in the ```PdfForm``` instance. 
+The Essential PDF supports auto naming of form fields in a PDF document while creating form fields with same name. The [FieldAutoNaming](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfForm~FieldAutoNaming.html) property of [PdfForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfForm.html) is used to enable or disable auto naming of form field. 
 
 While enabling this property, the field names are auto naming. If the fields are created using same/common name, the created fields will act as individual. 
 
@@ -9358,9 +9359,9 @@ N> Essential PDF allows users to preserve the extended rights for form filling a
 
 ## Auto resizing text box field text
 
-The Essential PDF provides support to automatically resize the text box field’s text size based on the current field width and height. You can auto resize the text box text by using the AutoResizeText property available in PdfLoadedTextBox instance.
+The Essential PDF provides support to automatically resize the text of text box field based on the field width and height. You can auto resize the text box text by using the [AutoResizeText](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedTextBoxField~AutoResizeText.html) property available in [PdfLoadedTextBox](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedTextBoxField.html) instance.
 
-The following code illustrates how to set AutoResizeText in an existing PDF text box field. 
+The following code illustrates how to set ```AutoResizeText``` in an existing PDF text box field. 
 
 {% tabs %}  
 
@@ -9581,9 +9582,9 @@ else
 
 
 
-Form fields may appear empty in adobe reader some time due to the absence of the appearance dictionary. To resolve this, you have to enable the Adobe Reader default appearance by using the SetDefaultAppearance method in PdfForm class.
+Form fields may appear empty in adobe reader some time due to the absence of the appearance dictionary. To resolve this, you have to enable the Adobe Reader default appearance by using the [SetDefaultAppearance](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfForm~SetDefaultAppearance.html) method in [PdfForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfForm.html) class.
 
-The below code illustrates how to enable the default appearance in new PDF document:
+The below code illustrates how to enable the default appearance in new PDF document.
 
 {% tabs %}  
 
@@ -9814,7 +9815,7 @@ else
 
 {% endtabs %}  
 
-The below code illustrates how to enable the default appearance in existing PDF document:
+The below code illustrates how to enable the default appearance in existing PDF document.
 
 {% tabs %}  
 
