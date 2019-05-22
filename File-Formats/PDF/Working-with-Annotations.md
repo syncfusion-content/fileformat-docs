@@ -6855,7 +6855,7 @@ rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
 //Add text in rubber stamp annotation
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss zzz"), font, PdfBrushes.Black, new PointF(10, 40));
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, new PointF(10, 40));
 
 //Set the content of annotation
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
@@ -6924,7 +6924,7 @@ rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path)
 'Add text in rubber stamp annotation
 Dim font As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold)
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, New PointF(10, 20))
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss zzz"), font, PdfBrushes.Black, New PointF(10, 40))
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, New PointF(10, 40))
 
 'Set the content of annotation
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation"
@@ -6991,7 +6991,7 @@ rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
 //Add text in rubber stamp annotation
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss zzz"), font, PdfBrushes.Black, new PointF(10, 40));
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, new PointF(10, 40));
 
 //Set the content of annotation
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
@@ -7067,7 +7067,7 @@ rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
 //Add text in rubber stamp annotation
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss zzz"), font, PdfBrushes.Black, new PointF(10, 40));
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, new PointF(10, 40));
 
 //Set the content of annotation
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
@@ -7143,7 +7143,7 @@ rubberStampAnnotation.Appearance.Normal.Graphics.DrawPath(brush, path);
 //Add text in rubber stamp annotation
 PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12, PdfFontStyle.Bold);
 rubberStampAnnotation.Appearance.Normal.Graphics.DrawString("DD/2018/1234567890", font, PdfBrushes.Black, new PointF(10, 20));
-rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss zzz"), font, PdfBrushes.Black, new PointF(10, 40));
+rubberStampAnnotation.Appearance.Normal.Graphics.DrawString(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), font, PdfBrushes.Black, new PointF(10, 40));
 
 //Set the content of annotation
 rubberStampAnnotation.Text = "Text Properties Rubber Stamp Annotation";
