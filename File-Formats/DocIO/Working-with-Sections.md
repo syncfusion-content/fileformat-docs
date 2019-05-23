@@ -1,5 +1,5 @@
----
-title: Working with Sections
+﻿---
+title: Working with Sections | Syncfusion
 description: This section illustrates how to Work with Sections
 platform: file-formats
 control: DocIO
@@ -62,6 +62,172 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 {% endhighlight %}  
+
+{% highlight UWP %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds new section to the document
+
+IWSection section = document.AddSection();
+
+//Adds new paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new instance of WordDocument (Empty Word Document)
+
+WordDocument document = new WordDocument();
+
+//Adds new section to the document
+
+IWSection section = document.AddSection();
+
+//Adds new paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates a new instance of WordDocument (Empty Word Document)
+
+WordDocument document = new WordDocument();
+
+//Adds new section to the document
+
+IWSection section = document.AddSection();
+
+//Adds new paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
+{% endhighlight %} 
 
 {% endtabs %}  
 
@@ -159,6 +325,227 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+ //Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds new section to the document
+
+IWSection section = document.AddSection();
+
+//Adds a paragraph to created section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Adds the new section to the document
+
+section = document.AddSection();
+
+//Sets a section break
+
+section.BreakCode = SectionBreakCode.NoBreak;
+
+//Adds a paragraph to created section
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+     
+paragraph.AppendText(paraText);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds new section to the document
+
+IWSection section = document.AddSection();
+
+//Adds a paragraph to created section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Adds the new section to the document
+
+section = document.AddSection();
+
+//Sets a section break
+
+section.BreakCode = SectionBreakCode.NoBreak;
+            
+//Adds a paragraph to created section
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+ //Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds new section to the document
+
+IWSection section = document.AddSection();
+
+//Adds a paragraph to created section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Adds the new section to the document
+
+section = document.AddSection();
+
+//Sets a section break
+
+section.BreakCode = SectionBreakCode.NoBreak;
+
+//Adds a paragraph to created section
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
+{% endhighlight %} 
+
 {% endtabs %} 
 
 ## Specifying Page Properties
@@ -230,6 +617,197 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
+
+{% endhighlight %} 
+
+{% highlight UWP %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+IWSection section = document.AddSection();
+
+//Sets page setup options
+
+section.PageSetup.Orientation = PageOrientation.Landscape;
+
+section.PageSetup.Margins.All = 72;
+
+section.PageSetup.Borders.LineWidth = 2;
+
+//Adds a paragraph to created section
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+            
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+ //Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+IWSection section = document.AddSection();
+
+//Sets page setup options
+
+section.PageSetup.Orientation = PageOrientation.Landscape;
+
+section.PageSetup.Margins.All = 72;
+
+section.PageSetup.Borders.LineWidth = 2;
+
+//Adds a paragraph to created section
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+IWSection section = document.AddSection();
+
+//Sets page setup options
+
+section.PageSetup.Orientation = PageOrientation.Landscape;
+
+section.PageSetup.Margins.All = 72;
+
+section.PageSetup.Borders.LineWidth = 2;
+
+//Adds a paragraph to created section
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 
 {% endhighlight %} 
 
@@ -379,6 +957,304 @@ document.Close()
 
 {% endhighlight %} 
 
+{% highlight UWP %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds the section into Word document
+
+IWSection section = document.AddSection();
+
+//Adds the column into the section
+            
+section.AddColumn(150, 20);
+
+//Adds the column into the section
+
+section.AddColumn(150, 20);
+
+//Adds the column into the section
+
+section.AddColumn(150, 20);
+
+//Adds a paragraph to created section
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Adds a paragraph to created section
+
+paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Adds the column break
+
+paragraph.AppendBreak(BreakType.ColumnBreak);
+
+//Adds a paragraph to created section
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Adds the column break
+
+paragraph.AppendBreak(BreakType.ColumnBreak);
+
+//Adds a paragraph to created section
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds the section into Word document
+
+IWSection section = document.AddSection();
+
+//Adds the column into the section
+
+section.AddColumn(150, 20);
+
+//Adds the column into the section
+
+section.AddColumn(150, 20);
+
+//Adds the column into the section
+
+section.AddColumn(150, 20);
+
+//Adds a paragraph to created section
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Adds a paragraph to created section
+
+paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Adds the column break
+
+paragraph.AppendBreak(BreakType.ColumnBreak);
+
+//Adds a paragraph to created section
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Adds the column break
+
+paragraph.AppendBreak(BreakType.ColumnBreak);
+
+//Adds a paragraph to created section
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+            
+paragraph.AppendText(paraText);
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+            
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds the section into Word document
+
+IWSection section = document.AddSection();
+
+//Adds the column into the section
+
+section.AddColumn(150, 20);
+
+//Adds the column into the section
+
+section.AddColumn(150, 20);
+
+//Adds the column into the section
+
+section.AddColumn(150, 20);
+
+//Adds a paragraph to created section
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Adds a paragraph to created section
+
+paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Adds the column break
+
+paragraph.AppendBreak(BreakType.ColumnBreak);
+
+//Adds a paragraph to created section
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Adds the column break
+
+paragraph.AppendBreak(BreakType.ColumnBreak);
+
+//Adds a paragraph to created section
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
+{% endhighlight %} 
+
 {% endtabs %} 
 
 ## Creating document with different page settings
@@ -486,6 +1362,251 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds the section into Word document
+
+IWSection section = document.AddSection();
+
+//Adds a paragraph to created section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Sets the page orientation as portrait
+
+section.PageSetup.Orientation = PageOrientation.Portrait;
+
+//Adds the new section to the document
+
+section = document.AddSection();
+
+//Sets the section break
+
+section.BreakCode = SectionBreakCode.NewPage;
+
+paragraph = section.AddParagraph();
+
+//Sets the page orientation as land scape
+
+section.PageSetup.Orientation = PageOrientation.Landscape;
+
+//Appends the text to the paragraph
+
+paragraph.AppendText(paraText);
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+            
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds the section into Word document
+
+IWSection section = document.AddSection();
+
+//Adds a paragraph to created section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Sets the page orientation as portrait
+
+section.PageSetup.Orientation = PageOrientation.Portrait;
+
+//Adds the new section to the document
+
+section = document.AddSection();
+
+//Sets the section break
+
+section.BreakCode = SectionBreakCode.NewPage;
+
+paragraph = section.AddParagraph();
+
+//Sets the page orientation as land scape
+
+section.PageSetup.Orientation = PageOrientation.Landscape;
+
+//Appends the text to the paragraph
+
+paragraph.AppendText(paraText);
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+            
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds the section into Word document
+
+IWSection section = document.AddSection();
+           
+//Adds a paragraph to created section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText(paraText);
+
+//Sets the page orientation as portrait
+
+section.PageSetup.Orientation = PageOrientation.Portrait;
+
+//Adds the new section to the document
+
+section = document.AddSection();
+
+//Sets the section break
+
+section.BreakCode = SectionBreakCode.NewPage;
+
+paragraph = section.AddParagraph();
+
+//Sets the page orientation as land scape
+
+section.PageSetup.Orientation = PageOrientation.Landscape;
+
+//Appends the text to the paragraph
+
+paragraph.AppendText(paraText);
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
+{% endhighlight %} 
 
 {% endtabs %}
    
@@ -615,6 +1736,270 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Inserts the default page header
+
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+
+paragraph.AppendText("[ Default Page Header ]");
+
+//Inserts the default Page footer
+
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+
+paragraph.AppendText("[ Default Page Footer ]");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+            
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Inserts the default page header
+
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+
+paragraph.AppendText("[ Default Page Header ]");
+
+//Inserts the default Page footer
+
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+
+paragraph.AppendText("[ Default Page Footer ]");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Inserts the default page header
+
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+
+paragraph.AppendText("[ Default Page Header ]");
+
+//Inserts the default Page footer
+
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+
+paragraph.AppendText("[ Default Page Footer ]");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
+{% endhighlight %} 
+
 
 {% endtabs %}  
 
@@ -763,6 +2148,317 @@ paragraph.AppendText("[ Default Page Footer ]")
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Sets DifferentFirstPage as true for inserting header and footer text
+
+section.PageSetup.DifferentFirstPage = true;
+            
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Inserts the first page header
+
+paragraph = section.HeadersFooters.FirstPageHeader.AddParagraph();
+
+paragraph.AppendText("[First Page Header ]");
+
+//Inserts the first page footer
+
+paragraph = section.HeadersFooters.FirstPageFooter.AddParagraph();
+
+paragraph.AppendText("[ First Page Footer ]");
+
+//Inserts the default page header
+
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+
+paragraph.AppendText("[ Default Page Header ]");
+
+//Inserts the default page footer
+
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+
+paragraph.AppendText("[ Default Page Footer ]");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Sets DifferentFirstPage as true for inserting header and footer text
+
+section.PageSetup.DifferentFirstPage = true;
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Inserts the first page header
+
+paragraph = section.HeadersFooters.FirstPageHeader.AddParagraph();
+
+paragraph.AppendText("[First Page Header ]");
+
+//Inserts the first page footer
+
+paragraph = section.HeadersFooters.FirstPageFooter.AddParagraph();
+
+paragraph.AppendText("[ First Page Footer ]");
+
+//Inserts the default page header
+
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+
+paragraph.AppendText("[ Default Page Header ]");
+
+//Inserts the default page footer
+
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+
+paragraph.AppendText("[ Default Page Footer ]");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Sets DifferentFirstPage as true for inserting header and footer text
+
+section.PageSetup.DifferentFirstPage = true;
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Inserts the first page header
+
+paragraph = section.HeadersFooters.FirstPageHeader.AddParagraph();
+
+paragraph.AppendText("[First Page Header ]");
+
+//Inserts the first page footer
+
+paragraph = section.HeadersFooters.FirstPageFooter.AddParagraph();
+
+paragraph.AppendText("[ First Page Footer ]");
+
+//Inserts the default page header
+
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+
+paragraph.AppendText("[ Default Page Header ]");
+
+//Inserts the default page footer
+
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+
+paragraph.AppendText("[ Default Page Footer ]");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 
 {% endhighlight %}
 
@@ -917,6 +2613,317 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Sets DifferentOddAndEvenPages as true for inserting header and footer text
+
+section.PageSetup.DifferentOddAndEvenPages = true;
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Inserts the odd page header
+
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+
+paragraph.AppendText("[ Odd Page Header ]");
+
+//Inserts the default page footer
+
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+
+paragraph.AppendText("[ Odd Page Footer ]");
+
+//Inserts the even page header
+
+paragraph = section.HeadersFooters.EvenHeader.AddParagraph();
+
+paragraph.AppendText("[Even Page Header ]");
+
+//Inserts the even page footer
+
+paragraph = section.HeadersFooters.EvenFooter.AddParagraph();
+
+paragraph.AppendText("[ Even Page Footer ]");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Sets DifferentOddAndEvenPages as true for inserting header and footer text
+
+section.PageSetup.DifferentOddAndEvenPages = true;
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Inserts the odd page header
+
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+
+paragraph.AppendText("[ Odd Page Header ]");
+
+//Inserts the default page footer
+
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+
+paragraph.AppendText("[ Odd Page Footer ]");
+
+//Inserts the even page header
+
+paragraph = section.HeadersFooters.EvenHeader.AddParagraph();
+
+paragraph.AppendText("[Even Page Header ]");
+
+//Inserts the even page footer
+
+paragraph = section.HeadersFooters.EvenFooter.AddParagraph();
+
+paragraph.AppendText("[ Even Page Footer ]");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Sets DifferentOddAndEvenPages as true for inserting header and footer text
+
+section.PageSetup.DifferentOddAndEvenPages = true;
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Inserts the odd page header
+
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+
+paragraph.AppendText("[ Odd Page Header ]");
+
+//Inserts the default page footer
+
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+
+paragraph.AppendText("[ Odd Page Footer ]");
+
+//Inserts the even page header
+
+paragraph = section.HeadersFooters.EvenHeader.AddParagraph();
+
+paragraph.AppendText("[Even Page Header ]");
+
+//Inserts the even page footer
+
+paragraph = section.HeadersFooters.EvenFooter.AddParagraph();
+
+paragraph.AppendText("[ Even Page Footer ]");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
+{% endhighlight %} 
 
 {% endtabs %}  
 
@@ -1078,6 +3085,329 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Inserts the first section header
+
+section.HeadersFooters.Header.AddParagraph().AppendText("[ First Section Header ]");
+
+//Inserts the first section footer
+
+section.HeadersFooters.Footer.AddParagraph().AppendText("[ First Section Footer ]");
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+//Adds the second section to the document
+
+section = document.AddSection();
+
+//Inserts the second section header
+
+section.HeadersFooters.Header.AddParagraph().AppendText("[ Second Section Header ]");
+
+//Inserts the second section footer.
+
+section.HeadersFooters.Footer.AddParagraph().AppendText("[ Second Section Footer ]");
+
+//Sets LinkToPrevious as true for retrieve the header and footer from previous section
+
+section.HeadersFooters.LinkToPrevious = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+//Adds the third section to the document
+
+section = document.AddSection();
+
+//Inserts the third section header
+
+section.HeadersFooters.Header.AddParagraph().AppendText("[ Third Section Header ]");
+
+//Inserts the third section footer
+
+section.HeadersFooters.Footer.AddParagraph().AppendText("[ Third Section Footer ]");
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Inserts the first section header
+
+section.HeadersFooters.Header.AddParagraph().AppendText("[ First Section Header ]");
+
+//Inserts the first section footer
+
+section.HeadersFooters.Footer.AddParagraph().AppendText("[ First Section Footer ]");
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+//Adds the second section to the document
+
+section = document.AddSection();
+
+//Inserts the second section header
+
+section.HeadersFooters.Header.AddParagraph().AppendText("[ Second Section Header ]");
+
+//Inserts the second section footer.
+
+section.HeadersFooters.Footer.AddParagraph().AppendText("[ Second Section Footer ]");
+
+//Sets LinkToPrevious as true for retrieve the header and footer from previous section
+
+section.HeadersFooters.LinkToPrevious = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+//Adds the third section to the document
+
+section = document.AddSection();
+
+//Inserts the third section header
+
+section.HeadersFooters.Header.AddParagraph().AppendText("[ Third Section Header ]");
+
+//Inserts the third section footer
+
+section.HeadersFooters.Footer.AddParagraph().AppendText("[ Third Section Footer ]");
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Inserts the first section header
+
+section.HeadersFooters.Header.AddParagraph().AppendText("[ First Section Header ]");
+
+//Inserts the first section footer
+
+section.HeadersFooters.Footer.AddParagraph().AppendText("[ First Section Footer ]");
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+//Adds the second section to the document
+
+section = document.AddSection();
+
+//Inserts the second section header
+
+section.HeadersFooters.Header.AddParagraph().AppendText("[ Second Section Header ]");
+
+//Inserts the second section footer.
+
+section.HeadersFooters.Footer.AddParagraph().AppendText("[ Second Section Footer ]");
+
+//Sets LinkToPrevious as true for retrieve the header and footer from previous section
+
+section.HeadersFooters.LinkToPrevious = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+//Adds the third section to the document
+
+section = document.AddSection();
+
+//Inserts the third section header
+
+section.HeadersFooters.Header.AddParagraph().AppendText("[ Third Section Header ]");
+
+//Inserts the third section footer
+
+section.HeadersFooters.Footer.AddParagraph().AppendText("[ Third Section Footer ]");
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
+{% endhighlight %} 
+
 {% endtabs %}  
 
 ## Adding Page Numbers
@@ -1179,6 +3509,245 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
+
+{% endhighlight %} 
+
+{% highlight UWP %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds the section into Word document
+
+IWSection section = document.AddSection();
+
+section.PageSetup.PageStartingNumber = 1;
+
+section.PageSetup.RestartPageNumbering = true;
+
+section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
+
+//Adds a footer paragraph text to the document
+
+IWParagraph paragraph = section.HeadersFooters.Footer.AddParagraph();
+
+paragraph.ParagraphFormat.Tabs.AddTab(523f, TabJustification.Right, TabLeader.NoLeader);
+
+//Adds text for the footer paragraph
+
+paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015");
+
+//Adds page number field to the document
+
+paragraph.AppendText("\tPage ");
+
+paragraph.AppendField("Page", FieldType.FieldPage);
+
+//Adds the paragraph
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds the section into Word document
+
+IWSection section = document.AddSection();
+
+section.PageSetup.PageStartingNumber = 1;
+
+section.PageSetup.RestartPageNumbering = true;
+
+section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
+
+//Adds a footer paragraph text to the document
+
+IWParagraph paragraph = section.HeadersFooters.Footer.AddParagraph();
+
+paragraph.ParagraphFormat.Tabs.AddTab(523f, TabJustification.Right, TabLeader.NoLeader);
+
+//Adds text for the footer paragraph
+
+paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015");
+
+//Adds page number field to the document
+
+paragraph.AppendText("\tPage ");
+
+paragraph.AppendField("Page", FieldType.FieldPage);
+
+//Adds the paragraph
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds the section into Word document
+
+IWSection section = document.AddSection();
+
+section.PageSetup.PageStartingNumber = 1;
+
+section.PageSetup.RestartPageNumbering = true;
+
+section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
+
+//Adds a footer paragraph text to the document
+
+IWParagraph paragraph = section.HeadersFooters.Footer.AddParagraph();
+
+paragraph.ParagraphFormat.Tabs.AddTab(523f, TabJustification.Right, TabLeader.NoLeader);
+
+//Adds text for the footer paragraph
+
+paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015");
+
+//Adds page number field to the document
+
+paragraph.AppendText("\tPage ");
+
+paragraph.AppendField("Page", FieldType.FieldPage);
+
+//Adds the paragraph
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 
 {% endhighlight %} 
 
@@ -1301,6 +3870,275 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
+
+{% endhighlight %} 
+
+{% highlight UWP %}
+
+ //Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds the section into Word document
+
+IWSection section = document.AddSection();
+
+section.PageSetup.PageStartingNumber = 1;
+
+section.PageSetup.RestartPageNumbering = true;
+
+section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
+
+//Adds a footer paragraph text to the document
+
+IWParagraph paragraph = section.HeadersFooters.Footer.AddParagraph();
+
+paragraph.ParagraphFormat.Tabs.AddTab(523f, TabJustification.Right, TabLeader.NoLeader);
+
+//Adds text for the footer paragraph
+
+paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015\t");
+
+//Adds the text
+
+paragraph.AppendText(" Page ");
+
+//Adds page number field to the document
+
+paragraph.AppendField("CurrentPageNumber", FieldType.FieldPage);
+
+// Adds the text
+
+paragraph.AppendText(" of ");
+
+//Adds number of page field to the document
+
+paragraph.AppendField("TotalNumberOfPages", FieldType.FieldNumPages);
+
+//Adds the paragraph
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds the section into Word document
+
+IWSection section = document.AddSection();
+
+section.PageSetup.PageStartingNumber = 1;
+
+section.PageSetup.RestartPageNumbering = true;
+
+section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
+
+//Adds a footer paragraph text to the document
+
+IWParagraph paragraph = section.HeadersFooters.Footer.AddParagraph();
+
+paragraph.ParagraphFormat.Tabs.AddTab(523f, TabJustification.Right, TabLeader.NoLeader);
+
+// Adds text for the footer paragraph
+
+paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015\t");
+
+//Adds the text
+
+paragraph.AppendText(" Page ");
+
+//Adds page number field to the document
+
+paragraph.AppendField("CurrentPageNumber", FieldType.FieldPage);
+
+// Adds the text
+
+paragraph.AppendText(" of ");
+
+//Adds number of page field to the document
+
+paragraph.AppendField("TotalNumberOfPages", FieldType.FieldNumPages);
+
+//Adds the paragraph
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+//Adds the section into Word document
+
+IWSection section = document.AddSection();
+
+section.PageSetup.PageStartingNumber = 1;
+
+section.PageSetup.RestartPageNumbering = true;
+
+section.PageSetup.PageNumberStyle = PageNumberStyle.Arabic;
+
+//Adds a footer paragraph text to the document
+
+IWParagraph paragraph = section.HeadersFooters.Footer.AddParagraph();
+
+paragraph.ParagraphFormat.Tabs.AddTab(523f, TabJustification.Right, TabLeader.NoLeader);
+
+// Adds text for the footer paragraph
+
+paragraph.AppendText("Copyright Northwind Inc. 2001 - 2015\t");
+
+//Adds the text
+
+paragraph.AppendText(" Page ");
+
+//Adds page number field to the document
+
+paragraph.AppendField("CurrentPageNumber", FieldType.FieldPage);
+
+// Adds the text
+
+paragraph.AppendText(" of ");
+
+//Adds number of page field to the document
+
+paragraph.AppendField("TotalNumberOfPages", FieldType.FieldNumPages);
+
+//Adds the paragraph
+
+paragraph = section.AddParagraph();
+
+//Appends the text to the created paragraph
+
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 
 {% endhighlight %} 
 
@@ -1438,6 +4276,293 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Specifies the value to header distance
+
+section.PageSetup.HeaderDistance = 100;
+
+// Specifies the value to footer distance
+
+section.PageSetup.FooterDistance = 100;
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Inserts the default page header
+
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+
+paragraph.AppendText("[ Default Page Header ]");
+
+//Inserts the default page footer
+
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+
+paragraph.AppendText("[ Default Page Footer ]");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+            
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Specifies the value to header distance
+
+section.PageSetup.HeaderDistance = 100;
+
+// Specifies the value to footer distance
+
+section.PageSetup.FooterDistance = 100;
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Inserts the default page header
+
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+
+paragraph.AppendText("[ Default Page Header ]");
+
+//Inserts the default page footer
+
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+
+paragraph.AppendText("[ Default Page Footer ]");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates a new document
+
+WordDocument document = new WordDocument();
+
+//Adds the first section to the document
+
+IWSection section = document.AddSection();
+
+//Specifies the value to header distance
+
+section.PageSetup.HeaderDistance = 100;
+
+// Specifies the value to footer distance
+
+section.PageSetup.FooterDistance = 100;
+
+//Adds a paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+string paraText = "AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.";
+
+//Appends some text to the first page in document
+
+paragraph.AppendText("\r\r[ First Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the second page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Second Page ] \r\r" + paraText);
+
+paragraph.ParagraphFormat.PageBreakAfter = true;
+
+//Appends some text to the third page in document
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
+
+//Inserts the default page header
+
+paragraph = section.HeadersFooters.OddHeader.AddParagraph();
+
+paragraph.AppendText("[ Default Page Header ]");
+
+//Inserts the default page footer
+
+paragraph = section.HeadersFooters.OddFooter.AddParagraph();
+
+paragraph.AppendText("[ Default Page Footer ]");
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
+{% endhighlight %} 
+
 {% endtabs %}  
 
 ## Removing a Section
@@ -1481,5 +4606,165 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream inputFileStream = assembly.GetManifestResourceStream(inputFileName);
+
+//Opens an input Word template
+
+WordDocument document = new WordDocument(inputFileStream);
+
+//Removes the second section from the collection
+
+document.Sections.RemoveAt(1);
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+FileStream inputFileStream = new FileStream(inputFileName, FileMode.Open, FileAccess.ReadWrite);
+
+//Opens an input Word template
+
+WordDocument document = new WordDocument(inputFileStream, FormatType.Automatic);
+
+//Removes the second section from the collection
+
+document.Sections.RemoveAt(1);
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream inputFileStream = assembly.GetManifestResourceStream(inputFileName);
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(inputFileStream, FormatType.Automatic);
+
+//Removes the second section from the collection
+
+document.Sections.RemoveAt(1);
+
+//Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word file to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
+{% endhighlight %} 
 
 {% endtabs %}  
