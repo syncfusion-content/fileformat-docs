@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with Paragraph | Syncfusion
 description: This section describes about the child elements of a Paragraph  
 platform: file-formats
