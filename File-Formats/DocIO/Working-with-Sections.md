@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with Sections | Syncfusion
 description: This section illustrates how to Work with Sections
 platform: file-formats
