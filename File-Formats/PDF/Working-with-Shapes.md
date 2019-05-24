@@ -1,5 +1,5 @@
 ---
-title: Working with Shapes
+title: Working with Shapes | Syncfusion
 description: This section explains how to add shapes such as Line, curve, path, text, rectangle, pie, arc, Bezier, ellipse in the PDF document
 platform: file-formats
 control: PDF
@@ -697,7 +697,7 @@ else
 
 ### Curve
 
-You can draw a curve in PDF document by using the [Draw](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutElement~Draw.html) method of [PdfBeizerCurve](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfBezierCurve.html). The following code snippet explains how to draw a curve in new PDF document.
+You can draw a curve in PDF document by using the [Draw](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutElement~Draw.html) method of [PdfBezierCurve](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfBezierCurve.html). The following code snippet explains how to draw a curve in new PDF document.
 
 {% tabs %}
 {% highlight C# %}
