@@ -7398,6 +7398,269 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
+## Adjust table width automatically
+
+You can automatically adjust the width of the table by enabling the [AllowHorizontalOverflow](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridStyle~AllowHorizontalOverflow.html) property of [PdfGridStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridStyle.html) instance. The following code snippet illustrates this.
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add new section to the document
+PdfSection section = document.Sections.Add();
+
+//Add a page to the section
+PdfPage page = section.Pages.Add();
+
+//Initialize PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Create a DataTable
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("Employee_ID");
+dataTable.Columns.Add("Employee_Name");
+dataTable.Columns.Add("Employee_Role");
+dataTable.Columns.Add("Employee_DateOfBirth");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "E01", "Clay", "Sales Representative", "12/8/1948" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas", "Sales Representative", "7/2/1963" });
+dataTable.Rows.Add(new object[] { "E03", "Ash", "Sales Manager", "3/4/1955" });
+dataTable.Rows.Add(new object[] { "E04", "Andrew", "Vice President, Sales", "2/19/1952" });
+
+//Assign data source to grid
+grid.DataSource = dataTable;
+
+//Apply the table style
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5);
+
+//Allow the horizontal overflow for PdfGrid
+grid.Style.AllowHorizontalOverflow = true;
+
+//Draw the PdfGrid on page
+grid.Draw(page, PointF.Empty);
+
+//Save the PDF document
+document.Save("Output.pdf");
+
+//Close the instance of PdfDocument
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Add new section to the document
+Dim section As PdfSection = document.Sections.Add
+
+'Add a page to the section
+Dim page As PdfPage = section.Pages.Add
+
+'Initialize PdfGrid
+Dim grid As PdfGrid = New PdfGrid
+
+'Create a DataTable
+Dim dataTable As DataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("Employee_ID")
+dataTable.Columns.Add("Employee_Name")
+dataTable.Columns.Add("Employee_Role")
+dataTable.Columns.Add("Employee_DateOfBirth")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"E01", "Clay", "Sales Representative", "12/8/1948"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas", "Sales Representative", "7/2/1963"})
+dataTable.Rows.Add(New Object() {"E03", "Ash", "Sales Manager", "3/4//1955"})
+dataTable.Rows.Add(New Object() {"E04", "Andrew", "Vice President, Sales", "2/19/1952"})
+
+'Assign data source to grid
+grid.DataSource = dataTable
+
+'Apply the table style
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5)
+
+'Allow the horizontal overflow for PdfGrid
+grid.Style.AllowHorizontalOverflow = True
+
+'Draw the PdfGrid on page
+grid.Draw(page, PointF.Empty)
+
+'Save the PDF document
+document.Save("Output.pdf")
+
+'Close the instance of PdfDocument
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add new section to the document
+PdfSection section = document.Sections.Add();
+
+//Add a page to the section
+PdfPage page = section.Pages.Add();
+
+//Initialize PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { Employee_ID = "E01", Employee_Name = "Clay", Employee_Role = "Sales Representative", Employee_DateOfBirth = "12/8/1948" };
+Object grid1row2 = new { Employee_ID = "E02", Employee_Name = "Thomas", Employee_Role = "Sales Representative", Employee_DateOfBirth = "7/2/1963" };
+Object grid1row3 = new { Employee_ID = "E03", Employee_Name = "Ash", Employee_Role = "Sales Manager", Employee_DateOfBirth = "3/4/1955" };
+Object grid1row4 = new { Employee_ID = "E04", Employee_Name = "Andrew", Employee_Role = "Vice President, Sales", Employee_DateOfBirth = "2/19/1952" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+data.Add(grid1row4);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source to grid
+grid.DataSource = dataTable;
+
+//Apply the table style
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5);
+
+//Allow the horizontal overflow for PdfGrid
+grid.Style.AllowHorizontalOverflow = true;
+
+//Draw the PdfGrid on page
+grid.Draw(page, PointF.Empty);
+
+//Create memory stream
+MemoryStream stream = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(stream);
+
+//Close the instance of PdfDocument
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(stream, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add new section to the document
+PdfSection section = document.Sections.Add();
+
+//Add a page to the section
+PdfPage page = section.Pages.Add();
+
+//Initialize PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { Employee_ID = "E01", Employee_Name = "Clay", Employee_Role = "Sales Representative", Employee_DateOfBirth = "12/8/1948" };
+Object grid1row2 = new { Employee_ID = "E02", Employee_Name = "Thomas", Employee_Role = "Sales Representative", Employee_DateOfBirth = "7/2/1963" };
+Object grid1row3 = new { Employee_ID = "E03", Employee_Name = "Ash", Employee_Role = "Sales Manager", Employee_DateOfBirth = "3/4/1955" };
+Object grid1row4 = new { Employee_ID = "E04", Employee_Name = "Andrew", Employee_Role = "Vice President, Sales", Employee_DateOfBirth = "2/19/1952" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+data.Add(grid1row4);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source to grid
+grid.DataSource = dataTable;
+
+//Apply the table style
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5);
+
+//Allow the horizontal overflow for PdfGrid
+grid.Style.AllowHorizontalOverflow = true;
+
+//Draw the PdfGrid on page
+grid.Draw(page, PointF.Empty);
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add new section to the document
+PdfSection section = document.Sections.Add();
+
+//Add a page to the section
+PdfPage page = section.Pages.Add();
+
+//Initialize PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { Employee_ID = "E01", Employee_Name = "Clay", Employee_Role = "Sales Representative", Employee_DateOfBirth = "12/8/1948" };
+Object grid1row2 = new { Employee_ID = "E02", Employee_Name = "Thomas", Employee_Role = "Sales Representative", Employee_DateOfBirth = "7/2/1963" };
+Object grid1row3 = new { Employee_ID = "E03", Employee_Name = "Ash", Employee_Role = "Sales Manager", Employee_DateOfBirth = "3/4/1955" };
+Object grid1row4 = new { Employee_ID = "E04", Employee_Name = "Andrew", Employee_Role = "Vice President, Sales", Employee_DateOfBirth = "2/19/1952" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+data.Add(grid1row4);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source to grid
+grid.DataSource = dataTable;
+
+//Apply the table style
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5);
+
+//Allow the horizontal overflow for PdfGrid
+grid.Style.AllowHorizontalOverflow = true;
+
+//Draw the PdfGrid on page
+grid.Draw(page, PointF.Empty);
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the instance of PdfDocument
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
 ## Adding multiple tables
 
 The Essential PDF supports maintaining the position of a PDF grid drawn on PDF page using [PdfGridLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridLayoutResult.html). It provides the rendered bounds of previously added grid, which can be used to place successive elements without overlapping. You can add multiple PDF grids using the bottom position of previously rendered PDF grid. The following code snippet illustrates this.
