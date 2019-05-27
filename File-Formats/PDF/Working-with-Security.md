@@ -15,7 +15,7 @@ Essential PDF allows you to protect the PDF document using encryption and set pe
 ## Working with RC4 Encryption
 
 
-You can encrypt PDF document using RC4 algorithm with 40bit or 128bit key size. The following code snippet illustrates how to encrypt the PDF document with the user password.
+You can encrypt PDF document using RC4 algorithm with 40bit or 128bit key size. The following code snippet illustrates how to encrypt the PDF document with the [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html).
 
 {% tabs %}
 
@@ -247,7 +247,7 @@ else
 
 N> While using both user and owner passwords, please specify different user and owner password while encrypting the PDF document for better security.
 
-You can protect the PDF document from printing, editing, copying with the owner password by using the following code snippet.
+You can protect the PDF document from printing, editing, copying with the [OwnerPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~OwnerPassword.html) by using the following code snippet.
 
 {% tabs %}
 
@@ -509,7 +509,7 @@ else
 
 ## Working with AES Encryption
 
-You can encrypt PDF document using AES algorithm with 40bit or 128bit or 256bit key size. The following code snippet illustrates how to encrypt the PDF document with the user password.
+You can encrypt PDF document using AES algorithm with 40bit or 128bit or 256bit key size. The following code snippet illustrates how to encrypt the PDF document with the [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html).
 
 {% tabs %}
 
@@ -738,7 +738,7 @@ else
 
 {% endtabs %}
 
-You can protect the PDF document from printing, editing, copying with the owner password by using the following code snippet.
+You can protect the PDF document from printing, editing, copying with the [OwnerPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~OwnerPassword.html) by using the following code snippet.
 
 {% tabs %}
 
@@ -999,7 +999,7 @@ else
 
 ## Protect an existing document
 
-You can protect an existing PDF document with both owner and user password by using the following code snippet.
+You can protect an existing PDF document with both [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html) and [OwnerPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~OwnerPassword.html) by using the following code snippet.
 
 {% tabs %}
 
@@ -1212,7 +1212,7 @@ else
 
 ## Changing the password of the PDF document
 
-You can change the user password of the existing PDF document by using following code snippet.
+You can change the [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html) of the existing PDF document by using following code snippet.
 
 {% tabs %}
 
@@ -1361,7 +1361,7 @@ else
 
 ## Change the permission of the PDF document
 
-You can change the permission of the PDF document using the owner password. The following code snippet illustrates the same.
+You can change the permission of the PDF document using the [Permissions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~Permissions.html). The following code snippet illustrates the same.
 
 {% tabs %}
 
@@ -1511,7 +1511,7 @@ else
 
 ## Remove password from the user password PDF document
 
-You can remove the user password from the encrypted PDF document by using the following code snippet.
+You can remove the [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html) from the encrypted PDF document by using the following code snippet.
 
 {% tabs %}
 
@@ -1659,7 +1659,7 @@ else
 
 ## How to determine whether the PDF document is password protected or not?
 
-You can determine whether the existing PDF document is password protected or not by catching the PdfDocumentException as shown below.
+You can determine whether the existing PDF document is password protected or not by catching the [PdfDocumentException](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentException.html) as shown below.
 
 {% tabs %}
 
