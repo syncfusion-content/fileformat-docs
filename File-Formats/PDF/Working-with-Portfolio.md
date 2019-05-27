@@ -1,5 +1,5 @@
 ---
-title: Working with Portfolio
+title: Working with Portfolio | Syncfusion
 description: Explains how to create PDF portfolio which helps to bring together content from a variety of sources, including documents, drawings, images, e-mail, & web pages
 platform: file-formats
 control: PDF
@@ -11,7 +11,7 @@ PDF Portfolios allows the user to bring together content from a variety of sourc
 
 ## Creating a PDF portfolio
 
-To create a portfolio and attach a variety of documents, please refer the below code snippet.
+You can create a portfolio using [PdfPortfolioInformation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfPortfolioInformation.html) class and attach a variety of documents. The following code snippet illustrates this.
 
 {% tabs %}  
 
