@@ -2852,3 +2852,155 @@ else
 }
 {% endhighlight %}
 {% endtabs %}
+
+## Memory Optimization
+
+Essential PDF provides support for optimization of memory using [EnableMemoryOptimization](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentBase~EnableMemoryOptimization.html) property in [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument.html) instance. Optimization will be effective only with merge, append and import functions. 
+
+Enabling this property will optimize the memory but difference in time occurs based on the document size. This is illustrated in the following code sample.
+
+{% tabs %}
+{% highlight C# %}
+//Load an existing PDF document
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("file1.pdf");
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Enable memory optimization
+document.EnableMemoryOptimization = true;
+
+//Append the document with source document
+document.Append(loadedDocument);
+
+//Save the PDF document
+document.Save("Output.pdf");
+
+//Close the documents
+document.Close(true);
+loadedDocument.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Load an existing PDF document
+Dim loadedDocument As New PdfLoadedDocument("file1.pdf")
+
+'Create a new PDF document
+Dim document As New PdfDocument()
+
+'Enable memory optimization
+document.EnableMemoryOptimization = True
+
+'Append the document with source document
+document.Append(loadedDocument)
+
+'Save the PDF document
+document.Save("Output.pdf")
+
+'Close the documents
+document.Close(True)
+loadedDocument.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create the file open picker
+var picker = new FileOpenPicker();
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Create an empty PDF loaded document instance
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Load an existing PDF document through Open method of PdfLoadedDocument class
+await loadedDocument.OpenAsync(file);
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Enable memory optimization
+document.EnableMemoryOptimization = true;
+
+//Append the document with source document
+document.Append(loadedDocument);
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+Await document.SaveAsync(stream);
+
+//Close the documents
+document.Close(true);
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(stream, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Load an existing PDF document
+FileStream docStream = new FileStream("file1.pdf", FileMode.Open, FileAccess.Read);
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Enable memory optimization
+document.EnableMemoryOptimization = true;
+
+//Append the document with source document
+document.Append(loadedDocument);
+
+//Save the document into stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+stream.Position = 0;
+
+//Close the documents
+document.Close(true);
+loadedDocument.Close(true);
+
+//Defining the content type for PDF file
+string contentType = "application/pdf";
+
+//Define the file name
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+return File(stream, contentType, fileName);
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Load the file as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.file1.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Enable memory optimization
+document.EnableMemoryOptimization = true;
+
+//Append the document with source document
+document.Append(loadedDocument);
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the documents
+document.Close(true);
+loadedDocument.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.RuntimePlatform == Device.UWP)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
