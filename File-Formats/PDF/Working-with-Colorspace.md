@@ -1,5 +1,5 @@
 ---
-title: Working with Color Spaces
+title: Working with Color Spaces | Syncfusion
 description: This section explains how to create a PDF document with the specified color space
 platform: file-formats
 control: PDF
@@ -15,7 +15,7 @@ Essential PDF allows you to set the color spaces in the following different ways
 ## Working with color space in document 
 
 
-You can set the color space by using Color Space property in PDF document.
+You can set the color space by using [ColorSpace](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument~ColorSpace.html) property in PDF document.
 
 It supports the following types
 
@@ -40,7 +40,7 @@ CIE-based color space in the PDF document is classified as,
 * CalRGB
 * Lab
 
-The following code example illustrates how to draw a rectangle with **CalGray** brush in new PDF document.
+You can draw a rectangle on new PDF document with **CalGray** brush using [PdfCalGrayColorSpace](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.ColorSpace.PdfCalGrayColorSpace.html) class. The following code snippet explains this.
 {% tabs %}
 {% highlight c# %}
 
@@ -619,7 +619,7 @@ It contains the following types:
 * Indexed
 * Separation
 
-The following code example illustrates how to set the indexed ICC color space in new PDF document.
+The following code example illustrates how to set the indexed ICC color space using [PdfCalRGBColorSpace](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.ColorSpace.PdfCalRGBColorSpace.html) class in new PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -1390,7 +1390,7 @@ else
 
 ## Pantone colors
 
-The following code example illustrates how to draw the graphics elements by using Pantone colors in new PDF document.
+The following code example illustrates how to draw the graphics elements by using Pantone colors through [PdfSeparationColorSpace](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.ColorSpace.PdfSeparationColorSpace.html) class in new PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -2013,7 +2013,7 @@ else
 
 ## Working with color space in graphics
 
-You can set the color spaces to the particular object in the PDF document by using the ColorSpace property in PdfGraphics class.
+You can set the color spaces to the particular object in the PDF document by using the [ColorSpace](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics~ColorSpace.html) property in [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics.html) class.
 
 The following code illustrates how to use the color spaces in particular objects in new PDF document.
 {% tabs %}
