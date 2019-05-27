@@ -2768,7 +2768,7 @@ else
 
 ## Working with shape pagination
 
-You can also allow large shapes to paginate across pages using the below code snippet. 
+You can also allow large shapes to paginate across pages by assigning ```Paginate``` of [PdfLayoutType](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutType.html) Enum to [Layout](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutFormat~Layout.html) property of [PdfLayoutFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutFormat.html) class. 
 
 {% tabs %}
 
