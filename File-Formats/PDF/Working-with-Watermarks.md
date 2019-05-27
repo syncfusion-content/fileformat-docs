@@ -7,15 +7,14 @@ documentation: UG
 ---
 # Working with Watermarks
 
-Essential PDF provides you support to add watermark in the PDF document using PdfGraphics.
+Essential PDF provides you support to add watermark in the PDF document using [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics.html).
 
 ## Adding text watermark in PDF document
 
 
+To add the text watermark in PDF document, you can draw the text with transparency using [SetTransparency](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics~SetTransparency.html) method in [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics.html).
 
-Essential PDF allows you to draw the text watermark in PDF document using graphics elements.
-
-The below code illustrates how to draw the text watermark in new PDF document:
+The below code illustrates how to draw the text watermark in new PDF document.
 
 {% tabs %}
 
@@ -469,7 +468,7 @@ The following screenshot shows the output of adding text watermark to an existin
 
 ## Adding image watermark in PDF document
 
-To add the image watermark in PDF document, you can draw the image with transparency in PdfGraphics.
+To add the image watermark in PDF document, you can draw the image with transparency using [SetTransparency](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics~SetTransparency.html) method in [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics.html).
 
 The below code illustrates how to draw the image watermark in new PDF document:
 

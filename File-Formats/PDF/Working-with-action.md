@@ -1,5 +1,5 @@
 ---
-title: Working with Action
+title: Working with Action | Syncfusion
 description: This section explains how to add actions to the document and form fields
 platform: file-formats
 control: PDF
@@ -80,19 +80,19 @@ document.Close(True)
 
 Essential PDF supports the following types of actions.
 
-* PdfSoundAction that plays the music file
-* PdfJavaScriptAction that executes PDF JavaScript code
-* PdfUriAction that launches the URI
-* PdfGoToAction that goes to the specified page of the document
-* PdfLaunchAction that launches the application or opens the document
-* PdfNamedAction that goes to the named destination: next, previous, first or last page
-* PdfSubmitAction that submits the data that is entered into the PDF form
-* PdfResetAction that resets the fields of the PDF form
+* [PdfSoundAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfSoundAction.html) that plays the music file
+* [PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) that executes PDF JavaScript code
+* [PdfUriAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfUriAction.html) that launches the URI
+* [PdfGoToAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfGoToAction.html) that goes to the specified page of the document
+* [PdfLaunchAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLaunchAction.html) that launches the application or opens the document
+* [PdfNamedAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfNamedAction.html) that goes to the named destination: next, previous, first or last page
+* [PdfSubmitAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfSubmitAction.html) that submits the data that is entered into the PDF form
+* [PdfResetAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfResetAction.html) that resets the fields of the PDF form
 
 ### Sound action
 
 
-Sound action plays a specified music file in the PDF document. Volume and repeat can be specified for the sound action.
+[PdfSoundAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfSoundAction.html) plays a specified music file in the PDF document. Volume and repeat can be specified for the sound action.
 
 {% tabs %}
 {% highlight c# %}
@@ -284,7 +284,7 @@ else
 
 ### JavaScript action
 
-A JavaScript action allows execution of **JavaScript** code embedded in the **PDF** document
+A [PdfJavaScriptAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfJavaScriptAction.html) allows execution of **JavaScript** code embedded in the **PDF** document.
 
 {% tabs %}
 {% highlight c# %}
@@ -471,7 +471,7 @@ N> [http://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/js_developer_g
 
 ### URI action
 
-URI action allows you to create a hyperlink that can open web page in a web browser.
+[PdfUriAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfUriAction.html) allows you to create a hyperlink that can open web page in a web browser.
 
 {% tabs %}
 {% highlight c# %}
@@ -635,7 +635,7 @@ else
 
 ### GoTo action
 
-GoTo action displays the specified page in the current document. The location can be specified for the destination page.
+[PdfGoToAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfGoToAction.html) displays the specified page in the current document. The location can be specified for the destination page.
 
 {% tabs %}
 {% highlight c# %}
@@ -849,7 +849,7 @@ else
 
 ### Launch action
 
-A Launch action allows execution of an external file. The code snippet below explains how to add a launch action.
+A [PdfLaunchAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLaunchAction.html) allows execution of an external file. The code snippet below explains how to add a launch action.
 
 {% tabs %}
 {% highlight c# %}
@@ -920,9 +920,9 @@ document.Close(True)
 
 ### Named action
 
-Named action allows execution of predefined **PDF** actions. 
+[PdfNamedAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfNamedAction.html) allows execution of predefined **PDF** actions. 
 
-The following predefined **PDF** actions are available:
+The following predefined PDF actions are available:
 
 * Go to next page
 * Go to previous page 
@@ -1112,7 +1112,7 @@ else
 
 ### Submit action
 
-Submit action allows submission of data that is entered in the PDF form.
+[PdfSubmitAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfSubmitAction.html) allows submission of data that is entered in the PDF form.
 
 {% tabs %}
 {% highlight c# %}
@@ -1347,7 +1347,7 @@ else
 
 ### Reset action
 
-A reset action allows execution of reset of all the form fields in the PDF document.
+A [PdfResetAction](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfResetAction.html) allows execution of reset of all the form fields in the PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -1656,9 +1656,9 @@ else
 
 ## Adding an action to the form field
 
-Essential PDF provides you support to add the various actions to form fields.
+Essential PDF provides support to add various actions to the form fields.
 
-PdfFieldActions class is used to create form field actions.
+[PdfFieldActions](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfFieldActions.html) class is used to create form field actions.
 
 The following code example illustrates this. 
 
@@ -1914,7 +1914,7 @@ else
 
 ## Adding an action to the bookmarks
 
-Essential PDF provides you support to add the various action to the bookmarks. The code snippet below shows how to add an URI action to bookmark.
+Essential PDF provides support to add the various actions to the [Bookmarks](https://help.syncfusion.com/file-formats/pdf/working-with-bookmarks). The code snippet below shows how to add an URI action to bookmark.
 
 {% tabs %}
 {% highlight c# %}
