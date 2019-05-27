@@ -1,5 +1,5 @@
 ---
-title: Flow layout
+title: Flow layout | Syncfusion
 description: This section explains creating PDF document using flow layout model
 platform: file-formats
 control: PDF
@@ -234,7 +234,7 @@ else
 {% endtabs %}
 
 The following image shows the PDF document with multiple paragraphs created using the flow model.
-![](FlowLayout_images/WorkingWithText.jpeg)
+![multiple paragraph text using flow model](FlowLayout_images/WorkingWithText.jpeg)
 
 ## Working with text and images
 
@@ -492,7 +492,7 @@ else
 {% endtabs %}
 
 The following image shows the PDF document with multiple paragraphs and image created using the flow model.
-![](FlowLayout_images/WorkingWithImages.jpeg)
+![text and image using flow model](FlowLayout_images/WorkingWithImages.jpeg)
 
 ## Working with table
 
@@ -826,5 +826,438 @@ else
 {% endtabs %}
 
 The following image shows the PDF document with simple table created using the flow model.
-![](FlowLayout_images/WorkingWithTable.jpeg)
+![table using flow model](FlowLayout_images/WorkingWithTable.jpeg)
 
+## Flow model using PdfLayoutResult
+
+Syncfusion Essential PDF supports creating a PDF document with flow model by maintaining the position of previously drawn element in [PdfLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLayoutResult.html).
+
+The following code snippet explains how to create a PDF document with image, paragraph text, header text, a line below the header text, and a table using flow model.
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Load an image into PdfImage
+PdfImage image = PdfImage.FromFile("AdventureCycle.jpg");
+
+//Draw image on the page in the specified location and with required size
+graphics.DrawImage(image, new RectangleF(150, 30, 200, 100));
+
+//Initialize a standard font
+PdfFont standardFont = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+//Load the paragraph text into PdfTextElement with initialized standard font
+PdfTextElement textElement = new PdfTextElement("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based," +
+                    " is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, " +
+                    "European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional" +
+                    " sales teams are located throughout their market base.", standardFont);
+
+//Draw the paragraph text on page and maintain the position in PdfLayoutResult
+PdfLayoutResult layoutResult = textElement.Draw(page, new RectangleF(0, 150, page.GetClientSize().Width, page.GetClientSize().Height));
+
+//Assign header text to PdfTextElement
+textElement.Text = "Top 5 sales stores";
+
+//Assign standard font to PdfTextElement
+textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
+
+//Draw the header text on page, below the paragraph text with a height gap of 20 and maintain the position in PdfLayoutResult
+layoutResult = textElement.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 20));
+
+//Initialize PdfLine with start point and end point for drawing the line
+PdfLine line = new PdfLine(new PointF(0, 0), new PointF(page.GetClientSize().Width, 0))
+{
+    Pen = PdfPens.DarkGray
+};
+
+//Draw the line on page, below the header text with a height gap of 5 and maintain the position in PdfLayoutResult
+layoutResult = line.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 5));
+
+//Initialize PdfGrid for drawing the table
+PdfGrid grid = new PdfGrid();
+
+//Create a DataTable
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+dataTable.Columns.Add("Salary");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+dataTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Assign the DataTable as data source to grid
+grid.DataSource = dataTable;
+
+//Set the grid cell padding
+grid.Style.CellPadding.All = 5;
+
+//Apply built-in table style to the grid
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5);
+
+//Draw the table in page, below the line with a height gap of 20
+grid.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 20));
+
+//Save the PDF document
+document.Save("Output.pdf");
+
+//Close the instance of PdfDocument
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Add a page to the document
+Dim page As PdfPage = document.Pages.Add
+
+'Create PDF graphics for the page
+Dim graphics As PdfGraphics = page.Graphics
+
+'Load an image into PdfImage
+Dim image As PdfImage = PdfImage.FromFile("AdventureCycle.jpg")
+
+'Draw image on the page in the specified location and with required size
+graphics.DrawImage(image, New RectangleF(150, 30, 200, 100))
+
+'Initialize a standard font
+Dim standardFont As PdfFont = New PdfStandardFont(PdfFontFamily.Helvetica, 12)
+
+'Load the paragraph text into PdfTextElement with initialized standard font
+Dim textElement As PdfTextElement = New PdfTextElement("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based," &
+                " is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, " &
+                "European And Asian commercial markets. While its base operation Is located in Bothell, Washington with 290 employees, several regional" &
+                " sales teams are located throughout their market base.", standardFont)
+
+'Draw the paragraph text on page and maintain the position in PdfLayoutResult
+Dim layoutResult As PdfLayoutResult = textElement.Draw(page, New RectangleF(0, 150, page.GetClientSize.Width, page.GetClientSize.Height))
+
+'Assign header text to PdfTextElement
+textElement.Text = "Top 5 sales stores"
+
+'Assign standard font to PdfTextElement
+textElement.Font = New PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold)
+
+'Draw the header text on page, below the paragraph text with a height gap of 20 and maintain the position in PdfLayoutResult
+layoutResult = textElement.Draw(page, New PointF(0, (layoutResult.Bounds.Bottom + 20)))
+
+'Initialize PdfLine with start point and end point for drawing the line
+Dim line As PdfLine = New PdfLine(New PointF(0, 0), New PointF(page.GetClientSize.Width, 0))
+
+'Draw the line on page, below the header text with a height gap of 5 and maintain the position in PdfLayoutResult
+layoutResult = line.Draw(page, New PointF(0, (layoutResult.Bounds.Bottom + 5)))
+
+'Initialize PdfGrid for drawing the table
+Dim grid As PdfGrid = New PdfGrid
+
+'Create a DataTable
+Dim dataTable As DataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+dataTable.Columns.Add("Salary")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"E01", "Clay", "$10,000"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas", "$10,500"})
+dataTable.Rows.Add(New Object() {"E03", "Simon", "$12,000"})
+
+'Assign the DataTable as data source to grid
+grid.DataSource = dataTable
+
+'Set the grid cell padding
+grid.Style.CellPadding.All = 5
+
+'Apply built-in table style to the grid
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5)
+
+'Draw the table in page, below the line with a height gap of 20
+grid.Draw(page, New PointF(0, (layoutResult.Bounds.Bottom + 20)))
+
+'Save the PDF document
+document.Save("Output.pdf")
+
+'Close the instance of PdfDocument
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Load an image into PdfImage
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.AdventureCycle.jpg");
+PdfImage image = PdfImage.FromStream(imageStream);
+
+//Draw image on the page in the specified location and with required size
+graphics.DrawImage(image, new RectangleF(150, 30, 200, 100));
+
+//Initialize a standard font
+PdfFont standardFont = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+//Load the paragraph text into PdfTextElement with initialized standard font
+PdfTextElement textElement = new PdfTextElement("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based," +
+                    " is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, " +
+                    "European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional" +
+                    " sales teams are located throughout their market base.", standardFont);
+
+//Draw the paragraph text on page and maintain the position in PdfLayoutResult
+PdfLayoutResult layoutResult = textElement.Draw(page, new RectangleF(0, 150, page.GetClientSize().Width, page.GetClientSize().Height));
+
+//Assign header text to PdfTextElement
+textElement.Text = "Top 5 sales stores";
+
+//Assign standard font to PdfTextElement
+textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
+
+//Draw the header text on page, below the paragraph text with a height gap of 20 and maintain the position in PdfLayoutResult
+layoutResult = textElement.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 20));
+
+//Initialize PdfLine with start point and end point for drawing the line
+PdfLine line = new PdfLine(new PointF(0, 0), new PointF(page.GetClientSize().Width, 0))
+{
+    Pen = PdfPens.DarkGray
+};
+
+//Draw the line on page, below the header text with a height gap of 5 and maintain the position in PdfLayoutResult
+layoutResult = line.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 5));
+
+//Initialize PdfGrid for drawing the table
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign the DataTable as data source to grid
+grid.DataSource = dataTable;
+
+//Set the grid cell padding
+grid.Style.CellPadding.All = 5;
+
+//Apply built-in table style to the grid
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5);
+
+//Draw the table in page, below the line with a height gap of 20
+grid.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 20));
+
+//Create memory stream
+MemoryStream stream = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(stream);
+
+//Close the instance of PdfDocument
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(stream, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Load an image into PdfImage
+FileStream imageStream = new FileStream("AdventureCycle.jpg", FileMode.Open);
+PdfImage image = PdfImage.FromStream(imageStream);
+
+//Draw image on the page in the specified location and with required size
+graphics.DrawImage(image, new RectangleF(150, 30, 200, 100));
+
+//Initialize a standard font
+PdfFont standardFont = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+//Load the paragraph text into PdfTextElement with initialized standard font
+PdfTextElement textElement = new PdfTextElement("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based," +
+                    " is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, " +
+                    "European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional" +
+                    " sales teams are located throughout their market base.", standardFont);
+
+//Draw the paragraph text on page and maintain the position in PdfLayoutResult
+PdfLayoutResult layoutResult = textElement.Draw(page, new RectangleF(0, 150, page.GetClientSize().Width, page.GetClientSize().Height));
+
+//Assign header text to PdfTextElement
+textElement.Text = "Top 5 sales stores";
+
+//Assign standard font to PdfTextElement
+textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
+
+//Draw the header text on page, below the paragraph text with a height gap of 20 and maintain the position in PdfLayoutResult
+layoutResult = textElement.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 20));
+
+//Initialize PdfLine with start point and end point for drawing the line
+PdfLine line = new PdfLine(new PointF(0, 0), new PointF(page.GetClientSize().Width, 0))
+{
+    Pen = PdfPens.DarkGray
+};
+
+//Draw the line on page, below the header text with a height gap of 5 and maintain the position in PdfLayoutResult
+layoutResult = line.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 5));
+
+//Initialize PdfGrid for drawing the table
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign the DataTable as data source to grid
+grid.DataSource = dataTable;
+
+//Set the grid cell padding
+grid.Style.CellPadding.All = 5;
+
+//Apply built-in table style to the grid
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5);
+
+//Draw the table in page, below the line with a height gap of 20
+grid.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 20));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = document.Pages.Add();
+
+//Create PDF graphics for the page
+PdfGraphics graphics = page.Graphics;
+
+//Load an image into PdfImage
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.AdventureCycle.jpg");
+PdfImage image = PdfImage.FromStream(imageStream);
+
+//Draw image on the page in the specified location and with required size
+graphics.DrawImage(image, new RectangleF(150, 30, 200, 100));
+
+//Initialize a standard font
+PdfFont standardFont = new PdfStandardFont(PdfFontFamily.Helvetica, 12);
+
+//Load the paragraph text into PdfTextElement with initialized standard font
+PdfTextElement textElement = new PdfTextElement("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based," +
+                    " is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, " +
+                    "European and Asian commercial markets. While its base operation is located in Bothell, Washington with 290 employees, several regional" +
+                    " sales teams are located throughout their market base.", standardFont);
+
+//Draw the paragraph text on page and maintain the position in PdfLayoutResult
+PdfLayoutResult layoutResult = textElement.Draw(page, new RectangleF(0, 150, page.GetClientSize().Width, page.GetClientSize().Height));
+
+//Assign header text to PdfTextElement
+textElement.Text = "Top 5 sales stores";
+
+//Assign standard font to PdfTextElement
+textElement.Font = new PdfStandardFont(PdfFontFamily.Helvetica, 14, PdfFontStyle.Bold);
+
+//Draw the header text on page, below the paragraph text with a height gap of 20 and maintain the position in PdfLayoutResult
+layoutResult = textElement.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 20));
+
+//Initialize PdfLine with start point and end point for drawing the line
+PdfLine line = new PdfLine(new PointF(0, 0), new PointF(page.GetClientSize().Width, 0))
+{
+    Pen = PdfPens.DarkGray
+};
+
+//Draw the line on page, below the header text with a height gap of 5 and maintain the position in PdfLayoutResult
+layoutResult = line.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 5));
+
+//Initialize PdfGrid for drawing the table
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign the DataTable as data source to grid
+grid.DataSource = dataTable;
+
+//Set the grid cell padding
+grid.Style.CellPadding.All = 5;
+
+//Apply built-in table style to the grid
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5);
+
+//Draw the table in page, below the line with a height gap of 20
+grid.Draw(page, new PointF(0, layoutResult.Bounds.Bottom + 20));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the instance of PdfDocument
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
