@@ -1,5 +1,5 @@
 ---
-title: Working with Attachments
+title: Working with Attachments | Syncfusion
 description: This section explains how to add, remove and extract attachments in the PDF document 
 platform: file-formats
 control: PDF
@@ -13,7 +13,7 @@ Attachments can contain any kind of file with detailed information.
 
 ##  Adding attachment to a PDF document
 
-The following code example shows how to add a text file attachment to a PDF document.
+You can add a text file attachment to a PDF document using [PdfAttachment](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfAttachment.html) class. The following code example illustrates this.
 {% tabs %}
 {% highlight c# %}
 
@@ -436,7 +436,7 @@ else
 
 ## Removing attachment from an existing PDF 
 
-Essential PDF allows you to remove the attachments from the existing document as shown in the following code example.
+Essential PDF allows you to remove the attachments from the existing document by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfAttachmentCollection~Remove.html) method, as shown in the following code example.
 
 {% tabs %}
 {% highlight c# %}
@@ -622,7 +622,7 @@ return File(stream, contentType, fileName);
 
 ## Extracting and saving an attachment to the disk.
 
-Essential PDF provides supports extracting the attachments and saving them to the disk. The following code example explains how to extract and save an attachment.
+Essential PDF provides support for extracting the attachments and saving them to the disk. The following code example explains how to extract and save an attachment.
 
 {% tabs %}
 {% highlight c# %}

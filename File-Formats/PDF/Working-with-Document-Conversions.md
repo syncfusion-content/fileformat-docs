@@ -84,7 +84,7 @@ For ASP.NET Core and Xamarin applications
 * using Syncfusion.DocIORenderer
 * using Syncfusion.Pdf
 
-DocToPDFConverter class is responsible for converting a Word document into PDF. The following code snippet illustrates how to convert a Word document into PDF document.
+[DocToPDFConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.Base~Syncfusion.DocToPDFConverter.DocToPDFConverter.html) class is responsible for converting a Word document into PDF. The following code snippet illustrates how to convert a Word document into PDF document.
 
 {% tabs %}
 
@@ -259,9 +259,9 @@ else
 
 Note:
 
-* Initializing the ChartToImageConverter is mandatory to convert the charts present in the Word document to PDF. Otherwise the charts will not be exported to the converted PDF
-* ChartToImageConverter is supported from .NET Framework 4.0 onwards
-* Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to Word document
+* Initializing the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.OfficeChartToImageConverter.Wpf~Syncfusion.OfficeChartToImageConverter.ChartToImageConverter.html) is mandatory to convert the charts present in the Word document to PDF. Otherwise the charts will not be exported to the converted PDF.
+* ```ChartToImageConverter``` is supported from .NET Framework 4.0 onwards.
+* Total number of pages may vary  based on unsupported elements in the converted PDF document when compare to Word document.
 
 
 ### Customizing the Word document to PDF conversion
@@ -391,7 +391,7 @@ wordDocument.Close()
 
 ## Converting Excel documents to PDF
 
-Essential PDF allows you to convert an entire workbook or a single worksheet into PDF document. For converting an Excel document to PDF, the following assemblies need to be referenced in your application
+[ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html) is responsible for converting an Excel document into PDF. Essential PDF allows you to convert an entire workbook or a single worksheet into PDF document. For converting an Excel document to PDF, the following assemblies need to be referenced in your application.
 
 * Syncfusion.XlsIO.Base.dll
 * Syncfusion.Compression.Base.dll
@@ -403,7 +403,7 @@ Essential PDF allows you to convert an entire workbook or a single worksheet int
 
 ### Converting  a Workbook to PDF
 
-The following code illustrates how to convert a workbook to PDF Document.
+The following code illustrates how to convert a workbook to PDF Document using [ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html).
 
 {% tabs %}
 
@@ -509,7 +509,7 @@ excelEngine.Dispose()
 
 ### Converting a Worksheet to PDF
 
-The following code shows how to convert a particular sheet to PDF Document.
+The following code shows how to convert a particular sheet to PDF Document using [ExcelToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.ExcelToPDFConverter.Base~Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.html).
 
 {% tabs %}
 
@@ -709,7 +709,7 @@ excelEngine.Dispose()
 
 ### Excel with Chart to PDF
 
-To preserve the charts during Excel to PDF conversion, you should initialize the ChartToImageConverter of IApplication interface, otherwise the charts present in worksheet will get skipped. The following code illustrate how to convert an Excel with chart to PDF document.
+To preserve the charts during Excel to PDF conversion, you should initialize the [ChartToImageConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IApplication~ChartToImageConverter.html) of [IApplication](https://help.syncfusion.com/cr/file-formats/Syncfusion.XlsIO.Base~Syncfusion.XlsIO.IApplication.html) interface, otherwise the charts present in worksheet will get skipped. The following code illustrate how to convert an Excel with chart to PDF document.
 
 {% tabs %}
 
@@ -902,7 +902,7 @@ For ASP.NET Core and Xamarin applications
 * using Syncfusion.DocIORenderer
 * using Syncfusion.Pdf
 
-DocToPDFConverter class is responsible for converting a RTF to PDF. The following code snippet illustrates how to convert a RTF to PDF document.
+[DocToPDFConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocToPDFConverter.Base~Syncfusion.DocToPDFConverter.DocToPDFConverter.html) class is responsible for converting a RTF to PDF. The following code snippet illustrates how to convert a RTF to PDF document.
 
 {% tabs %}
 
@@ -1477,7 +1477,7 @@ N> 2. By default, all monochrome images will be compressed in CITTT4 compression
 
 The XPS (XML Paper Specification) document format is a fixed document format which consists of structured XML markup that defines the layout of a document and the visual appearance of each page, along with rendering rules for distributing, archiving, rendering, processing and printing the documents.
 
-Essential PDF provides support for converting XPS to PDF using XPSToPdfConverter class.
+Essential PDF provides support for converting XPS to PDF using [XPSToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.XPS.XPSToPdfConverter.html) class.
 
 The below code illustrates how to convert XPS to PDF.
 
@@ -1782,7 +1782,7 @@ documentViewer.Dispose()
 
 ## MHTML to PDF
 
-The MHTML file can be converted to PDF using WebKit rendering engine. Please refer the below code snippet,
+The MHTML file can be converted to PDF using [WebKit rendering engine](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit). Please refer the below code snippet,
 
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
@@ -1900,7 +1900,7 @@ return File(stream, contentType, fileName);
 
 ## HTML to MHTML
 
-The WebKit HTML Converter provides support for converting the webpage to MHTML. Please refer the below code snippet,
+The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting the webpage to MHTML. Please refer the below code snippet,
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     
@@ -1967,7 +1967,7 @@ htmlConverter.ConvertToMhtml("http://www.syncfusion.com", "sample.mhtml")
 
 ## HTML to Raster Image
 
-The WebKit HTML Converter provides support for converting webpage to Image. Please refer the below code snippet,
+The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting webpage to Image. Please refer the below code snippet,
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     
@@ -2040,7 +2040,7 @@ image(0).Save("Sample.jpg")
 
 ## HTML string to Raster Image
 
-The WebKit HTML Converter provides support for converting HTML string to Image. Please refer the below code snippet,
+The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting HTML string to Image. Please refer the below code snippet,
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     
@@ -2119,7 +2119,7 @@ image(0).Save("Sample.jpg")
 
 ## Partial webpage to Raster Image
 
-The WebKit HTML Converter provides support for converting partial webpage to Image. Please refer the below code snippet,
+The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting partial webpage to Image. Please refer the below code snippet,
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     
@@ -2225,7 +2225,7 @@ Hello world
 
 ## HTML to SVG
 
-The WebKit HTML Converter provides support for converting HTML to SVG. Please refer the below code snippet,
+The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting HTML to SVG. Please refer the below code snippet,
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     
@@ -2292,7 +2292,7 @@ htmlConverter.ConvertToSvg("http://www.syncfusion.com", "sample.svg")
 
 ## Partial webpage to SVG
 
-The WebKit HTML Converter provides support for converting partial webpage to SVG. Please refer the below code snippet,
+The [WebKit HTML Converter](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit) provides support for converting partial webpage to SVG. Please refer the below code snippet,
 
 Prerequisites - [https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows](https://help.syncfusion.com/file-formats/pdf/convert-html-to-pdf/webkit#prerequisites-for-windows)
     

@@ -15,7 +15,7 @@ Essential PDF provides support to add barcodes to the PDF document. The followin
 ## Adding a one dimensional barcode to the PDF document
 
 
-The below code snippet shows how to add Code39 barcode to a PDF document.
+The below code snippet shows how to add Code39 barcode using the [PdfCode39Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfCode39Barcode.html) class to a PDF document.
 {% tabs %}
 {% highlight c# %}
 //Creating new PDF Document
@@ -227,7 +227,7 @@ else
 
 ## Adding a two dimensional barcode to a PDF document
 
-The below code snippet shows how to add a QR code to the PDF document.
+The below code snippet shows how to add a QR code using [PdfQRBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfQRBarcode.html) class to the PDF document.
 {% tabs %}
 {% highlight c# %}
 
@@ -466,7 +466,7 @@ else
 ## Set location and size to the barcode
 
 
-The following code snippets show how to set size and location for Codabar barcode to a PDF document.
+The following code snippets show how to set [Size](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfBarcode~Size.html) and [Location](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfBarcode~Location.html) for Codabar barcode using [PdfCodabarBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfCodabarBarcode.html) class to a PDF document.
 {% tabs %}
 {% highlight c# %}
 
@@ -796,7 +796,7 @@ barcodeImage.Save("Image.jpg", ImageFormat.Png)
 
 ## Customizing the barcode appearance
 
-The height of the barcode can be changed using the **BarHeight** property. The equivalent property to change the block size for two dimensional barcode is **XDimension**. You can also customize the barcode color by changing the DarkBarColor and LightBarColor properties.
+The height of the barcode can be changed using the [BarHeight](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfBarcode~BarHeight.html) property. The equivalent property to change the block size for two dimensional barcode is [XDimension](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfBidimensionalBarcode~XDimension.html). You can also customize the barcode color by changing the DarkBarColor and LightBarColor properties.
 
 N> This color customization is possible only for one dimensional barcodes and it is not supported for two dimensional barcodes.
 

@@ -1,5 +1,5 @@
 ---
-title: Working with Metadata
+title: Working with Metadata | Syncfusion
 description: This section explains how to add metadata in the PDF document and the metadata is a data that describes the characteristics of properties of a document
 platform: file-formats
 control: PDF
@@ -20,7 +20,7 @@ XMP standardizes the definition, creation, and processing of metadata.
 
 ## Adding XMP metadata in a PDF document
 
-You can add XMP metadata in a PDF document as shown in the code snippet below.
+You can add XMP metadata in a PDF document using [XmpMetadata](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xmp.XmpMetadata.html) class as shown in the code snippet below.
 
 {% tabs %}  
 
@@ -267,7 +267,7 @@ else
 
 ## Adding XMP metadata in an existing PDF document
 
-You can add metadata in an existing PDF document as follow.
+You can add metadata in an existing PDF document using [XmpMetadata](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xmp.XmpMetadata.html) class, as follows.
 
 {% tabs %}  
 
@@ -524,9 +524,9 @@ Basic Schema contains properties that provide basic descriptive information such
 * Nickname
 * Rating
 
-BasicSchema class is used to create the basic schema properties.
+[BasicSchema](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xmp.BasicSchema.html) class is used to create the basic schema properties.
 
-Refer the following code sample to create XMP basic schema
+Refer the following code sample to create XMP basic schema.
 
 {% tabs %}  
 
@@ -784,7 +784,7 @@ The Dublin Core schema provides a set of commonly used properties such as,
 * Publisher
 * Title
 
-DublinCoreSchema class is used to create the Dublin core schema properties
+[DublinCoreSchema](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xmp.DublinCoreSchema.html) class is used to create the Dublin core schema properties.
 
 {% tabs %}  
 
@@ -991,6 +991,7 @@ This schema includes properties related to rights management. These properties p
 * UsageTerm
 * WebStatement
 
+[RightsManagementSchema](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xmp.RightsManagementSchema.html) class is used to create the Rights management schema properties.
 {% tabs %} 
 
 {% highlight c# %}
@@ -1173,7 +1174,7 @@ else
 
 ### Basic Job Ticket Schema
 
-This schema describes very simple workflow or job information.
+This schema describes very simple workflow or job information and [BasicJobTicketSchema](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xmp.BasicJobTicketSchema.html) class is used for creation.
 
 * JobRef
 
@@ -1358,6 +1359,7 @@ The Paged-Text schema is used for text appearance on page in a document.
 * Colorants
 * PlateNames
 
+[PagedTextSchema](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xmp.PagedTextSchema.html) class is used for creating Paged-Text schema properties.
 {% tabs %} 
 
 {% highlight c# %}
@@ -1559,7 +1561,7 @@ else
 
 This schema specifies properties used with Adobe PDF documents.
 
-PDFSchema class is used to create the PDF Schema. It has the following set of properties.
+[PDFSchema](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xmp.PDFSchema.html) class is used to create the PDF Schema. It has the following set of properties.
 
 {% tabs %} 
 
@@ -1750,7 +1752,7 @@ else
 
 ### Custom Schema
 
-A custom schema defines the structure of the customized information records. You can use the CustomSchema class to: 
+A custom schema defines the structure of the customized information records. You can use the [CustomSchema](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xmp.CustomSchema.html) class to: 
 
 * Define custom metadata files and, 
 * Add them to the PDF document 
@@ -1943,9 +1945,9 @@ else
 
 ## Adding Custom Schema to the PDF document
 
-Essential PDF allows you to add required metadata (custom schema) to a PDF document
+Essential PDF allows you to add required metadata (custom schema) to a PDF document.
 
-You can add custom schema Using XmpMetadata class. The following code illustrates this.
+You can add custom schema using [XmpMetadata](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xmp.XmpMetadata.html) class. The following code illustrates this.
 
 {% tabs %}  
 
@@ -2119,7 +2121,7 @@ else
 
 ## Adding Custom Metadata to the PDF document
 
-The custom metadata can be added in PDF document by using the CustomMetadata property. Refer to the following code. 
+The custom metadata can be added in PDF document by using the [CustomMetadata](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocumentInformation~CustomMetadata.html) property. Refer to the following code. 
 
 {% tabs %}  
 
