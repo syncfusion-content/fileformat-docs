@@ -1,4 +1,4 @@
----
+﻿---
 title: Word document to PDF Conversion | DocIO | Syncfusion
 description: Converting Word document to PDF using DocIO
 platform: file-formats
@@ -167,6 +167,120 @@ pdfDocument.Save(outputStream);
 
 pdfDocument.Close();
 {% endhighlight %}
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "WordToPDF.pdf");
+                
+//Closes the Word and PDF document
+
+docIORenderer.Dispose();
+
+document.Close();
+
+pdfDocument.Close();
+
+}
+
+// Saves the PDF document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".pdf"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 
@@ -465,6 +579,123 @@ pdfDocument.Close();
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+// Sets true to embed TrueType fonts
+
+docIORenderer.Settings.EmbedFonts = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "WordToPDF.pdf");
+                
+//Closes the Word and PDF document
+
+document.Close();
+
+pdfDocument.Close();
+
+}
+
+// Saves the PDF document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".pdf"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
+
 {% endtabs %}
 
 #### Embed Complete Fonts
@@ -626,6 +857,122 @@ pdfDocument.Close();
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+// Sets true to embed complete TrueType fonts
+
+docIORenderer.Settings.EmbedCompleteFonts = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "WordToPDF.pdf");
+                
+//Closes the Word and PDF document
+
+document.Close();
+
+pdfDocument.Close();
+
+}
+
+// Saves the PDF document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".pdf"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Accessible PDF document
@@ -765,6 +1112,123 @@ pdfDocument.Save(outputStream);
 
 pdfDocument.Close();
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+//Sets true to preserve document structured tags in the converted PDF document 
+
+docIORenderer.Settings.AutoTag = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "WordToPDF.pdf");
+                
+//Closes the Word and PDF document
+
+document.Close();
+
+pdfDocument.Close();
+
+}
+
+// Saves the PDF document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".pdf"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Word document headings to PDF bookmarks
@@ -904,6 +1368,123 @@ pdfDocument.Save(outputStream);
 
 pdfDocument.Close();
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+//Sets ExportBookmarks for preserving Word document headings as PDF bookmarks
+
+docIORenderer.Settings.ExportBookmarks = Syncfusion.DocIO.ExportBookmarkType.Headings;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "WordToPDF.pdf");
+                
+//Closes the Word and PDF document
+
+document.Close();
+
+pdfDocument.Close();
+
+}
+
+// Saves the PDF document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".pdf"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Word document form field to PDF form field.
@@ -1042,6 +1623,122 @@ pdfDocument.Save(outputStream);
 //Closes the instance of PDF document object
 
 pdfDocument.Close();
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+//Sets true to preserve the Word document form field as editable PDF form field in PDF document
+
+docIORenderer.Settings.PreserveFormFields = true;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "WordToPDF.pdf");
+                
+//Closes the Word and PDF document
+
+document.Close();
+
+pdfDocument.Close();
+
+}
+
+// Saves the PDF document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".pdf"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
 {% endhighlight %}
 {% endtabs %}
 
@@ -1376,6 +2073,122 @@ pdfDocument.Close();
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+// Set the conformance for PDF/A-1b conversion.
+
+docIORenderer.Settings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "WordToPDF.pdf");
+                
+//Closes the Word and PDF document
+
+document.Close();
+
+pdfDocument.Close();
+
+}
+
+// Saves the PDF document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".pdf"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Enable Alternate Chunks
@@ -1533,6 +2346,122 @@ pdfDocument.Save(outputStream);
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+// Sets false to disable converting the alternate chunks present in Word document to PDF.
+
+docIORenderer.Settings.EnableAlternateChunks = false;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "WordToPDF.pdf");
+                
+//Closes the Word and PDF document
+
+document.Close();
+
+pdfDocument.Close();
+
+}
+
+// Saves the PDF document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".pdf"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Complex Script Text
@@ -1686,6 +2615,122 @@ pdfDocument.Save(outputStream);
 //Closes the instance of PDF document object
 
 pdfDocument.Close();
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+// Sets false to disable converting the alternate chunks present in Word document to PDF.
+
+docIORenderer.Settings.EnableAlternateChunks = false;
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "WordToPDF.pdf");
+                
+//Closes the Word and PDF document
+
+document.Close();
+
+pdfDocument.Close();
+
+}
+
+// Saves the PDF document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".pdf"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
 
 {% endhighlight %}
 
@@ -1866,6 +2911,126 @@ pdfDocument.Close();
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+//Reads the language dictionary for hyphenation
+
+FileStream dictionaryStream = new FileStream("hyphen_en_US.dic", FileMode.Open);
+
+//Adds the hyphenation dictionary of the specified language
+
+Hyphenator.Dictionaries.Add("en-US", dictionaryStream);
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "WordToPDF.pdf");
+                
+//Closes the Word and PDF document
+
+document.Close();
+
+pdfDocument.Close();
+
+}
+
+// Saves the PDF document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".pdf"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ### Track changes in Word-to-PDF conversion
@@ -2027,6 +3192,122 @@ pdfDocument.Save(outputStream);
 //Closes the instance of PDF document object
 
 pdfDocument.Close();
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens an existing document from file system through constructor of WordDocument class
+
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+
+//Sets revision types to preserve track changes in  Word when converting to PDF
+
+wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
+
+//Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(document);
+
+//Save the document into stream.
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(stream, "WordToPDF.pdf");
+                
+//Closes the Word and PDF document
+
+document.Close();
+
+pdfDocument.Close();
+
+}
+
+// Saves the PDF document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".pdf"});
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+}
+
+}
 
 {% endhighlight %}
 
