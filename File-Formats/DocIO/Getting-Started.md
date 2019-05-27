@@ -1,5 +1,5 @@
 ---
-title: Create a simple Word document in C#, VB.NET without office or interop
+title: Create a simple Word document in C#, VB.NET | Syncfusion
 description: This section illustrate how to create a new Word document from scratch
 platform: file-formats
 control: DocIO
@@ -56,6 +56,30 @@ Imports Syncfusion.DocIO.DLS
 
 {% endhighlight %} 
 
+{% highlight UWP %}
+
+using Syncfusion.DocIO;
+
+using Syncfusion.DocIO.DLS;
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+using Syncfusion.DocIO;
+
+using Syncfusion.DocIO.DLS;
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+using Syncfusion.DocIO;
+
+using Syncfusion.DocIO.DLS;
+
+{% endhighlight %} 
+
 {% endtabs %}
 
 ## Creating a new Word document with few lines of code
@@ -108,6 +132,159 @@ document.Close()
 
 {% endhighlight %} 
 
+{% highlight UWP %}
+
+//Creates an instance of WordDocument Instance (Empty Word Document)
+ 
+WordDocument document = new WordDocument();
+ 
+//Add a section & a paragraph in the empty document
+ 
+document.EnsureMinimal();
+ 
+//Append text to the last paragraph of the document
+ 
+document.LastParagraph.AppendText("Hello World");
+            
+//Saves the Word file to MemoryStream
+
+MemoryStream stream = new MemoryStream();    
+ 
+await document.SaveAsync(stream, FormatType.Docx);
+ 
+document.Close();
+
+//Saves the stream as Word file in local machine
+ 
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new instance of WordDocument (Empty Word Document)
+
+WordDocument document = new WordDocument();
+ 
+//Adds a section and a paragraph to the document
+
+document.EnsureMinimal();
+ 
+//Appends text to the last paragraph of the document
+
+document.LastParagraph.AppendText("Hello World");
+ 
+MemoryStream stream = new MemoryStream();
+ 
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+ 
+stream.Position = 0;
+
+document.Close();
+ 
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates an instance of WordDocument Instance (Empty Word Document)
+
+WordDocument document = new WordDocument();
+
+//Add a section & a paragraph in the empty document
+
+document.EnsureMinimal();
+
+//Append text to the last paragraph of the document
+
+document.LastParagraph.AppendText("Hello World");
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
+{% endhighlight %} 
+
 {% endtabs %}
 
 ## Creating a new Word document from scratch with basic elements
@@ -153,6 +330,56 @@ Dim section As IWSection = document.AddSection()
 'Specifies the page margins
 
 section.PageSetup.Margins.All = 50.0F
+
+{% endhighlight %} 
+
+{% highlight UWP %}
+
+//Creates an instance of WordDocument Instance (Empty Word Document)
+ 
+WordDocument document = new WordDocument();
+ 
+//Adds a new section into the Word document
+ 
+IWSection section = document.AddSection();
+ 
+//Specifies the page margins 
+ 
+section.PageSetup.Margins.All = 50f;
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Creates an instance of WordDocument Instance (Empty Word Document)
+ 
+WordDocument document = new WordDocument();
+ 
+//Adds a new section into the Word document
+ 
+IWSection section = document.AddSection();
+ 
+//Specifies the page margins 
+ 
+section.PageSetup.Margins.All = 50f;
+
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Creates an instance of WordDocument Instance (Empty Word Document)
+ 
+WordDocument document = new WordDocument();
+ 
+//Adds a new section into the Word document
+ 
+IWSection section = document.AddSection();
+ 
+//Specifies the page margins 
+ 
+section.PageSetup.Margins.All = 50f;
+
 
 {% endhighlight %} 
 
@@ -236,6 +463,108 @@ secondTextRange.CharacterFormat.FontSize = 11
 
 {% endhighlight %}  
 
+{% highlight UWP %}
+
+//Adds a new simple paragraph into the section
+ 
+IWParagraph firstParagraph = section.AddParagraph();
+ 
+//Sets the paragraph's horizontal alignment as justify
+ 
+firstParagraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Justify;
+ 
+//Adds a text range into the paragraph
+ 
+IWTextRange firstTextRange = firstParagraph.AppendText("AdventureWorks Cycles,");
+ 
+//sets the font formatting of the text range
+ 
+firstTextRange.CharacterFormat.Bold = true;
+ 
+firstTextRange.CharacterFormat.FontName = "Calibri";
+ 
+firstTextRange.CharacterFormat.FontSize = 14;
+ 
+//Adds another text range into the paragraph
+ 
+IWTextRange secondTextRange = firstParagraph.AppendText(" the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+ 
+//sets the font formatting of the text range
+ 
+secondTextRange.CharacterFormat.FontName = "Calibri";
+ 
+secondTextRange.CharacterFormat.FontSize = 11;
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Adds a new simple paragraph into the section
+ 
+IWParagraph firstParagraph = section.AddParagraph();
+ 
+//Sets the paragraph's horizontal alignment as justify
+ 
+firstParagraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Justify;
+ 
+//Adds a text range into the paragraph
+ 
+IWTextRange firstTextRange = firstParagraph.AppendText("AdventureWorks Cycles,");
+ 
+//sets the font formatting of the text range
+ 
+firstTextRange.CharacterFormat.Bold = true;
+ 
+firstTextRange.CharacterFormat.FontName = "Calibri";
+ 
+firstTextRange.CharacterFormat.FontSize = 14;
+ 
+//Adds another text range into the paragraph
+ 
+IWTextRange secondTextRange = firstParagraph.AppendText(" the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+ 
+//sets the font formatting of the text range
+ 
+secondTextRange.CharacterFormat.FontName = "Calibri";
+ 
+secondTextRange.CharacterFormat.FontSize = 11;
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Adds a new simple paragraph into the section
+ 
+IWParagraph firstParagraph = section.AddParagraph();
+ 
+//Sets the paragraph's horizontal alignment as justify
+ 
+firstParagraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Justify;
+ 
+//Adds a text range into the paragraph
+ 
+IWTextRange firstTextRange = firstParagraph.AppendText("AdventureWorks Cycles,");
+ 
+//sets the font formatting of the text range
+ 
+firstTextRange.CharacterFormat.Bold = true;
+ 
+firstTextRange.CharacterFormat.FontName = "Calibri";
+ 
+firstTextRange.CharacterFormat.FontSize = 14;
+ 
+//Adds another text range into the paragraph
+ 
+IWTextRange secondTextRange = firstParagraph.AppendText(" the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+ 
+//sets the font formatting of the text range
+ 
+secondTextRange.CharacterFormat.FontName = "Calibri";
+ 
+secondTextRange.CharacterFormat.FontSize = 11;
+
+{% endhighlight %} 
 
   {% endtabs %}  
 
@@ -286,6 +615,82 @@ picture.Height = 100
 picture.Width = 100
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+//Adds another paragraph and aligns it as center
+
+IWParagraph paragraph = section.AddParagraph();
+
+paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+
+//Adds a picture into the paragraph
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream imageStream1 = assembly.GetManifestResourceStream("CreateWordSample.Assets.DummyProfilePicture.jpg");
+ 
+IWPicture picture = paragraph.AppendPicture(imageStream1);
+ 
+//Specify the size of the picture
+ 
+picture.Height = 100;
+ 
+picture.Width = 100;
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Adds another paragraph and aligns it as center
+ 
+IWParagraph paragraph = section.AddParagraph();
+ 
+paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+ 
+//Adds a picture into the paragraph
+
+FileStream image1 = new FileStream("DummyProfilePicture.jpg", FileMode.Open, FileAccess.Read);
+ 
+IWPicture picture = paragraph.AppendPicture(image1);
+ 
+//Specify the size of the picture
+ 
+picture.Height = 100;
+ 
+picture.Width = 100;
+
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Adds another paragraph and aligns it as center
+
+IWParagraph paragraph = section.AddParagraph();
+
+paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+
+//Adds a picture into the paragraph
+
+//"App" is the class of Portable project.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream imageStream1 = assembly.GetManifestResourceStream("CreateWordSample.Assets.DummyProfilePicture.jpg");
+ 
+IWPicture picture = paragraph.AppendPicture(imageStream1);
+ 
+//Specify the size of the picture
+ 
+picture.Height = 100;
+ 
+picture.Width = 100;
+
+{% endhighlight %} 
 
   {% endtabs %}  
 
@@ -415,6 +820,195 @@ paragraph = secondCell.AddParagraph()
 
 textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.")
 
+
+
+{% endhighlight %} 
+
+{% highlight UWP %}
+
+//Adds a table into the Word document
+ 
+IWTable table = section.AddTable();
+ 
+//Creates the specified number of rows and columns
+ 
+table.ResetCells(2, 2);
+ 
+//Accesses the instance of the cell (first row, first cell)
+ 
+WTableCell firstCell = table.Rows[0].Cells[0];
+ 
+//Specifies the width of the cell
+ 
+firstCell.Width = 150;
+          
+//Adds a paragraph into the cell; a cell must have atleast 1 paragraph
+ 
+paragraph = firstCell.AddParagraph();
+ 
+IWTextRange textRange = paragraph.AppendText("Profile picture");
+ 
+textRange.CharacterFormat.Bold = true;
+ 
+//Accesses the instance of cell (first row, second cell)
+ 
+WTableCell secondCell = table.Rows[0].Cells[1];
+ 
+secondCell.Width = 330;
+ 
+paragraph = secondCell.AddParagraph();
+ 
+textRange = paragraph.AppendText("Description");
+ 
+textRange.CharacterFormat.Bold = true;
+ 
+firstCell = table.Rows[1].Cells[0];
+ 
+firstCell.Width = 150;
+ 
+paragraph = firstCell.AddParagraph();
+ 
+Stream imageStream2 = assembly.GetManifestResourceStream("CreateWordSample.Assets.DummyProfile-Picture.jpg");
+ 
+IWPicture profilePicture = paragraph.AppendPicture(imageStream2); 
+ 
+profilePicture.Height = 100;
+ 
+profilePicture.Width = 100;
+ 
+secondCell = table.Rows[1].Cells[1];
+ 
+secondCell.Width = 330;
+ 
+paragraph = secondCell.AddParagraph();
+ 
+textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Adds a table into the Word document
+ 
+IWTable table = section.AddTable();
+ 
+//Creates the specified number of rows and columns
+ 
+table.ResetCells(2, 2);
+ 
+//Accesses the instance of the cell (first row, first cell)
+ 
+WTableCell firstCell = table.Rows[0].Cells[0];
+ 
+//Specifies the width of the cell
+ 
+firstCell.Width = 150;
+ 
+//Adds a paragraph into the cell; a cell must have atleast 1 paragraph
+ 
+paragraph = firstCell.AddParagraph();
+ 
+IWTextRange textRange = paragraph.AppendText("Profile picture");
+ 
+textRange.CharacterFormat.Bold = true;
+ 
+//Accesses the instance of cell (first row, second cell)
+ 
+WTableCell secondCell = table.Rows[0].Cells[1];
+ 
+secondCell.Width = 330;
+ 
+paragraph = secondCell.AddParagraph();
+ 
+textRange = paragraph.AppendText("Description");
+ 
+textRange.CharacterFormat.Bold = true;
+ 
+firstCell = table.Rows[1].Cells[0];
+ 
+firstCell.Width = 150;
+ 
+paragraph = firstCell.AddParagraph();
+ 
+FileStream image2 = new FileStream("DummyProfile-Picture.jpg", FileMode.Open, FileAccess.Read);
+ 
+IWPicture profilePicture = paragraph.AppendPicture(image2);
+  
+profilePicture.Height = 100;
+ 
+profilePicture.Width = 100;
+ 
+secondCell = table.Rows[1].Cells[1];
+ 
+secondCell.Width = 330;
+ 
+paragraph = secondCell.AddParagraph();
+ 
+textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Adds a table into the Word document
+ 
+IWTable table = section.AddTable();
+ 
+//Creates the specified number of rows and columns
+ 
+table.ResetCells(2, 2);
+ 
+//Accesses the instance of the cell (first row, first cell)
+ 
+WTableCell firstCell = table.Rows[0].Cells[0];
+ 
+//Specifies the width of the cell
+ 
+firstCell.Width = 150;
+          
+//Adds a paragraph into the cell; a cell must have atleast 1 paragraph
+ 
+paragraph = firstCell.AddParagraph();
+ 
+IWTextRange textRange = paragraph.AppendText("Profile picture");
+ 
+textRange.CharacterFormat.Bold = true;
+ 
+//Accesses the instance of cell (first row, second cell)
+ 
+WTableCell secondCell = table.Rows[0].Cells[1];
+ 
+secondCell.Width = 330;
+ 
+paragraph = secondCell.AddParagraph();
+ 
+textRange = paragraph.AppendText("Description");
+ 
+textRange.CharacterFormat.Bold = true;
+ 
+firstCell = table.Rows[1].Cells[0];
+ 
+firstCell.Width = 150;
+ 
+paragraph = firstCell.AddParagraph();
+ 
+Stream imageStream2 = assembly.GetManifestResourceStream("CreateWordSample.Assets.DummyProfile-Picture.jpg");
+ 
+IWPicture profilePicture = paragraph.AppendPicture(imageStream2); 
+ 
+profilePicture.Height = 100;
+ 
+profilePicture.Width = 100;
+ 
+secondCell = table.Rows[1].Cells[1];
+ 
+secondCell.Width = 330;
+ 
+paragraph = secondCell.AddParagraph();
+ 
+textRange = paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
 
 {% endhighlight %} 
@@ -581,7 +1175,228 @@ section.AddParagraph()
 
 {% endhighlight %}
 
+{% highlight UWP %}
 
+//Writes default numbered list. 
+
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 0");
+ 
+//Applies the default numbered list formats 
+ 
+paragraph.ListFormat.ApplyDefNumberedStyle();
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 1");
+ 
+//Specifies the list format to continue from last list
+ 
+paragraph.ListFormat.ContinueListNumbering();
+ 
+//Increments the list level
+ 
+paragraph.ListFormat.IncreaseIndentLevel();
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 0");
+ 
+paragraph.ListFormat.ContinueListNumbering();
+ 
+//Decrements the list level
+ 
+paragraph.ListFormat.DecreaseIndentLevel();
+ 
+section.AddParagraph();
+           
+//Writes default bulleted list. 
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 0");
+ 
+//Applies the default bulleted list formats
+ 
+paragraph.ListFormat.ApplyDefBulletStyle();
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 1");
+ 
+//Specifies the list format to continue from last list
+ 
+paragraph.ListFormat.ContinueListNumbering();
+ 
+//Increments the list level
+ 
+paragraph.ListFormat.IncreaseIndentLevel();
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 0");
+ 
+//Specifies the list format to continue from last list
+ 
+paragraph.ListFormat.ContinueListNumbering();
+ 
+//Decrements the list level
+ 
+paragraph.ListFormat.DecreaseIndentLevel();
+ 
+section.AddParagraph();
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Writes default numbered list. 
+
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 0");
+ 
+//Applies the default numbered list formats 
+ 
+paragraph.ListFormat.ApplyDefNumberedStyle();
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 1");
+ 
+//Specifies the list format to continue from last list
+ 
+paragraph.ListFormat.ContinueListNumbering();
+ 
+//Increments the list level
+ 
+paragraph.ListFormat.IncreaseIndentLevel();
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 0");
+ 
+paragraph.ListFormat.ContinueListNumbering();
+ 
+//Decrements the list level
+ 
+paragraph.ListFormat.DecreaseIndentLevel();
+ 
+section.AddParagraph();
+           
+//Writes default bulleted list. 
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 0");
+ 
+//Applies the default bulleted list formats
+ 
+paragraph.ListFormat.ApplyDefBulletStyle();
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 1");
+ 
+//Specifies the list format to continue from last list
+ 
+paragraph.ListFormat.ContinueListNumbering();
+ 
+//Increments the list level
+ 
+paragraph.ListFormat.IncreaseIndentLevel();
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 0");
+ 
+//Specifies the list format to continue from last list
+ 
+paragraph.ListFormat.ContinueListNumbering();
+ 
+//Decrements the list level
+ 
+paragraph.ListFormat.DecreaseIndentLevel();
+ 
+section.AddParagraph();
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+//Writes default numbered list. 
+
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 0");
+ 
+//Applies the default numbered list formats 
+ 
+paragraph.ListFormat.ApplyDefNumberedStyle();
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 1");
+ 
+//Specifies the list format to continue from last list
+ 
+paragraph.ListFormat.ContinueListNumbering();
+ 
+//Increments the list level
+ 
+paragraph.ListFormat.IncreaseIndentLevel();
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 0");
+ 
+paragraph.ListFormat.ContinueListNumbering();
+ 
+//Decrements the list level
+ 
+paragraph.ListFormat.DecreaseIndentLevel();
+ 
+section.AddParagraph();
+           
+//Writes default bulleted list. 
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 0");
+ 
+//Applies the default bulleted list formats
+ 
+paragraph.ListFormat.ApplyDefBulletStyle();
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 1");
+ 
+//Specifies the list format to continue from last list
+ 
+paragraph.ListFormat.ContinueListNumbering();
+ 
+//Increments the list level
+ 
+paragraph.ListFormat.IncreaseIndentLevel();
+ 
+paragraph = section.AddParagraph();
+ 
+paragraph.AppendText("Level 0");
+ 
+//Specifies the list format to continue from last list
+ 
+paragraph.ListFormat.ContinueListNumbering();
+ 
+//Decrements the list level
+ 
+paragraph.ListFormat.DecreaseIndentLevel();
+ 
+section.AddParagraph();
+
+{% endhighlight %} 
 
  {% endtabs %}  
 
@@ -619,11 +1434,132 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+ 
+//Saves the stream as Word document file in local machine
+
+Save(stream, outputFileName);
+
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+MemoryStream stream = new MemoryStream();
+ 
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+ 
+document.Close();
+
+stream.Position = 0;
+ 
+//Download Word document in the browser
+
+return File(stream, "application/msword", outputFileName);
+
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+
+MemoryStream stream = new MemoryStream();
+ 
+//Saves the Word document to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+ 
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+ 
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(outputFileName, "application/msword", stream);
+
+
+{% endhighlight %} 
+
  {% endtabs %}  
 
 The resultant Word document looks as follows.
 
-![](GettingStarted_images/GettingStarted_img1.jpeg)
+![Creating a new Word document from scratch with basic elements](GettingStarted_images/GettingStarted_img1.jpeg)
 
 
 ## Modifying an existing Word document
@@ -675,6 +1611,159 @@ document.Save("Result.docx")
 document.Close()
 
 {% endhighlight %}
+
+{% highlight UWP %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Giant Panda.docx");
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(FileStream);
+
+//Replaces the word "bear" as "panda"
+
+document.Replace("bear", "panda", false, true);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word document file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+FileStream fileStream = new FileStream(@"Giant Panda.docx",FileMode.Open,FileAccess.ReadWrite);
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
+
+//Replaces the word "bear" as "panda"
+
+document.Replace("bear", "panda", false, true);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+document.Close();
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream FileStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Giant Panda.docx");
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(FileStream,FormatType.Automatic);
+
+//Replaces the word "bear" as "panda"
+
+document.Replace("bear", "panda", false, true);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
+
+{% endhighlight %} 
 
 {% endtabs %}  
 
@@ -738,6 +1827,193 @@ document.Close()
 
 {% endhighlight %} 
 
+{% highlight UWP %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(FileStream);
+
+//Finds the occurrence of the Word "panda" in the document
+
+TextSelection[] textSelection = document.FindAll("panda", false, true);
+
+//Iterates through each occurrence and highlights it
+
+foreach (TextSelection selection in textSelection)
+
+{
+
+IWTextRange textRange = selection.GetAsOneRange();
+
+textRange.CharacterFormat.HighlightColor = Color.Yellow;
+
+}
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word document file in local machine
+            
+Save(stream, "Sample.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+FileStream fileStream = new FileStream(@"Test.docx",FileMode.Open,FileAccess.ReadWrite);
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
+
+//Finds the occurrence of the Word "panda" in the document
+
+TextSelection[] textSelection = document.FindAll("panda", false, true);
+
+//Iterates through each occurrence and highlights it
+
+foreach (TextSelection selection in textSelection)
+
+{
+
+IWTextRange textRange = selection.GetAsOneRange();
+
+textRange.CharacterFormat.HighlightColor = Syncfusion.Drawing.Color.Yellow;
+
+}
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+document.Close();
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream FileStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx");
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(FileStream,FormatType.Automatic);
+
+//Finds the occurrence of the Word "panda" in the document
+
+TextSelection[] textSelection = document.FindAll("panda", false, true);
+
+//Iterates through each occurrence and highlights it
+
+foreach (TextSelection selection in textSelection)
+
+{
+
+IWTextRange textRange = selection.GetAsOneRange();
+
+textRange.CharacterFormat.HighlightColor = Syncfusion.Drawing.Color.Yellow;
+
+}
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStartedSample.docx", "application/msword", stream);
+
+
+{% endhighlight %} 
+
 {% endtabs %}  
 
 
@@ -758,7 +2034,7 @@ Follow the given steps to perform simple Mail merge in a Word document.
 
 Let’s consider that you have a template Word document with merge fields as shown.
 
-![](GettingStarted_images/GettingStarted_img2.jpeg)
+![Performing Mail merge input document](GettingStarted_images/GettingStarted_img2.jpeg)
 
 
 The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data source. The Mail merge operation replaces the matching merge fields with the respective data.
@@ -819,11 +2095,190 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.SimpleMailMergeTemplate.docx");
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(FileStream);
+
+//Initializes the string array with field names
+
+string[] fieldNames = new string[] { "FirstName", "LastName", "Email", "Country" };
+
+//Initializes the string array with field values
+
+string[] fieldValues = new string[] { "John", "Smith", "john_smith@domain.com", "USA" };
+
+//Executes the mail merge operation that replaces the matching field names with field values respectively.
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word document file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+FileStream fileStream = new FileStream(@"SimpleMailMergeTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
+
+//Initializes the string array with field names
+
+string[] fieldNames = new string[] { "FirstName", "LastName", "Email", "Country" };
+
+//Initializes the string array with field values
+
+string[] fieldValues = new string[] { "John", "Smith", "john_smith@domain.com", "USA" };
+
+//Executes the mail merge operation that replaces the matching field names with field values respectively.
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+            
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+document.Close();
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.SimpleMailMergeTemplate.docx");
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(FileStream,FormatType.Automatic);
+
+//Initializes the string array with field names
+
+string[] fieldNames = new string[] { "FirstName", "LastName", "Email", "Country" };
+
+//Initializes the string array with field values
+
+string[] fieldValues = new string[] { "John", "Smith", "john_smith@domain.com", "USA" };
+
+//Executes the mail merge operation that replaces the matching field names with field values respectively.
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+document.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStartedSample.docx", "application/msword", stream);
+
+
+{% endhighlight %} 
+
 {% endtabs %} 
 
 The resultant Word document look as follows.
 
-![](GettingStarted_images/GettingStarted_img3.jpeg)
+![Performing Mail merge output document](GettingStarted_images/GettingStarted_img3.jpeg)
 
 
 ### Simple Mail merge with Group
@@ -837,7 +2292,7 @@ The region between these two merge fields get repeated for every record from the
 
 For example – let’s consider that you have a template document as shown.
 
-![](GettingStarted_images/GettingStarted_img4.jpeg)
+![Simple Mail merge with Group input document](GettingStarted_images/GettingStarted_img4.jpeg)
 
 
 Here, in this template, Employees is the group name and exact same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the Mail merge group. 
@@ -899,6 +2354,180 @@ document.MailMerge.ExecuteGroup(dataSource)
 document.Save("Result.docx")
 
 document.Close()
+
+{% endhighlight %} 
+
+{% highlight UWP %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.EmployeesTemplate.docx");
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(FileStream);
+            
+//Gets the employee details as IEnumerable collection
+
+List<Employee> employeeList = GetEmployees();
+
+//Creates an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection
+
+MailMergeDataTable dataSource = new MailMergeDataTable("Employees", employeeList);
+
+//Performs Mail merge
+
+document.MailMerge.ExecuteGroup(dataSource);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to MemoryStream
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+document.Close();
+
+//Saves the stream as Word document file in local machine
+
+Save(stream, "Result.docx");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".docx";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(fileStream, FormatType.Automatic);
+
+//Gets the employee details as IEnumerable collection
+
+List<Employee> employeeList = GetEmployees();
+
+//Creates an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection
+
+MailMergeDataTable dataSource = new MailMergeDataTable("Employees", employeeList);
+
+//Performs Mail merge
+
+document.MailMerge.ExecuteGroup(dataSource);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to  MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream FileStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.EmployeesTemplate.docx");
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument document = new WordDocument(FileStream,FormatType.Automatic);
+
+//Gets the employee details as IEnumerable collection
+
+List<Employee> employeeList = GetEmployees();
+
+//Creates an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection
+
+MailMergeDataTable dataSource = new MailMergeDataTable("Employees", employeeList);
+
+//Performs Mail merge
+
+document.MailMerge.ExecuteGroup(dataSource);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
 
 {% endhighlight %} 
 
@@ -1179,11 +2808,223 @@ End Class
 
 {% endhighlight %} 
 
+{% highlight UWP %}
+
+public List<Employee> GetEmployees()
+
+{
+
+List<Employee> employees = new List<Employee>();
+
+employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
+
+employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+
+employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+
+employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+
+employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+
+return employees;
+
+}
+
+public class Employee
+{
+public string FirstName { get; set; }
+
+public string LastName { get; set; }
+
+public string Address { get; set; }
+
+public string City { get; set; }
+
+public string Region { get; set; }
+
+public string Country { get; set; }
+
+public string Title { get; set; }
+
+public Syncfusion.Drawing.Image Photo { get; set; }
+
+public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+
+{
+
+FirstName = firstName;
+
+LastName = lastName;
+
+Title = title;
+
+Address = address;
+
+City = city;
+
+Region = region;
+
+Country = country;
+
+Stream stream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("CreateWordSample.Assets." + photoFilePath);
+
+Photo = Syncfusion.Drawing.Image.FromStream(stream);
+
+}   
+         
+}
+
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+public List<Employee> GetEmployees()
+
+{
+
+List<Employee> employees = new List<Employee>();
+
+employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
+
+employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+
+employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+
+employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+
+employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+
+return employees;
+
+}
+
+public class Employee
+
+{
+
+public string FirstName { get; set; }
+
+public string LastName { get; set; }
+
+public string Address { get; set; }
+
+public string City { get; set; }
+
+public string Region { get; set; }
+
+public string Country { get; set; }
+
+public string Title { get; set; }
+
+public Syncfusion.Drawing.Image Photo { get; set; }
+
+public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+
+{
+
+FirstName = firstName;
+
+LastName = lastName;
+
+Title = title;
+
+Address = address;
+
+City = city;
+
+Region = region;
+
+Country = country;
+
+FileStream imageStream = new FileStream(photoFilePath, FileMode.Open, FileAccess.ReadWrite);
+
+Photo = Syncfusion.Drawing.Image.FromStream(imageStream);
+
+imageStream.Dispose();
+
+imageStream.Close();   
+             
+}
+
+}
+
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+public List<Employee> GetEmployees()
+
+{
+
+List<Employee> employees = new List<Employee>();
+
+employees.Add(new Employee("Nancy", "Smith", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA","USA", "Nancy.png"));
+
+employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+
+employees.Add(new Employee("Roland", "Mendel", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Janet.png"));
+
+employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+
+employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+
+return employees;
+
+}
+
+public class Employee
+{
+public string FirstName { get; set; }
+
+public string LastName { get; set; }
+
+public string Address { get; set; }
+
+public string City { get; set; }
+
+public string Region { get; set; }
+
+public string Country { get; set; }
+
+public string Title { get; set; }
+
+public Syncfusion.Drawing.Image Photo { get; set; }
+
+public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+
+{
+
+FirstName = firstName;
+
+LastName = lastName;
+
+Title = title;
+
+Address = address;
+
+City = city;
+
+Region = region;
+
+Country = country;
+
+Stream stream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("CreateWordSample.Assets." + photoFilePath);
+
+Photo = Syncfusion.Drawing.Image.FromStream(stream);
+
+}   
+         
+}
+
+{% endhighlight %} 
+
 {% endtabs %}  
 
 The resultant document looks as follows.
 
-![](GettingStarted_images/GettingStarted_img5.jpeg)
+![Simple Mail merge with Group output document](GettingStarted_images/GettingStarted_img5.jpeg)
 
 
 ## Converting Word document to PDF
@@ -1200,7 +3041,19 @@ For converting a Word document to PDF, the following assemblies are required to 
 * Syncfusion.OfficeChartToImageConverter.WPF
 * Syncfusion.SfChart.WPF
 
-`DocToPDFConverter` class is responsible for converting a Word document into PDF. The following code example illustrates how to convert a Word document into PDF document.
+For converting a word document to PDF in Xamarin, UWP and ASP.NET Core platform, the following assemblies are required.
+
+* Syncfusion.DocIO.Portable
+* Syncfusion.OfficeChart.Portable
+* Syncfusion.Compression.Portable
+* Syncfusion.Pdf.Portable
+* Syncfusion.DocIORenderer.Portable
+
+`DocToPDFConverter` class is responsible for converting a Word document into PDF. 
+
+In portable projects, `DocIORenderer` is responsible for converting a Word document into PDF.
+
+The following code example illustrates how to convert a Word document into PDF document.
 
 {% tabs %} 
 
@@ -1267,6 +3120,174 @@ pdfDocument.Close()
 wordDocument.Close()
 
 {% endhighlight %}  
+
+{% highlight UWP %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream inputWordDocument = assembly.GetManifestResourceStream("CreateWordSample.Assets.WordToPDF.docx");
+
+//Loads the template document
+
+WordDocument wordDocument = new WordDocument(inputWordDocument, FormatType.Automatic);
+
+//Creates an instance of DocToPDFConverter - responsible for Word to PDF conversion
+
+DocIORenderer converter = new DocIORenderer();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+//Save the document into stream.
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+
+Save(outputStream, "Output.pdf");
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+streams.Position = 0;
+
+StorageFile stFile;
+
+if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+{
+
+FileSavePicker savePicker = new FileSavePicker();
+
+savePicker.DefaultFileExtension = ".pdf";
+
+savePicker.SuggestedFileName = filename;
+
+savePicker.FileTypeChoices.Add("PDF Documents", new List<string>() { ".pdf" });
+
+stFile = await savePicker.PickSaveFileAsync();
+
+}
+
+else
+
+{
+
+StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+}
+
+if (stFile != null)
+
+{
+
+using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+{
+
+// Write compressed data from memory to file
+
+using (Stream outstream = zipStream.AsStreamForWrite())
+
+{
+
+byte[] buffer = streams.ToArray();
+
+outstream.Write(buffer, 0, buffer.Length);
+
+outstream.Flush();
+
+}
+
+}
+
+}
+
+// Launch the saved Word file
+
+await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+FileStream fileStream = new FileStream(@"EmployeesTemplate.docx", FileMode.Open,FileAccess.ReadWrite);
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic);
+
+//Creates an instance of DocToPDFConverter - responsible for Word to PDF conversion
+
+DocIORenderer converter = new DocIORenderer();
+
+//Converts Word document into PDF document
+
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+//Save the document into stream.
+
+MemoryStream outputStream = new MemoryStream();
+
+pdfDocument.Save(outputStream);
+
+//Closes the instance of PDF document object
+
+pdfDocument.Close();
+
+wordDocument.Close();
+
+outputStream.Position = 0;
+
+//Download Word document in the browser
+
+return File(outputStream, "application/pdf", "Result.pdf");
+
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream inputWordDocument = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.EmployeesTemplate.docx");
+
+//Loads an existing Word document into DocIO instance
+
+WordDocument wordDocument = new WordDocument(inputWordDocument, FormatType.Automatic);
+           
+//document.Save(stream, FormatType.Docx);
+
+DocIORenderer docIORenderer = new DocIORenderer();
+
+PdfDocument pdfDocument = docIORenderer.ConvertToPDF(wordDocument);
+
+MemoryStream stream = new MemoryStream();
+
+pdfDocument.Save(stream);
+
+pdfDocument.Close();
+
+wordDocument.Close();
+
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.pdf", "application/pdf", stream);
+
+{% endhighlight %} 
 
 {% endtabs %}  
 
