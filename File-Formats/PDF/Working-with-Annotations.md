@@ -13,7 +13,7 @@ You can add, delete and modify the annotation from the PDF documents.
 
 ## Adding annotations to a PDF document
 
-The following code example explains how to add a popup annotation to the page.
+You can add a popup annotation to the page using [PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) class. The following code example explains this.
 
 {% tabs %}
 {% highlight c# %}
@@ -520,7 +520,7 @@ else
 
 Annotations can be flattened by removing the existing annotation and replacing it with graphics objects that would resemble the annotation and cannot be edited.
 
-Please refer the sample for flattening all the annotations in the PDF document.
+This can be achieved by enabling the [Flatten](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection~Flatten.html) property. Please refer the sample for flattening all the annotations in the PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -1039,7 +1039,7 @@ else
 
 3D Annotations are used to represent 3D artworks in a PDF document. Essential PDF provides support to embed 3D files (u3d) in PDF. 
 
-The following example illustrates how to add 3D annotation in PDF document.
+You can add a 3D annotation in PDF document using [Pdf3DAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.Pdf3DAnnotation.html) class. The following example illustrates this.
 {% tabs %}
 {% highlight c# %}
 
@@ -1239,7 +1239,7 @@ else
 
 {% endtabs %}
 
-You can add the JavaScript script to the 3D annotation using the ```OnInstantiate``` property, which is executed whenever a 3D stream is read to create an instance of the 3D artwork. The following code snippet illustrate this.
+You can add the JavaScript script to the 3D annotation using the [OnInstantiate](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.Pdf3DAnnotation~OnInstantiate.html) property, which is executed whenever a 3D stream is read to create an instance of the 3D artwork. The following code snippet illustrate this.
 
 {% tabs %}
 
@@ -1416,7 +1416,7 @@ else
 
 ### File Link Annotation 
 
-Links for external files can be added in a PDF document by using the file link annotation.
+Links for external files can be added in a PDF document by using the [PdfFileLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfFileLinkAnnotation.html) class.
 
 The following code example explains how to add a file link annotation in PDF.
 {% tabs %}
@@ -1509,7 +1509,7 @@ document.Close(True)
 
 ### Free Text Annotation
 
-Free text annotation enables you to display the text directly on the page. When you want to add a comment directly without placing it on a pop-up window, FreeTextAnnotation can be used.
+Free text annotation enables you to display the text directly on the page. When you want to add a comment directly without placing it on a pop-up window, [PdfFreeTextAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfFreeTextAnnotation.html) can be used.
 
 The following code example explains how to add a free text annotation in the PDF document.
 
@@ -1828,7 +1828,7 @@ else
 
 Line annotation displays a single straight line on the page. When you open it, it displays a pop-up window containing text of the associated note.
 
-PdfLineAnnotation is used to create and set the properties of the Line annotation.
+[PdfLineAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLineAnnotation.html) is used to create and set the properties of the Line annotation.
 {% tabs %}
 {% highlight c# %}
 
@@ -2225,7 +2225,7 @@ Rubber stamp annotation displays text or graphics intended to look like it is st
 
 When opened, it displays a pop-up window containing the text of the associated note.
 
-PdfRubberStampAnnotation is used to create rubber stamp annotation.
+[PdfRubberStampAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfRubberStampAnnotation.html) is used to create rubber stamp annotation.
 
 {% tabs %}
 {% highlight c# %}
@@ -2442,7 +2442,7 @@ Ink annotation represents freehand “scribble” comprising one or more disjoin
 
 When you open it, it displays a pop-up window containing text of the associated note.
 
-The following code example explains how to add ink annotation in a PDF document.
+[PdfInkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfInkAnnotation.html) is used to create ink annotation in a PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -2652,7 +2652,7 @@ else
 
 {% endtabs %}
 
-You can get ink list points from the ```PdfLoadedInkAnnotation```, represented by ```InkPointsCollection```. The following code illustrate this.
+You can get ink list points from the [PdfLoadedInkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLoadedInkAnnotation.html), represented by [InkPointsCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLoadedInkAnnotation~InkPointsCollection.html). The following code illustrate this.
 
 {% tabs %}
 
@@ -2883,7 +2883,7 @@ Pop-up annotation displays text in a pop-up window for entry and editing.
 
 It typically does not appear alone, but is associated with markup annotation, its parent annotation.
 
-The following code example explains how to add pop-up annotation in a PDF document.
+[PdfPopupAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html) is used to add pop-up annotation in a PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -3129,7 +3129,7 @@ else
 
 File attachment annotation contains reference to a file that typically is embedded in the PDF file.
 
-The following code example explains how to add a file attachment annotation in a PDF document.
+[PdfAttachmentAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfAttachmentAnnotation.html) is used to add a file attachment annotation in a PDF document.
 
 {% tabs %}
 {% highlight c# %}
@@ -3365,7 +3365,7 @@ else
 
 Sound annotation is used to play the sound clip in the PDF Document.
 
-The following code example explains how to add a sound annotation in a PDF document.
+The following code example explains how to add a sound annotation in a PDF document using [PdfSoundAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfSoundAnnotation.html).
 {% tabs %}
 {% highlight c# %}
 
@@ -3591,7 +3591,7 @@ else
 
 URI annotation is used to navigate to a particular web URI
 
-The following code example explains how to add URI annotation in a PDF document.
+The following code example explains how to add URI annotation in a PDF document using [PdfUriAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfUriAnnotation.html).
 {% tabs %}
 {% highlight c# %}
 
@@ -3815,7 +3815,7 @@ else
 
 This annotation is used to navigate to a specific destination within the document.
 
-The following code example explains how to add a document link annotation in PDF document.
+[PdfDocumentLinkAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfDocumentLinkAnnotation.html) is used to add a document link annotation in PDF document.
 {% tabs %}
 {% highlight c# %}
 
@@ -4114,7 +4114,7 @@ The following measurement annotation types are supported in Essential PDF:
 
 The line measurement annotation is displayed as the straight line in the page. The distance of the line is measured automatically when you change the position of the line and is displayed in the pop-up window.
 
-The following code example explains how to add a line measurement annotation to the page.
+[PdfLineMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLineMeasurementAnnotation.html) to add a line measurement annotation to the page.
 
 {% tabs %}
 {% highlight c# %}
@@ -4444,7 +4444,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("LineMeasurementAnnotation.pdf
 
 The square measurement annotation is displayed as square shape in the page. The area of the square is measured when you change the square bound and is displayed in the pop-up window.
 
-The following code example explains how to add a square measurement annotation to the page.
+[PdfSquareMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfSquareMeasurementAnnotation.html) is used to add a square measurement annotation to the page.
 
 {% tabs %}
 
@@ -4715,7 +4715,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("SquareMeasurementAnnotation.p
 
 The circle measurement annotation is displayed as circle shape in the page. The radius or diameter distance of the circle is measured and the value is displayed in the pop-up window.
 
-The following code example explains how to add a circle measurement annotation to the page.
+[PdfCircleMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfCircleMeasurementAnnotation.html) is used to add a circle measurement annotation to the page.
 
 {% tabs %}
 
@@ -5008,7 +5008,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().Save("CircleMeasurementAnnotation.p
 
 The angle measurement annotation calculates the angle between three points and draws arc between three points. The angle of the annotation is displayed in the pop-up window.
 
-The following code example explains how to add angle measurement annotation to the page.
+[PdfAngleMeasurementAnnotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfAngleMeasurementAnnotation.html) helps you to add angle measurement annotation to the page.
 
 {% tabs %}
 
@@ -5334,7 +5334,7 @@ else
 
 ## Removing annotations from an existing PDF 
 
-You can remove the annotation from the annotation collection, represented by the **PdfLoadedAnnotationCollection** of the loaded page. The following code illustrates this.
+You can remove the annotation from the annotation collection, represented by the [PdfLoadedAnnotationCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedAnnotationCollection.html) of the loaded page. The following code illustrates this.
 
 {% tabs %}
 {% highlight c# %}
@@ -5535,7 +5535,7 @@ else
 
 ## Importing annotations from FDF file
 
-FDF stands for Forms Data Format. FDF is a file format for representing annotations present in a PDF document. You can import annotation data from the FDF file to PDF using the ImportAnnotations method in PdfLoadedDocument class.
+FDF stands for Forms Data Format. FDF is a file format for representing annotations present in a PDF document. You can import annotation data from the FDF file to PDF using the [ImportAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument~ImportAnnotations.html) method in [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
 
 {% tabs %}
 
@@ -5703,7 +5703,7 @@ else
 
 ## Importing annotations from XFDF file
 
-XFDF stands for XML Forms Data Format. XFDF is the XML version of FDF for representing annotations that are contained in a PDF document. You can import annotation data from the XFDF file to PDF using the ImportAnnotations method in PdfLoadedDocument class.
+XFDF stands for XML Forms Data Format. XFDF is the XML version of FDF for representing annotations that are contained in a PDF document. You can import annotation data from the XFDF file to PDF using the [ImportAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument~ImportAnnotations.html) method in [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
 
 {% tabs %}
 
@@ -5871,7 +5871,7 @@ else
 
 ## Exporting annotations to FDF file
 
-To export annotation data to the FDF file from PDF document, you can use the ExportAnnotations method in PdfLoadedDocument class.
+To export annotation data to the FDF file from PDF document, you can use the [ExportAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument~ExportAnnotations.html) method in [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
 
 {% tabs %}
 
@@ -6019,7 +6019,7 @@ else
 
 ## Exporting annotations to XFDF file
 
-To export annotation data to the XFDF file from PDF document, you can use the ExportAnnotations method in PdfLoadedDocument class.
+To export annotation data to the XFDF file from PDF document, you can use the [ExportAnnotations](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument~ExportAnnotations.html) method in [PdfLoadedDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedDocument.html) class.
 
 {% tabs %}
 
@@ -6167,13 +6167,13 @@ else
 
 ## Retrieve review status and comments from PDF annotation
 
-The PDF annotations may have an author-specific state associated with them. The state is not specified in the annotation itself, but it represents a separate text annotation (pop-up annotation).
+The PDF annotations may have an author-specific state associated with them. The state is not specified in the annotation itself, but it represents a separate text annotation ([Popup Annotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html)).
 
 The Essential PDF supports retrieving the annotation comments and review history from the existing PDF document annotations.
 
 ### Retrieve review status from PDF annotation
 
-The following code example explains how to retrieve the annotation review history from the existing PDF document annotations.
+You can retrieve the annotation review history from the existing PDF document annotations through the [ReviewHistory](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLoadedPopupAnnotation~ReviewHistory.html) property.
 
 {% tabs %}
 
@@ -6543,7 +6543,7 @@ loadedDocument.Close(true);
 
 ## Printing Annotations
 
-The Essential PDF supports printing the annotation in a PDF document by setting the annotation flag to Print using the AnnotationFlags property.
+The Essential PDF supports printing the annotation in a PDF document by setting the annotation flag to ```Print``` using the [AnnotationFlags](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfLoadedStyledAnnotation~AnnotationFlags.html) property.
 
 The following code example illustrates how to print annotation in the PDF document.
 
