@@ -1,5 +1,5 @@
 ---
-title: Converting Word document to Image
+title: Converting Word document to Image| DocIO | Syncfusion
 description: Converting Word document to Image using DocIO
 platform: file-formats
 control: DocIO
