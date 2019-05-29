@@ -1,5 +1,5 @@
 ---
-title: Converting Word document to Image
+title: Converting Word document to Image| DocIO | Syncfusion
 description: Converting Word document to Image using DocIO
 platform: file-formats
 control: DocIO
@@ -146,8 +146,9 @@ wordDocument.Close()
 {% endhighlight %}
 {% endtabs %}
 
-N> 1. Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin, Azure Web Service, Azure APP Service, ASP.NET Core, and Universal Windows Platform applications.
-N> 2. Creating an instance of the ChartToImageConverter class is mandatory to convert the charts present in the Word document to Image. Otherwise, the charts are not preserved in the generated image.
-N> 3. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
-N> 4. Total number of images may vary based on unsupported elements in the input Word document.
-N> 5. Word to Image conversion has the same limitations and unsupported elements of Word to PDF conversion.
+N> 1. Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin, ASP.NET Core and Universal Windows Platform applications.
+N> 2. In Azure Web Service and Azure APP Service, .NET GDI+ (System.Drawing) does not support the Metafile image (vector image). So, the image will be generated as Bitmap (raster image).
+N> 3. Creating an instance of the ChartToImageConverter class is mandatory to convert the charts present in the Word document to Image. Otherwise, the charts are not preserved in the generated image.
+N> 4. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
+N> 5. Total number of images may vary based on unsupported elements in the input Word document.
+N> 6. Word to Image conversion has the same limitations and unsupported elements of Word to PDF conversion.
