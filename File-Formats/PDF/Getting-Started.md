@@ -1579,3 +1579,178 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+## Coordinate System
+
+All the units used in PDF library including margin are represented in points.
+
+* 1 inch = 72 points
+* 1 cm = 28.35 points
+
+The [PdfUnitConvertor](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfUnitConvertor.html) class allows conversion between different unit metrics using [PdfGraphicsUnit](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphicsUnit.html) Enum. Conversion methods available in ``PdfUnitConvertor`` are [ConvertFromPixels](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfUnitConvertor~ConvertFromPixels.html), [ConvertToPixels](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfUnitConvertor~ConvertToPixels.html), and [ConvertUnits](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfUnitConvertor~ConvertUnits.html).
+
+The following code snippet explains pixel to point conversion.
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = document.Pages.Add();
+
+//Load an image into PdfBitmap
+PdfBitmap image = new PdfBitmap("Autumn Leaves.jpg");
+
+//Create a PdfUnitConvertor instance
+PdfUnitConvertor converter = new PdfUnitConvertor();
+
+//Convert the width and height of image from pixel to point
+float width = converter.ConvertFromPixels(image.Width, PdfGraphicsUnit.Point);
+float height = converter.ConvertFromPixels(image.Height, PdfGraphicsUnit.Point);
+
+//Draw the image to PDF page
+page.Graphics.DrawImage(image, new RectangleF(0, 0, width, height));
+
+//Save the PDF document
+document.Save("Output.pdf");
+
+//Close the instance of PdfDocument
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Add a page to the document
+Dim page As PdfPage = document.Pages.Add
+
+'Load an image into PdfBitmap
+Dim image As PdfBitmap = New PdfBitmap("Autumn Leaves.jpg")
+
+'Create a PdfUnitConvertor instance
+Dim converter As PdfUnitConvertor = New PdfUnitConvertor
+
+'Convert the width and height of image from pixel to point
+Dim width As Single = converter.ConvertFromPixels(image.Width, PdfGraphicsUnit.Point)
+Dim height As Single = converter.ConvertFromPixels(image.Height, PdfGraphicsUnit.Point)
+
+'Draw the image to PDF page
+page.Graphics.DrawImage(image, New RectangleF(0, 0, width, height))
+
+'Save the PDF document
+document.Save("Output.pdf")
+
+'Close the instance of PdfDocument
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = document.Pages.Add();
+
+//Load an image into PdfBitmap
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Create a PdfUnitConvertor instance
+PdfUnitConvertor converter = new PdfUnitConvertor();
+
+//Convert the width and height of image from pixel to point
+float width = converter.ConvertFromPixels(image.Width, PdfGraphicsUnit.Point);
+float height = converter.ConvertFromPixels(image.Height, PdfGraphicsUnit.Point);
+
+//Draw the image to PDF page
+page.Graphics.DrawImage(image, new RectangleF(0, 0, width, height));
+
+//Create memory stream
+MemoryStream stream = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(stream);
+
+//Close the instance of PdfDocument
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(stream, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = document.Pages.Add();
+
+//Load an image into PdfBitmap
+FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open);
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Create a PdfUnitConverter instance
+PdfUnitConverter converter = new PdfUnitConverter();
+
+//Convert the width and height of image from pixel to point
+float width = converter.ConvertFromPixels(image.Width, PdfGraphicsUnit.Point);
+float height = converter.ConvertFromPixels(image.Height, PdfGraphicsUnit.Point);
+
+//Draw the image to PDF page
+page.Graphics.DrawImage(image, new RectangleF(0, 0, width, height));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page to the document
+PdfPage page = document.Pages.Add();
+
+//Load an image into PdfBitmap
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Autumn Leaves.jpg");
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Create a PdfUnitConverter instance
+PdfUnitConverter converter = new PdfUnitConverter();
+
+//Convert the width and height of image from pixel to point
+float width = converter.ConvertFromPixels(image.Width, PdfGraphicsUnit.Point);
+float height = converter.ConvertFromPixels(image.Height, PdfGraphicsUnit.Point);
+
+//Draw the image to PDF page
+page.Graphics.DrawImage(image, new RectangleF(0, 0, width, height));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the instance of PdfDocument
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %} 
