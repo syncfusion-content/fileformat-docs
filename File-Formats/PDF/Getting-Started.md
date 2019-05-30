@@ -1603,11 +1603,11 @@ PdfPage page = document.Pages.Add();
 PdfBitmap image = new PdfBitmap("Autumn Leaves.jpg");
 
 //Create a PdfUnitConvertor instance
-PdfUnitConvertor converter = new PdfUnitConvertor();
+PdfUnitConvertor convertor = new PdfUnitConvertor();
 
 //Convert the width and height of image from pixel to point
-float width = converter.ConvertFromPixels(image.Width, PdfGraphicsUnit.Point);
-float height = converter.ConvertFromPixels(image.Height, PdfGraphicsUnit.Point);
+float width = convertor.ConvertFromPixels(image.Width, PdfGraphicsUnit.Point);
+float height = convertor.ConvertFromPixels(image.Height, PdfGraphicsUnit.Point);
 
 //Draw the image to PDF page
 page.Graphics.DrawImage(image, new RectangleF(0, 0, width, height));
@@ -1630,11 +1630,11 @@ Dim page As PdfPage = document.Pages.Add
 Dim image As PdfBitmap = New PdfBitmap("Autumn Leaves.jpg")
 
 'Create a PdfUnitConvertor instance
-Dim converter As PdfUnitConvertor = New PdfUnitConvertor
+Dim convertor As PdfUnitConvertor = New PdfUnitConvertor
 
 'Convert the width and height of image from pixel to point
-Dim width As Single = converter.ConvertFromPixels(image.Width, PdfGraphicsUnit.Point)
-Dim height As Single = converter.ConvertFromPixels(image.Height, PdfGraphicsUnit.Point)
+Dim width As Single = convertor.ConvertFromPixels(image.Width, PdfGraphicsUnit.Point)
+Dim height As Single = convertor.ConvertFromPixels(image.Height, PdfGraphicsUnit.Point)
 
 'Draw the image to PDF page
 page.Graphics.DrawImage(image, New RectangleF(0, 0, width, height))
@@ -1658,11 +1658,11 @@ Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResource
 PdfBitmap image = new PdfBitmap(imageStream);
 
 //Create a PdfUnitConvertor instance
-PdfUnitConvertor converter = new PdfUnitConvertor();
+PdfUnitConvertor convertor = new PdfUnitConvertor();
 
 //Convert the width and height of image from pixel to point
-float width = converter.ConvertFromPixels(image.Width, PdfGraphicsUnit.Point);
-float height = converter.ConvertFromPixels(image.Height, PdfGraphicsUnit.Point);
+float width = convertor.ConvertFromPixels(image.Width, PdfGraphicsUnit.Point);
+float height = convertor.ConvertFromPixels(image.Height, PdfGraphicsUnit.Point);
 
 //Draw the image to PDF page
 page.Graphics.DrawImage(image, new RectangleF(0, 0, width, height));
