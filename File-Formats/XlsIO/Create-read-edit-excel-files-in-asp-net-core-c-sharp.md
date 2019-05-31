@@ -473,7 +473,7 @@ IWorkbook workbook = application.Workbooks.Open(sampleFile);
 IWorksheet worksheet = workbook.Worksheets[0];   
 
 //Set Text in cell A3.
-sheet.Range["A3"].Text ="Hello World";          
+worksheet.Range["A3"].Text ="Hello World";          
 
 //Defining the ContentType for excel file.
 string ContentType = "Application/msexcel";

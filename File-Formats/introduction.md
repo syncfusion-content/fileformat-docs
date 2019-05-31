@@ -1,5 +1,5 @@
 ---
-title: Create, read, edit & convert PDF, Excel, Word & PowerPoint files in C#, VB.NET
+title: Create, read, edit & convert PDF, Excel & Word files | Syncfusion
 description: Create, read, edit, write, and convert PDF, Excel, Word, and PowerPoint file formats in .NET applications without Microsoft Office or Adobe dependencies.
 platform: file-formats
 control: general

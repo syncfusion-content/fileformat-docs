@@ -1,6 +1,6 @@
 ---
-title: Create an excel file from data souce or scratch, export data from excel
-description: Learn how to create an excel file from data source or scratch; export data from Excel; create formatted excel report by filling data just similar like Mail merge
+title: Create an excel file from scratch | Getting started | Syncfusion
+description: Learn how to create an excel file from data source or scratch; export & import Excel data; create formatted excel report by filling data like Mail merge.
 platform: File-formats
 control: XlsIO
 documentation: UG
@@ -959,7 +959,7 @@ namespace ExcelCreation
 
 The output screen-shot of the above code.
 
-![](Getting-Started_images/Getting-Started_img1.jpeg)
+![Getting-Started output](Getting-Started_images/Getting-Started_img1.jpeg)
 
 
 ## Importing Data to Worksheets
@@ -1605,7 +1605,7 @@ public class Sales
 
 The following screenshot shows the DataTable of previous code.
 
-![](Getting-Started_images/Getting-Started_img2.jpeg)
+![DataTable output](Getting-Started_images/Getting-Started_img2.jpeg)
 
 
 You can refer various exporting options in the “Exporting from Worksheet to Data Table” section.
@@ -1639,7 +1639,7 @@ Find more details in [Template marker section for arguments](https://help.syncfu
 
 For example – let’s consider that you have a template document as shown below.
 
-![](Getting-Started_images/Getting-Started_img3.jpeg)
+![Template document output](Getting-Started_images/Getting-Started_img3.jpeg)
 
 [Download input template](http://www.syncfusion.com/downloads/support/directtrac/general/ze/TemplateMarker1284008036.zip)
 
@@ -2046,6 +2046,6 @@ public class Report
 
 The resultant document looks as follows:
 
-![](Getting-Started_images/Getting-Started_img4.jpeg)
+![Output document using Template data filling](Getting-Started_images/Getting-Started_img4.jpeg)
 
 
