@@ -1,5 +1,5 @@
 ---
-title: Working with Redaction |Syncfusion
+title: Working with Redaction | PDF | Syncfusion
 description: This section explains how to Redact PDF document by using Essential PDF
 platform: file-formats
 control: PDF
