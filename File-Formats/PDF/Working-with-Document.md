@@ -2632,7 +2632,7 @@ End Sub
 {% endhighlight %}
 {% endtabs %}
 
-##Uniform Resource Naming in PDF document
+## Uniform Resource Naming in PDF document
 
 The Essential PDF allows you to create a PDF document with proper uniform resource naming by using the [EnableUniqueResourceNaming](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument~EnableUniqueResourceNaming.html) property available in the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument.html) instance. By default, the resource naming is added uniquely. Disabling the ```EnableUniqueResourceNaming``` property will create a PDF document with uniform resource names.
 
