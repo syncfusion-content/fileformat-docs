@@ -1,11 +1,11 @@
 ---
-title: Working with Form Fields
-description: This section illustrated how to work with FormFields
+title: Working with Word Form Fields | Syncfusion
+description: This section illustrated how to work with Word FormFields
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
-# Working with Form Fields
+# Working with Word Form Fields
 
 You can create template document with form fields such as Text, Checkbox and Drop-Down. You can also open an existing template document and fill the form fields with the specified data. 
 
