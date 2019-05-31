@@ -2275,7 +2275,7 @@ htmlConverter.ConverterSettings = webKitSettings;
 
 //Convert Partial HTML to Image
 
-Image image = htmlConverter.ConvertPartialHtmlToImage("https://www.syncfusion.com/", "partner-section");
+Image image = htmlConverter.ConvertPartialHtmlToImage("http://www.google.com", "lga");
 
 byte[] imageByte = image.ImageData;
 
