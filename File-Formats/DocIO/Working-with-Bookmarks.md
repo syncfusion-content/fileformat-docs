@@ -1,5 +1,5 @@
 ---
-title: Working with Bookmarks | Word library | Syncfusion
+title: Add Bookmarks in Word Document | Word library | Syncfusion
 description: This section illustrates how to work with Bookmarks in a Word document using Syncfusion Word library.
 platform: file-formats
 control: DocIO
