@@ -2025,7 +2025,29 @@ image(0).Save("Sample.jpg")
 
 {% highlight ASP.NET Core %}
 
-//Essential PDF supports converting HTML to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+//Initialize HTML converter with WebKit rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+
+webKitSettings.WebKitPath = @"/QtBinariesDotNetCore/";
+
+//Assign WebKit settings to HTML converter
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert URL to Image
+
+Image image = htmlConverter.ConvertToImage("http://www.google.com");
+
+byte[] imageByte = image.ImageData;
+
+//Save the image
+
+File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endhighlight %}
 
@@ -2104,7 +2126,35 @@ image(0).Save("Sample.jpg")
 
 {% highlight ASP.NET Core %}
 
-//Essential PDF supports converting HTML string to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+//Initialize HTML converter with WebKit rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+
+webKitSettings.WebKitPath = @"/QtBinariesDotNetCore/";
+
+//Assign WebKit settings to HTML converter
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//HTML string and Base URL
+
+string htmlString = "<html><body>Hello World!!!</body></html>";
+
+string baseURL = "";
+
+//Convert HTML string to Image
+
+Image image = htmlConverter.ConvertToImage(htmlString, baseURL);
+
+byte[] imageByte = image.ImageData;
+
+//Save the image
+
+File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endhighlight %}
 
@@ -2209,7 +2259,29 @@ Hello world
 
 {% highlight ASP.NET Core %}
 
-//Essential PDF supports converting partial webpage to raster image only in Windows Forms, WPF, ASP.NET, ASP.NET MVC platforms.
+//Initialize HTML converter with WebKit rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter();
+
+WebKitConverterSettings webKitSettings = new WebKitConverterSettings();
+
+//Set WebKit path
+
+webKitSettings.WebKitPath = @"/QtBinariesDotNetCore/";
+
+//Assign WebKit settings to HTML converter
+
+htmlConverter.ConverterSettings = webKitSettings;
+
+//Convert Partial HTML to Image
+
+Image image = htmlConverter.ConvertPartialHtmlToImage("https://www.syncfusion.com/", "partner-section");
+
+byte[] imageByte = image.ImageData;
+
+//Save the image
+
+File.WriteAllBytes("Output.jpg", imageByte);
 
 {% endhighlight %}
 
