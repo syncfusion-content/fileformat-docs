@@ -1136,7 +1136,7 @@ PdfPage page = document.Pages.Add();
 PdfCertificate certificate = PdfCertificate.FindBySubject(StoreType.ROOT, "syncfusion");
 
 //Load the image into PdfImage
-PdfImage image = PdfImage.FromFile("Logo.gif");
+PdfImage image = PdfImage.FromFile("Logo.png");
 
 //Add the signature
 PdfSignature signature = new PdfSignature(document, page, certificate, "Signature 1");
@@ -1187,7 +1187,7 @@ Dim page As PdfPage = document.Pages.Add
 Dim certificate As PdfCertificate = PdfCertificate.FindBySubject(StoreType.ROOT, "syncfusion")
 
 'Load the image into PdfImage
-Dim image As PdfImage = PdfImage.FromFile("Logo.gif")
+Dim image As PdfImage = PdfImage.FromFile("Logo.png")
 
 'Add the signature
 Dim signature As PdfSignature = New PdfSignature(document, page, certificate, "Signature 1")
