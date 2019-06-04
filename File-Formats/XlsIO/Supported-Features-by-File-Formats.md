@@ -1,5 +1,5 @@
 ---
-title: Supported Features by File Formats
+title: Supported Features by File Formats | Syncfusion
 description: Briefs about supported and non-supported file format features in XlsIO
 platform: File-formats
 control: XlsIO
