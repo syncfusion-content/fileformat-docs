@@ -508,7 +508,7 @@ The list of various supported and unsupported Excel features of Essential XlsIO 
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
-    <td>Import data from DataTable, DataColumn, DataView, Array, CLR Objects to worksheet.</td>
+    <td>Import data from DataTable, DataColumn, DataView, Array, Collection Objects to worksheet.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
@@ -518,7 +518,7 @@ The list of various supported and unsupported Excel features of Essential XlsIO 
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
-    <td>Export data from worksheet to DataTable and CLR Objects.</td>
+    <td>Export data from worksheet to DataTable and Collection Objects.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
