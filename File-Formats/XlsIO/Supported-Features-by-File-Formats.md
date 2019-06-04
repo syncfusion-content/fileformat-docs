@@ -407,7 +407,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-CLR Objects<br/><br/></td><td>
+Collection Objects<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td><td>
