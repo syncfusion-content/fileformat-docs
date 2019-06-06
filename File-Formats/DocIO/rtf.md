@@ -1,6 +1,6 @@
 ---
 title: RTF conversions | DocIO | Syncfusion
-description: Word to RTF conversions using DocIO
+description: RTF to Word conversion and Word to RTF conversions using DocIO
 platform: file-formats
 control: DocIO
 documentation: UG
