@@ -1,12 +1,12 @@
 ---
-title: Converting Word document to ODT | DocIO | Syncfusion
-description: Converting Word document to ODT using DocIO
+title: Converting Word document to ODT format | DocIO | Syncfusion
+description: This section explains on what is ODT & Converting Word document to ODT format using DocIO
 platform: file-formats
 control: DocIO
 documentation: UG
 ---
 
-# Converting Word to ODT
+# Converting Word to ODT format
 
 The [OpenDocument format (ODF)](http://en.wikipedia.org/wiki/OpenDocument#) is an open file format for office documents originally developed for Open Office suite by Sun Microsystems. OpenDocument Text (ODT) is the file format for Word processing documents and currently for an OASIS and ISO standard.
 
