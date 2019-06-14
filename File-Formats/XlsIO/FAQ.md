@@ -1,5 +1,5 @@
 ---
-title: FAQ Section
+title: FAQ Section | Syncfusion
 description: Frequently Asked Questions in XlsIO
 platform: File-formats
 control: XlsIO

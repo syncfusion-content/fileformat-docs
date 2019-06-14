@@ -1,5 +1,5 @@
 ---
-title: Working with Charts
+title: Working with Charts | Syncfusion
 description: Briefs about charts operations
 platform: File-formats
 control: XlsIO
@@ -1748,7 +1748,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-![](Working-with-Charts_images/Working-with-charts_img1.jpeg)
+![chart](Working-with-Charts_images/Working-with-charts_img1.jpeg)
 
 
 ## Remove a chart 
@@ -1888,7 +1888,7 @@ The appearance of a chart can be modified according to the convenience and usage
 
 The following screen shot shows the elements of chart.
 
-![](Working-with-Charts_images/Working-with-charts_img2.jpeg)
+![chart elements](Working-with-Charts_images/Working-with-charts_img2.jpeg)
 
 
 1. The chart area of the chart.
@@ -3219,6 +3219,10 @@ using (ExcelEngine engine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
+The following screen shot shows the high-low lines in the line chart.
+
+![High-Low lines](Working-with-Charts_images/highlowlines.jpg)
+
 ### Add drop lines
 
 Drop lines are used in Excel area and line charts that create lines from highest or lowest data point to the horizontal (category) axis to clarify X position of each data points.
@@ -3374,6 +3378,10 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+The following screen shot shows the high-low lines in the line chart.
+
+![Drop lines](Working-with-Charts_images/droplines.jpg)
 
 ### Add series lines
 
@@ -3531,6 +3539,10 @@ using (ExcelEngine engine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+The following screen shot shows the high-low lines in the line chart.
+
+![Series lines](Working-with-Charts_images/serieslines.jpg)
 
 ## Fill Chart Elements with Picture
 
@@ -6113,7 +6125,7 @@ The input template can be downloaded [here](http://www.syncfusion.com/downloads/
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/funnel.jpeg)
+![funnel chart](Working-with-Charts_images/funnel.jpeg)
 
 ### Box and Whisker
 
@@ -6410,7 +6422,7 @@ The input template can be downloaded [here](http://www.syncfusion.com/downloads/
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/boxandwhisker.jpeg)
+![box and whisker chart](Working-with-Charts_images/boxandwhisker.jpeg)
 
 ### Waterfall
 
@@ -6647,7 +6659,7 @@ The input template can be downloaded [here.](http://www.syncfusion.com/downloads
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/waterfall.jpeg)
+![waterfall chart](Working-with-Charts_images/waterfall.jpeg)
 
 ### Histogram
 
@@ -6879,7 +6891,7 @@ The input template can be downloaded [here.](http://www.syncfusion.com/downloads
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/histogram.jpeg)
+![histogram chart](Working-with-Charts_images/histogram.jpeg)
 
 ### Pareto
 
@@ -7117,7 +7129,7 @@ The input template can be downloaded [here](http://www.syncfusion.com/downloads/
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/pareto.jpeg)
+![pareto chart](Working-with-Charts_images/pareto.jpeg)
 
 ### Treemap
 
@@ -7324,7 +7336,7 @@ The input template can be downloaded [here](http://www.syncfusion.com/downloads/
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/treemap.jpeg)
+![treemap chart](Working-with-Charts_images/treemap.jpeg)
 
 ### Sunburst
 
@@ -7531,7 +7543,7 @@ The input template can be downloaded [here](http://www.syncfusion.com/downloads/
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/sunburst.jpeg)
+![sunburst chart](Working-with-Charts_images/sunburst.jpeg)
 
 
 N>These Charts are supported only in Excel 2016 and are not visible in the earlier versions.

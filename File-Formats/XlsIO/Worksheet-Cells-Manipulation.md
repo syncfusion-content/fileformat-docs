@@ -1,5 +1,5 @@
 ---
-title: Worksheet Cells Manipulation
+title: Worksheet Cells Manipulation | Syncfusion
 description: Briefs about worksheet cells manipulation in XlsIO
 platform: File-formats
 control: XlsIO
