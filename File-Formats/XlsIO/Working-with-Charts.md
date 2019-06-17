@@ -3063,7 +3063,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-### Add high-low lines
+### Add High-Low Lines
 
 High-low lines are used in Excel line charts and stock charts that connect the highest and lowest points of a category.
 
@@ -3223,9 +3223,9 @@ The following screen shot shows the high-low lines in the line chart.
 
 ![High-Low lines](Working-with-Charts_images/highlowlines.jpg)
 
-### Add drop lines
+### Add Drop Lines
 
-Drop lines are used in Excel area and line charts that create lines from highest or lowest data point to the horizontal (category) axis to clarify X position of each data points.
+Drop lines are used in Excel area and line charts that helps viewers to determine the data point down to the horizontal axis.
 
 The following code snippet shows how to add Drop lines in a stock chart.
 
@@ -3379,14 +3379,14 @@ using (ExcelEngine engine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The following screen shot shows the high-low lines in the line chart.
+The following screen shot shows the drop lines in the line chart.
 
 ![Drop lines](Working-with-Charts_images/droplines.jpg)
 
-### Add series lines
+### Add Series Lines
 
 Series lines are used in Excel stacked bar and column charts that create lines from one bar to another that connect every data point in a series.
-Series lines in Excel Pie of pie and bar of pie charts are used to create lines that connect the main pie chart with the secondary pie or bar chart.
+Series lines in Excel Pie-of-pie and bar-of-pie charts are used to create lines that connect the main pie chart with the secondary pie or bar chart.
 
 The following code snippet shows how to add series lines in a pie chart.
 
@@ -3540,7 +3540,7 @@ using (ExcelEngine engine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The following screen shot shows the high-low lines in the line chart.
+The following screen shot shows the series lines in the stacker bar chart.
 
 ![Series lines](Working-with-Charts_images/serieslines.jpg)
 
