@@ -1,5 +1,5 @@
 ---
-title: Supported and Unsupported Features
+title: Supported and Unsupported Features | Syncfusion
 description: This section describes the support and unsupported elements
 platform: file-formats
 control: DocIO
