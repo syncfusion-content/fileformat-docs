@@ -33,8 +33,8 @@ Write<br/><br/></th></tr>
 <tr>
 <td>
 Built-in document properties<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
@@ -42,8 +42,8 @@ No<br/><br/></td></tr>
 <tr>
 <td>
 Custom document properties<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
