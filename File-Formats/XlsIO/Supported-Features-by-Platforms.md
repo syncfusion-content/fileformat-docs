@@ -69,7 +69,7 @@ The list of various supported and non-supported Excel features of Essential XlsI
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
-    <td>Import data from CLR Objects to worksheet.</td>
+    <td>Import data from Collection Objects to worksheet.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>  
@@ -471,3 +471,165 @@ The list of various supported and non-supported Excel features of Essential XlsI
 </table>
 
 N> Worksheet to image conversion is supported from .NET Framework 2.0 and .NET Standard 1.4 onwards.
+
+## Supported Features in Blazor Platform
+
+The list of various supported and unsupported Excel features of Essential XlsIO in Blazor platform is given in the following table.
+
+<table>
+  <tr>
+    <th>Features</th>
+    <th>Blazor Client Side</th>
+    <th>Blazor Server Side</th>
+  </tr>
+  <tr>
+    <td>Excel elements - text, image, table, auto filter, data sort, hyperlink, data validation, conditional formatting, formula, pivot table, comment, shape, chart, grouping, page setting and more.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Presentation formatting - text, table, conditional formatting, styles.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Create an Excel workbook from scratch.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Open an existing Excel workbook and edit.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Read worksheets on demand when Excel file contains multiple worksheets.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Import data from DataTable, DataColumn, DataView, Array, Collection Objects to worksheet.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Import data into a pre-formatted template using Template Markers.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Export data from worksheet to DataTable and Collection Objects.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Access or modify built-in document properties.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Read and write Excel formulas.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Encryption and decryption.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Find and replace text.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Add or copy worksheets within or across workbooks.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Copy a range to another range across worksheets.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Move a range to another range across worksheets.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Save chart as image.</td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th rowspan = "2">File formats</th>
+	<th colspan = "2">Blazor Client Side</th>
+	<th colspan = "2">Blazor Serve Side</th>
+  </tr>
+  <tr>
+    <th>Open</th>
+	<th>Save</th>
+	<th>Open</th>
+	<th>Save</th>
+  </tr>
+  <tr>
+    <td>Excel 97-2003 formats (*.xls, *.xlt)</td>
+	<td>Yes</td>
+	<td>Yes</td>
+	<td>Yes</td>
+	<td>Yes</td>
+  </tr>
+  <tr>
+    <td>Excel 2007-2016 formats (*.xlsx, *.xltx, *.xlsm)</td>
+	<td>Yes</td>
+	<td>Yes</td>
+	<td>Yes</td>
+	<td>Yes</td>
+  </tr>
+  <tr>
+    <td>XML Spreadsheet 2003 (*.xml)</td>
+	<td>Yes</td>
+	<td>Yes</td>
+	<td>Yes</td>
+	<td>Yes</td>
+  </tr>
+  <tr>
+    <td>HTML</td>
+	<td>Yes</td>
+	<td>Yes</td>
+	<td>Yes</td>
+	<td>Yes</td>
+  </tr>
+  <tr>
+    <td>CSV</td>
+	<td>Yes</td>
+	<td>Yes</td>
+	<td>Yes</td>
+	<td>Yes</td>
+  </tr>
+  <tr>
+    <td>OpenDocumentSpreadsheet (*.ods)</td>
+	<td>No</td>
+	<td>No</td>
+	<td>No</td>
+	<td>No</td>
+  </tr>
+  <tr>
+    <td>PDF</td>
+	<td>No</td>
+	<td>No</td>
+	<td>No</td>
+	<td>Yes</td>
+  </tr>
+  <tr>
+    <td>Image (PNG, JPEG)</td>
+	<td>No</td>
+	<td>Yes</td>
+	<td>No</td>
+	<td>Yes</td>
+  </tr>
+</table>
