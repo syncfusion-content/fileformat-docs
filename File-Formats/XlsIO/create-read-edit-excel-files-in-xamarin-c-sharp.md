@@ -585,7 +585,7 @@ void btnCreate_Click(object sender, System.EventArgs e)
 	IWorksheet worksheet = workbook.Worksheets[0];   
 
 	//Set Text in cell A3.
-	worksheet.Range["A3"].Text ="Hello World";    
+	sheet.Range["A3"].Text ="Hello World";    
 
 	MemoryStream stream = new MemoryStream();
 	workbook.SaveAs(stream);

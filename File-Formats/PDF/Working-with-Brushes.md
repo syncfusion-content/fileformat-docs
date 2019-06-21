@@ -158,7 +158,7 @@ else
 {% endhighlight %}
 {% endtabs %}
 
-## Linear Gradient Brush
+## Linear gradient brush
 
 The gradient brush is used to fill an object with blend of two or more colors. Essential PDF supports drawing shapes on PDF document with linear gradient brush using [PdfLinearGradientBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfLinearGradientBrush.html). The following code snippet illustrates this.
 

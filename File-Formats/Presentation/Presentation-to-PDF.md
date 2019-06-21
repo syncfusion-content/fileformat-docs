@@ -1,6 +1,6 @@
 ---
 title: Converting PowerPoint Presentation to PDF |Syncfusion|
-description: This section explains converting PowerPoint Presentation to PDF; PowerPoint Presentation conversion; PPTX to PDF conversions
+description: Converting PowerPoint Presentation to PDF; PowerPoint Presentation conversion
 platform: file-formats
 control: PowerPoint
 documentation: UG

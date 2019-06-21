@@ -1,11 +1,11 @@
 ---
-title: Working with SmartArt in PowerPoint Presentation | Syncfusion
+title: Working with SmartArt in PowerPoint Presentation
 description: Working with SmartArt in PowerPoint Presentation
 platform: file-formats
 control: Presentation
 documentation: UG
 ---
-# Working with SmartArt in Presentation
+# Working with SmartArt
 
 A SmartArt diagram is a visual representation of your information, to effectively communicate your ideas in presentations. You can add and modify the SmartArt diagrams in PowerPoint presentations using Essential Presentation library.
 

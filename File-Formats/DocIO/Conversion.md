@@ -1,6 +1,6 @@
 ---
-title: Word Document Conversion | DocIO | File Format | Syncfusion
-description: This section illustrates how to convert a Word document into other supported file formats like PDF, Image, RTF, Text, HTML, ODT, EPUB.
+title: Conversion
+description: This section illustrates how to convert a Word document into other supported file formats
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Conversion
 
-## Word Document Conversions
+## Working with Document Conversions
 
 The Essential DocIO converts documents from one format to another format. Each file format document can be categorized as flow layout document or fixed layout document.
 

@@ -1,6 +1,6 @@
 ---
-title: Extract Text From PDF File | PDF | File Formats | Syncfusion
-description: This section explains how to extract text from the particular page of the PDF document based on bounds and layout.
+title: Working with Text Extraction | Syncfusion
+description: This section explains how to extract text from the particular page of the PDF document
 platform: file-formats
 control: PDF
 documentation: UG
