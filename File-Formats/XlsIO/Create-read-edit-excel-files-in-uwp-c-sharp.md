@@ -496,7 +496,7 @@ IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
 IWorksheet worksheet = workbook.Worksheets[0];   
 
 //Set Text in cell A3.
-worksheet.Range["A3"].Text ="Hello World";   
+sheet.Range["A3"].Text ="Hello World";   
 
 //Sets workbook version.
 workbook.Version = ExcelVersion.Excel2013;
@@ -538,7 +538,7 @@ Dim workbook.SaveAsAsyncCType(As await, openFile)
 Dim worksheet As IWorksheet = workbook.Worksheets(0)  
 
 'Set Text in cell A3.
-worksheet.Range("A3").Text ="Hello World" 
+sheet.Range("A3").Text ="Hello World" 
 
 'Sets workbook version.
 workbook.Version = ExcelVersion.Excel2013

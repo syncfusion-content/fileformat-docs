@@ -1,5 +1,5 @@
 ---
-title: Worksheet Cells Manipulation
+title: Worksheet Cells Manipulation | Syncfusion
 description: Briefs about worksheet cells manipulation in XlsIO
 platform: File-formats
 control: XlsIO
@@ -1094,6 +1094,274 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   else
   {
 	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Dependents.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Get Direct Precedent and Dependent Cells
+
+`GetDirectDependents` and `GetDirectPrecedents` methods are used to get direct dependent/precedent cells for source range excluding inner dependent/precedent cells. 
+
+Following code example illustrates how to get direct precedent cells from a worksheet and entire workbook.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("FormulaExcel.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting precedent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetDirectPrecedents();
+
+  //Getting precedent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetDirectPrecedents(true);
+
+  string fileName = "DirectPrecedents.xlsx";
+  workbook.SaveAs(fileName);
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Getting precedent cells from the worksheet
+  Dim results1() As IRange = sheet("A1").GetDirectPrecedents()
+
+  'Getting precedent cells from the workbook
+  Dim results2() As IRange = sheet("A1").GetDirectPrecedents(True)
+
+  Dim fileName As String = "DirectPrecedents.xlsx"
+  workbook.SaveAs(fileName)
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting precedent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetDirectPrecedents();
+
+  //Getting precedent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetDirectPrecedents(true);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "DirectPrecedents";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream inputStream = new FileStream("FormulaExcel.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting precedent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetDirectPrecedents();
+
+  //Getting precedent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetDirectPrecedents(true);
+
+  //Saving the workbook as stream
+  FileStream file = new FileStream("DirectPrecedents.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(file);
+  file.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.FormulaExcel.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting precedent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetDirectPrecedents();
+
+  //Getting precedent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetDirectPrecedents(true);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DirectPrecedents.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DirectPrecedents.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+Following code example illustrates how to get direct dependent cells from a worksheet and entire workbook.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  IWorkbook workbook = application.Workbooks.Open("FormulaExcel.xlsx");
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting dependent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetDirectDependents();
+
+  //Getting dependent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetDirectDependents(true);
+
+  string fileName = "DirectDependents.xlsx";
+  workbook.SaveAs(fileName);
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  Dim workbook As IWorkbook = application.Workbooks.Open("FormulaExcel.xlsx")
+  Dim sheet As IWorksheet = workbook.Worksheets(0)
+
+  'Getting dependent cells from the worksheet
+  Dim results1() As IRange = sheet("A1").GetDirectDependents()
+
+  'Getting dependent cells from the workbook
+  Dim results2() As IRange = sheet("A1").GetDirectDependents(True)
+
+  Dim fileName As String = "DirectDependents.xlsx"
+  workbook.SaveAs(fileName)
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting dependent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetDirectDependents();
+
+  //Getting dependent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetDirectDependents(true);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "DirectDependents";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream inputStream = new FileStream("FormulaExcel.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting dependent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetDirectDependents();
+
+  //Getting dependent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetDirectDependents(true);
+
+  //Saving the workbook as stream
+  FileStream file = new FileStream("DirectDependents.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(file);
+  file.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.FormulaExcel.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet sheet = workbook.Worksheets[0];
+
+  //Getting dependent cells from the worksheet
+  IRange[] results1 = sheet["A1"].GetDirectDependents();
+
+  //Getting dependent cells from the workbook
+  IRange[] results2 = sheet["A1"].GetDirectDependents(true);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DirectDependents.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DirectDependents.xlsx", "application/msexcel", stream);
   }
 }
 {% endhighlight %}
