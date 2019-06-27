@@ -1460,8 +1460,6 @@ By default, the Blink rendering engine use system proxy settings for converting 
 
 ![Manual proxy settings](htmlconversion_images/proxy2.png)
 
-You can convert a web page to PDF by using this system proxy settings.
-
 ## Manual proxy
 
 You can specify the manual proxy settings for the conversion using the ProxySettings property. Refer to the following code snippet to configure the manual proxy settings for the conversion.
