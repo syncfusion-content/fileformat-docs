@@ -1339,9 +1339,75 @@ pptxDoc.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Loads or open an PowerPoint Presentation
+FileStream inputStream = new FileStream("Sample.pptx", FileMode.Open);
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Initialize Presentation renderer
+pptxDoc.PresentationRenderer = new PresentationRenderer();
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Changing the paragraph content in the table
+table.Rows[0].Cells[0].TextBody.AddParagraph("Hello World");
+
+//Get the dynamic height of the table
+float height=table.GetActualHeight();
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Table.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Close the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
+
+//Loads or open an PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(inputStream);
+
+//Initialize Presentation renderer
+pptxDoc.PresentationRenderer = new PresentationRenderer();
+
+//Get a table in the slide
+ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
+
+//Changing the paragraph content in the table
+table.Rows[0].Cells[0].TextBody.AddParagraph("Hello World");
+
+//Get the dynamic height of the table
+float height=table.GetActualHeight();
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+
+stream.Position = 0;
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Table.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
 {% endtabs %}
 
-N> Getting the actual height of the table is not supported in UWP, ASP.NET CORE and Xamarin platforms.
+N> Getting the actual height of the table is not supported in UWP platform.
 
 ## Applying table formatting
 
