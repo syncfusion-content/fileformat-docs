@@ -1523,9 +1523,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    
    //Set constant to the parameter value.
    parameter.SetParam(ExcelParameterType.Constant, 30);
-   
-   //Refresh the listobject
-   worksheet.ListObjects[0].Refresh();
 
    //Initializes FileSavePicker
    FileSavePicker savePicker = new FileSavePicker();
@@ -1560,9 +1557,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    
    //Set constant to the parameter value.
    parameter.SetParam(ExcelParameterType.Constant, 30);
-   
-   //Refresh the listobject
-   worksheet.ListObjects[0].Refresh();
 
    //Saving the workbook as stream
    FileStream stream = new FileStream("ConstantParameter.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -1596,9 +1590,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    
    //Set constant to the parameter value.
    parameter.SetParam(ExcelParameterType.Constant, 30);
-   
-   //Refresh the listobject
-   worksheet.ListObjects[0].Refresh();
 
    //Saving the workbook as stream
    MemoryStream outputStream = new MemoryStream();
@@ -1705,9 +1696,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    
    //Set range to the parameter value.
    parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"]);
-   
-   //Refresh the listobject
-   worksheet.ListObjects[0].Refresh();
 
    //Initializes FileSavePicker
    FileSavePicker savePicker = new FileSavePicker();
@@ -1742,9 +1730,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    
    //Set range to the parameter value.
    parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"]);
-   
-   //Refresh the listobject
-   worksheet.ListObjects[0].Refresh();
 
    //Saving the workbook as stream
    FileStream stream = new FileStream("RangeParameter.xlsx", FileMode.Create, FileAccess.ReadWrite);
@@ -1778,9 +1763,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    
    //Set range to the parameter value.
    parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"]);
-   
-   //Refresh the listobject
-   worksheet.ListObjects[0].Refresh();
 
    //Saving the workbook as stream
    MemoryStream outputStream = new MemoryStream();
@@ -1838,7 +1820,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    workbook.Close();
 }
 
-private static void SetParameter(object sender, PromptEventArgs args)
+private void SetParameter(object sender, PromptEventArgs args)
 {
     args.Value = 20;
 }
@@ -1872,7 +1854,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
    workbook.Close()
 End Using
 
-Private Shared Sub SetParameter(ByVal sender As Object, ByVal args As PromptEventArgs)
+Private Sub SetParameter(ByVal sender As Object, ByVal args As PromptEventArgs)
     args.Value = 20
 End Sub
 {% endhighlight %}
@@ -1902,12 +1884,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    
    //Set parameter value through prompt.
    parameter.SetParam(ExcelParameterType.Prompt, "Prompt");
-   
-   //Set prompt event handler to update parameter value.
-   parameter.Prompt += new PromptEventHandler(SetParameter);
-   
-   //Refresh the listobject
-   worksheet.ListObjects[0].Refresh();
 
    //Initializes FileSavePicker
    FileSavePicker savePicker = new FileSavePicker();
@@ -1920,11 +1896,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    
    //Saves changes to the specified storage file
    await workbook.SaveAsAsync(storageFile);
-}
-
-private static void SetParameter(object sender, PromptEventArgs args)
-{
-    args.Value = 20;
 }
 {% endhighlight %}
 
@@ -1948,21 +1919,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    //Set parameter value through prompt.
    parameter.SetParam(ExcelParameterType.Prompt, "Prompt");
    
-   //Set prompt event handler to update parameter value.
-   parameter.Prompt += new PromptEventHandler(SetParameter);
-   
-   //Refresh the listobject
-   worksheet.ListObjects[0].Refresh();
-
    //Saving the workbook as stream
    FileStream stream = new FileStream("PromptParameter.xlsx", FileMode.Create, FileAccess.ReadWrite);
    workbook.SaveAs(stream);
    stream.Dispose();
-}
-
-private static void SetParameter(object sender, PromptEventArgs args)
-{
-    args.Value = 20;
 }
 {% endhighlight %}
 
@@ -1992,12 +1952,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    //Set parameter value through prompt.
    parameter.SetParam(ExcelParameterType.Prompt, "Prompt");
    
-   //Set prompt event handler to update parameter value.
-   parameter.Prompt += new PromptEventHandler(SetParameter);
-   
-   //Refresh the listobject
-   worksheet.ListObjects[0].Refresh();
-
    //Saving the workbook as stream
    MemoryStream outputStream = new MemoryStream();
    workbook.SaveAs(outputStream);
@@ -2017,10 +1971,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
    	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("PromptParameter.xlsx", "application/msexcel", outputStream);
    }
 }
-
-private static void SetParameter(object sender, PromptEventArgs args)
-{
-    args.Value = 20;
-}
 {% endhighlight %}
 {% endtabs %}
+
+N> Table refresh operation is not supported in UWP, ASP.NET Core and Xamarin platforms
