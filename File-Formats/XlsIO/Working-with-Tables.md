@@ -1435,3 +1435,592 @@ Stars with OLEDB<br/><br/></td></tr>
 ODBC<br/><br/></td><td>
 Stars with ODBC<br/><br/></td></tr>
 </table>
+
+## Adding parameters to query table
+
+QueryTable is a worksheet table built from data returned from an external data source. We can retrieve the data from the sources or update the QueryTable data using SQL queries. QueryTable parameters are used to modify SQL query based on the given parameter values instead of modifying the full SQL query in each time. We can set the parameter value by three ways.
+
+### Set parameter value as constant
+
+The following code snippet illustrates how to set query table parameter value as constant.
+ 
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   IWorkbook workbook = application.Workbooks.Open("QueryTable.xlsx"); 
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   //Get query table from list objects.
+   QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+   
+   //Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age < ?;";
+   
+   //Add parameters to the query table.
+   IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+   
+   //Set constant to the parameter value.
+   parameter.SetParam(ExcelParameterType.Constant, 30);
+   
+   //Refresh the listobject
+   worksheet.ListObjects[0].Refresh();
+   
+   workbook.SaveAs("ConstantParameter.xlsx");
+   workbook.Close();
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+   Dim application As IApplication = excelEngine.Excel
+   Dim workbook As IWorkbook = application.Workbooks.Open("QueryTable.xlsx")
+   Dim worksheet As IWorksheet = workbook.Worksheets(0)
+   
+   'Get query table from list objects.
+   Dim queryTable As QueryTableImpl = worksheet.ListObjects(0).QueryTable
+   
+   'Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age < ?;"
+   
+   'Add parameters to the query table.
+   Dim parameter As IParameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt)
+   
+   'Set constant to the parameter value.
+   parameter.SetParam(ExcelParameterType.Constant, 30)
+   
+   'Refresh the listobject
+   worksheet.ListObjects(0).Refresh()
+   
+   workbook.SaveAs("ConstantParameter.xlsx")
+   workbook.Close()
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   
+   //Gets assembly
+   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+   
+   //Gets input Excel document from embedded resource collection
+   Stream inputStream = assembly.GetManifestResourceStream("Sample.QueryTable.xlsx");
+   
+   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   //Get query table from list objects.
+   QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+   
+   //Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age < ?;";
+   
+   //Add parameters to the query table.
+   IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+   
+   //Set constant to the parameter value.
+   parameter.SetParam(ExcelParameterType.Constant, 30);
+   
+   //Refresh the listobject
+   worksheet.ListObjects[0].Refresh();
+
+   //Initializes FileSavePicker
+   FileSavePicker savePicker = new FileSavePicker();
+   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+   savePicker.SuggestedFileName = "ConstantParameter";
+   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+   
+   //Creates a storage file from FileSavePicker
+   StorageFile storageFile = await savePicker.PickSaveFileAsync();
+   
+   //Saves changes to the specified storage file
+   await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight asp.net core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   FileStream fileStream = new FileStream("QueryTable.xlsx", FileMode.Open, FileAccess.Read);
+   IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   ///Get query table from list objects.
+   QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+   
+   //Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age < ?;";
+   
+   //Add parameters to the query table.
+   IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+   
+   //Set constant to the parameter value.
+   parameter.SetParam(ExcelParameterType.Constant, 30);
+   
+   //Refresh the listobject
+   worksheet.ListObjects[0].Refresh();
+
+   //Saving the workbook as stream
+   FileStream stream = new FileStream("ConstantParameter.xlsx", FileMode.Create, FileAccess.ReadWrite);
+   workbook.SaveAs(stream);
+   stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   
+   //Gets assembly
+   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+   
+   //Gets input Excel document from embedded resource collection
+   Stream inputStream = assembly.GetManifestResourceStream("Sample.Sample.xlsx");
+   
+   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   ///Get query table from list objects.
+   QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+   
+   //Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age < ?;";
+   
+   //Add parameters to the query table.
+   IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+   
+   //Set constant to the parameter value.
+   parameter.SetParam(ExcelParameterType.Constant, 30);
+   
+   //Refresh the listobject
+   worksheet.ListObjects[0].Refresh();
+
+   //Saving the workbook as stream
+   MemoryStream outputStream = new MemoryStream();
+   workbook.SaveAs(outputStream);
+   
+   outputStream.Position = 0;
+   
+   //Save the document as file and view the saved document
+   
+   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+   
+   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+   {
+   	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ConstantParameter.xlsx", "application/msexcel", outputStream);
+   }
+   else
+   {
+   	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ConstantParameter.xlsx", "application/msexcel", outputStream);
+   }
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Set query table parameter value as range
+
+The following code snippet illustrates how to set query table parameter value as range.
+ 
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   IWorkbook workbook = application.Workbooks.Open("QueryTable.xlsx"); 
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   //Get query table from list objects.
+   QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+   
+   //Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
+   
+   //Add parameters to the query table.
+   IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+   
+   //Set range to the parameter value.
+   parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"]);
+   
+   //Refresh the listobject
+   worksheet.ListObjects[0].Refresh();
+   
+   workbook.SaveAs("RangeParameter.xlsx");
+   workbook.Close();
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+   Dim application As IApplication = excelEngine.Excel
+   Dim workbook As IWorkbook = application.Workbooks.Open("QueryTable.xlsx")
+   Dim worksheet As IWorksheet = workbook.Worksheets(0)
+   
+   'Get query table from list objects.
+   Dim queryTable As QueryTableImpl = worksheet.ListObjects(0).QueryTable
+   
+   'Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;"
+   
+   'Add parameters to the query table.
+   Dim parameter As IParameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt)
+   
+   'Set range to the parameter value.
+   parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"])
+   
+   'Refresh the listobject
+   worksheet.ListObjects(0).Refresh()
+   
+   workbook.SaveAs("RangeParameter.xlsx")
+   workbook.Close()
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   
+   //Gets assembly
+   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+   
+   //Gets input Excel document from embedded resource collection
+   Stream inputStream = assembly.GetManifestResourceStream("Sample.QueryTable.xlsx");
+   
+   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   //Get query table from list objects.
+   QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+   
+   //Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
+   
+   //Add parameters to the query table.
+   IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+   
+   //Set range to the parameter value.
+   parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"]);
+   
+   //Refresh the listobject
+   worksheet.ListObjects[0].Refresh();
+
+   //Initializes FileSavePicker
+   FileSavePicker savePicker = new FileSavePicker();
+   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+   savePicker.SuggestedFileName = "RangeParameter";
+   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+   
+   //Creates a storage file from FileSavePicker
+   StorageFile storageFile = await savePicker.PickSaveFileAsync();
+   
+   //Saves changes to the specified storage file
+   await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight asp.net core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   FileStream fileStream = new FileStream("QueryTable.xlsx", FileMode.Open, FileAccess.Read);
+   IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   ///Get query table from list objects.
+   QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+   
+   //Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
+   
+   //Add parameters to the query table.
+   IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+   
+   //Set range to the parameter value.
+   parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"]);
+   
+   //Refresh the listobject
+   worksheet.ListObjects[0].Refresh();
+
+   //Saving the workbook as stream
+   FileStream stream = new FileStream("RangeParameter.xlsx", FileMode.Create, FileAccess.ReadWrite);
+   workbook.SaveAs(stream);
+   stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   
+   //Gets assembly
+   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+   
+   //Gets input Excel document from embedded resource collection
+   Stream inputStream = assembly.GetManifestResourceStream("Sample.Sample.xlsx");
+   
+   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   ///Get query table from list objects.
+   QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+   
+   //Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
+   
+   //Add parameters to the query table.
+   IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+   
+   //Set range to the parameter value.
+   parameter.SetParam(ExcelParameterType.Range, worksheet.Range["H1"]);
+   
+   //Refresh the listobject
+   worksheet.ListObjects[0].Refresh();
+
+   //Saving the workbook as stream
+   MemoryStream outputStream = new MemoryStream();
+   workbook.SaveAs(outputStream);
+   
+   outputStream.Position = 0;
+   
+   //Save the document as file and view the saved document
+   
+   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+   
+   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+   {
+   	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("RangeParameter.xlsx", "application/msexcel", outputStream);
+   }
+   else
+   {
+   	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("RangeParameter.xlsx", "application/msexcel", outputStream);
+   }
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Set parameter value through prompt dialogue
+
+The following code snippet illustrates how to set query table parameter value as range.
+ 
+{% tabs %}
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   IWorkbook workbook = application.Workbooks.Open("QueryTable.xlsx"); 
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   //Get query table from list objects.
+   QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+   
+   //Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
+   
+   //Add parameters to the query table.
+   IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+   
+   //Set parameter value through prompt.
+   parameter.SetParam(ExcelParameterType.Prompt, "Prompt");
+   
+   //Set prompt event handler to update parameter value.
+   parameter.Prompt += new PromptEventHandler(SetParameter);
+
+   //Refresh the listobject
+   worksheet.ListObjects[0].Refresh();
+   
+   workbook.SaveAs("PromptParameter.xlsx");
+   workbook.Close();
+}
+
+private static void SetParameter(object sender, PromptEventArgs args)
+{
+    args.Value = 20;
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+   Dim application As IApplication = excelEngine.Excel
+   Dim workbook As IWorkbook = application.Workbooks.Open("QueryTable.xlsx")
+   Dim worksheet As IWorksheet = workbook.Worksheets(0)
+   
+   'Get query table from list objects.
+   Dim queryTable As QueryTableImpl = worksheet.ListObjects(0).QueryTable
+   
+   'Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;"
+   
+   'Add parameters to the query table.
+   Dim parameter As IParameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt)
+   
+   'Set parameter value through prompt.
+   parameter.SetParam(ExcelParameterType.Prompt, "Prompt")
+   
+   'Set prompt event handler to update parameter value
+   parameter.Prompt += New PromptEventHandler(SetParameter)
+   
+   'Refresh the listobject
+   worksheet.ListObjects(0).Refresh()
+   
+   workbook.SaveAs("PromptParameter.xlsx")
+   workbook.Close()
+End Using
+
+Private Shared Sub SetParameter(ByVal sender As Object, ByVal args As PromptEventArgs)
+    args.Value = 20
+End Sub
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   
+   //Gets assembly
+   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+   
+   //Gets input Excel document from embedded resource collection
+   Stream inputStream = assembly.GetManifestResourceStream("Sample.QueryTable.xlsx");
+   
+   IWorkbook workbook = await application.Workbooks.OpenAsync(inputStream, ExcelOpenType.Automatic);
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   //Get query table from list objects.
+   QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+   
+   //Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
+   
+   //Add parameters to the query table.
+   IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+   
+   //Set parameter value through prompt.
+   parameter.SetParam(ExcelParameterType.Prompt, "Prompt");
+   
+   //Set prompt event handler to update parameter value.
+   parameter.Prompt += new PromptEventHandler(SetParameter);
+   
+   //Refresh the listobject
+   worksheet.ListObjects[0].Refresh();
+
+   //Initializes FileSavePicker
+   FileSavePicker savePicker = new FileSavePicker();
+   savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+   savePicker.SuggestedFileName = "PromptParameter";
+   savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+   
+   //Creates a storage file from FileSavePicker
+   StorageFile storageFile = await savePicker.PickSaveFileAsync();
+   
+   //Saves changes to the specified storage file
+   await workbook.SaveAsAsync(storageFile);
+}
+
+private static void SetParameter(object sender, PromptEventArgs args)
+{
+    args.Value = 20;
+}
+{% endhighlight %}
+
+{% highlight asp.net core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   FileStream fileStream = new FileStream("QueryTable.xlsx", FileMode.Open, FileAccess.Read);
+   IWorkbook workbook = application.Workbooks.Open(fileStream, ExcelOpenType.Automatic);
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   ///Get query table from list objects.
+   QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+   
+   //Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
+   
+   //Add parameters to the query table.
+   IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+   
+   //Set parameter value through prompt.
+   parameter.SetParam(ExcelParameterType.Prompt, "Prompt");
+   
+   //Set prompt event handler to update parameter value.
+   parameter.Prompt += new PromptEventHandler(SetParameter);
+   
+   //Refresh the listobject
+   worksheet.ListObjects[0].Refresh();
+
+   //Saving the workbook as stream
+   FileStream stream = new FileStream("PromptParameter.xlsx", FileMode.Create, FileAccess.ReadWrite);
+   workbook.SaveAs(stream);
+   stream.Dispose();
+}
+
+private static void SetParameter(object sender, PromptEventArgs args)
+{
+    args.Value = 20;
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   
+   //Gets assembly
+   Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+   
+   //Gets input Excel document from embedded resource collection
+   Stream inputStream = assembly.GetManifestResourceStream("Sample.Sample.xlsx");
+   
+   IWorkbook workbook = application.Workbooks.Open(inputStream, ExcelOpenType.Automatic);
+   IWorksheet worksheet = workbook.Worksheets[0];
+   
+   ///Get query table from list objects.
+   QueryTableImpl queryTable = worksheet.ListObjects[0].QueryTable;
+   
+   //Set SQL query to the query table Add parameters to the query table.
+   queryTable.CommandText = "select * from Employee_Details where Emp_Age > ?;";
+   
+   //Add parameters to the query table.
+   IParameter parameter = queryTable.Parameters.Add("parameter1", ExcelParameterDataType.SQLSmallInt);
+   
+   //Set parameter value through prompt.
+   parameter.SetParam(ExcelParameterType.Prompt, "Prompt");
+   
+   //Set prompt event handler to update parameter value.
+   parameter.Prompt += new PromptEventHandler(SetParameter);
+   
+   //Refresh the listobject
+   worksheet.ListObjects[0].Refresh();
+
+   //Saving the workbook as stream
+   MemoryStream outputStream = new MemoryStream();
+   workbook.SaveAs(outputStream);
+   
+   outputStream.Position = 0;
+   
+   //Save the document as file and view the saved document
+   
+   //The operation in SaveAndView under Xamarin varies among Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+   
+   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+   {
+   	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("PromptParameter.xlsx", "application/msexcel", outputStream);
+   }
+   else
+   {
+   	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("PromptParameter.xlsx", "application/msexcel", outputStream);
+   }
+}
+
+private static void SetParameter(object sender, PromptEventArgs args)
+{
+    args.Value = 20;
+}
+{% endhighlight %}
+{% endtabs %}
