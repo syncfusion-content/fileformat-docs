@@ -1,5 +1,5 @@
 ---
-title: Encrypting and Decrypting the PowerPoint Presentation |Syncfusion|
+title: Encrypting and Decrypting the PowerPoint Presentation | Syncfusion
 description: Encrypting and Decrypting the PowerPoint Presentation; security in using Presentation
 platform: file-formats
 control: Presentation
@@ -177,7 +177,7 @@ presentationDocument.Close()
 
 You can set write protection for a PowerPoint Presentation and remove protection from the write protected PowerPoint presentation.
 
-**Protect** **PowerPoint** **Presentation**
+### Protect PowerPoint Presentation
 
 You can protect a PowerPoint Presentation with password to restrict unauthorized editing.
 
@@ -344,7 +344,7 @@ else
 
 {% endtabs %}
 
-**Remove**  **Protection**
+### Remove Protection
 
 You can check whether a PowerPoint Presentation is write protected and remove protection from the write protected PowerPoint Presentation.
 
