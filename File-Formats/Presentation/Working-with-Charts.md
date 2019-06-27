@@ -2964,6 +2964,271 @@ else
 
 {% endtabs %}
 
+## Creating a Scatter chart
+
+The following code example demonstrates creating a Scatter chart.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create an instance for PowerPoint  
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a blank slide to Presentation  
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);  
+  
+//Adds chart to the slide with position and size  
+IPresentationChart chart = slide.Charts.AddChart(100, 10, 700, 500);  
+
+//Set the chart type as Scatter_Markers  
+chart.ChartType = OfficeChartType.Scatter_Markers;  
+  
+//Assign data  
+chart.DataRange = chart.ChartData[1, 1, 4, 2];  
+chart.IsSeriesInRows = false;  
+  
+//Set data to the chart RowIndex, columnIndex, and data  
+chart.ChartData.SetValue(1, 1, "X-Axis");  
+chart.ChartData.SetValue(1, 2, "Y-Axis");  
+chart.ChartData.SetValue(2, 1, 1);  
+chart.ChartData.SetValue(3, 1, 5);  
+chart.ChartData.SetValue(4, 1, 10);                  
+chart.ChartData.SetValue(2, 2, 10);  
+chart.ChartData.SetValue(3, 2, 5);  
+chart.ChartData.SetValue(4, 2, 1);                  
+
+//Apply chart elements  
+//Set chart title  
+chart.ChartTitle = "Scatter Markers Chart";  
+  
+//Set legend  
+chart.HasLegend = false;  
+  
+//Set Datalabels  
+IOfficeChartSerie serie = chart.Series[0];  
+serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;  
+serie.DataPoints.DefaultDataPoint.DataLabels.IsCategoryName = true; 
+
+//Saves the Presentation
+pptxDoc.Save("output.pptx");
+
+//Closes the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create an instance for PowerPoint  
+IPresentation pptxDoc = Presentation.Create()
+
+'Add a blank slide to Presentation  
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank)  
+  
+'Adds chart to the slide with position and size  
+IPresentationChart chart = slide.Charts.AddChart(100, 10, 700, 500)  
+
+'Set the chart type as Scatter_Markers  
+chart.ChartType = OfficeChartType.Scatter_Markers 
+  
+'Assign data  
+chart.DataRange = chart.ChartData[1, 1, 4, 2]  
+chart.IsSeriesInRows = false  
+  
+'Set data to the chart RowIndex, columnIndex, and data  
+chart.ChartData.SetValue(1, 1, "X-Axis")  
+chart.ChartData.SetValue(1, 2, "Y-Axis")  
+chart.ChartData.SetValue(2, 1, 1)  
+chart.ChartData.SetValue(3, 1, 5)  
+chart.ChartData.SetValue(4, 1, 10)                  
+chart.ChartData.SetValue(2, 2, 10)  
+chart.ChartData.SetValue(3, 2, 5)  
+chart.ChartData.SetValue(4, 2, 1)                  
+
+'Apply chart elements  
+'Set chart title  
+chart.ChartTitle = "Scatter Markers Chart"  
+  
+'Set legend  
+chart.HasLegend = false  
+  
+'Set Datalabels  
+IOfficeChartSerie serie = chart.Series[0]  
+serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true  
+serie.DataPoints.DefaultDataPoint.DataLabels.IsCategoryName = true 
+
+'Saves the Presentation
+pptxDoc.Save("output.pptx")
+
+'Closes the Presentation
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create an instance for PowerPoint  
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a blank slide to Presentation  
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);  
+  
+//Adds chart to the slide with position and size  
+IPresentationChart chart = slide.Charts.AddChart(100, 10, 700, 500);  
+
+//Set the chart type as Scatter_Markers  
+chart.ChartType = OfficeChartType.Scatter_Markers;  
+  
+//Assign data  
+chart.DataRange = chart.ChartData[1, 1, 4, 2];  
+chart.IsSeriesInRows = false;  
+  
+//Set data to the chart RowIndex, columnIndex, and data  
+chart.ChartData.SetValue(1, 1, "X-Axis");  
+chart.ChartData.SetValue(1, 2, "Y-Axis");  
+chart.ChartData.SetValue(2, 1, 1);  
+chart.ChartData.SetValue(3, 1, 5);  
+chart.ChartData.SetValue(4, 1, 10);                  
+chart.ChartData.SetValue(2, 2, 10);  
+chart.ChartData.SetValue(3, 2, 5);  
+chart.ChartData.SetValue(4, 2, 1);                  
+
+//Apply chart elements  
+//Set chart title  
+chart.ChartTitle = "Scatter Markers Chart";  
+  
+//Set legend  
+chart.HasLegend = false;  
+  
+//Set Datalabels  
+IOfficeChartSerie serie = chart.Series[0];  
+serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;  
+serie.DataPoints.DefaultDataPoint.DataLabels.IsCategoryName = true; 
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Create an instance for PowerPoint  
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a blank slide to Presentation  
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);  
+  
+//Adds chart to the slide with position and size  
+IPresentationChart chart = slide.Charts.AddChart(100, 10, 700, 500);  
+
+//Set the chart type as Scatter_Markers  
+chart.ChartType = OfficeChartType.Scatter_Markers;  
+  
+//Assign data  
+chart.DataRange = chart.ChartData[1, 1, 4, 2];  
+chart.IsSeriesInRows = false;  
+  
+//Set data to the chart RowIndex, columnIndex, and data  
+chart.ChartData.SetValue(1, 1, "X-Axis");  
+chart.ChartData.SetValue(1, 2, "Y-Axis");  
+chart.ChartData.SetValue(2, 1, 1);  
+chart.ChartData.SetValue(3, 1, 5);  
+chart.ChartData.SetValue(4, 1, 10);                  
+chart.ChartData.SetValue(2, 2, 10);  
+chart.ChartData.SetValue(3, 2, 5);  
+chart.ChartData.SetValue(4, 2, 1);                  
+
+//Apply chart elements  
+//Set chart title  
+chart.ChartTitle = "Scatter Markers Chart";  
+  
+//Set legend  
+chart.HasLegend = false;  
+  
+//Set Datalabels  
+IOfficeChartSerie serie = chart.Series[0];  
+serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;  
+serie.DataPoints.DefaultDataPoint.DataLabels.IsCategoryName = true; 
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Closes the presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Create an instance for PowerPoint  
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a blank slide to Presentation  
+ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);  
+  
+//Adds chart to the slide with position and size  
+IPresentationChart chart = slide.Charts.AddChart(100, 10, 700, 500);  
+
+//Set the chart type as Scatter_Markers  
+chart.ChartType = OfficeChartType.Scatter_Markers;  
+  
+//Assign data  
+chart.DataRange = chart.ChartData[1, 1, 4, 2];  
+chart.IsSeriesInRows = false;  
+  
+//Set data to the chart RowIndex, columnIndex, and data  
+chart.ChartData.SetValue(1, 1, "X-Axis");  
+chart.ChartData.SetValue(1, 2, "Y-Axis");  
+chart.ChartData.SetValue(2, 1, 1);  
+chart.ChartData.SetValue(3, 1, 5);  
+chart.ChartData.SetValue(4, 1, 10);                  
+chart.ChartData.SetValue(2, 2, 10);  
+chart.ChartData.SetValue(3, 2, 5);  
+chart.ChartData.SetValue(4, 2, 1);                  
+
+//Apply chart elements  
+//Set chart title  
+chart.ChartTitle = "Scatter Markers Chart";  
+  
+//Set legend  
+chart.HasLegend = false;  
+  
+//Set Datalabels  
+IOfficeChartSerie serie = chart.Series[0];  
+serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;  
+serie.DataPoints.DefaultDataPoint.DataLabels.IsCategoryName = true; 
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## PowerPoint 2016 Charts
 
 Essential Presentation supports creating and manipulating new and modern chart types such as waterfall, histogram, pareto, box and whisker, tree map, and sunburst, which are introduced in Microsoft PowerPoint 2016.
