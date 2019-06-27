@@ -1,5 +1,5 @@
 ---
-title: Encrypting and Decrypting the PowerPoint Presentation
+title: Encrypting and Decrypting the PowerPoint Presentation |Syncfusion|
 description: Encrypting and Decrypting the PowerPoint Presentation; security in using Presentation
 platform: file-formats
 control: Presentation
@@ -358,10 +358,10 @@ The following code example shows how to remove restriction protection from the w
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
 //Gets whether the presentation is write Protected. Read - only.
-bool WriteProtected = pptxDoc.IsWriteProtected;
+bool writeProtected = pptxDoc.IsWriteProtected;
 
 //Checks whether the presentation is write protected
-if (WriteProtected)
+if (writeProtected)
 {
      //Removes the write protection for presentation instance.
      pptxDoc.RemoveWriteProtection();
@@ -381,10 +381,10 @@ pptxDoc.Close();
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
 
 'Gets whether the presentation is write Protected. Read - only.
-bool WriteProtected = pptxDoc.IsWriteProtected;
+bool writeProtected = pptxDoc.IsWriteProtected;
 
 'Checks whether the presentation is write protected
-if (WriteProtected)
+if (writeProtected)
 {
      'Removes the write protection for presentation instance.
      pptxDoc.RemoveWriteProtection();
@@ -412,10 +412,10 @@ StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
 
 //Gets whether the presentation is write Protected. Read - only.
-bool WriteProtected = pptxDoc.IsWriteProtected;
+bool writeProtected = pptxDoc.IsWriteProtected;
 
 //Checks whether the presentation is write protected
-if (WriteProtected)
+if (writeProtected)
 {
      //Removes the write protection for presentation instance.
      pptxDoc.RemoveWriteProtection();
@@ -442,10 +442,10 @@ FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
 
 //Gets whether the presentation is write Protected. Read - only.
-bool WriteProtected = pptxDoc.IsWriteProtected;
+bool writeProtected = pptxDoc.IsWriteProtected;
 
 //Checks whether the presentation is write protected
-if (WriteProtected)
+if (writeProtected)
 {
      //Removes the write protection for presentation instance.
      pptxDoc.RemoveWriteProtection();
@@ -470,10 +470,10 @@ Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentat
 IPresentation pptxDoc = Presentation.Open(inputStream);
 
 //Gets whether the presentation is write Protected. Read - only.
-bool WriteProtected = pptxDoc.IsWriteProtected;
+bool writeProtected = pptxDoc.IsWriteProtected;
 
 //Checks whether the presentation is write protected
-if (WriteProtected)
+if (writeProtected)
 {
      //Removes the write protection for presentation instance.
      pptxDoc.RemoveWriteProtection();
