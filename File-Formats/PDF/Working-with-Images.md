@@ -774,7 +774,7 @@ The following code illustrate this,
 {% highlight c# %}
 
 
-// Create a PDF Document
+//Create a PDF Document
 
 PdfDocument doc = new PdfDocument();
 
@@ -992,7 +992,63 @@ doc.Close(True)
 {% highlight ASP.NET Core %}
 
 
-//PDF supports image masking only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms
+//Create a PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add pages to the document
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TIFF image
+
+FileStream imageStream = new FileStream("image.tif", FileMode.Open, FileAccess.Read);
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Create masking image
+
+FileStream maskStream = new FileStream("mask.bmp", FileMode.Open, FileAccess.Read);
+
+PdfImageMask mask = new PdfImageMask(new PdfBitmap(maskStream));
+
+image.Mask = mask;
+
+//Draw the image
+
+graphics.DrawImage(image, 0, 0);
+
+///Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
 
 
 
@@ -1383,7 +1439,7 @@ page.Graphics.SetTransparency(0.5f);
 
 page.Graphics.RotateTransform(-45);
 
-// Draw image
+//Draw image
 
 image.Draw(page, 0, 0);
 
@@ -1671,17 +1727,9 @@ The code snippet to illustrate the same is given below.
 
 PdfDocument pdfDocument = new PdfDocument();
 
-//Add a section to the PDF document
+//Set page margins
 
-PdfSection section = pdfDocument.Sections.Add();
-
-//Declare the PDF page
-
-PdfPage page;
-
-//Declare PDF page graphics
-
-PdfGraphics graphics;
+pdfDocument.PageSettings.Margins.All = 0;
 
 //Load multi frame TIFF image
 
@@ -1697,11 +1745,9 @@ for (int i = 0; i < frameCount; i++)
 
 {
 
-page = section.Pages.Add();
+PdfPage page = pdfDocument.Pages.Add();
 
-section.PageSettings.Margins.All = 0;
-
-graphics = page.Graphics;
+PdfGraphics graphics = page.Graphics;
 
 tiffImage.ActiveFrame = i;
 
@@ -1726,17 +1772,9 @@ pdfDocument.Close(true);
 
 Dim pdfDocument As New PdfDocument()
 
-'Add a section to the PDF document
+'Set page margins
 
-Dim section As PdfSection = pdfDocument.Sections.Add()
-
-'Declare the PDF page
-
-Dim page As PdfPage
-
-'Declare PDF page graphics
-
-Dim graphics As PdfGraphics
+pdfDocument.PageSettings.Margins.All = 0
 
 'Load multi frame TIFF image
 
@@ -1750,11 +1788,9 @@ Dim frameCount As Integer = tiffImage.FrameCount
 
 For i As Integer = 0 To frameCount - 1
 
-page = section.Pages.Add()
+Dim page As PdfPage = pdfDocument.Pages.Add()
 
-section.PageSettings.Margins.All = 0
-
-graphics = page.Graphics
+Dim graphics As PdfGraphics = page.Graphics
 
 tiffImage.ActiveFrame = i
 
@@ -1779,17 +1815,9 @@ pdfDocument.Close(True)
 
 PdfDocument pdfDocument = new PdfDocument();
 
-//Add a section to the PDF document
+//Set page margins
 
-PdfSection section = pdfDocument.Sections.Add();
-
-//Declare the PDF page
-
-PdfPage page;
-
-//Declare PDF page graphics
-
-PdfGraphics graphics;
+pdfDocument.PageSettings.Margins.All = 0;
 
 //Load multi frame TIFF image
 
@@ -1807,11 +1835,9 @@ for (int i = 0; i < frameCount; i++)
 
 {
 
-    page = section.Pages.Add();
+    PdfPage page = pdfDocument.Pages.Add();
 
-    section.PageSettings.Margins.All = 0;
-
-    graphics = page.Graphics;
+    PdfGraphics graphics = page.Graphics;
 
     tiffImage.ActiveFrame = i;
 
@@ -1844,13 +1870,9 @@ Save(memoryStream, "Sample.pdf");
 
 PdfDocument doc = new PdfDocument();
 
-//Add a page to the document
+//Set page margins
 
-PdfPage page = doc.Pages.Add();
-
-//Create PDF graphics for the page
-
-PdfGraphics graphics = page.Graphics;
+doc.PageSettings.Margins.All = 0;
 
 //Load the multi frame TIFF image from the disk
 
@@ -1867,12 +1889,9 @@ int frameCount = tiffImage.FrameCount;
 for (int i = 0; i < frameCount; i++)
 
 {
+    PdfPage page = doc.Pages.Add();
 
-    page = section.Pages.Add();
-
-    section.PageSettings.Margins.All = 0;
-
-    graphics = page.Graphics;
+    PdfGraphics graphics = page.Graphics;
 
     tiffImage.ActiveFrame = i;
 
