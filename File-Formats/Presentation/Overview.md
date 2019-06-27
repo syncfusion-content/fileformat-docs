@@ -24,6 +24,7 @@ It is a non-UI component that provides a full-fledged PowerPoint presentation in
 * Ability to create and edit transition effects.
 * Ability to create and edit comments in PowerPoint slides.
 * Ability to encrypt and decrypt PowerPoint presentation.
+* Ability to set and remove write protection of PowerPoint presentation.
 * Ability to access the Built-in and Custom document properties.
 * Ability to create and modify sections in PowerPoint presentation.
 
