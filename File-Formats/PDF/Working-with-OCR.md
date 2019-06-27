@@ -472,6 +472,89 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}  
+
+
+## Performing OCR on rotated page of PDF document
+
+You can perform OCR on the rotated page of a PDF document. Refer to the following code snippet for the same. 
+
+
+{% tabs %} 
+
+{% highlight c# %}
+
+
+//Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
+
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+
+{
+
+//Load a PDF document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("Input.pdf");
+
+//Set OCR language to process
+
+processor.Settings.Language = Languages.English;
+
+//Set OCR page auto detection rotation
+
+processor.Settings.AutoDetectRotation = true;
+
+//Process OCR by providing the PDF document
+
+processor.PerformOCR(lDoc, @"TessData\");
+
+//Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf");
+
+lDoc.Close(true);
+
+}
+
+
+{% endhighlight %}
+
+
+{% highlight vb.net %}
+
+
+'Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
+
+Using processor As New OCRProcessor("TesseractBinaries\")
+
+'Load a PDF document.
+
+Dim lDoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Set OCR language to process
+
+processor.Settings.Language = Languages.English
+
+'Set OCR page auto detection rotation
+
+processor.Settings.AutoDetectRotation = true
+
+'Process OCR by providing the PDF document
+
+processor.PerformOCR(lDoc, "TessData\")
+
+'Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf")
+
+lDoc.Close(true)
+
+End Using
+
+
+
+{% endhighlight %}
+
+{% endtabs %}  
+
  
 
 ## Layout result from OCR
