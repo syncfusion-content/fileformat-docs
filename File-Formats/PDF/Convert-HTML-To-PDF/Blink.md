@@ -533,6 +533,389 @@ document.Close(True)
 
 {% endtabs %}
 
+## Bookmarks
+
+The Blink HTML converter provides support for creating bookmarks automatically by enabling the [EnableBookmarks](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~EnableBookmarks.html) property.
+
+N> The bookmarks are added from the ```<h>``` tag, it supports from ```<h1>``` to ```<h6>```.
+
+Refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Set enable bookmarks
+
+settings.EnableBookmarks = true;
+
+//Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert("input.html"); 
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+
+settings.BlinkPath = "/BlinkBinaries/"
+
+'Set enable bookmarks
+
+settings.EnableBookmarks = True
+
+'Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings
+
+'Convert HTML to PDF
+
+Dim document As PdfDocument = htmlConverter.Convert("input.html")
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight html %}
+
+<html>
+<head>
+<style>
+body
+{
+text-align: left;
+font-size: large;
+padding-left: 5px;
+}
+</style>
+</head>
+<body>
+
+<h1>Syncfusion</h1>
+
+<h2>Introduction</h2>
+	Syncfusion is the enterprise technology partner of choice for software development, delivering a broad range of web, mobile, and desktop controls coupled with a service-oriented approach throughout the entire application life cycle. 
+<h2>Products</h2>
+	<h4>WEB</h4>
+		The most comprehensive suite for enterprise web development.
+	<h4>Desktop</h4>
+		Comprehensive suite of over 115 components including the fastest chart and grid components.
+	<h4>Mobile</h4>
+		Comprehensive suite of components for Xamarin.iOS, Xamarin.Android and Xamarin.Forms including the fastest chart and grid.
+<h2>Consulting</h2>
+	We can build web, mobile, and desktop applications better and faster than anyone since we build on top of our award-winning suite of components and frameworks, saving you time and money.
+<h2>Company</h2>
+	<h4>About us</h4>
+		Syncfusion has established itself as the trusted partner worldwide for use in mission-critical applications. Founded in 2001 and headquartered in Research Triangle Park, N.C., Syncfusion has more than 12,000 customers, including large financial institutions, Fortune 100 companies, and global IT consultancies.
+	<h4>contact us</h4>
+		Morrisville Office
+		Company Headquarters
+		2501 Aerial Center Parkway
+		Suite 200
+		Morrisville, NC 27560
+		USA
+</body>
+</html>
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Table of contents
+
+The Blink HTML converter provides support for creating a table of contents automatically by using the [EnableToc](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~Toc.html) property.
+
+N> TOC are added from the ```<h>``` tag, it supports from ```<h1>``` to ```<h6>```.
+
+Refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Set enable table of contents
+
+settings.EnableToc = true;
+
+//Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+
+settings.BlinkPath = "/BlinkBinaries/"
+
+'Set enable table of contents
+
+settings.EnableToc = True
+
+'Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings
+
+'Convert HTML to PDF
+
+Dim document As PdfDocument = htmlConverter.Convert("input.html")
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight html %}
+
+<html>
+<head>
+<style>
+body
+{
+text-align: left;
+font-size: large;
+padding-left: 5px;
+}
+</style>
+</head>
+<body>
+
+<h1>Syncfusion</h1>
+
+<h2>Introduction</h2>
+	Syncfusion is the enterprise technology partner of choice for software development, delivering a broad range of web, mobile, and desktop controls coupled with a service-oriented approach throughout the entire application life cycle. 
+<h2>Products</h2>
+	<h4>WEB</h4>
+		The most comprehensive suite for enterprise web development.
+	<h4>Desktop</h4>
+		Comprehensive suite of over 115 components including the fastest chart and grid components.
+	<h4>Mobile</h4>
+		Comprehensive suite of components for Xamarin.iOS, Xamarin.Android and Xamarin.Forms including the fastest chart and grid.
+<h2>Consulting</h2>
+	We can build web, mobile, and desktop applications better and faster than anyone since we build on top of our award-winning suite of components and frameworks, saving you time and money.
+<h2>Company</h2>
+	<h4>About us</h4>
+		Syncfusion has established itself as the trusted partner worldwide for use in mission-critical applications. Founded in 2001 and headquartered in Research Triangle Park, N.C., Syncfusion has more than 12,000 customers, including large financial institutions, Fortune 100 companies, and global IT consultancies.
+	<h4>contact us</h4>
+		Morrisville Office
+		Company Headquarters
+		2501 Aerial Center Parkway
+		Suite 200
+		Morrisville, NC 27560
+		USA
+</body>
+</html>
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Table of contents with custom style
+
+The Blink HTML converter provides support for customizing the table of contents style. Each header tag style can be customized by using [HtmlToPdfTocStyle](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.HtmlToPdf.HtmlToPdfTocStyle.html). 
+
+Refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Set enable table of contents
+
+settings.EnableToc = true;
+
+//Set the style for level 1(H1) items in table of contents
+
+HtmlToPdfTocStyle tocstyleH1 = new HtmlToPdfTocStyle();
+
+tocstyleH1.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Regular);
+
+tocstyleH1.BackgroundColor = new PdfSolidBrush(new PdfColor(Color.FromArgb(68, 114, 196)));
+
+tocstyleH1.ForeColor = PdfBrushes.White;
+
+tocstyleH1.Padding = new PdfPaddings(5, 5, 3, 3);
+
+settings.Toc.SetItemStyle(1, tocstyleH1);
+
+//Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert HTML to PDF
+
+PdfDocument document = htmlConverter.Convert("input.html");
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+
+settings.BlinkPath = "/BlinkBinaries/"
+
+'Set enable table of contents
+
+settings.EnableToc = True
+
+'Set the style for level 1(H1) items in table of contents
+
+Dim tocstyleH1 As New HtmlToPdfTocStyle()
+
+tocstyleH1.Font = New PdfStandardFont(PdfFontFamily.TimesRoman, 10, PdfFontStyle.Regular)
+
+tocstyleH1.BackgroundColor = New PdfSolidBrush(New PdfColor(Color.FromArgb(68, 114, 196)))
+
+tocstyleH1.ForeColor = PdfBrushes.White
+
+tocstyleH1.Padding = New PdfPaddings(5, 5, 3, 3)
+
+settings.Toc.SetItemStyle(1, tocstyleH1)
+
+'Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings
+
+'Convert HTML to PDF
+
+Dim document As PdfDocument = htmlConverter.Convert("input.html")
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight html %}
+
+<html>
+<head>
+<style>
+body
+{
+text-align: left;
+font-size: large;
+padding-left: 5px;
+}
+</style>
+</head>
+<body>
+
+<h1>Syncfusion</h1>
+
+<h2>Introduction</h2>
+	Syncfusion is the enterprise technology partner of choice for software development, delivering a broad range of web, mobile, and desktop controls coupled with a service-oriented approach throughout the entire application life cycle. 
+<h2>Products</h2>
+	<h4>WEB</h4>
+		The most comprehensive suite for enterprise web development.
+	<h4>Desktop</h4>
+		Comprehensive suite of over 115 components including the fastest chart and grid components.
+	<h4>Mobile</h4>
+		Comprehensive suite of components for Xamarin.iOS, Xamarin.Android and Xamarin.Forms including the fastest chart and grid.
+<h2>Consulting</h2>
+	We can build web, mobile, and desktop applications better and faster than anyone since we build on top of our award-winning suite of components and frameworks, saving you time and money.
+<h2>Company</h2>
+	<h4>About us</h4>
+		Syncfusion has established itself as the trusted partner worldwide for use in mission-critical applications. Founded in 2001 and headquartered in Research Triangle Park, N.C., Syncfusion has more than 12,000 customers, including large financial institutions, Fortune 100 companies, and global IT consultancies.
+	<h4>contact us</h4>
+		Morrisville Office
+		Company Headquarters
+		2501 Aerial Center Parkway
+		Suite 200
+		Morrisville, NC 27560
+		USA
+</body>
+</html>
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Media Type
 
 The Blink HTML Converter allows selection of media type while converting HTML to PDF. Blink rendering engine supports <b>Screen</b> and <b>Print</b> media types. Refer to the following code snippet to select Print [MediaType](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~MediaType.html).
@@ -592,6 +975,77 @@ document.Close(True)
 
 {% endtabs %}
 
+## HTML Form to PDF Form
+
+Blink rendering engine provides support for converting HTML forms to PDF fillable forms automatically by using the [EnableForm](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~EnableForm.html) property. To convert HTML form to PDF form, refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Set enable form
+
+settings.EnableForm = true;
+
+//Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+
+PdfDocument document = htmlConverter.Convert("https://www.syncfusion.com"); 
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+
+settings.BlinkPath = "/BlinkBinaries/"
+
+'Set enable form
+
+settings.EnableForm = True
+
+'Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings
+
+'Convert URL to PDF
+
+Dim document As PdfDocument = htmlConverter.Convert("https://www.syncfusion.com")
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
 
 ## Windows authentication
 
@@ -992,6 +1446,100 @@ document.Close(True)
 
 {% endtabs %}
 
+## System proxy
+
+By default, the Blink rendering engine use system proxy settings for converting HTML to PDF. If proxy server is configured in the system,then the rendering engine automatically use the same settings for the conversion. Follow the below steps to set the system proxy settings,
+
+1. Control Panel > Network and Internet > Internet Options 
+2. From Internet properties window, open LAN settings under connections tab
+3. Then set proxy server address and port in LAN settings window
+
+<b>Please refer below screenshots:</b>
+ 
+![Manual proxy](htmlconversion_images/proxy.png)
+
+![Manual proxy settings](htmlconversion_images/proxy2.png)
+
+## Manual proxy
+
+You can specify the manual proxy settings for the conversion using the ProxySettings property. Refer to the following code snippet to configure the manual proxy settings for the conversion.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Set manual proxy settings
+
+settings.ProxySettings.HostName = "127.0.0.1";
+
+settings.ProxySettings.PortNumber = 8080;
+
+settings.ProxySettings.Type = BlinkProxyType.HTTP;
+
+//Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert URL to PDF
+
+PdfDocument document = htmlConverter.Convert("https://www.google.com");
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+
+settings.BlinkPath = "/BlinkBinaries/"
+
+'Set manual proxy settings
+
+settings.ProxySettings.HostName = "127.0.0.1"
+
+settings.ProxySettings.PortNumber = 8080
+
+settings.ProxySettings.Type = BlinkProxyType.HTTP
+
+'Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings
+
+'Convert URL to PDF
+
+Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Viewport
 
 Adjusting HTML content size in PDF is possible by using the [ViewPortSize](https://help.syncfusion.com/cr/file-formats/Syncfusion.HtmlConverter.Base~Syncfusion.HtmlConverter.BlinkConverterSettings~ViewPortSize.html) property of Blink HTML converter. 
@@ -1048,6 +1596,89 @@ Dim document As PdfDocument = htmlConverter.Convert("https://www.google.com")
 document.Save("Output.pdf")
 
 document.Close(True)
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Partial webpage to PDF
+
+Blink rendering engine provides support for converting only the part of an HTML document like a table, div, or image elements from the URL/HTML string. You can convert the particular HTML element by specifying the HTML element ID, refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Initialize the HTML to PDF converter with Blink rendering engine
+
+HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.Blink);
+
+BlinkConverterSettings settings = new BlinkConverterSettings();
+
+//Set the BlinkBinaries folder path
+
+settings.BlinkPath = @"/BlinkBinaries/";
+
+//Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings;
+
+//Convert Partial webpage to PDF
+
+PdfDocument document = htmlConverter.ConvertPartialHtml("input.html", "pic");
+
+//Save and close the PDF document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Initialize the HTML to PDF converter with Blink rendering engine
+
+Dim htmlConverter As HtmlToPdfConverter = New HtmlToPdfConverter(HtmlRenderingEngine.Blink)
+
+Dim settings As BlinkConverterSettings = New BlinkConverterSettings()
+
+'Set the BlinkBinaries folder path
+
+settings.BlinkPath = "/BlinkBinaries/"
+
+'Assign Blink converter settings to HTML converter
+
+htmlConverter.ConverterSettings = settings
+
+'Convert Partial webpage to PDF
+
+Dim document As PdfDocument = htmlConverter. ConvertPartialHtml("input.html", "pic")
+
+'Save and close the PDF document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+{% endhighlight %}
+
+{% highlight html %}
+
+<html>
+<head>
+</head>
+<body>
+Hello world
+	<div id="pic">
+		<img src=" syncfusion_logo.gif" alt="Smiley face" width="42" height="42"><br>
+		This is a Syncfusion Logo
+	</div>
+	<div>
+		Hello world
+	</div>
+</body>
+</html>
 
 {% endhighlight %}
 
