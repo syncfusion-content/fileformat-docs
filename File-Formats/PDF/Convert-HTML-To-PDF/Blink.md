@@ -1446,9 +1446,25 @@ document.Close(True)
 
 {% endtabs %}
 
-## Proxy settings
+## System proxy
 
-By default, the Blink rendering engine use system settings for converting HTML to PDF. If proxy server is configured in the system, then the rendering engine automatically use the same settings for the conversion. You can also specify the manual proxy settings for the conversion using the ProxySettings property. Refer to the following code snippet to configure the manual proxy settings for the conversion.
+By default, the Blink rendering engine use system proxy settings for converting HTML to PDF. If proxy server is configured in the system,then the rendering engine automatically use the same settings for the conversion. Follow the below steps to set the system proxy settings,
+
+1. Control Panel > Network and Internet > Internet Options 
+2. From Internet properties window, open LAN settings under connections tab
+3. Then set proxy server address and port in LAN settings window
+
+<b>Please refer below screenshots:</b>
+ 
+![Manual proxy](htmlconversion_images/proxy.png)
+
+![Manual proxy settings](htmlconversion_images/proxy2.png)
+
+You can convert a web page to PDF by using this system proxy settings.
+
+## Manual proxy
+
+You can specify the manual proxy settings for the conversion using the ProxySettings property. Refer to the following code snippet to configure the manual proxy settings for the conversion.
 
 {% tabs %}
 
