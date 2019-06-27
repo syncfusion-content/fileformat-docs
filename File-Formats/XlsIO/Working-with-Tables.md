@@ -1974,4 +1974,4 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-N> Table refresh operation is not supported in UWP, ASP.NET Core and Xamarin platforms
+N> Table refresh operation is not supported in UWP, ASP.NET Core and Xamarin platforms.
