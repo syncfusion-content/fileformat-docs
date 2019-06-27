@@ -33,11 +33,11 @@ The following code snippet shows how to add a file from disk to the PDF document
 {% highlight c# %}
 
 
-//Create a new PDF document.
+//Create a new PDF document
 
 PdfDocument doc = new PdfDocument();
 
-//Add a page to the document.
+//Add a page to the document
 
 PdfPage page = doc.Pages.Add();
 
@@ -45,7 +45,7 @@ PdfPage page = doc.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the image from the disk.
+//Load the image from the disk
 
 PdfBitmap image = new PdfBitmap("Autumn Leaves.jpg");
 
@@ -53,11 +53,11 @@ PdfBitmap image = new PdfBitmap("Autumn Leaves.jpg");
 
 graphics.DrawImage(image, 0, 0);
 
-//Save the document.
+//Save the document
 
 doc.Save("Output.pdf");
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
@@ -65,18 +65,14 @@ doc.Close(true);
 
 {% endhighlight %}
 
-
-
 {% highlight vb.net %}
 
 
-
-
-'Create a new PDF document.
+'Create a new PDF document
 
 Dim doc As New PdfDocument()
 
-'Add a page to the document.
+'Add a page to the document
 
 Dim page As PdfPage = doc.Pages.Add()
 
@@ -84,7 +80,7 @@ Dim page As PdfPage = doc.Pages.Add()
 
 Dim graphics As PdfGraphics = page.Graphics
 
-'Load the image from the disk.
+'Load the image from the disk
 
 Dim image As New PdfBitmap("Autumn Leaves.jpg")
 
@@ -92,11 +88,11 @@ Dim image As New PdfBitmap("Autumn Leaves.jpg")
 
 graphics.DrawImage(image, 0, 0)
 
-'Save the document.
+'Save the document
 
 doc.Save("Output.pdf")
 
-'Close the document.
+'Close the document
 
 doc.Close(True)
 
@@ -106,11 +102,12 @@ doc.Close(True)
 
 {% highlight UWP %}
 
-//Create a new PDF document.
+
+//Create a new PDF document
 
 PdfDocument doc = new PdfDocument();
 
-//Add a page to the document.
+//Add a page to the document
 
 PdfPage page = doc.Pages.Add();
 
@@ -118,7 +115,7 @@ PdfPage page = doc.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the image as stream from the disk.
+//Load the image as stream from the disk
 
 Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Autumn Leaves.jpg");
 
@@ -128,29 +125,32 @@ PdfBitmap image = new PdfBitmap(imageStream);
 
 graphics.DrawImage(image, 0, 0);
 
-//Save the document as stream.
+//Save the document as stream
 
 MemoryStream stream = new MemoryStream();
 
 await doc.SaveAsync(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
 
 Save(stream, "Output.pdf");
+
+
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//Create a new PDF document.
+
+//Create a new PDF document
 
 PdfDocument doc = new PdfDocument();
 
-//Add a page to the document.
+//Add a page to the document
 
 PdfPage page = doc.Pages.Add();
 
@@ -158,7 +158,7 @@ PdfPage page = doc.Pages.Add();
 
 PdfGraphics graphics = page.Graphics;
 
-//Load the image from the disk.
+//Load the image from the disk
 
 FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open, FileAccess.Read);
 
@@ -176,35 +176,38 @@ MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//If the position is not set to '0' then the PDF will be empty.
+//If the position is not set to '0' then the PDF will be empty
 
 stream.Position = 0;
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Defining the ContentType for pdf file.
+//Defining the ContentType for pdf file
 
 string contentType = "application/pdf";
 
-//Define the file name.
+//Define the file name
 
 string fileName = "Output.pdf";
 
-//Creates a FileContentResult object by using the file contents, content type, and file name.
+//Creates a FileContentResult object by using the file contents, content type, and file name
 
 return File(stream, contentType, fileName);
+
+
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//Create a new PDF document.
+
+//Create a new PDF document
 
 PdfDocument doc = new PdfDocument();
 
-//Add a page to the document.
+//Add a page to the document
 
 PdfPage page = doc.Pages.Add();
 
@@ -222,19 +225,19 @@ PdfBitmap image = new PdfBitmap(imageStream);
 
 graphics.DrawImage(image, 0, 0);
 
-//Save the document as stream.
+//Save the document as stream
 
 MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
 //Save the stream into pdf file
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -244,6 +247,8 @@ else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
+
+
 
 {% endhighlight %}
 
@@ -255,10 +260,10 @@ You can also add images into an existing PDF document using the below code snipp
 
 {% tabs %}
 
-
 {% highlight c# %}
 
-//Load a PDF document.
+
+//Load a PDF document
 
 PdfLoadedDocument doc = new PdfLoadedDocument("input.pdf");
 
@@ -278,15 +283,13 @@ PdfBitmap image = new PdfBitmap("Autumn Leaves.jpg");
 
 graphics.DrawImage(image, 0, 0);
 
-//Save the document.
+//Save the document
 
 doc.Save("Output.pdf");
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
-
-
 
 
 
@@ -295,7 +298,7 @@ doc.Close(true);
 {% highlight vb.net %}
 
 
-'Load a PDF document.
+'Load a PDF document
 
 Dim doc As New PdfLoadedDocument("input.pdf")
 
@@ -315,21 +318,20 @@ Dim image As New PdfBitmap("Autumn Leaves.jpg")
 
 graphics.DrawImage(image, 0, 0)
 
-'Save the document.
+'Save the document
 
 doc.Save("Output.pdf")
 
-'Close the document.
+'Close the document
 
 doc.Close(True)
-
-
 
 
 
 {% endhighlight %}
 
 {% highlight UWP %}
+
 
 //Create the file open picker
 
@@ -367,23 +369,26 @@ PdfBitmap image = new PdfBitmap(imageStream);
 
 graphics.DrawImage(image, 0, 0);
 
-//Save the document as stream.
+//Save the document as stream
 
 MemoryStream stream = new MemoryStream();
 
 await doc.SaveAsync(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
 
 Save(stream, "Output.pdf");
+
+
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
+
 
 //Load the PDF document
 
@@ -417,29 +422,32 @@ MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//If the position is not set to '0' then the PDF will be empty.
+//If the position is not set to '0' then the PDF will be empty
 
 stream.Position = 0;
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Defining the ContentType for pdf file.
+//Defining the ContentType for pdf file
 
 string contentType = "application/pdf";
 
-//Define the file name.
+//Define the file name
 
 string fileName = "Output.pdf";
 
-//Creates a FileContentResult object by using the file contents, content type, and file name.
+//Creates a FileContentResult object by using the file contents, content type, and file name
 
 return File(stream, contentType, fileName);
+
+
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
+
 
 //Load the file as stream
 
@@ -465,19 +473,19 @@ PdfBitmap image = new PdfBitmap(imageStream);
 
 graphics.DrawImage(image, 0, 0);
 
-//Save the document as stream.
+//Save the document as stream
 
 MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
 //Save the stream into pdf file
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -488,9 +496,11 @@ else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
 
+
+
 {% endhighlight %}
 
-  {% endtabs %}  
+{% endtabs %}  
 
 To add image from stream, use the below code snippet.
 
@@ -499,9 +509,7 @@ To add image from stream, use the below code snippet.
 {% highlight c# %}
 
 
-
-
-//Load a PDF document.
+//Load a PDF document
 
 PdfLoadedDocument doc = new PdfLoadedDocument("input.pdf");
 
@@ -525,15 +533,13 @@ PdfBitmap image = new PdfBitmap(imageStream);
 
 graphics.DrawImage(image, 0, 0);
 
-//Save the document.
+//Save the document
 
 doc.Save("Output.pdf");
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
-
-
 
 
 
@@ -542,8 +548,7 @@ doc.Close(true);
 {% highlight vb.net %}
 
 
-
-'Load a PDF document.
+'Load a PDF document
 
 Dim doc As New PdfLoadedDocument("input.pdf")
 
@@ -567,11 +572,11 @@ Dim image As New PdfBitmap(imageStream)
 
 graphics.DrawImage(image, 0, 0)
 
-'Save the document.
+'Save the document
 
 doc.Save("Output.pdf")
 
-'Close the document.
+'Close the document
 
 doc.Close(True)
 
@@ -580,6 +585,7 @@ doc.Close(True)
 {% endhighlight %}
 
 {% highlight UWP %}
+
 
 //Create the file open picker
 
@@ -617,23 +623,26 @@ PdfBitmap image = new PdfBitmap(imageStream);
 
 graphics.DrawImage(image, 0, 0);
 
-//Save the document as stream.
+//Save the document as stream
 
 MemoryStream stream = new MemoryStream();
 
 await doc.SaveAsync(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
 
 Save(stream, "Output.pdf");
+
+
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
+
 
 //Load the PDF document
 
@@ -667,29 +676,32 @@ MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//If the position is not set to '0' then the PDF will be empty.
+//If the position is not set to '0' then the PDF will be empty
 
 stream.Position = 0;
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Defining the ContentType for pdf file.
+//Defining the ContentType for pdf file
 
 string contentType = "application/pdf";
 
-//Define the file name.
+//Define the file name
 
 string fileName = "Output.pdf";
 
-//Creates a FileContentResult object by using the file contents, content type, and file name.
+//Creates a FileContentResult object by using the file contents, content type, and file name
 
 return File(stream, contentType, fileName);
+
+
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
+
 
 //Load the file as stream
 
@@ -715,19 +727,19 @@ PdfBitmap image = new PdfBitmap(imageStream);
 
 graphics.DrawImage(image, 0, 0);
 
-//Save the document as stream.
+//Save the document as stream
 
 MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
 //Save the stream into pdf file
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -738,10 +750,11 @@ else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
 
+
+
 {% endhighlight %}
 
 {% endtabs %}  
-
 
 ## Inserting a vector image
 
@@ -761,9 +774,7 @@ The following code illustrate this,
 {% highlight c# %}
 
 
-
-
-// Create a PDF Document.
+//Create a PDF Document
 
 PdfDocument doc = new PdfDocument();
 
@@ -803,14 +814,12 @@ doc.Close(true);
 
 
 
-
-
 {% endhighlight %}
 
 {% highlight vb.net %}
 
 
-'Create a PDF Document.
+'Create a PDF Document
 
 Dim doc As New PdfDocument()
 
@@ -850,25 +859,32 @@ doc.Close(True)
 
 
 
-
-
 {% endhighlight %}
 
 {% highlight UWP %}
 
+
 //PDF supports inserting a vector image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
+
 //PDF supports inserting a vector image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
+
 //PDF supports inserting a vector image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+
 
 {% endhighlight %}
 
@@ -883,8 +899,6 @@ The following code illustrate shows how to add a mask to TIFF image.
 {% tabs %}  
 
 {% highlight c# %}
-
-
 
 
 //Create a PDF document
@@ -968,19 +982,84 @@ doc.Close(True)
 
 {% highlight UWP %}
 
-//PDF supports image masking only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+//PDF supports image masking only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms
+
+
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//PDF supports image masking only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+//Create a PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Add pages to the document
+
+PdfPage page = doc.Pages.Add();
+
+//Create PDF graphics for the page
+
+PdfGraphics graphics = page.Graphics;
+
+//Load the TIFF image
+
+FileStream imageStream = new FileStream("image.tif", FileMode.Open, FileAccess.Read);
+
+PdfBitmap image = new PdfBitmap(imageStream);
+
+//Create masking image
+
+FileStream maskStream = new FileStream("mask.bmp", FileMode.Open, FileAccess.Read);
+
+PdfImageMask mask = new PdfImageMask(new PdfBitmap(maskStream));
+
+image.Mask = mask;
+
+//Draw the image
+
+graphics.DrawImage(image, 0, 0);
+
+///Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-//PDF supports image masking only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+
+//PDF supports image masking only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms
+
+
 
 {% endhighlight %}
 
@@ -1004,7 +1083,7 @@ PdfLoadedDocument doc = new PdfLoadedDocument(@"image.pdf");
 
 PdfBitmap image = new PdfBitmap(@"Autumn Leaves.jpg");
 
-//Replace the first image in the page.
+//Replace the first image in the page
 
 doc.Pages[0].ReplaceImage(0, image);
 
@@ -1018,15 +1097,9 @@ doc.Close(true);
 
 
 
-
-
 {% endhighlight %}
 
-
-
 {% highlight vb.net %}
-
-
 
 
 'Load the PDF document
@@ -1037,7 +1110,7 @@ Dim doc As New PdfLoadedDocument("image.pdf")
 
 Dim image As New PdfBitmap("Autumn Leaves.jpg")
 
-'Replace the first image in the page.
+'Replace the first image in the page
 
 doc.Pages(0).ReplaceImage(0, image)
 
@@ -1051,29 +1124,36 @@ doc.Close(True)
 
 
 
-
-
 {% endhighlight %}
 
 {% highlight UWP %}
 
+
 //PDF supports replacing image in an existing PDF document only in Windows Forms, WPF,ASP.NET and ASP.NET MVC platforms.
+
+
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
+
 //PDF supports replacing image in an existing PDF document only in Windows Forms, WPF,ASP.NET and ASP.NET MVC platforms.
+
+
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
+
 //PDF supports replacing image in an existing PDF document only in Windows Forms, WPF,ASP.NET and ASP.NET MVC platforms.
+
+
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
 
 ## Image Pagination
 
@@ -1096,7 +1176,7 @@ PdfPage page = doc.Pages.Add();
 
 PdfBitmap image = new PdfBitmap("input.jpg");
 
-//Set layout property to make the element break across the pages.
+//Set layout property to make the element break across the pages
 
 PdfLayoutFormat format = new PdfLayoutFormat();
 
@@ -1118,8 +1198,6 @@ doc.Close(true);
 
 {% endhighlight %}
 
-
-
 {% highlight vb.net %}
 
 
@@ -1135,7 +1213,7 @@ Dim page As PdfPage = doc.Pages.Add()
 
 Dim image As New PdfBitmap("input.jpg")
 
-'Set layout property to make the element break across the pages.
+'Set layout property to make the element break across the pages
 
 Dim format As New PdfLayoutFormat()
 
@@ -1175,7 +1253,7 @@ Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResource
 
 PdfBitmap image = new PdfBitmap(imageStream);
 
-//Set layout property to make the element break across the pages.
+//Set layout property to make the element break across the pages
 
 PdfLayoutFormat format = new PdfLayoutFormat();
 
@@ -1187,23 +1265,26 @@ format.Layout = PdfLayoutType.Paginate;
 
 image.Draw(page, 20, 400, format);
 
-//Save the document as stream.
+//Save the document as stream
 
 MemoryStream stream = new MemoryStream();
 
 await doc.SaveAsync(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
 
 Save(stream, "Output.pdf");
+
+
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
+
 
 //Create Document
 
@@ -1219,7 +1300,7 @@ FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open, File
 
 PdfBitmap image = new PdfBitmap(imageStream);
 
-//Set layout property to make the element break across the pages.
+//Set layout property to make the element break across the pages
 
 PdfLayoutFormat format = new PdfLayoutFormat();
 
@@ -1239,29 +1320,32 @@ MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//If the position is not set to '0' then the PDF will be empty.
+//If the position is not set to '0' then the PDF will be empty
 
 stream.Position = 0;
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Defining the ContentType for pdf file.
+//Defining the ContentType for pdf file
 
 string contentType = "application/pdf";
 
-//Define the file name.
+//Define the file name
 
 string fileName = "Output.pdf";
 
-//Creates a FileContentResult object by using the file contents, content type, and file name.
+//Creates a FileContentResult object by using the file contents, content type, and file name
 
 return File(stream, contentType, fileName);
+
+
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
+
 
 //Create Document
 
@@ -1277,7 +1361,7 @@ Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStrea
 
 PdfBitmap image = new PdfBitmap(imageStream);
 
-//Set layout property to make the element break across the pages.
+//Set layout property to make the element break across the pages
 
 PdfLayoutFormat format = new PdfLayoutFormat();
 
@@ -1289,19 +1373,19 @@ format.Layout = PdfLayoutType.Paginate;
 
 image.Draw(page, 20, 400, format);
 
-//Save the document as stream.
+//Save the document as stream
 
 MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
 //Save the stream into pdf file
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -1312,9 +1396,10 @@ else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
 
+
 {% endhighlight %}
 
- {% endtabs %}  
+{% endtabs %}  
  
 
 ## Applying transparency and rotation to the image
@@ -1354,7 +1439,7 @@ page.Graphics.SetTransparency(0.5f);
 
 page.Graphics.RotateTransform(-45);
 
-// Draw image
+//Draw image
 
 image.Draw(page, 0, 0);
 
@@ -1370,11 +1455,7 @@ doc.Close(true);
 
 
 
-
-
 {% endhighlight %}
-
-
 
 {% highlight vb.net %}
 
@@ -1423,11 +1504,10 @@ doc.Close(True)
 
 
 
-
-
 {% endhighlight %}
 
 {% highlight UWP %}
+
 
 //Create Document
 
@@ -1441,7 +1521,7 @@ PdfPage page = doc.Pages.Add();
 
 Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Data.Assets.input.jpg");
 
-//Load a bitmap.
+//Load a bitmap
 
 PdfBitmap image = new PdfBitmap(imageStream);
 
@@ -1461,7 +1541,7 @@ page.Graphics.SetTransparency(0.5f);
 
 page.Graphics.RotateTransform(-45);
 
-// Draw image
+//Draw image
 
 image.Draw(page, 0, 0);
 
@@ -1469,24 +1549,26 @@ image.Draw(page, 0, 0);
 
 page.Graphics.Restore(state);
 
-//Save the document as stream.
+//Save the document as stream
 
 MemoryStream stream = new MemoryStream();
 
 await doc.SaveAsync(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
 
 Save(stream, "Output.pdf");
+
 
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
+
 
 //Create Document
 
@@ -1500,7 +1582,7 @@ PdfPage page = doc.Pages.Add();
 
 FileStream imageStream = new FileStream("input.jpg", FileMode.Open, FileAccess.Read);
 
-//Load a bitmap.
+//Load a bitmap
 
 PdfBitmap image = new PdfBitmap(imageStream);
 
@@ -1520,7 +1602,7 @@ page.Graphics.SetTransparency(0.5f);
 
 page.Graphics.RotateTransform(-45);
 
-// Draw image
+//Draw image
 
 image.Draw(page, 0, 0);
 
@@ -1536,29 +1618,32 @@ MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//If the position is not set to '0' then the PDF will be empty.
+//If the position is not set to '0' then the PDF will be empty
 
 stream.Position = 0;
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
-//Defining the ContentType for pdf file.
+//Defining the ContentType for pdf file
 
 string contentType = "application/pdf";
 
-//Define the file name.
+//Define the file name
 
 string fileName = "Output.pdf";
 
-//Creates a FileContentResult object by using the file contents, content type, and file name.
+//Creates a FileContentResult object by using the file contents, content type, and file name
 
 return File(stream, contentType, fileName);
+
+
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
+
 
 //Create Document
 
@@ -1590,7 +1675,7 @@ page.Graphics.SetTransparency(0.5f);
 
 page.Graphics.RotateTransform(-45);
 
-// Draw image
+//Draw image
 
 image.Draw(page, 0, 0);
 
@@ -1598,19 +1683,19 @@ image.Draw(page, 0, 0);
 
 page.Graphics.Restore(state);
 
-//Save the document as stream.
+//Save the document as stream
 
 MemoryStream stream = new MemoryStream();
 
 doc.Save(stream);
 
-//Close the document.
+//Close the document
 
 doc.Close(true);
 
 //Save the stream into pdf file
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
 
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 {
@@ -1620,6 +1705,8 @@ else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
+
+
 
 {% endhighlight %}
 
@@ -1640,17 +1727,9 @@ The code snippet to illustrate the same is given below.
 
 PdfDocument pdfDocument = new PdfDocument();
 
-//Add a section to the PDF document
+//Set page margins
 
-PdfSection section = pdfDocument.Sections.Add();
-
-//Declare the PDF page
-
-PdfPage page;
-
-//Declare PDF page graphics
-
-PdfGraphics graphics;
+pdfDocument.PageSettings.Margins.All = 0;
 
 //Load multi frame TIFF image
 
@@ -1660,17 +1739,15 @@ PdfBitmap tiffImage = new PdfBitmap("image.tiff");
 
 int frameCount = tiffImage.FrameCount;
 
-//Access each frame draw into the page
+//Access each frame and draw into the page
 
 for (int i = 0; i < frameCount; i++)
 
 {
 
-page = section.Pages.Add();
+PdfPage page = pdfDocument.Pages.Add();
 
-section.PageSettings.Margins.All = 0;
-
-graphics = page.Graphics;
+PdfGraphics graphics = page.Graphics;
 
 tiffImage.ActiveFrame = i;
 
@@ -1688,8 +1765,6 @@ pdfDocument.Close(true);
 
 {% endhighlight %}
 
-
-
 {% highlight vb.net %}
 
 
@@ -1697,17 +1772,9 @@ pdfDocument.Close(true);
 
 Dim pdfDocument As New PdfDocument()
 
-'Add a section to the PDF document
+'Set page margins
 
-Dim section As PdfSection = pdfDocument.Sections.Add()
-
-'Declare the PDF page
-
-Dim page As PdfPage
-
-'Declare PDF page graphics
-
-Dim graphics As PdfGraphics
+pdfDocument.PageSettings.Margins.All = 0
 
 'Load multi frame TIFF image
 
@@ -1717,15 +1784,13 @@ Dim tiffImage As New PdfBitmap("image.tiff")
 
 Dim frameCount As Integer = tiffImage.FrameCount
 
-'Access each frame draw into the page
+'Access each frame and draw into the page
 
 For i As Integer = 0 To frameCount - 1
 
-page = section.Pages.Add()
+Dim page As PdfPage = pdfDocument.Pages.Add()
 
-section.PageSettings.Margins.All = 0
-
-graphics = page.Graphics
+Dim graphics As PdfGraphics = page.Graphics
 
 tiffImage.ActiveFrame = i
 
@@ -1739,25 +1804,20 @@ pdfDocument.Save("Sample.pdf")
 
 pdfDocument.Close(True)
 
+
+
 {% endhighlight %}
 
 {% highlight UWP %}
+
 
 //Create a PDF document
 
 PdfDocument pdfDocument = new PdfDocument();
 
-//Add a section to the PDF document
+//Set page margins
 
-PdfSection section = pdfDocument.Sections.Add();
-
-//Declare the PDF page
-
-PdfPage page;
-
-//Declare PDF page graphics
-
-PdfGraphics graphics;
+pdfDocument.PageSettings.Margins.All = 0;
 
 //Load multi frame TIFF image
 
@@ -1769,17 +1829,15 @@ PdfBitmap tiffImage = new PdfBitmap(imageStream);
 
 int frameCount = tiffImage.FrameCount;
 
-//Access each frame draw into the page
+//Access each frame and draw into the page
 
 for (int i = 0; i < frameCount; i++)
 
 {
 
-    page = section.Pages.Add();
+    PdfPage page = pdfDocument.Pages.Add();
 
-    section.PageSettings.Margins.All = 0;
-
-    graphics = page.Graphics;
+    PdfGraphics graphics = page.Graphics;
 
     tiffImage.ActiveFrame = i;
 
@@ -1789,29 +1847,96 @@ for (int i = 0; i < frameCount; i++)
 
 MemoryStream memoryStream = new MemoryStream();
 
-//Save the document.
+//Save the document
 
 await pdfDocument.SaveAsync(memoryStream);
 
-//Close the documents.
+//Close the documents
 
 pdfDocument.Close(true);
 
-//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples
 
 Save(memoryStream, "Sample.pdf");
+
+
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-//Essential PDF supports converting multi page TIFF to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+//Create a new PDF document
+
+PdfDocument doc = new PdfDocument();
+
+//Set page margins
+
+doc.PageSettings.Margins.All = 0;
+
+//Load the multi frame TIFF image from the disk
+
+FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
+
+PdfBitmap tiffImage = new PdfBitmap(imageStream);
+
+//Get the frame count
+
+int frameCount = tiffImage.FrameCount;
+
+//Access each frame and draw into the page
+
+for (int i = 0; i < frameCount; i++)
+
+{
+    PdfPage page = doc.Pages.Add();
+
+    PdfGraphics graphics = page.Graphics;
+
+    tiffImage.ActiveFrame = i;
+
+    graphics.DrawImage(tiffImage, 0, 0, page.GetClientSize().Width, page.GetClientSize().Height);
+
+}
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+doc.Save(stream);
+
+//If the position is not set to '0' then the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document
+
+doc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
+
 //Essential PDF supports converting multi page TIFF to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+
+
 
 {% endhighlight %}
 
