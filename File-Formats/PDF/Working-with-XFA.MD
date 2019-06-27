@@ -14288,7 +14288,7 @@ ldoc.Close()
 
 ## Removing the dynamic form fields from an existing XFA document
 
-You can remove the dynamic XFA form fields by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaFieldCollection~Remove.html) method of [PdfLoadedXfaFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaFieldCollection.html) class. The below code snippet explaind this.
+You can remove the dynamic XFA form fields by using [Remove](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaFieldCollection~Remove.html) method of [PdfLoadedXfaFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Xfa.PdfLoadedXfaFieldCollection.html) class. The below code snippet explained this.
 
 {% tabs %}  
 

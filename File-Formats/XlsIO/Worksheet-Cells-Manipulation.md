@@ -1101,9 +1101,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Get Direct Precedent and Dependent Cells
 
-GetDirectDependents and GetDirectPrecedents methods are used to get direct dependent/precedent cells for source range excluding inner dependent/precedent cells. 
+`GetDirectDependents` and `GetDirectPrecedents` methods are used to get direct dependent/precedent cells for source range excluding inner dependent/precedent cells. 
 
-Following code example illustrates how to get direct precedent cells from a worksheet and entire workbook
+Following code example illustrates how to get direct precedent cells from a worksheet and entire workbook.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1235,7 +1235,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-Following code example illustrates how to get direct dependent cells from a worksheet and entire workbook
+Following code example illustrates how to get direct dependent cells from a worksheet and entire workbook.
 
 {% tabs %}  
 {% highlight c# %}

@@ -1,5 +1,5 @@
 ---
-title: Supported Features by File Formats
+title: Supported Features by File Formats | Syncfusion
 description: Briefs about supported and non-supported file format features in XlsIO
 platform: File-formats
 control: XlsIO
@@ -407,7 +407,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
-CLR Objects<br/><br/></td><td>
+Collection Objects<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 -<br/><br/></td><td>
