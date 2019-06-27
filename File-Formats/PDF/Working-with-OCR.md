@@ -81,7 +81,7 @@ N> PDF supports OCR only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform
 
 ## Performing OCR for an entire document
 
-You can perform OCR on PDF document with the help of OCRProcessor Class. Refer the below code snippet for the same.
+You can perform OCR on PDF document with the help of [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRProcessor.html) Class. Refer the below code snippet for the same.
 
 {% tabs %}   
 
@@ -159,7 +159,7 @@ N> The PerformOCR method returns only the text OCRed by OCRProcessor. Other exis
 
 ## Performing OCR with tesseract version 3.05
 
-You can perform OCR using the tesseract version 3.05. The ```TesseractVersion``` property is used to switch the tesseract version between 3.02 and 3.05. By default, OCR works with tesseract version 3.02.
+You can perform OCR using the tesseract version 3.05. The [TesseractVersion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRSettings~TesseractVersion.html) property is used to switch the tesseract version between 3.02 and 3.05. By default, OCR works with tesseract version 3.02.
  
 You must use the pre built Syncfusion tesseract version 3.05 in the sample to run the OCR properly. The tesseract binaries are shipping with Syncfusion NuGet package, use the following link to download the NuGet package.
 
@@ -237,7 +237,7 @@ End Using
 
 ## Performing OCR for a region of the document
 
-You can perform OCR on particular region or several regions of a PDF page with the help of PageRegion class. Refer the below code snippet for the same.
+You can perform OCR on particular region or several regions of a PDF page with the help of [PageRegion](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.PageRegion.html) class. Refer the below code snippet for the same.
 
 {% tabs %} 
 
@@ -403,7 +403,7 @@ End Using
 
 ## Performing OCR for large PDF documents
 
-You can optimize the memory to perform OCR for large PDF documents by enabling the isMemoryOptimized property. Optimization will be effective only with Multithreading environment or PDF document with more images. This is demonstrated in the following code sample. 
+You can optimize the memory to perform OCR for large PDF documents by enabling the isMemoryOptimized property in [PerformOCR](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRProcessor~PerformOCR(PdfLoadedDocument,String,Boolean).html) method of [OCRProcessor](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRProcessor.html) class. Optimization will be effective only with Multithreading environment or PDF document with more images. This is demonstrated in the following code sample. 
 
 {% tabs %} 
 
@@ -472,11 +472,94 @@ End Using
 {% endhighlight %}
 
 {% endtabs %}  
+
+
+## Performing OCR on rotated page of PDF document
+
+You can perform OCR on the rotated page of a PDF document. Refer to the following code snippet for the same. 
+
+
+{% tabs %} 
+
+{% highlight c# %}
+
+
+//Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
+
+using (OCRProcessor processor = new OCRProcessor(@"TesseractBinaries\"))
+
+{
+
+//Load a PDF document
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument("Input.pdf");
+
+//Set OCR language to process
+
+processor.Settings.Language = Languages.English;
+
+//Set OCR page auto detection rotation
+
+processor.Settings.AutoDetectRotation = true;
+
+//Process OCR by providing the PDF document
+
+processor.PerformOCR(lDoc, @"TessData\");
+
+//Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf");
+
+lDoc.Close(true);
+
+}
+
+
+{% endhighlight %}
+
+
+{% highlight vb.net %}
+
+
+'Initialize the OCR processor by providing the path of tesseract binaries(SyncfusionTesseract.dll and liblept168.dll)
+
+Using processor As New OCRProcessor("TesseractBinaries\")
+
+'Load a PDF document.
+
+Dim lDoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Set OCR language to process
+
+processor.Settings.Language = Languages.English
+
+'Set OCR page auto detection rotation
+
+processor.Settings.AutoDetectRotation = true
+
+'Process OCR by providing the PDF document
+
+processor.PerformOCR(lDoc, "TessData\")
+
+'Save the OCR processed PDF document in the disk
+
+lDoc.Save("Sample.pdf")
+
+lDoc.Close(true)
+
+End Using
+
+
+
+{% endhighlight %}
+
+{% endtabs %}  
+
  
 
 ## Layout result from OCR
 
-You can get the OCRed text and its bounds from a scanned PDF document by using the ```OCRLayoutResult``` Class. Refer to the following code snippet. 
+You can get the OCRed text and its bounds from a scanned PDF document by using the [OCRLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRLayoutResult.html) Class. Refer to the following code snippet. 
  
 {% tabs %} 
 
@@ -754,7 +837,7 @@ End Using
 
 ## Customizing temp folder
 
-While performing OCR on an existing scanned PDF document, the OCR Processor will create temporary files (.temp, .tiff, .txt) and the files are deleted after the process is completed. You can change this temporary files folder location using the ```TempFolder``` property available in the ```OCRSettings ``` Instance. Refer to the following code snippet.
+While performing OCR on an existing scanned PDF document, the OCR Processor will create temporary files (.temp, .tiff, .txt) and the files are deleted after the process is completed. You can change this temporary files folder location using the [TempFolder](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRSettings~TempFolder.html) property available in the [OCRSettings](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.OCRSettings.html) Instance. Refer to the following code snippet.
 
 {% tabs %}  
 
@@ -845,7 +928,7 @@ For more details regarding quality improvement, refer to the following link:
 
 [https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality](https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality )
 
-**You can set the different performance level to the OCRProcessor using “Performance” enumeration.**
+**You can set the different performance level to the OCRProcessor using [Performance](https://help.syncfusion.com/cr/file-formats/Syncfusion.OCRProcessor.Base~Syncfusion.OCRProcessor.Performance.html) enumeration.**
 
 * Rapid – high speed OCR performance and provide normal OCR accuracy
 * Fast – provides moderate OCR processing speed and accuracy

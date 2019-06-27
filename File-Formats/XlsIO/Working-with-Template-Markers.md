@@ -10,7 +10,7 @@ documentation: UG
 A template marker is a special marker symbol created in an Excel template that appends multiple records from a data source into a worksheet. This marker automatically maps the column name in the data source and names of the marker fields in the template Excel document and fills the data (text or image). Essential XlsIO allows you to bind the template markers to data from various sources, such as 
 
 * DataTable
-* CLR objects
+* Collection objects
 * Arrays
 
 ## Template marker Syntax
@@ -595,7 +595,7 @@ The following screenshot represents an Excel file in which the data type is dete
 ![Bind from DataTable Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img4.jpeg)
 
 
-## Bind from CLR objects with images
+## Bind from Collection Objects with images
 
 You can generate reports more appealingly with image support in template markers. The possible image formats are as follows:
 
@@ -636,12 +636,12 @@ Image is positioned (top-left, top-center, etc.,) within the cell.<br/><br/></td
 </table>
 In the following example, a marker is added for merging images. Data source and property name is specified (%Reports.Image;) for image also. 
 
-![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img5.jpeg)
+![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img5.jpeg)
 
 
 __Marker__ __added__ __for__ __merging__ __images__
 
-N> Image can be used in array, DataTable, and CLR objects.
+N> Image can be used in array, DataTable, and collection objects.
 
 Different positions of the image are maintained internally in the ImageVerticalPosition and ImageHorizontalPosition enumerators.  To learn more about this, refer to the **ImageVerticalPosition** and **ImageHorizontalPosition** enumerators respectively in API section.
 
@@ -651,60 +651,60 @@ The output of all the image insertion options with input templates are as follow
 
 Input template
 
-![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img6.jpeg)
+![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img6.jpeg)
 
 
 Generated output
 
-![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img7.jpeg)
+![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img7.jpeg)
 
 
 **Image** **with** **FitToCell** **attribute**
 
 Input template
 
-![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img8.jpeg)
+![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img8.jpeg)
 
 
 Generated output
 
-![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img9.jpeg)
+![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img9.jpeg)
 
 
 **Image** **with** **Size**
 
 Input template
 
-![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img10.jpeg)
+![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img10.jpeg)
 
 
 Generated output
 
-![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img11.jpeg)
+![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img11.jpeg)
 
 
 **Image** **with** **Position**
 
 Input template
 
-![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img12.jpeg)
+![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img12.jpeg)
 
 
 Generated output
 
-![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img13.jpeg)
+![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img13.jpeg)
 
 
 **Image** **with** **position** **and** **size**
 
 Input template
 
-![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img14.jpeg)
+![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img14.jpeg)
 
 
 Generated output
 
-![Import CLR objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg)
+![Import collection objects with images Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img15.jpeg)
 
 
 You can also refer to the [Template based data filling using Template Markers](/file-formats/xlsio/getting-started#template-based-data-filling-using-template-markers) section in [Getting Started](/file-formats/xlsio/getting-started) for the sample regarding template marker with images.

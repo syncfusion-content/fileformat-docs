@@ -7399,6 +7399,3430 @@ else
 
 {% endtabs %}
 
+## Adjust table width automatically
+
+You can automatically adjust the width of the table by enabling the [AllowHorizontalOverflow](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridStyle~AllowHorizontalOverflow.html) property of [PdfGridStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridStyle.html) instance. The following code snippet illustrates this.
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add new section to the document
+PdfSection section = document.Sections.Add();
+
+//Add a page to the section
+PdfPage page = section.Pages.Add();
+
+//Initialize PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Create a DataTable
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("Employee_ID");
+dataTable.Columns.Add("Employee_Name");
+dataTable.Columns.Add("Employee_Role");
+dataTable.Columns.Add("Employee_DateOfBirth");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "E01", "Clay", "Sales Representative", "12/8/1948" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas", "Sales Representative", "7/2/1963" });
+dataTable.Rows.Add(new object[] { "E03", "Ash", "Sales Manager", "3/4/1955" });
+dataTable.Rows.Add(new object[] { "E04", "Andrew", "Vice President, Sales", "2/19/1952" });
+
+//Assign data source to grid
+grid.DataSource = dataTable;
+
+//Apply the table style
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5);
+
+//Allow the horizontal overflow for PdfGrid
+grid.Style.AllowHorizontalOverflow = true;
+
+//Draw the PdfGrid on page
+grid.Draw(page, PointF.Empty);
+
+//Save the PDF document
+document.Save("Output.pdf");
+
+//Close the instance of PdfDocument
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Add new section to the document
+Dim section As PdfSection = document.Sections.Add
+
+'Add a page to the section
+Dim page As PdfPage = section.Pages.Add
+
+'Initialize PdfGrid
+Dim grid As PdfGrid = New PdfGrid
+
+'Create a DataTable
+Dim dataTable As DataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("Employee_ID")
+dataTable.Columns.Add("Employee_Name")
+dataTable.Columns.Add("Employee_Role")
+dataTable.Columns.Add("Employee_DateOfBirth")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"E01", "Clay", "Sales Representative", "12/8/1948"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas", "Sales Representative", "7/2/1963"})
+dataTable.Rows.Add(New Object() {"E03", "Ash", "Sales Manager", "3/4//1955"})
+dataTable.Rows.Add(New Object() {"E04", "Andrew", "Vice President, Sales", "2/19/1952"})
+
+'Assign data source to grid
+grid.DataSource = dataTable
+
+'Apply the table style
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5)
+
+'Allow the horizontal overflow for PdfGrid
+grid.Style.AllowHorizontalOverflow = True
+
+'Draw the PdfGrid on page
+grid.Draw(page, PointF.Empty)
+
+'Save the PDF document
+document.Save("Output.pdf")
+
+'Close the instance of PdfDocument
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add new section to the document
+PdfSection section = document.Sections.Add();
+
+//Add a page to the section
+PdfPage page = section.Pages.Add();
+
+//Initialize PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { Employee_ID = "E01", Employee_Name = "Clay", Employee_Role = "Sales Representative", Employee_DateOfBirth = "12/8/1948" };
+Object grid1row2 = new { Employee_ID = "E02", Employee_Name = "Thomas", Employee_Role = "Sales Representative", Employee_DateOfBirth = "7/2/1963" };
+Object grid1row3 = new { Employee_ID = "E03", Employee_Name = "Ash", Employee_Role = "Sales Manager", Employee_DateOfBirth = "3/4/1955" };
+Object grid1row4 = new { Employee_ID = "E04", Employee_Name = "Andrew", Employee_Role = "Vice President, Sales", Employee_DateOfBirth = "2/19/1952" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+data.Add(grid1row4);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source to grid
+grid.DataSource = dataTable;
+
+//Apply the table style
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5);
+
+//Allow the horizontal overflow for PdfGrid
+grid.Style.AllowHorizontalOverflow = true;
+
+//Draw the PdfGrid on page
+grid.Draw(page, PointF.Empty);
+
+//Create memory stream
+MemoryStream stream = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(stream);
+
+//Close the instance of PdfDocument
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(stream, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add new section to the document
+PdfSection section = document.Sections.Add();
+
+//Add a page to the section
+PdfPage page = section.Pages.Add();
+
+//Initialize PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { Employee_ID = "E01", Employee_Name = "Clay", Employee_Role = "Sales Representative", Employee_DateOfBirth = "12/8/1948" };
+Object grid1row2 = new { Employee_ID = "E02", Employee_Name = "Thomas", Employee_Role = "Sales Representative", Employee_DateOfBirth = "7/2/1963" };
+Object grid1row3 = new { Employee_ID = "E03", Employee_Name = "Ash", Employee_Role = "Sales Manager", Employee_DateOfBirth = "3/4/1955" };
+Object grid1row4 = new { Employee_ID = "E04", Employee_Name = "Andrew", Employee_Role = "Vice President, Sales", Employee_DateOfBirth = "2/19/1952" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+data.Add(grid1row4);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source to grid
+grid.DataSource = dataTable;
+
+//Apply the table style
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5);
+
+//Allow the horizontal overflow for PdfGrid
+grid.Style.AllowHorizontalOverflow = true;
+
+//Draw the PdfGrid on page
+grid.Draw(page, PointF.Empty);
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add new section to the document
+PdfSection section = document.Sections.Add();
+
+//Add a page to the section
+PdfPage page = section.Pages.Add();
+
+//Initialize PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { Employee_ID = "E01", Employee_Name = "Clay", Employee_Role = "Sales Representative", Employee_DateOfBirth = "12/8/1948" };
+Object grid1row2 = new { Employee_ID = "E02", Employee_Name = "Thomas", Employee_Role = "Sales Representative", Employee_DateOfBirth = "7/2/1963" };
+Object grid1row3 = new { Employee_ID = "E03", Employee_Name = "Ash", Employee_Role = "Sales Manager", Employee_DateOfBirth = "3/4/1955" };
+Object grid1row4 = new { Employee_ID = "E04", Employee_Name = "Andrew", Employee_Role = "Vice President, Sales", Employee_DateOfBirth = "2/19/1952" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+data.Add(grid1row4);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source to grid
+grid.DataSource = dataTable;
+
+//Apply the table style
+grid.ApplyBuiltinStyle(PdfGridBuiltinStyle.GridTable5DarkAccent5);
+
+//Allow the horizontal overflow for PdfGrid
+grid.Style.AllowHorizontalOverflow = true;
+
+//Draw the PdfGrid on page
+grid.Draw(page, PointF.Empty);
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the instance of PdfDocument
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Adding multiple tables
+
+The Essential PDF supports maintaining the position of a PDF grid drawn on PDF page using [PdfGridLayoutResult](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridLayoutResult.html). It provides the rendered bounds of previously added grid, which can be used to place successive elements without overlapping. You can add multiple PDF grids using the bottom position of previously rendered PDF grid. The following code snippet illustrates this.
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create a DataTable
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+dataTable.Columns.Add("Salary");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+dataTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw grid on the page of PDF document and store the grid position in PdfGridLayoutResult
+PdfGridLayoutResult pdfGridLayoutResult = pdfGrid.Draw(page, new PointF(10, 10));
+
+//Initialize PdfGrid and DataTable
+pdfGrid = new PdfGrid();
+dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("Name");
+dataTable.Columns.Add("Age");
+dataTable.Columns.Add("Sex");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "Andrew", "21", "Male" });
+dataTable.Rows.Add(new object[] { "Steven", "22", "Female" });
+dataTable.Rows.Add(new object[] { "Michael", "24", "Male" });
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw the grid on page using previous result
+pdfGrid.Draw(page, new PointF(10, pdfGridLayoutResult.Bounds.Bottom + 20));
+
+//Save the document
+document.Save("Output.pdf");
+
+//Close the document
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Add a page
+Dim page As PdfPage = document.Pages.Add
+
+'Create a new PdfGrid instance
+Dim pdfGrid As PdfGrid = New PdfGrid
+
+'Create a DataTable
+Dim dataTable As DataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+dataTable.Columns.Add("Salary")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"E01", "Clay", "$10,000"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas", "$10,500"})
+dataTable.Rows.Add(New Object() {"E03", "Simon", "$12,000"})
+
+'Assign data source
+pdfGrid.DataSource = dataTable
+
+'Draw grid on the page of PDF document and store the grid position in PdfGridLayoutResult
+Dim pdfGridLayoutResult As PdfGridLayoutResult = pdfGrid.Draw(page, New PointF(10, 10))
+
+'Initialize PdfGrid and DataTable
+pdfGrid = New PdfGrid
+dataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("Name")
+dataTable.Columns.Add("Age")
+dataTable.Columns.Add("Sex")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"Andrew", "21", "Male"})
+dataTable.Rows.Add(New Object() {"Steven", "22", "Female"})
+dataTable.Rows.Add(New Object() {"Michael", "24", "Male"})
+
+'Assign data source
+pdfGrid.DataSource = dataTable
+
+'Draw the grid on page using previous result
+pdfGrid.Draw(page, New PointF(10, (pdfGridLayoutResult.Bounds.Bottom + 20)))
+
+'Save the document
+document.Save("Output.pdf")
+
+'Close the document
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw grid on the page of PDF document and store the grid position in PdfGridLayoutResult
+PdfGridLayoutResult pdfGridLayoutResult = pdfGrid.Draw(page, new PointF(10, 10));
+
+//Initialize PdfGrid and list
+pdfGrid = new PdfGrid();
+data = new List<object>();
+
+//Add values to list
+Object grid2row1 = new { Name = "Andrew", Age = "21", Sex = "Male" };
+Object grid2row2 = new { Name = "Steven", Age = "22", Sex = "Female" };
+Object grid2row3 = new { Name = "Michael", Age = "24", Sex = "Male" };
+data.Add(grid2row1);
+data.Add(grid2row2);
+data.Add(grid2row3);
+
+//Add list to IEnumerable
+dataTable = data;
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw the grid on page using previously result
+pdfGrid.Draw(page, new PointF(10, pdfGridLayoutResult.Bounds.Bottom + 20));
+
+//Create memory stream
+MemoryStream stream = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(stream, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw grid on the page of PDF document and store the grid position in PdfGridLayoutResult
+PdfGridLayoutResult pdfGridLayoutResult = pdfGrid.Draw(page, new PointF(10, 10));
+
+//Initialize PdfGrid and list
+pdfGrid = new PdfGrid();
+data = new List<object>();
+
+//Add values to the list
+Object grid2row1 = new { Name = "Andrew", Age = "21", Sex = "Male" };
+Object grid2row2 = new { Name = "Steven", Age = "22", Sex = "Female" };
+Object grid2row3 = new { Name = "Michael", Age = "24", Sex = "Male" };
+data.Add(grid2row1);
+data.Add(grid2row2);
+data.Add(grid2row3);
+
+//Add list to IEnumerable
+dataTable = data;
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw the grid on page using previous result
+pdfGrid.Draw(page, new PointF(10, pdfGridLayoutResult.Bounds.Bottom + 20));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add a page
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw grid on the page of PDF document and store the grid position in PdfGridLayoutResult
+PdfGridLayoutResult pdfGridLayoutResult = pdfGrid.Draw(page, new PointF(10, 10));
+
+//Initialize PdfGrid and list
+pdfGrid = new PdfGrid();
+data = new List<object>();
+
+//Add values to list
+Object grid2row1 = new { Name = "Andrew", Age = "21", Sex = "Male" };
+Object grid2row2 = new { Name = "Steven", Age = "22", Sex = "Female" };
+Object grid2row3 = new { Name = "Michael", Age = "24", Sex = "Male" };
+data.Add(grid2row1);
+data.Add(grid2row2);
+data.Add(grid2row3);
+
+//Add list to IEnumerable
+dataTable = data;
+
+//Assign data source
+pdfGrid.DataSource = dataTable;
+
+//Draw the grid on page using previous result
+pdfGrid.Draw(page, new PointF(10, pdfGridLayoutResult.Bounds.Bottom + 20));
+
+//Save the PDF document to stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+## String formatting
+
+Essential PDF supports applying string formatting for whole table, a column in table, a row in table and a cell in table using the [PdfStingFormat](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfStringFormat.html) class.
+
+### String formatting for whole table in PdfGrid
+
+The following code snippet explains how to apply string formatting for whole table in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html).
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Create a DataTable
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+dataTable.Columns.Add("Salary");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+dataTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//Create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string formatting for whole table
+for (int i = 0; i < grid.Columns.Count; i++)
+{
+    grid.Columns[i].Format = stringFormat;
+}
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Save the document and close the instance of PdfDocument
+document.Save("Output.pdf");
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Add page to the document
+Dim page As PdfPage = document.Pages.Add
+
+'Create a new PdfGrid
+Dim grid As PdfGrid = New PdfGrid
+
+'Create a DataTable
+Dim dataTable As DataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+dataTable.Columns.Add("Salary")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"E01", "Clay", "$10,000"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas", "$10,500"})
+dataTable.Rows.Add(New Object() {"E03", "Simon", "$12,000"})
+
+'Assign data source
+grid.DataSource = dataTable
+
+'Create and customize the string formats
+Dim stringFormat As PdfStringFormat = New PdfStringFormat
+stringFormat.Alignment = PdfTextAlignment.Center
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle
+stringFormat.CharacterSpacing = 2.0F
+
+'Apply string formatting for whole table
+Dim i As Integer = 0
+For i = 0 To grid.Columns.Count - 1 Step 1
+    grid.Columns(i).Format = stringFormat
+Next
+
+'Draw the PdfGrid on page
+grid.Draw(page, New PointF(10, 10))
+
+'Save the document and close the instance of PdfDocument
+document.Save("Output.pdf")
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//Create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string formatting for whole table
+for (int i = 0; i < grid.Columns.Count; i++)
+{
+    grid.Columns[i].Format = stringFormat;
+}
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(ms);
+
+//Close the document
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+Save(ms, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//Create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string formatting for whole table
+for (int i = 0; i < grid.Columns.Count; i++)
+{
+    grid.Columns[i].Format = stringFormat;
+}
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//Create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string formatting for whole table
+for (int i = 0; i < grid.Columns.Count; i++)
+{
+    grid.Columns[i].Format = stringFormat;
+}
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+### String formatting for whole table in PdfLightTable
+
+The following code snippet explains how to add string formatting for whole table in [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html).
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a PdfLightTable
+PdfLightTable lightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct
+lightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns
+lightTable.Columns.Add(new PdfColumn("ID"));
+lightTable.Columns.Add(new PdfColumn("Name"));
+lightTable.Columns.Add(new PdfColumn("Salary"));
+
+//Add rows
+lightTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+lightTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+lightTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Enable ShowHeader
+lightTable.Style.ShowHeader = true;
+
+//Create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string formatting for whole table
+for (int i = 0; i < lightTable.Columns.Count; i++)
+{
+    lightTable.Columns[i].StringFormat = stringFormat;
+}
+
+//Draw the PdfLightTable on page
+lightTable.Draw(page, new PointF(10, 10));
+
+//Save the document and close the instance of PdfDocument
+document.Save("Output.pdf");
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Add page to the document
+Dim page As PdfPage = document.Pages.Add
+
+'Create a PdfLightTable
+Dim lightTable As PdfLightTable = New PdfLightTable
+
+'Set the DataSourceType as Direct
+lightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect
+
+'Create columns
+lightTable.Columns.Add(New PdfColumn("ID"))
+lightTable.Columns.Add(New PdfColumn("Name"))
+lightTable.Columns.Add(New PdfColumn("Salary"))
+
+'Add rows
+lightTable.Rows.Add(New Object() {"E01", "Clay", "$10,000"})
+lightTable.Rows.Add(New Object() {"E02", "Thomas", "$10,500"})
+lightTable.Rows.Add(New Object() {"E03", "Simon", "$12,000"})
+
+'Enable ShowHeader
+lightTable.Style.ShowHeader = True
+
+'Create and customize the string formats
+Dim stringFormat As PdfStringFormat = New PdfStringFormat
+stringFormat.Alignment = PdfTextAlignment.Center
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle
+stringFormat.CharacterSpacing = 2.0F
+
+'Apply string formatting for whole table
+Dim i As Integer = 0
+For i = 0 To lightTable.Columns.Count - 1 Step 1
+    lightTable.Columns(i).StringFormat = stringFormat
+Next
+
+'Draw the PdfLightTable on page
+lightTable.Draw(page, New PointF(10, 10))
+
+'Save the document and close the instance of PdfDocument
+document.Save("Output.pdf")
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a PdfLightTable
+PdfLightTable lightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct
+lightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns
+lightTable.Columns.Add(new PdfColumn("ID"));
+lightTable.Columns.Add(new PdfColumn("Name"));
+lightTable.Columns.Add(new PdfColumn("Salary"));
+
+//Add rows
+lightTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+lightTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+lightTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Enable ShowHeader
+lightTable.Style.ShowHeader = true;
+
+//Create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string formatting for whole table
+for (int i = 0; i < lightTable.Columns.Count; i++)
+{
+    lightTable.Columns[i].StringFormat = stringFormat;
+}
+
+//Draw the PdfLightTable on page
+lightTable.Draw(page, new PointF(10, 10));
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(ms);
+
+//Close the document
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+Save(ms, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a PdfLightTable
+PdfLightTable lightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct
+lightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns
+lightTable.Columns.Add(new PdfColumn("ID"));
+lightTable.Columns.Add(new PdfColumn("Name"));
+lightTable.Columns.Add(new PdfColumn("Salary"));
+
+//Add rows
+lightTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+lightTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+lightTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Enable ShowHeader
+lightTable.Style.ShowHeader = true;
+
+//Create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string formatting for whole table
+for (int i = 0; i < lightTable.Columns.Count; i++)
+{
+    lightTable.Columns[i].StringFormat = stringFormat;
+}
+
+//Draw the PdfLightTable on page
+lightTable.Draw(page, new PointF(10, 10));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a PdfLightTable
+PdfLightTable lightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct
+lightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns
+lightTable.Columns.Add(new PdfColumn("ID"));
+lightTable.Columns.Add(new PdfColumn("Name"));
+lightTable.Columns.Add(new PdfColumn("Salary"));
+
+//Add rows
+lightTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+lightTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+lightTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Enable ShowHeader
+lightTable.Style.ShowHeader = true;
+
+//Create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string formatting for whole table
+for (int i = 0; i < lightTable.Columns.Count; i++)
+{
+    lightTable.Columns[i].StringFormat = stringFormat;
+}
+
+//Draw the PdfLightTable on page
+lightTable.Draw(page, new PointF(10, 10));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+### String formatting to a column in PdfGrid
+
+The following code snippet explains how to add string formatting to a column in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html).
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Create a DataTable
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+dataTable.Columns.Add("Salary");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+dataTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string formatting to a column
+grid.Columns[1].Format = stringFormat;
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Save the document and close the instance of PdfDocument
+document.Save("Output.pdf");
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Add page to the document
+Dim page As PdfPage = document.Pages.Add
+
+'Create a new PdfGrid
+Dim grid As PdfGrid = New PdfGrid
+
+'Create a DataTable
+Dim dataTable As DataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+dataTable.Columns.Add("Salary")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"E01", "Clay", "$10,000"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas", "$10,500"})
+dataTable.Rows.Add(New Object() {"E03", "Simon", "$12,000"})
+
+'Assign data source
+grid.DataSource = dataTable
+
+'Create and customize the string formats
+Dim stringFormat As PdfStringFormat = New PdfStringFormat
+stringFormat.Alignment = PdfTextAlignment.Center
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle
+stringFormat.CharacterSpacing = 2.0F
+
+'Apply string formatting to a column
+grid.Columns(1).Format = stringFormat
+
+'Draw the PdfGrid on page
+grid.Draw(page, New PointF(10, 10))
+
+'Save the document and close the instance of PdfDocument
+document.Save("Output.pdf")
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string formatting to a column
+grid.Columns[1].Format = stringFormat;
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(ms);
+
+//Close the document
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+Save(ms, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string formatting to a column
+grid.Columns[1].Format = stringFormat;
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string formatting to a column
+grid.Columns[1].Format = stringFormat;
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+### String formatting to a column in PdfLightTable
+
+The following code snippet explains how to add string formatting to a column in [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html).
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a PdfLightTable
+PdfLightTable lightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct
+lightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns
+lightTable.Columns.Add(new PdfColumn("ID"));
+lightTable.Columns.Add(new PdfColumn("Name"));
+lightTable.Columns.Add(new PdfColumn("Salary"));
+
+//Add rows
+lightTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+lightTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+lightTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Enable ShowHeader
+lightTable.Style.ShowHeader = true;
+
+//Apply string format to a column
+lightTable.Columns[1].StringFormat = stringFormat;
+
+//Draw PdfLightTable on page
+lightTable.Draw(page, new PointF(10, 10));
+
+//Save the document and close the instance of PdfDocument
+document.Save("Output.pdf");
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Add page to the document
+Dim page As PdfPage = document.Pages.Add
+
+'Create a PdfLightTable
+Dim lightTable As PdfLightTable = New PdfLightTable
+
+'Set the DataSourceType as Direct
+lightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect
+
+'Create columns
+lightTable.Columns.Add(New PdfColumn("ID"))
+lightTable.Columns.Add(New PdfColumn("Name"))
+lightTable.Columns.Add(New PdfColumn("Salary"))
+
+'Add rows
+lightTable.Rows.Add(New Object() {"E01", "Clay", "$10,000"})
+lightTable.Rows.Add(New Object() {"E02", "Thomas", "$10,500"})
+lightTable.Rows.Add(New Object() {"E03", "Simon", "$12,000"})
+
+'create and customize the string formats
+Dim stringFormat As PdfStringFormat = New PdfStringFormat
+stringFormat.Alignment = PdfTextAlignment.Center
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle
+stringFormat.CharacterSpacing = 2.0F
+
+'Enable ShowHeader
+lightTable.Style.ShowHeader = True
+
+'Apply string format to a column
+lightTable.Columns(1).StringFormat = stringFormat
+
+'Draw PdfLightTable on page
+lightTable.Draw(page, New PointF(10, 10))
+
+'Save the document and close the instance of PdfDocument
+document.Save("Output.pdf")
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a PdfLightTable
+PdfLightTable lightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct
+lightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns
+lightTable.Columns.Add(new PdfColumn("ID"));
+lightTable.Columns.Add(new PdfColumn("Name"));
+lightTable.Columns.Add(new PdfColumn("Salary"));
+
+//Add rows
+lightTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+lightTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+lightTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Enable ShowHeader
+lightTable.Style.ShowHeader = true;
+
+//Apply string format to a column
+lightTable.Columns[1].StringFormat = stringFormat;
+
+//Draw PdfLightTable on page
+lightTable.Draw(page, new PointF(10, 10));
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(ms);
+
+//Close the document
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+Save(ms, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a PdfLightTable
+PdfLightTable lightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct
+lightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns
+lightTable.Columns.Add(new PdfColumn("ID"));
+lightTable.Columns.Add(new PdfColumn("Name"));
+lightTable.Columns.Add(new PdfColumn("Salary"));
+
+//Add rows
+lightTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+lightTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+lightTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Enable ShowHeader
+lightTable.Style.ShowHeader = true;
+
+//Apply string format to a column
+lightTable.Columns[1].StringFormat = stringFormat;
+
+//Draw PdfLightTable on page
+lightTable.Draw(page, new PointF(10, 10));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a PdfLightTable
+PdfLightTable lightTable = new PdfLightTable();
+
+//Set the DataSourceType as Direct
+lightTable.DataSourceType = PdfLightTableDataSourceType.TableDirect;
+
+//Create columns
+lightTable.Columns.Add(new PdfColumn("ID"));
+lightTable.Columns.Add(new PdfColumn("Name"));
+lightTable.Columns.Add(new PdfColumn("Salary"));
+
+//Add rows
+lightTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+lightTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+lightTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Enable ShowHeader
+lightTable.Style.ShowHeader = true;
+
+//Apply string format to a column
+lightTable.Columns[1].StringFormat = stringFormat;
+
+//Draw PdfLightTable on page
+lightTable.Draw(page, new PointF(10, 10));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+### String formatting for a cell in PdfGrid
+
+The following code snippet illustrates how to add string formatting for a cell in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html).
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the PdfDocument
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Create a DataTable
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+dataTable.Columns.Add("Salary");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+dataTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//Create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string format to a cell
+grid.Rows[2].Cells[1].StringFormat = stringFormat;
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Save the document and close the instance of PdfDocument
+document.Save("Output.pdf");
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Add page to the PdfDocument
+Dim page As PdfPage = document.Pages.Add
+
+'Create a new PdfGrid
+Dim grid As PdfGrid = New PdfGrid
+
+'Create a DataTable
+Dim dataTable As DataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+dataTable.Columns.Add("Salary")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"E01", "Clay", "$10,000"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas", "$10,500"})
+dataTable.Rows.Add(New Object() {"E03", "Simon", "$12,000"})
+
+'Assign data source
+grid.DataSource = dataTable
+
+'Create and customize the string formats
+Dim stringFormat As PdfStringFormat = New PdfStringFormat
+stringFormat.Alignment = PdfTextAlignment.Center
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle
+stringFormat.CharacterSpacing = 2.0F
+
+'Apply string format to a cell
+grid.Rows(2).Cells(1).StringFormat = stringFormat
+
+'Draw the PdfGrid on page
+grid.Draw(page, New PointF(10, 10))
+
+'Save the document and close the instance of PdfDocument
+document.Save("Output.pdf")
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the PdfDocument
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string format to a cell
+grid.Rows[2].Cells[1].StringFormat = stringFormat;
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(ms);
+
+//Close the document
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+Save(ms, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the PdfDocument
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string format to a cell
+grid.Rows[2].Cells[1].StringFormat = stringFormat;
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the PdfDocument
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Apply string format to a cell
+grid.Rows[2].Cells[1].StringFormat = stringFormat;
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+### String formatting for a row in PdfGrid
+
+The following code snippet illustrates how to add string formatting for a row in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html).
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the document
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Create a DataTable
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+dataTable.Columns.Add("Salary");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+dataTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//Create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Assign string format to a row
+for (int i = 0; i < grid.Columns.Count; i++)
+{
+    grid.Rows[2].Cells[i].StringFormat = stringFormat;
+}
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Save the document and close the instance of PdfDocument
+document.Save("Output.pdf");
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Add page to the document
+Dim page As PdfPage = document.Pages.Add
+
+'Create a new PdfGrid
+Dim grid As PdfGrid = New PdfGrid
+
+'Create a DataTable
+Dim dataTable As DataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+dataTable.Columns.Add("Salary")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"E01", "Clay", "$10,000"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas", "$10,500"})
+dataTable.Rows.Add(New Object() {"E03", "Simon", "$12,000"})
+
+'Assign data source
+grid.DataSource = dataTable
+
+'Create and customize the string formats
+Dim stringFormat As PdfStringFormat = New PdfStringFormat
+stringFormat.Alignment = PdfTextAlignment.Center
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle
+stringFormat.CharacterSpacing = 2.0F
+
+'Assign string format to a row
+Dim i As Integer = 0
+For i = 0 To grid.Columns.Count - 1 Step 1
+    grid.Rows(2).Cells(i).StringFormat = stringFormat
+Next
+
+'Draw the PdfGrid on page
+grid.Draw(page, New PointF(10, 10))
+
+'Save the document and close the instance of PdfDocument
+document.Save("Output.pdf")
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the PdfDocument
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Assign string format to a row
+for (int i = 0; i < grid.Columns.Count; i++)
+{
+    grid.Rows[2].Cells[i].StringFormat = stringFormat;
+}
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(ms);
+
+//Close the document
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respective code samples
+Save(ms, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the PdfDocument
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Assign string format to a row
+for (int i = 0; i < grid.Columns.Count; i++)
+{
+    grid.Rows[2].Cells[i].StringFormat = stringFormat;
+}
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Add page to the PdfDocument
+PdfPage page = document.Pages.Add();
+
+//Create a new PdfGrid
+PdfGrid grid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source
+grid.DataSource = dataTable;
+
+//create and customize the string formats
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Assign string format to a row
+for (int i = 0; i < grid.Columns.Count; i++)
+{
+    grid.Rows[2].Cells[i].StringFormat = stringFormat;
+}
+
+//Draw the PdfGrid on page
+grid.Draw(page, new PointF(10, 10));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Row and Column spanning
+
+Essential PDF supports both row spanning and column spanning in a PDF table.
+
+### Row spanning in PdfGrid
+
+You can span a row in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html) by using the [RowSpan](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridCell~RowSpan.html) property of [PdfGridCell](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridCell.html). The following code snippet illustrates this.
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Create the page
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create and customize the string formats
+PdfStringFormat format = new PdfStringFormat();
+format.Alignment = PdfTextAlignment.Center;
+format.LineAlignment = PdfVerticalAlignment.Middle;
+
+//Add columns to PdfGrid
+pdfGrid.Columns.Add(5);
+
+//Add rows to PdfGrid
+for (int i = 0; i < pdfGrid.Columns.Count; i++)
+{
+    PdfGridRow row = pdfGrid.Rows.Add();
+    row.Height = 20;
+}
+
+//Add RowSpan
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[3];
+gridCell.RowSpan = 3;
+gridCell.StringFormat = format;
+gridCell.Value = "Row Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
+
+//Draw the PdfGrid
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the document
+document.Save("Output.pdf");
+
+//Close the document
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Create the page
+Dim page As PdfPage = document.Pages.Add
+
+'Create a PdfGrid
+Dim pdfGrid As PdfGrid = New PdfGrid
+
+'Create and customize the string formats
+Dim format As PdfStringFormat = New PdfStringFormat
+format.Alignment = PdfTextAlignment.Center
+format.LineAlignment = PdfVerticalAlignment.Middle
+
+'Add columns to PdfGrid
+pdfGrid.Columns.Add(5)
+
+'Add rows to PdfGrid
+For i = 0 To pdfGrid.Columns.Count - 1 Step 1
+    Dim row As PdfGridRow = pdfGrid.Rows.Add
+    row.Height = 20
+Next
+
+'Add RowSpan
+Dim gridCell As PdfGridCell = pdfGrid.Rows(1).Cells(3)
+gridCell.RowSpan = 3
+gridCell.StringFormat = format
+gridCell.Value = "Row Span"
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow
+
+'Draw the PdfGrid
+pdfGrid.Draw(page, New PointF(10, 10))
+
+'Save the document
+document.Save("Output.pdf")
+
+'Close the document
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Create the page
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create and customize the string formats
+PdfStringFormat format = new PdfStringFormat();
+format.Alignment = PdfTextAlignment.Center;
+format.LineAlignment = PdfVerticalAlignment.Middle;
+
+//Add columns to PdfGrid
+pdfGrid.Columns.Add(5);
+
+//Add rows to PdfGrid
+for (int i = 0; i < pdfGrid.Columns.Count; i++)
+{
+    PdfGridRow row = pdfGrid.Rows.Add();
+    row.Height = 20;
+}
+
+//Add RowSpan
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[3];
+gridCell.RowSpan = 3;
+gridCell.StringFormat = format;
+gridCell.Value = "Row Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
+
+//Draw the PdfGrid
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(ms);
+
+//Close the document
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(ms, "Sample.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Create the page
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create and customize the string formats
+PdfStringFormat format = new PdfStringFormat();
+format.Alignment = PdfTextAlignment.Center;
+format.LineAlignment = PdfVerticalAlignment.Middle;
+
+//Add columns to PdfGrid
+pdfGrid.Columns.Add(5);
+
+//Add rows to PdfGrid
+for (int i = 0; i < pdfGrid.Columns.Count; i++)
+{
+    PdfGridRow row = pdfGrid.Rows.Add();
+    row.Height = 20;
+}
+
+//Add RowSpan
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[3];
+gridCell.RowSpan = 3;
+gridCell.StringFormat = format;
+gridCell.Value = "Row Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
+
+//Draw the PdfGrid
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Sample.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Create the page
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create and customize the string formats
+PdfStringFormat format = new PdfStringFormat();
+format.Alignment = PdfTextAlignment.Center;
+format.LineAlignment = PdfVerticalAlignment.Middle;
+
+//Add columns to PdfGrid
+pdfGrid.Columns.Add(5);
+
+//Add rows to PdfGrid
+for (int i = 0; i < pdfGrid.Columns.Count; i++)
+{
+    PdfGridRow row = pdfGrid.Rows.Add();
+    row.Height = 20;
+}
+
+//Add RowSpan
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[3];
+gridCell.RowSpan = 3;
+gridCell.StringFormat = format;
+gridCell.Value = "Row Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
+
+//Draw the PdfGrid
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+### Column spanning in PdfGrid
+
+You can span a column in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html) by using the [ColumnSpan](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridCell~ColumnSpan.html) property of [PdfGridCell](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridCell.html). The following code snippet explains this.
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Create the page
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create and customize the string formats
+PdfStringFormat format = new PdfStringFormat();
+format.Alignment = PdfTextAlignment.Center;
+format.LineAlignment = PdfVerticalAlignment.Middle;
+
+//Add columns to PdfGrid
+pdfGrid.Columns.Add(5);
+
+//Add rows to PdfGrid
+for (int i = 0; i < pdfGrid.Columns.Count; i++)
+{
+    PdfGridRow row = pdfGrid.Rows.Add();
+    row.Height = 20;
+}
+
+//Add ColumnSpan
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[0];
+gridCell.ColumnSpan = 2;
+gridCell.StringFormat = format;
+gridCell.Value = "Column Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
+
+//Draw the PdfGrid
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the document
+document.Save("Output.pdf");
+
+//Close the document
+document.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim document As PdfDocument = New PdfDocument
+
+'Create the page
+Dim page As PdfPage = document.Pages.Add
+
+'Create a PdfGrid
+Dim pdfGrid As PdfGrid = New PdfGrid
+
+'Create and customize the string formats
+Dim format As PdfStringFormat = New PdfStringFormat
+format.Alignment = PdfTextAlignment.Center
+format.LineAlignment = PdfVerticalAlignment.Middle
+
+'Add columns to PdfGrid
+pdfGrid.Columns.Add(5)
+
+'Add rows to PdfGrid
+For i = 0 To pdfGrid.Columns.Count - 1 Step 1
+    Dim row As PdfGridRow = pdfGrid.Rows.Add
+    row.Height = 20
+Next
+
+'Add ColumnSpan
+Dim gridCell As PdfGridCell = pdfGrid.Rows(1).Cells(0)
+gridCell.ColumnSpan = 2
+gridCell.StringFormat = format
+gridCell.Value = "Column Span"
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow
+
+'Draw the PdfGrid
+pdfGrid.Draw(page, New PointF(10, 10))
+
+'Save the document
+document.Save("Output.pdf")
+
+'Close the document
+document.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Create the page
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create and customize the string formats
+PdfStringFormat format = new PdfStringFormat();
+format.Alignment = PdfTextAlignment.Center;
+format.LineAlignment = PdfVerticalAlignment.Middle;
+
+//Add columns to PdfGrid
+pdfGrid.Columns.Add(5);
+
+//Add rows to PdfGrid
+for (int i = 0; i < pdfGrid.Columns.Count; i++)
+{
+    PdfGridRow row = pdfGrid.Rows.Add();
+    row.Height = 20;
+}
+
+//Add ColumnSpan
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[0];
+gridCell.ColumnSpan = 2;
+gridCell.StringFormat = format;
+gridCell.Value = "Column Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
+
+//Draw the PdfGrid
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in browser after saving it
+document.Save(ms);
+
+//Close the document
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(ms, "Sample.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Create the page
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create and customize the string formats
+PdfStringFormat format = new PdfStringFormat();
+format.Alignment = PdfTextAlignment.Center;
+format.LineAlignment = PdfVerticalAlignment.Middle;
+
+//Add columns to PdfGrid
+pdfGrid.Columns.Add(5);
+
+//Add rows to PdfGrid
+for (int i = 0; i < pdfGrid.Columns.Count; i++)
+{
+    PdfGridRow row = pdfGrid.Rows.Add();
+    row.Height = 20;
+}
+
+//Add ColumnSpan
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[0];
+gridCell.ColumnSpan = 2;
+gridCell.StringFormat = format;
+gridCell.Value = "Column Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
+
+//Draw the PdfGrid
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Sample.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument document = new PdfDocument();
+
+//Create the page
+PdfPage page = document.Pages.Add();
+
+//Create a PdfGrid
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create and customize the string formats
+PdfStringFormat format = new PdfStringFormat();
+format.Alignment = PdfTextAlignment.Center;
+format.LineAlignment = PdfVerticalAlignment.Middle;
+
+//Add columns to PdfGrid
+pdfGrid.Columns.Add(5);
+
+//Add rows to PdfGrid
+for (int i = 0; i < pdfGrid.Columns.Count; i++)
+{
+    PdfGridRow row = pdfGrid.Rows.Add();
+    row.Height = 20;
+}
+
+//Add ColumnSpan
+PdfGridCell gridCell = pdfGrid.Rows[1].Cells[0];
+gridCell.ColumnSpan = 2;
+gridCell.StringFormat = format;
+gridCell.Value = "Column Span";
+gridCell.Style.BackgroundBrush = PdfBrushes.Yellow;
+
+//Draw the PdfGrid
+pdfGrid.Draw(page, new PointF(10, 10));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+document.Save(stream);
+
+//Close the document
+document.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Table cell styles
+
+Essential PDF allows you to add different styles like background color using [BackgroundBrush](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridStyleBase~BackgroundBrush.html), background image using [BackgroundImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridCellStyle~BackgroundImage.html), border using [Borders](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridCellStyle~Borders.html), cell dimension by setting row [Height](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridRow~Height.html) and column [Width](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridColumn~Width.html), along with spanning through [RowSpan](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridCell~RowSpan.html) and [ColumnSpan](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridCell~ColumnSpan.html).
+
+The following code snippet explains how to add different cell styles to a cell in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html).
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create a DataTable
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+dataTable.Columns.Add("Salary");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+dataTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Assign data source to PdfGrid
+pdfGrid.DataSource = dataTable;
+
+//Assign row height and column width
+pdfGrid.Rows[1].Height = 50;
+pdfGrid.Columns[1].Width = 100;
+
+//Initialize PdfGridCellStyle and set background color
+PdfGridCellStyle gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundBrush = PdfBrushes.Yellow;
+
+//Assign background color to a PdfGridCell
+PdfGridCell gridCell = pdfGrid.Rows[0].Cells[0];
+gridCell.Style = gridCellStyle;
+
+//Initialize PdfGridCellStyle and set background image
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundImage = PdfImage.FromFile("Autumn Leaves.jpg");
+
+//Assign background image to a PdfGridCell
+gridCell = pdfGrid.Rows[1].Cells[1];
+gridCell.Style = gridCellStyle;
+gridCell.ImagePosition = PdfGridImagePosition.Fit;
+
+//Initialize PdfGridCellStyle and set the border color
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.Borders.All = PdfPens.Red;
+
+//Assign the border color to a PdfGridCell
+gridCell = pdfGrid.Rows[2].Cells[2];
+gridCell.Style = gridCellStyle;
+
+//Initialize PdfGridCellStyle and set text color
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.TextBrush = PdfBrushes.DarkBlue;
+
+//Assign text color to a PdfGridCell
+gridCell = pdfGrid.Rows[0].Cells[2];
+gridCell.Style = gridCellStyle;
+
+//Set the column span
+pdfGrid.Rows[2].Cells[0].ColumnSpan = 2;
+
+//Initialize PdfStringFormat and set the properties
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+
+//Set the PdfStringFormat to PdfGridCell
+gridCell = pdfGrid.Rows[2].Cells[0];
+gridCell.StringFormat = stringFormat;
+
+//Draw the table in the PDF page
+pdfGrid.Draw(pdfPage, new PointF(10, 10));
+
+//Save the document
+pdfDocument.Save("Output.pdf");
+
+//Close the instance of PdfDocument
+pdfDocument.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim pdfDocument As PdfDocument = New PdfDocument
+Dim pdfPage As PdfPage = pdfDocument.Pages.Add
+
+'Create a new PdfGrid instance
+Dim pdfGrid As PdfGrid = New PdfGrid
+
+'Create a DataTable
+Dim dataTable As DataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+dataTable.Columns.Add("Salary")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"E01", "Clay", "$10,000"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas", "$10,500"})
+dataTable.Rows.Add(New Object() {"E03", "Simon", "$12,000"})
+
+'Assign data source to PdfGrid
+pdfGrid.DataSource = dataTable
+
+'Assign row height and column width
+pdfGrid.Rows(1).Height = 50
+pdfGrid.Columns(1).Width = 100
+
+'Initialize PdfGridCellStyle and set background color
+Dim gridCellStyle As PdfGridCellStyle = New PdfGridCellStyle
+gridCellStyle.BackgroundBrush = PdfBrushes.Yellow
+
+'Assign background color to a PdfGridCell
+Dim gridCell As PdfGridCell = pdfGrid.Rows(0).Cells(0)
+gridCell.Style = gridCellStyle
+
+'Initialize PdfGridCellStyle and set background image
+gridCellStyle = New PdfGridCellStyle
+gridCellStyle.BackgroundImage = PdfImage.FromFile("Autumn Leaves.jpg")
+
+'Assign background image to a PdfGridCell
+gridCell = pdfGrid.Rows(1).Cells(1)
+gridCell.Style = gridCellStyle
+gridCell.ImagePosition = PdfGridImagePosition.Fit
+
+'Initialize PdfGridCellStyle and set the border color
+gridCellStyle = New PdfGridCellStyle
+gridCellStyle.Borders.All = PdfPens.Red
+
+'Assign the border color to a PdfGridCell
+gridCell = pdfGrid.Rows(2).Cells(2)
+gridCell.Style = gridCellStyle
+
+'Initialize PdfGridCellStyle and set text color
+gridCellStyle = New PdfGridCellStyle
+gridCellStyle.TextBrush = PdfBrushes.DarkBlue
+
+'Assign text color to a PdfGridCell
+gridCell = pdfGrid.Rows(0).Cells(2)
+gridCell.Style = gridCellStyle
+
+'Set the column span
+pdfGrid.Rows(2).Cells(0).ColumnSpan = 2
+
+'Initialize PdfStringFormat and set the properties
+Dim stringFormat As PdfStringFormat = New PdfStringFormat
+stringFormat.Alignment = PdfTextAlignment.Center
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle
+
+'Set the PdfStringFormat to PdfGridCell
+gridCell = pdfGrid.Rows(2).Cells(0)
+gridCell.StringFormat = stringFormat
+
+'Draw the table in the PDF page
+pdfGrid.Draw(pdfPage, New PointF(10, 10))
+
+'Save the document
+pdfDocument.Save("Output.pdf")
+
+'Close the instance of PdfDocument
+pdfDocument.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source to PdfGrid
+pdfGrid.DataSource = dataTable;
+
+//Assign row height and column width
+pdfGrid.Rows[1].Height = 50;
+pdfGrid.Columns[1].Width = 100;
+
+//Initialize PdfGridCellStyle and set background color
+PdfGridCellStyle gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundBrush = PdfBrushes.Yellow;
+
+//Assign background color to a PdfGridCell
+PdfGridCell gridCell = pdfGrid.Rows[0].Cells[0];
+gridCell.Style = gridCellStyle;
+
+//Initialize PdfGridCellStyle and set background image
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Data.Autumn Leaves.jpg");
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundImage = PdfImage.FromStream(imageStream);
+
+//Assign background image to a PdfGridCell
+gridCell = pdfGrid.Rows[1].Cells[1];
+gridCell.Style = gridCellStyle;
+gridCell.ImagePosition = PdfGridImagePosition.Fit;
+
+//Initialize PdfGridCellStyle and set the border color
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.Borders.All = PdfPens.Red;
+
+//Assign the border color to a PdfGridCell
+gridCell = pdfGrid.Rows[2].Cells[2];
+gridCell.Style = gridCellStyle;
+
+//Initialize PdfGridCellStyle and set text color
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.TextBrush = PdfBrushes.DarkBlue;
+
+//Assign text color to a PdfGridCell
+gridCell = pdfGrid.Rows[0].Cells[2];
+gridCell.Style = gridCellStyle;
+
+//Set the column span
+pdfGrid.Rows[2].Cells[0].ColumnSpan = 2;
+
+//Initialize PdfStringFormat and set the properties
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+
+//Set the PdfStringFormat to PdfGridCell
+gridCell = pdfGrid.Rows[2].Cells[0];
+gridCell.StringFormat = stringFormat;
+
+//Draw the table in the PDF page
+pdfGrid.Draw(pdfPage, new PointF(10, 10));
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in browser after saving it
+pdfDocument.Save(ms);
+
+//Close the document
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(ms, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source to PdfGrid
+pdfGrid.DataSource = dataTable;
+
+//Assign row height and column width
+pdfGrid.Rows[1].Height = 50;
+pdfGrid.Columns[1].Width = 100;
+
+//Initialize PdfGridCellStyle and set background color
+PdfGridCellStyle gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundBrush = PdfBrushes.Yellow;
+
+//Assign background color to a PdfGridCell
+PdfGridCell gridCell = pdfGrid.Rows[0].Cells[0];
+gridCell.Style = gridCellStyle;
+
+//Initialize PdfGridCellStyle and set background image
+FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open);
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundImage = PdfImage.FromStream(imageStream);
+
+//Assign background image to a PdfGridCell
+gridCell = pdfGrid.Rows[1].Cells[1];
+gridCell.Style = gridCellStyle;
+gridCell.ImagePosition = PdfGridImagePosition.Fit;
+
+//Initialize PdfGridCellStyle and set the border color
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.Borders.All = PdfPens.Red;
+
+//Assign the border color to a PdfGridCell
+gridCell = pdfGrid.Rows[2].Cells[2];
+gridCell.Style = gridCellStyle;
+
+//Initialize PdfGridCellStyle and set text color
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.TextBrush = PdfBrushes.DarkBlue;
+
+//Assign text color to a PdfGridCell
+gridCell = pdfGrid.Rows[0].Cells[2];
+gridCell.Style = gridCellStyle;
+
+//Set the column span
+pdfGrid.Rows[2].Cells[0].ColumnSpan = 2;
+
+//Initialize PdfStringFormat and set the properties
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+
+//Set the PdfStringFormat to PdfGridCell
+gridCell = pdfGrid.Rows[2].Cells[0];
+gridCell.StringFormat = stringFormat;
+
+//Draw the table in the PDF page
+pdfGrid.Draw(pdfPage, new PointF(10, 10));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+pdfDocument.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source to PdfGrid
+pdfGrid.DataSource = dataTable;
+
+//Assign row height and column width
+pdfGrid.Rows[1].Height = 50;
+pdfGrid.Columns[1].Width = 100;
+
+//Initialize PdfGridCellStyle and set background color
+PdfGridCellStyle gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundBrush = PdfBrushes.Yellow;
+
+//Assign background color to a PdfGridCell
+PdfGridCell gridCell = pdfGrid.Rows[0].Cells[0];
+gridCell.Style = gridCellStyle;
+
+//Initialize PdfGridCellStyle and set background image
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Data.Autumn Leaves.jpg");
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundImage = PdfImage.FromStream(imageStream);
+
+//Assign background image to a PdfGridCell
+gridCell = pdfGrid.Rows[1].Cells[1];
+gridCell.Style = gridCellStyle;
+gridCell.ImagePosition = PdfGridImagePosition.Fit;
+
+//Initialize PdfGridCellStyle and set the border color
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.Borders.All = PdfPens.Red;
+
+//Assign the border color to a PdfGridCell
+gridCell = pdfGrid.Rows[2].Cells[2];
+gridCell.Style = gridCellStyle;
+
+//Initialize PdfGridCellStyle and set text color
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.TextBrush = PdfBrushes.DarkBlue;
+
+//Assign text color to a PdfGridCell
+gridCell = pdfGrid.Rows[0].Cells[2];
+gridCell.Style = gridCellStyle;
+
+//Set the column span
+pdfGrid.Rows[2].Cells[0].ColumnSpan = 2;
+
+//Initialize PdfStringFormat and set the properties
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+
+//Set the PdfStringFormat to PdfGridCell
+gridCell = pdfGrid.Rows[2].Cells[0];
+gridCell.StringFormat = stringFormat;
+
+//Draw the table in the PDF page
+pdfGrid.Draw(pdfPage, new PointF(10, 10));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+pdfDocument.Save(stream);
+
+//Close the document
+pdfDocument.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Table row style
+
+Essential PDF supports applying different styles to a row in [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html) by using [PdfGridCellStyle](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridCellStyle.html) and [PdfGridRow](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGridRow.html) instances. The following code snippet explains this.
+
+{% tabs %}
+{% highlight C# %}
+//Create a new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Create a DataTable
+DataTable dataTable = new DataTable();
+
+//Add columns to the DataTable
+dataTable.Columns.Add("ID");
+dataTable.Columns.Add("Name");
+dataTable.Columns.Add("Salary");
+
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "E01", "Clay", "$10,000" });
+dataTable.Rows.Add(new object[] { "E02", "Thomas", "$10,500" });
+dataTable.Rows.Add(new object[] { "E03", "Simon", "$12,000" });
+
+//Assign data source to PdfGrid
+pdfGrid.DataSource = dataTable;
+
+//Assign row height and column width
+pdfGrid.Rows[1].Height = 50;
+pdfGrid.Columns[1].Width = 100;
+
+//Initialize PdfStringFormat and set the properties
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Initialize PdfGridCellStyle. Set background color and string format
+PdfGridCellStyle gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundBrush = PdfBrushes.Yellow;
+gridCellStyle.StringFormat = stringFormat;
+
+//Initialize PdfGridRow and apply PdfGridCellStyle to the row
+PdfGridRow gridRow = pdfGrid.Rows[0];            
+gridRow.ApplyStyle(gridCellStyle);
+
+//Initialize PdfGridCellStyle and set background image
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundImage = PdfImage.FromFile("Autumn Leaves.jpg");
+
+//Initialize PdfGridRow and apply PdfGridCellStyle to the row
+gridRow = pdfGrid.Rows[1];
+gridRow.ApplyStyle(gridCellStyle);
+
+//Initialize PdfGridCellStyle. Set the border color and text color
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.Borders.All = PdfPens.Red;
+gridCellStyle.TextBrush = PdfBrushes.DarkBlue;
+
+//Initialize PdfGridRow and apply PdfGridCellStyle to the row
+gridRow = pdfGrid.Rows[2];
+gridRow.ApplyStyle(gridCellStyle);
+
+//Draw the table in the PDF page
+pdfGrid.Draw(pdfPage, new PointF(10, 10));
+
+//Save the document
+pdfDocument.Save("Output.pdf");
+
+//Close the instance of PdfDocument
+pdfDocument.Close(true);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new PDF document
+Dim pdfDocument As PdfDocument = New PdfDocument
+Dim pdfPage As PdfPage = pdfDocument.Pages.Add
+
+'Create a new PdfGrid instance
+Dim pdfGrid As PdfGrid = New PdfGrid
+
+'Create a DataTable
+Dim dataTable As DataTable = New DataTable
+
+'Add columns to the DataTable
+dataTable.Columns.Add("ID")
+dataTable.Columns.Add("Name")
+dataTable.Columns.Add("Salary")
+
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"E01", "Clay", "$10,000"})
+dataTable.Rows.Add(New Object() {"E02", "Thomas", "$10,500"})
+dataTable.Rows.Add(New Object() {"E03", "Simon", "$12,000"})
+
+'Assign data source to PdfGrid
+pdfGrid.DataSource = dataTable
+
+'Assign row height and column width
+pdfGrid.Rows(1).Height = 50
+pdfGrid.Columns(1).Width = 100
+
+'Initialize PdfStringFormat and set the properties
+Dim stringFormat As PdfStringFormat = New PdfStringFormat
+stringFormat.Alignment = PdfTextAlignment.Center
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle
+stringFormat.CharacterSpacing = 2.0F
+
+'Initialize PdfGridCellStyle. Set background color and string format
+Dim gridCellStyle As PdfGridCellStyle = New PdfGridCellStyle
+gridCellStyle.BackgroundBrush = PdfBrushes.Yellow
+gridCellStyle.StringFormat = stringFormat
+
+'Initialize PdfGridRow and apply PdfGridCellStyle to the row
+Dim gridRow As PdfGridRow = pdfGrid.Rows(0)
+gridRow.ApplyStyle(gridCellStyle)
+
+'Initialize PdfGridCellStyle and set background image
+gridCellStyle = New PdfGridCellStyle
+gridCellStyle.BackgroundImage = PdfImage.FromFile("Autumn Leaves.jpg")
+
+'Initialize PdfGridRow and apply PdfGridCellStyle to the row
+gridRow = pdfGrid.Rows(1)
+gridRow.ApplyStyle(gridCellStyle)
+
+'Initialize PdfGridCellStyle. Set the border color and text color
+gridCellStyle = New PdfGridCellStyle
+gridCellStyle.Borders.All = PdfPens.Red
+gridCellStyle.TextBrush = PdfBrushes.DarkBlue
+
+'Initialize PdfGridRow and apply PdfGridCellStyle to the row
+gridRow = pdfGrid.Rows(2)
+gridRow.ApplyStyle(gridCellStyle)
+
+'Draw the table in the PDF page
+pdfGrid.Draw(pdfPage, New PointF(10, 10))
+
+'Save the document
+pdfDocument.Save("Output.pdf")
+
+'Close the instance of PdfDocument
+pdfDocument.Close(True)
+{% endhighlight %}
+
+{% highlight UWP %}
+//Create a new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source to PdfGrid
+pdfGrid.DataSource = dataTable;
+
+//Assign row height and column width
+pdfGrid.Rows[1].Height = 50;
+pdfGrid.Columns[1].Width = 100;
+
+//Initialize PdfStringFormat and set the properties
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Initialize PdfGridCellStyle. Set background color and string format
+PdfGridCellStyle gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundBrush = PdfBrushes.Yellow;
+gridCellStyle.StringFormat = stringFormat;
+
+//Initialize PdfGridRow and apply PdfGridCellStyle to the row
+PdfGridRow gridRow = pdfGrid.Rows[0];
+gridRow.ApplyStyle(gridCellStyle);
+
+//Initialize PdfGridCellStyle and set background image
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Data.Autumn Leaves.jpg");
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundImage = PdfImage.FromStream(imageStream);
+
+//Initialize PdfGridRow and apply PdfGridCellStyle to the row
+gridRow = pdfGrid.Rows[1];
+gridRow.ApplyStyle(gridCellStyle);
+
+//Initialize PdfGridCellStyle. Set the border color and text color
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.Borders.All = PdfPens.Red;
+gridCellStyle.TextBrush = PdfBrushes.DarkBlue;
+
+//Initialize PdfGridRow and apply PdfGridCellStyle to the row
+gridRow = pdfGrid.Rows[2];
+gridRow.ApplyStyle(gridCellStyle);
+
+//Draw the table in the PDF page
+pdfGrid.Draw(pdfPage, new PointF(10, 10));
+
+//Create memory stream
+MemoryStream ms = new MemoryStream();
+
+//Open the document in browser after saving it
+pdfDocument.Save(ms);
+
+//Close the document
+pdfDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+Save(ms, "Output.pdf");
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Create a new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source to PdfGrid
+pdfGrid.DataSource = dataTable;
+
+//Assign row height and column width
+pdfGrid.Rows[1].Height = 50;
+pdfGrid.Columns[1].Width = 100;
+
+//Initialize PdfStringFormat and set the properties
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Initialize PdfGridCellStyle. Set background color and string format
+PdfGridCellStyle gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundBrush = PdfBrushes.Yellow;
+gridCellStyle.StringFormat = stringFormat;
+
+//Initialize PdfGridRow and apply PdfGridCellStyle to the row
+PdfGridRow gridRow = pdfGrid.Rows[0];
+gridRow.ApplyStyle(gridCellStyle);
+
+//Initialize PdfGridCellStyle and set background image
+FileStream imageStream = new FileStream("Autumn Leaves.jpg", FileMode.Open);
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundImage = PdfImage.FromStream(imageStream);
+
+//Initialize PdfGridRow and apply PdfGridCellStyle to the row
+gridRow = pdfGrid.Rows[1];
+gridRow.ApplyStyle(gridCellStyle);
+
+//Initialize PdfGridCellStyle. Set the border color and text color
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.Borders.All = PdfPens.Red;
+gridCellStyle.TextBrush = PdfBrushes.DarkBlue;
+
+//Initialize PdfGridRow and apply PdfGridCellStyle to the row
+gridRow = pdfGrid.Rows[2];
+gridRow.ApplyStyle(gridCellStyle);
+
+//Draw the table in the PDF page
+pdfGrid.Draw(pdfPage, new PointF(10, 10));
+
+//Saving the PDF to the MemoryStream
+MemoryStream stream = new MemoryStream();
+pdfDocument.Save(stream);
+
+//Set the position as '0'
+stream.Position = 0;
+
+//Download the PDF document in the browser
+FileStreamResult fileStreamResult = new FileStreamResult(stream, "application/pdf");
+fileStreamResult.FileDownloadName = "Output.pdf";
+return fileStreamResult;
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Create a new PDF document
+PdfDocument pdfDocument = new PdfDocument();
+PdfPage pdfPage = pdfDocument.Pages.Add();
+
+//Create a new PdfGrid instance
+PdfGrid pdfGrid = new PdfGrid();
+
+//Add values to list
+List<object> data = new List<object>();
+Object grid1row1 = new { ID = "E01", Name = "Clay", Salary = "$10,000" };
+Object grid1row2 = new { ID = "E02", Name = "Thomas", Salary = "$10,500" };
+Object grid1row3 = new { ID = "E03", Name = "Simon", Salary = "$12,000" };
+data.Add(grid1row1);
+data.Add(grid1row2);
+data.Add(grid1row3);
+
+//Add list to IEnumerable
+IEnumerable<object> dataTable = data;
+
+//Assign data source to PdfGrid
+pdfGrid.DataSource = dataTable;
+
+//Assign row height and column width
+pdfGrid.Rows[1].Height = 50;
+pdfGrid.Columns[1].Width = 100;
+
+//Initialize PdfStringFormat and set the properties
+PdfStringFormat stringFormat = new PdfStringFormat();
+stringFormat.Alignment = PdfTextAlignment.Center;
+stringFormat.LineAlignment = PdfVerticalAlignment.Middle;
+stringFormat.CharacterSpacing = 2f;
+
+//Initialize PdfGridCellStyle. Set background color and string format
+PdfGridCellStyle gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundBrush = PdfBrushes.Yellow;
+gridCellStyle.StringFormat = stringFormat;
+
+//Initialize PdfGridRow and apply PdfGridCellStyle to the row
+PdfGridRow gridRow = pdfGrid.Rows[0];
+gridRow.ApplyStyle(gridCellStyle);
+
+//Initialize PdfGridCellStyle and set background image
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Data.Autumn Leaves.jpg");
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.BackgroundImage = PdfImage.FromStream(imageStream);
+
+//Initialize PdfGridRow and apply PdfGridCellStyle to the row
+gridRow = pdfGrid.Rows[1];
+gridRow.ApplyStyle(gridCellStyle);
+
+//Initialize PdfGridCellStyle. Set the border color and text color
+gridCellStyle = new PdfGridCellStyle();
+gridCellStyle.Borders.All = PdfPens.Red;
+gridCellStyle.TextBrush = PdfBrushes.DarkBlue;
+
+//Initialize PdfGridRow and apply PdfGridCellStyle to the row
+gridRow = pdfGrid.Rows[2];
+gridRow.ApplyStyle(gridCellStyle);
+
+//Draw the table in the PDF page
+pdfGrid.Draw(pdfPage, new PointF(10, 10));
+
+//Save the document to the stream
+MemoryStream stream = new MemoryStream();
+pdfDocument.Save(stream);
+
+//Close the document
+pdfDocument.Close(true);
+
+//Save the stream into PDF file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+{% endhighlight %}
+{% endtabs %}
+
 ## Difference between PdfLightTable and PdfGrid
 
 Both the [PdfGrid](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Grid.PdfGrid.html) and [PdfLightTable](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Tables.PdfLightTable.html) models are supported across all the platforms and the below table explains the level of customizations both the models provide.

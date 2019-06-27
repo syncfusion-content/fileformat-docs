@@ -1,5 +1,5 @@
 ---
-title: Working with Barcode
+title: Working with Barcode | Syncfusion
 description: This section explains about how to add 1D & 2D barcodes to the PDF document and customize the appearance, position and size of the one dimensional barcode.
 platform: file-formats
 control: PDF
@@ -15,7 +15,7 @@ Essential PDF provides support to add barcodes to the PDF document. The followin
 ## Adding a one dimensional barcode to the PDF document
 
 
-The below code snippet shows how to add Code39 barcode to a PDF document.
+The below code snippet shows how to add Code39 barcode using the [PdfCode39Barcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfCode39Barcode.html) class to a PDF document.
 {% tabs %}
 {% highlight c# %}
 //Creating new PDF Document
@@ -227,7 +227,7 @@ else
 
 ## Adding a two dimensional barcode to a PDF document
 
-The below code snippet shows how to add a QR code to the PDF document.
+The below code snippet shows how to add a QR code using [PdfQRBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfQRBarcode.html) class to the PDF document.
 {% tabs %}
 {% highlight c# %}
 
@@ -466,7 +466,7 @@ else
 ## Set location and size to the barcode
 
 
-The following code snippets show how to set size and location for Codabar barcode to a PDF document.
+The following code snippets show how to set [Size](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfBarcode~Size.html) and [Location](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfBarcode~Location.html) for Codabar barcode using [PdfCodabarBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfCodabarBarcode.html) class to a PDF document.
 {% tabs %}
 {% highlight c# %}
 
@@ -698,10 +698,105 @@ else
 
 {% endtabs %}
 
+## Export Barcode as Image
+
+Essential PDF supports converting one dimensional bar codes such as Code 39, Code 39 Extended, Code 11, Codabar, Code 32, Code 93, Code 93 Extended, Code 128A, Code 128B, UPC bar code, and Code 128C bar codes to image using [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode~ToImage.html) method of [PdfUnidimensionalBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode.html) instance. 
+
+The following code snippet explains this.
+
+{% tabs %}
+{% highlight C# %}
+//Initialize a new PdfCode39Barcode instance
+PdfCode39Barcode barcode = new PdfCode39Barcode();
+
+//Set the height and text for barcode
+barcode.BarHeight = 45;
+barcode.Text = "CODE39$";
+
+//Convert the barcode to image
+Image barcodeImage = barcode.ToImage(new SizeF(300, 200));
+
+//Save the image
+barcodeImage.Save("Image.png", ImageFormat.Png);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Initialize a new PdfCode39Barcode instance
+Dim barcode As PdfCode39Barcode = New PdfCode39Barcode
+
+'Set the height and text for barcode
+barcode.BarHeight = 45
+barcode.Text = "CODE39$"
+
+'Convert the barcode to image
+Dim barcodeImage As Image = barcode.ToImage(New SizeF(300, 200))
+
+'Save the image
+barcodeImage.Save("Image.png", ImageFormat.Png)
+{% endhighlight %}
+
+{% highlight UWP %}
+//PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+{% endhighlight %}
+{% endtabs %}
+
+Essential PDF supports converting a two-dimensional bar codes such as QR Code and Data Matrix bar code to image. The following code snippet illustrates how to convert a QR code to image using [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfQRBarcode~ToImage.html) method of [PdfQRBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfQRBarcode.html) instance.
+
+{% tabs %}
+{% highlight C# %}
+//Initialize a new PdfQRBarcode instance
+PdfQRBarcode barcode = new PdfQRBarcode();
+
+//Set the XDimension and text for barcode
+barcode.XDimension = 3;
+barcode.Text = "http://www.syncfusion.com";
+
+//Convert the barcode to image
+Image barcodeImage = barcode.ToImage(new SizeF(300, 300));
+
+//Save the image
+barcodeImage.Save("Image.png", ImageFormat.Png);
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Initialize a new PdfQRBarcode instance
+Dim barcode As PdfQRBarcode = New PdfQRBarcode
+
+'Set the XDimension and text for barcode
+barcode.XDimension = 3
+barcode.Text = "http://www.syncfusion.com"
+
+'Convert the barcode to image
+Dim barcodeImage As Image = barcode.ToImage(New SizeF(300, 300))
+
+'Save the image
+barcodeImage.Save("Image.jpg", ImageFormat.Png)
+{% endhighlight %}
+
+{% highlight UWP %}
+//PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+{% endhighlight %}
+{% endtabs %}
 
 ## Customizing the barcode appearance
 
-The height of the barcode can be changed using the **BarHeight** property. The equivalent property to change the block size for two dimensional barcode is **XDimension**. You can also customize the barcode color by changing the DarkBarColor and LightBarColor properties.
+The height of the barcode can be changed using the [BarHeight](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfBarcode~BarHeight.html) property. The equivalent property to change the block size for two dimensional barcode is [XDimension](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfBidimensionalBarcode~XDimension.html). You can also customize the barcode color by changing the DarkBarColor and LightBarColor properties.
 
 N> This color customization is possible only for one dimensional barcodes and it is not supported for two dimensional barcodes.
 

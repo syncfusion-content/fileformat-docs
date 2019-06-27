@@ -1,5 +1,5 @@
 ---
-title: Working with Charts
+title: Working with Charts | Syncfusion
 description: Briefs about charts operations
 platform: File-formats
 control: XlsIO
@@ -1748,7 +1748,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}  
 
-![](Working-with-Charts_images/Working-with-charts_img1.jpeg)
+![chart](Working-with-Charts_images/Working-with-charts_img1.jpeg)
 
 
 ## Remove a chart 
@@ -1888,7 +1888,7 @@ The appearance of a chart can be modified according to the convenience and usage
 
 The following screen shot shows the elements of chart.
 
-![](Working-with-Charts_images/Working-with-charts_img2.jpeg)
+![chart elements](Working-with-Charts_images/Working-with-charts_img2.jpeg)
 
 
 1. The chart area of the chart.
@@ -3062,6 +3062,487 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 }
 {% endhighlight %}
 {% endtabs %}
+
+### Add High-Low Lines
+
+High-low lines are used in Excel line charts and stock charts that connect the highest and lowest points of a category.
+
+The following code snippet shows how to add High-low lines in a stock chart.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+    IApplication application = engine.Excel;
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IChartShape chart = worksheet.Charts[0];
+    IChartSerie chartSerie = chart.Series[0];
+
+    //Set HasHighLowLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = true;
+    
+    //Apply formats to HighLowLines.
+    chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color.Blue;
+
+    workbook.SaveAs("HighLowLines.xlsx");
+    workbook.Close();
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using engine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = engine.Excel
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+    Dim chart As IChartShape = worksheet.Charts(0)
+    Dim chartSerie As IChartSerie = chart.Series(0)
+ 
+    ‘Set HasHighLowLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = True;
+    
+    ‘Apply formats to HighLowLines.
+    chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color.Blue
+
+    workbook.SaveAs("HighLowLines.xlsx")
+    workbook.Close()
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+    IApplication application = engine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+
+    //Instantiates the file picker
+    FileOpenPicker openPicker = new FileOpenPicker();
+    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    openPicker.FileTypeFilter.Add(".xlsx");
+    openPicker.FileTypeFilter.Add(".xls");
+    StorageFile file = await openPicker.PickSingleFileAsync();
+    
+    //Opening an existing workbook
+    IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IChartShape chart = worksheet.Charts[0];
+    IChartSerie chartSerie = chart.Series[0];
+  
+    //Set HasHighLowLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = true;
+    
+    //Apply formats to HighLowLines.
+    chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color.Blue;
+
+    //Initializes FileSavePicker
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "HighLowLines";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+    
+    //Creates a storage file from FileSavePicker
+    StorageFile storageFile = await savePicker.PickSaveFileAsync();
+    
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+    IApplication application = engine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open,    FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IChartShape chart = worksheet.Charts[0];
+    IChartSerie chartSerie = chart.Series[0];
+
+    //Set HasHighLowLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = true;
+    
+    //Apply formats to HighLowLines.
+    chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color. Blue;
+
+    FileStream stream = new FileStream("HighLowLines.xlsx", FileMode.Create,   FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+    workbook.Close();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+    IApplication application = engine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    
+    //"App" is the class of portable project
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IChartShape chart = worksheet.Charts[0];
+    IChartSerie chartSerie = chart.Series[0];
+
+    //Set HasHighLowLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasHighLowLines = true;
+    
+    //Apply formats to HighLowLines.
+    chartSerie.SerieFormat.CommonSerieOptions.HighLowLines.LineColor = Color.Blue;
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+    
+    stream.Position = 0;
+    
+    //Save the document as file and view the saved document
+    
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+    
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("HighLowLines.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+      Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HighLowLines.xlsx", "application/msexcel", stream);
+    }
+    workbook.Close();
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following screen shot shows the high-low lines in the line chart.
+
+![High-Low lines](Working-with-Charts_images/highlowlines.jpg)
+
+### Add Drop Lines
+
+Drop lines are used in Excel area and line charts that helps viewers to determine the data point down to the horizontal axis.
+
+The following code snippet shows how to add Drop lines in a stock chart.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+    IApplication application = engine.Excel;
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IChartShape chart = worksheet.Charts[0];
+    IChartSerie chartSerie = chart.Series[0];
+
+    //Set HasDropLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = true;
+
+    //Apply formats to DropLines.
+    chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green;
+
+    workbook.SaveAs("DropLines.xlsx");
+    workbook.Close();
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using engine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = engine.Excel
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+    Dim chart As IChartShape = worksheet.Charts(0)
+    Dim chartSerie As IChartSerie = chart.Series(0)
+ 
+    ‘Set HasDropLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = True;
+    
+    ‘Apply formats to DropLines.
+    chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green
+
+    workbook.SaveAs("DropLines.xlsx")
+    workbook.Close()
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+    IApplication application = engine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+
+    //Instantiates the file picker
+    FileOpenPicker openPicker = new FileOpenPicker();
+    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    openPicker.FileTypeFilter.Add(".xlsx");
+    openPicker.FileTypeFilter.Add(".xls");
+    StorageFile file = await openPicker.PickSingleFileAsync();
+    
+    //Opening an existing workbook
+    IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IChartShape chart = worksheet.Charts[0];
+    IChartSerie chartSerie = chart.Series[0];
+  
+    //Set HasDropLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = true;
+
+    //Apply formats to DropLines.
+    chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green;
+
+    //Initializes FileSavePicker
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "DropLines";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+    
+    //Creates a storage file from FileSavePicker
+    StorageFile storageFile = await savePicker.PickSaveFileAsync();
+    
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+    IApplication application = engine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open,    FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IChartShape chart = worksheet.Charts[0];
+    IChartSerie chartSerie = chart.Series[0];
+
+    //Set HasDropLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = true;
+
+    //Apply formats to DropLines.
+    chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green;
+
+    FileStream stream = new FileStream("DropLines.xlsx", FileMode.Create,   FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+    workbook.Close();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+    IApplication application = engine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    
+    //"App" is the class of portable project
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IChartShape chart = worksheet.Charts[0];
+    IChartSerie chartSerie = chart.Series[0];
+
+    //Set HasDropLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasDropLines = true;
+
+    //Apply formats to DropLines.
+    chartSerie.SerieFormat.CommonSerieOptions.DropLines.LineColor = Color.Green;
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+    
+    stream.Position = 0;
+    
+    //Save the document as file and view the saved document
+    
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+    
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("DropLines.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+      Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("DropLines.xlsx", "application/msexcel", stream);
+    }
+    workbook.Close();
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following screen shot shows the drop lines in the line chart.
+
+![Drop lines](Working-with-Charts_images/droplines.jpg)
+
+### Add Series Lines
+
+Series lines are used in Excel stacked bar and column charts that create lines from one bar to another that connect every data point in a series.
+Series lines in Excel Pie-of-pie and bar-of-pie charts are used to create lines that connect the main pie chart with the secondary pie or bar chart.
+
+The following code snippet shows how to add series lines in a pie chart.
+
+{% tabs %}
+{% highlight C# %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+    IApplication application = engine.Excel;
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IChartShape chart = worksheet.Charts[0];
+    IChartSerie chartSerie = chart.Series[0];
+
+    //Set HasSeriesLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = true;
+    
+    //Apply formats to SeriesLines.
+    chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red;
+
+    workbook.SaveAs("SeriesLines.xlsx");
+    workbook.Close();
+}
+{% endhighlight %}
+
+{% highlight VB %}
+Using engine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = engine.Excel
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+    Dim chart As IChartShape = worksheet.Charts(0)
+    Dim chartSerie As IChartSerie = chart.Series(0)
+ 
+    ‘Set HasSeriesLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = True;
+    
+    ‘Apply formats to SeriesLines.
+    chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red
+
+    workbook.SaveAs("SeriesLines.xlsx")
+    workbook.Close()
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+    IApplication application = engine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+
+    //Instantiates the file picker
+    FileOpenPicker openPicker = new FileOpenPicker();
+    openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    openPicker.FileTypeFilter.Add(".xlsx");
+    openPicker.FileTypeFilter.Add(".xls");
+    StorageFile file = await openPicker.PickSingleFileAsync();
+    
+    //Opening an existing workbook
+    IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IChartShape chart = worksheet.Charts[0];
+    IChartSerie chartSerie = chart.Series[0];
+  
+    //Set HasSeriesLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = true;
+    
+    //Apply formats to SeriesLines.
+    chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red;
+
+    //Initializes FileSavePicker
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "SeriesLines";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+    
+    //Creates a storage file from FileSavePicker
+    StorageFile storageFile = await savePicker.PickSaveFileAsync();
+    
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+    IApplication application = engine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open,    FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(fileStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IChartShape chart = worksheet.Charts[0];
+    IChartSerie chartSerie = chart.Series[0];
+
+    //Set HasSeriesLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = true;
+    
+    //Apply formats to SeriesLines.
+    chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red;
+
+    FileStream stream = new FileStream("SeriesLines.xlsx", FileMode.Create,   FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+    workbook.Close();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine engine = new ExcelEngine())
+{
+    IApplication application = engine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    
+    //"App" is the class of portable project
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    IChartShape chart = worksheet.Charts[0];
+    IChartSerie chartSerie = chart.Series[0];
+
+    //Set HasSeriesLines property to true.
+    chartSerie.SerieFormat.CommonSerieOptions.HasSeriesLines = true;
+    
+    //Apply formats to SeriesLines.
+    chartSerie.SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Color.Red;
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+    
+    stream.Position = 0;
+    
+    //Save the document as file and view the saved document
+    
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+    
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+      Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("SeriesLines.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+      Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("SeriesLines.xlsx", "application/msexcel", stream);
+    }
+    workbook.Close();
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following screen shot shows the series lines in the stacker bar chart.
+
+![Series lines](Working-with-Charts_images/serieslines.jpg)
 
 ## Fill Chart Elements with Picture
 
@@ -5644,7 +6125,7 @@ The input template can be downloaded [here](http://www.syncfusion.com/downloads/
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/funnel.jpeg)
+![funnel chart](Working-with-Charts_images/funnel.jpeg)
 
 ### Box and Whisker
 
@@ -5941,7 +6422,7 @@ The input template can be downloaded [here](http://www.syncfusion.com/downloads/
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/boxandwhisker.jpeg)
+![box and whisker chart](Working-with-Charts_images/boxandwhisker.jpeg)
 
 ### Waterfall
 
@@ -6178,7 +6659,7 @@ The input template can be downloaded [here.](http://www.syncfusion.com/downloads
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/waterfall.jpeg)
+![waterfall chart](Working-with-Charts_images/waterfall.jpeg)
 
 ### Histogram
 
@@ -6410,7 +6891,7 @@ The input template can be downloaded [here.](http://www.syncfusion.com/downloads
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/histogram.jpeg)
+![histogram chart](Working-with-Charts_images/histogram.jpeg)
 
 ### Pareto
 
@@ -6648,7 +7129,7 @@ The input template can be downloaded [here](http://www.syncfusion.com/downloads/
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/pareto.jpeg)
+![pareto chart](Working-with-Charts_images/pareto.jpeg)
 
 ### Treemap
 
@@ -6855,7 +7336,7 @@ The input template can be downloaded [here](http://www.syncfusion.com/downloads/
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/treemap.jpeg)
+![treemap chart](Working-with-Charts_images/treemap.jpeg)
 
 ### Sunburst
 
@@ -7062,7 +7543,7 @@ The input template can be downloaded [here](http://www.syncfusion.com/downloads/
 
 The following screen shot shows the output of above code.
 
-![](Working-with-Charts_images/sunburst.jpeg)
+![sunburst chart](Working-with-Charts_images/sunburst.jpeg)
 
 
 N>These Charts are supported only in Excel 2016 and are not visible in the earlier versions.
