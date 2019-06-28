@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with Shapes | Syncfusion
 description: This section describes about shapes
 platform: file-formats
