@@ -6165,6 +6165,2345 @@ else
 
 {% endtabs %}
 
+
+## Adding comments and review status to the PDF annotation
+
+The PDF annotations may have an author-specific state associated with them. The state is not specified in the annotation itself, but it represents a separate text annotation ([Popup Annotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html)).
+
+The Essential PDF supports adding the annotation comments and review status to the PDF document annotations.
+
+### Adding review status to the PDF annotation
+
+The following code example explains how to add a review status in a newly created PDF annotation.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create new rectangle annotation
+
+PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
+
+//Set author
+
+rectangleAnnotation.Author = "Syncfusion";
+
+rectangleAnnotation.Border.BorderWidth = 1;
+
+rectangleAnnotation.Color = Color.Red;
+
+rectangleAnnotation.ModifiedDate = DateTime.Now;
+
+//Create a new review annotation
+
+PdfPopupAnnotation review = new PdfPopupAnnotation();
+
+//Set author
+
+review.Author = "John";
+
+//Set review state model
+
+review.StateModel = PdfAnnotationStateModel.Review;
+
+//Set review state
+
+review.State = PdfAnnotationState.Accepted;
+
+//Set modification date
+
+review.ModifiedDate = DateTime.Now;
+
+//Add the review to the annotation
+
+rectangleAnnotation.ReviewHistory.Add(review);
+
+//Add the annotation to the PDF page
+
+page.Annotations.Add(rectangleAnnotation);
+
+//Save the document to disk
+
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document
+
+Dim document As PdfDocument = New PdfDocument
+
+'Create a new page
+
+Dim page As PdfPage = document.Pages.Add
+
+'Create new rectangle annotation
+
+Dim rectangleAnnotation As PdfRectangleAnnotation = New PdfRectangleAnnotation(New RectangleF(0, 0, 100, 50), "Rectangle Annotation")
+
+'Set author
+
+rectangleAnnotation.Author = "Syncfusion"
+
+rectangleAnnotation.Border.BorderWidth = 1
+
+rectangleAnnotation.Color = Color.Red
+
+rectangleAnnotation.ModifiedDate = DateTime.Now
+
+Dim review As PdfPopupAnnotation = New PdfPopupAnnotation
+
+'Set author
+
+review.Author = "John"
+
+'Set review state model
+
+review.StateModel = PdfAnnotationStateModel.Review
+
+'Set review state
+
+review.State = PdfAnnotationState.Accepted
+
+'Set modification date.
+
+review.ModifiedDate = DateTime.Now
+
+'Add the review to the annotation.
+
+rectangleAnnotation.ReviewHistory.Add(review)
+
+'Add the annotation to the PDF page.
+
+page.Annotations.Add(rectangleAnnotation)
+
+'Save the document to disk.
+
+document.Save("Output.pdf")
+
+'Close the document
+
+document.Close(true)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document 
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create new rectangle annotation
+
+PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
+
+//Set author
+
+rectangleAnnotation.Author = "Syncfusion";
+
+rectangleAnnotation.Border.BorderWidth = 1;
+
+rectangleAnnotation.Color = Color.Red;
+
+rectangleAnnotation.ModifiedDate = DateTime.Now;
+
+//Create a new review annotation
+
+PdfPopupAnnotation review = new PdfPopupAnnotation();
+
+//Set author
+
+review.Author = "John";
+
+//Set review state model
+
+review.StateModel = PdfAnnotationStateModel.Review;
+
+//Set review state
+
+review.State = PdfAnnotationState.Accepted;
+
+//Set modification date
+
+review.ModifiedDate = DateTime.Now;
+
+//Add the review to the annotation
+
+rectangleAnnotation.ReviewHistory.Add(review);
+
+//Add the annotation to the PDF page
+
+page.Annotations.Add(rectangleAnnotation);
+
+//Save the document
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples 
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create new rectangle annotation
+
+PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
+
+//Set author
+
+rectangleAnnotation.Author = "Syncfusion";
+
+rectangleAnnotation.Border.BorderWidth = 1;
+
+rectangleAnnotation.Color = Color.Red;
+
+rectangleAnnotation.ModifiedDate = DateTime.Now;
+
+//Create a new review annotation
+
+PdfPopupAnnotation review = new PdfPopupAnnotation();
+
+//Set author
+
+review.Author = "John";
+
+//Set review state model
+
+review.StateModel = PdfAnnotationStateModel.Review;
+
+//Set review state
+
+review.State = PdfAnnotationState.Accepted;
+
+//Set modification date
+
+review.ModifiedDate = DateTime.Now;
+
+//Add the review to the annotation
+
+rectangleAnnotation.ReviewHistory.Add(review);
+
+//Add the annotation to the PDF page
+
+page.Annotations.Add(rectangleAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the Content Type for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "PopupAnnotation.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create new rectangle annotation
+
+PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
+
+//Set author
+
+rectangleAnnotation.Author = "Syncfusion";
+
+rectangleAnnotation.Border.BorderWidth = 1;
+
+rectangleAnnotation.Color = Color.Red;
+
+rectangleAnnotation.ModifiedDate = DateTime.Now;
+
+//Create a new review annotation
+
+PdfPopupAnnotation review = new PdfPopupAnnotation();
+
+//Set author
+
+review.Author = "John";
+
+//Set review state model
+
+review.StateModel = PdfAnnotationStateModel.Review;
+
+//Set review state
+
+review.State = PdfAnnotationState.Accepted;
+
+//Set modification date
+
+review.ModifiedDate = DateTime.Now;
+
+//Add the review to the annotation
+
+rectangleAnnotation.ReviewHistory.Add(review);
+
+//Add the annotation to the PDF page
+
+page.Annotations.Add(rectangleAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+The following code example explains how to add the review status to the existing PDF annotation. 
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PDF document
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Create a new review annotation
+
+PdfPopupAnnotation review = new PdfPopupAnnotation();
+
+//Set author
+
+review.Author = "John";
+
+//Set review state model
+
+review.StateModel = PdfAnnotationStateModel.Review;
+
+//Set review state
+
+review.State = PdfAnnotationState.Accepted;
+
+//Set modification date
+
+review.ModifiedDate = DateTime.Now;
+
+//Add the review to the annotation
+
+loadedRectangleAnnotation.ReviewHistory.Add(review);
+
+//Save the document
+
+ldoc.Save("Output.pdf");
+
+//Close the document
+
+ldoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the existing PDF document
+
+Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get the existing PDF page
+
+Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0),PdfLoadedPage)
+
+'Get the existing annotations
+
+Dim annots As PdfLoadedAnnotationCollection = lpage.Annotations
+
+'Get the existing rectangle annotation
+
+Dim loadedRectangleAnnotation As PdfLoadedRectangleAnnotation = CType(annots(0),PdfLoadedRectangleAnnotation)
+
+'Get the existing rectangle annotation
+
+Dim review As PdfPopupAnnotation = New PdfPopupAnnotation
+
+'Set author
+
+review.Author = "John"
+
+'Set review state model
+
+review.StateModel = PdfAnnotationStateModel.Review
+
+'Set review state
+
+review.State = PdfAnnotationState.Accepted
+
+'Set modification date
+
+review.ModifiedDate = DateTime.Now
+
+'Add the review to the annotation.
+
+loadedRectangleAnnotation.ReviewHistory.Add(review)
+
+'Save the document
+
+ldoc.Save("Output.pdf")
+
+'Close the document
+
+ldoc.Close(true)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await lDoc.OpenAsync(file);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Create a new review annotation
+
+PdfPopupAnnotation review = new PdfPopupAnnotation();
+
+//Set author
+
+review.Author = "John";
+
+//Set review state model
+
+review.StateModel = PdfAnnotationStateModel.Review;
+
+//Set review state
+
+review.State = PdfAnnotationState.Accepted;
+
+//Set modification date
+
+review.ModifiedDate = DateTime.Now;
+
+//Add the review to the annotation
+
+loadedRectangleAnnotation.ReviewHistory.Add(review);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await lDoc.SaveAsync(stream);
+
+//Close the document
+
+lDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Create a new review annotation
+
+PdfPopupAnnotation review = new PdfPopupAnnotation();
+
+//Set author
+
+review.Author = "John";
+
+//Set review state model
+
+review.StateModel = PdfAnnotationStateModel.Review;
+
+//Set review state
+
+review.State = PdfAnnotationState.Accepted;
+
+//Set modification date
+
+review.ModifiedDate = DateTime.Now;
+
+//Add the review to the annotation
+
+loadedRectangleAnnotation.ReviewHistory.Add(review);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+lDoc.Close(true);
+
+//Defining the Content Type for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Create a new review annotation
+
+PdfPopupAnnotation review = new PdfPopupAnnotation();
+
+//Set author
+
+review.Author = "John";
+
+//Set review state model
+
+review.StateModel = PdfAnnotationStateModel.Review;
+
+//Set review state
+
+review.State = PdfAnnotationState.Accepted;
+
+//Set modification date
+
+review.ModifiedDate = DateTime.Now;
+
+//Add the review to the annotation
+
+loadedRectangleAnnotation.ReviewHistory.Add(review);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+//Close the document
+
+lDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Adding comments to the PDF annotation
+
+The following code example explains how to add comments to the PDF annotation.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create new rectangle annotation
+
+PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
+
+//Set author
+
+rectangleAnnotation.Author = "Syncfusion";
+
+rectangleAnnotation.Border.BorderWidth = 1;
+
+rectangleAnnotation.Color = Color.Red;
+
+rectangleAnnotation.ModifiedDate = DateTime.Now;
+
+//Create a new comment annotation
+
+PdfPopupAnnotation comment = new PdfPopupAnnotation();
+
+//Set author
+
+comment.Author = "John";
+
+//Set comment text
+
+comment.Text = "This is first comment";
+
+//Set modification date
+
+comment.ModifiedDate = DateTime.Now;
+
+//Set subject
+
+comment.Subject = "Annotation Comments";
+
+//Add the comments to the annotation
+
+rectangleAnnotation.Comments.Add(comment);
+
+//Add the annotation to the PDF page
+
+page.Annotations.Add(rectangleAnnotation);
+
+//Save the document to disk
+
+document.Save("Output.pdf");
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document
+
+Dim document As PdfDocument = New PdfDocument
+
+'Create a new page
+
+Dim page As PdfPage = document.Pages.Add
+
+'Create new rectangle annotation
+
+Dim rectangleAnnotation As PdfRectangleAnnotation = New PdfRectangleAnnotation(New RectangleF(0, 0, 100, 50), "Rectangle Annotation")
+
+'Set author
+
+rectangleAnnotation.Author = "Syncfusion"
+
+rectangleAnnotation.Border.BorderWidth = 1
+
+rectangleAnnotation.Color = Color.Red
+
+rectangleAnnotation.ModifiedDate = DateTime.Now
+
+Dim comment As PdfPopupAnnotation = New PdfPopupAnnotation
+
+'Set author
+
+comment.Author = "John"
+
+'Set Text
+
+comment.Text = "This is first comment"
+
+'Set modification date.
+
+comment.ModifiedDate = DateTime.Now
+
+'Set subject
+
+comment.Subject = "Annotation Comments"
+
+'Add the  comment to the annotation.
+
+rectangleAnnotation.Comments.Add(comment)
+
+'Add the annotation to the PDF page.
+
+page.Annotations.Add(rectangleAnnotation)
+
+'Save the document to disk.
+
+document.Save("Output.pdf")
+
+'Close the document
+
+document.Close(true)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create new rectangle annotation
+
+PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
+
+//Set author
+
+rectangleAnnotation.Author = "Syncfusion";
+
+rectangleAnnotation.Border.BorderWidth = 1;
+
+rectangleAnnotation.Color = Color.Red;
+
+rectangleAnnotation.ModifiedDate = DateTime.Now;
+
+//Create a new comment annotation
+
+PdfPopupAnnotation comment = new PdfPopupAnnotation();
+
+//Set author
+
+comment.Author = "John";
+
+//Set Text
+
+comment.Text = "This is first comment";
+
+//Set modification date
+
+comment.ModifiedDate = DateTime.Now;
+
+//Set subject
+
+comment.Subject = "Annotation Comments";
+
+//Add the comment to the annotation
+
+rectangleAnnotation.Comments.Add(comment);
+
+//Add the annotation to the PDF page
+
+page.Annotations.Add(rectangleAnnotation);
+
+//Saves the document
+
+MemoryStream stream = new MemoryStream();
+
+//Save the PDF document to stream
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create new rectangle annotation
+
+PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
+
+//Set author
+
+rectangleAnnotation.Author = "Syncfusion";
+
+rectangleAnnotation.Border.BorderWidth = 1;
+
+rectangleAnnotation.Color = Color.Red;
+
+rectangleAnnotation.ModifiedDate = DateTime.Now;
+
+//Create a new comment annotation
+
+PdfPopupAnnotation comment = new PdfPopupAnnotation();
+
+//Set author
+
+comment.Author = "John";
+
+//Set Text
+
+comment.Text = "This is first comment";
+
+//Set modification date
+
+comment.ModifiedDate = DateTime.Now;
+
+//Set subject
+
+comment.Subject = "Annotation Comments";
+
+//Add the comment to the annotation
+
+rectangleAnnotation.Comments.Add(comment);
+
+//Add the annotation to the PDF page
+
+page.Annotations.Add(rectangleAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Create a new page
+
+PdfPage page = document.Pages.Add();
+
+//Create new rectangle annotation
+
+PdfRectangleAnnotation rectangleAnnotation = new PdfRectangleAnnotation(new RectangleF(0, 0, 100, 50), "Rectangle Annotation");
+
+//Set author
+
+rectangleAnnotation.Author = "Syncfusion";
+
+rectangleAnnotation.Border.BorderWidth = 1;
+
+rectangleAnnotation.Color = Color.Red;
+
+rectangleAnnotation.ModifiedDate = DateTime.Now;
+
+//Create a new comments annotation
+
+PdfPopupAnnotation comment = new PdfPopupAnnotation();
+
+//Set author
+
+comment.Author = "John";
+
+//Set Text
+
+comment.Text = "This is first comment";
+
+//Set modification date
+
+comment.ModifiedDate = DateTime.Now;
+
+//Set subject
+
+comment.Subject = "Annotation Comments";
+
+//Add the comment to the annotation
+
+rectangleAnnotation.Comments.Add(comment);
+
+//Add the annotation to the PDF page
+
+page.Annotations.Add(rectangleAnnotation);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+
+The following code example explains how to add comments to the existing PDF annotation.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PDF document
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing PDF annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Create a new comment annotation
+
+PdfPopupAnnotation comment = new PdfPopupAnnotation();
+
+//Set author
+
+comment.Author = "John";
+
+//Set Text
+
+comment.Text = "This is first comment";
+
+//Set modification date
+
+comment.ModifiedDate = DateTime.Now;
+
+//Set subject
+
+comment.Subject = "Annotation Comments";
+
+//Add the comment to the annotation
+
+loadedRectangleAnnotation.Comments.Add(comment);
+
+//Save the document
+
+ldoc.Save("Output.pdf");
+
+//Close the document
+
+ldoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document
+
+Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get the existing PDF page
+
+Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0),PdfLoadedPage)
+
+'Get the existing annotations
+
+Dim annots As PdfLoadedAnnotationCollection = lpage.Annotations
+
+'Get the existing rectangle annotation
+
+Dim loadedRectangleAnnotation As PdfLoadedRectangleAnnotation = CType(annots(0),PdfLoadedRectangleAnnotation)
+
+'Get the existing rectangle annotation
+
+Dim comment As PdfPopupAnnotation = New PdfPopupAnnotation
+
+'Set author
+
+comment.Author = "John"
+
+'Set Text
+
+comment.Text = "This is first comment"
+
+'Set modification date
+
+comment.ModifiedDate = DateTime.Now
+
+'Set subject
+
+comment.Subject = "Annotation Comments"
+
+'Add the comment to the annotation.
+
+loadedRectangleAnnotation.Comments.Add(comment)
+
+'Save the document
+
+ldoc.Save("Output.pdf")
+
+'Close the document
+
+ldoc.Close(true)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await lDoc.OpenAsync(file);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Create a new comment annotation
+
+PdfPopupAnnotation comment = new PdfPopupAnnotation();
+
+//Set author
+
+comment.Author = "John";
+
+//Set Text
+
+comment.Text = "This is first comment";
+
+//Set modification date
+
+comment.ModifiedDate = DateTime.Now;
+
+//Set subject
+
+comment.Subject = "Annotation Comments";
+
+//Add the comments to the annotation
+
+loadedRectangleAnnotation.Comments.Add(comment);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await lDoc.SaveAsync(stream);
+
+//Close the document
+
+lDoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Create a new comment annotation
+
+PdfPopupAnnotation comment = new PdfPopupAnnotation();
+
+//Set author
+
+comment.Author = "John";
+
+//Set Text
+
+comment.Text = "This is first comment";
+
+//Set modification date
+
+comment.ModifiedDate = DateTime.Now;
+
+//Set subject
+
+comment.Subject = "Annotation Comments";
+
+//Add the comments to the annotation
+
+loadedRectangleAnnotation.Comments.Add(comment);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+lDoc.Close(true);
+
+//Defining the Content Type for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
+
+PdfLoadedDocument lDoc = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = lDoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Create a new comment annotation
+
+PdfPopupAnnotation comment = new PdfPopupAnnotation();
+
+//Set author
+
+comment.Author = "John";
+
+//Set Text
+
+comment.Text = "This is first comment";
+
+//Set modification date
+
+comment.ModifiedDate = DateTime.Now;
+
+//Set subject
+
+comment.Subject = "Annotation Comments";
+
+//Add the comment to the annotation
+
+loadedRectangleAnnotation.Comments.Add(comment);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+//Close the document
+
+lDoc.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Removing comments and review status from PDF annotation
+
+The Essential PDF supports removing comments and reviewing status from the PDF annotation.
+
+The following code example explains how to remove comments from the existing PDF annotation.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PDF document
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation comments collection
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
+
+// Remove comments by index 
+
+commentsCollection.RemoveAt(0);
+
+//Save the document
+
+ldoc.Save("Output.pdf");
+
+//Close the document
+
+ldoc.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document
+
+Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")'Load the PDF page
+
+'Get the existing PDF page
+
+Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0),PdfLoadedPage)
+
+'Get the existing annotations 
+
+Dim annots As PdfLoadedAnnotationCollection = lpage.Annotations
+
+'Get the existing rectangle annotation
+
+Dim loadedRectangleAnnotation As PdfLoadedRectangleAnnotation =CType(annots(0),PdfLoadedRectangleAnnotation)
+
+'Get the annotation comments collection
+
+Dim commentsCollection As PdfLoadedPopupAnnotationCollection = loadedRectangleAnnotation.Comments
+
+' Remove comments by index 
+
+commentsCollection.RemoveAt(0)
+
+'Save the document
+
+ldoc.Save("Output.pdf")
+
+'Close the document
+
+ldoc.Close(true)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await ldoc.OpenAsync(file);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation comments collection
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
+
+// Remove comments by index 
+
+commentsCollection.RemoveAt(0);
+
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await ldoc.SaveAsync(stream);
+
+//Close the document
+
+ldoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation comments collection
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
+
+// Remove comments by index 
+
+commentsCollection.RemoveAt(0);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+ldoc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+ldoc.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation comments collection
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
+
+// Remove comments by index 
+
+commentsCollection.RemoveAt(0);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code example explains how to remove review status to the existing PDF annotation.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PDF document
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation review collection
+
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
+
+// Remove review status by index 
+
+reviewCollection.RemoveAt(0);
+
+ldoc.Save("Output.pdf");
+
+//Close the document
+
+ldoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loaded the PDF document
+
+Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get the existing PDF page
+
+Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0),PdfLoadedPage)
+
+'Get the existing annotations 
+
+Dim annots As PdfLoadedAnnotationCollection = lpage.Annotations
+
+'Get the existing rectangle annotation
+
+Dim loadedRectangleAnnotation As PdfLoadedRectangleAnnotation = CType(annots(0),PdfLoadedRectangleAnnotation)
+
+'Get the annotation review collection
+
+Dim reviewCollection As PdfLoadedPopupAnnotationCollection = loadedRectangleAnnotation.ReviewHistory
+
+' Remove review status by index 
+
+reviewCollection.RemoveAt(0)
+
+ldoc.Save("Output.pdf")
+
+'Close the document
+
+ldoc.Close(true)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and chose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await ldoc.OpenAsync(file);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+// Get the annotation review collection
+
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
+
+//Remove review status by index 
+
+reviewCollection.RemoveAt(0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await ldoc.SaveAsync(stream);
+
+//Close the document
+
+ldoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation  reviewcollection
+
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
+
+//Remove review status by index 
+
+reviewCollection.RemoveAt(0);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+ldoc.Close(true);
+
+//Defining the Content Type for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation review collection
+
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
+
+//Remove review status by index 
+
+reviewCollection.RemoveAt(0);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+## Modifying comment and review status 
+
+The Essential PDF supports modifying comments and reviewing status in the PDF annotation.
+
+The following code example explains how to modify comments in the existing PDF annotation.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PDF document
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation comments collection
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
+
+//Get the modified comments
+
+PdfLoadedPopupAnnotation loadedComments = commentsCollection[0];
+
+//Modify the comments Text
+
+loadedComments.Text = "This is the modified comment";
+
+//Save the document
+
+ldoc.Save("Output.pdf");
+
+//Close the document
+
+ldoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document
+
+Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get the existing PDF page
+
+Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0),PdfLoadedPage)
+
+'Get the existing annotations
+
+Dim annots As PdfLoadedAnnotationCollection = lpage.Annotations
+
+'Get the existing rectangle annotation
+
+Dim loadedRectangleAnnotation As PdfLoadedRectangleAnnotation = CType(annots(0),PdfLoadedRectangleAnnotation)
+
+'Get the annotation comments collection
+
+Dim commentsCollection As PdfLoadedPopupAnnotationCollection = loadedRectangleAnnotation.Comments
+
+'Get the modified comment
+
+Dim loadedComments As PdfLoadedPopupAnnotation = commentsCollection(0)
+
+' Modify the comment Text
+
+loadedComments.Text = "This is the modified comment"
+
+'Save the document
+
+ldoc.Save("Output.pdf")
+
+'Close the document
+
+ldoc.Close(true)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await ldoc.OpenAsync(file);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Load the annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the existing rectangle annotation
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
+
+// Get the modified comment
+
+PdfLoadedPopupAnnotation loadedComments = commentsCollection[0];
+
+// Modify the comment Text
+
+loadedComments.Text = "This is the modified comment";
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await ldoc.SaveAsync(stream);
+
+//Close the document
+
+ldoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
+
+//Load the PDF document page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Load the annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation comments collection
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
+
+//Get the modified comment
+
+PdfLoadedPopupAnnotation loadedComments = commentsCollection[0];
+
+//Modify the comment Text
+
+loadedComments.Text = "This is the modified comments";
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+ldoc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+ldoc.Close(true);
+
+//Defining the Content Type for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
+
+//Load the PDF document page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Load the annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation comments collection
+
+PdfLoadedPopupAnnotationCollection commentsCollection = loadedRectangleAnnotation.Comments;
+
+//Get the modified comment
+
+PdfLoadedPopupAnnotation loadedComments = commentsCollection[0];
+
+//Modify the comments Text
+
+loadedComments.Text = "This is Modify comments";
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code example explains how to modify review status to the existing PDF annotation.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PDF document
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation review collection
+
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
+
+// Get the modified review state
+
+PdfLoadedPopupAnnotation loadedReview = reviewCollection[0];
+
+// Modify the review State
+
+loadedReview.State = PdfAnnotationState.Rejected;
+
+//Save the document
+
+ldoc.Save("Output.pdf");
+
+//Close the document
+
+ldoc.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Loaded the PDF document
+
+Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get the existing PDF page
+
+Dim lpage As PdfLoadedPage = CType(ldoc.Pages(0),PdfLoadedPage)
+
+'Get the existing annotations
+
+Dim annots As PdfLoadedAnnotationCollection = lpage.Annotations
+
+'Get the existing rectangle annotation
+
+Dim loadedRectangleAnnotation As PdfLoadedRectangleAnnotation = CType(annots(0),PdfLoadedRectangleAnnotation)
+
+'Get annotation review collection
+
+Dim reviewCollection As PdfLoadedPopupAnnotationCollection = loadedRectangleAnnotation.ReviewHistory
+
+Dim loadedReview As PdfLoadedPopupAnnotation = reviewCollection(0)
+
+' Modify the review State
+
+loadedReview.State = PdfAnnotationState.Rejected
+
+'Save the document
+
+ldoc.Save("Output.pdf")
+
+'Close the document
+
+ldoc.Close(true)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await ldoc.OpenAsync(file);
+
+//Get the existing annotations
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing PDF page
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation review collection
+
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
+
+// Get the modified review state
+
+PdfLoadedPopupAnnotation loadedReview = reviewCollection[0];
+
+// Modify the review State
+
+loadedReview.State = PdfAnnotationState.Rejected;
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await ldoc.SaveAsync(stream);
+
+//Close the document
+
+ldoc.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("inputAnnotation.pdf", FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation review collection
+
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
+
+// Get the modified review state
+
+PdfLoadedPopupAnnotation loadedReview = reviewCollection[0];
+
+// Modify the review State
+
+loadedReview.State = PdfAnnotationState.Rejected;
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+lDoc.Save(stream);
+
+stream.Position = 0;
+
+//Closes the document
+
+ldoc.Close(true);
+
+//Defining the Content Type for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.inputAnnotation.pdf");
+
+PdfLoadedDocument ldoc = new PdfLoadedDocument(docStream);
+
+//Get the existing PDF page
+
+PdfLoadedPage lpage = ldoc.Pages[0] as PdfLoadedPage;
+
+//Get the existing annotations
+
+PdfLoadedAnnotationCollection annots = lpage.Annotations;
+
+//Get the existing rectangle annotation
+
+PdfLoadedRectangleAnnotation loadedRectangleAnnotation = annots[0] as PdfLoadedRectangleAnnotation;
+
+//Get the annotation review collection
+
+PdfLoadedPopupAnnotationCollection reviewCollection = loadedRectangleAnnotation.ReviewHistory;
+
+// Get the modified review state
+
+PdfLoadedPopupAnnotation loadedReview = reviewCollection[0];
+
+// Modify the review State
+
+loadedReview.State = PdfAnnotationState.Rejected;
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples.
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
 ## Retrieve review status and comments from PDF annotation
 
 The PDF annotations may have an author-specific state associated with them. The state is not specified in the annotation itself, but it represents a separate text annotation ([Popup Annotation](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfPopupAnnotation.html)).
