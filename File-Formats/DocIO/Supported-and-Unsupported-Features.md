@@ -1,4 +1,4 @@
----
+﻿---
 title: Supported and Unsupported Features | Syncfusion
 description: This section describes the support and unsupported elements
 platform: file-formats
@@ -364,8 +364,8 @@ No<br/><br/></td></tr>
 Grouped shapes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td><td>
-No<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 No<br/><br/></td></tr>
 <tr>

@@ -1,4 +1,4 @@
----
+﻿---
 title: Working with Shapes | Syncfusion
 description: This section describes about shapes
 platform: file-formats
@@ -7,11 +7,17 @@ documentation: UG
 keywords: 
 ---
 # Working with Shapes
+
 Shapes are drawing objects that include lines, curves, circles, rectangles, etc. It can be preset or custom geometry. You can create and manipulate the pre-defined shape in DOCX and WordML format documents.
+
 ## Adding Shape
+
 The following code example illustrates how to add pre-defined shape to the document.
+
 {% tabs %}
+
 {% highlight c# %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -69,8 +75,11 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 
 document.Close();
+
 {% endhighlight %}
+
 {% highlight vb.net %}
+
 'Creates a new Word document 
 
 Dim document As New WordDocument()
@@ -128,8 +137,11 @@ document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
 
 document.Close()
+
 {% endhighlight %}
+
 {% highlight uwp %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -328,8 +340,11 @@ stream.Position = 0;
 //Download Word document in the browser
 
 return File(stream, "application/msword", "Result.docx");
+
 {% endhighlight %}
+
 {% highlight xamarin %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -393,11 +408,17 @@ document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
 {% endhighlight %}
+
 {% endtabs %}
+
 Shape can have formatting such as line color, fill color, positioning, wrap formats, etc. The following code example illustrates how to apply formatting options for shape.
+
 {% tabs %}
+
 {% highlight c# %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -455,8 +476,11 @@ rectangle.LineFormat.Color = Color.DarkGray;
 document.Save("Sample.docx", FormatType.Docx);
 
 document.Close();
+
 {% endhighlight %}
+
 {% highlight vb.net %}
+
 'Creates a new Word document 
 
 Dim document As New WordDocument()
@@ -514,8 +538,11 @@ rectangle.LineFormat.Color = Color.DarkGray
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
+
 {% endhighlight %}
+
 {% highlight uwp %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -551,8 +578,6 @@ rectangle.FillFormat.Fill = true;
 rectangle.FillFormat.Color = Color.LightGray;
 
 //Applies wrap formats
-
-            
 
 rectangle.WrapFormat.TextWrappingStyle = TextWrappingStyle.Square;
 
@@ -651,8 +676,11 @@ outstream.Flush();
 await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
+
 {% endhighlight %}
+
 {% highlight asp.net core %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -720,8 +748,11 @@ stream.Position = 0;
 //Download Word document in the browser
 
 return File(stream, "application/msword", "Result.docx");
+
 {% endhighlight %}
+
 {% highlight xamarin %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -787,20 +818,29 @@ document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
 {% endhighlight %}
+
 {% endtabs %}
+
 ## Grouping shape
+
 Word library now allows you to create or group multiple shapes, pictures, text boxes, and charts as a group shape in Word document (DOCX) and preserve it as in DOCX and WordML format conversions.
+
 You can create a document with group shapes by using Microsoft Word. It provides an option to group a set of shapes and images as a single shape and a group shape as individual item.
 ![Create Group shape in Microsoft Word](Working-with-Shapes_images/Working-with-Shapes_img1.jpeg)
 
-### Key Features:
-### 
+**Key Features:**
+
 1. You can easily manage group of shapes, pictures, text boxes, or charts as a group shape.
 2. You can move several shapes or images simultaneously and apply the same formatting properties for children of group shapes.
+
 The following code example illustrates how to create group shape in Word document.
+
 {% tabs %}
+
 {% highlight c# %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -924,8 +964,11 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 
 document.Close();
+
 {% endhighlight %}
+
 {% highlight vb.net %}
+
 ‘Creates a new Word document
 
 Dim document As WordDocument = New WordDocument()
@@ -1049,8 +1092,11 @@ document.Save("Sample.docx", FormatType.Docx)
 ‘Closes the document
 
 document.Close()
+
 {% endhighlight %}
+
 {% highlight uwp %}
+
 //"App" is the class of Portable project
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -1250,8 +1296,11 @@ outstream.Flush();
 await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
+
 {% endhighlight %}
+
 {% highlight xamarin %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -1385,8 +1434,11 @@ document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
 {% endhighlight %}
+
 {% highlight asp.net core %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -1520,11 +1572,17 @@ stream.Position = 0;
 //Download Word document in the browser
 
 return File(stream, "application/msword", "Result.docx");
+
 {% endhighlight %}
+
 {% endtabs %}
+
 The following code example illustrates how to add collection of shapes or images as a group shape in Word document.
+
 {% tabs %}
+
 {% highlight c# %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -1540,8 +1598,6 @@ WParagraph paragraph = section.AddParagraph() as WParagraph;
 //Creates paragraph item collections to add child shapes
 
 ParagraphItem[] paragraphItems = new ParagraphItem[3];
-
- 
 
 //Creates new shape
 
@@ -1572,8 +1628,6 @@ shape.VerticalOrigin = VerticalOrigin.Page;
 //Sets the shape as paragraph item
 
 paragraphItems[0] = shape;
-
- 
 
 //Appends new textbox to the document
 
@@ -1612,8 +1666,6 @@ textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
 //Sets the textbox as paragraph item
 
 paragraphItems[1] = textbox;
-
- 
 
 //Appends new chart to the document
 
@@ -1738,8 +1790,11 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 
 document.Close();
+
 {% endhighlight %}
+
 {% highlight vb.net %}
+
 ‘Creates a new Word document
 
 Dim document As WordDocument = New WordDocument()
@@ -1947,8 +2002,11 @@ document.Save("Sample.docx", FormatType.Docx)
 ‘Closes the document
 
 document.Close()
+
 {% endhighlight %}
+
 {% highlight uwp %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -2224,8 +2282,11 @@ outstream.Flush();
 await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
+
 {% endhighlight %}
+
 {% highlight asp.net core %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -2441,8 +2502,11 @@ stream.Position = 0;
 //Download Word document in the browser
 
 return File(stream, "application/msword", "Result.docx");
+
 {% endhighlight %}
+
 {% highlight xamarin %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -2654,13 +2718,20 @@ document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
 {% endhighlight %}
+
 {% endtabs %}
+
 ### Grouping nested group shapes
-### 
+ 
+
 The following code example illustrates how to group the nested group shapes as a group shape in Word document.
+
 {% tabs %}
+
 {% highlight c# %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -2830,8 +2901,11 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 
 document.Close();
+
 {% endhighlight %}
+
 {% highlight vb.net %}
+
 ‘Creates a new Word document
 
 Dim document As WordDocument = New WordDocument()
@@ -3003,8 +3077,11 @@ document.Save("Sample.docx", FormatType.Docx)
 ‘Closes the document
 
 document.Close()
+
 {% endhighlight %}
+
 {% highlight uwp %}
+
 //"App" is the class of Portable project.
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -3252,8 +3329,11 @@ outstream.Flush();
 await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
+
 {% endhighlight %}
+
 {% highlight asp.net core %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -3433,8 +3513,11 @@ stream.Position = 0;
 //Download Word document in the browser
 
 return File(stream, "application/msword", "Result.docx");
+
 {% endhighlight %}
+
 {% highlight xamarin %}
+
 //"App" is the class of Portable project.
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -3618,13 +3701,21 @@ document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
 {% endhighlight %}
+
 {% endtabs %}
+
 ## Ungroup the group shape:
+
 You can ungroup the group shapes in the Word document to preserve each shape as individual item.
+
 The following code example illustrates how to ungroup the group shape in Word document.
+
 {% tabs %}
+
 {% highlight c# %}
+
 //Loads the template document 
 
 WordDocument document = new WordDocument("Template.docx");
@@ -3662,8 +3753,11 @@ document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
 
 document.Close();
+
 {% endhighlight %}
+
 {% highlight vb.net %}
+
 ‘Loads the template document
 
 Dim document As WordDocument = New WordDocument("Template.docx")
@@ -3695,8 +3789,11 @@ document.Save("Sample.docx", FormatType.Docx)
 ‘Closes the document
 
 document.Close()
+
 {% endhighlight %}
+
 {% highlight uwp %}
+
 //"App" is the class of Portable project.
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -3810,8 +3907,11 @@ outstream.Flush();
 await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
+
 {% endhighlight %}
+
 {% highlight asp.net core %}
+
 FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
 
 //Loads the template document
@@ -3859,8 +3959,11 @@ stream.Position = 0;
 //Download Word document in the browser
 
 return File(stream, "application/msword", "Result.docx");
+
 {% endhighlight %}
+
 {% highlight xamarin %}
+
 //"App" is the class of Portable project
 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
@@ -3910,6 +4013,8 @@ document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
 {% endhighlight %}
+
 N>**1.While grouping the shapes or other objects, the child shapes should have positions relative to the “Page”.
 N>N>**2.While grouping the shapes or other objects the wrapping style should be other than inline style.
