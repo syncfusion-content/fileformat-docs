@@ -3380,7 +3380,15 @@ The Essential DocIO makes sensible decision when layout the text, and its suppor
 </tr>
 <tr>
 <td>
-Custom Shapes and Grouped Shapes
+Grouped Shapes
+</td>
+<td>
+Only DOCX and WordML format documents are supported.
+</td>
+</tr>
+<tr>
+<td>
+Custom Shapes 
 </td>
 <td>
 Not supported
