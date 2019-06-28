@@ -1954,7 +1954,7 @@ if (args.HasMappedFieldInDataSource)
 
 {
 
-//To check whether the field value is null or not
+//To check whether the mapped field has null value
 
 if (args.FieldValue == null || args.FieldValue == DBNull.Value)
 
@@ -2002,6 +2002,8 @@ Private Sub BeforeClearField(ByVal sender As Object, ByVal args As BeforeClearFi
 
 If args.HasMappedFieldInDataSource Then
 
+'To check whether the mapped field has null value
+
 If args.FieldValue Is Nothing OrElse args.FieldValue = DBNull.Value Then
 
 'Gets the unmnerged field name.
@@ -2039,6 +2041,7 @@ End Sub
 {% endtabs %} 
 
 The following code example provides supporting methods
+
 {% tabs %} 
 
 {% highlight c# %}
@@ -2130,6 +2133,8 @@ End Function
 {% endtabs %}
 
 ### BeforeClearGroupField Event
+
+The following code example shows how to use BeforeClearGroupField event during Mail merge process.
 
 {% tabs %}  
 
@@ -2279,16 +2284,6 @@ End If
 
 End Sub
 
-Private Shared Function GetOrders() As List(Of OrderDetails)
-
-Dim orders As List(Of OrderDetails) = New List(Of OrderDetails)()
-
-orders.Add(New OrderDetails("10835", New DateTime(2015, 1, 5), New DateTime(2015, 1, 12), New DateTime(2015, 1, 21)))
-
-Return orders
-
-End Function
-
 {% endhighlight %}
 
 {% endtabs %} 
@@ -2298,6 +2293,8 @@ The following code example provides supporting methods
 {% tabs %} 
 
 {% highlight c# %}
+
+//Gets order list
 
 private static List<OrderDetails> GetOrders()
 
@@ -2310,6 +2307,8 @@ orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015
 return orders;
 
 }
+
+//Gets employee list
 
 public static List<Employees> GetEmployees()
 
@@ -2436,6 +2435,20 @@ RequiredDate = requiredDate;
 {% endhighlight %}
 
 {% highlight vb.net %}
+
+'Gets orders list
+
+Private Shared Function GetOrders() As List(Of OrderDetails)
+
+Dim orders As List(Of OrderDetails) = New List(Of OrderDetails)()
+
+orders.Add(New OrderDetails("10835", New DateTime(2015, 1, 5), New DateTime(2015, 1, 12), New DateTime(2015, 1, 21)))
+
+Return orders
+
+End Function
+
+'Gets employee list
 
 Public Shared Function GetEmployees() As List(Of Employees)
 
