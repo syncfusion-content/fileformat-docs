@@ -207,7 +207,6 @@ document.Open(fileStreamPath, FormatType.Automatic);
 
 }
 
-
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -218,7 +217,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
 //Creates an empty WordDocument instance 
           
-using (WordDocument document = new WordDocument());
+using (WordDocument document = new WordDocument())
 
 {
 
@@ -242,7 +241,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
 //Creates an empty WordDocument instance 
           
-using (WordDocument document = new WordDocument());
+using (WordDocument document = new WordDocument())
 
 {
 
@@ -564,7 +563,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
 //Creates an empty WordDocument instance 
           
-using (WordDocument document = new WordDocument());
+using (WordDocument document = new WordDocument())
 
 {
 
@@ -766,7 +765,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
 //Creates an empty WordDocument instance 
           
-using (WordDocument document = new WordDocument());
+using (WordDocument document = new WordDocument())
 
 {
 
@@ -810,7 +809,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
 //Creates an empty WordDocument instance 
           
-using (WordDocument document = new WordDocument());
+using (WordDocument document = new WordDocument())
 
 {
 
@@ -843,5 +842,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 document.Close();
 
 }
+
+{% endhighlight %}
 
 {% endtabs %}  
