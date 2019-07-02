@@ -166,9 +166,6 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
 
-}
-
-}
 
 {% endhighlight %}
 
@@ -256,8 +253,6 @@ stream.Position = 0;
 return File(stream, "application/msword", "WordToRtf.rtf");
 
 }
-
-
 
 {% endhighlight %}
 
@@ -355,9 +350,6 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
 
-}
-
-}
 
 {% endhighlight %}
 
@@ -378,7 +370,7 @@ document.Save(stream, FormatType.Rtf);
 //Save the stream as a file in the device and invoke it for viewing
 
 Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("RtfToWord.rtf", "application/msword", stream);
+                    .SaveAndView("WordToRtf.rtf", "application/msword", stream);
 
 //Closes the Word document
 
