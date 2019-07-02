@@ -1,4 +1,4 @@
----
+﻿---
 title: Word document to PDF Conversion | DocIO | Syncfusion
 description: Converting Word document to PDF using DocIO
 platform: file-formats
@@ -3209,7 +3209,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 
 //Sets revision types to preserve track changes in  Word when converting to PDF
 
-wordDocument.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
+document.RevisionOptions.ShowMarkup = RevisionType.Deletions | RevisionType.Formatting | RevisionType.Insertions;
 
 //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
 
