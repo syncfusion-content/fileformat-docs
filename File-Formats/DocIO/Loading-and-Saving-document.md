@@ -35,7 +35,7 @@ Dim document As New WordDocument(fileName)
 
 FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
-using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic));
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
 
 {% endhighlight %}
 
@@ -47,7 +47,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
 //Opens an existing document through constructor of `WordDocument` class  
           
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),FormatType.Automatic));
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),FormatType.Docx);
 
 {% endhighlight %}
 
@@ -59,7 +59,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
 //Opens an existing document through constructor of `WordDocument` class  
           
-using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx"),FormatType.Automatic));
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx"),FormatType.Automatic);
 
 {% endhighlight %}
 
@@ -121,9 +121,9 @@ Dim document As New WordDocument(wordDocumentStream, FormatType.Automatic)
 
 FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
-//Creates an empty WordDocument instance
+//Opens an existing document from stream through constructor of WordDocument class
 
-using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic));
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
 
 
 {% endhighlight %}
@@ -140,7 +140,7 @@ Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets
 
 //Opens an existing document through constructor of `WordDocument` class  
           
-using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
+WordDocument document = new WordDocument(inputStream, FormatType.Docx);
 
 
 {% endhighlight %}
@@ -157,7 +157,7 @@ Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets
 
 //Opens an existing document through constructor of `WordDocument` class  
           
-using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
+WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
 
 {% endhighlight %}
 
@@ -227,7 +227,7 @@ Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets
 
 //Loads or opens an existing Word document through Open method of WordDocument class
 
-document.Open(inputStream, FormatType.Automatic);
+document.Open(inputStream, FormatType.Docx);
 
 }
 
@@ -471,7 +471,7 @@ Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets
 
 //Loads or opens an existing Word document through Open method of WordDocument class
 
-document.Open(inputStream, FormatType.Automatic);
+document.Open(inputStream, FormatType.Docx);
 
 //To-Do some manipulation
 
@@ -775,7 +775,7 @@ Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets
 
 //Loads or opens an existing Word document through Open method of WordDocument class
 
-document.Open(inputStream, FormatType.Automatic);
+document.Open(inputStream, FormatType.Docx);
 
 //To-Do some manipulation
 
