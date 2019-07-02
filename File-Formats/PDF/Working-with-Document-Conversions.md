@@ -1933,11 +1933,11 @@ No<br/><br/></td></tr>
 
 ## Converting PDF to Image
 
-PDF pages can be converted to images. To add PDF to image functionality in an application, you need to add the below mentioned assemblies as reference to the project.
+PDF pages can be converted into images. To add PDF to image functionality in an application, add the following assemblies as reference to the project:
 
 1. Syncfusion.Compression.Base.dll
 2. Syncfusion.Pdf.Base.dll
-3. Syncfusion.PdfViewer.Windows.dll
+
 
 The following code snippet illustrates how to convert PDF page into image.
 
@@ -1946,21 +1946,26 @@ The following code snippet illustrates how to convert PDF page into image.
 {% highlight c# %}
 
 
-PdfDocumentView documentViewer = new PdfDocumentView();
+//Load the saved PDF as PdfLoadedDocument
 
-//Load the PDF document
+PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
 
-documentViewer.Load("Input.pdf");
+//Convert each page to image file
 
-//Export PDF page to image
+for (int i = 0; i < ldoc.Pages.Count; i++)
+{
 
-Bitmap image = documentViewer.ExportAsImage(0);
+Image image = ldoc.ExportAsImage(i);
 
-//Save the image
+//Save as image format
 
-image.Save("Output.png", ImageFormat.Png);
+image.Save("Image" + i + ".png", System.Drawing.Imaging.ImageFormat.Png);
 
-documentViewer.Dispose();
+}
+
+//Close the document
+
+ldoc.Close(true);
 
 
 
@@ -1969,22 +1974,29 @@ documentViewer.Dispose();
 {% highlight vb.net %}
 
 
-Dim documentViewer As New PdfDocumentView()
+'Load the saved PDF as PdfLoadedDocument
 
-'Load the PDF document
+Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
-documentViewer.Load("Input.pdf")
+'Convert each page to image file
 
-'Export PDF page to image
+Dim i As Integer = 0
 
-Dim image As Bitmap = documentViewer.ExportAsImage(0)
+Do While (i < ldoc.Pages.Count)
 
-'Save the image
+    Dim image As Image = ldoc.ExportAsImage(i)
+	
+    'Save as image  format
+	
+    image.Save(("Image"  _+ (i + ".png")), System.Drawing.Imaging.ImageFormat.Png)
+	
+    i = (i + 1)
+	
+Loop
 
-image.Save("Sample.png", ImageFormat.Png)
+'Close the document
 
-documentViewer.Dispose()
-
+ldoc.Close(true)
 
 
 {% endhighlight %}
