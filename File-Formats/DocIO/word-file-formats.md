@@ -524,155 +524,9 @@ return File(stream, "application/msword", "Result.docm");
 
 }
 
-
-{% endhighlight %}
-
-{% highlight UWP %}
-
-//"App" is the class of Portable project.
-
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Opens an existing document from file system through constructor of WordDocument class
-
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.dotm")),
-              FormatType.Dotm))
-{
-
-// Gets the table
-
-DataTable table = GetDataTable();
-
-// Executes Mail Merge with groups.
-
-document.MailMerge.ExecuteGroup(table);
-
-MemoryStream stream = new MemoryStream();
-
-await document.SaveAsync(stream, FormatType.Word2013Docm);
-
-//Saves the stream as Word file in local machine
-
-Save(stream, "Result.docm");
-                
-//Closes the Word document
-
-document.Close();
-
-}
-
-// Saves the Word document
-
-async void Save(MemoryStream streams, string filename)
-
-{
-
-streams.Position = 0;
-
-StorageFile stFile;
-
-if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-
-{
-
-FileSavePicker savePicker = new FileSavePicker();
-
-savePicker.DefaultFileExtension = ".docm";
-
-savePicker.SuggestedFileName = filename;
-
-savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docm"});
-
-stFile = await savePicker.PickSaveFileAsync();
-
-}
-
-else
-
-{
-
-StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-
-}
-
-if (stFile != null)
-
-{
-
-using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-
-{
-
-// Write compressed data from memory to file
-
-using (Stream outstream = zipStream.AsStreamForWrite())
-
-{
-
-byte[] buffer = streams.ToArray();
-
-outstream.Write(buffer, 0, buffer.Length);
-
-outstream.Flush();
-
-}
-
-}
-
-}
-
-// Launch the saved Word file
-
-await Windows.System.Launcher.LaunchFileAsync(stFile);
-
-}
-
-}
-
-}
-
-{% endhighlight %}
-
-{% highlight Xamarin %}
-
-Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Opens an existing document from file system through constructor of WordDocument class
-
-using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.dotm")),
-              FormatType.Automatic))
-{
-
-// Gets the table
-
-DataTable table = GetDataTable();
-
-// Executes Mail Merge with groups.
-
-document.MailMerge.ExecuteGroup(table);
-
-MemoryStream stream = new MemoryStream();
-
-document.Save(stream, FormatType.Word2013Docm);
-
-//Save the stream as a file in the device and invoke it for viewing
-
-Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("Result.docm", "application/msword", stream);
-
-//Closes the Word document
-
-document.Close();
-
-}
-
 {% endhighlight %}
 
 {% endtabs %}
-
-
 
 ## Word Processing XML (.xml)
 
@@ -833,10 +687,6 @@ outstream.Flush();
 // Launch the saved Word file
 
 await Windows.System.Launcher.LaunchFileAsync(stFile);
-
-}
-
-}
 
 }
 
@@ -1023,10 +873,6 @@ outstream.Flush();
 // Launch the saved Word file
 
 await Windows.System.Launcher.LaunchFileAsync(stFile);
-
-}
-
-}
 
 }
 
@@ -1487,10 +1333,6 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
 
-}
-
-}
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
@@ -1676,10 +1518,6 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
 
-}
-
-}
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
@@ -1828,7 +1666,7 @@ document.Settings.SkipIncrementalSaveValidation = true;
 
 //Loads or opens an existing Word document through Open method of WordDocument class
 
-document.Open(inputStream, FormatType.Automatic);
+document.Open(inputStream, FormatType.Doc);
  
 MemoryStream stream = new MemoryStream();
 

@@ -53,13 +53,11 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
 
 MemoryStream stream = new MemoryStream();
 
-newdocument.Save(stream, FormatType.Odt);
+document.Save(stream, FormatType.Odt);
 
 //Closes the Word document
 
 document.Close();
-
-newdocument.Close();
 
 stream.Position = 0;
 
@@ -96,8 +94,6 @@ Save(stream, "WordToODT.odt");
 //Closes the Word document
 
 document.Close();
-
-newdocument.Close();
 
 }
 

@@ -64,8 +64,6 @@ return File(stream, "application/msword", "WordToText.txt");
 
 }
 
-
-
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -162,9 +160,6 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
 
-}
-
-}
 
 {% endhighlight %}
 
@@ -350,9 +345,6 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
 
-}
-
-}
 
 {% endhighlight %}
 
