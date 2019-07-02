@@ -836,10 +836,6 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
 
-}
-
-}
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
@@ -1023,10 +1019,6 @@ outstream.Flush();
 // Launch the saved Word file
 
 await Windows.System.Launcher.LaunchFileAsync(stFile);
-
-}
-
-}
 
 }
 
@@ -1487,10 +1479,6 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
 
-}
-
-}
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
@@ -1676,10 +1664,6 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
 
-}
-
-}
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
@@ -1828,7 +1812,7 @@ document.Settings.SkipIncrementalSaveValidation = true;
 
 //Loads or opens an existing Word document through Open method of WordDocument class
 
-document.Open(inputStream, FormatType.Automatic);
+document.Open(inputStream, FormatType.Doc);
  
 MemoryStream stream = new MemoryStream();
 
