@@ -1,5 +1,5 @@
 ---
-title: Word Document to HTML conversion
+title: Word Document to HTML conversion | DocIO | Syncfusion
 description: Converting Word document to HTML using DocIO
 platform: file-formats
 control: DocIO
