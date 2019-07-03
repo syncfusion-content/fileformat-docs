@@ -2288,7 +2288,7 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 
 //Creates a new Word document 
 
