@@ -10,7 +10,7 @@ keywords:
 
 Shapes are drawing objects that include lines, curves, circles, rectangles, etc. It can be preset or custom geometry. You can create and manipulate the pre-defined shape in DOCX and WordML format documents.
 
-## Adding Shapes
+## Adding shapes
 
 The following code example illustrates how to add pre-defined shape to the document.
 
