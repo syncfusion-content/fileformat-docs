@@ -469,7 +469,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
-              FormatType.Automatic))
+              FormatType.Docx))
 {
 
 foreach (WSection section in document.Sections)
@@ -1456,7 +1456,7 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
-              FormatType.Automatic))
+              FormatType.Docx))
 {
 
 foreach (WSection section in document.Sections)
@@ -2906,6 +2906,12 @@ destinationDocument.Save(outputStream, FormatType.Docx);
 //Closes the destination document
 
 destinationDocument.Close();
+
+outputStream.Position = 0;
+
+//Download Word document in the browser
+
+return File(outputStream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
