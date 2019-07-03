@@ -46,7 +46,7 @@ Imports Syncfusion.Drawing
 ##### Step 6:	Add a new button in the Index.cshtml as shown below.
 
 {% tabs %}  
-{% highlight HTML %}
+{% highlight CSHTML %}
 @{Html.BeginForm("CreateDocument", "Home", FormMethod.Get);
     {
         <div>
@@ -451,6 +451,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 The below code snippet illustrates how to read and edit an Excel file in ASP.NET Core.
 
+{% tabs %}
 {% highlight c# %}
 //New instance of ExcelEngine is created 
 //Equivalent to launching Microsoft Excel with no workbooks open
@@ -498,5 +499,6 @@ excelEngine.Dispose();
 //Creates a FileContentResult object by using the file contents, content type, and file name.
 return File(stream, ContentType, fileName);
 {% endhighlight %}
+{% endtabs %}
 
 N> _hostingEnvironment is the base path for input files of type IHostingEnvironment.
