@@ -37,7 +37,7 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 * Select **.NET Core**, **ASP.NET Core 3.0** and **Blazor (client-side)**.
 
-![Select .NET Core, ASP.NET Core 3.0 and Blazor (client-side).](Blazor_Images/Select_Client.png)
+![Select .NET Core, ASP.NET Core 3.0 and Blazor Client-side.](Blazor_Images/Select_Client.png)
 
 **Creating a Word document in client-side application**
 
@@ -230,7 +230,7 @@ N> Even though Word library works in client-side, it is recommended to use serve
 
 * Select **.NET Core, ASP.NET Core 3.0** and **Blazor (server-side)**.
 
-![Select .NET Core, ASP.NET Core 3.0 and Blazor (server-side).](Blazor_Images/Select_Server.png)
+![Select .NET Core, ASP.NET Core 3.0 and Blazor Server-side.](Blazor_Images/Select_Server.png)
 
 **Creating a Word document in server-side application**
 
