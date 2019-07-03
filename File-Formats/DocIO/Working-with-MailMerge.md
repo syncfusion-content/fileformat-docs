@@ -3040,7 +3040,7 @@ End Class
 
 {% endhighlight %}
 
-{% highlight ASP.NET Core %}
+{% highlight ASP.NET CORE %}
 
 FileStream fileStream = new FileStream("Template.docx", FileMode.Open);
 
@@ -3117,7 +3117,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight Xamarin %}
+{% highlight XAMARIN %}
 
 //Load the Word document as stream 
 
