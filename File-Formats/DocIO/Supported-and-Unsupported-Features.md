@@ -151,7 +151,7 @@ No<br/><br/></td></tr>
 </table>
 
 
-## Section features
+### Section features
 
 <table>
 <thead>  
@@ -257,7 +257,7 @@ Yes<br/><br/></td></tr>
 </table>
 
 
-## Paragraph elements features
+### Paragraph elements features
 
 <table>
 <thead>  
@@ -444,7 +444,7 @@ Yes<br/><br/></td></tr>
 </table>
 
 
-## Paragraph features
+### Paragraph features
 
 <table>
 <thead>  
@@ -586,7 +586,7 @@ Yes<br/><br/></td></tr>
 </table>
 
 
-## Style features
+### Style features
 
 <table>
 <thead>  
@@ -683,7 +683,7 @@ No<br/><br/></td></tr>
 </table>
 
 
-## Table features
+### Table features
 
 <table>
 <thead>  
@@ -923,7 +923,7 @@ Yes<br/><br/></td></tr>
 </tbody>
 </table>
 
-## Text features
+### Text features
 
 <table>
 <tr>
@@ -1094,5 +1094,185 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 Yes<br/><br/></td></tr>
-</tbody>
 </table>
+
+## Blazor supported features
+
+<table>
+<tr>
+<th>Feature<br/><br/></th>
+<th>Server side and hosted application<br/><br/></th>
+<th>Client side application<br/><br/></th>
+</tr>
+<tr>
+<td>Update Fields<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Find and Highlight<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Simple Replace<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Advanced Replace<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Bookmark Navigation<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Clone and Merge<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Forms<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Form filling and Protection<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>XML Mapping<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Bookmarks<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Header and Footer<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Image Insertion<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Insert OLE Object<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Format Table<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>RTL<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Styles<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Table Styles<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Employee Report<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Mail Merge Event<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Nested Mail Merge<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Word to PDF<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>No<br/><br/></td>
+</tr>
+<tr>
+<td>Word to WordML<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>WordML to Word<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>RTF to Word<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Word to ODT<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Insert Break<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Watermark<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Footnotes and Endnotes<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>AutoShapes<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Pie Chart<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Bar Chart<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Document Settings<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Macro Preservation<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Document Protection<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+</table>
+
