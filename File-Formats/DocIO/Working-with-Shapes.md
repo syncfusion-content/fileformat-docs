@@ -3713,7 +3713,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
-## Ungrouping shapes:
+## Ungrouping shapes
 
 You can ungroup the group shapes in the Word document to preserve each shape as individual item.
 
@@ -4024,5 +4024,3 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}
-
-
