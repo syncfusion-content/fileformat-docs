@@ -140,7 +140,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight uwp %}
+{% highlight UWP %}
 
 //Creates a new Word document 
 
@@ -273,8 +273,11 @@ outstream.Flush();
 await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
+
 {% endhighlight %}
-{% highlight asp.net core %}
+
+{% highlight ASP.NET CORE %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -343,7 +346,7 @@ return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 
 //Creates a new Word document 
 
@@ -541,7 +544,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight uwp %}
+{% highlight UWP %}
 
 //Creates a new Word document 
 
@@ -679,7 +682,7 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 
 //Creates a new Word document 
 
@@ -751,7 +754,7 @@ return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 
 //Creates a new Word document 
 
@@ -1095,7 +1098,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight uwp %}
+{% highlight UWP %}
 
 //"App" is the class of Portable project
 
@@ -1299,7 +1302,7 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 
 //Creates a new Word document 
 
@@ -1437,7 +1440,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 
 //Creates a new Word document 
 
@@ -2005,7 +2008,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight uwp %}
+{% highlight UWP %}
 
 //Creates a new Word document 
 
@@ -2505,7 +2508,7 @@ return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 
 //Creates a new Word document 
 
@@ -3080,7 +3083,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight uwp %}
+{% highlight UWP %}
 
 //"App" is the class of Portable project.
 
@@ -3332,7 +3335,7 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 
 //Creates a new Word document 
 
@@ -3516,7 +3519,7 @@ return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 
 //"App" is the class of Portable project.
 
@@ -3792,7 +3795,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight uwp %}
+{% highlight UWP %}
 
 //"App" is the class of Portable project.
 
@@ -3910,7 +3913,7 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET.CORE %}
 
 FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
 
@@ -3962,7 +3965,7 @@ return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 
 //"App" is the class of Portable project
 
