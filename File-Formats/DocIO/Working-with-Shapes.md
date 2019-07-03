@@ -4016,5 +4016,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endhighlight %}
 
+{% endtabs %}
+
 N>**1.While grouping the shapes or other objects, the child shapes should have positions relative to the “Page”.
 N>N>**2.While grouping the shapes or other objects the wrapping style should be other than inline style.
