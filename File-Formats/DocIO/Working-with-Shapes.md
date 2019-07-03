@@ -3913,7 +3913,7 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endhighlight %}
 
-{% highlight ASP.NET.CORE %}
+{% highlight ASP.NET CORE %}
 
 FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
 
