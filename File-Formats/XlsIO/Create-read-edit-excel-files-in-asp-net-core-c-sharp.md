@@ -46,7 +46,7 @@ Imports Syncfusion.Drawing
 ##### Step 6:	Add a new button in the Index.cshtml as shown below.
 
 {% tabs %}  
-{% highlight HTML %}
+{% highlight CSHTML %}
 @{Html.BeginForm("CreateDocument", "Home", FormMethod.Get);
     {
         <div>
