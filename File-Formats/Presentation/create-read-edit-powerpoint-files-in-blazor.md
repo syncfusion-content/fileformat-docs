@@ -332,7 +332,7 @@ public static class FileUtil
 
 {% endtabs %}
 
-* Add the following JavaScript function in the _Host.cshtml in the pages folder.
+* Add the following JavaScript function in the _Host.cshtml in the Pages folder.
 
 {% tabs %}
 
