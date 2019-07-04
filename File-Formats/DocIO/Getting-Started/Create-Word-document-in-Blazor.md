@@ -327,7 +327,7 @@ N> Even though Word library works in client-side, it is recommended to use serve
         stream.Position = 0;
 
         //Download the Word document in the browser.
-		JS.SaveAs("Sample.docx", stream.ToArray());
+JS.SaveAs("Sample.docx", stream.ToArray());
     }
 }
 
@@ -358,7 +358,7 @@ public static class FileUtil
 
 {% endtabs %}
 
-* Add the following JavaScript function in the _Host.cshtml in the pages folder.
+* Add the following JavaScript function in the _Host.cshtml in the Pages folder.
 
 {% tabs %}
 
