@@ -147,7 +147,7 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
         stream.Position = 0;
 
         //Download the Word document in the browser.
-		JS.SaveAs("Sample.docx", stream.ToArray());
+	JS.SaveAs("Sample.docx", stream.ToArray());
     }
 }
 
