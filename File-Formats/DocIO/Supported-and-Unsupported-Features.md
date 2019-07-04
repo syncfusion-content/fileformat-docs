@@ -19,8 +19,7 @@ Element<br/><br/></th><th colspan="2">
 DOC, DOT<br/><br/></th><th colspan="2">
 DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
-</thead>
-<tbody>  
+</thead>  
 <tr>
 <th>
 <br/><br/></th><th>
@@ -30,6 +29,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody>
 <tr>
 <td>
 Built-in document properties<br/><br/></td><td>
@@ -162,7 +162,6 @@ DOC, DOT<br/><br/></th><th colspan="2">
 DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
 </thead>
-<tbody> 
 <tr>
 <th>
 <br/><br/></th><th>
@@ -172,6 +171,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody> 
 <tr>
 <td>
 Headers & footers<br/><br/></td><td>
@@ -267,8 +267,7 @@ Yes<br/><br/></td></tr>
 <th colspan="2">DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
-</thead>
-<tbody>  
+</thead> 
 <tr>
 <th>
 <br/><br/></th><th>
@@ -278,6 +277,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody> 
 <tr>
 <td>
 Break – Page break, column break and Line break<br/><br/></td><td>
@@ -454,8 +454,7 @@ Yes<br/><br/></td></tr>
 <th colspan="2">DOCX, DOTX, DOTM, DOCM<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
-</thead>
-<tbody>  
+</thead> 
 <tr>
 <th>
 <br/><br/></th><th>
@@ -465,6 +464,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody> 
 <tr>
 <td>
 Paragraph style<br/><br/></td><td>
@@ -596,8 +596,7 @@ Yes<br/><br/></td></tr>
 <th colspan="2">DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
-</thead>
-<tbody>  
+</thead>  
 <tr>
 <th>
 <br/><br/></th><th>
@@ -607,6 +606,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody>
 <tr>
 <td>
 Built-in paragraph style<br/><br/></td><td>
@@ -693,8 +693,7 @@ No<br/><br/></td></tr>
 <th colspan="2">DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
-</thead>
-<tbody>  
+</thead>  
 <tr>
 <th>
 <br/><br/></th><th>
@@ -704,6 +703,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody>
 <tr>
 <td>
 Nested tables<br/><br/></td><td>
@@ -941,6 +941,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody>
 <tr>
 <td>
 Character style<br/><br/></td><td>
@@ -1094,6 +1095,7 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
 </table>
 
 ## Blazor supported features
@@ -1104,6 +1106,7 @@ Yes<br/><br/></td></tr>
 <th>Server side and hosted application<br/><br/></th>
 <th>Client side application<br/><br/></th>
 </tr>
+<tbody>
 <tr>
 <td>Update Fields<br/><br/></td>
 <td>Yes<br/><br/></td>
@@ -1254,5 +1257,6 @@ Yes<br/><br/></td></tr>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
+</tbody>
 </table>
 
