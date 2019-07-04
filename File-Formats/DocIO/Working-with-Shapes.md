@@ -10,7 +10,7 @@ keywords:
 
 Shapes are drawing objects that include lines, curves, circles, rectangles, etc. It can be preset or custom geometry. You can create and manipulate the pre-defined shape in DOCX and WordML format documents.
 
-## Adding Shape
+## Adding shapes
 
 The following code example illustrates how to add pre-defined shape to the document.
 
@@ -140,7 +140,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight uwp %}
+{% highlight UWP %}
 
 //Creates a new Word document 
 
@@ -273,8 +273,11 @@ outstream.Flush();
 await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 }
+
 {% endhighlight %}
-{% highlight asp.net core %}
+
+{% highlight ASP.NET CORE %}
+
 //Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -343,7 +346,7 @@ return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 
 //Creates a new Word document 
 
@@ -541,7 +544,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight uwp %}
+{% highlight UWP %}
 
 //Creates a new Word document 
 
@@ -679,7 +682,7 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 
 //Creates a new Word document 
 
@@ -751,7 +754,7 @@ return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 
 //Creates a new Word document 
 
@@ -823,7 +826,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
-## Grouping shape
+## Grouping shapes
 
 Word library now allows you to create or group multiple shapes, pictures, text boxes, and charts as a group shape in Word document (DOCX) and preserve it as in DOCX and WordML format conversions.
 
@@ -834,6 +837,10 @@ You can create a document with group shapes by using Microsoft Word. It provides
 
 1. You can easily manage group of shapes, pictures, text boxes, or charts as a group shape.
 2. You can move several shapes or images simultaneously and apply the same formatting properties for children of group shapes.
+
+N>**1.While grouping the shapes or other objects, the shapes should be positioned relative to the “Page”.
+
+N>**2.While grouping the shapes or other objects, the wrapping style should not be "In Line with Text".
 
 The following code example illustrates how to create group shape in Word document.
 
@@ -1095,7 +1102,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight uwp %}
+{% highlight UWP %}
 
 //"App" is the class of Portable project
 
@@ -1299,7 +1306,7 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 
 //Creates a new Word document 
 
@@ -1437,7 +1444,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 
 //Creates a new Word document 
 
@@ -2005,7 +2012,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight uwp %}
+{% highlight UWP %}
 
 //Creates a new Word document 
 
@@ -2285,7 +2292,7 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 
 //Creates a new Word document 
 
@@ -2505,7 +2512,7 @@ return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 
 //Creates a new Word document 
 
@@ -2723,7 +2730,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
-### Grouping nested group shapes
+### Nested group shapes
  
 
 The following code example illustrates how to group the nested group shapes as a group shape in Word document.
@@ -3080,7 +3087,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight uwp %}
+{% highlight UWP %}
 
 //"App" is the class of Portable project.
 
@@ -3332,7 +3339,7 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 
 //Creates a new Word document 
 
@@ -3516,7 +3523,7 @@ return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 
 //"App" is the class of Portable project.
 
@@ -3706,7 +3713,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
-## Ungroup the group shape:
+## Ungrouping shapes
 
 You can ungroup the group shapes in the Word document to preserve each shape as individual item.
 
@@ -3792,7 +3799,7 @@ document.Close()
 
 {% endhighlight %}
 
-{% highlight uwp %}
+{% highlight UWP %}
 
 //"App" is the class of Portable project.
 
@@ -3910,7 +3917,7 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight ASP.NET CORE %}
 
 FileStream fileStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.ReadWrite);
 
@@ -3962,7 +3969,7 @@ return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 
 //"App" is the class of Portable project
 
@@ -4017,6 +4024,3 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 {% endhighlight %}
 
 {% endtabs %}
-
-N>**1.While grouping the shapes or other objects, the child shapes should have positions relative to the “Page”.
-N>N>**2.While grouping the shapes or other objects the wrapping style should be other than inline style.
