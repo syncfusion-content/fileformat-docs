@@ -31,7 +31,7 @@ keywords: Supported and Unsupported Features of Presentation library
 <td rowspan="2">
 {{'**UWP**'| markdownify }}
 </td>
-<td colspan="2">
+<td colspan="2" align="center">
 {{'**Blazor**'| markdownify }}
 </td>
 </tr>
