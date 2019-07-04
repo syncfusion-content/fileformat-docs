@@ -37,7 +37,7 @@ Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.
 
 * Select **.NET Core**, **ASP.NET Core 3.0** and **Blazor (client-side)**.
 
-![Select .NET Core, ASP.NET Core 3.0 and Blazor (client-side).](Workingwith_Blazor/Core_application.png)
+![Select .NET Core, ASP.NET Core 3.0 and Blazor client_side.](Workingwith_Blazor/Core_application.png)
 
 **Creating a PowerPoint document in Client side application**
 
@@ -204,7 +204,7 @@ N> Even though PowerPoint library works in client-side, it is recommended to use
 
 * Select **.NET Core, ASP.NET Core 3.0** and **Blazor (server-side)**.
 
-![Select .NET Core, ASP.NET Core 3.0 and Blazor (server-side).](Workingwith_Blazor/Core_application.png)
+![Select .NET Core, ASP.NET Core 3.0 and Blazor server_side.](Workingwith_Blazor/Core_application.png)
 
 **Creating a PowerPoint document in Server-side application**
 

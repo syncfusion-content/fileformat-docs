@@ -1,5 +1,5 @@
 ---
-title: Supported and Unsupported Features
+title: Supported and Unsupported Features | Syncfusion
 description: Briefs the supported and unsupported features of Presentation library for various platforms.
 platform: file-formats
 control: Presentation
