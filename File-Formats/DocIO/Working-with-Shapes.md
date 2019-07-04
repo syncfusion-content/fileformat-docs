@@ -838,8 +838,8 @@ You can create a document with group shapes by using Microsoft Word. It provides
 1. You can easily manage group of shapes, pictures, text boxes, or charts as a group shape.
 2. You can move several shapes or images simultaneously and apply the same formatting properties for children of group shapes.
 
-N> 1.While grouping the shapes or other objects, the shapes should be positioned relative to the “Page”.
-N> 2.While grouping the shapes or other objects, the wrapping style should not be "In Line with Text".
+N> 1. While grouping the shapes or other objects, the shapes should be positioned relative to the “Page”.
+N> 2. While grouping the shapes or other objects, the wrapping style should not be "In Line with Text".
 
 The following code example illustrates how to create group shape in Word document.
 
