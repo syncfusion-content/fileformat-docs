@@ -1,5 +1,5 @@
 ---
-title: Supported and Unsupported Features | Syncfusion
+title: Supported and Unsupported Features | DocIO | Syncfusion
 description: This section describes the support and unsupported elements
 platform: file-formats
 control: DocIO
@@ -1135,17 +1135,12 @@ Yes<br/><br/></td></tr>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
-<td>Forms<br/><br/></td>
+<td>Form Fields<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
-<td>Form filling and Protection<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>XML Mapping<br/><br/></td>
+<td>Content control<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
@@ -1190,17 +1185,7 @@ Yes<br/><br/></td></tr>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
-<td>Employee Report<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Mail Merge Event<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Nested Mail Merge<br/><br/></td>
+<td>Mail Merge<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
@@ -1250,12 +1235,7 @@ Yes<br/><br/></td></tr>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
-<td>Pie Chart<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Bar Chart<br/><br/></td>
+<td>Chart<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>

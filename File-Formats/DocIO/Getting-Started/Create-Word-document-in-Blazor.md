@@ -13,14 +13,14 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 **Prerequisites:**
 
 * Visual Studio 2019 Preview
-* Install .NET Core SDK 3.0 Preview([https://dotnet.microsoft.com/download/dotnet-core/3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0))
+* Install [.NET Core SDK 3.0 Preview](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 
 **Creating a Blazor project**
 <ol><li>Enable Visual Studio to use preview SDKs:</li>
 <ul>
 <li>Open Tools > Options in the menu bar.</li>
 <li>Open the Projects and Solutions node. Open the .NET Core tab.</li>
-<li>Check the box for Use previews of the .NET Core SDK. Select OK.</li>
+<li>Check the box for Use previews of the .NET Core SDK and click OK.</li>
 </ul>
 <li>Restart the Visual Studio 2019.</li>
 </ol>
@@ -51,9 +51,9 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 {% highlight c# %}
 
-	@using Syncfusion.DocIO;
-	@using Syncfusion.DocIO.DLS;
-	@using System.IO;
+@using Syncfusion.DocIO;
+@using Syncfusion.DocIO.DLS;
+@using System.IO;
 
 {% endhighlight %}
 
@@ -184,29 +184,16 @@ public static class FileUtil
 
 {% highlight HTML %}
 
-	<script type="text/javascript">
-        function saveAsFile(filename, bytesBase64) {
-            var link = document.createElement('a');
-            link.download = filename;
-            link.href = "data:application/octet-stream;base64," + bytesBase64;
-            document.body.appendChild(link); // Needed for Firefox
-            link.click();
-            document.body.removeChild(link);
-        }
-    </script>
-
-{% endhighlight %}
-
-{% endtabs %}
-
-* Finally, add the following code in the Index.razor.
-
-{% tabs %}
-
-{% highlight c# %}
-
-//Download the Word document in the browser.
-JS.SaveAs("Sample.docx", stream.ToArray());
+<script type="text/javascript">
+    function saveAsFile(filename, bytesBase64) {
+        var link = document.createElement('a');
+        link.download = filename;
+        link.href = "data:application/octet-stream;base64," + bytesBase64;
+        document.body.appendChild(link); // Needed for Firefox
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
 
 {% endhighlight %}
 
@@ -244,9 +231,9 @@ N> Even though Word library works in client-side, it is recommended to use serve
 
 {% highlight c# %}
 
-	@using Syncfusion.DocIO;
-	@using Syncfusion.DocIO.DLS;
-	@using System.IO;
+@using Syncfusion.DocIO;
+@using Syncfusion.DocIO.DLS;
+@using System.IO;
 
 {% endhighlight %}
 
@@ -392,34 +379,6 @@ public static class FileUtil
 
 {% endtabs %}
 
-* Finally, add the following code in the Index.razor.
-
-{% tabs %}
-
-{% highlight c# %}
-
-//Download the Word document in the browser.
-JS.SaveAs("Sample.docx", stream.ToArray());
-
-{% endhighlight %}
-
-{% endtabs %}
-
 By executing the program, you will get the Word document as follows.
 
 ![Blazor Server-side output Word document](Blazor_Images/Blazor_Output.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
