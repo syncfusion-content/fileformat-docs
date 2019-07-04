@@ -51,7 +51,7 @@ WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Cre
 
 {% endhighlight %}
 
-{% highlight Xamarin Forms %}
+{% highlight XAMARIN %}
 
 //"App" is the class of Portable project.
 
@@ -145,7 +145,7 @@ WordDocument document = new WordDocument(inputStream, FormatType.Docx);
 
 {% endhighlight %}
 
-{% highlight Xamarin Forms %}
+{% highlight XAMARIN %}
 
 ///"App" is the class of Portable project.
 
@@ -233,7 +233,7 @@ document.Open(inputStream, FormatType.Docx);
 
 {% endhighlight %}
 
-{% highlight Xamarin Forms %}
+{% highlight XAMARIN %}
 
 //"App" is the class of Portable project.
 
@@ -555,7 +555,7 @@ outstream.Flush();
 
 {% endhighlight %}
 
-{% highlight Xamarin Forms %}
+{% highlight XAMARIN %}
 
 //"App" is the class of Portable project.
 
@@ -801,7 +801,7 @@ document.Close();
 
 {% endhighlight %}
 
-{% highlight Xamarin Forms %}
+{% highlight XAMARIN %}
 
 //"App" is the class of Portable project.
 
