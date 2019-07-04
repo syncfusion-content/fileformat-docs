@@ -13,20 +13,20 @@ It is a non-UI component that provides a full-fledged PowerPoint presentation in
 
 ## Key features
 
-* Support to create PowerPoint presentation from scratch.
-* Open, modify, and save existing presentations.
-* Ability to convert PowerPoint presentation to PDF.
-* Ability to convert PowerPoint slides to images.
-* Ability to create and edit charts.
-* Ability to convert chart in a slide to image.
-* Ability to clone and merge slides in presentation.
-* Ability to create and edit animations.
-* Ability to create and edit transition effects.
-* Ability to create and edit comments in PowerPoint slides.
-* Ability to encrypt and decrypt PowerPoint presentation.
-* Ability to set and remove write protection of PowerPoint presentation.
-* Ability to access the Built-in and Custom document properties.
-* Ability to create and modify sections in PowerPoint presentation.
+* Support to [create PowerPoint presentation from scratch](https://help.syncfusion.com/file-formats/presentation/getting-started#creating-a-simple-powerpoint-presentation-with-basic-elements-from-scratch).
+* [Open, modify, and save existing presentations](https://help.syncfusion.com/file-formats/presentation/working-with-powerpoint-presentation).
+* Ability to [convert PowerPoint presentation to PDF](https://help.syncfusion.com/file-formats/presentation/presentation-to-pdf).
+* Ability to [convert PowerPoint slides to images](https://help.syncfusion.com/file-formats/presentation/presentation-to-image).
+* Ability to [create and edit charts](https://help.syncfusion.com/file-formats/presentation/working-with-charts#creating-a-chartfrom-scratch).
+* Ability to [convert chart in a slide to image](https://help.syncfusion.com/file-formats/presentation/working-with-charts#chart-to-image-conversion).
+* Ability to [clone and merge slides in presentation](https://help.syncfusion.com/file-formats/presentation/working-with-slide#merging-slide).
+* Ability to [create and edit animations](https://help.syncfusion.com/file-formats/presentation/working-with-animation).
+* Ability to [create and edit transition effects](https://help.syncfusion.com/file-formats/presentation/create-edit-slide-transitions-in-powerpoint-presentation-slides-cs-vb-net).
+* Ability to [create and edit comments](https://help.syncfusion.com/file-formats/presentation/comments) in PowerPoint slides.
+* Ability to [encrypt](https://help.syncfusion.com/file-formats/presentation/security#encrypting-with-password) and [decrypt](https://help.syncfusion.com/file-formats/presentation/security#decrypting-the-powerpoint-presentation) PowerPoint presentation.
+* Ability to [set and remove write protection](https://help.syncfusion.com/file-formats/presentation/security#write-protection) of PowerPoint presentation.
+* Ability to access the [Built-in and Custom document properties](https://help.syncfusion.com/file-formats/presentation/working-with-powerpoint-presentation#working-with-powerpoint-presentation-properties).
+* Ability to [create and modify sections](https://help.syncfusion.com/file-formats/presentation/working-with-sections) in PowerPoint presentation.
 
 ## Compatible Microsoft PowerPoint Versions
 
