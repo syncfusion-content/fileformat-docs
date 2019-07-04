@@ -1238,6 +1238,11 @@ Yes<br/><br/></td></tr>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
+<td>Group Shape<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
 <td>Chart<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
