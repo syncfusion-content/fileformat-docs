@@ -31,7 +31,7 @@ Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.
 
 ![Create ASP.NET Core Web application in Visual Studio](Workingwith_Blazor/Create_project.png)
 
-* Select ASP.NET Core Web Application. Select Next.
+* Select ASP.NET Core Web Application and click Next.
 
 ![Create a project name for your new project](Workingwith_Blazor/Configure_project.png)
 
@@ -198,7 +198,7 @@ N> Even though PowerPoint library works in client-side, it is recommended to use
 
 ![Create ASP.NET Core Web application in Visual Studio](Workingwith_Blazor/Create_project.png)
 
-* Select ASP.NET Core Web Application. Select Next.
+* Select ASP.NET Core Web Application and click Next.
 
 ![Create a project name for your new project](Workingwith_Blazor/Configure_project.png)
 
@@ -242,9 +242,9 @@ N> Even though PowerPoint library works in client-side, it is recommended to use
 
 {% tabs %}
 
-{% highlight HTML %}
+{% highlight c# %}
 
-@@functions {
+@functions {
 
 	void CreatePowerPoint()
 	{

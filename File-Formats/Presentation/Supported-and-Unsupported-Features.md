@@ -31,16 +31,16 @@ keywords: Supported and Unsupported Features of Presentation library
 <td rowspan="2">
 {{'**UWP**'| markdownify }}
 </td>
-<td colspan="2">
+<td colspan="2" align="center">
 {{'**Blazor**'| markdownify }}
 </td>
 </tr>
 <tr>
 <td>
-**Client side application**
+{{'**Client side application**'| markdownify }}
 </td>
 <td>
-**Server side & hosted application**
+{{'**Server side & hosted application**'| markdownify }}
 </td>
 </tr>
 <tr>
