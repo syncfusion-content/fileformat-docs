@@ -1,5 +1,5 @@
 ---
-title: Supported and Unsupported Features | Syncfusion
+title: Supported and Unsupported Features | DocIO | Syncfusion
 description: This section describes the support and unsupported elements
 platform: file-formats
 control: DocIO
@@ -19,8 +19,7 @@ Element<br/><br/></th><th colspan="2">
 DOC, DOT<br/><br/></th><th colspan="2">
 DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
-</thead>
-<tbody>  
+</thead>  
 <tr>
 <th>
 <br/><br/></th><th>
@@ -30,6 +29,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody>
 <tr>
 <td>
 Built-in document properties<br/><br/></td><td>
@@ -151,7 +151,7 @@ No<br/><br/></td></tr>
 </table>
 
 
-## Section features
+### Section features
 
 <table>
 <thead>  
@@ -162,7 +162,6 @@ DOC, DOT<br/><br/></th><th colspan="2">
 DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th><th colspan="2">
 RTF<br/><br/></th></tr>
 </thead>
-<tbody> 
 <tr>
 <th>
 <br/><br/></th><th>
@@ -172,6 +171,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody> 
 <tr>
 <td>
 Headers & footers<br/><br/></td><td>
@@ -257,7 +257,7 @@ Yes<br/><br/></td></tr>
 </table>
 
 
-## Paragraph elements features
+### Paragraph elements features
 
 <table>
 <thead>  
@@ -267,8 +267,7 @@ Yes<br/><br/></td></tr>
 <th colspan="2">DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
-</thead>
-<tbody>  
+</thead> 
 <tr>
 <th>
 <br/><br/></th><th>
@@ -278,6 +277,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody> 
 <tr>
 <td>
 Break – Page break, column break and Line break<br/><br/></td><td>
@@ -444,7 +444,7 @@ Yes<br/><br/></td></tr>
 </table>
 
 
-## Paragraph features
+### Paragraph features
 
 <table>
 <thead>  
@@ -454,8 +454,7 @@ Yes<br/><br/></td></tr>
 <th colspan="2">DOCX, DOTX, DOTM, DOCM<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
-</thead>
-<tbody>  
+</thead> 
 <tr>
 <th>
 <br/><br/></th><th>
@@ -465,6 +464,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody> 
 <tr>
 <td>
 Paragraph style<br/><br/></td><td>
@@ -586,7 +586,7 @@ Yes<br/><br/></td></tr>
 </table>
 
 
-## Style features
+### Style features
 
 <table>
 <thead>  
@@ -596,8 +596,7 @@ Yes<br/><br/></td></tr>
 <th colspan="2">DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
-</thead>
-<tbody>  
+</thead>  
 <tr>
 <th>
 <br/><br/></th><th>
@@ -607,6 +606,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody>
 <tr>
 <td>
 Built-in paragraph style<br/><br/></td><td>
@@ -683,7 +683,7 @@ No<br/><br/></td></tr>
 </table>
 
 
-## Table features
+### Table features
 
 <table>
 <thead>  
@@ -693,8 +693,7 @@ No<br/><br/></td></tr>
 <th colspan="2">DOCX, DOTX, DOTM, DOCM, WordML<br/><br/></th>
 <th colspan="2">RTF<br/><br/></th>
 </tr>
-</thead>
-<tbody>  
+</thead>  
 <tr>
 <th>
 <br/><br/></th><th>
@@ -704,6 +703,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody>
 <tr>
 <td>
 Nested tables<br/><br/></td><td>
@@ -923,7 +923,7 @@ Yes<br/><br/></td></tr>
 </tbody>
 </table>
 
-## Text features
+### Text features
 
 <table>
 <tr>
@@ -941,6 +941,7 @@ Read<br/><br/></th><th>
 Write<br/><br/></th><th>
 Read<br/><br/></th><th>
 Write<br/><br/></th></tr>
+<tbody>
 <tr>
 <td>
 Character style<br/><br/></td><td>
@@ -1094,5 +1095,162 @@ Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
 Yes<br/><br/></td></tr>
+</tbody>
+</table>
+
+## Blazor supported features
+
+<table>
+<tr>
+<th>Feature<br/><br/></th>
+<th>Server side and hosted application<br/><br/></th>
+<th>Client side application<br/><br/></th>
+</tr>
+<tbody>
+<tr>
+<td>Pictures<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Chart<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>AutoShapes<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Group Shapes<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Content control<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Bookmarks<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>OLE Object<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Form Fields<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Watermark<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Break<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>RTL<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Header and Footer<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Footnotes and Endnotes<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Styles<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Table Styles<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Document Settings<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Mail Merge<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Updating Document Fields<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Find and Replace<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Bookmark Navigation<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Clone and Merge<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Formatting Table<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Macro Preservation<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Document Protection<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Word to PDF<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>No<br/><br/></td>
+</tr>
+<tr>
+<td>RTF to Word<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Word to WordML<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>WordML to Word<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Word to ODT<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
 </tbody>
 </table>

@@ -479,8 +479,8 @@ The list of various supported and unsupported Excel features of Essential XlsIO 
 <table>
   <tr>
     <th>Features</th>
-    <th>Blazor Client Side</th>
-    <th>Blazor Server Side</th>
+    <th>Blazor Server-Side & Hosted Application</th>
+    <th>Blazor Client-Side</th>
   </tr>
   <tr>
     <td>Excel elements - text, image, table, auto filter, data sort, hyperlink, data validation, conditional formatting, formula, pivot table, comment, shape, chart, grouping, page setting and more.</td>
@@ -559,16 +559,16 @@ The list of various supported and unsupported Excel features of Essential XlsIO 
   </tr>
   <tr>
     <td>Save chart as image.</td>
-    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>
-    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>    
   </tr>
 </table>
 
 <table>
   <tr>
     <th rowspan = "2">File formats</th>
-	<th colspan = "2">Blazor Client Side</th>
-	<th colspan = "2">Blazor Serve Side</th>
+	<th colspan = "2">Blazor Server-Side & Hosted Application</th>
+	<th colspan = "2">Blazor Client-Side</th>
   </tr>
   <tr>
     <th>Open</th>
@@ -577,59 +577,52 @@ The list of various supported and unsupported Excel features of Essential XlsIO 
 	<th>Save</th>
   </tr>
   <tr>
-    <td>Excel 97-2003 formats (*.xls, *.xlt)</td>
-	<td>Yes</td>
-	<td>Yes</td>
-	<td>Yes</td>
-	<td>Yes</td>
+    <td>Excel 97-2003 formats (*.XLS, *.XLT)</td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
-    <td>Excel 2007-2016 formats (*.xlsx, *.xltx, *.xlsm)</td>
-	<td>Yes</td>
-	<td>Yes</td>
-	<td>Yes</td>
-	<td>Yes</td>
+    <td>Excel 2007 and above formats (*.XLSX, *.XLTX, *.XLSM)</td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
-    <td>XML Spreadsheet 2003 (*.xml)</td>
-	<td>Yes</td>
-	<td>Yes</td>
-	<td>Yes</td>
-	<td>Yes</td>
-  </tr>
-  <tr>
-    <td>HTML</td>
-	<td>Yes</td>
-	<td>Yes</td>
-	<td>Yes</td>
-	<td>Yes</td>
+    <td>XML Spreadsheet 2003 (*.XML)</td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
     <td>CSV</td>
-	<td>Yes</td>
-	<td>Yes</td>
-	<td>Yes</td>
-	<td>Yes</td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
-    <td>OpenDocumentSpreadsheet (*.ods)</td>
-	<td>No</td>
-	<td>No</td>
-	<td>No</td>
-	<td>No</td>
+    <td>Excel to PDF</td>
+	<td>N/A</td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td>N/A</td>
+	<td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>	
   </tr>
   <tr>
-    <td>PDF</td>
-	<td>No</td>
-	<td>No</td>
-	<td>No</td>
-	<td>Yes</td>
+    <td>Excel to HTML</td>
+	<td>N/A</td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td>N/A</td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>	
   </tr>
   <tr>
-    <td>Image (PNG, JPEG)</td>
-	<td>No</td>
-	<td>Yes</td>
-	<td>No</td>
-	<td>Yes</td>
+    <td>Worksheet to Image (PNG, JPEG)</td>
+	<td>N/A</td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+	<td>N/A</td>
+	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>	
   </tr>
 </table>
