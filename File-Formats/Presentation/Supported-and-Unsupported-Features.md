@@ -1,5 +1,5 @@
 ---
-title: Supported and Unsupported Features
+title: Supported and Unsupported Features | Syncfusion
 description: Briefs the supported and unsupported features of Presentation library for various platforms.
 platform: file-formats
 control: Presentation
@@ -10,31 +10,48 @@ keywords: Supported and Unsupported Features of Presentation library
 **Supported and Unsupported Features** 
 <table>
 <tr>
-<td>
+<td rowspan="2">
 {{'**Document Content Features**'| markdownify }}
 </td>
-<td>
+<td rowspan="2">
 {{'**Windows Forms**'| markdownify }}
 </td>
-<td>
+<td rowspan="2">
 {{'**WPF**'| markdownify }}
 </td>
-<td>
+<td rowspan="2">
 {{'**ASP.NET**'| markdownify }}
 </td>
-<td>
+<td rowspan="2">
 {{'**ASP.Net MVC**'| markdownify }}
 </td>
-<td>
+<td rowspan="2">
 {{'**Xamarin. Forms**'| markdownify }}
 </td>
-<td>
+<td rowspan="2">
 {{'**UWP**'| markdownify }}
+</td>
+<td colspan="2" align="center">
+{{'**Blazor**'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+{{'**Client side application**'| markdownify }}
+</td>
+<td>
+{{'**Server side and hosted application**'| markdownify }}
 </td>
 </tr>
 <tr>
 <td>
 Create PowerPoint Presentation from Scratch or editing an existing Presentation
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -77,10 +94,22 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Save PowerPoint presentation to a local file, stream or stream it to the client browser
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -123,10 +152,22 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Create, access and modify bullets and numbering
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -169,10 +210,22 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Create, access and modify tables, rows and cells
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -215,10 +268,22 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Create, access and modify charts
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -261,10 +326,22 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Create, access and modify SmartArt diagrams
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -307,10 +384,22 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Merge multiple PowerPoint Presentations
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -353,10 +442,22 @@ No
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Iterate over slide content
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -399,10 +500,22 @@ Yes
 <td>
 Yes
 </td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
 </tr>
 <tr>
 <td>
 Create, access and modify custom document properties
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
@@ -440,10 +553,16 @@ Yes
 Yes
 </td>
 <td>
-No
+Yes
+</td>
+<td>
+Yes
 </td>
 <td>
 No
+</td>
+<td>
+Yes
 </td>
 </tr>
 <tr>
@@ -463,15 +582,27 @@ Yes
 Yes
 </td>
 <td>
-No
+Yes
+</td>
+<td>
+Yes
 </td>
 <td>
 No
+</td>
+<td>
+Yes
 </td>
 </tr>
 <tr>
 <td>
 Create, access, modify and remove Notes Slide
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
 </td>
 <td>
 Yes
