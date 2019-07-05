@@ -1108,37 +1108,22 @@ Yes<br/><br/></td></tr>
 </tr>
 <tbody>
 <tr>
-<td>Update Fields<br/><br/></td>
+<td>Pictures<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
-<td>Find and Highlight<br/><br/></td>
+<td>Chart<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
-<td>Simple Replace<br/><br/></td>
+<td>AutoShapes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
-<td>Advanced Replace<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Bookmark Navigation<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Clone and Merge<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Form Fields<br/><br/></td>
+<td>Group Shapes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
@@ -1153,27 +1138,37 @@ Yes<br/><br/></td></tr>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
-<td>Header and Footer<br/><br/></td>
+<td>OLE Object<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
-<td>Image Insertion<br/><br/></td>
+<td>Form Fields<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
-<td>Insert OLE Object<br/><br/></td>
+<td>Watermark<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
-<td>Format Table<br/><br/></td>
+<td>Break<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
 <td>RTL<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Header and Footer<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Footnotes and Endnotes<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
@@ -1188,7 +1183,47 @@ Yes<br/><br/></td></tr>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
+<td>Document Settings<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
 <td>Mail Merge<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Updating Document Fields<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Find and Replace<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Bookmark Navigation<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Clone and Merge<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Formatting Table<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Macro Preservation<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+</tr>
+<tr>
+<td>Document Protection<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
@@ -1196,6 +1231,11 @@ Yes<br/><br/></td></tr>
 <td>Word to PDF<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>No<br/><br/></td>
+</tr>
+<tr>
+<td>RTF to Word<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
 </tr>
 <tr>
 <td>Word to WordML<br/><br/></td>
@@ -1208,57 +1248,7 @@ Yes<br/><br/></td></tr>
 <td>Yes<br/><br/></td>
 </tr>
 <tr>
-<td>RTF to Word<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
 <td>Word to ODT<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Insert Break<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Watermark<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Footnotes and Endnotes<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>AutoShapes<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Group Shape<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Chart<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Document Settings<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Macro Preservation<br/><br/></td>
-<td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
-</tr>
-<tr>
-<td>Document Protection<br/><br/></td>
 <td>Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
 </tr>
