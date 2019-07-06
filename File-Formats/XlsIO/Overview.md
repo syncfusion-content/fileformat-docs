@@ -31,7 +31,7 @@ The library can be used in Windows Forms, WPF, UWP, ASP.NET Web, ASP.NET MVC, AS
 * Support to add [Ole objects](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#ole-objects) and [Group Shapes](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#group-shapes).
 * Ability to convert Excel [workbook to PDF](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-conversion).
 * Converts Excel [worksheet to HTML](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#save-worksheet-as-html).
-* Support to [open and create](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#save-worksheet-as-csv) CSV files.
+* Support to open and create [CSV](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#save-worksheet-as-csv) files.
 * Support to open and create SpreadsheetML files.
 * Access the [Custom document properties](https://www.syncfusion.com/kb/8441/how-to-add-custom-properties-into-excel-document-using-xlsio) of Excel file.
 * Access the Built-in document properties.
