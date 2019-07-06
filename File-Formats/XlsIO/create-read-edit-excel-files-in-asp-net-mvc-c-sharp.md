@@ -403,7 +403,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
 	worksheet.Range("A15:A23").RowHeight = 18
 
 	'Save and download the Excel file
-	 workbook.SaveAs("Output.xlsx", HttpContext.ApplicationInstance.Response, ExcelDownloadType.Open)
+	workbook.SaveAs("Output.xlsx", HttpContext.ApplicationInstance.Response, ExcelDownloadType.Open)
 End Using
 {% endhighlight %}
 {% endtabs %}  
@@ -412,5 +412,59 @@ A complete working example of how to create an Excel file in ASP.NET MVC can be 
 
 By executing the program, you will get the Excel file as below.
 ![Output File](ASP-NET-MVC_images/ASP-NET-MVC_images_img3.png)
+
+## Read and Edit Excel file
+
+The below code snippet illustrates how to read and edit an Excel file in ASP.NET MVC.
+
+{% tabs %}
+{% highlight c# %}
+//Create an instance of ExcelEngine
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    //Instantiate the Excel application object
+    IApplication application = excelEngine.Excel;
+
+    //Set the default application version
+    application.DefaultVersion = ExcelVersion.Excel2016;
+
+    //Load the existing Excel workbook into IWorkbook
+    IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+
+    //Get the first worksheet in the workbook into IWorksheet
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Assign some text in a cell
+    worksheet.Range["A3"].Text = "Hello World";
+
+    //Save the Excel document
+    workbook.SaveAs("Output.xlsx", HttpContext.ApplicationInstance.Response, ExcelDownloadType.Open);
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create an instance of ExcelEngine
+Using excelEngine As ExcelEngine = New ExcelEngine()
+
+    'Instantiate the excel application object
+    Dim application As IApplication = excelEngine.Excel
+
+    'Set the default application version
+    application.DefaultVersion = ExcelVersion.Excel2016
+
+    'Load the existing Excel workbook into IWorkbook
+    Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+
+    'Get the first worksheet in the workbook into IWorksheet
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+    'Assign some text in a cell
+    worksheet.Range("A3").Text = "Hello World"
+
+    'Save the Excel document
+    workbook.SaveAs("Output.xlsx", HttpContext.ApplicationInstance.Response, ExcelDownloadType.Open)
+End Using
+{% endhighlight %}
+{% endtabs %}
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. 

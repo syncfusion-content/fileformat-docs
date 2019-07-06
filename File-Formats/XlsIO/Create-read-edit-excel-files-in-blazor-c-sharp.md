@@ -9,9 +9,7 @@ documentation: UG
 
 [Syncfusion Excel library for Blazor platform](https://www.syncfusion.com/excel-framework/blazor) can be used to create, read, edit Excel files. This also convert Excel files to PDF.
 
-## Create a simple Excel report
-
-### Create a simple Excel report in Blazor Server-Side application
+## Create a simple Excel report in Blazor Server-Side application
 
 The below steps illustrates creating an simple Invoice formatted Excel document in Blazor Server-Side application.
 
@@ -245,7 +243,44 @@ By executing the program, you will get the Excel file as below.
 
 N> It is recommended to use Blazor Server-Side application to reduce the pay back load which is high in Blazor Client-Side.
 
-### Create a simple Excel report in Blazor Client-Side application
+## Read and Edit Excel file in Blazor Server-Side application
+
+The below code snippet illustrates how to read and edit an Excel file in Blazor Server-Side application.
+
+{% tabs %}
+{% highlight c# %}
+//Create an instance of ExcelEngine
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    //Instantiate the Excel application object
+    IApplication application = excelEngine.Excel;
+
+    //Set the default application version
+    application.DefaultVersion = ExcelVersion.Excel2016;
+
+    //Load the existing Excel workbook into IWorkbook
+    FileStream inputStream = new FileStream("Sample.xlsx", FileMode.Open);
+    IWorkbook workbook = application.Workbooks.Open(inputStream);
+
+    //Get the first worksheet in the workbook into IWorksheet
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Assign some text in a cell
+    worksheet.Range["A3"].Text = "Hello World";
+
+    //Save the document as a stream and retrun the stream.
+    using (MemoryStream stream = new MemoryStream())
+    {
+        //Save the created Excel document to MemoryStream.
+        workbook.SaveAs(stream);
+
+        return stream;
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Create a simple Excel report in Blazor Client-Side application
 
 The below steps illustrates creating an simple Invoice formatted Excel document in Blazor Client-Side application.
 
