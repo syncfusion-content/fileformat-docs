@@ -198,7 +198,7 @@ public static class FileUtil
 
 {% endtabs %}
 
-By executing the program, you will get the output following output in the browser
+By executing the program, you will get the following output in the browser
 
 ![Blazor Server-side browser output](Create_PDF_Blazor/Blazor_browser_output.png)
 
