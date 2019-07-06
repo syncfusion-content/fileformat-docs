@@ -920,7 +920,7 @@ The following table contains list of unsupported elements in Word to Word Proces
 </thead>
 <tr>
 <td>
-Custom Shapes and Grouped Shapes<br/><br/></td>
+Custom Shapes<br/><br/></td>
 <td>
 Not supported<br/><br/></td>
 </tr>

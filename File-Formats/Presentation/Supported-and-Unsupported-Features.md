@@ -40,7 +40,7 @@ keywords: Supported and Unsupported Features of Presentation library
 {{'**Client side application**'| markdownify }}
 </td>
 <td>
-{{'**Server side & hosted application**'| markdownify }}
+{{'**Server side and hosted application**'| markdownify }}
 </td>
 </tr>
 <tr>
