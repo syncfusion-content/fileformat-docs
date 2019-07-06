@@ -13,35 +13,27 @@ The library can be used in Windows Forms, WPF, UWP, ASP.NET Web, ASP.NET MVC, AS
 
 **Key Features**
 
-* [Support to create Excel documents from scratch](https://help.syncfusion.com/file-formats/xlsio/getting-started)
-* [Modifying existing workbooks](https://help.syncfusion.com/file-formats/xlsio/loading-and-saving-workbook)
-* [Support to import and export data](https://help.syncfusion.com/file-formats/xlsio/working-with-data)
-* [Supports Excel formulas](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas)
-* [Create & manipulate Conditional Formats](https://help.syncfusion.com/file-formats/xlsio/working-with-conditional-formatting)
-* [Create & manipulate Data Validations](https://help.syncfusion.com/file-formats/xlsio/working-with-data-validation)
-* [Create & manipulate Charts](https://help.syncfusion.com/file-formats/xlsio/working-with-charts)
-* [Create & manipulate Sparklines](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#sparkline)
-* [Create & manipulate Tables](https://help.syncfusion.com/file-formats/xlsio/working-with-tables)
-* [Create & manipulate Pivot Tables](https://help.syncfusion.com/file-formats/xlsio/working-with-pivot-tables)
-* [Create & manipulate Pivot Charts](https://help.syncfusion.com/file-formats/xlsio/working-with-pivot-charts)
-* [Fill data using Template Markers](https://help.syncfusion.com/file-formats/xlsio/working-with-template-markers)
-* [Clone and merge worksheets](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#move-or-copy-a-worksheet)
-* [Encrypt and decrypt Excel documents](https://help.syncfusion.com/file-formats/xlsio/security)
-* [Convert Excel worksheets to images](https://help.syncfusion.com/file-formats/xlsio/worksheet-to-image-conversion)
-* [Convert chart in a worksheet to image](https://help.syncfusion.com/file-formats/xlsio/chart-to-image-conversion)
-* [Supports data filtering](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#data-filtering)
-* [Supports data sorting](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#data-sorting)
-* [Support to add Images](https://help.syncfusion.com/file-formats/xlsio/working-with-pictures)
-* [Support to add AutoShapes](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#autoshapes)
-* [Support to add Ole objects](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#ole-objects)
-* [Support to add Comments](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#comments)
-* [Support to add Group Shapes](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#group-shapes)
-* [Support to add Form Controls](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#form-controls)
-* [Convert Excel workbook to PDF](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-conversion)
-* [Convert Excel worksheet to HTML](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#save-worksheet-as-html)
-* [Support to open and create CSV](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#save-worksheet-as-csv)
+* Support to [create Excel documents](https://help.syncfusion.com/file-formats/xlsio/getting-started) from scratch.
+* Support to [modify](https://help.syncfusion.com/file-formats/xlsio/loading-and-saving-workbook) existing Excel documents.
+* Support to [import and export](https://help.syncfusion.com/file-formats/xlsio/working-with-data) data.
+* Supports Excel [formulas](https://help.syncfusion.com/file-formats/xlsio/working-with-formulas).
+* Ability to create and manipulate [Conditional Formats](https://help.syncfusion.com/file-formats/xlsio/working-with-conditional-formatting) and [Data Validations](https://help.syncfusion.com/file-formats/xlsio/working-with-data-validation).
+* Create and manipulate [Charts](https://help.syncfusion.com/file-formats/xlsio/working-with-charts) and [Sparklines](https://help.syncfusion.com/file-formats/xlsio/working-with-charts#sparkline).
+* Supports creation and manipulation of [Tables](https://help.syncfusion.com/file-formats/xlsio/working-with-tables), [Pivot Tables](https://help.syncfusion.com/file-formats/xlsio/working-with-pivot-tables) and [Pivot Charts](https://help.syncfusion.com/file-formats/xlsio/working-with-pivot-charts).
+* Fill data using [Template Markers](https://help.syncfusion.com/file-formats/xlsio/working-with-template-markers).
+* [Clone and merge](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#move-or-copy-a-worksheet) Excel worksheets.
+* [Encrypt and decrypt](https://help.syncfusion.com/file-formats/xlsio/security) Excel documents.
+* Convert Excel [worksheets to images](https://help.syncfusion.com/file-formats/xlsio/worksheet-to-image-conversion).
+* Convert [chart in a worksheet to image](https://help.syncfusion.com/file-formats/xlsio/chart-to-image-conversion).
+* Supports [data filtering](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#data-filtering) and [data sorting](https://help.syncfusion.com/file-formats/xlsio/worksheet-cells-manipulation#data-sorting).
+* Support to insert [Images](https://help.syncfusion.com/file-formats/xlsio/working-with-pictures) and [AutoShapes](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#autoshapes).
+* Support to add [Comments](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#comments) and [Form Controls](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#form-controls).
+* Support to add [Ole objects](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#ole-objects) and [Group Shapes](https://help.syncfusion.com/file-formats/xlsio/working-with-drawing-objects#group-shapes).
+* Ability to convert Excel [workbook to PDF](https://help.syncfusion.com/file-formats/xlsio/excel-to-pdf-conversion).
+* Converts Excel [worksheet to HTML](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#save-worksheet-as-html).
+* Support to [open and create](https://help.syncfusion.com/file-formats/xlsio/working-with-excel-worksheet#save-worksheet-as-csv) CSV files.
 * Support to open and create SpreadsheetML files.
-* [Access the Custom document properties](https://www.syncfusion.com/kb/8441/how-to-add-custom-properties-into-excel-document-using-xlsio)
+* Access the [Custom document properties](https://www.syncfusion.com/kb/8441/how-to-add-custom-properties-into-excel-document-using-xlsio) of Excel file.
 * Access the Built-in document properties.
 
 **Compatible Microsoft Excel Versions**
