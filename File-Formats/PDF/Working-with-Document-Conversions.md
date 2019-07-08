@@ -1477,7 +1477,7 @@ PdfDocument document = new PdfDocument();
 
 FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
 
-PdfBitmap tiffImage = new PdfBitmap(imageStream);
+PdfTiffImage tiffImage = new PdfTiffImage(imageStream);
 
 //Get the frame count
 
@@ -1564,6 +1564,8 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+N> 1. Essential PDF supports converting TIFF to PDF with Syncfusion.Pdf.Imaging.Portable assembly reference in ASP.NET Core
 
 
 ### Compression in monochrome images

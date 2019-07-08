@@ -1008,13 +1008,13 @@ PdfGraphics graphics = page.Graphics;
 
 FileStream imageStream = new FileStream("image.tif", FileMode.Open, FileAccess.Read);
 
-PdfBitmap image = new PdfBitmap(imageStream);
+PdfTiffImage image = new PdfTiffImage(imageStream);
 
 //Create masking image
 
 FileStream maskStream = new FileStream("mask.bmp", FileMode.Open, FileAccess.Read);
 
-PdfImageMask mask = new PdfImageMask(new PdfBitmap(maskStream));
+PdfImageMask mask = new PdfImageMask(new PdfTiffImage(maskStream));
 
 image.Mask = mask;
 
@@ -1064,6 +1064,8 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}  
+
+N> 1. Essential PDF supports image masking with Syncfusion.Pdf.Imaging.Portable assembly reference in ASP.NET Core
 
 
 ## Replacing Images in an existing PDF document
@@ -1878,7 +1880,7 @@ doc.PageSettings.Margins.All = 0;
 
 FileStream imageStream = new FileStream("image.tiff", FileMode.Open, FileAccess.Read);
 
-PdfBitmap tiffImage = new PdfBitmap(imageStream);
+PdfTiffImage tiffImage = new PdfTiffImage(imageStream);
 
 //Get the frame count
 
@@ -1941,3 +1943,5 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% endtabs %}
+
+N> 1. Essential PDF supports converting TIFF to PDF with Syncfusion.Pdf.Imaging.Portable assembly reference in ASP.NET Core
