@@ -13,15 +13,15 @@ documentation: UG
 
 The below steps illustrates creating a simple Invoice formatted Excel document in WPF.
 
-##### Step 1: Create a new C# WPF Application project.
+1.Create a new C# WPF Application project.
 
 ![Create WPF application in Visual Studio](Wpf_images/Wpf_images_img1.png)
 
-##### Step 2: Install the [Syncfusion.XlsIO.Wpf](https://www.nuget.org/packages/Syncfusion.XlsIO.Wpf) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
+2.Install the [Syncfusion.XlsIO.Wpf](https://www.nuget.org/packages/Syncfusion.XlsIO.Wpf) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](Wpf_images/Wpf_images_img2.png)
 
-##### Step 3: Include the following code snippet in Add a new button in MainWindow.xaml file to add a button for the creation of Excel document.
+3.Include the following code snippet in Add a new button in MainWindow.xaml file to add a button for the creation of Excel document.
 
 {% tabs %}
 {% highlight Xaml %}
@@ -31,7 +31,7 @@ The below steps illustrates creating a simple Invoice formatted Excel document i
 {% endhighlight %}
 {% endtabs %}
 
-##### Step 4: Include the following namespaces in MainWindow.xaml.cs file.
+4.Include the following namespaces in MainWindow.xaml.cs file.
 
 {% tabs %}  
 {% highlight c# %}
@@ -49,7 +49,7 @@ Imports System.Windows
 {% endhighlight %}
 {% endtabs %}
 
-##### Step 5: Include the following code snippet in btnCreate_Click, the click event of the button to create the Excel document.
+5.Include the following code snippet in btnCreate_Click, the click event of the button to create the Excel document.
 
 {% tabs %}  
 {% highlight c# %}
