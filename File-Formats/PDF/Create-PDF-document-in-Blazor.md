@@ -71,7 +71,7 @@ public MemoryStream CreatePdf(WeatherForecast[] forecasts)
 
 
         PdfStandardFont contentFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
-        PdfTextElement content = new PdfTextElement("This component demonstrates fetching data from a service and Exporting the data to PDF, Excel, Word and PowerPoint files using Syncfusion .NET file format libraries.", contentFont, PdfBrushes.Black);
+        PdfTextElement content = new PdfTextElement("This component demonstrates fetching data from a service and Exporting the data to PDF document using Syncfusion .NET PDF library.", contentFont, PdfBrushes.Black);
         PdfLayoutFormat format = new PdfLayoutFormat();
         format.Layout = PdfLayoutType.Paginate;
 
