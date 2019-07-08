@@ -13,23 +13,23 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in Blazor Server-Side application.
 
-##### Step 1: Create a new C# Blazor Server-Side application project. Select ASP.NET Core Web Application from the template and click the Next button.
+1.Create a new C# Blazor Server-Side application project. Select ASP.NET Core Web Application from the template and click the Next button.
 
 ![Create Blazor Server Side application in Visual Studio](Blazor_images/Blazor_images_img1.png)
 
-##### Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the default project configuration.
+2.Now, the project configuration window will popup. Click Create button to create a new project with the default project configuration.
 
 ![Create Blazor Server Side application in Visual Studio](Blazor_images/Blazor_images_Server_Creation.png)
 
-##### Step 3: Choose Blazor (server-side) from the dashboard and click Create button to create a new Blazor Server-Side application. Make sure .NET Core and ASP.NET Core 3.0 are selected at the top.
+3.Choose Blazor (server-side) from the dashboard and click Create button to create a new Blazor Server-Side application. Make sure .NET Core and ASP.NET Core 3.0 are selected at the top.
 
 ![Create Blazor Server Side application in Visual Studio](Blazor_images/Blazor_images_Server.png)
 
-##### Step 4: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your Blazor application from [NuGet.org](https://www.nuget.org).
+4.Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](Blazor_images/Blazor_images_Server_reference.png)
 
-##### Step 5: Create a razor file with name as ``Excel`` under ``Pages`` folder and add the following code to create a new button.
+5.Create a razor file with name as ``Excel`` under ``Pages`` folder and add the following code to create a new button.
 
 {% tabs %}
 {% highlight CSHTML %}
@@ -39,7 +39,7 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 {% endhighlight %}
 {% endtabs %}
 
-##### Step 6: Create a new cs file with name as ``ExcelService`` under ``Data`` folder and include the following namespaces in the file.
+6.Create a new cs file with name as ``ExcelService`` under ``Data`` folder and include the following namespaces in the file.
 
 {% tabs %}
 {% highlight c# %}
@@ -49,7 +49,7 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 {% endhighlight %}
 {% endtabs %}
 
-##### Step 7: Create a new MemoryStream method with name as CreateExcel and include the following code snippet to create a simple Excel document in Blazor Client-Side application.
+7.Create a new MemoryStream method with name as CreateExcel and include the following code snippet to create a simple Excel document in Blazor Client-Side application.
 
 {% tabs %}
 {% highlight c# %}
@@ -284,23 +284,23 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The below steps illustrates creating an simple Invoice formatted Excel document in Blazor Client-Side application.
 
-##### Step 1: Create a new C# Blazor Client-Side application project. Select ASP.NET Core Web Application from the template and click the Next button.
+1.Create a new C# Blazor Client-Side application project. Select ASP.NET Core Web Application from the template and click the Next button.
 
 ![Create Blazor Server Side application in Visual Studio](Blazor_images/Blazor_images_img1.png)
 
-##### Step 2: Now, the project configuration window will popup. Click Create button to create a new project with the default project configuration.
+2.Now, the project configuration window will popup. Click Create button to create a new project with the default project configuration.
 
 ![Create Blazor Server Side application in Visual Studio](Blazor_images/Blazor_images_Client_Creation.png)
 
-##### Step 3: Choose Blazor (client-side) from the dashboard and click Create button to create a new Blazor client-side application. Make sure .NET Core and ASP.NET Core 3.0 are selected at the top.
+3.Choose Blazor (client-side) from the dashboard and click Create button to create a new Blazor client-side application. Make sure .NET Core and ASP.NET Core 3.0 are selected at the top.
 
 ![Create Blazor Server Side application in Visual Studio](Blazor_images/Blazor_images_Client.png)
 
-##### Step 4: Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your Blazor application from [NuGet.org](https://www.nuget.org).
+4.Install the [Syncfusion.XlsIO.Net.Core](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core) NuGet package as reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](Blazor_images/Blazor_images_Client_reference.png)
 
-##### Step 5: Create a razor file with name as ``Excel`` under ``Pages`` folder and add the following code to create a new button.
+5.Create a razor file with name as ``Excel`` under ``Pages`` folder and add the following code to create a new button.
 
 {% tabs %}
 {% highlight CSHTML %}
@@ -310,7 +310,7 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 {% endhighlight %}
 {% endtabs %}
 
-##### Step 6: Import the following namespaces in the Excel.razor file.
+6.Import the following namespaces in the Excel.razor file.
 
 {% tabs %}
 {% highlight c# %}
@@ -320,7 +320,7 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 {% endhighlight %}
 {% endtabs %}
 
-##### Step 7: Create a new async method with name as CreateExcel and include the following code snippet to create a simple Excel document in Blazor Client-Side application.
+7.Create a new async method with name as CreateExcel and include the following code snippet to create a simple Excel document in Blazor Client-Side application.
 
 {% tabs %}
 {% highlight c# %}

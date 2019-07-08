@@ -13,15 +13,15 @@ documentation: UG
 
 The below steps illustrates creating a simple Invoice formatted Excel document in Windows Forms.
 
-##### Step 1: Create a new C# Windows Forms Application project.
+1.Create a new C# Windows Forms Application project.
 
 ![Create Windows Forms application in Visual Studio](Windows-Forms_images/Windows-Forms_images_img1.png)
 
-##### Step 2: Install the [Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
+2.Install the [Syncfusion.XlsIO.WinForms](https://www.nuget.org/packages/Syncfusion.XlsIO.WinForms) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](Windows-Forms_images/Windows-Forms_images_img2.png)
 
-##### Step 3: Include the following namespaces in the Form1.Designer.cs file.
+3.Include the following namespaces in the Form1.Designer.cs file.
 
 {% tabs %}  
 {% highlight c# %}
@@ -41,7 +41,7 @@ Imports System.Windows.Forms
 {% endhighlight %}
 {% endtabs %}  
 
-##### Step 4: Add a new button in the Form1.Designer.cs file to create an Excel document as shown below.
+4.Add a new button in the Form1.Designer.cs file to create an Excel document as shown below.
 
 {% tabs %}  
 {% highlight c# %}
@@ -102,7 +102,7 @@ End Sub
 {% endhighlight %}
 {% endtabs %}  
 
-##### Step 5: Include the following code snippet in btnCreate_Click, the click event of the button to create the Excel document.
+5.Include the following code snippet in btnCreate_Click, the click event of the button to create the Excel document.
 
 {% tabs %}  
 {% highlight c# %}

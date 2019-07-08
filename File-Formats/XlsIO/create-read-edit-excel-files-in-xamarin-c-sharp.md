@@ -13,21 +13,21 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in Xamarin application.
 
-##### Step 1: Create a new C# Xamarin.Forms application project.
+1.Create a new C# Xamarin.Forms application project.
 
 ![Create ASP.NET Core web application in Visual Studio](XAMARIN_images/XAMARIAN_images_img1.png)
 
-##### Step 2: Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
+2.Select a project template and required platforms to deploy the application. In this application the portable assemblies to be shared across multiple platforms, the .NET Standard code sharing strategy has been selected. For more details about code sharing refer [here](https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing).
 
 N>If .NET Standard is not available in the code sharing strategy, the Portable Class Library (PCL) can be selected.
 
 ![Select Web application pattern](XAMARIN_images/XAMARIAN_images_img2.png)
 
-##### Step 3: Install the [Syncfusion.Xamarin.XlsIO](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
+3.Install the [Syncfusion.Xamarin.XlsIO](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/) NuGet package as reference to your .NET Standard applications from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](XAMARIN_images/XAMARIAN_images_img3.png)
 
-##### Step 4: Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
+4.Add new Forms XAML page in portable project If there is no XAML page is defined in the App class. Otherwise proceed to the next step.
 
 i)	To add the new XAML page, right click on the project and select Add > New Item and add a Forms XAML Page from the list. Name it as MainXamlPage.
 
@@ -51,7 +51,7 @@ End Sub
 {% endhighlight %}
 {% endtabs %}  
 
-##### Step 5: In the MainXamlPage.xaml add new button as shown below.
+5.In the MainXamlPage.xaml add new button as shown below.
 {% tabs %}  
 {% highlight XAML %}
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
@@ -65,7 +65,7 @@ End Sub
 {% endhighlight %}
 {% endtabs %}  
 
-##### Step 6: Include the following namespace in the MainXamlPage.xaml.cs file.
+6.Include the following namespace in the MainXamlPage.xaml.cs file.
 
 {% tabs %}  
 {% highlight c# %}
@@ -81,7 +81,7 @@ Imports Color = Syncfusion.Drawing.Color
 {% endhighlight %}
 {% endtabs %}   
 
-##### Step 7: Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an Excel file and save it in a stream.
+7.Include the below code snippet in the click event of the button in MainXamlPage.xaml.cs, to create an Excel file and save it in a stream.
 
 {% tabs %}  
 {% highlight c# %}
@@ -94,7 +94,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 	application.DefaultVersion = ExcelVersion.Excel2016;
 
-	 //Create a workbook with a worksheet
+	//Create a workbook with a worksheet
 	IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
 
 	//Access first worksheet from the workbook instance.
@@ -461,7 +461,7 @@ End Using
 {% endhighlight %}
 {% endtabs %}  
 
-##### Step 8: Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+8.Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
 <tr>
@@ -551,15 +551,13 @@ Save implementation for WinRT device.
 </tbody>
 </table>
 
-##### Step 9: Compile and execute the application. Now this application creates a simple Excel document.
+9.Compile and execute the application. Now this application creates a simple Excel document.
 
 
 A complete working example of how to create an Excel file in Xamarin can be downloaded from [Create-Excel-file.zip](http://www.syncfusion.com/downloads/support/directtrac/general/ze/GettingStarted79812135.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](XAMARIN_images/XAMARIAN_images_img4.png)
-
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
 
 ## Read and Edit Excel file
 
@@ -847,3 +845,5 @@ public class QLPreviewItemBundle : QLPreviewItem
 
 {% endhighlight %}
 {% endtabs %}
+
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
