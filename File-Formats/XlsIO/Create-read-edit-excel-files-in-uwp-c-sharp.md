@@ -13,15 +13,15 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in UWP application.
 
-##### Step 1: Create a new C# Blank App (Universal Windows) project.
+1.Create a new C# Blank App (Universal Windows) project.
 
 ![Create UWP application in Visual Studio](UWP_images/UWP_images_img1.png)
 
-##### Step 2: Install the [Syncfusion.XlsIO.UWP](https://www.nuget.org/packages/Syncfusion.XlsIO.UWP) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
+2.Install the [Syncfusion.XlsIO.UWP](https://www.nuget.org/packages/Syncfusion.XlsIO.UWP) NuGet package as reference to your .NET Framework applications from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](UWP_images/UWP_images_img2.png)
 
-##### Step 3: Add a new button in the MainPage.xaml as shown below.
+3.Add a new button in the MainPage.xaml as shown below.
 
 {% tabs %}  
 {% highlight XAML %}
@@ -42,7 +42,7 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 {% endhighlight %}
 {% endtabs %}  
 
-##### Step 4: Include the following namespaces in the MainPage.xaml.cs file.
+4.Include the following namespaces in the MainPage.xaml.cs file.
 
 {% tabs %}  
 {% highlight c# %}
@@ -60,7 +60,7 @@ Imports Windows.UI
 {% endhighlight %}
 {% endtabs %}   
 
-##### Step 5: Include the below code snippet in the click event of the button in MainPage.xaml.cs, to create an Excel file and save the Excel document as a physical file and open the file for viewing.
+5.Include the below code snippet in the click event of the button in MainPage.xaml.cs, to create an Excel file and save the Excel document as a physical file and open the file for viewing.
 
 {% tabs %}  
 {% highlight c# %}
@@ -468,8 +468,6 @@ A complete working example of how to create an Excel file in UWP can be download
 By executing the program, you will get the Excel file as below.
 ![Output File](UWP_images/UWP_images_img3.png)
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. 
-
 ## Read and Edit Excel file
 
 The below code illustrates how to read and edit an Excel file in UWP.
@@ -559,3 +557,5 @@ workbook.Close()
 excelEngine.Dispose()
 {% endhighlight %}
 {% endtabs %}  
+
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components. 

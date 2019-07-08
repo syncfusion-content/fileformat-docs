@@ -8,7 +8,11 @@ documentation: UG
 
 # Supported Features by Platforms
 
-The list of various supported and non-supported Excel features of Essential XlsIO in different platforms is given in the following table.
+The list of various supported and non-supported Excel features of Essential XlsIO in different platforms is given in this section.
+
+## Supported Features by .NET Framework
+
+The list of supported and non-supported Excel features in .NET Framework is given below.
 
 <table>
   <tr>
@@ -421,6 +425,7 @@ The list of various supported and non-supported Excel features of Essential XlsI
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
+  <tr>
     <td colspan="3"><strong>Miscellaneous</strong></td>
   </tr>  
   <tr>
@@ -474,12 +479,12 @@ N> Worksheet to image conversion is supported from .NET Framework 2.0 and .NET S
 
 ## Supported Features in Blazor Platform
 
-The list of various supported and unsupported Excel features of Essential XlsIO in Blazor platform is given in the following table.
+The list of supported and non-supported Excel features in Blazor platform is given below.
 
 <table>
   <tr>
     <th>Features</th>
-    <th>Blazor Server-Side & Hosted Application</th>
+    <th>Blazor Server-Side</th>
     <th>Blazor Client-Side</th>
   </tr>
   <tr>
@@ -567,7 +572,7 @@ The list of various supported and unsupported Excel features of Essential XlsIO 
 <table>
   <tr>
     <th rowspan = "2">File formats</th>
-	<th colspan = "2">Blazor Server-Side & Hosted Application</th>
+	<th colspan = "2">Blazor Server-Side</th>
 	<th colspan = "2">Blazor Client-Side</th>
   </tr>
   <tr>
