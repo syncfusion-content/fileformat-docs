@@ -1565,7 +1565,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
-N> 1. Essential PDF supports converting TIFF to PDF with Syncfusion.Pdf.Imaging.Portable assembly reference in ASP.NET Core
+N> 1. Essential PDF supports converting TIFF to PDF with Syncfusion.Pdf.Imaging.Portable assembly reference in ASP.NET Core.
 
 
 ### Compression in monochrome images
