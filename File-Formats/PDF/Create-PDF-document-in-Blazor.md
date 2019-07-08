@@ -8,7 +8,7 @@ documentation: UG
 
 # Create, read, and edit PDF document in Blazor
 
-Syncfusion Essential PDF is a [.NET Core PDF library] (https://www.syncfusion.com/pdf-framework/net-core/pdf-library) using this library, you can create, read, and edit PDF documents in Blazor. This library also offers functionality to merge, split, stamp, forms, and secure PDF files. 
+Syncfusion Essential PDF is a [.NET Core PDF library](https://www.syncfusion.com/pdf-framework/net-core/pdf-library) using this library, you can create, read, and edit PDF documents in Blazor. This library also offers functionality to merge, split, stamp, forms, and secure PDF files. 
 
 ## Steps to create PDF document in Blazor Server-Side application
 
@@ -177,7 +177,7 @@ public static class FileUtil
 
 {% endtabs %}
 
-8.Add the following JavaScript function in the ``_Host.cshtml`` available under the ``Pages`` folder.
+Step 8: Add the following JavaScript function in the ``_Host.cshtml`` available under the ``Pages`` folder.
 
 {% tabs %}
 
@@ -202,7 +202,7 @@ By executing the program, you will get the following output in the browser
 
 ![Blazor Server-side browser output](Create_PDF_Blazor/Blazor_browser_output.png)
 
-Click the export to PDF button and you will get the PDF document with following output
+Click the Export to PDF button and you will get the PDF document with following output
 
 ![Blazor Server-side PDF output](Create_PDF_Blazor/Blazor_PDF_output.png)
 
