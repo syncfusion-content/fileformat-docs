@@ -10,9 +10,9 @@ documentation: UG
 
 The list of various supported and non-supported Excel features of Essential XlsIO in different platforms is given in this section.
 
-## Supported Features by .NET Framework
+## Supported Features by .NET Framework and .NET Standard
 
-The list of supported and non-supported Excel features in .NET Framework is given below.
+The list of supported and non-supported Excel features in .NET Framework and .NET Standard is given below.
 
 <table>
   <tr>
@@ -628,6 +628,6 @@ The list of supported and non-supported Excel features in Blazor platform is giv
 	<td>N/A</td>
 	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
 	<td>N/A</td>
-	<td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>	
+	<td><img src="Supported-Features-by-Platforms_images/no.jpg" alt="No"></td>	
   </tr>
 </table>
