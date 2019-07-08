@@ -80,6 +80,14 @@ Xamarin
 {{'[Syncfusion.Xamarin.XlsIO.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIO/)'| markdownify }}
 </td>
 </tr>
+<tr>
+<td>
+Blazor
+</td>
+<td>
+{{'[Syncfusion.XlsIO.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIO.Net.Core/)'| markdownify }}
+</td>
+</tr>
 </table>
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.
@@ -115,7 +123,7 @@ WPF
 </tr>
 <tr>
 <td>
-ASP.NET Web
+ASP.NET Web Forms
 </td>
 <td>
 {{'[Syncfusion.ExcelToPDFConverter.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelToPdfConverter.AspNet/)'| markdownify }}
@@ -151,6 +159,14 @@ Xamarin
 </td>
 <td>
 {{'[Syncfusion.Xamarin.XlsIORenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+Blazor (Server-Side)
+</td>
+<td>
+{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
 </table>
@@ -225,6 +241,14 @@ Xamarin
 {{'[Syncfusion.Xamarin.XlsIORenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer/)'| markdownify }}
 </td>
 </tr>
+<tr>
+<td>
+Blazor (Server-Side)
+</td>
+<td>
+{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
+</td>
+</tr>
 </tbody>
 </table>
 
@@ -259,7 +283,7 @@ WPF
 </tr>
 <tr>
 <td>
-ASP.NET Web
+ASP.NET Web Forms
 </td>
 <td>
 {{'[Syncfusion.ExcelChartToImageConverter.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.ExcelChartToImageConverter.AspNet/)'| markdownify }}
@@ -295,6 +319,14 @@ Xamarin
 </td>
 <td>
 {{'[Syncfusion.Xamarin.XlsIORenderer.nupkg](https://www.nuget.org/packages/Syncfusion.Xamarin.XlsIORenderer/)'| markdownify }}
+</td>
+</tr>
+<tr>
+<td>
+Blazor (Server-Side)
+</td>
+<td>
+{{'[Syncfusion.XlsIORenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.XlsIORenderer.Net.Core/)'| markdownify }}
 </td>
 </tr>
 </table>
@@ -350,7 +382,7 @@ WPF
 </tr>
 <tr>
 <td>
-ASP.NET Web
+ASP.NET Web Forms
 </td>
 <td>
 * Install-package Syncfusion.XlsIO.AspNet<br/><br/>
@@ -406,7 +438,7 @@ Uninstall-package Syncfusion.XlsIO.UWP –RemoveDependencies
 </tr>
 <tr>
 <td>
-ASP.NET Core
+ASP.NET Core and Blazor Server-Side
 </td>
 <td>
 * Install-package Syncfusion.XlsIO.Net.Core <br/><br/>
@@ -428,6 +460,17 @@ Xamarin
 <td>
 * Uninstall-package Syncfusion.Xamarin.XlsIO –RemoveDependencies <br/><br/>
 * Uninstall-package Syncfusion.Xamarin.XlsIORenderer –RemoveDependencies
+</td>
+</tr>
+<tr>
+<td>
+Blazor Client-Side
+</td>
+<td>
+* Install-package Syncfusion.XlsIO.Net.Core <br/><br/>
+</td>
+<td>
+* Uninstall-package Syncfusion.XlsIO.Net.Core –RemoveDependencies<br/><br/>
 </td>
 </tr>
 </table>
