@@ -46,7 +46,7 @@ Syncfusion.XlsIO.UWP
 </tr>
 <tr>
 <td>
-.NET Core and Xamarin
+.NET Core, Xamarin and Blazor
 </td>
 <td>
 Syncfusion.XlsIO.Portable<br/>
@@ -167,7 +167,7 @@ Syncfusion.ExcelToPDFConverter.ClientProfile
 </tr>
 <tr>
 <td>
-UWP, .NET Core and Xamarin
+UWP, .NET Core, Xamarin and Blazor (Server-Side)
 </td>
 <td>
 Syncfusion.Compression.Portable<br/>
@@ -207,7 +207,7 @@ Syncfusion.XlsIO.Base
 </tr>
 <tr>
 <td>
-UWP, .NET Core and Xamarin
+UWP, .NET Core, Xamarin and Blazor (Server-Side)
 </td>
 <td>
 Syncfusion.Compression.Portable<br/>
@@ -247,7 +247,7 @@ Syncfusion.SfChart.WPF
 </tr>
 <tr>
 <td>
-UWP, .NET Core and Xamarin
+UWP, .NET Core, Xamarin and Blazor (Server-Side)
 </td>
 <td>
 Syncfusion.Compression.Portable<br/>
@@ -261,4 +261,4 @@ Syncfusion.XlsIORenderer.Portable
 
 N>  Chart to image conversion is supported from .NET Framework 4.0 and .NET Standard 2.0 onwards.
 
-N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your Xamarin application to use our components.
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your applications to use our components.

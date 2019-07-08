@@ -13,17 +13,17 @@ documentation: UG
 
 The below steps illustrates creating an simple Invoice formatted Excel document in ASP.NET.
 
-##### Step 1: Create a new ASP.NET Web application project.
+1.Create a new ASP.NET Web application project.
 
 ![Create ASP.NET application in Visual Studio](ASP-NET_images/ASP-NET_images_img1.png)
 
-##### Step 2: Install the [Syncfusion.XlsIO.AspNet](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
+2.Install the [Syncfusion.XlsIO.AspNet](https://www.nuget.org/packages/Syncfusion.XlsIO.AspNet) NuGet package as reference to your .NET Framework application from [NuGet.org](https://www.nuget.org).
 
 ![Add XlsIO reference to the project](ASP-NET_images/ASP-NET_images_img2.png)
 
-##### Step 3: Add a new Web Form in ASP .NET project. Right click on the project and select Add > New Item and add a Web Form from the list. Name it as MainPage.
+3.Add a new Web Form in ASP .NET project. Right click on the project and select Add > New Item and add a Web Form from the list. Name it as MainPage.
 
-##### Step 4: Add a new button in the MainPage.aspx as shown below.
+4.Add a new button in the MainPage.aspx as shown below.
 
 {% tabs %} 
 {% highlight HTML %}
@@ -42,7 +42,7 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 {% endhighlight %}
 {% endtabs %}
 
-##### Step 5: Include the following namespace in your MainPage.aspx.cs file.
+5.Include the following namespace in your MainPage.aspx.cs file.
 
 {% tabs %}  
 {% highlight c# %}
@@ -56,7 +56,7 @@ Imports System.Drawing
 {% endhighlight %}
 {% endtabs %}    
 
-##### Step 6: Include the below code snippet in the click event of the button in MainPage.aspx.cs, to create an Excel file and download it
+6.Include the below code snippet in the click event of the button in MainPage.aspx.cs, to create an Excel file and download it
 
 {% tabs %}  
 {% highlight c# %}
