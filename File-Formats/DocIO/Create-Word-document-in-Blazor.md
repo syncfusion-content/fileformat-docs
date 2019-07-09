@@ -160,13 +160,12 @@ public MemoryStream CreateWord()
     textRange.CharacterFormat.FontSize = 12f;
 
     //Save the document as a stream and retrun the stream.
-    using (MemoryStream stream = new MemoryStream())
-    {
-        //Save the created Word document to MemoryStream.
-        document.Save(stream, FormatType.Docx);
-
-        return stream;
-    }            
+    MemoryStream stream = new MemoryStream();
+    //Save the created Word document to MemoryStream.
+    document.Save(stream, FormatType.Docx);
+	//Closes the WordDocument instance.
+    document.Close();
+    return stream;  
 }
 
 {% endhighlight %}
