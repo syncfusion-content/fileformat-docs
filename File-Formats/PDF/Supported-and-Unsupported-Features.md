@@ -453,33 +453,33 @@ No<br/><br/></td>
 XPS to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td></tr>
+No<br/><br/></td>
 <td>No<br/><br/></td>
-<td>No<br/><br/></td>
+<td>No<br/><br/></td></tr>
 <tr>
 <td>
 SVG to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td></tr>
+No<br/><br/></td>
 <td>No<br/><br/></td>
-<td>No<br/><br/></td>
+<td>No<br/><br/></td></tr>
 <tr>
 <td>
 EMF to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td></tr>
+No<br/><br/></td>
 <td>No<br/><br/></td>
-<td>No<br/><br/></td>
+<td>No<br/><br/></td></tr>
 <tr>
 <td>
 PDF to PDF/A-1b<br/><br/></td><td>
 Yes<br/><br/></td><td>
 No<br/><br/></td><td>
-No<br/><br/></td></tr>
+No<br/><br/></td>
 <td>No<br/><br/></td>
-<td>No<br/><br/></td>
+<td>No<br/><br/></td></tr>
 </tbody>
 </table>
 
@@ -609,17 +609,17 @@ Xamarin and .NET Core <br/><br/></th>
 Scalar Images<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td></tr>
+Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td></tr>
 <tr>
 <td>
 Soft Mask<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-Yes<br/><br/></td></tr>
+Yes<br/><br/></td>
 <td>Yes<br/><br/></td>
-<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td></tr>
 <tr>
 <td>
 Vector Images<br/><br/></td><td>
