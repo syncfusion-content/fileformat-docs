@@ -222,7 +222,7 @@ Step 2: Now, the project configuration window appears. Click Create button to cr
 
 Step 3: Choose Blazor (client-side) from the dashboard and click Create button to create a new Blazor client-side application. Make sure that .NET Core and ASP.NET Core 3.0 are selected at the top.
 
-![Create Blazor Client Side application in Visual Studio](Create_PDF_Blazor/Blazor_Client_Template.png)
+![Create Blazor Client Side application in Visual Studio](Create_PDF_Blazor/Blazor_Client_Template.jpg)
 
 Step 4: Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 
