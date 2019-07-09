@@ -93,7 +93,7 @@ using System.IO;
 
 {% endtabs %}
 
-8. Create a new method with name as CreateWord and include the following code snippet to **create a Word document in Blazor Server-Side application**.
+8.Create a new method with name as CreateWord and include the following code snippet to **create a Word document in Blazor Server-Side application**.
 
 {% tabs %}
 
