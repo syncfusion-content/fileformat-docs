@@ -39,7 +39,26 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 {% endhighlight %}
 {% endtabs %}
 
-6.Create a new cs file with name as ``ExcelService`` under ``Data`` folder and include the following namespaces in the file.
+6.Add the following code in ``Excel.razor`` file to create and download the Excel document.
+
+{% tabs %}
+{% highlight c# %}
+@functions {
+    MemoryStream excelStream;
+
+    /// <summary>
+    /// Create and download the Excel document
+    /// </summary>
+    protected async void CreateExcel()
+    {
+        excelStream = service.CreateExcel();
+        await JS.SaveAs("Sample.xlsx", excelStream.ToArray());
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+
+7.Create a new cs file with name as ``ExcelService`` under ``Data`` folder and include the following namespaces in the file.
 
 {% tabs %}
 {% highlight c# %}
@@ -49,7 +68,7 @@ The below steps illustrates creating an simple Invoice formatted Excel document 
 {% endhighlight %}
 {% endtabs %}
 
-7.Create a new MemoryStream method with name as CreateExcel and include the following code snippet to create a simple Excel document in Blazor Client-Side application.
+8.Create a new MemoryStream method with name as CreateExcel and include the following code snippet to create a simple Excel document in Blazor Client-Side application.
 
 {% tabs %}
 {% highlight c# %}
@@ -236,7 +255,55 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to create an Excel file in Blazor Server-Side can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ServerSideApplication-1577117653.zip).
+9.Create a class file with name as ``FileUtils`` and add the following code to invoke the JavaScript action for downloading the file in browser.
+
+{% tabs %}
+{% highlight c# %}
+public static class FileUtils
+{
+    public static Task SaveAs(this IJSRuntime js, string filename, byte[] data)
+        => js.InvokeAsync<object>(
+           "saveAsFile",
+           filename,
+           Convert.ToBase64String(data));
+}
+{% endhighlight %}
+{% endtabs %}
+
+10.Add the following JavaScript function in the ``_Host.cshtml`` file present under ``Pages`` folder.
+
+{% tabs %}
+{% highlight c# %}
+<script type="text/javascript">
+    function saveAsFile(filename, bytesBase64) {
+
+    if (navigator.msSaveBlob) 
+	{
+        //Download document in Edge browser
+        var data = window.atob(bytesBase64);
+        var bytes = new Uint8Array(data.length);
+        for (var i = 0; i < data.length; i++) 
+		{
+            bytes[i] = data.charCodeAt(i);
+        }
+        var blob = new Blob([bytes.buffer], { type: "application/octet-stream" });
+        navigator.msSaveBlob(blob, filename);
+    }
+    else 
+	{
+        var link = document.createElement('a');
+        link.download = filename;
+        link.href = "data:application/octet-stream;base64," + bytesBase64;
+        document.body.appendChild(link); // Needed for Firefox
+        link.click();
+        document.body.removeChild(link);
+    }
+}
+</script>
+{% endhighlight %}
+{% endtabs %}
+
+A complete working example of how to create an Excel file in Blazor Server-Side can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ServerSideApplication-1890825878.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](Blazor_images/Blazor_images_Server_Output.png)
@@ -505,7 +572,55 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to create an Excel file in Blazor Client-Side can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ClientSideApplication431066734.zip).
+8.Create a class file with name as ``FileUtils`` and add the following code to invoke the JavaScript action for downloading the file in browser.
+
+{% tabs %}
+{% highlight c# %}
+public static class FileUtils
+{
+    public static Task SaveAs(this IJSRuntime js, string filename, byte[] data)
+        => js.InvokeAsync<object>(
+           "saveAsFile",
+           filename,
+           Convert.ToBase64String(data));
+}
+{% endhighlight %}
+{% endtabs %}
+
+9.Add the following JavaScript function in the ``index.html`` file present under ``wwwroot``.
+
+{% tabs %}
+{% highlight c# %}
+<script type="text/javascript">
+    function saveAsFile(filename, bytesBase64) {
+
+    if (navigator.msSaveBlob) 
+	{
+        //Download document in Edge browser
+        var data = window.atob(bytesBase64);
+        var bytes = new Uint8Array(data.length);
+        for (var i = 0; i < data.length; i++) 
+		{
+            bytes[i] = data.charCodeAt(i);
+        }
+        var blob = new Blob([bytes.buffer], { type: "application/octet-stream" });
+        navigator.msSaveBlob(blob, filename);
+    }
+    else 
+	{
+        var link = document.createElement('a');
+        link.download = filename;
+        link.href = "data:application/octet-stream;base64," + bytesBase64;
+        document.body.appendChild(link); // Needed for Firefox
+        link.click();
+        document.body.removeChild(link);
+    }
+}
+</script>
+{% endhighlight %}
+{% endtabs %}
+
+A complete working example of how to create an Excel file in Blazor Client-Side can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ClientSideApplication-1599158611.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](Blazor_images/Blazor_images_Client_Output.png)
