@@ -303,7 +303,7 @@ public static class FileUtils
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to create an Excel file in Blazor Server-Side can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ServerSideApplication-1577117653.zip).
+A complete working example of how to create an Excel file in Blazor Server-Side can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ServerSideApplication-1890825878.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](Blazor_images/Blazor_images_Server_Output.png)
@@ -587,7 +587,40 @@ public static class FileUtils
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to create an Excel file in Blazor Client-Side can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ClientSideApplication431066734.zip).
+9.Add the following JavaScript function in the ``index.html`` file present under ``wwwroot``.
+
+{% tabs %}
+{% highlight c# %}
+<script type="text/javascript">
+    function saveAsFile(filename, bytesBase64) {
+
+    if (navigator.msSaveBlob) 
+	{
+        //Download document in Edge browser
+        var data = window.atob(bytesBase64);
+        var bytes = new Uint8Array(data.length);
+        for (var i = 0; i < data.length; i++) 
+		{
+            bytes[i] = data.charCodeAt(i);
+        }
+        var blob = new Blob([bytes.buffer], { type: "application/octet-stream" });
+        navigator.msSaveBlob(blob, filename);
+    }
+    else 
+	{
+        var link = document.createElement('a');
+        link.download = filename;
+        link.href = "data:application/octet-stream;base64," + bytesBase64;
+        document.body.appendChild(link); // Needed for Firefox
+        link.click();
+        document.body.removeChild(link);
+    }
+}
+</script>
+{% endhighlight %}
+{% endtabs %}
+
+A complete working example of how to create an Excel file in Blazor Client-Side can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ClientSideApplication-1599158611.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](Blazor_images/Blazor_images_Client_Output.png)
