@@ -312,7 +312,7 @@ JS.SaveAs("Sample.pdf", memoryStream.ToArray());
 
 Step 7: Create a class file with ``FileUtil`` name and add the following code to invoke the JavaScript action to download the file in the browser.
 
-% tabs %}
+{% tabs %}
 
 {% highlight c# %}
 
