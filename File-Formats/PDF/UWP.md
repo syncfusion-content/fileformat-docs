@@ -8,11 +8,11 @@ documentation: UG
 
 # Working with UWP
 
-In your UWP application, please add the below assembly in order to use PDF.  
+In your UWP application, add the following assembly to use PDF.  
 
 * Syncfusion.Pdf.UWP
 
-For more details [Refer here for assemblies required page](/File-Formats/pdf/Assemblies-Required).
+For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required)documentation.
 
 ## Steps to create PDF document in UWP
 
