@@ -7,7 +7,12 @@ documentation: UG
 ---
 # Working with ASP.NET
 
-In your ASP.NET application, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
+In your ASP.NET application, please add the below assemblies in order to use Essential PDF.
+
+* Syncfusion.Pdf.Base
+* Syncfusion.Compression.Base
+
+For more details [Refer here for assemblies required page](/File-Formats/PDF/Assemblies-Required).
 
 ## Steps to create PDF document in ASP.NET Web Forms
 

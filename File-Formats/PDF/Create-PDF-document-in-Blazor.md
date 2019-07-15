@@ -10,6 +10,14 @@ documentation: UG
 
 Syncfusion Essential PDF is a [.NET Core PDF library](https://www.syncfusion.com/pdf-framework/net-core/pdf-library) used to create, read, and edit PDF documents in Blazor. This library also offers functionality to merge, split, stamp, forms, and secure PDF files.
 
+In your Blazor application, please add the below assemblies in order to use Essential PDF.
+
+* Syncfusion.Compression.Portable.dll
+* Syncfusion.Pdf.Portable.dll 
+
+For more details [Refer here for assemblies required page](/File-Formats/PDF/Assemblies-Required).
+
+
 ## Steps to create PDF document in Blazor Server-Side application
 
 Step 1: Create a new C# Blazor server-side application project. Select ASP.NET Core Web Application from the template and click the Next button.

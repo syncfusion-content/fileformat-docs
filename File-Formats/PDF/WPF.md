@@ -8,7 +8,12 @@ documentation: UG
 
 # Working with WPF
 
-In your WPF application, add the required assemblies to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
+In your WPF application, add the below assemblies to use Essential PDF. 
+
+* Syncfusion.Pdf.Base
+* Syncfusion.Compression.Base
+
+For more details [Refer here for assemblies required page](/File-Formats/PDF/Assemblies-Required).
 
 ## Steps to create PDF document in WPF:
 

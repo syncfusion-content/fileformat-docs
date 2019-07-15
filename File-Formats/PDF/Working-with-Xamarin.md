@@ -7,7 +7,12 @@ documentation: UG
 ---
 # Working with Xamarin
 
-In your Xamarin application, please add the required assemblies in order to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
+In your Xamarin application, please add the below assemblies in order to use Essential PDF.
+
+* Syncfusion.Compression.Portable.dll
+* Syncfusion.Pdf.Portable.dll 
+
+For more details [Refer here for assemblies required page](/File-Formats/PDF/Assemblies-Required).
 
 ## Steps to create PDF document in Xamarin
 
