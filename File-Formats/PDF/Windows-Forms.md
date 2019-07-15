@@ -13,7 +13,7 @@ documentation: UG
 * Syncfusion.Pdf.Base
 * Syncfusion.Compression.Base
 
-For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required)documentation.
+For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
 ## Steps to create PDF document in Window Forms:
 

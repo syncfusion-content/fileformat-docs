@@ -14,7 +14,7 @@ In your ASP.NET Core application, add the following assemblies to use Essential 
 * Syncfusion.Compression.Portable.dll
 * Syncfusion.Pdf.Portable.dll  
 
-For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required)documentation.
+For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
 ## Steps to create PDF document in ASP.NET Core
 

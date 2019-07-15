@@ -12,7 +12,7 @@ In your ASP.NET MVC application, add the following assemblies to use Essential P
 * Syncfusion.Pdf.Base
 * Syncfusion.Compression.Base
 
-For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required)documentation.
+For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
 ## Steps to create PDF document in ASP.NET MVC
 
