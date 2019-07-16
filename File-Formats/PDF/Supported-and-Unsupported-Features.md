@@ -405,7 +405,7 @@ Xamarin and .NET Core <br/><br/></th>
 TIFF to PDF<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
-No<br/><br/></td>
+Yes*<br/><br/></td>
 <td>No<br/><br/></td>
 <td>No<br/><br/></td></tr>
 <tr>
