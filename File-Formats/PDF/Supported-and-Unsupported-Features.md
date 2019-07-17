@@ -521,6 +521,8 @@ Yes<br/><br/></td>
 PDF/ A-3b Compliance<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
 Yes<br/><br/></td></tr>
 <tr>
 <td>
