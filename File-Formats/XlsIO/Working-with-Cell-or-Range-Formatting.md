@@ -1,5 +1,5 @@
 ---
-title: Cell or Range Formatting
+title: Cell or Range Formatting | Syncfusion
 description: Briefs about Cell or Range Formatting in XlsIO.
 platform: File-Formats
 control: XlsIO
