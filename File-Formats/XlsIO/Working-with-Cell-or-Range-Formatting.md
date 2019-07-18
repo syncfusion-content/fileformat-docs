@@ -1,5 +1,5 @@
 ---
-title: Cell or Range Formatting
+title: Cell or Range Formatting | Syncfusion
 description: Briefs about Cell or Range Formatting in XlsIO.
 platform: File-Formats
 control: XlsIO
@@ -648,7 +648,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img1.jpeg)
+![Excel document with global styles](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img1.jpeg)
 
 
 __Excel__ __document__ __with__ __Global__ __Styles__
@@ -1235,7 +1235,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The screenshot of the previous code is shown as follows:
 
-![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img2.jpeg)
+![Excel document with number formats](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img2.jpeg)
 
 
 **Access** **number** **format** **applied** **results** **at** **runtime**
@@ -1997,7 +1997,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The following screenshot is the output of previous code:
 
-![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img3.jpeg)
+![Excel document with different alignment options](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img3.jpeg)
 
 
 ## Merging and Un-Merging Cells
@@ -2701,7 +2701,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The output of the previous code is shown as follows.
 
-![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img4.jpeg)
+![Excel document with different font settings](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img4.jpeg)
 
 
 ## Apply Color Settings
@@ -3053,7 +3053,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The output of the previous code is shown in the following screenshot:
 
-![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img5.jpeg)
+![Excel document with different border settings](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img5.jpeg)
 
 
 ## HTML String Formatting
@@ -3143,7 +3143,7 @@ These mentioned tags do support the following style attributes.
 
 ## Rich-Text Formatting 
 
-You can format each character in a cell with different font styles. XlsIO reads and writes rich text by using the **IRichTextString** interface. 
+You can format each character in a cell with different font styles. XlsIO reads and writes rich-text by using the **IRichTextString** interface. 
 
 N> Currently XlsIO cannot process and write RTF codes to cells.
 
@@ -3335,6 +3335,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The output of the previous code is shown as follows:
 
-![](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img6.jpeg)
+![Excel document with rich-text formatting](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img6.jpeg)
 
 
