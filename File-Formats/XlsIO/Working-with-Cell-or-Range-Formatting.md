@@ -3143,7 +3143,7 @@ These mentioned tags do support the following style attributes.
 
 ## Rich-Text Formatting 
 
-You can format each character in a cell with different font styles. XlsIO reads and writes rich text by using the **IRichTextString** interface. 
+You can format each character in a cell with different font styles. XlsIO reads and writes rich-text by using the **IRichTextString** interface. 
 
 N> Currently XlsIO cannot process and write RTF codes to cells.
 
@@ -3335,6 +3335,6 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The output of the previous code is shown as follows:
 
-![Excel document with Rich Text formatting](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img6.jpeg)
+![Excel document with rich-text formatting](Working-with-Cell-or-Range-Formatting_images/Working-with-Cell-or-Range-Formatting_img6.jpeg)
 
 
