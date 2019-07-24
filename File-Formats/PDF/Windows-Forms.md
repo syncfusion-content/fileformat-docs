@@ -8,7 +8,12 @@ documentation: UG
 
 # Working with Windows Forms
 
-In your Windows Forms application, add the required assemblies to use Essential PDF. [Refer here for assemblies required](/File-Formats/PDF/Assemblies-Required).
+ In your Windows Forms application, add the following assemblies to use Essential PDF:  
+
+* Syncfusion.Pdf.Base
+* Syncfusion.Compression.Base
+
+For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assemblies-Required) documentation.
 
 ## Steps to create PDF document in Window Forms:
 
