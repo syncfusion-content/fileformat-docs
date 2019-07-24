@@ -226,7 +226,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Import Data from Collection Objects
 
-Essential XlsIO allows you to import data directly from Collection Objects as shown below. 
+Essential XlsIO allows you to import data directly from Collection Objects as shown below.  XlsIO imports data from Collection objects into existing or newly created Excel document by matching set of properties with [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1) and 
+[BindableAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindableattribute?view=netframework-4.8)
 
 {% tabs %}  
 {% highlight c# %}
@@ -358,7 +359,9 @@ public static List<Customer> GetSalesReports()
 //Customer details
 public class Customer
 {
-  public string SalesPerson { get; set; }
+  [DisplayNameAttribute("Sales Person Name")]
+  public string SalesPerson { get; set; 
+  [Bindable(false)]
   public string SalesJanJun { get; set; }
   public string SalesJulDec { get; set; }
 
@@ -388,7 +391,8 @@ Public Class Customer
   Private m_SalesPerson As String
   Private m_SalesJanJun As String	
   Private m_SalesJulDec As String
-	
+
+  <DisplayNameAttribute("Sales Person Name")>
   Public Property SalesPerson() As String
   Get
 	Return m_SalesPerson
@@ -398,6 +402,7 @@ Public Class Customer
   End Set
   End Property
 
+  <Bindable(False)>
   Public Property SalesJanJun() As String
   Get
     Return m_SalesJanJun
@@ -440,7 +445,9 @@ public static List<Customer> GetSalesReports()
 //Customer details
 public class Customer
 {
+  [DisplayNameAttribute("Sales Person Name")]
   public string SalesPerson { get; set; }
+  [Bindable(false)]
   public string SalesJanJun { get; set; }
   public string SalesJulDec { get; set; }
 
@@ -469,7 +476,9 @@ public static List<Customer> GetSalesReports()
 //Customer details
 public class Customer
 {
+  [DisplayNameAttribute("Sales Person Name")]
   public string SalesPerson { get; set; }
+  [Bindable(false)]
   public string SalesJanJun { get; set; }
   public string SalesJulDec { get; set; }
 
@@ -498,7 +507,9 @@ public static List<Customer> GetSalesReports()
 //Customer details
 public class Customer
 {
+  [DisplayNameAttribute("Sales Person Name")]
   public string SalesPerson { get; set; }
+  [Bindable(false)]
   public string SalesJanJun { get; set; }
   public string SalesJulDec { get; set; }
 
@@ -1120,7 +1131,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Exporting from Worksheet to Collection Objects 
 
-XlsIO allows to export the sheet data to a **Collection Objects** by using the **ExportData&lt;T&gt;()** method. This method Exports Excel data into Collection objects from existing or newly created Excel document by matching set of properties and [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1).
+XlsIO allows to export the sheet data to a **Collection Objects** by using the **ExportData&lt;T&gt;()** method. This method Exports Excel data into Collection objects from existing or newly created Excel document by matching set of properties with [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1) and 
+[BindableAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindableattribute?view=netframework-4.8)
 
 The following code snippet illustrates on how to export worksheet data into Collection Objects using **ExportData&lt;T&gt;**.
 
@@ -1252,6 +1264,7 @@ public class Report
 {
   [DisplayNameAttribute("Sales Person Name")]
   public string SalesPerson { get; set; }
+  [Bindable(false)]  
   public string SalesJanJun { get; set; }
   public string SalesJulDec { get; set; }
   
@@ -1277,7 +1290,8 @@ Public Class Report
 	m_SalesPerson = Value
   End Set
   End Property
-
+  
+  <Bindable(False)>
   Public Property SalesJanJun() As String
   Get
 	Return m_SalesJanJun
@@ -1303,6 +1317,7 @@ public class Report
 {
   [DisplayNameAttribute("Sales Person Name")]
   public string SalesPerson { get; set; }
+  [Bindable(false)]
   public string SalesJanJun { get; set; }
   public string SalesJulDec { get; set; }
 
@@ -1318,6 +1333,7 @@ public class Report
 {
   [DisplayNameAttribute("Sales Person Name")]
   public string SalesPerson { get; set; }
+  [Bindable(false)]
   public string SalesJanJun { get; set; }
   public string SalesJulDec { get; set; }
 
@@ -1333,6 +1349,7 @@ public class Report
 {
   [DisplayNameAttribute("Sales Person Name")]
   public string SalesPerson { get; set; }
+  [Bindable(false)]
   public string SalesJanJun { get; set; }
   public string SalesJulDec { get; set; }
 
