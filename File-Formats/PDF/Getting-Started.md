@@ -612,7 +612,7 @@ element = new PdfTextElement("BILL TO ", new PdfStandardFont(PdfFontFamily.Times
 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
 result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
 //Draw Bill address
-element = new PdfTextElement(string.Format("{0}, {1}, {2}", "Vins et alcools Chevalier", "\n59 rue de l'Abbaye ", " Reims, France"), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
+element = new PdfTextElement(string.Format("{0}, {1}, {2}", "Vin et alcohol Chevalier", "\n59 rue deb l'Abbaye ", " Reims, France"), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, g.ClientSize.Width / 2, 100));
 //Draw Bill line
@@ -637,7 +637,7 @@ element = New PdfTextElement("BILL TO ", New PdfStandardFont(PdfFontFamily.Times
 element.Brush = New PdfSolidBrush(New PdfColor(126, 155, 203))
 result = element.Draw(page, New PointF(10, (result.Bounds.Bottom + 25)))
 'Draw Bill address
-element = New PdfTextElement(String.Format("{0}, {1}, {2}", "Vins et alcools Chevalier", ""& vbLf&"59 rue de l'Abbaye ", " Reims, France"), New PdfStandardFont(PdfFontFamily.TimesRoman, 10))
+element = New PdfTextElement(String.Format("{0}, {1}, {2}", "Vin et alcohol Chevalier", ""& vbLf&"59 rue deb l'Abbaye ", " Reims, France"), New PdfStandardFont(PdfFontFamily.TimesRoman, 10))
 element.Brush = New PdfSolidBrush(New PdfColor(89, 89, 93))
 result = element.Draw(page, New RectangleF(10, (result.Bounds.Bottom + 3), (g.ClientSize.Width / 2), 100))
 'Draw Bill line
@@ -665,7 +665,7 @@ element = new PdfTextElement("BILL TO ", new PdfStandardFont(PdfFontFamily.Times
 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
 result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
 //Draw Bill address
-element = new PdfTextElement(string.Format("{0}, {1}, {2}", "Vins et alcools Chevalier", "\n59 rue de l'Abbaye ", " Reims, France"), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
+element = new PdfTextElement(string.Format("{0}, {1}, {2}", "Vin et alcohol Chevalier", "\n59 rue deb l'Abbaye ", " Reims, France"), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, g.ClientSize.Width / 2, 100));
 //Draw Bill line
@@ -692,7 +692,7 @@ element = new PdfTextElement("BILL TO ", new PdfStandardFont(PdfFontFamily.Times
 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
 result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
 //Draw Bill address
-element = new PdfTextElement(string.Format("{0}, {1}, {2}", "Vins et alcools Chevalier", "\n59 rue de l'Abbaye ", " Reims, France"), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
+element = new PdfTextElement(string.Format("{0}, {1}, {2}", "Vin et alcohol Chevalier", "\n59 rue deb l'Abbaye ", " Reims, France"), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, g.ClientSize.Width / 2, 100));
 //Draw Bill line
@@ -719,7 +719,7 @@ element = new PdfTextElement("BILL TO ", new PdfStandardFont(PdfFontFamily.Times
 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
 result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
 //Draw Bill address
-element = new PdfTextElement(string.Format("{0}, {1}, {2}", "Vins et alcools Chevalier", "\n59 rue de l'Abbaye ", " Reims, France"), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
+element = new PdfTextElement(string.Format("{0}, {1}, {2}", "Vin et alcohol Chevalier", "\n59 rue deb l'Abbaye ", " Reims, France"), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
 result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, g.ClientSize.Width / 2, 100));
 //Draw Bill line
