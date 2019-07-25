@@ -1946,18 +1946,24 @@ The following code snippet illustrates how to convert PDF page into image.
 {% highlight c# %}
 
 
-//Load the saved PDF as PdfLoadedDocument
+//Load the existing PDF document
 
-PdfLoadedDocument ldoc = new PdfLoadedDocument("Input.pdf");
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("HTTP Succinctly.pdf");
+
+//Get the PDF page count
+
+int count = loadedDocument.Pages.Count;
 
 //Convert each page to image file
 
-for (int i = 0; i < ldoc.Pages.Count; i++)
+for (int i = 0; i < count; i++)
 {
 
-Image image = ldoc.ExportAsImage(i);
+//Export PDF page to image
 
-//Save as image format
+Image image = loadedDocument.ExportAsImage(i);
+
+//Save the exported image
 
 image.Save("Image" + i + ".png", System.Drawing.Imaging.ImageFormat.Png);
 
@@ -1974,24 +1980,30 @@ ldoc.Close(true);
 {% highlight vb.net %}
 
 
-'Load the saved PDF as PdfLoadedDocument
+'Load the existing PDF document
 
-Dim ldoc As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("HTTP Succinctly.pdf")
+
+'Get the PDF page count
+
+Dim count As Integer = loadedDocument.Pages.Count
 
 'Convert each page to image file
 
 Dim i As Integer = 0
 
-Do While (i < ldoc.Pages.Count)
+Do While (i < count)
 
-    Dim image As Image = ldoc.ExportAsImage(i)
-	
-    'Save as image  format
-	
-    image.Save(("Image"  _+ (i + ".png")), System.Drawing.Imaging.ImageFormat.Png)
-	
-    i = (i + 1)
-	
+'Export PDF page to image
+
+Dim image As Image = loadedDocument.ExportAsImage(i)
+
+'Save the exported image
+
+image.Save(("Image"  _+ (i + ".png")), System.Drawing.Imaging.ImageFormat.Png)
+
+i = (i + 1)
+
 Loop
 
 'Close the document
