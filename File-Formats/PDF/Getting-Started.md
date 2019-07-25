@@ -285,31 +285,34 @@ else
 The following code example shows how to create a PDF document with a simple table.
 {% tabs %}
 {% highlight c# %}
-//Create a new PDF document.
+//Create a new PDF document
 PdfDocument doc = new PdfDocument();
-//Add a page.
+//Add a page
 PdfPage page = doc.Pages.Add();
-//Create a PdfGrid.
+//Create a PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
-//Create a DataTable.
+//Create a DataTable
 DataTable dataTable = new DataTable();
 //Add columns to the DataTable
-dataTable.Columns.Add("ID");
-dataTable.Columns.Add("Name");
-//Add rows to the DataTable.
-dataTable.Rows.Add(new object[] { "E01", "Clay" });
-dataTable.Rows.Add(new object[] { "E02", "Thomas" });
-dataTable.Rows.Add(new object[] { "E03", "Andrew" });
-dataTable.Rows.Add(new object[] { "E04", "Paul" });
-dataTable.Rows.Add(new object[] { "E05", "Gary" });
-//Assign data source.
+dataTable.Columns.Add("ProductID");
+dataTable.Columns.Add("ProductName");
+dataTable.Columns.Add("Quantity");
+dataTable.Columns.Add("UnitPrice");
+dataTable.Columns.Add("Discount");
+dataTable.Columns.Add("Price");
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "CA-1098", "Queso Cabrales", "12", "14", "1", "167" });
+dataTable.Rows.Add(new object[] { "LJ-0192-M", "Singaporean Hokkien Fried Mee", "10", "20", "3", "197" });
+dataTable.Rows.Add(new object[] { "SO-B909-M", "Mozzarella di Giovanni", "15", "65", "10", "956"});
+//Assign data source
 pdfGrid.DataSource = dataTable;
-//Draw grid to the page of PDF document.
+//Draw grid to the page of PDF document
 pdfGrid.Draw(page, new PointF(10, 10));
-//Save the document.
+//Save the document
 doc.Save("Output.pdf");
-//close the document
+//Close the document
 doc.Close(true);
+
 {% endhighlight %}
 
 {% highlight vb.net %}
@@ -322,48 +325,50 @@ Dim pdfGrid As New PdfGrid()
 'Create a DataTable.
 Dim dataTable As New DataTable()
 'Add columns to the DataTable
-dataTable.Columns.Add("ID")
-dataTable.Columns.Add("Name")
-'Add rows to the DataTable.
-dataTable.Rows.Add(New Object() {"E01", "Clay"})
-dataTable.Rows.Add(New Object() {"E02", "Thomas"})
-dataTable.Rows.Add(New Object() {"E03", "Andrew"})
-dataTable.Rows.Add(New Object() {"E04", "Paul"})
-dataTable.Rows.Add(New Object() {"E05", "Gary"})
-'Assign data source.
+dataTable.Columns.Add("ProductID")
+dataTable.Columns.Add("ProductName")
+dataTable.Columns.Add("Quantity")
+dataTable.Columns.Add("UnitPrice")
+dataTable.Columns.Add("Discount")
+dataTable.Columns.Add("Price")
+'Add rows to the DataTable
+dataTable.Rows.Add(New Object() {"CA-1098", "Queso Cabrales", "12", "14", "1", "167"})
+dataTable.Rows.Add(New Object() {"LJ-0192-M", "Singaporean Hokkien Fried Mee", "10", "20", "3", "197"})
+dataTable.Rows.Add(New Object() {"SO-B909-M", "Mozzarella di Giovanni", "15", "65", "10", "956"})
+'Assign data source
 pdfGrid.DataSource = dataTable
-'Draw grid to the page of PDF document.
+'Draw grid to the page of PDF document
 pdfGrid.Draw(page, New PointF(10, 10))
-'Save the document.
+'Save the document
 doc.Save("Output.pdf")
-'close the document
-doc.Close(True)
+'Close the document
+doc.Close(true)
+
 {% endhighlight %}
 
 {% highlight UWP %}
-//Create a new PDF document.
+///Create a new PDF document
 PdfDocument doc = new PdfDocument();
-//Add a page.
+//Add a page
 PdfPage page = doc.Pages.Add();
-//Create a PdfGrid.
+//Create a PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
-//Add values to list
-List<object> data = new List<object>();
-Object row1 = new { ID = "E01", Name = "Clay" };
-Object row2 = new { ID = "E02", Name = "Thomas" };
-Object row3 = new { ID = "E03", Name = "Andrew" };
-Object row4 = new { ID = "E04", Name = "Paul" };
-Object row5 = new { ID = "E05", Name = "Gray" };
-data.Add(row1);
-data.Add(row2);
-data.Add(row3);
-data.Add(row4);
-data.Add(row5);
-//Add list to IEnumerable
-IEnumerable<object> dataTable = data;
-//Assign data source.
+//Create a DataTable
+DataTable dataTable = new DataTable();
+//Add columns to the DataTable
+dataTable.Columns.Add("ProductID");
+dataTable.Columns.Add("ProductName");
+dataTable.Columns.Add("Quantity");
+dataTable.Columns.Add("UnitPrice");
+dataTable.Columns.Add("Discount");
+dataTable.Columns.Add("Price");
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "CA-1098", "Queso Cabrales", "12", "14", "1", "167" });
+dataTable.Rows.Add(new object[] { "LJ-0192-M", "Singaporean Hokkien Fried Mee", "10", "20", "3", "197" });
+dataTable.Rows.Add(new object[] { "SO-B909-M", "Mozzarella di Giovanni", "15", "65", "10", "956"});
+//Assign data source
 pdfGrid.DataSource = dataTable;
-//Draw grid to the page of PDF document.
+//Draw grid to the page of PDF document
 pdfGrid.Draw(page, new PointF(10, 10));
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
@@ -375,30 +380,29 @@ Save(stream, "Output.pdf");
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//Create a new PDF document.
+//Create a new PDF document
 PdfDocument doc = new PdfDocument();
-//Add a page.
+//Add a page
 PdfPage page = doc.Pages.Add();
-//Create a PdfGrid.
+//Create a PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
-//Add values to list
-List<object> data = new List<object>();
-Object row1 = new { ID = "E01", Name = "Clay" };
-Object row2 = new { ID = "E02", Name = "Thomas" };
-Object row3 = new { ID = "E03", Name = "Andrew" };
-Object row4 = new { ID = "E04", Name = "Paul" };
-Object row5 = new { ID = "E05", Name = "Gray" };
-data.Add(row1);
-data.Add(row2);
-data.Add(row3);
-data.Add(row4);
-data.Add(row5);
-//Add list to IEnumerable
-IEnumerable<object> dataTable = data;
-//Assign data source.
+//Create a DataTable
+DataTable dataTable = new DataTable();
+//Add columns to the DataTable
+dataTable.Columns.Add("ProductID");
+dataTable.Columns.Add("ProductName");
+dataTable.Columns.Add("Quantity");
+dataTable.Columns.Add("UnitPrice");
+dataTable.Columns.Add("Discount");
+dataTable.Columns.Add("Price");
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "CA-1098", "Queso Cabrales", "12", "14", "1", "167" });
+dataTable.Rows.Add(new object[] { "LJ-0192-M", "Singaporean Hokkien Fried Mee", "10", "20", "3", "197" });
+dataTable.Rows.Add(new object[] { "SO-B909-M", "Mozzarella di Giovanni", "15", "65", "10", "956"});
+//Assign data source
 pdfGrid.DataSource = dataTable;
-//Draw grid to the page of PDF document.
-pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+//Draw grid to the page of PDF document
+pdfGrid.Draw(page, new PointF(10, 10));
 //Save the PDF document to stream
 MemoryStream stream = new MemoryStream();
 doc.Save(stream);
@@ -415,29 +419,28 @@ return File(stream, contentType, fileName);
 {% endhighlight %}
 
 {% highlight Xamarin %}
-//Create a new PDF document.
+//Create a new PDF document
 PdfDocument doc = new PdfDocument();
-//Add a page.
+//Add a page
 PdfPage page = doc.Pages.Add();
-//Create a PdfGrid.
+//Create a PdfGrid
 PdfGrid pdfGrid = new PdfGrid();
-//Add values to list
-List<object> data = new List<object>();
-Object row1 = new { ID = "E01", Name = "Clay" };
-Object row2 = new { ID = "E02", Name = "Thomas" };
-Object row3 = new { ID = "E03", Name = "Andrew" };
-Object row4 = new { ID = "E04", Name = "Paul" };
-Object row5 = new { ID = "E05", Name = "Gray" };
-data.Add(row1);
-data.Add(row2);
-data.Add(row3);
-data.Add(row4);
-data.Add(row5);
-//Add list to IEnumerable
-IEnumerable<object> dataTable = data;
-//Assign data source.
+//Create a DataTable
+DataTable dataTable = new DataTable();
+//Add columns to the DataTable
+dataTable.Columns.Add("ProductID");
+dataTable.Columns.Add("ProductName");
+dataTable.Columns.Add("Quantity");
+dataTable.Columns.Add("UnitPrice");
+dataTable.Columns.Add("Discount");
+dataTable.Columns.Add("Price");
+//Add rows to the DataTable
+dataTable.Rows.Add(new object[] { "CA-1098", "Queso Cabrales", "12", "14", "1", "167" });
+dataTable.Rows.Add(new object[] { "LJ-0192-M", "Singaporean Hokkien Fried Mee", "10", "20", "3", "197" });
+dataTable.Rows.Add(new object[] { "SO-B909-M", "Mozzarella di Giovanni", "15", "65", "10", "956"});
+//Assign data source
 pdfGrid.DataSource = dataTable;
-//Draw grid to the page of PDF document.
+//Draw grid to the page of PDF document
 pdfGrid.Draw(page, new PointF(10, 10));
 //Save the PDF document to stream.
 MemoryStream stream = new MemoryStream();
@@ -581,7 +584,7 @@ page.Graphics.DrawImage(image, new RectangleF(176, 0, 390, 130));
 
 {% endtabs %}
 
-The following methods can be used to add text to a PDF document.
+The following methods can be used to add text to a PDF document:
 
 1. [DrawString()](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics~DrawString.html) method of the [PdfGraphics](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfGraphics.html)
 2. [PdfTextElement](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Graphics.PdfTextElement.html) class.
@@ -593,68 +596,52 @@ The following code example adds the necessary text such as address, invoice numb
 
 {% highlight c# %}
 
-PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
-RectangleF bounds = new RectangleF(0, result.Bounds.Bottom + 90, graphics.ClientSize.Width, 30);
-//Draws a rectangle to place the heading in that region.
-graphics.DrawRectangle(solidBrush, bounds);
-//Creates a font for adding the heading in the page
+PdfLayoutResult result = new PdfLayoutResult(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 95));
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
-//Creates a text element to add the invoice number
-PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
+//Draw Rectangle place on location
+g.DrawRectangle(new PdfSolidBrush(new PdfColor(126, 151, 173)), new RectangleF(0, result.Bounds.Bottom + 40, g.ClientSize.Width, 30));
+element = new PdfTextElement("INVOICE " + 10248, subHeadingFont);
 element.Brush = PdfBrushes.White;
-
-//Draws the heading on the page
-result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 98));
+result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 48));
 string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
-//Measures the width of the text to place it in the correct location
 SizeF textSize = subHeadingFont.MeasureString(currentDate);
-PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
-//Draws the date by using DrawString method
-graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
-PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
-//Creates text elements to add the address and draw it to the page.
-element = new PdfTextElement("BILL TO ", timesRoman);
+g.DrawString(currentDate, subHeadingFont, element.Brush, new PointF(g.ClientSize.Width - textSize.Width - 10, result.Bounds.Y));
+
+//Draw Bill header
+element = new PdfTextElement("BILL TO ", new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
 result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
-PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
-PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
-PointF endPoint = new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3);
-//Draws a line at the bottom of the address
-graphics.DrawLine(linePen, startPoint, endPoint);
+//Draw Bill address
+element = new PdfTextElement(string.Format("{0}, {1}, {2}", "Vins et alcools Chevalier", "\n59 rue de l'Abbaye ", " Reims, France"), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, g.ClientSize.Width / 2, 100));
+//Draw Bill line
+g.DrawLine(new PdfPen(new PdfColor(126, 151, 173), 0.70f), new PointF(0, result.Bounds.Bottom + 3), new PointF(g.ClientSize.Width, result.Bounds.Bottom + 3));
+
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
-
-Dim solidBrush As PdfBrush = New PdfSolidBrush(New PdfColor(126, 151, 173))
-Dim bounds As New RectangleF(0, result.Bounds.Bottom + 90, graphics.ClientSize.Width, 30)
-'Draws a rectangle to place the heading in that region.
-graphics.DrawRectangle(solidBrush, bounds)
-'Create a font for adding the heading in the page
 Dim subHeadingFont As PdfFont = New PdfStandardFont(PdfFontFamily.TimesRoman, 14)
-'Creates a text element to add the invoice number
-Dim element As New PdfTextElement("INVOICE " + id.ToString(), subHeadingFont)
+'Draw Rectangle place on location
+g.DrawRectangle(New PdfSolidBrush(New PdfColor(126, 151, 173)), New RectangleF(0, (result.Bounds.Bottom + 40), g.ClientSize.Width, 30))
+element = New PdfTextElement(("INVOICE " + 10248), subHeadingFont)
 element.Brush = PdfBrushes.White
-
-'Draws the heading on the page
-result = element.Draw(page, New PointF(10, result.Bounds.Bottom + 98))
-Dim currentDate As String = "DATE " + DateTime.Now.ToString("MM/dd/yyyy")
-'Measures the width of the text to place it in the correct location
+result = element.Draw(page, New PointF(10, (result.Bounds.Bottom + 48)))
+Dim currentDate As String = ("DATE " + DateTime.Now.ToString("MM/dd/yyyy"))
 Dim textSize As SizeF = subHeadingFont.MeasureString(currentDate)
-Dim textPosition As New PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y)
-'Draws the date by using DrawString method
-graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition)
-Dim timesRoman As PdfFont = New PdfStandardFont(PdfFontFamily.TimesRoman, 10)
-'Creates text elements to add the address and draw it to the page.
-element = New PdfTextElement("BILL TO ", timesRoman)
+g.DrawString(currentDate, subHeadingFont, element.Brush, New PointF((g.ClientSize.Width - (textSize.Width - 10)), result.Bounds.Y))
+'Draw Bill header
+element = New PdfTextElement("BILL TO ", New PdfStandardFont(PdfFontFamily.TimesRoman, 10))
 element.Brush = New PdfSolidBrush(New PdfColor(126, 155, 203))
-result = element.Draw(page, New PointF(10, result.Bounds.Bottom + 25))
-Dim linePen As New PdfPen(New PdfColor(126, 151, 173), 0.7F)
-Dim startPoint As New PointF(0, result.Bounds.Bottom + 3)
-Dim endPoint As New PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3)
-'Draws a line at the bottom of the address
-graphics.DrawLine(linePen, startPoint, endPoint)
+result = element.Draw(page, New PointF(10, (result.Bounds.Bottom + 25)))
+'Draw Bill address
+element = New PdfTextElement(String.Format("{0}, {1}, {2}", "Vins et alcools Chevalier", ""& vbLf&"59 rue de l'Abbaye ", " Reims, France"), New PdfStandardFont(PdfFontFamily.TimesRoman, 10))
+element.Brush = New PdfSolidBrush(New PdfColor(89, 89, 93))
+result = element.Draw(page, New RectangleF(10, (result.Bounds.Bottom + 3), (g.ClientSize.Width / 2), 100))
+'Draw Bill line
+g.DrawLine(New PdfPen(New PdfColor(126, 151, 173), 0.7!), New PointF(0, (result.Bounds.Bottom + 3)), New PointF(g.ClientSize.Width, (result.Bounds.Bottom + 3)))
 
 
 
@@ -662,100 +649,82 @@ graphics.DrawLine(linePen, startPoint, endPoint)
 
 {% highlight UWP %}
 
-PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
-RectangleF bounds = new RectangleF(0, result.Bounds.Bottom + 90, graphics.ClientSize.Width, 30);
-//Draws a rectangle to place the heading in that region.
-graphics.DrawRectangle(solidBrush, bounds);
-//Creates a font for adding the heading in the page
+PdfLayoutResult result = new PdfLayoutResult(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 95));
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
-//Creates a text element to add the invoice number
-PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
+//Draw Rectangle place on location
+g.DrawRectangle(new PdfSolidBrush(new PdfColor(126, 151, 173)), new RectangleF(0, result.Bounds.Bottom + 40, g.ClientSize.Width, 30));
+element = new PdfTextElement("INVOICE " + 10248, subHeadingFont);
 element.Brush = PdfBrushes.White;
-
-//Draws the heading on the page
-result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 98));
+result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 48));
 string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
-//Measures the width of the text to place it in the correct location
 SizeF textSize = subHeadingFont.MeasureString(currentDate);
-PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
-//Draws the date by using DrawString method
-graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
-PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
-//Creates text elements to add the address and draw it to the page.
-element = new PdfTextElement("BILL TO ", timesRoman);
+g.DrawString(currentDate, subHeadingFont, element.Brush, new PointF(g.ClientSize.Width - textSize.Width - 10, result.Bounds.Y));
+
+//Draw Bill header
+element = new PdfTextElement("BILL TO ", new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
 result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
-PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
-PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
-PointF endPoint = new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3);
-//Draws a line at the bottom of the address
-graphics.DrawLine(linePen, startPoint, endPoint);
+//Draw Bill address
+element = new PdfTextElement(string.Format("{0}, {1}, {2}", "Vins et alcools Chevalier", "\n59 rue de l'Abbaye ", " Reims, France"), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, g.ClientSize.Width / 2, 100));
+//Draw Bill line
+g.DrawLine(new PdfPen(new PdfColor(126, 151, 173), 0.70f), new PointF(0, result.Bounds.Bottom + 3), new PointF(g.ClientSize.Width, result.Bounds.Bottom + 3));
+
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
-PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
-RectangleF bounds = new RectangleF(0, result.Bounds.Bottom + 90, graphics.ClientSize.Width, 30);
-//Draws a rectangle to place the heading in that region.
-graphics.DrawRectangle(solidBrush, bounds);
-//Creates a font for adding the heading in the page
+PdfLayoutResult result = new PdfLayoutResult(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 95));
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
-//Creates a text element to add the invoice number
-PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
+//Draw Rectangle place on location
+g.DrawRectangle(new PdfSolidBrush(new PdfColor(126, 151, 173)), new RectangleF(0, result.Bounds.Bottom + 40, g.ClientSize.Width, 30));
+element = new PdfTextElement("INVOICE " + 10248, subHeadingFont);
 element.Brush = PdfBrushes.White;
-
-//Draws the heading on the page
-result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 98));
+result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 48));
 string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
-//Measures the width of the text to place it in the correct location
 SizeF textSize = subHeadingFont.MeasureString(currentDate);
-PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
-//Draws the date by using DrawString method
-graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
-PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
-//Creates text elements to add the address and draw it to the page.
-element = new PdfTextElement("BILL TO ", timesRoman);
+g.DrawString(currentDate, subHeadingFont, element.Brush, new PointF(g.ClientSize.Width - textSize.Width - 10, result.Bounds.Y));
+
+//Draw Bill header
+element = new PdfTextElement("BILL TO ", new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
 result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
-PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
-PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
-PointF endPoint = new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3);
-//Draws a line at the bottom of the address
-graphics.DrawLine(linePen, startPoint, endPoint);
+//Draw Bill address
+element = new PdfTextElement(string.Format("{0}, {1}, {2}", "Vins et alcools Chevalier", "\n59 rue de l'Abbaye ", " Reims, France"), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, g.ClientSize.Width / 2, 100));
+//Draw Bill line
+g.DrawLine(new PdfPen(new PdfColor(126, 151, 173), 0.70f), new PointF(0, result.Bounds.Bottom + 3), new PointF(g.ClientSize.Width, result.Bounds.Bottom + 3));
+
 
 {% endhighlight %}
 
 {% highlight Xamarin %}
 
-PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
-RectangleF bounds = new RectangleF(0, result.Bounds.Bottom + 90, graphics.ClientSize.Width, 30);
-//Draws a rectangle to place the heading in that region.
-graphics.DrawRectangle(solidBrush, bounds);
-//Creates a font for adding the heading in the page
+PdfLayoutResult result = new PdfLayoutResult(page, new RectangleF(0, 0, page.Graphics.ClientSize.Width / 2, 95));
 PdfFont subHeadingFont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
-//Creates a text element to add the invoice number
-PdfTextElement element = new PdfTextElement("INVOICE " + id.ToString(), subHeadingFont);
+//Draw Rectangle place on location
+g.DrawRectangle(new PdfSolidBrush(new PdfColor(126, 151, 173)), new RectangleF(0, result.Bounds.Bottom + 40, g.ClientSize.Width, 30));
+element = new PdfTextElement("INVOICE " + 10248, subHeadingFont);
 element.Brush = PdfBrushes.White;
-
-//Draws the heading on the page
-result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 98));
+result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 48));
 string currentDate = "DATE " + DateTime.Now.ToString("MM/dd/yyyy");
-//Measures the width of the text to place it in the correct location
 SizeF textSize = subHeadingFont.MeasureString(currentDate);
-PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
-//Draws the date by using DrawString method
-graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
-PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
-//Creates text elements to add the address and draw it to the page.
-element = new PdfTextElement("BILL TO ", timesRoman);
+g.DrawString(currentDate, subHeadingFont, element.Brush, new PointF(g.ClientSize.Width - textSize.Width - 10, result.Bounds.Y));
+
+//Draw Bill header
+element = new PdfTextElement("BILL TO ", new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
 element.Brush = new PdfSolidBrush(new PdfColor(126, 155, 203));
 result = element.Draw(page, new PointF(10, result.Bounds.Bottom + 25));
-PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 0.70f);
-PointF startPoint = new PointF(0, result.Bounds.Bottom + 3);
-PointF endPoint = new PointF(graphics.ClientSize.Width, result.Bounds.Bottom + 3);
-//Draws a line at the bottom of the address
-graphics.DrawLine(linePen, startPoint, endPoint);
+//Draw Bill address
+element = new PdfTextElement(string.Format("{0}, {1}, {2}", "Vins et alcools Chevalier", "\n59 rue de l'Abbaye ", " Reims, France"), new PdfStandardFont(PdfFontFamily.TimesRoman, 10));
+element.Brush = new PdfSolidBrush(new PdfColor(89, 89, 93));
+result = element.Draw(page, new RectangleF(10, result.Bounds.Bottom + 3, g.ClientSize.Width / 2, 100));
+//Draw Bill line
+g.DrawLine(new PdfPen(new PdfColor(126, 151, 173), 0.70f), new PointF(0, result.Bounds.Bottom + 3), new PointF(g.ClientSize.Width, result.Bounds.Bottom + 3));
+
 
 {% endhighlight %}
 
@@ -868,7 +837,6 @@ headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
 headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
 headerStyle.TextBrush = PdfBrushes.White;
 headerStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f, PdfFontStyle.Regular);
-
 //Adds cell customizations
 for (int i = 0; i < header.Cells.Count; i++)
 {
@@ -877,18 +845,52 @@ header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVer
 else
 header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
 }
-
 //Applies the header style
 header.ApplyStyle(headerStyle);
 cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
 cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
 cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
+foreach (PdfGridRow row in grid.Rows)
+{
+row.ApplyStyle(cellStyle);
+for (int i = 0; i < row.Cells.Count; i++)
+{
+PdfGridCell cell = row.Cells[i];
+if (i == 1)
+cell.StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+else if (i == 0)
+cell.StringFormat = new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle);
+else
+cell.StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
+
+if (i > 2)
+{
+float val = float.MinValue;
+float.TryParse(cell.Value.ToString(), out val);
+cell.Value = val.ToString("C");
+}
+}
+}
+
+grid.Columns[0].Width = 100;
+grid.Columns[1].Width = 200;
 //Creates the layout format for grid
 PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
-// Creates layout format settings to allow the table pagination
+//Creates layout format settings to allow the table pagination
 layoutFormat.Layout = PdfLayoutType.Paginate;
-//Draws the grid to the PDF page.
+//Draws the grid to the PDF page
 PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(g.ClientSize.Width, g.ClientSize.Height - 100)), layoutFormat);
+float pos = 0.0f;
+for (int i = 0; i < grid.Columns.Count - 1; i++)
+pos += grid.Columns[i].Width;
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f);
+
+gridResult.Page.Graphics.DrawString("Total Due", font, new PdfSolidBrush(new PdfColor(126, 151, 173)), new RectangleF(new PointF(pos, gridResult.Bounds.Bottom + 20), new SizeF(grid.Columns[3].Width - pos, 20)), new PdfStringFormat(PdfTextAlignment.Right));
+gridResult.Page.Graphics.DrawString("Thank you for your business!", new PdfStandardFont(PdfFontFamily.TimesRoman, 12), new PdfSolidBrush(new PdfColor(89, 89, 93)), new PointF(pos - 55, gridResult.Bounds.Bottom + 60));
+pos += grid.Columns[4].Width;
+gridResult.Page.Graphics.DrawString(total.ToString("C"), font, new PdfSolidBrush(new PdfColor(131, 130, 136)), new RectangleF(new PointF(pos, gridResult.Bounds.Bottom + 20), new SizeF(grid.Columns[4].Width - pos, 20)), new PdfStringFormat(PdfTextAlignment.Right));
+
 
 {% endhighlight %}
 
@@ -911,7 +913,6 @@ headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
 headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
 headerStyle.TextBrush = PdfBrushes.White;
 headerStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f, PdfFontStyle.Regular);
-
 //Adds cell customizations
 for (int i = 0; i < header.Cells.Count; i++)
 {
@@ -920,18 +921,52 @@ header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVer
 else
 header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
 }
-
 //Applies the header style
 header.ApplyStyle(headerStyle);
 cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
 cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
 cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
+foreach (PdfGridRow row in grid.Rows)
+{
+row.ApplyStyle(cellStyle);
+for (int i = 0; i < row.Cells.Count; i++)
+{
+PdfGridCell cell = row.Cells[i];
+if (i == 1)
+cell.StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+else if (i == 0)
+cell.StringFormat = new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle);
+else
+cell.StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
+
+if (i > 2)
+{
+float val = float.MinValue;
+float.TryParse(cell.Value.ToString(), out val);
+cell.Value = val.ToString("C");
+}
+}
+}
+
+grid.Columns[0].Width = 100;
+grid.Columns[1].Width = 200;
 //Creates the layout format for grid
 PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
-// Creates layout format settings to allow the table pagination
+//Creates layout format settings to allow the table pagination
 layoutFormat.Layout = PdfLayoutType.Paginate;
-//Draws the grid to the PDF page.
+//Draws the grid to the PDF page
 PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(g.ClientSize.Width, g.ClientSize.Height - 100)), layoutFormat);
+float pos = 0.0f;
+for (int i = 0; i < grid.Columns.Count - 1; i++)
+pos += grid.Columns[i].Width;
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f);
+
+gridResult.Page.Graphics.DrawString("Total Due", font, new PdfSolidBrush(new PdfColor(126, 151, 173)), new RectangleF(new PointF(pos, gridResult.Bounds.Bottom + 20), new SizeF(grid.Columns[3].Width - pos, 20)), new PdfStringFormat(PdfTextAlignment.Right));
+gridResult.Page.Graphics.DrawString("Thank you for your business!", new PdfStandardFont(PdfFontFamily.TimesRoman, 12), new PdfSolidBrush(new PdfColor(89, 89, 93)), new PointF(pos - 55, gridResult.Bounds.Bottom + 60));
+pos += grid.Columns[4].Width;
+gridResult.Page.Graphics.DrawString(total.ToString("C"), font, new PdfSolidBrush(new PdfColor(131, 130, 136)), new RectangleF(new PointF(pos, gridResult.Bounds.Bottom + 20), new SizeF(grid.Columns[4].Width - pos, 20)), new PdfStringFormat(PdfTextAlignment.Right));
+
 
 {% endhighlight %}
 
@@ -954,7 +989,6 @@ headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
 headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
 headerStyle.TextBrush = PdfBrushes.White;
 headerStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f, PdfFontStyle.Regular);
-
 //Adds cell customizations
 for (int i = 0; i < header.Cells.Count; i++)
 {
@@ -963,18 +997,52 @@ header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVer
 else
 header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
 }
-
 //Applies the header style
 header.ApplyStyle(headerStyle);
 cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
 cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 12f);
 cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
+foreach (PdfGridRow row in grid.Rows)
+{
+row.ApplyStyle(cellStyle);
+for (int i = 0; i < row.Cells.Count; i++)
+{
+PdfGridCell cell = row.Cells[i];
+if (i == 1)
+cell.StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+else if (i == 0)
+cell.StringFormat = new PdfStringFormat(PdfTextAlignment.Center, PdfVerticalAlignment.Middle);
+else
+cell.StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
+
+if (i > 2)
+{
+float val = float.MinValue;
+float.TryParse(cell.Value.ToString(), out val);
+cell.Value = val.ToString("C");
+}
+}
+}
+
+grid.Columns[0].Width = 100;
+grid.Columns[1].Width = 200;
 //Creates the layout format for grid
 PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
-// Creates layout format settings to allow the table pagination
+//Creates layout format settings to allow the table pagination
 layoutFormat.Layout = PdfLayoutType.Paginate;
-//Draws the grid to the PDF page.
+//Draws the grid to the PDF page
 PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 40), new SizeF(g.ClientSize.Width, g.ClientSize.Height - 100)), layoutFormat);
+float pos = 0.0f;
+for (int i = 0; i < grid.Columns.Count - 1; i++)
+pos += grid.Columns[i].Width;
+
+PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 14f);
+
+gridResult.Page.Graphics.DrawString("Total Due", font, new PdfSolidBrush(new PdfColor(126, 151, 173)), new RectangleF(new PointF(pos, gridResult.Bounds.Bottom + 20), new SizeF(grid.Columns[3].Width - pos, 20)), new PdfStringFormat(PdfTextAlignment.Right));
+gridResult.Page.Graphics.DrawString("Thank you for your business!", new PdfStandardFont(PdfFontFamily.TimesRoman, 12), new PdfSolidBrush(new PdfColor(89, 89, 93)), new PointF(pos - 55, gridResult.Bounds.Bottom + 60));
+pos += grid.Columns[4].Width;
+gridResult.Page.Graphics.DrawString(total.ToString("C"), font, new PdfSolidBrush(new PdfColor(131, 130, 136)), new RectangleF(new PointF(pos, gridResult.Bounds.Bottom + 20), new SizeF(grid.Columns[4].Width - pos, 20)), new PdfStringFormat(PdfTextAlignment.Right));
+
 
 {% endhighlight %}
 
