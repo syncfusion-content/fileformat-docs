@@ -347,4 +347,4 @@ By executing the program, you will get the **PowerPoint document** as follows.
 
 N> Even though PowerPoint library works in client-side, it is recommended to use server-side deployment. Since the client-side deployment increases the application payload size.
 
-Kindly explore the [supported and unsupported features of PowerPoint library in Blazor](https://help.syncfusion.com/file-formats/presentation/supported-and-unsupported-features) for the features are supported by PowerPoint presentation in Blazor.
+Kindly explore the [supported and unsupported features of PowerPoint library in Blazor](https://help.syncfusion.com/file-formats/presentation/supported-and-unsupported-features).
