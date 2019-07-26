@@ -373,4 +373,4 @@ By executing the program, you will get the **Word document** as follows.
 
 N> Even though Word library works in client-side, it is recommended to use server-side deployment. Since the client-side deployment increases the application payload size.
 
-Kindly refer [here](https://help.syncfusion.com/file-formats/docio/supported-and-unsupported-features#blazor-supported-features) for the features are supported by DocIO in Blazor.
+Kindly explore the [supported and unsupported features of Word library in Blazor](https://help.syncfusion.com/file-formats/docio/supported-and-unsupported-features#blazor-supported-features)
