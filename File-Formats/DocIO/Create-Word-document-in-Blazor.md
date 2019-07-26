@@ -41,6 +41,8 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 ![Install DocIO.NET Core NuGet Package](Blazor_Images/Install_Nuget.png)
 
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+
 5.Add the following namespace in the **Index.razor** to **create a Word document** from the scratch.
 
 {% tabs %}
@@ -194,3 +196,181 @@ public static class FileUtil
 By executing the program, you will get the **Word document** as follows.
 
 ![Blazor Server-side output Word document](Blazor_Images/Blazor_Output.png)
+
+## Client-side application
+
+1.Create a new project.
+
+![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Create.png)
+
+2.Select ASP.NET Core Web Application and click Next.
+
+![Create a project name for your new project](Blazor_Images/Blazor_Configure.png)
+
+3.Select **.NET Core, ASP.NET Core 3.0** and **Blazor (client-side)**.
+
+![Select .NET Core, ASP.NET Core 3.0 and Blazor Client side.](Blazor_Images/Select_Client.png)
+
+4.To **create a Word document in client-side application**, install [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) to the Blazor project.
+
+![Install DocIO.NET Core NuGet Package](Blazor_Images/Install_Nuget.png)
+
+N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
+
+5.Add the following namespace in the Index.razor to **create a Word document** from the scratch.
+
+{% tabs %}
+
+{% highlight c# %}
+
+@using Syncfusion.DocIO;
+@using Syncfusion.DocIO.DLS;
+@using System.IO;
+
+{% endhighlight %}
+
+{% endtabs %}
+
+6.Add a button and hook the click event function.
+
+{% tabs %}
+
+{% highlight HTML %}
+
+<button class="btn btn-primary" onclick="@CreateWord">Create Word</button>
+
+{% endhighlight %}
+
+{% endtabs %}
+
+7.Add the following code to **create a Word document in Blazor**.
+
+{% tabs %}
+
+{% highlight c# %}
+
+@functions {
+
+    void CreateWord()
+    {
+        // Creating a new document.
+        WordDocument document = new WordDocument();
+        //Adding a new section to the document.
+        WSection section = document.AddSection() as WSection;
+        //Set Margin of the section
+        section.PageSetup.Margins.All = 72;
+        //Set page size of the section
+        section.PageSetup.PageSize = new Syncfusion.Drawing.SizeF(612, 792);
+
+        //Create Paragraph styles
+        WParagraphStyle style = document.AddParagraphStyle("Normal") as WParagraphStyle;
+        style.CharacterFormat.FontName = "Calibri";
+        style.CharacterFormat.FontSize = 11f;
+        style.ParagraphFormat.BeforeSpacing = 0;
+        style.ParagraphFormat.AfterSpacing = 8;
+        style.ParagraphFormat.LineSpacing = 13.8f;
+
+        style = document.AddParagraphStyle("Heading 1") as WParagraphStyle;
+        style.ApplyBaseStyle("Normal");
+        style.CharacterFormat.FontName = "Calibri Light";
+        style.CharacterFormat.FontSize = 16f;
+        style.CharacterFormat.TextColor = Syncfusion.Drawing.Color.FromArgb(46, 116, 181);
+        style.ParagraphFormat.BeforeSpacing = 12;
+        style.ParagraphFormat.AfterSpacing = 0;
+        style.ParagraphFormat.Keep = true;
+        style.ParagraphFormat.KeepFollow = true;
+        style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
+        IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
+
+        paragraph.ApplyStyle("Normal");
+        paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Left;
+        WTextRange textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
+        textRange.CharacterFormat.FontSize = 12f;
+        textRange.CharacterFormat.FontName = "Calibri";
+        textRange.CharacterFormat.TextColor = Syncfusion.Drawing.Color.Red;
+
+        //Appends paragraph.
+        paragraph = section.AddParagraph();
+        paragraph.ApplyStyle("Heading 1");
+        paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
+        textRange = paragraph.AppendText("Adventure Works Cycles") as WTextRange;
+        textRange.CharacterFormat.FontSize = 18f;
+        textRange.CharacterFormat.FontName = "Calibri";
+	
+        //Appends paragraph.
+        paragraph = section.AddParagraph();
+        paragraph.ParagraphFormat.FirstLineIndent = 36;
+        paragraph.BreakCharacterFormat.FontSize = 12f;
+        textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
+        textRange.CharacterFormat.FontSize = 12f;
+
+        //Appends paragraph.
+        paragraph = section.AddParagraph();
+        paragraph.ParagraphFormat.FirstLineIndent = 36;
+        paragraph.BreakCharacterFormat.FontSize = 12f;
+        textRange = paragraph.AppendText("In 2000, AdventureWorks Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the AdventureWorks Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.") as WTextRange;
+        textRange.CharacterFormat.FontSize = 12f;
+
+        //Saves the Word document to  MemoryStream
+        MemoryStream stream = new MemoryStream();
+        document.Save(stream, FormatType.Docx);
+        //Closes the Word document
+        document.Close();
+        stream.Position = 0;
+
+        //Download the Word document in the browser.
+	JS.SaveAs("Sample.docx", stream.ToArray());
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+8.Create a class file with FileUtil name and add the following code to invoke the JavaScript action to download the file in the browser.
+
+{% tabs %}
+
+{% highlight c# %}
+
+public static class FileUtil
+{
+    public static Task SaveAs(this IJSRuntime js, string filename, byte[] data)
+       => js.InvokeAsync<object>(
+           "saveAsFile",
+           filename,
+           Convert.ToBase64String(data));
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+9.Add the following JavaScript function in the Index.html.
+
+{% tabs %}
+
+{% highlight HTML %}
+
+<script type="text/javascript">
+    function saveAsFile(filename, bytesBase64) {
+        var link = document.createElement('a');
+        link.download = filename;
+        link.href = "data:application/octet-stream;base64," + bytesBase64;
+        document.body.appendChild(link); // Needed for Firefox
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+
+{% endhighlight %}
+
+{% endtabs %}
+
+By executing the program, you will get the **Word document** as follows.
+
+![Blazor Client-side output Word document](Blazor_Images/Blazor_Output.png)
+
+N> Even though Word library works in client-side, it is recommended to use server-side deployment. Since the client-side deployment increases the application payload size.
+
+Kindly explore the [supported and unsupported features of Word library in Blazor](https://help.syncfusion.com/file-formats/docio/supported-and-unsupported-features#blazor-supported-features)
