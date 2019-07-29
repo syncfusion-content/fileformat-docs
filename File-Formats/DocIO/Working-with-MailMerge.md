@@ -117,6 +117,54 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Creates an instance of a WordDocument 
+
+WordDocument document = new WordDocument();
+
+//Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+//Sets page margins to the last section of the document
+
+document.LastSection.PageSetup.Margins.All = 72;
+
+//Appends text to the last paragraph.
+
+document.LastParagraph.AppendText("EmployeeId: ");
+
+//Appends merge field to the last paragraph.
+
+document.LastParagraph.AppendField("EmployeeId", FieldType.FieldMergeField);
+
+document.LastParagraph.AppendText("\nName: ");
+
+document.LastParagraph.AppendField("Name", FieldType.FieldMergeField);
+
+document.LastParagraph.AppendText("\nPhone: ");
+
+document.LastParagraph.AppendField("Phone", FieldType.FieldMergeField);
+
+document.LastParagraph.AppendText("\nCity: ");
+
+document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Template.docx");
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 The generated template document looks as follows.
@@ -168,6 +216,36 @@ document.MailMerge.Execute(fieldNames, fieldValues)
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens the template document.
+
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City" };
+
+string[] fieldValues = new string[] { "1001", "Peter", "+122-2222222", "London" };
+
+//Performs the mail merge.
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Sample.docx");
 
 {% endhighlight %}
 
@@ -553,6 +631,60 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Creates an instance of the MailMergeDataSet.
+
+MailMergeDataSet dataSet = new MailMergeDataSet();
+
+//Creates the mail merge data table in order to perform mail merge
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Customers", GetCustomers());
+
+dataSet.Add(dataTable);
+
+dataTable = new MailMergeDataTable("Orders", GetOrders());
+
+dataSet.Add(dataTable);
+
+List<DictionaryEntry> commands = new List<DictionaryEntry>();
+
+// DictionaryEntry contain "Source table" (key) and "Command" (value).
+
+DictionaryEntry entry = new DictionaryEntry("Customers", string.Empty);
+
+commands.Add(entry);
+
+//Retrieves the customer details
+
+entry = new DictionaryEntry("Orders", "CustomerID = %Customers.CustomerID%");
+
+commands.Add(entry);
+
+//Performs the mail merge operation with the dynamic collection
+
+document.MailMerge.ExecuteNestedGroup(dataSet, commands);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Sample.docx");
+
 {% endhighlight %}  
 
 {% endtabs %}  
@@ -688,7 +820,75 @@ Return dynamicOrder
 End Function
 
 
-{% endhighlight %}  
+{% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+private List<ExpandoObject> GetCustomers()
+
+{
+
+List<ExpandoObject> customers = new List<ExpandoObject>();
+
+customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"));
+
+customers.Add(GetDynamicCustomer(102, "John", "Syncfusion"));
+
+customers.Add(GetDynamicCustomer(110,"David","Syncfusion"));
+
+return customers;
+
+}
+
+private List<ExpandoObject> GetOrders()
+
+{
+
+List<ExpandoObject> orders = new List<ExpandoObject>();
+
+orders.Add(GetDynamicOrder(1001, "MSWord", 100));
+
+orders.Add(GetDynamicOrder(1002, "AdobeReader", 100));      
+
+orders.Add(GetDynamicOrder(1003, "VisualStudio", 102));
+
+return orders;
+
+}
+
+private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
+
+{
+
+dynamic dynamicCustomer = new ExpandoObject();
+
+dynamicCustomer.CustomerID = customerID;
+
+dynamicCustomer.CustomerName = customerName;
+
+dynamicCustomer.CompanyName = companyName;
+
+return dynamicCustomer;
+
+}
+
+private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
+
+{
+
+dynamic dynamicOrder = new ExpandoObject();
+
+dynamicOrder.OrderID = orderID;
+
+dynamicOrder.OrderName = orderName;
+
+dynamicOrder.CustomerID = customerID;
+
+return dynamicOrder;
+
+}
+
+{% endhighlight %} 
 
 {% endtabs %}  
 
@@ -747,6 +947,40 @@ document.MailMerge.ExecuteGroup(dataTable)
 document.Save("Result.docx")
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Gets the employee details as “IEnumerable” collection
+
+List<Employee> employeeList = GetEmployees();
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+
+//Performs Mail merge
+
+document.MailMerge.ExecuteGroup(dataTable);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %} 
 
@@ -1013,6 +1247,74 @@ End Class
 
 {% endhighlight %} 
 
+{% highlight ASP.NET CORE %}
+
+public List<Employee> GetEmployees()
+
+{
+
+List<Employee> employees = new List<Employee>();
+
+employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
+
+employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+
+employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
+
+employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+
+employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+
+return employees;
+
+}
+
+public class Employee
+
+{
+
+public string FirstName { get; set; }
+
+public string LastName { get; set; }
+
+public string Address { get; set; }
+
+public string City { get; set; }
+
+public string Region { get; set; }
+
+public string Country { get; set; }
+
+public string Title { get; set; }
+
+public Image Photo { get; set; }
+
+public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+
+{
+
+FirstName = firstName;
+
+LastName = lastName;
+
+Title = title;
+
+Address = address;
+
+City = city;
+
+Region = region;
+
+Country = country;
+
+Photo = Image.FromFile(photoFilePath);
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
  
 ## Performing Nested Mail merge with relational data objects
@@ -1079,6 +1381,40 @@ document.MailMerge.ExecuteNestedGroup(dataTable)
 document.Save("Result.docx")
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Gets the employee details as “IEnumerable” collection
+
+List<Employees> employeeList = GetEmployees();
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+
+//Performs Mail merge
+
+document.MailMerge.ExecuteNestedGroup(dataTable);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
@@ -1582,6 +1918,130 @@ End Class
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+public static List<Employees> GetEmployees()
+
+{
+
+List<OrderDetails> orders = new List<OrderDetails>();
+
+orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+
+orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
+
+CustomerDetails customers = new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders);
+
+List<Employees> employees = new List<Employees>();
+
+employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers));
+
+return employees;
+
+}
+
+public class Employees
+
+{
+
+public string FirstName { get; set; }
+
+public string LastName { get; set; }
+
+public string EmployeeID { get; set; }
+
+public string Address { get; set; }
+
+public string City { get; set; }
+
+public string Country { get; set; }
+
+public CustomerDetails Customers { get; set; }
+
+public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, CustomerDetails customers)
+
+{
+
+FirstName = firstName;
+
+LastName = lastName;
+
+Address = address;
+
+EmployeeID = employeeId;
+
+City = city;
+
+Country = country;
+
+Customers = customers;
+
+}
+
+}
+
+public class CustomerDetails
+
+{
+
+public string ContactName { get; set; }
+
+public string CompanyName { get; set; }
+
+public string City { get; set; }
+
+public string Country { get; set; }
+
+public List<OrderDetails> Orders { get; set; }
+
+public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+
+{
+
+ContactName = contactName;
+
+CompanyName = companyName;
+
+City = city;
+
+Country = country;
+
+Orders = orders;
+
+}
+
+}
+
+public class OrderDetails
+
+{
+
+public string OrderID { get; set; }
+
+public DateTime OrderDate { get; set; }
+
+public DateTime ShippedDate { get; set; }
+
+public DateTime RequiredDate { get; set; }
+
+public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+
+{
+
+OrderID = orderId;
+
+OrderDate = orderDate;
+
+ShippedDate = shippedDate;
+
+RequiredDate = requiredDate;
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 The resultant document looks as follows.
@@ -1646,6 +2106,36 @@ document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
 
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+ 
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);  
+
+//Uses the mail merge events to perform the conditional formatting during runtime.
+
+document.MailMerge.MergeField += new MergeFieldEventHandler(ApplyAlternateRecordsTextColor);
+
+//Executes Mail Merge with groups.
+
+document.MailMerge.Execute(GetDataTable());
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Sample.docx");
+
 {% endhighlight %} 
 
 {% endtabs %}  
@@ -1689,6 +2179,26 @@ End If
 End Sub
 
 {% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs args)
+
+{
+
+//Sets text color to the alternate mail merge record
+
+if (args.RowIndex % 2 == 0)
+
+{
+
+args.TextRange.CharacterFormat.TextColor = Color.FromArgb(255, 102, 0);
+
+}
+
+}
+
+{% endhighlight %}
 
 {% endtabs %}  
 
@@ -1753,6 +2263,38 @@ Next
 Return dataTable
 
 End Function
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+private static DataTable GetDataTable()
+
+{
+
+DataTable dataTable = new DataTable("Employee");
+
+dataTable.Columns.Add("EmployeeName");
+
+dataTable.Columns.Add("EmployeeNumber");
+
+for (int i = 0; i < 20; i++)
+
+{
+
+DataRow datarow = dataTable.NewRow();
+
+dataTable.Rows.Add(datarow);
+
+datarow[0] = "Employee" + i.ToString();
+
+datarow[1] = "Employee" + i.ToString();
+
+}
+
+return dataTable;
+
+}
 
 {% endhighlight %} 
 
@@ -1820,6 +2362,42 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Opens the template document
+
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Uses the mail merge events handler for image fields
+
+document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeField_ProductImage);
+
+//Specifies the field names and field values
+
+string[] fieldNames = new string[] { "EmployeeImage"};
+
+string[] fieldValues = new string[] { "Steven.png"};
+
+//Executes the mail merge with groups
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Sample.docx");
+
+{% endhighlight %}
+
 {% endtabs %}  
   
 The following code example shows how to bind the image from file system during Mail merge process by using MergeImageFieldEventHandler.
@@ -1875,6 +2453,36 @@ picture.Width = 100;
 End If
 
 End Sub
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
+
+{ 
+
+//Binds image from file system during mail merge
+
+if (args.FieldName == "EmployeeImage")
+
+{
+
+string ProductFileName = args.FieldValue.ToString();
+
+FileStream imageStream = new FileStream(ProductFileName, FileMode.Open, FileAccess.Read);
+
+args.ImageStream = imageStream;
+
+WPicture picture = args.Picture;
+
+picture.Height = 100;
+
+picture.Width = 100;
+
+}
+
+}
 
 {% endhighlight %}
 
@@ -1935,6 +2543,40 @@ document.MailMerge.ExecuteGroup(GetDataTable())
 document.Save("Result.docx")
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Sets “ClearFields” to true to remove empty mail merge fields from document.
+
+document.MailMerge.ClearFields = false;
+
+//Uses the mail merge event to clear the unmerged field while perform mail merge execution
+
+document.MailMerge.BeforeClearField += new BeforeClearFieldEventHandler(BeforeClearFieldEvent);
+
+//Execute mail merge
+
+document.MailMerge.ExecuteGroup(GetDataTable());
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
@@ -2038,6 +2680,58 @@ End Sub
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs args)
+
+{
+
+if (args.HasMappedFieldInDataSource)
+
+{
+
+//To check whether the mapped field has null value
+
+if (args.FieldValue == null || args.FieldValue == DBNull.Value)
+
+{
+
+//Gets the unmnerged field name.
+
+string unmergedFieldName = args.FieldName;
+
+string ownerGroup = args.GroupName;
+
+//Sets error message for unmerged fields.
+
+args.FieldValue = "Error! The value of MergeField " + unmergedFieldName + " of owner group " + ownerGroup + " is defined as Null in the data source.";
+
+}
+
+else
+
+//If field value is empty, you can set whether the unmerged merge field can be clear or not.
+
+args.ClearField = true;
+
+}
+
+else
+
+{
+
+string unmergedFieldName = args.FieldName;
+
+//Sets error message for unmerged fields, which is not found in data source.
+
+args.FieldValue = "Error! The value of MergeField " + unmergedFieldName + " is not found in the data source.";
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %} 
 
 The following code example provides supporting methods
@@ -2130,6 +2824,50 @@ End Function
 
 {% endhighlight %} 
 
+{% highlight ASP.NET CORE %}
+
+private DataTable GetDataTable()
+
+{
+
+DataTable dataTable = new DataTable("Employee");
+
+dataTable.Columns.Add("EmployeeId");
+
+dataTable.Columns.Add("City");
+
+DataRow row;
+
+row = dataTable.NewRow();
+
+row["EmployeeId"] = "1001";
+
+row["City"] = null;
+
+dataTable.Rows.Add(row);
+
+row = dataTable.NewRow();
+
+row["EmployeeId"] = "1002";
+
+row["City"] = "";
+
+dataTable.Rows.Add(row);
+
+row = dataTable.NewRow();
+
+row["EmployeeId"] = "1003";
+
+row["City"] = "London";
+
+dataTable.Rows.Add(row);
+
+return dataTable;
+
+}
+
+{% endhighlight %} 
+
 {% endtabs %}
 
 ### BeforeClearGroupField Event
@@ -2203,6 +2941,48 @@ document.MailMerge.ExecuteNestedGroup(dataTable)
 document.Save("Result.docx")
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream(@"Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Sets “ClearFields” to true to remove empty mail merge fields from document.
+
+document.MailMerge.ClearFields = false;
+
+//Uses the mail merge event to clear the unmerged group field while perform mail merge execution
+
+document.MailMerge.BeforeClearGroupField += new BeforeClearGroupFieldEventHandler(BeforeClearFields);
+
+//Gets the employee details as “IEnumerable” collection
+
+List<Employees> employeeList = GetEmployees();
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+
+//Performs Mail merge
+
+document.MailMerge.ExecuteNestedGroup(dataTable);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
@@ -2283,6 +3063,46 @@ End If
 End If
 
 End Sub
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventArgs args)
+
+{
+
+if (!args.HasMappedGroupInDataSource)
+
+{
+
+//Gets the Current unmerged group name from the event argument
+
+string[] groupName = args.GroupName.Split(':');
+
+if (groupName[groupName.Length - 1] == "Orders")
+
+{
+
+string[] fields = args.FieldNames;
+
+List<OrderDetails> orderList = GetOrders();
+
+//Binds the data to the unmerged fields in group as alternative values
+
+args.AlternateValues = orderList;
+
+}
+
+else
+
+//If group value is empty, you can set whether the unmerged merge group field can be clear or not.
+
+args.ClearGroup = true;
+
+}
+
+}
 
 {% endhighlight %}
 
@@ -2565,6 +3385,148 @@ End Class
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Gets order list
+
+private static List<OrderDetails> GetOrders()
+
+{
+
+List<OrderDetails> orders = new List<OrderDetails>();
+
+orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
+
+return orders;
+
+}
+
+//Gets employee list
+
+public static List<Employees> GetEmployees()
+
+{
+
+List<OrderDetails> orders = new List<OrderDetails>();
+
+orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+
+List<CustomerDetails> customerDetails = new List<CustomerDetails>();
+
+customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
+
+customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
+
+List<Employees> employees = new List<Employees>();
+
+employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
+
+return employees;
+
+}
+
+public class Employees
+
+{
+
+public string FirstName { get; set; }
+
+public string LastName { get; set; }
+
+public string EmployeeID { get; set; }
+
+public string Address { get; set; }
+
+public string City { get; set; }
+
+public string Country { get; set; }
+
+public List<CustomerDetails> Customers { get; set; }
+
+public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
+
+{
+
+FirstName = firstName;
+
+LastName = lastName;
+
+Address = address;
+
+EmployeeID = employeeId;
+
+City = city;
+
+Country = country;
+
+Customers = customers;
+
+}
+
+}
+
+public class CustomerDetails
+
+{
+
+public string ContactName { get; set; }
+
+public string CompanyName { get; set; }
+
+public string City { get; set; }
+
+public string Country { get; set; }
+
+public List<OrderDetails> Orders { get; set; }
+
+public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+
+{
+
+ContactName = contactName;
+
+CompanyName = companyName;
+
+City = city;
+
+Country = country;
+
+Orders = orders;
+
+}
+
+}
+
+public class OrderDetails
+
+{
+
+public string OrderID { get; set; }
+
+public DateTime OrderDate { get; set; }
+
+public DateTime ShippedDate { get; set; }
+
+public DateTime RequiredDate { get; set; }
+
+public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+
+{
+
+OrderID = orderId;
+
+OrderDate = orderDate;
+
+ShippedDate = shippedDate;
+
+RequiredDate = requiredDate;
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %} 
   
 ## Mail merge options
@@ -2647,6 +3609,48 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Creates data source
+
+string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", "Phone_InDataSource", "City_InDataSource" };
+
+string[] fieldValues = new string[] { "101", "John", "+122-2000466", "Houston" };
+
+//Mapping the required merge field names with data source column names
+
+document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource");
+
+document.MailMerge.MappedFields.Add("Name_InDocument", "Name_InDataSource");
+
+document.MailMerge.MappedFields.Add("Phone_InDocument", "Phone_InDataSource");
+
+document.MailMerge.MappedFields.Add("City_InDocument", "City_InDataSource");
+
+//Performs the mail merge
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Sample.docx");
+
+{% endhighlight %}
+
 {% endtabs %} 
 
 ### Retrieving the merge field names
@@ -2659,7 +3663,7 @@ The following code example shows how to retrieve the merge field names in the Wo
 
 //Gets the merge field names from the document.
 
-string[] fieldNames = document.MailMerge.GetMergeFieldNames()
+string[] fieldNames = document.MailMerge.GetMergeFieldNames();
 
 {% endhighlight %}
 
@@ -2668,6 +3672,14 @@ string[] fieldNames = document.MailMerge.GetMergeFieldNames()
 'Gets the merge field names from the document.
 
 Dim fieldNames As String() = document.MailMerge.GetMergeFieldNames()
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Gets the merge field names from the document.
+
+string[] fieldNames = document.MailMerge.GetMergeFieldNames();
 
 {% endhighlight %} 
 
@@ -2693,6 +3705,14 @@ Dim groupNames As String() = document.MailMerge.GetMergeGroupNames()
 
 {% endhighlight %} 
 
+{% highlight ASP.NET CORE %}
+
+//Gets the merge field group names from the document.
+
+string[] groupNames = document.MailMerge.GetMergeGroupNames();
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 The following code example shows how to retrieve the merge field names for a specific group in the Word document
@@ -2712,6 +3732,14 @@ string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 'Gets the fields from the specified groups. 
 
 Dim fieldNames As String() = document.MailMerge.GetMergeFieldNames(groupName)
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Gets the fields from the specified groups. 
+
+string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 
 {% endhighlight %} 
 
@@ -2774,6 +3802,40 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 
 {% endhighlight %} 
+
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Removes paragraph that contains only empty fields. 
+
+document.MailMerge.RemoveEmptyParagraphs = true;
+
+string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
+
+string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
+
+//Performs the mail merge.
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Sample.docx");
+
+{% endhighlight %}
 
 {% endtabs %}  
 
@@ -2845,6 +3907,40 @@ document.MailMerge.Execute(fieldNames, fieldValues)
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Sets “ClearFields” to true to remove empty mail merge fields from document. 
+
+document.MailMerge.ClearFields = false;
+
+string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
+
+string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
+
+//Performs the mail merge.
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Sample.docx");
 
 {% endhighlight %}
 
