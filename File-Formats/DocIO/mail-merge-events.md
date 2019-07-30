@@ -8,30 +8,30 @@ documentation: UG
 
 # Event support for Mail merge
 
-The MailMerge class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO in Mail merge process.
+The MailMerge class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO in Mail merge process:
 
-* MergeField - occurs during Mail merge when a Mail merge field except image Mail merge field is encountered in the document
-* MergeImageField - occurs during Mail merge when a image Mail merge field is encountered in the document
-* BeforeClearField - occurs during Mail merge when a unmerged field is encountered in the document
-* BeforeClearGroupField - occurs during Mail merge when a unmerged group field is encountered in the document
+* `MergeField`- Occurs during Mail merge when a Mail merge field except image Mail merge field is encountered in the document.
+* `MergeImageField`- Occurs during Mail merge when an image Mail merge field is encountered in the document.
+* `BeforeClearField`- Occurs during Mail merge when an unmerged field is encountered in the document.
+* `BeforeClearGroupField`- Occurs during Mail merge when an unmerged group field is encountered in the document.
 
 ## MergeField Event
 
-The following code example shows how to use MergeField event during Mail merge process.
+The following code example shows how to use the MergeField event during Mail merge process.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens the template document. 
+//Opens the template document 
 
 WordDocument document = new WordDocument("Template.docx");    
 
-//Uses the mail merge events to perform the conditional formatting during runtime.
+//Uses the mail merge events to perform the conditional formatting during runtime
 
 document.MailMerge.MergeField += new MergeFieldEventHandler(ApplyAlternateRecordsTextColor);
 
-//Executes Mail Merge with groups.
+//Executes Mail Merge with groups
 
 document.MailMerge.Execute(GetDataTable());
 
@@ -45,15 +45,15 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Opens the template document. 
+'Opens the template document 
 
 Dim document As New WordDocument("Template.docx")
 
-'Uses the mail merge events to perform the conditional formatting during runtime.
+'Uses the mail merge events to perform the conditional formatting during runtime
 
 AddHandler document.MailMerge.MergeField, AddressOf ApplyAlternateRecordsTextColor
 
-'Executes Mail Merge with groups.
+'Executes Mail Merge with groups
 
 document.MailMerge.Execute(GetDataTable())
 
@@ -109,7 +109,7 @@ End Sub
 
 {% endtabs %}
 
-The following code example provides supporting methods
+The following code example provides supporting methods.
 
 {% tabs %}
 
@@ -177,7 +177,7 @@ End Function
 
 ## MergeImageField Event
 
-The following code example shows how to use MergeImageField event during Mail merge process.
+The following code example shows how to use the MergeImageField event during Mail merge process.
 
 {% tabs %}
 
@@ -299,17 +299,17 @@ End Sub
 
 ## BeforeClearField Event
 
-The following code example shows how to use BeforeClearField event during Mail merge process.
+The following code example shows how to use the BeforeClearField event during Mail merge process.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens the template document. 
+//Opens the template document 
 
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
 
-//Sets “ClearFields” to true to remove empty mail merge fields from document.
+//Sets “ClearFields” to true to remove empty mail merge fields from document
 
 document.MailMerge.ClearFields = false;
 
@@ -331,11 +331,11 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Opens the template document. 
+'Opens the template document 
 
 Dim document As WordDocument = New WordDocument("Template.docx", FormatType.Docx)
 
-'Sets “ClearFields” to true to remove empty mail merge fields from document.
+'Sets “ClearFields” to true to remove empty mail merge fields from document
 
 document.MailMerge.ClearFields = False
 
@@ -377,13 +377,13 @@ if (args.FieldValue == null || args.FieldValue == DBNull.Value)
 
 {
 
-//Gets the unmnerged field name.
+//Gets the unmnerged field name
 
 string unmergedFieldName = args.FieldName;
 
 string ownerGroup = args.GroupName;
 
-//Sets error message for unmerged fields.
+//Sets error message for unmerged fields
 
 args.FieldValue = "Error! The value of MergeField " + unmergedFieldName + " of owner group " + ownerGroup + " is defined as Null in the data source.";
 
@@ -391,7 +391,7 @@ args.FieldValue = "Error! The value of MergeField " + unmergedFieldName + " of o
 
 else
 
-//If field value is empty, you can set whether the unmerged merge field can be clear or not.
+//If field value is empty, you can set whether the unmerged merge field can be clear or not
 
 args.ClearField = true;
 
@@ -403,7 +403,7 @@ else
 
 string unmergedFieldName = args.FieldName;
 
-//Sets error message for unmerged fields, which is not found in data source.
+//Sets error message for unmerged fields, which is not found in data source
 
 args.FieldValue = "Error! The value of MergeField " + unmergedFieldName + " is not found in the data source.";
 
@@ -423,13 +423,13 @@ If args.HasMappedFieldInDataSource Then
 
 If args.FieldValue Is Nothing OrElse args.FieldValue = DBNull.Value Then
 
-'Gets the unmnerged field name.
+'Gets the unmnerged field name
 
 Dim unmergedFieldName As String = args.FieldName
 
 Dim ownerGroup As String = args.GroupName
 
-'Sets error message for unmerged fields.
+'Sets error message for unmerged fields
 
 args.FieldValue = "Error! The value of MergeField " & unmergedFieldName & " of owner group " & ownerGroup & " is defined as Null in the data source."
 
@@ -445,7 +445,7 @@ Else
 
 Dim unmergedFieldName As String = args.FieldName
 
-'Sets error message for unmerged fields, which is not found in data source.
+'Sets error message for unmerged fields, which is not found in data source
 
 args.FieldValue = "Error! The value of MergeField " & unmergedFieldName & " is not found in the data source."
 
@@ -457,7 +457,7 @@ End Sub
 
 {% endtabs %}
 
-The following code example provides supporting methods
+The following code example provides supporting methods.
 
 {% tabs %}
 
@@ -551,17 +551,17 @@ End Function
 
 ## BeforeClearGroupField Event
 
-The following code example shows how to use BeforeClearGroupField event during Mail merge process.
+The following code example shows how to use the BeforeClearGroupField event during Mail merge process.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens the template document. 
+//Opens the template document 
 
 WordDocument document = new WordDocument(@"Sample.docx");
 
-//Sets “ClearFields” to true to remove empty mail merge fields from document.
+//Sets “ClearFields” to true to remove empty mail merge fields from document
 
 document.MailMerge.ClearFields = false;
 
@@ -573,7 +573,7 @@ document.MailMerge.BeforeClearGroupField += new BeforeClearGroupFieldEventHandle
 
 List<Employees> employeeList = GetEmployees();
 
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
 
 MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
 
@@ -591,11 +591,11 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Opens the template document. 
+'Opens the template document 
 
 Dim document As WordDocument = New WordDocument("Sample.docx")
 
-'Sets “ClearFields” to true to remove empty mail merge fields from document.
+'Sets “ClearFields” to true to remove empty mail merge fields from document
 
 document.MailMerge.ClearFields = False
 
@@ -607,7 +607,7 @@ document.MailMerge.BeforeClearGroupField += New BeforeClearGroupFieldEventHandle
 
 Dim employeeList As List(Of Employees) = GetEmployees()
 
-'Creates an instance of MailMergeDataTableby specifying mail merge group name and “IEnumerable” collection.
+'Creates an instance of MailMergeDataTableby specifying mail merge group name and “IEnumerable” collection
 
 Dim dataTable As MailMergeDataTable = New MailMergeDataTable("Employees", employeeList)
 
@@ -661,7 +661,7 @@ args.AlternateValues = orderList;
 
 else
 
-//If group value is empty, you can set whether the unmerged merge group field can be clear or not.
+//If group value is empty, you can set whether the unmerged merge group field can be clear or not
 
 args.ClearGroup = true;
 
@@ -695,7 +695,7 @@ args.AlternateValues = orderList
 
 Else
 
-‘If group value is empty, you can set whether the unmerged merge group field can be clear or not.
+‘If group value is empty, you can set whether the unmerged merge group field can be clear or not
 
 args.ClearGroup = True
 
@@ -709,7 +709,7 @@ End Sub
 
 {% endtabs %}
 
-The following code example provides supporting methods
+The following code example provides supporting methods.
 
 {% tabs %}
 

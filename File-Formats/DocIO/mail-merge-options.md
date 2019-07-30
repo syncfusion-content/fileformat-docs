@@ -8,19 +8,19 @@ documentation: UG
 
 # Mail merge options
 
-The MailMerge class allows you to customize the Mail merge process with the following options.
+The `MailMerge` class allows you to customize the Mail merge process with the following options.
 
 ## Field Mapping
 
-The MailMerge class can automatically maps the merge field names with data source column names during Mail merge process. You can also customize the field mapping when the merge field names in the template document varies with the column names in the data source by using MappedFields collection.
+The `MailMerge` class can automatically maps the merge field names with data source column names during Mail merge process. You can also customize the field mapping when the merge field names in the template document varies with the column names in the data source by using `MappedFields` collection.
 
-The following code example shows how to add mapping when a merge field name in a document and column name in a data source have different names.
+The following code example shows how to add mapping when a merge field name in a document and column name in data source have different names.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens the template document. 
+//Opens the template document 
 
 WordDocument document = new WordDocument("Template.docx");
 
@@ -54,7 +54,7 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Opens the template document. 
+'Opens the template document 
 
 Dim document As New WordDocument("Template.docx")
 
@@ -90,33 +90,35 @@ document.Close()
 
 ## Retrieving the merge field names
 
-The following code example shows how to retrieve the merge field names in the Word document
+The following code example shows how to retrieve the merge field names in the Word document.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Gets the merge field names from the document.
+//Gets the merge field names from the document
+
 string[] fieldNames = document.MailMerge.GetMergeFieldNames();
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
-'Gets the merge field names from the document.
+'Gets the merge field names from the document
+
 Dim fieldNames As String() = document.MailMerge.GetMergeFieldNames()
 
 {% endhighlight %}
 
 {% endtabs %}
 
-The following code example shows how to retrieve the merge field group names in the Word document
+The following code example shows how to retrieve the merge field group names in the Word document.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Gets the merge field group names from the document.
+//Gets the merge field group names from the document
 
 string[] groupNames = document.MailMerge.GetMergeGroupNames();
 
@@ -124,7 +126,7 @@ string[] groupNames = document.MailMerge.GetMergeGroupNames();
 
 {% highlight vb.net %}
 
-'Gets the merge field group names from the document.
+'Gets the merge field group names from the document
 
 Dim groupNames As String() = document.MailMerge.GetMergeGroupNames()
 
@@ -132,13 +134,13 @@ Dim groupNames As String() = document.MailMerge.GetMergeGroupNames()
 
 {% endtabs %}
 
-The following code example shows how to retrieve the merge field names for a specific group in the Word document
+The following code example shows how to retrieve the merge field names for a specific group in the Word document.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Gets the fields from the specified groups. 
+//Gets the fields from the specified groups 
 
 string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 
@@ -146,7 +148,7 @@ string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 
 {% highlight vb.net %}
 
-'Gets the fields from the specified groups. 
+'Gets the fields from the specified groups 
 
 Dim fieldNames As String() = document.MailMerge.GetMergeFieldNames(groupName)
 
@@ -162,11 +164,11 @@ The following code example shows how to remove the empty paragraphs when the par
 
 {% highlight c# %}
 
-//Opens the template document. 
+//Opens the template document 
 
 WordDocument document = new WordDocument("Template.docx");
 
-//Removes paragraph that contains only empty fields. 
+//Removes paragraph that contains only empty fields 
 
 document.MailMerge.RemoveEmptyParagraphs = true;
 
@@ -174,7 +176,7 @@ string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
 
 string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
 
-//Performs the mail merge.
+//Performs the mail merge
 
 document.MailMerge.Execute(fieldNames, fieldValues);
 
@@ -188,11 +190,11 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Opens the template document. 
+'Opens the template document 
 
 Dim document As New WordDocument("Template.docx")
 
-'Removes paragraph that contains only empty fields. 
+'Removes paragraph that contains only empty fields 
 
 document.MailMerge.RemoveEmptyParagraphs = True
 
@@ -200,7 +202,7 @@ Dim fieldNames As String() = New String() {"EmployeeId", "Phone", "City"}
 
 Dim fieldValues As String() = New String() {"1001", "+91-9999999999", "London"}
 
-'Performs the mail merge.
+'Performs the mail merge
 
 document.MailMerge.Execute(fieldNames, fieldValues)
 
@@ -220,17 +222,15 @@ Essential DocIO removes or keeps the unmerged merge fields in the output documen
 
 When a merge field is considered as unmerged during mail merge process?
 
-1.The merge field doesn't have mapping field in data source.
+1.The merge field doesnot have mapping field in data source.
 
 2.The merge field has mapping field in data source, but the data is null or string.Empty.
 
 Mail merge operation automatically removes the unmerged merge fields since the default value of ClearFields property is true.
 
-T> 1.Set ClearFields property as false before the mail merge execution statement. If your requirement is to keep the unmerged merge fields in the output document. 
-
-T> 2.Modify ClearFields property before each mail merge execution statement, while performing multiple mail merge executions. If your requirement is to remove the unmerged merge fields in one mail merge execution and keep the unmerged merge fields in another mail merge execution. 
-
-T> 3.Order the mail merge executions with ClearFields property false as first, to avoid removal merge fields that are required for next mail merge execution in the same document.
+T> 1.Set ClearFields property to false before the mail merge execution statement if your requirement is to keep the unmerged merge fields in the output document.
+T> 2.Modify the ClearFields property before each mail merge execution statement while performing multiple mail merge executions if your requirement is to remove the unmerged merge fields in one mail merge execution and keep the unmerged merge fields in another mail merge execution.
+T> 3.Order the mail merge executions with the ClearFields property false as first to avoid removal merge fields that are required for next mail merge execution in the same document.
 
 The following code example shows how to keep the unmerged merge fields in the generated Word document.
  
@@ -238,11 +238,11 @@ The following code example shows how to keep the unmerged merge fields in the ge
 
 {% highlight c# %}
 
-//Opens the template document. 
+//Opens the template document 
 
 WordDocument document = new WordDocument("Template.docx");
 
-//Sets “ClearFields” to true to remove empty mail merge fields from document. 
+//Sets “ClearFields” to true to remove empty mail merge fields from document 
 
 document.MailMerge.ClearFields = false;
 
@@ -250,7 +250,7 @@ string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
 
 string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
 
-//Performs the mail merge.
+//Performs the mail merge
 
 document.MailMerge.Execute(fieldNames, fieldValues);
 
@@ -264,11 +264,11 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Opens the template document. 
+'Opens the template document 
 
 Dim document As New WordDocument("Template.docx")
 
-'Sets “ClearFields” to true to remove empty mail merge fields from document. 
+'Sets “ClearFields” to true to remove empty mail merge fields from document 
 
 document.MailMerge.ClearFields = False
 
@@ -276,7 +276,7 @@ Dim fieldNames As String() = New String() {"EmployeeId", "Phone", "City"}
 
 Dim fieldValues As String() = New String() {"1001", "+91-9999999999", "London"}
 
-'Performs the mail merge.
+'Performs the mail merge
 
 document.MailMerge.Execute(fieldNames, fieldValues)
 
@@ -285,6 +285,74 @@ document.MailMerge.Execute(fieldNames, fieldValues)
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Remove empty group
+
+The following code example shows how to remove groups which contain empty merge fields after executing mail merge in a Word document.
+
+{% tabs %}  
+
+{% highlight C# %}
+
+//Opens the template document 
+
+WordDocument document = new WordDocument(@"Template.docx");
+
+//Gets the employee details as “IEnumerable” collection
+
+List<Employees> employeeList = GetEmployees();
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+
+//Enable the flag to remove empty group which contain empty merge fields
+
+document.MailMerge.RemoveEmptyGroup = true;
+
+//Performs Mail merge
+
+document.MailMerge.ExecuteNestedGroup(dataTable);
+
+//Saves and closes the WordDocument instance
+
+document.Save("Result.docx");
+
+document.Close();
+
+{% endhighlight %}
+
+{% highlight VB.NET %}
+
+'Opens the template document
+
+Dim document As WordDocument =  New WordDocument("Template.docx")
+
+'Gets the employee details as “IEnumerable” collection
+
+Dim employeeList As List(Of Employees) =  GetEmployees() 
+
+'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
+
+Dim dataTable As MailMergeDataTable =  New MailMergeDataTable("Employees",employeeList) 
+
+'Enable the flag to remove empty group which contain empty merge fields
+
+document.MailMerge.RemoveEmptyGroup = True
+
+'Performs Mail merge
+
+document.MailMerge.ExecuteNestedGroup(dataTable)
+
+'Saves and closes the WordDocument instance
+
+document.Save("Result.docx")
+
+document.Close() 
 
 {% endhighlight %}
 
@@ -590,7 +658,7 @@ MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList)
 
 wordDocument.MailMerge.ExecuteGroup(dataTable);
 
-//Saves the Word document.
+//Saves the Word document
 
 MemoryStream outputStream = new MemoryStream();
 
@@ -646,17 +714,17 @@ The following code example shows how to add each record as new row inside table 
 
 {% highlight C# %}
 
-//Opens the template document. 
+//Opens the template document 
 
 WordDocument document = new WordDocument(@"Data/Template.docx");
 
-//Creates a data table.
+//Creates a data table
 
 DataTable table = new DataTable("CompatibleVersions");
 
 table.Columns.Add("WordVersion");
 
-//Creates a new data row.
+//Creates a new data row
 
 DataRow row = table.NewRow();
 
@@ -688,7 +756,7 @@ row["WordVersion"] = "Microsoft Word 2019";
 
 table.Rows.Add(row);
 
-//Enable the flag to insert a new row for every group in a table.
+//Enable the flag to insert a new row for every group in a table
 
 document.MailMerge.InsertAsNewRow = true;
 
@@ -706,17 +774,17 @@ document.Close();
 
 {% highlight VB.NET %}
 
-'Opens the template document. 
+'Opens the template document 
 
 Dim document As WordDocument = New WordDocument("Data/Template.docx")
 		
-'Creates a data table.
+'Creates a data table
 
 Dim table As DataTable = New DataTable("CompatibleVersions")
 
 table.Columns.Add("WordVersion")
 		
-'Creates a new data row.
+'Creates a new data row
 
 Dim row As DataRow = table.NewRow()
 
@@ -748,7 +816,7 @@ row("WordVersion") = "Microsoft Word 2019"
 
 table.Rows.Add(row)
 		
-'Enable the flag to insert a new row for every group in a table.
+'Enable the flag to insert a new row for every group in a table
 
 document.MailMerge.InsertAsNewRow = True
 		
@@ -766,19 +834,19 @@ document.Close()
 
 {% highlight ASP.NET CORE %}
 
-//Opens the template document. 
+//Opens the template document 
 
 FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 
-//Creates a data table. 
+//Creates a data table 
 
 DataTable table = new DataTable("CompatibleVersions");
 
 table.Columns.Add("WordVersion");
 
-//Creates a new data row. 
+//Creates a new data row 
 
 DataRow row = table.NewRow();
 
@@ -810,7 +878,7 @@ row["WordVersion"] = "Microsoft Word 2019";
 
 table.Rows.Add(row);
 			
-//Enable the flag to insert a new row for every group in a table.
+//Enable the flag to insert a new row for every group in a table
 
 document.MailMerge.InsertAsNewRow = true;
 			
@@ -834,75 +902,7 @@ return File(stream, "application/msword", "Result.docx");
 
 {% endtabs %}
 
-## Remove empty group
-
-The following code example shows how to remove groups which contain empty merge fields after executing mail merge in a Word document.
-
-{% tabs %}  
-
-{% highlight C# %}
-
-//Opens the template document. 
-
-WordDocument document = new WordDocument(@"Template.docx");
-
-//Gets the employee details as “IEnumerable” collection
-
-List<Employees> employeeList = GetEmployees();
-
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
-
-MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
-
-//Enable the flag to remove empty group which contain empty merge fields
-
-document.MailMerge.RemoveEmptyGroup = true;
-
-//Performs Mail merge
-
-document.MailMerge.ExecuteNestedGroup(dataTable);
-
-//Saves and closes the WordDocument instance
-
-document.Save("Result.docx");
-
-document.Close();
-
-{% endhighlight %}
-
-{% highlight VB.NET %}
-
-'Opens the template document.
-
-Dim document As WordDocument =  New WordDocument("Template.docx")
-
-'Gets the employee details as “IEnumerable” collection
-
-Dim employeeList As List(Of Employees) =  GetEmployees() 
-
-'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
-
-Dim dataTable As MailMergeDataTable =  New MailMergeDataTable("Employees",employeeList) 
-
-'Enable the flag to remove empty group which contain empty merge fields
-
-document.MailMerge.RemoveEmptyGroup = True
-
-'Performs Mail merge
-
-document.MailMerge.ExecuteNestedGroup(dataTable)
-
-'Saves and closes the WordDocument instance
-
-document.Save("Result.docx")
-
-document.Close() 
-
-{% endhighlight %}
-
-{% endtabs %}
-
-### Skip to merge image
+## Skip to merge image
 
 The following code example shows how to skip merging particular image while performing mail merge in Word document.
 
@@ -910,7 +910,7 @@ The following code example shows how to skip merging particular image while perf
 
 {% highlight C# %}
 
-//Opens the template document. 
+//Opens the template document 
 
 WordDocument document = new WordDocument(@"Template.docx");
 
@@ -918,7 +918,7 @@ WordDocument document = new WordDocument(@"Template.docx");
 
 document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeEmployeePhoto);
 
-//Executes Mail Merge with groups.
+//Executes Mail Merge with groups
 
 string[] fieldNames = { "Nancy", "Andrew", "Steven" };
 
@@ -938,7 +938,7 @@ document.Close();
 
 {% highlight VB.NET %}
 
-'Opens the template document. 
+'Opens the template document 
  
 Dim document As WordDocument =  New WordDocument("Template.docx") 
  
@@ -946,7 +946,7 @@ Dim document As WordDocument =  New WordDocument("Template.docx")
  
 AddHandler document.MailMerge.MergeImageField, AddressOf MergeEmployeePhoto
  
-'Executes Mail Merge with groups.
+'Executes Mail Merge with groups
  
 Dim fieldNames() As String = {"Nancy", "Andrew", "Steven"}
 
@@ -966,7 +966,7 @@ document.Close()
 
 {% highlight ASP.NET CORE %}
 
-//Opens the template document. 
+//Opens the template document 
 
 FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
@@ -976,7 +976,7 @@ WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 
 document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeEmployeePhoto);
 
-//Executes Mail Merge with groups.
+//Executes Mail Merge with groups
 
 string[] fieldNames = { "Nancy", "Andrew", "Steven" };
 
@@ -1002,7 +1002,7 @@ return File(stream, "application/msword", "Sample.docx");
 
 {% endtabs %}
 
-The following code example provides supporting methods
+The following code example provides supporting methods.
 
 {% tabs %}  
 

@@ -24,21 +24,21 @@ The following code example shows how to perform a nested Mail merge.
 
 {% highlight c# %}
 
-//Opens the template document. 
+//Opens the template document 
 
 WordDocument document = new WordDocument("Template.docx");
 
-//Gets the data from the database.
+//Gets the data from the database
 
 OleDbConnection conn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dataBase);
 
 conn.Open();
 
-//ArrayList contains the list of commands.
+//ArrayList contains the list of commands
 
 ArrayList commands = GetCommands();
 
-//Executes the mail merge.
+//Executes the mail merge
 
 document.MailMerge.ExecuteNestedGroup(conn, commands);
 
@@ -52,21 +52,21 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Opens the template document. 
+'Opens the template document 
 
 Dim document As New WordDocument("Template.docx")
 
-'Gets the data from the database.
+'Gets the data from the database
 
 Dim conn As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dataBase)
 
 conn.Open()
 
-'ArrayList contains the list of commands.
+'ArrayList contains the list of commands
 
 Dim commands As ArrayList = GetCommands()
 
-'Executes the mail merge.
+'Executes the mail merge
 
 document.MailMerge.ExecuteNestedGroup(conn, commands)
 
@@ -80,7 +80,7 @@ document.Close()
 
 {% endtabs %}
 
-The following code example provides supporting methods for the above code.
+The following code example provides supporting methods for the previous code.
 
 {% tabs %}  
 
@@ -90,23 +90,23 @@ private ArrayList GetCommands()
 
 {
 
-//ArrayList contains the list of commands.
+//ArrayList contains the list of commands
 
 ArrayList commands = new ArrayList();
 
-//DictionaryEntry contains "Source table" (key) and "Command" (value).
+//DictionaryEntry contains "Source table" (key) and "Command" (value)
 
 DictionaryEntry entry = new DictionaryEntry("Employees", "Select TOP 10 * from Employees");
 
 commands.Add(entry);
 
-//Retrieves the customer details.
+//Retrieves the customer details
 
 entry = new DictionaryEntry("Customers", "SELECT DISTINCT TOP 10 * FROM  ((Orders INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID) INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID) WHERE Employees.EmployeeID = %Employees.EmployeeID%");
 
 commands.Add(entry);
 
-//Retrieves the order details.
+//Retrieves the order details
 
 entry = new DictionaryEntry("Orders", "SELECT DISTINCT TOP 10 * FROM Orders WHERE Orders.CustomerID = '%Customers.CustomerID%’AND Orders.EmployeeID = %Employees.EmployeeID%");
 
@@ -122,23 +122,23 @@ return commands;
 
 Private Function GetCommands() As ArrayList
 
-'ArrayList contains the list of commands.
+'ArrayList contains the list of commands
 
 Dim commands As New ArrayList()
 
-'DictionaryEntry contains "Source table" (key) and "Command" (value).
+'DictionaryEntry contains "Source table" (key) and "Command" (value)
 
 Dim entry As New DictionaryEntry("Employees", "Select TOP 10 * from Employees")
 
 commands.Add(entry)
 
-'Retrieves the customer details.
+'Retrieves the customer details
 
 entry = New DictionaryEntry("Customers", "SELECT DISTINCT TOP 10 * FROM  ((Orders INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID) INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID) WHERE Employees.EmployeeID = %Employees.EmployeeID%")
 
 commands.Add(entry)
 
-'Retrieves the order details.
+'Retrieves the order details
 
 entry = New DictionaryEntry("Orders", "SELECT DISTINCT TOP 10 * FROM Orders WHERE Orders.CustomerID = '%Customers.CustomerID%’AND Orders.EmployeeID = %Employees.EmployeeID%")
 
@@ -160,11 +160,11 @@ Essential DocIO allows you to perform Mail merge with the dynamic objects. The f
 
 {% highlight c# %}
 
-//Opens the template document. 
+//Opens the template document 
 
 WordDocument document = new WordDocument("Template.docx");
 
-//Creates an instance of the MailMergeDataSet.
+//Creates an instance of the MailMergeDataSet
 
 MailMergeDataSet dataSet = new MailMergeDataSet();
 
@@ -180,7 +180,7 @@ dataSet.Add(dataTable);
 
 List<DictionaryEntry> commands = new List<DictionaryEntry>();
 
-// DictionaryEntry contain "Source table" (key) and "Command" (value).
+//DictionaryEntry contain "Source table" (key) and "Command" (value)
 
 DictionaryEntry entry = new DictionaryEntry("Customers", string.Empty);
 
@@ -206,11 +206,11 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Opens the template document. 
+'Opens the template document 
 
 Dim document As New WordDocument("Template.docx")
 
-'Creates an instance of the MailMergeDataSet.
+'Creates an instance of the MailMergeDataSet
 
 Dim dataSet As New MailMergeDataSet()
 
@@ -226,7 +226,7 @@ dataSet.Add(dataTable)
 
 Dim commands As New List(Of DictionaryEntry)()
 
-' DictionaryEntry contain "Source table" (key) and "Command" (value).
+'DictionaryEntry contain "Source table" (key) and "Command" (value)
 
 Dim entry As New DictionaryEntry("Customers", String.Empty)
 
@@ -252,7 +252,7 @@ document.Close()
 
 {% endtabs %}
 
-The following code example provides supporting methods for the above code.
+The following code example provides supporting methods for the previous code.
 
 {% tabs %}  
 
@@ -390,7 +390,7 @@ End Function
 
 You can perform nested Mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method.
 
-For example – Consider that you have a template document as follows.
+For example, Consider that you have a template document as follows.
 
 ![Nested Mail merge](MailMerge_images/MailMerge_img6.jpeg)
 
@@ -401,7 +401,7 @@ The following code example shows how to perform nested Mail merge with the relat
 
 {% highlight c# %}
 
-//Opens the template document. 
+//Opens the template document 
 
 WordDocument document = new WordDocument(@"Template.docx");
 
@@ -409,7 +409,7 @@ WordDocument document = new WordDocument(@"Template.docx");
 
 List<Employees> employeeList = GetEmployees();
 
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
 
 MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
 
@@ -427,7 +427,7 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Opens the template document. 
+'Opens the template document 
 
 Dim document As New WordDocument("Template.docx")
 
@@ -435,7 +435,7 @@ Dim document As New WordDocument("Template.docx")
 
 Dim employeeList As List(Of Employees) = GetEmployees()
 
-'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
 
 Dim dataTable As New MailMergeDataTable("Employees", employeeList)
 
@@ -453,7 +453,7 @@ document.Close()
 
 {% endtabs %}
 
-The following code example provides supporting methods for the above code.
+The following code example provides supporting methods for the previous code.
 
 {% tabs %}  
 
@@ -595,9 +595,7 @@ Dim customers As New CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "
 
 Dim employees As New List(Of Employees)()
 
-employees.Add(New Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", _
-
-customers))
+employees.Add(New Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers))
 
 Return employees
 
@@ -731,9 +729,7 @@ End Property
 
 Private m_Customers As CustomerDetails
 
-Public Sub New(firstName As String, lastName As String, employeeId As String, address As String, city As String, country As String, _
-
-customers As CustomerDetails)
+Public Sub New(firstName As String, lastName As String, employeeId As String, address As String, city As String, country As String, _customers As CustomerDetails)
 
 FirstName = firstName
 

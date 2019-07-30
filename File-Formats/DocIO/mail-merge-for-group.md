@@ -10,20 +10,20 @@ documentation: UG
 
 You can perform Mail merge and append multiple records from data source within a specified region to a template document. The region between start and end groups merge fields. It gets repeated for every record from the data source. The region where the Mail merge operations are to be performed must be marked by two MergeFields with the following names.
 
-  * «TableStart:TableName» and «BeginGroup:GroupName» - For the entry point of the region
-  * «TableEnd:TableName» and «EndGroup:GroupName» - For the end point of the region
+  * «TableStart:TableName» and «BeginGroup:GroupName» - For the entry point of the region.
+  * «TableEnd:TableName» and «EndGroup:GroupName» - For the end point of the region.
   
-  1.TableStart and TableEnd region is preferred for performing Mail merge inside the table cell
+  1.TableStart and TableEnd region is preferred for performing Mail merge inside the table cell.
   
   2.BeginGroup and EndGroup region is preferred for performing Mail merge inside the document body contents.
   
-For example – Consider that you have a template document as shown.
+For example, consider that you have a template document as shown.
 
 ![Mail merge for a group](MailMerge_images/MailMerge_img4.jpeg)
 
-In this template, Employees is the group name and the same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees”, to denote the start and end of the Mail merge group.
+In this template, Employees is the group name and the same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees” to denote the start and end of the Mail merge group.
 
-The MailMerge class provides various overloads for ExecuteGroup method to perform Mail merge within a group from various data sources. The following code example shows how to perform Mail merge in the specific region with data source retrieved from SQL connection.
+The `MailMerge` class provides various overloads for `ExecuteGroup` method to perform Mail merge within a group from various data sources. The following code example shows how to perform Mail merge in the specific region with data source retrieved from SQL connection.
 
 {% tabs %}
 
@@ -31,11 +31,11 @@ The MailMerge class provides various overloads for ExecuteGroup method to perfor
 
 WordDocument document = new WordDocument("EmployeesTemplate.docx");
 
-//Gets the data table. 
+//Gets the data table 
 
 DataTable table = GetDataTable();
 
-// Executes Mail Merge with groups. 
+//Executes Mail Merge with groups 
 
 document.MailMerge.ExecuteGroup(table);
 
@@ -51,11 +51,11 @@ document.Close();
 
 Dim document As New WordDocument("EmployeesTemplate.docx")
 
-'Gets the data table. 
+'Gets the data table 
 
 Dim table As DataTable = GetDataTable()
 
-' Executes Mail Merge with groups. 
+'Executes Mail Merge with groups
 
 document.MailMerge.ExecuteGroup(table)
 
@@ -69,7 +69,7 @@ document.Close()
 
 {% endtabs %}
 
-The following code example provides supporting methods for the above code.
+The following code example provides supporting methods for the previous code.
 
 {% tabs %}
 
@@ -93,7 +93,7 @@ conn.Close();
 
 System.Data.DataTable table = dataset.Tables[0];
 
-// Sets table name as Employees for template merge field reference.
+// Sets table name as Employees for template merge field reference
 
 table.TableName = "Employees";
 
@@ -121,7 +121,7 @@ conn.Close()
 
 Dim table As System.Data.DataTable = dataset.Tables(0)
 
-' Sets table name as Employees for template merge field reference.
+' Sets table name as Employees for template merge field reference
 
 table.TableName = "Employees"
 
@@ -139,13 +139,13 @@ The resultant document looks as follows.
 
 ## Performing Mail merge with business objects
 
-You can perform Mail merge with business objects in a template document. The following code snippet shows how to perform Mail merge with business objects
+You can perform Mail merge with business objects in a template document. The following code snippet shows how to perform Mail merge with business objects.
 
 {% tabs %}
 
 {% highlight c# %}
 
-//Opens the template document. 
+//Opens the template document 
 
 WordDocument document = new WordDocument(@"Template.docx");
 
@@ -153,7 +153,7 @@ WordDocument document = new WordDocument(@"Template.docx");
 
 List<Employee> employeeList = GetEmployees();
 
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
 
 MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
 
@@ -171,7 +171,7 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Opens the template document. 
+'Opens the template document 
 
 Dim document As New WordDocument("Template.docx")
 
@@ -179,7 +179,7 @@ Dim document As New WordDocument("Template.docx")
 
 Dim employeeList As List(Of Employee) = GetEmployees()
 
-'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
 
 Dim dataTable As New MailMergeDataTable("Employees", employeeList)
 
@@ -197,7 +197,7 @@ document.Close()
 
 {% endtabs %}
 
-The following code example provides supporting methods and class for the above code
+The following code example provides supporting methods and class for the previous code.
 
 {% tabs %}
 
@@ -461,7 +461,7 @@ End Class
 
 {% endtabs %}
 
-You can find an example about overloads of the ExecuteGroup method from the Following table:
+You can find an example about overloads of the ExecuteGroup method from the following table:
 
 <table>
 <thead>
