@@ -601,7 +601,7 @@ document.MailMerge.ClearFields = False
 
 'Uses the mail merge event to clear the unmerged field while perform mail merge execution
 
-document.MailMerge.BeforeClearGroupField += New BeforeClearGroupFieldEventHandler(AddressOf BeforeClearFields)
+AddHandler document.MailMerge.BeforeClearGroupField, AddressOf BeforeClearFields
 
 'Gets the employee details as “IEnumerable” collection
 
@@ -907,23 +907,21 @@ Public Property Country As String
 
 Public Property Customers As List(Of CustomerDetails)
 
-Public Sub New(ByVal firstName As String, ByVal lastName As String, ByVal employeeId As String, ByVal address As String, ByVal city As String, 
+Public Sub New(ByVal firstName As String, ByVal lastName As String, ByVal employeeId As String, ByVal address As String, ByVal city As String, ByVal country As String, ByVal customers As List(Of CustomerDetails))
 
-ByVal country As String, ByVal customers As List(Of CustomerDetails))
+Me.FirstName = firstName
 
-FirstName = firstName
+Me.LastName = lastName
 
-LastName = lastName
+Me.Address = address
 
-Address = address
+Me.EmployeeID = employeeId
 
-EmployeeID = employeeId
+Me.City = city
 
-City = city
+Me.Country = country
 
-Country = country
-
-Customers = customers
+Me.Customers = customers
 
 End Sub
 
@@ -945,15 +943,15 @@ Public Sub New(ByVal contactName As String, ByVal companyName As String, ByVal c
 
 OrderDetails))
 
-ContactName = contactName
+Me.ContactName = contactName
 
-CompanyName = companyName
+Me.CompanyName = companyName
 
-City = city
+Me.City = city
 
-Country = country
+Me.Country = country
 
-Orders = orders
+Me.Orders = orders
 
 End Sub
 
@@ -971,13 +969,13 @@ Public Property RequiredDate As DateTime
 
 Public Sub New(ByVal orderId As String, ByVal orderDate As DateTime, ByVal shippedDate As DateTime, ByVal requiredDate As DateTime)
 
-OrderID = orderId
+Me.OrderID = orderId
 
-OrderDate = orderDate
+Me.OrderDate = orderDate
 
-ShippedDate = shippedDate
+Me.ShippedDate = shippedDate
 
-RequiredDate = requiredDate
+Me.RequiredDate = requiredDate
 
 End Sub
 

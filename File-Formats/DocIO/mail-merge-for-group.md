@@ -437,21 +437,21 @@ Private m_Photo As Image
 
 Public Sub New(firstName As String, lastName As String, title As String, address As String, city As String, region As String, country As String, photoFilePath As String)
 
-FirstName = firstName
+Me.FirstName = firstName
 
-LastName = lastName
+Me.LastName = lastName
 
-Title = title
+Me.Title = title
 
-Address = address
+Me.Address = address
 
-City = city
+Me.City = city
 
-Region = region
+Me.Region = region
 
-Country = country
+Me.Country = country
 
-Photo = Image.FromFile(photoFilePath)
+Me.Photo = Image.FromFile(photoFilePath)
 
 End Sub
 

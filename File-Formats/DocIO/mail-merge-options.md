@@ -216,6 +216,8 @@ document.Close()
 
 {% endtabs %}
 
+N>If any white space or line break exists in the merge field's parent paragraph, then it will not be considered as empty paragraph and not removed during mail merge process.
+
 ## Removing empty merge fields
 
 Essential DocIO removes or keeps the unmerged merge fields in the output document based on the ClearFields property on each mail merge execution.

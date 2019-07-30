@@ -731,19 +731,19 @@ Private m_Customers As CustomerDetails
 
 Public Sub New(firstName As String, lastName As String, employeeId As String, address As String, city As String, country As String, _customers As CustomerDetails)
 
-FirstName = firstName
+Me.FirstName = firstName
 
-LastName = lastName
+Me.LastName = lastName
 
-Address = address
+Me.Address = address
 
-EmployeeID = employeeId
+Me.EmployeeID = employeeId
 
-City = city
+Me.City = city
 
-Country = country
+Me.Country = country
 
-Customers = customers
+Me.Customers = customers
 
 End Sub
 
@@ -843,15 +843,15 @@ Private m_Orders As List(Of OrderDetails)
 
 Public Sub New(contactName As String, companyName As String, city As String, country As String, orders As List(Of OrderDetails))
 
-ContactName = contactName
+Me.ContactName = contactName
 
-CompanyName = companyName
+Me.CompanyName = companyName
 
-City = city
+Me.City = city
 
-Country = country
+Me.Country = country
 
-Orders = orders
+Me.Orders = orders
 
 End Sub
 
@@ -933,13 +933,13 @@ Private m_RequiredDate As DateTime
 
 Public Sub New(orderId As String, orderDate As DateTime, shippedDate As DateTime, requiredDate As DateTime)
 
-OrderID = orderId
+Me.OrderID = orderId
 
-OrderDate = orderDate
+Me.OrderDate = orderDate
 
-ShippedDate = shippedDate
+Me.ShippedDate = shippedDate
 
-RequiredDate = requiredDate
+Me.RequiredDate = requiredDate
 
 End Sub
 
