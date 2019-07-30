@@ -222,7 +222,7 @@ Essential DocIO removes or keeps the unmerged merge fields in the output documen
 
 When a merge field is considered as unmerged during mail merge process?
 
-1.The merge field doesnot have mapping field in data source.
+1.The merge field doesn't have mapping field in data source.
 
 2.The merge field has mapping field in data source, but the data is null or string.Empty.
 
