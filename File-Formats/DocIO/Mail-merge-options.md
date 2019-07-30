@@ -899,3 +899,182 @@ document.Save("Result.docx")
 document.Close() 
 
 {% endhighlight %}
+
+{% endtabs %}
+
+### Skip to merge image
+
+The following code example shows how to skip merging particular image while performing mail merge in Word document.
+
+{% tabs %}  
+
+{% highlight C# %}
+
+//Opens the template document. 
+
+WordDocument document = new WordDocument(@"Template.docx");
+
+//Uses the mail merge events to perform the conditional formatting during runtime
+
+document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeEmployeePhoto);
+
+//Executes Mail Merge with groups.
+
+string[] fieldNames = { "Nancy", "Andrew", "Steven" };
+
+string[] fieldValues = { "Nancy.png", "Andrew.png", "Steven.png" };
+
+//Execute mail merge
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+//Saves and closes the Word document instance
+
+document.Save("Sample.docx", FormatType.Docx);
+
+document.Close();
+
+{% endhighlight %}
+
+{% highlight VB.NET %}
+
+'Opens the template document. 
+ 
+Dim document As WordDocument =  New WordDocument("Template.docx") 
+ 
+'Uses the mail merge events to perform the conditional formatting during runtime
+ 
+AddHandler document.MailMerge.MergeImageField, AddressOf MergeEmployeePhoto
+ 
+'Executes Mail Merge with groups.
+ 
+Dim fieldNames() As String = {"Nancy", "Andrew", "Steven"}
+
+Dim fieldValues() As String = {"Nancy.png", "Andrew.png", "Steven.png"}
+ 
+'Execute mail merge
+ 
+document.MailMerge.Execute(fieldNames, fieldValues)
+ 
+'Saves and closes the Word document instance
+ 
+document.Save("Sample.docx")
+ 
+document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Uses the mail merge events to perform the conditional formatting during runtime
+
+document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeEmployeePhoto);
+
+//Executes Mail Merge with groups.
+
+string[] fieldNames = { "Nancy", "Andrew", "Steven" };
+
+string[] fieldValues = { "Nancy.png", "Andrew.png", "Steven.png" };
+
+//Execute mail merge
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Sample.docx");
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code example provides supporting methods
+
+{% tabs %}  
+
+{% highlight c# %}
+
+private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
+
+{
+
+	//Skip to merge particular image
+
+	if (args.FieldName == "Andrew")
+
+		args.Skip = true;
+
+	//Sets image
+
+	args.ImageFileName = args.FieldValue.ToString();
+
+}  
+
+{% endhighlight %}
+
+{% highlight VB.NET %}
+
+Private Sub MergeEmployeePhoto(ByVal sender As Object, ByVal args As MergeImageFieldEventArgs)
+ 
+	'Skip to merge particular image
+ 
+	If args.FieldName = "Andrew" Then
+ 
+		args.Skip = True
+	End If
+ 
+	'Sets image
+ 
+	Dim ProductFileName As String = args.FieldValue.ToString()
+	
+	args.Image = Image.FromFile("Data/" + ProductFileName)
+ 
+End Sub
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+private void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
+
+{
+
+	//Skip to merge particular image
+
+	if (args.FieldName == "Andrew")
+
+		args.Skip = true;
+
+	//Sets image
+
+	string ProductFileName = args.FieldValue.ToString();
+	
+	FileStream imageStream = new FileStream(ProductFileName, FileMode.Open, FileAccess.Read);
+	
+	args.ImageStream = imageStream;
+	
+	WPicture picture = args.Picture;
+	
+	picture.Height = 100;
+	
+	picture.Width = 100;
+
+}  
+
+{% endhighlight %}
+
+{% endtabs %}
