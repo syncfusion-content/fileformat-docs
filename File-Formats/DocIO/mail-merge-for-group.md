@@ -1,6 +1,6 @@
 ---
-title: Group Mail merge | Syncfusion
-description: This section illustrates how to perform Mail merge in the specific region with data source in a Word document
+title: Mail merge for group | Word library (DocIO) | Syncfusion
+description: This section illustrates how to Mail merge for a group - replace merge fields in a region of document with data, by repeating the region for each record.
 platform: file-formats
 control: DocIO
 documentation: UG

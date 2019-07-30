@@ -1,6 +1,6 @@
 ---
-title: Mail merge options | Syncfusion
-description: This section illustrates how to merge the data from data source to a Word document
+title: Mail merge options | Word library (DocIO) | Syncfusion
+description: This section illustrates the mail merge options used to customize field mapping, remove unmerged fields, unmerged mail merge groups, empty paragraphs and more.
 platform: file-formats
 control: DocIO
 documentation: UG

@@ -1,6 +1,6 @@
 ---
-title: Event support for Mail merge | Syncfusion
-description: This section illustrates how to use events to customize document contents and merging image data during the Mail merge process
+title: Mail merge events | Word library (DocIO) | Syncfusion
+description: This section illustrates how to format or customize the merged text and image, clear or retain unmerged fields during mail merge using events.
 platform: file-formats
 control: DocIO
 documentation: UG

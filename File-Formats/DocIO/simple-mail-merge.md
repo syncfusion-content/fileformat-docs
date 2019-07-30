@@ -1,6 +1,6 @@
 ---
-title: Simple Mail merge | Syncfusion
-description: This section illustrates how to perform a simple Mail merge in a Word document
+title: Simple Mail merge | Word library (DocIO) | Syncfusion
+description: This section illustrates how to Mail merge - replace all merge fields in a document with data, by repeating whole document for each record in data source.
 platform: file-formats
 control: DocIO
 documentation: UG
