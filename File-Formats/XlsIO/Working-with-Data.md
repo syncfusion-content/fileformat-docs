@@ -340,7 +340,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The following code snippet provides supporting methods & class for the above code.
+The following code snippet provides supporting class for the above code. Here, the attributes DisplayNameAttribute and Bindable are used.
+
+* DisplayNameAttribute - to customize the column header name while importing.
+* Bindable - to skip a property while importing.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1256,7 +1259,10 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-The following code snippet provides supporting class for the above code.
+The following code snippet provides supporting class for the above code. Here, the attributes DisplayNameAttribute and Bindable are used.
+
+* DisplayNameAttribute - to match the column headers with set of properties while exporting.
+* Bindable - to skip a property while exporting.
 
 {% tabs %}  
 {% highlight c# %}
