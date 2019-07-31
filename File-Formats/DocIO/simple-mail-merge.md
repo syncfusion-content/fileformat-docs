@@ -1,6 +1,6 @@
 ---
-title: Simple Mail merge | Syncfusion
-description: This section illustrates how to perform a simple Mail merge in a Word document
+title: Simple Mail merge | Word library (DocIO) | Syncfusion
+description: This section illustrates how to Mail merge - replace all merge fields in a document with data, by repeating whole document for each record in data source.
 platform: file-formats
 control: DocIO
 documentation: UG
@@ -8,7 +8,7 @@ documentation: UG
 
 # Simple Mail merge
 
-The MailMerge class provides various overloads for Execute method to perform Mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
+The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
 
 The following code example shows how to create a Word template document with merge fields.
 
@@ -28,11 +28,11 @@ document.EnsureMinimal();
 
 document.LastSection.PageSetup.Margins.All = 72;
 
-//Appends text to the last paragraph.
+//Appends text to the last paragraph
 
 document.LastParagraph.AppendText("EmployeeId: ");
 
-//Appends merge field to the last paragraph.
+//Appends merge field to the last paragraph
 
 document.LastParagraph.AppendField("EmployeeId", FieldType.FieldMergeField);
 
@@ -48,7 +48,7 @@ document.LastParagraph.AppendText("\nCity: ");
 
 document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
 
-//Saves and closes the WordDocument instance.
+//Saves and closes the WordDocument instance
 
 document.Save("Template.docx", FormatType.Docx);
 
@@ -70,11 +70,11 @@ document.EnsureMinimal()
 
 document.LastSection.PageSetup.Margins.All = 72
 
-'Appends text to the last paragraph.
+'Appends text to the last paragraph
 
 document.LastParagraph.AppendText("EmployeeId: ")
 
-'Appends merge field to the last paragraph.
+'Appends merge field to the last paragraph
 
 document.LastParagraph.AppendField("EmployeeId", FieldType.FieldMergeField)
 
@@ -90,7 +90,7 @@ document.LastParagraph.AppendText(vbLf & "City: ")
 
 document.LastParagraph.AppendField("City", FieldType.FieldMergeField)
 
-'Saves and closes the WordDocument instance.
+'Saves and closes the WordDocument instance
 
 document.Save("Template.docx", FormatType.Docx)
 
@@ -110,7 +110,7 @@ The following code example shows how to perform a simple Mail merge in the gener
 
 {% highlight c# %}
 
-//Opens the template document.
+//Opens the template document
 
 WordDocument document = new WordDocument("Template.docx");
 
@@ -118,7 +118,7 @@ string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City" };
 
 string[] fieldValues = new string[] { "1001", "Peter", "+122-2222222", "London" };
 
-//Performs the mail merge.
+//Performs the mail merge
 
 document.MailMerge.Execute(fieldNames, fieldValues);
 
@@ -132,7 +132,7 @@ document.Close();
 
 {% highlight vb.net %}
 
-'Opens the template document.
+'Opens the template document
 
 Dim document As New WordDocument("Template.docx")
 
@@ -140,7 +140,7 @@ Dim fieldNames As String() = New String() {"EmployeeId", "Name", "Phone", "City"
 
 Dim fieldValues As String() = New String() {"1001", "Peter", "+122-2222222", "London"}
 
-'Performs the mail merge.
+'Performs the mail merge
 
 document.MailMerge.Execute(fieldNames, fieldValues)
 
@@ -158,7 +158,7 @@ The resultant document looks as follows.
 
 ![Resultant document](MailMerge_images/MailMerge_img3.jpeg)
 
-You can find more examples about various overloads of the 'Execute' method from the following table:
+You can find more examples about various overloads of the `Execute` method from the following table:
 
 <table>
 <thead>
