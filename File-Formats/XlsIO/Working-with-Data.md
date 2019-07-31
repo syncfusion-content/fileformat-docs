@@ -226,8 +226,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ### Import Data from Collection Objects
 
-Essential XlsIO allows you to import data directly from Collection Objects as shown below.  XlsIO imports data from Collection objects into existing or newly created Excel document by matching set of properties with [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1) and 
-[BindableAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindableattribute?view=netframework-4.8)
+Essential XlsIO allows you to import data directly from Collection Objects as shown below.
 
 {% tabs %}  
 {% highlight c# %}
@@ -342,8 +341,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The following code snippet provides supporting class for the above code. Here, the attributes DisplayNameAttribute and Bindable are used.
 
-* DisplayNameAttribute - to customize the column header name while importing.
-* Bindable - to skip a property while importing.
+* [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1) - to customize the column header name while importing.
+* [BindableAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindableattribute?view=netframework-4.8) - to skip a property while importing.
 
 {% tabs %}  
 {% highlight c# %}
@@ -1134,8 +1133,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Exporting from Worksheet to Collection Objects 
 
-XlsIO allows to export the sheet data to a **Collection Objects** by using the **ExportData&lt;T&gt;()** method. This method Exports Excel data into Collection objects from existing or newly created Excel document by matching set of properties with [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1) and 
-[BindableAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindableattribute?view=netframework-4.8)
+XlsIO allows to export the sheet data to a **Collection Objects** by using the **ExportData&lt;T&gt;()** method.
 
 The following code snippet illustrates on how to export worksheet data into Collection Objects using **ExportData&lt;T&gt;**.
 
@@ -1261,8 +1259,8 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 The following code snippet provides supporting class for the above code. Here, the attributes DisplayNameAttribute and Bindable are used.
 
-* DisplayNameAttribute - to match the column headers with set of properties while exporting.
-* Bindable - to skip a property while exporting.
+* [DisplayNameAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.displaynameattribute?view=netframework-4.7.1) - to match the column headers with set of properties while exporting.
+* [BindableAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.bindableattribute?view=netframework-4.8) - to skip a property while exporting.
 
 {% tabs %}  
 {% highlight c# %}
