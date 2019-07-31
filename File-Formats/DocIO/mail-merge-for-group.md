@@ -195,6 +195,40 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Gets the employee details as “IEnumerable” collection
+
+List<Employee> employeeList = GetEmployees();
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+
+//Performs Mail merge
+
+document.MailMerge.ExecuteGroup(dataTable);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %} 
+
 {% endtabs %}
 
 The following code example provides supporting methods and class for the previous code.
@@ -459,9 +493,77 @@ End Class
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+public List<Employee> GetEmployees()
+
+{
+
+List<Employee> employees = new List<Employee>();
+
+employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
+
+employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+
+employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
+
+employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+
+employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+
+return employees;
+
+}
+
+public class Employee
+
+{
+
+public string FirstName { get; set; }
+
+public string LastName { get; set; }
+
+public string Address { get; set; }
+
+public string City { get; set; }
+
+public string Region { get; set; }
+
+public string Country { get; set; }
+
+public string Title { get; set; }
+
+public Image Photo { get; set; }
+
+public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+
+{
+
+FirstName = firstName;
+
+LastName = lastName;
+
+Title = title;
+
+Address = address;
+
+City = city;
+
+Region = region;
+
+Country = country;
+
+Photo = Image.FromFile(photoFilePath);
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
-You can find an example about overloads of the ExecuteGroup method from the following table:
+You can find an example about overloads of the `ExecuteGroup` method from the following table:
 
 <table>
 <thead>

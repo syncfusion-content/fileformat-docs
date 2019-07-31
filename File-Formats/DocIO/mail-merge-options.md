@@ -86,6 +86,48 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Creates data source
+
+string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", "Phone_InDataSource", "City_InDataSource" };
+
+string[] fieldValues = new string[] { "101", "John", "+122-2000466", "Houston" };
+
+//Mapping the required merge field names with data source column names
+
+document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource");
+
+document.MailMerge.MappedFields.Add("Name_InDocument", "Name_InDataSource");
+
+document.MailMerge.MappedFields.Add("Phone_InDocument", "Phone_InDataSource");
+
+document.MailMerge.MappedFields.Add("City_InDocument", "City_InDataSource");
+
+//Performs the mail merge
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Sample.docx");
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Retrieving the merge field names
@@ -110,6 +152,14 @@ Dim fieldNames As String() = document.MailMerge.GetMergeFieldNames()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Gets the merge field names from the document.
+
+string[] fieldNames = document.MailMerge.GetMergeFieldNames();
+
+{% endhighlight %} 
+
 {% endtabs %}
 
 The following code example shows how to retrieve the merge field group names in the Word document.
@@ -132,6 +182,14 @@ Dim groupNames As String() = document.MailMerge.GetMergeGroupNames()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Gets the merge field group names from the document.
+
+string[] groupNames = document.MailMerge.GetMergeGroupNames();
+
+{% endhighlight %}
+
 {% endtabs %}
 
 The following code example shows how to retrieve the merge field names for a specific group in the Word document.
@@ -151,6 +209,14 @@ string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 'Gets the fields from the specified groups 
 
 Dim fieldNames As String() = document.MailMerge.GetMergeFieldNames(groupName)
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Gets the fields from the specified groups. 
+
+string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 
 {% endhighlight %}
 
@@ -211,6 +277,40 @@ document.MailMerge.Execute(fieldNames, fieldValues)
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Removes paragraph that contains only empty fields. 
+
+document.MailMerge.RemoveEmptyParagraphs = true;
+
+string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
+
+string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
+
+//Performs the mail merge.
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Sample.docx");
 
 {% endhighlight %}
 
@@ -290,6 +390,40 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Sets “ClearFields” to true to remove empty mail merge fields from document. 
+
+document.MailMerge.ClearFields = false;
+
+string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
+
+string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
+
+//Performs the mail merge.
+
+document.MailMerge.Execute(fieldNames, fieldValues);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Sample.docx");
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Remove empty group
@@ -355,6 +489,416 @@ document.MailMerge.ExecuteNestedGroup(dataTable)
 document.Save("Result.docx")
 
 document.Close() 
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Gets the employee details as “IEnumerable” collection
+
+List<Employees> employeeList = GetEmployees();
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+
+//Enable the flag to remove empty group which contain empty merge fields
+
+document.MailMerge.RemoveEmptyGroup = true;
+
+//Performs Mail merge
+
+document.MailMerge.ExecuteNestedGroup(dataTable);
+
+MemoryStream stream = new MemoryStream();
+
+//Saves the Word document to MemoryStream
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code example provides supporting methods
+
+{% tabs %}  
+
+{% highlight c# %}
+  
+public static List<Employees> GetEmployees()
+
+{
+
+	List<OrderDetails> orders = new List<OrderDetails>();
+
+	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+
+	List<CustomerDetails> customerDetails = new List<CustomerDetails>();
+
+	customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
+
+	customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
+
+	List<Employees> employees = new List<Employees>();
+	
+	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
+
+	return employees;
+
+}
+        
+
+public class Employees
+
+{
+
+	public string FirstName { get; set; }
+
+	public string LastName { get; set; }
+
+	public string EmployeeID { get; set; }
+
+	public string Address { get; set; }
+
+	public string City { get; set; }
+
+	public string Country { get; set; }
+
+	public List<CustomerDetails> Customers { get; set; }
+
+	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
+
+	{
+
+		FirstName = firstName;
+
+		LastName = lastName;
+
+		Address = address;
+
+		EmployeeID = employeeId;
+
+		City = city;
+
+		Country = country;
+
+		Customers = customers;
+
+	}
+
+}
+
+public class CustomerDetails
+
+{
+
+	public string ContactName { get; set; }
+
+	public string CompanyName { get; set; }
+
+	public string City { get; set; }
+
+	public string Country { get; set; }
+
+	public List<OrderDetails> Orders { get; set; }
+
+	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+
+	{
+
+		ContactName = contactName;
+
+		CompanyName = companyName;
+
+		City = city;
+
+		Country = country;
+
+		Orders = orders;
+
+	}
+
+}
+
+public class OrderDetails
+
+{
+
+	public string OrderID { get; set; }
+
+	public DateTime OrderDate { get; set; }
+
+	public DateTime ShippedDate { get; set; }
+
+	public DateTime RequiredDate { get; set; }
+
+	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+
+	{
+
+		OrderID = orderId;
+
+		OrderDate = orderDate;
+
+		ShippedDate = shippedDate;
+
+		RequiredDate = requiredDate;
+
+	}
+
+}
+
+{% endhighlight %}
+
+{% highlight VB.NET %}
+
+Public Function GetEmployees() As List(Of Employees)
+ 
+	Dim orders As List(Of OrderDetails) = New List(Of OrderDetails)
+ 
+	orders.Add(New OrderDetails("10835", New DateTime(2015, 1, 5), New DateTime(2015, 1, 12), New DateTime(2015, 1, 21)))
+ 
+	Dim customers As List(Of CustomerDetails) = New List(Of CustomerDetails) 
+ 
+	customers.Add(New CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders))
+ 
+	customers.Add(New CustomerDetails("Andy", "Bernard", "Berlin", "Germany", Nothing))
+ 
+	Dim employees As List(Of Employees) = New List(Of Employees) 
+ 
+	employees.Add(New Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers))
+ 
+	Return employees
+ 
+End Function
+ 
+ 
+Public Class Employees
+ 
+	Public Property FirstName() As String
+	 
+	Public Property LastName() As String
+	 
+	Public Property EmployeeID() As String
+	 
+	Public Property Address() As String
+ 
+	Public Property City() As String
+	 
+	Public Property Country() As String
+	 
+	Public Property Customers() As List(Of CustomerDetails)
+	 
+	Public Sub New(firstName As String, lastName As String, employeeId As String, address As String, city As String, country As String, customers As List(Of CustomerDetails))
+ 
+		Me.FirstName = firstName
+ 
+		Me.LastName = lastName
+ 
+		Me.Address = address
+ 
+		Me.EmployeeID = employeeId
+ 
+		Me.City = city
+ 
+		Me.Country = country
+ 
+		Me.Customers = customers
+ 
+	End Sub
+ 
+End Class
+ 
+Public Class CustomerDetails
+ 
+	Public Property ContactName() As String
+	 
+	Public Property CompanyName() As String
+	 
+	Public Property City() As String
+	 
+	Public Property Country() As String
+	 
+	Public Property Orders() As List(Of OrderDetails)
+	 
+	Public Sub New(contactName As String, companyName As String, city As String, country As String, orders As List(Of OrderDetails))
+ 
+		Me.ContactName = contactName
+ 
+		Me.CompanyName = companyName
+ 
+		Me.City = city
+ 
+		Me.Country = counTry
+ 
+		Me.Orders = orders
+ 
+	End Sub
+ 
+End Class
+ 
+Public Class OrderDetails
+ 
+	Public Property OrderID() As String
+	 
+	Public Property OrderDate() As DateTime
+	 
+	Public Property ShippedDate() As DateTime
+	 
+	Public Property RequiredDate() As DateTime
+	 
+	Public Sub New(ByVal orderId As String, ByVal orderDate As DateTime, ByVal shippedDate As DateTime, ByVal requiredDate As DateTime)
+ 
+		Me.OrderID = orderId
+ 
+		Me.OrderDate = orderDate
+ 
+		Me.ShippedDate = shippedDate
+ 
+		Me.RequiredDate = requiredDate
+ 
+	End Sub
+ 
+End Class
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+   
+public static List<Employees> GetEmployees()
+
+{
+
+	List<OrderDetails> orders = new List<OrderDetails>();
+
+	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+
+	List<CustomerDetails> customerDetails = new List<CustomerDetails>();
+
+	customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
+
+	customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
+
+	List<Employees> employees = new List<Employees>();
+	
+	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
+
+	return employees;
+
+}
+        
+public class Employees
+
+{
+
+	public string FirstName { get; set; }
+
+	public string LastName { get; set; }
+
+	public string EmployeeID { get; set; }
+
+	public string Address { get; set; }
+
+	public string City { get; set; }
+
+	public string Country { get; set; }
+
+	public List<CustomerDetails> Customers { get; set; }
+
+	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
+
+	{
+
+		FirstName = firstName;
+
+		LastName = lastName;
+
+		Address = address;
+
+		EmployeeID = employeeId;
+
+		City = city;
+
+		Country = country;
+
+		Customers = customers;
+
+	}
+
+}
+
+public class CustomerDetails
+
+{
+
+	public string ContactName { get; set; }
+
+	public string CompanyName { get; set; }
+
+	public string City { get; set; }
+
+	public string Country { get; set; }
+
+	public List<OrderDetails> Orders { get; set; }
+
+	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+
+	{
+
+		ContactName = contactName;
+
+		CompanyName = companyName;
+
+		City = city;
+
+		Country = country;
+
+		Orders = orders;
+
+	}
+
+}
+
+public class OrderDetails
+
+{
+
+	public string OrderID { get; set; }
+
+	public DateTime OrderDate { get; set; }
+
+	public DateTime ShippedDate { get; set; }
+
+	public DateTime RequiredDate { get; set; }
+
+	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+
+	{
+
+		OrderID = orderId;
+
+		OrderDate = orderDate;
+
+		ShippedDate = shippedDate;
+
+		RequiredDate = requiredDate;
+
+	}
+
+}
 
 {% endhighlight %}
 

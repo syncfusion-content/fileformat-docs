@@ -56,13 +56,13 @@ For further information, click [here](https://help.syncfusion.com/file-formats/d
 
 The `MailMerge` class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO in Mail merge process.
 
-* `MergeField` - Occurs during Mail merge when a Mail merge field except image Mail merge field is encountered in the document.
+* `MergeField` - occurs during Mail merge when a Mail merge field except image Mail merge field is encountered in the document.
 
-* `MergeImageField` - Occurs during Mail merge when an image Mail merge field is encountered in the document.
+* `MergeImageField` - occurs during Mail merge when an image Mail merge field is encountered in the document.
 
-* `BeforeClearField` - Occurs during Mail merge when an unmerged field is encountered in the document.
+* `BeforeClearField` - occurs during Mail merge when an unmerged field is encountered in the document.
 
-* `BeforeClearGroupField` - Occurs during Mail merge when an unmerged group field is encountered in the document.
+* `BeforeClearGroupField` - occurs during Mail merge when an unmerged group field is encountered in the document.
 
 ### MergeField Event
 

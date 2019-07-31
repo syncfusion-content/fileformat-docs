@@ -250,6 +250,60 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Creates an instance of the MailMergeDataSet.
+
+MailMergeDataSet dataSet = new MailMergeDataSet();
+
+//Creates the mail merge data table in order to perform mail merge
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Customers", GetCustomers());
+
+dataSet.Add(dataTable);
+
+dataTable = new MailMergeDataTable("Orders", GetOrders());
+
+dataSet.Add(dataTable);
+
+List<DictionaryEntry> commands = new List<DictionaryEntry>();
+
+// DictionaryEntry contain "Source table" (key) and "Command" (value).
+
+DictionaryEntry entry = new DictionaryEntry("Customers", string.Empty);
+
+commands.Add(entry);
+
+//Retrieves the customer details
+
+entry = new DictionaryEntry("Orders", "CustomerID = %Customers.CustomerID%");
+
+commands.Add(entry);
+
+//Performs the mail merge operation with the dynamic collection
+
+document.MailMerge.ExecuteNestedGroup(dataSet, commands);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Sample.docx");
+
+{% endhighlight %} 
+
 {% endtabs %}
 
 The following code example provides supporting methods for the previous code.
@@ -384,6 +438,74 @@ End Function
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+private List<ExpandoObject> GetCustomers()
+
+{
+
+List<ExpandoObject> customers = new List<ExpandoObject>();
+
+customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"));
+
+customers.Add(GetDynamicCustomer(102, "John", "Syncfusion"));
+
+customers.Add(GetDynamicCustomer(110,"David","Syncfusion"));
+
+return customers;
+
+}
+
+private List<ExpandoObject> GetOrders()
+
+{
+
+List<ExpandoObject> orders = new List<ExpandoObject>();
+
+orders.Add(GetDynamicOrder(1001, "MSWord", 100));
+
+orders.Add(GetDynamicOrder(1002, "AdobeReader", 100));      
+
+orders.Add(GetDynamicOrder(1003, "VisualStudio", 102));
+
+return orders;
+
+}
+
+private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
+
+{
+
+dynamic dynamicCustomer = new ExpandoObject();
+
+dynamicCustomer.CustomerID = customerID;
+
+dynamicCustomer.CustomerName = customerName;
+
+dynamicCustomer.CompanyName = companyName;
+
+return dynamicCustomer;
+
+}
+
+private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
+
+{
+
+dynamic dynamicOrder = new ExpandoObject();
+
+dynamicOrder.OrderID = orderID;
+
+dynamicOrder.OrderName = orderName;
+
+dynamicOrder.CustomerID = customerID;
+
+return dynamicOrder;
+
+}
+
+{% endhighlight %} 
+
 {% endtabs %}
 
 ## Performing Nested Mail merge with relational data objects
@@ -448,6 +570,40 @@ document.MailMerge.ExecuteNestedGroup(dataTable)
 document.Save("Result.docx")
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Opens the template document. 
+
+FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Gets the employee details as “IEnumerable” collection
+
+List<Employees> employeeList = GetEmployees();
+
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+
+//Performs Mail merge
+
+document.MailMerge.ExecuteNestedGroup(dataTable);
+
+//Saves the Word document to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream, FormatType.Docx);
+
+stream.Position = 0;
+
+//Download Word document in the browser
+
+return File(stream, "application/msword", "Result.docx");
 
 {% endhighlight %}
 
@@ -947,11 +1103,135 @@ End Class
 
 {% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+
+public static List<Employees> GetEmployees()
+
+{
+
+List<OrderDetails> orders = new List<OrderDetails>();
+
+orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+
+orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
+
+CustomerDetails customers = new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders);
+
+List<Employees> employees = new List<Employees>();
+
+employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers));
+
+return employees;
+
+}
+
+public class Employees
+
+{
+
+public string FirstName { get; set; }
+
+public string LastName { get; set; }
+
+public string EmployeeID { get; set; }
+
+public string Address { get; set; }
+
+public string City { get; set; }
+
+public string Country { get; set; }
+
+public CustomerDetails Customers { get; set; }
+
+public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, CustomerDetails customers)
+
+{
+
+FirstName = firstName;
+
+LastName = lastName;
+
+Address = address;
+
+EmployeeID = employeeId;
+
+City = city;
+
+Country = country;
+
+Customers = customers;
+
+}
+
+}
+
+public class CustomerDetails
+
+{
+
+public string ContactName { get; set; }
+
+public string CompanyName { get; set; }
+
+public string City { get; set; }
+
+public string Country { get; set; }
+
+public List<OrderDetails> Orders { get; set; }
+
+public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+
+{
+
+ContactName = contactName;
+
+CompanyName = companyName;
+
+City = city;
+
+Country = country;
+
+Orders = orders;
+
+}
+
+}
+
+public class OrderDetails
+
+{
+
+public string OrderID { get; set; }
+
+public DateTime OrderDate { get; set; }
+
+public DateTime ShippedDate { get; set; }
+
+public DateTime RequiredDate { get; set; }
+
+public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+
+{
+
+OrderID = orderId;
+
+OrderDate = orderDate;
+
+ShippedDate = shippedDate;
+
+RequiredDate = requiredDate;
+
+}
+
+}
+
+{% endhighlight %}
+
 {% endtabs %}
 
 ![Nested Mail merge resultant document](MailMerge_images/MailMerge_img7.jpeg)
 
-You can find an example about overloads of the ExecuteNestedGroup method from the following table:
+You can find an example about overloads of the 'ExecuteNestedGroup' method from the following table:
 
 <table>
 <thead>
