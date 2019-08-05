@@ -1,5 +1,5 @@
 ---
-title: Working with Fields
+title: Working with Fields | Syncfusion
 description: This section illustrates how to add and update the fields in the Word document
 platform: file-formats
 control: DocIO
@@ -101,6 +101,141 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Creates an instance of WordDocument class (Empty Word Document)
+
+WordDocument document = new WordDocument();
+
+//Adds a new section into the Word Document
+
+IWSection section = document.AddSection();
+
+//Adds a new paragraph into Word document and appends text into paragraph
+
+IWParagraph paragraph = section.AddParagraph();
+
+paragraph.AppendText("Today's Date: ");
+
+//Adds the new Date field in Word document with field name and its type.
+
+WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
+
+//Field code used to describe how to display the date
+
+field.FieldCode = @"DATE  \@" + "\"MMMM d, yyyy\""; 
+
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			// Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
+	// Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates an instance of WordDocument class (Empty Word Document)
+
+WordDocument document = new WordDocument();
+
+//Adds a new section into the Word Document
+
+IWSection section = document.AddSection();
+
+//Adds a new paragraph into Word document and appends text into paragraph
+
+IWParagraph paragraph = section.AddParagraph();
+
+paragraph.AppendText("Today's Date: ");
+
+//Adds the new Date field in Word document with field name and its type.
+
+WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
+
+//Field code used to describe how to display the date
+
+field.FieldCode = @"DATE  \@" + "\"MMMM d, yyyy\""; 
+
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+stream.Position = 0;
+
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates an instance of WordDocument class (Empty Word Document)
+
+WordDocument document = new WordDocument();
+
+//Adds a new section into the Word Document
+
+IWSection section = document.AddSection();
+
+//Adds a new paragraph into Word document and appends text into paragraph
+
+IWParagraph paragraph = section.AddParagraph();
+
+paragraph.AppendText("Today's Date: ");
+
+//Adds the new Date field in Word document with field name and its type.
+
+WField field = paragraph.AppendField("Date", FieldType.FieldDate) as WField;
+
+//Field code used to describe how to display the date
+
+field.FieldCode = @"DATE  \@" + "\"MMMM d, yyyy\""; 
+
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+
+{% endhighlight %}
+
 {% endtabs %}  
 
 ## Formatting Fields
@@ -154,6 +289,183 @@ entity = entity.NextSibling;
 document.Save("Template.docx", FormatType.Docx);
 
 document.Close();
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates an instance of a WordDocument 
+
+WordDocument document = new WordDocument();
+
+//Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+//Adds the new Page field in Word document with field name and its type.
+
+IWField field = document.LastParagraph.AppendField("Page", FieldType.FieldPage);
+
+IEntity entity = field;
+
+//Iterates to sibling items until Field End 
+
+while (entity.NextSibling != null)
+
+{
+
+if (entity is WTextRange)
+
+//Sets character format for text ranges. 
+
+(entity as WTextRange).CharacterFormat.FontSize = 6;
+
+else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+
+break;
+
+//Gets next sibling item.
+
+entity = entity.NextSibling;
+
+}
+
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+Save(stream, "Template.docx");
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			// Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
+	// Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates an instance of a WordDocument 
+
+WordDocument document = new WordDocument();
+
+//Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+//Adds the new Page field in Word document with field name and its type.
+
+IWField field = document.LastParagraph.AppendField("Page", FieldType.FieldPage);
+
+IEntity entity = field;
+
+//Iterates to sibling items until Field End 
+
+while (entity.NextSibling != null)
+
+{
+
+if (entity is WTextRange)
+
+//Sets character format for text ranges. 
+
+(entity as WTextRange).CharacterFormat.FontSize = 6;
+
+else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+
+break;
+
+//Gets next sibling item.
+
+entity = entity.NextSibling;
+
+}
+
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+stream.Position = 0;
+
+//Download Word document in the browser
+return File(stream, "application/msword", "Template.docx");
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates an instance of a WordDocument 
+
+WordDocument document = new WordDocument();
+
+//Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+//Adds the new Page field in Word document with field name and its type.
+
+IWField field = document.LastParagraph.AppendField("Page", FieldType.FieldPage);
+
+IEntity entity = field;
+
+//Iterates to sibling items until Field End 
+
+while (entity.NextSibling != null)
+
+{
+
+if (entity is WTextRange)
+
+//Sets character format for text ranges. 
+
+(entity as WTextRange).CharacterFormat.FontSize = 6;
+
+else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
+
+break;
+
+//Gets next sibling item.
+
+entity = entity.NextSibling;
+
+}
+
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
 
 {% endhighlight %}
 
@@ -216,6 +528,102 @@ document.UpdateDocumentFields()
 document.Save("Result.docx", FormatType.Docx)
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Loads an existing Word document into DocIO instance 
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Input.docx"), FormatType.Docx);
+
+//Updates the fields present in a document.
+
+document.UpdateDocumentFields();
+
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+Save(stream, "Result.docx");
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			// Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
+	// Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Loads an existing Word document into DocIO instance 
+
+FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+
+//Updates the fields present in a document.
+
+document.UpdateDocumentFields();
+
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+stream.Position = 0;
+
+//Download Word document in the browser
+return File(stream, "application/msword", "Result.docx");
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Loads an existing Word document into DocIO instance 
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Input.docx"), FormatType.Docx);
+
+//Updates the fields present in a document.
+
+document.UpdateDocumentFields();
+
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 
 {% endhighlight %}
 
@@ -319,6 +727,201 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//Creates an instance of a WordDocument
+
+WordDocument document = new WordDocument();
+
+//Adds a new section into the Word Document
+
+IWSection section = document.AddSection();
+
+//Adds a new paragraph into Word document and appends text into paragraph
+
+IWParagraph paragraph = section.AddParagraph();
+
+paragraph.AppendText("If field which uses string of characters in expression");
+
+paragraph = section.AddParagraph();
+
+//Creates the new instance of IF field
+
+WIfField field = paragraph.AppendField("If", FieldType.FieldIf) as WIfField;
+
+//Specifies the expression, true and false statement in field code
+
+field.FieldCode = "IF \"True\" = \"True\" \"The given statement is Correct\" \"The given statement is Wrong\"";
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("If field which uses numbers in expression");
+
+paragraph = section.AddParagraph();
+
+//Creates the new instance of IF field
+
+field = paragraph.AppendField("If", FieldType.FieldIf) as WIfField;
+
+//Specifies the expression, true and false statement in field code
+
+field.FieldCode = "IF 100 >= 1000 \"The given statement is Correct\" \"The given statement is Wrong\"";
+
+//Updates the document fields
+
+document.UpdateDocumentFields();
+
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			// Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
+	// Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates an instance of a WordDocument
+
+WordDocument document = new WordDocument();
+
+//Adds a new section into the Word Document
+
+IWSection section = document.AddSection();
+
+//Adds a new paragraph into Word document and appends text into paragraph
+
+IWParagraph paragraph = section.AddParagraph();
+
+paragraph.AppendText("If field which uses string of characters in expression");
+
+paragraph = section.AddParagraph();
+
+//Creates the new instance of IF field
+
+WIfField field = paragraph.AppendField("If", FieldType.FieldIf) as WIfField;
+
+//Specifies the expression, true and false statement in field code
+
+field.FieldCode = "IF \"True\" = \"True\" \"The given statement is Correct\" \"The given statement is Wrong\"";
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("If field which uses numbers in expression");
+
+paragraph = section.AddParagraph();
+
+//Creates the new instance of IF field
+
+field = paragraph.AppendField("If", FieldType.FieldIf) as WIfField;
+
+//Specifies the expression, true and false statement in field code
+
+field.FieldCode = "IF 100 >= 1000 \"The given statement is Correct\" \"The given statement is Wrong\"";
+
+//Updates the document fields
+
+document.UpdateDocumentFields();
+
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+stream.Position = 0;
+
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates an instance of a WordDocument
+
+WordDocument document = new WordDocument();
+
+//Adds a new section into the Word Document
+
+IWSection section = document.AddSection();
+
+//Adds a new paragraph into Word document and appends text into paragraph
+
+IWParagraph paragraph = section.AddParagraph();
+
+paragraph.AppendText("If field which uses string of characters in expression");
+
+paragraph = section.AddParagraph();
+
+//Creates the new instance of IF field
+
+WIfField field = paragraph.AppendField("If", FieldType.FieldIf) as WIfField;
+
+//Specifies the expression, true and false statement in field code
+
+field.FieldCode = "IF \"True\" = \"True\" \"The given statement is Correct\" \"The given statement is Wrong\"";
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("If field which uses numbers in expression");
+
+paragraph = section.AddParagraph();
+
+//Creates the new instance of IF field
+
+field = paragraph.AppendField("If", FieldType.FieldIf) as WIfField;
+
+//Specifies the expression, true and false statement in field code
+
+field.FieldCode = "IF 100 >= 1000 \"The given statement is Correct\" \"The given statement is Wrong\"";
+
+//Updates the document fields
+
+document.UpdateDocumentFields();
+
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+
+{% endhighlight %}
+
 {% endtabs %} 
   
 ## Document Variables
@@ -402,6 +1005,183 @@ document.UpdateDocumentFields()
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates an instance of a WordDocument
+
+WordDocument document = new WordDocument();
+
+//Adds a new section into the Word Document
+
+IWSection section = document.AddSection();
+
+//Adds a new paragraph into Word document and appends text into paragraph
+
+IWParagraph paragraph = section.AddParagraph();
+
+paragraph.AppendText("First Name of the customer: ");
+
+//Adds the DocVariable field with Variable name and its type
+
+paragraph.AppendField("FirstName", FieldType.FieldDocVariable);
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("Last Name of the customer: ");
+
+//Adds the DocVariable field with Variable name and its type
+
+paragraph.AppendField("LastName", FieldType.FieldDocVariable);
+
+//Adds the value for variable in WordDocument.Variable collection
+
+document.Variables.Add("FirstName", "Jeff");
+
+document.Variables.Add("LastName", "Smith");
+
+//Updates the document fields
+
+document.UpdateDocumentFields();
+
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			// Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
+	// Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates an instance of a WordDocument
+
+WordDocument document = new WordDocument();
+
+//Adds a new section into the Word Document
+
+IWSection section = document.AddSection();
+
+//Adds a new paragraph into Word document and appends text into paragraph
+
+IWParagraph paragraph = section.AddParagraph();
+
+paragraph.AppendText("First Name of the customer: ");
+
+//Adds the DocVariable field with Variable name and its type
+
+paragraph.AppendField("FirstName", FieldType.FieldDocVariable);
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("Last Name of the customer: ");
+
+//Adds the DocVariable field with Variable name and its type
+
+paragraph.AppendField("LastName", FieldType.FieldDocVariable);
+
+//Adds the value for variable in WordDocument.Variable collection
+
+document.Variables.Add("FirstName", "Jeff");
+
+document.Variables.Add("LastName", "Smith");
+
+//Updates the document fields
+
+document.UpdateDocumentFields();
+
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+stream.Position = 0;
+
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates an instance of a WordDocument
+
+WordDocument document = new WordDocument();
+
+//Adds a new section into the Word Document
+
+IWSection section = document.AddSection();
+
+//Adds a new paragraph into Word document and appends text into paragraph
+
+IWParagraph paragraph = section.AddParagraph();
+
+paragraph.AppendText("First Name of the customer: ");
+
+//Adds the DocVariable field with Variable name and its type
+
+paragraph.AppendField("FirstName", FieldType.FieldDocVariable);
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("Last Name of the customer: ");
+
+//Adds the DocVariable field with Variable name and its type
+
+paragraph.AppendField("LastName", FieldType.FieldDocVariable);
+
+//Adds the value for variable in WordDocument.Variable collection
+
+document.Variables.Add("FirstName", "Jeff");
+
+document.Variables.Add("LastName", "Smith");
+
+//Updates the document fields
+
+document.UpdateDocumentFields();
+
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 
 {% endhighlight %}
 
@@ -506,6 +1286,207 @@ document.UpdateDocumentFields()
 document.Save("Sample.docx", FormatType.Docx)
 
 document.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Creates an instance of a WordDocument
+
+WordDocument document = new WordDocument();
+
+//Adds a new section into the Word Document
+
+IWSection section = document.AddSection();
+
+//Adds a new paragraph into Word document
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Adds text, bookmark start and end in the paragraph
+
+paragraph.AppendBookmarkStart("Title");
+
+paragraph.AppendText("Northwind Database");
+
+paragraph.AppendBookmarkEnd("Title");
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.");
+
+section = document.AddSection();
+
+section.AddParagraph();
+
+paragraph = section.AddParagraph() as WParagraph;
+
+//Gets the collection of bookmark start in the word document
+
+List<Entity> items = document.GetCrossReferenceItems(ReferenceType.Bookmark);
+
+paragraph.AppendText("Bookmark Cross Reference starts here ");
+
+//Appends the cross reference for bookmark “Title” with ContentText as reference kind
+
+paragraph.AppendCrossReference(ReferenceType.Bookmark, ReferenceKind.ContentText, items[0], true, false, false, string.Empty);
+
+//Updates the document Fields
+
+document.UpdateDocumentFields();
+
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			// Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
+	// Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Creates an instance of a WordDocument
+
+WordDocument document = new WordDocument();
+
+//Adds a new section into the Word Document
+
+IWSection section = document.AddSection();
+
+//Adds a new paragraph into Word document
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Adds text, bookmark start and end in the paragraph
+
+paragraph.AppendBookmarkStart("Title");
+
+paragraph.AppendText("Northwind Database");
+
+paragraph.AppendBookmarkEnd("Title");
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.");
+
+section = document.AddSection();
+
+section.AddParagraph();
+
+paragraph = section.AddParagraph() as WParagraph;
+
+//Gets the collection of bookmark start in the word document
+
+List<Entity> items = document.GetCrossReferenceItems(ReferenceType.Bookmark);
+
+paragraph.AppendText("Bookmark Cross Reference starts here ");
+
+//Appends the cross reference for bookmark “Title” with ContentText as reference kind
+
+paragraph.AppendCrossReference(ReferenceType.Bookmark, ReferenceKind.ContentText, items[0], true, false, false, string.Empty);
+
+//Updates the document Fields
+
+document.UpdateDocumentFields();
+
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+stream.Position = 0;
+
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Creates an instance of a WordDocument
+
+WordDocument document = new WordDocument();
+
+//Adds a new section into the Word Document
+
+IWSection section = document.AddSection();
+
+//Adds a new paragraph into Word document
+
+IWParagraph paragraph = section.AddParagraph();
+
+//Adds text, bookmark start and end in the paragraph
+
+paragraph.AppendBookmarkStart("Title");
+
+paragraph.AppendText("Northwind Database");
+
+paragraph.AppendBookmarkEnd("Title");
+
+paragraph = section.AddParagraph();
+
+paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.");
+
+section = document.AddSection();
+
+section.AddParagraph();
+
+paragraph = section.AddParagraph() as WParagraph;
+
+//Gets the collection of bookmark start in the word document
+
+List<Entity> items = document.GetCrossReferenceItems(ReferenceType.Bookmark);
+
+paragraph.AppendText("Bookmark Cross Reference starts here ");
+
+//Appends the cross reference for bookmark “Title” with ContentText as reference kind
+
+paragraph.AppendCrossReference(ReferenceType.Bookmark, ReferenceKind.ContentText, items[0], true, false, false, string.Empty);
+
+//Updates the document Fields
+
+document.UpdateDocumentFields();
+
+//Saves the Word document to  MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 
 {% endhighlight %}
 
