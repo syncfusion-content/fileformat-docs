@@ -1,5 +1,5 @@
 ---
-title: Working with Content Controls
+title: Working with Content Controls | DocIO | Syncfusion
 description: This section illustrates how to work with Content Controls
 platform: file-formats
 control: DocIO
@@ -116,7 +116,129 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
+// Creates a new Word document
+
+WordDocument document = new WordDocument();
+
+// Adds new section to the document
+
+IWSection section = document.AddSection();
+
+WTextBody textBody = section.Body;
+	
+// Adds block content control into Word document
+
+BlockContentControl blockContentControl = textBody.AddBlockContentControl(ContentControlType.RichText) as BlockContentControl;
+	
+// Adds new paragraph in the block content control
+
+WParagraph paragraph = blockContentControl.TextBody.AddParagraph() as WParagraph;
+	
+// Adds new text to the paragraph
+
+paragraph.AppendText("Block content control");
+	
+// Adds new table to the block content control
+
+WTable table = blockContentControl.TextBody.AddTable() as WTable;
+	
+// Specifies the total number of rows and columns
+
+table.ResetCells(2, 3);
+	
+// Adds new paragraph to the block content control.
+
+paragraph = blockContentControl.TextBody.AddParagraph() as WParagraph;
+	
+// Adds image to the paragraph
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream pictureStream = assembly.GetManifestResourceStream("Sample.Assets.Image.png");
+
+paragraph.AppendPicture(pictureStream);
+	
+// Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -168,10 +290,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -222,8 +343,11 @@ MemoryStream outputStream = new MemoryStream();
 
 document.Save(outputStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -304,7 +428,116 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
+// Creates a new Word document 
+
+WordDocument document = new WordDocument();
+
+// Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+// Gets the last paragraph.
+
+WParagraph paragraph = document.LastParagraph;
+
+// Adds text to the paragraph
+
+paragraph.AppendText("A new text is added to the paragraph. ");
+
+// Appends inline content control to the paragraph
+
+InlineContentControl inlineContentControl = paragraph.AppendInlineContentControl(ContentControlType.RichText) as InlineContentControl;
+
+WTextRange textRange = new WTextRange(document);
+
+textRange.Text = "Inline content control ";
+
+// Adds new text to the inline content control
+
+inlineContentControl.ParagraphItems.Add(textRange);
+
+// Saves and closes the Word document instance
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Result.docx");
+
+document.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -342,10 +575,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -382,8 +614,11 @@ MemoryStream outputStream = new MemoryStream();
 
 document.Save(outputStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -558,10 +793,149 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
+
+// Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+// Gets the last paragraph.
+
+WParagraph paragraph = document.LastParagraph;
+
+// Adds text to the paragraph
+
+paragraph.AppendText("A new text is added to the paragraph. ");
+
+// Appends rich text content control to the paragraph
+
+IInlineContentControl contentControl = paragraph.AppendInlineContentControl(ContentControlType.RichText) as InlineContentControl;
+
+WTextRange textRange = new WTextRange(document);
+
+textRange.Text = "Rich text content control.";
+
+// Adds new text to the rich text content control
+
+contentControl.ParagraphItems.Add(textRange);
+
+// Sets tag appearance for the content control.
+
+contentControl.ContentControlProperties.Appearance = ContentControlAppearance.Tags;
+
+// Sets a tag property to identify the content control.
+
+contentControl.ContentControlProperties.Tag = "Rich Text";
+
+// Sets a title for the content control.
+
+contentControl.ContentControlProperties.Title = "Text";
+
+// Sets the color for the content control.
+
+contentControl.ContentControlProperties.Color = Color.Magenta;
+
+// Gets the type of content control.
+
+ContentControlType controlType = contentControl.ContentControlProperties.Type;
+
+// Enables content control lock.
+
+contentControl.ContentControlProperties.LockContentControl = true;
+
+// Protects the contents of content control.
+
+contentControl.ContentControlProperties.LockContents = true;
+
+// Saves the Word file to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Sample.docx");
+
+document.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+// Creates a new Word document 
+
+WordDocument document = new WordDocument();
+
 // Adds one section and one paragraph to the document
 
 document.EnsureMinimal();
@@ -623,10 +997,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -691,8 +1064,11 @@ MemoryStream outputStream = new MemoryStream();
 
 document.Save(outputStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -828,7 +1204,137 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
+// Creates a new Word document 
+
+WordDocument document = new WordDocument();
+
+// Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+// Gets the last paragraph.
+
+WParagraph paragraph = document.LastParagraph;
+
+// Adds text to the paragraph
+
+paragraph.AppendText("A new text is added to the paragraph. ");
+
+// Appends rich text content control to the paragraph
+
+IInlineContentControl contentControl = paragraph.AppendInlineContentControl(ContentControlType.RichText) as InlineContentControl;
+
+WTextRange textRange = new WTextRange(document);
+
+textRange.Text = "Rich text content control.";
+
+// Adds new text to the rich text content control
+
+contentControl.ParagraphItems.Add(textRange);
+
+// Sets tag appearance for the content control.
+
+contentControl.ContentControlProperties.Appearance = ContentControlAppearance.Tags;
+
+// Sets a tag property to identify the content control.
+
+contentControl.ContentControlProperties.Tag = "Rich Text Protected";
+
+// Sets a title for the content control.
+
+contentControl.ContentControlProperties.Title = "Text Protected";
+
+// Enables content control lock.
+
+contentControl.ContentControlProperties.LockContentControl = true;
+
+// Protects the contents of content control.
+
+contentControl.ContentControlProperties.LockContents = true;
+
+//Saves the Word file to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Sample.docx");
+
+document.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -886,10 +1392,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -946,8 +1451,11 @@ MemoryStream outputStream = new MemoryStream();
 
 document.Save(outputStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -2030,7 +2538,621 @@ document.Save("Form_Template.docx")
 document.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
+// Create a new document.
+
+WordDocument document = new WordDocument();
+
+// Adding a new section to the document.
+
+IWSection section = document.AddSection();
+
+// Adding a new paragraph to the section.
+
+IWParagraph paragraph = section.AddParagraph();
+
+#region Document formatting
+
+// Sets background color for document.
+
+document.Background.Gradient.Color1 = Color.FromArgb(232, 232, 232);
+
+document.Background.Gradient.Color2 = Color.FromArgb(255, 255, 255);
+
+document.Background.Type = BackgroundType.Gradient;
+
+document.Background.Gradient.ShadingStyle = GradientShadingStyle.Horizontal;
+
+document.Background.Gradient.ShadingVariant = GradientShadingVariant.ShadingDown;
+
+// Sets page size for document.
+
+section.PageSetup.Margins.All = 30f;
+
+section.PageSetup.PageSize = new SizeF(600, 600f);
+
+#endregion
+
+#region Title Section
+
+// Adds a new table to the section.
+
+IWTable table = section.Body.AddTable();
+
+table.ResetCells(1, 2);
+
+// Gets the table first row.
+
+WTableRow row = table.Rows[0];
+
+row.Height = 25f;
+
+// Adds a new paragraph to the cell.
+
+IWParagraph cellPara = row.Cells[0].AddParagraph();
+
+// Appends a new picture.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream pictureStream = assembly.GetManifestResourceStream("Sample.Assets.image.jpg");
+
+IWPicture pic = cellPara.AppendPicture(pictureStream);
+
+pic.Height = 80;
+
+pic.Width = 180;
+
+// Adds a new paragraph to the next cell.
+
+cellPara = row.Cells[1].AddParagraph();
+
+row.Cells[1].CellFormat.VerticalAlignment = Syncfusion.DocIO.DLS.VerticalAlignment.Middle;
+
+row.Cells[1].CellFormat.BackColor = Color.FromArgb(173, 215, 255);
+
+// Appends the text.
+
+IWTextRange txt = cellPara.AppendText("Job Application Form");
+
+cellPara.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+
+// Sets the formats.
+
+txt.CharacterFormat.Bold = true;
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.FontSize = 18f;
+
+// Sets the width and border type.
+
+row.Cells[0].Width = 200;
+
+row.Cells[1].Width = 300;
+
+row.Cells[1].CellFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.Hairline;
+
+#endregion
+
+// Adds a new paragraph.
+
+section.AddParagraph();
+
+#region General Information
+
+// Adds a new table.
+
+table = section.Body.AddTable();
+
+table.ResetCells(2, 1);
+
+row = table.Rows[0];
+
+row.Height = 20;
+
+row.Cells[0].Width = 500;
+
+// Adds a new paragraph.
+
+cellPara = row.Cells[0].AddParagraph();
+
+// Sets a border type, color, background, and vertical alignment for cell.
+
+row.Cells[0].CellFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.Thick;
+
+row.Cells[0].CellFormat.Borders.Color = Color.FromArgb(155, 205, 255);
+
+row.Cells[0].CellFormat.BackColor = Color.FromArgb(198, 227, 255);
+
+row.Cells[0].CellFormat.VerticalAlignment = Syncfusion.DocIO.DLS.VerticalAlignment.Middle;
+
+txt = cellPara.AppendText(" General Information");
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.Bold = true;
+
+txt.CharacterFormat.FontSize = 11f;
+
+row = table.Rows[1];
+
+cellPara = row.Cells[0].AddParagraph();
+
+// Sets a width, border type, color and background for cell.
+
+row.Cells[0].Width = 500;
+
+row.Cells[0].CellFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.Hairline;
+
+row.Cells[0].CellFormat.Borders.Color = Color.FromArgb(155, 205, 255);
+
+row.Cells[0].CellFormat.BackColor = Color.FromArgb(222, 239, 255);
+
+// Appends a text to paragraph of cell.
+
+txt = cellPara.AppendText("\n Full Name:\t\t\t\t");
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.FontSize = 11f;
+
+// Appends a new inline content control to enter the value.
+
+InlineContentControl txtField = cellPara.AppendInlineContentControl(ContentControlType.Text) as InlineContentControl;
+
+txtField.ContentControlProperties.Title = "Text";
+
+// Sets formatting options for text present inside a content control.
+
+txtField.BreakCharacterFormat.TextColor = Color.MidnightBlue;
+
+txtField.BreakCharacterFormat.FontName = "Arial";
+
+txtField.BreakCharacterFormat.FontSize = 11f;
+
+// Appends a text to paragraph of cell.
+
+txt = cellPara.AppendText("\n\n Birth Date:\t\t\t\t");
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.FontSize = 11f;
+
+// Appends a new inline content control to enter the value.
+
+txtField = cellPara.AppendInlineContentControl(ContentControlType.Date) as InlineContentControl;
+
+txtField.ContentControlProperties.Title = "Date";
+
+// Sets the date display format.
+
+txtField.ContentControlProperties.DateDisplayFormat = "M/d/yyyy";
+
+// Sets formatting options for text present inside a content control.
+
+txtField.BreakCharacterFormat.TextColor = Color.MidnightBlue;
+
+txtField.BreakCharacterFormat.FontName = "Arial";
+
+txtField.BreakCharacterFormat.FontSize = 11f;
+
+// Appends a text to paragraph of cell.
+
+txt = cellPara.AppendText("\n\n Address:\t\t\t\t");
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.FontSize = 11f;
+
+// Appends a new inline content control to enter the value.
+
+txtField = cellPara.AppendInlineContentControl(ContentControlType.Text) as InlineContentControl;
+
+txtField.ContentControlProperties.Title = "Text";
+
+// Sets multiline property to true to get the multiple line input of Address.
+
+txtField.ContentControlProperties.Multiline = true;
+
+// Sets formatting options for text present inside a content control.
+
+txtField.BreakCharacterFormat.TextColor = Color.MidnightBlue;
+
+txtField.BreakCharacterFormat.FontName = "Arial";
+
+txtField.BreakCharacterFormat.FontSize = 11f;
+
+// Appends a text to paragraph of cell.
+
+txt = cellPara.AppendText("\n\n Phone:\t\t\t\t");
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.FontSize = 11f;
+
+// Appends a new inline content control to enter the value.
+
+txtField = cellPara.AppendInlineContentControl(ContentControlType.Text) as InlineContentControl;
+
+txtField.ContentControlProperties.Title = "Text";
+
+// Sets formatting options for text present inside a content control.
+
+txtField.BreakCharacterFormat.TextColor = Color.MidnightBlue;
+
+txtField.BreakCharacterFormat.FontName = "Arial";
+
+txtField.BreakCharacterFormat.FontSize = 11f;
+
+// Appends a text to paragraph of cell.
+
+txt = cellPara.AppendText("\n\n Email:\t\t\t\t\t");
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.FontSize = 11f;
+
+// Appends a new inline content control to enter the value.
+
+txtField = cellPara.AppendInlineContentControl(ContentControlType.Text) as InlineContentControl;
+
+txtField.ContentControlProperties.Title = "Text";
+
+// Sets formatting options for text present inside a content control.
+
+txtField.BreakCharacterFormat.TextColor = Color.MidnightBlue;
+
+txtField.BreakCharacterFormat.FontName = "Arial";
+
+txtField.BreakCharacterFormat.FontSize = 11f;
+
+cellPara.AppendText("\n");
+
+#endregion
+
+section.AddParagraph();
+
+#region Educational Qualification
+
+// Adds a new table to the section.
+
+table = section.Body.AddTable();
+
+table.ResetCells(2, 1);
+
+row = table.Rows[0];
+
+row.Height = 20;
+
+// Sets width, border type, color, background and vertical alignment for cell.
+
+row.Cells[0].Width = 500;
+
+row.Cells[0].CellFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.Thick;
+
+row.Cells[0].CellFormat.Borders.Color = Color.FromArgb(155, 205, 255);
+
+row.Cells[0].CellFormat.BackColor = Color.FromArgb(198, 227, 255);
+
+row.Cells[0].CellFormat.VerticalAlignment = Syncfusion.DocIO.DLS.VerticalAlignment.Middle;
+
+cellPara = row.Cells[0].AddParagraph();
+
+// Appends a text to paragraph of cell.
+
+txt = cellPara.AppendText(" Educational Qualification");
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.Bold = true;
+
+txt.CharacterFormat.FontSize = 11f;
+
+row = table.Rows[1];
+
+// Sets width, border type, color, and background for cell.
+
+row.Cells[0].Width = 500;
+
+row.Cells[0].CellFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.Hairline;
+
+row.Cells[0].CellFormat.Borders.Color = Color.FromArgb(155, 205, 255);
+
+row.Cells[0].CellFormat.BackColor = Color.FromArgb(222, 239, 255);
+
+cellPara = row.Cells[0].AddParagraph();
+
+// Appends a text to paragraph of cell.
+
+txt = cellPara.AppendText("\n Type:\t\t\t\t\t");
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.FontSize = 11f;
+
+// Appends a new inline content control to enter the value.
+
+InlineContentControl dropdown = cellPara.AppendInlineContentControl(ContentControlType.DropDownList) as InlineContentControl;
+
+WTextRange textRange = new WTextRange(document);
+
+textRange.Text = "Choose an item from drop down list";
+
+dropdown.ParagraphItems.Add(textRange);
+
+// Creates an item for dropdown list
+
+ContentControlListItem item = new ContentControlListItem();
+
+// Sets the text to be displayed as list item
+
+item.DisplayText = "Higher";
+
+// Sets the value to the list item
+
+item.Value = "1";
+
+// Adds item to the dropdown list
+
+dropdown.ContentControlProperties.ContentControlListItems.Add(item);
+
+item = new ContentControlListItem();
+
+item.DisplayText = "Vocational";
+
+item.Value = "2";
+
+dropdown.ContentControlProperties.ContentControlListItems.Add(item);
+
+item = new ContentControlListItem();
+
+item.DisplayText = "Universal";
+
+item.Value = "3";
+
+dropdown.ContentControlProperties.ContentControlListItems.Add(item);
+
+dropdown.ContentControlProperties.Title = "Drop-Down";
+
+// Sets formatting options for text present inside a content control.
+
+dropdown.BreakCharacterFormat.TextColor = Color.MidnightBlue;
+
+dropdown.BreakCharacterFormat.FontName = "Arial";
+
+dropdown.BreakCharacterFormat.FontSize = 11f;
+
+// Appends a text to paragraph of cell.
+
+txt = cellPara.AppendText("\n\n Institution:\t\t\t\t");
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.FontSize = 11f;
+
+// Appends a new inline content control to enter the value.
+
+txtField = cellPara.AppendInlineContentControl(ContentControlType.Text) as InlineContentControl;
+
+// Sets formatting options for text present inside a content control.
+
+txtField.BreakCharacterFormat.TextColor = Color.MidnightBlue;
+
+txtField.BreakCharacterFormat.FontName = "Arial";
+
+txtField.BreakCharacterFormat.FontSize = 11f;
+
+// Appends a text to paragraph of cell.
+
+txt = cellPara.AppendText("\n\n Programming Languages:");
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.FontSize = 11f;
+
+// Appends a text to paragraph of cell.
+
+txt = cellPara.AppendText("\n\n\t C#:\t\t\t\t");
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.FontSize = 9f;
+
+// Appends a new inline content control to enter the value.
+
+dropdown = cellPara.AppendInlineContentControl(ContentControlType.DropDownList) as InlineContentControl;
+
+textRange = new WTextRange(document);
+
+textRange.Text = "Choose an item from drop down list";
+
+dropdown.ParagraphItems.Add(textRange);
+
+// Creates an item for dropdown list
+
+item = new ContentControlListItem();
+
+// Sets the text to be displayed as list item
+
+item.DisplayText = "Perfect";
+
+// Sets the value to the list item
+
+item.Value = "1";
+
+// Adds item to the dropdown list
+
+dropdown.ContentControlProperties.ContentControlListItems.Add(item);
+
+item = new ContentControlListItem();
+
+item.DisplayText = "Good";
+
+item.Value = "2";
+
+dropdown.ContentControlProperties.ContentControlListItems.Add(item);
+
+item = new ContentControlListItem();
+
+item.DisplayText = "Excellent";
+
+item.Value = "3";
+
+dropdown.ContentControlProperties.ContentControlListItems.Add(item);
+
+// Sets formatting options for text present inside a content control.
+
+dropdown.BreakCharacterFormat.TextColor = Color.MidnightBlue;
+
+dropdown.BreakCharacterFormat.FontName = "Arial";
+
+dropdown.BreakCharacterFormat.FontSize = 11f;
+
+// Appends a text to paragraph of cell.
+
+txt = cellPara.AppendText("\n\n\t VB:\t\t\t\t");
+
+txt.CharacterFormat.FontName = "Arial";
+
+txt.CharacterFormat.FontSize = 9f;
+
+// Appends a new inline content control to enter the value.
+
+dropdown = cellPara.AppendInlineContentControl(ContentControlType.DropDownList) as InlineContentControl;
+
+textRange = new WTextRange(document);
+
+textRange.Text = "Choose an item from drop down list";
+
+dropdown.ParagraphItems.Add(textRange);
+
+// Creates an item for dropdown list
+
+item = new ContentControlListItem();
+
+// Sets the text to be displayed as list item
+
+item.DisplayText = "Perfect";
+
+// Sets the value to the list item
+
+item.Value = "1";
+
+// Adds item to the dropdown list
+
+dropdown.ContentControlProperties.ContentControlListItems.Add(item);
+
+item = new ContentControlListItem();
+
+item.DisplayText = "Good";
+
+item.Value = "2";
+
+dropdown.ContentControlProperties.ContentControlListItems.Add(item);
+
+item = new ContentControlListItem();
+
+item.DisplayText = "Excellent";
+
+item.Value = "3";
+
+dropdown.ContentControlProperties.ContentControlListItems.Add(item);
+
+dropdown.ContentControlProperties.Title = "Drop-Down";
+
+// Sets formatting options for text present inside a content control.
+
+dropdown.BreakCharacterFormat.TextColor = Color.MidnightBlue;
+
+dropdown.BreakCharacterFormat.FontName = "Arial";
+
+dropdown.BreakCharacterFormat.FontSize = 11f;
+
+#endregion
+
+//Saves the Word file to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Sample.docx");
+
+document.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 // Create a new document.
 
 WordDocument document = new WordDocument();
@@ -2568,10 +3690,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Create a new document.
 
 WordDocument document = new WordDocument();
@@ -3110,8 +4231,11 @@ MemoryStream outputStream = new MemoryStream();
 
 document.Save(outputStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -3285,7 +4409,6 @@ text.ApplyCharacterFormat(dropDownCC.BreakCharacterFormat);
 
 text.Text = dropDownCC.ContentControlProperties.ContentControlListItems[1].DisplayText;
 
-
 dropDownCC.ParagraphItems.Add(text);
 
 #endregion
@@ -3450,7 +4573,6 @@ dropDownCC.ParagraphItems.Add(text)
 
 ' Fill the VB experience level.
 
-
 cellPara1 = CType(row1.Cells(0).ChildEntities(9), WParagraph)
 
 dropDownCC = CType(cellPara1.ChildEntities.LastItem, InlineContentControl)
@@ -3470,7 +4592,259 @@ document1.Save("Form_Filled.docx")
 document1.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
+// Open the created form document.
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+WordDocument document1 = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Form_Template.docx"), FormatType.Docx);
+
+IWSection sec = document1.LastSection;
+
+InlineContentControl inlineCC;
+
+InlineContentControl dropDownCC;
+
+WTable table1 = sec.Tables[1] as WTable;
+
+WTableRow row1 = table1.Rows[1];
+
+#region General Information
+
+// Fill the name.
+
+WParagraph cellPara1 = row1.Cells[0].ChildEntities[1] as WParagraph;
+
+inlineCC = cellPara1.ChildEntities.LastItem as InlineContentControl;
+
+WTextRange text = new WTextRange(document1);
+
+text.ApplyCharacterFormat(inlineCC.BreakCharacterFormat);
+
+text.Text = "Steve Jobs";
+
+inlineCC.ParagraphItems.Add(text);
+
+// Fill the date of birth.
+
+cellPara1 = row1.Cells[0].ChildEntities[3] as WParagraph;
+
+inlineCC = cellPara1.ChildEntities.LastItem as InlineContentControl;
+
+text = new WTextRange(document1);
+
+text.ApplyCharacterFormat(inlineCC.BreakCharacterFormat);
+
+text.Text = "06/01/1994";
+
+inlineCC.ParagraphItems.Add(text);
+
+// Fill the address.
+
+cellPara1 = row1.Cells[0].ChildEntities[5] as WParagraph;
+
+inlineCC = cellPara1.ChildEntities.LastItem as InlineContentControl;
+
+text = new WTextRange(document1);
+
+text.ApplyCharacterFormat(inlineCC.BreakCharacterFormat);
+
+text.Text = "2501 Aerial Center Parkway.";
+
+inlineCC.ParagraphItems.Add(text);
+
+text = new WTextRange(document1);
+
+text.ApplyCharacterFormat(inlineCC.BreakCharacterFormat);
+
+text.Text = "Morrisville, NC 27560.";
+
+inlineCC.ParagraphItems.Add(text);
+
+text = new WTextRange(document1);
+
+text.ApplyCharacterFormat(inlineCC.BreakCharacterFormat);
+
+text.Text = "USA.";
+
+inlineCC.ParagraphItems.Add(text);
+
+// Fill the phone no.
+
+cellPara1 = row1.Cells[0].ChildEntities[7] as WParagraph;
+
+inlineCC = cellPara1.ChildEntities.LastItem as InlineContentControl;
+
+text = new WTextRange(document1);
+
+text.ApplyCharacterFormat(inlineCC.BreakCharacterFormat);
+
+text.Text = "+1 919.481.1974";
+
+inlineCC.ParagraphItems.Add(text);
+
+// Fill the email id.
+
+cellPara1 = row1.Cells[0].ChildEntities[9] as WParagraph;
+
+inlineCC = cellPara1.ChildEntities.LastItem as InlineContentControl;
+
+text = new WTextRange(document1);
+
+text.ApplyCharacterFormat(inlineCC.BreakCharacterFormat);
+
+text.Text = "steve123@email.com";
+
+inlineCC.ParagraphItems.Add(text);
+
+#endregion
+
+#region Educational Information
+
+table1 = sec.Tables[2] as WTable;
+
+row1 = table1.Rows[1];
+
+// Fill the education type.
+
+cellPara1 = row1.Cells[0].ChildEntities[1] as WParagraph;
+
+dropDownCC = cellPara1.ChildEntities.LastItem as InlineContentControl;
+
+text = new WTextRange(document1);
+
+text.ApplyCharacterFormat(dropDownCC.BreakCharacterFormat);
+
+text.Text = dropDownCC.ContentControlProperties.ContentControlListItems[1].DisplayText;
+
+dropDownCC.ParagraphItems.Add(text);
+
+// Fill the university.
+
+cellPara1 = row1.Cells[0].ChildEntities[3] as WParagraph;
+
+inlineCC = cellPara1.ChildEntities.LastItem as InlineContentControl;
+
+text = new WTextRange(document1);
+
+text.ApplyCharacterFormat(dropDownCC.BreakCharacterFormat);
+
+text.Text = "Michigan University";
+
+inlineCC.ParagraphItems.Add(text);
+
+// Fill the C# experience level.
+
+cellPara1 = row1.Cells[0].ChildEntities[7] as WParagraph;
+
+dropDownCC = cellPara1.ChildEntities.LastItem as InlineContentControl;
+
+text = new WTextRange(document1);
+
+text.ApplyCharacterFormat(dropDownCC.BreakCharacterFormat);
+
+text.Text = dropDownCC.ContentControlProperties.ContentControlListItems[2].DisplayText;
+
+dropDownCC.ParagraphItems.Add(text);
+
+// Fill the VB experience level.
+
+cellPara1 = row1.Cells[0].ChildEntities[9] as WParagraph;
+
+dropDownCC = cellPara1.ChildEntities.LastItem as InlineContentControl;
+
+text = new WTextRange(document1);
+
+text.ApplyCharacterFormat(dropDownCC.BreakCharacterFormat);
+
+text.Text = dropDownCC.ContentControlProperties.ContentControlListItems[1].DisplayText;
+
+dropDownCC.ParagraphItems.Add(text);
+
+#endregion
+
+//Saves the Word file to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+await document1.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Form_Filled.docx");
+
+document1.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 // Open the created form document.
 
 WordDocument document1 = new WordDocument(outputStream, FormatType.Automatic);
@@ -3648,10 +5022,9 @@ MemoryStream saveStream = new MemoryStream();
 document1.Save(saveStream, FormatType.Docx);
 
 document1.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Open the created form document.
 
 Stream inputStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Form_Template.docx");
@@ -3830,8 +5203,11 @@ MemoryStream saveStream = new MemoryStream();
 
 document1.Save(saveStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document1.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -3960,7 +5336,140 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
+// Creates a new Word document 
+
+WordDocument document = new WordDocument();
+
+// Adds new section to the document
+
+IWSection section = document.AddSection();
+
+// Adds new paragraph to the section
+
+IWParagraph paragraph = section.AddParagraph();
+
+// Adds new XmlPart to the document.
+
+CustomXMLPart xmlPart = new CustomXMLPart(document);
+
+// Loads the xml code.
+
+xmlPart.LoadXML(@"<books><book><author>Matt Hank</author><title>New Migration Paths of the Red Breasted Robin</title><genre>New non-fiction</genre><price>29.95</price><pub_datee>12/1/2007</pub_datee> <abstract>New You see them in the spring outside your windows.</abstract></book></books>");
+
+// Adds the text
+
+paragraph.AppendText("Book author name : ");
+
+// Adds new content control to the paragraph.
+
+InlineContentControl control = paragraph.AppendInlineContentControl(ContentControlType.Text) as InlineContentControl;
+
+// Creates the XML mapping on a content control for specified XPath.
+
+control.ContentControlProperties.XmlMapping.SetMapping("/books/book/author", "", xmlPart);
+
+// Selects the single node.
+
+CustomXMLNode node = xmlPart.SelectSingleNode("/books/book/title");
+
+// Adds another paragraph.
+
+paragraph = section.AddParagraph();
+
+// Adds text
+
+paragraph.AppendText("Book title: ");
+
+// Appends content control to second paragraph.
+
+control = paragraph.AppendInlineContentControl(ContentControlType.Text) as InlineContentControl;
+
+// Creates the XML data mapping on a content control for specified node.
+
+control.ContentControlProperties.XmlMapping.SetMappingByNode(node);
+
+//Saves the Word file to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Sample.docx");
+
+document.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -4022,10 +5531,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -4082,8 +5590,11 @@ MemoryStream outputStream = new MemoryStream();
 
 document.Save(outputStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -4199,7 +5710,133 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
+// Creates a new Word document 
+
+WordDocument document = new WordDocument();
+
+// Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+// Gets the last paragraph.
+
+WParagraph paragraph = document.LastParagraph;
+
+// Adds text to the paragraph
+
+paragraph.AppendText("A new text is added to the paragraph. ");
+
+// Appends rich text content control to the paragraph
+
+InlineContentControl richTextControl = paragraph.AppendInlineContentControl(ContentControlType.RichText) as InlineContentControl;
+
+WTextRange textRange = new WTextRange(document);
+
+textRange.Text = "Rich text content control.";
+
+// Adds new text to the rich text content control
+
+richTextControl.ParagraphItems.Add(textRange);
+
+WPicture picture = new WPicture(document);
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream pictureStream = assembly.GetManifestResourceStream("Sample.Assets.Image.png");
+
+picture.LoadImage(pictureStream);
+
+picture.Height = 100;
+
+picture.Width = 100;
+
+// Adds new picture to the rich text content control
+
+richTextControl.ParagraphItems.Add(picture);
+
+//Saves the Word file to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Sample.docx");
+
+document.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -4253,10 +5890,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -4309,8 +5945,11 @@ MemoryStream outputStream = new MemoryStream();
 
 document.Save(outputStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -4391,7 +6030,117 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
+// Creates a new Word document 
+
+WordDocument document = new WordDocument();
+
+// Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+// Gets the last paragraph.
+
+WParagraph paragraph = document.LastParagraph;
+
+// Adds text to the paragraph
+
+paragraph.AppendText("A new text is added to the paragraph. ");
+
+// Appends plain text content control to the paragraph
+
+InlineContentControl plainTextControl = paragraph.AppendInlineContentControl(ContentControlType.Text) as InlineContentControl;
+
+WTextRange textRange = new WTextRange(document);
+
+textRange.Text = "Plain text content control.";
+
+// Adds new text to the plain text content control
+
+plainTextControl.ParagraphItems.Add(textRange);
+
+//Saves the Word file to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Sample.docx");
+
+document.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -4429,10 +6178,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -4469,8 +6217,11 @@ MemoryStream outputStream = new MemoryStream();
 
 document.Save(outputStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -4539,7 +6290,111 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
+// Creates a new Word document 
+
+WordDocument document = new WordDocument();
+
+// Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+// Gets the last paragraph.
+
+WParagraph paragraph = document.LastParagraph;
+
+// Adds text to the paragraph
+
+paragraph.AppendText("A new text is added to the paragraph. ");
+
+// Appends checkbox content control to the paragraph
+
+InlineContentControl checkBox = paragraph.AppendInlineContentControl(ContentControlType.CheckBox) as InlineContentControl;
+
+checkBox.ContentControlProperties.IsChecked = true;
+
+//Saves the Word file to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Sample.docx");
+
+document.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -4571,10 +6426,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -4605,8 +6459,11 @@ MemoryStream outputStream = new MemoryStream();
 
 document.Save(outputStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -4711,7 +6568,129 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
+// Creates a new Word document 
+
+WordDocument document = new WordDocument();
+
+// Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+// Gets the last paragraph.
+
+WParagraph paragraph = document.LastParagraph;
+
+// Adds text to the paragraph
+
+paragraph.AppendText("Select Date: ");
+
+// Appends date picker content control to the paragraph
+
+InlineContentControl datePicker = paragraph.AppendInlineContentControl(ContentControlType.Date) as InlineContentControl;
+
+WTextRange textRange = new WTextRange(document);
+
+// Sets today's date to display
+
+textRange.Text = DateTime.Now.ToShortDateString();
+
+datePicker.ParagraphItems.Add(textRange);
+
+// Sets calendar type for the date picker content control
+
+datePicker.ContentControlProperties.DateCalendarType = CalendarType.Gregorian;
+
+// Sets the format for date to display
+
+datePicker.ContentControlProperties.DateDisplayFormat = "M/d/yyyy";
+
+// Sets the language format for the date
+
+datePicker.ContentControlProperties.DateDisplayLocale = LocaleIDs.en_US;
+
+//Saves the Word file to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Sample.docx");
+
+document.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -4761,10 +6740,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -4813,8 +6791,11 @@ MemoryStream outputStream = new MemoryStream();
 
 document.Save(outputStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -5043,7 +7024,191 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
+// Creates a new Word document 
+
+WordDocument document = new WordDocument();
+
+// Adds new section to the document
+
+IWSection section = document.AddSection();
+
+// Adds new paragraph to the section
+
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+
+// Appends dropdown list content control to the paragraph
+
+InlineContentControl dropdown = paragraph.AppendInlineContentControl(ContentControlType.DropDownList) as InlineContentControl;
+
+WTextRange textRange = new WTextRange(document);
+
+// Sets default option to display  
+
+textRange.Text = "Choose an item from drop down list";
+
+dropdown.ParagraphItems.Add(textRange);
+
+// Creates an item for dropdown list
+
+ContentControlListItem item = new ContentControlListItem();
+
+// Sets the text to be displayed as list item
+
+item.DisplayText = "ASP.NET MVC";
+
+// Sets the value to the list item
+
+item.Value = "1";
+
+// Adds item to the dropdown list
+
+dropdown.ContentControlProperties.ContentControlListItems.Add(item);
+
+item = new ContentControlListItem();
+
+item.DisplayText = "Windows Forms";
+
+item.Value = "2";
+
+dropdown.ContentControlProperties.ContentControlListItems.Add(item);
+
+item = new ContentControlListItem();
+
+item.DisplayText = "WPF";
+
+item.Value = "3";
+
+dropdown.ContentControlProperties.ContentControlListItems.Add(item);
+
+// Adds new paragraph to the section
+
+paragraph = section.AddParagraph() as WParagraph;
+
+// Appends combo box content control to the paragraph
+
+InlineContentControl comboBox = paragraph.AppendInlineContentControl(ContentControlType.ComboBox) as InlineContentControl;
+
+textRange = new WTextRange(document);
+
+// Sets default option to display  
+
+textRange.Text = "Choose an item from combo box";
+
+comboBox.ParagraphItems.Add(textRange);
+
+// Creates an item for combo box
+
+item = new ContentControlListItem();
+
+// Sets the text to be displayed as list item
+
+item.DisplayText = "Word to HTML";
+
+// Sets the value to the list item
+
+item.Value = "1";
+
+comboBox.ContentControlProperties.ContentControlListItems.Add(item);
+
+item = new ContentControlListItem();
+
+item.DisplayText = "Word to Image";
+
+item.Value = "2";
+
+comboBox.ContentControlProperties.ContentControlListItems.Add(item);
+
+item = new ContentControlListItem();
+
+item.DisplayText = "Word to PDF";
+
+item.Value = "3";
+
+comboBox.ContentControlProperties.ContentControlListItems.Add(item);
+
+//Saves the Word file to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Sample.docx");
+
+document.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -5163,10 +7328,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -5285,8 +7449,11 @@ MemoryStream outputStream = new MemoryStream();
 
 document.Save(outputStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -5371,7 +7538,123 @@ document.Save("Sample.docx", FormatType.Docx)
 document.Close()
 {% endhighlight %}
 
-{% highlight asp.net core %}
+{% highlight UWP %}
+// Creates a new Word document 
+
+WordDocument document = new WordDocument();
+
+// Adds one section and one paragraph to the document
+
+document.EnsureMinimal();
+
+// Gets the last paragraph.
+
+WParagraph paragraph = document.LastParagraph;
+
+// Adds text to the paragraph
+
+paragraph.AppendText("A new text is added to the paragraph. ");
+
+// Appends picture content control to the paragraph
+
+InlineContentControl pictureContentControl = paragraph.AppendInlineContentControl(ContentControlType.Picture) as InlineContentControl;
+
+// Creates a new image instance and load image 
+
+WPicture picture = new WPicture(document);
+
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+Stream pictureStream = assembly.GetManifestResourceStream("Sample.Assets.Image.png");
+
+picture.LoadImage(pictureStream);
+
+// Adds picture to the picture content control
+
+pictureContentControl.ParagraphItems.Add(picture);
+
+//Saves the Word file to MemoryStream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream, FormatType.Docx);
+
+//Saves the stream as Word file in local machine
+
+Save(stream, "Sample.docx");
+
+document.Close();
+
+// Saves the Word document
+
+async void Save(MemoryStream streams, string filename)
+
+{
+
+	streams.Position = 0;
+
+	StorageFile stFile;
+
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+
+	{
+
+		FileSavePicker savePicker = new FileSavePicker();
+
+		savePicker.DefaultFileExtension = ".docx";
+
+		savePicker.SuggestedFileName = filename;
+
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+
+		stFile = await savePicker.PickSaveFileAsync();
+
+	}
+
+	else
+
+	{
+
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+
+	}
+
+	if (stFile != null)
+
+	{
+
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+
+		{
+
+			// Write compressed data from memory to file
+
+			using (Stream outstream = zipStream.AsStreamForWrite())
+
+			{
+
+				byte[] buffer = streams.ToArray();
+
+				outstream.Write(buffer, 0, buffer.Length);
+
+				outstream.Flush();
+
+			}
+
+		}
+
+	}
+
+	// Launch the saved Word file
+
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -5415,10 +7698,9 @@ MemoryStream outputStream = new MemoryStream();
 document.Save(outputStream, FormatType.Docx);
 
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 
-{% highlight xamarin %}
+{% highlight XAMARIN %}
 // Creates a new Word document 
 
 WordDocument document = new WordDocument();
@@ -5461,8 +7743,11 @@ MemoryStream outputStream = new MemoryStream();
 
 document.Save(outputStream, FormatType.Docx);
 
+//Save the stream as a file in the device and invoke it for viewing
+
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", outputStream);
+
 document.Close();
-// Save the stream into local folder respect to platform.
 {% endhighlight %}
 {% endtabs %}
 
