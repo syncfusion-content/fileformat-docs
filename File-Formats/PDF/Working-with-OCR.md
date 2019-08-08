@@ -172,13 +172,13 @@ The following sample code snippet demonstrates the OCR processor with Tesseract3
 {% highlight c# %}
 
 
-using (OCRProcessor processor = new OCRProcessor(@" Tesseract3.05Binaries \”)
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract3.05Binaries \")
             
 { 
 
 //Load a PDF document 
  
-PdfLoadedDocument lDoc = new PdfLoadedDocument(“input.pdf”); 
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf"); 
 
 //Set OCR language to process 
 
@@ -205,7 +205,7 @@ lDoc.Close(true);
 
 {% highlight vb.net %}
 
-Using processor As New OCRProcessor("Tesseract3.05Binaries\”)
+Using processor As New OCRProcessor("Tesseract3.05Binaries\")
 
 'Load a PDF document
 
@@ -679,13 +679,13 @@ The following sample code snippet demonstrates the OCR processor with native cal
 {% highlight c# %}
 
 
-using (OCRProcessor processor = new OCRProcessor(@" Tesseract3.02Binaries \”)
+using (OCRProcessor processor = new OCRProcessor(@"Tesseract3.02Binaries\")
             
 { 
 
 //Load a PDF document 
  
-PdfLoadedDocument lDoc = new PdfLoadedDocument(“input.pdf”); 
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf"); 
 
 //Set OCR language to process 
 
@@ -712,7 +712,7 @@ lDoc.Close(true);
 
 {% highlight vb.net %}
 
-Using processor As New OCRProcessor("Tesseract3.02Binaries\”)
+Using processor As New OCRProcessor("Tesseract3.02Binaries\")
 
 'Load a PDF document
 
@@ -760,13 +760,13 @@ The following sample code snippet demonstrates the OCR processor with native cal
 {% highlight c# %}
 
 
-using (OCRProcessor processor = new OCRProcessor(@" Tesseract3.05Binaries \”)
+using (OCRProcessor processor = new OCRProcessor(@" Tesseract3.05Binaries \")
 		   
 { 
 			
 //Load a PDF document 
  
-PdfLoadedDocument lDoc = new PdfLoadedDocument(“input.pdf”); 
+PdfLoadedDocument lDoc = new PdfLoadedDocument("input.pdf"); 
  
 //Set OCR language to process
 			 
