@@ -374,4 +374,22 @@ document.Close()
 
 {% endhighlight %}
 
+{% highlight UWP %}
+
+//DocIO supports picture watermark in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//DocIO supports picture watermark in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//DocIO supports picture watermark in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+
+{% endhighlight %}
+
 {% endtabs %}  
