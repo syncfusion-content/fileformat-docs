@@ -3443,183 +3443,282 @@ The following code example illustrates how to specify the position of the chart 
 
 {% highlight c# %}
 
-
 //Creates a new word document
-
 WordDocument document = new WordDocument();
-
 //Adds section to the document
-
 IWSection sec = document.AddSection();
-
 //Adds paragraph to the section
-
 IWParagraph paragraph = sec.AddParagraph();
-
 //Creates and Appends chart to the paragraph
-
 WChart chart = paragraph.AppendChart(470, 300);
-
 //Inputs data for chart
-
 List<BarChartData> dataList = new List<BarChartData>();
-
 BarChartData column1 = new BarChartData("P1", 286, 1300);
-
 BarChartData column2 = new BarChartData("P2", 680, 700);
-
 BarChartData column3 = new BarChartData("P3", 288, 1280);
-
 BarChartData column4 = new BarChartData("P4", 200, 1200);
-
 BarChartData column5 = new BarChartData("P5", 731, 2660);
-
 dataList.Add(column1);
-
 dataList.Add(column2);
-
 dataList.Add(column3);
-
 dataList.Add(column4);
-
 dataList.Add(column5);
-
 //Sets chart data by using IEnumerable overload
-
 chart.SetDataRange(dataList, 1, 1);
-
 //Sets chart type and title
-
 chart.ChartTitle = "Purchase Details";
-
 chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
-
 //Axis titles
-
 chart.PrimaryCategoryAxis.Title = "Products";
-
 chart.PrimaryValueAxis.Title = "In Dollars";
-
 //Sets position for plot area
-
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
-
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
-
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer;
-
 //Sets position for title area
-
 chart.ChartTitleArea.Layout.Left = 10;
-
 chart.ChartTitleArea.Layout.Top = 8;
-
 //Sets position for chart legend 
-
 chart.Legend.Layout.LeftMode = LayoutModes.factor;
-
 chart.Legend.Layout.TopMode = LayoutModes.edge;
-
 //Saves and closes the document
-
 document.Save("Sample.docx", FormatType.Docx);
-
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
-
 'Creates a new word document
-
 Dim document As New WordDocument()
-
 'Adds section to the document
-
 Dim sec As IWSection = document.AddSection()
-
 'Adds paragraph to the section
-
 Dim paragraph As IWParagraph = sec.AddParagraph()
-
 'Creates and Appends chart to the paragraph
-
 Dim chart As WChart = paragraph.AppendChart(470, 300)
-
 'Inputs data for chart
-
 Dim dataList As New List(Of BarChartData)()
-
 Dim column1 As New BarChartData("P1", 286, 1300)
-
 Dim column2 As New BarChartData("P2", 680, 700)
-
 Dim column3 As New BarChartData("P3", 288, 1280)
-
 Dim column4 As New BarChartData("P4", 200, 1200)
-
 Dim column5 As New BarChartData("P5", 731, 2660)
-
 dataList.Add(column1)
-
 dataList.Add(column2)
-
 dataList.Add(column3)
-
 dataList.Add(column4)
-
 dataList.Add(column5)
-
 'Sets chart data by using IEnumerable overload
-
 chart.SetDataRange(dataList, 1, 1)
-
 'Sets chart type and title
-
 chart.ChartTitle = "Purchase Details"
-
 chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None
-
 'Axis titles
-
 chart.PrimaryCategoryAxis.Title = "Products"
-
 chart.PrimaryValueAxis.Title = "In Dollars"
-
 'Sets position for plot area
-
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto
-
 chart.PlotArea.Layout.TopMode = LayoutModes.factor
-
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer
-
 'Sets position for title area
-
 chart.ChartTitleArea.Layout.Left = 10
-
 chart.ChartTitleArea.Layout.Top = 8
-
 'Sets position for chart legend 
-
 chart.Legend.Layout.LeftMode = LayoutModes.factor
-
 chart.Legend.Layout.TopMode = LayoutModes.edge
-
 'Saves and closes the document
-
 document.Save("Sample.docx", FormatType.Docx)
-
 document.Close()
-
-
 
 {% endhighlight %}
 
- {% endtabs %}  
+{% highlight UWP %}
+
+private async void OnButtonClicked(object sender, RoutedEventArgs e)
+{
+	//Creates a new word document
+	WordDocument document = new WordDocument();
+	//Adds section to the document
+	IWSection sec = document.AddSection();
+	//Adds paragraph to the section
+	IWParagraph paragraph = sec.AddParagraph();
+	//Creates and Appends chart to the paragraph
+	WChart chart = paragraph.AppendChart(470, 300);
+	//Inputs data for chart
+	List<BarChartData> dataList = new List<BarChartData>();
+	BarChartData column1 = new BarChartData("P1", 286, 1300);
+	BarChartData column2 = new BarChartData("P2", 680, 700);
+	BarChartData column3 = new BarChartData("P3", 288, 1280);
+	BarChartData column4 = new BarChartData("P4", 200, 1200);
+	BarChartData column5 = new BarChartData("P5", 731, 2660);
+	dataList.Add(column1);
+	dataList.Add(column2);
+	dataList.Add(column3);
+	dataList.Add(column4);
+	dataList.Add(column5);
+	//Sets chart data by using IEnumerable overload
+	chart.SetDataRange(dataList, 1, 1);
+	//Sets chart type and title
+	chart.ChartTitle = "Purchase Details";
+	chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
+	//Axis titles
+	chart.PrimaryCategoryAxis.Title = "Products";
+	chart.PrimaryValueAxis.Title = "In Dollars";
+	//Sets position for plot area
+	chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
+	chart.PlotArea.Layout.TopMode = LayoutModes.factor;
+	chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer;
+	//Sets position for title area
+	chart.ChartTitleArea.Layout.Left = 10;
+	chart.ChartTitleArea.Layout.Top = 8;
+	//Sets position for chart legend 
+	chart.Legend.Layout.LeftMode = LayoutModes.factor;
+	chart.Legend.Layout.TopMode = LayoutModes.edge;
+	//Saves the Word file to MemoryStream
+	MemoryStream stream = new MemoryStream();
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Sample.docx");
+	document.Close();
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			// Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
+	// Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Creates a new word document
+WordDocument document = new WordDocument();
+//Adds section to the document
+IWSection sec = document.AddSection();
+//Adds paragraph to the section
+IWParagraph paragraph = sec.AddParagraph();
+//Creates and Appends chart to the paragraph
+WChart chart = paragraph.AppendChart(470, 300);
+//Inputs data for chart
+List<BarChartData> dataList = new List<BarChartData>();
+BarChartData column1 = new BarChartData("P1", 286, 1300);
+BarChartData column2 = new BarChartData("P2", 680, 700);
+BarChartData column3 = new BarChartData("P3", 288, 1280);
+BarChartData column4 = new BarChartData("P4", 200, 1200);
+BarChartData column5 = new BarChartData("P5", 731, 2660);
+dataList.Add(column1);
+dataList.Add(column2);
+dataList.Add(column3);
+dataList.Add(column4);
+dataList.Add(column5);
+//Sets chart data by using IEnumerable overload
+chart.SetDataRange(dataList, 1, 1);
+//Sets chart type and title
+chart.ChartTitle = "Purchase Details";
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
+//Axis titles
+chart.PrimaryCategoryAxis.Title = "Products";
+chart.PrimaryValueAxis.Title = "In Dollars";
+//Sets position for plot area
+chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
+chart.PlotArea.Layout.TopMode = LayoutModes.factor;
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer;
+//Sets position for title area
+chart.ChartTitleArea.Layout.Left = 10;
+chart.ChartTitleArea.Layout.Top = 8;
+//Sets position for chart legend 
+chart.Legend.Layout.LeftMode = LayoutModes.factor;
+chart.Legend.Layout.TopMode = LayoutModes.edge;
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+//Creates a new word document
+WordDocument document = new WordDocument();
+//Adds section to the document
+IWSection sec = document.AddSection();
+//Adds paragraph to the section
+IWParagraph paragraph = sec.AddParagraph();
+//Creates and Appends chart to the paragraph
+WChart chart = paragraph.AppendChart(470, 300);
+//Inputs data for chart
+List<BarChartData> dataList = new List<BarChartData>();
+BarChartData column1 = new BarChartData("P1", 286, 1300);
+BarChartData column2 = new BarChartData("P2", 680, 700);
+BarChartData column3 = new BarChartData("P3", 288, 1280);
+BarChartData column4 = new BarChartData("P4", 200, 1200);
+BarChartData column5 = new BarChartData("P5", 731, 2660);
+dataList.Add(column1);
+dataList.Add(column2);
+dataList.Add(column3);
+dataList.Add(column4);
+dataList.Add(column5);
+//Sets chart data by using IEnumerable overload
+chart.SetDataRange(dataList, 1, 1);
+//Sets chart type and title
+chart.ChartTitle = "Purchase Details";
+chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
+//Axis titles
+chart.PrimaryCategoryAxis.Title = "Products";
+chart.PrimaryValueAxis.Title = "In Dollars";
+//Sets position for plot area
+chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
+chart.PlotArea.Layout.TopMode = LayoutModes.factor;
+chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer;
+//Sets position for title area
+chart.ChartTitleArea.Layout.Left = 10;
+chart.ChartTitleArea.Layout.Top = 8;
+//Sets position for chart legend 
+chart.Legend.Layout.LeftMode = LayoutModes.factor;
+chart.Legend.Layout.TopMode = LayoutModes.edge;
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+//Closes the document 
+document.Close();
+
+{% endhighlight %}
+
+{% endtabs %}  
 
 The following code example describes the BarChartData class.
 
@@ -3627,173 +3726,240 @@ The following code example describes the BarChartData class.
 
 {% highlight c# %}
 
-
 public class BarChartData
-
 {
-
-string name;
-
-int purchase;
-
-int expense;
-
-public string Name
-
-{
-
-get
-
-{
-
-return name;
-
+	string name;
+	int purchase;
+	int expense;
+	public string Name
+	{
+		get
+		{
+			return name;
+		}
+		set
+		{
+			name = value;
+		}
+	}
+	public int Purchase
+	{
+		get
+		{
+			return purchase;
+		}
+		set
+		{
+			purchase = value;
+		}
+	}
+	public int Expense
+	{
+		get
+		{
+			return expense;
+		}
+		set
+		{
+			expense = value;
+		}
+	}
+	public BarChartData(string name, int purchase, int expense)
+	{
+		Name = name;
+		Purchase = purchase;
+		Expense = expense;
+	}
 }
-
-set
-
-{
-
-name = value;
-
-}
-
-}
-
-public int Purchase
-
-{
-
-get
-
-{
-
-return purchase;
-
-}
-
-set
-
-{
-
-purchase = value;
-
-}
-
-}
-
-public int Expense
-
-{
-
-get
-
-{
-
-return expense;
-
-}
-
-set
-
-{
-
-expense = value;
-
-}
-
-}
-
-public BarChartData(string name, int purchase, int expense)
-
-{
-
-Name = name;
-
-Purchase = purchase;
-
-Expense = expense;
-
-}
-
-}
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
-
 Public Class BarChartData
-
-Private m_name As String
-
-Private m_purchase As Integer
-
-Private m_expense As Integer
-
-Public Property Name() As String
-
-Get
-
-Return m_name
-
-End Get
-
-Set(value As String)
-
-m_name = value
-
-End Set
-
-End Property
-
-Public Property Purchase() As Integer
-
-Get
-
-Return m_purchase
-
-End Get
-
-Set(value As Integer)
-
-m_purchase = value
-
-End Set
-
-End Property
-
-Public Property Expense() As Integer
-
-Get
-
-Return m_expense
-
-End Get
-
-Set(value As Integer)
-
-m_expense = value
-
-End Set
-
-End Property
-
-Public Sub New(name__1 As String, purchase__2 As Integer, expense__3 As Integer)
-
-Name = name__1
-
-Purchase = purchase__2
-
-Expense = expense__3
-
-End Sub
-
+	Private m_name As String
+	Private m_purchase As Integer
+	Private m_expense As Integer
+	Public Property Name() As String
+		Get
+			Return m_name
+		End Get
+		Set(value As String)
+			m_name = value
+		End Set
+	End Property
+	Public Property Purchase() As Integer
+		Get
+			Return m_purchase
+		End Get
+		Set(value As Integer)
+			m_purchase = value
+		End Set
+	End Property
+	Public Property Expense() As Integer
+		Get
+			Return m_expense
+		End Get
+		Set(value As Integer)
+			m_expense = value
+		End Set
+	End Property
+	Public Sub New(name__1 As String, purchase__2 As Integer, expense__3 As Integer)
+		Name = name__1
+		Purchase = purchase__2
+		Expense = expense__3
+	End Sub
 End Class
 
+{% endhighlight %}
 
+{% highlight UWP %}
+
+public class BarChartData
+{
+	string name;
+	int purchase;
+	int expense;
+	public string Name
+	{
+		get
+		{
+			return name;
+		}
+		set
+		{
+			name = value;
+		}
+	}
+	public int Purchase
+	{
+		get
+		{
+			return purchase;
+		}
+		set
+		{
+			purchase = value;
+		}
+	}
+	public int Expense
+	{
+		get
+		{
+			return expense;
+		}
+		set
+		{
+			expense = value;
+		}
+	}
+	public BarChartData(string name, int purchase, int expense)
+	{
+		Name = name;
+		Purchase = purchase;
+		Expense = expense;
+	}
+}
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+public class BarChartData
+{
+	string name;
+	int purchase;
+	int expense;
+	public string Name
+	{
+		get
+		{
+			return name;
+		}
+		set
+		{
+			name = value;
+		}
+	}
+	public int Purchase
+	{
+		get
+		{
+			return purchase;
+		}
+		set
+		{
+			purchase = value;
+		}
+	}
+	public int Expense
+	{
+		get
+		{
+			return expense;
+		}
+		set
+		{
+			expense = value;
+		}
+	}
+	public BarChartData(string name, int purchase, int expense)
+	{
+		Name = name;
+		Purchase = purchase;
+		Expense = expense;
+	}
+}
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+public class BarChartData
+{
+	string name;
+	int purchase;
+	int expense;
+	public string Name
+	{
+		get
+		{
+			return name;
+		}
+		set
+		{
+			name = value;
+		}
+	}
+	public int Purchase
+	{
+		get
+		{
+			return purchase;
+		}
+		set
+		{
+			purchase = value;
+		}
+	}
+	public int Expense
+	{
+		get
+		{
+			return expense;
+		}
+		set
+		{
+			expense = value;
+		}
+	}
+	public BarChartData(string name, int purchase, int expense)
+	{
+		Name = name;
+		Purchase = purchase;
+		Expense = expense;
+	}
+}
 
 {% endhighlight %}
 
@@ -3807,239 +3973,123 @@ Essential DocIO allows to modify the side wall, back wall, floor of the 3D chart
 
 {% highlight c# %}
 
-
 //Creates a new Word document
-
 WordDocument document = new WordDocument();
-
 //Adds section to the document
-
 IWSection sec = document.AddSection();
-
 //Adds paragraph to the section
-
 IWParagraph paragraph = sec.AddParagraph();
-
 //Loads the excel file as stream
-
 Stream excelStream = File.OpenRead("Excel_Template.xlsx");
-
 //Creates and Appends chart to the paragraph with excel stream as parameter
-
 WChart chart = paragraph.AppendChart(excelStream, 1, "B2:C6", 470, 300);
-
 //Sets chart type and title
-
 chart.ChartType = OfficeChartType.Column_Clustered_3D;
-
 chart.ChartTitle = "Purchase Details";
-
 chart.ChartTitleArea.FontName = "Calibri";
-
 chart.ChartTitleArea.Size = 14;
-
 chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;          
-
 //Sets name to chart series            
-
 chart.Series[0].Name = "Sum of Purchases";
-
 chart.Series[1].Name = "Sum of Future Expenses";
-
 chart.PrimaryCategoryAxis.Title = "Products";
-
 chart.PrimaryValueAxis.Title = "In Dollars";
-
 //Sets position of legend
-
 chart.Legend.Position = OfficeLegendPosition.Bottom;
-
 //Sets rotation and elevation values
-
 chart.Rotation = 20;
-
 chart.Elevation = 15;
-
 //Sets side wall properties
-
 chart.SideWall.Fill.FillType = OfficeFillType.SolidColor;
-
 chart.SideWall.Fill.ForeColor = Color.White;
-
 chart.SideWall.Fill.BackColor = Color.White;
-
 chart.SideWall.Border.LineColor = System.Drawing.Color.Beige;
-
 //Sets floor fill option.
-
 chart.Floor.Fill.FillType = OfficeFillType.Pattern;
-
 //Sets the floor pattern Type.
-
 chart.Floor.Fill.Pattern = OfficeGradientPattern.Pat_Divot;
-
 //Sets the floor fore and Back ground color.
-
 chart.Floor.Fill.ForeColor = System.Drawing.Color.Blue;
-
 chart.Floor.Fill.BackColor = System.Drawing.Color.White;
-
 //Sets the floor thickness.
-
 chart.Floor.Thickness = 3;
-
 //Sets the back wall fill option.
-
 chart.BackWall.Fill.FillType = OfficeFillType.Gradient;
-
 //Sets the Texture Type.
-
 chart.BackWall.Fill.GradientColorType = OfficeGradientColor.TwoColor;
-
 chart.BackWall.Fill.GradientStyle = OfficeGradientStyle.Diagonl_Down;
-
 chart.BackWall.Fill.ForeColor = Color.WhiteSmoke;
-
 chart.BackWall.Fill.BackColor = Color.LightBlue;
-
 //Sets the Border Line color.
-
 chart.BackWall.Border.LineColor = System.Drawing.Color.Wheat;
-
 //Sets the Picture Type.
-
 chart.BackWall.PictureUnit = OfficeChartPictureType.stretch;
-
 //Sets the back wall thickness.
-
 chart.BackWall.Thickness = 10;
-
 //Saves and closes the document
-
 document.Save("Sample.docx", FormatType.Docx);
-
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
-
 'Creates a new Word document
-
 Dim document As New WordDocument()
-
 'Adds section to the document
-
 Dim sec As IWSection = document.AddSection()
-
 'Adds paragraph to the section
-
 Dim paragraph As IWParagraph = sec.AddParagraph()
-
 'Loads the excel file as stream
-
 Dim excelStream As Stream = File.OpenRead("Excel_Template.xlsx")
-
 'Creates and Appends chart to the paragraph with excel stream as parameter
-
 Dim chart As WChart = paragraph.AppendChart(excelStream, 1, "B2:C6", 470, 300)
-
 'Sets chart type and title
-
 chart.ChartType = OfficeChartType.Column_Clustered_3D
-
 chart.ChartTitle = "Purchase Details"
-
 chart.ChartTitleArea.FontName = "Calibri"
-
 chart.ChartTitleArea.Size = 14
-
 chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None
-
 'Sets name to chart series            
-
 chart.Series(0).Name = "Sum of Purchases"
-
 chart.Series(1).Name = "Sum of Future Expenses"
-
 chart.PrimaryCategoryAxis.Title = "Products"
-
 chart.PrimaryValueAxis.Title = "In Dollars"
-
 'Sets position of legend
-
 chart.Legend.Position = OfficeLegendPosition.Bottom
-
 'Sets rotation and elevation values
-
 chart.Rotation = 20
-
 chart.Elevation = 15
-
 'Sets side wall properties
-
 chart.SideWall.Fill.FillType = OfficeFillType.SolidColor
-
 chart.SideWall.Fill.ForeColor = Color.White
-
 chart.SideWall.Fill.BackColor = Color.White
-
 chart.SideWall.Border.LineColor = System.Drawing.Color.Beige
-
 'Sets floor fill option.
-
 chart.Floor.Fill.FillType = OfficeFillType.Pattern
-
 'Sets the floor pattern Type.
-
 chart.Floor.Fill.Pattern = OfficeGradientPattern.Pat_Divot
-
 'Sets the floor fore and Back ground color.
-
 chart.Floor.Fill.ForeColor = System.Drawing.Color.Blue
-
 chart.Floor.Fill.BackColor = System.Drawing.Color.White
-
 'Sets the floor thickness.
-
 chart.Floor.Thickness = 3
-
 'Sets the back wall fill option.
-
 chart.BackWall.Fill.FillType = OfficeFillType.Gradient
-
 'Sets the Texture Type.
-
 chart.BackWall.Fill.GradientColorType = OfficeGradientColor.TwoColor
-
 chart.BackWall.Fill.GradientStyle = OfficeGradientStyle.Diagonl_Down
-
 chart.BackWall.Fill.ForeColor = Color.WhiteSmoke
-
 chart.BackWall.Fill.BackColor = Color.LightBlue
-
 'Sets the Border Line color.
-
 chart.BackWall.Border.LineColor = System.Drawing.Color.Wheat
-
 'Sets the Picture Type.
-
 chart.BackWall.PictureUnit = OfficeChartPictureType.stretch
-
 'Sets the back wall thickness.
-
 chart.BackWall.Thickness = 10
-
 'Saves and closes the document
-
 document.Save("Sample.docx", FormatType.Docx)
-
 document.Close()
-
-
 
 {% endhighlight %}
 
@@ -4053,75 +4103,41 @@ The following code example illustrates how to remove the chart from the document
 
 {% highlight c# %}
 
-
 //Loads the template document
-
 WordDocument document = new WordDocument("Template.docx");
-
 //Gets the last paragraph
-
 WParagraph paragraph = document.LastParagraph;
-
 //Gets the chart entity and remove it from paragraph
-
 foreach (ParagraphItem item in paragraph.ChildEntities)
-
 {
-
-if (item is WChart)
-
-{
-
-paragraph.ChildEntities.Remove(item);
-
-break;
-
+	if (item is WChart)
+	{
+		paragraph.ChildEntities.Remove(item);
+		break;
+	}
 }
-
-}
-
 //Saves and closes the document
-
 document.Save("Sample.docx", FormatType.Docx);
-
 document.Close();
-
-
 
 {% endhighlight %}
 
 {% highlight vb.net %}
 
-
 'Loads the template document
-
 Dim document As New WordDocument("Template.docx")
-
 'Gets the last paragraph
-
 Dim paragraph As WParagraph = document.LastParagraph
-
 'Gets the chart entity and removes it from paragraph
-
 For Each item As ParagraphItem In paragraph.ChildEntities
-
 If TypeOf item Is WChart Then
-
 paragraph.ChildEntities.Remove(item)
-
 Exit For
-
 End If
-
 Next
-
 'Saves and closes the document
-
 document.Save("Sample.docx", FormatType.Docx)
-
 document.Close()
-
-
 
 {% endhighlight %}
 
