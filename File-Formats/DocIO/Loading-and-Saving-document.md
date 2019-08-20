@@ -290,6 +290,18 @@ document.Open(fileName)
 document.Save(outputFileName, FormatType.Docx)
 {% endhighlight %}
 
+{% highlight UWP %}
+//DocIO supports saving Word document to file system in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//DocIO supports saving Word document to file system in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//DocIO supports saving Word document to file system in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
 {% endtabs %} 
 
 ## Saving a Word document to Stream
@@ -452,6 +464,32 @@ Dim stream As New MemoryStream()
 'Saves the document to stream
 document.Save(outputFileName, FormatType.Docx, Response, HttpContentDisposition.Attachment)
 {% endhighlight %} 
+
+{% highlight UWP %}
+//Saving and sending the Word document to a client browser from a web site is suitable for web applications alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Creates a new instance of WordDocument (Empty Word Document)
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Appends the text to the created paragraph
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Result.docx");
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Saving and sending the Word document to a client browser from a web site is suitable for web applications alone.
+{% endhighlight %}
 
 {% endtabs %}  
 

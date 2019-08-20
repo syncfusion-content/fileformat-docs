@@ -31,7 +31,7 @@ Syncfusion.OfficeChart.Base<br/>
 </tr>
 <tr>
 <td>
-Xamarin and ASP.NET Core<br/></td><td>
+ASP.NET Core, Xamarin and Blazor<br/></td><td>
 Syncfusion.Presentation.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/></td></tr>
 <tr>
 <td>
@@ -64,6 +64,20 @@ Syncfusion.Compression.Base<br/>
 Syncfusion.OfficeChart.Base<br/>
 Syncfusion.Pdf.Base<br/>
 Syncfusion.PresentationToPDFConverter.Base<br/>
+</td>
+</tr>
+<tr>
+<td>
+ASP.NET Core, Xamarin and Blazor <br/>
+</td>
+<td>
+Syncfusion.Presentation.Portable<br/>
+Syncfusion.Compression.Portable<br/>
+Syncfusion.OfficeChart.Portable<br/>
+Syncfusion.Pdf.Portable<br/>
+Syncfusion.PresentationRenderer.Portable<br/>
+Syncfusion.SkiaSharpHelper.Portable<br/>
+Skiasharp
 </td>
 </tr>
 </table>

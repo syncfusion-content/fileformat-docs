@@ -1140,6 +1140,112 @@ Next
 sourceDocument.Close()
 {% endhighlight %}
 
+{% highlight UWP %}
+
+private async void OnButtonClicked(object sender, RoutedEventArgs e)
+{
+	//Creates an instance of WordDocument class
+	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	WordDocument sourceDocument = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.SourceDocument.docx"), FormatType.Docx);
+	//Processes the each section in the Word document
+	for (int i = 0; i < sourceDocument.Sections.Count;i++)
+	{
+		//Creates new WordDocument instance to add cloned section
+		WordDocument destinationDocument = new WordDocument();
+		//Clones and adds source document sections to the destination document
+		destinationDocument.Sections.Add(sourceDocument.Sections[i].Clone());		
+		//Saves the Word file to MemoryStream
+		MemoryStream stream = new MemoryStream();
+		await destinationDocument.SaveAsync(stream, FormatType.Docx);
+		//Saves the stream as Word file in local machine
+		Save(stream, "Section_" + i + ".docx");
+		destinationDocument.Close();
+	}
+	//Closes the source document instance
+	sourceDocument.Close();
+}
+
+//Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			//Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
+	//Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Creates an instance of WordDocument class
+FileStream fileStreamPath = new FileStream("SourceDocument.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument sourceDocument = new WordDocument(fileStreamPath);
+//Processes the each section in the Word document
+for (int i = 0; i < sourceDocument.Sections.Count;i++)
+{
+	//Creates new WordDocument instance to add cloned section
+	WordDocument destinationDocument = new WordDocument();
+	//Clones and adds source document sections to the destination document
+	destinationDocument.Sections.Add(sourceDocument.Sections[i].Clone());
+	//Saves and closes the document instance
+	FileStream outputStream = new FileStream("Section_" + i + ".docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+	destinationDocument.Save(outputStream, FormatType.Docx);
+	destinationDocument.Close();
+	outputStream.Flush();
+	outputStream.Dispose();		
+}
+//Closes the source document instance
+sourceDocument.Close();
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Creates an instance of WordDocument class
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument sourceDocument = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Assets.SourceDocument.docx"), FormatType.Docx);
+//Processes the each section in the Word document
+for (int i = 0; i < sourceDocument.Sections.Count;i++)
+{
+	//Creates new WordDocument instance to add cloned section
+	WordDocument destinationDocument = new WordDocument();
+	//Clones and adds source document sections to the destination document
+	destinationDocument.Sections.Add(sourceDocument.Sections[i].Clone());
+	//Saves and closes the document instance
+	MemoryStream stream = new MemoryStream();
+	destinationDocument.Save(stream, FormatType.Docx);
+	//Save the stream as a file in the device and invoke it for viewing
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Section_" + i + ".docx", "application/msword", stream);	
+	destinationDocument.Close();
+}
+//Closes the source document instance
+sourceDocument.Close();
+
+{% endhighlight %}
+
 {% endtabs %}  
    
 ## Merging Word documents
@@ -1466,6 +1572,72 @@ destinationDocument.Save(outputFileName, FormatType.Docx)
 destinationDocument.Close()
 {% endhighlight %}
 
+{% highlight UWP %}
+private async void OnButtonClicked(object sender, RoutedEventArgs e)
+{
+	//Creates an instance of WordDocument class
+	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	WordDocument sourceDocument = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Source.docx"), FormatType.Docx);
+	WordDocument destinationDocument = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Destination.docx"), FormatType.Docx);
+	//Sets true value to maintain imported list style cache to destination document
+	destinationDocument.Settings.MaintainImportedListCache = true;
+	//Processes the body contents for each section in the Word document
+	foreach (WSection section in sourceDocument.Sections)
+	{   
+		//Accesses the body of section where all the contents in document are apart
+		foreach (TextBodyItem bodyItem in section.Body.ChildEntities)
+		{
+			destinationDocument.LastSection.Body.ChildEntities.Add(bodyItem.Clone());
+		}
+	}   
+	//Closes the source document
+	sourceDocument.Close();
+	//Sets false value to exclude imported list style cache to destination document
+	destinationDocument.Settings.MaintainImportedListCache = false;
+	//Saves the Word file to MemoryStream
+	MemoryStream stream = new MemoryStream();
+	await destinationDocument.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Sample.docx");
+	destinationDocument.Close();
+}
+
+//Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			//Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
+	//Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+
 {% highlight ASP.NET Core %}
 //Opens the source document
 FileStream SourceFileStream = new FileStream("Source.docx", FileMode.Open);
@@ -1553,6 +1725,18 @@ Dim document As New WordDocument(DirectCast(Me.textBox.Tag, String))
 Dim images As Image() = document.RenderAsImages(ImageType.Metafile)
 'Closes the Word Document.
 document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
 {% endhighlight %}
 
 {% endtabs %}  
@@ -1690,6 +1874,18 @@ Private Sub PrintPageMethod(sender As Object, e As PrintPageEventArgs)
 		startPageIndex = 0
 	End If
 End Sub
+{% endhighlight %}
+
+{% highlight UWP %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
 {% endhighlight %}
 
 {% endtabs %}  
