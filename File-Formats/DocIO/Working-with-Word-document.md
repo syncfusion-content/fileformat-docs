@@ -1727,6 +1727,18 @@ Dim images As Image() = document.RenderAsImages(ImageType.Metafile)
 document.Close()
 {% endhighlight %}
 
+{% highlight UWP %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
+{% endhighlight %}
+
 {% endtabs %}  
 
 You can specify the printer settings and page settings through the [PrintDocument](https://msdn.microsoft.com/en-us/library/System.Drawing.Printing.PrintDocument(v=vs.110).aspx#) class. The [PrintDocument.PrintPage](https://msdn.microsoft.com/en-us/library/system.drawing.printing.printdocument.printpage%28v=vs.110%29.aspx#) event should be handled to layout the document for printing. 
@@ -1862,6 +1874,18 @@ Private Sub PrintPageMethod(sender As Object, e As PrintPageEventArgs)
 		startPageIndex = 0
 	End If
 End Sub
+{% endhighlight %}
+
+{% highlight UWP %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
 {% endhighlight %}
 
 {% endtabs %}  
