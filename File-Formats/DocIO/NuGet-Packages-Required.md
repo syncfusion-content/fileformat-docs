@@ -159,7 +159,7 @@ Install-Package Syncfusion.DocToPdfConverter.Wpf
 </tr>
 <tr>
 <td>
-ASP.NET and ASP.NET Core (Targeting .NET Framework)
+ASP.NET 
 </td>
 <td>
 Syncfusion.DocToPdfConverter.AspNet.nupkg
@@ -262,7 +262,7 @@ Install-Package Syncfusion.OfficeChartToImageConverter.Wpf
 </tr>
 <tr>
 <td>
-ASP.NET and ASP.NET Core (Targeting .NET Framework)
+ASP.NET 
 </td>
 <td>
 Syncfusion.OfficeChartToImageConverter.AspNet.nupkg
@@ -388,7 +388,7 @@ Install-Package Syncfusion.OfficeChartToImageConverter.Wpf
 Uninstall-Package Syncfusion.OfficeChartToImageConverter.Wpf -RemoveDependencies 
 ~~~
 
-### ASP.NET and ASP.NET Core (Targeting .NET Framework)
+### ASP.NET 
 
 **NuGet Package:** Syncfusion.DocIO.AspNet
 

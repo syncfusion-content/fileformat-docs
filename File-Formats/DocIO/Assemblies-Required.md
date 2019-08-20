@@ -89,7 +89,7 @@ Windows Forms and WPF (Client Profile)<br/></td><td>
 Syncfusion.DocIO.ClientProfile<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/>Syncfusion.Pdf.ClientProfile<br/>Syncfusion.DocToPdfConverter.ClientProfile<br/></td></tr>
 <tr>
 <td>
-ASP.NET Core (Targeting .netcoreapp) and Xamarin<br/></td><td>
+ASP.NET Core, Xamarin and Blazor<br/></td><td>
 Syncfusion.DocIO.Portable<br/>Syncfusion.Compression.Portable<br/>Syncfusion.OfficeChart.Portable<br/>Syncfusion.Pdf.Portable<br/>Syncfusion.DocIORenderer.Portable<br/>SkiaSharp<br/>Syncfusion.SkiaSharpHelper.Portable</td></tr>
 </table>
 
