@@ -34,7 +34,7 @@ WPF
 </tr>
 <tr>
 <td>
-ASP.NET Web Forms, ASP.NET Core(Targeting .NET Framework)
+ASP.NET Web Forms
 </td>
 <td>
 {{'[Syncfusion.Presentation.AspNet.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.AspNet/)'| markdownify }}
@@ -66,7 +66,7 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting .NET core application)
+ASP.NET Core and Blazor
 </td>
 <td>
 {{'[Syncfusion.Presentation.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core/)'| markdownify }}
@@ -138,7 +138,7 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-UWP and .NET Core
+UWP, ASP.NET Core and Blazor
 </td>
 <td>
 {{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
@@ -220,7 +220,7 @@ UWP
 </tr>
 <tr>
 <td>
-.NET Core
+ASP.NET Core and Blazor
 </td>
 <td>
 {{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
@@ -302,7 +302,7 @@ UWP
 </tr>
 <tr>
 <td>
-.NET Core
+ASP.NET Core and Blazor
 </td>
 <td>
 {{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
@@ -429,7 +429,7 @@ UWP
 </tr>
 <tr>
 <td>
-ASP.NET Core
+ASP.NET Core and Blazor
 </td>
 <td>
 * Install-package Syncfusion.Presentation.Net.Core<br/><br/>
