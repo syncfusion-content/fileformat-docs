@@ -18,7 +18,7 @@ Platform(s)<br/></th><th>
 Assembly<br/></th></tr></thead>
 <tr>
 <td>
-WPF, Windows Forms, ASP. NET, ASP.NET MVC and ASP.NET Core - Targeting .NET Framework<br/></td><td>
+WPF, Windows Forms, ASP. NET, ASP.NET MVC<br/></td><td>
 Syncfusion.DocIO.Base<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/></td></tr>
 <tr>
 <td>
@@ -81,7 +81,7 @@ Platform(s)<br/></th><th>
 Assembly<br/></th></tr></thead>
 <tr>
 <td>
-WPF, Windows Forms, ASP. NET, ASP.NET MVC and ASP.NET Core - Targeting .NET Framework<br/></td><td>
+WPF, Windows Forms, ASP. NET, ASP.NET MVC<br/></td><td>
 Syncfusion.DocIO.Base<br/>Syncfusion.Compression.Base<br/>Syncfusion.OfficeChart.Base<br/>Syncfusion.Pdf.Base<br/>Syncfusion.DocToPdfConverter.Base<br/></td></tr>
 <tr>
 <td>
@@ -111,7 +111,7 @@ Platform(s)<br/></th><th>
 Assembly<br/></th></tr></thead>
 <tr>
 <td>
-WPF, Windows Forms, ASP. NET, ASP.NET MVC and ASP.NET Core - Targeting .NET Framework<br/></td><td>
+WPF, Windows Forms, ASP. NET, ASP.NET MVC<br/></td><td>
 Syncfusion.OfficeChartToImageConverter.WPF<br/>Syncfusion.SfChart.WPF<br/></td></tr>
 </table>
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
