@@ -49,7 +49,7 @@ Install-Package Syncfusion.DocIO.Wpf
 </tr>
 <tr>
 <td>
-ASP.NET and ASP.NET Core (Targeting .NET Framework)
+ASP.NET
 </td>
 <td>
 Syncfusion.DocIO.AspNet.nupkg
