@@ -177,9 +177,6 @@ stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmen
 FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
 
-//Set the position as '0'.
-outputStream.Position = 0;
-
 //Release all resources from stream
 outputStream.Dispose();
 

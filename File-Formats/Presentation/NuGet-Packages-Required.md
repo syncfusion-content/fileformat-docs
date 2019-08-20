@@ -138,7 +138,7 @@ ASP.NET MVC5
 </tr>
 <tr>
 <td>
-UWP and ASP.NET Core and Blazor
+UWP, ASP.NET Core and Blazor
 </td>
 <td>
 {{'[Syncfusion.PresentationRenderer.Net.Core.nupkg](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/)'| markdownify }}<br/><br/>
