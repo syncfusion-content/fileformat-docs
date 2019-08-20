@@ -1,5 +1,5 @@
 ---
-title: NuGet Packages Required
+title: NuGet Packages Required | Syncfusion
 description: NuGet Packages required to use DocIO
 platform: file-formats
 control: DocIO
