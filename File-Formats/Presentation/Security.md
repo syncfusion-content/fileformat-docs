@@ -81,6 +81,8 @@ presentationDocument.Close()
 
 {% endtabs %}
 
+N> PowerPoint Presentation doesn't support encryption in ASP.NET Core, Blazor and Xamarin.
+
 ## Decrypting the PowerPoint Presentation
 
 Essential Presentation provides ability to remove the encryption from the PowerPoint Presentation. You can decrypt a PowerPoint Presentation by opening it with the password.
