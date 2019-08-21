@@ -59,6 +59,9 @@ document.Close()
 {% endhighlight %}
 {% endtabs %}
 
+N> 1. Word to EPUB conversion is supported only in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms.
+N> 2. Word to EPUB conversion is not supported in Blazor.
+
 The following elements are supported in Word to EPUB conversion.
 
 * Text and Paragraph Formatting
