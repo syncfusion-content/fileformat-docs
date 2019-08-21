@@ -283,6 +283,11 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 
 {% endtabs %}
 
+N> 1. Word to PDF conversion is not supported in Silverlight, Windows Phone, WinRT, and Universal applications.
+N> 2. Word to PDF conversion is supported in Blazor server-side application alone and is not supported in Blazor client-side application.
+N> 3. Creating an instance of ChartToImageConverter class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF.
+N> 4. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
+N> 5. Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.
 
 ## Word to PDF conversion in Linux OS
 
@@ -3312,11 +3317,6 @@ await Windows.System.Launcher.LaunchFileAsync(stFile);
 {% endhighlight %}
 
 {% endtabs %}
-
-N> 1. Word to PDF conversion is not supported in Blazor (client-side), Silverlight, Windows Phone, WinRT, and Universal applications.
-N> 2. Creating an instance of ChartToImageConverter class is mandatory to convert the charts present in the Word to PDF. Otherwise, the charts are not preserved in the converted PDF.
-N> 3. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.
-N> 4. Total number of pages in the converted PDF may vary based on unsupported elements in the input Word document.
 
 ## Unsupported elements in Word to PDF conversion
 
