@@ -1,5 +1,5 @@
 ---
-title: Converting Word document to EPUB
+title: Converting Word document to EPUB | Syncfusion
 description: Converting Word document to EPUB using DocIO
 platform: file-formats
 control: DocIO
@@ -8,7 +8,7 @@ documentation: UG
 
 # Converting Word document to EPUB
 
-The Word document files are converted as EPUB v2.0 file format with few lines of code by using the Essential DocIO. It is supported only in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms.
+The Word document files are converted as EPUB v2.0 file format with few lines of code by using the Essential DocIO.
 
 The following code illustrates how to convert the Word document to EPUB file.
 
@@ -58,6 +58,8 @@ document.Save("WordToEPub.epub", FormatType.EPub)
 document.Close()
 {% endhighlight %}
 {% endtabs %}
+
+N> 1. Word to EPUB conversion is supported only in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms.
 
 The following elements are supported in Word to EPUB conversion.
 

@@ -108,6 +108,8 @@ async void Save(MemoryStream streams, string filename)
 
 {% endtabs %}  
 
+N> 1. Encryption is not supported in ASP.NET Core, Blazor and Xamarin platforms.
+
 ## Opening the encrypted Word document
 
 The following code example shows how to open the encrypted Word document. 
