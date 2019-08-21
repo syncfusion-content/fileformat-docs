@@ -169,8 +169,8 @@ document.Close()
 
 You can also update or re-build the TOC in an existing document or document created from the scratch.  
 
-N>  1.Updating of TOC is not supported in Silverlight, WinRT, Universal, Xamarin, ASP.NET Core, Blazor and Windows Phone applications using DocIO. 
-N>  2.Updating TOC makes use of the Word to PDF layout engine that may lead to update incorrect page number due to its limitations.
+N>  1. Updating of TOC is not supported in Silverlight, WinRT, Universal, Xamarin, ASP.NET Core, Blazor and Windows Phone applications using DocIO. 
+N>  2. Updating TOC makes use of the Word to PDF layout engine that may lead to update incorrect page number due to its limitations.
 
 The following code example shows how to update a TOC in an existing word document. 
 
