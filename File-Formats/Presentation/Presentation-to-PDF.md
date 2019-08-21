@@ -144,9 +144,10 @@ using (FileStream fileStreamInput = new FileStream(@"Template.pptx", FileMode.Op
 
 {% endtabs %}
 
-N> 1. Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF
-N> 2. **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
-N> 3. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
+N> 1. PowerPoint Presentation to PDF conversion is supported in Blazor server-side application alone and is not supported in Blazor client-side application. 
+N> 2. Creating an instance of **ChartToImageConverter** class is mandatory to convert the charts present in the Presentation to PDF. Otherwise, the charts are not exported to the converted PDF
+N> 3. **ChartToImageConverter** is supported from .NET Framework 4.0 onwards
+N> 4. The assembly "Syncfusion.SfChart.WPF" is non compliance with FIPS(Federal Information Processing Standard) algorithm policy.
 
 **Customizing the PowerPoint Presentation to PDF conversion**
 
