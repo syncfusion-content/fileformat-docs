@@ -1,5 +1,5 @@
 ---
-title: Converting Word document to EPUB
+title: Converting Word document to EPUB | Syncfusion
 description: Converting Word document to EPUB using DocIO
 platform: file-formats
 control: DocIO
