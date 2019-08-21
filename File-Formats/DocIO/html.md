@@ -15,29 +15,19 @@ The following code example shows how to convert the HTML file into Word document
 {% tabs %}
 {% highlight c# %}
 //Loads the HTML document against transitional schema validation
-
 WordDocument document = new WordDocument("Sample.html", FormatType.Html, XHTMLValidationType.Transitional);
-
 //Saves the Word document
-
 document.Save("HTMLtoWord.docx", FormatType.Docx);
-
 //Closes the document
-
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 ' Loads the HTML document against transitional schema validation 
-
 Dim document As New WordDocument("Sample.html", FormatType.Html, XHTMLValidationType.Transitional)
-
 'Saves the Word document
-
 document.Save("HTMLtoWord.docx", FormatType.Docx)
-
 'Closes the document
-
 document.Close()
 {% endhighlight %}
 {% endtabs %}
@@ -47,29 +37,19 @@ The following code example shows how to convert the Word document into HTML.
 {% tabs %}
 {% highlight c# %}
 //Loads the template document
-
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
-
 //Saves the document as Html file
-
 document.Save("WordToHtml.html", FormatType.Html);
-
 //Closes the document 
-
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Loads the template document
-
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
-
 'Saves the document as Html file
-
 document.Save("WordToHtml.html", FormatType.Html)
-
 'Closes the document 
-
 document.Close()
 {% endhighlight %}
 {% endtabs %}
@@ -91,71 +71,40 @@ The following code example shows how to customize the HTML to Word conversion.
 {% tabs %}
 {% highlight c# %}
 //Loads the template document
-
 WordDocument document = new WordDocument("Template.docx");
-
 //Html string to be inserted
-
 string htmlstring = "<p><b>This text is inserted as HTML string.</b></p>";
-
 //Validates the Html string
-
 bool isValidHtml = document.LastSection.Body.IsValidXHTML(htmlstring, XHTMLValidationType.Transitional);
-
 //When the Html string passes validation, it is inserted to the document
-
 if (isValidHtml)
-
 {
-
 //Appends Html string as first item of the second paragraph in the document
-
 document.Sections[0].Body.InsertXHTML(htmlstring, 2, 0);
-
 //Appends the Html string to first paragraph in the document
-
 document.Sections[0].Body.Paragraphs[0].AppendHTML(htmlstring);
-
 }
-
 //Saves and closes the document
-
 document.Save("Sample.docx");
-
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Loads the template document
-
 Dim document As New WordDocument("Template.docx")
-
 'Html string to be inserted
-
 Dim htmlstring As String = "<p><b>This text is inserted as HTML string.</b></p>"
-
 'Validates the Html string
-
 Dim isValidHtmlAs Boolean = document.LastSection.Body.IsValidXHTML(htmlstring, XHTMLValidationType.Transitional)
-
 'When the Html string passes validation, it is inserted to document
-
 If isValidHtmlThen
-
 'Appends Html string as first item of the second paragraph in the document
-
 document.Sections(0).Body.InsertXHTML(htmlstring, 2, 0)
-
 'Appends the Html string to first paragraph in the document
-
 document.Sections(0).Body.Paragraphs(0).AppendHTML(htmlstring)
-
 End If
-
 'Saves and closes the document
-
 document.Save("Sample.docx")
-
 document.Close()
 {% endhighlight %}
 {% endtabs %}
@@ -181,69 +130,39 @@ The following code sample shows how to customize Word to HTML conversion.
 {% tabs %}
 {% highlight c# %}
 //Loads an existing document
-
 WordDocument document = new WordDocument("Template.docx");
-
 HTMLExport export = new HTMLExport();
-
 //The images in the input document are copied to this folder
-
 document.SaveOptions.HtmlExportImagesFolder = @"D:\Data\";
-
 //The headers and footers in the input are exported
-
 document.SaveOptions.HtmlExportHeadersFooters = true;
-
 //Exports the text form fields as editable
-
 document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
-
 //Sets the style sheet type
-
 document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External;
-
 //Sets name for style sheet
-
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css";
-
 //Saves the document as html file
-
 export.SaveAsXhtml(document, "WordtoHtml.html");
-
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Loads an existing document
-
 Dim document As New WordDocument("Template.docx")
-
 Dim export As New HTMLExport()
-
 'The images in the input document are copied to this folder
-
 document.SaveOptions.HtmlExportImagesFolder = "D:\Data\"
-
 'The headers and footers in the input are exported
-
 document.SaveOptions.HtmlExportHeadersFooters = True
-
 'Exports the text form fields as editable
-
 document.SaveOptions.HtmlExportTextInputFormFieldAsText = False
-
 'Sets the style sheet type
-
 document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External
-
 'Sets name for style sheet
-
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css"
-
 'Saves the document as html file
-
 export.SaveAsXhtml(document, "WordtoHtml.html")
-
 document.Close()
 {% endhighlight %}
 {% endtabs %}
