@@ -18,150 +18,84 @@ The following code example shows how to add a bookmark in Word document.
 {% tabs %} 
 
 {% highlight c# %}
-
 //Creates an instance of WordDocument class (Empty Word Document)
-
 WordDocument document = new WordDocument();
-
 //Adds a new section into the Word Document
-
 IWSection section = document.AddSection();
-
 //Adds a new paragraph into Word document and appends text into paragraph
-
 IWParagraph paragraph = section.AddParagraph();
-
 paragraph.AppendText("Northwind Database");
-
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center; 
-
 //Adds a paragraph into section
-
 paragraph = section.AddParagraph();
-
 //Adds a new bookmark start into paragraph with name "Northwind"
-
 paragraph.AppendBookmarkStart("Northwind");
-
 //Adds a text between the bookmark start and end into paragraph
-
 paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.");
-
 //Adds a new bookmark end into paragraph with name " Northwind "
-
 paragraph.AppendBookmarkEnd("Northwind");
-
 //Adds a text after the bookmark end
-
 paragraph.AppendText(" Using Northwind, you can become familiar with how a relational database is structured and how the database objects work together to help you enter, store, manipulate, and print your data.");
-
 //Saves the document in the given name and format
-
 document.Save("Bookmarks.docx", FormatType.Docx);
-
 //Releases the resources occupied by WordDocument instance
-
-document.Close();
-
+document.Close(); 
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an instance of WordDocument class (Empty Word Document)
-
 Dim document As New WordDocument()
-
 'Adds a new section into the Word Document
-
 Dim section As IWSection = document.AddSection()
-
 'Adds a new paragraph into Word document and appends text into paragraph
-
 Dim paragraph As IWParagraph = section.AddParagraph()
-
 paragraph.AppendText("Northwind Database")
-
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center
-
 'Adds a paragraph into section
-
 paragraph = section.AddParagraph()
-
 'Adds a new bookmark start into paragraph with name "Northwind"
-
 paragraph.AppendBookmarkStart("Northwind")
-
 'Adds a text between the bookmark start and end into paragraph
-
 paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.")
-
 'Adds a new bookmark end into paragraph with name " Northwind "
-
 paragraph.AppendBookmarkEnd("Northwind")
-
 'Adds a text after the bookmark end
-
 paragraph.AppendText(" Using Northwind, you can become familiar with how a relational database is structured and how the database objects work together to help you enter, store, manipulate, and print your data.")
-
 'Saves the document in the given name and format
-
 document.Save("Bookmarks.docx", FormatType.Docx)
-
 'Releases the resources occupied by WordDocument instance
-
-document.Close()
-
+document.Close() 
 {% endhighlight %}
 
 {% highlight UWP %}
-
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
 	//Creates an instance of WordDocument class (Empty Word Document)
-
 	WordDocument document = new WordDocument();
-
 	//Adds a new section into the Word Document
-
 	IWSection section = document.AddSection();
-
 	//Adds a new paragraph into Word document and appends text into paragraph
-
 	IWParagraph paragraph = section.AddParagraph();
-
 	paragraph.AppendText("Northwind Database");
-
 	paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center; 
-
 	//Adds a paragraph into section
-
 	paragraph = section.AddParagraph();
-
 	//Adds a new bookmark start into paragraph with name "Northwind"
-
 	paragraph.AppendBookmarkStart("Northwind");
-
 	//Adds a text between the bookmark start and end into paragraph
-
 	paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.");
-
 	//Adds a new bookmark end into paragraph with name " Northwind "
-
 	paragraph.AppendBookmarkEnd("Northwind");
-
 	//Adds a text after the bookmark end
-
 	paragraph.AppendText(" Using Northwind, you can become familiar with how a relational database is structured and how the database objects work together to help you enter, store, manipulate, and print your data.");
-
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine
 	Save(stream, "Bookmarks.docx");
-}
+} 
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -183,7 +117,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -192,105 +126,63 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Creates an instance of WordDocument class (Empty Word Document)
-
 WordDocument document = new WordDocument();
-
 //Adds a new section into the Word Document
-
 IWSection section = document.AddSection();
-
 //Adds a new paragraph into Word document and appends text into paragraph
-
 IWParagraph paragraph = section.AddParagraph();
-
 paragraph.AppendText("Northwind Database");
-
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center; 
-
 //Adds a paragraph into section
-
 paragraph = section.AddParagraph();
-
 //Adds a new bookmark start into paragraph with name "Northwind"
-
 paragraph.AppendBookmarkStart("Northwind");
-
 //Adds a text between the bookmark start and end into paragraph
-
 paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.");
-
 //Adds a new bookmark end into paragraph with name " Northwind "
-
 paragraph.AppendBookmarkEnd("Northwind");
-
 //Adds a text after the bookmark end
-
 paragraph.AppendText(" Using Northwind, you can become familiar with how a relational database is structured and how the database objects work together to help you enter, store, manipulate, and print your data.");
-
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
-return File(stream, "application/msword", "Bookmarks.docx");
-
+return File(stream, "application/msword", "Bookmarks.docx"); 
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
+{% highlight XAMARIN %}
 //Creates an instance of WordDocument class (Empty Word Document)
-
 WordDocument document = new WordDocument();
-
 //Adds a new section into the Word Document
-
 IWSection section = document.AddSection();
-
 //Adds a new paragraph into Word document and appends text into paragraph
-
 IWParagraph paragraph = section.AddParagraph();
-
 paragraph.AppendText("Northwind Database");
-
 paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center; 
-
 //Adds a paragraph into section
-
 paragraph = section.AddParagraph();
-
 //Adds a new bookmark start into paragraph with name "Northwind"
-
 paragraph.AppendBookmarkStart("Northwind");
-
 //Adds a text between the bookmark start and end into paragraph
-
 paragraph.AppendText("The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases.");
-
 //Adds a new bookmark end into paragraph with name " Northwind "
-
 paragraph.AppendBookmarkEnd("Northwind");
-
 //Adds a text after the bookmark end
-
 paragraph.AppendText(" Using Northwind, you can become familiar with how a relational database is structured and how the database objects work together to help you enter, store, manipulate, and print your data.");
-
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Bookmarks.docx", "application/msword", stream);
-
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Bookmarks.docx", "application/msword", stream); 
 {% endhighlight %}
 
 {% endtabs %}  
@@ -302,73 +194,45 @@ The following code example shows how to retrieve an instance of bookmark from a 
 {% tabs %}  
 
 {% highlight c# %}
-
 //Loads an existing Word document into DocIO instance
-
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
-
 //Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
-
 Syncfusion.DocIO.DLS.Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
-
 //Accesses the bookmark start’s owner paragraph by using bookmark and changes its back color
-
 bookmark.BookmarkStart.OwnerParagraph.ParagraphFormat.BackColor = Color.AliceBlue;
-
 document.Save("Result.docx", FormatType.Docx);
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Loads an existing Word document into DocIO instance
-
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
-
 'Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
-
 Dim bookmark As Syncfusion.DocIO.DLS.Bookmark = document.Bookmarks.FindByName("Northwind")
-
 'Accesses the bookmark start’s owner paragraph by using bookmark and changes its back color
-
 bookmark.BookmarkStart.OwnerParagraph.ParagraphFormat.BackColor = Color.AliceBlue
-
 document.Save("Result.docx", FormatType.Docx)
-
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
-
 	//Loads an existing Word document into DocIO instance
-
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 	WordDocument document = new WordDocument("Sample.Assets.Bookmarks.docx", FormatType.Docx);
-
 	//Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
-
 	Syncfusion.DocIO.DLS.Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
-
 	//Accesses the bookmark start’s owner paragraph by using bookmark and changes its back color
-
 	bookmark.BookmarkStart.OwnerParagraph.ParagraphFormat.BackColor = Color.AliceBlue;
-
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine
 	Save(stream, "Result.docx");
 }
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -390,7 +254,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -399,59 +263,40 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
-
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Loads an existing Word document into DocIO instance
-
 FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
-
 Syncfusion.DocIO.DLS.Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
-
 //Accesses the bookmark start’s owner paragraph by using bookmark and changes its back color
-
 bookmark.BookmarkStart.OwnerParagraph.ParagraphFormat.BackColor = Color.AliceBlue;
-
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
+{% highlight XAMARIN %}
 //Loads an existing Word document into DocIO instance
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-
 //Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
-
 Syncfusion.DocIO.DLS.Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
-
 //Accesses the bookmark start’s owner paragraph by using bookmark and changes its back color
-
 bookmark.BookmarkStart.OwnerParagraph.ParagraphFormat.BackColor = Color.AliceBlue;
-
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 {% endhighlight %}
 
 {% endtabs %}  
@@ -463,71 +308,45 @@ The following code example shows how to remove a bookmark from Word document.
 {% tabs %}  
 
 {% highlight c# %}
-
 //Loads an existing Word document into DocIO instance
-
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
-
 //Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
-
 Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
-
 //Removes the bookmark named "Northwind" from Word document.
-
 document.Bookmarks.Remove(bookmark);
-
 document.Save("Result.docx", FormatType.Docx);
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Loads an existing Word document into DocIO instance
-
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
-
 'Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
-
 Dim bookmark As Bookmark = document.Bookmarks.FindByName("Northwind")
-
 'Removes the bookmark named "Northwind" from Word document.
-
 document.Bookmarks.Remove(bookmark)
-
 document.Save("Result.docx", FormatType.Docx)
-
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
 	//Loads an existing Word document into DocIO instance
-
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
-
 	//Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
-
 	Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
-
 	//Removes the bookmark named "Northwind" from Word document.
-
 	document.Bookmarks.Remove(bookmark);
-
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine
 	Save(stream, "Result.docx");
 }
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -549,7 +368,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -558,59 +377,41 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Loads an existing Word document into DocIO instance
-
 FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
-
 Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
-
 //Removes the bookmark named "Northwind" from Word document.
-
 document.Bookmarks.Remove(bookmark);
-
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
+{% highlight XAMARIN %}
 //Loads an existing Word document into DocIO instance
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-
 //Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
-
 Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
-
 //Removes the bookmark named "Northwind" from Word document.
-
 document.Bookmarks.Remove(bookmark);
-
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 {% endhighlight %}
 
 {% endtabs %}  
@@ -629,104 +430,62 @@ The following code example shows how to retrieve the specified bookmark content 
 {% tabs %}   
 
 {% highlight c# %}
-
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content
-
 TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
-
 //Adds the retrieved content into another new section
-
 document.AddSection();
-
 for (int i = 0; i < part.BodyItems.Count; i++)
-
-document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
-
+    document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
 document.Save("Result.docx", FormatType.Docx);
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
-
 'Creates the bookmark navigator instance to access the bookmark
-
 Dim bookmarkNavigator As New BookmarksNavigator(document)
-
 'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind")
-
 'Gets the bookmark content
-
 Dim part As TextBodyPart = bookmarkNavigator.GetBookmarkContent()
-
 'Adds the retrieved content into another new section
-
 document.AddSection()
-
 For i As Integer = 0 To part.BodyItems.Count - 1
-
-document.LastSection.Body.ChildEntities.Add(part.BodyItems(i))
-
+	document.LastSection.Body.ChildEntities.Add(part.BodyItems(i))
 Next
-
 document.Save("Result.docx", FormatType.Docx)
-
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
 	//Loads an existing Word document into DocIO instance
-
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
-
 	//Creates the bookmark navigator instance to access the bookmark
-
 	BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 	//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 	bookmarkNavigator.MoveToBookmark("Northwind");
-
 	//Gets the bookmark content
-
 	TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
-
 	//Adds the retrieved content into another new section
-
 	document.AddSection();
-
 	for (int i = 0; i < part.BodyItems.Count; i++)
-
-	document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
-
+		document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine
 	Save(stream, "Result.docx");
 }
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -748,7 +507,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -757,83 +516,53 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Loads an existing Word document into DocIO instance
-
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content
-
 TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
-
 //Adds the retrieved content into another new section
-
 document.AddSection();
-
 for (int i = 0; i < part.BodyItems.Count; i++)
-
-document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
-
+	document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
+{% highlight XAMARIN %}
 //Loads an existing Word document into DocIO instance
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content
-
 TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
-
 //Adds the retrieved content into another new section
-
 document.AddSection();
-
 for (int i = 0; i < part.BodyItems.Count; i++)
-
-document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
-
+	document.LastSection.Body.ChildEntities.Add(part.BodyItems[i]);
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 {% endhighlight %}
 
 {% endtabs %} 
@@ -843,108 +572,64 @@ The following code example shows how to retrieve the specified bookmark content 
 {% tabs %}  
 
 {% highlight c# %}
-
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
-
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content as WordDocumentPart
-
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-
 //Saves the WordDocumentPart as separate Word document
-
 WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
-
 newDocument.Save("Result.docx", FormatType.Docx);
-
 //Releases the resources hold by WordDocument instance
-
 newDocument.Close();
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
-
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
-
 'Creates the bookmark navigator instance to access the bookmark
-
 Dim bookmarkNavigator As New BookmarksNavigator(document)
-
 'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind")
-
 'Gets the bookmark content as WordDocumentPart
-
 Dim wordDocumentPart As WordDocumentPart = bookmarkNavigator.GetContent()
-
 'Saves the WordDocumentPart as separate Word document
-
 Dim newDocument As WordDocument = wordDocumentPart.GetAsWordDocument()
-
 newDocument.Save("Result.docx", FormatType.Docx)
-
 'Releases the resources hold by WordDocument instance
-
 newDocument.Close()
-
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
 	//Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
-
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-
 	//Creates the bookmark navigator instance to access the bookmark
-
 	BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 	//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 	bookmarkNavigator.MoveToBookmark("Northwind");
-
 	//Gets the bookmark content as WordDocumentPart
-
 	WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-
 	//Saves the WordDocumentPart as separate Word document
-
 	WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
-
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await newDocument.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine
 	Save(stream, "Result.docx");
-
 	//Releases the resources hold by WordDocument instance
-
 	newDocument.Close();
-
 	document.Close();
 }
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -966,7 +651,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -975,80 +660,51 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
-
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content as WordDocumentPart
-
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-
 //Saves the WordDocumentPart as separate Word document
-
 WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
-
 MemoryStream stream = new MemoryStream();
 newDocument.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
+{% highlight XAMARIN %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section.
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Template.docx"), FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content as WordDocumentPart
-
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-
 //Saves the WordDocumentPart as separate Word document
-
 WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
-
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 newDocument.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 //Releases the resources hold by WordDocument instance
-
 newDocument.Close();
-
 document.Close();
-
 {% endhighlight %}
 
 {% endtabs %}  
@@ -1062,81 +718,50 @@ The following code example shows how to insert a simple text by using BookmarkNa
 {% tabs %} 
 
 {% highlight c# %}
-
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Inserts a new text before the bookmark end of the bookmark
-
 bookmarkNavigator.InsertText(" Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 document.Save("Result.docx", FormatType.Docx);
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
-
 'Creates the bookmark navigator instance to access the bookmark
-
 Dim bookmarkNavigator As New BookmarksNavigator(document)
-
 'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind")
-
 'Inserts a new text before the bookmark end of the bookmark
-
 bookmarkNavigator.InsertText(" Northwind Database is a set of tables containing data fitted into predefined categories.")
-
 document.Save("Result.docx", FormatType.Docx)
-
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
-	// Loads the template document
-
+	//Loads the template document
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
-
 	//Creates the bookmark navigator instance to access the bookmark
-
 	BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 	//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 	bookmarkNavigator.MoveToBookmark("Northwind");
-
 	//Inserts a new text before the bookmark end of the bookmark
-
 	bookmarkNavigator.InsertText(" Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine
 	Save(stream, "Result.docx");
-
 	document.Close();
 }
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -1158,7 +783,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -1167,68 +792,45 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
-// Loads the template document
-
+//Loads the template document
 FileStream fileStreamPath = new FileStream(@"Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Inserts a new text before the bookmark end of the bookmark
-
 bookmarkNavigator.InsertText(" Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
-// Loads the template document
-
+{% highlight XAMARIN %}
+//Loads the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Inserts a new text before the bookmark end of the bookmark
-
 bookmarkNavigator.InsertText(" Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 document.Close();
-
 {% endhighlight %} 
 
 {% endtabs %}  
@@ -1238,100 +840,60 @@ The following code example shows how to insert a paragraph item by using Bookmar
 {% tabs %}    
 
 {% highlight c# %}
-
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind", false, true);
-
 //Inserts a new picture after the bookmark end
-
 WPicture picture = bookmarkNavigator.InsertParagraphItem(ParagraphItemType.Picture) as WPicture;
-
 picture.LoadImage(Image.FromFile("Northwind.png"));
-
 picture.WidthScale = 50;
-
 picture.HeightScale = 50;
-
 document.Save("Result.docx", FormatType.Docx);
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
-
 'Creates the bookmark navigator instance to access the bookmark
-
 Dim bookmarkNavigator As New BookmarksNavigator(document)
-
 'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind", False, True)
-
 'Inserts a new picture after the bookmark end
-
 Dim picture As WPicture = TryCast(bookmarkNavigator.InsertParagraphItem(ParagraphItemType.Picture), WPicture)
-
 picture.LoadImage(Image.FromFile("Northwind.png"))
-
 picture.WidthScale = 50
-
 picture.HeightScale = 50
-
 document.Save("Result.docx", FormatType.Docx)
-
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
 	//Loads an existing Word document into DocIO instance
-
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
-
 	//Creates the bookmark navigator instance to access the bookmark
-
 	BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 	//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 	bookmarkNavigator.MoveToBookmark("Northwind", false, true);
-
 	//Inserts a new picture after the bookmark end
-
 	WPicture picture = bookmarkNavigator.InsertParagraphItem(ParagraphItemType.Picture) as WPicture;
-
 	Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Northwind.png");
-
 	picture.LoadImage(imageStream);
-
 	picture.WidthScale = 50;
-
 	picture.HeightScale = 50;
-
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine
 	Save(stream, "Result.docx");
-
 	document.Close();
 }
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -1353,7 +915,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -1362,86 +924,53 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
-
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Loads an existing Word document into DocIO instance
-
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind", false, true);
-
 //Inserts a new picture after the bookmark end
-
 WPicture picture = bookmarkNavigator.InsertParagraphItem(ParagraphItemType.Picture) as WPicture;
-
 FileStream imageStream = new FileStream("Northwind.png", FileMode.Open, FileAccess.Read);
-
 picture.LoadImage(imageStream);
-
 picture.WidthScale = 50;
-
 picture.HeightScale = 50;
-
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
+{% highlight XAMARIN %}
 //Loads an existing Word document into DocIO instance
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind", false, true);
-
 //Inserts a new picture after the bookmark end
-
 WPicture picture = bookmarkNavigator.InsertParagraphItem(ParagraphItemType.Picture) as WPicture;
-
 Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("GettingStarted.Data.Northwind.png");
-
 picture.LoadImage(imageStream);
-
 picture.WidthScale = 50;
-
 picture.HeightScale = 50;
-
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 document.Close();
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -1451,93 +980,56 @@ The following code example shows how to insert a paragraph by using BookmarkNavi
 {% tabs %}  
 
 {% highlight c# %}
-
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind", false, true);
-
 //Inserts a new paragraph before the bookmark start
-
 IWParagraph paragraph = new WParagraph(document);
-
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 bookmarkNavigator.InsertParagraph(paragraph);
-
 document.Save("Result.docx", FormatType.Docx);
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
-
 'Creates the bookmark navigator instance to access the bookmark
-
 Dim bookmarkNavigator As New BookmarksNavigator(document)
-
 'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind", False, True)
-
 'Inserts a new paragraph before the bookmark start
-
 Dim paragraph As IWParagraph = New WParagraph(document)
-
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.")
-
 bookmarkNavigator.InsertParagraph(paragraph)
-
 document.Save("Result.docx", FormatType.Docx)
-
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
 	//Loads an existing Word document into DocIO instance
-
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
-
 	//Creates the bookmark navigator instance to access the bookmark
-
 	BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 	//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 	bookmarkNavigator.MoveToBookmark("Northwind", false, true);
-
 	//Inserts a new paragraph before the bookmark start
-
 	IWParagraph paragraph = new WParagraph(document);
-
 	paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 	bookmarkNavigator.InsertParagraph(paragraph);
-
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine
 	Save(stream, "Result.docx");
-
 	document.Close();
 }
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -1559,7 +1051,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -1568,79 +1060,50 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Loads an existing Word document into DocIO instance
-
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind", false, true);
-
 //Inserts a new paragraph before the bookmark start
-
 IWParagraph paragraph = new WParagraph(document);
-
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 bookmarkNavigator.InsertParagraph(paragraph);
-
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
+{% highlight XAMARIN %}
 //Loads an existing Word document into DocIO instance
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind", false, true);
-
 //Inserts a new paragraph before the bookmark start
-
 IWParagraph paragraph = new WParagraph(document);
-
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 bookmarkNavigator.InsertParagraph(paragraph);
-
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 document.Close();
-
 {% endhighlight %}
 
 {% endtabs %}  
@@ -1650,153 +1113,86 @@ The following code example shows how to insert a table by using BookmarkNavigato
 {% tabs %}  
 
 {% highlight c# %}
-
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind", false, false);
-
 //Inserts a new paragraph before the bookmark end
-
 IWParagraph paragraph = new WParagraph(document);
-
 paragraph.AppendText("Northwind Database Contains the following tables:");
-
 bookmarkNavigator.InsertParagraph(paragraph);
-
 //Inserts a new table before the bookmark end
-
 WTable table = new WTable(document);
-
 table.ResetCells(3, 2);
-
 table[0, 0].AddParagraph().AppendText("Suppliers");
-
 table[0, 1].AddParagraph().AppendText("2");
-
 table[1, 0].AddParagraph().AppendText("Customers");
-
 table[1, 1].AddParagraph().AppendText("1");
-
 table[2, 0].AddParagraph().AppendText("Employees");
-
 table[2, 1].AddParagraph().AppendText("3");
-
 bookmarkNavigator.InsertTable(table);
-
 document.Save("Result.docx", FormatType.Docx);
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
-
 'Creates the bookmark navigator instance to access the bookmark
-
 Dim bookmarkNavigator As New BookmarksNavigator(document)
-
 'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind", False, False)
-
 'Inserts a new paragraph before the bookmark end
-
 Dim paragraph As IWParagraph = New WParagraph(document)
-
 paragraph.AppendText("Northwind Database Contains the following tables:")
-
 bookmarkNavigator.InsertParagraph(paragraph)
-
 'Inserts a new table before the bookmark end
-
 Dim table As New WTable(document)
-
 table.ResetCells(3, 2)
-
 table(0, 0).AddParagraph().AppendText("Suppliers")
-
 table(0, 1).AddParagraph().AppendText("2")
-
 table(1, 0).AddParagraph().AppendText("Customers")
-
 table(1, 1).AddParagraph().AppendText("1")
-
 table(2, 0).AddParagraph().AppendText("Employees")
-
 table(2, 1).AddParagraph().AppendText("3")
-
 bookmarkNavigator.InsertTable(table)
-
 document.Save("Result.docx", FormatType.Docx)
-
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
 	//Loads an existing Word document into DocIO instance
-
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
-
 	//Creates the bookmark navigator instance to access the bookmark
-
 	BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 	//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 	bookmarkNavigator.MoveToBookmark("Northwind", false, false);
-
 	//Inserts a new paragraph before the bookmark end
-
 	IWParagraph paragraph = new WParagraph(document);
-
 	paragraph.AppendText("Northwind Database Contains the following tables:");
-
 	bookmarkNavigator.InsertParagraph(paragraph);
-
 	//Inserts a new table before the bookmark end
-
 	WTable table = new WTable(document);
-
 	table.ResetCells(3, 2);
-
 	table[0, 0].AddParagraph().AppendText("Suppliers");
-
 	table[0, 1].AddParagraph().AppendText("2");
-
 	table[1, 0].AddParagraph().AppendText("Customers");
-
 	table[1, 1].AddParagraph().AppendText("1");
-
 	table[2, 0].AddParagraph().AppendText("Employees");
-
 	table[2, 1].AddParagraph().AppendText("3");
-
 	bookmarkNavigator.InsertTable(table);
-
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine	
 	Save(stream, "Result.docx");
-
 	document.Close();
 }
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -1818,7 +1214,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -1827,119 +1223,69 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
-
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Loads an existing Word document into DocIO instance
-
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind", false, false);
-
 //Inserts a new paragraph before the bookmark end
-
 IWParagraph paragraph = new WParagraph(document);
-
 paragraph.AppendText("Northwind Database Contains the following tables:");
-
 bookmarkNavigator.InsertParagraph(paragraph);
-
 //Inserts a new table before the bookmark end
-
 WTable table = new WTable(document);
-
 table.ResetCells(3, 2);
-
 table[0, 0].AddParagraph().AppendText("Suppliers");
-
 table[0, 1].AddParagraph().AppendText("2");
-
 table[1, 0].AddParagraph().AppendText("Customers");
-
 table[1, 1].AddParagraph().AppendText("1");
-
 table[2, 0].AddParagraph().AppendText("Employees");
-
 table[2, 1].AddParagraph().AppendText("3");
-
 bookmarkNavigator.InsertTable(table);
-
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
+{% highlight XAMARIN %}
 //Loads an existing Word document into DocIO instance
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind", false, false);
-
 //Inserts a new paragraph before the bookmark end
-
 IWParagraph paragraph = new WParagraph(document);
-
 paragraph.AppendText("Northwind Database Contains the following tables:");
-
 bookmarkNavigator.InsertParagraph(paragraph);
-
 //Inserts a new table before the bookmark end
-
 WTable table = new WTable(document);
-
 table.ResetCells(3, 2);
-
 table[0, 0].AddParagraph().AppendText("Suppliers");
-
 table[0, 1].AddParagraph().AppendText("2");
-
 table[1, 0].AddParagraph().AppendText("Customers");
-
 table[1, 1].AddParagraph().AppendText("1");
-
 table[2, 0].AddParagraph().AppendText("Employees");
-
 table[2, 1].AddParagraph().AppendText("3");
-
 bookmarkNavigator.InsertTable(table);
-
-//Saves the Word document to  MemoryStream
+//Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 document.Close();
-
 {% endhighlight %}
 
 {% endtabs %}  
@@ -1949,141 +1295,80 @@ The following code example shows how to insert a TextBodyPart by using BookmarkN
 {% tabs %}  
 
 {% highlight c# %}
-
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content
-
 TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
-
 document.AddSection();
-
 IWParagraph paragraph = document.LastSection.AddParagraph();
-
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 //Adds the new bookmark into Word document
-
 paragraph.AppendBookmarkStart("bookmark_empty");
-
 paragraph.AppendBookmarkEnd("bookmark_empty");
-
 //Moves the virtual cursor to the location after the start of the bookmark "bookmark_empty"
-
 bookmarkNavigator.MoveToBookmark("bookmark_empty", true, true);
-
 //Inserts the text body part after the bookmark start
-
 bookmarkNavigator.InsertTextBodyPart(textBodyPart);
-
 document.Save("Result.docx", FormatType.Docx);
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
-
 'Creates the bookmark navigator instance to access the bookmark
-
 Dim bookmarkNavigator As New BookmarksNavigator(document)
-
 'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind")
-
 'Gets the bookmark content
-
 Dim textBodyPart As TextBodyPart = bookmarkNavigator.GetBookmarkContent()
-
 document.AddSection()
-
 Dim paragraph As IWParagraph = document.LastSection.AddParagraph()
-
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.")
-
 'Adds the new bookmark into Word document
-
 paragraph.AppendBookmarkStart("bookmark_empty")
-
 paragraph.AppendBookmarkEnd("bookmark_empty")
-
 'Moves the virtual cursor to the location after the start of the bookmark "bookmark_empty"
-
 bookmarkNavigator.MoveToBookmark("bookmark_empty", True, True)
-
 'Inserts the text body part after the bookmark start
-
 bookmarkNavigator.InsertTextBodyPart(textBodyPart)
-
 document.Save("Result.docx", FormatType.Docx)
-
 document.Close()
-
 {% endhighlight %} 
 
 {% highlight UWP %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
 	//Loads an existing Word document into DocIO instance
-
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
-
 	//Creates the bookmark navigator instance to access the bookmark
-
 	BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 	//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 	bookmarkNavigator.MoveToBookmark("Northwind");
-
 	//Gets the bookmark content
-
 	TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
-
 	document.AddSection();
-
 	IWParagraph paragraph = document.LastSection.AddParagraph();
-
 	paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 	//Adds the new bookmark into Word document
-
 	paragraph.AppendBookmarkStart("bookmark_empty");
-
 	paragraph.AppendBookmarkEnd("bookmark_empty");
-
 	//Moves the virtual cursor to the location after the start of the bookmark "bookmark_empty"
-
 	bookmarkNavigator.MoveToBookmark("bookmark_empty", true, true);
-
 	//Inserts the text body part after the bookmark start
-
 	bookmarkNavigator.InsertTextBodyPart(textBodyPart);
-
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine
 	Save(stream, "Result.docx");
-
 	document.Close();
 }
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -2105,7 +1390,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -2114,111 +1399,65 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
-
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Loads an existing Word document into DocIO instance
-
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content
-
 TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
-
 document.AddSection();
-
 IWParagraph paragraph = document.LastSection.AddParagraph();
-
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 //Adds the new bookmark into Word document
-
 paragraph.AppendBookmarkStart("bookmark_empty");
-
 paragraph.AppendBookmarkEnd("bookmark_empty");
-
 //Moves the virtual cursor to the location after the start of the bookmark "bookmark_empty"
-
 bookmarkNavigator.MoveToBookmark("bookmark_empty", true, true);
-
 //Inserts the text body part after the bookmark start
-
 bookmarkNavigator.InsertTextBodyPart(textBodyPart);
-
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
+{% highlight XAMARIN %}
 //Loads an existing Word document into DocIO instance
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content
-
 TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
-
 document.AddSection();
-
 IWParagraph paragraph = document.LastSection.AddParagraph();
-
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 //Adds the new bookmark into Word document
-
 paragraph.AppendBookmarkStart("bookmark_empty");
-
 paragraph.AppendBookmarkEnd("bookmark_empty");
-
 //Moves the virtual cursor to the location after the start of the bookmark "bookmark_empty"
-
 bookmarkNavigator.MoveToBookmark("bookmark_empty", true, true);
-
 //Inserts the text body part after the bookmark start
-
 bookmarkNavigator.InsertTextBodyPart(textBodyPart);
-
-//Saves the Word document to  MemoryStream
+//Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 document.Close();
-
 {% endhighlight %}
 
 {% endtabs %}  
@@ -2232,81 +1471,52 @@ The following code example shows how to remove the contents of a specified bookm
 {% tabs %}  
 
 {% highlight c# %}
-
+//Loads an existing Word document into DocIO instance
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind "
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Deletes bookmark content without deleting the format in the target document.
-
 bookmarkNavigator.DeleteBookmarkContent(false);
-
 document.Save("Result.docx", FormatType.Docx);
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
+'Loads an existing Word document into DocIO instance
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
-
 'Creates the bookmark navigator instance to access the bookmark
-
 Dim bookmarkNavigator As New BookmarksNavigator(document)
-
 'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind")
-
 'Deletes bookmark content without deleting the format in the target document.
-
 bookmarkNavigator.DeleteBookmarkContent(False)
-
 document.Save("Result.docx", FormatType.Docx)
-
 document.Close()
-
 {% endhighlight %} 
 
 {% highlight UWP %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
 	//Loads an existing Word document into DocIO instance
-
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
-
 	//Creates the bookmark navigator instance to access the bookmark
-
 	BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 	//Moves the virtual cursor to the location before the end of the bookmark "Northwind "
-
 	bookmarkNavigator.MoveToBookmark("Northwind");
-
 	//Deletes bookmark content without deleting the format in the target document.
-
 	bookmarkNavigator.DeleteBookmarkContent(false);
-
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine
 	Save(stream, "Result.docx");
-
 	document.Close();
 }
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -2328,7 +1538,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -2337,71 +1547,46 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Loads an existing Word document into DocIO instance
-
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind "
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Deletes bookmark content without deleting the format in the target document.
-
 bookmarkNavigator.DeleteBookmarkContent(false);
-
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
+{% highlight XAMARIN %}
 //Loads an existing Word document into DocIO instance
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind "
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Deletes bookmark content without deleting the format in the target document.
-
 bookmarkNavigator.DeleteBookmarkContent(false);
-
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 document.Close();
-
 {% endhighlight %}
 
 {% endtabs %}  
@@ -2431,141 +1616,80 @@ The following code example shows how to replace a specified bookmark content by 
 {% tabs %}  
 
 {% highlight c# %}
-
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content
-
 TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
-
 document.AddSection();
-
 IWParagraph paragraph = document.LastSection.AddParagraph();
-
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 //Adds the new bookmark into Word document
-
 paragraph.AppendBookmarkStart("bookmark_empty");
-
 paragraph.AppendBookmarkEnd("bookmark_empty");
-
 //Moves the virtual cursor to the location before the end of the bookmark "bookmark_empty"
-
 bookmarkNavigator.MoveToBookmark("bookmark_empty");
-
 //Replaces the bookmark content with text body part
-
 bookmarkNavigator.ReplaceBookmarkContent(textBodyPart);
-
 document.Save("Result.docx", FormatType.Docx);
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
-
 'Creates the bookmark navigator instance to access the bookmark
-
 Dim bookmarkNavigator As New BookmarksNavigator(document)
-
 'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind")
-
 'Gets the bookmark content
-
 Dim textBodyPart As TextBodyPart = bookmarkNavigator.GetBookmarkContent()
-
 document.AddSection()
-
 Dim paragraph As IWParagraph = document.LastSection.AddParagraph()
-
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.")
-
 'Adds the new bookmark into Word document
-
 paragraph.AppendBookmarkStart("bookmark_empty")
-
 paragraph.AppendBookmarkEnd("bookmark_empty")
-
 'Moves the virtual cursor to the location before the end of the bookmark "bookmark_empty"
-
 bookmarkNavigator.MoveToBookmark("bookmark_empty")
-
 'Replaces the bookmark content with text body part
-
 bookmarkNavigator.ReplaceBookmarkContent(textBodyPart)
-
 document.Save("Result.docx", FormatType.Docx)
-
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
 	//Loads an existing Word document into DocIO instance
-
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
-
 	//Creates the bookmark navigator instance to access the bookmark
-
 	BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 	//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 	bookmarkNavigator.MoveToBookmark("Northwind");
-
 	//Gets the bookmark content
-
 	TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
-
 	document.AddSection();
-
 	IWParagraph paragraph = document.LastSection.AddParagraph();
-
 	paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 	//Adds the new bookmark into Word document
-
 	paragraph.AppendBookmarkStart("bookmark_empty");
-
 	paragraph.AppendBookmarkEnd("bookmark_empty");
-
 	//Moves the virtual cursor to the location before the end of the bookmark "bookmark_empty"
-
 	bookmarkNavigator.MoveToBookmark("bookmark_empty");
-
 	//Replaces the bookmark content with text body part
-
 	bookmarkNavigator.ReplaceBookmarkContent(textBodyPart);
-
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine
 	Save(stream, "Result.docx");
-
 	document.Close();
 }
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -2587,7 +1711,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -2596,111 +1720,65 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
-
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Loads an existing Word document into DocIO instance
-
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content
-
 TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
-
 document.AddSection();
-
 IWParagraph paragraph = document.LastSection.AddParagraph();
-
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 //Adds the new bookmark into Word document
-
 paragraph.AppendBookmarkStart("bookmark_empty");
-
 paragraph.AppendBookmarkEnd("bookmark_empty");
-
 //Moves the virtual cursor to the location before the end of the bookmark "bookmark_empty"
-
 bookmarkNavigator.MoveToBookmark("bookmark_empty");
-
 //Replaces the bookmark content with text body part
-
 bookmarkNavigator.ReplaceBookmarkContent(textBodyPart);
-
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
+{% highlight XAMARIN %}
 //Loads an existing Word document into DocIO instance
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content
-
 TextBodyPart textBodyPart = bookmarkNavigator.GetBookmarkContent();
-
 document.AddSection();
-
 IWParagraph paragraph = document.LastSection.AddParagraph();
-
 paragraph.AppendText("Northwind Database is a set of tables containing data fitted into predefined categories.");
-
 //Adds the new bookmark into Word document
-
 paragraph.AppendBookmarkStart("bookmark_empty");
-
 paragraph.AppendBookmarkEnd("bookmark_empty");
-
 //Moves the virtual cursor to the location before the end of the bookmark "bookmark_empty"
-
 bookmarkNavigator.MoveToBookmark("bookmark_empty");
-
 //Replaces the bookmark content with text body part
-
 bookmarkNavigator.ReplaceBookmarkContent(textBodyPart);
-
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 document.Close();
-
 {% endhighlight %} 
 
 {% endtabs %}  
@@ -2710,145 +1788,82 @@ The following code example shows how to replace a specified bookmark content by 
 {% tabs %} 
 
 {% highlight c# %}
-
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
-
 WordDocument templateDocument = new WordDocument("Template.docx", FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content as WordDocumentPart
-
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-
 //Closes the template document
-
 templateDocument.Close();
-
 //Loads the Word document with bookmark NorthwindDB
-
 WordDocument document = new WordDocument("Bookmarks.docx", FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "NorthwindDB"
-
 bookmarkNavigator.MoveToBookmark("NorthwindDB");
-
 //Replaces the bookmark content with word body part
-
 bookmarkNavigator.ReplaceContent(wordDocumentPart);
-
 document.Save("Result.docx", FormatType.Docx);
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
-
 Dim templateDocument As New WordDocument("Template.docx", FormatType.Docx)
-
 'Creates the bookmark navigator instance to access the bookmark
-
 Dim bookmarkNavigator As New BookmarksNavigator(templateDocument)
-
 'Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind")
-
 'Gets the bookmark content as WordDocumentPart
-
 Dim wordDocumentPart As WordDocumentPart = bookmarkNavigator.GetContent()
-
 'Closes the template document
-
 templateDocument.Close()
-
 'Loads the Word document with bookmark NorthwindDB
-
 Dim document As New WordDocument("Bookmarks.docx", FormatType.Docx)
-
 'Creates the bookmark navigator instance to access the bookmark
-
 bookmarkNavigator = New BookmarksNavigator(document)
-
 'Moves the virtual cursor to the location before the end of the bookmark "NorthwindDB"
-
 bookmarkNavigator.MoveToBookmark("NorthwindDB")
-
 'Replaces the bookmark content with word body part
-
 bookmarkNavigator.ReplaceContent(wordDocumentPart)
-
 document.Save("Result.docx", FormatType.Docx)
-
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
 	//Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
-
 	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 	WordDocument templateDocument = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-
 	//Creates the bookmark navigator instance to access the bookmark
-
 	BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
-
 	//Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 	bookmarkNavigator.MoveToBookmark("Northwind");
-
 	//Gets the bookmark content as WordDocumentPart
-
 	WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-
 	//Closes the template document
-
 	templateDocument.Close();
-
 	//Loads the Word document with bookmark NorthwindDB
-
 	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Bookmarks.docx"), FormatType.Docx);
-
 	//Creates the bookmark navigator instance to access the bookmark
-
 	bookmarkNavigator = new BookmarksNavigator(document);
-
 	//Moves the virtual cursor to the location before the end of the bookmark "NorthwindDB"
-
 	bookmarkNavigator.MoveToBookmark("NorthwindDB");
-
 	//Replaces the bookmark content with word body part
-
 	bookmarkNavigator.ReplaceContent(wordDocumentPart);
-
 	//Saves the Word file to MemoryStream
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
-
 	//Saves the stream as Word file in local machine
 	Save(stream, "Result.docx");
-
 	document.Close();
 }
 
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -2870,7 +1885,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -2879,113 +1894,67 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
-
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
 WordDocument templateDocument = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content as WordDocumentPart
-
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-
 //Closes the template document
-
 templateDocument.Close();
-
 //Loads the Word document with bookmark NorthwindDB
-
 FileStream fileStreamPath = new FileStream("Bookmarks.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "NorthwindDB"
-
 bookmarkNavigator.MoveToBookmark("NorthwindDB");
-
 //Replaces the bookmark content with word body part
-
 bookmarkNavigator.ReplaceContent(wordDocumentPart);
-
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
-
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
-{% highlight Xamarin %}
-
+{% highlight XAMARIN %}
 //Loads the template document with bookmark "Northwind" whose start and end are preserved in different section
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 WordDocument templateDocument = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Template.docx"), FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
-
 //Moves the virtual cursor to the location before the end of the bookmark "Northwind"
-
 bookmarkNavigator.MoveToBookmark("Northwind");
-
 //Gets the bookmark content as WordDocumentPart
-
 WordDocumentPart wordDocumentPart = bookmarkNavigator.GetContent();
-
 //Closes the template document
-
 templateDocument.Close();
-
 //Loads the Word document with bookmark NorthwindDB
-
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Bookmarks.docx"), FormatType.Docx);
-
 //Creates the bookmark navigator instance to access the bookmark
-
 bookmarkNavigator = new BookmarksNavigator(document);
-
 //Moves the virtual cursor to the location before the end of the bookmark "NorthwindDB"
-
 bookmarkNavigator.MoveToBookmark("NorthwindDB");
-
 //Replaces the bookmark content with word body part
-
 bookmarkNavigator.ReplaceContent(wordDocumentPart);
-
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
 document.Close();
-
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
