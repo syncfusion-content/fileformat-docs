@@ -8,7 +8,7 @@ documentation: UG
 
 # Converting Word document to EPUB
 
-The Word document files are converted as EPUB v2.0 file format with few lines of code by using the Essential DocIO. It is supported only in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms.
+The Word document files are converted as EPUB v2.0 file format with few lines of code by using the Essential DocIO.
 
 The following code illustrates how to convert the Word document to EPUB file.
 
@@ -60,7 +60,6 @@ document.Close()
 {% endtabs %}
 
 N> 1. Word to EPUB conversion is supported only in Windows Forms, UWP, WPF, ASP.NET Web, and MVC platforms.
-N> 2. Word to EPUB conversion is not supported in Blazor.
 
 The following elements are supported in Word to EPUB conversion.
 
