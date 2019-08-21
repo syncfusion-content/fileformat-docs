@@ -81,6 +81,9 @@ ISlide slide = pptxDoc.Slides.Add();
 FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
 
+//Release all resources of the stream
+outputStream.Dispose();
+
 //Closes the Presentation instance
 pptxDoc.Close();
 
@@ -139,19 +142,15 @@ The following example demonstrates how to access a slide from the predefined bla
 {% highlight c# %}
 
 //Create a PowerPoint presentation
-
 IPresentation pptxDoc = Presentation.Create();
 
 //Add a slide of blank layout type
-
 ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Save the PowerPoint file
-
 pptxDoc.Save("Sample.pptx");
 
 //Close the PowerPoint instance
-
 pptxDoc.Close();
 
 {% endhighlight %}
@@ -159,19 +158,340 @@ pptxDoc.Close();
 {% highlight vb.net %}
 
 'Create a PowerPoint file
-
 Dim pptxDoc As IPresentation = Presentation.Create()
 
 'Add a slide of blank layout type
-
 Dim slide1 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
 
 'Save the PowerPoint file
-
 pptxDoc.Save("Sample.pptx")
 
 'Close the PowerPoint instance
 pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a slide of blank layout type
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Create a new instance of PowerPoint Presentation file
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a slide of blank layout type
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);    
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Release all resources of the stream
+outputStream.Dispose();
+
+//Close the PowerPoint presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new instance of PowerPoint Presentation file
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a slide of blank layout type
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);    
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code example demonstrates how to add a slide with all predefined layout types.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a slide of blank layout type
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add a slide of comparison type
+ISlide slide2 = pptxDoc.Slides.Add(SlideLayoutType.Comparison);
+
+//Add a slide of ContentWithCaption type
+ISlide slide3 = pptxDoc.Slides.Add(SlideLayoutType.ContentWithCaption);
+
+//Add a slide of PictureWithCaption type
+ISlide slide4 = pptxDoc.Slides.Add(SlideLayoutType.PictureWithCaption);
+
+//Add a slide of SectionHeader type
+ISlide slide5 = pptxDoc.Slides.Add(SlideLayoutType.SectionHeader);
+
+//Add a slide of Title type
+ISlide slide6 = pptxDoc.Slides.Add(SlideLayoutType.Title);
+
+//Add a slide of TitleAndContent type
+ISlide slide7 = pptxDoc.Slides.Add(SlideLayoutType.TitleAndContent);
+
+//Add a slide of TitleAndVerticalText type
+ISlide slide8 = pptxDoc.Slides.Add(SlideLayoutType.TitleAndVerticalText);
+
+//Add a slide of TitleOnly type
+ISlide slide9 = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
+
+//Add a slide of TwoContent type
+ISlide slide10 = pptxDoc.Slides.Add(SlideLayoutType.TwoContent);
+
+//Add a slide of VerticalTitleAndText type
+ISlide slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText);
+
+//Save the PowerPoint file
+pptxDoc.Save("Sample.pptx");
+
+//Close the PowerPoint instance
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a PowerPoint file
+Dim pptxDoc As IPresentation = Presentation.Create()
+
+'Add a slide of blank layout type
+Dim slide1 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+
+'Add a slide of comparison type
+Dim ISlide As slide2 = pptxDoc.Slides.Add(SlideLayoutType.Comparison)
+
+'Add a slide of ContentWithCaption type
+Dim ISlide As slide3 = pptxDoc.Slides.Add(SlideLayoutType.ContentWithCaption)
+
+'Add a slide of PictureWithCaption type
+Dim ISlide As slide4 = pptxDoc.Slides.Add(SlideLayoutType.PictureWithCaption)
+
+'Add a slide of SectionHeader type
+Dim ISlide As slide5 = pptxDoc.Slides.Add(SlideLayoutType.SectionHeader)
+
+'Add a slide of Title type
+ISlide As slide6 = pptxDoc.Slides.Add(SlideLayoutType.Title)
+
+'Add a slide of TitleAndContent type
+Dim ISlide As slide7 = pptxDoc.Slides.Add(SlideLayoutType.TitleAndContent)
+
+'Add a slide of TitleAndVerticalText type
+Dim ISlide As slide8 = pptxDoc.Slides.Add(SlideLayoutType.TitleAndVerticalText)
+
+'Add a slide of TitleOnly type
+Dim ISlide As slide9 = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly)
+
+'Add a slide of TwoContent type
+Dim ISlide As slide10 = pptxDoc.Slides.Add(SlideLayoutType.TwoContent)
+
+'Add a slide of VerticalTitleAndText type
+Dim ISlide As slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText)
+
+'Save the PowerPoint file
+pptxDoc.Save("Sample.pptx")
+
+'Close the PowerPoint instance
+pptxDoc.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a PowerPoint presentation
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a slide of blank layout type
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add a slide of comparison type
+ISlide slide2 = pptxDoc.Slides.Add(SlideLayoutType.Comparison);
+
+//Add a slide of ContentWithCaption type
+ISlide slide3 = pptxDoc.Slides.Add(SlideLayoutType.ContentWithCaption);
+
+//Add a slide of PictureWithCaption type
+ISlide slide4 = pptxDoc.Slides.Add(SlideLayoutType.PictureWithCaption);
+
+//Add a slide of SectionHeader type
+ISlide slide5 = pptxDoc.Slides.Add(SlideLayoutType.SectionHeader);
+
+//Add a slide of Title type
+ISlide slide6 = pptxDoc.Slides.Add(SlideLayoutType.Title);
+
+//Add a slide of TitleAndContent type
+ISlide slide7 = pptxDoc.Slides.Add(SlideLayoutType.TitleAndContent);
+
+//Add a slide of TitleAndVerticalText type
+ISlide slide8 = pptxDoc.Slides.Add(SlideLayoutType.TitleAndVerticalText);
+
+//Add a slide of TitleOnly type
+ISlide slide9 = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
+
+//Add a slide of TwoContent type
+ISlide slide10 = pptxDoc.Slides.Add(SlideLayoutType.TwoContent);
+
+//Add a slide of VerticalTitleAndText type
+ISlide slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText);
+
+//Initializes FileSavePicker
+FileSavePicker savePicker = new FileSavePicker();
+savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+savePicker.SuggestedFileName = "Output";
+savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" });
+
+//Creates a storage file from FileSavePicker
+StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+//Saves changes to the specified storage file
+await pptxDoc.SaveAsync(storageFile);
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+//Create a new instance of PowerPoint Presentation file
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a slide of Blank type
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add a slide of comparison type
+ISlide slide2 = pptxDoc.Slides.Add(SlideLayoutType.Comparison);
+
+//Add a slide of ContentWithCaption type
+ISlide slide3 = pptxDoc.Slides.Add(SlideLayoutType.ContentWithCaption);
+
+//Add a slide of PictureWithCaption type
+ISlide slide4 = pptxDoc.Slides.Add(SlideLayoutType.PictureWithCaption);
+
+//Add a slide of SectionHeader type
+ISlide slide5 = pptxDoc.Slides.Add(SlideLayoutType.SectionHeader);
+
+//Add a slide of Title type
+ISlide slide6 = pptxDoc.Slides.Add(SlideLayoutType.Title);
+
+//Add a slide of TitleAndContent type
+ISlide slide7 = pptxDoc.Slides.Add(SlideLayoutType.TitleAndContent);
+
+//Add a slide of TitleAndVerticalText type
+ISlide slide8 = pptxDoc.Slides.Add(SlideLayoutType.TitleAndVerticalText);
+
+//Add a slide of TitleOnly type
+ISlide slide9 = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
+
+//Add a slide of TwoContent type
+ISlide slide10 = pptxDoc.Slides.Add(SlideLayoutType.TwoContent);
+
+//Add a slide of VerticalTitleAndText type
+ISlide slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText);    
+
+//Save the PowerPoint Presentation as stream
+FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
+pptxDoc.Save(outputStream);
+
+//Release all resources of the stream
+outputStream.Dispose();
+
+//Close the PowerPoint presentation
+pptxDoc.Close();
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new instance of PowerPoint Presentation file
+IPresentation pptxDoc = Presentation.Create();
+
+//Add a slide of Blank type
+ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+
+//Add a slide of comparison type
+ISlide slide2 = pptxDoc.Slides.Add(SlideLayoutType.Comparison);
+
+//Add a slide of ContentWithCaption type
+ISlide slide3 = pptxDoc.Slides.Add(SlideLayoutType.ContentWithCaption);
+
+//Add a slide of PictureWithCaption type
+ISlide slide4 = pptxDoc.Slides.Add(SlideLayoutType.PictureWithCaption);
+
+//Add a slide of SectionHeader type
+ISlide slide5 = pptxDoc.Slides.Add(SlideLayoutType.SectionHeader);
+
+//Add a slide of Title type
+ISlide slide6 = pptxDoc.Slides.Add(SlideLayoutType.Title);
+
+//Add a slide of TitleAndContent type
+ISlide slide7 = pptxDoc.Slides.Add(SlideLayoutType.TitleAndContent);
+
+//Add a slide of TitleAndVerticalText type
+ISlide slide8 = pptxDoc.Slides.Add(SlideLayoutType.TitleAndVerticalText);
+
+//Add a slide of TitleOnly type
+ISlide slide9 = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
+
+//Add a slide of TwoContent type
+ISlide slide10 = pptxDoc.Slides.Add(SlideLayoutType.TwoContent);
+
+//Add a slide of VerticalTitleAndText type
+ISlide slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText);     
+
+//Create new memory stream to save Presentation.
+MemoryStream stream = new MemoryStream();
+
+//Save Presentation in stream format.
+pptxDoc.Save(stream);
+
+//Close the presentation
+pptxDoc.Close();
+stream.Position = 0;
+
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+else
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
 {% endhighlight %}
 
@@ -307,6 +627,9 @@ ISlide slide = pptxDoc.Slides.Add(layoutSlide);
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 pptxDoc.Save(outputStream);
+
+//Release all resources of the stream
+outputStream.Dispose();
 
 //Close the presentation
 pptxDoc.Close();
@@ -496,6 +819,12 @@ ISlide slide = pptxDoc.Slides.Add(slideLayout);
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 pptxDoc.Save(outputStream);
+
+//Release all resources of the stream
+outputStream.Dispose();
+
+//Close the presentation
+pptxDoc.Close();
 
 {% endhighlight %}
 
@@ -691,6 +1020,12 @@ pptxDoc.Slides.Add(slideClone);
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 pptxDoc.Save(outputStream);
 
+//Release all resources of the stream
+outputStream.Dispose();
+
+//Close the presentation
+pptxDoc.Close();
+
 {% endhighlight %}
 
 {% highlight XAMARIN %}
@@ -851,6 +1186,9 @@ destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 destinationPresentation.Save(outputStream);
 
+//Release all resources of the stream
+outputStream.Dispose();
+
 //Closes the source presentation
 sourcePresentation.Close();
 
@@ -1002,6 +1340,9 @@ pptxDoc.Slides.RemoveAt(1);
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 pptxDoc.Save(outputStream);
+
+//Release all resources of the stream
+outputStream.Dispose();
 
 //Closes the Presentation instance
 pptxDoc.Close();
@@ -1286,6 +1627,9 @@ gradient.GradientStops.Add(ColorObject.Yellow, 50);
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 pptxDoc.Save(outputStream);
+
+//Release all resources of the stream
+outputStream.Dispose();
 
 //Closes the Presentation
 pptxDoc.Close();
