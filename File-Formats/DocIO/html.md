@@ -15,30 +15,89 @@ The following code example shows how to convert the HTML file into Word document
 {% tabs %}
 {% highlight c# %}
 //Loads the HTML document against transitional schema validation
-
 WordDocument document = new WordDocument("Sample.html", FormatType.Html, XHTMLValidationType.Transitional);
-
 //Saves the Word document
-
 document.Save("HTMLtoWord.docx", FormatType.Docx);
-
 //Closes the document
-
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 ' Loads the HTML document against transitional schema validation 
-
 Dim document As New WordDocument("Sample.html", FormatType.Html, XHTMLValidationType.Transitional)
-
 'Saves the Word document
-
 document.Save("HTMLtoWord.docx", FormatType.Docx)
-
 'Closes the document
-
 document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+async void Main(string[] args)
+{
+    //"App" is the class of Portable project.
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    //Opens an existing document from file system through constructor of WordDocument class
+    using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.html")), FormatType.Html))
+    {
+        MemoryStream stream = new MemoryStream();
+        //Saves the Word file to MemoryStream
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Saves the stream as Word file in local machine
+        Save(stream, "Result.docx");
+        document.Close();
+    }
+}
+//Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".docx";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+{% highlight ASP.NET CORE %}
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html))
+{
+     MemoryStream stream = new MemoryStream();
+     document.Save(stream, FormatType.docx);
+     //Closes the Word document
+     document.Close();
+     stream.Position = 0;
+     //Download Word document in the browser
+     return File(stream, "application/msword", "Result.docx");
+}
+{% endhighlight %}
+{% highlight XAMARIN %}
+//DocIO supports HTML conversion in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP and ASP.NET CORE platforms alone.
 {% endhighlight %}
 {% endtabs %}
 
@@ -47,31 +106,91 @@ The following code example shows how to convert the Word document into HTML.
 {% tabs %}
 {% highlight c# %}
 //Loads the template document
-
 WordDocument document = new WordDocument("Template.docx", FormatType.Docx);
-
 //Saves the document as Html file
-
 document.Save("WordToHtml.html", FormatType.Html);
-
 //Closes the document 
-
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Loads the template document
-
 Dim document As New WordDocument("Template.docx", FormatType.Docx)
-
 'Saves the document as Html file
-
 document.Save("WordToHtml.html", FormatType.Html)
-
 'Closes the document 
-
 document.Close()
 {% endhighlight %}
+
+{% highlight UWP %}
+async void Main(string[] args)
+{
+    //"App" is the class of Portable project.
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    //Opens an existing document from file system through constructor of WordDocument class
+    using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
+    {
+        MemoryStream stream = new MemoryStream();
+        //Saves the Word file to MemoryStream
+        await document.SaveAsync(stream, FormatType.Html);
+        //Saves the stream as Word file in local machine
+        Save(stream, "Result.html");
+        document.Close();
+    }
+}
+//Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".html";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".html" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+{% highlight ASP.NET CORE %}
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+{
+     MemoryStream stream = new MemoryStream();
+     document.Save(stream, FormatType.Html);
+     //Closes the Word document
+     document.Close();
+     stream.Position = 0;
+     //Download Word document in the browser
+     return File(stream, "application/chrome", "Result.html");
+}
+{% endhighlight %}
+{% highlight XAMARIN %}
+//DocIO supports HTML conversion in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP and ASP.NET CORE platforms alone.
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Customization settings
@@ -91,71 +210,40 @@ The following code example shows how to customize the HTML to Word conversion.
 {% tabs %}
 {% highlight c# %}
 //Loads the template document
-
 WordDocument document = new WordDocument("Template.docx");
-
 //Html string to be inserted
-
 string htmlstring = "<p><b>This text is inserted as HTML string.</b></p>";
-
 //Validates the Html string
-
 bool isValidHtml = document.LastSection.Body.IsValidXHTML(htmlstring, XHTMLValidationType.Transitional);
-
 //When the Html string passes validation, it is inserted to the document
-
 if (isValidHtml)
-
 {
-
 //Appends Html string as first item of the second paragraph in the document
-
 document.Sections[0].Body.InsertXHTML(htmlstring, 2, 0);
-
 //Appends the Html string to first paragraph in the document
-
 document.Sections[0].Body.Paragraphs[0].AppendHTML(htmlstring);
-
 }
-
 //Saves and closes the document
-
 document.Save("Sample.docx");
-
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Loads the template document
-
 Dim document As New WordDocument("Template.docx")
-
 'Html string to be inserted
-
 Dim htmlstring As String = "<p><b>This text is inserted as HTML string.</b></p>"
-
 'Validates the Html string
-
 Dim isValidHtmlAs Boolean = document.LastSection.Body.IsValidXHTML(htmlstring, XHTMLValidationType.Transitional)
-
 'When the Html string passes validation, it is inserted to document
-
 If isValidHtmlThen
-
 'Appends Html string as first item of the second paragraph in the document
-
 document.Sections(0).Body.InsertXHTML(htmlstring, 2, 0)
-
 'Appends the Html string to first paragraph in the document
-
 document.Sections(0).Body.Paragraphs(0).AppendHTML(htmlstring)
-
 End If
-
 'Saves and closes the document
-
 document.Save("Sample.docx")
-
 document.Close()
 {% endhighlight %}
 {% endtabs %}
@@ -181,69 +269,39 @@ The following code sample shows how to customize Word to HTML conversion.
 {% tabs %}
 {% highlight c# %}
 //Loads an existing document
-
 WordDocument document = new WordDocument("Template.docx");
-
 HTMLExport export = new HTMLExport();
-
 //The images in the input document are copied to this folder
-
 document.SaveOptions.HtmlExportImagesFolder = @"D:\Data\";
-
 //The headers and footers in the input are exported
-
 document.SaveOptions.HtmlExportHeadersFooters = true;
-
 //Exports the text form fields as editable
-
 document.SaveOptions.HtmlExportTextInputFormFieldAsText = false;
-
 //Sets the style sheet type
-
 document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External;
-
 //Sets name for style sheet
-
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css";
-
 //Saves the document as html file
-
 export.SaveAsXhtml(document, "WordtoHtml.html");
-
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Loads an existing document
-
 Dim document As New WordDocument("Template.docx")
-
 Dim export As New HTMLExport()
-
 'The images in the input document are copied to this folder
-
 document.SaveOptions.HtmlExportImagesFolder = "D:\Data\"
-
 'The headers and footers in the input are exported
-
 document.SaveOptions.HtmlExportHeadersFooters = True
-
 'Exports the text form fields as editable
-
 document.SaveOptions.HtmlExportTextInputFormFieldAsText = False
-
 'Sets the style sheet type
-
 document.SaveOptions.HtmlExportCssStyleSheetType = CssStyleSheetType.External
-
 'Sets name for style sheet
-
 document.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css"
-
 'Saves the document as html file
-
 export.SaveAsXhtml(document, "WordtoHtml.html")
-
 document.Close()
 {% endhighlight %}
 {% endtabs %}

@@ -20,412 +20,389 @@ The following code example shows how to iterate throughout the Word document and
 {% tabs %} 
 
 {% highlight c# %}
-using Syncfusion.DocIO.DLS;
-namespace RemoveParagraphs
+//Opens an existing document from file system through constructor of WordDocument class
+WordDocument document = new WordDocument(@"TestDocument.docx");
+//Processes the body contents for each section in the Word document
+foreach (WSection section in document.Sections)
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			//Opens an existing document from file system through constructor of WordDocument class
-			WordDocument document = new WordDocument(@"TestDocument.docx");
-			//Processes the body contents for each section in the Word document
-			foreach (WSection section in document.Sections)
-			{
-				//Accesses the Body of section where all the contents in document are apart
-				WTextBody sectionBody = section.Body;
-				IterateTextBody(sectionBody);
-				WHeadersFooters headersFooters = section.HeadersFooters;
-				//Consider that OddHeader and OddFooter are applied to this document
-				//Iterates through the TextBody of OddHeader and OddFooter
-				IterateTextBody(headersFooters.OddHeader);
-				IterateTextBody(headersFooters.OddFooter);
-			}
-			//Saves and closes the document instance
-			document.Save("Result.docx");
-			document.Close();
-			System.Diagnostics.Process.Start("Result.docx");
-		}
-		private static void IterateTextBody(WTextBody textBody)
-		{
-			//Iterates through each of the child items of WTextBody
-			for(int i = 0; i < textBody.ChildEntities.Count; i++)
-			{
-				//IEntity is the basic unit in DocIO DOM. 
-				//Accesses the body items (should be either paragraph or table) as IEntity
-				IEntity bodyItemEntity = textBody.ChildEntities[i];
-				//A Text body has 2 types of elements - Paragraph and Table
-				//Decides the element type by using EntityType
-				switch (bodyItemEntity.EntityType)
-				{
-					case EntityType.Paragraph:
-						WParagraph paragraph = bodyItemEntity as WParagraph;
-						//Checks for particular style name and removes the paragraph from DOM
-						if (paragraph.StyleName == "MyStyle")
-						{
-							int index = textBody.ChildEntities.IndexOf(paragraph);
-							textBody.ChildEntities.RemoveAt(index);
-						}
-						break;
-					case EntityType.Table:
-						//Table is a collection of rows and cells
-						//Iterates through table's DOM
-						IterateTable(bodyItemEntity as WTable);
-						break;
-				}
-			}
-		}
-		private static void IterateTable(WTable table)
-		{
-			//Iterates the row collection in a table
-			foreach (WTableRow row in table.Rows)
-			{
-				//Iterates the cell collection in a table row
-				foreach (WTableCell cell in row.Cells)
-				{
-					//Table cell is derived from (also a) TextBody
-					//Reusing the code meant for iterating TextBody
-					IterateTextBody(cell);
-				}
-			}
-		}
-	}
+	//Accesses the Body of section where all the contents in document are apart
+	WTextBody sectionBody = section.Body;
+	IterateTextBody(sectionBody);
+	WHeadersFooters headersFooters = section.HeadersFooters;
+	//Consider that OddHeader and OddFooter are applied to this document
+	//Iterates through the TextBody of OddHeader and OddFooter
+	IterateTextBody(headersFooters.OddHeader);
+	IterateTextBody(headersFooters.OddFooter);
 }
+//Saves and closes the document instance
+document.Save("Result.docx");
+document.Close();
 {% endhighlight %}
-
 {% highlight vb.net %}
-Imports Syncfusion.DocIO.DLS
-Namespace RemoveParagraphs
-Class Program
-	Private Shared Sub Main(args As String())
-		'Opens an existing document from file system through constructor of WordDocument class
-		Dim document As New WordDocument("TestDocument.docx")
-		'Processes the body contents for each section in the Word document
-		For Each section As WSection In document.Sections
-			'Accesses the Body of section where all the contents in document are apart
-			Dim sectionBody As WTextBody = section.Body
-			IterateTextBody(sectionBody)
-			Dim headersFooters As WHeadersFooters = section.HeadersFooters
-			'Consider that OddHeader and OddFooter are applied to this document
-			'Iterates through the text body of OddHeader and OddFooter
-			IterateTextBody(headersFooters.OddHeader)
-			IterateTextBody(headersFooters.OddFooter)
-		Next
-		'Saves and closes the document instance
-		document.Save("Result.docx")
-		document.Close()
-		System.Diagnostics.Process.Start("Result.docx")
-	End Sub
-	Private Shared Sub IterateTextBody(textBody As WTextBody)
-		'Iterates through the each of the child items of WTextBody
-		For i As Integer = 0 To textBody.ChildEntities.Count - 1
-			'IEntity is the basic unit in DocIO DOM. 
-			'Accesses the body items (should be either paragraph or table) as IEntity
-			Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
-			'A Text body has 2 types of elements - Paragraph and Table
-			'decide the element type using EntityType
-			Select Case bodyItemEntity.EntityType
-				Case EntityType.Paragraph
-					Dim paragraph As WParagraph = TryCast(bodyItemEntity, WParagraph)
-					'Checks for a particular style name and removes the paragraph from DOM
-					If paragraph.StyleName = "MyStyle" Then
-						Dim index As Integer = textBody.ChildEntities.IndexOf(paragraph)
-						textBody.ChildEntities.RemoveAt(index)
-					End If
-				Exit Select
-				Case EntityType.Table
-					'Table is a collection of rows and cells
-					'Iterates through table's DOM
-					IterateTable(TryCast(bodyItemEntity, WTable))
-				Exit Select
-			End Select
-		Next
-	End Sub
-	Private Shared Sub IterateTable(table As WTable)
-		'Iterates the row collection in a table
-		For Each row As WTableRow In table.Rows
-			'Iterates the cell collection in a table row
-			For Each cell As WTableCell In row.Cells
-				'Table cell is derived from (also a) TextBody
-				'Reusing the code meant for iterating TextBody
-				IterateTextBody(cell)
-			Next
-		Next
-	End Sub
-End Class
-End Namespace
+'Opens an existing document from file system through constructor of WordDocument class
+Dim document As New WordDocument("TestDocument.docx")
+'Processes the body contents for each section in the Word document
+For Each section As WSection In document.Sections
+	'Accesses the Body of section where all the contents in document are apart
+	Dim sectionBody As WTextBody = section.Body
+     IterateTextBody(sectionBody)
+     Dim headersFooters As WHeadersFooters = section.HeadersFooters
+	'Consider that OddHeader and OddFooter are applied to this document
+	'Iterates through the text body of OddHeader and OddFooter
+     IterateTextBody(headersFooters.OddHeader)
+     IterateTextBody(headersFooters.OddFooter)
+Next
+'Saves and closes the document instance
+document.Save("Result.docx")
+document.Close()	
 {% endhighlight %}
-
 {% highlight UWP %}
-using Syncfusion.DocIO.DLS;
-namespace RemoveParagraphs
+async void Main(string[] args)
 {
-	class Program
-	{
-		async void Main(string[] args)
-		{
-			//"App" is the class of Portable project.
-			Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-			//Opens an existing document from file system through constructor of WordDocument class
-			using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
-			{
-				foreach (WSection section in document.Sections)
-				{
-					//Accesses the Body of section where all the contents in document are apart
-					WTextBody sectionBody = section.Body;
-					IterateTextBody(sectionBody);
-					WHeadersFooters headersFooters = section.HeadersFooters;
-					//Consider that OddHeader and OddFooter are applied to this document
-					//Iterates through the TextBody of OddHeader and OddFooter
-					IterateTextBody(headersFooters.OddHeader);
-					IterateTextBody(headersFooters.OddFooter);
-				}
-				MemoryStream stream = new MemoryStream();
-				await document.SaveAsync(stream, FormatType.Docx);
-				//Saves the stream as Word file in local machine
-				Save(stream, "Result.docx");
-                //Closes the Word document
-				document.Close();
-			}
-		}
-		async void IterateTextBody(WTextBody textBody)
-		{
-			//Iterates through each of the child items of WTextBody
-			for (int i = 0; i < textBody.ChildEntities.Count; i++)
-			{
-				//IEntity is the basic unit in DocIO DOM. 
-				//Accesses the body items (should be either paragraph or table) as IEntity
-				IEntity bodyItemEntity = textBody.ChildEntities[i];
-				//A Text body has 2 types of elements - Paragraph and Table
-				//Decides the element type by using EntityType
-				switch (bodyItemEntity.EntityType)
-				{
-					case EntityType.Paragraph:
-						WParagraph paragraph = bodyItemEntity as WParagraph;
-						//Checks for particular style name and removes the paragraph from DOM
-						if (paragraph.StyleName == "MyStyle")
-						{
-							int index = textBody.ChildEntities.IndexOf(paragraph);
-							textBody.ChildEntities.RemoveAt(index);
-						}
-						break;
-					case EntityType.Table:
-						//Table is a collection of rows and cells
-						//Iterates through table's DOM
-						IterateTable(bodyItemEntity as WTable);
-						break;
-				}
-			}
-		}
-		async void IterateTable(WTable table)
-		{
-			//Iterates the row collection in a table
-			foreach (WTableRow row in table.Rows)
-			{
-				//Iterates the cell collection in a table row
-				foreach (WTableCell cell in row.Cells)
-				{
-					//Table cell is derived from (also a) TextBody
-					//Reusing the code meant for iterating TextBody
-					IterateTextBody(cell);
-				}
-			}
-		}
-		//Saves the Word document
-		async void Save(MemoryStream streams, string filename)
-		{
-			streams.Position = 0;
-			StorageFile stFile;
-			if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-			{
-				FileSavePicker savePicker = new FileSavePicker();
-				savePicker.DefaultFileExtension = ".docx";
-				savePicker.SuggestedFileName = filename;
-				savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
-				stFile = await savePicker.PickSaveFileAsync();
-			}
-			else
-			{
-				StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-				stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-			}
-			if (stFile != null)
-			{
-				using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-				{
-					//Write compressed data from memory to file
-					using (Stream outstream = zipStream.AsStreamForWrite())
-					{
-						byte[] buffer = streams.ToArray();
-						outstream.Write(buffer, 0, buffer.Length);
-						outstream.Flush();
-					}
-				}
-			}
-			//Launch the saved Word file
-			await Windows.System.Launcher.LaunchFileAsync(stFile);
-		}
-	}
+    //"App" is the class of Portable project.
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    //Opens an existing document from file system through constructor of WordDocument class
+    using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
+    {
+        foreach (WSection section in document.Sections)
+        {
+            //Accesses the Body of section where all the contents in document are apart
+            WTextBody sectionBody = section.Body;
+            IterateTextBody(sectionBody);
+            WHeadersFooters headersFooters = section.HeadersFooters;
+            //Consider that OddHeader and OddFooter are applied to this document
+            //Iterates through the TextBody of OddHeader and OddFooter
+            IterateTextBody(headersFooters.OddHeader);
+            IterateTextBody(headersFooters.OddFooter);
+        }
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Saves the stream as Word file in local machine
+        Save(stream, "Result.docx");
+        //Closes the Word document
+        document.Close();
+    }
+}
+//Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".docx";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 {% endhighlight %}
-
 {% highlight ASP.NET CORE %}
-using Syncfusion.DocIO.DLS;
-namespace RemoveParagraphs
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-			//Opens an existing document from file system through constructor of WordDocument class
-			using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
-			{
-				foreach (WSection section in document.Sections)
-				{
-					//Accesses the Body of section where all the contents in document are apart
-					WTextBody sectionBody = section.Body;
-					IterateTextBody(sectionBody);
-					WHeadersFooters headersFooters = section.HeadersFooters;
-					//Consider that OddHeader and OddFooter are applied to this document
-					//Iterates through the TextBody of OddHeader and OddFooter
-					IterateTextBody(headersFooters.OddHeader);
-					IterateTextBody(headersFooters.OddFooter);
-				}
-				MemoryStream stream = new MemoryStream();
-				document.Save(stream, FormatType.Docx);
-				//Closes the Word document
-				document.Close();
-				stream.Position = 0;
-				//Download Word document in the browser
-				return File(stream, "application/msword", "Result.docx");
-			}
-		}
-		private static void IterateTextBody(WTextBody textBody)
-		{
-			//Iterates through each of the child items of WTextBody
-			for (int i = 0; i < textBody.ChildEntities.Count; i++)
-			{
-				//IEntity is the basic unit in DocIO DOM. 
-				//Accesses the body items (should be either paragraph or table) as IEntity
-				IEntity bodyItemEntity = textBody.ChildEntities[i];
-				//A Text body has 2 types of elements - Paragraph and Table
-				//Decides the element type by using EntityType
-				switch (bodyItemEntity.EntityType)
-				{
-					case EntityType.Paragraph:
-						WParagraph paragraph = bodyItemEntity as WParagraph;
-						//Checks for particular style name and removes the paragraph from DOM
-						if (paragraph.StyleName == "MyStyle")
-						{
-							int index = textBody.ChildEntities.IndexOf(paragraph);
-							textBody.ChildEntities.RemoveAt(index);
-						}
-						break;
-					case EntityType.Table:
-						//Table is a collection of rows and cells
-						//Iterates through table's DOM
-						IterateTable(bodyItemEntity as WTable);
-						break;
-				}
-			}
-		}
-		private static void IterateTable(WTable table)
-		{
-			//Iterates the row collection in a table
-			foreach (WTableRow row in table.Rows)
-			{
-				//Iterates the cell collection in a table row
-				foreach (WTableCell cell in row.Cells)
-				{
-					//Table cell is derived from (also a) TextBody
-					//Reusing the code meant for iterating TextBody
-					IterateTextBody(cell);
-				}
-			}
-		}
-	}
+    foreach (WSection section in document.Sections)
+    {
+        //Accesses the Body of section where all the contents in document are apart
+        WTextBody sectionBody = section.Body;
+        IterateTextBody(sectionBody);
+        WHeadersFooters headersFooters = section.HeadersFooters;
+        //Consider that OddHeader and OddFooter are applied to this document
+        //Iterates through the TextBody of OddHeader and OddFooter
+        IterateTextBody(headersFooters.OddHeader);
+        IterateTextBody(headersFooters.OddFooter);
+    }
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Closes the Word document
+    document.Close();
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
-
 {% highlight XAMARIN %}
-using Syncfusion.DocIO.DLS;
-namespace RemoveParagraphs
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")), FormatType.Automatic))
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-			//Opens an existing document from file system through constructor of WordDocument class
-			using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")), FormatType.Automatic))
-			{
-				foreach (WSection section in document.Sections)
-				{
-					//Accesses the Body of section where all the contents in document are apart
-					WTextBody sectionBody = section.Body;
-					IterateTextBody(sectionBody);
-					WHeadersFooters headersFooters = section.HeadersFooters;
-					//Consider that OddHeader and OddFooter are applied to this document
-					//Iterates through the TextBody of OddHeader and OddFooter
-					IterateTextBody(headersFooters.OddHeader);
-					IterateTextBody(headersFooters.OddFooter);
-				}
-				MemoryStream stream = new MemoryStream();
-				document.Save(stream, FormatType.Docx);
-				//Save the stream as a file in the device and invoke it for viewing
-				Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-				//Closes the Word document
-				document.Close();
-			}
-		}
-		private static void IterateTextBody(WTextBody textBody)
-		{
-			//Iterates through each of the child items of WTextBody
-			for (int i = 0; i < textBody.ChildEntities.Count; i++)
-			{
-				//IEntity is the basic unit in DocIO DOM. 
-				//Accesses the body items (should be either paragraph or table) as IEntity
-				IEntity bodyItemEntity = textBody.ChildEntities[i];
-				//A Text body has 2 types of elements - Paragraph and Table
-				//Decides the element type by using EntityType
-				switch (bodyItemEntity.EntityType)
-				{
-					case EntityType.Paragraph:
-						WParagraph paragraph = bodyItemEntity as WParagraph;
-						//Checks for particular style name and removes the paragraph from DOM
-						if (paragraph.StyleName == "MyStyle")
-						{	
-							int index = textBody.ChildEntities.IndexOf(paragraph);
-							textBody.ChildEntities.RemoveAt(index);
-						}
-						break;
-					case EntityType.Table:
-						//Table is a collection of rows and cells
-						//Iterates through table's DOM
-						IterateTable(bodyItemEntity as WTable);
-						break;
-				}
-			}
-		}
-		private static void IterateTable(WTable table)
-		{
-			//Iterates the row collection in a table
-			foreach (WTableRow row in table.Rows)
-			{
-				//Iterates the cell collection in a table row
-				foreach (WTableCell cell in row.Cells)
-				{
-					//Table cell is derived from (also a) TextBody
-					//Reusing the code meant for iterating TextBody
-					IterateTextBody(cell);
-				}
-			}
-		}
-	}
+    foreach (WSection section in document.Sections)
+    {
+        //Accesses the Body of section where all the contents in document are apart
+        WTextBody sectionBody = section.Body;
+        IterateTextBody(sectionBody);
+        WHeadersFooters headersFooters = section.HeadersFooters;
+        //Consider that OddHeader and OddFooter are applied to this document
+        //Iterates through the TextBody of OddHeader and OddFooter
+        IterateTextBody(headersFooters.OddHeader);
+        IterateTextBody(headersFooters.OddFooter);
+    }
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+    //Closes the Word document
+    document.Close();
 }
 {% endhighlight %}
+{% endtabs %}  
+The following code example provides supporting methods for the above code.
+{% tabs %}  
+{% highlight c# %}
+private static void IterateTextBody(WTextBody textBody)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph or table) as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 2 types of elements - Paragraph and Table
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Checks for particular style name and removes the paragraph from DOM
+                if (paragraph.StyleName == "MyStyle")
+                {
+                    int index = textBody.ChildEntities.IndexOf(paragraph);
+                    textBody.ChildEntities.RemoveAt(index);
+                }
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM
+                IterateTable(bodyItemEntity as WTable);
+                break;
+        }
+    }
+}
+{% endhighlight %}
+{% highlight vb.net %}
+Private Shared Sub IterateTextBody(textBody As WTextBody)
+'Iterates through the each of the child items of WTextBody
+For i As Integer = 0 To textBody.ChildEntities.Count - 1
+	'IEntity is the basic unit in DocIO DOM. 
+	'Accesses the body items (should be either paragraph or table) as IEntity
+	Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
+	'A Text body has 2 types of elements - Paragraph and Table
+	'decide the element type using EntityType
+    Select Case bodyItemEntity.EntityType
+        Case EntityType.Paragraph
+            Dim paragraph As WParagraph = TryCast(bodyItemEntity, WParagraph)
+			'Checks for a particular style name and removes the paragraph from DOM
+            If paragraph.StyleName = "MyStyle" Then
+                Dim index As Integer = textBody.ChildEntities.IndexOf(paragraph)
+                textBody.ChildEntities.RemoveAt(index)
+            End If
+        Exit Select
+        Case EntityType.Table
+			'Table is a collection of rows and cells
+			'Iterates through table's DOM
+            IterateTable(TryCast(bodyItemEntity, WTable))
+        Exit Select
+    End Select
+Next
+End Sub
+{% endhighlight %}
+{% highlight UWP %}
+async void IterateTextBody(WTextBody textBody)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph or table) as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 2 types of elements - Paragraph and Table
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Checks for particular style name and removes the paragraph from DOM
+                if (paragraph.StyleName == "MyStyle")
+                {
+                    int index = textBody.ChildEntities.IndexOf(paragraph);
+                    textBody.ChildEntities.RemoveAt(index);
+                }
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM
+                IterateTable(bodyItemEntity as WTable);
+                break;
+        }
+    }
+}
+{% endhighlight %}
+{% highlight ASP.NET CORE %}
+private static void IterateTextBody(WTextBody textBody)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph or table) as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 2 types of elements - Paragraph and Table
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Checks for particular style name and removes the paragraph from DOM
+                if (paragraph.StyleName == "MyStyle")
+                {
+                    int index = textBody.ChildEntities.IndexOf(paragraph);
+                    textBody.ChildEntities.RemoveAt(index);
+                }
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM
+                IterateTable(bodyItemEntity as WTable);
+                break;
+        }
+    }
+}
+{% endhighlight %}
+{% highlight XAMARIN %}
+private static void IterateTextBody(WTextBody textBody)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph or table) as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 2 types of elements - Paragraph and Table
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Checks for particular style name and removes the paragraph from DOM
+                if (paragraph.StyleName == "MyStyle")
+                {
+                    int index = textBody.ChildEntities.IndexOf(paragraph);
+                    textBody.ChildEntities.RemoveAt(index);
+                }
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM
+                IterateTable(bodyItemEntity as WTable);
+                break;
+        }
+    }
+}
+{% endhighlight %}
+{% endtabs %}  
 
+The following code example provides supporting methods for the above code.
+
+{% tabs %}  
+{% highlight c# %}
+private static void IterateTable(WTable table)
+{
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Table cell is derived from (also a) TextBody
+            //Reusing the code meant for iterating TextBody
+            IterateTextBody(cell);
+        }
+    }
+}
+{% endhighlight %}
+{% highlight vb.net %}
+Private Shared Sub IterateTable(table As WTable)
+'Iterates the row collection in a table
+For Each row As WTableRow In table.Rows
+	'Iterates the cell collection in a table row
+	For Each cell As WTableCell In row.Cells
+		'Table cell is derived from (also a) TextBody
+		'Reusing the code meant for iterating TextBody
+		IterateTextBody(cell)
+    Next
+Next
+End Sub
+{% endhighlight %}
+{% highlight UWP %}
+async void IterateTable(WTable table)
+{
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Table cell is derived from (also a) TextBody
+            //Reusing the code meant for iterating TextBody
+            IterateTextBody(cell);
+        }
+    }
+}
+{% endhighlight %}
+{% highlight ASP.NET CORE %}
+private static void IterateTable(WTable table)
+{
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Table cell is derived from (also a) TextBody
+            //Reusing the code meant for iterating TextBody
+            IterateTextBody(cell);
+        }
+    }
+}
+{% endhighlight %}
+{% highlight XAMARIN %}
+private static void IterateTable(WTable table)
+{
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Table cell is derived from (also a) TextBody
+            //Reusing the code meant for iterating TextBody
+            IterateTextBody(cell);
+        }
+    }
+}
+{% endhighlight %}
 {% endtabs %}  
 
 The following code example shows how to iterate throughout the paragraph and modify the hyperlink (Hyperlink)Uri and specific text (WTextRange)with another.
@@ -433,561 +410,556 @@ The following code example shows how to iterate throughout the paragraph and mod
 {% tabs %}  
 
 {% highlight c# %}
-using Syncfusion.DocIO.DLS;
-using Syncfusion.DocIO;
-namespace UpdateText
+//Opens an existing document from file system through constructor of WordDocument class
+WordDocument document = new WordDocument(@"TestDocument.docx");
+//Processes the body contents for each section in the Word document
+foreach (WSection section in document.Sections)
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			//Opens an existing document from file system through constructor of WordDocument class
-			WordDocument document = new WordDocument(@"TestDocument.docx");
-			//Processes the body contents for each section in the Word document
-			foreach (WSection section in document.Sections)
-			{
-				Accesses the Body of section where all the contents in document are apart
-				WTextBody sectionBody = section.Body;
-				IterateTextBody(sectionBody);
-				WHeadersFooters headersFooters = section.HeadersFooters;
-				//consider that OddHeader & OddFooter are applied to this document
-				//Iterates through the TextBody of OddHeader and OddFooter
-				IterateTextBody(headersFooters.OddHeader);
-				IterateTextBody(headersFooters.OddFooter);
-			}
-			//Saves and closes the document instance
-			document.Save("Result.docx");
-			document.Close();
-			System.Diagnostics.Process.Start("Result.docx");
-		}
-		private static void IterateTextBody(WTextBody textBody)
-		{
-			//Iterates through each of the child items of WTextBody
-			for (int i = 0; i < textBody.ChildEntities.Count; i++)
-			{
-				//IEntity is the basic unit in DocIO DOM. 
-				//Accesses the body items (should be either paragraph or table) as IEntity
-				IEntity bodyItemEntity = textBody.ChildEntities[i];
-				//A Text body has 2 types of elements - Paragraph and Table
-				//Decides the element type by using EntityType
-				switch (bodyItemEntity.EntityType)
-				{
-					case EntityType.Paragraph:
-						WParagraph paragraph = bodyItemEntity as WParagraph;
-						//Processes the paragraph contents
-						//Iterates through the paragraph's DOM
-						IterateParagraph(paragraph);
-						break;
-					case EntityType.Table:
-						//Table is a collection of rows and cells
-						//Iterates through table's DOM
-						IterateTable(bodyItemEntity as WTable);
-						break;
-				}
-			}
-		}
-		private static void IterateTable(WTable table)
-		{
-			//Iterates the row collection in a table
-			foreach (WTableRow row in table.Rows)
-			{
-				//Iterates the cell collection in a table row
-				foreach (WTableCell cell in row.Cells)
-				{
-					//Table cell is derived from (also a) TextBody
-					//Reusing the code meant for iterating TextBody
-					IterateTextBody(cell);
-				}
-			}
-		}
-		private static void IterateParagraph(WParagraph paragraph)
-		{
-			for (int i = 0; i < paragraph.ChildEntities.Count; i++)
-			{
-				Entity entity = paragraph.ChildEntities[i];
-				//A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
-				//Decides the element type by using EntityType
-				switch (entity.EntityType)
-				{
-					case EntityType.TextRange:
-						//Replaces the text with another
-						WTextRange textRange = entity as WTextRange;
-						if (textRange.Text == "Andrew")
-						{
-							(entity as WTextRange).Text = "Fuller";
-						}
-						break;
-					case EntityType.Field:
-						WField field = entity as WField;
-						if (field.FieldType == FieldType.FieldHyperlink)
-						{
-							//Creates hyperlink instance from field to manipulate the hyperlink
-							Hyperlink hyperlink = new Hyperlink(entity as WField);
-							//Modifies the Uri of the hyperlink
-							if (hyperlink.Type == HyperlinkType.WebLink && hyperlink.TextToDisplay == "HTML")
-							{
-								hyperlink.Uri = "http://www.w3schools.com/";
-							}
-						}
-						break;
-				}
-			}
-		}
-	}
+    Accesses the Body of section where all the contents in document are apart
+    WTextBody sectionBody = section.Body;
+    IterateTextBody(sectionBody);
+    WHeadersFooters headersFooters = section.HeadersFooters;
+    //consider that OddHeader & OddFooter are applied to this document
+    //Iterates through the TextBody of OddHeader and OddFooter
+    IterateTextBody(headersFooters.OddHeader);
+    IterateTextBody(headersFooters.OddFooter);
 }
+//Saves and closes the document instance
+document.Save("Result.docx");
+document.Close();
 {% endhighlight %}
-
 {% highlight vb.net %}
-Imports Syncfusion.DocIO.DLS
-Imports Syncfusion.DocIO
-Namespace UpdateText
-Class Program
-	Private Shared Sub Main(args As String())
-		Dim document As New WordDocument("TestDocument.docx")
-		'Processes the body contents for each section in the Word document
-		For Each section As WSection In document.Sections
-			'Accesses the Body of section where all the contents in document are apart
-			Dim sectionBody As WTextBody = section.Body
-			IterateTextBody(sectionBody)
-			Dim headersFooters As WHeadersFooters = section.HeadersFooters
-			'Considers that OddHeader and OddFooter are applied to this document
-			'Iterates through the TextBody of OddHeader and OddFooterIterateTextBody(headersFooters.OddHeader)
-			IterateTextBody(headersFooters.OddFooter)
-		Next
-		'Saves and closes the document instance
-		document.Save("Result.docx")
-		document.Close()
-		System.Diagnostics.Process.Start("Result.docx")
-	End Sub
-	Private Shared Sub IterateTextBody(textBody As WTextBody)
-		'Iterates through each of the child items of WTextBody
-		For i As Integer = 0 To textBody.ChildEntities.Count - 1
-			'IEntity is the basic unit in DocIO DOM. 
-			'Accesses the body items (should be either paragraph or table) as IEntity
-			Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
-			'A Text body has 2 types of elements - Paragraph and Table
-			'Decides the element type by using EntityType
-			Select Case bodyItemEntity.EntityType
-				Case EntityType.Paragraph
-					Dim paragraph As WParagraph = TryCast(bodyItemEntity, WParagraph)
-					'Processes the paragraph contents
-					'Iterates through the paragraph's DOM
-					IterateParagraph(paragraph)
-				Exit Select
-				Case EntityType.Table
-					'Table is a collection of rows and cells
-					'Iterates through table's DOM
-					IterateTable(TryCast(bodyItemEntity, WTable))
-				Exit Select
-			End Select
-		Next
-	End Sub
-	Private Shared Sub IterateTable(table As WTable)
-		'Iterates the row collection in a table
-		For Each row As WTableRow In table.Rows
-			'Iterates the cell collection in a table row
-			For Each cell As WTableCell In row.Cells
-				'Table cell is derived from (also a) TextBody
-				'Reusing the code meant for iterating TextBody
-				IterateTextBody(cell)
-			Next
-		Next
-	End Sub
-	Private Shared Sub IterateParagraph(paragraph As WParagraph)
-		For i As Integer = 0 To paragraph.ChildEntities.Count - 1
-			Dim entity As Entity = paragraph.ChildEntities(i)
-			'A Paragraph has child elements such as text, image, hyperlink, symbols, etc.,
-			'Decides the element type by using EntityType
-			Select Case entity.EntityType
-				Case EntityType.TextRange
-					'Replaces the text with another
-					Dim textRange As WTextRange = TryCast(entity, WTextRange)
-					If textRange.Text = "Andrew" Then
-						TryCast(entity, WTextRange).Text = "Fuller"
-					End If
-				Exit Select
-				Case EntityType.Field
-					Dim field As WField = TryCast(entity, WField)
-					If field.FieldType = FieldType.FieldHyperlink Then
-						'Creates Hyperlink instance from field to manipulate the Hyperlink
-						Dim hyperlink As New Hyperlink(TryCast(entity, WField))
-						'Modifies the Uri of the hyperlink
-						If hyperlink.Type = HyperlinkType.WebLink AndAlso hyperlink.TextToDisplay = "HTML" Then
-							hyperlink.Uri = "http://www.w3schools.com/"
-						End If
-					End If
-				Exit Select
-			End Select
-		Next
-	End Sub
-End Class
-End Namespace
+Dim document As New WordDocument("TestDocument.docx")
+    'Processes the body contents for each section in the Word document
+    For Each section As WSection In document.Sections
+        'Accesses the Body of section where all the contents in document are apart
+        Dim sectionBody As WTextBody = section.Body
+        IterateTextBody(sectionBody)
+        Dim headersFooters As WHeadersFooters = section.HeadersFooters
+        'Considers that OddHeader and OddFooter are applied to this document
+        'Iterates through the TextBody of OddHeader and OddFooterIterateTextBody(headersFooters.OddHeader)
+        IterateTextBody(headersFooters.OddFooter)
+    Next
+'Saves and closes the document instance
+document.Save("Result.docx")
+document.Close()
 {% endhighlight %}
-
 {% highlight UWP %}
-using Syncfusion.DocIO.DLS;
-using Syncfusion.DocIO;
-namespace UpdateText
+async void Main(string[] args)
 {
-	class Program
-	{
-		async void Main(string[] args)
-		{
-			//"App" is the class of Portable project.
-			Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-			//Opens an existing document from file system through constructor of WordDocument class
-			using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
-			{
-				foreach (WSection section in document.Sections)
-				{
-					//Accesses the Body of section where all the contents in document are apart
-					WTextBody sectionBody = section.Body;
-					IterateTextBody(sectionBody);
-					WHeadersFooters headersFooters = section.HeadersFooters;
-					//Consider that OddHeader and OddFooter are applied to this document
-					//Iterates through the TextBody of OddHeader and OddFooter
-					IterateTextBody(headersFooters.OddHeader);
-					IterateTextBody(headersFooters.OddFooter);
-				}
-				MemoryStream stream = new MemoryStream();
-				await document.SaveAsync(stream, FormatType.Docx);
-				//Saves the stream as Word file in local machine
-				Save(stream, "Result.docx");
-				//Closes the Word document
-				document.Close();
-			}
-		}
-		async void IterateTextBody(WTextBody textBody)
-		{
-			//Iterates through each of the child items of WTextBody
-			for (int i = 0; i < textBody.ChildEntities.Count; i++)
-			{
-				//IEntity is the basic unit in DocIO DOM. 
-				//Accesses the body items (should be either paragraph or table) as IEntity
-				IEntity bodyItemEntity = textBody.ChildEntities[i];
-				//A Text body has 2 types of elements - Paragraph and Table
-				//Decides the element type by using EntityType
-				switch (bodyItemEntity.EntityType)
-				{
-					case EntityType.Paragraph:
-						WParagraph paragraph = bodyItemEntity as WParagraph;
-						//Processes the paragraph contents
-						//Iterates through the paragraph's DOM
-						IterateParagraph(paragraph);
-						break;
-					case EntityType.Table:
-						//Table is a collection of rows and cells
-						//Iterates through table's DOM
-						IterateTable(bodyItemEntity as WTable);
-						break;
-				}
-			}
-		}
-		async void IterateTable(WTable table)
-		{
-			//Iterates the row collection in a table
-			foreach (WTableRow row in table.Rows)
-			{
-				//Iterates the cell collection in a table row
-				foreach (WTableCell cell in row.Cells)
-				{
-					//Table cell is derived from (also a) TextBody
-					//Reusing the code meant for iterating TextBody
-					IterateTextBody(cell);
-				}
-			}
-		}
-		async void IterateParagraph(WParagraph paragraph)
-		{
-			for (int i = 0; i < paragraph.ChildEntities.Count; i++)
-			{
-				Entity entity = paragraph.ChildEntities[i];
-				//A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
-				//Decides the element type by using EntityType
-				switch (entity.EntityType)
-				{
-					case EntityType.TextRange:
-						//Replaces the text with another
-						WTextRange textRange = entity as WTextRange;
-						if (textRange.Text == "Andrew")
-						{
-							(entity as WTextRange).Text = "Fuller";
-						}
-						break;
-					case EntityType.Field:
-						WField field = entity as WField;
-						if (field.FieldType == FieldType.FieldHyperlink)
-						{
-							//Creates hyperlink instance from field to manipulate the hyperlink
-							Hyperlink hyperlink = new Hyperlink(entity as WField);
-							//Modifies the Uri of the hyperlink
-							if (hyperlink.Type == HyperlinkType.WebLink && hyperlink.TextToDisplay == "HTML")
-							{
-								hyperlink.Uri = "http://www.w3schools.com/";
-							}
-						}
-						break;
-				}
-			}
-		}
-		// Saves the Word document
-		async void Save(MemoryStream streams, string filename)
-		{
-			streams.Position = 0;
-			StorageFile stFile;
-			if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-			{
-				FileSavePicker savePicker = new FileSavePicker();
-				savePicker.DefaultFileExtension = ".docx";
-				savePicker.SuggestedFileName = filename;
-				savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
-				stFile = await savePicker.PickSaveFileAsync();
-			}
-			else
-			{
-				StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-				stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-			}
-			if (stFile != null)
-			{
-				using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-				{
-					// Write compressed data from memory to file
-					using (Stream outstream = zipStream.AsStreamForWrite())
-					{
-						byte[] buffer = streams.ToArray();
-						outstream.Write(buffer, 0, buffer.Length);
-						outstream.Flush();
-					}
-				}
-			}
-			// Launch the saved Word file
-			await Windows.System.Launcher.LaunchFileAsync(stFile);
-		}
-	}
+    //"App" is the class of Portable project.
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    //Opens an existing document from file system through constructor of WordDocument class
+    using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
+    {
+        foreach (WSection section in document.Sections)
+        {
+            //Accesses the Body of section where all the contents in document are apart
+            WTextBody sectionBody = section.Body;
+            IterateTextBody(sectionBody);
+            WHeadersFooters headersFooters = section.HeadersFooters;
+            //Consider that OddHeader and OddFooter are applied to this document
+            //Iterates through the TextBody of OddHeader and OddFooter
+            IterateTextBody(headersFooters.OddHeader);
+            IterateTextBody(headersFooters.OddFooter);
+        }
+        MemoryStream stream = new MemoryStream();
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Saves the stream as Word file in local machine
+        Save(stream, "Result.docx");
+        //Closes the Word document
+        document.Close();
+    }
 }
-{% endhighlight %}
 
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".docx";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            // Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    // Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+	
+
+{% endhighlight %}
 {% highlight ASP.NET CORE %}
-using Syncfusion.DocIO.DLS;
-using Syncfusion.DocIO;
-namespace UpdateText
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-			//Opens an existing document from file system through constructor of WordDocument class
-			using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
-			{
-				foreach (WSection section in document.Sections)
-				{
-					//Accesses the Body of section where all the contents in document are apart
-					WTextBody sectionBody = section.Body;
-					IterateTextBody(sectionBody);
-					WHeadersFooters headersFooters = section.HeadersFooters;
-					//Consider that OddHeader and OddFooter are applied to this document
-					//Iterates through the TextBody of OddHeader and OddFooter
-					IterateTextBody(headersFooters.OddHeader);
-					IterateTextBody(headersFooters.OddFooter);
-				}
-				MemoryStream stream = new MemoryStream();
-				document.Save(stream, FormatType.Docx);
-				//Closes the Word document
-				document.Close();
-				stream.Position = 0;
-				//Download Word document in the browser
-				return File(stream, "application/msword", "Result.docx");
-			}
-		}
-		private static void IterateTextBody(WTextBody textBody)
-		{
-			//Iterates through each of the child items of WTextBody
-			for (int i = 0; i < textBody.ChildEntities.Count; i++)
-			{
-				//IEntity is the basic unit in DocIO DOM. 
-				//Accesses the body items (should be either paragraph or table) as IEntity
-				IEntity bodyItemEntity = textBody.ChildEntities[i];
-				//A Text body has 2 types of elements - Paragraph and Table
-				//Decides the element type by using EntityType
-				switch (bodyItemEntity.EntityType)
-				{
-					case EntityType.Paragraph:
-						WParagraph paragraph = bodyItemEntity as WParagraph;
-						//Processes the paragraph contents
-						//Iterates through the paragraph's DOM
-						IterateParagraph(paragraph);
-						break;
-					case EntityType.Table:
-						//Table is a collection of rows and cells
-						//Iterates through table's DOM
-						IterateTable(bodyItemEntity as WTable);
-						break;
-				}
-			}
-		}
-		private static void IterateTable(WTable table)
-		{
-			//Iterates the row collection in a table
-			foreach (WTableRow row in table.Rows)
-			{
-				//Iterates the cell collection in a table row
-				foreach (WTableCell cell in row.Cells)
-				{
-					//Table cell is derived from (also a) TextBody
-					//Reusing the code meant for iterating TextBody
-					IterateTextBody(cell);
-				}
-			}
-		}
-		private static void IterateParagraph(WParagraph paragraph)
-		{
-			for (int i = 0; i < paragraph.ChildEntities.Count; i++)
-			{
-				Entity entity = paragraph.ChildEntities[i];
-				//A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
-				//Decides the element type by using EntityType
-				switch (entity.EntityType)
-				{
-					case EntityType.TextRange:
-						//Replaces the text with another
-						WTextRange textRange = entity as WTextRange;
-						if (textRange.Text == "Andrew")
-						{
-							(entity as WTextRange).Text = "Fuller";
-						}	
-						break;
-					case EntityType.Field:
-						WField field = entity as WField;
-						if (field.FieldType == FieldType.FieldHyperlink)
-						{
-							//Creates hyperlink instance from field to manipulate the hyperlink
-							Hyperlink hyperlink = new Hyperlink(entity as WField);
-							//Modifies the Uri of the hyperlink
-							if (hyperlink.Type == HyperlinkType.WebLink && hyperlink.TextToDisplay == "HTML")
-							{
-								hyperlink.Uri = "http://www.w3schools.com/";
-							}
-						}
-						break;
-				}
-			}
-		}
-	}
+    foreach (WSection section in document.Sections)
+    {
+        //Accesses the Body of section where all the contents in document are apart
+        WTextBody sectionBody = section.Body;
+        IterateTextBody(sectionBody);
+        WHeadersFooters headersFooters = section.HeadersFooters;
+        //Consider that OddHeader and OddFooter are applied to this document
+        //Iterates through the TextBody of OddHeader and OddFooter
+        IterateTextBody(headersFooters.OddHeader);
+        IterateTextBody(headersFooters.OddFooter);
+    }
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Closes the Word document
+    document.Close();
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "Result.docx");
 }
-{% endhighlight %}
 
+{% endhighlight %}
 {% highlight XAMARIN %}
-using Syncfusion.DocIO.DLS;
-using Syncfusion.DocIO;
-namespace UpdateText
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")), FormatType.Automatic))
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-			//Opens an existing document from file system through constructor of WordDocument class
-			using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")), FormatType.Automatic))
-			{
-				foreach (WSection section in document.Sections)
-				{
-					//Accesses the Body of section where all the contents in document are apart
-					WTextBody sectionBody = section.Body;
-					IterateTextBody(sectionBody);
-					WHeadersFooters headersFooters = section.HeadersFooters;
-					//Consider that OddHeader and OddFooter are applied to this document
-					//Iterates through the TextBody of OddHeader and OddFooter
-					IterateTextBody(headersFooters.OddHeader);
-					IterateTextBody(headersFooters.OddFooter);
-				}
-				MemoryStream stream = new MemoryStream();
-				document.Save(stream, FormatType.Docx);
-				//Save the stream as a file in the device and invoke it for viewing
-				Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-				//Closes the Word document
-				document.Close();
-			}
-		}
-		private static void IterateTextBody(WTextBody textBody)
-		{
-			//Iterates through each of the child items of WTextBody
-			for (int i = 0; i < textBody.ChildEntities.Count; i++)
-			{
-				//IEntity is the basic unit in DocIO DOM. 
-				//Accesses the body items (should be either paragraph or table) as IEntity
-				IEntity bodyItemEntity = textBody.ChildEntities[i];
-				//A Text body has 2 types of elements - Paragraph and Table
-				//Decides the element type by using EntityType
-				switch (bodyItemEntity.EntityType)
-				{
-					case EntityType.Paragraph:
-						WParagraph paragraph = bodyItemEntity as WParagraph;
-						//Processes the paragraph contents
-						//Iterates through the paragraph's DOM
-						IterateParagraph(paragraph);
-						break;
-					case EntityType.Table:
-						//Table is a collection of rows and cells
-						//Iterates through table's DOM
-						IterateTable(bodyItemEntity as WTable);
-						break;
-				}
-			}
-		}
-		private static void IterateTable(WTable table)
-		{
-			//Iterates the row collection in a table
-			foreach (WTableRow row in table.Rows)
-			{
-				//Iterates the cell collection in a table row
-				foreach (WTableCell cell in row.Cells)
-				{
-					//Table cell is derived from (also a) TextBody
-					//Reusing the code meant for iterating TextBody
-					IterateTextBody(cell);
-				}
-			}
-		}
-		private static void IterateParagraph(WParagraph paragraph)
-		{
-			for (int i = 0; i < paragraph.ChildEntities.Count; i++)
-			{
-				Entity entity = paragraph.ChildEntities[i];
-				//A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
-				//Decides the element type by using EntityType
-				switch (entity.EntityType)
-				{
-					case EntityType.TextRange:
-						//Replaces the text with another
-						WTextRange textRange = entity as WTextRange;
-						if (textRange.Text == "Andrew")
-						{
-							(entity as WTextRange).Text = "Fuller";
-						}
-						break;
-					case EntityType.Field:
-						WField field = entity as WField;
-						if (field.FieldType == FieldType.FieldHyperlink)
-						{
-							//Creates hyperlink instance from field to manipulate the hyperlink
-							Hyperlink hyperlink = new Hyperlink(entity as WField);
-							//Modifies the Uri of the hyperlink
-							if (hyperlink.Type == HyperlinkType.WebLink && hyperlink.TextToDisplay == "HTML")
-							{
-								hyperlink.Uri = "http://www.w3schools.com/";
-							}
-						}
-						break;
-				}
-			}
-		}
-	}
+    foreach (WSection section in document.Sections)
+    {
+        //Accesses the Body of section where all the contents in document are apart
+        WTextBody sectionBody = section.Body;
+        IterateTextBody(sectionBody);
+        WHeadersFooters headersFooters = section.HeadersFooters;
+        //Consider that OddHeader and OddFooter are applied to this document
+        //Iterates through the TextBody of OddHeader and OddFooter
+        IterateTextBody(headersFooters.OddHeader);
+        IterateTextBody(headersFooters.OddFooter);
+    }
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Docx);
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+    //Closes the Word document
+    document.Close();
+}
+
+{% endhighlight %}
+{% endtabs %}
+  
+The following code example provides supporting methods for the above code.
+
+{% tabs %} 
+
+{% highlight c# %}
+private static void IterateTextBody(WTextBody textBody)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph or table) as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 2 types of elements - Paragraph and Table
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Processes the paragraph contents
+                //Iterates through the paragraph's DOM
+                IterateParagraph(paragraph);
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM
+                IterateTable(bodyItemEntity as WTable);
+                break;
+        }
+    }
 }
 {% endhighlight %}
+{% highlight vb.net %}
+Private Shared Sub IterateTextBody(textBody As WTextBody)
+'Iterates through each of the child items of WTextBody
+For i As Integer = 0 To textBody.ChildEntities.Count - 1
+    'IEntity is the basic unit in DocIO DOM. 
+    'Accesses the body items (should be either paragraph or table) as IEntity
+    Dim bodyItemEntity As IEntity = textBody.ChildEntities(i)
+    'A Text body has 2 types of elements - Paragraph and Table
+    'Decides the element type by using EntityType
+    Select Case bodyItemEntity.EntityType
+        Case EntityType.Paragraph
+            Dim paragraph As WParagraph = TryCast(bodyItemEntity, WParagraph)
+            'Processes the paragraph contents
+            'Iterates through the paragraph's DOM
+            IterateParagraph(paragraph)
+        Exit Select
+        Case EntityType.Table
+            'Table is a collection of rows and cells
+            'Iterates through table's DOM
+            IterateTable(TryCast(bodyItemEntity, WTable))
+        Exit Select
+    End Select
+Next
+End Sub
+{% endhighlight %}
+{% highlight UWP %}
+async void IterateTextBody(WTextBody textBody)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph or table) as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 2 types of elements - Paragraph and Table
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Processes the paragraph contents
+                //Iterates through the paragraph's DOM
+                IterateParagraph(paragraph);
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM
+                IterateTable(bodyItemEntity as WTable);
+                break;
+        }
+    }
+}
+{% endhighlight %}
+{% highlight ASP.NET CORE %}
+private static void IterateTextBody(WTextBody textBody)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph or table) as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 2 types of elements - Paragraph and Table
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Processes the paragraph contents
+                //Iterates through the paragraph's DOM
+                IterateParagraph(paragraph);
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM
+                IterateTable(bodyItemEntity as WTable);
+                break;
+        }
+    }
+}
+{% endhighlight %}
+{% highlight XAMARIN %}
+private static void IterateTextBody(WTextBody textBody)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph or table) as IEntity
+        IEntity bodyItemEntity = textBody.ChildEntities[i];
+        //A Text body has 2 types of elements - Paragraph and Table
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                //Processes the paragraph contents
+                //Iterates through the paragraph's DOM
+                IterateParagraph(paragraph);
+                break;
+            case EntityType.Table:
+                //Table is a collection of rows and cells
+                //Iterates through table's DOM
+                IterateTable(bodyItemEntity as WTable);
+                break;
+        }
+    }
+}
+{% endhighlight %}
+{% endtabs %} 
 
-{% endtabs %}  
+The following code example provides supporting methods for the above code.
+
+{% tabs %} 
+{% highlight c# %}
+private static void IterateTable(WTable table)
+{
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Table cell is derived from (also a) TextBody
+            //Reusing the code meant for iterating TextBody
+            IterateTextBody(cell);
+        }
+    }
+}
+{% endhighlight %}
+{% highlight vb.net %}
+Private Shared Sub IterateTable(table As WTable)
+'Iterates the row collection in a table
+For Each row As WTableRow In table.Rows
+	'Iterates the cell collection in a table row
+	For Each cell As WTableCell In row.Cells
+		'Table cell is derived from (also a) TextBody
+		'Reusing the code meant for iterating TextBody
+		IterateTextBody(cell)
+    Next
+Next
+End Sub
+{% endhighlight %}
+{% highlight UWP %}
+async void IterateTable(WTable table)
+{
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Table cell is derived from (also a) TextBody
+            //Reusing the code meant for iterating TextBody
+            IterateTextBody(cell);
+        }
+    }
+}
+{% endhighlight %}
+{% highlight ASP.NET CORE %}
+private static void IterateTable(WTable table)
+{
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Table cell is derived from (also a) TextBody
+            //Reusing the code meant for iterating TextBody
+            IterateTextBody(cell);
+        }
+    }
+}
+{% endhighlight %}
+{% highlight XAMARIN %}
+private static void IterateTable(WTable table)
+{
+    //Iterates the row collection in a table
+    foreach (WTableRow row in table.Rows)
+    {
+        //Iterates the cell collection in a table row
+        foreach (WTableCell cell in row.Cells)
+        {
+            //Table cell is derived from (also a) TextBody
+            //Reusing the code meant for iterating TextBody
+            IterateTextBody(cell);
+        }
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+ 
+The following code example provides supporting methods for the above code.
+
+{% tabs %} 
+{% highlight c# %}
+private static void IterateParagraph(WParagraph paragraph)
+{
+    for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+    {
+        Entity entity = paragraph.ChildEntities[i];
+        //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+        //Decides the element type by using EntityType
+        switch (entity.EntityType)
+        {
+            case EntityType.TextRange:
+                //Replaces the text with another
+                WTextRange textRange = entity as WTextRange;
+                if (textRange.Text == "Andrew")
+                {
+                    (entity as WTextRange).Text = "Fuller";
+                }
+                break;
+            case EntityType.Field:
+                WField field = entity as WField;
+                if (field.FieldType == FieldType.FieldHyperlink)
+                {
+                    //Creates hyperlink instance from field to manipulate the hyperlink
+                    Hyperlink hyperlink = new Hyperlink(entity as WField);
+                    //Modifies the Uri of the hyperlink
+                    if (hyperlink.Type == HyperlinkType.WebLink && hyperlink.TextToDisplay == "HTML")
+                    {
+                        hyperlink.Uri = "http://www.w3schools.com/";
+                    }
+                }
+                break;
+        }
+    }
+}
+{% endhighlight %}
+{% highlight vb.net %}
+Private Shared Sub IterateParagraph(paragraph As WParagraph)
+For i As Integer = 0 To paragraph.ChildEntities.Count - 1
+	Dim entity As Entity = paragraph.ChildEntities(i)
+	'A Paragraph has child elements such as text, image, hyperlink, symbols, etc.,
+	'Decides the element type by using EntityType
+    Select Case entity.EntityType
+        Case EntityType.TextRange
+			'Replaces the text with another
+            Dim textRange As WTextRange = TryCast(entity, WTextRange)
+            If textRange.Text = "Andrew" Then
+                TryCast(entity, WTextRange).Text = "Fuller"
+            End If
+        Exit Select
+        Case EntityType.Field
+            Dim field As WField = TryCast(entity, WField)
+            If field.FieldType = FieldType.FieldHyperlink Then
+				'Creates Hyperlink instance from field to manipulate the Hyperlink
+                Dim hyperlink As New Hyperlink(TryCast(entity, WField))
+				'Modifies the Uri of the hyperlink
+				If hyperlink.Type = HyperlinkType.WebLink AndAlso hyperlink.TextToDisplay = "HTML" Then
+                    hyperlink.Uri = "http://www.w3schools.com/"
+                End If
+            End If
+        Exit Select
+    End Select
+Next
+End Sub
+{% endhighlight %}
+{% highlight UWP %}
+async void IterateParagraph(WParagraph paragraph)
+{
+    for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+    {
+        Entity entity = paragraph.ChildEntities[i];
+        //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+        //Decides the element type by using EntityType
+        switch (entity.EntityType)
+        {
+            case EntityType.TextRange:
+                //Replaces the text with another
+                WTextRange textRange = entity as WTextRange;
+                if (textRange.Text == "Andrew")
+                {
+                    (entity as WTextRange).Text = "Fuller";
+                }
+                break;
+            case EntityType.Field:
+                WField field = entity as WField;
+                if (field.FieldType == FieldType.FieldHyperlink)
+                {
+                    //Creates hyperlink instance from field to manipulate the hyperlink
+                    Hyperlink hyperlink = new Hyperlink(entity as WField);
+                    //Modifies the Uri of the hyperlink
+                    if (hyperlink.Type == HyperlinkType.WebLink && hyperlink.TextToDisplay == "HTML")
+                    {
+                        hyperlink.Uri = "http://www.w3schools.com/";
+                    }
+                }
+                break;
+        }
+    }
+}
+{% endhighlight %}
+{% highlight ASP.NET CORE %}
+private static void IterateParagraph(WParagraph paragraph)
+{
+    for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+    {
+        Entity entity = paragraph.ChildEntities[i];
+        //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+        //Decides the element type by using EntityType
+        switch (entity.EntityType)
+        {
+            case EntityType.TextRange:
+                //Replaces the text with another
+                WTextRange textRange = entity as WTextRange;
+                if (textRange.Text == "Andrew")
+                {
+                    (entity as WTextRange).Text = "Fuller";
+                }
+                break;
+            case EntityType.Field:
+                WField field = entity as WField;
+                if (field.FieldType == FieldType.FieldHyperlink)
+                {
+                    //Creates hyperlink instance from field to manipulate the hyperlink
+                    Hyperlink hyperlink = new Hyperlink(entity as WField);
+                    //Modifies the Uri of the hyperlink
+                    if (hyperlink.Type == HyperlinkType.WebLink && hyperlink.TextToDisplay == "HTML")
+                    {
+                        hyperlink.Uri = "http://www.w3schools.com/";
+                    }
+                }
+                break;
+        }
+    }
+}
+{% endhighlight %}
+{% highlight XAMARIN %}
+private static void IterateParagraph(WParagraph paragraph)
+{
+    for (int i = 0; i < paragraph.ChildEntities.Count; i++)
+    {
+        Entity entity = paragraph.ChildEntities[i];
+        //A paragraph can have child elements such as text, image, hyperlink, symbols, etc.,
+        //Decides the element type by using EntityType
+        switch (entity.EntityType)
+        {
+            case EntityType.TextRange:
+                //Replaces the text with another
+                WTextRange textRange = entity as WTextRange;
+                if (textRange.Text == "Andrew")
+                {
+                    (entity as WTextRange).Text = "Fuller";
+                }
+                break;
+            case EntityType.Field:
+                WField field = entity as WField;
+                if (field.FieldType == FieldType.FieldHyperlink)
+                {
+                    //Creates hyperlink instance from field to manipulate the hyperlink
+                    Hyperlink hyperlink = new Hyperlink(entity as WField);
+                    //Modifies the Uri of the hyperlink
+                    if (hyperlink.Type == HyperlinkType.WebLink && hyperlink.TextToDisplay == "HTML")
+                    {
+                        hyperlink.Uri = "http://www.w3schools.com/";
+                    }
+                }
+                break;
+        }
+    }
+}
+{% endhighlight %}
+{% endtabs %}
 
 ## Cloning a Word document
 
@@ -1776,42 +1748,6 @@ if (printDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 		printDialog.Document.Print();
 	}
 }
-
-private void PrintPageMethod (object sender, PrintPageEventArgs e)
-{
-	//Gets the print start page width.
-	int currentPageWidth = images[startPageIndex].Width;
-	//Gets the print start page height.
-	int currentPageHeight = images[startPageIndex].Height;
-	//Gets the visible bounds width for print.
-	int visibleClipBoundsWidth = (int)e.Graphics.VisibleClipBounds.Width;
-	//Gets the visible bounds height for print.
-	int visibleClipBoundsHeight = (int)e.Graphics.VisibleClipBounds.Height;
-	//Checks whether the page layout is landscape or portrait.
-	if (currentPageWidth > currentPageHeight)
-	{
-		//Translates the position.
-		e.Graphics.TranslateTransform(0, visibleClipBoundsHeight);
-		//Rotates the object at 270 degrees
-		e.Graphics.RotateTransform(270.0f);
-		//Draws the current page image.
-		e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, currentPageWidth, currentPageHeight));
-	}
-	else
-	{
-		//Draws the current page image.
-		e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight));
-	}
-	//Disposes the current page image after drawing.
-	images[startPageIndex].Dispose();
-	//Increments the start page index.
-	startPageIndex++;
-	//Updates whether the document contains some more pages to print.
-	if (startPageIndex < endPageIndex)
-		e.HasMorePages = true;
-	else
-		startPageIndex = 0;
-}
 {% endhighlight %}
 
 {% highlight vb.net %}
@@ -1841,39 +1777,6 @@ If printDialog.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
 		printDialog.Document.Print()
 	End If
 End If
-
-Private Sub PrintPageMethod(sender As Object, e As PrintPageEventArgs)
-	'Gets the print start page width.
-	Dim currentPageWidth As Integer = images(startPageIndex).Width
-	'Gets the print start page height.
-	Dim currentPageHeight As Integer = images(startPageIndex).Height
-	'Gets the visible bounds width for print.
-	Dim visibleClipBoundsWidth As Integer = CInt(e.Graphics.VisibleClipBounds.Width)
-	'Gets the visible bounds height for print.
-	Dim visibleClipBoundsHeight As Integer = CInt(e.Graphics.VisibleClipBounds.Height)
-	'Checks whether the page layout is landscape or portrait.
-	If currentPageWidth > currentPageHeight Then
-		'Translates the position.
-		e.Graphics.TranslateTransform(0, visibleClipBoundsHeight)
-		'Rotates the object at 270 degrees
-		e.Graphics.RotateTransform(270.0F)
-		'Draws the current page image.
-		e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle(0, 0, currentPageWidth, currentPageHeight))
-	Else
-		'Draws the current page image.
-		e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle(0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight))
-	End If
-	'Disposes the current page image after drawing.
-	images(startPageIndex).Dispose()
-	'Increments the start page index.
-	startPageIndex += 1
-	'Updates whether the document contains some more pages to print.
-	If startPageIndex < endPageIndex Then
-		e.HasMorePages = True
-	Else
-		startPageIndex = 0
-	End If
-End Sub
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -1888,7 +1791,94 @@ End Sub
 //Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
+
+The following code example provides supporting methods for the above code.
+
+{% tabs %} 
+{% highlight c# %}
+private void PrintPageMethod(object sender, PrintPageEventArgs e)
+{
+    //Gets the print start page width.
+    int currentPageWidth = images[startPageIndex].Width;
+    //Gets the print start page height.
+    int currentPageHeight = images[startPageIndex].Height;
+    //Gets the visible bounds width for print.
+    int visibleClipBoundsWidth = (int)e.Graphics.VisibleClipBounds.Width;
+    //Gets the visible bounds height for print.
+    int visibleClipBoundsHeight = (int)e.Graphics.VisibleClipBounds.Height;
+    //Checks whether the page layout is landscape or portrait.
+    if (currentPageWidth > currentPageHeight)
+    {
+        //Translates the position.
+        e.Graphics.TranslateTransform(0, visibleClipBoundsHeight);
+        //Rotates the object at 270 degrees
+        e.Graphics.RotateTransform(270.0f);
+        //Draws the current page image.
+        e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, currentPageWidth, currentPageHeight));
+    }
+    else
+    {
+        //Draws the current page image.
+        e.Graphics.DrawImage(images[startPageIndex], new System.Drawing.Rectangle(0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight));
+    }
+    //Disposes the current page image after drawing.
+    images[startPageIndex].Dispose();
+    //Increments the start page index.
+    startPageIndex++;
+    //Updates whether the document contains some more pages to print.
+    if (startPageIndex < endPageIndex)
+        e.HasMorePages = true;
+    else
+        startPageIndex = 0;
+}
+{% endhighlight %}
+{% highlight vb.net %}
+Private Sub PrintPageMethod(sender As Object, e As PrintPageEventArgs)
+'Gets the print start page width.
+Dim currentPageWidth As Integer = images(startPageIndex).Width
+'Gets the print start page height.
+Dim currentPageHeight As Integer = images(startPageIndex).Height
+'Gets the visible bounds width for print.
+Dim visibleClipBoundsWidth As Integer = CInt(e.Graphics.VisibleClipBounds.Width)
+'Gets the visible bounds height for print.
+Dim visibleClipBoundsHeight As Integer = CInt(e.Graphics.VisibleClipBounds.Height)
+'Checks whether the page layout is landscape or portrait.
+If currentPageWidth > currentPageHeight Then
+	'Translates the position.
+    e.Graphics.TranslateTransform(0, visibleClipBoundsHeight)
+	'Rotates the object at 270 degrees
+	e.Graphics.RotateTransform(270.0F)
+	'Draws the current page image.
+	e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle(0, 0, currentPageWidth, currentPageHeight))
+Else
+	'Draws the current page image.
+	e.Graphics.DrawImage(images(startPageIndex), New System.Drawing.Rectangle(0, 0, visibleClipBoundsWidth, visibleClipBoundsHeight))
+End If
+'Disposes the current page image after drawing.
+images(startPageIndex).Dispose()
+'Increments the start page index.
+startPageIndex += 1
+'Updates whether the document contains some more pages to print.
+If startPageIndex<endPageIndex Then
+    e.HasMorePages = True
+Else
+    startPageIndex = 0
+End If
+End Sub
+{% endhighlight %}
+{% highlight UWP %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Word to Image conversion is not supported in Xamarin, ASP.NET Core and Universal Windows Platform applications.
+{% endhighlight %}
+{% endtabs %}   
 
 You can download the complete working samples of the code from [here](http://www.syncfusion.com/downloads/support/directtrac/general/Sample-627835418.zip#).
 
