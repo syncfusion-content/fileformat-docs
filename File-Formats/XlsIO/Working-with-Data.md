@@ -3536,6 +3536,294 @@ public class Report
 {% endhighlight %}
 {% endtabs %} 
 
+## Exporting from Worksheet to Nested Class
+
+XlsIO allows to export the sheet data to Nested Class Objects. You can give the actual properties names for each column headers at runtime using mappingProperties parameter in **ExportData&lt;T&gt;** method. You should give headers as key and properties names as value to the mappingProperties dictionary.
+
+The following code snippet illustrates on how to export worksheet data into Nested Class Objects with mappingProperties using **ExportData&lt;T&gt;**.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Export worksheet data into Nested Class Objects
+  Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
+  mappingProperties.Add("Customer ID", "CustId");
+  mappingProperties.Add("Customer Name", "CustName");
+  mappingProperties.Add("Customer Age", "CustAge");
+  mappingProperties.Add("Order ID", "CustOrder.Order_Id");
+  mappingProperties.Add("Order Price", "CustOrder.Price");
+
+  List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+
+  workbook.SaveAs("NestedClassObjects.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Export worksheet data into Nested Class Objects
+  Dim mappingProperties As Dictionary(Of String, String) = New Dictionary(Of String, String)()
+  mappingProperties.Add("Customer ID", "CustId")
+  mappingProperties.Add("Customer Name", "CustName")
+  mappingProperties.Add("Customer Age", "CustAge")
+  mappingProperties.Add("Order ID", "CustOrder.Order_Id")
+  mappingProperties.Add("Order Price", "CustOrder.Price")
+  
+  Dim nestedClassObjects As List(Of Customer) = worksheet.ExportData(Of Customer)(1, 1, 10, 5, mappingProperties)
+
+  workbook.SaveAs("NestedClassObjects.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Export worksheet data into Nested Class Objects
+  Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
+  mappingProperties.Add("Customer ID", "CustId");
+  mappingProperties.Add("Customer Name", "CustName");
+  mappingProperties.Add("Customer Age", "CustAge");
+  mappingProperties.Add("Order ID", "CustOrder.Order_Id");
+  mappingProperties.Add("Order Price", "CustOrder.Price");
+
+  List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "NestedClassObjects";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Export worksheet data into Nested Class Objects
+  Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
+  mappingProperties.Add("Customer ID", "CustId");
+  mappingProperties.Add("Customer Name", "CustName");
+  mappingProperties.Add("Customer Age", "CustAge");
+  mappingProperties.Add("Order ID", "CustOrder.Order_Id");
+  mappingProperties.Add("Order Price", "CustOrder.Price");
+
+  List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("NestedClassObjects.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Export worksheet data into Nested Class Objects
+  Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
+  mappingProperties.Add("Customer ID", "CustId");
+  mappingProperties.Add("Customer Name", "CustName");
+  mappingProperties.Add("Customer Age", "CustAge");
+  mappingProperties.Add("Order ID", "CustOrder.Order_Id");
+  mappingProperties.Add("Order Price", "CustOrder.Price");
+
+  List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("NestedClassObjects.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("NestedClassObjects.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following code snippet provides supporting class for the above code.
+
+The following code snippet provides supporting methods & class for the above code.
+
+{% tabs %}  
+{% highlight c# %}
+//Customer details
+public partial class Customer
+{
+    public int CustId { get; set; }
+    public string CustName { get; set; }
+    public int CustAge { get; set; }
+    public Order CustOrder { get; set; }	
+    public Customer()
+    {
+        
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }	
+    public Order()
+    {
+        
+    }
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Customer details
+Public Partial Class Customer
+    Public Property CustId As Integer
+    Public Property CustName As String
+    Public Property CustAge As Integer
+    Public Property CustOrder As Order
+
+    Public Sub New()
+    End Sub
+End Class
+'Order details
+Public Partial Class Order
+    Public Property Order_Id As Integer
+    Public Property Price As Double
+
+    Public Sub New()
+    End Sub
+End Class
+{% endhighlight %}
+
+{% highlight UWP %}
+//Customer details
+public partial class Customer
+{
+    public int CustId { get; set; }
+    public string CustName { get; set; }
+    public int CustAge { get; set; }
+    public Order CustOrder { get; set; }	
+    public Customer()
+    {
+        
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }	
+    public Order()
+    {
+        
+    }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Customer details
+public partial class Customer
+{
+    public int CustId { get; set; }
+    public string CustName { get; set; }
+    public int CustAge { get; set; }
+    public Order CustOrder { get; set; }	
+    public Customer()
+    {
+        
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }	
+    public Order()
+    {
+        
+    }
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Customer details
+public partial class Customer
+{
+    public int CustId { get; set; }
+    public string CustName { get; set; }
+    public int CustAge { get; set; }
+    public Order CustOrder { get; set; }	
+    public Customer()
+    {
+        
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }	
+    public Order()
+    {
+        
+    }
+}
+{% endhighlight %}
+{% endtabs %} 
+
 ## Importing Data from Microsoft Grid Controls to Worksheet
 
 XlsIO provides support to import data from various Microsoft grid controls with its cell formatting. The supported grid controls are: 
