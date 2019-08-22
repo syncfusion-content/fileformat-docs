@@ -30,6 +30,75 @@ document.Save("HTMLtoWord.docx", FormatType.Docx)
 'Closes the document
 document.Close()
 {% endhighlight %}
+
+{% highlight UWP %}
+async void Main(string[] args)
+{
+    //"App" is the class of Portable project.
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    //Opens an existing document from file system through constructor of WordDocument class
+    using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.html")), FormatType.Html))
+    {
+        MemoryStream stream = new MemoryStream();
+        //Saves the Word file to MemoryStream
+        await document.SaveAsync(stream, FormatType.Docx);
+        //Saves the stream as Word file in local machine
+        Save(stream, "Result.docx");
+        document.Close();
+    }
+}
+//Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".docx";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+{% highlight ASP.NET CORE %}
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html))
+{
+     MemoryStream stream = new MemoryStream();
+     document.Save(stream, FormatType.docx);
+     //Closes the Word document
+     document.Close();
+     stream.Position = 0;
+     //Download Word document in the browser
+     return File(stream, "application/msword", "Result.docx");
+}
+{% endhighlight %}
+{% highlight XAMARIN %}
+//DocIO supports HTML conversion in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP and ASP.NET CORE platforms alone.
+{% endhighlight %}
 {% endtabs %}
 
 The following code example shows how to convert the Word document into HTML.
@@ -52,6 +121,76 @@ document.Save("WordToHtml.html", FormatType.Html)
 'Closes the document 
 document.Close()
 {% endhighlight %}
+
+{% highlight UWP %}
+async void Main(string[] args)
+{
+    //"App" is the class of Portable project.
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+    //Opens an existing document from file system through constructor of WordDocument class
+    using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
+    {
+        MemoryStream stream = new MemoryStream();
+        //Saves the Word file to MemoryStream
+        await document.SaveAsync(stream, FormatType.Html);
+        //Saves the stream as Word file in local machine
+        Save(stream, "Result.html");
+        document.Close();
+    }
+}
+//Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".html";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".html" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+{% highlight ASP.NET CORE %}
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+{
+     MemoryStream stream = new MemoryStream();
+     document.Save(stream, FormatType.Html);
+     //Closes the Word document
+     document.Close();
+     stream.Position = 0;
+     //Download Word document in the browser
+     return File(stream, "application/chrome", "Result.html");
+}
+{% endhighlight %}
+{% highlight XAMARIN %}
+//DocIO supports HTML conversion in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP and ASP.NET CORE platforms alone.
+{% endhighlight %}
+
 {% endtabs %}
 
 ## Customization settings
