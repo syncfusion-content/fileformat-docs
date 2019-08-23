@@ -13,6 +13,8 @@ XlsIO allows you to convert an entire workbook or a single worksheet into PDF do
 * [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-document-to-pdf) 
 * [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-document-into-pdf)
 
+N> Excel to PDF conversion works proper in Blazor server-side alone and not in client-side.
+
 ## Workbook to PDF
 
 The following code illustrates how to convert an Excel workbook to PDF.
@@ -1053,7 +1055,7 @@ End Using
 {% endtabs %}
 
   
-N> This section is applicable only to the Windows Forms and WPF platforms.
+N> Printing support is applicable only in Windows Forms and WPF platforms.
 
 ## Supported elements
 
