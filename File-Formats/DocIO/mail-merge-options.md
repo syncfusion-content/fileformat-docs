@@ -22,7 +22,8 @@ The following code example shows how to add mapping when a merge field name in a
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Creates data source
-string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", "Phone_InDataSource", "City_InDataSource" };
+string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource",
+    "Phone_InDataSource", "City_InDataSource" };
 string[] fieldValues = new string[] { "101", "John", "+122-2000466", "Houston" };
 //Mapping the required merge field names with data source column names
 document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource");
@@ -40,7 +41,8 @@ document.Close();
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Creates data source
-Dim fieldNames As String() = New String() {"Employee_Id_InDataSource", "Name_InDataSource", "Phone_InDataSource", "City_InDataSource"}
+Dim fieldNames As String() = New String() {"Employee_Id_InDataSource", "Name_InDataSource", 
+    "Phone_InDataSource", "City_InDataSource"}
 Dim fieldValues As String() = New String() {"101", "John", "+122-2000466", "Houston"}
 'Mapping the required merge field names with data source column names
 document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource")
@@ -62,7 +64,8 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 	WordDocument document = new WordDocument();
 	document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
 	//Creates data source
-	string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", "Phone_InDataSource", "City_InDataSource" };
+	string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", 
+	    "Phone_InDataSource", "City_InDataSource" };
 	string[] fieldValues = new string[] { "101", "John", "+122-2000466", "Houston" };
 	//Mapping the required merge field names with data source column names
 	document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource");
@@ -120,7 +123,8 @@ async void Save(MemoryStream streams, string filename)
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Creates data source
-string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", "Phone_InDataSource", "City_InDataSource" };
+string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", 
+    "Phone_InDataSource", "City_InDataSource" };
 string[] fieldValues = new string[] { "101", "John", "+122-2000466", "Houston" };
 //Mapping the required merge field names with data source column names
 document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource");
@@ -142,7 +146,8 @@ return File(stream, "application/msword", "Sample.docx");
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
 //Creates data source
-string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", "Phone_InDataSource", "City_InDataSource" };
+string[] fieldNames = new string[] { "Employee_Id_InDataSource", "Name_InDataSource", 
+    "Phone_InDataSource", "City_InDataSource" };
 string[] fieldValues = new string[] { "101", "John", "+122-2000466", "Houston" };
 //Mapping the required merge field names with data source column names
 document.MailMerge.MappedFields.Add("Employee_Id_InDocument", "Employee_Id_InDataSource");
