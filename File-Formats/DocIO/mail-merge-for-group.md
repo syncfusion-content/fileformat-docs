@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Performing Mail merge for a group
+# Mail merge for a group
 
 You can perform Mail merge and append multiple records from data source within a specified region to a template document. The region between start and end groups merge fields. It gets repeated for every record from the data source. The region where the Mail merge operations are to be performed must be marked by two MergeFields with the following names.
 
@@ -25,557 +25,503 @@ In this template, Employees is the group name and the same name should be used w
 
 The `MailMerge` class provides various overloads for `ExecuteGroup` method to perform Mail merge within a group from various data sources. The following code example shows how to perform Mail merge in the specific region with data source retrieved from SQL connection.
 
-{% tabs %}
+{% tabs %} 
 
 {% highlight c# %}
-
 WordDocument document = new WordDocument("EmployeesTemplate.docx");
-
 //Gets the data table 
-
 DataTable table = GetDataTable();
-
-//Executes Mail Merge with groups 
-
+//Executes Mail Merge with groups
 document.MailMerge.ExecuteGroup(table);
-
 //Saves and closes the WordDocument instance
-
 document.Save("Result.docx");
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 Dim document As New WordDocument("EmployeesTemplate.docx")
-
-'Gets the data table 
-
+'Gets the data table
 Dim table As DataTable = GetDataTable()
-
 'Executes Mail Merge with groups
-
 document.MailMerge.ExecuteGroup(table)
-
 'Saves and closes the WordDocument instance
-
 document.Save("Result.docx")
-
 document.Close()
-
 {% endhighlight %}
 
-{% endtabs %}
+{% highlight UWP %}
+//SqlCeConnection is not supported in UWP, ASP.NET Core and Xamarin platforms.
+{% endhighlight %}
 
-The following code example provides supporting methods for the previous code.
+{% highlight ASP.NET CORE %}
+//SqlCeConnection is not supported in UWP, ASP.NET Core and Xamarin platforms.
+{% endhighlight %}
 
-{% tabs %}
+{% highlight XAMARIN %}
+//SqlCeConnection is not supported in UWP, ASP.NET Core and Xamarin platforms.
+{% endhighlight %}
+
+{% endtabs %}  
+
+The following code example provides supporting methods for the above code.
+
+{% tabs %}  
 
 {% highlight c# %}
-
 private DataTable GetDataTable()
-
 {
-
-SqlCeConnection conn = new SqlCeConnection("Data Source = " + datasourceName);
-
-conn.Open();
-
-SqlCeDataAdapter adapter = new SqlCeDataAdapter("Select TOP(5) * from EmployeesReport", conn);
-
-adapter.Fill(dataset);
-
-adapter.Dispose();
-
-conn.Close();
-
-System.Data.DataTable table = dataset.Tables[0];
-
-// Sets table name as Employees for template merge field reference
-
-table.TableName = "Employees";
-
-return table;
-
+    SqlCeConnection conn = new SqlCeConnection("Data Source = " + datasourceName);
+    conn.Open();
+    SqlCeDataAdapter adapter = new SqlCeDataAdapter("Select TOP(5) * from EmployeesReport", conn);
+    adapter.Fill(dataset);
+    adapter.Dispose();
+    conn.Close();
+    System.Data.DataTable table = dataset.Tables[0];
+    //Sets table name as Employees for template merge field reference.
+    table.TableName = "Employees";
+    return table;
 }
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 Private Function GetDataTable() As DataTable
-
-Dim conn As New SqlCeConnection ("Data Source = " + datasourceName)
-
-conn.Open()
-
-Dim adapter As New SqlCeDataAdapter ("Select TOP(5) * from EmployeesReport", conn)
-
-adapter.Fill(dataset)
-
-adapter.Dispose()
-
-conn.Close()
-
-Dim table As System.Data.DataTable = dataset.Tables(0)
-
-' Sets table name as Employees for template merge field reference
-
-table.TableName = "Employees"
-
-Return table
-
+	Dim conn As New SqlCeConnection("Data Source = " + datasourceName)
+	conn.Open()
+	Dim adapter As New SqlCeDataAdapter("Select TOP(5) * from EmployeesReport", conn)
+	adapter.Fill(DataSet)
+	adapter.Dispose()
+	conn.Close()
+	Dim table As System.Data.DataTable = DataSet.Tables(0)
+	'Sets table name as Employees for template merge field reference.
+	table.TableName = "Employees"
+	Return table
 End Function
-
 {% endhighlight %}
 
-{% endtabs %}
+{% highlight UWP %}
+//SqlCeConnection is not supported in UWP, ASP.NET Core and Xamarin platforms.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//SqlCeConnection is not supported in UWP, ASP.NET Core and Xamarin platforms.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//SqlCeConnection is not supported in UWP, ASP.NET Core and Xamarin platforms.
+{% endhighlight %}
+
+{% endtabs %}  
 
 The resultant document looks as follows.
 
 ![Group resultant document](MailMerge_images/MailMerge_img5.jpeg)
 
-## Performing Mail merge with business objects
+## Mail merge with business objects
 
 You can perform Mail merge with business objects in a template document. The following code snippet shows how to perform Mail merge with business objects.
 
-{% tabs %}
+{% tabs %} 
 
 {% highlight c# %}
-
-//Opens the template document 
-
+//Opens the template document
 WordDocument document = new WordDocument(@"Template.docx");
-
 //Gets the employee details as “IEnumerable” collection
-
 List<Employee> employeeList = GetEmployees();
-
 //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
-
 MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
-
 //Performs Mail merge
-
 document.MailMerge.ExecuteGroup(dataTable);
-
 //Saves and closes the Word document instance
-
 document.Save("Result.docx");
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
-'Opens the template document 
-
+'Opens the template document
 Dim document As New WordDocument("Template.docx")
-
 'Gets the employee details as “IEnumerable” collection
-
 Dim employeeList As List(Of Employee) = GetEmployees()
-
 'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
-
 Dim dataTable As New MailMergeDataTable("Employees", employeeList)
-
 'Performs Mail merge
-
 document.MailMerge.ExecuteGroup(dataTable)
-
 'Saves and closes the Word document instance
-
 document.Save("Result.docx")
-
 document.Close()
+{% endhighlight %}
 
+{% highlight UWP %}
+private async void OnButtonClicked(object sender, RoutedEventArgs e)
+{
+	//Creates an instance of a WordDocument
+	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	WordDocument document = new WordDocument();
+	document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+	//Gets the employee details as “IEnumerable” collection
+	List<Employee> employeeList = GetEmployees();
+	//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
+	MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+	//Uses the mail merge events handler for image fields
+	document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeField_Image);
+	//Performs Mail merge
+	document.MailMerge.ExecuteGroup(dataTable);
+	//Saves the Word file to MemoryStream
+	MemoryStream stream = new MemoryStream();
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Sample.docx");
+	document.Close();
+}
+
+private void MergeField_Image(object sender, MergeImageFieldEventArgs args)
+{
+	//Binds image from file system during mail merge
+	if (args.FieldName == "Photo")
+	{
+		string ProductFileName = args.FieldValue.ToString();
+		//Gets the image from file system
+		 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+		 Stream imageStream = assembly.GetManifestResourceStream("Sample.Assets." + ProductFileName);
+		 args.ImageStream = imageStream;
+	}
+}
+
+// Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			// Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
+	// Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
-//Opens the template document. 
-
+//Opens the template document
 FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-
 //Gets the employee details as “IEnumerable” collection
-
 List<Employee> employeeList = GetEmployees();
-
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
-
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
 MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
-
 //Performs Mail merge
-
 document.MailMerge.ExecuteGroup(dataTable);
-
 //Saves the Word document to MemoryStream
-
 MemoryStream stream = new MemoryStream();
-
 document.Save(stream, FormatType.Docx);
-
 stream.Position = 0;
-
 //Download Word document in the browser
-
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %} 
 
-{% endtabs %}
+{% highlight XAMARIN %}
+//Opens the template document
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Data.Template.docx"), FormatType.Docx);
+//Gets the employee details as “IEnumerable” collection
+List<Employee> employeeList = GetEmployees();
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+//Uses the mail merge events handler for image fields
+document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeField_Image);
+//Performs Mail merge
+document.MailMerge.ExecuteGroup(dataTable);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+//Closes the document 
+document.Close();
 
-The following code example provides supporting methods and class for the previous code.
+private void MergeField_Image(object sender, MergeImageFieldEventArgs args)
+{
+	//Binds image from file system during mail merge
+	if (args.FieldName == "Photo")
+	{
+		string ProductFileName = args.FieldValue.ToString();
+		//Gets the image from file system
+		 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+		 Stream imageStream = assembly.GetManifestResourceStream("Sample.Data." + ProductFileName);
+		 args.ImageStream = imageStream;
+	}
+}
+{% endhighlight %}
 
-{% tabs %}
+{% endtabs %}  
+
+The following code example provides supporting methods and class for the above code
+
+{% tabs %}  
 
 {% highlight c# %}
-
 public List<Employee> GetEmployees()
-
 {
-
-List<Employee> employees = new List<Employee>();
-
-employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
-
-employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-
-employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
-
-employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-
-employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-
-return employees;
-
+	List<Employee> employees = new List<Employee>();
+	employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
+	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+	employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
+	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+	return employees;
 }
 
 public class Employee
-
 {
-
-public string FirstName { get; set; }
-
-public string LastName { get; set; }
-
-public string Address { get; set; }
-
-public string City { get; set; }
-
-public string Region { get; set; }
-
-public string Country { get; set; }
-
-public string Title { get; set; }
-
-public Image Photo { get; set; }
-
-public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-
-{
-
-FirstName = firstName;
-
-LastName = lastName;
-
-Title = title;
-
-Address = address;
-
-City = city;
-
-Region = region;
-
-Country = country;
-
-Photo = Image.FromFile(photoFilePath);
-
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Region { get; set; }
+    public string Country { get; set; }
+    public string Title { get; set; }
+    public Image Photo { get; set; }
+    public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Title = title;
+        Address = address;
+        City = city;
+        Region = region;
+        Country = country;
+        Photo = Image.FromFile(photoFilePath);
+    }
 }
-
-}
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 Public Function GetEmployees() As List(Of Employee)
-
-Dim employees As New List(Of Employee)()
-
-employees.Add(New Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"))
-
-employees.Add(New Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"))
-
-employees.Add(New Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"))
-
-employees.Add(New Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"))
-
-employees.Add(New Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"))
-
-Return employees
-
+	Dim employees As New List(Of Employee)()
+	employees.Add(New Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"))
+	employees.Add(New Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"))
+	employees.Add(New Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"))
+	employees.Add(New Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"))
+	employees.Add(New Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", String.Empty, "UK", "Steven.png"))
+	Return employees
 End Function
 
 Public Class Employee
-
-Public Property FirstName() As String
-
-Get
-
-Return m_FirstName
-
-End Get
-
-Set(value As String)
-
-m_FirstName = Value
-
-End Set
-
-End Property
-
-Private m_FirstName As String
-
-Public Property LastName() As String
-
-Get
-
-Return m_LastName
-
-End Get
-
-Set(value As String)
-
-m_LastName = Value
-
-End Set
-
-End Property
-
-Private m_LastName As String
-
-Public Property Address() As String
-
-Get
-
-Return m_Address
-
-End Get
-
-Set(value As String)
-
-m_Address = Value
-
-End Set
-
-End Property
-
-Private m_Address As String
-
-Public Property City() As String
-
-Get
-
-Return m_City
-
-End Get
-
-Set(value As String)
-
-m_City = Value
-
-End Set
-
-End Property
-
-Private m_City As String
-
-Public Property Region() As String
-
-Get
-
-Return m_Region
-
-End Get
-
-Set(value As String)
-
-m_Region = Value
-
-End Set
-
-End Property
-
-Private m_Region As String
-
-Public Property Country() As String
-
-Get
-
-Return m_Country
-
-End Get
-
-Set(value As String)
-
-m_Country = Value
-
-End Set
-
-End Property
-
-Private m_Country As String
-
-Public Property Title() As String
-
-Get
-
-Return m_Title
-
-End Get
-
-Set(value As String)
-
-m_Title = Value
-
-End Set
-
-End Property
-
-Private m_Title As String
-
-Public Property Photo() As Image
-
-Get
-
-Return m_Photo
-
-End Get
-
-Set(value As Image)
-
-m_Photo = Value
-
-End Set
-
-End Property
-
-Private m_Photo As Image
-
-Public Sub New(firstName As String, lastName As String, title As String, address As String, city As String, region As String, country As String, photoFilePath As String)
-
-Me.FirstName = firstName
-
-Me.LastName = lastName
-
-Me.Title = title
-
-Me.Address = address
-
-Me.City = city
-
-Me.Region = region
-
-Me.Country = country
-
-Me.Photo = Image.FromFile(photoFilePath)
-
-End Sub
-
+	Public Property FirstName() As String
+		Get
+			Return m_FirstName
+		End Get
+		Set(value As String)
+			m_FirstName = value
+		End Set
+	End Property
+	Private m_FirstName As String
+	Public Property LastName() As String
+		Get
+			Return m_LastName
+		End Get
+		Set(value As String)
+			m_LastName = value
+		End Set
+	End Property
+	Private m_LastName As String
+	Public Property Address() As String
+		Get
+			Return m_Address
+		End Get
+		Set(value As String)
+			m_Address = value
+		End Set
+	End Property
+	Private m_Address As String
+	Public Property City() As String
+		Get
+			Return m_City
+		End Get
+		Set(value As String)
+			m_City = value
+		End Set
+	End Property
+	Private m_City As String
+	Public Property Region() As String
+		Get
+			Return m_Region
+		End Get
+		Set(value As String)
+			m_Region = value
+		End Set
+	End Property
+	Private m_Region As String
+	Public Property Country() As String
+		Get
+			Return m_Country
+		End Get
+		Set(value As String)
+			m_Country = value
+		End Set
+	End Property
+	Private m_Country As String
+	Public Property Title() As String
+		Get
+			Return m_Title
+		End Get
+		Set(value As String)
+			m_Title = value
+		End Set
+	End Property
+	Private m_Title As String
+	Public Property Photo() As Image
+		Get
+			Return m_Photo
+		End Get
+		Set(value As Image)
+			m_Photo = value
+		End Set
+	End Property
+	Private m_Photo As Image
+
+	Public Sub New(firstName As String, lastName As String, title As String, address As String, city As String, region As String, country As String, photoFilePath As String)
+		firstName = firstName
+		lastName = lastName
+		title = title
+		address = address
+		city = city
+		region = region
+		country = country
+		Photo = Image.FromFile(photoFilePath)
+	End Sub
 End Class
+{% endhighlight %} 
 
-{% endhighlight %}
-
-{% highlight ASP.NET CORE %}
-
+{% highlight UWP %}
 public List<Employee> GetEmployees()
-
 {
-
-List<Employee> employees = new List<Employee>();
-
-employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
-
-employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-
-employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
-
-employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-
-employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-
-return employees;
-
+	List<Employee> employees = new List<Employee>();
+	employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
+	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+	employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
+	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+	return employees;
 }
 
 public class Employee
-
 {
+	public string FirstName { get; set; }
+	public string LastName { get; set; }
+	public string Address { get; set; }
+	public string City { get; set; }
+	public string Region { get; set; }
+	public string Country { get; set; }
+	public string Title { get; set; }
+	public string Photo { get; set; }
 
-public string FirstName { get; set; }
-
-public string LastName { get; set; }
-
-public string Address { get; set; }
-
-public string City { get; set; }
-
-public string Region { get; set; }
-
-public string Country { get; set; }
-
-public string Title { get; set; }
-
-public Image Photo { get; set; }
-
-public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFilePath)
-
-{
-
-FirstName = firstName;
-
-LastName = lastName;
-
-Title = title;
-
-Address = address;
-
-City = city;
-
-Region = region;
-
-Country = country;
-
-Photo = Image.FromFile(photoFilePath);
-
+	public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFileName)
+	{
+		FirstName = firstName;
+		LastName = lastName;
+		Title = title;
+		Address = address;
+		City = city;
+		Region = region;
+		Country = country;
+		Photo = photoFileName;
+	}
 }
-
-}
-
 {% endhighlight %}
 
-{% endtabs %}
+{% highlight ASP.NET CORE %}
+public List<Employee> GetEmployees()
+{
+	List<Employee> employees = new List<Employee>();
+	employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
+	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+	employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
+	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+	return employees;
+}
 
-You can find an example about overloads of the `ExecuteGroup` method from the following table:
+public class Employee
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string Region { get; set; }
+    public string Country { get; set; }
+    public string Title { get; set; }
+    public string Photo { get; set; }
+    public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFileName)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Title = title;
+        Address = address;
+        City = city;
+        Region = region;
+        Country = country;
+        Photo = photoFileName;
+    }
+}
+{% endhighlight %}
 
-<table>
-<thead>
-<tr>
-<td><b>Overloads</b></td>
-<td><b>Examples</b></td>
-</tr>
-</thead>
-<tr>
-<td>ExecuteGroup(DataView)</td>
-<td>
-<a href="http://www.syncfusion.com/downloads/support/directtrac/general/ze/MAAA1B~11635160515.zip">Generate letter for filtered contacts</a>
-</td>
-</tr>
-</table>
+{% highlight XAMARIN %}
+public List<Employee> GetEmployees()
+{
+	List<Employee> employees = new List<Employee>();
+	employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
+	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+	employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
+	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+	return employees;
+}
+
+public class Employee
+{
+	public string FirstName { get; set; }
+	public string LastName { get; set; }
+	public string Address { get; set; }
+	public string City { get; set; }
+	public string Region { get; set; }
+	public string Country { get; set; }
+	public string Title { get; set; }
+	public string Photo { get; set; }
+
+	public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFileName)
+	{
+		FirstName = firstName;
+		LastName = lastName;
+		Title = title;
+		Address = address;
+		City = city;
+		Region = region;
+		Country = country;
+		Photo = photoFileName;
+	}
+}
+{% endhighlight %}
+
+{% endtabs %}  

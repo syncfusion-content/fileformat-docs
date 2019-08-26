@@ -14,7 +14,7 @@ The following data sources are supported by Essential DocIO for performing Mail 
 * String Arrays
 * ADO.NET objects
 * Dynamic objects
-* Business objects
+* .NET objects
 
 You can create a template document with Merge fields by using the Microsoft Word. The following screenshot shows how to insert a merge filed in the Word document by using the Microsoft Word.
 
@@ -28,25 +28,25 @@ For example: The merge field name should be like “Image:Photo” (<<Image:Merg
 
 The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data sources. For further information, click [here](https://help.syncfusion.com/file-formats/docio/simple-mail-merge). 
 
-## Performing Mail merge for a group
+## Mail merge for a group
 
 You can perform Mail merge and append multiple records from data source within a specified region to a template document For further information, click [here](https://help.syncfusion.com/file-formats/docio/group-mail-merge).
 
-## Performing Nested Mail merge for group
+## Mail merge for nested group
 
 You can perform nested Mail merge with relational or hierarchical data source and independent data tables in a template document.
 
 For further information, click [here](https://help.syncfusion.com/file-formats/docio/Nested-group-Mail-merge).
 
-## Performing Mail merge with dynamic objects
+## Mail merge with dynamic objects
 
 Essential DocIO allows you to perform Mail merge with the dynamic objects. For further information, click [here](https://help.syncfusion.com/file-formats/docio/nested-group-mail-merge#performing-mail-merge-with-dynamic-objects).
 
-## Performing Mail merge with business objects
+## Mail merge with business objects
 
 You can perform Mail merge with business objects in a template document. For further information, click [here](https://help.syncfusion.com/file-formats/docio/group-mail-merge#performing-mail-merge-with-business-objects).
 
-## Performing Nested Mail merge with relational data objects
+## Nested Mail merge with relational data objects
 
 Essential DocIO supports performing nested Mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method.
 
