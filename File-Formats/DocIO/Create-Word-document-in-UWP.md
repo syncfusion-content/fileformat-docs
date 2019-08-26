@@ -71,9 +71,9 @@ using System.Reflection;
 
 private async void OnButtonClicked(object sender, RoutedEventArgs e)
 {
-	// Creating a new document.
+	//Creating a new document
 	WordDocument document = new WordDocument();
-	//Adding a new section to the document.
+	//Adding a new section to the document
 	WSection section = document.AddSection() as WSection;
 	//Set Margin of the section
 	section.PageSetup.Margins.All = 72;
@@ -100,7 +100,7 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 	style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
 	IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
-	// Gets the image stream.
+	//Gets the image stream
 	Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("CreateWordSample.Assets.AdventureCycle.jpg");
 	IWPicture picture = paragraph.AppendPicture(imageStream);
 	picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
@@ -118,7 +118,7 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 	textRange.CharacterFormat.FontName = "Calibri";
 	textRange.CharacterFormat.TextColor = Color.Red;
 
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = section.AddParagraph();
 	paragraph.ApplyStyle("Heading 1");
 	paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
@@ -126,14 +126,14 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 	textRange.CharacterFormat.FontSize = 18f;
 	textRange.CharacterFormat.FontName = "Calibri";
 
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = section.AddParagraph();
 	paragraph.ParagraphFormat.FirstLineIndent = 36;
 	paragraph.BreakCharacterFormat.FontSize = 12f;
 	textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
 	textRange.CharacterFormat.FontSize = 12f;
 
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = section.AddParagraph();
 	paragraph.ParagraphFormat.FirstLineIndent = 36;
 	paragraph.BreakCharacterFormat.FontSize = 12f;
@@ -146,17 +146,17 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 	textRange = paragraph.AppendText("Product Overview") as WTextRange;
 	textRange.CharacterFormat.FontSize = 16f;
 	textRange.CharacterFormat.FontName = "Calibri";
-	//Appends table.
+	//Appends table
 	IWTable table = section.AddTable();
 	table.ResetCells(3, 2);
 	table.TableFormat.Borders.BorderType = BorderStyle.None;
 	table.TableFormat.IsAutoResized = true;
 
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = table[0, 0].AddParagraph();
 	paragraph.ParagraphFormat.AfterSpacing = 0;
 	paragraph.BreakCharacterFormat.FontSize = 12f;
-	//Appends picture to the paragraph.
+	//Appends picture to the paragraph
 	imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("CreateWordSample.Assets.Mountain-200.jpg");
 	picture = paragraph.AppendPicture(imageStream);
 	picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -167,13 +167,13 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 	picture.WidthScale = 79;
 	picture.HeightScale = 79;
 
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = table[0, 1].AddParagraph();
 	paragraph.ApplyStyle("Heading 1");
 	paragraph.ParagraphFormat.AfterSpacing = 0;
 	paragraph.ParagraphFormat.LineSpacing = 12f;
 	paragraph.AppendText("Mountain-200");
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = table[0, 1].AddParagraph();
 	paragraph.ParagraphFormat.AfterSpacing = 0;
 	paragraph.ParagraphFormat.LineSpacing = 12f;
@@ -192,19 +192,19 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 	textRange = paragraph.AppendText("Price: $2,294.99\r") as WTextRange;
 	textRange.CharacterFormat.FontSize = 12f;
 	textRange.CharacterFormat.FontName = "Times New Roman";
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = table[0, 1].AddParagraph();
 	paragraph.ParagraphFormat.AfterSpacing = 0;
 	paragraph.ParagraphFormat.LineSpacing = 12f;
 	paragraph.BreakCharacterFormat.FontSize = 12f;
 
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = table[1, 0].AddParagraph();
 	paragraph.ApplyStyle("Heading 1");
 	paragraph.ParagraphFormat.AfterSpacing = 0;
 	paragraph.ParagraphFormat.LineSpacing = 12f;
 	paragraph.AppendText("Mountain-300 ");
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = table[1, 0].AddParagraph();
 	paragraph.ParagraphFormat.AfterSpacing = 0;
 	paragraph.ParagraphFormat.LineSpacing = 12f;
@@ -222,17 +222,17 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 	textRange = paragraph.AppendText("Price: $1,079.99\r") as WTextRange;
 	textRange.CharacterFormat.FontSize = 12f;
 	textRange.CharacterFormat.FontName = "Times New Roman";
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = table[1, 0].AddParagraph();
 	paragraph.ParagraphFormat.AfterSpacing = 0;
 	paragraph.ParagraphFormat.LineSpacing = 12f;
 	paragraph.BreakCharacterFormat.FontSize = 12f;
 
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = table[1, 1].AddParagraph();
 	paragraph.ApplyStyle("Heading 1");
 	paragraph.ParagraphFormat.LineSpacing = 12f;
-	//Appends picture to the paragraph.
+	//Appends picture to the paragraph
 	imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("CreateWordSample.Assets.Mountain-300.jpg");
 	picture = paragraph.AppendPicture(imageStream);
 	picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -243,11 +243,11 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 	picture.WidthScale = 75;
 	picture.HeightScale = 75;
 
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = table[2, 0].AddParagraph();
 	paragraph.ApplyStyle("Heading 1");
 	paragraph.ParagraphFormat.LineSpacing = 12f;
-	//Appends picture to the paragraph.
+	//Appends picture to the paragraph
 	imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("CreateWordSample.Assets.Road-550-W.jpg");
 	picture = paragraph.AppendPicture(imageStream);
 	picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -258,13 +258,13 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 	picture.WidthScale = 92;
 	picture.HeightScale = 92;
 	
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = table[2, 1].AddParagraph();
 	paragraph.ApplyStyle("Heading 1");
 	paragraph.ParagraphFormat.AfterSpacing = 0;
 	paragraph.ParagraphFormat.LineSpacing = 12f;
 	paragraph.AppendText("Road-150 ");
-	//Appends paragraph.
+	//Appends paragraph
 	paragraph = table[2, 1].AddParagraph();
 	paragraph.ParagraphFormat.AfterSpacing = 0;
 	paragraph.ParagraphFormat.LineSpacing = 12f;
@@ -282,7 +282,7 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 	textRange = paragraph.AppendText("Price: $3,578.27\r") as WTextRange;
 	textRange.CharacterFormat.FontSize = 12f;
 	textRange.CharacterFormat.FontName = "Times New Roman";
-	//Appends paragraph.
+	//Appends paragraph
 	section.AddParagraph();
 	
 	MemoryStream stream = new MemoryStream();
@@ -293,8 +293,16 @@ private async void OnButtonClicked(object sender, RoutedEventArgs e)
 	//Saves the stream as Word document file in local machine
 	Save(stream, "Sample.docx");
 }
+{% endhighlight %}
 
-// Saves the Word document
+{% endtabs %}
+
+## Save Word document in UWP
+
+{% tabs %}
+
+{% highlight c# %}
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -316,7 +324,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 		{
-			// Write compressed data from memory to file
+			//Write compressed data from memory to file
 			using (Stream outstream = zipStream.AsStreamForWrite())
 			{
 				byte[] buffer = streams.ToArray();
@@ -325,10 +333,9 @@ async void Save(MemoryStream streams, string filename)
 			}
 		}
 	}
-	// Launch the saved Word file
+	//Launch the saved Word file
 	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
-
 {% endhighlight %}
 
 {% endtabs %}
