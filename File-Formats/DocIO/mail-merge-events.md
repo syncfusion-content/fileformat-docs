@@ -479,7 +479,7 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge in BeforeClearField Event in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms alone.
+//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -575,7 +575,7 @@ End Sub
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge in BeforeClearField Event in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms alone.
+//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -690,7 +690,7 @@ End Function
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge in BeforeClearField Event in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms alone.
+//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
