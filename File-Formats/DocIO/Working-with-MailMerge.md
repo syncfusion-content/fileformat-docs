@@ -36,21 +36,21 @@ You can perform Mail merge and append multiple records from data source within a
 
 You can perform nested Mail merge with relational or hierarchical data source and independent data tables in a template document.
 
-For further information, click [here](https://help.syncfusion.com/file-formats/docio/Nested-group-Mail-merge).
+For further information, click [here](https://help.syncfusion.com/file-formats/docio/nested-group-Mail-merge).
 
 ## Performing Mail merge with dynamic objects
 
-Essential DocIO allows you to perform Mail merge with the dynamic objects. For further information, click [here](https://help.syncfusion.com/file-formats/docio/nested-group-mail-merge#performing-mail-merge-with-dynamic-objects).
+Essential DocIO allows you to perform Mail merge with the dynamic objects. For further information, click [here](https://help.syncfusion.com/file-formats/docio/nested-group-mail-merge#mail-merge-with-dynamic-objects).
 
 ## Performing Mail merge with business objects
 
-You can perform Mail merge with business objects in a template document. For further information, click [here](https://help.syncfusion.com/file-formats/docio/group-mail-merge#performing-mail-merge-with-business-objects).
+You can perform Mail merge with business objects in a template document. For further information, click [here](https://help.syncfusion.com/file-formats/docio/group-mail-merge#mail-merge-with-business-objects).
 
 ## Performing Nested Mail merge with relational data objects
 
 Essential DocIO supports performing nested Mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method.
 
-For further information, click [here](https://help.syncfusion.com/file-formats/docio/nested-group-mail-merge#performing-nested-mail-merge-with-relational-data-objects).
+For further information, click [here](https://help.syncfusion.com/file-formats/docio/nested-group-mail-merge#nested-mail-merge-with-relational-data-objects).
 
 ## Event support for Mail merge
 
