@@ -46,7 +46,7 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//Mailmerge Datatable is not working in UWP platform.
+//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -109,7 +109,7 @@ End Sub
 {% endhighlight %}
 
 {% highlight UWP %}
-//Mailmerge Datatable is not working in UWP platform.
+//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -173,7 +173,7 @@ End Function
 {% endhighlight %}
 
 {% highlight UWP %}
-//Mailmerge Datatable is not working in UWP platform.
+//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
