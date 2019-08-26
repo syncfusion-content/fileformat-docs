@@ -26,31 +26,31 @@ For example: The merge field name should be like “Image:Photo” (<<Image:Merg
 
 ## Simple Mail merge
 
-The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data sources. For further information, click [here](https://help.syncfusion.com/file-formats/docio/simple-mail-merge). 
+The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data sources. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/simple-mail-merge). 
 
 ## Performing Mail merge for a group
 
-You can perform Mail merge and append multiple records from data source within a specified region to a template document For further information, click [here](https://help.syncfusion.com/file-formats/docio/group-mail-merge).
+You can perform Mail merge and append multiple records from data source within a specified region to a template document For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-group).
 
 ## Performing Nested Mail merge for group
 
 You can perform nested Mail merge with relational or hierarchical data source and independent data tables in a template document.
 
-For further information, click [here](https://help.syncfusion.com/file-formats/docio/nested-group-Mail-merge).
+For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-nested-groups).
 
 ## Performing Mail merge with dynamic objects
 
-Essential DocIO allows you to perform Mail merge with the dynamic objects. For further information, click [here](https://help.syncfusion.com/file-formats/docio/nested-group-mail-merge#mail-merge-with-dynamic-objects).
+Essential DocIO allows you to perform Mail merge with the dynamic objects. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-nested-groups#mail-merge-with-dynamic-objects).
 
 ## Performing Mail merge with business objects
 
-You can perform Mail merge with business objects in a template document. For further information, click [here](https://help.syncfusion.com/file-formats/docio/group-mail-merge#mail-merge-with-business-objects).
+You can perform Mail merge with business objects in a template document. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-group#mail-merge-with-business-objects).
 
 ## Performing Nested Mail merge with relational data objects
 
 Essential DocIO supports performing nested Mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method.
 
-For further information, click [here](https://help.syncfusion.com/file-formats/docio/nested-group-mail-merge#nested-mail-merge-with-relational-data-objects).
+For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-nested-groups#nested-mail-merge-with-relational-data-objects).
 
 ## Event support for Mail merge
 
@@ -66,19 +66,19 @@ The `MailMerge` class provides event support to customize the document contents 
 
 ### MergeField Event
 
-You can customize the merging text during Mail merge process by using the `MergeField` event. For further information, click [here](https://help.syncfusion.com/file-formats/docio/event-support-for-mail-merge#mergefield-event).
+You can customize the merging text during Mail merge process by using the `MergeField` event. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-events#mergefield-event).
 
 ### MergeImageField Event
 
-You can customize the merging image during Mail merge process by using the `MergeImageField` event. For further information, click [here](https://help.syncfusion.com/file-formats/docio/event-support-for-mail-merge#mergeimagefield-event).
+You can customize the merging image during Mail merge process by using the `MergeImageField` event. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-events#mergeimagefield-event).
 
 ### BeforeClearField Event
 
-You can get the unmerged fields during Mail merge process by using the `BeforeClearField` event during Mail merge process. For further information, click [here](https://help.syncfusion.com/file-formats/docio/event-support-for-mail-merge#beforeclearfield-event).
+You can get the unmerged fields during Mail merge process by using the `BeforeClearField` event during Mail merge process. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-events#beforeclearfield-event).
 
 ### BeforeClearGroupField Event
 
-You can get the unmerged groups during Mail merge process by using the `BeforeClearGroupField` event during Mail merge process. For further information, click [here](https://help.syncfusion.com/file-formats/docio/event-support-for-mail-merge#beforecleargroupfield-event).
+You can get the unmerged groups during Mail merge process by using the `BeforeClearGroupField` event during Mail merge process. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-events#beforecleargroupfield-event).
 
 ## Mail merge options
 
@@ -86,24 +86,24 @@ The `MailMerge` class allows you to customize the Mail merge process with the fo
 
 ### Field Mapping
 
-You can automatically map the merge field names with data source column names during Mail merge process. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge-options#field-mapping).
+You can automatically map the merge field names with data source column names during Mail merge process. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-options#field-mapping).
 
 ### Retrieving the merge field names
 
-You can retrieve the merge field names and also merge field group names in the Word document. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge-options#retrieving-the-merge-field-names).
+You can retrieve the merge field names and also merge field group names in the Word document. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-options#retrieve-the-merge-field-names).
 
 ### Removing empty paragraphs
 
 You can remove the empty paragraphs when the paragraph has a merge field item without any data during Mail merge process.
 
-For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge-options#removing-empty-paragraphs).
+For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-options#remove-empty-paragraphs).
 
 ### Removing empty merge fields
 
 You can remove or keep the unmerged merge fields in the output document based on the `ClearFields` property on each mail merge execution.
 
-For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge-options#removing-empty-merge-fields).
+For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-options#remove-empty-merge-fields).
 
 ### Restart numbering in lists
 
-You can restart the list numbering in a Word document during Mail merge. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge-options#restart-numbering-in-lists).
+You can restart the list numbering in a Word document during Mail merge. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-options#restart-numbering-in-lists).
