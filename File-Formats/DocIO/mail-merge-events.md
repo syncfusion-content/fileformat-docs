@@ -46,7 +46,7 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//Mailmerge Datatable is not working in UWP platform.
+//DocIO supports performing mail merge in MergeField Event in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -109,8 +109,7 @@ End Sub
 {% endhighlight %}
 
 {% highlight UWP %}
-//Mailmerge Datatable is not working in UWP platform.
-{% endhighlight %}
+//DocIO supports performing mail merge in MergeField Event in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms alone.
 
 {% highlight ASP.NET CORE %}
 private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs args)
@@ -173,7 +172,7 @@ End Function
 {% endhighlight %}
 
 {% highlight UWP %}
-//Mailmerge Datatable is not working in UWP platform.
+//DocIO supports performing mail merge in MergeField Event in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -479,7 +478,7 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-// not working.
+//DocIO supports performing mail merge in BeforeClearField Event in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -575,7 +574,7 @@ End Sub
 {% endhighlight %}
 
 {% highlight UWP %}
-//Not working
+//DocIO supports performing mail merge in BeforeClearField Event in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -690,7 +689,7 @@ End Function
 {% endhighlight %}
 
 {% highlight UWP %}
-//Not working.
+//DocIO supports performing mail merge in BeforeClearField Event in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}

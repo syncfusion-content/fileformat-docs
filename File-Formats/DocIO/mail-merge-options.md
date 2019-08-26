@@ -1386,7 +1386,7 @@ document.Close()
 
 {% highlight UWP %}
 
-// Not working
+//DocIO supports performing mail merge with ExecuteGroup in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core and Xamarin platforms alone.
 
 {% endhighlight %}
 
