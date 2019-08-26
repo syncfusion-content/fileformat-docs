@@ -402,14 +402,14 @@ Public Class Employee
 	Private m_Photo As Image
 
 	Public Sub New(firstName As String, lastName As String, title As String, address As String, city As String, region As String, country As String, photoFilePath As String)
-		firstName = firstName
-		lastName = lastName
-		title = title
-		address = address
-		city = city
-		region = region
-		country = country
-		Photo = Image.FromFile(photoFilePath)
+		Me.FirstName = firstName
+		Me.LastName = lastName
+		Me.Title = title
+		Me.Address = address
+		Me.City = city
+		Me.Region = region
+		Me.Country = country
+		Me.Photo = Image.FromFile(photoFilePath)
 	End Sub
 End Class
 {% endhighlight %} 
