@@ -50,15 +50,15 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//SqlCeConnection is not supported in UWP, ASP.NET Core and Xamarin platforms.
+//DocIO supports performing mail merge in specific region with data source retrieved from SQL connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//SqlCeConnection is not supported in UWP, ASP.NET Core and Xamarin platforms.
+//DocIO supports performing mail merge in specific region with data source retrieved from SQL connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//SqlCeConnection is not supported in UWP, ASP.NET Core and Xamarin platforms.
+//DocIO supports performing mail merge in specific region with data source retrieved from SQL connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% endtabs %}  
@@ -99,15 +99,15 @@ End Function
 {% endhighlight %}
 
 {% highlight UWP %}
-//SqlCeConnection is not supported in UWP, ASP.NET Core and Xamarin platforms.
+//DocIO supports performing mail merge in specific region with data source retrieved from SQL connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//SqlCeConnection is not supported in UWP, ASP.NET Core and Xamarin platforms.
+//DocIO supports performing mail merge in specific region with data source retrieved from SQL connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//SqlCeConnection is not supported in UWP, ASP.NET Core and Xamarin platforms.
+//DocIO supports performing mail merge in specific region with data source retrieved from SQL connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% endtabs %}  
