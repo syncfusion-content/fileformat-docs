@@ -53,15 +53,15 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-
+//DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
+//DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
+//DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% endtabs %}  
@@ -105,15 +105,15 @@ End Function
 {% endhighlight %}
 
 {% highlight UWP %}
-
+//DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
+//DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
+//DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
 {% endtabs %}  
 
@@ -266,7 +266,7 @@ return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %} 
 
 {% highlight XAMARIN %}
-//Not working, because dynamic not supported in iOS.
+//DocIO supports performing mail merge with dynamic object (ExpandoObject) in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and UWP platforms alone.
 {% endhighlight %}
 
 {% endtabs %}
@@ -424,7 +424,7 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 {% endhighlight %} 
 
 {% highlight XAMARIN %}
-//Not working, because dynamic not supported in iOS.
+//DocIO supports performing mail merge with dynamic object (ExpandoObject) in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and UWP platforms alone.
 {% endhighlight %}
 
 {% endtabs %}
