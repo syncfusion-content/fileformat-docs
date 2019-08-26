@@ -1391,7 +1391,7 @@ document.Close()
 
 {% highlight UWP %}
 
-// Not working
+//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 
 {% endhighlight %}
 
