@@ -6,7 +6,7 @@ control: DocIO
 documentation: UG
 ---
 
-# Performing Nested Mail merge for group
+# Nested Mail merge for group
 
 You can perform nested Mail merge with relational or hierarchical data source and independent data tables in a template document.
 
@@ -117,7 +117,7 @@ End Function
 {% endhighlight %}
 {% endtabs %}  
 
-## Performing Mail merge with dynamic objects
+## Mail merge with dynamic objects
 
 Essential DocIO allows you to perform Mail merge with the dynamic objects. The following code snippet shows how to perform the Mail merge with dynamic objects ([ExpandoObject](https://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject(v=vs.110).aspx)).
 
@@ -429,7 +429,7 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 
 {% endtabs %}
 
-## Performing Nested Mail merge with relational data objects
+## Nested Mail merge with relational data objects
 
 You can perform nested Mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method.
 
