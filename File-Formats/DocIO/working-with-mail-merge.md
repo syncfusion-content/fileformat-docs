@@ -30,7 +30,7 @@ The `MailMerge` class provides various overloads for `Execute` method to perform
 
 ## Performing Mail merge for a group
 
-You can perform Mail merge and append multiple records from data source within a specified region to a template document.For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-group).
+You can perform Mail merge and append multiple records from data source within a specified region to a template document. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-group).
 
 ## Performing Nested Mail merge for group
 
