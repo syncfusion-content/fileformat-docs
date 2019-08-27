@@ -137,6 +137,8 @@ document.Close();
 
 You can retrieve the merge field names and also merge field group names in the Word document.
 
+The following code example shows how to retrieve the merge field names in the Word document.
+
 {% tabs %}  
 
 {% highlight C# %}
@@ -231,6 +233,8 @@ string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 ## Remove empty paragraphs
 
 You can remove the empty paragraphs when the paragraph has only a merge field item, without any data during Mail merge process.
+
+The following code example shows how to remove the empty paragraphs during Mail merge process.
 
 {% tabs %} 
 
@@ -1347,12 +1351,6 @@ document.Close()
 
 {% highlight UWP %}
 //DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
-{% endhighlight %}
-
-{% highlight UWP %}
-
-//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
