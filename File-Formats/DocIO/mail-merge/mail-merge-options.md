@@ -1055,7 +1055,7 @@ public class OrderDetails
 
 ## Restart numbering in lists
 
-You can restart the list numbering for each records while performing mail merge for a group in word document.
+You can restart the list numbering for each records while performing mail merge for a group in Word document.
 
 The following code example shows how to restart the list numbering in a Word documents while performing mail merge.
 
