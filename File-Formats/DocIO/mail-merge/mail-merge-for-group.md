@@ -19,7 +19,7 @@ You can perform Mail merge and append multiple records from data source within a
   
 For example, consider that you have a template document as shown.
 
-![Mail merge for a group](MailMerge_images/MailMerge_img4.jpeg)
+![Mail merge for a group](../MailMerge_images/MailMerge_img4.jpeg)
 
 In this template, Employees is the group name and the same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees” to denote the start and end of the Mail merge group.
 
@@ -114,7 +114,7 @@ End Function
 
 The resultant document looks as follows.
 
-![Group resultant document](MailMerge_images/MailMerge_img5.jpeg)
+![Group resultant document](../MailMerge_images/MailMerge_img5.jpeg)
 
 ## Mail merge with business objects
 

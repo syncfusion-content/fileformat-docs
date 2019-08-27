@@ -169,6 +169,8 @@ document.Close();
 
 ## Retrieve the merge field names
 
+You can retrieve the merge field names and also merge field group names in the Word document.
+
 The following code example shows how to retrieve the merge field names in the Word document.
 
 {% tabs %}  
@@ -264,7 +266,10 @@ string[] fieldNames = document.MailMerge.GetMergeFieldNames(groupName);
 
 ## Remove empty paragraphs
 
-The following code example shows how to remove the empty paragraphs when the paragraph has a merge field item without any data during Mail merge process.
+You can remove the empty paragraphs when the paragraph has only a merge field item, without any data during Mail merge process.
+
+The following code example shows how to remove the empty paragraphs during Mail merge process.
+
 
 {% tabs %} 
 
@@ -539,7 +544,9 @@ document.Close();
 
 ## Remove empty group
 
-The following code example shows how to remove groups which contain empty merge fields after executing mail merge in a Word document.
+You can remove the empty merge field groups which contains unmerged merge fields after executing mail merge for a group in a Word document.
+
+The following code example shows how to remove empty merge field group during mail merge process in a Word document.
 
 {% tabs %}  
 
@@ -1048,7 +1055,9 @@ public class OrderDetails
 
 ## Restart numbering in lists
 
-The following code example shows how to restart the list numbering in a Word documents while performing mail merge and merging multiple Word documents.
+You can restart the list numbering for each records while performing mail merge for a group in word document.
+
+The following code example shows how to restart the list numbering in a Word documents while performing mail merge.
 
 {% tabs %}  
 
@@ -1319,7 +1328,9 @@ public class Employee
 
 ## Insert as new row
 
-The following code example shows how to add each record as new row inside table when the row group contains only one cell, which means, the merge fields denoting group start and end present inside the same cell.
+You can add each record as new row inside table when the row group contains only one cell, which means, the merge fields denoting group start and end present inside the same cell.
+
+The following code example shows how to insert each record as new row in single cell table during mail merge process. 
 
 {% tabs %}  
 
@@ -1474,7 +1485,9 @@ document.Close();
 
 ## Skip to merge image
 
-The following code example shows how to skip merging particular image while performing mail merge in Word document.
+You can skip to merge particular image while performing mail merge in Word document.
+
+The following code example shows how to skip merging particular image during mail merge process.
 
 {% tabs %}  
 
