@@ -176,7 +176,7 @@ document.Close();
 
 The generated template document looks as follows.
 
-![Template document](MailMerge_images/MailMerge_img2.jpeg)
+![Template document](../MailMerge_images/MailMerge_img2.jpeg)
 
 The following code example shows how to perform a simple Mail merge in the generated template document with string array as data source.
 
@@ -298,4 +298,4 @@ document.Close();
 
 The resultant document looks as follows.
 
-![Resultant document](MailMerge_images/MailMerge_img3.jpeg)
+![Resultant document](../MailMerge_images/MailMerge_img3.jpeg)

@@ -30,13 +30,11 @@ The `MailMerge` class provides various overloads for `Execute` method to perform
 
 ## Performing Mail merge for a group
 
-You can perform Mail merge and append multiple records from data source within a specified region to a template document For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-group).
+You can perform Mail merge and append multiple records from data source within a specified region to a template document.For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-group).
 
 ## Performing Nested Mail merge for group
 
-You can perform nested Mail merge with relational or hierarchical data source and independent data tables in a template document.
-
-For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-nested-groups).
+You can perform nested Mail merge with relational or hierarchical data source and independent data tables in a template document. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-nested-groups).
 
 ## Performing Mail merge with dynamic objects
 
@@ -48,9 +46,7 @@ You can perform Mail merge with business objects in a template document. For fur
 
 ## Performing Nested Mail merge with relational data objects
 
-Essential DocIO supports performing nested Mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method.
-
-For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-nested-groups#nested-mail-merge-with-relational-data-objects).
+Essential DocIO supports performing nested Mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-nested-groups#nested-mail-merge-with-relational-data-objects).
 
 ## Event support for Mail merge
 
@@ -94,15 +90,11 @@ You can retrieve the merge field names and also merge field group names in the W
 
 ### Removing empty paragraphs
 
-You can remove the empty paragraphs when the paragraph has a merge field item without any data during Mail merge process.
-
-For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-options#remove-empty-paragraphs).
+You can remove the empty paragraphs when the paragraph has a merge field item without any data during Mail merge process. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-options#remove-empty-paragraphs).
 
 ### Removing empty merge fields
 
-You can remove or keep the unmerged merge fields in the output document based on the `ClearFields` property on each mail merge execution.
-
-For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-options#remove-empty-merge-fields).
+You can remove or keep the unmerged merge fields in the output document based on the `ClearFields` property on each mail merge execution. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-options#remove-empty-merge-fields).
 
 ### Restart numbering in lists
 
