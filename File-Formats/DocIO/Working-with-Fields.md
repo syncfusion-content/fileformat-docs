@@ -34,7 +34,6 @@ The following code example illustrates how to add a field in Word document.
 {% tabs %} 
 
 {% highlight c# %}
-
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -50,11 +49,9 @@ field.FieldCode = @"DATE  \@" + "\"MMMM d, yyyy\"";
 document.Save("Sample.docx", FormatType.Docx);
 //Releases the resources occupied by WordDocument instance
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an instance of WordDocument class (Empty Word Document)
 Dim document As New WordDocument()
 'Adds a new section into the Word Document
@@ -70,11 +67,9 @@ field.FieldCode = "DATE  \@" + """MMMM d, yyyy"""
 document.Save("Sample.docx", FormatType.Docx)
 'Releases the resources occupied by WordDocument instance
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -91,46 +86,11 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	// Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -148,11 +108,9 @@ document.Save(stream, FormatType.Docx);
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
 //Creates an instance of WordDocument class (Empty Word Document)
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -169,7 +127,8 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
@@ -183,7 +142,6 @@ The following code example illustrates how to format the field in Word document.
 {% tabs %}
 
 {% highlight c# %}
-
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -205,11 +163,9 @@ while (entity.NextSibling != null)
 //Saves and closes the WordDocument instance
 document.Save("Template.docx", FormatType.Docx);
 document.Close();
-
 {% endhighlight %}
 
 {% highlight VB.NET %}
-
 'Creates an instance of a WordDocument
 Dim document As WordDocument = New WordDocument
 'Adds one section and one paragraph to the document
@@ -231,11 +187,9 @@ End While
 'Saves and closes the WordDocument instance
 document.Save("Template.docx", FormatType.Docx)
 document.Close
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -259,46 +213,11 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Template.docx");
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	// Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -323,11 +242,9 @@ document.Save(stream, FormatType.Docx);
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Template.docx");
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 //Adds one section and one paragraph to the document
@@ -351,7 +268,8 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
-
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -385,29 +303,24 @@ The following code example illustrate how to update the fields present in Word d
 {% tabs %} 
 
 {% highlight c# %}
-
 //Loads an existing Word document into DocIO instance 
 WordDocument document = new WordDocument("Input.docx", FormatType.Docx);
 //Updates the fields present in a document
 document.UpdateDocumentFields();
 document.Save("Result.docx", FormatType.Docx);
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Loads an existing Word document into DocIO instance 
 Dim document As New WordDocument("Input.docx", FormatType.Docx)
 'Updates the fields present in a document
 document.UpdateDocumentFields()
 document.Save("Result.docx", FormatType.Docx)
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Loads an existing Word document into DocIO instance 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Input.docx"), FormatType.Docx);
@@ -418,46 +331,11 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	// Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Loads an existing Word document into DocIO instance 
 FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -469,11 +347,9 @@ document.Save(stream, FormatType.Docx);
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
 //Loads an existing Word document into DocIO instance 
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("GettingStarted.Data.Input.docx"), FormatType.Docx);
@@ -484,7 +360,8 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
@@ -500,7 +377,6 @@ The following code example illustrates how to add an If field in Word document.
 {% tabs %}  
 
 {% highlight c# %}
-
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -522,11 +398,9 @@ field.FieldCode = "IF 100 >= 1000 \"The given statement is Correct\" \"The given
 document.UpdateDocumentFields();
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an instance of a WordDocument 
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -548,11 +422,9 @@ field.FieldCode = "IF 100 >= 1000 ""The given statement is Correct"" ""The given
 document.UpdateDocumentFields()
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -579,46 +451,11 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	// Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -646,11 +483,9 @@ document.Save(stream, FormatType.Docx);
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -677,7 +512,8 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %} 
@@ -691,7 +527,6 @@ The following code example illustrate how to add a DocVariable field in Word doc
 {% tabs %}  
 
 {% highlight c# %}
-
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -710,11 +545,9 @@ document.Variables.Add("LastName", "Smith");
 document.UpdateDocumentFields();
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an instance of a WordDocument 
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -733,11 +566,9 @@ document.Variables.Add("LastName", "Smith")
 document.UpdateDocumentFields()
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -761,46 +592,11 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	// Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -825,11 +621,9 @@ document.Save(stream, FormatType.Docx);
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -853,7 +647,8 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -869,7 +664,6 @@ The following code example illustrate how to append cross reference for bookmark
 {% tabs %}  
 
 {% highlight c# %}
-
 //Creates an instance of a WordDocument 
 WordDocument document = new WordDocument();
 IWSection section = document.AddSection();
@@ -892,11 +686,9 @@ paragraph.AppendCrossReference(ReferenceType.Bookmark, ReferenceKind.ContentText
 document.UpdateDocumentFields();
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an instance of a WordDocument 
 Dim document As New WordDocument()
 Dim section As IWSection = document.AddSection()
@@ -919,11 +711,9 @@ paragraph.AppendCrossReference(ReferenceType.Bookmark, ReferenceKind.ContentText
 document.UpdateDocumentFields()
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -951,46 +741,11 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	// Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -1019,11 +774,9 @@ document.Save(stream, FormatType.Docx);
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
 //Creates an instance of a WordDocument
 WordDocument document = new WordDocument();
 //Adds a new section into the Word Document
@@ -1051,7 +804,8 @@ MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
