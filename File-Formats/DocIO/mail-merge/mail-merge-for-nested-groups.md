@@ -435,7 +435,7 @@ You can perform nested Mail merge with implicit relational data objects without 
 
 For example, Consider that you have a template document as follows.
 
-![Nested Mail merge](MailMerge_images/MailMerge_img6.jpeg)
+![Nested Mail merge](../MailMerge_images/MailMerge_img6.jpeg)
 
 In this template, Employees is the owner group and it has two child groups Customers and Orders.
 The following code example shows how to perform nested Mail merge with the relational business objects.
@@ -1053,4 +1053,4 @@ public class OrderDetails
 
 The resultant document looks as follows.
 
-![Nested Mail merge resultant document](MailMerge_images/MailMerge_img7.jpeg)
+![Nested Mail merge resultant document](../MailMerge_images/MailMerge_img7.jpeg)
