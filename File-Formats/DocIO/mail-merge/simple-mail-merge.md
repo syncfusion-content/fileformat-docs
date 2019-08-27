@@ -1,0 +1,301 @@
+---
+title: Simple Mail merge | Word library (DocIO) | Syncfusion
+description: This section illustrates how to Mail merge - replace all merge fields in a document with data, by repeating whole document for each record in data source.
+platform: file-formats
+control: DocIO
+documentation: UG
+---
+
+# Simple Mail merge
+
+The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
+
+The following code example shows how to create a Word template document with merge fields.
+
+{% tabs %}  
+
+{% highlight c# %}
+//Creates an instance of a WordDocument 
+WordDocument document = new WordDocument();
+//Adds one section and one paragraph to the document
+document.EnsureMinimal();
+//Sets page margins to the last section of the document
+document.LastSection.PageSetup.Margins.All = 72;
+//Appends text to the last paragraph.
+document.LastParagraph.AppendText("EmployeeId: ");
+//Appends merge field to the last paragraph.
+document.LastParagraph.AppendField("EmployeeId", FieldType.FieldMergeField);
+document.LastParagraph.AppendText("\nName: ");
+document.LastParagraph.AppendField("Name", FieldType.FieldMergeField);
+document.LastParagraph.AppendText("\nPhone: ");
+document.LastParagraph.AppendField("Phone", FieldType.FieldMergeField);
+document.LastParagraph.AppendText("\nCity: ");
+document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
+//Saves and closes the WordDocument instance.
+document.Save("Template.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Creates an instance of a WordDocument 
+Dim document As New WordDocument()
+'Adds one section and one paragraph to the document
+document.EnsureMinimal()
+'Sets page margins to the last section of the document
+document.LastSection.PageSetup.Margins.All = 72
+'Appends text to the last paragraph.
+document.LastParagraph.AppendText("EmployeeId: ")
+'Appends merge field to the last paragraph.
+document.LastParagraph.AppendField("EmployeeId", FieldType.FieldMergeField)
+document.LastParagraph.AppendText(vbLf & "Name: ")
+document.LastParagraph.AppendField("Name", FieldType.FieldMergeField)
+document.LastParagraph.AppendText(vbLf & "Phone: ")
+document.LastParagraph.AppendField("Phone", FieldType.FieldMergeField)
+document.LastParagraph.AppendText(vbLf & "City: ")
+document.LastParagraph.AppendField("City", FieldType.FieldMergeField)
+'Saves and closes the WordDocument instance.
+document.Save("Template.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+private async void OnButtonClicked(object sender, RoutedEventArgs e)
+{
+	//Creates an instance of a WordDocument
+	WordDocument document = new WordDocument();
+	//Adds one section and one paragraph to the document
+	document.EnsureMinimal();
+	//Sets page margins to the last section of the document
+	document.LastSection.PageSetup.Margins.All = 72;
+	//Appends text to the last paragraph
+	document.LastParagraph.AppendText("EmployeeId: ");
+	//Appends merge field to the last paragraph
+	document.LastParagraph.AppendField("EmployeeId", FieldType.FieldMergeField);
+	document.LastParagraph.AppendText("\nName: ");
+	document.LastParagraph.AppendField("Name", FieldType.FieldMergeField);
+	document.LastParagraph.AppendText("\nPhone: ");
+	document.LastParagraph.AppendField("Phone", FieldType.FieldMergeField);
+	document.LastParagraph.AppendText("\nCity: ");
+	document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
+	//Saves the Word file to MemoryStream
+	MemoryStream stream = new MemoryStream();
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Template.docx");
+	document.Close();
+}
+
+//Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			//Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
+	//Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Creates an instance of a WordDocument 
+WordDocument document = new WordDocument();
+//Adds one section and one paragraph to the document
+document.EnsureMinimal();
+//Sets page margins to the last section of the document
+document.LastSection.PageSetup.Margins.All = 72;
+//Appends text to the last paragraph.
+document.LastParagraph.AppendText("EmployeeId: ");
+//Appends merge field to the last paragraph.
+document.LastParagraph.AppendField("EmployeeId", FieldType.FieldMergeField);
+document.LastParagraph.AppendText("\nName: ");
+document.LastParagraph.AppendField("Name", FieldType.FieldMergeField);
+document.LastParagraph.AppendText("\nPhone: ");
+document.LastParagraph.AppendField("Phone", FieldType.FieldMergeField);
+document.LastParagraph.AppendText("\nCity: ");
+document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Template.docx");
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Creates an instance of a WordDocument
+WordDocument document = new WordDocument();
+//Adds one section and one paragraph to the document
+document.EnsureMinimal();
+//Sets page margins to the last section of the document
+document.LastSection.PageSetup.Margins.All = 72;
+//Appends text to the last paragraph
+document.LastParagraph.AppendText("EmployeeId: ");
+//Appends merge field to the last paragraph
+document.LastParagraph.AppendField("EmployeeId", FieldType.FieldMergeField);
+document.LastParagraph.AppendText("\nName: ");
+document.LastParagraph.AppendField("Name", FieldType.FieldMergeField);
+document.LastParagraph.AppendText("\nPhone: ");
+document.LastParagraph.AppendField("Phone", FieldType.FieldMergeField);
+document.LastParagraph.AppendText("\nCity: ");
+document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
+//Closes the document 
+document.Close();
+{% endhighlight %}
+
+{% endtabs %}  
+
+The generated template document looks as follows.
+
+![Template document](../MailMerge_images/MailMerge_img2.jpeg)
+
+The following code example shows how to perform a simple Mail merge in the generated template document with string array as data source.
+
+{% tabs %}  
+
+{% highlight c# %}
+//Opens the template document
+WordDocument document = new WordDocument("Template.docx");
+string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City" };
+string[] fieldValues = new string[] { "1001", "Peter", "+122-2222222", "London" };
+//Performs the mail merge
+document.MailMerge.Execute(fieldNames, fieldValues);
+//Saves and closes the WordDocument instance
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Opens the template document
+Dim document As New WordDocument("Template.docx")
+Dim fieldNames As String() = New String() {"EmployeeId", "Name", "Phone", "City"}
+Dim fieldValues As String() = New String() {"1001", "Peter", "+122-2222222", "London"}
+'Performs the mail merge
+document.MailMerge.Execute(fieldNames, fieldValues)
+'Saves and closes the WordDocument instance
+document.Save("Sample.docx", FormatType.Docx)
+document.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+private async void OnButtonClicked(object sender, RoutedEventArgs e)
+{
+	//Creates an instance of a WordDocument
+	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+	WordDocument document = new WordDocument();
+	document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+	string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City" };
+	string[] fieldValues = new string[] { "1001", "Peter", "+122-2222222", "London" };
+	//Performs the mail merge
+	document.MailMerge.Execute(fieldNames, fieldValues);
+	//Saves the Word file to MemoryStream
+	MemoryStream stream = new MemoryStream();
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Sample.docx");
+	document.Close();
+}
+
+//Saves the Word document
+async void Save(MemoryStream streams, string filename)
+{
+	streams.Position = 0;
+	StorageFile stFile;
+	if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			//Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
+	//Launch the saved Word file
+	await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Opens the template document
+FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City" };
+string[] fieldValues = new string[] { "1001", "Peter", "+122-2222222", "London" };
+//Performs the mail merge
+document.MailMerge.Execute(fieldNames, fieldValues);
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Opens the template document
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City" };
+string[] fieldValues = new string[] { "1001", "Peter", "+122-2222222", "London" };
+//Performs the mail merge
+document.MailMerge.Execute(fieldNames, fieldValues);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+//Closes the document 
+document.Close();
+{% endhighlight %}
+
+{% endtabs %}  
+
+The resultant document looks as follows.
+
+![Resultant document](../MailMerge_images/MailMerge_img3.jpeg)
