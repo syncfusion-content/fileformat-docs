@@ -30,7 +30,7 @@ The mail merge process involves three documents,
 
 You can create a template document with Merge fields by using the Microsoft Word. The following screenshot shows how to insert a merge filed in the Word document by using the Microsoft Word.
 
-![Word document template](../MailMerge_images/MailMerge_template.png)
+![Word template document](MailMerge_images/MailMerge_template.png)
 
 You need to add a prefix (“Image:”) to the merge field name for merging an image in the place of a merge field.
 
@@ -212,7 +212,7 @@ document.Close();
 
 By executing the above code example, it generates the resultant Word document as follows.
 
-![Mail merge Word document](../MailMerge_images/MailMerge_output.png")
+![Mail merge Word document](MailMerge_images/MailMerge_output.png)
 
 ## Simple Mail merge
 
