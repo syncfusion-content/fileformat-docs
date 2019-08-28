@@ -16,12 +16,17 @@ You can perform Mail merge and append multiple records from data source within a
   1.TableStart and TableEnd region is preferred for performing Mail merge inside the table cell.
   
   2.BeginGroup and EndGroup region is preferred for performing Mail merge inside the document body contents.
+
+
+## How to create template for group mail merge
   
 For example, consider that you have a template document as shown.
 
-![Mail merge for a group](../MailMerge_images/MailMerge_img4.jpeg)
+![Mail merge for a group](../MailMerge_images/Group_mail_merge_template.png)
 
 In this template, Employees is the group name and the same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees” to denote the start and end of the Mail merge group.
+
+## How to execute group mail merge
 
 The `MailMerge` class provides various overloads for `ExecuteGroup` method to perform Mail merge within a group from various data sources. The following code example shows how to perform Mail merge in the specific region with data source retrieved from SQL connection.
 
@@ -70,7 +75,8 @@ The following code example provides supporting methods for the above code.
 {% highlight c# %}
 private DataTable GetDataTable()
 {
-    SqlCeConnection conn = new SqlCeConnection("Data Source = " + datasourceName);
+    DataSet dataset = new DataSet();
+	SqlCeConnection conn = new SqlCeConnection("Data Source = " + datasourceName);
     conn.Open();
     SqlCeDataAdapter adapter = new SqlCeDataAdapter("Select TOP(5) * from EmployeesReport", conn);
     adapter.Fill(dataset);
@@ -85,6 +91,7 @@ private DataTable GetDataTable()
 
 {% highlight vb.net %}
 Private Function GetDataTable() As DataTable
+	Dim dataset As DataSet = New DataSet
 	Dim conn As New SqlCeConnection("Data Source = " + datasourceName)
 	conn.Open()
 	Dim adapter As New SqlCeDataAdapter("Select TOP(5) * from EmployeesReport", conn)
@@ -114,7 +121,7 @@ End Function
 
 The resultant document looks as follows.
 
-![Group resultant document](../MailMerge_images/MailMerge_img5.jpeg)
+![Group resultant document](../MailMerge_images/Group_mail_merge_output.png)
 
 ## Mail merge with business objects
 
