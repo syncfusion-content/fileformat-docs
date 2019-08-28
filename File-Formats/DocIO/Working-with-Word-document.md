@@ -936,6 +936,7 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 	//Please refer the below link to save Word document in UWP platform
 	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 	document.Close();
+	clonedDocument.Close();
 }
 {% endhighlight %}
 
@@ -949,6 +950,8 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Autom
 	MemoryStream stream = new MemoryStream();
 	//Saves and closes the cloned document instance
 	clonedDocument.Save(stream, FormatType.Docx);
+	//Closes the document
+	document.Close();
 	clonedDocument.Close();
 	stream.Position = 0;
 	//Download Word document in the browser
@@ -966,6 +969,8 @@ using (WordDocument document = new WordDocument(assembly.GetManifestResourceStre
 	clonedDocument.Save(stream, FormatType.Docx);
 	//Save the stream as a file in the device and invoke it for viewing
 	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWordDoc.docx", "application/msword", stream);
+	//Closes the document
+	clonedDocument.Close();
     document.Close();
 	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin

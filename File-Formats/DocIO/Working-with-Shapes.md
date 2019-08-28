@@ -591,6 +591,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word document file in local machine
 Save(stream, "GroupSahpe.docx");
+//Closes the document
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -1062,6 +1064,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word document file in local machine
 Save(stream, "GroupSahpe.docx");
+//Closes the document
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -1564,6 +1568,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word document file in local machine
 Save(stream, "GroupSahpe.docx");
+//Closes the document
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -1833,6 +1839,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word document file in local machine
 Save(stream, "GroupSahpe.docx");
+//Closes the document
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}

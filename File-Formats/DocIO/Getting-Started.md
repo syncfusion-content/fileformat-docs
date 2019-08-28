@@ -155,6 +155,8 @@ document.LastParagraph.AppendText("Hello World");
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -979,6 +981,8 @@ foreach (TextSelection selection in textSelection)
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStartedSample.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -1192,6 +1196,8 @@ document.MailMerge.ExecuteGroup(dataSource);
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
@@ -1211,6 +1217,8 @@ document.MailMerge.ExecuteGroup(dataSource);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -1636,4 +1644,3 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.pdf", "applicat
 N> 
 When the ChartToImageConverter object is not initialized, then the charts in Word document gets skipped during Word to PDF conversion.
 ChartToImageConverter is supported from .NET Framework 4.0 onwards
-

@@ -1747,6 +1747,8 @@ chart.Legend.Layout.TopMode = LayoutModes.edge;
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
+//Closes the document
+document.Close();
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
@@ -2226,6 +2228,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
+//Closes the document
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -2249,6 +2253,8 @@ foreach (ParagraphItem item in paragraph.ChildEntities)
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 stream.Position = 0;
+//Closes the document
+document.Close();
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
@@ -2271,6 +2277,8 @@ foreach (ParagraphItem item in paragraph.ChildEntities)
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform

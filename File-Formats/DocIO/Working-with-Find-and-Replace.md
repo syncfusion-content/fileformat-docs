@@ -84,6 +84,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
+//Closes the document
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -109,6 +111,8 @@ range.CharacterFormat.Bold = true;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
@@ -135,6 +139,8 @@ range.CharacterFormat.Bold = true;
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -197,6 +203,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
+//Closes the document
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -216,6 +224,8 @@ foreach (TextSelection textSelection in textSelections)
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
@@ -236,6 +246,8 @@ foreach (TextSelection textSelection in textSelections)
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -327,6 +339,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
+//Closes the document
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -356,6 +370,8 @@ foreach (TextSelection textSelection in textSelections)
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
@@ -386,6 +402,8 @@ foreach (TextSelection textSelection in textSelections)
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -445,6 +463,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Replace.docx");
+//Closes the document
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -462,6 +482,8 @@ document.Replace("paragraph", bodyPart, false, true, true);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Replace.docx");
@@ -480,6 +502,8 @@ document.Replace("paragraph", bodyPart, false, true, true);
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -543,6 +567,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Replace.docx");
+//Closes the document
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -562,6 +588,8 @@ document.Replace("paragraph", bodyPart, false, true, true);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Replace.docx");
@@ -582,6 +610,8 @@ document.Replace("paragraph", bodyPart, false, true, true);
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -631,6 +661,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
+//Closes the document
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -647,6 +679,8 @@ document.Replace("paragraph", replaceDocument, false, true, true);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
@@ -663,6 +697,8 @@ document.Replace("paragraph", replaceDocument, false, true, true);
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -708,6 +744,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "Replace.docx");
+//Closes the document
+document.Close();
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -721,6 +759,8 @@ document.ReplaceSingleLine("First paragraph Second paragraph", "Replaced paragra
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Replace.docx");
@@ -735,6 +775,8 @@ document.ReplaceSingleLine("First paragraph Second paragraph", "Replaced paragra
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Replace.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform

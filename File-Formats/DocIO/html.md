@@ -152,10 +152,10 @@ bool isValidHtml = document.LastSection.Body.IsValidXHTML(htmlstring, XHTMLValid
 //When the Html string passes validation, it is inserted to the document
 if (isValidHtml)
 {
-//Appends Html string as first item of the second paragraph in the document
-document.Sections[0].Body.InsertXHTML(htmlstring, 2, 0);
-//Appends the Html string to first paragraph in the document
-document.Sections[0].Body.Paragraphs[0].AppendHTML(htmlstring);
+	//Appends Html string as first item of the second paragraph in the document
+	document.Sections[0].Body.InsertXHTML(htmlstring, 2, 0);
+	//Appends the Html string to first paragraph in the document
+	document.Sections[0].Body.Paragraphs[0].AppendHTML(htmlstring);
 }
 //Saves and closes the document
 document.Save("Sample.docx");
@@ -171,10 +171,10 @@ Dim htmlstring As String = "<p><b>This text is inserted as HTML string.</b></p>"
 Dim isValidHtmlAs Boolean = document.LastSection.Body.IsValidXHTML(htmlstring, XHTMLValidationType.Transitional)
 'When the Html string passes validation, it is inserted to document
 If isValidHtmlThen
-'Appends Html string as first item of the second paragraph in the document
-document.Sections(0).Body.InsertXHTML(htmlstring, 2, 0)
-'Appends the Html string to first paragraph in the document
-document.Sections(0).Body.Paragraphs(0).AppendHTML(htmlstring)
+	'Appends Html string as first item of the second paragraph in the document
+	document.Sections(0).Body.InsertXHTML(htmlstring, 2, 0)
+	'Appends the Html string to first paragraph in the document
+	document.Sections(0).Body.Paragraphs(0).AppendHTML(htmlstring)
 End If
 'Saves and closes the document
 document.Save("Sample.docx")

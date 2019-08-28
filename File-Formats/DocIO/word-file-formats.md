@@ -293,7 +293,7 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),

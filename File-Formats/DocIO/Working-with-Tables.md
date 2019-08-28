@@ -210,6 +210,8 @@ textRange.CharacterFormat.FontSize = 10;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Table.docx");
@@ -569,6 +571,8 @@ cell.AddParagraph().AppendText("70");
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Table.docx");
@@ -833,6 +837,8 @@ table[2, 1].AddParagraph().AppendText("70");
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "NestedTable.docx");
@@ -1158,6 +1164,8 @@ row.HeightType = TableRowHeightType.AtLeast;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "TableFormatting.docx");
@@ -1377,6 +1385,8 @@ cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "TableCellFormatting.docx");
@@ -1491,6 +1501,8 @@ table.ApplyStyle(BuiltinTableStyle.LightShading);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "TableStyle.docx");
@@ -1626,6 +1638,8 @@ table.ApplyStyleForLastRow = false;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "TableStyle.docx");
@@ -1730,6 +1744,8 @@ table.ApplyHorizontalMerge(2, 1, 4);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "HorizontalMerge.docx");
@@ -1819,6 +1835,8 @@ table.ApplyVerticalMerge(2, 1, 4);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "VerticalMerge.docx");
@@ -1944,6 +1962,8 @@ table[0, 1].CellFormat.HorizontalMerge = CellMerge.Continue;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "HorizontalMerge.docx");
@@ -2078,6 +2098,8 @@ table[1, 0].CellFormat.VerticalMerge = CellMerge.Continue;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "VerticalMerge.docx");
@@ -2224,6 +2246,8 @@ for (int i = 1; i < 50; i++)
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "TableWithHeaderRow.docx");
@@ -2326,6 +2350,8 @@ foreach (WTableRow row in table.Rows)
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
@@ -2461,6 +2487,8 @@ foreach (WTableRow row in table.Rows)
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");

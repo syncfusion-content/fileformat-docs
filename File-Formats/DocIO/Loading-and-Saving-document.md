@@ -418,6 +418,8 @@ using (WordDocument document = new WordDocument())
 	MemoryStream stream = new MemoryStream();
 	//Saves the document to stream
 	document.Save(stream, FormatType.Docx);
+	//Closes the document
+	document.Close();
 	stream.Position = 0;
 	//Download Word document in the browser
 	return File(stream, "application/msword", "Result.docx");
@@ -440,6 +442,8 @@ using (WordDocument document = new WordDocument())
 	MemoryStream stream = new MemoryStream();
 	//Saves the document to stream
 	document.Save(stream, FormatType.Docx);
+	//Closes the document
+	document.Close();
 	//Save the stream as a file in the device and invoke it for viewing
 	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 }

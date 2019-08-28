@@ -103,6 +103,8 @@ document.TrackChanges = true;
 //Saves the Word document to  MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
@@ -125,8 +127,10 @@ text.CharacterFormat.FontSize = 12;
 //Turns on the track changes option
 document.TrackChanges = true;
 MemoryStream stream = new MemoryStream();
-//Saves the Word document to  MemoryStream
+//Saves the Word document to MemoryStream
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
@@ -189,6 +193,8 @@ if (document.HasChanges)
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "TrackChanges_Sample.docx");
@@ -204,6 +210,8 @@ if (document.HasChanges)
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TrackChanges_Sample.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
