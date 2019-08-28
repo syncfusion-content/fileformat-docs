@@ -433,7 +433,7 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 
 You can perform nested Mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method.
 
-For example, Consider that you have a template document as follows.
+For example, consider that you have a template document as follows.
 
 ![Nested Mail merge](../MailMerge_images/MailMerge_img6.jpeg)
 

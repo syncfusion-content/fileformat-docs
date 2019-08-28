@@ -8,6 +8,10 @@ documentation: UG
 
 # Simple Mail merge
 
+You can create a Word document template using Microsoft Word application or by adding merge fields in the Word document programmatically. For further information, click [here](https://help.syncfusion.com/file-formats/docio/working-with-mail-merge#how-to-create-word-document-template).
+
+## Mail merge with string arrays
+
 The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
 
 The following code example shows how to create a Word template document with merge fields.
@@ -176,7 +180,7 @@ document.Close();
 
 The generated template document looks as follows.
 
-![Template document](../MailMerge_images/MailMerge_img2.jpeg)
+![Word document template](../MailMerge_images/Simple_mail_merge_template.png)
 
 The following code example shows how to perform a simple Mail merge in the generated template document with string array as data source.
 
@@ -298,4 +302,4 @@ document.Close();
 
 The resultant document looks as follows.
 
-![Resultant document](../MailMerge_images/MailMerge_img3.jpeg)
+![Mail merged Word document](../MailMerge_images/Simple_mail_merge_output.png)
