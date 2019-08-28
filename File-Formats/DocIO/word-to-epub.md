@@ -52,6 +52,8 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.EPub);
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.epub");
+//Closes the document
+document.Close();
 
 //Saves the Word document
 async void Save(MemoryStream streams, string filename)

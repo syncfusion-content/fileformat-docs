@@ -345,7 +345,7 @@ stream.Position = 0;
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Closes the document
 document.Close();
-//Please download the helper files from the below link to save the stream as file and to open the file for viewing in Xamarin platform.
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin 
 {% endhighlight %}
 
@@ -418,6 +418,8 @@ using (WordDocument document = new WordDocument())
 	MemoryStream stream = new MemoryStream();
 	//Saves the document to stream
 	document.Save(stream, FormatType.Docx);
+	//Closes the document
+	document.Close();
 	stream.Position = 0;
 	//Download Word document in the browser
 	return File(stream, "application/msword", "Result.docx");
@@ -440,10 +442,12 @@ using (WordDocument document = new WordDocument())
 	MemoryStream stream = new MemoryStream();
 	//Saves the document to stream
 	document.Save(stream, FormatType.Docx);
+	//Closes the document
+	document.Close();
 	//Save the stream as a file in the device and invoke it for viewing
 	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 }
-//Please download the helper files from the below link to save the stream as file and to open the file for viewing in Xamarin platform.
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin 
 {% endhighlight %}
 
@@ -564,7 +568,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 Save(stream, "Result.docx");
 //Closes the document
 document.Close();
-//Please refer the below link to save Word document in UWP platform.
+//Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
@@ -611,7 +615,7 @@ using (WordDocument document = new WordDocument())
 	//Closes the document
 	document.Close();
 }
-//Please download the helper files from the below link to save the stream as file and to open the file for viewing in Xamarin platform.
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin 
 {% endhighlight %}
 
