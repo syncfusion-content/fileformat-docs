@@ -373,6 +373,8 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -511,6 +513,8 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -871,6 +875,8 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output_1.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -985,7 +991,7 @@ pptxDoc.Close();
 
 {% highlight XAMARIN %}
 
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
@@ -1001,7 +1007,7 @@ IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 //Refreshes the chart
 chart.Refresh();
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
 
 //Save Presentation in stream format.
@@ -1017,6 +1023,8 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -1169,7 +1177,7 @@ pptxDoc.Close();
 
 {% highlight XAMARIN %}
 
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
@@ -1196,22 +1204,24 @@ chart.ChartData.SetValue(2, 4, 80);
 //Refreshes the chart
 chart.Refresh();
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
 
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
 
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -1264,10 +1274,10 @@ chart.Series[0].Name = "Modified series name";
 //Hides the category labels
 chart.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNone;
 
-//Shows Data Table.
+//Shows Data Table
 chart.HasDataTable = true;
 
-//Formats Chart Area.
+//Formats Chart Area
 IOfficeChartFrameFormat chartArea = chart.ChartArea;
 
 //Chart Area Border Settings
@@ -1289,7 +1299,7 @@ chartArea.Fill.FillType = OfficeFillType.Gradient;
 //Two Color
 chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
 
-//Sets two colors.
+//Sets two colors
 chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 chartArea.Fill.ForeColor = Color.White;
 
@@ -1351,10 +1361,10 @@ chart__2.Series(0).Name = "Modified series name"
 'Hides the category labels
 chart__2.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNone
 
-'Shows Data Table.
+'Shows Data Table
 chart__2.HasDataTable = True
 
-'Formats Chart Area.
+'Formats Chart Area
 Dim chartArea As IOfficeChartFrameFormat = chart__2.ChartArea
 
 'Chart Area Border Settings
@@ -1376,7 +1386,7 @@ chartArea.Fill.FillType = OfficeFillType.Gradient
 'Two Color
 chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor
 
-'Sets two colors.
+'Sets two colors
 chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
 chartArea.Fill.ForeColor = Color.White
 
@@ -1400,7 +1410,7 @@ chartPlotArea.Fill.FillType = OfficeFillType.Gradient
 'Two Color
 chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor
 
-'Sets two colors.
+'Sets two colors
 chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234)
 chartPlotArea.Fill.ForeColor = Color.White
 
@@ -1438,10 +1448,10 @@ chart.Series[0].Name = "Modified series name";
 //Hides the category labels
 chart.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNone;
 
-//Shows Data Table.
+//Shows Data Table
 chart.HasDataTable = true;
 
-//Formats Chart Area.
+//Formats Chart Area
 IOfficeChartFrameFormat chartArea = chart.ChartArea;
 
 //Chart Area Border Settings
@@ -1456,15 +1466,13 @@ chartArea.Border.LineColor = Color.Blue;
 chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
 //Chart Area Settings
-
 //Fill Effects
 chartArea.Fill.FillType = OfficeFillType.Gradient;
 
 //Two Color
 chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
 
-//Sets two colors.
-
+//Sets two colors
 chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 chartArea.Fill.ForeColor = Color.White;
 
@@ -1488,8 +1496,7 @@ chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
 //Two Color
 chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
 
-//Sets two colors.
-
+//Sets two colors
 chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 chartPlotArea.Fill.ForeColor = Color.White;
 
@@ -1504,7 +1511,6 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -1534,14 +1540,13 @@ chart.Series[0].Name = "Modified series name";
 //Hides the category labels
 chart.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNone;
 
-//Shows Data Table.
+//Shows Data Table
 chart.HasDataTable = true;
 
-//Formats Chart Area.
+//Formats Chart Area
 IOfficeChartFrameFormat chartArea = chart.ChartArea;
 
 //Chart Area Border Settings
-
 //Style           
 chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 
@@ -1552,14 +1557,13 @@ chartArea.Border.LineColor = Color.Blue;
 chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
 //Chart Area Settings
-
 //Fill Effects
 chartArea.Fill.FillType = OfficeFillType.Gradient;
 
 //Two Color
 chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
 
-//Sets two colors.
+//Sets two colors
 chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 chartArea.Fill.ForeColor = Color.White;
 
@@ -1567,7 +1571,6 @@ chartArea.Fill.ForeColor = Color.White;
 IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
 
 //Plots Area Border Settings
-
 //Style
 chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 
@@ -1583,7 +1586,7 @@ chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
 //Two Color
 chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
 
-//Sets two colors.
+//Sets two colors
 chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 chartPlotArea.Fill.ForeColor = Color.White;
 
@@ -1593,12 +1596,10 @@ pptxDoc.Save(outputStream);
 
 //Closes the Presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
@@ -1626,11 +1627,10 @@ chart.Series[0].Name = "Modified series name";
 //Hides the category labels
 chart.CategoryLabelLevel = OfficeCategoriesLabelLevel.CategoriesLabelLevelNone;
 
-//Formats Chart Area.
+//Formats Chart Area
 IOfficeChartFrameFormat chartArea = chart.ChartArea;
 
 //Chart Area Border Settings
-
 //Style           
 chartArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 
@@ -1641,14 +1641,13 @@ chartArea.Border.LineColor = Color.Blue;
 chartArea.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
 //Chart Area Settings
-
 //Fill Effects
 chartArea.Fill.FillType = OfficeFillType.Gradient;
 
 //Two Color
 chartArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
 
-//Sets two colors.
+//Sets two colors
 chartArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 chartArea.Fill.ForeColor = Color.White;
 
@@ -1656,7 +1655,6 @@ chartArea.Fill.ForeColor = Color.White;
 IOfficeChartFrameFormat chartPlotArea = chart.PlotArea;
 
 //Plots Area Border Settings
-
 //Style
 chartPlotArea.Border.LinePattern = OfficeChartLinePattern.Solid;
 
@@ -1672,11 +1670,11 @@ chartPlotArea.Fill.FillType = OfficeFillType.Gradient;
 //Two Color
 chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
 
-//Sets two colors.
+//Sets two colors
 chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 chartPlotArea.Fill.ForeColor = Color.White;
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
 
 //Save Presentation in stream format.
@@ -1686,12 +1684,14 @@ pptxDoc.Save(stream);
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -2136,7 +2136,7 @@ pptxDoc.Close();
 
 {% highlight XAMARIN %}
 
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
@@ -2239,7 +2239,7 @@ chart.Legend.Layout.WidthMode = LayoutModes.factor;
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
 
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
 
 //Close the presentation
@@ -2252,6 +2252,8 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("ModifiedChart.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -2281,28 +2283,22 @@ chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
 
-//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
-
-//Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
-
+//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element
+//Factor: Specifies the width or Height to be interpreted as the width or height of the chart element
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 
 //Value in points should not be negative value when LayoutMode is Edge
-
-//It can be a negative value, when the LayoutMode is Factor.
-
+//It can be a negative value, when the LayoutMode is Factor
 chart.ChartTitleArea.Layout.Left = 10;
 chart.ChartTitleArea.Layout.Top = 100;
 
 //Manually positions chart plot area
-
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer;
 chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
 chart.PlotArea.Layout.TopMode = LayoutModes.edge;
 
 //Manually positions chart legend 
-
 chart.Legend.Layout.LeftMode = LayoutModes.factor;
 chart.Legend.Layout.TopMode = LayoutModes.factor;
 
@@ -2333,28 +2329,22 @@ chart.ChartData.SetValue(3, 2, 490)
 chart.ChartData.SetValue(4, 2, 700)
 chart.ChartType = OfficeChartType.Area
 
-'Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
-
-'Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
-
+'Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element
+'Factor: Specifies the width or Height to be interpreted as the width or height of the chart element
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto
 chart.PlotArea.Layout.TopMode = LayoutModes.factor
 
 'Value in points should not be negative value, when LayoutMode is Edge
-
-'It can be negative value, when the LayoutMode is Factor.
-
+'It can be negative value, when the LayoutMode is Factor
 chart.ChartTitleArea.Layout.Left = 10
 chart.ChartTitleArea.Layout.Top = 100
 
 'Manually positions chart plot area
-
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer
 chart.PlotArea.Layout.LeftMode = LayoutModes.edge
 chart.PlotArea.Layout.TopMode = LayoutModes.edge
 
 'Manually positions chart legend
-
 chart.Legend.Layout.LeftMode = LayoutModes.factor
 chart.Legend.Layout.TopMode = LayoutModes.factor
 
@@ -2385,28 +2375,22 @@ chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
 
-//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
-
-//Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
-
+//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element
+//Factor: Specifies the width or Height to be interpreted as the width or height of the chart element
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 
 //Value in points should not be negative value when LayoutMode is Edge
-
-//It can be a negative value, when the LayoutMode is Factor.
-
+//It can be a negative value, when the LayoutMode is Factor
 chart.ChartTitleArea.Layout.Left = 10;
 chart.ChartTitleArea.Layout.Top = 100;
 
 //Manually positions chart plot area
-
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer;
 chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
 chart.PlotArea.Layout.TopMode = LayoutModes.edge;
 
 //Manually positions chart legend 
-
 chart.Legend.Layout.LeftMode = LayoutModes.factor;
 chart.Legend.Layout.TopMode = LayoutModes.factor;
 
@@ -2443,28 +2427,22 @@ chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
 
-//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
-
-//Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
-
+//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element
+//Factor: Specifies the width or Height to be interpreted as the width or height of the chart element
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 
 //Value in points should not be negative value when LayoutMode is Edge
-
-//It can be a negative value, when the LayoutMode is Factor.
-
+//It can be a negative value, when the LayoutMode is Factor
 chart.ChartTitleArea.Layout.Left = 10;
 chart.ChartTitleArea.Layout.Top = 100;
 
 //Manually positions chart plot area
-
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer;
 chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
 chart.PlotArea.Layout.TopMode = LayoutModes.edge;
 
 //Manually positions chart legend 
-
 chart.Legend.Layout.LeftMode = LayoutModes.factor;
 chart.Legend.Layout.TopMode = LayoutModes.factor;
 
@@ -2496,47 +2474,43 @@ chart.ChartData.SetValue(3, 2, 490);
 chart.ChartData.SetValue(4, 2, 700);
 chart.ChartType = OfficeChartType.Area;
 
-//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element.
-
-//Factor: Specifies the width or Height to be interpreted as the width or height of the chart element.
-
+//Edge: Specifies the width or Height to be interpreted as right or bottom of the chart element
+//Factor: Specifies the width or Height to be interpreted as the width or height of the chart element
 chart.PlotArea.Layout.LeftMode = LayoutModes.auto;
 chart.PlotArea.Layout.TopMode = LayoutModes.factor;
 
 //Value in points should not be negative value when LayoutMode is Edge
-
 //It can be a negative value, when the LayoutMode is Factor.
-
 chart.ChartTitleArea.Layout.Left = 10;
 chart.ChartTitleArea.Layout.Top = 100;
 
 //Manually positions chart plot area
-
 chart.PlotArea.Layout.LayoutTarget = LayoutTargets.outer;
 chart.PlotArea.Layout.LeftMode = LayoutModes.edge;
 chart.PlotArea.Layout.TopMode = LayoutModes.edge;
 
-//Manually positions chart legend 
-
+//Manually positions chart legend
 chart.Legend.Layout.LeftMode = LayoutModes.factor;
 chart.Legend.Layout.TopMode = LayoutModes.factor;
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
 
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
 
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -2689,7 +2663,7 @@ pptxDoc.Close();
 
 {% highlight XAMARIN %}
 
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
@@ -2717,19 +2691,21 @@ chart.BackWall.Border.LineWeight = OfficeChartLineWeight.Narrow;
 //Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
 
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
 
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -2928,7 +2904,7 @@ pptxDoc.Close();
 
 {% highlight XAMARIN %}
 
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
@@ -2944,22 +2920,24 @@ IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 //Removes the chart from slide
 slide.Shapes.Remove(chart as IShape);
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
 
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
 
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -3209,22 +3187,24 @@ IOfficeChartSerie serie = chart.Series[0];
 serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;  
 serie.DataPoints.DefaultDataPoint.DataLabels.IsCategoryName = true; 
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
 
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
 
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -3465,22 +3445,24 @@ IOfficeChartSerie serie = chart.Series[0];
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
 
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
 
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("FunnelChart.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("FunnelChart.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -4085,23 +4067,25 @@ private static void TestBox_Whisker()
 	  seriesC.SerieFormat.ShowMeanLine = false;
 	  seriesC.SerieFormat.QuartileCalculationType = QuartileCalculation.ExclusiveMedian;
 	  
-	  //Create new memory stream to save Presentation.
+	  //Create new memory stream to save Presentation
 	  MemoryStream stream = new MemoryStream();
 
-	  //Save Presentation in stream format.
+	  //Save Presentation in stream format
       pptxDoc.Save(stream);
 
       //Close the presentation
       pptxDoc.Close();
       stream.Position = 0;
 
-      //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+      //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
       if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 		Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("BoxAndWhisker.pptx.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
       else
 		Xamarin.Forms.DependencyService.Get<ISave>().Save("BoxAndWhisker.pptx.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
    }
 }
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 
 /// <summary>
 /// Set the values for the chart
@@ -4469,22 +4453,24 @@ chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
 chart.Legend.Position = OfficeLegendPosition.Right;
    
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
 
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
 
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("WaterFall.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("WaterFall.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-   
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -4729,22 +4715,24 @@ chart.PrimaryCategoryAxis.Title = "Height";
 //Hiding the legend
 chart.HasLegend = false;
    
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
 
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
 
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Histogram.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Histogram.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -4969,7 +4957,6 @@ IPresentation pptxDoc = Presentation.Create();
 
 //Adds a slide to Presentation
 ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 IPresentationChart chart = slide1.Charts.AddChart(50, 50, 500, 400);
 
 //Set chart type as Pareto
@@ -5008,21 +4995,22 @@ chart.ChartTitle = "Expenses";
 //Hiding the legend
 chart.HasLegend = false;
    
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
 //Save Presentation in stream format.
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ParetoChart.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("ParetoChart.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
+	
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}

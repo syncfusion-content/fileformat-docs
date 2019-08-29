@@ -94,7 +94,7 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -202,7 +202,7 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -385,7 +385,7 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -528,7 +528,7 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 	
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -695,7 +695,7 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -840,7 +840,7 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -972,7 +972,7 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 	
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -1096,7 +1096,7 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 	
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -1325,7 +1325,7 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
