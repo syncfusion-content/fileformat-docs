@@ -1,5 +1,5 @@
 ---
-title: Working with PowerPoint presentation
+title: Working with PowerPoint presentation |Syncfusion|
 description: Working with PowerPoint presentation; Cloning the Presentation; Printing the Presentation
 platform: file-formats
 control: Presentation
