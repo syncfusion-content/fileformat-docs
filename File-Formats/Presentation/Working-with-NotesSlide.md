@@ -1,5 +1,5 @@
 ---
-title: Working with Notes
+title: Working with Notes |Syncfusion|
 description: Working with Notes
 platform: file-formats 
 control: Presentation

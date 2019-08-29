@@ -1,5 +1,5 @@
 ---
-title: Working with lists in PowerPoint Presentation
+title: Working with lists in PowerPoint Presentation |Syncfusion|
 description: Working with lists in PowerPoint Presentation
 platform: file-formats
 control: Presentation

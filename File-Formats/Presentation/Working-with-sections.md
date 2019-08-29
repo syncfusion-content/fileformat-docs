@@ -1,5 +1,5 @@
 ---
-title: Working with sections in PowerPoint Presentation
+title: Working with sections in PowerPoint Presentation |Syncfusion|
 description: Working with sections in PowerPoint Presentation
 platform: file-formats
 control: Presentation

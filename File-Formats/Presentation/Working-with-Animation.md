@@ -1,5 +1,5 @@
 ---
-title: Working with Animations
+title: Working with Animations |Syncfusion|
 description: Working with Animations
 platform: Windows Forms, WPF, ASP.NET Web, ASP.NET MVC, ASP.NET Core, JavaScript, UWP and Xamarin.
 control: Essential Presentation
