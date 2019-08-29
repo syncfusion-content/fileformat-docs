@@ -2663,9 +2663,9 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-## How to change data point label color of a waterfall chart
+## How to change data point label color of a Waterfall chart
 
-The following code snippet shows how to change data point label color of a waterfall chart.
+The following code snippet shows how to change data point label color of a Waterfall chart.
 
 {% tabs %}
 {% highlight c# %}
