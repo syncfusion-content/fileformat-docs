@@ -2680,6 +2680,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IChartShape chart = sheet.Charts[0];
 
   //Changing first data point label color
+  chart.Series[0].DataPoints[0].DataLabels.IsValue = true;
   chart.Series[0].DataPoints[0].DataLabels.RGBColor = Color.Green;
 
   workbook.SaveAs("Waterfall.xlsx");
@@ -2697,6 +2698,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   Dim chart As IChartShape = sheet.Charts(0)
   
   'Changing first data point label color
+  chart.Series(0).DataPoints(0).DataLabels.IsValue = true
   chart.Series(0).DataPoints(0).DataLabels.RGBColor = Color.Green
 
   workbook.SaveAs("Waterfall.xlsx")
@@ -2724,6 +2726,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IChartShape chart = sheet.Charts[0];
 
   //Changing first data point label color
+  chart.Series[0].DataPoints[0].DataLabels.IsValue = true;
   chart.Series[0].DataPoints[0].DataLabels.RGBColor = Color.Green;
 
   //Initializes FileSavePicker
@@ -2753,6 +2756,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IChartShape chart = sheet.Charts[0];
 
   //Changing first data point label color
+  chart.Series[0].DataPoints[0].DataLabels.IsValue = true;
   chart.Series[0].DataPoints[0].DataLabels.RGBColor = Color.Green;
 
   //Saving the workbook as stream
@@ -2778,6 +2782,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
   IChartShape chart = sheet.Charts[0];
 
   //Changing first data point label color
+  chart.Series[0].DataPoints[0].DataLabels.IsValue = true;
   chart.Series[0].DataPoints[0].DataLabels.RGBColor = Color.Green;
 
   //Saving the workbook as stream
