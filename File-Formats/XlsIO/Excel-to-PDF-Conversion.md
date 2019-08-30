@@ -751,11 +751,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Excel to PDF conversion with Substitute Font
 
-XlsIO allows you to convert a workbook/worksheet with substitue font or font stream.
+XlsIO allows you to convert a workbook/worksheet with substitute font or font stream.
 
 Sometimes the specified font is not installed in the production environment for that we can use substitute font for that unsupported fonts with the option of AlternateFontName or AlternateFontStream.
 
-The following code illustrates how to substitue font for unsupported fonts.
+The following code illustrates how to substitute font for unsupported fonts.
 
 {% tabs %}
 {% highlight c# %}
