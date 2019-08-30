@@ -20,15 +20,15 @@ The following data sources are supported by Essential DocIO for performing Mail 
 
 The mail merge process involves three documents,
 
-1.**Template Word document** - This document contains the static/templated text and graphics along with merge fields (that are placeholders) for replacing dynamic data.
+1. **Template Word document** - This document contains the static/templated text and graphics along with merge fields (that are placeholders) for replacing dynamic data.
 
-2.**Data source** – This represents file or database containing data to replace the merge fields in template Word document.
+2. **Data source** – This represents file or database containing data to replace the merge fields in template Word document.
 
-3.**Final merged document** – This resultant document is a combination of the template word document and the data from data source.
+3. **Final merged document** – This resultant document is a combination of the template word document and the data from data source.
 
 ### How to create Word document template
 
-You can create a template document with Merge fields by using the Microsoft Word. The following screenshot shows how to insert a merge filed in the Word document by using the Microsoft Word.
+You can create a template document with Merge fields by using the Microsoft Word. The following screenshot shows how to insert a merge field in the Word document by using the Microsoft Word.
 
 ![Word template document](MailMerge_images/MailMerge_template.png)
 

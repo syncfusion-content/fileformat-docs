@@ -8,6 +8,10 @@ documentation: UG
 
 # Simple Mail merge
 
+You can create a Word document template using Microsoft Word application or by adding merge fields in the Word document programmatically. For further information, click [here](https://help.syncfusion.com/file-formats/docio/working-with-mail-merge#how-to-create-word-document-template).
+
+## Mail merge with string arrays
+
 The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
 
 The following code example shows how to create a Word template document with merge fields.
@@ -59,66 +63,32 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of a WordDocument
-	WordDocument document = new WordDocument();
-	//Adds one section and one paragraph to the document
-	document.EnsureMinimal();
-	//Sets page margins to the last section of the document
-	document.LastSection.PageSetup.Margins.All = 72;
-	//Appends text to the last paragraph
-	document.LastParagraph.AppendText("EmployeeId: ");
-	//Appends merge field to the last paragraph
-	document.LastParagraph.AppendField("EmployeeId", FieldType.FieldMergeField);
-	document.LastParagraph.AppendText("\nName: ");
-	document.LastParagraph.AppendField("Name", FieldType.FieldMergeField);
-	document.LastParagraph.AppendText("\nPhone: ");
-	document.LastParagraph.AppendField("Phone", FieldType.FieldMergeField);
-	document.LastParagraph.AppendText("\nCity: ");
-	document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Template.docx");
-	document.Close();
-}
+//Creates an instance of a WordDocument
+WordDocument document = new WordDocument();
+//Adds one section and one paragraph to the document
+document.EnsureMinimal();
+//Sets page margins to the last section of the document
+document.LastSection.PageSetup.Margins.All = 72;
+//Appends text to the last paragraph
+document.LastParagraph.AppendText("EmployeeId: ");
+//Appends merge field to the last paragraph
+document.LastParagraph.AppendField("EmployeeId", FieldType.FieldMergeField);
+document.LastParagraph.AppendText("\nName: ");
+document.LastParagraph.AppendField("Name", FieldType.FieldMergeField);
+document.LastParagraph.AppendText("\nPhone: ");
+document.LastParagraph.AppendField("Phone", FieldType.FieldMergeField);
+document.LastParagraph.AppendText("\nCity: ");
+document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+//Saves the stream as Word file in local machine
+Save(stream, "Template.docx");
 
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Refer to the following link to save Word document in UWP platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -141,6 +111,8 @@ document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Template.docx");
@@ -166,17 +138,20 @@ document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
-//Closes the document 
-document.Close();
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
 
 The generated template document looks as follows.
 
-![Template document](../MailMerge_images/MailMerge_img2.jpeg)
+![Word document template](../MailMerge_images/Simple_mail_merge_template.png)
 
 The following code example shows how to perform a simple Mail merge in the generated template document with string array as data source.
 
@@ -207,58 +182,24 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of a WordDocument
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	WordDocument document = new WordDocument();
-	document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-	string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City" };
-	string[] fieldValues = new string[] { "1001", "Peter", "+122-2222222", "London" };
-	//Performs the mail merge
-	document.MailMerge.Execute(fieldNames, fieldValues);
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Sample.docx");
-	document.Close();
-}
+//Creates an instance of a WordDocument
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument();
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City" };
+string[] fieldValues = new string[] { "1001", "Peter", "+122-2222222", "London" };
+//Performs the mail merge
+document.MailMerge.Execute(fieldNames, fieldValues);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
 
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Refer to the following link to save Word document in UWP platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -272,6 +213,8 @@ document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
@@ -288,14 +231,17 @@ document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Closes the document 
-document.Close();
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
 
 The resultant document looks as follows.
 
-![Resultant document](../MailMerge_images/MailMerge_img3.jpeg)
+![Mail merged Word document](../MailMerge_images/Simple_mail_merge_output.png)
