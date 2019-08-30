@@ -76,7 +76,7 @@ The following code example provides supporting methods for the above code.
 private DataTable GetDataTable()
 {
     DataSet dataset = new DataSet();
-	SqlCeConnection conn = new SqlCeConnection("Data Source = " + datasourceName);
+    SqlCeConnection conn = new SqlCeConnection("Data Source = " + datasourceName);
     conn.Open();
     SqlCeDataAdapter adapter = new SqlCeDataAdapter("Select TOP(5) * from EmployeesReport", conn);
     adapter.Fill(dataset);

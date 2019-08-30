@@ -82,9 +82,10 @@ document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Template.docx");
-document.Close();
 
 //Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
@@ -192,9 +193,10 @@ document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-document.Close();
 
 //Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
