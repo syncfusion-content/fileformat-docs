@@ -50,14 +50,15 @@ presentationDocument.Close()
 {% endhighlight %}
 
 {% highlight UWP}
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//Presentation supports encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//Presentation supports encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% endtabs %}
@@ -93,14 +94,15 @@ presentationDocument.Close()
 {% endhighlight %}
 
 {% highlight UWP}
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//Presentation supports encryption in Windows forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//Presentation supports encryption in Windows forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% endtabs %}
@@ -134,14 +136,15 @@ presentationDocument.Close()
 {% endhighlight %}
 
 {% highlight UWP}
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//Presentation supports encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//Presentation supports encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% endtabs %}
