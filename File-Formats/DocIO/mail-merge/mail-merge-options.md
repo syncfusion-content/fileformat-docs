@@ -12,7 +12,7 @@ The `MailMerge` class allows you to customize the Mail merge process with the fo
 
 ## Field Mapping
 
-The `MailMerge` class can automatically maps the merge field names with data source column names during Mail merge process. You can also customize the field mapping when the merge field names in the template document varies with the column names in the data source by using `MappedFields` collection.
+The `MailMerge` class can automatically **maps the merge field names with data source column names** during Mail merge process. You can also customize the field mapping when the merge field names in the template document varies with the column names in the data source by using `MappedFields` collection.
 
 The following code example shows how to add mapping when a merge field name in a document and column name in data source have different names.
 
@@ -343,19 +343,19 @@ N>If any white space or line break exists in the merge field's parent paragraph,
 
 ## Remove empty merge fields
 
-Essential DocIO removes or keeps the unmerged merge fields in the output document based on the ClearFields property on each mail merge execution.
+Essential DocIO removes or keeps the unmerged merge fields in the output document based on the `ClearFields` property on each mail merge execution.
 
 When a merge field is considered as unmerged during mail merge process?
 
-1.The merge field doesn't have mapping field in data source.
+1. The merge field doesn't have mapping field in data source.
 
-2.The merge field has mapping field in data source, but the data is null or string.Empty.
+2. The merge field has mapping field in data source, but the data is null or string.Empty.
 
-Mail merge operation automatically removes the unmerged merge fields since the default value of ClearFields property is true.
+Mail merge operation automatically removes the unmerged merge fields since the default value of `ClearFields` property is true.
 
-T> 1.Set ClearFields property to false before the mail merge execution statement if your requirement is to keep the unmerged merge fields in the output document.
-T> 2.Modify the ClearFields property before each mail merge execution statement while performing multiple mail merge executions if your requirement is to remove the unmerged merge fields in one mail merge execution and keep the unmerged merge fields in another mail merge execution.
-T> 3.Order the mail merge executions with the ClearFields property false as first to avoid removal merge fields that are required for next mail merge execution in the same document.
+T> 1.Set `ClearFields` property to false before the mail merge execution statement if your requirement is to keep the unmerged merge fields in the output document.
+T> 2.Modify the `ClearFields` property before each mail merge execution statement while performing multiple mail merge executions if your requirement is to remove the unmerged merge fields in one mail merge execution and keep the unmerged merge fields in another mail merge execution.
+T> 3.Order the mail merge executions with the `ClearFields` property false as first to avoid removal merge fields that are required for next mail merge execution in the same document.
 
 The following code example shows how to keep the unmerged merge fields in the generated Word document.
  
@@ -1182,7 +1182,7 @@ public class Employee
 
 ## Insert as new row
 
-You can add each record as new row inside table when the row group contains only one cell, which means, the merge fields denoting group start and end present inside the same cell.
+You can add each record as new row inside table when the row group contains only one cell, which means, the merge fields denoting **group start and end present inside the same cell.**
 
 The following code example shows how to insert each record as new row in single cell table during mail merge process. 
 
