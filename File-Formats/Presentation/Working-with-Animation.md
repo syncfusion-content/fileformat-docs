@@ -1,5 +1,5 @@
 ---
-title: Working with Animations |Syncfusion|
+title: Working with Animations | Syncfusion
 description: Working with Animations
 platform: file-formats
 control: Essential Presentation

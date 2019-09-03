@@ -1,5 +1,5 @@
 ---
-title: Converting PowerPoint Presentation to PDF or Image
+title: Converting PowerPoint Presentation to PDF or Image | Syncfusion
 description: Converting PowerPoint Presentation to PDF; Converting PowerPoint Presentation slide to image; PowerPoint Presentation conversion
 platform: file-formats
 control: Presentation

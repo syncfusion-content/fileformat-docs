@@ -1,5 +1,5 @@
 ---
-title: Create and edit OLE Objects in PowerPoint files |Syncfusion|
+title: Create and edit OLE Objects in PowerPoint files | Syncfusion
 description: Working with OLE Objects
 platform: file-formats
 control: Presentation

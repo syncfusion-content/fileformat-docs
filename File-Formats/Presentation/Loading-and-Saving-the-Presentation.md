@@ -1,5 +1,5 @@
 ---
-title: Loading and saving the PowerPoint Presentation |Syncfusion|
+title: Loading and saving the PowerPoint Presentation | Syncfusion
 description: Loading and saving the Presentation; Modifying the Presentation
 platform: file-formats
 control: Presentation

@@ -1,5 +1,5 @@
 ---
-title: Working with SmartArt in PowerPoint Presentation |Syncfusion|
+title: Working with SmartArt in PowerPoint Presentation | Syncfusion
 description: Working with SmartArt in PowerPoint Presentation
 platform: file-formats
 control: Presentation
