@@ -1,5 +1,5 @@
 ---
-title: Assemblies Required for PowerPoint Presentation |Syncfusion|
+title: Assemblies Required for PowerPoint Presentation | Syncfusion
 description: Briefs the assemblies required for various platforms and frameworks.
 platform: file-formats
 control: Presentation

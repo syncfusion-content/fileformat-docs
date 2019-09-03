@@ -16,67 +16,49 @@ The following code example demonstrates how to encrypt a PowerPoint Presentation
 {% tabs %}
 
 {% highlight c# %}
-
 //Creates an instance for Presentation
-
 IPresentation presentation = Presentation.Create();
-
 //Adds slide to Presentation
-
 ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
-
 //Adds textbox to slide
-
 IShape shape = slide.Shapes.AddTextBox(100, 30, 200, 300);
-
-//Adds a paragraph with text content.
-
+//Adds a paragraph with text content
 IParagraph paragraph = shape.TextBody.AddParagraph("Password Protected.");
-
 //Protects the file with password
-
 presentation.Encrypt("PASSWORD!@1#$");
-
 //Saves the Presentation
-
 presentation.Save("Sample.pptx");
-
 //Closes the Presentation
-
 presentation.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an instance for Presentation
-
 Dim presentationDocument As IPresentation = Presentation.Create()
-
 'Adds slide to Presentation
-
 Dim slide As ISlide = presentationDocument.Slides.Add(SlideLayoutType.Blank)
-
 'Adds textbox to slide
-
 Dim shape As IShape = slide.Shapes.AddTextBox(100, 30, 200, 300)
-
 'Adds a paragraph with text content.
-
 Dim paragraph As IParagraph = shape.TextBody.AddParagraph("Password Protected.")
-
 'Protects the file with password
-
 presentationDocument.Encrypt("PASSWORD!@1#$")
-
 'Saves the Presentation
-
 presentationDocument.Save("Sample.pptx")
-
 'Closes the Presentation
-
 presentationDocument.Close()
+{% endhighlight %}
 
+{% highlight UWP}
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% endtabs %}
@@ -94,35 +76,33 @@ The following code example demonstrates opening the encrypted PowerPoint Present
 {% tabs %}
 
 {% highlight c# %}
-
-//Opens an existing Presentation from file system and it can be decrypted by using the provided password.
-
+//Opens an existing Presentation from file system and it can be decrypted by using the provided password
 IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$");
-
 //Saves the Presentation
-
 presentation.Save("Output.pptx");
-
 //Closes the Presentation
-
 presentation.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
-'Opens an existing Presentation from file system and it can be decrypted by using the provided password.
-
+'Opens an existing Presentation from file system and it can be decrypted by using the provided password
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
-
 'Saves the Presentation
-
 presentationDocument.Save("Output.pptx")
-
 'Closes the Presentation
-
 presentationDocument.Close()
+{% endhighlight %}
 
+{% highlight UWP}
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% endtabs %}
@@ -134,43 +114,37 @@ The following code example demonstrates removing the encryption from a PowerPoin
 {% tabs %}
 
 {% highlight c# %}
-
-//Opens an existing Presentation from file system and it can be decrypted by using the provided password.
-
+//Opens an existing Presentation from file system and it can be decrypted by using the provided password
 IPresentation presentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$");
-
 //Decrypts the document
-
 presentation.RemoveEncryption();
-
 //Saves the presentation
-
 presentation.Save("Output.pptx");
-
 //Closes the Presentation
-
 presentation.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
-'Opens an existing Presentation from file system and it can be decrypted by using the provided password.
-
+'Opens an existing Presentation from file system and it can be decrypted by using the provided password
 Dim presentationDocument As IPresentation = Presentation.Open("Sample.pptx", "PASSWORD!@1#$")
-
 'Decrypts the document
-
 presentationDocument.RemoveEncryption()
-
 'Saves the Presentation
-
 presentationDocument.Save("Output.pptx")
-
 'Closes the Presentation
-
 presentationDocument.Close()
+{% endhighlight %}
 
+{% highlight UWP}
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% endtabs %}
@@ -188,78 +162,59 @@ The following code example shows how to set write protection for a PowerPoint Pr
 {% tabs %}
 
 {% highlight c# %}
-
 //Create a new instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add the blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Add the shape to the slide
 IShape shape = slide.Shapes.AddShape(AutoShapeType.BlockArc, 0, 0, 200, 200);
-
-//Add the paragraph to the shape.
+//Add the paragraph to the shape
 IParagraph paragraph = shape.TextBody.AddParagraph("welcome");
-
 //Sets the author name
 pptxDoc.BuiltInDocumentProperties.Author = "Syncfusion";
-
 //Set the write protection for presentation instance
 pptxDoc.SetWriteProtection("MYPASSWORD");
 
 //Saves the modified cloned PowerPoint presentation
 pptxDoc.Save("Sample.pptx");
-
 //Close the presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Create a new instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create()
 
 'Add the blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-
 'Add the shape to the slide
 IShape shape = slide.Shapes.AddShape(AutoShapeType.BlockArc, 0, 0, 200, 200)
-
-'Add the paragraph to the shape.
+'Add the paragraph to the shape
 IParagraph paragraph = shape.TextBody.AddParagraph("welcome")
-
 'Sets the author name
 pptxDoc.BuiltInDocumentProperties.Author = "Syncfusion"
-
 'Set the write protection for presentation instance
 pptxDoc.SetWriteProtection("MYPASSWORD")
 
 'Saves the modified cloned PowerPoint presentation
 pptxDoc.Save("Sample.pptx")
-
 'Close the presentation instance
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Create a new instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 
 //Add the blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add the shape to the slide
 IShape shape = slide.Shapes.AddShape(AutoShapeType.BlockArc, 0, 0, 200, 200);
-
-//Add the paragraph to the shape.
+//Add the paragraph to the shape
 IParagraph paragraph = shape.TextBody.AddParagraph("welcome");
-
 //Sets the author name
 pptxDoc.BuiltInDocumentProperties.Author = "Syncfusion";
-
 //Set the write protection for presentation instance
 pptxDoc.SetWriteProtection("MYPASSWORD");
 
@@ -271,77 +226,63 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 
 //Creates a storage file from FileSavePicker
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Create a new instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 
 //Add the blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add the shape to the slide
 IShape shape = slide.Shapes.AddShape(AutoShapeType.BlockArc, 0, 0, 200, 200);
-
-//Add the paragraph to the shape.
+//Add the paragraph to the shape
 IParagraph paragraph = shape.TextBody.AddParagraph("welcome");
-
 //Sets the author name
 pptxDoc.BuiltInDocumentProperties.Author = "Syncfusion";
-
 //Set the write protection for presentation instance
 pptxDoc.SetWriteProtection("MYPASSWORD");
 
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 //Closes the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
 //Create a new instance for PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 
 //Add the blank slide to the presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add the shape to the slide
 IShape shape = slide.Shapes.AddShape(AutoShapeType.BlockArc, 0, 0, 200, 200);
-
-//Add the paragraph to the shape.
+//Add the paragraph to the shape
 IParagraph paragraph = shape.TextBody.AddParagraph("welcome");
-
 //Sets the author name
 pptxDoc.BuiltInDocumentProperties.Author = "Syncfusion";
-
 //Set the write protection for presentation instance
 pptxDoc.SetWriteProtection("MYPASSWORD");
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -355,71 +296,55 @@ The following code example shows how to remove restriction protection from the w
 {% tabs %}
 
 {% highlight c# %}
-
 //Open the PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
-
-//Gets whether the presentation is write Protected. Read - only.
+//Gets whether the presentation is write Protected. Read - only
 bool writeProtected = pptxDoc.IsWriteProtected;
-
 //Checks whether the presentation is write protected
 if (writeProtected)
 {
-     //Removes the write protection for presentation instance.
+     //Removes the write protection for presentation instance
      pptxDoc.RemoveWriteProtection();
 }
-
 //Saves the modified cloned PowerPoint presentation
 pptxDoc.Save("Output.pptx");
-
 //Close the presentation instance
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Open the PowerPoint presentation
 IPresentation pptxDoc = Presentation.Open("Sample.pptx");
-
-'Gets whether the presentation is write Protected. Read - only.
+'Gets whether the presentation is write Protected. Read - only
 bool writeProtected = pptxDoc.IsWriteProtected;
-
 'Checks whether the presentation is write protected
 if (writeProtected)
 {
-     'Removes the write protection for presentation instance.
+     'Removes the write protection for presentation instance
      pptxDoc.RemoveWriteProtection();
 }
-
 'Saves the modified cloned PowerPoint presentation
 pptxDoc.Save("Output.pptx")
-
 'Close the presentation instance
 pptxDoc.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
-
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-
-//Gets whether the presentation is write Protected. Read - only.
+//Gets whether the presentation is write Protected. Read - only
 bool writeProtected = pptxDoc.IsWriteProtected;
-
 //Checks whether the presentation is write protected
 if (writeProtected)
 {
-     //Removes the write protection for presentation instance.
+     //Removes the write protection for presentation instance
      pptxDoc.RemoveWriteProtection();
 }
 
@@ -431,76 +356,65 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 
 //Creates a storage file from FileSavePicker
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
 
-//Gets whether the presentation is write Protected. Read - only.
+//Gets whether the presentation is write Protected. Read - only
 bool writeProtected = pptxDoc.IsWriteProtected;
-
 //Checks whether the presentation is write protected
 if (writeProtected)
 {
-     //Removes the write protection for presentation instance.
+     //Removes the write protection for presentation instance
      pptxDoc.RemoveWriteProtection();
 }
 
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 //Closes the presentation
 pptxDoc.Close();
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
-
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
-//Gets whether the presentation is write Protected. Read - only.
+//Gets whether the presentation is write Protected. Read - only
 bool writeProtected = pptxDoc.IsWriteProtected;
-
 //Checks whether the presentation is write protected
 if (writeProtected)
 {
-     //Removes the write protection for presentation instance.
+     //Removes the write protection for presentation instance
      pptxDoc.RemoveWriteProtection();
 }
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
 
 N> 1. In Xamarin application, this feature is supported from the target framework .NET Standard 2.0 version onwards. 
 N> 2. For ASP.NET Core, this feature is supported from .NET Core 2.0 version onwards.
-
