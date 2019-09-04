@@ -8,14 +8,16 @@ documentation: UG
 
 # Event support for Mail merge
 
-The MailMerge class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO in Mail merge process:
+The MailMerge class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO during Mail merge process:
 
-* `MergeField`- occurs during Mail merge when a Mail merge field except image Mail merge field is encountered in the document.
-* `MergeImageField`- occurs during Mail merge when an image Mail merge field is encountered in the document.
-* `BeforeClearField`- occurs during Mail merge when an unmerged field is encountered in the document.
-* `BeforeClearGroupField`- occurs during Mail merge when an unmerged group field is encountered in the document.
+* `MergeField`- occurs when a **Mail merge field** except image Mail merge field is encountered.
+* `MergeImageField`- occurs when an **image Mail merge field** is encountered.
+* `BeforeClearField`- occurs when an **unmerged field** is encountered.
+* `BeforeClearGroupField`- occurs when an **unmerged group field** is encountered.
 
 ## MergeField Event
+
+You can apply formatting to the merged text or modify the merged text during mail merge process using the `MergeField` Event.
 
 The following code example shows how to use the MergeField event during Mail merge process.
 
@@ -84,6 +86,8 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -219,6 +223,8 @@ private static DataTable GetDataTable()
 
 ## MergeImageField Event
 
+You can format the merged image data like resizing the image and more during mail merge process using the `MergeImageField` Event. 
+
 The following code example shows how to use the MergeImageField event during Mail merge process.
 
 {% tabs %}  
@@ -319,6 +325,8 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -423,6 +431,8 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
 
 ## BeforeClearField Event
 
+You can get the unmerged fields in a Word document during mail merge process using the `BeforeClearField` Event.
+
 The following code example shows how to use the BeforeClearField event during Mail merge process.
 
 {% tabs %}  
@@ -498,6 +508,8 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -730,6 +742,8 @@ private DataTable GetDataTable()
 
 ## BeforeClearGroupField Event
 
+You can get the unmerged group fields in a Word document during mail merge process using the `BeforeClearGroupField` event.
+
 The following code example shows how to use the BeforeClearGroupField event during Mail merge process.
 
 {% tabs %}  
@@ -798,16 +812,16 @@ Save(stream, "Sample.docx");
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//Opens the template document. 
+//Opens the template document
 FileStream fileStreamPath = new FileStream(@"Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Sets “ClearFields” to true to remove empty mail merge fields from document.
+//Sets “ClearFields” to true to remove empty mail merge fields from document
 document.MailMerge.ClearFields = false;
 //Uses the mail merge event to clear the unmerged group field while perform mail merge execution
 document.MailMerge.BeforeClearGroupField += new BeforeClearGroupFieldEventHandler(BeforeClearFields);
 //Gets the employee details as “IEnumerable” collection
 List<Employees> employeeList = GetEmployees();
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
 MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
 //Performs Mail merge
 document.MailMerge.ExecuteNestedGroup(dataTable);
@@ -844,6 +858,8 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
