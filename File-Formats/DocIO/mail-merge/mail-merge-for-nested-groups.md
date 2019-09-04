@@ -14,7 +14,7 @@ You can perform nested Mail merge with relational or hierarchical data source an
 
 Nested Mail merge operation automatically replaces the merge field with immediate group data. You can also predefine the group data that is populated to a merge field. 
 
-You can also merge any field in the nested group by mapping the field or column of its ancestor group or table in the data source. To achieve this, you need to add a corresponding group name or table name as a prefix to the merge field name along with “:” separator.
+You can also merge any field in the nested group by **mapping the field or column of its ancestor group** or table in the data source. To achieve this, you need to add a corresponding group name or table name as a prefix to the merge field name along with “:” separator.
 
 For example:
   * The merge field name should be like “TableName:Id” (<<TableName:MergeFieldName>>)
@@ -30,7 +30,7 @@ In this template, Employees is the owner group and it has two child groups Custo
 
 The `MailMerge` class provides various overloads for the `ExecuteNestedGroup` method to perform Mail merge for nested groups or regions in the Word document.
 
-You need to define commands with the table name and expression for linking the independent data tables (explicit relation data) during nested Mail merge process. You can use the “%TableName.ColumnName%” expression for getting the current value of specified column or field from the table.
+You need to define commands with the table name and expression for linking the independent data tables **(explicit relation data)** during nested Mail merge process. You can use the “%TableName.ColumnName%” expression for getting the current value of specified column or field from the table.
 
 The following code example shows how to perform a nested Mail merge.
 
@@ -240,6 +240,8 @@ document.MailMerge.ExecuteNestedGroup(dataSet, commands);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
@@ -478,6 +480,8 @@ document.MailMerge.ExecuteNestedGroup(dataTable);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
