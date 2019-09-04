@@ -10,19 +10,33 @@ documentation: UG
 
 You can perform nested Mail merge with relational or hierarchical data source and independent data tables in a template document.
 
-You need to define the commands with table name and expression for linking the independent data tables during nested Mail merge process. You can use the “%TableName.ColumnName%” expression for getting the current value of specified column in a table.
+## How to create nested group merge field
 
-Nested Mail merge operation automatically replaces the merge field with immediate group data. You can also predefine the group data that is populated to a merge field. You need to add a corresponding group name as a prefix to the merge field name for merging a specific group data to the merge field.
+Nested Mail merge operation automatically replaces the merge field with immediate group data. You can also predefine the group data that is populated to a merge field. 
+
+You can also merge any field in the nested group by **mapping the field or column of its ancestor group** or table in the data source. To achieve this, you need to add a corresponding group name or table name as a prefix to the merge field name along with “:” separator.
 
 For example:
   * The merge field name should be like “TableName:Id” (<<TableName:MergeFieldName>>)
   * The merge field name should be like “Image:TableName:Photo” (<<Image:TableName:MergeFieldName>>)
+  
+To execute nested mail merge, design your Word document template as follow.
+
+![Word document template for nested groups](../MailMerge_images/Nested_group_mail_merge_template.png)
+
+In this template, Employees is the owner group and it has two child groups Customers and Orders.
+
+## How to execute nested group mail merge
+
+The `MailMerge` class provides various overloads for the `ExecuteNestedGroup` method to perform Mail merge for nested groups or regions in the Word document.
+
+You need to define commands with the table name and expression for linking the independent data tables **(explicit relation data)** during nested Mail merge process. You can use the “%TableName.ColumnName%” expression for getting the current value of specified column or field from the table.
 
 The following code example shows how to perform a nested Mail merge.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Gets the data from the database
@@ -37,7 +51,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight VB.NET %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Gets the data from the database
@@ -66,56 +80,56 @@ document.Close()
 
 {% endtabs %}  
 
-The following code example provides supporting methods for the above code.
+The following code example provides supporting methods for the previous code.
 
-{% tabs %}  
-{% highlight c# %}
+{% tabs %}
+{% highlight C# %}
 private ArrayList GetCommands()
 {
 	//ArrayList contains the list of commands
 	ArrayList commands = new ArrayList();
 	//DictionaryEntry contains "Source table" (key) and "Command" (value)
-	DictionaryEntry entry = new DictionaryEntry("Employees", "Select TOP 10 * from Employees");
+	DictionaryEntry entry = new DictionaryEntry("Employees", "Select TOP 10 * FROM Employees");
 	commands.Add(entry);
 	//Retrieves the customer details
-	entry = new DictionaryEntry("Customers", "SELECT DISTINCT TOP 10 * FROM  ((Orders INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID) INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID) WHERE Employees.EmployeeID = %Employees.EmployeeID%");
+	entry = new DictionaryEntry("Customers", "SELECT * FROM Customers WHERE Customers.EmployeeID='%Employees.EmployeeID%'");
 	commands.Add(entry);
 	//Retrieves the order details
-	entry = new DictionaryEntry("Orders", "SELECT DISTINCT TOP 10 * FROM Orders WHERE Orders.CustomerID = '%Customers.CustomerID%’AND Orders.EmployeeID = %Employees.EmployeeID%");
+	entry = new DictionaryEntry("Orders", "SELECT * FROM Orders WHERE Orders.CustomerID='%Customers.CustomerID%'");
 	commands.Add(entry);
 	return commands;
 }
 {% endhighlight %}
-
-{% highlight vb.net %}
+{% highlight VB.NET %}
 Private Function GetCommands() As ArrayList
 	'ArrayList contains the list of commands
 	Dim commands As New ArrayList()
 	'DictionaryEntry contains "Source table" (key) and "Command" (value)
-	Dim entry As New DictionaryEntry("Employees", "Select TOP 10 * from Employees")
+	Dim entry As New DictionaryEntry("Employees", "SELECT TOP 10 * FROM Employees")
 	commands.Add(entry)
 	'Retrieves the customer details
-	entry = New DictionaryEntry("Customers", "SELECT DISTINCT TOP 10 * FROM  ((Orders INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID) INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID) WHERE Employees.EmployeeID = %Employees.EmployeeID%")
+	entry = New DictionaryEntry("Customers", "SELECT * FROM Customers WHERE Customers.EmployeeID='%Employees.EmployeeID%'")
 	commands.Add(entry)
 	'Retrieves the order details
-	entry = New DictionaryEntry("Orders", "SELECT DISTINCT TOP 10 * FROM Orders WHERE Orders.CustomerID = '%Customers.CustomerID%’AND Orders.EmployeeID = %Employees.EmployeeID%")
+	entry = New DictionaryEntry("Orders", "SELECT * FROM Orders WHERE Orders.CustomerID='%Customers.CustomerID%'")
 	commands.Add(entry)
 	Return commands
 End Function
 {% endhighlight %}
-
 {% highlight UWP %}
 //DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
-
 {% highlight ASP.NET CORE %}
 //DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
-
 {% highlight XAMARIN %}
 //DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
 {% endhighlight %}
-{% endtabs %}  
+{% endtabs %}
+
+The resultant document looks as follows.
+
+![Nested group mail merged document](../MailMerge_images/Nested_group_mail_merge_output.png)
 
 ## Mail merge with dynamic objects
 
@@ -123,7 +137,7 @@ Essential DocIO allows you to perform Mail merge with the dynamic objects. The f
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 //Opens the template document 
 WordDocument document = new WordDocument("Template.docx");
 //Creates an instance of the MailMergeDataSet
@@ -147,7 +161,7 @@ document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight VB.NET %}
 'Opens the template document 
 Dim document As New WordDocument("Template.docx")
 'Creates an instance of the MailMergeDataSet
@@ -194,10 +208,12 @@ document.MailMerge.ExecuteNestedGroup(dataSet, commands);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-document.Close();
-//Please refer the below link to save Word document in UWP platform
+
+//Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
@@ -241,7 +257,7 @@ The following code example provides supporting methods for the previous code.
 
 {% tabs %}  
 
-{% highlight c# %}
+{% highlight C# %}
 private List<ExpandoObject> GetCustomers()
 {
 	List<ExpandoObject> customers = new List<ExpandoObject>();
@@ -279,7 +295,7 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
+{% highlight VB.NET %}
 Private Function GetCustomers() As List(Of ExpandoObject)
 	Dim customers As New List(Of ExpandoObject)()
 	customers.Add(GetDynamicCustomer(100, "Robert", "Syncfusion"))
@@ -397,38 +413,30 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 
 ## Nested Mail merge with relational data objects
 
-You can perform nested Mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method.
+You can perform **nested Mail merge with implicit relational data** objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method.
 
-For example, Consider that you have a template document as follows.
-
-![Nested Mail merge](../MailMerge_images/MailMerge_img6.jpeg)
-
-In this template, Employees is the owner group and it has two child groups Customers and Orders.
 The following code example shows how to perform nested Mail merge with the relational business objects.
-
-{% tabs %}  
-
-{% highlight c# %}
+{% tabs %}
+{% highlight C# %}
 //Opens the template document 
 WordDocument document = new WordDocument(@"Template.docx");
-//Gets the employee details as “IEnumerable” collection
-List<Employees> employeeList = GetEmployees();
+//Gets the organization details as “IEnumerable” collection
+List<Organization> organizationList = GetOrganizations();
 //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
-MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+MailMergeDataTable dataTable = new MailMergeDataTable("Organizations", organizationList);
 //Performs Mail merge
 document.MailMerge.ExecuteNestedGroup(dataTable);
 //Saves and closes the WordDocument instance
 document.Save("Sample.docx");
 document.Close();
 {% endhighlight %}
-
-{% highlight vb.net %}
+{% highlight VB.NET %}
 'Opens the template document 
-Dim document As New WordDocument("Template.docx")
-'Gets the employee details as “IEnumerable” collection
-Dim employeeList As List(Of Employees) = GetEmployees()
+Dim document As WordDocument = New WordDocument("Template.docx")
+'Gets the organization details as “IEnumerable” collection
+Dim organizationList As List(Of Organization) = GetOrganizations()
 'Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
-Dim dataTable As New MailMergeDataTable("Employees", employeeList)
+Dim dataTable As MailMergeDataTable = New MailMergeDataTable("Organizations", organizationList)
 'Performs Mail merge
 document.MailMerge.ExecuteNestedGroup(dataTable)
 'Saves and closes the WordDocument instance
@@ -437,23 +445,25 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//Creates an instance of a WordDocument
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens the template document
 WordDocument document = new WordDocument();
 document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Gets the employee details as “IEnumerable” collection
-List<Employees> employeeList = GetEmployees();
+//Gets the organization details as “IEnumerable” collection
+List<Organization> organizationList = GetOrganizations();
 //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
-MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+MailMergeDataTable dataTable = new MailMergeDataTable("Organizations", organizationList);
 //Performs Mail merge
 document.MailMerge.ExecuteNestedGroup(dataTable);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-document.Close();
-//Please refer the below link to save Word document in UWP platform
+
+//Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
@@ -461,10 +471,10 @@ document.Close();
 //Opens the template document 
 FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Gets the employee details as “IEnumerable” collection
-List<Employees> employeeList = GetEmployees();
+//Gets the organization details as “IEnumerable” collection
+List<Organization> organizationList = GetOrganizations();
 //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
-MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+MailMergeDataTable dataTable = new MailMergeDataTable("Organizations", organizationList);
 //Performs Mail merge
 document.MailMerge.ExecuteNestedGroup(dataTable);
 //Saves the Word document to MemoryStream
@@ -476,25 +486,25 @@ stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %}
-
 {% highlight XAMARIN %}
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-//Gets the employee details as “IEnumerable” collection
-List<Employees> employeeList = GetEmployees();
+//Gets the organization details as “IEnumerable” collection
+List<Organization> organizationList = GetOrganizations();
 //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
-MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+MailMergeDataTable dataTable = new MailMergeDataTable("Organizations", organizationList);
 //Performs Mail merge
 document.MailMerge.ExecuteNestedGroup(dataTable);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document 
 document.Close();
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -502,489 +512,315 @@ document.Close();
 
 The following code example provides supporting methods for the previous code.
 
-{% tabs %}  
-
-{% highlight c# %}
-public static List<Employees> GetEmployees()
+{% tabs %}
+{% highlight C# %}
+public static List<Organization> GetOrganizations()
 {
-	List<OrderDetails> orders = new List<OrderDetails>();
-	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-	orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
-	CustomerDetails customers = new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders);
-	List<Employees> employees = new List<Employees>();
-	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers));
-	return employees;
+    //Creates Employee details
+    List<EmployeeDetails> employees = new List<EmployeeDetails>();
+    employees.Add(new EmployeeDetails("Thomas Hardy", "1001", "05/27/1996"));
+    employees.Add(new EmployeeDetails("Maria Anders", "1002", "04/10/1998")); 
+    //Creates Departments details
+    List<DepartmentDetails> departments = new List<DepartmentDetails>();
+    departments.Add(new DepartmentDetails("Marketing", "Nancy Davolio",  employees));
+    
+    employees = new List<EmployeeDetails>();
+    employees.Add(new EmployeeDetails("Elizabeth Lincoln", "1003", "05/15/1996"));
+    employees.Add(new EmployeeDetails("Antonio Moreno", "1004", "04/22/1996"));
+    departments.Add(new DepartmentDetails("Production", "Andrew Fuller", employees));
+    //Creates organization details
+    List<Organization> organizations = new List<Organization>();
+    organizations.Add(new Organization("UK Office", "120 Hanover Sq.", "London", "WX1 6LT", "UK", departments));
+    return organizations;
 }
-
-public class Employees
+public class Organization
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string EmployeeID { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public CustomerDetails Customers { get; set; }
-	
-	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, CustomerDetails customers)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Address = address;
-		EmployeeID = employeeId;
-		City = city;
-		Country = country;
-		Customers = customers;
-	}
+    public string BranchName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string ZipCode { get; set; }
+    public string Country { get; set; }
+    public List<DepartmentDetails> Departments { get; set; }
+    public Organization(string branchName, string address, string city, string zipcode, string country, List<DepartmentDetails> departments)
+    {
+        BranchName = branchName;
+        Address = address;
+        City = city;
+        ZipCode = zipcode;
+        Country = country;
+        Departments = departments;
+    }
 }
-
-public class CustomerDetails
+public class DepartmentDetails
 {
-	public string ContactName { get; set; }
-	public string CompanyName { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<OrderDetails> Orders { get; set; }
-
-	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-	{
-		ContactName = contactName;
-		CompanyName = companyName;
-		City = city;
-		Country = country;
-		Orders = orders;
-	}
+    public string DepartmentName { get; set; }
+    public string Supervisor { get; set; }
+    public List<EmployeeDetails> Employees { get; set; }
+    public DepartmentDetails(string departmentName, string supervisor, List<EmployeeDetails> employees)
+    {
+        DepartmentName = departmentName;
+        Supervisor = supervisor;
+        Employees = employees;
+    }
 }
-
-public class OrderDetails
+public class EmployeeDetails
 {
-	public string OrderID { get; set; }
-	public DateTime OrderDate { get; set; }
-	public DateTime ShippedDate { get; set; }
-	public DateTime RequiredDate { get; set; }
-
-	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-	{
-		OrderID = orderId;
-		OrderDate = orderDate;
-		ShippedDate = shippedDate;
-		RequiredDate = requiredDate;
-	}
+    public string EmployeeName { get; set; }
+    public string EmployeeID { get; set; }
+    public string JoinedDate { get; set; }
+    public EmployeeDetails(string employeeName, string employeeID, string joinedDate)
+    {
+        EmployeeName = employeeName;
+        EmployeeID = employeeID;
+        JoinedDate = joinedDate;
+    }
 }
 {% endhighlight %}
+{% highlight VB.NET %}
+Public Function GetOrganizations() As List(Of Organization)
+    'Creates Employee details
+    Dim employees As List(Of EmployeeDetails) = New List(Of EmployeeDetails)
+    employees.Add(New EmployeeDetails("Thomas Hardy", "1001", "05/27/1996"))
+    employees.Add(New EmployeeDetails("Maria Anders", "1002", "04/10/1998"))
+    'Creates Departments details
+    Dim departments As List(Of DepartmentDetails) = New List(Of DepartmentDetails)
+    departments.Add(New DepartmentDetails("Marketing", "Nancy Davolio", employees))
 
-{% highlight vb.net %}
-Public Function GetEmployees() As List(Of Employees)
-	Dim orders As New List(Of OrderDetails)()
-	orders.Add(New OrderDetails("10835", New DateTime(2015, 1, 5), New DateTime(2015, 1, 12), New DateTime(2015, 1, 21)))
-	orders.Add(New OrderDetails("10952", New DateTime(2015, 2, 5), New DateTime(2015, 2, 12), New DateTime(2015, 2, 21)))
-	Dim customers As New CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders)
-	Dim employees As New List(Of Employees)()
-	employees.Add(New Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers))
-	Return employees
+    employees = New List(Of EmployeeDetails)
+    employees.Add(New EmployeeDetails("Elizabeth Lincoln", "1003", "05/15/1996"))
+    employees.Add(New EmployeeDetails("Antonio Moreno", "1004", "04/22/1996"))
+    departments.Add(New DepartmentDetails("Production", "Andrew Fuller", employees))
+    'Creates organization details
+    Dim organizations As List(Of Organization) = New List(Of Organization)
+    organizations.Add(New Organization("UK Office", "120 Hanover Sq.", "London", "WX1 6LT", "UK", departments))
+    Return organizations
 End Function
-
-Public Class Employees
-	Public Property FirstName() As String
-		Get
-			Return m_FirstName
-		End Get
-		Set(value As String)
-			m_FirstName = value
-		End Set
-	End Property
-	Private m_FirstName As String
-
-	Public Property LastName() As String
-		Get
-			Return m_LastName
-		End Get
-		Set(value As String)
-			m_LastName = value
-		End Set
-	End Property
-	Private m_LastName As String
-
-	Public Property EmployeeID() As String
-		Get
-			Return m_EmployeeID
-		End Get
-		Set(value As String)
-			m_EmployeeID = value
-		End Set
-	End Property
-	Private m_EmployeeID As String
-
-	Public Property Address() As String
-		Get
-			Return m_Address
-		End Get	
-		Set(value As String)
-			m_Address = value
-		End Set
-	End Property
-	Private m_Address As String
-
-	Public Property City() As String
-		Get
-			Return m_City
-		End Get
-		Set(value As String)
-			m_City = value
-		End Set
-	End Property
-	Private m_City As String
-
-	Public Property Country() As String
-		Get
-			Return m_Country
-		End Get
-		Set(value As String)
-			m_Country = value
-		End Set
-	End Property
-	Private m_Country As String
-
-	Public Property Customers() As CustomerDetails
-		Get
-			Return m_Customers
-		End Get
-		Set(value As CustomerDetails)
-			m_Customers = value
-		End Set
-	End Property
-	Private m_Customers As CustomerDetails
-
-	Public Sub New(firstName As String, lastName As String, employeeId As String, address As String, city As String, country As String, _customers As CustomerDetails)
-		Me.FirstName = firstName
-		Me.LastName = lastName
-		Me.Address = address
-		Me.EmployeeID = employeeId
-		Me.City = city
-		Me.Country = country
-		Me.Customers = customers
-	End Sub
+Public Class Organization
+    Public Property BranchName() As String
+    Public Property Address() As String
+    Public Property City() As String
+    Public Property ZipCode() As String
+    Public Property Country() As String
+    Public Property Departments() As List(Of DepartmentDetails)
+    Public Sub New(ByVal branchName As String, ByVal address As String, ByVal city As String, ByVal zipcode As String, ByVal country As String, ByVal departments As List(Of DepartmentDetails))
+        Me.BranchName = branchName
+        Me.Address = address
+        Me.City = city
+        Me.ZipCode = zipcode
+        Me.Country = country
+        Me.Departments = departments
+    End Sub
 End Class
-
-Public Class CustomerDetails
-	Public Property ContactName() As String
-		Get
-			Return m_ContactName
-		End Get
-		Set(value As String)
-			m_ContactName = value
-		End Set
-	End Property
-	Private m_ContactName As String
-
-	Public Property CompanyName() As String
-		Get
-			Return m_CompanyName
-		End Get
-		Set(value As String)
-			m_CompanyName = value
-		End Set
-	End Property
-	Private m_CompanyName As String
-
-	Public Property City() As String
-		Get
-			Return m_City
-		End Get
-		Set(value As String)
-			m_City = value
-		End Set
-	End Property
-	Private m_City As String
-
-	Public Property Country() As String
-		Get
-			Return m_Country
-		End Get
-		Set(value As String)
-			m_Country = value
-		End Set
-	End Property
-	Private m_Country As String
-
-	Public Property Orders() As List(Of OrderDetails)
-		Get
-			Return m_Orders
-		End Get
-		Set(value As List(Of OrderDetails))
-			m_Orders = value
-		End Set
-	End Property
-	Private m_Orders As List(Of OrderDetails)
-
-	Public Sub New(contactName As String, companyName As String, city As String, country As String, orders As List(Of OrderDetails))
-		Me.ContactName = contactName
-		Me.CompanyName = companyName
-		Me.City = city
-		Me.Country = country
-		Me.Orders = orders
-	End Sub
+Public Class DepartmentDetails
+    Public Property DepartmentName() As String
+    Public Property Supervisor() As String
+    Public Property Employees() As List(Of EmployeeDetails)
+    Public Sub New(ByVal departmentName As String, ByVal supervisor As String, ByVal employees As List(Of EmployeeDetails))
+        Me.DepartmentName = departmentName
+        Me.Supervisor = supervisor
+        Me.Employees = employees
+    End Sub
 End Class
+Public Class EmployeeDetails
+    Public Property EmployeeName() As String
+    Public Property EmployeeID() As String
+    Public Property JoinedDate() As String
 
-Public Class OrderDetails
-	Public Property OrderID() As String
-		Get
-			Return m_OrderID
-		End Get
-		Set(value As String)
-			m_OrderID = value
-		End Set
-	End Property
-	Private m_OrderID As String
-
-	Public Property OrderDate() As DateTime
-		Get
-			Return m_OrderDate
-		End Get
-		Set(value As DateTime)
-			m_OrderDate = value
-		End Set
-	End Property
-	Private m_OrderDate As DateTime
-
-	Public Property ShippedDate() As DateTime
-		Get
-			Return m_ShippedDate
-		End Get
-		Set(value As DateTime)
-			m_ShippedDate = value
-		End Set
-	End Property
-	Private m_ShippedDate As DateTime
-
-	Public Property RequiredDate() As DateTime
-		Get
-			Return m_RequiredDate
-		End Get
-		Set(value As DateTime)
-			m_RequiredDate = value
-		End Set
-	End Property
-	Private m_RequiredDate As DateTime
-
-	Public Sub New(orderId As String, orderDate As DateTime, shippedDate As DateTime, requiredDate As DateTime)
-		Me.OrderID = orderId
-		Me.OrderDate = orderDate
-		Me.ShippedDate = shippedDate
-		Me.RequiredDate = requiredDate
-	End Sub
+    Public Sub New(ByVal employeeName As String, ByVal employeeID As String, ByVal joinedDate As String)
+        Me.EmployeeName = employeeName
+        Me.EmployeeID = employeeID
+        Me.JoinedDate = joinedDate
+    End Sub
 End Class
 {% endhighlight %}
 
 {% highlight UWP %}
-public static List<Employees> GetEmployees()
+public static List<Organization> GetOrganizations()
 {
-	List<OrderDetails> orders = new List<OrderDetails>();
-	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-	orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
-	CustomerDetails customers = new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders);
-	List<Employees> employees = new List<Employees>();
-	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers));
-	return employees;
+    //Creates Employee details
+    List<EmployeeDetails> employees = new List<EmployeeDetails>();
+    employees.Add(new EmployeeDetails("Thomas Hardy", "1001", "05/27/1996"));
+    employees.Add(new EmployeeDetails("Maria Anders", "1002", "04/10/1998")); 
+    //Creates Departments details
+    List<DepartmentDetails> departments = new List<DepartmentDetails>();
+    departments.Add(new DepartmentDetails("Marketing", "Nancy Davolio",  employees));
+    
+    employees = new List<EmployeeDetails>();
+    employees.Add(new EmployeeDetails("Elizabeth Lincoln", "1003", "05/15/1996"));
+    employees.Add(new EmployeeDetails("Antonio Moreno", "1004", "04/22/1996"));
+    departments.Add(new DepartmentDetails("Production", "Andrew Fuller", employees));
+    //Creates organization details
+    List<Organization> organizations = new List<Organization>();
+    organizations.Add(new Organization("UK Office", "120 Hanover Sq.", "London", "WX1 6LT", "UK", departments));
+    return organizations;
 }
-
-public class Employees
+public class Organization
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string EmployeeID { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public CustomerDetails Customers { get; set; }
-	
-	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, CustomerDetails customers)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Address = address;
-		EmployeeID = employeeId;
-		City = city;
-		Country = country;
-		Customers = customers;
-	}
+    public string BranchName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string ZipCode { get; set; }
+    public string Country { get; set; }
+    public List<DepartmentDetails> Departments { get; set; }
+    public Organization(string branchName, string address, string city, string zipcode, string country, List<DepartmentDetails> departments)
+    {
+        BranchName = branchName;
+        Address = address;
+        City = city;
+        ZipCode = zipcode;
+        Country = country;
+        Departments = departments;
+    }
 }
-
-public class CustomerDetails
+public class DepartmentDetails
 {
-	public string ContactName { get; set; }
-	public string CompanyName { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<OrderDetails> Orders { get; set; }
-
-	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-	{
-		ContactName = contactName;
-		CompanyName = companyName;
-		City = city;
-		Country = country;
-		Orders = orders;
-	}
+    public string DepartmentName { get; set; }
+    public string Supervisor { get; set; }
+    public List<EmployeeDetails> Employees { get; set; }
+    public DepartmentDetails(string departmentName, string supervisor, List<EmployeeDetails> employees)
+    {
+        DepartmentName = departmentName;
+        Supervisor = supervisor;
+        Employees = employees;
+    }
 }
-
-public class OrderDetails
+public class EmployeeDetails
 {
-	public string OrderID { get; set; }
-	public DateTime OrderDate { get; set; }
-	public DateTime ShippedDate { get; set; }
-	public DateTime RequiredDate { get; set; }
-
-	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-	{
-		OrderID = orderId;
-		OrderDate = orderDate;
-		ShippedDate = shippedDate;
-		RequiredDate = requiredDate;
-	}
+    public string EmployeeName { get; set; }
+    public string EmployeeID { get; set; }
+    public string JoinedDate { get; set; }
+    public EmployeeDetails(string employeeName, string employeeID, string joinedDate)
+    {
+        EmployeeName = employeeName;
+        EmployeeID = employeeID;
+        JoinedDate = joinedDate;
+    }
 }
 {% endhighlight %}
-
 {% highlight ASP.NET CORE %}
-public static List<Employees> GetEmployees()
+public static List<Organization> GetOrganizations()
 {
-	List<OrderDetails> orders = new List<OrderDetails>();
-	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-	orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
-	CustomerDetails customers = new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders);
-	List<Employees> employees = new List<Employees>();
-	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers));
-	return employees;
+    //Creates Employee details
+    List<EmployeeDetails> employees = new List<EmployeeDetails>();
+    employees.Add(new EmployeeDetails("Thomas Hardy", "1001", "05/27/1996"));
+    employees.Add(new EmployeeDetails("Maria Anders", "1002", "04/10/1998")); 
+    //Creates Departments details
+    List<DepartmentDetails> departments = new List<DepartmentDetails>();
+    departments.Add(new DepartmentDetails("Marketing", "Nancy Davolio",  employees));
+    
+    employees = new List<EmployeeDetails>();
+    employees.Add(new EmployeeDetails("Elizabeth Lincoln", "1003", "05/15/1996"));
+    employees.Add(new EmployeeDetails("Antonio Moreno", "1004", "04/22/1996"));
+    departments.Add(new DepartmentDetails("Production", "Andrew Fuller", employees));
+    //Creates organization details
+    List<Organization> organizations = new List<Organization>();
+    organizations.Add(new Organization("UK Office", "120 Hanover Sq.", "London", "WX1 6LT", "UK", departments));
+    return organizations;
 }
-
-public class Employees
+public class Organization
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string EmployeeID { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public CustomerDetails Customers { get; set; }
-
-	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, CustomerDetails customers)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Address = address;
-		EmployeeID = employeeId;
-		City = city;
-		Country = country;
-		Customers = customers;
-	}
+    public string BranchName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string ZipCode { get; set; }
+    public string Country { get; set; }
+    public List<DepartmentDetails> Departments { get; set; }
+    public Organization(string branchName, string address, string city, string zipcode, string country, List<DepartmentDetails> departments)
+    {
+        BranchName = branchName;
+        Address = address;
+        City = city;
+        ZipCode = zipcode;
+        Country = country;
+        Departments = departments;
+    }
 }
-
-public class CustomerDetails
+public class DepartmentDetails
 {
-	public string ContactName { get; set; }
-	public string CompanyName { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<OrderDetails> Orders { get; set; }
-
-	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-	{
-		ContactName = contactName;
-		CompanyName = companyName;
-		City = city;
-		Country = country;
-		Orders = orders;
-	}
+    public string DepartmentName { get; set; }
+    public string Supervisor { get; set; }
+    public List<EmployeeDetails> Employees { get; set; }
+    public DepartmentDetails(string departmentName, string supervisor, List<EmployeeDetails> employees)
+    {
+        DepartmentName = departmentName;
+        Supervisor = supervisor;
+        Employees = employees;
+    }
 }
-
-public class OrderDetails
+public class EmployeeDetails
 {
-	public string OrderID { get; set; }
-	public DateTime OrderDate { get; set; }
-	public DateTime ShippedDate { get; set; }
-	public DateTime RequiredDate { get; set; }
-
-	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-	{
-		OrderID = orderId;
-		OrderDate = orderDate;
-		ShippedDate = shippedDate;
-		RequiredDate = requiredDate;
-	}
+    public string EmployeeName { get; set; }
+    public string EmployeeID { get; set; }
+    public string JoinedDate { get; set; }
+    public EmployeeDetails(string employeeName, string employeeID, string joinedDate)
+    {
+        EmployeeName = employeeName;
+        EmployeeID = employeeID;
+        JoinedDate = joinedDate;
+    }
 }
 {% endhighlight %}
-
 {% highlight XAMARIN %}
-public static List<Employees> GetEmployees()
+public static List<Organization> GetOrganizations()
 {
-	List<OrderDetails> orders = new List<OrderDetails>();
-	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-	orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
-	CustomerDetails customers = new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders);
-	List<Employees> employees = new List<Employees>();
-	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customers));
-	return employees;
+    //Creates Employee details
+    List<EmployeeDetails> employees = new List<EmployeeDetails>();
+    employees.Add(new EmployeeDetails("Thomas Hardy", "1001", "05/27/1996"));
+    employees.Add(new EmployeeDetails("Maria Anders", "1002", "04/10/1998")); 
+    //Creates Departments details
+    List<DepartmentDetails> departments = new List<DepartmentDetails>();
+    departments.Add(new DepartmentDetails("Marketing", "Nancy Davolio",  employees));
+    
+    employees = new List<EmployeeDetails>();
+    employees.Add(new EmployeeDetails("Elizabeth Lincoln", "1003", "05/15/1996"));
+    employees.Add(new EmployeeDetails("Antonio Moreno", "1004", "04/22/1996"));
+    departments.Add(new DepartmentDetails("Production", "Andrew Fuller", employees));
+    //Creates organization details
+    List<Organization> organizations = new List<Organization>();
+    organizations.Add(new Organization("UK Office", "120 Hanover Sq.", "London", "WX1 6LT", "UK", departments));
+    return organizations;
 }
-
-public class Employees
+public class Organization
 {
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string EmployeeID { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public CustomerDetails Customers { get; set; }
-	
-	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, CustomerDetails customers)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Address = address;
-		EmployeeID = employeeId;
-		City = city;
-		Country = country;
-		Customers = customers;
-	}
+    public string BranchName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string ZipCode { get; set; }
+    public string Country { get; set; }
+    public List<DepartmentDetails> Departments { get; set; }
+    public Organization(string branchName, string address, string city, string zipcode, string country, List<DepartmentDetails> departments)
+    {
+        BranchName = branchName;
+        Address = address;
+        City = city;
+        ZipCode = zipcode;
+        Country = country;
+        Departments = departments;
+    }
 }
-
-public class CustomerDetails
+public class DepartmentDetails
 {
-	public string ContactName { get; set; }
-	public string CompanyName { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<OrderDetails> Orders { get; set; }
-
-	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-	{
-		ContactName = contactName;
-		CompanyName = companyName;
-		City = city;
-		Country = country;
-		Orders = orders;
-	}
+    public string DepartmentName { get; set; }
+    public string Supervisor { get; set; }
+    public List<EmployeeDetails> Employees { get; set; }
+    public DepartmentDetails(string departmentName, string supervisor, List<EmployeeDetails> employees)
+    {
+        DepartmentName = departmentName;
+        Supervisor = supervisor;
+        Employees = employees;
+    }
 }
-
-public class OrderDetails
+public class EmployeeDetails
 {
-	public string OrderID { get; set; }
-	public DateTime OrderDate { get; set; }
-	public DateTime ShippedDate { get; set; }
-	public DateTime RequiredDate { get; set; }
-
-	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-	{
-		OrderID = orderId;
-		OrderDate = orderDate;
-		ShippedDate = shippedDate;
-		RequiredDate = requiredDate;
-	}
+    public string EmployeeName { get; set; }
+    public string EmployeeID { get; set; }
+    public string JoinedDate { get; set; }
+    public EmployeeDetails(string employeeName, string employeeID, string joinedDate)
+    {
+        EmployeeName = employeeName;
+        EmployeeID = employeeID;
+        JoinedDate = joinedDate;
+    }
 }
 {% endhighlight %}
-
 {% endtabs %}
-
-The resultant document looks as follows.
-
-![Nested Mail merge resultant document](../MailMerge_images/MailMerge_img7.jpeg)
