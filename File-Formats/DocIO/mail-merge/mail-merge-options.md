@@ -561,7 +561,7 @@ document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -1453,7 +1453,7 @@ document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -1516,13 +1516,11 @@ document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
-//Closes the Word document
-document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
+document.Close();
 
-
-//Please refer the below link to save Word document in UWP platform
+//Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
@@ -1566,7 +1564,7 @@ document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
