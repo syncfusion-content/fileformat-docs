@@ -112,42 +112,9 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
-Save(stream, "Result.docx"); 
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-    streams.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".docx";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-        {
-            //Write compressed data from memory to file
-            using (Stream outstream = zipStream.AsStreamForWrite())
-            {
-                byte[] buffer = streams.ToArray();
-                outstream.Write(buffer, 0, buffer.Length);
-                outstream.Flush();
-            }
-        }
-    }
-    //Launch the saved Word file
-    await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+Save(stream, "Result.docx");
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -219,6 +186,8 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -324,42 +293,9 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
-Save(stream, "Result.docx"); 
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-    streams.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".docx";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-        {
-            //Write compressed data from memory to file
-            using (Stream outstream = zipStream.AsStreamForWrite())
-            {
-                byte[] buffer = streams.ToArray();
-                outstream.Write(buffer, 0, buffer.Length);
-                outstream.Flush();
-            }
-        }
-    }
-    //Launch the saved Word file
-    await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+Save(stream, "Result.docx");
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -433,6 +369,8 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -652,42 +590,11 @@ MemoryStream stream = new MemoryStream();
 //Saves the Word document to MemoryStream
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word document file in local machine
-Save(stream, "GroupSahpe.docx"); 
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-    streams.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".docx";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-        {
-            //Write compressed data from memory to file
-            using (Stream outstream = zipStream.AsStreamForWrite())
-            {
-                byte[] buffer = streams.ToArray();
-                outstream.Write(buffer, 0, buffer.Length);
-                outstream.Flush();
-            }
-        }
-    }
-    //Launch the saved Word file
-    await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+Save(stream, "GroupSahpe.docx");
+//Closes the document
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -828,6 +735,8 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -1035,7 +944,7 @@ pieSeries.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosit
 chart.ChartArea.Fill.ForeColor = Color.FromArgb(242, 242, 242)
 chart.PlotArea.Fill.ForeColor = Color.FromArgb(242, 242, 242)
 chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None
- ‘Sets category labels
+‘Sets category labels
 chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData(2, 1, 11, 1)
 ‘Sets the chart as paragraph item
 paragraphItems(2) = chart
@@ -1154,42 +1063,11 @@ MemoryStream stream = new MemoryStream();
 //Saves the Word document to MemoryStream
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word document file in local machine
-Save(stream, "GroupSahpe.docx"); 
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-    streams.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".docx";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-        {
-            //Write compressed data from memory to file
-            using (Stream outstream = zipStream.AsStreamForWrite())
-            {
-                byte[] buffer = streams.ToArray();
-                outstream.Write(buffer, 0, buffer.Length);
-                outstream.Flush();
-            }
-        }
-    }
-    //Launch the saved Word file
-    await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+Save(stream, "GroupSahpe.docx");
+//Closes the document
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -1410,6 +1288,8 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -1687,42 +1567,11 @@ MemoryStream stream = new MemoryStream();
 //Saves the Word document to MemoryStream
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word document file in local machine
-Save(stream, "GroupSahpe.docx"); 
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-    streams.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".docx";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-        {
-            //Write compressed data from memory to file
-            using (Stream outstream = zipStream.AsStreamForWrite())
-            {
-                byte[] buffer = streams.ToArray();
-                outstream.Write(buffer, 0, buffer.Length);
-                outstream.Flush();
-            }
-        }
-    }
-    //Launch the saved Word file
-    await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+Save(stream, "GroupSahpe.docx");
+//Closes the document
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -1911,6 +1760,8 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -1988,41 +1839,10 @@ MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word document file in local machine
 Save(stream, "GroupSahpe.docx");
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-    streams.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".docx";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-        {
-            //Write compressed data from memory to file
-            using (Stream outstream = zipStream.AsStreamForWrite())
-            {
-                byte[] buffer = streams.ToArray();
-                outstream.Write(buffer, 0, buffer.Length);
-                outstream.Flush();
-            }
-        }
-    }
-    //Launch the saved Word file
-    await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Closes the document
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -2078,6 +1898,8 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}

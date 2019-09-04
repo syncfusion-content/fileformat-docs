@@ -1,7 +1,7 @@
 ---
-title: Working with Animations
+title: Working with Animations | Syncfusion
 description: Working with Animations
-platform: Windows Forms, WPF, ASP.NET Web, ASP.NET MVC, ASP.NET Core, JavaScript, UWP and Xamarin.
+platform: file-formats
 control: Essential Presentation
 documentation: UG
 keywords: PowerPoint animation, slide animation, shape animation, pptx animation
@@ -25,80 +25,47 @@ Animation effects can be added to shapes, images, tables, charts and SmartArt di
 
 {% tabs %}
 {% highlight c# %}
-
 //Create an instance for PowerPoint
-
 using (IPresentation pptxDoc = Presentation.Create())
-
 {
-
-//Add a blank slide to Presentation
-
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
-//Add normal shape to slide
-
-IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
-//Access the animation sequence to create effects
-
-ISequence sequence = slide.Timeline.MainSequence;
-
-//Add bounce effect to the shape
-
-IEffect bounceEffect = sequence.AddEffect(cubeShape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
-
-//Save the Presentation
-
-pptxDoc.Save("Sample.pptx");
-
+	//Add a blank slide to Presentation
+	ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+	//Add normal shape to slide
+	IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
+	//Access the animation sequence to create effects
+	ISequence sequence = slide.Timeline.MainSequence;
+	//Add bounce effect to the shape
+	IEffect bounceEffect = sequence.AddEffect(cubeShape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
+	//Save the Presentation
+	pptxDoc.Save("Sample.pptx");
 }
-
 {% endhighlight %}
 {% highlight vb.net %}
-
 'Create an instance for PowerPoint
-
 Using pptxDoc As IPresentation = Presentation.Create()
-
-   'Add a blank slide to Presentation
-
-    Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-
-    'Add normal shape to slide
-
+	'Add a blank slide to Presentation
+	Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
+	'Add normal shape to slide
     Dim cubeShape As IShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300)
-
     'Access the animation sequence to create effects
-
     Dim sequence As ISequence = slide.Timeline.MainSequence
-
     'Add bounce effect to the shape
-
     Dim bounceEffect As IEffect = sequence.AddEffect(cubeShape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick)
-
     'Save the Presentation
-
     pptxDoc.Save("Sample.pptx")
-
 End Using
 
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add normal shape to slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Access the animation sequence to create effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Add bounce effect to the shape
 IEffect bounceEffect = sequence.AddEffect(cubeShape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
 
@@ -113,65 +80,53 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Create an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add normal shape to slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Access the animation sequence to create effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Add bounce effect to the shape
 IEffect bounceEffect = sequence.AddEffect(cubeShape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
 
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
 //Create an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add normal shape to slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Access the animation sequence to create effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Add bounce effect to the shape
 IEffect bounceEffect = sequence.AddEffect(cubeShape, EffectType.Bounce, EffectSubtype.None, EffectTriggerType.OnClick);
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -183,92 +138,54 @@ Animations can be interactive when it depends on another slide element., for exa
 {% tabs %}
 
 {% highlight c# %}
-
 //Create an instance for PowerPoint
-
 using (IPresentation pptxDoc = Presentation.Create())
-
 {
-
-//Add a blank slide to Presentation
-
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
-//Add normal shape to slide
-
-IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
-//Add a shape to act as button
-
-IShape buttonShape = slide.Shapes.AddShape(AutoShapeType.Oval, 100,100,50,50);
-
-//Create the interactive sequence to make the animation effects interactive by triggering with button click
-
-ISequence interactiveSequence = slide.Timeline.InteractiveSequences.Add(buttonShape);
-
-//Add Fly effect with top subtype to animate the shape as fly from top
-
-IEffect bounceEffect = interactiveSequence.AddEffect(cubeShape, EffectType.Fly, EffectSubtype.Top, EffectTriggerType.OnClick);
-
-//Save the Presentation
-
-pptxDoc.Save("Sample.pptx");
-
+	//Add a blank slide to Presentation
+	ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+	//Add normal shape to slide
+	IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
+	//Add a shape to act as button
+	IShape buttonShape = slide.Shapes.AddShape(AutoShapeType.Oval, 100,100,50,50);
+	//Create the interactive sequence to make the animation effects interactive by triggering with button click
+	ISequence interactiveSequence = slide.Timeline.InteractiveSequences.Add(buttonShape);
+	//Add Fly effect with top subtype to animate the shape as fly from top
+	IEffect bounceEffect = interactiveSequence.AddEffect(cubeShape, EffectType.Fly, EffectSubtype.Top, EffectTriggerType.OnClick);
+	//Save the Presentation
+	pptxDoc.Save("Sample.pptx");
 }
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Create an instance for PowerPoint
-
 Using pptxDoc As IPresentation = Presentation.Create()
-
    'Add a blank slide to Presentation
-
    Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-
    'Add normal shape to slide
-
    Dim cubeShape As IShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300)
-
    'Add a shape to act as button
-
    Dim buttonShape As IShape = slide.Shapes.AddShape(AutoShapeType.Oval, 100, 100, 50, 50)
-
    'Create the interactive sequence to make the animation effects interactive by triggering with button click
-
    Dim interactiveSequence As ISequence = slide.Timeline.InteractiveSequences.Add(buttonShape)
-
    'Add Fly effect with top subtype to animate the shape as fly from top
-
    Dim bounceEffect As IEffect = interactiveSequence.AddEffect(cubeShape, EffectType.Fly, EffectSubtype.Top, EffectTriggerType.OnClick)
-
    'Save the Presentation
-
    pptxDoc.Save("Sample.pptx")
-
 End Using
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add normal shape to slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Add a shape to act as button
 IShape buttonShape = slide.Shapes.AddShape(AutoShapeType.Oval, 100,100,50,50);
 
 //Create the interactive sequence to make the animation effects interactive by triggering with button click
 ISequence interactiveSequence = slide.Timeline.InteractiveSequences.Add(buttonShape);
-
 //Add Fly effect with top subtype to animate the shape as fly from top
 IEffect bounceEffect = interactiveSequence.AddEffect(cubeShape, EffectType.Fly, EffectSubtype.Top, EffectTriggerType.OnClick);
 
@@ -283,71 +200,59 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Create an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add normal shape to slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Add a shape to act as button
 IShape buttonShape = slide.Shapes.AddShape(AutoShapeType.Oval, 100,100,50,50);
 
 //Create the interactive sequence to make the animation effects interactive by triggering with button click
 ISequence interactiveSequence = slide.Timeline.InteractiveSequences.Add(buttonShape);
-
 //Add Fly effect with top subtype to animate the shape as fly from top
 IEffect bounceEffect = interactiveSequence.AddEffect(cubeShape, EffectType.Fly, EffectSubtype.Top, EffectTriggerType.OnClick);
 
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
 //Create an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add normal shape to slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Add a shape to act as button
 IShape buttonShape = slide.Shapes.AddShape(AutoShapeType.Oval, 100,100,50,50);
 
 //Create the interactive sequence to make the animation effects interactive by triggering with button click
 ISequence interactiveSequence = slide.Timeline.InteractiveSequences.Add(buttonShape);
-
 //Add Fly effect with top subtype to animate the shape as fly from top
 IEffect bounceEffect = interactiveSequence.AddEffect(cubeShape, EffectType.Fly, EffectSubtype.Top, EffectTriggerType.OnClick);
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -359,89 +264,56 @@ Animation effects can be applied to text. The following code example demonstrate
 {% tabs %}
 
 {% highlight c# %}
-
 //Open an existing Presentation from file system
-
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
-
 {
-
-//Retrieve the first slide from Presentation
-
-ISlide slide = pptxDoc.Slides[0];
-
-//Retrieve the first shape
-
-IShape shape = slide.Shapes[0] as IShape;
-
-//Access the animation sequence to create effects
-
-ISequence sequence = slide.Timeline.MainSequence;
-
-//Add swivel effect with vertical subtype to the shape, build type is used to represent the animate level of the paragraph
-
-IEffect bounceEffect = sequence.AddEffect(shape, EffectType.Swivel, EffectSubtype.Vertical, EffectTriggerType.OnClick, BuildType.ByLevelParagraphs1);
-
-//Save the Presentation to the file system
-
-pptxDoc.Save("Result.pptx");
-
+	//Retrieve the first slide from Presentation
+	ISlide slide = pptxDoc.Slides[0];
+	//Retrieve the first shape
+	IShape shape = slide.Shapes[0] as IShape;
+	//Access the animation sequence to create effects
+	ISequence sequence = slide.Timeline.MainSequence;
+	//Add swivel effect with vertical subtype to the shape, build type is used to represent the animate level of the paragraph
+	IEffect bounceEffect = sequence.AddEffect(shape, EffectType.Swivel, EffectSubtype.Vertical, EffectTriggerType.OnClick, BuildType.ByLevelParagraphs1);
+	//Save the Presentation to the file system
+	pptxDoc.Save("Result.pptx");
 }
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Opens an existing Presentation from file system
-
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
    'Retrieve the first slide from Presentation
-
    Dim slide As ISlide = pptxDoc.Slides(0)
-
    'Retrieve the first shape
-
    Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
-
    'Access the animation sequence to create effects
-
    Dim sequence As ISequence = slide.Timeline.MainSequence
-
    'Add swivel effect with vertical subtype to the shape, build type is used to represent the animate level of the paragraph
-
    Dim bounceEffect As IEffect = sequence.AddEffect(shape, EffectType.Swivel, EffectSubtype.Vertical, EffectTriggerType.OnClick, BuildType.ByLevelParagraphs1)
-
    'Save the Presentation to the file system
-
    pptxDoc.Save("Result.pptx")
-
 End Using
 
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
-
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-
 //Retrieve the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieve the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Access the animation sequence to create effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Add swivel effect with vertical subtype to the shape, build type is used to represent the animate level of the paragraph
 IEffect bounceEffect = sequence.AddEffect(shape, EffectType.Swivel, EffectSubtype.Vertical, EffectTriggerType.OnClick, BuildType.ByLevelParagraphs1);
 
@@ -456,70 +328,60 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
 //Retrieve the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieve the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Access the animation sequence to create effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Add swivel effect with vertical subtype to the shape, build type is used to represent the animate level of the paragraph
 IEffect bounceEffect = sequence.AddEffect(shape, EffectType.Swivel, EffectSubtype.Vertical, EffectTriggerType.OnClick, BuildType.ByLevelParagraphs1);
 
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(""Result.pptx, FileMode.Create);
 pptxDoc.Save(outputStream);
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
 //Retrieve the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieve the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Access the animation sequence to create effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Add swivel effect with vertical subtype to the shape, build type is used to represent the animate level of the paragraph
 IEffect bounceEffect = sequence.AddEffect(shape, EffectType.Swivel, EffectSubtype.Vertical, EffectTriggerType.OnClick, BuildType.ByLevelParagraphs1);
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Result.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Result.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -531,92 +393,54 @@ When you add common animation effects for both entrance and exit types, animatio
 {% tabs %}
 
 {% highlight c# %}
-
 //Create an instance for PowerPoint
-
 using (IPresentation pptxDoc = Presentation.Create())
-
 {
-
-//Add a blank slide to Presentation
-
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
-//Add normal shape to slide
-
-IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
-//Access the animation sequence to create effects
-
-ISequence sequence = slide.Timeline.MainSequence;
-
-//Add random bars effect to the shape
-
-IEffect effect = sequence.AddEffect(cubeShape, EffectType.RandomBars, EffectSubtype.None, EffectTriggerType.OnClick);
-
-//Change the preset class type of the effect from default entrance to exit
-
-effect.PresetClassType = EffectPresetClassType.Exit;
-
-//Save the Presentation
-
-pptxDoc.Save("Sample.pptx");
-
+	//Add a blank slide to Presentation
+	ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+	//Add normal shape to slide
+	IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
+	//Access the animation sequence to create effects
+	ISequence sequence = slide.Timeline.MainSequence;
+	//Add random bars effect to the shape
+	IEffect effect = sequence.AddEffect(cubeShape, EffectType.RandomBars, EffectSubtype.None, EffectTriggerType.OnClick);
+	//Change the preset class type of the effect from default entrance to exit
+	effect.PresetClassType = EffectPresetClassType.Exit;
+	//Save the Presentation
+	pptxDoc.Save("Sample.pptx");
 }
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Create an instance for PowerPoint
-
 Using pptxDoc As IPresentation = Presentation.Create()
-
    'Add a blank slide to Presentation
-
    Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-
    'Add normal shape to slide
-
    Dim cubeShape As IShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300)
-
    'Access the animation sequence to create effects
-
    Dim sequence As ISequence = slide.Timeline.MainSequence
-
    'Add random bars effect to the shape
-
    Dim effect As IEffect = sequence.AddEffect(cubeShape, EffectType.RandomBars, EffectSubtype.None, EffectTriggerType.OnClick)
-
    'Change the preset class type of the effect from default entrance to exit
-
    effect.PresetClassType = EffectPresetClassType.[Exit]
-
    'Save the Presentation
-
    pptxDoc.Save("Sample.pptx")
-
 End Using
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add normal shape to slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
 
 //Access the animation sequence to create effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Add random bars effect to the shape
 IEffect effect = sequence.AddEffect(cubeShape, EffectType.RandomBars, EffectSubtype.None, EffectTriggerType.OnClick);
-
 //Change the preset class type of the effect from default entrance to exit
 effect.PresetClassType = EffectPresetClassType.Exit;
 
@@ -631,71 +455,59 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Create an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 
 //Add normal shape to slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
-
 //Access the animation sequence to create effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Add random bars effect to the shape
 IEffect effect = sequence.AddEffect(cubeShape, EffectType.RandomBars, EffectSubtype.None, EffectTriggerType.OnClick);
-
 //Change the preset class type of the effect from default entrance to exit
 effect.PresetClassType = EffectPresetClassType.Exit;
 
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
 //Create an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Add normal shape to slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 50, 200, 300, 300);
 
 //Access the animation sequence to create effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Add random bars effect to the shape
 IEffect effect = sequence.AddEffect(cubeShape, EffectType.RandomBars, EffectSubtype.None, EffectTriggerType.OnClick);
-
 //Change the preset class type of the effect from default entrance to exit
 effect.PresetClassType = EffectPresetClassType.Exit;
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -708,111 +520,67 @@ The Presentation library allows you to edit the animations in existing presentat
 {% tabs %}
 
 {% highlight c# %}
-
 //Open an existing Presentation from file system
-
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
-
 {
-
-//Retrieve the first slide from Presentation
-
-ISlide slide = pptxDoc.Slides[0];
-
-//Retrieve the first shape
-
-IShape shape = slide.Shapes[0] as IShape;
-
-//Access the animation main sequence to modify the effects
-
-ISequence sequence = slide.Timeline.MainSequence;
-
-//Get the animation effects of the particular shape
-
-IEffect[] animationEffects = sequence.GetEffectsByShape(shape);
-
-//Iterate the animation effect to make the change
-
-IEffect animationEffect = animationEffects[0];
-
-//Change the animation effect type from swivel to GrowAndTurn
-
-animationEffect.Type = EffectType.GrowAndTurn;
-
-//Save the Presentation to the file system
-
-pptxDoc.Save("Animation.pptx");
-
+	//Retrieve the first slide from Presentation
+	ISlide slide = pptxDoc.Slides[0];
+	//Retrieve the first shape
+	IShape shape = slide.Shapes[0] as IShape;
+	//Access the animation main sequence to modify the effects
+	ISequence sequence = slide.Timeline.MainSequence;
+	//Get the animation effects of the particular shape
+	IEffect[] animationEffects = sequence.GetEffectsByShape(shape);
+	//Iterate the animation effect to make the change
+	IEffect animationEffect = animationEffects[0];
+	//Change the animation effect type from swivel to GrowAndTurn
+	animationEffect.Type = EffectType.GrowAndTurn;
+	//Save the Presentation to the file system
+	pptxDoc.Save("Animation.pptx");
 }
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Open an existing Presentation from file system
-
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
    'Retrieve the first slide from Presentation
-
    Dim slide As ISlide = pptxDoc.Slides(0)
-
-   'Retrieve the first shape.
-
+   'Retrieve the first shape
    Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
-
    'Access the animation main sequence to modify the effects
-
    Dim sequence As ISequence = slide.Timeline.MainSequence
-
    'Get the animation effects of the particular shape
-
    Dim animationEffects As IEffect() = sequence.GetEffectsByShape(shape)
-
    'Iterate the animation effect to make the change
-
    Dim animationEffect As IEffect = animationEffects(0)
-
    'Change the animation effect type from swivel to GrowAndTurn
-
    animationEffect.Type = EffectType.GrowAndTurn
-
    'Save the Presentation to the file system
-
    pptxDoc.Save("Animation.pptx")
-
 End Using
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
-
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-
 //Retrieve the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieve the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Access the animation main sequence to modify the effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Get the animation effects of the particular shape
 IEffect[] animationEffects = sequence.GetEffectsByShape(shape);
-
 //Iterate the animation effect to make the change
 IEffect animationEffect = animationEffects[0];
-
 //Change the animation effect type from swivel to GrowAndTurn
 animationEffect.Type = EffectType.GrowAndTurn;
 
@@ -827,82 +595,69 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
 
 //Retrieve the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieve the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Access the animation main sequence to modify the effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Get the animation effects of the particular shape
 IEffect[] animationEffects = sequence.GetEffectsByShape(shape);
-
 //Iterate the animation effect to make the change
 IEffect animationEffect = animationEffects[0];
-
 //Change the animation effect type from swivel to GrowAndTurn
 animationEffect.Type = EffectType.GrowAndTurn;
 
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Animation.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
 //Retrieve the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieve the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Access the animation main sequence to modify the effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Get the animation effects of the particular shape
 IEffect[] animationEffects = sequence.GetEffectsByShape(shape);
-
 //Iterate the animation effect to make the change
 IEffect animationEffect = animationEffects[0];
-
 //Change the animation effect type from swivel to GrowAndTurn
 animationEffect.Type = EffectType.GrowAndTurn;
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Animation.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Animation.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -914,100 +669,61 @@ Presentation library allows you to edit the sub type of animations effects in ex
 {% tabs %}
 
 {% highlight c# %}
-
 //Opens an existing Presentation from file system
-
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
-
 {
-
-//Retrieves the first slide from Presentation
-
-ISlide slide = pptxDoc.Slides[0];
-
-//Retrieves the first shape
-
-IShape shape = slide.Shapes[0] as IShape;
-
-//Access the animation main sequence to modify the effects
-
-ISequence sequence = slide.Timeline.MainSequence;
-
-//Get the required animation effect from the slide            
-
-IEffect wheelEffect = sequence[0] as IEffect;
-
-//Change the wheel animation effect sub type from 2 spoke to 4 spoke
-
-wheelEffect.Subtype = EffectSubtype.Wheel4;
-
-//Saves the Presentation to the file system
-
-pptxDoc.Save("Result.pptx");
-
+	//Retrieves the first slide from Presentation
+	ISlide slide = pptxDoc.Slides[0];
+	//Retrieves the first shape
+	IShape shape = slide.Shapes[0] as IShape;
+	//Access the animation main sequence to modify the effects
+	ISequence sequence = slide.Timeline.MainSequence;
+	//Get the required animation effect from the slide            
+	IEffect wheelEffect = sequence[0] as IEffect;
+	//Change the wheel animation effect sub type from 2 spoke to 4 spoke
+	wheelEffect.Subtype = EffectSubtype.Wheel4;
+	//Saves the Presentation to the file system
+	pptxDoc.Save("Result.pptx");
 }
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Opens an existing Presentation from file system
-
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
    'Retrieves the first slide from Presentation
-
    Dim slide As ISlide = pptxDoc.Slides(0)
-
    'Retrieves the first shape
-
    Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
-
    'Access the animation main sequence to modify the effects
-
    Dim sequence As ISequence = slide.Timeline.MainSequence
-
    'Get the required animation effect from the slide            
-
    Dim wheelEffect As IEffect = TryCast(sequence(0), IEffect)
-
    'Change the wheel animation effect sub type from 2 spoke to 4 spoke
-
    wheelEffect.Subtype = EffectSubtype.Wheel4
-
    'Saves the Presentation to the file system
-
    pptxDoc.Save("Result.pptx")
-
 End Using
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
-
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-
 //Retrieves the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieves the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Access the animation main sequence to modify the effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Get the required animation effect from the slide
 IEffect wheelEffect = sequence[0] as IEffect;
-
 //Change the wheel animation effect sub type from 2 spoke to 4 spoke
 wheelEffect.Subtype = EffectSubtype.Wheel4;
 
@@ -1022,76 +738,65 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
 
 //Retrieves the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieves the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Access the animation main sequence to modify the effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Get the required animation effect from the slide            
 IEffect wheelEffect = sequence[0] as IEffect;
-
 //Change the wheel animation effect sub type from 2 spoke to 4 spoke
 wheelEffect.Subtype = EffectSubtype.Wheel4;
 
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Animation.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
 //Retrieves the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieves the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Access the animation main sequence to modify the effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Get the required animation effect from the slide            
 IEffect wheelEffect = sequence[0] as IEffect;
-
 //Change the wheel animation effect sub type from 2 spoke to 4 spoke
 wheelEffect.Subtype = EffectSubtype.Wheel4;
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Animation.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Animation.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -1103,100 +808,61 @@ Presentation library allows you to edit the animation timing in the existing pre
 {% tabs %}
 
 {% highlight c# %}
-
 //Open an existing Presentation from file system
-
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
-
 {
-
-//Retrieves the first slide from Presentation
-
-ISlide slide = pptxDoc.Slides[0];
-
-//Retrieves the first shape
-
-IShape shape = slide.Shapes[0] as IShape;
-
-//Access the animation main sequence to modify the effects
-
-ISequence sequence = slide.Timeline.MainSequence;
-
-//Get the required animation effect from the slide            
-
-IEffect pathEffect = sequence[0] as IEffect;
-
-//Increase the duration of the animation effect
-
-pathEffect.Behaviors[0].Timing.Duration = 5;
-
-//Saves the Presentation to the file system
-
-pptxDoc.Save("Result.pptx");
-
+	//Retrieves the first slide from Presentation
+	ISlide slide = pptxDoc.Slides[0];
+	//Retrieves the first shape
+	IShape shape = slide.Shapes[0] as IShape;
+	//Access the animation main sequence to modify the effects
+	ISequence sequence = slide.Timeline.MainSequence;
+	//Get the required animation effect from the slide            
+	IEffect pathEffect = sequence[0] as IEffect;
+	//Increase the duration of the animation effect
+	pathEffect.Behaviors[0].Timing.Duration = 5;
+	//Saves the Presentation to the file system
+	pptxDoc.Save("Result.pptx");
 }
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Open an existing Presentation from file system
-
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
    'Retrieves the first slide from Presentation
-
    Dim slide As ISlide = pptxDoc.Slides(0)
-
    'Retrieves the first shape
-
    Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
-
    'Access the animation main sequence to modify the effects
-
    Dim sequence As ISequence = slide.Timeline.MainSequence
-
    'Get the required animation effect from the slide            
-
    Dim pathEffect As IEffect = TryCast(sequence(0), IEffect)
-
    'Increase the duration of the animation effect
-
    pathEffect.Behaviors(0).Timing.Duration = 5
-
-   'Save the Presentation to the file system.
-
+   'Save the Presentation to the file system
    pptxDoc.Save("Result.pptx")
-
 End Using
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
-
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-
 //Retrieves the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieves the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Access the animation main sequence to modify the effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Get the required animation effect from the slide
 IEffect pathEffect = sequence[0] as IEffect;
-
 //Increase the duration of the animation effect
 pathEffect.Behaviors[0].Timing.Duration = 5;
 
@@ -1211,76 +877,64 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
 //Retrieves the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieves the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Access the animation main sequence to modify the effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Get the required animation effect from the slide            
 IEffect pathEffect = sequence[0] as IEffect;
-
 //Increase the duration of the animation effect
 pathEffect.Behaviors[0].Timing.Duration = 5;
 
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Animation.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
 //Retrieves the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieves the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Access the animation main sequence to modify the effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Get the required animation effect from the slide            
 IEffect pathEffect = sequence[0] as IEffect;
-
 //Increase the duration of the animation effect
 pathEffect.Behaviors[0].Timing.Duration = 5;
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
 //Save Presentation in stream format.
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Animation.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Animation.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -1292,122 +946,73 @@ Presentation library allows you to reorder the animation effects in existing pre
 {% tabs %}
 
 {% highlight c# %}
-
 //Open the existing presentation
-
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
-
 {
-
-//Iterate the slide
-
-ISlide slide = pptxDoc.Slides[0];
-
-//Iterate the shape
-
-IShape shape = slide.Shapes[0] as IShape;
-
-//Iterate the sequence
-
-ISequence sequence = slide.Timeline.MainSequence;
-
-//Get the animation effects of the shape
-
-IEffect[] shapeAnimationEffects = sequence.GetEffectsByShape(shape);
-
-//Get the second animation effect of the shape
-
-IEffect effect = shapeAnimationEffects[1];
-
-//Remove the animation effect from the sequence
-
-sequence.Remove(effect);
-
-//Insert the removed animation effect as first
-
-sequence.Insert(0, effect);
-
-//Save the created presentation
-
-pptxDoc.Save("Output.pptx");
-
+	//Iterate the slide
+	ISlide slide = pptxDoc.Slides[0];
+	//Iterate the shape
+	IShape shape = slide.Shapes[0] as IShape;
+	//Iterate the sequence
+	ISequence sequence = slide.Timeline.MainSequence;
+	//Get the animation effects of the shape
+	IEffect[] shapeAnimationEffects = sequence.GetEffectsByShape(shape);
+	//Get the second animation effect of the shape
+	IEffect effect = shapeAnimationEffects[1];
+	//Remove the animation effect from the sequence
+	sequence.Remove(effect);
+	//Insert the removed animation effect as first
+	sequence.Insert(0, effect);
+	//Save the created presentation
+	pptxDoc.Save("Output.pptx");
 }
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Open the existing presentation
-
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
    'Iterate the slide
-
    Dim slide As ISlide = pptxDoc.Slides(0)
-
    'Iterate the shape
-
    Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
-
    'Iterate the sequence
-
    Dim sequence As ISequence = slide.Timeline.MainSequence
-
    'Get the animation effects of the shape
-
    Dim shapeAnimationEffects As IEffect() = sequence.GetEffectsByShape(shape)
-
    'Get the second animation effect of the shape
-
    Dim effect As IEffect = shapeAnimationEffects(1)
-
    'Remove the animation effect from the sequence
-
    sequence.Remove(effect)
-
    'Insert the removed animation effect as first
-
    sequence.Insert(0, effect)
-
    'Save the created presentation
-
    pptxDoc.Save("Output.pptx")
-
 End Using
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
-
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-
 //Iterate the slide
 ISlide slide = pptxDoc.Slides[0];
-
 //Iterate the shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Iterate the sequence
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Get the animation effects of the shape
 IEffect[] shapeAnimationEffects = sequence.GetEffectsByShape(shape);
-
 //Get the second animation effect of the shape
 IEffect effect = shapeAnimationEffects[1];
-
 //Remove the animation effect from the sequence
 sequence.Remove(effect);
-
 //Insert the removed animation effect as first
 sequence.Insert(0, effect);
 
@@ -1422,88 +1027,72 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
 
 //Iterate the slide
 ISlide slide = pptxDoc.Slides[0];
-
 //Iterate the shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Iterate the sequence
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Get the animation effects of the shape
 IEffect[] shapeAnimationEffects = sequence.GetEffectsByShape(shape);
-
 //Get the second animation effect of the shape
 IEffect effect = shapeAnimationEffects[1];
-
 //Remove the animation effect from the sequence
 sequence.Remove(effect);
-
 //Insert the removed animation effect as first
 sequence.Insert(0, effect);
 
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Animation.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
-
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
 //Iterate the slide
 ISlide slide = pptxDoc.Slides[0];
-
 //Iterate the shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Iterate the sequence
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Get the animation effects of the shape
 IEffect[] shapeAnimationEffects = sequence.GetEffectsByShape(shape);
-
 //Get the second animation effect of the shape
 IEffect effect = shapeAnimationEffects[1];
-
 //Remove the animation effect from the sequence
 sequence.Remove(effect);
-
 //Insert the removed animation effect as first
 sequence.Insert(0, effect);
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Animation.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Animation.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -1515,140 +1104,81 @@ Presentation library allows you to create and modify the custom animations in pr
 {% tabs %}
 
 {% highlight c# %}
-
 //Creates an instance for PowerPoint
-
 using (IPresentation pptxDoc = Presentation.Create())
-
 {
-
-//Adds a blank slide to Presentation
-
-ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
-//Adds normal shape to slide
-
-IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 200, 0, 300, 300);
-
-//Access the animation sequence to create effects
-
-ISequence sequence = slide.Timeline.MainSequence;
-
-//Add user path effect to the shape
-
-IEffect bounceEffect = sequence.AddEffect(cubeShape, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-//Add commands to the empty path for moving
-
-IMotionEffect motionBehavior = ((IMotionEffect)bounceEffect.Behaviors[0]);
-
-PointF[] points = new PointF[1];
-
-//Add the move command to move the position of the shape
-
-points[0] = new PointF(0, 0);
-
-motionBehavior.Path.Add(MotionCommandPathType.MoveTo, points, MotionPathPointsType.Auto, false);
-
-//Add the line command to move the shape in straight line
-
-points[0] = new PointF(0, 0.25f);
-
-motionBehavior.Path.Add(MotionCommandPathType.LineTo, points, MotionPathPointsType.Auto, false);
-
-//Add the end command to finish the path animation
-
-motionBehavior.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-//Saves the Presentation
-
-pptxDoc.Save("Sample.pptx");
-
+	//Adds a blank slide to Presentation
+	ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
+	//Adds normal shape to slide
+	IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 200, 0, 300, 300);
+	//Access the animation sequence to create effects
+	ISequence sequence = slide.Timeline.MainSequence;
+	//Add user path effect to the shape
+	IEffect bounceEffect = sequence.AddEffect(cubeShape, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
+	//Add commands to the empty path for moving
+	IMotionEffect motionBehavior = ((IMotionEffect)bounceEffect.Behaviors[0]);
+	PointF[] points = new PointF[1];
+	//Add the move command to move the position of the shape
+	points[0] = new PointF(0, 0);
+	motionBehavior.Path.Add(MotionCommandPathType.MoveTo, points, MotionPathPointsType.Auto, false);
+	//Add the line command to move the shape in straight line
+	points[0] = new PointF(0, 0.25f);
+	motionBehavior.Path.Add(MotionCommandPathType.LineTo, points, MotionPathPointsType.Auto, false);
+	//Add the end command to finish the path animation
+	motionBehavior.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
+	//Saves the Presentation
+	pptxDoc.Save("Sample.pptx");
 }
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an instance for PowerPoint
-
 Using pptxDoc As IPresentation = Presentation.Create()
-
    'Adds a blank slide to Presentation
-
    Dim slide As ISlide = pptxDoc.Slides.Add(SlideLayoutType.Blank)
-
    'Adds normal shape to slide
-
    Dim cubeShape As IShape = slide.Shapes.AddShape(AutoShapeType.Cube, 200, 0, 300, 300)
-
    'Access the animation sequence to create effects
-
    Dim sequence As ISequence = slide.Timeline.MainSequence
-
    'Add user path effect to the shape
-
    Dim bounceEffect As IEffect = sequence.AddEffect(cubeShape, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick)
-
    'Add commands to the empty path for moving
-
    Dim motionBehavior As IMotionEffect = DirectCast(bounceEffect.Behaviors(0), IMotionEffect)
-
    Dim points As PointF() = New PointF(0) {}
-
    'Add the move command to move the position of the shape
-
    points(0) = New PointF(0, 0)
-
    motionBehavior.Path.Add(MotionCommandPathType.MoveTo, points, MotionPathPointsType.Auto, False)
-
    'Add the line command to move the shape in straight line
-
    points(0) = New PointF(0, 0.25F)
-
    motionBehavior.Path.Add(MotionCommandPathType.LineTo, points, MotionPathPointsType.Auto, False)
-
    'Add the end command to finish the path animation
-
    motionBehavior.Path.Add(MotionCommandPathType.[End], Nothing, MotionPathPointsType.Auto, False)
-
    'Saves the Presentation
-
    pptxDoc.Save("Sample.pptx")
-
 End Using
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Create an instance of PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Create();
-
 //Add a blank slide to Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Adds normal shape to slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 200, 0, 300, 300);
 
 //Access the animation sequence to create effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Add user path effect to the shape
 IEffect bounceEffect = sequence.AddEffect(cubeShape, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
 //Add commands to the empty path for moving
 IMotionEffect motionBehavior = ((IMotionEffect)bounceEffect.Behaviors[0]);
 PointF[] points = new PointF[1];
-
 //Add the move command to move the position of the shape
 points[0] = new PointF(0, 0);
 motionBehavior.Path.Add(MotionCommandPathType.MoveTo, points, MotionPathPointsType.Auto, false);
-
 //Add the line command to move the shape in straight line
 points[0] = new PointF(0, 0.25f);
 motionBehavior.Path.Add(MotionCommandPathType.LineTo, points, MotionPathPointsType.Auto, false);
-
 //Add the end command to finish the path animation
 motionBehavior.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
 
@@ -1663,95 +1193,77 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Creates an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
-
 //Adds a blank slide to Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Adds normal shape to slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 200, 0, 300, 300);
 
 //Access the animation sequence to create effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Add user path effect to the shape
 IEffect bounceEffect = sequence.AddEffect(cubeShape, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
 //Add commands to the empty path for moving
 IMotionEffect motionBehavior = ((IMotionEffect)bounceEffect.Behaviors[0]);
 PointF[] points = new PointF[1];
-
 //Add the move command to move the position of the shape
 points[0] = new PointF(0, 0);
 motionBehavior.Path.Add(MotionCommandPathType.MoveTo, points, MotionPathPointsType.Auto, false);
-
 //Add the line command to move the shape in straight line
 points[0] = new PointF(0, 0.25f);
 motionBehavior.Path.Add(MotionCommandPathType.LineTo, points, MotionPathPointsType.Auto, false);
-
 //Add the end command to finish the path animation
 motionBehavior.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
 
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
 //Creates an instance for PowerPoint
 IPresentation pptxDoc = Presentation.Create();
-
 //Adds a blank slide to Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Adds normal shape to slide
 IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 200, 0, 300, 300);
 
 //Access the animation sequence to create effects
 ISequence sequence = slide.Timeline.MainSequence;
-
 //Add user path effect to the shape
 IEffect bounceEffect = sequence.AddEffect(cubeShape, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
 //Add commands to the empty path for moving
 IMotionEffect motionBehavior = ((IMotionEffect)bounceEffect.Behaviors[0]);
 PointF[] points = new PointF[1];
-
 //Add the move command to move the position of the shape
 points[0] = new PointF(0, 0);
 motionBehavior.Path.Add(MotionCommandPathType.MoveTo, points, MotionPathPointsType.Auto, false);
-
 //Add the line command to move the shape in straight line
 points[0] = new PointF(0, 0.25f);
 motionBehavior.Path.Add(MotionCommandPathType.LineTo, points, MotionPathPointsType.Auto, false);
-
 //Add the end command to finish the path animation
 motionBehavior.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -1763,112 +1275,70 @@ Presentation library allows you to remove the animation effects from a shape. Th
 {% tabs %}
 
 {% highlight c# %}
-
 //Open the existing presentation
-
 using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
-
 {
-
-//Iterate the slide
-
-ISlide slide = pptxDoc.Slides[0];
-
-//Retrieves the first shape
-
-IShape shape = slide.Shapes[0] as IShape;
-
-//Iterate the sequence
-
-ISequence sequence = slide.Timeline.MainSequence;
-
-//To Remove the animation effects from the shape
-
-//Get the animation effects of the particular shape
-
-IEffect[] animationEffects = sequence.GetEffectsByShape(shape);
-
-//Remove the animation effect from the main sequence
-
-foreach (IEffect effect in animationEffects)
-{
-   sequence.Remove(effect);
+	//Iterate the slide
+	ISlide slide = pptxDoc.Slides[0];
+	//Retrieves the first shape
+	IShape shape = slide.Shapes[0] as IShape;
+	//Iterate the sequence
+	ISequence sequence = slide.Timeline.MainSequence;
+	//To Remove the animation effects from the shape
+	//Get the animation effects of the particular shape
+	IEffect[] animationEffects = sequence.GetEffectsByShape(shape);
+	//Remove the animation effect from the main sequence
+	foreach (IEffect effect in animationEffects)
+	{
+		sequence.Remove(effect);
+	}
+	//Save the created presentation
+	pptxDoc.Save("Result.pptx");
 }
-
-//Save the created presentation
-
-pptxDoc.Save("Result.pptx");
-
-}
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Open the existing presentation
-
 Using pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
-
    'Iterate the slide
-
    Dim slide As ISlide = pptxDoc.Slides(0)
-
    'Retrieves the first shape
-
    Dim shape As IShape = TryCast(slide.Shapes(0), IShape)
-
    'Iterate the sequence
-
    Dim sequence As ISequence = slide.Timeline.MainSequence
-
    'To Remove the animation effects from the shape
-
    'Get the animation effects of the particular shape
-
    Dim animationEffects As IEffect() = sequence.GetEffectsByShape(shape)
-
    'Remove the animation effect from the main sequence
-
    For Each effect As IEffect In animationEffects
-      sequence.Remove(effect)
+		sequence.Remove(effect)
    Next
-
    'Save the created presentation
-
    pptxDoc.Save("Result.pptx")
-
 End Using
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
-
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-
 //Iterate the slide
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieves the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Iterate the sequence
 ISequence sequence = slide.Timeline.MainSequence;
-
 //To Remove the animation effects from the shape
 //Get the animation effects of the particular shape
 IEffect[] animationEffects = sequence.GetEffectsByShape(shape);
-
 //Remove the animation effect from the main sequence
-
 foreach (IEffect effect in animationEffects)
 {
    sequence.Remove(effect);
@@ -1885,28 +1355,22 @@ StorageFile storageFile = await savePicker.PickSaveFileAsync();
 
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream("Sample.pptx",FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
 //Iterate the slide
 ISlide slide = pptxDoc.Slides[0];
 
 //Retrieves the first shape
 IShape shape = slide.Shapes[0] as IShape;
-
 //Iterate the sequence
 ISequence sequence = slide.Timeline.MainSequence;
-
 //To Remove the animation effects from the shape
 //Get the animation effects of the particular shape
 IEffect[] animationEffects = sequence.GetEffectsByShape(shape);
-
 //Remove the animation effect from the main sequence
 foreach (IEffect effect in animationEffects)
 {
@@ -1916,53 +1380,47 @@ foreach (IEffect effect in animationEffects)
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream("Animation.pptx", FileMode.Create);
 pptxDoc.Save(outputStream);
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.Presentation.Samples.Template.Sample.pptx");
 
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
 //Iterate the slide
 ISlide slide = pptxDoc.Slides[0];
-
 //Retrieves the first shape
 IShape shape = slide.Shapes[0] as IShape;
 
 //Iterate the sequence
 ISequence sequence = slide.Timeline.MainSequence;
-
 //To Remove the animation effects from the shape
 //Get the animation effects of the particular shape
 IEffect[] animationEffects = sequence.GetEffectsByShape(shape);
-
 //Remove the animation effect from the main sequence
 foreach (IEffect effect in animationEffects)
 {
    sequence.Remove(effect);
 }
 
-//Create new memory stream to save Presentation.
+//Create new memory stream to save Presentation
 MemoryStream stream = new MemoryStream();
-
-//Save Presentation in stream format.
+//Save Presentation in stream format
 pptxDoc.Save(stream);
-
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
 
-//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
+//The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Animation.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Animation.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}

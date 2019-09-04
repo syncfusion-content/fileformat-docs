@@ -87,6 +87,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
@@ -324,6 +326,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
@@ -504,6 +508,8 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -806,16 +812,16 @@ Save(stream, "Sample.docx");
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//Opens the template document. 
+//Opens the template document
 FileStream fileStreamPath = new FileStream(@"Sample.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Sets “ClearFields” to true to remove empty mail merge fields from document.
+//Sets “ClearFields” to true to remove empty mail merge fields from document
 document.MailMerge.ClearFields = false;
 //Uses the mail merge event to clear the unmerged group field while perform mail merge execution
 document.MailMerge.BeforeClearGroupField += new BeforeClearGroupFieldEventHandler(BeforeClearFields);
 //Gets the employee details as “IEnumerable” collection
 List<Employees> employeeList = GetEmployees();
-//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
 MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
 //Performs Mail merge
 document.MailMerge.ExecuteNestedGroup(dataTable);
@@ -852,6 +858,8 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 

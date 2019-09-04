@@ -134,6 +134,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %} 
@@ -241,7 +243,6 @@ You can remove the empty paragraphs when the paragraph has only a merge field it
 
 The following code example shows how to remove the empty paragraphs during Mail merge process.
 
-
 {% tabs %} 
 
 {% highlight C# %}
@@ -296,14 +297,14 @@ Save(stream, "Sample.docx");
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//Opens the template document. 
+//Opens the template document
 FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-//Removes paragraph that contains only empty fields. 
+//Removes paragraph that contains only empty fields
 document.MailMerge.RemoveEmptyParagraphs = true;
 string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
 string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
-//Performs the mail merge.
+//Performs the mail merge
 document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
@@ -334,6 +335,8 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -452,6 +455,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 {% endtabs %} 
 
@@ -464,7 +469,6 @@ The following code example shows how to remove empty merge field group during ma
 {% tabs %}  
 
 {% highlight C# %}
-
 //Opens the template document 
 WordDocument document = new WordDocument(@"Template.docx");
 //Gets the employee details as “IEnumerable” collection
@@ -478,11 +482,9 @@ document.MailMerge.ExecuteNestedGroup(dataTable);
 //Saves and closes the WordDocument instance
 document.Save("Sample.docx");
 document.Close();
-
 {% endhighlight %}
 
 {% highlight VB.NET %}
-
 'Opens the template document
 Dim document As WordDocument =  New WordDocument("Template.docx")
 'Gets the employee details as “IEnumerable” collection
@@ -495,8 +497,7 @@ document.MailMerge.RemoveEmptyGroup = True
 document.MailMerge.ExecuteNestedGroup(dataTable)
 'Saves and closes the WordDocument instance
 document.Save("Sample.docx")
-document.Close() 
-
+document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -525,7 +526,6 @@ Save(stream, "Sample.docx");
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Opens the template document 
 FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -545,7 +545,6 @@ document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
@@ -567,7 +566,8 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -579,7 +579,6 @@ The following code example provides supporting methods
 {% tabs %}  
 
 {% highlight C# %}
-  
 public static List<Employees> GetEmployees()
 {
 	List<OrderDetails> orders = new List<OrderDetails>();
@@ -647,11 +646,9 @@ public class OrderDetails
 		RequiredDate = requiredDate;
 	}
 }
-
 {% endhighlight %}
 
 {% highlight VB.NET %}
-
 Public Function GetEmployees() As List(Of Employees)
 	Dim orders As List(Of OrderDetails) = New List(Of OrderDetails)
 	orders.Add(New OrderDetails("10835", New DateTime(2015, 1, 5), New DateTime(2015, 1, 12), New DateTime(2015, 1, 21)))
@@ -712,11 +709,149 @@ Public Class OrderDetails
 		Me.RequiredDate = requiredDate
 	End Sub
 End Class
-
 {% endhighlight %}
 
 {% highlight UWP %}
-  
+public static List<Employees> GetEmployees()
+{
+	List<OrderDetails> orders = new List<OrderDetails>();
+	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+	List<CustomerDetails> customerDetails = new List<CustomerDetails>();
+	customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
+	customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
+	List<Employees> employees = new List<Employees>();
+	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
+	return employees;
+}
+        
+public class Employees
+{
+	public string FirstName { get; set; }
+	public string LastName { get; set; }
+	public string EmployeeID { get; set; }
+	public string Address { get; set; }
+	public string City { get; set; }
+	public string Country { get; set; }
+	public List<CustomerDetails> Customers { get; set; }
+
+	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
+	{
+		FirstName = firstName;
+		LastName = lastName;
+		Address = address;
+		EmployeeID = employeeId;
+		City = city;
+		Country = country;
+		Customers = customers;
+	}
+}
+
+public class CustomerDetails
+{
+	public string ContactName { get; set; }
+	public string CompanyName { get; set; }
+	public string City { get; set; }
+	public string Country { get; set; }
+	public List<OrderDetails> Orders { get; set; }
+
+	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+	{
+		ContactName = contactName;
+		CompanyName = companyName;
+		City = city;
+		Country = country;
+		Orders = orders;
+	}
+}
+
+public class OrderDetails
+{
+	public string OrderID { get; set; }
+	public DateTime OrderDate { get; set; }
+	public DateTime ShippedDate { get; set; }
+	public DateTime RequiredDate { get; set; }
+
+	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+	{
+		OrderID = orderId;
+		OrderDate = orderDate;
+		ShippedDate = shippedDate;
+		RequiredDate = requiredDate;
+	}
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+public static List<Employees> GetEmployees()
+{
+	List<OrderDetails> orders = new List<OrderDetails>();
+	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+	List<CustomerDetails> customerDetails = new List<CustomerDetails>();
+	customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
+	customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
+	List<Employees> employees = new List<Employees>();
+	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
+	return employees;
+}
+        
+public class Employees
+{
+	public string FirstName { get; set; }
+	public string LastName { get; set; }
+	public string EmployeeID { get; set; }
+	public string Address { get; set; }
+	public string City { get; set; }
+	public string Country { get; set; }
+	public List<CustomerDetails> Customers { get; set; }
+
+	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
+	{
+		FirstName = firstName;
+		LastName = lastName;
+		Address = address;
+		EmployeeID = employeeId;
+		City = city;
+		Country = country;
+		Customers = customers;
+	}
+}
+
+public class CustomerDetails
+{
+	public string ContactName { get; set; }
+	public string CompanyName { get; set; }
+	public string City { get; set; }
+	public string Country { get; set; }
+	public List<OrderDetails> Orders { get; set; }
+
+	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+	{
+		ContactName = contactName;
+		CompanyName = companyName;
+		City = city;
+		Country = country;
+		Orders = orders;
+	}
+}
+
+public class OrderDetails
+{
+	public string OrderID { get; set; }
+	public DateTime OrderDate { get; set; }
+	public DateTime ShippedDate { get; set; }
+	public DateTime RequiredDate { get; set; }
+
+	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+	{
+		OrderID = orderId;
+		OrderDate = orderDate;
+		ShippedDate = shippedDate;
+		RequiredDate = requiredDate;
+	}
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
 public static List<Employees> GetEmployees()
 {
 	List<OrderDetails> orders = new List<OrderDetails>();
@@ -928,7 +1063,6 @@ public class OrderDetails
 		RequiredDate = requiredDate;
 	}
 }
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -1189,7 +1323,6 @@ The following code example shows how to insert each record as new row in single 
 {% tabs %}  
 
 {% highlight C# %}
-
 //Opens the template document 
 WordDocument document = new WordDocument(@"Data/Template.docx");
 //Creates a data table
@@ -1218,11 +1351,9 @@ document.MailMerge.ExecuteGroup(table);
 //Saves and closes the WordDocument instance
 document.Save("Sample.docx");
 document.Close();
-
 {% endhighlight %}
 
 {% highlight VB.NET %}
-
 'Opens the template document 
 Dim document As WordDocument = New WordDocument("Data/Template.docx")
 'Creates a data table
@@ -1251,17 +1382,13 @@ document.MailMerge.ExecuteGroup(table)
 'Saves and closes the WordDocument instance
 document.Save("Sample.docx")
 document.Close()
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
 //DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Opens the template document 
 FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1296,11 +1423,9 @@ document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -1334,7 +1459,8 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -1384,67 +1510,28 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of a WordDocument
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	WordDocument document = new WordDocument();
-	document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-	//Uses the mail merge events to perform the conditional formatting during runtime
-	document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeEmployeePhoto);
-	//Executes Mail Merge with groups
-	string[] fieldNames = { "Nancy", "Andrew", "Steven" };
-	string[] fieldValues = { "Sample.Assets.Nancy.png", "Sample.Assets.Andrew.png", "Sample.Assets.Steven.png" };
-	//Execute mail merge
-	document.MailMerge.Execute(fieldNames, fieldValues);
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Sample.docx");
-	document.Close();
-}
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	// Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
+//Creates an instance of a WordDocument
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument();
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Uses the mail merge events to perform the conditional formatting during runtime
+document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeEmployeePhoto);
+//Executes Mail Merge with groups
+string[] fieldNames = { "Nancy", "Andrew", "Steven" };
+string[] fieldValues = { "Sample.Assets.Nancy.png", "Sample.Assets.Andrew.png", "Sample.Assets.Steven.png" };
+//Execute mail merge
+document.MailMerge.Execute(fieldNames, fieldValues);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Opens the template document 
 FileStream fileStreamPath = new FileStream(@"Data\Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
@@ -1463,11 +1550,9 @@ document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
 //Opens the template document
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
@@ -1485,7 +1570,8 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
