@@ -8,6 +8,10 @@ documentation: UG
 
 # Simple Mail merge
 
+You can create a Word document template using Microsoft Word application or by adding merge fields in the Word document programmatically. For further information, click [here](https://help.syncfusion.com/file-formats/docio/working-with-mail-merge#how-to-create-word-document-template).
+
+## Mail merge with string arrays
+
 The `MailMerge` class provides various overloads for `Execute` method to perform Mail merge from various data sources. The Mail merge operation replaces the matching merge fields with the respective data.
 
 The following code example shows how to create a Word template document with merge fields.
@@ -78,10 +82,12 @@ document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Template.docx");
-document.Close();
-//Please refer the below link to save Word document in UWP platform
+
+//Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
@@ -105,7 +111,7 @@ document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Closes the document
+//Closes the Word document
 document.Close();
 stream.Position = 0;
 //Download Word document in the browser
@@ -132,10 +138,13 @@ document.LastParagraph.AppendField("City", FieldType.FieldMergeField);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
-//Closes the document 
-document.Close();
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -144,7 +153,7 @@ document.Close();
 
 The generated template document looks as follows.
 
-![Template document](../MailMerge_images/MailMerge_img2.jpeg)
+![Word document template](../MailMerge_images/Simple_mail_merge_template.png)
 
 The following code example shows how to perform a simple Mail merge in the generated template document with string array as data source.
 
@@ -186,10 +195,12 @@ document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-document.Close();
-//Please refer the below link to save Word document in UWP platform
+
+//Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
@@ -204,7 +215,7 @@ document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Closes the document
+//Closes the Word document
 document.Close();
 stream.Position = 0;
 //Download Word document in the browser
@@ -222,10 +233,13 @@ document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Closes the document 
-document.Close();
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -234,4 +248,4 @@ document.Close();
 
 The resultant document looks as follows.
 
-![Resultant document](../MailMerge_images/MailMerge_img3.jpeg)
+![Mail merged Word document](../MailMerge_images/Simple_mail_merge_output.png)

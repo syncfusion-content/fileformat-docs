@@ -8,14 +8,16 @@ documentation: UG
 
 # Event support for Mail merge
 
-The MailMerge class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO in Mail merge process:
+The MailMerge class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO during Mail merge process:
 
-* `MergeField`- occurs during Mail merge when a Mail merge field except image Mail merge field is encountered in the document.
-* `MergeImageField`- occurs during Mail merge when an image Mail merge field is encountered in the document.
-* `BeforeClearField`- occurs during Mail merge when an unmerged field is encountered in the document.
-* `BeforeClearGroupField`- occurs during Mail merge when an unmerged group field is encountered in the document.
+* `MergeField`- occurs when a **Mail merge field** except image Mail merge field is encountered.
+* `MergeImageField`- occurs when an **image Mail merge field** is encountered.
+* `BeforeClearField`- occurs when an **unmerged field** is encountered.
+* `BeforeClearGroupField`- occurs when an **unmerged group field** is encountered.
 
 ## MergeField Event
+
+You can apply formatting to the merged text or modify the merged text during mail merge process using the `MergeField` Event.
 
 The following code example shows how to use the MergeField event during Mail merge process.
 
@@ -60,7 +62,7 @@ document.MailMerge.ExecuteGroup(GetDataTable());
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Closes the document
+//Closes the Word document
 document.Close();
 stream.Position = 0;
 //Download Word document in the browser
@@ -78,10 +80,13 @@ document.MailMerge.ExecuteGroup(GetDataTable());
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
 //Closes the document 
 document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
@@ -218,6 +223,8 @@ private static DataTable GetDataTable()
 
 ## MergeImageField Event
 
+You can format the merged image data like resizing the image and more during mail merge process using the `MergeImageField` Event. 
+
 The following code example shows how to use the MergeImageField event during Mail merge process.
 
 {% tabs %}  
@@ -267,11 +274,14 @@ document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-document.Close();
-//Please refer the below link to save Word document in UWP platform
+
+//Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -288,7 +298,7 @@ document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Closes the document
+//Closes the Word document
 document.Close();
 stream.Position = 0;
 //Download Word document in the browser
@@ -309,10 +319,13 @@ document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
-//Closes the document 
-document.Close();
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -418,6 +431,8 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
 
 ## BeforeClearField Event
 
+You can get the unmerged fields in a Word document during mail merge process using the `BeforeClearField` Event.
+
 The following code example shows how to use the BeforeClearField event during Mail merge process.
 
 {% tabs %}  
@@ -467,7 +482,7 @@ document.MailMerge.ExecuteGroup(GetDataTable());
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Closes the document
+//Closes the Word document
 document.Close();
 stream.Position = 0;
 //Download Word document in the browser
@@ -487,10 +502,13 @@ document.MailMerge.ExecuteGroup(GetDataTable());
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Closes the document 
-document.Close();
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -724,6 +742,8 @@ private DataTable GetDataTable()
 
 ## BeforeClearGroupField Event
 
+You can get the unmerged group fields in a Word document during mail merge process using the `BeforeClearGroupField` event.
+
 The following code example shows how to use the BeforeClearGroupField event during Mail merge process.
 
 {% tabs %}  
@@ -782,11 +802,13 @@ document.MailMerge.ExecuteNestedGroup(dataTable);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-document.Close();
-//Please refer the below link to save Word document in UWP platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp 
+
+//Refer to the following link to save Word document in UWP platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -806,7 +828,7 @@ document.MailMerge.ExecuteNestedGroup(dataTable);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Closes the document
+//Closes the Word document
 document.Close();
 stream.Position = 0;
 //Download Word document in the browser
@@ -830,10 +852,13 @@ document.MailMerge.ExecuteNestedGroup(dataTable);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
-//Closes the document 
-document.Close();
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
