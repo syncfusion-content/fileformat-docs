@@ -16,12 +16,17 @@ You can perform Mail merge and append multiple records from data source within a
   1.TableStart and TableEnd region is preferred for performing Mail merge inside the table cell.
   
   2.BeginGroup and EndGroup region is preferred for performing Mail merge inside the document body contents.
+
+
+## How to create template for group mail merge
   
 For example, consider that you have a template document as shown.
 
-![Mail merge for a group](../MailMerge_images/MailMerge_img4.jpeg)
+![Mail merge for a group](../MailMerge_images/Group_mail_merge_template.png)
 
 In this template, Employees is the group name and the same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees” to denote the start and end of the Mail merge group.
+
+## How to execute group mail merge
 
 The `MailMerge` class provides various overloads for `ExecuteGroup` method to perform Mail merge within a group from various data sources. The following code example shows how to perform Mail merge in the specific region with data source retrieved from SQL connection.
 
@@ -70,6 +75,7 @@ The following code example provides supporting methods for the above code.
 {% highlight c# %}
 private DataTable GetDataTable()
 {
+    DataSet dataset = new DataSet();
     SqlCeConnection conn = new SqlCeConnection("Data Source = " + datasourceName);
     conn.Open();
     SqlCeDataAdapter adapter = new SqlCeDataAdapter("Select TOP(5) * from EmployeesReport", conn);
@@ -85,6 +91,7 @@ private DataTable GetDataTable()
 
 {% highlight vb.net %}
 Private Function GetDataTable() As DataTable
+	Dim dataset As DataSet = New DataSet
 	Dim conn As New SqlCeConnection("Data Source = " + datasourceName)
 	conn.Open()
 	Dim adapter As New SqlCeDataAdapter("Select TOP(5) * from EmployeesReport", conn)
@@ -114,7 +121,7 @@ End Function
 
 The resultant document looks as follows.
 
-![Group resultant document](../MailMerge_images/MailMerge_img5.jpeg)
+![Group resultant document](../MailMerge_images/Group_mail_merge_output.png)
 
 ## Mail merge with business objects
 
@@ -151,27 +158,27 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of a WordDocument
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	WordDocument document = new WordDocument();
-	document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-	//Gets the employee details as “IEnumerable” collection
-	List<Employee> employeeList = GetEmployees();
-	//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
-	MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
-	//Uses the mail merge events handler for image fields
-	document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeField_Image);
-	//Performs Mail merge
-	document.MailMerge.ExecuteGroup(dataTable);
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Sample.docx");
-	document.Close();
-}
+//Creates an instance of a WordDocument
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument();
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Gets the employee details as “IEnumerable” collection
+List<Employee> employeeList = GetEmployees();
+//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection
+MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
+//Uses the mail merge events handler for image fields
+document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeField_Image);
+//Performs Mail merge
+document.MailMerge.ExecuteGroup(dataTable);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+document.Close();
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+
+//Refer to the following link to save Word document in UWP platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 
 private void MergeField_Image(object sender, MergeImageFieldEventArgs args)
 {
@@ -184,41 +191,6 @@ private void MergeField_Image(object sender, MergeImageFieldEventArgs args)
 		 Stream imageStream = assembly.GetManifestResourceStream("Sample.Assets." + ProductFileName);
 		 args.ImageStream = imageStream;
 	}
-}
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	// Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 {% endhighlight %}
 
@@ -235,6 +207,8 @@ document.MailMerge.ExecuteGroup(dataTable);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the Word document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
@@ -255,10 +229,13 @@ document.MailMerge.ExecuteGroup(dataTable);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document 
 document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 
 private void MergeField_Image(object sender, MergeImageFieldEventArgs args)
 {
