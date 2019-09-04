@@ -11,8 +11,11 @@ documentation: UG
 The MailMerge class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO during Mail merge process:
 
 * `MergeField`- occurs when a **Mail merge field** except image Mail merge field is encountered.
+
 * `MergeImageField`- occurs when an **image Mail merge field** is encountered.
+
 * `BeforeClearField`- occurs when an **unmerged field** is encountered.
+
 * `BeforeClearGroupField`- occurs when an **unmerged group field** is encountered.
 
 ## MergeField Event
@@ -86,8 +89,6 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "application/msword", stream);
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
@@ -326,8 +327,6 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
@@ -508,8 +507,6 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
@@ -858,8 +855,6 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 
 //Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
-//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
