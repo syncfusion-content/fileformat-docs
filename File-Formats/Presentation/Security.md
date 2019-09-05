@@ -49,7 +49,7 @@ presentationDocument.Save("Sample.pptx")
 presentationDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP}
+{% highlight UWP %}
 //Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
@@ -93,7 +93,7 @@ presentationDocument.Save("Output.pptx")
 presentationDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP}
+{% highlight UWP %}
 //Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
@@ -135,7 +135,7 @@ presentationDocument.Save("Output.pptx")
 presentationDocument.Close()
 {% endhighlight %}
 
-{% highlight UWP}
+{% highlight UWP %}
 //Presentation supports encryption in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
