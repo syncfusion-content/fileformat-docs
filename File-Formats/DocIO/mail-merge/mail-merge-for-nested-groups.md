@@ -13,12 +13,6 @@ You can perform nested Mail merge with relational or hierarchical data source an
 ## Create template for nested group mail merge
 
 Nested Mail merge operation automatically replaces the merge field with immediate group data. You can also predefine the group data that is populated to a merge field. 
-
-You can also merge any field in the nested group by **mapping the field or column of its ancestor group** or table in the data source. To achieve this, you need to add a corresponding group name or table name as a prefix to the merge field name along with “:” separator.
-
-For example:
-  * The merge field name should be like “TableName:Id” (<<TableName:MergeFieldName>>)
-  * The merge field name should be like “Image:TableName:Photo” (<<Image:TableName:MergeFieldName>>)
   
 To execute nested mail merge, design your Word document template as follow.
 
@@ -250,7 +244,7 @@ return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %} 
 
 {% highlight XAMARIN %}
-//ExpandoObject supported from Xamarin.Android(v7.1),Xamarin.iOS(v10.8) and Xamarin.Mac(v3.0). 
+//ExpandoObject is supported from Xamarin.Android(v7.1),Xamarin.iOS(v10.8) and Xamarin.Mac(v3.0). 
 //You can use IDictionary<string, object> collection, where ExpandoObject is not supported.
 
 {% endhighlight %}
@@ -343,7 +337,7 @@ private List<ExpandoObject> GetOrders()
 {% endhighlight %} 
 
 {% highlight XAMARIN %}
-//ExpandoObject supported from Xamarin.Android(v7.1),Xamarin.iOS(v10.8) and Xamarin.Mac(v3.0). 
+//ExpandoObject is supported from Xamarin.Android(v7.1),Xamarin.iOS(v10.8) and Xamarin.Mac(v3.0). 
 //You can use IDictionary<string, object> collection, where ExpandoObject is not supported.
 {% endhighlight %}
 
@@ -427,7 +421,7 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 {% endhighlight %}
  
 {% highlight XAMARIN %}
-//ExpandoObject supported from Xamarin.Android(v7.1),Xamarin.iOS(v10.8) and Xamarin.Mac(v3.0). 
+//ExpandoObject is supported from Xamarin.Android(v7.1),Xamarin.iOS(v10.8) and Xamarin.Mac(v3.0). 
 //You can use IDictionary<string, object> collection, where ExpandoObject is not supported.
 {% endhighlight %}
 {% endtabs %}
@@ -435,6 +429,18 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 ## Nested Mail merge with implicit relational data
 
 You can perform **nested Mail merge with implicit relational data** objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method.
+
+### Map the field of ancestor group
+
+You can also merge any field in the nested group by **mapping the field or column of its ancestor group or table** in the data source. To achieve this, you need to add a corresponding group name or table name as a prefix to the merge field name along with “:” separator.
+
+For example:
+  * The merge field name should be like “TableName:Id” (<<TableName:MergeFieldName>>)
+  * The merge field name should be like “Image:TableName:Photo” (<<Image:TableName:MergeFieldName>>)
+  
+For example, consider that you have a template document as follow.
+
+![Word document template to map the fields of ancestor group](../MailMerge_images/Mail_merge_with_implicit_relation_template.png)
 
 The following code example shows how to perform nested Mail merge with the implicit relational data objects.
 
@@ -872,3 +878,7 @@ public class EmployeeDetails
 }
 {% endhighlight %}
 {% endtabs %}
+
+By executing the above code example, it generates the resultant Word document as follows.
+ 
+![Output Word document of mapping field of ancestor group] (../MailMerge_images/Mail_merge_with_implicit_relation_output.png)

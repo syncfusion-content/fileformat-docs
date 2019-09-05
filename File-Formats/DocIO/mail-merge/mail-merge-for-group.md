@@ -57,20 +57,20 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//SqlCeConnection supported in .NET Framework alone.
+//SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//SqlCeConnection supported in .NET Framework alone.
+//SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//SqlCeConnection supported in .NET Framework alone.
+//SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% endtabs %}  
 
-The following code example provides supporting methods for the above code.
+The following code example shows GetDataTable method which is used to get data for mail merge.
 
 {% tabs %}  
 
@@ -108,15 +108,15 @@ End Function
 {% endhighlight %}
 
 {% highlight UWP %}
-//SqlCeConnection supported in .NET Framework alone.
+//SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//SqlCeConnection supported in .NET Framework alone.
+//SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//SqlCeConnection supported in .NET Framework alone.
+//SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% endtabs %}  
