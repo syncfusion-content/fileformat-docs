@@ -442,6 +442,8 @@ For example, consider that you have a template document as follow.
 
 ![Word document template to map the fields of ancestor group](../MailMerge_images/Mail_merge_with_implicit_relation_template.png)
 
+In the above template, Organizations is the owner group and it has two child groups Departments and Employees. The Supervisor merge field of Departments group is used in Employees group.
+
 The following code example shows how to perform nested Mail merge with the implicit relational data objects.
 
 {% tabs %}
