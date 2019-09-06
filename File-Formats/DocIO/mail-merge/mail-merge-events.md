@@ -8,7 +8,7 @@ documentation: UG
 
 # Event support for Mail merge
 
-The MailMerge class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO during Mail merge process:
+The `MailMerge` class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO during Mail merge process:
 
 * `MergeField`- occurs when a **Mail merge field** except image Mail merge field is encountered.
 
@@ -20,9 +20,9 @@ The MailMerge class provides event support to customize the document contents an
 
 ## MergeField Event
 
-You can apply formatting to the merged text or modify the merged text during mail merge process using the `MergeField` Event.
+You can apply formatting to the merged text or customize the merged text during mail merge process using the `MergeField` Event.
 
-The following code example shows how to use the MergeField event during Mail merge process.
+The following code example shows how to use the `MergeField` event during Mail merge process.
 
 {% tabs %}  
 
@@ -224,9 +224,9 @@ private static DataTable GetDataTable()
 
 ## MergeImageField Event
 
-You can format the merged image data like resizing the image and more during mail merge process using the `MergeImageField` Event. 
+You can format the merged image like resizing the image and more during mail merge process using the `MergeImageField` Event. 
 
-The following code example shows how to use the MergeImageField event during Mail merge process.
+The following code example shows how to use the `MergeImageField` event during Mail merge process.
 
 {% tabs %}  
 
@@ -432,7 +432,7 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
 
 You can get the unmerged fields in a Word document during mail merge process using the `BeforeClearField` Event.
 
-The following code example shows how to use the BeforeClearField event during Mail merge process.
+The following code example shows how to use the `BeforeClearField` event during Mail merge process.
 
 {% tabs %}  
 
@@ -741,7 +741,7 @@ private DataTable GetDataTable()
 
 You can get the unmerged group fields in a Word document during mail merge process using the `BeforeClearGroupField` event.
 
-The following code example shows how to use the BeforeClearGroupField event during Mail merge process.
+The following code example shows how to use the `BeforeClearGroupField` event during Mail merge process.
 
 {% tabs %}  
 
