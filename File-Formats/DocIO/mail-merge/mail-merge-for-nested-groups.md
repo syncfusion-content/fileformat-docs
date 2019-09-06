@@ -246,8 +246,8 @@ return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %} 
 
 {% highlight XAMARIN %}
-//ExpandoObject is supported from Xamarin.Android(v7.1),Xamarin.iOS(v10.8) and Xamarin.Mac(v3.0). 
-//You can use IDictionary<string, object> collection, where ExpandoObject is not supported.
+//Creating dynamic objects using dynamic keyword is not supported in Xamarin.iOS.
+//You can use IDictionary<string, object> collection to generate dynamic objects.
 
 {% endhighlight %}
 
@@ -339,8 +339,8 @@ private List<ExpandoObject> GetOrders()
 {% endhighlight %} 
 
 {% highlight XAMARIN %}
-//ExpandoObject is supported from Xamarin.Android(v7.1),Xamarin.iOS(v10.8) and Xamarin.Mac(v3.0). 
-//You can use IDictionary<string, object> collection, where ExpandoObject is not supported.
+//Creating dynamic objects using dynamic keyword is not supported in Xamarin.iOS.
+//You can use IDictionary<string, object> collection to generate dynamic objects.
 {% endhighlight %}
 
 {% endtabs %}
@@ -423,8 +423,8 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 {% endhighlight %}
  
 {% highlight XAMARIN %}
-//ExpandoObject is supported from Xamarin.Android(v7.1),Xamarin.iOS(v10.8) and Xamarin.Mac(v3.0). 
-//You can use IDictionary<string, object> collection, where ExpandoObject is not supported.
+//Creating dynamic objects using dynamic keyword is not supported in Xamarin.iOS.
+//You can use IDictionary<string, object> collection to generate dynamic objects.
 {% endhighlight %}
 {% endtabs %}
 
