@@ -16,12 +16,17 @@ You can perform Mail merge and append multiple records from data source within a
   1.TableStart and TableEnd region is preferred for performing Mail merge inside the table cell.
   
   2.BeginGroup and EndGroup region is preferred for performing Mail merge inside the document body contents.
+
+
+## How to create template for group mail merge
   
 For example, consider that you have a template document as shown.
 
-![Mail merge for a group](../MailMerge_images/MailMerge_img4.jpeg)
+![Mail merge for a group](../MailMerge_images/Group_mail_merge_template.png)
 
 In this template, Employees is the group name and the same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees” to denote the start and end of the Mail merge group.
+
+## How to execute group mail merge
 
 The `MailMerge` class provides various overloads for `ExecuteGroup` method to perform Mail merge within a group from various data sources. The following code example shows how to perform Mail merge in the specific region with data source retrieved from SQL connection.
 
@@ -70,6 +75,7 @@ The following code example provides supporting methods for the above code.
 {% highlight c# %}
 private DataTable GetDataTable()
 {
+    DataSet dataset = new DataSet();
     SqlCeConnection conn = new SqlCeConnection("Data Source = " + datasourceName);
     conn.Open();
     SqlCeDataAdapter adapter = new SqlCeDataAdapter("Select TOP(5) * from EmployeesReport", conn);
@@ -85,6 +91,7 @@ private DataTable GetDataTable()
 
 {% highlight vb.net %}
 Private Function GetDataTable() As DataTable
+	Dim dataset As DataSet = New DataSet
 	Dim conn As New SqlCeConnection("Data Source = " + datasourceName)
 	conn.Open()
 	Dim adapter As New SqlCeDataAdapter("Select TOP(5) * from EmployeesReport", conn)
@@ -114,7 +121,7 @@ End Function
 
 The resultant document looks as follows.
 
-![Group resultant document](../MailMerge_images/MailMerge_img5.jpeg)
+![Group resultant document](../MailMerge_images/Group_mail_merge_output.png)
 
 ## Mail merge with business objects
 
@@ -166,10 +173,11 @@ document.MailMerge.ExecuteGroup(dataTable);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
+document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Sample.docx");
-document.Close();
-//Please refer the below link to save Word document in UWP platform
+
+//Refer to the following link to save Word document in UWP platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 
 private void MergeField_Image(object sender, MergeImageFieldEventArgs args)
@@ -199,7 +207,7 @@ document.MailMerge.ExecuteGroup(dataTable);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Closes the document
+//Closes the Word document
 document.Close();
 stream.Position = 0;
 //Download Word document in the browser
@@ -221,11 +229,12 @@ document.MailMerge.ExecuteGroup(dataTable);
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
-//Save the stream as a file in the device and invoke it for viewing
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Closes the document 
 document.Close();
-//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+
+//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform.
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 
 private void MergeField_Image(object sender, MergeImageFieldEventArgs args)
