@@ -221,7 +221,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Warnings in Excel to PDF
 
-XlsIO skips unsupported elements and subtitutes fonts that does not available in the system while Excel to PDF conversion. These are raised as warnings during conversion. 
+XlsIO skips unsupported elements and subtitute fonts that does not available in the system while Excel to PDF conversion. These are raised as warnings during conversion. 
 To get these warnings, one need to implement **IWarning** interface.
 
 {% tabs %}  
