@@ -76,6 +76,11 @@ The list of supported and non-supported Excel features in .NET Framework and .NE
     <td>Import data from Collection Objects to worksheet.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Import data from nested collection to worksheet.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>  
   <tr>
     <td>Import data into a pre-formatted template using Template Markers.</td>
@@ -88,7 +93,12 @@ The list of supported and non-supported Excel features in .NET Framework and .NE
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
-    <td>Export data from worksheet to DataTable.</td>
+    <td>Export data from worksheet to DataTable and Collection Objects.</td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+    <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
+  </tr>
+  <tr>
+    <td>Export data from worksheet to nested class.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
@@ -513,7 +523,7 @@ The list of supported and non-supported Excel features in Blazor platform is giv
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
-    <td>Import data from DataTable, DataColumn, DataView, Array, Collection Objects to worksheet.</td>
+    <td>Import data from DataTable, DataColumn, DataView, Array, Collection Objects and nested collection to worksheet.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
@@ -523,7 +533,7 @@ The list of supported and non-supported Excel features in Blazor platform is giv
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
   <tr>
-    <td>Export data from worksheet to DataTable and Collection Objects.</td>
+    <td>Export data from worksheet to DataTable, nested class and Collection Objects.</td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
     <td><img src="Supported-Features-by-Platforms_images/yes.jpg" alt="Yes"></td>
   </tr>
