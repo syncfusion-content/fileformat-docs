@@ -700,7 +700,9 @@ else
 
 ## Export Barcode as Image
 
-Essential PDF supports converting one dimensional bar codes such as Code 39, Code 39 Extended, Code 11, Codabar, Code 32, Code 93, Code 93 Extended, Code 128A, Code 128B, UPC bar code, and Code 128C bar codes to image using [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode~ToImage.html) method of [PdfUnidimensionalBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode.html) instance. 
+Essential PDF supports converting one dimensional barcodes such as Code 39, Code 39 Extended, Code 11, Codabar, Code 32, Code 93, Code 93 Extended, Code 128A, Code 128B, UPC bar code, and Code 128C barcodes to image using the [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode~ToImage.html) method of [PdfUnidimensionalBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfUnidimensionalBarcode.html) instance. 
+
+N> To export barcode as image in .NET Core, the following assembly should be referenced in your application [Syncfusion.Pdf.Imaging.Portable](https://www.nuget.org/packages/Syncfusion.Pdf.Imaging.Net.Core/) .
 
 The following code snippet explains this.
 
@@ -740,7 +742,22 @@ barcodeImage.Save("Image.png", ImageFormat.Png)
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Initialize a new PdfCode39Barcode instance
+ PdfCode39Barcode barcode = new PdfCode39Barcode();
+
+//Set the height and text for barcode
+ barcode.BarHeight = 45;
+
+ barcode.Text = "CODE39$";
+
+//Convert the barcode to image
+ Image barcodeImage = barcode.ToImage(new SizeF(300,200)); 
+
+using (MemoryStream stream = new MemoryStream())
+ {
+    //Save image to stream.
+     barcodeImage.Save(stream, ImageFormat.Png);
+ }       
 {% endhighlight %}
 
 {% highlight Xamarin %}
@@ -748,7 +765,7 @@ barcodeImage.Save("Image.png", ImageFormat.Png)
 {% endhighlight %}
 {% endtabs %}
 
-Essential PDF supports converting a two-dimensional bar codes such as QR Code and Data Matrix bar code to image. The following code snippet illustrates how to convert a QR code to image using [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfQRBarcode~ToImage.html) method of [PdfQRBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfQRBarcode.html) instance.
+Essential PDF supports converting two-dimensional barcodes such as QR Code and Data Matrix barcode to image. The following code snippet explains how to convert a QR code to image using the [ToImage](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfQRBarcode~ToImage.html) method of [PdfQRBarcode](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Barcode.PdfQRBarcode.html) instance.
 
 {% tabs %}
 {% highlight C# %}
@@ -757,7 +774,7 @@ PdfQRBarcode barcode = new PdfQRBarcode();
 
 //Set the XDimension and text for barcode
 barcode.XDimension = 3;
-barcode.Text = "http://www.syncfusion.com";
+barcode.Text = "http://www.google.com";
 
 //Convert the barcode to image
 Image barcodeImage = barcode.ToImage(new SizeF(300, 300));
@@ -772,7 +789,7 @@ Dim barcode As PdfQRBarcode = New PdfQRBarcode
 
 'Set the XDimension and text for barcode
 barcode.XDimension = 3
-barcode.Text = "http://www.syncfusion.com"
+barcode.Text = "http://www.google.com"
 
 'Convert the barcode to image
 Dim barcodeImage As Image = barcode.ToImage(New SizeF(300, 300))
@@ -786,7 +803,21 @@ barcodeImage.Save("Image.jpg", ImageFormat.Png)
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-//PDF supports conversion of Barcode to Image only in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms.
+//Initialize a new PdfQRBarcode instance 
+PdfQRBarcode barcode = new PdfQRBarcode();
+
+//Set the XDimension and text for barcode 
+barcode.XDimension = 3;
+barcode.Text = "http://www.google.com";
+         
+//Convert the barcode to image 
+Image barcodeImage = barcode.ToImage(new SizeF(300, 300));
+
+ using (MemoryStream stream = new MemoryStream())
+ {
+    //Save image to stream.
+    barcodeImage.Save(stream, ImageFormat.Png);
+ } 
 {% endhighlight %}
 
 {% highlight Xamarin %}
