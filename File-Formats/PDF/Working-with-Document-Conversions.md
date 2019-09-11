@@ -1817,7 +1817,7 @@ return File(stream, contentType, fileName);
 
 {% endtabs %}
 
-N> 1. Essential PDF supports converting Xps to PDF with [Syncfusion.XPSToPDFConverter.Portable](https://www.nuget.org/packages/Syncfusion.XPSToPDFConverter.Net.Core) assembly reference in ASP.NET Core.
+N> Essential PDF supports converting XPS to PDF with [Syncfusion.XpsToPdfConverter.Net.Core](https://www.nuget.org/packages/Syncfusion.XpsToPdfConverter.Net.Core) package reference in .NET Core application.
 
 ### Supported Elements
 
