@@ -8,6 +8,11 @@ documentation: UG
 
 # Chart to image conversion
 
+Refer to the following links for assemblies/nuget packages required based on platforms to convert the chart to image.
+
+* [Assemblies Information](https://help.syncfusion.com/file-formats/xlsio/assemblies-required#converting-excel-chart-to-image) 
+* [NuGet Information](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-charts-in-xlsio)
+
 The following code snippet shows how to convert an Excel chart to an image using the **ExcelChartToImageConverter** class.
 
 {% tabs %}
@@ -183,6 +188,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 N> 1. Instance of XlsIORenderer class is mandatory to convert the chart to image using .NET Standard 2.0 assemblies.
 N> 2. In .NET Standard, the Image format and quality can be specified using the ChartRenderingOptions property of XlsIORenderer class. By default the ImageFormat for chart is set to JPEG and ScalingMode is set to Best.
 N> 3. Chart conversion to image and PDF are supported from .NET Framework 4.0 and .NET Standard 2.0 onwards 
+N> 4. Chart to Image conversion also works proper in Blazor server-side alone and not in client-side.
 
 ## Supported chart types
 XlsIO supports the following chart types in image conversion.

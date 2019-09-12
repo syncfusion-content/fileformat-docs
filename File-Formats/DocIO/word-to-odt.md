@@ -15,187 +15,102 @@ The Essential DocIO supports converting the Word document into ODT file. The fol
 {% tabs %}
 {% highlight c# %}
 //Loads the existing Word document
-
 WordDocument document = new WordDocument("Template.docx");
-
 //Saves the document as ODT file
-
 document.Save("WordToODT.odt", FormatType.Odt);
-
 //Closes the document
-
 document.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 Loads the existing Word document 
-
 Dim document As New WordDocument("Template.docx")
-
 'Saves the document as ODT file
-
 document.Save("WordToODT.odt", FormatType.Odt)
-
 'Closes the document
-
 document.Close()
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
-
-FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
-//Opens an existing document from file system through constructor of WordDocument class
-
-using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
-
-{
-
-MemoryStream stream = new MemoryStream();
-
-document.Save(stream, FormatType.Odt);
-
-//Closes the Word document
-
-document.Close();
-
-stream.Position = 0;
-
-//Download Word document in the browser
-
-return File(stream, "application/msword", "WordToODT.odt");
-
-}
-
-
-
-{% endhighlight %}
-
 {% highlight UWP %}
-
 //"App" is the class of Portable project.
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 //Opens an existing document from file system through constructor of WordDocument class
-
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
               FormatType.Docx))
 {
-
-MemoryStream stream = new MemoryStream();
-
-await document.SaveAsync(stream, FormatType.Odt);
-
-//Saves the stream as Word file in local machine
-
-Save(stream, "WordToODT.odt");
-                
-//Closes the Word document
-
-document.Close();
-
+    MemoryStream stream = new MemoryStream();
+    await document.SaveAsync(stream, FormatType.Odt);
+    //Saves the stream as Word file in local machine
+    Save(stream, "WordToODT.odt");
+    //Closes the Word document
+    document.Close();
 }
 
-// Saves the Word document
-
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
-
 {
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".docx";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
+{% endhighlight %}
 
-streams.Position = 0;
-
-StorageFile stFile;
-
-if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-
+{% highlight ASP.NET CORE %}
+FileStream fileStreamPath = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
-
-FileSavePicker savePicker = new FileSavePicker();
-
-savePicker.DefaultFileExtension = ".odt";
-
-savePicker.SuggestedFileName = filename;
-
-savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".odt"});
-
-stFile = await savePicker.PickSaveFileAsync();
-
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Odt);
+    //Closes the Word document
+    document.Close();
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "WordToODT.odt");
 }
-
-else
-
-{
-
-StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-
-}
-
-if (stFile != null)
-
-{
-
-using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-
-{
-
-// Write compressed data from memory to file
-
-using (Stream outstream = zipStream.AsStreamForWrite())
-
-{
-
-byte[] buffer = streams.ToArray();
-
-outstream.Write(buffer, 0, buffer.Length);
-
-outstream.Flush();
-
-}
-
-}
-
-}
-
-// Launch the saved Word file
-
-await Windows.System.Launcher.LaunchFileAsync(stFile);
-
-}
-
-}
-
-}
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 //Opens an existing document from file system through constructor of WordDocument class
-
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx")),
               FormatType.Docx))
 {
-
-MemoryStream stream = new MemoryStream();
-
-document.Save(stream, FormatType.Odt);
-
-//Save the stream as a file in the device and invoke it for viewing
-
-Xamarin.Forms.DependencyService.Get<ISave>()
-                    .SaveAndView("WordToODT.odt", "application/msword", stream);
-
-//Closes the Word document
-
-document.Close();
-
+    MemoryStream stream = new MemoryStream();
+    document.Save(stream, FormatType.Odt);
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>()
+                        .SaveAndView("WordToODT.odt", "application/msword", stream);
+    //Closes the Word document
+    document.Close();
 }
-
 {% endhighlight %}
 
 {% endtabs %}

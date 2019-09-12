@@ -77,76 +77,57 @@ The following code illustrates how to convert the Word document to image.
 {% tabs %}
 {% highlight c# %}
 //Loads an existing Word document
-
 WordDocument wordDocument = new WordDocument("Template.docx", FormatType.Docx);
-
 //Initializes the ChartToImageConverter for converting charts during Word to image conversion
-
 wordDocument.ChartToImageConverter = new ChartToImageConverter();
-
 //Sets the scaling mode for charts (Normal mode reduces the file size)
-
 wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal;
-
 //Converts word document to image
-
 Image[] images = wordDocument.RenderAsImages(ImageType.Bitmap);
-
 int i = 0;
-
 foreach (Image image in images)
-
 {
-
-//Saves the images as jpeg
-
-image.Save("WordToImage_" + i + ".jpeg", ImageFormat.Jpeg);
-
-i++;
-
+    //Saves the images as jpeg
+    image.Save("WordToImage_" + i + ".jpeg", ImageFormat.Jpeg);
+    i++;
 }
-
 //Closes the document
-
 wordDocument.Close();
 {% endhighlight %}
 
 {% highlight vb.net %}
 'Loads an existing Word document
-
 Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
-
 'Initializes the ChartToImageConverter for converting charts during Word to image conversion
-
 wordDocument.ChartToImageConverter = New ChartToImageConverter()
-
 'Sets the scaling mode for charts (Normal mode reduces the file size)
-
 wordDocument.ChartToImageConverter.ScalingMode = ScalingMode.Normal
-
 'Converts word document to image
-
 Dim images As Image() = wordDocument.RenderAsImages(ImageType.Bitmap)
-
 Dim i As Integer = 0
-
 For Each image As Image In images
-
-'Saves the images as jpeg
-
-image.Save("WordToImage_" & i & ".jpeg", ImageFormat.Jpeg)
-
-i += 1
-
+	'Saves the images as jpeg
+	image.Save("WordToImage_" & i & ".jpeg", ImageFormat.Jpeg)
+	i += 1
 Next
-
 'Closes the document
-
 wordDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//DocIO supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//DocIO supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//DocIO supports Word to image conversion in Windows Forms, WPF, ASP.NET and ASP.NET MVC platform alone
 {% endhighlight %}
 {% endtabs %}
 
-N> 1. Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin, ASP.NET Core and Universal Windows Platform applications.
+N> 1. Word to Image conversion is not supported in Silverlight, Windows Phone, WinRT, Universal, Xamarin, ASP.NET Core, Blazor and Universal Windows Platform applications.
 N> 2. In Azure Web Service and Azure APP Service, .NET GDI+ (System.Drawing) does not support the Metafile image (vector image). So, the image will be generated as Bitmap (raster image).
 N> 3. Creating an instance of the ChartToImageConverter class is mandatory to convert the charts present in the Word document to Image. Otherwise, the charts are not preserved in the generated image.
 N> 4. The ChartToImageConverter is supported from .NET Framework 4.0 onwards.

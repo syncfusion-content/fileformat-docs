@@ -1,5 +1,5 @@
 ---
-title: NuGet Packages Required
+title: NuGet Packages Required | Syncfusion
 description: NuGet Packages required to use DocIO
 platform: file-formats
 control: DocIO
@@ -49,7 +49,7 @@ Install-Package Syncfusion.DocIO.Wpf
 </tr>
 <tr>
 <td>
-ASP.NET and ASP.NET Core (Targeting .NET Framework)
+ASP.NET
 </td>
 <td>
 Syncfusion.DocIO.AspNet.nupkg
@@ -82,7 +82,7 @@ Install-Package Syncfusion.DocIO.AspNet.Mvc5
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting .netcoreapp)
+ASP.NET Core and Blazor
 </td>
 <td>
 Syncfusion.DocIO.Net.Core.nupkg
@@ -159,7 +159,7 @@ Install-Package Syncfusion.DocToPdfConverter.Wpf
 </tr>
 <tr>
 <td>
-ASP.NET and ASP.NET Core (Targeting .NET Framework)
+ASP.NET 
 </td>
 <td>
 Syncfusion.DocToPdfConverter.AspNet.nupkg
@@ -192,7 +192,7 @@ Install-Package Syncfusion.DocToPdfConverter.AspNet.Mvc5
 </tr>
 <tr>
 <td>
-ASP.NET Core (Targeting .netcoreapp)
+ASP.NET Core and Blazor
 </td>
 <td>
 Syncfusion.DocIORenderer.Net.Core.nupkg
@@ -262,7 +262,7 @@ Install-Package Syncfusion.OfficeChartToImageConverter.Wpf
 </tr>
 <tr>
 <td>
-ASP.NET and ASP.NET Core (Targeting .NET Framework)
+ASP.NET 
 </td>
 <td>
 Syncfusion.OfficeChartToImageConverter.AspNet.nupkg
@@ -297,7 +297,7 @@ Install-Package Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5
 
 N> 1. Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 N> 2. Syncfusion components are available in [nuget.org](https://www.nuget.org/)
-N> 3. The "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards and it is not supported in ASP.NET Core (Targeting .netcoreapp) and Xamarin platforms.
+N> 3. The "Syncfusion.OfficeChartToImageConverter.WPF.nupkg" NuGet package is only supported from 4.0 .NET Framework onwards and it is not supported in ASP.NET Core, Blazor and Xamarin platforms.
 
 
 ## NuGet Package Installation and Uninstallation
@@ -388,7 +388,7 @@ Install-Package Syncfusion.OfficeChartToImageConverter.Wpf
 Uninstall-Package Syncfusion.OfficeChartToImageConverter.Wpf -RemoveDependencies 
 ~~~
 
-### ASP.NET and ASP.NET Core (Targeting .NET Framework)
+### ASP.NET 
 
 **NuGet Package:** Syncfusion.DocIO.AspNet
 
@@ -511,7 +511,7 @@ Install-Package Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5
 Uninstall-Package Syncfusion.OfficeChartToImageConverter.AspNet.Mvc5 -RemoveDependencies 
 ~~~
 
-### ASP.NET Core (Targeting .netcoreapp)
+### ASP.NET Core and Blazor
 
 **NuGet Package:** Syncfusion.DocIO.Net.Core
 

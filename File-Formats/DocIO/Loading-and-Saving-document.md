@@ -14,81 +14,78 @@ You can open an existing Word document by using either the `Open` method or the 
 {% tabs %}  
 
 {% highlight c# %}
-
 //Opens an existing document from file system through constructor of WordDocument class
-
 WordDocument document = new WordDocument(fileName);
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Opens an existing document from file system through constructor of WordDocument class
-
 Dim document As New WordDocument(fileName)
-
-{% endhighlight %}
-
-{% highlight ASP.NET CORE %}
-
-//Opens an existing document from stream through constructor of `WordDocument` class
-
-FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
-//"App" is the class of Portable project.
-
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Opens an existing document through constructor of `WordDocument` class  
-          
+//Opens an existing document through constructor of `WordDocument` class
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),FormatType.Docx);
+{% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+//Opens an existing document from stream through constructor of `WordDocument` class
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-//"App" is the class of Portable project.
-
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Opens an existing document through constructor of `WordDocument` class  
-          
+//Opens an existing document through constructor of `WordDocument` class
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx"),FormatType.Automatic);
-
 {% endhighlight %}
 
-{% endtabs %} 
+{% endtabs %}
 
-{% tabs %}  
+{% tabs %} 
  
 {% highlight c# %}
-
 //Creates an empty Word document instance
-
 WordDocument document = new WordDocument();
-
 //Loads or opens an existing word document through Open method of WordDocument class
-
 document.Open(fileName);
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an empty Word document instance
-
 Dim document As New WordDocument()
-
 'Loads or opens an existing word document through Open method of WordDocument class
-
 document.Open(fileName)
+{% endhighlight %}
 
+{% highlight UWP %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates an empty Word document instance
+WordDocument document = new WordDocument();
+//Loads or opens an existing word document through Open method of WordDocument class
+document.Open(assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx"),FormatType.Docx);
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Opens an existing document from stream through constructor of `WordDocument` class
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Creates an empty Word document instance
+WordDocument document = new WordDocument();
+//Loads or opens an existing word document through Open method of WordDocument class
+document.Open(fileStreamPath, FormatType.Automatic);
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates an empty Word document instance
+WordDocument document = new WordDocument();
+//Loads or opens an existing word document through Open method of WordDocument class
+document.Open(assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Test.docx"),FormatType.Automatic);
 {% endhighlight %}
 
 {% endtabs %}  
@@ -100,65 +97,38 @@ You can open an existing document from stream by using either the overloads of `
 {% tabs %}  
 
 {% highlight c# %}
-
 //Opens an existing document from stream through constructor of WordDocument class
-
 WordDocument document = new WordDocument(wordDocumentStream, FormatType.Automatic);
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Opens an existing document from stream through constructor of WordDocument class
-
 Dim document As New WordDocument(wordDocumentStream, FormatType.Automatic)
-
-{% endhighlight %}
-
-{% highlight ASP.NET CORE %}
-
-//Opens an existing document from stream through constructor of `WordDocument` class
-
-FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
-//Opens an existing document from stream through constructor of WordDocument class
-
-WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
-
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
-//"App" is the class of Portable project.
-
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 //Loads or opens an existing Word document from stream
-
 Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
-
-//Opens an existing document through constructor of `WordDocument` class  
-          
+//Opens an existing document through constructor of `WordDocument` class
 WordDocument document = new WordDocument(inputStream, FormatType.Docx);
+{% endhighlight %}
 
-
+{% highlight ASP.NET CORE %}
+//Opens an existing document from stream through constructor of `WordDocument` class
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+//Opens an existing document from stream through constructor of WordDocument class
+WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic);
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-///"App" is the class of Portable project.
-
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
 //Loads or opens an existing Word document from stream
-
 Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
-
-//Opens an existing document through constructor of `WordDocument` class  
-          
+//Opens an existing document through constructor of `WordDocument` class
 WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
-
 {% endhighlight %}
 
 {% endtabs %}  
@@ -166,95 +136,54 @@ WordDocument document = new WordDocument(inputStream, FormatType.Automatic);
 {% tabs %}   
 
 {% highlight c# %}
-
 //Creates an empty WordDocument instance
-
 WordDocument document = new WordDocument();
-
 //Loads or opens an existing Word document through Open method of WordDocument class
-
 document.Open(wordDocumentStream, FormatType.Automatic);
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an empty WordDocument instance
-
 Dim document As New WordDocument()
-
 'Loads or opens an existing word document through Open method of WordDocument class
-
 document.Open(wordDocumentStream, FormatType.Automatic)
-
-{% endhighlight %}
-
-{% highlight ASP.NET CORE %}
-
-//Creates an empty WordDocument instance
-
-using (WordDocument document = new WordDocument())
-
-{
-
-//Loads or opens an existing Word document from stream
-
-FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
-//Loads or opens an existing Word document through Open method of WordDocument class 
-
-document.Open(fileStreamPath, FormatType.Automatic);
-
-}
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
-//"App" is the class of Portable project.
-
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Creates an empty WordDocument instance 
-          
+//Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
-
 {
-
-//Loads or opens an existing Word document from stream
-
-Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
-
-//Loads or opens an existing Word document through Open method of WordDocument class
-
-document.Open(inputStream, FormatType.Docx);
-
+	//Loads or opens an existing Word document from stream
+	Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
+	//Loads or opens an existing Word document through Open method of WordDocument class
+	document.Open(inputStream, FormatType.Docx);
 }
+{% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+//Creates an empty WordDocument instance
+using (WordDocument document = new WordDocument())
+{
+	//Loads or opens an existing Word document from stream
+	FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+	//Loads or opens an existing Word document through Open method of WordDocument class 
+	document.Open(fileStreamPath, FormatType.Automatic);
+}
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-//"App" is the class of Portable project.
-
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Creates an empty WordDocument instance 
-          
+//Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
-
 {
-
-//Loads or opens an existing Word document from stream
-
-Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
-
-//Loads or opens an existing Word document through Open method of WordDocument class
-
-document.Open(inputStream, FormatType.Automatic);
-
+	//Loads or opens an existing Word document from stream
+	Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
+	//Loads or opens an existing Word document through Open method of WordDocument class
+	document.Open(inputStream, FormatType.Automatic);
 }
-
 {% endhighlight %}
 
 {% endtabs %} 
@@ -266,19 +195,30 @@ You can open an existing encrypted Word document from either the file system or 
 {% tabs %} 
 
 {% highlight c# %}
-
 //Opens an existing encrypted document through constructor of WordDocument class
-
 WordDocument document = new WordDocument(fileName, FormatType.Automatic, "password");
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Opens an existing encrypted document through constructor of WordDocument class
-
 Dim document As New WordDocument(fileName, FormatType.Automatic, "password")
+{% endhighlight %}
 
+{% highlight UWP %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Loads or opens an existing Word document from stream
+Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
+//Opens an existing encrypted document through constructor of WordDocument class
+WordDocument document = new WordDocument(inputStream, FormatType.Docx, "password");
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//DocIO supports Encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//DocIO supports Encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
 {% endhighlight %} 
 
 {% endtabs %}  
@@ -286,27 +226,38 @@ Dim document As New WordDocument(fileName, FormatType.Automatic, "password")
 {% tabs %}  
   
 {% highlight c# %}
-
 //Creates an empty Word document instance
-
 WordDocument document = new WordDocument();
-
 //Loads or opens an existing encrypted Word document through Open method of WordDocument class
-
 document.Open(wordDocumentStream, FormatType.Automatic, "password");
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an empty Word document instance
-
 Dim document As New WordDocument()
-
 'Loads or opens an existing encrypted Word document through Open method of WordDocument class
-
 document.Open(wordDocumentStream, FormatType.Automatic, "password")
+{% endhighlight %}
 
+{% highlight UWP %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates an empty WordDocument instance
+using (WordDocument document = new WordDocument())
+{
+	//Loads or opens an existing Word document from stream
+	Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
+	//Loads or opens an existing encrypted Word document through Open method of WordDocument class
+	document.Open(inputStream, FormatType.Docx, "password");
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//DocIO supports Encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//DocIO supports Encryption in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms alone.
 {% endhighlight %} 
 
 {% endtabs %}  
@@ -318,48 +269,41 @@ You can save the created or manipulated Word document to file system using `Save
 {% tabs %}  
 
 {% highlight c# %}
-
 //Creates an empty WordDocument instance
-
 WordDocument document = new WordDocument();
-
 //opens an existing Word document through Open method of WordDocument class
-
 document.Open(fileName);
-
 //To-Do some manipulation
-
 //To-Do some manipulation
-
 //Saves the document in file system
-
 document.Save(outputFileName, FormatType.Docx);
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an empty WordDocument instance
-
 Dim document As New WordDocument()
-
 'opens an existing Word document through Open method of WordDocument class
-
 document.Open(fileName)
-
 'To-Do some manipulation
-
 'To-Do some manipulation
-
 'Saves the document in file system
-
 document.Save(outputFileName, FormatType.Docx)
+{% endhighlight %}
 
+{% highlight UWP %}
+//DocIO supports saving Word document to file system in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//DocIO supports saving Word document to file system in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//DocIO supports saving Word document to file system in Windows Forms, WPF, ASP.NET and ASP.NET MVC platforms alone.
 {% endhighlight %}
 
 {% endtabs %} 
- 
-   
+
 ## Saving a Word document to Stream
 
 You can also save the created or manipulated word document to stream by using overloads of `Save` methods
@@ -367,232 +311,124 @@ You can also save the created or manipulated word document to stream by using ov
 {% tabs %} 
 
 {% highlight c# %}
-
 //Creates an empty WordDocument instance
-
 WordDocument document = new WordDocument();
-
 //Opens an existing Word document through Open method of WordDocument class
-
 document.Open(fileName);
-
 //To-Do some manipulation
-
 //To-Do some manipulation
-
 //Creates an instance of memory stream
-
 MemoryStream stream = new MemoryStream();
-
 //Saves the document to stream
-
 document.Save(stream, FormatType.Docx);
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an empty WordDocument instance
-
 Dim document As New WordDocument()
-
 'Opens an existing Word document through Open method of WordDocument class
-
 document.Open(fileName)
-
 'To-Do some manipulation
-
 'To-Do some manipulation
-
 'Creates an instance of memory stream
-
 Dim stream As New MemoryStream()
-
 'Saves the document to stream
-
 document.Save(stream, FormatType.Docx)
-
-{% endhighlight %}
-
-{% highlight ASP.NET CORE %}
-
-//Creates an empty WordDocument instance
-
-using (WordDocument document = new WordDocument())
-
-{
-
-//Loads or opens an existing Word document from stream
-
-FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
-//Loads or opens an existing Word document through Open method of WordDocument class 
-
-document.Open(fileStreamPath, FormatType.Automatic);
-
-//To-Do some manipulation
-
-//To-Do some manipulation
-
-//Creates an instance of memory stream
-
-MemoryStream stream = new MemoryStream();
-
-//Saves the document to stream
-
-document.Save(stream, FormatType.Docx);
-
-stream.Position = 0;
-
-//Download Word document in the browser
-                
-return File(stream, "application/msword", "Result.docx");
-
-}
-
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
-//"App" is the class of Portable project.
-
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Creates an empty WordDocument instance 
-          
+//Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument());
-
 {
-
-//Loads or opens an existing Word document from stream
-
-Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
-
-//Loads or opens an existing Word document through Open method of WordDocument class
-
-document.Open(inputStream, FormatType.Docx);
-
-//To-Do some manipulation
-
-//To-Do some manipulation
-
-//Creates an instance of memory stream
-
-MemoryStream stream = new MemoryStream();
-
-//Saves the Word file to MemoryStream
-
-await document.SaveAsync(stream, FormatType.Docx);
-
-//Saves the stream as Word file in local machine
-
-Save(stream, "Result.docx");
-
+	//Loads or opens an existing Word document from stream
+	Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
+	//Loads or opens an existing Word document through Open method of WordDocument class
+	document.Open(inputStream, FormatType.Docx);
+	//To-Do some manipulation
+	//To-Do some manipulation
+	//Creates an instance of memory stream
+	MemoryStream stream = new MemoryStream();
+	//Saves the Word file to MemoryStream
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Result.docx");
 }
 
 // Saves the Word document
-
 async void Save(MemoryStream streams, string filename)
-
 {
-
-streams.Position = 0;
-
-StorageFile stFile;
-
-if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-
-{
-
-FileSavePicker savePicker = new FileSavePicker();
-
-savePicker.DefaultFileExtension = ".docx";
-
-savePicker.SuggestedFileName = filename;
-
-savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
-
-stFile = await savePicker.PickSaveFileAsync();
-
+	streams.Position = 0;
+	StorageFile stFile;
+	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+	{
+		FileSavePicker savePicker = new FileSavePicker();
+		savePicker.DefaultFileExtension = ".docx";
+		savePicker.SuggestedFileName = filename;
+		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
+		stFile = await savePicker.PickSaveFileAsync();
+	}
+	else
+	{
+		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+	}
+	if (stFile != null)
+	{
+		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+		{
+			//Write compressed data from memory to file
+			using (Stream outstream = zipStream.AsStreamForWrite())
+			{
+				byte[] buffer = streams.ToArray();
+				outstream.Write(buffer, 0, buffer.Length);
+				outstream.Flush();
+			}
+		}
+	}
 }
+{% endhighlight %}
 
-else
-
+{% highlight ASP.NET CORE %}
+//Creates an empty WordDocument instance
+using (WordDocument document = new WordDocument())
 {
-
-StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-
-stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-
+	//Loads or opens an existing Word document from stream
+	FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+	//Loads or opens an existing Word document through Open method of WordDocument class 
+	document.Open(fileStreamPath, FormatType.Automatic);
+	//To-Do some manipulation
+	//To-Do some manipulation
+	//Creates an instance of memory stream
+	MemoryStream stream = new MemoryStream();
+	//Saves the document to stream
+	document.Save(stream, FormatType.Docx);
+	stream.Position = 0;
+	//Download Word document in the browser
+	return File(stream, "application/msword", "Result.docx");
 }
-
-if (stFile != null)
-
-{
-
-using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-
-{
-
-// Write compressed data from memory to file
-
-using (Stream outstream = zipStream.AsStreamForWrite())
-
-{
-
-byte[] buffer = streams.ToArray();
-
-outstream.Write(buffer, 0, buffer.Length);
-
-outstream.Flush();
-
-}
-
-}
-
-}
-
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-//"App" is the class of Portable project.
-
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Creates an empty WordDocument instance 
-          
+//Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
-
 {
-
-//Loads or opens an existing Word document from stream
-
-Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
-
-//Loads or opens an existing Word document through Open method of WordDocument class
-
-document.Open(inputStream, FormatType.Automatic);
-
-//To-Do some manipulation
-
-//To-Do some manipulation
-
-//Creates an instance of memory stream
-
-MemoryStream stream = new MemoryStream();
-
-//Saves the document to stream
-
-document.Save(stream, FormatType.Docx);
-
-//Save the stream as a file in the device and invoke it for viewing
-
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
+	//Loads or opens an existing Word document from stream
+	Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
+	//Loads or opens an existing Word document through Open method of WordDocument class
+	document.Open(inputStream, FormatType.Automatic);
+	//To-Do some manipulation
+	//To-Do some manipulation
+	//Creates an instance of memory stream
+	MemoryStream stream = new MemoryStream();
+	//Saves the document to stream
+	document.Save(stream, FormatType.Docx);
+	//Save the stream as a file in the device and invoke it for viewing
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 }
-
 {% endhighlight %}
 
 {% endtabs %}  
@@ -604,52 +440,56 @@ You can save and send the document to a client browser from a web site or web ap
 {% tabs %}  
 
 {% highlight c# %}
-
 //Creates an empty WordDocument instance
-
 WordDocument document = new WordDocument();
-
 //Opens an existing Word document through Open method of WordDocument class
-
 document.Open(fileName);
-
 //To-Do some manipulation
-
 //To-Do some manipulation
-
 //Creates an instance of memory stream
-
 MemoryStream stream = new MemoryStream();
-
 //Saves the document to stream
-
 document.Save(outputFileName, FormatType.Docx, Response, HttpContentDisposition.Attachment);
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates an empty WordDocument instance
-
 Dim document As New WordDocument()     
-
 'Opens an existing Word document through Open method of WordDocument class
-
 document.Open(fileName)
-
 'To-Do some manipulation
-
 'To-Do some manipulation
-
 'Creates an instance of memory stream
-
 Dim stream As New MemoryStream()
-
 'Saves the document to stream
-
 document.Save(outputFileName, FormatType.Docx, Response, HttpContentDisposition.Attachment)
-
 {% endhighlight %} 
+
+{% highlight UWP %}
+//Saving and sending the Word document to a client browser from a web site is suitable for web applications alone.
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Creates a new instance of WordDocument (Empty Word Document)
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+IWParagraph paragraph = section.AddParagraph();
+//Appends the text to the created paragraph
+paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+MemoryStream stream = new MemoryStream();
+//Saves the Word document to  MemoryStream
+document.Save(stream, FormatType.Docx);
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Result.docx");
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Saving and sending the Word document to a client browser from a web site is suitable for web applications alone.
+{% endhighlight %}
 
 {% endtabs %}  
 
@@ -660,189 +500,101 @@ Once the document manipulation and save operation are completed, you should clos
 {% tabs %}  
 
 {% highlight c# %}
-
 //Creates an empty WordDocument instance
-
 WordDocument document = new WordDocument();
-
 //opens an existing word document through Open method of WordDocument class
-
 document.Open(fileName);
-
 //To-Do some manipulation
-
 //To-Do some manipulation
-
 //Creates an instance of memory stream
-
 MemoryStream stream = new MemoryStream();
-
 //Saves the document to stream
-
 document.Save(stream, FormatType.Docx);
-
 //Closes the document
-
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'creates an empty WordDocument instance
-
 Dim document As New WordDocument()
-
 'opens an existing word document through Open method of WordDocument class
-
 document.Open(fileName)
-
 'To-Do some manipulation
-
 'To-Do some manipulation
-
 'Creates an instance of memory stream
-
 Dim stream As New MemoryStream()
-
 'Saves the document to stream
-
 document.Save(stream, FormatType.Docx)
-
 'Closes the document
-
 document.Close()
-
-{% endhighlight %}
-
-{% highlight ASP.NET CORE %}
-
-//Creates an empty WordDocument instance
-
-using (WordDocument document = new WordDocument())
-
-{
-
-//Loads or opens an existing Word document from stream
-
-FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
-//Loads or opens an existing Word document through Open method of WordDocument class 
-
-document.Open(fileStreamPath, FormatType.Automatic);
-
-//To-Do some manipulation
-
-//To-Do some manipulation
-
-//Creates an instance of memory stream
-
-MemoryStream stream = new MemoryStream();
-
-//Saves the document to stream
-
-document.Save(stream, FormatType.Docx);
-
-//Closes the document
-
-document.Close()
-
-stream.Position = 0;
-
-//Download Word document in the browser
-                
-return File(stream, "application/msword", "Result.docx");
-
-}
-
 {% endhighlight %}
 
 {% highlight UWP %}
-
-//"App" is the class of Portable project.
-
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Creates an empty WordDocument instance 
-          
+//Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
-
 {
-
-//Loads or opens an existing Word document from stream
-
-Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
-
-//Loads or opens an existing Word document through Open method of WordDocument class
-
-document.Open(inputStream, FormatType.Docx);
-
-//To-Do some manipulation
-
-//To-Do some manipulation
-
-//Creates an instance of memory stream
-
-MemoryStream stream = new MemoryStream();
-
-//Saves the Word file to MemoryStream
-
-await document.SaveAsync(stream, FormatType.Docx);
-
-//Saves the stream as Word file in local machine
-
-Save(stream, "Result.docx");
-
-//Closes the document
-
-document.Close();
-
+	//Loads or opens an existing Word document from stream
+	Stream inputStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx");
+	//Loads or opens an existing Word document through Open method of WordDocument class
+	document.Open(inputStream, FormatType.Docx);
+	//To-Do some manipulation
+	//To-Do some manipulation
+	//Creates an instance of memory stream
+	MemoryStream stream = new MemoryStream();
+	//Saves the Word file to MemoryStream
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Result.docx");
+	//Closes the document
+	document.Close();
 }
+{% endhighlight %}
 
+{% highlight ASP.NET CORE %}
+//Creates an empty WordDocument instance
+using (WordDocument document = new WordDocument())
+{
+	//Loads or opens an existing Word document from stream
+	FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+	//Loads or opens an existing Word document through Open method of WordDocument class 
+	document.Open(fileStreamPath, FormatType.Automatic);
+	//To-Do some manipulation
+	//To-Do some manipulation
+	//Creates an instance of memory stream
+	MemoryStream stream = new MemoryStream();
+	//Saves the document to stream
+	document.Save(stream, FormatType.Docx);
+	//Closes the document
+	document.Close()
+	stream.Position = 0;
+	//Download Word document in the browser
+	return File(stream, "application/msword", "Result.docx");
+}
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-
-//"App" is the class of Portable project.
-
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-
-//Creates an empty WordDocument instance 
-          
+//Creates an empty WordDocument instance
 using (WordDocument document = new WordDocument())
-
 {
-
-//Loads or opens an existing Word document from stream
-
-Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
-
-//Loads or opens an existing Word document through Open method of WordDocument class
-
-document.Open(inputStream, FormatType.Automatic);
-
-//To-Do some manipulation
-
-//To-Do some manipulation
-
-//Creates an instance of memory stream
-
-MemoryStream stream = new MemoryStream();
-
-//Saves the document to stream
-
-document.Save(stream, FormatType.Docx);
-
-//Save the stream as a file in the device and invoke it for viewing
-
-Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
-
-//Closes the document
-
-document.Close();
-
+	//Loads or opens an existing Word document from stream
+	Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Hello World.docx");
+	//Loads or opens an existing Word document through Open method of WordDocument class
+	document.Open(inputStream, FormatType.Automatic);
+	//To-Do some manipulation
+	//To-Do some manipulation
+	//Creates an instance of memory stream
+	MemoryStream stream = new MemoryStream();
+	//Saves the document to stream
+	document.Save(stream, FormatType.Docx);
+	//Save the stream as a file in the device and invoke it for viewing
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+	//Closes the document
+	document.Close();
 }
-
 {% endhighlight %}
 
-{% endtabs %}  
+{% endtabs %}
