@@ -3080,6 +3080,10 @@ else
 
 {% endtabs %}
 
+## Adding a digital signature with customization
+
+PdfSignatureSettings allows you to add customized digital signatures to the PDF document.
+
 ### Adding a digital signature with CAdES format
 
 Essential PDF supports users to set cryptographic standard for digital signatures. The PdfSignatureSettings instance allows you to customize the cryptographic standard when adding a digital signature to the PDF document.
