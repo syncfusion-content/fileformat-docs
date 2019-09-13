@@ -298,7 +298,7 @@ Minimize AutoFit manipulations which reduces the time consumption.
 {% highlight c# %}
 DataTable table = Worksheet.ExportDataTable(1, 1, Worksheet.UsedRange.LastRow, Worksheet.UsedRange.LastColumn, ExcelExportDataTableOptions.DetectColumnTypes); 
 
-//Enabling the import on save options along with column header.
+//Enable ImportOnSave option along with column header.
 
 workbook.Worksheets[0].ImportDataTable(table, 1, 1, true, true);
 
@@ -313,7 +313,7 @@ workbook.SaveAs("Output.xlsx");
 {% highlight vb %}
 Dim table As DataTable = Worksheet.ExportDataTable(1, 1, Worksheet.UsedRange.LastRow, Worksheet.UsedRange.LastColumn, ExcelExportDataTableOptions.DetectColumnTypes)
 
-'Enabling the import on save options along with column header.
+'Enable ImportOnSave option along with column header.
 
 workbook.Worksheets(0).ImportDataTable(table, 1, 1, True, True)
 
