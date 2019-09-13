@@ -749,6 +749,313 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}  
 
+## Excel to PDF conversion with Substitute Font
+
+XlsIO allows you to convert a workbook/worksheet with substitute font or font stream.
+
+Sometimes the specified font is not installed in the production environment for that we can use substitute font for that unsupported fonts with the option of AlternateFontName or AlternateFontStream.
+
+The following code illustrates how to substitute font for unsupported fonts.
+
+{% tabs %}
+{% highlight c# %}
+Using(ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  
+  //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+  application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
+  
+  //Instantiating the ChartToImageConverter and assigning the ChartToImageConverter instance of XlsIO application
+  application.ChartToImageConverter = new ChartToImageConverter();
+
+  //Tuning chart image quality
+  application.ChartToImageConverter.ScalingMode = ScalingMode.Best;
+
+  IWorkbook workbook = application.Workbooks.Open("chart.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  ExcelToPdfConverter converter = new ExcelToPdfConverter(workbook);
+
+  PdfDocument pdfDocument = new PdfDocument();
+  pdfDocument = converter.Convert();
+  pdfDocument.Save("ExcelToPDF.pdf");
+}
+
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  
+  'Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+  AddHandler application.SubstituteFont, AddressOf Me.SubstituteFont
+  
+  'Instantiating the ChartToImageConverter and assigning the ChartToImageConverter instance of XlsIO application
+  application.ChartToImageConverter = New ChartToImageConverter()
+
+  'Tuning chart image quality
+  application.ChartToImageConverter.ScalingMode = ScalingMode.Best
+
+  Dim workbook As IWorkbook = application.Workbooks.Open("chart.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  Dim converter As New ExcelToPdfConverter(workbook)
+  
+  Dim pdfDocument As New PdfDocument()
+  pdfDocument = converter.Convert()
+  pdfDocument.Save("ExcelToPDF.pdf")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+//Excel To PDF conversion can be performed by referring .NET Standard 2.0 assemblies in UWP platform
+
+#region Excel To PDF
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    
+	//Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+    application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
+  
+	//Initializing XlsIORenderer
+	XlsIORenderer renderer = new XlsIORenderer();
+	
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("chart.xlsx");
+	
+    IWorkbook workbook = await application.Workbooks.OpenAsync(excelStream);
+	    
+	//Convert Excel document with charts into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);	
+	
+	//Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+
+    await doc.SaveAsync(stream);
+    Save(stream, "ExcelToPDF.pdf");
+
+    excelStream.Dispose();
+    stream.Dispose();
+}
+#endregion
+
+//Save the workbook stream as a file.
+
+#region Setting output location
+async void Save(Stream stream, string filename)
+{
+    stream.Position = 0;
+
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = "Sample";
+        savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+        Stream st = fileStream.AsStreamForWrite();
+        st.Write((stream as MemoryStream).ToArray(), 0, (int)stream.Length);
+        st.Flush();
+        st.Dispose();
+        fileStream.Dispose();
+    }
+}
+#endregion
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+   IApplication application = excelEngine.Excel;
+   
+   //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+   application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
+  
+   //Initialize XlsIO renderer.
+   XlsIORenderer renderer = new XlsIORenderer();
+   
+   FileStream excelStream = new FileStream("chart.xlsx", FileMode.Open, FileAccess.Read);
+   IWorkbook workbook = application.Workbooks.Open(excelStream);
+
+   //Convert Excel document with charts into PDF document 
+   PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+   Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+   pdfDocument.Save(stream);
+
+   excelStream.Dispose();
+   stream.Dispose();
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+
+    //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+    application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
+   
+	//Initialize XlsIO renderer.
+    XlsIORenderer renderer = new XlsIORenderer();
+	
+    //Gets assembly
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+    //Gets input Excel document from an embedded resource collection
+    Stream excelStream = assembly.GetManifestResourceStream("chart.xlsx");
+
+    IWorkbook workbook = application.Workbooks.Open(excelStream);
+    
+    //Convert Excel document into PDF document 
+    PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
+
+    //Save the PDF document to stream.
+    MemoryStream stream = new MemoryStream();
+    doc.Save(stream);
+
+    stream.Position = 0;
+
+    //Save the stream into pdf file
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+    }
+
+    excelStream.Dispose();
+    stream.Dispose();
+}
+
+{% endhighlight %}
+
+{% endtabs %}  
+
+The following code snippet provides supporting methods and for the previous code.
+
+{% tabs %}
+{% highlight c# %}
+private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //Sets the alternate font when a specified font is not installed in the production environment.
+    if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+    else
+    if (args.OriginalFontName == "Homizio")
+    {
+        Stream fileStream = new FileStream(@"C:\Users\EbenezerJeyapal\Downloads\Font Pack\Font Pack\Homizio.ttf", FileMode.Open);
+        MemoryStream memoryStream = new MemoryStream();
+        fileStream.CopyTo(memoryStream);
+        fileStream.Close();
+        args.AlternateFontStream = memoryStream;
+    }
+}
+
+{% endhighlight %}
+
+{% highlight vb %}
+Private Shared Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
+    'Sets the alternate font when a specified font is not installed in the production environment.
+     If (args.OriginalFontName = "Arial Unicode MS") Then
+        args.AlternateFontName = "Arial"
+     ElseIf (args.OriginalFontName = "Homizio") Then
+        Dim fileStream As Stream = New FileStream("C:\Users\EbenezerJeyapal\Downloads\Font Pack\Font Pack\Homizio.ttf", FileMode.Open)
+        Dim memoryStream As MemoryStream = New MemoryStream
+        fileStream.CopyTo(memoryStream)
+        fileStream.Close
+        args.AlternateFontStream = memoryStream
+     End If   
+End Sub
+{% endhighlight %}
+
+{% highlight UWP %}
+//Excel To PDF conversion can be performed by referring .NET Standard 2.0 assemblies in UWP platform
+
+#region Excel To PDF
+private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //Sets the alternate font when a specified font is not installed in the production environment.
+    if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+    else
+    if (args.OriginalFontName == "Homizio")
+    {
+        Stream fileStream = new FileStream(@"C:\Users\EbenezerJeyapal\Downloads\Font Pack\Font Pack\Homizio.ttf", FileMode.Open);
+        MemoryStream memoryStream = new MemoryStream();
+        fileStream.CopyTo(memoryStream);
+        fileStream.Close();
+        args.AlternateFontStream = memoryStream;
+    }
+}
+#endregion
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //Sets the alternate font when a specified font is not installed in the production environment.
+    if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+    else
+    if (args.OriginalFontName == "Homizio")
+    {
+        Stream fileStream = new FileStream(@"C:\Users\EbenezerJeyapal\Downloads\Font Pack\Font Pack\Homizio.ttf", FileMode.Open);
+        MemoryStream memoryStream = new MemoryStream();
+        fileStream.CopyTo(memoryStream);
+        fileStream.Close();
+        args.AlternateFontStream = memoryStream;
+    }
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //Sets the alternate font when a specified font is not installed in the production environment.
+    if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+    else
+    if (args.OriginalFontName == "Homizio")
+    {
+        Stream fileStream = new FileStream(@"C:\Users\EbenezerJeyapal\Downloads\Font Pack\Font Pack\Homizio.ttf", FileMode.Open);
+        MemoryStream memoryStream = new MemoryStream();
+        fileStream.CopyTo(memoryStream);
+        fileStream.Close();
+        args.AlternateFontStream = memoryStream;
+    }
+}
+
+{% endhighlight %}
+
+{% endtabs %} 
+
 ## Excel to PDF conversion in Linux OS
 
 In Linux OS, you can perform the Excel to PDF conversion using .NET Core (Targeting .netcoreapp) application. You can refer [Excel to PDF conversion NuGet packages](https://help.syncfusion.com/file-formats/xlsio/nuget-packages-required#converting-excel-document-into-pdf) to know about the packages required to deploy .NET Core (Targeting .netcoreapp) application with Excel to PDF conversion capabilities.
