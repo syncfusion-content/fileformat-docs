@@ -15,6 +15,7 @@ XlsIO provides the ability to import data into a worksheet from the following da
 * Data Column
 * Data View
 * Collection Objects
+* Nested Collection Objects
 * Array
 
 ### Import Data from DataTable
@@ -935,6 +936,2176 @@ public class Company
 {% endhighlight %}
 {% endtabs %} 
 
+### Import Data from Nested Collection Objects
+
+Essential XlsIO allows you to import data directly from nested collection objects with import data options and group options. 
+
+The import data options are:
+
+* Default
+* Merge
+* Repeat
+
+The import data group options are:
+
+* Collapse Group
+* Expand Group
+
+## Import Data default option
+
+This option adds the property value once per object for the corresponding records in the column while importing nested collection objects.
+
+The following code snippet illustrates how to import data directly from nested collection objects with default import data options.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with default import option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default);
+
+    workbook.SaveAs("ImportFromNested.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2013
+    Dim workbook As IWorkbook = application.Workbooks.Create(1)
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+	
+	'Import nested collection data with default import option.
+    Dim reports As IList(Of Customer) = GetSalesReports()
+    worksheet.ImportData(reports, 1, 1, True, ExcelImportDataOptions.Default)
+	
+    workbook.SaveAs("ImportFromNested.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with default import option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default);
+
+    //Initializes FileSavePicker
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "ImportFromNested";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+    //Creates a storage file from FileSavePicker
+    StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with default import option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default);
+
+    //Saving the workbook as stream
+    FileStream stream = new FileStream("ImportFromNested.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with default import option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default);
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+
+    stream.Position = 0;
+
+    //Save the document as file and view the saved document
+
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
+
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ImportFromNested.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportFromNested.xlsx", "application/msexcel", stream);
+    }    
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following code snippet provides supporting methods & class for the above code.
+
+{% tabs %}  
+{% highlight c# %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Gets a list of sales reports
+Public Shared Function GetSalesReports() As List(Of Customer)
+    Dim reports As List(Of Customer) = New List(Of Customer)()
+    Dim orders As List(Of Order) = New List(Of Order)()
+    orders.Add(New Order(1408, 451.75))
+    orders.Add(New Order(1278, 340.00))
+    orders.Add(New Order(1123, 290.50))
+    Dim c1 As Customer = New Customer(002107, "Andy Bernard", 45)
+    c1.Orders = orders
+    Dim c2 As Customer = New Customer(011564, "Jim Halpert", 34)
+    c2.Orders = orders
+    Dim c3 As Customer = New Customer(002097, "Karen Fillippelli", 35)
+    c3.Orders = orders
+    Dim c4 As Customer = New Customer(001846, "Phyllis Lapin", 37)
+    c4.Orders = orders
+    Dim c5 As Customer = New Customer(012167, "Stanley Hudson", 41)
+    c5.Orders = orders
+    reports.Add(c1)
+    reports.Add(c2)
+    reports.Add(c3)
+    reports.Add(c4)
+    reports.Add(c5)
+    Return reports
+End Function
+
+'Customer details
+Public Class Customer
+    Public Property Id As Integer
+    Public Property Name As String
+    Public Property Age As Integer
+    Public Property Orders As IList(Of Order)
+
+    Public Sub New(ByVal id As Integer, ByVal name As String, ByVal age As Integer)
+        Id = id
+        Name = name
+        Age = age
+    End Sub
+End Class
+'Order details
+Public Class Order
+    Public Property Order_Id As Integer
+    Public Property Price As Double
+
+    Public Sub New(ByVal id As Integer, ByVal price As Double)
+        Order_Id = id
+        Price = price
+    End Sub
+End Class
+{% endhighlight %}
+
+{% highlight UWP %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+{% endtabs %}  
+
+## Import Data merge option
+
+This option merges the cells in the column for each object set while importing nested collection objects.
+
+The following code snippet illustrates how to import data directly from nested collection objects with merge import data options.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with merge import option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Merge);
+
+    workbook.SaveAs("ImportFromNested.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2013
+    Dim workbook As IWorkbook = application.Workbooks.Create(1)
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+	
+	'Import nested collection data with merge import option.
+    Dim reports As IList(Of Customer) = GetSalesReports()
+    worksheet.ImportData(reports, 1, 1, True, ExcelImportDataOptions.Merge)
+	
+    workbook.SaveAs("ImportFromNested.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with merge import option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Merge);
+
+    //Initializes FileSavePicker
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "ImportFromNested";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+    //Creates a storage file from FileSavePicker
+    StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with merge import option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Merge);
+
+    //Saving the workbook as stream
+    FileStream stream = new FileStream("ImportFromNested.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with merge import option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Merge);
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+
+    stream.Position = 0;
+
+    //Save the document as file and view the saved document
+
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
+
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ImportFromNested.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportFromNested.xlsx", "application/msexcel", stream);
+    }    
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following code snippet provides supporting methods & class for the above code.
+
+{% tabs %}  
+{% highlight c# %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Gets a list of sales reports
+Public Shared Function GetSalesReports() As List(Of Customer)
+    Dim reports As List(Of Customer) = New List(Of Customer)()
+    Dim orders As List(Of Order) = New List(Of Order)()
+    orders.Add(New Order(1408, 451.75))
+    orders.Add(New Order(1278, 340.00))
+    orders.Add(New Order(1123, 290.50))
+    Dim c1 As Customer = New Customer(002107, "Andy Bernard", 45)
+    c1.Orders = orders
+    Dim c2 As Customer = New Customer(011564, "Jim Halpert", 34)
+    c2.Orders = orders
+    Dim c3 As Customer = New Customer(002097, "Karen Fillippelli", 35)
+    c3.Orders = orders
+    Dim c4 As Customer = New Customer(001846, "Phyllis Lapin", 37)
+    c4.Orders = orders
+    Dim c5 As Customer = New Customer(012167, "Stanley Hudson", 41)
+    c5.Orders = orders
+    reports.Add(c1)
+    reports.Add(c2)
+    reports.Add(c3)
+    reports.Add(c4)
+    reports.Add(c5)
+    Return reports
+End Function
+
+'Customer details
+Public Class Customer
+    Public Property Id As Integer
+    Public Property Name As String
+    Public Property Age As Integer
+    Public Property Orders As IList(Of Order)
+
+    Public Sub New(ByVal id As Integer, ByVal name As String, ByVal age As Integer)
+        Id = id
+        Name = name
+        Age = age
+    End Sub
+End Class
+'Order details
+Public Class Order
+    Public Property Order_Id As Integer
+    Public Property Price As Double
+
+    Public Sub New(ByVal id As Integer, ByVal price As Double)
+        Order_Id = id
+        Price = price
+    End Sub
+End Class
+{% endhighlight %}
+
+{% highlight UWP %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Import Data Repeat option
+
+This option repeats the property value for the corresponding records in the column while importing nested collection objects.
+
+The following code snippet illustrates how to import data directly from nested collection objects with repeat import data options.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with repeat import option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Repeat);
+
+    workbook.SaveAs("ImportFromNested.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2013
+    Dim workbook As IWorkbook = application.Workbooks.Create(1)
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+	
+	'Import nested collection data with repeat import option.
+    Dim reports As IList(Of Customer) = GetSalesReports()
+    worksheet.ImportData(reports, 1, 1, True, ExcelImportDataOptions.Repeat)
+	
+    workbook.SaveAs("ImportFromNested.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with repeat import option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Repeat);
+
+    //Initializes FileSavePicker
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "ImportFromNested";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+    //Creates a storage file from FileSavePicker
+    StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with repeat import option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Repeat);
+
+    //Saving the workbook as stream
+    FileStream stream = new FileStream("ImportFromNested.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with repeat import option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Repeat);
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+
+    stream.Position = 0;
+
+    //Save the document as file and view the saved document
+
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
+
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ImportFromNested.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportFromNested.xlsx", "application/msexcel", stream);
+    }    
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following code snippet provides supporting methods & class for the above code.
+
+{% tabs %}  
+{% highlight c# %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Gets a list of sales reports
+Public Shared Function GetSalesReports() As List(Of Customer)
+    Dim reports As List(Of Customer) = New List(Of Customer)()
+    Dim orders As List(Of Order) = New List(Of Order)()
+    orders.Add(New Order(1408, 451.75))
+    orders.Add(New Order(1278, 340.00))
+    orders.Add(New Order(1123, 290.50))
+    Dim c1 As Customer = New Customer(002107, "Andy Bernard", 45)
+    c1.Orders = orders
+    Dim c2 As Customer = New Customer(011564, "Jim Halpert", 34)
+    c2.Orders = orders
+    Dim c3 As Customer = New Customer(002097, "Karen Fillippelli", 35)
+    c3.Orders = orders
+    Dim c4 As Customer = New Customer(001846, "Phyllis Lapin", 37)
+    c4.Orders = orders
+    Dim c5 As Customer = New Customer(012167, "Stanley Hudson", 41)
+    c5.Orders = orders
+    reports.Add(c1)
+    reports.Add(c2)
+    reports.Add(c3)
+    reports.Add(c4)
+    reports.Add(c5)
+    Return reports
+End Function
+
+'Customer details
+Public Class Customer
+    Public Property Id As Integer
+    Public Property Name As String
+    Public Property Age As Integer
+    Public Property Orders As IList(Of Order)
+
+    Public Sub New(ByVal id As Integer, ByVal name As String, ByVal age As Integer)
+        Id = id
+        Name = name
+        Age = age
+    End Sub
+End Class
+'Order details
+Public Class Order
+    Public Property Order_Id As Integer
+    Public Property Price As Double
+
+    Public Sub New(ByVal id As Integer, ByVal price As Double)
+        Order_Id = id
+        Price = price
+    End Sub
+End Class
+{% endhighlight %}
+
+{% highlight UWP %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Import Data Collapse Group option
+
+This option groups the cells in the column for each object set and collapse the data while importing nested collection objects.
+
+The following code snippet illustrates how to import data directly from nested collection objects with collapse group option.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with collapse group option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Collapse);
+
+    workbook.SaveAs("ImportFromNested.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2013
+    Dim workbook As IWorkbook = application.Workbooks.Create(1)
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+	
+	'Import nested collection data with collapse group option.
+    Dim reports As IList(Of Customer) = GetSalesReports()
+    worksheet.ImportData(reports, 1, 1, True, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Collapse)
+	
+    workbook.SaveAs("ImportFromNested.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with collapse group option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Collapse);
+
+    //Initializes FileSavePicker
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "ImportFromNested";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+    //Creates a storage file from FileSavePicker
+    StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with collapse group option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Collapse);
+
+    //Saving the workbook as stream
+    FileStream stream = new FileStream("ImportFromNested.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with collapse group option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Collapse);
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+
+    stream.Position = 0;
+
+    //Save the document as file and view the saved document
+
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
+
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ImportFromNested.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportFromNested.xlsx", "application/msexcel", stream);
+    }    
+}
+{% endhighlight %}
+{% endtabs %}
+
+You can specify the collapse level when import data with group options. The data will be expanded before the given level and collapse will be applied from the given level in the nested collection objects.
+
+The following code snippet illustrates how to import data directly from nested collection objects with collapse group option.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with collapse group option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Collapse, 2);
+
+    workbook.SaveAs("ImportFromNested.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2013
+    Dim workbook As IWorkbook = application.Workbooks.Create(1)
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+	
+	'Import nested collection data with collapse group option.
+    Dim reports As IList(Of Customer) = GetSalesReports()
+    worksheet.ImportData(reports, 1, 1, True, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Collapse, 2)
+	
+    workbook.SaveAs("ImportFromNested.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with collapse group option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Collapse, 2);
+
+    //Initializes FileSavePicker
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "ImportFromNested";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+    //Creates a storage file from FileSavePicker
+    StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with collapse group option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Collapse, 2);
+
+    //Saving the workbook as stream
+    FileStream stream = new FileStream("ImportFromNested.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with collapse group option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Collapse, 2);
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+
+    stream.Position = 0;
+
+    //Save the document as file and view the saved document
+
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
+
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ImportFromNested.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportFromNested.xlsx", "application/msexcel", stream);
+    }    
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following code snippet provides supporting methods & class for the above code.
+
+{% tabs %}  
+{% highlight c# %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Gets a list of sales reports
+Public Shared Function GetSalesReports() As List(Of Customer)
+    Dim reports As List(Of Customer) = New List(Of Customer)()
+    Dim orders As List(Of Order) = New List(Of Order)()
+    orders.Add(New Order(1408, 451.75))
+    orders.Add(New Order(1278, 340.00))
+    orders.Add(New Order(1123, 290.50))
+    Dim c1 As Customer = New Customer(002107, "Andy Bernard", 45)
+    c1.Orders = orders
+    Dim c2 As Customer = New Customer(011564, "Jim Halpert", 34)
+    c2.Orders = orders
+    Dim c3 As Customer = New Customer(002097, "Karen Fillippelli", 35)
+    c3.Orders = orders
+    Dim c4 As Customer = New Customer(001846, "Phyllis Lapin", 37)
+    c4.Orders = orders
+    Dim c5 As Customer = New Customer(012167, "Stanley Hudson", 41)
+    c5.Orders = orders
+    reports.Add(c1)
+    reports.Add(c2)
+    reports.Add(c3)
+    reports.Add(c4)
+    reports.Add(c5)
+    Return reports
+End Function
+
+'Customer details
+Public Class Customer
+    Public Property Id As Integer
+    Public Property Name As String
+    Public Property Age As Integer
+    Public Property Orders As IList(Of Order)
+
+    Public Sub New(ByVal id As Integer, ByVal name As String, ByVal age As Integer)
+        Id = id
+        Name = name
+        Age = age
+    End Sub
+End Class
+'Order details
+Public Class Order
+    Public Property Order_Id As Integer
+    Public Property Price As Double
+
+    Public Sub New(ByVal id As Integer, ByVal price As Double)
+        Order_Id = id
+        Price = price
+    End Sub
+End Class
+{% endhighlight %}
+
+{% highlight UWP %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+
+## Import Data Expand Group option
+
+This option groups the cells in the column for each object set and expand the data while importing nested collection objects.
+
+The following code snippet illustrates how to import data directly from nested collection objects with expand group option.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with expand group option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Expand);
+
+    workbook.SaveAs("ImportFromNested.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+    Dim application As IApplication = excelEngine.Excel
+    application.DefaultVersion = ExcelVersion.Excel2013
+    Dim workbook As IWorkbook = application.Workbooks.Create(1)
+    Dim worksheet As IWorksheet = workbook.Worksheets(0)
+	
+	'Import nested collection data with expand group option.
+    Dim reports As IList(Of Customer) = GetSalesReports()
+    worksheet.ImportData(reports, 1, 1, True, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Expand)
+	
+    workbook.SaveAs("ImportFromNested.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with expand group option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Expand);
+
+    //Initializes FileSavePicker
+    FileSavePicker savePicker = new FileSavePicker();
+    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+    savePicker.SuggestedFileName = "ImportFromNested";
+    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+    //Creates a storage file from FileSavePicker
+    StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+    //Saves changes to the specified storage file
+    await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with expand group option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Expand);
+
+    //Saving the workbook as stream
+    FileStream stream = new FileStream("ImportFromNested.xlsx", FileMode.Create, FileAccess.ReadWrite);
+    workbook.SaveAs(stream);
+    stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Excel2013;
+    IWorkbook workbook = application.Workbooks.Create(1);
+    IWorksheet worksheet = workbook.Worksheets[0];
+
+    //Import nested collection data with expand group option.
+    IList<Customer> reports = GetSalesReports();
+    worksheet.ImportData(reports, 1, 1, true, ExcelImportDataOptions.Default, ExcelImportDataGroupOptions.Expand);
+
+    //Saving the workbook as stream
+    MemoryStream stream = new MemoryStream();
+    workbook.SaveAs(stream);
+
+    stream.Position = 0;
+
+    //Save the document as file and view the saved document
+
+    //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
+
+    if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+    {
+        Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ImportFromNested.xlsx", "application/msexcel", stream);
+    }
+    else
+    {
+        Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportFromNested.xlsx", "application/msexcel", stream);
+    }    
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following code snippet provides supporting methods & class for the above code.
+
+{% tabs %}  
+{% highlight c# %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Gets a list of sales reports
+Public Shared Function GetSalesReports() As List(Of Customer)
+    Dim reports As List(Of Customer) = New List(Of Customer)()
+    Dim orders As List(Of Order) = New List(Of Order)()
+    orders.Add(New Order(1408, 451.75))
+    orders.Add(New Order(1278, 340.00))
+    orders.Add(New Order(1123, 290.50))
+    Dim c1 As Customer = New Customer(002107, "Andy Bernard", 45)
+    c1.Orders = orders
+    Dim c2 As Customer = New Customer(011564, "Jim Halpert", 34)
+    c2.Orders = orders
+    Dim c3 As Customer = New Customer(002097, "Karen Fillippelli", 35)
+    c3.Orders = orders
+    Dim c4 As Customer = New Customer(001846, "Phyllis Lapin", 37)
+    c4.Orders = orders
+    Dim c5 As Customer = New Customer(012167, "Stanley Hudson", 41)
+    c5.Orders = orders
+    reports.Add(c1)
+    reports.Add(c2)
+    reports.Add(c3)
+    reports.Add(c4)
+    reports.Add(c5)
+    Return reports
+End Function
+
+'Customer details
+Public Class Customer
+    Public Property Id As Integer
+    Public Property Name As String
+    Public Property Age As Integer
+    Public Property Orders As IList(Of Order)
+
+    Public Sub New(ByVal id As Integer, ByVal name As String, ByVal age As Integer)
+        Id = id
+        Name = name
+        Age = age
+    End Sub
+End Class
+'Order details
+Public Class Order
+    Public Property Order_Id As Integer
+    Public Property Price As Double
+
+    Public Sub New(ByVal id As Integer, ByVal price As Double)
+        Order_Id = id
+        Price = price
+    End Sub
+End Class
+{% endhighlight %}
+
+{% highlight UWP %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+{% endtabs %}
+
 ### Import Data from Array
 
 The following code snippet shows how to import array of data into a worksheet using **ImportArray** method.
@@ -1361,6 +3532,294 @@ public class Report
   {
 
   }
+}
+{% endhighlight %}
+{% endtabs %} 
+
+## Exporting from Worksheet to Nested Class
+
+XlsIO allows to export the sheet data to Nested Class Objects. You can give the actual properties names for each column headers at runtime using mappingProperties parameter in **ExportData&lt;T&gt;** method. You should give headers as key and properties names as value to the mappingProperties dictionary.
+
+The following code snippet illustrates on how to export worksheet data into Nested Class Objects with mappingProperties using **ExportData&lt;T&gt;**.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Export worksheet data into Nested Class Objects
+  Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
+  mappingProperties.Add("Customer ID", "CustId");
+  mappingProperties.Add("Customer Name", "CustName");
+  mappingProperties.Add("Customer Age", "CustAge");
+  mappingProperties.Add("Order ID", "CustOrder.Order_Id");
+  mappingProperties.Add("Order Price", "CustOrder.Price");
+
+  List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+
+  workbook.SaveAs("NestedClassObjects.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+Using excelEngine As ExcelEngine = New ExcelEngine()
+  Dim application As IApplication = excelEngine.Excel
+  application.DefaultVersion = ExcelVersion.Excel2013
+  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+
+  'Export worksheet data into Nested Class Objects
+  Dim mappingProperties As Dictionary(Of String, String) = New Dictionary(Of String, String)()
+  mappingProperties.Add("Customer ID", "CustId")
+  mappingProperties.Add("Customer Name", "CustName")
+  mappingProperties.Add("Customer Age", "CustAge")
+  mappingProperties.Add("Order ID", "CustOrder.Order_Id")
+  mappingProperties.Add("Order Price", "CustOrder.Price")
+  
+  Dim nestedClassObjects As List(Of Customer) = worksheet.ExportData(Of Customer)(1, 1, 10, 5, mappingProperties)
+
+  workbook.SaveAs("NestedClassObjects.xlsx")
+End Using
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile file = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Export worksheet data into Nested Class Objects
+  Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
+  mappingProperties.Add("Customer ID", "CustId");
+  mappingProperties.Add("Customer Name", "CustName");
+  mappingProperties.Add("Customer Age", "CustAge");
+  mappingProperties.Add("Order ID", "CustOrder.Order_Id");
+  mappingProperties.Add("Order Price", "CustOrder.Price");
+
+  List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "NestedClassObjects";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Export worksheet data into Nested Class Objects
+  Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
+  mappingProperties.Add("Customer ID", "CustId");
+  mappingProperties.Add("Customer Name", "CustName");
+  mappingProperties.Add("Customer Age", "CustAge");
+  mappingProperties.Add("Order ID", "CustOrder.Order_Id");
+  mappingProperties.Add("Order Price", "CustOrder.Price");
+
+  List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+
+  //Saving the workbook as stream
+  FileStream stream = new FileStream("NestedClassObjects.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+
+  //"App" is the class of Portable project
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+  IWorksheet worksheet = workbook.Worksheets[0];
+
+  //Export worksheet data into Nested Class Objects
+  Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
+  mappingProperties.Add("Customer ID", "CustId");
+  mappingProperties.Add("Customer Name", "CustName");
+  mappingProperties.Add("Customer Age", "CustAge");
+  mappingProperties.Add("Order ID", "CustOrder.Order_Id");
+  mappingProperties.Add("Order Price", "CustOrder.Price");
+
+  List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("NestedClassObjects.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("NestedClassObjects.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}
+
+The following code snippet provides supporting class for the above code.
+
+The following code snippet provides supporting methods & class for the above code.
+
+{% tabs %}  
+{% highlight c# %}
+//Customer details
+public partial class Customer
+{
+    public int CustId { get; set; }
+    public string CustName { get; set; }
+    public int CustAge { get; set; }
+    public Order CustOrder { get; set; }	
+    public Customer()
+    {
+        
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }	
+    public Order()
+    {
+        
+    }
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Customer details
+Public Partial Class Customer
+    Public Property CustId As Integer
+    Public Property CustName As String
+    Public Property CustAge As Integer
+    Public Property CustOrder As Order
+
+    Public Sub New()
+    End Sub
+End Class
+'Order details
+Public Partial Class Order
+    Public Property Order_Id As Integer
+    Public Property Price As Double
+
+    Public Sub New()
+    End Sub
+End Class
+{% endhighlight %}
+
+{% highlight UWP %}
+//Customer details
+public partial class Customer
+{
+    public int CustId { get; set; }
+    public string CustName { get; set; }
+    public int CustAge { get; set; }
+    public Order CustOrder { get; set; }	
+    public Customer()
+    {
+        
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }	
+    public Order()
+    {
+        
+    }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Customer details
+public partial class Customer
+{
+    public int CustId { get; set; }
+    public string CustName { get; set; }
+    public int CustAge { get; set; }
+    public Order CustOrder { get; set; }	
+    public Customer()
+    {
+        
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }	
+    public Order()
+    {
+        
+    }
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Customer details
+public partial class Customer
+{
+    public int CustId { get; set; }
+    public string CustName { get; set; }
+    public int CustAge { get; set; }
+    public Order CustOrder { get; set; }	
+    public Customer()
+    {
+        
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }	
+    public Order()
+    {
+        
+    }
 }
 {% endhighlight %}
 {% endtabs %} 
