@@ -192,6 +192,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
+## Format shapes
+
 Shape can have formatting such as line color, fill color, positioning, wrap formats, etc. The following code example illustrates how to apply formatting options for shape.
 
 {% tabs %}
@@ -206,8 +208,8 @@ WParagraph paragraph = section.AddParagraph() as WParagraph;
 Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
 rectangle.VerticalPosition = 72;
 rectangle.HorizontalPosition = 72;
-paragraph = section.AddParagraph();
-paragraph = rectangle.TextBody.AddParagraph();
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
 IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
 text.CharacterFormat.TextColor = Color.Green;
 text.CharacterFormat.Bold = true;
@@ -238,8 +240,8 @@ Dim paragraph As WParagraph = TryCast(section.AddParagraph(), WParagraph)
 Dim rectangle As Shape = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100)
 rectangle.VerticalPosition = 72
 rectangle.HorizontalPosition = 72
-paragraph = section.AddParagraph()
-paragraph = rectangle.TextBody.AddParagraph()
+paragraph = TryCast(section.AddParagraph(), WParagraph)
+paragraph = TryCast(rectangle.TextBody.AddParagraph(), WParagraph)
 Dim text As IWTextRange = paragraph.AppendText("This text is in rounded rectangle shape")
 text.CharacterFormat.TextColor = Color.Green
 text.CharacterFormat.Bold = True
@@ -270,8 +272,8 @@ IWParagraph paragraph = section.AddParagraph() as WParagraph;
 Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
 rectangle.VerticalPosition = 72;
 rectangle.HorizontalPosition = 72;
-paragraph = section.AddParagraph();
-paragraph = rectangle.TextBody.AddParagraph();
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
 IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
 text.CharacterFormat.TextColor = Color.Green;
 text.CharacterFormat.Bold = true;
@@ -308,8 +310,8 @@ IWParagraph paragraph = section.AddParagraph() as WParagraph;
 Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
 rectangle.VerticalPosition = 72;
 rectangle.HorizontalPosition = 72;
-paragraph = section.AddParagraph();
-paragraph = rectangle.TextBody.AddParagraph();
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
 IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
 text.CharacterFormat.TextColor = Color.Green;
 text.CharacterFormat.Bold = true;
@@ -345,8 +347,8 @@ IWParagraph paragraph = section.AddParagraph() as WParagraph;
 Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
 rectangle.VerticalPosition = 72;
 rectangle.HorizontalPosition = 72;
-paragraph = section.AddParagraph();
-paragraph = rectangle.TextBody.AddParagraph();
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
 IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
 text.CharacterFormat.TextColor = Syncfusion.Drawing.Color.Green;
 text.CharacterFormat.Bold = true;
@@ -369,6 +371,146 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}
+
+## Rotate shapes
+
+You can rotate the shape and also apply flipping (horizontal and vertical) to shape. The following code example illustrates how to rotate and flip the shape.
+
+{% tabs %}
+
+{% highlight C# %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
+//Sets position for shape
+rectangle.VerticalPosition = 72;
+rectangle.HorizontalPosition = 72;
+//Sets 90 degree rotation
+rectangle.Rotation = 90;
+//Sets horizontal flip
+rectangle.FlipHorizontal = true;
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
+IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");   
+//Saves and closes the Word document
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight VB.NET %}
+'Creates a new Word document
+Dim document As WordDocument = New WordDocument()
+'Adds new section to the document
+Dim section As IWSection = document.AddSection()
+'Adds new paragraph to the section
+Dim paragraph As WParagraph = TryCast(section.AddParagraph(), WParagraph)
+Dim rectangle As Shape = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100)
+'Sets position for shape
+rectangle.VerticalPosition = 72
+rectangle.HorizontalPosition = 72
+'Sets 90 degree rotation
+rectangle.Rotation = 90
+'Sets horizontal flip
+rectangle.FlipHorizontal = true
+paragraph = TryCast(section.AddParagraph(), WParagraph)
+paragraph = TryCast(rectangle.TextBody.AddParagraph(), WParagraph)
+Dim text As IWTextRange = paragraph.AppendText("This text is in rounded rectangle shape")
+'Saves and closes the Word document
+document.Save("Sample.docx", FormatType.Docx)
+document.Close
+{% endhighlight %}
+
+{% highlight UWP %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
+//Sets position for shape
+rectangle.VerticalPosition = 72;
+rectangle.HorizontalPosition = 72;
+//Sets 90 degree rotation
+rectangle.Rotation = 90;
+//Sets horizontal flip
+rectangle.FlipHorizontal = true;
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
+IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");   
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+//Closes the document
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
+//Sets position for shape
+rectangle.VerticalPosition = 72;
+rectangle.HorizontalPosition = 72;
+//Sets 90 degree rotation
+rectangle.Rotation = 90;
+//Sets horizontal flip
+rectangle.FlipHorizontal = true;
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
+IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");   
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
+//Sets position for shape
+rectangle.VerticalPosition = 72;
+rectangle.HorizontalPosition = 72;
+//Sets 90 degree rotation
+rectangle.Rotation = 90;
+//Sets horizontal flip
+rectangle.FlipHorizontal = true;
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
+IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");   
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
@@ -1762,6 +1904,304 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}
+
+## Rotate group shapes
+
+{% tabs %}
+
+{% highlight c# %}
+
+{% endhighlight %}
+
+{% highlight VB.NET %}
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code example shows CreateChildShape method which is used to create child shapes.
+
+{% tabs %}
+
+{% highlight c# %}
+private void CreateChildShape(AutoShapeType autoShapeType, RectangleF bounds, float rotation, bool flipH, bool flipV, Color fillColor, string text, GroupShape groupShape, WordDocument wordDocument)
+{
+    //Creates new shape to add into group
+    Shape shape = new Shape(wordDocument, autoShapeType);
+    //Sets height and width for shape
+    shape.Height = bounds.Height;
+    shape.Width = bounds.Width;
+    //Sets horizontal and vertical position
+    shape.HorizontalPosition = bounds.X;
+    shape.VerticalPosition = bounds.Y;
+    //Set rotation and flipH for the shape
+    if (rotation != 0)
+        shape.Rotation = rotation;
+    if (flipH)
+        shape.FlipHorizontal = true;
+    if (flipV)
+        shape.FlipVertical = true;
+    //Applies fill color for shape
+    if (fillColor != Color.White)
+    {
+        shape.FillFormat.Fill = true;
+        shape.FillFormat.Color = fillColor;
+    }
+    //Set wrapping style for shape
+    shape.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
+    //Sets horizontal and vertical origin
+    shape.HorizontalOrigin = HorizontalOrigin.Page;
+    shape.VerticalOrigin = VerticalOrigin.Page;
+    //Sets no line to RoundedRectangle shapes
+    if (autoShapeType == AutoShapeType.RoundedRectangle)
+        shape.LineFormat.Line = false;
+    //Add paragraph for the shape textbody
+    if (text != null)
+    {
+        IWParagraph paragraph = shape.TextBody.AddParagraph();
+        //Set required textbody alignments
+        shape.TextFrame.TextVerticalAlignment = Syncfusion.DocIO.DLS.VerticalAlignment.Middle;
+        //Set required paragraph alignments
+        paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+        IWTextRange textRange = paragraph.AppendText(text);
+        //Applies a required text formatting's
+        textRange.CharacterFormat.FontName = "Calibri";
+        textRange.CharacterFormat.FontSize = 15;
+        textRange.CharacterFormat.TextColor = Color.White;
+        textRange.CharacterFormat.Bold = true;
+        textRange.CharacterFormat.Italic = true;
+    }
+    //Adds the specified shape to group shape
+    groupShape.Add(shape);
+}
+{% endhighlight %}
+
+{% highlight VB.NET %}
+Private Sub CreateChildShape(ByVal autoShapeType As AutoShapeType, ByVal bounds As RectangleF, ByVal rotation As Single, ByVal flipH As Boolean, ByVal flipV As Boolean, ByVal fillColor As Color, ByVal text As String, ByVal groupShape As GroupShape, ByVal wordDocument As WordDocument)
+    'Creates new shape to add into group
+    Dim shape As Shape = New Shape(wordDocument, autoShapeType)
+    'Sets height and width for shape
+    shape.Height = bounds.Height
+    shape.Width = bounds.Width
+    'Sets horizontal and vertical position
+    shape.HorizontalPosition = bounds.X
+    shape.VerticalPosition = bounds.Y
+    'Set rotation and flipH for the shape
+    If (rotation <> 0) Then
+        shape.Rotation = rotation
+    End If   
+    If flipH Then
+        shape.FlipHorizontal = true
+    End If    
+    If flipV Then
+        shape.FlipVertical = true
+    End If    
+    'Applies fill color for shape
+    If (fillColor <> Color.White) Then
+        shape.FillFormat.Fill = true
+        shape.FillFormat.Color = fillColor
+    End If  
+    'Set wrapping style for shape
+    shape.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText
+    'Sets horizontal and vertical origin
+    shape.HorizontalOrigin = HorizontalOrigin.Page
+    shape.VerticalOrigin = VerticalOrigin.Page
+    'Sets no line to RoundedRectangle shapes
+    If (autoShapeType = AutoShapeType.RoundedRectangle) Then
+        shape.LineFormat.Line = false
+    End If   
+    'Add paragraph for the shape textbody
+    If (Not (text) Is Nothing) Then
+        Dim paragraph As IWParagraph = shape.TextBody.AddParagraph
+        'Set required textbody alignments
+        shape.TextFrame.TextVerticalAlignment = Syncfusion.DocIO.DLS.VerticalAlignment.Middle
+        'Set required paragraph alignments
+        paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center
+        Dim textRange As IWTextRange = paragraph.AppendText(text)
+        'Applies a required text formatting's
+        textRange.CharacterFormat.FontName = "Calibri"
+        textRange.CharacterFormat.FontSize = 15
+        textRange.CharacterFormat.TextColor = Color.White
+        textRange.CharacterFormat.Bold = true
+        textRange.CharacterFormat.Italic = true
+    End If    
+    'Adds the specified shape to group shape
+    groupShape.Add(shape)
+End Sub
+{% endhighlight %}
+
+{% highlight UWP %}
+private void CreateChildShape(AutoShapeType autoShapeType, RectangleF bounds, float rotation, bool flipH, bool flipV, Color fillColor, string text, GroupShape groupShape, WordDocument wordDocument)
+{
+    //Creates new shape to add into group
+    Shape shape = new Shape(wordDocument, autoShapeType);
+    //Sets height and width for shape
+    shape.Height = bounds.Height;
+    shape.Width = bounds.Width;
+    //Sets horizontal and vertical position
+    shape.HorizontalPosition = bounds.X;
+    shape.VerticalPosition = bounds.Y;
+    //Set rotation and flipH for the shape
+    if (rotation != 0)
+        shape.Rotation = rotation;
+    if (flipH)
+        shape.FlipHorizontal = true;
+    if (flipV)
+        shape.FlipVertical = true;
+    //Applies fill color for shape
+    if (fillColor != Color.White)
+    {
+        shape.FillFormat.Fill = true;
+        shape.FillFormat.Color = fillColor;
+    }
+    //Set wrapping style for shape
+    shape.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
+    //Sets horizontal and vertical origin
+    shape.HorizontalOrigin = HorizontalOrigin.Page;
+    shape.VerticalOrigin = VerticalOrigin.Page;
+    //Sets no line to RoundedRectangle shapes
+    if (autoShapeType == AutoShapeType.RoundedRectangle)
+        shape.LineFormat.Line = false;
+    //Add paragraph for the shape textbody
+    if (text != null)
+    {
+        IWParagraph paragraph = shape.TextBody.AddParagraph();
+        //Set required textbody alignments
+        shape.TextFrame.TextVerticalAlignment = Syncfusion.DocIO.DLS.VerticalAlignment.Middle;
+        //Set required paragraph alignments
+        paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+        IWTextRange textRange = paragraph.AppendText(text);
+        //Applies a required text formatting's
+        textRange.CharacterFormat.FontName = "Calibri";
+        textRange.CharacterFormat.FontSize = 15;
+        textRange.CharacterFormat.TextColor = Color.White;
+        textRange.CharacterFormat.Bold = true;
+        textRange.CharacterFormat.Italic = true;
+    }
+    //Adds the specified shape to group shape
+    groupShape.Add(shape);
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+private void CreateChildShape(AutoShapeType autoShapeType, RectangleF bounds, float rotation, bool flipH, bool flipV, Color fillColor, string text, GroupShape groupShape, WordDocument wordDocument)
+{
+    //Creates new shape to add into group
+    Shape shape = new Shape(wordDocument, autoShapeType);
+    //Sets height and width for shape
+    shape.Height = bounds.Height;
+    shape.Width = bounds.Width;
+    //Sets horizontal and vertical position
+    shape.HorizontalPosition = bounds.X;
+    shape.VerticalPosition = bounds.Y;
+    //Set rotation and flipH for the shape
+    if (rotation != 0)
+        shape.Rotation = rotation;
+    if (flipH)
+        shape.FlipHorizontal = true;
+    if (flipV)
+        shape.FlipVertical = true;
+    //Applies fill color for shape
+    if (fillColor != Color.White)
+    {
+        shape.FillFormat.Fill = true;
+        shape.FillFormat.Color = fillColor;
+    }
+    //Set wrapping style for shape
+    shape.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
+    //Sets horizontal and vertical origin
+    shape.HorizontalOrigin = HorizontalOrigin.Page;
+    shape.VerticalOrigin = VerticalOrigin.Page;
+    //Sets no line to RoundedRectangle shapes
+    if (autoShapeType == AutoShapeType.RoundedRectangle)
+        shape.LineFormat.Line = false;
+    //Add paragraph for the shape textbody
+    if (text != null)
+    {
+        IWParagraph paragraph = shape.TextBody.AddParagraph();
+        //Set required textbody alignments
+        shape.TextFrame.TextVerticalAlignment = Syncfusion.DocIO.DLS.VerticalAlignment.Middle;
+        //Set required paragraph alignments
+        paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+        IWTextRange textRange = paragraph.AppendText(text);
+        //Applies a required text formatting's
+        textRange.CharacterFormat.FontName = "Calibri";
+        textRange.CharacterFormat.FontSize = 15;
+        textRange.CharacterFormat.TextColor = Color.White;
+        textRange.CharacterFormat.Bold = true;
+        textRange.CharacterFormat.Italic = true;
+    }
+    //Adds the specified shape to group shape
+    groupShape.Add(shape);
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+private void CreateChildShape(AutoShapeType autoShapeType, RectangleF bounds, float rotation, bool flipH, bool flipV, Color fillColor, string text, GroupShape groupShape, WordDocument wordDocument)
+{
+    //Creates new shape to add into group
+    Shape shape = new Shape(wordDocument, autoShapeType);
+    //Sets height and width for shape
+    shape.Height = bounds.Height;
+    shape.Width = bounds.Width;
+    //Sets horizontal and vertical position
+    shape.HorizontalPosition = bounds.X;
+    shape.VerticalPosition = bounds.Y;
+    //Set rotation and flipH for the shape
+    if (rotation != 0)
+        shape.Rotation = rotation;
+    if (flipH)
+        shape.FlipHorizontal = true;
+    if (flipV)
+        shape.FlipVertical = true;
+    //Applies fill color for shape
+    if (fillColor != Color.White)
+    {
+        shape.FillFormat.Fill = true;
+        shape.FillFormat.Color = fillColor;
+    }
+    //Set wrapping style for shape
+    shape.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
+    //Sets horizontal and vertical origin
+    shape.HorizontalOrigin = HorizontalOrigin.Page;
+    shape.VerticalOrigin = VerticalOrigin.Page;
+    //Sets no line to RoundedRectangle shapes
+    if (autoShapeType == AutoShapeType.RoundedRectangle)
+        shape.LineFormat.Line = false;
+    //Add paragraph for the shape textbody
+    if (text != null)
+    {
+        IWParagraph paragraph = shape.TextBody.AddParagraph();
+        //Set required textbody alignments
+        shape.TextFrame.TextVerticalAlignment = Syncfusion.DocIO.DLS.VerticalAlignment.Middle;
+        //Set required paragraph alignments
+        paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
+        IWTextRange textRange = paragraph.AppendText(text);
+        //Applies a required text formatting's
+        textRange.CharacterFormat.FontName = "Calibri";
+        textRange.CharacterFormat.FontSize = 15;
+        textRange.CharacterFormat.TextColor = Color.White;
+        textRange.CharacterFormat.Bold = true;
+        textRange.CharacterFormat.Italic = true;
+    }
+    //Adds the specified shape to group shape
+    groupShape.Add(shape);
+}
 {% endhighlight %}
 
 {% endtabs %}
