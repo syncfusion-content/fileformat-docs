@@ -10,15 +10,9 @@ documentation: UG
 
 You can perform nested Mail merge with relational or hierarchical data source and independent data tables in a template document.
 
-## How to create nested group merge field
+## Create template for nested group mail merge
 
 Nested Mail merge operation automatically replaces the merge field with immediate group data. You can also predefine the group data that is populated to a merge field. 
-
-You can also merge any field in the nested group by **mapping the field or column of its ancestor group** or table in the data source. To achieve this, you need to add a corresponding group name or table name as a prefix to the merge field name along with “:” separator.
-
-For example:
-  * The merge field name should be like “TableName:Id” (<<TableName:MergeFieldName>>)
-  * The merge field name should be like “Image:TableName:Photo” (<<Image:TableName:MergeFieldName>>)
   
 To execute nested mail merge, design your Word document template as follow.
 
@@ -26,11 +20,11 @@ To execute nested mail merge, design your Word document template as follow.
 
 In this template, Employees is the owner group and it has two child groups Customers and Orders.
 
-## How to execute nested group mail merge
+## Execute nested group mail merge
 
 The `MailMerge` class provides various overloads for the `ExecuteNestedGroup` method to perform Mail merge for nested groups or regions in the Word document.
 
-You need to define commands with the table name and expression for linking the independent data tables **(explicit relation data)** during nested Mail merge process. You can use the “%TableName.ColumnName%” expression for getting the current value of specified column or field from the table.
+You need to define commands with the table name and expression for linking the multiple data tables **(explicit relation data)** during nested Mail merge process. You can use the “%TableName.ColumnName%” expression for getting the current value of specified column or field from the table.
 
 The following code example shows how to perform a nested Mail merge.
 
@@ -67,20 +61,20 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//OleDbConnection not supported in UWP platform.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//OleDbConnection supported in ASP.NET Core platform from 3.0 Preview 8 only.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//OleDbConnection not supported in Xamarin platform.
 {% endhighlight %}
 
 {% endtabs %}  
 
-The following code example provides supporting methods for the previous code.
+The following code example shows GetCommands method which is used to get data for mail merge.
 
 {% tabs %}
 {% highlight C# %}
@@ -117,13 +111,15 @@ Private Function GetCommands() As ArrayList
 End Function
 {% endhighlight %}
 {% highlight UWP %}
-//DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//OleDbConnection not supported in UWP platform.
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
-//DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//OleDbConnection supported in ASP.NET Core platform from 3.0 Preview 8 only.
 {% endhighlight %}
+
 {% highlight XAMARIN %}
-//DocIO supports performing mail merge in specific region with data source retrieved from OleDbConnection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//OleDbConnection not supported in Xamarin platform.
 {% endhighlight %}
 {% endtabs %}
 
@@ -133,7 +129,9 @@ The resultant document looks as follows.
 
 ## Mail merge with dynamic objects
 
-Essential DocIO allows you to perform Mail merge with the dynamic objects. The following code snippet shows how to perform the Mail merge with dynamic objects ([ExpandoObject](https://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject(v=vs.110).aspx)).
+Essential DocIO allows you to perform Mail merge with the dynamic objects. The [ExpandoObject](https://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject(v=vs.110).aspx) is like a collection of key and value pairs, which means IDictionary<string, object>. So, you can also use IDictionary<string, object> collection instead of [ExpandoObject](https://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject(v=vs.110).aspx) to execute mail merge.
+
+The following code snippet shows how to perform the Mail merge with dynamic objects ([ExpandoObject](https://msdn.microsoft.com/en-us/library/system.dynamic.expandoobject(v=vs.110).aspx)).
 
 {% tabs %}  
 
@@ -248,12 +246,14 @@ return File(stream, "application/msword", "Sample.docx");
 {% endhighlight %} 
 
 {% highlight XAMARIN %}
-//DocIO supports performing mail merge with dynamic object (ExpandoObject) in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and UWP platforms alone.
+//Creating dynamic objects using dynamic keyword is not supported in Xamarin.iOS.
+//You can use IDictionary<string, object> collection to generate dynamic objects.
+
 {% endhighlight %}
 
 {% endtabs %}
 
-The following code example provides supporting methods for the previous code.
+The following code example shows GetCustomers and GetOrders methods which are used to get data for mail merge
 
 {% tabs %}  
 
@@ -275,24 +275,6 @@ private List<ExpandoObject> GetOrders()
 	orders.Add(GetDynamicOrder(1003, "VisualStudio", 102));
 	return orders;
 }
-
-private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
-{
-	dynamic dynamicCustomer = new ExpandoObject();
-	dynamicCustomer.CustomerID = customerID;
-	dynamicCustomer.CustomerName = customerName;
-	dynamicCustomer.CompanyName = companyName;
-	return dynamicCustomer;
-}
-
-private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
-{
-	dynamic dynamicOrder = new ExpandoObject();
-	dynamicOrder.OrderID = orderID;
-	dynamicOrder.OrderName = orderName;
-	dynamicOrder.CustomerID = customerID;
-	return dynamicOrder;
-}
 {% endhighlight %}
 
 {% highlight VB.NET %}
@@ -312,21 +294,6 @@ Private Function GetOrders() As List(Of ExpandoObject)
 	Return orders
 End Function
 
-Private Function GetDynamicCustomer(customerID As Integer, customerName As String, companyName As String) As Object
-	Dim dynamicCustomer As Object = New ExpandoObject()
-	dynamicCustomer.CustomerID = customerID
-	dynamicCustomer.CustomerName = customerName
-	dynamicCustomer.CompanyName = companyName
-	Return dynamicCustomer
-End Function
-
-Private Function GetDynamicOrder(orderID As Integer, orderName As String, customerID As Integer) As Object
-	Dim dynamicOrder As Object = New ExpandoObject()
-	dynamicOrder.OrderID = orderID
-	dynamicOrder.OrderName = orderName
-	dynamicOrder.CustomerID = customerID
-	Return dynamicOrder
-End Function
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -348,23 +315,6 @@ private List<ExpandoObject> GetOrders()
 	return orders;
 }
 
-private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
-{
-	dynamic dynamicCustomer = new ExpandoObject();
-	dynamicCustomer.CustomerID = customerID;
-	dynamicCustomer.CustomerName = customerName;
-	dynamicCustomer.CompanyName = companyName;
-	return dynamicCustomer;
-}
-
-private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
-{
-	dynamic dynamicOrder = new ExpandoObject();
-	dynamicOrder.OrderID = orderID;
-	dynamicOrder.OrderName = orderName;
-	dynamicOrder.CustomerID = customerID;
-	return dynamicOrder;
-}
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -386,6 +336,19 @@ private List<ExpandoObject> GetOrders()
 	return orders;
 }
 
+{% endhighlight %} 
+
+{% highlight XAMARIN %}
+//Creating dynamic objects using dynamic keyword is not supported in Xamarin.iOS.
+//You can use IDictionary<string, object> collection to generate dynamic objects.
+{% endhighlight %}
+
+{% endtabs %}
+
+The following code example shows GetDynamicCustomer and GetDynamicOrder methods, which are used to generate dynamic objects for mail merge.
+
+{% tabs %}  
+{% highlight C# %}
 private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
 {
 	dynamic dynamicCustomer = new ExpandoObject();
@@ -394,7 +357,6 @@ private dynamic GetDynamicCustomer(int customerID,string customerName, string co
 	dynamicCustomer.CompanyName = companyName;
 	return dynamicCustomer;
 }
-
 private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 {
 	dynamic dynamicOrder = new ExpandoObject();
@@ -403,19 +365,89 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 	dynamicOrder.CustomerID = customerID;
 	return dynamicOrder;
 }
-{% endhighlight %} 
-
-{% highlight XAMARIN %}
-//DocIO supports performing mail merge with dynamic object (ExpandoObject) in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and UWP platforms alone.
 {% endhighlight %}
-
+ 
+{% highlight VB.NET %}
+Private Function GetDynamicCustomer(customerID As Integer, customerName As String, companyName As String) As Object
+	Dim dynamicCustomer As Object = New ExpandoObject()
+	dynamicCustomer.CustomerID = customerID
+	dynamicCustomer.CustomerName = customerName
+	dynamicCustomer.CompanyName = companyName
+	Return dynamicCustomer
+End Function
+Private Function GetDynamicOrder(orderID As Integer, orderName As String, customerID As Integer) As Object
+	Dim dynamicOrder As Object = New ExpandoObject()
+	dynamicOrder.OrderID = orderID
+	dynamicOrder.OrderName = orderName
+	dynamicOrder.CustomerID = customerID
+	Return dynamicOrder
+End Function
+{% endhighlight %}
+ 
+{% highlight UWP %}
+private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
+{
+	dynamic dynamicCustomer = new ExpandoObject();
+	dynamicCustomer.CustomerID = customerID;
+	dynamicCustomer.CustomerName = customerName;
+	dynamicCustomer.CompanyName = companyName;
+	return dynamicCustomer;
+}
+private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
+{
+	dynamic dynamicOrder = new ExpandoObject();
+	dynamicOrder.OrderID = orderID;
+	dynamicOrder.OrderName = orderName;
+	dynamicOrder.CustomerID = customerID;
+	return dynamicOrder;
+}
+{% endhighlight %}
+ 
+{% highlight ASP.NET CORE %}
+private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
+{
+	dynamic dynamicCustomer = new ExpandoObject();
+	dynamicCustomer.CustomerID = customerID;
+	dynamicCustomer.CustomerName = customerName;
+	dynamicCustomer.CompanyName = companyName;
+	return dynamicCustomer;
+}
+private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
+{
+	dynamic dynamicOrder = new ExpandoObject();
+	dynamicOrder.OrderID = orderID;
+	dynamicOrder.OrderName = orderName;
+	dynamicOrder.CustomerID = customerID;
+	return dynamicOrder;
+}
+{% endhighlight %}
+ 
+{% highlight XAMARIN %}
+//Creating dynamic objects using dynamic keyword is not supported in Xamarin.iOS.
+//You can use IDictionary<string, object> collection to generate dynamic objects.
+{% endhighlight %}
 {% endtabs %}
 
-## Nested Mail merge with relational data objects
+## Nested Mail merge with implicit relational data
 
 You can perform **nested Mail merge with implicit relational data** objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method.
 
-The following code example shows how to perform nested Mail merge with the relational business objects.
+### Map the field of ancestor group
+
+You can also merge any field in the nested group by **mapping the field or column of its ancestor group or table** in the data source. To achieve this, you need to add a corresponding group name or table name as a prefix to the merge field name along with “:” separator.
+
+For example:
+  * The merge field name should be like “TableName:Id” (<<TableName:MergeFieldName>>)
+  * The merge field name should be like “Image:TableName:Photo” (<<Image:TableName:MergeFieldName>>)
+  
+For example, consider that you have a template document as follow.
+
+![Word document template to map the fields of ancestor group](../MailMerge_images/Mail_merge_with_implicit_relation_template.png)
+
+In the above template, Organizations is the owner group and it has two child groups Departments and Employees. The Supervisor merge field of Departments group is used in Employees group.
+
+The following code example shows how to perform nested Mail merge with the implicit relational data objects.
+
 {% tabs %}
 {% highlight C# %}
 //Opens the template document 
@@ -510,7 +542,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}
 
-The following code example provides supporting methods for the previous code.
+The following code example shows GetOrganizations method which is used to get data for mail merge.
 
 {% tabs %}
 {% highlight C# %}
@@ -533,48 +565,6 @@ public static List<Organization> GetOrganizations()
     organizations.Add(new Organization("UK Office", "120 Hanover Sq.", "London", "WX1 6LT", "UK", departments));
     return organizations;
 }
-public class Organization
-{
-    public string BranchName { get; set; }
-    public string Address { get; set; }
-    public string City { get; set; }
-    public string ZipCode { get; set; }
-    public string Country { get; set; }
-    public List<DepartmentDetails> Departments { get; set; }
-    public Organization(string branchName, string address, string city, string zipcode, string country, List<DepartmentDetails> departments)
-    {
-        BranchName = branchName;
-        Address = address;
-        City = city;
-        ZipCode = zipcode;
-        Country = country;
-        Departments = departments;
-    }
-}
-public class DepartmentDetails
-{
-    public string DepartmentName { get; set; }
-    public string Supervisor { get; set; }
-    public List<EmployeeDetails> Employees { get; set; }
-    public DepartmentDetails(string departmentName, string supervisor, List<EmployeeDetails> employees)
-    {
-        DepartmentName = departmentName;
-        Supervisor = supervisor;
-        Employees = employees;
-    }
-}
-public class EmployeeDetails
-{
-    public string EmployeeName { get; set; }
-    public string EmployeeID { get; set; }
-    public string JoinedDate { get; set; }
-    public EmployeeDetails(string employeeName, string employeeID, string joinedDate)
-    {
-        EmployeeName = employeeName;
-        EmployeeID = employeeID;
-        JoinedDate = joinedDate;
-    }
-}
 {% endhighlight %}
 {% highlight VB.NET %}
 Public Function GetOrganizations() As List(Of Organization)
@@ -595,43 +585,6 @@ Public Function GetOrganizations() As List(Of Organization)
     organizations.Add(New Organization("UK Office", "120 Hanover Sq.", "London", "WX1 6LT", "UK", departments))
     Return organizations
 End Function
-Public Class Organization
-    Public Property BranchName() As String
-    Public Property Address() As String
-    Public Property City() As String
-    Public Property ZipCode() As String
-    Public Property Country() As String
-    Public Property Departments() As List(Of DepartmentDetails)
-    Public Sub New(ByVal branchName As String, ByVal address As String, ByVal city As String, ByVal zipcode As String, ByVal country As String, ByVal departments As List(Of DepartmentDetails))
-        Me.BranchName = branchName
-        Me.Address = address
-        Me.City = city
-        Me.ZipCode = zipcode
-        Me.Country = country
-        Me.Departments = departments
-    End Sub
-End Class
-Public Class DepartmentDetails
-    Public Property DepartmentName() As String
-    Public Property Supervisor() As String
-    Public Property Employees() As List(Of EmployeeDetails)
-    Public Sub New(ByVal departmentName As String, ByVal supervisor As String, ByVal employees As List(Of EmployeeDetails))
-        Me.DepartmentName = departmentName
-        Me.Supervisor = supervisor
-        Me.Employees = employees
-    End Sub
-End Class
-Public Class EmployeeDetails
-    Public Property EmployeeName() As String
-    Public Property EmployeeID() As String
-    Public Property JoinedDate() As String
-
-    Public Sub New(ByVal employeeName As String, ByVal employeeID As String, ByVal joinedDate As String)
-        Me.EmployeeName = employeeName
-        Me.EmployeeID = employeeID
-        Me.JoinedDate = joinedDate
-    End Sub
-End Class
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -654,48 +607,6 @@ public static List<Organization> GetOrganizations()
     organizations.Add(new Organization("UK Office", "120 Hanover Sq.", "London", "WX1 6LT", "UK", departments));
     return organizations;
 }
-public class Organization
-{
-    public string BranchName { get; set; }
-    public string Address { get; set; }
-    public string City { get; set; }
-    public string ZipCode { get; set; }
-    public string Country { get; set; }
-    public List<DepartmentDetails> Departments { get; set; }
-    public Organization(string branchName, string address, string city, string zipcode, string country, List<DepartmentDetails> departments)
-    {
-        BranchName = branchName;
-        Address = address;
-        City = city;
-        ZipCode = zipcode;
-        Country = country;
-        Departments = departments;
-    }
-}
-public class DepartmentDetails
-{
-    public string DepartmentName { get; set; }
-    public string Supervisor { get; set; }
-    public List<EmployeeDetails> Employees { get; set; }
-    public DepartmentDetails(string departmentName, string supervisor, List<EmployeeDetails> employees)
-    {
-        DepartmentName = departmentName;
-        Supervisor = supervisor;
-        Employees = employees;
-    }
-}
-public class EmployeeDetails
-{
-    public string EmployeeName { get; set; }
-    public string EmployeeID { get; set; }
-    public string JoinedDate { get; set; }
-    public EmployeeDetails(string employeeName, string employeeID, string joinedDate)
-    {
-        EmployeeName = employeeName;
-        EmployeeID = employeeID;
-        JoinedDate = joinedDate;
-    }
-}
 {% endhighlight %}
 {% highlight ASP.NET CORE %}
 public static List<Organization> GetOrganizations()
@@ -716,48 +627,6 @@ public static List<Organization> GetOrganizations()
     List<Organization> organizations = new List<Organization>();
     organizations.Add(new Organization("UK Office", "120 Hanover Sq.", "London", "WX1 6LT", "UK", departments));
     return organizations;
-}
-public class Organization
-{
-    public string BranchName { get; set; }
-    public string Address { get; set; }
-    public string City { get; set; }
-    public string ZipCode { get; set; }
-    public string Country { get; set; }
-    public List<DepartmentDetails> Departments { get; set; }
-    public Organization(string branchName, string address, string city, string zipcode, string country, List<DepartmentDetails> departments)
-    {
-        BranchName = branchName;
-        Address = address;
-        City = city;
-        ZipCode = zipcode;
-        Country = country;
-        Departments = departments;
-    }
-}
-public class DepartmentDetails
-{
-    public string DepartmentName { get; set; }
-    public string Supervisor { get; set; }
-    public List<EmployeeDetails> Employees { get; set; }
-    public DepartmentDetails(string departmentName, string supervisor, List<EmployeeDetails> employees)
-    {
-        DepartmentName = departmentName;
-        Supervisor = supervisor;
-        Employees = employees;
-    }
-}
-public class EmployeeDetails
-{
-    public string EmployeeName { get; set; }
-    public string EmployeeID { get; set; }
-    public string JoinedDate { get; set; }
-    public EmployeeDetails(string employeeName, string employeeID, string joinedDate)
-    {
-        EmployeeName = employeeName;
-        EmployeeID = employeeID;
-        JoinedDate = joinedDate;
-    }
 }
 {% endhighlight %}
 {% highlight XAMARIN %}
@@ -780,6 +649,13 @@ public static List<Organization> GetOrganizations()
     organizations.Add(new Organization("UK Office", "120 Hanover Sq.", "London", "WX1 6LT", "UK", departments));
     return organizations;
 }
+{% endhighlight %}
+{% endtabs %}
+
+The following code example shows Organization, DepartmentDetails, and EmployeeDetails classes.
+
+{% tabs %}  
+{% highlight C# %}
 public class Organization
 {
     public string BranchName { get; set; }
@@ -798,6 +674,7 @@ public class Organization
         Departments = departments;
     }
 }
+
 public class DepartmentDetails
 {
     public string DepartmentName { get; set; }
@@ -810,6 +687,189 @@ public class DepartmentDetails
         Employees = employees;
     }
 }
+
+public class EmployeeDetails
+{
+    public string EmployeeName { get; set; }
+    public string EmployeeID { get; set; }
+    public string JoinedDate { get; set; }
+    public EmployeeDetails(string employeeName, string employeeID, string joinedDate)
+    {
+        EmployeeName = employeeName;
+        EmployeeID = employeeID;
+        JoinedDate = joinedDate;
+    }
+}
+{% endhighlight %}
+ 
+{% highlight VB.NET %}
+Public Class Organization
+    Public Property BranchName() As String
+    Public Property Address() As String
+    Public Property City() As String
+    Public Property ZipCode() As String
+    Public Property Country() As String
+    Public Property Departments() As List(Of DepartmentDetails)
+    Public Sub New(ByVal branchName As String, ByVal address As String, ByVal city As String, ByVal zipcode As String, ByVal country As String, ByVal departments As List(Of DepartmentDetails))
+        Me.BranchName = branchName
+        Me.Address = address
+        Me.City = city
+        Me.ZipCode = zipcode
+        Me.Country = country
+        Me.Departments = departments
+    End Sub
+End Class
+
+Public Class DepartmentDetails
+    Public Property DepartmentName() As String
+    Public Property Supervisor() As String
+    Public Property Employees() As List(Of EmployeeDetails)
+    Public Sub New(ByVal departmentName As String, ByVal supervisor As String, ByVal employees As List(Of EmployeeDetails))
+        Me.DepartmentName = departmentName
+        Me.Supervisor = supervisor
+        Me.Employees = employees
+    End Sub
+End Class
+
+Public Class EmployeeDetails
+    Public Property EmployeeName() As String
+    Public Property EmployeeID() As String
+    Public Property JoinedDate() As String
+    Public Sub New(ByVal employeeName As String, ByVal employeeID As String, ByVal joinedDate As String)
+        Me.EmployeeName = employeeName
+        Me.EmployeeID = employeeID
+        Me.JoinedDate = joinedDate
+    End Sub
+End Class
+{% endhighlight %}
+ 
+{% highlight UWP %}
+public class Organization
+{
+    public string BranchName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string ZipCode { get; set; }
+    public string Country { get; set; }
+    public List<DepartmentDetails> Departments { get; set; }
+    public Organization(string branchName, string address, string city, string zipcode, string country, List<DepartmentDetails> departments)
+    {
+        BranchName = branchName;
+        Address = address;
+        City = city;
+        ZipCode = zipcode;
+        Country = country;
+        Departments = departments;
+    }
+}
+
+public class DepartmentDetails
+{
+    public string DepartmentName { get; set; }
+    public string Supervisor { get; set; }
+    public List<EmployeeDetails> Employees { get; set; }
+    public DepartmentDetails(string departmentName, string supervisor, List<EmployeeDetails> employees)
+    {
+        DepartmentName = departmentName;
+        Supervisor = supervisor;
+        Employees = employees;
+    }
+}
+
+public class EmployeeDetails
+{
+    public string EmployeeName { get; set; }
+    public string EmployeeID { get; set; }
+    public string JoinedDate { get; set; }
+    public EmployeeDetails(string employeeName, string employeeID, string joinedDate)
+    {
+        EmployeeName = employeeName;
+        EmployeeID = employeeID;
+        JoinedDate = joinedDate;
+    }
+}
+{% endhighlight %}
+ 
+{% highlight ASP.NET CORE %}
+public class Organization
+{
+    public string BranchName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string ZipCode { get; set; }
+    public string Country { get; set; }
+    public List<DepartmentDetails> Departments { get; set; }
+    public Organization(string branchName, string address, string city, string zipcode, string country, List<DepartmentDetails> departments)
+    {
+        BranchName = branchName;
+        Address = address;
+        City = city;
+        ZipCode = zipcode;
+        Country = country;
+        Departments = departments;
+    }
+}
+
+public class DepartmentDetails
+{
+    public string DepartmentName { get; set; }
+    public string Supervisor { get; set; }
+    public List<EmployeeDetails> Employees { get; set; }
+    public DepartmentDetails(string departmentName, string supervisor, List<EmployeeDetails> employees)
+    {
+        DepartmentName = departmentName;
+        Supervisor = supervisor;
+        Employees = employees;
+    }
+}
+
+public class EmployeeDetails
+{
+    public string EmployeeName { get; set; }
+    public string EmployeeID { get; set; }
+    public string JoinedDate { get; set; }
+    public EmployeeDetails(string employeeName, string employeeID, string joinedDate)
+    {
+        EmployeeName = employeeName;
+        EmployeeID = employeeID;
+        JoinedDate = joinedDate;
+    }
+}
+{% endhighlight %}
+ 
+{% highlight XAMARIN %}
+public class Organization
+{
+    public string BranchName { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string ZipCode { get; set; }
+    public string Country { get; set; }
+    public List<DepartmentDetails> Departments { get; set; }
+    public Organization(string branchName, string address, string city, string zipcode, string country, List<DepartmentDetails> departments)
+    {
+        BranchName = branchName;
+        Address = address;
+        City = city;
+        ZipCode = zipcode;
+        Country = country;
+        Departments = departments;
+    }
+}
+
+public class DepartmentDetails
+{
+    public string DepartmentName { get; set; }
+    public string Supervisor { get; set; }
+    public List<EmployeeDetails> Employees { get; set; }
+    public DepartmentDetails(string departmentName, string supervisor, List<EmployeeDetails> employees)
+    {
+        DepartmentName = departmentName;
+        Supervisor = supervisor;
+        Employees = employees;
+    }
+}
+
 public class EmployeeDetails
 {
     public string EmployeeName { get; set; }
@@ -824,3 +884,7 @@ public class EmployeeDetails
 }
 {% endhighlight %}
 {% endtabs %}
+
+By executing the above code example, it generates the resultant Word document as follows.
+ 
+![Output Word document of mapping field of ancestor group] (../MailMerge_images/Mail_merge_with_implicit_relation_output.png)
