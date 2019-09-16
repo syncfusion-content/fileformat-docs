@@ -749,13 +749,14 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 {% endtabs %}  
 
-## Excel to PDF conversion with Substitute Font
+## Substitute Font in Excel-to-PDF Conversion
 
-XlsIO allows you to convert a workbook/worksheet with substitute font or font stream.
+By default, XlsIO substitutes unsupported fonts to Microsoft Sans Serif in Excel-to-PDF conversion. However, you may require substituting a different font or the same font for the unsupported font during the conversion. XlsIO supports substituting unsupported or missing fonts from the event `SubstituteFont`. The event has the below arguments:
 
-Sometimes the specified font is not installed in the production environment for that we can use substitute font for that unsupported fonts with the option of AlternateFontName or AlternateFontStream.
+**AlternateFontName** – Substitutes an available font in the machine for the `OriginalFontName`.
+**AlternateFontStream** – Substitutes a font from stream that is added as embedded resource for the `OriginalFontName`.	
 
-The following code illustrates how to substitute font for unsupported fonts.
+The following code illustrates how to perform Excel to PDF conversion by substituting unsupported fonts in the machine.
 
 {% tabs %}
 {% highlight c# %}
@@ -960,17 +961,20 @@ The following code snippet provides supporting methods and for the previous code
 {% highlight c# %}
 private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-    //Sets the alternate font when a specified font is not installed in the production environment.
+    //Substitute a font if the specified font is not installed in the machine.
     if (args.OriginalFontName == "Arial Unicode MS")
         args.AlternateFontName = "Arial";
-    else
-    if (args.OriginalFontName == "Homizio")
+    else if (args.OriginalFontName == "Homizio")
     {
-        Stream fileStream = new FileStream(@"C:\Users\EbenezerJeyapal\Downloads\Font Pack\Font Pack\Homizio.ttf", FileMode.Open);
+        //Substitute by font stream.
+        var assembly = Assembly.GetExecutingAssembly();
+        var resourceName = "ExceltoPDF.Fonts.Homizio.ttf";
+        Stream fileStream = assembly.GetManifestResourceStream(resourceName);
         MemoryStream memoryStream = new MemoryStream();
         fileStream.CopyTo(memoryStream);
         fileStream.Close();
         args.AlternateFontStream = memoryStream;
+
     }
 }
 
@@ -978,15 +982,17 @@ private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 
 {% highlight vb %}
 Private Shared Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
-    'Sets the alternate font when a specified font is not installed in the production environment.
+    'Substitute a font if the specified font is not installed in the machine.
      If (args.OriginalFontName = "Arial Unicode MS") Then
         args.AlternateFontName = "Arial"
      ElseIf (args.OriginalFontName = "Homizio") Then
-        Dim fileStream As Stream = New FileStream("C:\Users\EbenezerJeyapal\Downloads\Font Pack\Font Pack\Homizio.ttf", FileMode.Open)
-        Dim memoryStream As MemoryStream = New MemoryStream
-        fileStream.CopyTo(memoryStream)
-        fileStream.Close
-        args.AlternateFontStream = memoryStream
+	    'Substitute by font stream.
+        var(assembly, Is, Assembly.GetExecutingAssembly)
+        var(resourceName, Is, "ExceltoPDF.Fonts.Homizio.ttf")
+        Stream(fileStream, Is, Assembly.GetManifestResourceStream(resourceName))
+        MemoryStream(memoryStream, Is, New, MemoryStream)
+        FileStream.CopyTo(memoryStream)
+        Dim args.AlternateFontStream As FileStream.Close = memoryStream
      End If   
 End Sub
 {% endhighlight %}
@@ -997,13 +1003,15 @@ End Sub
 #region Excel To PDF
 private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-    //Sets the alternate font when a specified font is not installed in the production environment.
+    //Substitute a font if the specified font is not installed in the machine.
     if (args.OriginalFontName == "Arial Unicode MS")
         args.AlternateFontName = "Arial";
-    else
-    if (args.OriginalFontName == "Homizio")
+    else if (args.OriginalFontName == "Homizio")
     {
-        Stream fileStream = new FileStream(@"C:\Users\EbenezerJeyapal\Downloads\Font Pack\Font Pack\Homizio.ttf", FileMode.Open);
+        //Substitute by font stream.
+        var assembly = Assembly.GetExecutingAssembly();
+        var resourceName = "ExceltoPDF.Fonts.Homizio.ttf";
+        Stream fileStream = assembly.GetManifestResourceStream(resourceName);
         MemoryStream memoryStream = new MemoryStream();
         fileStream.CopyTo(memoryStream);
         fileStream.Close();
@@ -1018,17 +1026,20 @@ private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 
 private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-    //Sets the alternate font when a specified font is not installed in the production environment.
+    //Substitute a font if the specified font is not installed in the machine.
     if (args.OriginalFontName == "Arial Unicode MS")
         args.AlternateFontName = "Arial";
-    else
-    if (args.OriginalFontName == "Homizio")
+    else if (args.OriginalFontName == "Homizio")
     {
-        Stream fileStream = new FileStream(@"C:\Users\EbenezerJeyapal\Downloads\Font Pack\Font Pack\Homizio.ttf", FileMode.Open);
+        //Substitute by font stream.
+        var assembly = Assembly.GetExecutingAssembly();
+        var resourceName = "ExceltoPDF.Fonts.Homizio.ttf";
+        Stream fileStream = assembly.GetManifestResourceStream(resourceName);
         MemoryStream memoryStream = new MemoryStream();
         fileStream.CopyTo(memoryStream);
         fileStream.Close();
         args.AlternateFontStream = memoryStream;
+
     }
 }
 
@@ -1038,13 +1049,13 @@ private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 
 private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
-    //Sets the alternate font when a specified font is not installed in the production environment.
+    //Substitute a font if the specified font is not installed in the machine.
     if (args.OriginalFontName == "Arial Unicode MS")
         args.AlternateFontName = "Arial";
-    else
-    if (args.OriginalFontName == "Homizio")
+    else if (args.OriginalFontName == "Homizio")
     {
-        Stream fileStream = new FileStream(@"C:\Users\EbenezerJeyapal\Downloads\Font Pack\Font Pack\Homizio.ttf", FileMode.Open);
+        //Substitute by font stream.
+		Stream fileStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("ExceltoPDF.Fonts.Homizio.ttf");
         MemoryStream memoryStream = new MemoryStream();
         fileStream.CopyTo(memoryStream);
         fileStream.Close();
@@ -1141,6 +1152,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   converter.Print()
 End Using
 {% endhighlight %}
+
 
 {% highlight UWP %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
