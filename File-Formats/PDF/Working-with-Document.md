@@ -3005,7 +3005,7 @@ else
 {% endhighlight %}
 {% endtabs %}
 
-##Find corrupted PDF document   
+## Find corrupted PDF document   
 
 Syncfusion PDF Library provides support to check whether the existing PDF document is corrupted or not with corruption details. The following code snippet explains how to find the corrupted PDF document.
 
