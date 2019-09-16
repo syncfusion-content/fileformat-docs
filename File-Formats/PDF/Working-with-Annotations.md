@@ -1551,7 +1551,7 @@ freeText.Text = "Free Text";
 
 freeText.Opacity = 0.5f;
 
-PointF[] points = { new PointF(100, 400), new PointF(100, 450) };
+PointF[] points = { new PointF(100, 450), new PointF(100, 200), new PointF(100, 150) };
 
 freeText.CalloutLines = points;
 
@@ -1605,7 +1605,7 @@ freeText.Text = "Free Text"
 
 freeText.Opacity = 0.5F
 
-Dim points As PointF() = {New PointF(100, 400), New PointF(100, 450)}
+Dim points As PointF() =  { new PointF(100, 450), new PointF(100, 200), new PointF(100, 150) }
 
 freeText.CalloutLines = points
 
@@ -1661,7 +1661,7 @@ freeText.Text = "Free Text";
 
 freeText.Opacity = 0.5f;
 
-PointF[] points = { new PointF(100, 400), new PointF(100, 450) };
+PointF[] points = { new PointF(100, 450), new PointF(100, 200), new PointF(100, 150) };
 
 freeText.CalloutLines = points;
 
@@ -1721,7 +1721,7 @@ freeText.Text = "Free Text";
 
 freeText.Opacity = 0.5f;
 
-PointF[] points = { new PointF(100, 400), new PointF(100, 450) };
+PointF[] points = { new PointF(100, 450), new PointF(100, 200), new PointF(100, 150) };
 
 freeText.CalloutLines = points;
 
@@ -1791,7 +1791,7 @@ freeText.Text = "Free Text";
 
 freeText.Opacity = 0.5f;
 
-PointF[] points = { new PointF(100, 400), new PointF(100, 450) };
+PointF[] points = { new PointF(100, 450), new PointF(100, 200), new PointF(100, 150) };
 
 freeText.CalloutLines = points;
 
