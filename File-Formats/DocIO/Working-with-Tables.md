@@ -1443,7 +1443,7 @@ document.Close();
 
 A table style defines a set of table, row, cell and paragraph level formatting that can be applied to a table. `WTableStyle` instance represents table style in a Word document.
 
-N>  Essential DocIO currently provides support for table styles in DOCX and WordML formats alone. DocIO can preserve both built-in and customized table styles on opening DOCX, WordML and saving as DOCX, WordML formats. The visual appearance is also preserved in Word to PDF, Word to Image, and Word to HTML conversions.
+N>  Essential DocIO currently provides support for table styles in DOCX and WordML formats alone. The visual appearance is also preserved in Word to PDF, Word to Image, and Word to HTML conversions.
 
 The following code example illustrates how to apply the built-in table styles to the table.
 
@@ -1557,6 +1557,28 @@ table.ApplyStyleForHeaderRow = true;
 table.ApplyStyleForLastColumn = true;
 //Disables special formatting for last row of the table
 table.ApplyStyleForLastRow = false;
+//Adds a new custom table style
+WTableStyle tableStyle = document.AddTableStyle("CustomStyle") as WTableStyle;
+//Applies formatting for whole table
+tableStyle.TableProperties.RowStripe = 1;
+tableStyle.TableProperties.ColumnStripe = 1;
+tableStyle.TableProperties.Paddings.Top = 0;
+tableStyle.TableProperties.Paddings.Bottom = 0;
+tableStyle.TableProperties.Paddings.Left = 5.4f;
+tableStyle.TableProperties.Paddings.Right = 5.4f;
+//Applies conditional formatting for first row
+ConditionalFormattingStyle firstRowStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
+firstRowStyle.CharacterFormat.Bold = true;
+firstRowStyle.CharacterFormat.TextColor = Color.FromArgb(255, 255, 255, 255);
+firstRowStyle.CellProperties.BackColor = Color.Blue;
+//Applies conditional formatting for first column
+ConditionalFormattingStyle firstColumnStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstColumn);
+firstColumnStyle.CharacterFormat.Bold = true;
+//Applies conditional formatting for odd row
+ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
+oddRowBandingStyle.CellProperties.BackColor = Color.WhiteSmoke;
+//Applies the custom table style to the table
+table.ApplyStyle("CustomStyle");
 //Saves and closes the document instance
 document.Save("TableStyle.docx", FormatType.Docx);
 document.Close();
@@ -1581,6 +1603,27 @@ table.ApplyStyleForHeaderRow = True
 table.ApplyStyleForLastColumn = True
 'Disables special formatting for last row of the table
 table.ApplyStyleForLastRow = False
+Dim tableStyle As WTableStyle = CType(document.AddTableStyle("CustomStyle"), WTableStyle)
+'Applies formatting for whole table
+tableStyle.TableProperties.RowStripe = 1
+tableStyle.TableProperties.ColumnStripe = 1
+tableStyle.TableProperties.Paddings.Top = 0
+tableStyle.TableProperties.Paddings.Bottom = 0
+tableStyle.TableProperties.Paddings.Left = 5.4F
+tableStyle.TableProperties.Paddings.Right = 5.4F
+'Applies conditional formatting for first row
+Dim firstRowStyle As ConditionalFormattingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow)
+firstRowStyle.CharacterFormat.Bold = True
+firstRowStyle.CharacterFormat.TextColor = Color.FromArgb(255, 255, 255, 255)
+firstRowStyle.CellProperties.BackColor = Color.Blue
+'Applies conditional formatting for first column
+Dim firstColumnStyle As ConditionalFormattingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstColumn)
+firstColumnStyle.CharacterFormat.Bold = True
+'Applies conditional formatting for odd row
+Dim oddRowBandingStyle As ConditionalFormattingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding)
+oddRowBandingStyle.CellProperties.BackColor = Color.WhiteSmoke
+'Applies the custom table style to the table
+table.ApplyStyle("CustomStyle")
 'Saves and closes the document instance
 document.Save("TableStyle.docx", FormatType.Docx)
 document.Close()
@@ -1606,12 +1649,35 @@ table.ApplyStyleForHeaderRow = true;
 table.ApplyStyleForLastColumn = true;
 //Disables special formatting for last row of the table
 table.ApplyStyleForLastRow = false;
+//Adds a new custom table style
+WTableStyle tableStyle = document.AddTableStyle("CustomStyle") as WTableStyle;
+//Applies formatting for whole table
+tableStyle.TableProperties.RowStripe = 1;
+tableStyle.TableProperties.ColumnStripe = 1;
+tableStyle.TableProperties.Paddings.Top = 0;
+tableStyle.TableProperties.Paddings.Bottom = 0;
+tableStyle.TableProperties.Paddings.Left = 5.4f;
+tableStyle.TableProperties.Paddings.Right = 5.4f;
+//Applies conditional formatting for first row
+ConditionalFormattingStyle firstRowStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
+firstRowStyle.CharacterFormat.Bold = true;
+firstRowStyle.CharacterFormat.TextColor = Color.FromArgb(255, 255, 255, 255);
+firstRowStyle.CellProperties.BackColor = Color.Blue;
+//Applies conditional formatting for first column
+ConditionalFormattingStyle firstColumnStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstColumn);
+firstColumnStyle.CharacterFormat.Bold = true;
+//Applies conditional formatting for odd row
+ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
+oddRowBandingStyle.CellProperties.BackColor = Color.WhiteSmoke;
+//Applies the custom table style to the table
+table.ApplyStyle("CustomStyle");
 //Saves the Word file to MemoryStream
 MemoryStream stream = new MemoryStream();
 await document.SaveAsync(stream, FormatType.Docx);
 //Saves the stream as Word file in local machine
 Save(stream, "TableStyle.docx");	
 document.Close();
+
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
@@ -1636,6 +1702,28 @@ table.ApplyStyleForHeaderRow = true;
 table.ApplyStyleForLastColumn = true;
 //Disables special formatting for last row of the table
 table.ApplyStyleForLastRow = false;
+//Adds a new custom table style
+WTableStyle tableStyle = document.AddTableStyle("CustomStyle") as WTableStyle;
+//Applies formatting for whole table
+tableStyle.TableProperties.RowStripe = 1;
+tableStyle.TableProperties.ColumnStripe = 1;
+tableStyle.TableProperties.Paddings.Top = 0;
+tableStyle.TableProperties.Paddings.Bottom = 0;
+tableStyle.TableProperties.Paddings.Left = 5.4f;
+tableStyle.TableProperties.Paddings.Right = 5.4f;
+//Applies conditional formatting for first row
+ConditionalFormattingStyle firstRowStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
+firstRowStyle.CharacterFormat.Bold = true;
+firstRowStyle.CharacterFormat.TextColor = Color.FromArgb(255, 255, 255, 255);
+firstRowStyle.CellProperties.BackColor = Color.Blue;
+//Applies conditional formatting for first column
+ConditionalFormattingStyle firstColumnStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstColumn);
+firstColumnStyle.CharacterFormat.Bold = true;
+//Applies conditional formatting for odd row
+ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
+oddRowBandingStyle.CellProperties.BackColor = Color.WhiteSmoke;
+//Applies the custom table style to the table
+table.ApplyStyle("CustomStyle");
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
@@ -1666,12 +1754,35 @@ table.ApplyStyleForHeaderRow = true;
 table.ApplyStyleForLastColumn = true;
 //Disables special formatting for last row of the table
 table.ApplyStyleForLastRow = false;
+//Adds a new custom table style
+WTableStyle tableStyle = document.AddTableStyle("CustomStyle") as WTableStyle;
+//Applies formatting for whole table
+tableStyle.TableProperties.RowStripe = 1;
+tableStyle.TableProperties.ColumnStripe = 1;
+tableStyle.TableProperties.Paddings.Top = 0;
+tableStyle.TableProperties.Paddings.Bottom = 0;
+tableStyle.TableProperties.Paddings.Left = 5.4f;
+tableStyle.TableProperties.Paddings.Right = 5.4f;
+//Applies conditional formatting for first row
+ConditionalFormattingStyle firstRowStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
+firstRowStyle.CharacterFormat.Bold = true;
+firstRowStyle.CharacterFormat.TextColor = Color.FromArgb(255, 255, 255, 255);
+firstRowStyle.CellProperties.BackColor = Color.Blue;
+//Applies conditional formatting for first column
+ConditionalFormattingStyle firstColumnStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstColumn);
+firstColumnStyle.CharacterFormat.Bold = true;
+//Applies conditional formatting for odd row
+ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
+oddRowBandingStyle.CellProperties.BackColor = Color.WhiteSmoke;
+//Applies the custom table style to the table
+table.ApplyStyle("CustomStyle");
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TableStyle.docx", "application/msword", stream);
 document.Close();
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
