@@ -165,7 +165,7 @@ Essential Presentation library provides you the ability to customize the Present
 
 When a font used in a PowerPoint presentation is unavailable in the environment where it is converted to PDF, then the library substitutes the ‘Microsoft Sans Serif’ as a default font for text rendering. This leads to a difference in text layouts of PowerPoint presentation and the converted PDF document.  To avoid this, the Essential Presentation library allows you to set an alternate font for the missing font used in the PowerPoint presentation.
 
-The following code sample demonstrates how to set a substitute font for a missing font while converting a PowerPoint presentation to PDF document.
+The following code sample demonstrates how to set a substitute font for a missing font using alternate font name while converting a PowerPoint presentation to PDF document. The provided alternate font should be installed in the production environment.
 
 {% tabs %}
 {% highlight c# %}
@@ -232,6 +232,396 @@ Else
 args.AlternateFontName = "Times New Roman"
 End If
 End Sub
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PowerPoint presentation as stream
+using (FileStream fileStream = new FileStream("Sample.pptx", FileMode.Create))
+{
+    //Load the PowerPoint presentation from stream
+    using (IPresentation pptxDoc = Presentation.Open(fileStream))
+    {
+        // Initializes the 'SubstituteFont' event to set the replacement font
+        pptxDoc.FontSettings.SubstituteFont += SubstituteFont;
+        //Convert the PowerPoint presentation to PDF file
+        PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
+        //Create new instance of file stream
+        FileStream pdfStream = new FileStream("Output.pdf", FileMode.Create);
+        //Save the generated PDF to file stream
+        pdfDocument.Save(pdfStream);
+        //Reset the position of stream to 0.
+        pdfStream.Position = 0;
+        //Release all resources
+        pdfStream.Dispose();
+        pdfDocument.Close(true);
+    }
+}
+
+/// <summary>
+/// Sets the alternate font when a specified font is unavailable in the production environment
+/// </summary>
+/// <param name="sender">FontSettings type of the Presentation in which the specified font is used but unavailable in production environment. </param>
+/// <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
+private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+    else
+        args.AlternateFontName = "Times New Roman";
+}
+		
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens the PowerPoint presentation
+using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("GettingStarted.Assets.Sample.pptx")))
+{
+    // Initializes the 'SubstituteFont' event to set the replacement font
+    pptxDoc.FontSettings.SubstituteFont += SubstituteFont;
+
+    //Convert PowerPoint presentation to PDF
+    PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
+
+    //Create new instance of  MemoryStream
+    MemoryStream stream = new MemoryStream();
+    
+    //Save the Pdf to memory stream
+    pdfDocument.Save(stream);
+    stream.Position = 0;
+
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+}
+
+/// <summary>
+/// Sets the alternate font when a specified font is unavailable in the production environment
+/// </summary>
+/// <param name="sender">FontSettings type of the Presentation in which the specified font is used but unavailable in production environment. </param>
+/// <param name="args">Retrieves the unavailable font name and receives the substitute font name for conversion. </param>
+private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    if (args.OriginalFontName == "Arial Unicode MS")
+        args.AlternateFontName = "Arial";
+    else
+        args.AlternateFontName = "Times New Roman";
+}
+
+{% endhighlight %}
+{% endtabs %}
+
+The following code sample demonstrates how to set a substitute font for a missing font using alternate font stream while converting a PowerPoint presentation to PDF document. The provided alternate font stream is not mandatory to be installed in the production environment.
+
+{% tabs %}
+{% highlight c# %}
+//Load the PowerPoint presentation and convert to PDF
+using (IPresentation pptxDoc = Presentation.Open("Sample.pptx"))
+{
+	//Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
+	pptxDoc.ChartToImageConverter = new ChartToImageConverter();
+
+	// Initializes the 'SubstituteFont' event to set the replacement font
+	pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+
+	//Convert the PowerPoint presentation to PDF file
+	using (PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc))
+	{
+		//Save the PDF file
+		pdfDoc.Save("Sample.pdf");
+	}
+}
+
+/// <summary>
+/// Sets the alternate font stream when a specified font is unavailable in the production environment
+/// </summary>
+/// <param name="sender">FontSettings type of the Presentation in which the specified font stream is used but unavailable in production environment. </param>
+/// <param name="args">Retrieves the unavailable font name and receives the substitute font stream for conversion. </param>
+private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    if (args.OriginalFontName == "Arial Bold" && args.FontStyle == FontStyle.Bold)
+        args.AlternateFontStream = new FileStream("cambriab.ttf", FileMode.Open);
+    else if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Regular)
+        args.AlternateFontStream = new FileStream("BROADW.TTF", FileMode.Open);
+    else
+        args.AlternateFontStream = new FileStream("COOPBL.TTF", FileMode.Open);
+}
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Load the PowerPoint presentation and convert to PDF
+Dim pptxDoc As IPresentation = Presentation.Open("Sample.pptx")
+'Initialize 'ChartToImageConverter' to convert charts in the slides, and this is optional
+pptxDoc.ChartToImageConverter = New ChartToImageConverter()
+
+'Initializes the 'SubstituteFont' event to set the replacement font
+AddHandler pptxDoc.FontSettings.SubstituteFont, AddressOf SubstituteFont
+'Convert the PowerPoint presentation to PDF file
+Dim pdfDoc As PdfDocument = PresentationToPdfConverter.Convert(pptxDoc)
+'Save the PDF file.
+pdfDoc.Save("Sample.pdf")
+
+'Dispose the PowerPoint presentation instance
+pptxDoc.Dispose()
+
+'Dispose the PDF document instance
+pdfDoc.Dispose()
+
+''' <summary>
+''' Sets the alternate font stream when a specified font is unavailable in the production environment
+''' </summary>
+''' <param name="sender">FontSettings type of the Presentation in which the specified font stream is used but unavailable in production environment.</param>
+''' <param name="args">Retrieves the unavailable font name and receives the substitute font stream for conversion. </param>
+Private Sub SubstituteFont(ByVal sender As Object, ByVal args As SubstituteFontEventArgs)
+' Sets the alternate font when a specified font is not installed in the production environment
+If args.OriginalFontName = "Arial Bold" AndAlso args.FontStyle = FontStyle.Bold Then
+    args.AlternateFontStream = New FileStream("cambriab.ttf", FileMode.Open)
+args.AlternateFontName = "Arial"
+ElseIf args.OriginalFontName = "Arial" AndAlso args.FontStyle = FontStyle.Regular Then
+    args.AlternateFontStream = New FileStream("BROADW.TTF", FileMode.Open)
+Else
+    args.AlternateFontStream = New FileStream("COOPBL.TTF", FileMode.Open)
+End If
+End Sub
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PowerPoint presentation as stream
+using (FileStream fileStream = new FileStream("Sample.pptx", FileMode.Create))
+{
+    //Load the PowerPoint presentation from stream
+    using (IPresentation pptxDoc = Presentation.Open(fileStream))
+    {
+        // Initializes the 'SubstituteFont' event to set the replacement font
+        pptxDoc.FontSettings.SubstituteFont += SubstituteFont;
+        //Convert the PowerPoint presentation to PDF file
+        PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
+        //Create new instance of file stream
+        FileStream pdfStream = new FileStream("Output.pdf", FileMode.Create);
+        //Save the generated PDF to file stream
+        pdfDocument.Save(pdfStream);
+        //Reset the position of stream to 0.
+        pdfStream.Position = 0;
+        //Release all resources
+        pdfStream.Dispose();
+        pdfDocument.Close(true);
+    }
+}
+
+/// <summary>
+/// Sets the alternate font stream when a specified font is unavailable in the production environment
+/// </summary>
+/// <param name="sender">FontSettings type of the Presentation in which the specified font stream is used but unavailable in production environment. </param>
+/// <param name="args">Retrieves the unavailable font name and receives the substitute font stream for conversion. </param>
+private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    if (args.OriginalFontName == "Arial Bold" && args.FontStyle == FontStyle.Bold)
+        args.AlternateFontStream = new FileStream("cambriab.ttf", FileMode.Open);
+    else if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Regular)
+        args.AlternateFontStream = new FileStream("BROADW.TTF", FileMode.Open);
+    else
+        args.AlternateFontStream = new FileStream("COOPBL.TTF", FileMode.Open);
+}
+		
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+//Opens the PowerPoint presentation
+using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("GettingStarted.Assets.Sample.pptx")))
+{
+    // Initializes the 'SubstituteFont' event to set the replacement font
+    pptxDoc.FontSettings.SubstituteFont += SubstituteFont;
+
+    //Convert PowerPoint presentation to PDF
+    PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
+
+    //Create new instance of  MemoryStream
+    MemoryStream stream = new MemoryStream();
+    
+    //Save the Pdf to memory stream
+    pdfDocument.Save(stream);
+    stream.Position = 0;
+
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+}
+
+/// <summary>
+/// Sets the alternate font stream when a specified font is unavailable in the production environment
+/// </summary>
+/// <param name="sender">FontSettings type of the Presentation in which the specified font stream is used but unavailable in production environment. </param>
+/// <param name="args">Retrieves the unavailable font name and receives the substitute font stream for conversion. </param>
+private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+{
+    //"App" is the class of Portable project.
+    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+    if (args.OriginalFontName == "Arial Bold" && args.FontStyle == FontStyle.Bold)
+        args.AlternateFontStream = assembly.GetManifestResourceStream("GettingStarted.Assets.cambriab.ttf");
+    else if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Regular)
+        args.AlternateFontStream = assembly.GetManifestResourceStream("GettingStarted.Assets.BROADW.TTF");
+    else
+        args.AlternateFontStream = assembly.GetManifestResourceStream("GettingStarted.Assets.COOPBL.TTF");
+}
+
+{% endhighlight %}
+{% endtabs %}
+
+## Show Warning for unsupported elements
+
+When an unsupported element is used in PowerPoint presentation, warning will be shown while perform PowerPoint to PDF conversion, then the library will illustrate whether to continue or Skip PowerPoint to PDF conversion.
+
+The following code sample demonstrates whether to continue or skip PowerPoint to PDF conversion, when an unsupported element is used in PowerPoint presentation and warning is thrown while performing conversion.
+
+{% tabs %}
+
+{% highlight ASP.NET Core %}
+
+// Open the file as Stream
+using (FileStream pptStream = new FileStream("Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream.
+    using (IPresentation pptxDoc = Presentation.Open(pptStream))
+    {
+        //Instantiation of PresentationToPdfConverterSettings
+        PresentationToPdfConverterSettings settings = new PresentationToPdfConverterSettings();
+
+        //Gets all the warnings into the collection
+        settings.Warning = new DocumentWarning();
+
+        //Converts the PowerPoint Presentation into PDF document
+        using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, settings))
+        {
+
+            //If the PowerPoint to Pdf conversion has been stopped, IsCanceled value will be True, otherwise false
+            if (!PresentationToPdfConverter.IsCanceled)
+            {
+                //Saves the PDF file
+                using (FileStream outputStream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                {
+                    pdfDocument.Save(outputStream);
+                    outputStream.Position = 0;
+                }
+            }
+            else
+            {
+                Console.WriteLine("PowerPoint to PDF conversion is stopped , please press any key to exit the application");
+                Console.ReadKey();
+            }
+        }
+    }
+}
+
+/// <summary>
+/// DocumentWarning class implements the IWarning interface
+/// </summary>
+/// <seealso cref="IWarning" />
+public class DocumentWarning : IWarning
+{
+    public bool ShowWarnings(List<WarningInfo> warningInfo)
+    {
+        //By default to perform the PowerPoint to PDF conversion by setting the isContinueConversion as true.
+        bool isContinueConversion = true;
+        foreach (WarningInfo warning in warningInfo)
+        {
+            //Since there are warnings in the PowerPoint presentation the value of isContinueConversion will be set as false.
+            isContinueConversion = false;
+            //Description of the Warining
+            Console.WriteLine(warning.Description);
+            if (warning.Description.Contains("Metafile") || warning.Description.Contains("Chart"))
+            {
+                Console.WriteLine("Type [Y] if you want Do you want to continue Presentation to Pdf conversion or Type [N] to cancel the conversion");
+                String confrimation = Console.ReadLine();
+                //Based on warning.WarningType enumeration, you can do your manipulation.
+                //Skips the PowerPoint to Pdf conversion by setting isContinueConversion value as false.
+                //Continue the PowerPoint to PDF conversion by setting the isContinueConversion as true.
+                if (confrimation.ToLower().Equals("y"))
+                    isContinueConversion = true;
+                else
+                    isContinueConversion = false;
+            }
+        }
+        return isContinueConversion;
+    }
+}
+		
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+
+// Open the file as Stream
+using (FileStream pptStream = new FileStream("Template.pptx", FileMode.Open, FileAccess.Read))
+{
+    //Open the existing PowerPoint presentation with loaded stream.
+    using (IPresentation pptxDoc = Presentation.Open(pptStream))
+    {
+        //Instantiation of PresentationToPdfConverterSettings
+        PresentationToPdfConverterSettings settings = new PresentationToPdfConverterSettings();
+
+        //Gets all the warnings into the collection
+        settings.Warning = new DocumentWarning();
+
+        //Converts the PowerPoint Presentation into PDF document
+        using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, settings))
+        {
+
+            //If the PowerPoint to Pdf conversion has been stopped, IsCanceled value will be True and PDF document will not get generated, Otherwise false, then the PDF document will get generated and can be viewed.
+            if (!PresentationToPdfConverter.IsCanceled)
+            {
+                //Saves the PDF file
+                using (FileStream outputStream = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                {
+                    pdfDocument.Save(outputStream);
+                    outputStream.Position = 0;
+					//Save the stream as a file in the device and invoke it for viewing
+					Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", outputStream);
+                }
+            }
+        }
+    }
+}
+
+/// <summary>
+/// DocumentWarning class implements the IWarning interface
+/// </summary>
+/// <seealso cref="IWarning" />
+public class DocumentWarning : IWarning
+{
+    public bool ShowWarnings(List<WarningInfo> warningInfo)
+    {
+        //By default to perform the PowerPoint to PDF conversion by setting the isContinueConversion as true.
+        bool isContinueConversion = true;
+        foreach (WarningInfo warning in warningInfo)
+        {
+            //Since there are warnings in the PowerPoint presentation the value of isContinueConversion will be set as false.
+            isContinueConversion = false;
+			//Based on warning.WarningType enumeration, you can do your manipulation.
+            if (warning.Description.Contains("Metafile") || warning.Description.Contains("Chart"))
+            {
+                //Continue the PowerPoint to PDF conversion by setting the isContinueConversion as true.
+                isContinueConversion = true;
+            }
+			else
+			{
+				//Skips the PowerPoint to Pdf conversion by setting isContinueConversion value as false.
+				isContinueConversion = false;
+			}
+        }
+        return isContinueConversion;
+    }
+}
+
 {% endhighlight %}
 {% endtabs %}
 
