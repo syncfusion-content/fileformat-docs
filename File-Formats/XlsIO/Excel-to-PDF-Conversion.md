@@ -751,7 +751,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Substitute Font in Excel-to-PDF Conversion
 
-By default, XlsIO substitutes unsupported fonts to Arial Unicode MS in Excel-to-PDF conversion. However, you may require substituting a different font or the same font for the unsupported font during the conversion. XlsIO supports substituting unsupported or missing fonts from the event `SubstituteFont`. The event has the below arguments:
+By default, XlsIO substitutes unsupported fonts to Microsoft Sans Serif in Excel-to-PDF conversion. However, you may require substituting a different font or the same font for the unsupported font during the conversion. XlsIO supports substituting unsupported or missing fonts from the event `SubstituteFont`. The event has the below arguments:
 
 **AlternateFontName** – Substitutes an available font in the machine for the `OriginalFontName`.
 **AlternateFontStream** – Substitutes a font from stream that is added as embedded resource for the `OriginalFontName`.	
@@ -1016,7 +1016,6 @@ private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
         fileStream.CopyTo(memoryStream);
         fileStream.Close();
         args.AlternateFontStream = memoryStream;
-
     }
 }
 #endregion
@@ -1056,9 +1055,8 @@ private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
     else if (args.OriginalFontName == "Homizio")
     {
         //Substitute by font stream.
-        var assembly = Assembly.GetExecutingAssembly();
-        var resourceName = "ExceltoPDF.Fonts.Homizio.ttf";
-        Stream fileStream = assembly.GetManifestResourceStream(resourceName);
+        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+		Stream fileStream = assembly.GetManifestResourceStream("ExceltoPDF.Fonts.Homizio.ttf");
         MemoryStream memoryStream = new MemoryStream();
         fileStream.CopyTo(memoryStream);
         fileStream.Close();
@@ -1156,6 +1154,7 @@ Using excelEngine As ExcelEngine = New ExcelEngine()
   converter.Print()
 End Using
 {% endhighlight %}
+
 
 {% highlight UWP %}
 //XlsIO supports Excel To PDF conversion in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms. Refer to the Workbook to PDF section to convert using web service.
