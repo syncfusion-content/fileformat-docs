@@ -1013,7 +1013,7 @@ Now, the Syncfusion PDF library has provided options to encrypt the PDF document
 	
          Encrypts only the file attachments, rest of the document will be left unencrypted.
 
-The default value of EncryptionOptions is EncryptAllContents. You can choose any one of these options using the property “EncryptionOptions” available in the class “PdfSecurity”.
+The default value of EncryptionOptions is EncryptAllContents. You can choose any one of these options using the property “EncryptionOptions” available in the class [PdfSecurity](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity.html).
 
 ### Encrypt all contents
 
@@ -1520,7 +1520,7 @@ You can encrypt only attachments present in the PDF document by using the Encryp
 
 The following code example explains how to create an encrypt only attachment document using the Syncfusion PDF Library. 
 
-N> UserPassword is mandatory for encrypt only attachments and it is only supported in AES algorithms with 128bit, 256bit, and 256bit revision6 key size
+N> [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html) is mandatory for encrypt only attachments and it is only supported in AES algorithms with 128bit, 256bit, and 256bit revision6 key size
 
 
 {% tabs %}
@@ -1839,14 +1839,14 @@ else
 
 ## Opening an encrypt-only-attachment document
 
-The Syncfusion Essential PDF library now provides support for loading the encrypt-only-attachment PDF documents. To access the attachments in the existing PDF document, the UserPassword is mandatory. 
-You can provide the UserPassword in following ways:
+The Syncfusion Essential PDF library now provides support for loading the encrypt-only-attachment PDF documents. To access the attachments in the existing PDF document, the [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html) is mandatory. 
+You can provide the [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html) in following ways:
 
 *	Load the PDF document with password. 
 	
 *	Provide password using the OnPdfPassword Event when accessing the attachments. 
 
-It is possible to access the other content except attachment when loading the document without UserPassword. 
+It is possible to access the other content except attachment when loading the document without [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html). 
 
 The following code example explains how to load an encrypt-only-attachment document with password using Syncfusion PDF Library. 
 
@@ -1857,11 +1857,11 @@ The following code example explains how to load an encrypt-only-attachment docum
 
 //Load the PDF document 
 
-PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf",”password”);
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf","password");
             
 //Accessing the attachments             
 
-foreach (PdfAttachment attachment in document.Attachments)
+foreach(PdfAttachment attachment in document.Attachments)
 {
    FileStream stream = new FileStream(attachment.FileName, FileMode.Create);
 
@@ -1908,11 +1908,11 @@ Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceSt
 
 //Creates an empty PDF loaded document instance 
 
-PdfLoadedDocument document = new PdfLoadedDocument(pdfStream,”password”);                       
+PdfLoadedDocument document = new PdfLoadedDocument(pdfStream, "password");                       
              
 //Accessing the attachments
 
-foreach (PdfAttachment  attachment in document.Attachments)
+foreach(PdfAttachment  attachment in document.Attachments)
 {
    FileStream stream= new FileStream(attachment.FileName, FileMode.Create);
 
@@ -1933,11 +1933,11 @@ document.Close(true);
              
 FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read); 
 
-PdfLoadedDocument document = new PdfLoadedDocument(docStream,”password”);
+PdfLoadedDocument document = new PdfLoadedDocument(docStream,"password");
 
 //Accessing the attachments
          
-foreach (PdfAttachment  attachment in document.Attachments)
+foreach(PdfAttachment  attachment in document.Attachments)
 {
    FileStream  stream = new FileStream(attachment.FileName, FileMode.Create);
 
@@ -1960,11 +1960,11 @@ Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream(
 
 //Creates an empty PDF loaded document instance 
 
-PdfLoadedDocument document = new PdfLoadedDocument(docStream,”password”);                 
+PdfLoadedDocument document = new PdfLoadedDocument(docStream,"password");                 
 
 //Accessing the attachments
 
-foreach (PdfAttachment  attachment in document.Attachments)
+foreach(PdfAttachment  attachment in document.Attachments)
 {
    FileStream  stream= new FileStream(attachment.FileName, FileMode.Create);
 
@@ -1997,7 +1997,7 @@ document.OnPdfPassword += LDoc_OnPdfPassword;
 
 //Accessing the attachments
 
-foreach (PdfAttachment attachment in document.Attachments)
+foreach(PdfAttachment attachment in document.Attachments)
 {
    FileStream stream= new FileStream(attachment.FileName, FileMode.Create);
 
@@ -2071,7 +2071,7 @@ document.OnPdfPassword += LDoc_OnPdfPassword;
 
 //Accessing the attachments
 
-foreach (PdfAttachment  attachment in document.Attachments)
+foreach(PdfAttachment  attachment in document.Attachments)
 {
    FileStream  stream = new FileStream(attachment.FileName, FileMode.Create);
 
@@ -2104,7 +2104,7 @@ PdfLoadedDocument document = new PdfLoadedDocument(docStream);
 document.OnPdfPassword += LDoc_OnPdfPassword;
 
 //Accessing the attachments
-foreach (PdfAttachment  attachment in document.Attachments)
+foreach(PdfAttachment  attachment in document.Attachments)
 {
    FileStream  stream= new FileStream(attachment.FileName, FileMode.Create);
 
@@ -2139,7 +2139,7 @@ document.OnPdfPassword += LDoc_OnPdfPassword;
 
 // Accessing the attachments
 
-foreach (PdfAttachment  attachment in document.Attachments)
+foreach(PdfAttachment  attachment in document.Attachments)
 {
    FileStream  stream= new FileStream(attachment.FileName, FileMode.Create);
 
@@ -2166,6 +2166,8 @@ private static void LDoc_OnPdfPassword(object sender, OnPdfPasswordEventArgs arg
 ## Protect attachments in existing PDF document
 
 The Syncfusion PDF Library supports also encrypting only the attachment files in an existing PDF document using the EncryptOnlyAttachments encryption option. Refer to the following code snippet.
+
+N> [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html) is mandatory for this encryption option.
 
 {% tabs %}
 
