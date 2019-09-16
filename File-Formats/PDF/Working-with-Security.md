@@ -1851,11 +1851,11 @@ PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf",”password”);
 
 foreach (PdfAttachment attachment in document.Attachments)
 {
-    FileStream stream = new FileStream(attachment.FileName, FileMode.Create);
+   FileStream stream = new FileStream(attachment.FileName, FileMode.Create);
 
-    stream.Write(attachment.Data, 0, attachment.Data.Length);
+   stream.Write(attachment.Data, 0, attachment.Data.Length);
 
-    stream.Dispose();
+   stream.Dispose();
 }         
 
 //Close the document 
@@ -1874,11 +1874,11 @@ Dim document As PdfLoadedDocument = New PdfLoadedDocument("Output.pdf", "passwor
 
 For Each attachment As PdfAttachment In document.Attachments
 
-    Dim stream = New FileStream(attachment.FileName, FileMode.Create)
+   Dim stream = New FileStream(attachment.FileName, FileMode.Create)
+  
+   stream.Write(attachment.Data, 0, attachment.Data.Length)
 
-    stream.Write(attachment.Data, 0, attachment.Data.Length)
-
-    stream.Dispose
+   stream.Dispose
 
 Next
 
@@ -1987,11 +1987,11 @@ document.OnPdfPassword += LDoc_OnPdfPassword;
 
 foreach (PdfAttachment attachment in document.Attachments)
 {
-    FileStream stream= new FileStream(attachment.FileName, FileMode.Create);
+   FileStream stream= new FileStream(attachment.FileName, FileMode.Create);
 
-    stream.Write(attachment.Data, 0, attachment.Data.Length);
+   stream.Write(attachment.Data, 0, attachment.Data.Length);
 
-    stream.Dispose();
+   stream.Dispose();
 }                      
 
 //Close the document 
@@ -2061,11 +2061,11 @@ document.OnPdfPassword += LDoc_OnPdfPassword;
 
 foreach (PdfAttachment  attachment in document.Attachments)
 {
-    FileStream  stream = new FileStream(attachment.FileName, FileMode.Create);
+   FileStream  stream = new FileStream(attachment.FileName, FileMode.Create);
 
-    stream.Write(attachment.Data, 0, attachment.Data.Length);
+   stream.Write(attachment.Data, 0, attachment.Data.Length);
 
-    stream.Dispose();
+   stream.Dispose();
 }                      
 
 //Close the document 
@@ -2094,12 +2094,11 @@ document.OnPdfPassword += LDoc_OnPdfPassword;
 //Accessing the attachments
 foreach (PdfAttachment  attachment in document.Attachments)
 {
+   FileStream  stream= new FileStream(attachment.FileName, FileMode.Create);
 
-     FileStream  stream= new FileStream(attachment.FileName, FileMode.Create);
+   stream.Write(attachment.Data, 0, attachment.Data.Length);
 
-     stream.Write(attachment.Data, 0, attachment.Data.Length);
-
-     stream.Dispose();
+   stream.Dispose();
 }                      
 
 //Close the document 
@@ -2130,12 +2129,11 @@ document.OnPdfPassword += LDoc_OnPdfPassword;
 
 foreach (PdfAttachment  attachment in document.Attachments)
 {
+   FileStream  stream= new FileStream(attachment.FileName, FileMode.Create);
 
-    FileStream  stream= new FileStream(attachment.FileName, FileMode.Create);
+   stream.Write(attachment.Data, 0, attachment.Data.Length);
 
-    stream.Write(attachment.Data, 0, attachment.Data.Length);
-
-    stream.Dispose();
+   stream.Dispose();
 }                      
 
 //Close the document
