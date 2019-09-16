@@ -1133,15 +1133,106 @@ wordDocument.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports Word to PDF Image in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
+              FormatType.Docx))
+{
+    //Creates an instance of DocIORenderer - responsible for Word to PDF conversion
+    DocIORenderer render = new DocIORenderer();
+    //Sets true to optimize the memory usage for identical images
+    render.Settings.OptimizeIdenticalImages = true;
+    //Converts Word document into PDF document
+    PdfDocument pdfDocument = render.ConvertToPDF(document);
+    //Save the document into stream.
+    MemoryStream stream = new MemoryStream();
+    pdfDocument.Save(stream);
+    //Save the stream as PDF document file in local machine. Refer to PDF/UWP section for respected code samples.
+    Save(stream, "WordToPDF.pdf");
+    //Closes the Word and PDF document
+    document.Close();
+    pdfDocument.Close();
+}
+
+//Saves the PDF document
+async void Save(MemoryStream streams, string filename)
+{
+    streams.Position = 0;
+    StorageFile stFile;
+    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+    {
+        FileSavePicker savePicker = new FileSavePicker();
+        savePicker.DefaultFileExtension = ".pdf";
+        savePicker.SuggestedFileName = filename;
+        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".pdf" });
+        stFile = await savePicker.PickSaveFileAsync();
+    }
+    else
+    {
+        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+    }
+    if (stFile != null)
+    {
+        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
+        {
+            //Write compressed data from memory to file
+            using (Stream outstream = zipStream.AsStreamForWrite())
+            {
+                byte[] buffer = streams.ToArray();
+                outstream.Write(buffer, 0, buffer.Length);
+                outstream.Flush();
+            }
+        }
+    }
+    //Launch the saved Word file
+    await Windows.System.Launcher.LaunchFileAsync(stFile);
+}
 {% endhighlight %}
 
-{% highlight ASP.NET CORE %}
-//DocIO supports Word to PDF Image in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
+{% highlight ASP.NET Core %}
+//Open the file as Stream
+FileStream docStream = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read);
+//Loads file stream into Word document
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+//Instantiation of DocIORenderer for Word to PDF conversion
+DocIORenderer render = new DocIORenderer();
+//Sets true to optimize the memory usage for identical images
+render.Settings.OptimizeIdenticalImages = true;
+//Converts Word document into PDF document
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+//Releases all resources used by the Word document and DocIO Renderer objects
+render.Dispose();
+wordDocument.Dispose();
+//Saves the PDF file
+MemoryStream outputStream = new MemoryStream();
+pdfDocument.Save(outputStream);
+//Closes the instance of PDF document object
+pdfDocument.Close();
 {% endhighlight %}
 
-{% highlight XAMARIN %}
-//DocIO supports Word to PDF Image in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone
+{% highlight Xamarin %}
+//Load the Word document as stream
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.docx");
+//Loads the stream into Word Document.
+WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic);
+//Instantiation of DocIORenderer for Word to PDF conversion
+DocIORenderer render = new DocIORenderer();
+//Sets true to optimize the memory usage for identical images
+render.Settings.OptimizeIdenticalImages = true;
+//Converts Word document into PDF document
+PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+//Releases all resources used by the Word document and DocIO Renderer objects
+render.Dispose();
+docStream.Dispose();
+wordDocument.Dispose();
+//Saves the PDF file
+MemoryStream outputStream = new MemoryStream();
+pdfDocument.Save(outputStream);
+//Closes the instance of PDF document object
+pdfDocument.Close();
+outputStream.Dispose();
 {% endhighlight %}
 {% endtabs %}
 
@@ -1893,6 +1984,62 @@ MemoryStream outputStream = new MemoryStream();
 pdfDocument.Save(outputStream);
 //Closes the instance of PDF document object
 pdfDocument.Close();
+{% endhighlight %}
+
+{% endtabs %}
+
+### Preserve Ole Equation as bitmap image
+
+This setting allows you to preserve Ole Equation as bitmap image in the converted PDF document.
+
+The following code sample shows how to preserve Ole Equation as bitmap image in the converted PDF document.
+
+{% tabs %}  
+
+{% highlight c# %}
+//Loads an existing Word document
+WordDocument wordDocument = new WordDocument(@"Template.docx", FormatType.Docx);     
+//Creates an instance of the DocToPDFConverter - responsible for Word to PDF conversion
+DocToPDFConverter converter = new DocToPDFConverter();
+//Sets a value indicating whether to preserve the Ole Equation as bitmap image while converting a Word document to PDF
+converter.Settings.PreserveOleEquationAsBitmap = true;
+//Converts Word document into PDF document
+PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+//Saves the PDF file to file system
+pdfDocument.Save("WordtoPDF.pdf");
+//Closes the instance of document objects
+pdfDocument.Close(true);
+wordDocument.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Loads an existing Word document
+Dim wordDocument As New WordDocument("Template.docx", FormatType.Docx)
+'Initializes the ChartToImageConverter for converting charts during Word to pdf conversion
+wordDocument.ChartToImageConverter = New ChartToImageConverter()
+'Creates an instance of the DocToPDFConverter
+Dim converter As New DocToPDFConverter()
+'Sets a value indicating whether to preserve the Ole Equation as bitmap image while converting a Word document to PDF
+converter.Settings.PreserveOleEquationAsBitmap = true
+'Converts Word document into PDF document
+Dim pdfDocument As PdfDocument = converter.ConvertToPDF(wordDocument)
+'Saves the PDF file 
+pdfDocument.Save("WordtoPDF.pdf")
+'Closes the instance of document objects
+pdfDocument.Close(True)
+wordDocument.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//DocIO supports to preserve the Ole Equation as bitmap image in the converted PDF document in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//DocIO supports to preserve the Ole Equation as bitmap image in the converted PDF document in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//DocIO supports to preserve the Ole Equation as bitmap image in the converted PDF document in Windows forms, WPF, ASP.NET and ASP.NET MVC platform alone.
 {% endhighlight %}
 
 {% endtabs %}
