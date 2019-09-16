@@ -253,7 +253,7 @@ return File(stream, "application/msword", "Sample.docx");
 
 {% endtabs %}
 
-The following code example shows GetCustomers and GetOrders methods which are used to get data for mail merge
+The following code example shows GetCustomers and GetOrders methods which are used to get data for mail merge.
 
 {% tabs %}  
 
@@ -266,7 +266,6 @@ private List<ExpandoObject> GetCustomers()
 	customers.Add(GetDynamicCustomer(110,"David","Syncfusion"));
 	return customers;
 }
-
 private List<ExpandoObject> GetOrders()
 {
 	List<ExpandoObject> orders = new List<ExpandoObject>();
@@ -285,7 +284,6 @@ Private Function GetCustomers() As List(Of ExpandoObject)
 	customers.Add(GetDynamicCustomer(110, "David", "Syncfusion"))
 	Return customers
 End Function
-
 Private Function GetOrders() As List(Of ExpandoObject)
 	Dim orders As New List(Of ExpandoObject)()
 	orders.Add(GetDynamicOrder(1001, "MSWord", 100))
@@ -305,7 +303,6 @@ private List<ExpandoObject> GetCustomers()
 	customers.Add(GetDynamicCustomer(110,"David","Syncfusion"));
 	return customers;
 }
-
 private List<ExpandoObject> GetOrders()
 {
 	List<ExpandoObject> orders = new List<ExpandoObject>();
@@ -326,7 +323,6 @@ private List<ExpandoObject> GetCustomers()
 	customers.Add(GetDynamicCustomer(110,"David","Syncfusion"));
 	return customers;
 }
-
 private List<ExpandoObject> GetOrders()
 {
 	List<ExpandoObject> orders = new List<ExpandoObject>();
@@ -366,7 +362,7 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 	return dynamicOrder;
 }
 {% endhighlight %}
- 
+
 {% highlight VB.NET %}
 Private Function GetDynamicCustomer(customerID As Integer, customerName As String, companyName As String) As Object
 	Dim dynamicCustomer As Object = New ExpandoObject()
@@ -383,7 +379,7 @@ Private Function GetDynamicOrder(orderID As Integer, orderName As String, custom
 	Return dynamicOrder
 End Function
 {% endhighlight %}
- 
+
 {% highlight UWP %}
 private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
 {
@@ -402,7 +398,7 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 	return dynamicOrder;
 }
 {% endhighlight %}
- 
+
 {% highlight ASP.NET CORE %}
 private dynamic GetDynamicCustomer(int customerID,string customerName, string companyName)
 {
@@ -421,14 +417,14 @@ private dynamic GetDynamicOrder(int orderID, string orderName, int customerID)
 	return dynamicOrder;
 }
 {% endhighlight %}
- 
+
 {% highlight XAMARIN %}
 //Creating dynamic objects using dynamic keyword is not supported in Xamarin.iOS.
 //You can use IDictionary<string, object> collection to generate dynamic objects.
 {% endhighlight %}
 {% endtabs %}
 
-## Nested Mail merge with implicit relational data
+## Mail merge with implicit relational data
 
 You can perform **nested Mail merge with implicit relational data** objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method.
 
@@ -701,7 +697,7 @@ public class EmployeeDetails
     }
 }
 {% endhighlight %}
- 
+
 {% highlight VB.NET %}
 Public Class Organization
     Public Property BranchName() As String
@@ -742,7 +738,7 @@ Public Class EmployeeDetails
     End Sub
 End Class
 {% endhighlight %}
- 
+
 {% highlight UWP %}
 public class Organization
 {
@@ -789,7 +785,7 @@ public class EmployeeDetails
     }
 }
 {% endhighlight %}
- 
+
 {% highlight ASP.NET CORE %}
 public class Organization
 {
@@ -836,7 +832,7 @@ public class EmployeeDetails
     }
 }
 {% endhighlight %}
- 
+
 {% highlight XAMARIN %}
 public class Organization
 {

@@ -173,7 +173,7 @@ string[] fieldNames = document.MailMerge.GetMergeFieldNames();
 
 {% endtabs %}  
  
-The following code example shows how to retrieve the merge field group names in the Word document
+The following code example shows how to retrieve the merge field group names in the Word document.
 
 {% tabs %}  
 
@@ -204,7 +204,7 @@ string[] groupNames = document.MailMerge.GetMergeGroupNames();
 
 {% endtabs %}  
 
-The following code example shows how to retrieve the merge field names for a specific group in the Word document
+The following code example shows how to retrieve the merge field names for a specific group in the Word document.
 
 {% tabs %}  
 
@@ -248,8 +248,8 @@ The following code example shows how to remove the empty paragraphs during Mail 
 WordDocument document = new WordDocument("Template.docx");
 //Removes paragraph that contains only empty fields 
 document.MailMerge.RemoveEmptyParagraphs = true;
-string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
-string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
+string[] fieldNames = new string[] { "EmployeeName", "EmployeeId", "City" };
+string[] fieldValues = new string[] { "John", "101", "London" };
 //Performs the mail merge
 document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves and closes the Word document instance
@@ -262,8 +262,8 @@ document.Close();
 Dim document As New WordDocument("Template.docx")
 'Removes paragraph that contains only empty fields 
 document.MailMerge.RemoveEmptyParagraphs = True
-Dim fieldNames As String() = New String() {"EmployeeId", "Phone", "City"}
-Dim fieldValues As String() = New String() {"1001", "+91-9999999999", "London"}
+Dim fieldNames As String() = New String() {"EmployeeName", "EmployeeId", "City"}
+Dim fieldValues As String() = New String() {"John", "101", "London"}
 'Performs the mail merge
 document.MailMerge.Execute(fieldNames, fieldValues)
 'Saves and closes the Word document instance
@@ -278,8 +278,8 @@ WordDocument document = new WordDocument();
 document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
 //Removes paragraph that contains only empty fields 
 document.MailMerge.RemoveEmptyParagraphs = true;
-string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
-string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
+string[] fieldNames = new string[] { "EmployeeName", "EmployeeId", "City" };
+string[] fieldValues = new string[] { "John", "101", "London" };
 //Performs the mail merge
 document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word file to MemoryStream
@@ -300,8 +300,8 @@ FileStream fileStreamPath = new FileStream("Template.docx", FileMode.Open, FileA
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Removes paragraph that contains only empty fields
 document.MailMerge.RemoveEmptyParagraphs = true;
-string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
-string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
+string[] fieldNames = new string[] { "EmployeeName", "EmployeeId", "City" };
+string[] fieldValues = new string[] { "John", "101", "London" };
 //Performs the mail merge
 document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word document to MemoryStream
@@ -320,8 +320,8 @@ Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
 //Removes paragraph that contains only empty fields 
 document.MailMerge.RemoveEmptyParagraphs = true;
-string[] fieldNames = new string[] { "EmployeeId", "Phone", "City" };
-string[] fieldValues = new string[] { "1001", "+91-9999999999", "London" };
+string[] fieldNames = new string[] { "EmployeeName", "EmployeeId", "City" };
+string[] fieldValues = new string[] { "John", "101", "London" };
 //Performs the mail merge
 document.MailMerge.Execute(fieldNames, fieldValues);
 //Saves the Word file to MemoryStream
@@ -568,7 +568,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}
 
-The following code example provides supporting methods
+The following code example shows GetEmployees method which is used to get data for mail merge.
 
 {% tabs %}  
 
@@ -1191,7 +1191,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 {% endhighlight %}
 {% endtabs %}
 
-The following code example provides supporting class
+The following code example shows Employee class.
 
 {% tabs %}  
 {% highlight C# %}
@@ -1211,7 +1211,7 @@ public class Employee
 	}
 }
 {% endhighlight %}
- 
+
 {% highlight VB.NET %}
 Public Class Employee
     Public Property EmployeeID() As String
@@ -1252,7 +1252,7 @@ Public Class Employee
 	End Sub
 End Class
 {% endhighlight %}
- 
+
 {% highlight UWP %}
 public class Employee
 {
@@ -1270,7 +1270,7 @@ public class Employee
 	}
 }
 {% endhighlight %}
- 
+
 {% highlight ASP.NET CORE %}
 public class Employee
 {
@@ -1288,7 +1288,7 @@ public class Employee
 	}
 }
 {% endhighlight %}
- 
+
 {% highlight XAMARIN %}
 public class Employee
 {
@@ -1379,7 +1379,7 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
+//ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -1571,7 +1571,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "applica
 
 {% endtabs %}
 
-The following code example provides supporting methods.
+The following code example shows how to skip merging particular image during mail merge process using MergeImageFieldEventHandler.
 
 {% tabs %}  
 
