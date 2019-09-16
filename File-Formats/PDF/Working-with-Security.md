@@ -996,16 +996,21 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
 ## Encryption Options
 
 The Syncfusion PDF Library provides customization support for PDF document encryption. The following encryption options are available:
+
 *   Encrypt all contents 
+  
          All contents of the document will be encrypted.
 
 *	Encrypt all contents except Metadata  
+	
          All contents of the document will be encrypted except metadata.
 
 *	Encrypt only attachments
+	
          Encrypts only the file attachments, rest of the document will be left unencrypted.
 
 You can specify the encryption options using the EncryptionOptions property available in the PdfSecurity instance. The default value of EncryptionOptions is EncryptAllContents.
