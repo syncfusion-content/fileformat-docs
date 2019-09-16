@@ -999,7 +999,7 @@ else
 
 ## Encryption Options
 
-The Syncfusion PDF Library provides customization support for PDF document encryption. The following encryption options are available:
+Now, the Syncfusion PDF library has provided options to encrypt the PDF document as follows: 
 
 *   Encrypt all contents 
   
@@ -1013,9 +1013,9 @@ The Syncfusion PDF Library provides customization support for PDF document encry
 	
          Encrypts only the file attachments, rest of the document will be left unencrypted.
 
-You can specify the encryption options using the EncryptionOptions property available in the PdfSecurity instance. The default value of EncryptionOptions is EncryptAllContents.
+The default value of EncryptionOptions is EncryptAllContents. You can choose any one of these options using the property “EncryptionOptions” available in the class “PdfSecurity”.
 
-## Encrypt all contents
+### Encrypt all contents
 
 You can encrypt all the PDF content by using the EncryptAllContents option available in the EncryptionOptions. The following code snippet explains how to encrypt all contents of the PDF document.
 
@@ -1262,9 +1262,13 @@ else
 
 {% endtabs %}
 
-## Encrypt all contents except metadata
+### Encrypt all contents except metadata
 
-You can encrypt all the PDF content except metadata by using the EncryptAllContentsExceptMetadata option available in the EncryptionOptions. The following code snippet explains how to encrypt all contents except metadata of the PDF document.
+The Syncfusion Essential PDF library now supports encrypting the PDF document except the document information (metadata) by using the EncryptAllContentsExceptMetadata option. The document information will not be encrypted when using this EncryptionOption.
+
+The following code snippet explains how to encrypt all contents except metadata of the PDF document.
+
+N> Encrypt all contents except metadata  is only supported in AES algorithms with 128bit, 256bit, and 256bit revision6 key size
 
 {% tabs %}
 
@@ -1509,11 +1513,15 @@ else
 
 {% endtabs %}
 
-N> Encrypt all contents except metadata option is not supported in RC4 algorithm and Key40. It is only supported in AES algorithm with128bit or 256bit or 256bit revision6 key size.
 
-## Encrypt only attachments
+### Encrypt only attachments
 
-You can encrypt only attachments present in the PDF document by using the EncryptOnlyAttachments option available in the EncryptionOptions. The following code snippet explains how to encrypt only attachments in the PDF document.
+You can encrypt only attachments present in the PDF document by using the EncryptOnlyAttachments option available in the EncryptionOptions.
+
+The following code example explains how to create an encrypt only attachment document using the Syncfusion PDF Library. 
+
+N> UserPassword is mandatory for encrypt only attachments and it is only supported in AES algorithms with 128bit, 256bit, and 256bit revision6 key size
+
 
 {% tabs %}
 
@@ -1828,16 +1836,20 @@ else
 
 {% endtabs %}
 
-N> 1. You must use only user password in Encrypt only attachments.
-N> 2. Encrypt only attachment option is not supported in RC4 algorithm and  Key40. It is only supported in AES algorithm with128bit or 256bit or 256bit revision6 key size.
 
 ## Opening an encrypt-only-attachment document
 
-Security provides option to get the user password in two ways for opening encrypt-only-attachment document. Get the password while loading the document and using event when accessing the attachments.    
+The Syncfusion Essential PDF library now provides support for loading the encrypt-only-attachment PDF documents. To access the attachments in the existing PDF document, the UserPassword is mandatory. 
+You can provide the UserPassword in following ways:
 
-You can edit or add content in encrypt-only-attachment document without using password. If you access the attachments in the document, the password is must.       
+*	Load the PDF document with password. 
+	
+*	Provide password using the OnPdfPassword Event when accessing the attachments. 
 
-The following code snippet explains get the user password while loading document.
+It is possible to access the other content except attachment when loading the document without UserPassword. 
+
+The following code example explains how to load an encrypt-only-attachment document with password using Syncfusion PDF Library. 
+
 
 {% tabs %}
 
@@ -1969,9 +1981,9 @@ document.Close(true);
 
 {% endtabs %}
 
-## Get user password using event when accessing the attachment
+## Set user password using event when accessing the attachment
 
-Security provides support to get the user password using event when accessing the attachments in the loaded document. Refer to the following code snippet.
+The following code example illustrates how to provide the password when accessing attachments from encrypt-only-attachment document using the OnPdfPassword event.
 
 {% tabs %}
 
@@ -2153,7 +2165,7 @@ private static void LDoc_OnPdfPassword(object sender, OnPdfPasswordEventArgs arg
 
 ## Protect attachments in existing PDF document
 
-The Syncfusion PDF Library supports also encrypting only the attachment files in an existing PDF document. Refer to the following code snippet
+The Syncfusion PDF Library supports also encrypting only the attachment files in an existing PDF document using the EncryptOnlyAttachments encryption option. Refer to the following code snippet.
 
 {% tabs %}
 
