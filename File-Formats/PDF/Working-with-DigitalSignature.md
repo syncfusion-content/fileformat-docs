@@ -3082,11 +3082,11 @@ else
 
 ## Adding a digital signature with customization
 
-PdfSignatureSettings allows you to add customized digital signatures to the PDF document.
+The PdfSignatureSettings allows you to add customized digital signatures to the PDF document.
 
 ### Adding a digital signature with CAdES format
 
-Essential PDF supports users to set cryptographic standard for digital signatures. The PdfSignatureSettings instance allows you to customize the cryptographic standard when adding a digital signature to the PDF document.
+As per the PDF specification 2.0, now Syncfusion PDF library supports digital signature based on CAdES (CMS Advanced Electronics Signature). The CAdES based digital signature can remain valid for long periods, even if underlying cryptographic algorithms are broken. Using the API “CryptographicStandard”, you can change the standard between CMS (Cryptographic Message Syntax) and CAdES.
 
 The following code example explains how to add a digital signature with cryptographic standard (CAdES) to the PDF document.
 
@@ -3160,7 +3160,7 @@ Dim page As PdfPageBase = document.Pages.Add()
 
 Dim graphics As PdfGraphics = page.Graphics
 
-'Creates a certificate instance from PFX file with private key.
+'Creates a certificate instance from PFX file with private key
 
 Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
 
@@ -3429,7 +3429,15 @@ else
 
 ### Customize digestion algorithm
 
-Essential PDF supports users to set digest algorithm for digital signatures. The DigestAlgorithm allows you to customize digest algorithm when adding a digital signature to the PDF document.
+In addition, you can now set the different message digest algorithm to sign PDF document using the “DigestAlgorithm” enum available in the class “PdfSignatureSettings”. 
+
+The following message digest algorithms are now supported:
+
+* SHA1
+* SHA256
+* SHA384
+* SHA512
+* RIPEMD160
 
 The following code example explains how to add a digital signature with various digest algorithms to the PDF document.
 
@@ -3771,7 +3779,17 @@ else
 
 ## Digital signature validation
 
-Essential PDF allows you to validate the digitally signed PDF document signatures.
+Added a support to validate the digital signatures in an existing PDF document. Digital signature validation covers the following steps to ensure validity of the signatures:
+
+* Validate the document modification.
+* Validate the certificate chain.
+* Ensure the signature with timestamp time.
+* Check the revocation status of the certificate with OCSP and CRL.
+* Ensure the multiple digital signatures.
+
+You can use the “ValidateSignature” method available in the “PdfLoadedSignatureField" class to validate the digital signature. 
+
+You can get the overall status from the “IsSignatureValid” property available in the “PdfSignatureValidationResult” class.
 
 The following code example explains how to validate digitally signed PDF document signature.
 
@@ -4096,7 +4114,7 @@ PdfLoadedSignatureField signatureField = loadedDocument.Form.Fields[0] as PdfLoa
 
 X509CertificateCollection collection = new X509CertificateCollection();
 
-//Creates a certificate instance from PFX file with private key.
+//Creates a certificate instance from PFX file with private key
 
 Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
 

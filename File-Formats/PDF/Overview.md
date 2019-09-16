@@ -29,4 +29,5 @@ The following list shows the key features available in the Essential PDF.
 * Support to create [accessible PDF or tagged PDF (PDF/UA)](https://help.syncfusion.com/file-formats/pdf/working-with-tagged-pdf) with section 508 compliant. 
 * Support to [redact text and images](https://help.syncfusion.com/file-formats/pdf/working-with-redaction) in the PDF files.  
 * Support to [digitally sign PDF](https://help.syncfusion.com/file-formats/pdf/working-with-digitalsignature). 
+* Support to [validate digitally signed PDF signature](https://help.syncfusion.com/file-formats/pdf/working-with-digitalsignature). 
 * Support for .NET Standard 1.2 onwards. 
