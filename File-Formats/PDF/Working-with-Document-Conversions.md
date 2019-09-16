@@ -1763,8 +1763,45 @@ Save(memoryStream, "Sample.pdf");
 {% highlight ASP.NET Core %}
 
 
-//Essential PDF supports converting XPS document to PDF only in Windows Forms, WPF, ASP.NET, ASP.NET MVC and UWP platforms.
+//Initialize XPS to PDF converter.
 
+XPSToPdfConverter converter = new XPSToPdfConverter();
+
+//Open the XPS file as stream.
+
+FileStream fileStream = new FileStream(“Input.xps", FileMode.Open, FileAccess.ReadWrite);
+
+//Convert the XPS to PDF
+
+PdfDocument document = converter.Convert(fileStream);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream(); 
+
+//Save the document into stream.
+
+document.Save(stream); 
+
+//If the position is not set to '0' then the PDF will be empty.
+
+stream.Position = 0;
+
+//Close the documents.
+
+document.Close(true); 
+
+//Defining the ContentType for pdf file.
+
+string contentType = "application/pdf";
+
+//Define the file name. 
+
+string fileName = "Output.pdf"; 
+
+//Creates a FileContentResult object by using the file contents, content type, and file name. 
+
+return File(stream, contentType, fileName);
 
 
 {% endhighlight %}
@@ -1779,6 +1816,8 @@ Save(memoryStream, "Sample.pdf");
 {% endhighlight %}
 
 {% endtabs %}
+
+N> Essential PDF supports converting XPS to PDF with [Syncfusion.XpsToPdfConverter.Net.Core](https://www.nuget.org/packages/Syncfusion.XpsToPdfConverter.Net.Core) package reference in .NET Core application.
 
 ### Supported Elements
 

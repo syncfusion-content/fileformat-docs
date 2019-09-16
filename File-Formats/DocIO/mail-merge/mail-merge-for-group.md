@@ -8,17 +8,18 @@ documentation: UG
 
 # Mail merge for a group
 
-You can perform Mail merge and append multiple records from data source within a specified region to a template document. The region between start and end groups merge fields. It gets repeated for every record from the data source. The region where the Mail merge operations are to be performed must be marked by two MergeFields with the following names.
+You can perform Mail merge and append multiple records from data source within a specified region to a template document. The region between start and end groups merge fields. It gets repeated for every record from the data source.
+
+## Create template for group mail merge
+
+The region where the Mail merge operations are to be performed must be marked by two merge fields with the following names.
 
   * «TableStart:TableName» and «BeginGroup:GroupName» - For the entry point of the region.
+  
   * «TableEnd:TableName» and «EndGroup:GroupName» - For the end point of the region.
   
-  1.TableStart and TableEnd region is preferred for performing Mail merge inside the table cell.
-  
-  2.BeginGroup and EndGroup region is preferred for performing Mail merge inside the document body contents.
-
-
-## How to create template for group mail merge
+  1.*TableStart* and *TableEnd* region is preferred for performing Mail merge inside the table cell.  
+  2.*BeginGroup* and *EndGroup* region is preferred for performing Mail merge inside the document body contents.
   
 For example, consider that you have a template document as shown.
 
@@ -26,9 +27,11 @@ For example, consider that you have a template document as shown.
 
 In this template, Employees is the group name and the same name should be used while performing Mail merge through code. There are two special merge fields “TableStart:Employees” and “TableEnd:Employees” to denote the start and end of the Mail merge group.
 
-## How to execute group mail merge
+## Execute group mail merge
 
-The `MailMerge` class provides various overloads for `ExecuteGroup` method to perform Mail merge within a group from various data sources. The following code example shows how to perform Mail merge in the specific region with data source retrieved from SQL connection.
+The `MailMerge` class provides various overloads for `ExecuteGroup` method to perform Mail merge within a group from various data sources. 
+
+The following code example shows how to perform Mail merge in the specific region with **data source retrieved from SQL connection**.
 
 {% tabs %} 
 
@@ -55,20 +58,20 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge in specific region with data source retrieved from SQL connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//DocIO supports performing mail merge in specific region with data source retrieved from SQL connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//DocIO supports performing mail merge in specific region with data source retrieved from SQL connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% endtabs %}  
 
-The following code example provides supporting methods for the above code.
+The following code example shows GetDataTable method which is used to get data for mail merge.
 
 {% tabs %}  
 
@@ -106,15 +109,15 @@ End Function
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge in specific region with data source retrieved from SQL connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-//DocIO supports performing mail merge in specific region with data source retrieved from SQL connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//DocIO supports performing mail merge in specific region with data source retrieved from SQL connection in Windows Forms, WPF, ASP.NET, and ASP.NET MVC platforms alone.
+//SqlCeConnection is supported in .NET Framework alone.
 {% endhighlight %}
 
 {% endtabs %}  
@@ -123,9 +126,9 @@ The resultant document looks as follows.
 
 ![Group resultant document](../MailMerge_images/Group_mail_merge_output.png)
 
-## Mail merge with business objects
+## Mail merge with .NET objects
 
-You can perform Mail merge with business objects in a template document. The following code snippet shows how to perform Mail merge with business objects.
+You can perform Mail merge with .NET objects in a template document. The following code snippet shows how to perform Mail merge with business objects.
 
 {% tabs %} 
 
@@ -253,7 +256,7 @@ private void MergeField_Image(object sender, MergeImageFieldEventArgs args)
 
 {% endtabs %}  
 
-The following code example provides supporting methods and class for the above code
+The following code example shows GetEmployees method which is used to get data for mail merge.
 
 {% tabs %}  
 
@@ -269,6 +272,65 @@ public List<Employee> GetEmployees()
 	return employees;
 }
 
+{% endhighlight %}
+
+{% highlight vb.net %}
+Public Function GetEmployees() As List(Of Employee)
+	Dim employees As New List(Of Employee)()
+	employees.Add(New Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"))
+	employees.Add(New Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"))
+	employees.Add(New Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"))
+	employees.Add(New Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"))
+	employees.Add(New Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", String.Empty, "UK", "Steven.png"))
+	Return employees
+End Function
+{% endhighlight %} 
+
+{% highlight UWP %}
+public List<Employee> GetEmployees()
+{
+	List<Employee> employees = new List<Employee>();
+	employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
+	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+	employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
+	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+	return employees;
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+public List<Employee> GetEmployees()
+{
+	List<Employee> employees = new List<Employee>();
+	employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
+	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+	employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
+	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+	return employees;
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+public List<Employee> GetEmployees()
+{
+	List<Employee> employees = new List<Employee>();
+	employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
+	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
+	employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
+	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
+	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
+	return employees;
+}
+{% endhighlight %}
+
+{% endtabs %}  
+
+The following code example shows the Employee class.
+
+{% tabs %}  
+{% highlight C# %}
 public class Employee
 {
     public string FirstName { get; set; }
@@ -293,17 +355,7 @@ public class Employee
 }
 {% endhighlight %}
 
-{% highlight vb.net %}
-Public Function GetEmployees() As List(Of Employee)
-	Dim employees As New List(Of Employee)()
-	employees.Add(New Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"))
-	employees.Add(New Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"))
-	employees.Add(New Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"))
-	employees.Add(New Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"))
-	employees.Add(New Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", String.Empty, "UK", "Steven.png"))
-	Return employees
-End Function
-
+{% highlight VB.NET %}
 Public Class Employee
 	Public Property FirstName() As String
 		Get
@@ -377,7 +429,6 @@ Public Class Employee
 		End Set
 	End Property
 	Private m_Photo As Image
-
 	Public Sub New(firstName As String, lastName As String, title As String, address As String, city As String, region As String, country As String, photoFilePath As String)
 		Me.FirstName = firstName
 		Me.LastName = lastName
@@ -389,20 +440,9 @@ Public Class Employee
 		Me.Photo = Image.FromFile(photoFilePath)
 	End Sub
 End Class
-{% endhighlight %} 
+{% endhighlight %}
 
 {% highlight UWP %}
-public List<Employee> GetEmployees()
-{
-	List<Employee> employees = new List<Employee>();
-	employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
-	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-	employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
-	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-	return employees;
-}
-
 public class Employee
 {
 	public string FirstName { get; set; }
@@ -413,7 +453,6 @@ public class Employee
 	public string Country { get; set; }
 	public string Title { get; set; }
 	public string Photo { get; set; }
-
 	public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFileName)
 	{
 		FirstName = firstName;
@@ -429,17 +468,6 @@ public class Employee
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-public List<Employee> GetEmployees()
-{
-	List<Employee> employees = new List<Employee>();
-	employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
-	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-	employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
-	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-	return employees;
-}
-
 public class Employee
 {
     public string FirstName { get; set; }
@@ -465,17 +493,6 @@ public class Employee
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-public List<Employee> GetEmployees()
-{
-	List<Employee> employees = new List<Employee>();
-	employees.Add(new Employee("Andy", "Bernard", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA", "Andy.png"));
-	employees.Add(new Employee("Andrew", "Fuller", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA", "Andrew.png"));
-	employees.Add(new Employee("Stanley", "Hudson", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA", "Stanley.png"));
-	employees.Add(new Employee("Margaret", "Peacock", "Sales Representative", "4110 Old Redmond Rd.", "Redmond", "WA", "USA", "Margaret.png"));
-	employees.Add(new Employee("Steven", "Buchanan", "Sales Manager", "14 Garrett Hill", "London", string.Empty, "UK", "Steven.png"));
-	return employees;
-}
-
 public class Employee
 {
 	public string FirstName { get; set; }
@@ -486,7 +503,6 @@ public class Employee
 	public string Country { get; set; }
 	public string Title { get; set; }
 	public string Photo { get; set; }
-
 	public Employee(string firstName, string lastName, string title, string address, string city, string region, string country, string photoFileName)
 	{
 		FirstName = firstName;
@@ -500,5 +516,4 @@ public class Employee
 	}
 }
 {% endhighlight %}
-
-{% endtabs %}  
+{% endtabs %}
