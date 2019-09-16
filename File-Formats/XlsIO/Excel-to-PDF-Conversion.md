@@ -1055,13 +1055,11 @@ private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
     else if (args.OriginalFontName == "Homizio")
     {
         //Substitute by font stream.
-        Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-		Stream fileStream = assembly.GetManifestResourceStream("ExceltoPDF.Fonts.Homizio.ttf");
+		Stream file = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("ExceltoPDF.Fonts.Homizio.ttf");
         MemoryStream memoryStream = new MemoryStream();
-        fileStream.CopyTo(memoryStream);
-        fileStream.Close();
+        file.CopyTo(memoryStream);
+        file.Close();
         args.AlternateFontStream = memoryStream;
-
     }
 }
 
