@@ -8,17 +8,18 @@ documentation: UG
 
 # Mail merge for a group
 
-You can perform Mail merge and append multiple records from data source within a specified region to a template document. The region between start and end groups merge fields. It gets repeated for every record from the data source. The region where the Mail merge operations are to be performed must be marked by two MergeFields with the following names.
-
-  * «TableStart:TableName» and «BeginGroup:GroupName» - For the entry point of the region.
-  * «TableEnd:TableName» and «EndGroup:GroupName» - For the end point of the region.
-  
-  1.TableStart and TableEnd region is preferred for performing Mail merge inside the table cell.
-  
-  2.BeginGroup and EndGroup region is preferred for performing Mail merge inside the document body contents.
-
+You can perform Mail merge and append multiple records from data source within a specified region to a template document. The region between start and end groups merge fields. It gets repeated for every record from the data source.
 
 ## Create template for group mail merge
+
+The region where the Mail merge operations are to be performed must be marked by two merge fields with the following names.
+
+  * «TableStart:TableName» and «BeginGroup:GroupName» - For the entry point of the region.
+  
+  * «TableEnd:TableName» and «EndGroup:GroupName» - For the end point of the region.
+  
+  1.*TableStart* and *TableEnd* region is preferred for performing Mail merge inside the table cell.  
+  2.*BeginGroup* and *EndGroup* region is preferred for performing Mail merge inside the document body contents.
   
 For example, consider that you have a template document as shown.
 
@@ -353,7 +354,7 @@ public class Employee
     }
 }
 {% endhighlight %}
- 
+
 {% highlight VB.NET %}
 Public Class Employee
 	Public Property FirstName() As String
@@ -440,7 +441,7 @@ Public Class Employee
 	End Sub
 End Class
 {% endhighlight %}
- 
+
 {% highlight UWP %}
 public class Employee
 {
@@ -465,7 +466,7 @@ public class Employee
 	}
 }
 {% endhighlight %}
- 
+
 {% highlight ASP.NET CORE %}
 public class Employee
 {
@@ -490,7 +491,7 @@ public class Employee
     }
 }
 {% endhighlight %}
- 
+
 {% highlight XAMARIN %}
 public class Employee
 {
