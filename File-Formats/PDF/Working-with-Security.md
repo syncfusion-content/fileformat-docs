@@ -1880,7 +1880,7 @@ document.Close(true);
 
 'Load the PDF document 
 
-Dim document As PdfLoadedDocument = New PdfLoadedDocument("Output.pdf", "password")
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf", "password")
              
 'Accessing the attachments
 
@@ -2023,7 +2023,7 @@ private static void LDoc_OnPdfPassword(object sender, OnPdfPasswordEventArgs arg
 
 'Load the PDF document 
          
-Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input-EOA.pdf")
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
 
 'document.OnPdfPassword += LDoc_OnPdfPassword()
 
