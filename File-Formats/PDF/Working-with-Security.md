@@ -996,7 +996,1379 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+## Encryption Options
 
+The Syncfusion PDF Library provides customization support for PDF document encryption. The following encryption options are available:
+*   Encrypt all contents 
+         All contents of the document will be encrypted.
+
+*	Encrypt all contents except Metadata  
+         All contents of the document will be encrypted except metadata.
+
+*	Encrypt only attachments
+         Encrypts only the file attachments, rest of the document will be left unencrypted.
+
+You can specify the encryption options using the EncryptionOptions property available in the PdfSecurity instance. The default value of EncryptionOptions is EncryptAllContents.
+
+## Encrypt all contents
+
+You can encrypt all the PDF content by using the EncryptAllContents option available in the EncryptionOptions. The following code snippet explains how to encrypt all contents of the PDF document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptAllContents;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted with AES 256bit", font, brush, new PointF(0, 40));
+
+//Save and close the document
+
+document.Save("Output.pdf");
+
+document.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document
+
+Dim document As New PdfDocument()
+
+Dim page As PdfPage = document.Pages.Add()
+
+Dim graphics As PdfGraphics = page.Graphics
+
+Dim font As New PdfStandardFont(PdfFontFamily.TimesRoman, 20.0F, PdfFontStyle.Bold)
+
+Dim brush As PdfBrush = PdfBrushes.Black
+
+'Document security
+
+Dim security As PdfSecurity = document.Security
+
+'Specifies key size and encryption algorithm using 256 bit key in AES mode
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit
+
+security.Algorithm = PdfEncryptionAlgorithm.AES
+
+'Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptAllContents;
+
+security.UserPassword = "password"
+
+graphics.DrawString("Encrypted with AES 256bit", font, brush, New PointF(0, 40))        
+
+'Save and close the document
+
+document.Save("Output.pdf")
+
+document.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptAllContents;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted with AES 256bit", font, brush, new PointF(0, 40));
+
+//Save the PDF document to stream 
+ 
+MemoryStream stream = new MemoryStream(); 
+
+await document.SaveAsync(stream); 
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptAllContents;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted with AES 256bit", font, brush, new PointF(0, 40));                        
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream); stream.Position = 0;
+
+//Close the documents 
+ 
+document.Close(true);
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf"; 
+
+//Define the file name 
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptAllContents;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted with AES 256bit", font, brush, new PointF(0, 40));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream); 
+
+//Closes the document 
+
+document.Close(true);
+
+//Save the stream into pdf file //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples 
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+} 
+else 
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Encrypt all contents except metadata
+
+You can encrypt all the PDF content except metadata by using the EncryptAllContentsExceptMetadata option available in the EncryptionOptions. The following code snippet explains how to encrypt all contents except metadata of the PDF document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptAllContentsExceptMetadata;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted all contents except metadata with AES 256bit", font, brush, new PointF(0, 40));
+
+//Save and close the document
+
+document.Save("Output.pdf");
+
+document.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document
+
+Dim document As New PdfDocument()
+
+Dim page As PdfPage = document.Pages.Add()
+
+Dim graphics As PdfGraphics = page.Graphics
+
+Dim font As New PdfStandardFont(PdfFontFamily.TimesRoman, 20.0F, PdfFontStyle.Bold)
+
+Dim brush As PdfBrush = PdfBrushes.Black
+
+'Document security
+
+Dim security As PdfSecurity = document.Security
+
+'Specifies key size and encryption algorithm using 256 bit key in AES mode
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit
+
+security.Algorithm = PdfEncryptionAlgorithm.AES
+
+'Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptAllContentsExceptMetadata
+
+security.UserPassword = "password"
+
+graphics.DrawString("Encrypted all contents except metadata with AES 256bit", font, brush, New PointF(0, 40))        
+
+'Save and close the document
+
+document.Save("Output.pdf")
+
+document.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptAllContentsExceptMetadata;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted with all contents except metadata AES 256bit", font, brush, new PointF(0, 40));
+
+//Save the PDF document to stream 
+ 
+MemoryStream stream = new MemoryStream(); 
+
+await document.SaveAsync(stream); 
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptAllContentsExceptMetadata;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted all contents except metadata with AES 256bit", font, brush, new PointF(0, 40));                        
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream); stream.Position = 0;
+
+//Close the documents 
+ 
+document.Close(true);
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf"; 
+
+//Define the file name 
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptAllContentsExceptMetadata;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted all contents except metadata with AES 256bit", font, brush, new PointF(0, 40));
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream); 
+
+//Closes the document 
+
+document.Close(true);
+
+//Save the stream into pdf file //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples 
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+} 
+else 
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N> Encrypt all contents except metadata option is not supported in RC4 algorithm and Key40. It is only supported in AES algorithm with128bit or 256bit or 256bit revision6 key size.
+
+## Encrypt only attachments
+
+You can encrypt only attachments present in the PDF document by using the EncryptOnlyAttachments option available in the EncryptionOptions. The following code snippet explains how to encrypt only attachments in the PDF document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptOnlyAttachments;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted only attachments with AES 256bit", font, brush, new PointF(0, 40));
+
+//Creates an attachment
+
+PdfAttachment attachment = new PdfAttachment("Input.txt");
+
+attachment.ModificationDate = DateTime.Now;
+
+attachment.Description = "Input.txt";
+
+attachment.MimeType = "application/txt";
+
+//Add the attachment to the document
+
+document.Attachments.Add(attachment);
+
+//Save and close the document
+
+document.Save("Output.pdf");
+
+document.Close();
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Create a new PDF document
+        
+Dim document As New PdfDocument()
+
+Dim page As PdfPage = document.Pages.Add()
+
+Dim graphics As PdfGraphics = page.Graphics
+
+Dim font As New PdfStandardFont(PdfFontFamily.TimesRoman, 20.0F, PdfFontStyle.Bold)
+
+Dim brush As PdfBrush = PdfBrushes.Black
+
+'Document security
+
+Dim security As PdfSecurity = document.Security
+
+'Specifies key size and encryption algorithm using 256 bit key in AES mode
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit
+
+security.Algorithm = PdfEncryptionAlgorithm.AES
+
+'Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptOnlyAttachments;
+
+security.UserPassword = "password"
+
+graphics.DrawString("Encrypted only attachments with AES 256bit", font, brush, New PointF(0, 40))
+
+'Creates an attachment
+
+Dim attachment As New PdfAttachment("Input.txt")
+
+attachment.ModificationDate = DateTime.Now
+
+attachment.Description = "Input.txt" 
+
+attachment.MimeType = "application/txt" 
+
+Add the attachment to the document
+
+document.Attachments.Add(attachment)
+
+'Save and close the document
+
+document.Save("Output.pdf")
+
+document.Close()
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create a new PDF document
+           
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptOnlyAttachments;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted only attachments with AES 256bit", font, brush, new PointF(0, 40));
+
+//Creates an attachment
+
+PdfAttachment attachment = new PdfAttachment("Input.txt");
+
+attachment.ModificationDate = DateTime.Now;
+
+attachment.Description = "Input.txt";
+
+attachment.MimeType = "application/txt";
+
+//Add the attachment to the document
+
+document.Attachments.Add(attachment);
+
+//Save the PDF document to stream 
+ 
+MemoryStream stream = new MemoryStream(); 
+
+await document.SaveAsync(stream); 
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm       
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptOnlyAttachments;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted only attachments with AES 256bit", font, brush, new PointF(0, 40));
+
+//Creates an attachment
+
+PdfAttachment attachment = new PdfAttachment("Input.txt");
+
+attachment.ModificationDate = DateTime.Now;
+
+attachment.Description = "Input.txt";
+
+attachment.MimeType = "application/txt";
+
+//Add the attachment to the document
+
+document.Attachments.Add(attachment);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream); stream.Position = 0;
+
+//Close the documents
+
+document.Close(true);
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf"; 
+
+//Define the file name 
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Create a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+PdfPage page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+PdfStandardFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 20f, PdfFontStyle.Bold);
+
+PdfBrush brush = PdfBrushes.Black;
+
+//Document security
+
+PdfSecurity security = document.Security;
+
+//Specifies key size and encryption algorithm
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit;
+
+security.Algorithm = PdfEncryptionAlgorithm.AES;
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptOnlyAttachments;
+
+security.UserPassword = "password";
+
+graphics.DrawString("Encrypted only attachments with AES 256bit", font, brush, new PointF(0, 40));
+
+//Creates an attachment
+
+PdfAttachment attachment = new PdfAttachment("Input.txt");
+
+attachment.ModificationDate = DateTime.Now;
+
+attachment.Description = "Input.txt";
+
+attachment.MimeType = "application/txt";
+
+//Add the attachment to the document
+
+document.Attachments.Add(attachment);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream); 
+
+//Closes the document 
+
+document.Close(true);
+
+//Save the stream into pdf file //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples 
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+} 
+else 
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+N> 1. You must use only user password in Encrypt only attachments.
+N> 2. Encrypt only attachment option is not supported in RC4 algorithm and  Key40. It is only supported in AES algorithm with128bit or 256bit or 256bit revision6 key size.
+
+## Opening an encrypt-only-attachment document
+
+Security provides option to get the user password in two ways for opening encrypt-only-attachment document. Get the password while loading the document and using event when accessing the attachments.    
+
+You can edit or add content in encrypt-only-attachment document without using password. If you access the attachments in the document, the password is must.       
+
+The following code snippet explains get the user password while loading document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PDF document 
+
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf",”password”);
+            
+//Accessing the attachments             
+
+foreach (PdfAttachment attachment in document.Attachments)
+{
+    FileStream stream = new FileStream(attachment.FileName, FileMode.Create);
+
+    stream.Write(attachment.Data, 0, attachment.Data.Length);
+
+    stream.Dispose();
+}         
+
+//Close the document 
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document 
+
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Output.pdf", "password")
+             
+'Accessing the attachments
+
+For Each attachment As PdfAttachment In document.Attachments
+
+    Dim stream = New FileStream(attachment.FileName, FileMode.Create)
+
+    stream.Write(attachment.Data, 0, attachment.Data.Length)
+
+    stream.Dispose
+
+Next
+
+'Close the document 
+
+document.Close(true)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Load the PDF document as stream 
+
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");                                                                                                                 
+
+//Creates an empty PDF loaded document instance 
+
+PdfLoadedDocument document = new PdfLoadedDocument(pdfStream,”password”);                       
+             
+//Accessing the attachments
+
+foreach (PdfAttachment  attachment in document.Attachments)
+{
+   FileStream stream= new FileStream(attachment.FileName, FileMode.Create);
+
+   stream.Write(attachment.Data, 0, attachment.Data.Length);
+
+   stream.Dispose();
+}                                
+
+//Close the document 
+
+document.Close(true);             
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document 
+             
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read); 
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream,”password”);
+
+//Accessing the attachments
+         
+foreach (PdfAttachment  attachment in document.Attachments)
+{
+   FileStream  stream = new FileStream(attachment.FileName, FileMode.Create);
+
+   stream.Write(attachment.Data, 0, attachment.Data.Length);
+
+   stream.Dispose();
+}                      
+
+//Close the document
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the PDF document as stream 
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+//Creates an empty PDF loaded document instance 
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream,”password”);                 
+
+//Accessing the attachments
+
+foreach (PdfAttachment  attachment in document.Attachments)
+{
+   FileStream  stream= new FileStream(attachment.FileName, FileMode.Create);
+
+   stream.Write(attachment.Data, 0, attachment.Data.Length);
+
+   stream.Dispose();
+}                                 
+
+//Close the document 
+
+document.Close(true);	
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Get user password using event when accessing the attachment
+
+Security provides support to get the user password using event when accessing the attachments in the loaded document. Refer to the following code snippet.
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PDF document 
+
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+
+document.OnPdfPassword += LDoc_OnPdfPassword;
+
+//Accessing the attachments
+
+foreach (PdfAttachment attachment in document.Attachments)
+{
+    FileStream stream= new FileStream(attachment.FileName, FileMode.Create);
+
+    stream.Write(attachment.Data, 0, attachment.Data.Length);
+
+    stream.Dispose();
+}                      
+
+//Close the document 
+
+document.Close(true);
+	
+//Provide the user password in event 
+
+private static void LDoc_OnPdfPassword(object sender, OnPdfPasswordEventArgs args)
+{
+    args.UserPassword = "syncfusion";
+}
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document 
+         
+Dim document As PdfLoadedDocument = New PdfLoadedDocument("Input-EOA.pdf")
+
+'document.OnPdfPassword += LDoc_OnPdfPassword()
+
+AddHandler document.OnPdfPassword, AddressOf LDoc_OnPdfPassword
+
+'Accessing the attachments
+
+For Each attachment As PdfAttachment In document.Attachments
+
+   Dim stream As FileStream = New FileStream(attachment.FileName, FileMode.Create)
+   
+   stream.Write(attachment.Data, 0, attachment.Data.Length)
+   
+   stream.Dispose()
+
+Next
+
+'Close the document
+
+document.Close(True)
+
+'Provide the user password in event 
+
+Private Sub LDoc_OnPdfPassword(ByVal sender As Object, ByVal args As OnPdfPasswordEventArgs)
+
+   args.UserPassword = "password"
+ 
+End Sub
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Load the PDF document as stream 
+
+
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");                                                                                                                 
+
+//Creates an empty PDF loaded document instance 
+
+PdfLoadedDocument document = new PdfLoadedDocument(pdfStream);       
+                      
+document.OnPdfPassword += LDoc_OnPdfPassword;
+
+//Accessing the attachments
+
+foreach (PdfAttachment  attachment in document.Attachments)
+{
+    FileStream  stream = new FileStream(attachment.FileName, FileMode.Create);
+
+    stream.Write(attachment.Data, 0, attachment.Data.Length);
+
+    stream.Dispose();
+}                      
+
+//Close the document 
+
+document.Close(true);
+	
+//Provide the user password in event 
+
+private static void LDoc_OnPdfPassword(object sender, OnPdfPasswordEventArgs args)
+{
+    args.UserPassword = "syncfusion";
+}
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document 
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read); 
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+document.OnPdfPassword += LDoc_OnPdfPassword;
+
+//Accessing the attachments
+foreach (PdfAttachment  attachment in document.Attachments)
+{
+
+     FileStream  stream= new FileStream(attachment.FileName, FileMode.Create);
+
+     stream.Write(attachment.Data, 0, attachment.Data.Length);
+
+     stream.Dispose();
+}                      
+
+//Close the document 
+
+document.Close(true);
+	
+//Provide the user password in event
+
+private static void LDoc_OnPdfPassword(object sender, OnPdfPasswordEventArgs args)
+{
+    args.UserPassword = "syncfusion";
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the PDF document as stream 
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+//Creates an empty PDF loaded document instance 
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);   
+    
+document.OnPdfPassword += LDoc_OnPdfPassword;
+
+// Accessing the attachments
+
+foreach (PdfAttachment  attachment in document.Attachments)
+{
+
+    FileStream  stream= new FileStream(attachment.FileName, FileMode.Create);
+
+    stream.Write(attachment.Data, 0, attachment.Data.Length);
+
+    stream.Dispose();
+}                      
+
+//Close the document
+
+document.Close(true);
+	
+//Provide the user password in event
+
+private static void LDoc_OnPdfPassword(object sender, OnPdfPasswordEventArgs args)
+{
+    args.UserPassword = "syncfusion";
+}
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Protect attachments in existing PDF document
+
+The Syncfusion PDF Library supports also encrypting only the attachment files in an existing PDF document. Refer to the following code snippet
+
+{% tabs %}
+
+{% highlight c# %}
+
+//Load the PDF document 
+
+PdfLoadedDocument document = new PdfLoadedDocument("Input.pdf");
+
+//PDF document security
+
+PdfSecurity security = document.Security; 
+
+//Specifies encryption key size, algorithm and permission
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit; 
+
+security.Algorithm = PdfEncryptionAlgorithm.AES; 
+
+//Provide user password
+
+security.UserPassword = "password";
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptOnlyAttachments;
+
+//Save the document
+
+document.Save("Output.pdf");
+
+//Close the document 
+
+document.Close(true);
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+'Load the PDF document 
+             
+Dim document As New PdfLoadedDocument("Input.pdf")
+
+'PDF document security
+
+Dim security As PdfSecurity = document.Security
+
+'Specifies encryption key size, algorithm and permission
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit
+
+security.Algorithm = PdfEncryptionAlgorithm.AES
+
+'Provide user password
+
+security.UserPassword = "password"
+
+'Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptOnlyAttachments
+
+'Save the document
+
+document.Save("Output.pdf")
+
+'Close the document
+
+document.Close(true)
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Load the PDF document as stream 
+
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");                                                                                                                
+
+//Creates an empty PDF loaded document instance 
+
+PdfLoadedDocument document = new PdfLoadedDocument(pdfStream);       
+
+//PDF document security
+
+PdfSecurity security = document.Security; 
+
+//Specifies encryption key size, algorithm and permission
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit; 
+
+security.Algorithm = PdfEncryptionAlgorithm.AES; 
+
+//Provide user password
+
+security.UserPassword = "password";
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptOnlyAttachments;
+
+//Save the PDF document to stream 
+
+MemoryStream stream = new MemoryStream(); 
+
+await document.SaveAsync(stream); 
+
+//Close the document
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+ 
+Save(stream, "output.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document 
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read); 
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);
+
+//PDF document security
+
+PdfSecurity security = document.Security; 
+
+//Specifies encryption key size, algorithm and permission
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit; 
+
+security.Algorithm = PdfEncryptionAlgorithm.AES; 
+
+//Provide user password
+
+security.UserPassword = "password";
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptOnlyAttachments;
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream); stream.Position = 0;
+
+//Close the documents
+
+document.Close(true);
+
+//Defining the ContentType for pdf file 
+
+string contentType = "application/pdf"; 
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+ 
+//Load the PDF document as stream 
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+//Creates an empty PDF loaded document instance 
+
+PdfLoadedDocument document = new PdfLoadedDocument(docStream);       
+
+//PDF document security
+
+PdfSecurity security = document.Security; 
+
+//Specifies encryption key size, algorithm and permission
+
+security.KeySize = PdfEncryptionKeySize.Key256Bit; 
+
+security.Algorithm = PdfEncryptionAlgorithm.AES; 
+
+//Provide user password
+
+security.UserPassword = "password";
+
+//Specifies encryption option
+
+security.EncryptionOptions = PdfEncryptionOptions.EncryptOnlyAttachments;
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream(); 
+
+document.Save(stream); 
+
+//Closes the document 
+
+document.Close(true);
+ 
+//Save the stream into pdf file //The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples 
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("sample.pdf", "application/pdf", stream);
+} 
+else 
+{
+     Xamarin.Forms.DependencyService.Get<ISave>().Save("sample.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %}
 ## Protect an existing document
 
 You can protect an existing PDF document with both [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html) and [OwnerPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~OwnerPassword.html) by using the following code snippet.
