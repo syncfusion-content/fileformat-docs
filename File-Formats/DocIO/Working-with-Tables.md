@@ -1577,6 +1577,7 @@ firstColumnStyle.CharacterFormat.Bold = true;
 //Applies conditional formatting for odd row
 ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
 oddRowBandingStyle.CellProperties.BackColor = Color.WhiteSmoke;
+table = section.Tables[1] as WTable;
 //Applies the custom table style to the table
 table.ApplyStyle("CustomStyle");
 //Saves and closes the document instance
@@ -1622,6 +1623,7 @@ firstColumnStyle.CharacterFormat.Bold = True
 'Applies conditional formatting for odd row
 Dim oddRowBandingStyle As ConditionalFormattingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding)
 oddRowBandingStyle.CellProperties.BackColor = Color.WhiteSmoke
+table = CType(section.Tables(1), WTable)
 'Applies the custom table style to the table
 table.ApplyStyle("CustomStyle")
 'Saves and closes the document instance
@@ -1669,6 +1671,7 @@ firstColumnStyle.CharacterFormat.Bold = true;
 //Applies conditional formatting for odd row
 ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
 oddRowBandingStyle.CellProperties.BackColor = Color.WhiteSmoke;
+table = section.Tables[1] as WTable;
 //Applies the custom table style to the table
 table.ApplyStyle("CustomStyle");
 //Saves the Word file to MemoryStream
@@ -1722,6 +1725,7 @@ firstColumnStyle.CharacterFormat.Bold = true;
 //Applies conditional formatting for odd row
 ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
 oddRowBandingStyle.CellProperties.BackColor = Color.WhiteSmoke;
+table = section.Tables[1] as WTable;
 //Applies the custom table style to the table
 table.ApplyStyle("CustomStyle");
 //Saves the Word document to MemoryStream
@@ -1774,6 +1778,7 @@ firstColumnStyle.CharacterFormat.Bold = true;
 //Applies conditional formatting for odd row
 ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
 oddRowBandingStyle.CellProperties.BackColor = Color.WhiteSmoke;
+table = section.Tables[1] as WTable;
 //Applies the custom table style to the table
 table.ApplyStyle("CustomStyle");
 //Saves the Word document to MemoryStream
