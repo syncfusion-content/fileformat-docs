@@ -1612,7 +1612,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
-### Format Images
+### Format and rotate Images
 
 Absolute positioned images have properties such as position, wrap formats, and alignments. These properties are not applicable when the text wrapping style is inline. You can also rotate an image and apply flipping (horizontal and vertical) to an image.
 
@@ -4898,7 +4898,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
-### Format TextBox  
+### Format and rotate TextBox  
 
 Textbox has its own formatting such as outline color, fill effects, text direction, wrap formats, etc. You can also rotate the textbox and apply flipping (horizontal and vertical) to textbox.
 
