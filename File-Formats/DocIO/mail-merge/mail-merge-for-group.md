@@ -10,7 +10,6 @@ documentation: UG
 
 You can perform Mail merge and append multiple records from data source within a specified region to a template document. The region between start and end groups merge fields. It gets repeated for every record from the data source.
 
-
 ## Create template for group mail merge
 
 The region where the Mail merge operations are to be performed must be marked by two merge fields with the following names.
