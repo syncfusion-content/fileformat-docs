@@ -26,15 +26,19 @@ The mail merge process involves three documents,
 
 3. **Final merged document** – This resultant document is a combination of the template word document and the data from data source.
 
-### How to create Word document template
+T>You can use conditional fields ([IF](https://support.office.com/en-us/article/Field-codes-IF-field-9f79e82f-e53b-4ff5-9d2c-ae3b22b7eb5e), [Formula](https://support.office.com/en-us/article/field-codes-formula-field-32d5c9de-3516-4ec3-80ed-d1fc2b5bc21d?ui=en-US&rs=en-US&ad=US)) combined with merge fields, when you require intelligent decisions in addition to simple mail merge (replace merge fields with result text). To use conditional fields, execute mail merge and then update fields in the Word document using `UpdateDocumentFields` API.
 
-You can create a template document with Merge fields by using the Microsoft Word. The following screenshot shows how to insert a merge field in the Word document by using the Microsoft Word.
+### Create Word document template
+
+You can create a template document with merge fields by using any Word editor application, like Microsoft Word. By using Word editor application, you can take the advantage of the visual interface to design unique layout, formatting, and more for your Word document template interactively. 
+
+The following screenshot shows how to insert a merge field in the Word document by **using the Microsoft Word.**
 
 ![Word template document](MailMerge_images/MailMerge_template.png)
 
 You need to add a prefix (“Image:”) to the merge field name for merging an image in the place of a merge field.
 
-For example: The merge field name should be like “Image:Photo” (<<Image:MergeFieldName>>)
+**For example:** The merge field name should be like “Image:Photo” (<<Image:MergeFieldName>>)
 
 You can **create Word document template programmatically** by adding merge fields in the Word document using Essential DocIO.
 
@@ -122,7 +126,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Template.docx", "appli
 {% endhighlight %}
 {% endtabs %}
 
-### How to execute mail merge
+### Execute mail merge
 
 The following code example shows how to perform mail merge in above Word document template using string arrays as data source.
 
@@ -232,23 +236,23 @@ Essential DocIO allows you to perform Mail merge with the dynamic objects. For f
 
 ## Performing Mail merge with business objects
 
-You can perform Mail merge with business objects in a template document. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-group#mail-merge-with-business-objects).
+You can perform Mail merge with business objects in a template document. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-group#mail-merge-with-.NET-objects).
 
 ## Performing Nested Mail merge with relational data objects
 
-Essential DocIO supports performing nested Mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-nested-groups#nested-mail-merge-with-relational-data-objects).
+Essential DocIO supports performing nested Mail merge with implicit relational data objects without any explicit relational commands by using the `ExecuteNestedGroup` overload method. For further information, click [here](https://help.syncfusion.com/file-formats/docio/mail-merge/mail-merge-for-nested-groups#mail-merge-with-implicit-relational-data).
 
 ## Event support for Mail merge
 
 The `MailMerge` class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO in Mail merge process.
 
-* `MergeField` - occurs during Mail merge when a Mail merge field except image Mail merge field is encountered in the document.
+* `MergeField`- occurs when a **Mail merge field** except image Mail merge field is encountered.
 
-* `MergeImageField` - occurs during Mail merge when an image Mail merge field is encountered in the document.
+* `MergeImageField`- occurs when an **image Mail merge field** is encountered.
 
-* `BeforeClearField` - occurs during Mail merge when an unmerged field is encountered in the document.
+* `BeforeClearField`- occurs when an **unmerged field** is encountered.
 
-* `BeforeClearGroupField` - occurs during Mail merge when an unmerged group field is encountered in the document.
+* `BeforeClearGroupField`- occurs when an **unmerged group field** is encountered.
 
 ### MergeField Event
 
