@@ -1846,7 +1846,7 @@ You can provide the [UserPassword](https://help.syncfusion.com/cr/file-formats/S
 	
 *	Provide password using the OnPdfPassword Event when accessing the attachments. 
 
-It is possible to access the other content except attachment when loading the document without [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html). 
+It is possible to access all the contents except attachment when loading the PDF document without [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html). 
 
 The following code example explains how to load an encrypt-only-attachment document with password using Syncfusion PDF Library. 
 
@@ -2165,7 +2165,7 @@ private static void LDoc_OnPdfPassword(object sender, OnPdfPasswordEventArgs arg
 
 ## Protect attachments in existing PDF document
 
-The Syncfusion PDF Library supports also encrypting only the attachment files in an existing PDF document using the EncryptOnlyAttachments encryption option. Refer to the following code snippet.
+The Syncfusion PDF Library supports encrypting only the attachment files in an existing PDF document using the EncryptOnlyAttachments encryption option. Refer to the following code snippet.
 
 N> [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html) is mandatory for this encryption option.
 
