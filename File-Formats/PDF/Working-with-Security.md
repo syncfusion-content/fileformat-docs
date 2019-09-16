@@ -1145,7 +1145,7 @@ document.Close(true);
 
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
-Save(stream, "output.pdf");
+Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
@@ -1396,7 +1396,7 @@ document.Close(true);
 
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
-Save(stream, "output.pdf");
+Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
@@ -1691,7 +1691,7 @@ document.Close(true);
 
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
 
-Save(stream, "output.pdf");
+Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
@@ -2279,7 +2279,7 @@ document.Close(true);
 
 //Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
  
-Save(stream, "output.pdf");
+Save(stream, "Output.pdf");
 
 {% endhighlight %}
 
@@ -2386,6 +2386,7 @@ else
 {% endhighlight %}
 
 {% endtabs %}
+
 ## Protect an existing document
 
 You can protect an existing PDF document with both [UserPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~UserPassword.html) and [OwnerPassword](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity~OwnerPassword.html) by using the following code snippet.
