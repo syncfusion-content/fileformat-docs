@@ -63,7 +63,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% highlight HTML %}
 
-<button class="btn btn-primary" onclick="@CreatePowerPoint">Create PowerPoint</button>
+<button class="btn btn-primary" @onclick="@CreatePowerPoint">Create PowerPoint</button>
 
 {% endhighlight %}
 
@@ -94,7 +94,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 		titleShape.TextBody.AddParagraph("Company History").HorizontalAlignment =  HorizontalAlignmentType.Center;
 		
 		//Add description content to the slide by adding a new TextBox IShape  
-		descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);      
+		IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);      
 		descriptionShape.TextBody.Text = "IMN Solutions PVT LTD is the software company, established in 1987, by George Milton. The company has been listed as the trusted  partner for many high-profile organizations since 1988 and got awards for quality products from reputed organizations.";
 								
 		//Add bullet points to the slide 
@@ -108,7 +108,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 		firstPara.LeftIndent = 35;   
 		firstPara.FirstLineIndent = -35; 
 		
-		// Add another paragraph for the next bullet point 
+		//Add another paragraph for the next bullet point 
 		IParagraph secondPara = bulletPointsShape.TextBody.AddParagraph("The company is participating in top open source projects in automation industry."); 
 		
 		//Format how the bullets should be displayed 
@@ -123,15 +123,15 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 		stampShape.Fill.FillType = FillType.None;  
 		stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment =  HorizontalAlignmentType.Center;
 		
-		// Save the PowerPoint Presentation as stream
+		//Save the PowerPoint Presentation as stream
 		MemoryStream stream = new MemoryStream();
-		document.Save(stream, FormatType.pptx);
+		pptxDoc.Save(stream);
 		
 		//Close the PowerPoint Presentation as stream
 		pptxDoc.Close();
 		stream.Position = 0;
 		
-		//Download the PowerPoint document in the browser.
+		//Download the PowerPoint document in the browser
 		JS.SaveAs("Sample.pptx", stream.ToArray());
 	}
 }
@@ -148,7 +148,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 public static class FileUtil
 {
-    public static Task SaveAs(this IJSRuntime js, string filename, byte[] data)
+    public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
        => js.InvokeAsync<object>(
            "saveAsFile",
            filename,
@@ -163,16 +163,28 @@ public static class FileUtil
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight HTML %}
 
 <script type="text/javascript">
     function saveAsFile(filename, bytesBase64) {
-        var link = document.createElement('a');
-        link.download = filename;
-        link.href = "data:application/octet-stream;base64," + bytesBase64;
-        document.body.appendChild(link); // Needed for Firefox
-        link.click();
-        document.body.removeChild(link);
+        if (navigator.msSaveBlob) {
+            //Download document in Edge browser
+            var data = window.atob(bytesBase64);
+            var bytes = new Uint8Array(data.length);
+            for (var i = 0; i < data.length; i++) {
+                bytes[i] = data.charCodeAt(i);
+            }
+            var blob = new Blob([bytes.buffer], { type: "application/octet-stream" });
+            navigator.msSaveBlob(blob, filename);
+        }
+        else {
+            var link = document.createElement('a');
+            link.download = filename;
+            link.href = "data:application/octet-stream;base64," + bytesBase64;
+            document.body.appendChild(link); // Needed for Firefox
+            link.click();
+            document.body.removeChild(link);
+        }
     }
 </script>
 
