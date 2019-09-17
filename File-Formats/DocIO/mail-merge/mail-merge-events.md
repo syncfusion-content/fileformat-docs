@@ -8,7 +8,7 @@ documentation: UG
 
 # Event support for Mail merge
 
-The MailMerge class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO during Mail merge process:
+The `MailMerge` class provides event support to customize the document contents and merging image data during the Mail merge process. The following events are supported by Essential DocIO during Mail merge process:
 
 * `MergeField`- occurs when a **Mail merge field** except image Mail merge field is encountered.
 
@@ -20,9 +20,9 @@ The MailMerge class provides event support to customize the document contents an
 
 ## MergeField Event
 
-You can apply formatting to the merged text or modify the merged text during mail merge process using the `MergeField` Event.
+You can apply formatting to the merged text or customize the merged text during mail merge process using the `MergeField` Event.
 
-The following code example shows how to use the MergeField event during Mail merge process.
+The following code example shows how to use the `MergeField` event during Mail merge process.
 
 {% tabs %}  
 
@@ -51,7 +51,7 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
+//ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -119,7 +119,7 @@ End Sub
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
+//ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -146,7 +146,7 @@ private void ApplyAlternateRecordsTextColor (object sender, MergeFieldEventArgs 
 
 {% endtabs %}  
 
-The following code example provides supporting methods
+The following code example shows GetDataTable method which are is to get data for mail merge.
 
 {% tabs %} 
 
@@ -183,7 +183,7 @@ End Function
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
+//ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -224,9 +224,9 @@ private static DataTable GetDataTable()
 
 ## MergeImageField Event
 
-You can format the merged image data like resizing the image and more during mail merge process using the `MergeImageField` Event. 
+You can format the merged image like resizing the image and more during mail merge process using the `MergeImageField` Event. 
 
-The following code example shows how to use the MergeImageField event during Mail merge process.
+The following code example shows how to use the `MergeImageField` event during Mail merge process.
 
 {% tabs %}  
 
@@ -432,7 +432,7 @@ private void MergeField_ProductImage(object sender, MergeImageFieldEventArgs arg
 
 You can get the unmerged fields in a Word document during mail merge process using the `BeforeClearField` Event.
 
-The following code example shows how to use the BeforeClearField event during Mail merge process.
+The following code example shows how to use the `BeforeClearField` event during Mail merge process.
 
 {% tabs %}  
 
@@ -465,7 +465,7 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
+//ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -524,7 +524,7 @@ private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs arg
 		//To check whether the mapped field has null value
 		if (args.FieldValue == null || args.FieldValue == DBNull.Value)
 		{
-			//Gets the unmnerged field name
+			//Gets the unmerged field name
 			string unmergedFieldName = args.FieldName;
 			string ownerGroup = args.GroupName;
 			//Sets error message for unmerged fields
@@ -548,7 +548,7 @@ Private Sub BeforeClearField(ByVal sender As Object, ByVal args As BeforeClearFi
 	If args.HasMappedFieldInDataSource Then
 		'To check whether the mapped field has null value
 		If args.FieldValue Is Nothing OrElse args.FieldValue = DBNull.Value Then
-			'Gets the unmnerged field name
+			'Gets the unmerged field name
 			Dim unmergedFieldName As String = args.FieldName
 			Dim ownerGroup As String = args.GroupName
 			'Sets error message for unmerged fields
@@ -566,7 +566,7 @@ End Sub
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
+//ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -577,7 +577,7 @@ private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs arg
 		//To check whether the mapped field has null value
 		if (args.FieldValue == null || args.FieldValue == DBNull.Value)
 		{
-			//Gets the unmnerged field name.
+			//Gets the unmerged field name.
 			string unmergedFieldName = args.FieldName;
 			string ownerGroup = args.GroupName;
 			//Sets error message for unmerged fields.
@@ -604,7 +604,7 @@ private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs arg
 		//To check whether the mapped field has null value
 		if (args.FieldValue == null || args.FieldValue == DBNull.Value)
 		{
-			//Gets the unmnerged field name
+			//Gets the unmerged field name
 			string unmergedFieldName = args.FieldName;
 			string ownerGroup = args.GroupName;
 			//Sets error message for unmerged fields
@@ -625,7 +625,7 @@ private void BeforeClearFieldEvent (object sender, BeforeClearFieldEventArgs arg
 
 {% endtabs %} 
 
-The following code example provides supporting methods
+The following code example shows GetDataTable method which is used to get data for mail merge.
 
 {% tabs %} 
 
@@ -681,7 +681,7 @@ End Function
 {% endhighlight %}
 
 {% highlight UWP %}
-//DocIO supports performing mail merge with ADO.NET objects in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
+//ADO.NET object is supported in Windows Forms, WPF, ASP.NET, ASP.NET MVC, ASP.NET Core, and Xamarin platforms alone.
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -741,7 +741,7 @@ private DataTable GetDataTable()
 
 You can get the unmerged group fields in a Word document during mail merge process using the `BeforeClearGroupField` event.
 
-The following code example shows how to use the BeforeClearGroupField event during Mail merge process.
+The following code example shows how to use the `BeforeClearGroupField` event during Mail merge process.
 
 {% tabs %}  
 
@@ -970,7 +970,7 @@ private static void BeforeClearFields(object sender, BeforeClearGroupFieldEventA
 
 {% endtabs %} 
 
-The following code example provides supporting methods
+The following code example shows GetOrders and GetEmployees methods which are used to get data for mail merge.
 
 {% tabs %} 
 
@@ -995,62 +995,6 @@ public static List<Employees> GetEmployees()
 	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
 	return employees;
 }
-
-public class Employees
-{
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string EmployeeID { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<CustomerDetails> Customers { get; set; }
-	
-	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Address = address;
-		EmployeeID = employeeId;
-		City = city;
-		Country = country;
-		Customers = customers;
-	}
-}
-
-public class CustomerDetails
-{
-	public string ContactName { get; set; }
-	public string CompanyName { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<OrderDetails> Orders { get; set; }
-
-	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-	{
-		ContactName = contactName;
-		CompanyName = companyName;
-		City = city;
-		Country = country;
-		Orders = orders;
-	}
-}
-
-public class OrderDetails
-{
-	public string OrderID { get; set; }
-	public DateTime OrderDate { get; set; }
-	public DateTime ShippedDate { get; set; }
-	public DateTime RequiredDate { get; set; }
-
-	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-	{
-		OrderID = orderId;
-		OrderDate = orderDate;
-		ShippedDate = shippedDate;
-		RequiredDate = requiredDate;
-	}
-}
 {% endhighlight %}
 
 {% highlight vb.net %}
@@ -1072,56 +1016,6 @@ Public Shared Function GetEmployees() As List(Of Employees)
 	employees.Add(New Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails))
 	Return employees
 End Function
-
-Public Class Employees
-	Public Property FirstName As String
-	Public Property LastName As String
-	Public Property EmployeeID As String
-	Public Property Address As String
-	Public Property City As String
-	Public Property Country As String
-	Public Property Customers As List(Of CustomerDetails)
-
-	Public Sub New(ByVal firstName As String, ByVal lastName As String, ByVal employeeId As String, ByVal address As String, ByVal city As String, ByVal country As String, ByVal customers As List(Of CustomerDetails))
-		Me.FirstName = firstName
-		Me.LastName = lastName
-		Me.Address = address
-		Me.EmployeeID = employeeId
-		Me.City = city
-		Me.Country = country
-		Me.Customers = customers
-	End Sub
-End Class
-
-Public Class CustomerDetails
-	Public Property ContactName As String
-	Public Property CompanyName As String
-	Public Property City As String
-	Public Property Country As String
-	Public Property Orders As List(Of OrderDetails)
-
-	Public Sub New(ByVal contactName As String, ByVal companyName As String, ByVal city As String, ByVal country As String, ByVal orders As List(Of OrderDetails))
-		Me.ContactName = contactName
-		Me.CompanyName = companyName
-		Me.City = city
-		Me.Country = country
-		Me.Orders = orders
-	End Sub
-End Class
-
-Public Class OrderDetails
-	Public Property OrderID As String
-	Public Property OrderDate As DateTime
-	Public Property ShippedDate As DateTime
-	Public Property RequiredDate As DateTime
-	
-	Public Sub New(ByVal orderId As String, ByVal orderDate As DateTime, ByVal shippedDate As DateTime, ByVal requiredDate As DateTime)
-		Me.OrderID = orderId
-		Me.OrderDate = orderDate
-		Me.ShippedDate = shippedDate
-		Me.RequiredDate = requiredDate
-	End Sub
-End Class
 {% endhighlight %}
 
 {% highlight UWP %}
@@ -1144,62 +1038,6 @@ public static List<Employees> GetEmployees()
 	List<Employees> employees = new List<Employees>();
 	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
 	return employees;
-}
-
-public class Employees
-{
-	public string FirstName { get; set; }
-	public string LastName { get; set; }
-	public string EmployeeID { get; set; }
-	public string Address { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<CustomerDetails> Customers { get; set; }
-	
-	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
-	{
-		FirstName = firstName;
-		LastName = lastName;
-		Address = address;
-		EmployeeID = employeeId;
-		City = city;
-		Country = country;
-		Customers = customers;
-	}
-}
-
-public class CustomerDetails
-{
-	public string ContactName { get; set; }
-	public string CompanyName { get; set; }
-	public string City { get; set; }
-	public string Country { get; set; }
-	public List<OrderDetails> Orders { get; set; }
-
-	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
-	{
-		ContactName = contactName;
-		CompanyName = companyName;
-		City = city;
-		Country = country;
-		Orders = orders;
-	}
-}
-
-public class OrderDetails
-{
-	public string OrderID { get; set; }
-	public DateTime OrderDate { get; set; }
-	public DateTime ShippedDate { get; set; }
-	public DateTime RequiredDate { get; set; }
-
-	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
-	{
-		OrderID = orderId;
-		OrderDate = orderDate;
-		ShippedDate = shippedDate;
-		RequiredDate = requiredDate;
-	}
 }
 {% endhighlight %}
 
@@ -1224,7 +1062,199 @@ public static List<Employees> GetEmployees()
 	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
 	return employees;
 }
+{% endhighlight %}
 
+{% highlight XAMARIN %}
+//Gets order list
+private static List<OrderDetails> GetOrders()
+{
+	List<OrderDetails> orders = new List<OrderDetails>();
+	orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
+	return orders;
+}
+
+//Gets employee list
+public static List<Employees> GetEmployees()
+{
+	List<OrderDetails> orders = new List<OrderDetails>();
+	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
+	List<CustomerDetails> customerDetails = new List<CustomerDetails>();
+	customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
+	customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
+	List<Employees> employees = new List<Employees>();
+	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
+	return employees;
+}
+{% endhighlight %}
+
+{% endtabs %} 
+
+The following code example shows Employees, CustomerDetails, and OrderDetails classes.
+
+{% tabs %}  
+{% highlight C# %}
+public class Employees
+{
+	public string FirstName { get; set; }
+	public string LastName { get; set; }
+	public string EmployeeID { get; set; }
+	public string Address { get; set; }
+	public string City { get; set; }
+	public string Country { get; set; }
+	public List<CustomerDetails> Customers { get; set; }
+	
+	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
+	{
+		FirstName = firstName;
+		LastName = lastName;
+		Address = address;
+		EmployeeID = employeeId;
+		City = city;
+		Country = country;
+		Customers = customers;
+	}
+}
+public class CustomerDetails
+{
+	public string ContactName { get; set; }
+	public string CompanyName { get; set; }
+	public string City { get; set; }
+	public string Country { get; set; }
+	public List<OrderDetails> Orders { get; set; }
+
+	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+	{
+		ContactName = contactName;
+		CompanyName = companyName;
+		City = city;
+		Country = country;
+		Orders = orders;
+	}
+}
+public class OrderDetails
+{
+	public string OrderID { get; set; }
+	public DateTime OrderDate { get; set; }
+	public DateTime ShippedDate { get; set; }
+	public DateTime RequiredDate { get; set; }
+
+	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+	{
+		OrderID = orderId;
+		OrderDate = orderDate;
+		ShippedDate = shippedDate;
+		RequiredDate = requiredDate;
+	}
+}
+{% endhighlight %}
+
+{% highlight VB.NET %}
+Public Class Employees
+	Public Property FirstName As String
+	Public Property LastName As String
+	Public Property EmployeeID As String
+	Public Property Address As String
+	Public Property City As String
+	Public Property Country As String
+	Public Property Customers As List(Of CustomerDetails)
+
+	Public Sub New(ByVal firstName As String, ByVal lastName As String, ByVal employeeId As String, ByVal address As String, ByVal city As String, ByVal country As String, ByVal customers As List(Of CustomerDetails))
+		Me.FirstName = firstName
+		Me.LastName = lastName
+		Me.Address = address
+		Me.EmployeeID = employeeId
+		Me.City = city
+		Me.Country = country
+		Me.Customers = customers
+	End Sub
+End Class
+Public Class CustomerDetails
+	Public Property ContactName As String
+	Public Property CompanyName As String
+	Public Property City As String
+	Public Property Country As String
+	Public Property Orders As List(Of OrderDetails)
+
+	Public Sub New(ByVal contactName As String, ByVal companyName As String, ByVal city As String, ByVal country As String, ByVal orders As List(Of OrderDetails))
+		Me.ContactName = contactName
+		Me.CompanyName = companyName
+		Me.City = city
+		Me.Country = country
+		Me.Orders = orders
+	End Sub
+End Class
+Public Class OrderDetails
+	Public Property OrderID As String
+	Public Property OrderDate As DateTime
+	Public Property ShippedDate As DateTime
+	Public Property RequiredDate As DateTime
+	
+	Public Sub New(ByVal orderId As String, ByVal orderDate As DateTime, ByVal shippedDate As DateTime, ByVal requiredDate As DateTime)
+		Me.OrderID = orderId
+		Me.OrderDate = orderDate
+		Me.ShippedDate = shippedDate
+		Me.RequiredDate = requiredDate
+	End Sub
+End Class
+{% endhighlight %}
+
+{% highlight UWP %}
+public class Employees
+{
+	public string FirstName { get; set; }
+	public string LastName { get; set; }
+	public string EmployeeID { get; set; }
+	public string Address { get; set; }
+	public string City { get; set; }
+	public string Country { get; set; }
+	public List<CustomerDetails> Customers { get; set; }
+	
+	public Employees(string firstName, string lastName, string employeeId, string address, string city, string country, List<CustomerDetails> customers)
+	{
+		FirstName = firstName;
+		LastName = lastName;
+		Address = address;
+		EmployeeID = employeeId;
+		City = city;
+		Country = country;
+		Customers = customers;
+	}
+}
+public class CustomerDetails
+{
+	public string ContactName { get; set; }
+	public string CompanyName { get; set; }
+	public string City { get; set; }
+	public string Country { get; set; }
+	public List<OrderDetails> Orders { get; set; }
+
+	public CustomerDetails(string contactName, string companyName, string city, string country, List<OrderDetails> orders)
+	{
+		ContactName = contactName;
+		CompanyName = companyName;
+		City = city;
+		Country = country;
+		Orders = orders;
+	}
+}
+public class OrderDetails
+{
+	public string OrderID { get; set; }
+	public DateTime OrderDate { get; set; }
+	public DateTime ShippedDate { get; set; }
+	public DateTime RequiredDate { get; set; }
+
+	public OrderDetails(string orderId, DateTime orderDate, DateTime shippedDate, DateTime requiredDate)
+	{
+		OrderID = orderId;
+		OrderDate = orderDate;
+		ShippedDate = shippedDate;
+		RequiredDate = requiredDate;
+	}
+}
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
 public class Employees
 {
 	public string FirstName { get; set; }
@@ -1283,26 +1313,7 @@ public class OrderDetails
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//Gets order list
-private static List<OrderDetails> GetOrders()
-{
-	List<OrderDetails> orders = new List<OrderDetails>();
-	orders.Add(new OrderDetails("10952", new DateTime(2015, 2, 5), new DateTime(2015, 2, 12), new DateTime(2015, 2, 21)));
-	return orders;
-}
 
-//Gets employee list
-public static List<Employees> GetEmployees()
-{
-	List<OrderDetails> orders = new List<OrderDetails>();
-	orders.Add(new OrderDetails("10835", new DateTime(2015, 1, 5), new DateTime(2015, 1, 12), new DateTime(2015, 1, 21)));
-	List<CustomerDetails> customerDetails = new List<CustomerDetails>();
-	customerDetails.Add(new CustomerDetails("Maria Anders", "Maria Anders", "Berlin", "Germany", orders));
-	customerDetails.Add(new CustomerDetails("Andy", "Bernard", "Berlin", "Germany", null));
-	List<Employees> employees = new List<Employees>();
-	employees.Add(new Employees("Nancy", "Smith", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", customerDetails));
-	return employees;
-}
 
 public class Employees
 {
@@ -1360,5 +1371,4 @@ public class OrderDetails
 	}
 }
 {% endhighlight %}
-
-{% endtabs %} 
+{% endtabs %}
