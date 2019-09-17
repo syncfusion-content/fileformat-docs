@@ -436,7 +436,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     worksheet.Range["B1"].CellStyle.Font.Size = 35;
 
     //Apply alignment in the cell B1
-    worksheet.Range["B1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
+    worksheet.Range["B1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
     worksheet.Range["B1"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
 
     //Enter values to the cells from D5 to E8
@@ -633,7 +633,7 @@ public static class FileUtils
 {% endhighlight %}
 {% endtabs %}
 
-A complete working example of how to create an Excel file in Blazor Client-Side can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ClientSideApplication-549646924.zip).
+A complete working example of how to create an Excel file in Blazor Client-Side can be downloaded from [Create-Excel-file.zip](https://www.syncfusion.com/downloads/support/directtrac/general/ze/ClientSideApplication1352688647.zip).
 
 By executing the program, you will get the Excel file as below.
 ![Output File](Blazor_images/Blazor_images_Client_Output.png)
