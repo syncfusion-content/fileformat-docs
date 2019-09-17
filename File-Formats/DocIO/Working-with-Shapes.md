@@ -379,7 +379,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 ## Rotate shapes
 
-You can rotate the shape and also apply flipping (horizontal and vertical) to shape. The following code example illustrates how to rotate and flip the shape.
+You can rotate the shape and also apply flipping (horizontal and vertical) to it. The following code example explains how to rotate and flip the shape.
 
 {% tabs %}
 
