@@ -221,7 +221,7 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 
 ## Capture Warnings in Excel-to-PDF Conversion
 
-XlsIO intentionally skips unsupported elements and substitutes unsupported fonts.The elements that were not converted and the fonts that were intentionally substituted can be raised as warnings,to decide whether to proceed the conversion with the warnings or to stop the conversion.
+XlsIO intentionally skips unsupported elements and substitutes unsupported fonts.The elements that were not converted and the fonts that were intentionally substituted can be raised as warnings, to decide whether to proceed the conversion with the warnings or to stop the conversion.
 
 It is recommended to implement `IWarning` interface in a supporting class. The interface holds the properties,
 *	**Type** – the element that failed to convert
