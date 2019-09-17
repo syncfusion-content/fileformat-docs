@@ -386,6 +386,8 @@ public static class FileUtils
 
 {% endhighlight %}
 
+{% endtabs %}
+
 By executing the program, you will get the **PowerPoint document** as follows.
 
 ![Blazor Server-side output PowerPoint document](Workingwith_Blazor/Output.png)
