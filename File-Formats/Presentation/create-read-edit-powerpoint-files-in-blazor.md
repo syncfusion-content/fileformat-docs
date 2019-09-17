@@ -25,15 +25,15 @@ Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.
 
 ## Server-side application
 
-1.Create a new project.
+1.Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio](Workingwith_Blazor/Create_project.png)
 
-2.Select ASP.NET Core Web Application and click Next.
+2.Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 ![Create a project name for your new project](Workingwith_Blazor/Configure_project.png)
 
-3.Select **.NET Core, ASP.NET Core 3.0** and **Blazor (server-side)**.
+3.Choose **Blazor Server App** and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor server_side.](Workingwith_Blazor/Core_application_Server.png)
 
@@ -43,11 +43,23 @@ Syncfusion Essential PowerPoint is a [.NET Core PowerPoint library](https://www.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-5.Create a razor file with name as **Presentation** under **Pages** folder and add the following code to create a new button.
+5.Create a razor file with name as **Presentation** under **Pages** folder and include the following namespaces in the file.
+
+{% tabs %}
+{% highlight C# %}
+@page "/Presentation"
+@using System.IO;
+@using ServerSideApplication;
+@inject ServerSideApplication.Data.PresentationService service
+@inject Microsoft.JSInterop.IJSRuntime JS
+{% endhighlight %}
+{% endtabs %}
+
+6.Add the following code to create a new button.
 
 {% tabs %}
 
-{% highlight cshtml %}
+{% highlight CSHTML %}
 
 <h2>Syncfusion Presentation library (Essential Presentation)</h2>
 <p>Syncfusion Blazor Presentation library (Essential Presentation) used to create, read, edit, and convert Presentation files in your applications without Microsoft Office dependencies.</p>
@@ -57,13 +69,13 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% endtabs %}
 
-6.Add the following code in **Presentation.razor** file to create and download the **Presentation document**.
+7.Add the following code in **Presentation.razor** file to create and download the **Presentation document**.
 
 {% tabs %}
 
 {% highlight C# %}
 
-@functions {
+@code {
     MemoryStream documentStream;
 
     /// <summary>
@@ -80,7 +92,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% endtabs %}
 
-7.Create a new cs file with name as **PresentationService** under Data folder and include the following namespaces in the file.
+8.Create a new cs file with name as **PresentationService** under Data folder and include the following namespaces in the file.
 
 {% tabs %}
 
@@ -94,7 +106,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% endtabs %}
 
-8.Create a new MemoryStream method with name as **CreatePowerPoint** and include the following code snippet to **create a PowerPoint document in Blazor** Server-Side application.
+9.Create a new MemoryStream method with name as **CreatePowerPoint** and include the following code snippet to **create a PowerPoint document in Blazor** Server-Side application.
 
 {% tabs %}
 
@@ -161,11 +173,11 @@ public MemoryStream CreatePowerPoint()
 
 {% endtabs %}
 
-8.Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+10.Create a new class file in the project, with name as FileUtils and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight C# %}
 
 public static class FileUtils
 {
@@ -180,7 +192,7 @@ public static class FileUtils
 
 {% endtabs %}
 
-9.Add the following JavaScript function in the _Host.cshtml in the Pages folder.
+11.Add the following JavaScript function in the _Host.cshtml in the Pages folder.
 
 {% tabs %}
 
@@ -219,15 +231,15 @@ By executing the program, you will get the **PowerPoint document** as follows.
 
 ## Client-side application
 
-1.Create a new project.
+1.Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio](Workingwith_Blazor/Create_project.png)
 
-2.Select ASP.NET Core Web Application and click Next.
+2.Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 ![Create a project name for your new project](Workingwith_Blazor/Configure_project.png)
 
-3.Select **.NET Core, ASP.NET Core 3.0** and **Blazor (server-side)**.
+3.Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor server_side.](Workingwith_Blazor/Core_application_Client.png)
 
@@ -237,25 +249,23 @@ By executing the program, you will get the **PowerPoint document** as follows.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-5.Add the following namespace in the Index.razor to **create a PowerPoint document** from the scratch.
+5.Create a razor file with name as ``Presentation`` under ``Pages`` folder and add the following namespaces in the file.
 
 {% tabs %}
-
-{% highlight c# %}
-
+{% highlight C# %}
+@page "/Presentation"
 @using Syncfusion.Presentation
 @using Syncfusion.OfficeChart
 @using System.IO
-
+@inject Microsoft.JSInterop.IJSRuntime JS
 {% endhighlight %}
-
 {% endtabs %}
 
-6.Create a razor file with name as **Presentation** under **Pages** folder and add the following code to create a new button.
+6.Add the following code to create a new button.
 
 {% tabs %}
 
-{% highlight HTML %}
+{% highlight CSHTML %}
 
 <h2>Syncfusion Presentation library (Essential Presentation)</h2>
 <p>Syncfusion Blazor Presentation library (Essential Presentation) used to create, read, edit, and convert Presentation files in your applications without Microsoft Office dependencies.</p>
@@ -265,11 +275,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% endtabs %}
 
-7.Add the following code to **create a PowerPoint document in Blazor**.
+7.Create a new async method with name as ``CreatePowerPoint`` and include the following code snippet to **create a PowerPoint document in Blazor** Client-Side application.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight C# %}
 
 @functions {
 
@@ -340,7 +350,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight C# %}
 
 public static class FileUtils
 {

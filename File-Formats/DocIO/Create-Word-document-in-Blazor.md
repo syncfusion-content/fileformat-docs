@@ -25,15 +25,15 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 ## Server-side application
 
-1.Create a new project.
+1.Create a new C# Blazor Server-Side application project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Create.png)
 
-2.Select ASP.NET Core Web Application and click Next.
+2.Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 ![Create a project name for your new project](Blazor_Images/Blazor_Configure.png)
 
-3.Select **.NET Core, ASP.NET Core 3.0** and **Blazor (server-side)**.
+3.Choose **Blazor Server App** and click Create button to create a new Blazor Server-Side application for .NET Core 3.0.0-preview9.
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor Server side.](Blazor_Images/Select_Server.png)
 
@@ -43,27 +43,33 @@ Syncfusion Essential DocIO is a [.NET Core Word library](https://www.syncfusion.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-5.Create a razor file with name as **DocIO** under **Pages** folder and add the following code to create a new button.
+5.Create a razor file with name as **DocIO** under **Pages** folder and include the following namespaces in the file.
 
 {% tabs %}
+{% highlight C# %}
+@page "/DocIO"
+@using System.IO;
+@using ServerSideApplication;
+@inject ServerSideApplication.Data.WordService service
+@inject Microsoft.JSInterop.IJSRuntime JS
+{% endhighlight %}
+{% endtabs %}
 
-{% highlight cshtml %}
+6.Add the following code to create a new button.
 
+{% tabs %}
+{% highlight CSHTML %}
 <h2>Syncfusion DocIO library (Essential DocIO)</h2>
 <p>Syncfusion DocIO library (Essential DocIO) is a Blazor DocIO library used to create, read, edit, and convert Word files in your applications without Microsoft Office dependencies.</p>
 <button class="btn btn-primary" @onclick="@CreateWord">Create Word</button>
-
 {% endhighlight %}
-
 {% endtabs %}
 
-6.Add the following code in **DocIO.razor** file to create and download the **Word document**.
+7.Add the following code in **DocIO.razor** file to create and download the **Word document**.
 
 {% tabs %}
-
 {% highlight C# %}
-
-@functions {
+@code {
     MemoryStream documentStream;
 
     /// <summary>
@@ -75,12 +81,10 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
         await JS.SaveAs("Sample.docx", documentStream.ToArray());
     }
 }
-
 {% endhighlight %}
-
 {% endtabs %}
 
-7.Create a new cs file with name as **WordService** under Data folder and include the following namespaces in the file.
+8.Create a new cs file with name as **WordService** under Data folder and include the following namespaces in the file.
 
 {% tabs %}
 
@@ -94,7 +98,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% endtabs %}
 
-8.Create a new MemoryStream method with name as **CreateWord** and include the following code snippet to **create a simple Word document in Blazor** Server-Side application.
+9.Create a new MemoryStream method with name as **CreateWord** and include the following code snippet to **create a simple Word document in Blazor** Server-Side application.
 
 {% tabs %}
 
@@ -174,11 +178,11 @@ public MemoryStream CreateWord()
 
 {% endtabs %}
 
-8.Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
+10.Create a new class file in the project, with name as FileUtils and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight C# %}
 
 public static class FileUtils
 {
@@ -193,7 +197,7 @@ public static class FileUtils
 
 {% endtabs %}
 
-9.Add the following JavaScript function in the _Host.cshtml in the Pages folder.
+11.Add the following JavaScript function in the _Host.cshtml in the Pages folder.
 
 {% tabs %}
 
@@ -232,15 +236,15 @@ By executing the program, you will get the **Word document** as follows.
 
 ## Client-side application
 
-1.Create a new project.
+1.Create a new C# Blazor Client-Side application project. Select Blazor App from the template and click the Next button.
 
 ![Create ASP.NET Core Web application in Visual Studio](Blazor_Images/Blazor_Create.png)
 
-2.Select ASP.NET Core Web Application and click Next.
+2.Now, the project configuration window will popup. Click Create button to create a new project with the required project name.
 
 ![Create a project name for your new project](Blazor_Images/Blazor_Configure.png)
 
-3.Select **.NET Core, ASP.NET Core 3.0** and **Blazor (client-side)**.
+3.Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor Client side.](Blazor_Images/Select_Client.png)
 
@@ -250,25 +254,25 @@ By executing the program, you will get the **Word document** as follows.
 
 N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial setup or from the NuGet feed, you also have to add "Syncfusion.Licensing" assembly reference and include a license key in your projects. Please refer to this [link](https://help.syncfusion.com/common/essential-studio/licensing/license-key) to know about registering Syncfusion license key in your application to use our components.
 
-5.Add the following namespace in the Index.razor to **create a Word document** from the scratch.
+5.Create a razor file with name as ``DocIO`` under ``Pages`` folder and add the following namespaces in the file.
 
 {% tabs %}
 
-{% highlight c# %}
-
+{% highlight C# %}
+@page "/Presentation"
+@inject Microsoft.JSInterop.IJSRuntime JS
 @using Syncfusion.DocIO
 @using Syncfusion.DocIO.DLS
 @using System.IO
-
 {% endhighlight %}
 
 {% endtabs %}
 
-6.Create a razor file with name as **DocIO** under **Pages** folder and add the following code to create a new button.
+6.Add the following code to create a new button.
 
 {% tabs %}
 
-{% highlight HTML %}
+{% highlight CSHTML %}
 
 <h2>Syncfusion DocIO library (Essential DocIO)</h2>
 <p>Syncfusion Blazor DocIO library (Essential DocIO) used to create, read, edit, and convert DocIO files in your applications without Microsoft Office dependencies.</p>
@@ -278,11 +282,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% endtabs %}
 
-7.Add the following code to **create a Word document in Blazor**.
+7.Create a new async method with name as ``CreateWord`` and include the following code snippet to **create a Word document in Blazor** Client-Side application.
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight C# %}
 
 @functions {
 
@@ -366,7 +370,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% tabs %}
 
-{% highlight c# %}
+{% highlight C# %}
 
 public static class FileUtils
 {
