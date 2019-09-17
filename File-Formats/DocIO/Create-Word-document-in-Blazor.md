@@ -256,21 +256,23 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% highlight c# %}
 
-@using Syncfusion.DocIO;
-@using Syncfusion.DocIO.DLS;
-@using System.IO;
+@using Syncfusion.DocIO
+@using Syncfusion.DocIO.DLS
+@using System.IO
 
 {% endhighlight %}
 
 {% endtabs %}
 
-6.Add a button and hook the click event function.
+6.Create a razor file with name as **DocIO** under **Pages** folder and add the following code to create a new button.
 
 {% tabs %}
 
 {% highlight HTML %}
 
-<button class="btn btn-primary" onclick="@CreateWord">Create Word</button>
+<h2>Syncfusion DocIO library (Essential DocIO)</h2>
+<p>Syncfusion Blazor DocIO library (Essential DocIO) used to create, read, edit, and convert DocIO files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@CreateWord">Create Word</button>
 
 {% endhighlight %}
 
@@ -284,11 +286,11 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 @functions {
 
-    void CreateWord()
+    async void CreateWord()
     {
-        // Creating a new document.
+        //Creating a new document
         WordDocument document = new WordDocument();
-        //Adding a new section to the document.
+        //Adding a new section to the document
         WSection section = document.AddSection() as WSection;
         //Set Margin of the section
         section.PageSetup.Margins.All = 72;
@@ -322,7 +324,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
         textRange.CharacterFormat.FontName = "Calibri";
         textRange.CharacterFormat.TextColor = Syncfusion.Drawing.Color.Red;
 
-        //Appends paragraph.
+        //Appends paragraph
         paragraph = section.AddParagraph();
         paragraph.ApplyStyle("Heading 1");
         paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
@@ -330,29 +332,29 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
         textRange.CharacterFormat.FontSize = 18f;
         textRange.CharacterFormat.FontName = "Calibri";
 	
-        //Appends paragraph.
+        //Appends paragraph
         paragraph = section.AddParagraph();
         paragraph.ParagraphFormat.FirstLineIndent = 36;
         paragraph.BreakCharacterFormat.FontSize = 12f;
         textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
         textRange.CharacterFormat.FontSize = 12f;
 
-        //Appends paragraph.
+        //Appends paragraph
         paragraph = section.AddParagraph();
         paragraph.ParagraphFormat.FirstLineIndent = 36;
         paragraph.BreakCharacterFormat.FontSize = 12f;
         textRange = paragraph.AppendText("In 2000, AdventureWorks Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the AdventureWorks Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.") as WTextRange;
         textRange.CharacterFormat.FontSize = 12f;
 
-        //Saves the Word document to  MemoryStream
+        //Saves the Word document to MemoryStream
         MemoryStream stream = new MemoryStream();
         document.Save(stream, FormatType.Docx);
         //Closes the Word document
         document.Close();
         stream.Position = 0;
 
-        //Download the Word document in the browser.
-	JS.SaveAs("Sample.docx", stream.ToArray());
+        //Download the Word document in the browser
+        JS.SaveAs("Sample.docx", stream.ToArray());
     }
 }
 
@@ -360,15 +362,15 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 
 {% endtabs %}
 
-8.Create a class file with FileUtil name and add the following code to invoke the JavaScript action to download the file in the browser.
+8.Create a class file with FileUtils name and add the following code to invoke the JavaScript action to download the file in the browser.
 
 {% tabs %}
 
 {% highlight c# %}
 
-public static class FileUtil
+public static class FileUtils
 {
-    public static Task SaveAs(this IJSRuntime js, string filename, byte[] data)
+    public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
        => js.InvokeAsync<object>(
            "saveAsFile",
            filename,
