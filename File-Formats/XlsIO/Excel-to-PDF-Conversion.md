@@ -756,7 +756,7 @@ By default, XlsIO substitutes unsupported fonts to Microsoft Sans Serif in Excel
 **AlternateFontName** – Substitutes an available font in the machine for the `OriginalFontName`.
 **AlternateFontStream** – Substitutes a font from stream that is added as embedded resource for the `OriginalFontName`.	
 
-The following code illustrates how to perform Excel to PDF conversion by substituting unsupported fonts in the machine.
+The following code illustrates how to perform Excel-to-PDF conversion by substituting unsupported fonts in the machine.
 
 {% tabs %}
 {% highlight c# %}
@@ -864,7 +864,7 @@ End Namespace
 {% endhighlight %}
 
 {% highlight UWP %}
-//Excel To PDF conversion can be performed by referring .NET Standard 2.0 assemblies in UWP platform
+//Excel-to-PDF conversion can be performed by referring .NET Standard 2.0 assemblies in UWP platform
 
 using System;
 using System.Collections.Generic;
@@ -895,7 +895,7 @@ namespace FontSubstitution
             {
                 IApplication application = excelEngine.Excel;
 
-                //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+                //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
                 application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
                 //Initializing XlsIORenderer
@@ -997,7 +997,7 @@ namespace FontSubstitution
             {
                 IApplication application = excelEngine.Excel;
 
-                //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+                //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
                 application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
                 //Initialize XlsIO renderer.
@@ -1065,7 +1065,7 @@ namespace FontSubstitution
             {
                 IApplication application = excelEngine.Excel;
 
-                //Initializes the SubstituteFont event to perform font substitution during Excel to PDF conversion
+                //Initializes the SubstituteFont event to perform font substitution during Excel-to-PDF conversion
                 application.SubstituteFont += new SubstituteFontEventHandler(SubstituteFont);
 
                 //Initialize XlsIO renderer.
