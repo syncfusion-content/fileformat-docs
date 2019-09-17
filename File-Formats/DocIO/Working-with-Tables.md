@@ -1794,7 +1794,7 @@ document.Close();
 
 {% endtabs %}
 
-### Custom Table Style
+### Custom table style
 
 The following code example illustrates how to apply a custom table style to table.
 
