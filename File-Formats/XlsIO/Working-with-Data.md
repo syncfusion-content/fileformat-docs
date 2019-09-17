@@ -1644,1076 +1644,23 @@ The following code snippet helps to import data with merged cells.
 
 {% tabs %}  
 {% highlight c# %}
-using Syncfusion.XlsIO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Xml.Serialization;
-
-namespace ImportFromNestedCollection
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            ImportData();
-        }
-
-        //Main method to import data from nested collection to Excel worksheet. 
-        private static void ImportData()
-        {
-            ExcelEngine excelEngine = new ExcelEngine();
-            IApplication application = excelEngine.Excel;
-
-            application.DefaultVersion = ExcelVersion.Excel2016;
-
-            IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
-            IWorksheet worksheet = workbook.Worksheets[0];
-
-            IList<Brand> vehicles = GetVehicleDetails();
-
-            ExcelImportDataOptions importDataOptions = new ExcelImportDataOptions();
-
-            //Imports from 4th row.
-            importDataOptions.FirstRow = 4;
-
-            //Imports column headers.
-            importDataOptions.IncludeHeader = true;
-
-            //Set layout options.
-            importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
-            
-            //Import data from the nested collection.
-            worksheet.ImportData(vehicles, importDataOptions);
-
-            //Apply style to headers 
-            worksheet["A1:C2"].Merge();
-            worksheet["A1"].Text = "Automobile Brands in the US";
-
-            worksheet.UsedRange.AutofitColumns();
-
-            workbook.SaveAs("ImportData.xlsx");
-
-            workbook.Close();
-            excelEngine.Dispose();
-        }
-
-        //Helper method to load data from XML file and add them in collections. 
-        private static IList<Brand> GetVehicleDetails()
-        {
-            XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
-
-            //Read data from XML file. 
-            TextReader textReader = new StreamReader(@"..\..\Data\ExportData.xml");
-            BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
-
-            //Initialize parent collection to add data from XML file. 
-            List<Brand> list = new List<Brand>();
-
-            string brandName = brands.BrandObject[0].BrandName;
-            string vehicleType = brands.BrandObject[0].VahicleType;
-            string modelName = brands.BrandObject[0].ModelName;
-
-            //Parent class 
-            Brand brand = new Brand(brandName);
-            brand.VehicleTypes = new List<VehicleType>();
-
-            VehicleType vehicle = new VehicleType(vehicleType);
-            vehicle.Models = new List<Model>();
-
-            Model model = new Model(modelName);
-            brand.VehicleTypes.Add(vehicle);
-
-            list.Add(brand);
-
-            foreach (BrandObject brandObj in brands.BrandObject)
-            {
-                if (brandName == brandObj.BrandName)
-                {
-                    if (vehicleType == brandObj.VahicleType)
-                    {
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        continue;
-                    }
-                    else
-                    {
-                        vehicle = new VehicleType(brandObj.VahicleType);
-                        vehicle.Models = new List<Model>();
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        brand.VehicleTypes.Add(vehicle);
-                        vehicleType = brandObj.VahicleType;
-                    }
-                    continue;
-                }
-                else
-                {
-                    brand = new Brand(brandObj.BrandName);
-                    vehicle = new VehicleType(brandObj.VahicleType);
-                    vehicle.Models = new List<Model>();
-                    vehicle.Models.Add(new Model(brandObj.ModelName));
-                    brand.VehicleTypes = new List<VehicleType>();
-                    brand.VehicleTypes.Add(vehicle);
-                    vehicleType = brandObj.VahicleType;
-                    list.Add(brand);
-                    brandName = brandObj.BrandName;
-                }
-            }
-
-            textReader.Close();
-            return list;
-        }
-    }
-
-    //Parent Class 
-    public class Brand
-    {
-        private string m_brandName;
-
-        [DisplayNameAttribute("Brand")]
-        public string BrandName
-        {
-            get { return m_brandName; }
-            set { m_brandName = value; }
-        }
-
-        //Vehicle Types Collection 
-        private IList<VehicleType> m_vehicleTypes;
-
-        public IList<VehicleType> VehicleTypes
-        {
-            get { return m_vehicleTypes; }
-            set { m_vehicleTypes = value; }
-        }
-
-        public Brand(string brandName)
-        {
-            m_brandName = brandName;
-        }
-    }
-
-    //Child Class 
-    public class VehicleType
-    {
-        private string m_vehicleName;
-
-        [DisplayNameAttribute("Vehicle Type")]
-        public string VehicleName
-        {
-            get { return m_vehicleName; }
-            set { m_vehicleName = value; }
-        }
-
-        //Models collection 
-        private IList<Model> m_models;
-        public IList<Model> Models
-        {
-            get { return m_models; }
-            set { m_models = value; }
-        }
-
-        public VehicleType(string vehicle)
-        {
-            m_vehicleName = vehicle;
-        }
-    }
-
-    //Sub-child Class 
-    public class Model
-    {
-        private string m_modelName;
-
-        [DisplayNameAttribute("Model")]
-        public string ModelName
-        {
-            get { return m_modelName; }
-            set { m_modelName = value; }
-        }
-
-        public Model(string name)
-        {
-            m_modelName = name;
-        }
-    }
-
-    //Helper Classes 
-    [XmlRootAttribute("BrandObjects")]
-    public class BrandObjects
-    {
-        [XmlElement("BrandObject")]
-        public BrandObject[] BrandObject { get; set; }
-    }
-
-    public class BrandObject
-    {
-        public string BrandName { get; set; }
-        public string VahicleType { get; set; }
-        public string ModelName { get; set; }
-    }
-}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
 {% endhighlight %}
 
 {% highlight vb %}
-Imports Syncfusion.XlsIO
-Imports System.Collections.Generic
-Imports System.ComponentModel
-Imports System.IO
-Imports System.Xml.Serialization
-
-Namespace ImportFromNestedCollection
-    Class Program
-        Private Shared Sub Main(ByVal args As String())
-            ImportData()
-        End Sub
-
-        'Main method to import data from nested collection to Excel worksheet. 
-        Private Shared Sub ImportData()
-            Dim excelEngine As ExcelEngine = New ExcelEngine()
-            Dim application As IApplication = excelEngine.Excel
-			
-            application.DefaultVersion = ExcelVersion.Excel2016
-			
-            Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Create(1)
-            Dim worksheet As IWorksheet = workbook.Worksheets(0)
-			
-            Dim vehicles As IList(Of Brand) = GetVehicleDetails()
-			
-            Dim importDataOptions As ExcelImportDataOptions = New ExcelImportDataOptions()
-			
-			'Imports from 4th row.
-            importDataOptions.FirstRow = 4
-			
-			'Imports column headers.
-            importDataOptions.IncludeHeader = True
-			
-			'Set layout options.
-            importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge
-			
-			'Import data from the nested collection.
-            worksheet.ImportData(vehicles, importDataOptions)
-						
-			'Apply style to headers 
-            worksheet("A1:C2").Merge()
-            worksheet("A1").Text = "Automobile Brands in the US"
-			
-            worksheet.UsedRange.AutofitColumns()
-			
-            workbook.SaveAs("ImportData.xlsx")
-			
-            workbook.Close()
-            excelEngine.Dispose()
-        End Sub
-
-        'Helper method to load data from XML file and add them in collections. 
-        Private Shared Function GetVehicleDetails() As IList(Of Brand)
-            Dim deserializer As XmlSerializer = New XmlSerializer(GetType(BrandObjects))
-			
-			'Read data from XML file. 
-            Dim textReader As TextReader = New StreamReader("..\..\Data\ExportData.xml")
-            Dim brands As BrandObjects = CType(deserializer.Deserialize(textReader), BrandObjects)
-			
-			'Initialize parent collection to add data from XML file. 
-            Dim list As List(Of Brand) = New List(Of Brand)()
-			
-            Dim brandName As String = brands.BrandObject(0).BrandName
-            Dim vehicleType As String = brands.BrandObject(0).VahicleType
-            Dim modelName As String = brands.BrandObject(0).ModelName
-			
-			'Parent class 
-            Dim brand As Brand = New Brand(brandName)
-            brand.VehicleTypes = New List(Of VehicleType)()
-			
-            Dim vehicle As VehicleType = New VehicleType(vehicleType)
-            vehicle.Models = New List(Of Model)()
-			
-            Dim model As Model = New Model(modelName)
-            brand.VehicleTypes.Add(vehicle)
-			
-            list.Add(brand)
-
-            For Each brandObj As BrandObject In brands.BrandObject
-
-                If brandName = brandObj.BrandName Then
-
-                    If vehicleType = brandObj.VahicleType Then
-                        vehicle.Models.Add(New Model(brandObj.ModelName))
-                        Continue For
-                    Else
-                        vehicle = New VehicleType(brandObj.VahicleType)
-                        vehicle.Models = New List(Of Model)()
-                        vehicle.Models.Add(New Model(brandObj.ModelName))
-                        brand.VehicleTypes.Add(vehicle)
-                        vehicleType = brandObj.VahicleType
-                    End If
-
-                    Continue For
-                Else
-                    brand = New Brand(brandObj.BrandName)
-                    vehicle = New VehicleType(brandObj.VahicleType)
-                    vehicle.Models = New List(Of Model)()
-                    vehicle.Models.Add(New Model(brandObj.ModelName))
-                    brand.VehicleTypes = New List(Of VehicleType)()
-                    brand.VehicleTypes.Add(vehicle)
-                    vehicleType = brandObj.VahicleType
-                    list.Add(brand)
-                    brandName = brandObj.BrandName
-                End If
-            Next
-
-            textReader.Close()
-            Return list
-        End Function
-    End Class
-
-    'Parent Class 
-    Public Class Brand
-        Private m_brandName As String
-
-        <DisplayNameAttribute("Brand")>
-        Public Property BrandName As String
-            Get
-                Return m_brandName
-            End Get
-            Set(ByVal value As String)
-                m_brandName = value
-            End Set
-        End Property
-
-        Private m_vehicleTypes As IList(Of VehicleType)
-
-        Public Property VehicleTypes As IList(Of VehicleType)
-            Get
-                Return m_vehicleTypes
-            End Get
-            Set(ByVal value As IList(Of VehicleType))
-                m_vehicleTypes = value
-            End Set
-        End Property
-
-        Public Sub New(ByVal brandName As String)
-            m_brandName = brandName
-        End Sub
-    End Class
- 
-    'Child Class
-    Public Class VehicleType
-        Private m_vehicleName As String
-
-        <DisplayNameAttribute("Vehicle Type")>
-        Public Property VehicleName As String
-            Get
-                Return m_vehicleName
-            End Get
-            Set(ByVal value As String)
-                m_vehicleName = value
-            End Set
-        End Property
-
-        Private m_models As IList(Of Model)
-
-        Public Property Models As IList(Of Model)
-            Get
-                Return m_models
-            End Get
-            Set(ByVal value As IList(Of Model))
-                m_models = value
-            End Set
-        End Property
-
-        Public Sub New(ByVal vehicle As String)
-            m_vehicleName = vehicle
-        End Sub
-    End Class
-    
-	'Sub-child Class 
-    Public Class Model
-        Private m_modelName As String
-
-        <DisplayNameAttribute("Model")>
-        Public Property ModelName As String
-            Get
-                Return m_modelName
-            End Get
-            Set(ByVal value As String)
-                m_modelName = value
-            End Set
-        End Property
-
-        Public Sub New(ByVal name As String)
-            m_modelName = name
-        End Sub
-    End Class
-
-    <XmlRootAttribute("BrandObjects")>
-    Public Class BrandObjects
-        <XmlElement("BrandObject")>
-        Public Property BrandObject As BrandObject()
-    End Class
-
-    Public Class BrandObject
-        Public Property BrandName As String
-        Public Property VahicleType As String
-        Public Property ModelName As String
-    End Class
-End Namespace
-
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge
 {% endhighlight %}
 
 {% highlight UWP %}
-using Syncfusion.XlsIO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Xml.Serialization;
-
-namespace ImportFromNestedCollection
-{
-    public sealed partial class MainPage : Page
-    {
-	    public MainPage()
-        {
-            this.InitializeComponent();
-        }
-		
-
-        //Button click to import data from nested collection to Excel worksheet. 
-		private async void btnGenerateExcel_Click(object sender, RoutedEventArgs e)
-        {
-            ExcelEngine excelEngine = new ExcelEngine();
-            IApplication application = excelEngine.Excel;
-
-            application.DefaultVersion = ExcelVersion.Excel2016;
-
-            IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
-            IWorksheet worksheet = workbook.Worksheets[0];
-
-            IList<Brand> vehicles = GetVehicleDetails();
-
-            ExcelImportDataOptions importDataOptions = new ExcelImportDataOptions();
-
-            //Imports from 4th row.
-            importDataOptions.FirstRow = 4;
-
-            //Imports column headers.
-            importDataOptions.IncludeHeader = true;
-
-            //Set layout options.
-            importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
-            
-            //Import data from the nested collection.
-            worksheet.ImportData(vehicles, importDataOptions);
-
-            //Apply style to headers 
-            worksheet["A1:C2"].Merge();
-            worksheet["A1"].Text = "Automobile Brands in the US";
-
-            worksheet.UsedRange.AutofitColumns();
-
-            //Initializes FileSavePicker
-            FileSavePicker savePicker = new FileSavePicker();
-            savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-            savePicker.SuggestedFileName = "ImportData";
-            savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-	        
-            //Creates a storage file from FileSavePicker
-            StorageFile storageFile = await savePicker.PickSaveFileAsync();
-	        
-            //Saves changes to the specified storage file
-            await workbook.SaveAsAsync(storageFile);
-
-            workbook.Close();
-            excelEngine.Dispose();
-        }
-
-        //Helper method to load data from XML file and add them in collections. 
-        private static IList<Brand> GetVehicleDetails()
-        {
-            XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
-
-            //Read data from XML file. 
-			Assembly assembly = typeof(MainPage).GetTypeInfo().Assembly;
-            Stream fileStream = assembly.GetManifestResourceStream("Sample.Data.ExportData.xml");
-            TextReader textReader = new StreamReader(fileStream);
-            BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
-
-            //Initialize parent collection to add data from XML file. 
-            List<Brand> list = new List<Brand>();
-
-            string brandName = brands.BrandObject[0].BrandName;
-            string vehicleType = brands.BrandObject[0].VahicleType;
-            string modelName = brands.BrandObject[0].ModelName;
-
-            //Parent class 
-            Brand brand = new Brand(brandName);
-            brand.VehicleTypes = new List<VehicleType>();
-
-            VehicleType vehicle = new VehicleType(vehicleType);
-            vehicle.Models = new List<Model>();
-
-            Model model = new Model(modelName);
-            brand.VehicleTypes.Add(vehicle);
-
-            list.Add(brand);
-
-            foreach (BrandObject brandObj in brands.BrandObject)
-            {
-                if (brandName == brandObj.BrandName)
-                {
-                    if (vehicleType == brandObj.VahicleType)
-                    {
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        continue;
-                    }
-                    else
-                    {
-                        vehicle = new VehicleType(brandObj.VahicleType);
-                        vehicle.Models = new List<Model>();
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        brand.VehicleTypes.Add(vehicle);
-                        vehicleType = brandObj.VahicleType;
-                    }
-                    continue;
-                }
-                else
-                {
-                    brand = new Brand(brandObj.BrandName);
-                    vehicle = new VehicleType(brandObj.VahicleType);
-                    vehicle.Models = new List<Model>();
-                    vehicle.Models.Add(new Model(brandObj.ModelName));
-                    brand.VehicleTypes = new List<VehicleType>();
-                    brand.VehicleTypes.Add(vehicle);
-                    vehicleType = brandObj.VahicleType;
-                    list.Add(brand);
-                    brandName = brandObj.BrandName;
-                }
-            }
-
-            textReader.Close();
-            return list;
-        }
-    }
-
-    //Parent Class 
-    public class Brand
-    {
-        private string m_brandName;
-
-        [DisplayNameAttribute("Brand")]
-        public string BrandName
-        {
-            get { return m_brandName; }
-            set { m_brandName = value; }
-        }
-
-        //Vehicle Types Collection 
-        private IList<VehicleType> m_vehicleTypes;
-
-        public IList<VehicleType> VehicleTypes
-        {
-            get { return m_vehicleTypes; }
-            set { m_vehicleTypes = value; }
-        }
-
-        public Brand(string brandName)
-        {
-            m_brandName = brandName;
-        }
-    }
-
-    //Child Class 
-    public class VehicleType
-    {
-        private string m_vehicleName;
-
-        [DisplayNameAttribute("Vehicle Type")]
-        public string VehicleName
-        {
-            get { return m_vehicleName; }
-            set { m_vehicleName = value; }
-        }
-
-        //Models collection 
-        private IList<Model> m_models;
-        public IList<Model> Models
-        {
-            get { return m_models; }
-            set { m_models = value; }
-        }
-
-        public VehicleType(string vehicle)
-        {
-            m_vehicleName = vehicle;
-        }
-    }
-
-    //Sub-child Class 
-    public class Model
-    {
-        private string m_modelName;
-
-        [DisplayNameAttribute("Model")]
-        public string ModelName
-        {
-            get { return m_modelName; }
-            set { m_modelName = value; }
-        }
-
-        public Model(string name)
-        {
-            m_modelName = name;
-        }
-    }
-
-    //Helper Classes 
-    [XmlRootAttribute("BrandObjects")]
-    public class BrandObjects
-    {
-        [XmlElement("BrandObject")]
-        public BrandObject[] BrandObject { get; set; }
-    }
-
-    public class BrandObject
-    {
-        public string BrandName { get; set; }
-        public string VahicleType { get; set; }
-        public string ModelName { get; set; }
-    }
-}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-using Syncfusion.XlsIO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Xml.Serialization;
-
-namespace ImportFromNestedCollection
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            ImportData();
-        }
-
-        //Main method to import data from nested collection to Excel worksheet. 
-        private static void ImportData()
-        {
-            ExcelEngine excelEngine = new ExcelEngine();
-            IApplication application = excelEngine.Excel;
-
-            application.DefaultVersion = ExcelVersion.Excel2016;
-
-            IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
-            IWorksheet worksheet = workbook.Worksheets[0];
-
-            IList<Brand> vehicles = GetVehicleDetails();
-
-            ExcelImportDataOptions importDataOptions = new ExcelImportDataOptions();
-
-            //Imports from 4th row.
-            importDataOptions.FirstRow = 4;
-
-            //Imports column headers.
-            importDataOptions.IncludeHeader = true;
-
-            //Set layout options.
-            importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
-            
-            //Import data from the nested collection.
-            worksheet.ImportData(vehicles, importDataOptions);
-
-            //Apply style to headers 
-            worksheet["A1:C2"].Merge();
-            worksheet["A1"].Text = "Automobile Brands in the US";
-
-            worksheet.UsedRange.AutofitColumns();
-
-            //Saving the workbook as stream
-            FileStream stream = new FileStream("ImportData.xlsx", FileMode.Create, FileAccess.ReadWrite);
-            workbook.SaveAs(stream);
-
-            stream.Dispose();
-            workbook.Close();
-            excelEngine.Dispose();
-        }
-
-        //Helper method to load data from XML file and add them in collections. 
-        private static IList<Brand> GetVehicleDetails()
-        {
-            XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
-
-            //Read data from XML file. 
-            FileStream stream = new FileStream(@"..\..\Data\ExportData.xml", FileMode.Open, FileAccess.Read);
-            TextReader textReader = new StreamReader(stream);
-            BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
-
-            //Initialize parent collection to add data from XML file. 
-            List<Brand> list = new List<Brand>();
-
-            string brandName = brands.BrandObject[0].BrandName;
-            string vehicleType = brands.BrandObject[0].VahicleType;
-            string modelName = brands.BrandObject[0].ModelName;
-
-            //Parent class 
-            Brand brand = new Brand(brandName);
-            brand.VehicleTypes = new List<VehicleType>();
-
-            VehicleType vehicle = new VehicleType(vehicleType);
-            vehicle.Models = new List<Model>();
-
-            Model model = new Model(modelName);
-            brand.VehicleTypes.Add(vehicle);
-
-            list.Add(brand);
-
-            foreach (BrandObject brandObj in brands.BrandObject)
-            {
-                if (brandName == brandObj.BrandName)
-                {
-                    if (vehicleType == brandObj.VahicleType)
-                    {
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        continue;
-                    }
-                    else
-                    {
-                        vehicle = new VehicleType(brandObj.VahicleType);
-                        vehicle.Models = new List<Model>();
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        brand.VehicleTypes.Add(vehicle);
-                        vehicleType = brandObj.VahicleType;
-                    }
-                    continue;
-                }
-                else
-                {
-                    brand = new Brand(brandObj.BrandName);
-                    vehicle = new VehicleType(brandObj.VahicleType);
-                    vehicle.Models = new List<Model>();
-                    vehicle.Models.Add(new Model(brandObj.ModelName));
-                    brand.VehicleTypes = new List<VehicleType>();
-                    brand.VehicleTypes.Add(vehicle);
-                    vehicleType = brandObj.VahicleType;
-                    list.Add(brand);
-                    brandName = brandObj.BrandName;
-                }
-            }
-
-            textReader.Close();
-            return list;
-        }
-    }
-
-    //Parent Class 
-    public class Brand
-    {
-        private string m_brandName;
-
-        [DisplayNameAttribute("Brand")]
-        public string BrandName
-        {
-            get { return m_brandName; }
-            set { m_brandName = value; }
-        }
-
-        //Vehicle Types Collection 
-        private IList<VehicleType> m_vehicleTypes;
-
-        public IList<VehicleType> VehicleTypes
-        {
-            get { return m_vehicleTypes; }
-            set { m_vehicleTypes = value; }
-        }
-
-        public Brand(string brandName)
-        {
-            m_brandName = brandName;
-        }
-    }
-
-    //Child Class 
-    public class VehicleType
-    {
-        private string m_vehicleName;
-
-        [DisplayNameAttribute("Vehicle Type")]
-        public string VehicleName
-        {
-            get { return m_vehicleName; }
-            set { m_vehicleName = value; }
-        }
-
-        //Models collection 
-        private IList<Model> m_models;
-        public IList<Model> Models
-        {
-            get { return m_models; }
-            set { m_models = value; }
-        }
-
-        public VehicleType(string vehicle)
-        {
-            m_vehicleName = vehicle;
-        }
-    }
-
-    //Sub-child Class 
-    public class Model
-    {
-        private string m_modelName;
-
-        [DisplayNameAttribute("Model")]
-        public string ModelName
-        {
-            get { return m_modelName; }
-            set { m_modelName = value; }
-        }
-
-        public Model(string name)
-        {
-            m_modelName = name;
-        }
-    }
-
-    //Helper Classes 
-    [XmlRootAttribute("BrandObjects")]
-    public class BrandObjects
-    {
-        [XmlElement("BrandObject")]
-        public BrandObject[] BrandObject { get; set; }
-    }
-
-    public class BrandObject
-    {
-        public string BrandName { get; set; }
-        public string VahicleType { get; set; }
-        public string ModelName { get; set; }
-    }
-}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
 {% endhighlight %}
 
 {% highlight Xamarin %}
-using Syncfusion.XlsIO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Xml.Serialization;
-
-namespace ImportFromNestedCollection
-{
-    public partial class MainPage : ContentPage
-    {
-	    public MainPage()
-        {
-            this.InitializeComponent();
-        }
-		
-
-        //Button click to import data from nested collection to Excel worksheet. 
-		internal void OnButtonClicked(object sender, EventArgs e)
-        {
-            ExcelEngine excelEngine = new ExcelEngine();
-            IApplication application = excelEngine.Excel;
-
-            application.DefaultVersion = ExcelVersion.Excel2016;
-
-            IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
-            IWorksheet worksheet = workbook.Worksheets[0];
-
-            IList<Brand> vehicles = GetVehicleDetails();
-
-            ExcelImportDataOptions importDataOptions = new ExcelImportDataOptions();
-
-            //Imports from 4th row.
-            importDataOptions.FirstRow = 4;
-
-            //Imports column headers.
-            importDataOptions.IncludeHeader = true;
-
-            //Set layout options.
-            importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
-            
-            //Import data from the nested collection.
-            worksheet.ImportData(vehicles, importDataOptions);
-
-            //Apply style to headers 
-            worksheet["A1:C2"].Merge();
-            worksheet["A1"].Text = "Automobile Brands in the US";
-
-            worksheet.UsedRange.AutofitColumns();
-
-            //Save the document as file and view the saved document
-
-            //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-	        
-            if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-            {
-                Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ImportData.xlsx", "application/msexcel", stream);
-            }
-            else
-            {
-                Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportData.xlsx", "application/msexcel", stream);
-            }   
-	
-            workbook.Close();
-            excelEngine.Dispose();
-        }
-
-        //Helper method to load data from XML file and add them in collections. 
-        private static IList<Brand> GetVehicleDetails()
-        {
-            XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
-
-            //Read data from XML file.
-			Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-            Stream fileStream = assembly.GetManifestResourceStream("Sample.Data.ExportData.xml");
-            TextReader textReader = new StreamReader(fileStream);
-            BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
-
-            //Initialize parent collection to add data from XML file. 
-            List<Brand> list = new List<Brand>();
-
-            string brandName = brands.BrandObject[0].BrandName;
-            string vehicleType = brands.BrandObject[0].VahicleType;
-            string modelName = brands.BrandObject[0].ModelName;
-
-            //Parent class 
-            Brand brand = new Brand(brandName);
-            brand.VehicleTypes = new List<VehicleType>();
-
-            VehicleType vehicle = new VehicleType(vehicleType);
-            vehicle.Models = new List<Model>();
-
-            Model model = new Model(modelName);
-            brand.VehicleTypes.Add(vehicle);
-
-            list.Add(brand);
-
-            foreach (BrandObject brandObj in brands.BrandObject)
-            {
-                if (brandName == brandObj.BrandName)
-                {
-                    if (vehicleType == brandObj.VahicleType)
-                    {
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        continue;
-                    }
-                    else
-                    {
-                        vehicle = new VehicleType(brandObj.VahicleType);
-                        vehicle.Models = new List<Model>();
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        brand.VehicleTypes.Add(vehicle);
-                        vehicleType = brandObj.VahicleType;
-                    }
-                    continue;
-                }
-                else
-                {
-                    brand = new Brand(brandObj.BrandName);
-                    vehicle = new VehicleType(brandObj.VahicleType);
-                    vehicle.Models = new List<Model>();
-                    vehicle.Models.Add(new Model(brandObj.ModelName));
-                    brand.VehicleTypes = new List<VehicleType>();
-                    brand.VehicleTypes.Add(vehicle);
-                    vehicleType = brandObj.VahicleType;
-                    list.Add(brand);
-                    brandName = brandObj.BrandName;
-                }
-            }
-
-            textReader.Close();
-            return list;
-        }
-    }
-
-    //Parent Class 
-    public class Brand
-    {
-        private string m_brandName;
-
-        [DisplayNameAttribute("Brand")]
-        public string BrandName
-        {
-            get { return m_brandName; }
-            set { m_brandName = value; }
-        }
-
-        //Vehicle Types Collection 
-        private IList<VehicleType> m_vehicleTypes;
-
-        public IList<VehicleType> VehicleTypes
-        {
-            get { return m_vehicleTypes; }
-            set { m_vehicleTypes = value; }
-        }
-
-        public Brand(string brandName)
-        {
-            m_brandName = brandName;
-        }
-    }
-
-    //Child Class 
-    public class VehicleType
-    {
-        private string m_vehicleName;
-
-        [DisplayNameAttribute("Vehicle Type")]
-        public string VehicleName
-        {
-            get { return m_vehicleName; }
-            set { m_vehicleName = value; }
-        }
-
-        //Models collection 
-        private IList<Model> m_models;
-        public IList<Model> Models
-        {
-            get { return m_models; }
-            set { m_models = value; }
-        }
-
-        public VehicleType(string vehicle)
-        {
-            m_vehicleName = vehicle;
-        }
-    }
-
-    //Sub-child Class 
-    public class Model
-    {
-        private string m_modelName;
-
-        [DisplayNameAttribute("Model")]
-        public string ModelName
-        {
-            get { return m_modelName; }
-            set { m_modelName = value; }
-        }
-
-        public Model(string name)
-        {
-            m_modelName = name;
-        }
-    }
-
-    //Helper Classes 
-    [XmlRootAttribute("BrandObjects")]
-    public class BrandObjects
-    {
-        [XmlElement("BrandObject")]
-        public BrandObject[] BrandObject { get; set; }
-    }
-
-    public class BrandObject
-    {
-        public string BrandName { get; set; }
-        public string VahicleType { get; set; }
-        public string ModelName { get; set; }
-    }
-}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Merge;
 {% endhighlight %}
 {% endtabs %}
 
@@ -2729,1076 +1676,23 @@ The following code snippet helps to import data with repeated rows.
 
 {% tabs %}  
 {% highlight c# %}
-using Syncfusion.XlsIO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Xml.Serialization;
-
-namespace ImportFromNestedCollection
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            ImportData();
-        }
-
-        //Main method to import data from nested collection to Excel worksheet. 
-        private static void ImportData()
-        {
-            ExcelEngine excelEngine = new ExcelEngine();
-            IApplication application = excelEngine.Excel;
-
-            application.DefaultVersion = ExcelVersion.Excel2016;
-
-            IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
-            IWorksheet worksheet = workbook.Worksheets[0];
-
-            IList<Brand> vehicles = GetVehicleDetails();
-
-            ExcelImportDataOptions importDataOptions = new ExcelImportDataOptions();
-
-            //Imports from 4th row.
-            importDataOptions.FirstRow = 4;
-
-            //Imports column headers.
-            importDataOptions.IncludeHeader = true;
-
-            //Set layout options.
-            importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
-            
-            //Import data from the nested collection.
-            worksheet.ImportData(vehicles, importDataOptions);
-
-            //Apply style to headers 
-            worksheet["A1:C2"].Merge();
-            worksheet["A1"].Text = "Automobile Brands in the US";
-
-            worksheet.UsedRange.AutofitColumns();
-
-            workbook.SaveAs("ImportData.xlsx");
-
-            workbook.Close();
-            excelEngine.Dispose();
-        }
-
-        //Helper method to load data from XML file and add them in collections. 
-        private static IList<Brand> GetVehicleDetails()
-        {
-            XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
-
-            //Read data from XML file. 
-            TextReader textReader = new StreamReader(@"..\..\Data\ExportData.xml");
-            BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
-
-            //Initialize parent collection to add data from XML file. 
-            List<Brand> list = new List<Brand>();
-
-            string brandName = brands.BrandObject[0].BrandName;
-            string vehicleType = brands.BrandObject[0].VahicleType;
-            string modelName = brands.BrandObject[0].ModelName;
-
-            //Parent class 
-            Brand brand = new Brand(brandName);
-            brand.VehicleTypes = new List<VehicleType>();
-
-            VehicleType vehicle = new VehicleType(vehicleType);
-            vehicle.Models = new List<Model>();
-
-            Model model = new Model(modelName);
-            brand.VehicleTypes.Add(vehicle);
-
-            list.Add(brand);
-
-            foreach (BrandObject brandObj in brands.BrandObject)
-            {
-                if (brandName == brandObj.BrandName)
-                {
-                    if (vehicleType == brandObj.VahicleType)
-                    {
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        continue;
-                    }
-                    else
-                    {
-                        vehicle = new VehicleType(brandObj.VahicleType);
-                        vehicle.Models = new List<Model>();
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        brand.VehicleTypes.Add(vehicle);
-                        vehicleType = brandObj.VahicleType;
-                    }
-                    continue;
-                }
-                else
-                {
-                    brand = new Brand(brandObj.BrandName);
-                    vehicle = new VehicleType(brandObj.VahicleType);
-                    vehicle.Models = new List<Model>();
-                    vehicle.Models.Add(new Model(brandObj.ModelName));
-                    brand.VehicleTypes = new List<VehicleType>();
-                    brand.VehicleTypes.Add(vehicle);
-                    vehicleType = brandObj.VahicleType;
-                    list.Add(brand);
-                    brandName = brandObj.BrandName;
-                }
-            }
-
-            textReader.Close();
-            return list;
-        }
-    }
-
-    //Parent Class 
-    public class Brand
-    {
-        private string m_brandName;
-
-        [DisplayNameAttribute("Brand")]
-        public string BrandName
-        {
-            get { return m_brandName; }
-            set { m_brandName = value; }
-        }
-
-        //Vehicle Types Collection 
-        private IList<VehicleType> m_vehicleTypes;
-
-        public IList<VehicleType> VehicleTypes
-        {
-            get { return m_vehicleTypes; }
-            set { m_vehicleTypes = value; }
-        }
-
-        public Brand(string brandName)
-        {
-            m_brandName = brandName;
-        }
-    }
-
-    //Child Class 
-    public class VehicleType
-    {
-        private string m_vehicleName;
-
-        [DisplayNameAttribute("Vehicle Type")]
-        public string VehicleName
-        {
-            get { return m_vehicleName; }
-            set { m_vehicleName = value; }
-        }
-
-        //Models collection 
-        private IList<Model> m_models;
-        public IList<Model> Models
-        {
-            get { return m_models; }
-            set { m_models = value; }
-        }
-
-        public VehicleType(string vehicle)
-        {
-            m_vehicleName = vehicle;
-        }
-    }
-
-    //Sub-child Class 
-    public class Model
-    {
-        private string m_modelName;
-
-        [DisplayNameAttribute("Model")]
-        public string ModelName
-        {
-            get { return m_modelName; }
-            set { m_modelName = value; }
-        }
-
-        public Model(string name)
-        {
-            m_modelName = name;
-        }
-    }
-
-    //Helper Classes 
-    [XmlRootAttribute("BrandObjects")]
-    public class BrandObjects
-    {
-        [XmlElement("BrandObject")]
-        public BrandObject[] BrandObject { get; set; }
-    }
-
-    public class BrandObject
-    {
-        public string BrandName { get; set; }
-        public string VahicleType { get; set; }
-        public string ModelName { get; set; }
-    }
-}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
 {% endhighlight %}
 
 {% highlight vb %}
-Imports Syncfusion.XlsIO
-Imports System.Collections.Generic
-Imports System.ComponentModel
-Imports System.IO
-Imports System.Xml.Serialization
-
-Namespace ImportFromNestedCollection
-    Class Program
-        Private Shared Sub Main(ByVal args As String())
-            ImportData()
-        End Sub
-
-        'Main method to import data from nested collection to Excel worksheet. 
-        Private Shared Sub ImportData()
-            Dim excelEngine As ExcelEngine = New ExcelEngine()
-            Dim application As IApplication = excelEngine.Excel
-			
-            application.DefaultVersion = ExcelVersion.Excel2016
-			
-            Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Create(1)
-            Dim worksheet As IWorksheet = workbook.Worksheets(0)
-			
-            Dim vehicles As IList(Of Brand) = GetVehicleDetails()
-			
-            Dim importDataOptions As ExcelImportDataOptions = New ExcelImportDataOptions()
-			
-			'Imports from 4th row.
-            importDataOptions.FirstRow = 4
-			
-			'Imports column headers.
-            importDataOptions.IncludeHeader = True
-			
-			'Set layout options.
-            importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat
-			
-			'Import data from the nested collection.
-            worksheet.ImportData(vehicles, importDataOptions)
-						
-			'Apply style to headers 
-            worksheet("A1:C2").Merge()
-            worksheet("A1").Text = "Automobile Brands in the US"
-			
-            worksheet.UsedRange.AutofitColumns()
-			
-            workbook.SaveAs("ImportData.xlsx")
-			
-            workbook.Close()
-            excelEngine.Dispose()
-        End Sub
-
-        'Helper method to load data from XML file and add them in collections. 
-        Private Shared Function GetVehicleDetails() As IList(Of Brand)
-            Dim deserializer As XmlSerializer = New XmlSerializer(GetType(BrandObjects))
-			
-			'Read data from XML file. 
-            Dim textReader As TextReader = New StreamReader("..\..\Data\ExportData.xml")
-            Dim brands As BrandObjects = CType(deserializer.Deserialize(textReader), BrandObjects)
-			
-			'Initialize parent collection to add data from XML file. 
-            Dim list As List(Of Brand) = New List(Of Brand)()
-			
-            Dim brandName As String = brands.BrandObject(0).BrandName
-            Dim vehicleType As String = brands.BrandObject(0).VahicleType
-            Dim modelName As String = brands.BrandObject(0).ModelName
-			
-			'Parent class 
-            Dim brand As Brand = New Brand(brandName)
-            brand.VehicleTypes = New List(Of VehicleType)()
-			
-            Dim vehicle As VehicleType = New VehicleType(vehicleType)
-            vehicle.Models = New List(Of Model)()
-			
-            Dim model As Model = New Model(modelName)
-            brand.VehicleTypes.Add(vehicle)
-			
-            list.Add(brand)
-
-            For Each brandObj As BrandObject In brands.BrandObject
-
-                If brandName = brandObj.BrandName Then
-
-                    If vehicleType = brandObj.VahicleType Then
-                        vehicle.Models.Add(New Model(brandObj.ModelName))
-                        Continue For
-                    Else
-                        vehicle = New VehicleType(brandObj.VahicleType)
-                        vehicle.Models = New List(Of Model)()
-                        vehicle.Models.Add(New Model(brandObj.ModelName))
-                        brand.VehicleTypes.Add(vehicle)
-                        vehicleType = brandObj.VahicleType
-                    End If
-
-                    Continue For
-                Else
-                    brand = New Brand(brandObj.BrandName)
-                    vehicle = New VehicleType(brandObj.VahicleType)
-                    vehicle.Models = New List(Of Model)()
-                    vehicle.Models.Add(New Model(brandObj.ModelName))
-                    brand.VehicleTypes = New List(Of VehicleType)()
-                    brand.VehicleTypes.Add(vehicle)
-                    vehicleType = brandObj.VahicleType
-                    list.Add(brand)
-                    brandName = brandObj.BrandName
-                End If
-            Next
-
-            textReader.Close()
-            Return list
-        End Function
-    End Class
-
-    'Parent Class 
-    Public Class Brand
-        Private m_brandName As String
-
-        <DisplayNameAttribute("Brand")>
-        Public Property BrandName As String
-            Get
-                Return m_brandName
-            End Get
-            Set(ByVal value As String)
-                m_brandName = value
-            End Set
-        End Property
-
-        Private m_vehicleTypes As IList(Of VehicleType)
-
-        Public Property VehicleTypes As IList(Of VehicleType)
-            Get
-                Return m_vehicleTypes
-            End Get
-            Set(ByVal value As IList(Of VehicleType))
-                m_vehicleTypes = value
-            End Set
-        End Property
-
-        Public Sub New(ByVal brandName As String)
-            m_brandName = brandName
-        End Sub
-    End Class
- 
-    'Child Class
-    Public Class VehicleType
-        Private m_vehicleName As String
-
-        <DisplayNameAttribute("Vehicle Type")>
-        Public Property VehicleName As String
-            Get
-                Return m_vehicleName
-            End Get
-            Set(ByVal value As String)
-                m_vehicleName = value
-            End Set
-        End Property
-
-        Private m_models As IList(Of Model)
-
-        Public Property Models As IList(Of Model)
-            Get
-                Return m_models
-            End Get
-            Set(ByVal value As IList(Of Model))
-                m_models = value
-            End Set
-        End Property
-
-        Public Sub New(ByVal vehicle As String)
-            m_vehicleName = vehicle
-        End Sub
-    End Class
-    
-	'Sub-child Class 
-    Public Class Model
-        Private m_modelName As String
-
-        <DisplayNameAttribute("Model")>
-        Public Property ModelName As String
-            Get
-                Return m_modelName
-            End Get
-            Set(ByVal value As String)
-                m_modelName = value
-            End Set
-        End Property
-
-        Public Sub New(ByVal name As String)
-            m_modelName = name
-        End Sub
-    End Class
-
-    <XmlRootAttribute("BrandObjects")>
-    Public Class BrandObjects
-        <XmlElement("BrandObject")>
-        Public Property BrandObject As BrandObject()
-    End Class
-
-    Public Class BrandObject
-        Public Property BrandName As String
-        Public Property VahicleType As String
-        Public Property ModelName As String
-    End Class
-End Namespace
-
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat
 {% endhighlight %}
 
 {% highlight UWP %}
-using Syncfusion.XlsIO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Xml.Serialization;
-
-namespace ImportFromNestedCollection
-{
-    public sealed partial class MainPage : Page
-    {
-	    public MainPage()
-        {
-            this.InitializeComponent();
-        }
-		
-
-        //Button click to import data from nested collection to Excel worksheet. 
-		private async void btnGenerateExcel_Click(object sender, RoutedEventArgs e)
-        {
-            ExcelEngine excelEngine = new ExcelEngine();
-            IApplication application = excelEngine.Excel;
-
-            application.DefaultVersion = ExcelVersion.Excel2016;
-
-            IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
-            IWorksheet worksheet = workbook.Worksheets[0];
-
-            IList<Brand> vehicles = GetVehicleDetails();
-
-            ExcelImportDataOptions importDataOptions = new ExcelImportDataOptions();
-
-            //Imports from 4th row.
-            importDataOptions.FirstRow = 4;
-
-            //Imports column headers.
-            importDataOptions.IncludeHeader = true;
-
-            //Set layout options.
-            importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
-            
-            //Import data from the nested collection.
-            worksheet.ImportData(vehicles, importDataOptions);
-
-            //Apply style to headers 
-            worksheet["A1:C2"].Merge();
-            worksheet["A1"].Text = "Automobile Brands in the US";
-
-            worksheet.UsedRange.AutofitColumns();
-
-            //Initializes FileSavePicker
-            FileSavePicker savePicker = new FileSavePicker();
-            savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-            savePicker.SuggestedFileName = "ImportData";
-            savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
-	        
-            //Creates a storage file from FileSavePicker
-            StorageFile storageFile = await savePicker.PickSaveFileAsync();
-	        
-            //Saves changes to the specified storage file
-            await workbook.SaveAsAsync(storageFile);
-
-            workbook.Close();
-            excelEngine.Dispose();
-        }
-
-        //Helper method to load data from XML file and add them in collections. 
-        private static IList<Brand> GetVehicleDetails()
-        {
-            XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
-
-            //Read data from XML file. 
-			Assembly assembly = typeof(MainPage).GetTypeInfo().Assembly;
-            Stream fileStream = assembly.GetManifestResourceStream("Sample.Data.ExportData.xml");
-            TextReader textReader = new StreamReader(fileStream);
-            BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
-
-            //Initialize parent collection to add data from XML file. 
-            List<Brand> list = new List<Brand>();
-
-            string brandName = brands.BrandObject[0].BrandName;
-            string vehicleType = brands.BrandObject[0].VahicleType;
-            string modelName = brands.BrandObject[0].ModelName;
-
-            //Parent class 
-            Brand brand = new Brand(brandName);
-            brand.VehicleTypes = new List<VehicleType>();
-
-            VehicleType vehicle = new VehicleType(vehicleType);
-            vehicle.Models = new List<Model>();
-
-            Model model = new Model(modelName);
-            brand.VehicleTypes.Add(vehicle);
-
-            list.Add(brand);
-
-            foreach (BrandObject brandObj in brands.BrandObject)
-            {
-                if (brandName == brandObj.BrandName)
-                {
-                    if (vehicleType == brandObj.VahicleType)
-                    {
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        continue;
-                    }
-                    else
-                    {
-                        vehicle = new VehicleType(brandObj.VahicleType);
-                        vehicle.Models = new List<Model>();
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        brand.VehicleTypes.Add(vehicle);
-                        vehicleType = brandObj.VahicleType;
-                    }
-                    continue;
-                }
-                else
-                {
-                    brand = new Brand(brandObj.BrandName);
-                    vehicle = new VehicleType(brandObj.VahicleType);
-                    vehicle.Models = new List<Model>();
-                    vehicle.Models.Add(new Model(brandObj.ModelName));
-                    brand.VehicleTypes = new List<VehicleType>();
-                    brand.VehicleTypes.Add(vehicle);
-                    vehicleType = brandObj.VahicleType;
-                    list.Add(brand);
-                    brandName = brandObj.BrandName;
-                }
-            }
-
-            textReader.Close();
-            return list;
-        }
-    }
-
-    //Parent Class 
-    public class Brand
-    {
-        private string m_brandName;
-
-        [DisplayNameAttribute("Brand")]
-        public string BrandName
-        {
-            get { return m_brandName; }
-            set { m_brandName = value; }
-        }
-
-        //Vehicle Types Collection 
-        private IList<VehicleType> m_vehicleTypes;
-
-        public IList<VehicleType> VehicleTypes
-        {
-            get { return m_vehicleTypes; }
-            set { m_vehicleTypes = value; }
-        }
-
-        public Brand(string brandName)
-        {
-            m_brandName = brandName;
-        }
-    }
-
-    //Child Class 
-    public class VehicleType
-    {
-        private string m_vehicleName;
-
-        [DisplayNameAttribute("Vehicle Type")]
-        public string VehicleName
-        {
-            get { return m_vehicleName; }
-            set { m_vehicleName = value; }
-        }
-
-        //Models collection 
-        private IList<Model> m_models;
-        public IList<Model> Models
-        {
-            get { return m_models; }
-            set { m_models = value; }
-        }
-
-        public VehicleType(string vehicle)
-        {
-            m_vehicleName = vehicle;
-        }
-    }
-
-    //Sub-child Class 
-    public class Model
-    {
-        private string m_modelName;
-
-        [DisplayNameAttribute("Model")]
-        public string ModelName
-        {
-            get { return m_modelName; }
-            set { m_modelName = value; }
-        }
-
-        public Model(string name)
-        {
-            m_modelName = name;
-        }
-    }
-
-    //Helper Classes 
-    [XmlRootAttribute("BrandObjects")]
-    public class BrandObjects
-    {
-        [XmlElement("BrandObject")]
-        public BrandObject[] BrandObject { get; set; }
-    }
-
-    public class BrandObject
-    {
-        public string BrandName { get; set; }
-        public string VahicleType { get; set; }
-        public string ModelName { get; set; }
-    }
-}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-using Syncfusion.XlsIO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Xml.Serialization;
-
-namespace ImportFromNestedCollection
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            ImportData();
-        }
-
-        //Main method to import data from nested collection to Excel worksheet. 
-        private static void ImportData()
-        {
-            ExcelEngine excelEngine = new ExcelEngine();
-            IApplication application = excelEngine.Excel;
-
-            application.DefaultVersion = ExcelVersion.Excel2016;
-
-            IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
-            IWorksheet worksheet = workbook.Worksheets[0];
-
-            IList<Brand> vehicles = GetVehicleDetails();
-
-            ExcelImportDataOptions importDataOptions = new ExcelImportDataOptions();
-
-            //Imports from 4th row.
-            importDataOptions.FirstRow = 4;
-
-            //Imports column headers.
-            importDataOptions.IncludeHeader = true;
-
-            //Set layout options.
-            importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
-            
-            //Import data from the nested collection.
-            worksheet.ImportData(vehicles, importDataOptions);
-
-            //Apply style to headers 
-            worksheet["A1:C2"].Merge();
-            worksheet["A1"].Text = "Automobile Brands in the US";
-
-            worksheet.UsedRange.AutofitColumns();
-
-            //Saving the workbook as stream
-            FileStream stream = new FileStream("ImportData.xlsx", FileMode.Create, FileAccess.ReadWrite);
-            workbook.SaveAs(stream);
-
-            stream.Dispose();
-            workbook.Close();
-            excelEngine.Dispose();
-        }
-
-        //Helper method to load data from XML file and add them in collections. 
-        private static IList<Brand> GetVehicleDetails()
-        {
-            XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
-
-            //Read data from XML file. 
-            FileStream stream = new FileStream(@"..\..\Data\ExportData.xml", FileMode.Open, FileAccess.Read);
-            TextReader textReader = new StreamReader(stream);
-            BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
-
-            //Initialize parent collection to add data from XML file. 
-            List<Brand> list = new List<Brand>();
-
-            string brandName = brands.BrandObject[0].BrandName;
-            string vehicleType = brands.BrandObject[0].VahicleType;
-            string modelName = brands.BrandObject[0].ModelName;
-
-            //Parent class 
-            Brand brand = new Brand(brandName);
-            brand.VehicleTypes = new List<VehicleType>();
-
-            VehicleType vehicle = new VehicleType(vehicleType);
-            vehicle.Models = new List<Model>();
-
-            Model model = new Model(modelName);
-            brand.VehicleTypes.Add(vehicle);
-
-            list.Add(brand);
-
-            foreach (BrandObject brandObj in brands.BrandObject)
-            {
-                if (brandName == brandObj.BrandName)
-                {
-                    if (vehicleType == brandObj.VahicleType)
-                    {
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        continue;
-                    }
-                    else
-                    {
-                        vehicle = new VehicleType(brandObj.VahicleType);
-                        vehicle.Models = new List<Model>();
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        brand.VehicleTypes.Add(vehicle);
-                        vehicleType = brandObj.VahicleType;
-                    }
-                    continue;
-                }
-                else
-                {
-                    brand = new Brand(brandObj.BrandName);
-                    vehicle = new VehicleType(brandObj.VahicleType);
-                    vehicle.Models = new List<Model>();
-                    vehicle.Models.Add(new Model(brandObj.ModelName));
-                    brand.VehicleTypes = new List<VehicleType>();
-                    brand.VehicleTypes.Add(vehicle);
-                    vehicleType = brandObj.VahicleType;
-                    list.Add(brand);
-                    brandName = brandObj.BrandName;
-                }
-            }
-
-            textReader.Close();
-            return list;
-        }
-    }
-
-    //Parent Class 
-    public class Brand
-    {
-        private string m_brandName;
-
-        [DisplayNameAttribute("Brand")]
-        public string BrandName
-        {
-            get { return m_brandName; }
-            set { m_brandName = value; }
-        }
-
-        //Vehicle Types Collection 
-        private IList<VehicleType> m_vehicleTypes;
-
-        public IList<VehicleType> VehicleTypes
-        {
-            get { return m_vehicleTypes; }
-            set { m_vehicleTypes = value; }
-        }
-
-        public Brand(string brandName)
-        {
-            m_brandName = brandName;
-        }
-    }
-
-    //Child Class 
-    public class VehicleType
-    {
-        private string m_vehicleName;
-
-        [DisplayNameAttribute("Vehicle Type")]
-        public string VehicleName
-        {
-            get { return m_vehicleName; }
-            set { m_vehicleName = value; }
-        }
-
-        //Models collection 
-        private IList<Model> m_models;
-        public IList<Model> Models
-        {
-            get { return m_models; }
-            set { m_models = value; }
-        }
-
-        public VehicleType(string vehicle)
-        {
-            m_vehicleName = vehicle;
-        }
-    }
-
-    //Sub-child Class 
-    public class Model
-    {
-        private string m_modelName;
-
-        [DisplayNameAttribute("Model")]
-        public string ModelName
-        {
-            get { return m_modelName; }
-            set { m_modelName = value; }
-        }
-
-        public Model(string name)
-        {
-            m_modelName = name;
-        }
-    }
-
-    //Helper Classes 
-    [XmlRootAttribute("BrandObjects")]
-    public class BrandObjects
-    {
-        [XmlElement("BrandObject")]
-        public BrandObject[] BrandObject { get; set; }
-    }
-
-    public class BrandObject
-    {
-        public string BrandName { get; set; }
-        public string VahicleType { get; set; }
-        public string ModelName { get; set; }
-    }
-}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
 {% endhighlight %}
 
 {% highlight Xamarin %}
-using Syncfusion.XlsIO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Xml.Serialization;
-
-namespace ImportFromNestedCollection
-{
-    public partial class MainPage : ContentPage
-    {
-	    public MainPage()
-        {
-            this.InitializeComponent();
-        }
-		
-
-        //Button click to import data from nested collection to Excel worksheet. 
-		internal void OnButtonClicked(object sender, EventArgs e)
-        {
-            ExcelEngine excelEngine = new ExcelEngine();
-            IApplication application = excelEngine.Excel;
-
-            application.DefaultVersion = ExcelVersion.Excel2016;
-
-            IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
-            IWorksheet worksheet = workbook.Worksheets[0];
-
-            IList<Brand> vehicles = GetVehicleDetails();
-
-            ExcelImportDataOptions importDataOptions = new ExcelImportDataOptions();
-
-            //Imports from 4th row.
-            importDataOptions.FirstRow = 4;
-
-            //Imports column headers.
-            importDataOptions.IncludeHeader = true;
-
-            //Set layout options.
-            importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
-            
-            //Import data from the nested collection.
-            worksheet.ImportData(vehicles, importDataOptions);
-
-            //Apply style to headers 
-            worksheet["A1:C2"].Merge();
-            worksheet["A1"].Text = "Automobile Brands in the US";
-
-            worksheet.UsedRange.AutofitColumns();
-
-            //Save the document as file and view the saved document
-
-            //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
-	        
-            if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-            {
-                Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("ImportData.xlsx", "application/msexcel", stream);
-            }
-            else
-            {
-                Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("ImportData.xlsx", "application/msexcel", stream);
-            }   
-	
-            workbook.Close();
-            excelEngine.Dispose();
-        }
-
-        //Helper method to load data from XML file and add them in collections. 
-        private static IList<Brand> GetVehicleDetails()
-        {
-            XmlSerializer deserializer = new XmlSerializer(typeof(BrandObjects));
-
-            //Read data from XML file.
-			Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-            Stream fileStream = assembly.GetManifestResourceStream("Sample.Data.ExportData.xml");
-            TextReader textReader = new StreamReader(fileStream);
-            BrandObjects brands = (BrandObjects)deserializer.Deserialize(textReader);
-
-            //Initialize parent collection to add data from XML file. 
-            List<Brand> list = new List<Brand>();
-
-            string brandName = brands.BrandObject[0].BrandName;
-            string vehicleType = brands.BrandObject[0].VahicleType;
-            string modelName = brands.BrandObject[0].ModelName;
-
-            //Parent class 
-            Brand brand = new Brand(brandName);
-            brand.VehicleTypes = new List<VehicleType>();
-
-            VehicleType vehicle = new VehicleType(vehicleType);
-            vehicle.Models = new List<Model>();
-
-            Model model = new Model(modelName);
-            brand.VehicleTypes.Add(vehicle);
-
-            list.Add(brand);
-
-            foreach (BrandObject brandObj in brands.BrandObject)
-            {
-                if (brandName == brandObj.BrandName)
-                {
-                    if (vehicleType == brandObj.VahicleType)
-                    {
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        continue;
-                    }
-                    else
-                    {
-                        vehicle = new VehicleType(brandObj.VahicleType);
-                        vehicle.Models = new List<Model>();
-                        vehicle.Models.Add(new Model(brandObj.ModelName));
-                        brand.VehicleTypes.Add(vehicle);
-                        vehicleType = brandObj.VahicleType;
-                    }
-                    continue;
-                }
-                else
-                {
-                    brand = new Brand(brandObj.BrandName);
-                    vehicle = new VehicleType(brandObj.VahicleType);
-                    vehicle.Models = new List<Model>();
-                    vehicle.Models.Add(new Model(brandObj.ModelName));
-                    brand.VehicleTypes = new List<VehicleType>();
-                    brand.VehicleTypes.Add(vehicle);
-                    vehicleType = brandObj.VahicleType;
-                    list.Add(brand);
-                    brandName = brandObj.BrandName;
-                }
-            }
-
-            textReader.Close();
-            return list;
-        }
-    }
-
-    //Parent Class 
-    public class Brand
-    {
-        private string m_brandName;
-
-        [DisplayNameAttribute("Brand")]
-        public string BrandName
-        {
-            get { return m_brandName; }
-            set { m_brandName = value; }
-        }
-
-        //Vehicle Types Collection 
-        private IList<VehicleType> m_vehicleTypes;
-
-        public IList<VehicleType> VehicleTypes
-        {
-            get { return m_vehicleTypes; }
-            set { m_vehicleTypes = value; }
-        }
-
-        public Brand(string brandName)
-        {
-            m_brandName = brandName;
-        }
-    }
-
-    //Child Class 
-    public class VehicleType
-    {
-        private string m_vehicleName;
-
-        [DisplayNameAttribute("Vehicle Type")]
-        public string VehicleName
-        {
-            get { return m_vehicleName; }
-            set { m_vehicleName = value; }
-        }
-
-        //Models collection 
-        private IList<Model> m_models;
-        public IList<Model> Models
-        {
-            get { return m_models; }
-            set { m_models = value; }
-        }
-
-        public VehicleType(string vehicle)
-        {
-            m_vehicleName = vehicle;
-        }
-    }
-
-    //Sub-child Class 
-    public class Model
-    {
-        private string m_modelName;
-
-        [DisplayNameAttribute("Model")]
-        public string ModelName
-        {
-            get { return m_modelName; }
-            set { m_modelName = value; }
-        }
-
-        public Model(string name)
-        {
-            m_modelName = name;
-        }
-    }
-
-    //Helper Classes 
-    [XmlRootAttribute("BrandObjects")]
-    public class BrandObjects
-    {
-        [XmlElement("BrandObject")]
-        public BrandObject[] BrandObject { get; set; }
-    }
-
-    public class BrandObject
-    {
-        public string BrandName { get; set; }
-        public string VahicleType { get; set; }
-        public string ModelName { get; set; }
-    }
-}
+importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Repeat;
 {% endhighlight %}
 {% endtabs %}
 
@@ -5775,293 +3669,360 @@ public class Report
 {% endhighlight %}
 {% endtabs %} 
 
-## Exporting from Worksheet to Nested Class
+## Export data from Excel to Nested Class Objects
 
-XlsIO allows to export the sheet data to Nested Class Objects. You can give the actual properties names for each column headers at runtime using mappingProperties parameter in **ExportData&lt;T&gt;** method. You should give headers as key and properties names as value to the mappingProperties dictionary.
+XlsIO allows to export worksheet data to nested class objects. A new overload to the existing `ExportData<T>()` method helps to achieve this requirement by mapping column headers with class properties.
 
-The following code snippet illustrates on how to export worksheet data into Nested Class Objects with mappingProperties using **ExportData&lt;T&gt;**.
+Let’s consider the input Excel document has the data as shown in the below screenshot. 
+
+![Excel worksheet with data](Working-with-Data_images/Working-with-Data_img5.png)
+
+The following code illustrates how to export data from Excel worksheet to nested class objects with column headers mapping collection.
 
 {% tabs %}  
 {% highlight c# %}
-using (ExcelEngine excelEngine = new ExcelEngine())
+using Syncfusion.XlsIO;
+using System.Collections.Generic;
+
+namespace ImportFromNestedCollection
 {
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
-  IWorksheet worksheet = workbook.Worksheets[0];
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ExportData();
+        }
 
-  //Export worksheet data into Nested Class Objects
-  Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
-  mappingProperties.Add("Customer ID", "CustId");
-  mappingProperties.Add("Customer Name", "CustName");
-  mappingProperties.Add("Customer Age", "CustAge");
-  mappingProperties.Add("Order ID", "CustOrder.Order_Id");
-  mappingProperties.Add("Order Price", "CustOrder.Price");
+        //Main method to Export data from worksheet to nested class objects.
+        private static void ExportData()
+        {
+            using (ExcelEngine excelEngine = new ExcelEngine())
+            {
+                IApplication application = excelEngine.Excel;
+                application.DefaultVersion = ExcelVersion.Excel2013;
+                IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+                IWorksheet worksheet = workbook.Worksheets[0];
 
-  List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+                //Map column headers in worksheet with class properties. 
+                Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
+                mappingProperties.Add("Customer ID", "CustId");
+                mappingProperties.Add("Customer Name", "CustName");
+                mappingProperties.Add("Customer Age", "CustAge");
+                mappingProperties.Add("Order ID", "CustOrder.Order_Id");
+                mappingProperties.Add("Order Price", "CustOrder.Price");
 
-  workbook.SaveAs("NestedClassObjects.xlsx");
+                //Export worksheet data into nested class Objects.
+                List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+
+                workbook.SaveAs("NestedClassObjects.xlsx");
+            }
+        }
+    }
+ 
+    //Customer details class
+    public partial class Customer
+    {
+        public int CustId { get; set; }
+        public string CustName { get; set; }
+        public int CustAge { get; set; }
+        public Order CustOrder { get; set; }
+        public Customer()
+        {
+
+        }
+    }
+
+    //Order details class
+    public partial class Order
+    {
+        public int Order_Id { get; set; }
+        public double Price { get; set; }
+        public Order()
+        {
+
+        }
+    }
 }
 {% endhighlight %}
 
 {% highlight vb %}
-Using excelEngine As ExcelEngine = New ExcelEngine()
-  Dim application As IApplication = excelEngine.Excel
-  application.DefaultVersion = ExcelVersion.Excel2013
-  Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
-  Dim worksheet As IWorksheet = workbook.Worksheets(0)
+Imports Syncfusion.XlsIO
+Imports System.Collections.Generic
 
-  'Export worksheet data into Nested Class Objects
-  Dim mappingProperties As Dictionary(Of String, String) = New Dictionary(Of String, String)()
-  mappingProperties.Add("Customer ID", "CustId")
-  mappingProperties.Add("Customer Name", "CustName")
-  mappingProperties.Add("Customer Age", "CustAge")
-  mappingProperties.Add("Order ID", "CustOrder.Order_Id")
-  mappingProperties.Add("Order Price", "CustOrder.Price")
-  
-  Dim nestedClassObjects As List(Of Customer) = worksheet.ExportData(Of Customer)(1, 1, 10, 5, mappingProperties)
+Namespace ImportFromNestedCollection
+    Class Program
+        Private Shared Sub Main(ByVal args As String())
+            ExportData()
+        End Sub
 
-  workbook.SaveAs("NestedClassObjects.xlsx")
-End Using
+        'Main method to Export data from worksheet to nested class objects. 
+        Private Shared Sub ExportData()
+			Using excelEngine As ExcelEngine = New ExcelEngine()
+                Dim application As IApplication = excelEngine.Excel
+                application.DefaultVersion = ExcelVersion.Excel2013
+                Dim workbook As IWorkbook = application.Workbooks.Open("Sample.xlsx")
+                Dim worksheet As IWorksheet = workbook.Worksheets(0)
+				
+				'Map column headers in worksheet with class properties.
+                Dim mappingProperties As Dictionary(Of String, String) = New Dictionary(Of String, String)()
+                mappingProperties.Add("Customer ID", "CustId")
+                mappingProperties.Add("Customer Name", "CustName")
+                mappingProperties.Add("Customer Age", "CustAge")
+                mappingProperties.Add("Order ID", "CustOrder.Order_Id")
+                mappingProperties.Add("Order Price", "CustOrder.Price")
+				
+				'Export worksheet data into nested class Objects.
+                Dim nestedClassObjects As List(Of Customer) = worksheet.ExportData(Of Customer)(1, 1, 10, 5, mappingProperties)
+				
+                workbook.SaveAs("NestedClassObjects.xlsx")
+            End Using
+        End Sub
+
+    End Class
+    
+	'Customer details class
+    Public Partial Class Customer
+        Public Property CustId As Integer
+        Public Property CustName As String
+        Public Property CustAge As Integer
+        Public Property CustOrder As Order
+    
+        Public Sub New()
+        End Sub
+    End Class
+    
+	'Order details class
+    Public Partial Class Order
+        Public Property Order_Id As Integer
+        Public Property Price As Double
+    
+        Public Sub New()
+        End Sub
+    End Class
+End Namespace
+
 {% endhighlight %}
 
 {% highlight UWP %}
-using (ExcelEngine excelEngine = new ExcelEngine())
+using Syncfusion.XlsIO;
+using System.Collections.Generic;
+
+namespace ImportFromNestedCollection
 {
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+    public sealed partial class MainPage : Page
+    {
+	    public MainPage()
+        {
+            this.InitializeComponent();
+        }
+		
 
-  //Instantiates the File Picker
-  FileOpenPicker openPicker = new FileOpenPicker();
-  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  openPicker.FileTypeFilter.Add(".xlsx");
-  openPicker.FileTypeFilter.Add(".xls");
-  StorageFile file = await openPicker.PickSingleFileAsync();
+        //Button click to Export data from worksheet to nested class objects. 
+		private async void btnGenerateExcel_Click(object sender, RoutedEventArgs e)
+        {
+		    using (ExcelEngine excelEngine = new ExcelEngine())
+            {
+                IApplication application = excelEngine.Excel;
+                application.DefaultVersion = ExcelVersion.Excel2013;
+                IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+                IWorksheet worksheet = workbook.Worksheets[0];
 
-  //Opens the workbook
-  IWorkbook workbook = await application.Workbooks.OpenAsync(file);
-  IWorksheet worksheet = workbook.Worksheets[0];
+                //Map column headers in worksheet with class properties. 
+                Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
+                mappingProperties.Add("Customer ID", "CustId");
+                mappingProperties.Add("Customer Name", "CustName");
+                mappingProperties.Add("Customer Age", "CustAge");
+                mappingProperties.Add("Order ID", "CustOrder.Order_Id");
+                mappingProperties.Add("Order Price", "CustOrder.Price");
 
-  //Export worksheet data into Nested Class Objects
-  Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
-  mappingProperties.Add("Customer ID", "CustId");
-  mappingProperties.Add("Customer Name", "CustName");
-  mappingProperties.Add("Customer Age", "CustAge");
-  mappingProperties.Add("Order ID", "CustOrder.Order_Id");
-  mappingProperties.Add("Order Price", "CustOrder.Price");
+                //Export worksheet data into nested class Objects.
+                List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
 
-  List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+                //Initializes FileSavePicker
+                FileSavePicker savePicker = new FileSavePicker();
+                savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+                savePicker.SuggestedFileName = "NestedClassObjects";
+                savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+	            
+                //Creates a storage file from FileSavePicker
+                StorageFile storageFile = await savePicker.PickSaveFileAsync();
+	            
+                //Saves changes to the specified storage file
+                await workbook.SaveAsAsync(storageFile);
+            }
+        }
+    }
 
-  //Initializes FileSavePicker
-  FileSavePicker savePicker = new FileSavePicker();
-  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-  savePicker.SuggestedFileName = "NestedClassObjects";
-  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+    //Customer details class
+    public partial class Customer
+    {
+        public int CustId { get; set; }
+        public string CustName { get; set; }
+        public int CustAge { get; set; }
+        public Order CustOrder { get; set; }
+        public Customer()
+        {
 
-  //Creates a storage file from FileSavePicker
-  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+        }
+    }
 
-  //Saves changes to the specified storage file
-  await workbook.SaveAsAsync(storageFile);
+    //Order details class
+    public partial class Order
+    {
+        public int Order_Id { get; set; }
+        public double Price { get; set; }
+        public Order()
+        {
+
+        }
+    }
 }
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
-using (ExcelEngine excelEngine = new ExcelEngine())
+using Syncfusion.XlsIO;
+using System.Collections.Generic;
+
+namespace ImportFromNestedCollection
 {
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
-  FileStream fileStream = new FileStream("Sample.xlsx", FileMode.Open, FileAccess.Read);
-  IWorkbook workbook = application.Workbooks.Open(fileStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ExportData();
+        }
 
-  //Export worksheet data into Nested Class Objects
-  Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
-  mappingProperties.Add("Customer ID", "CustId");
-  mappingProperties.Add("Customer Name", "CustName");
-  mappingProperties.Add("Customer Age", "CustAge");
-  mappingProperties.Add("Order ID", "CustOrder.Order_Id");
-  mappingProperties.Add("Order Price", "CustOrder.Price");
+        //Main method to Export data from worksheet to nested class objects. 
+        private static void ExportData()
+        {
+		    using (ExcelEngine excelEngine = new ExcelEngine())
+            {
+                IApplication application = excelEngine.Excel;
+                application.DefaultVersion = ExcelVersion.Excel2013;
+                IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+                IWorksheet worksheet = workbook.Worksheets[0];
 
-  List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+                //Map column headers in worksheet with class properties. 
+                Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
+                mappingProperties.Add("Customer ID", "CustId");
+                mappingProperties.Add("Customer Name", "CustName");
+                mappingProperties.Add("Customer Age", "CustAge");
+                mappingProperties.Add("Order ID", "CustOrder.Order_Id");
+                mappingProperties.Add("Order Price", "CustOrder.Price");
 
-  //Saving the workbook as stream
-  FileStream stream = new FileStream("NestedClassObjects.xlsx", FileMode.Create, FileAccess.ReadWrite);
-  workbook.SaveAs(stream);
-  stream.Dispose();
+                //Export worksheet data into nested class Objects.
+                List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+
+                //Saving the workbook as stream
+                FileStream stream = new FileStream("NestedClassObjects.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                workbook.SaveAs(stream);
+			    
+                stream.Dispose();
+            }   
+        }
+    }
+	
+	//Customer details class
+    public partial class Customer
+    {
+        public int CustId { get; set; }
+        public string CustName { get; set; }
+        public int CustAge { get; set; }
+        public Order CustOrder { get; set; }
+        public Customer()
+        {
+
+        }
+    }
+
+    //Order details class
+    public partial class Order
+    {
+        public int Order_Id { get; set; }
+        public double Price { get; set; }
+        public Order()
+        {
+
+        }
+    }
 }
 {% endhighlight %}
 
 {% highlight Xamarin %}
-using (ExcelEngine excelEngine = new ExcelEngine())
+using Syncfusion.XlsIO;
+using System.Collections.Generic;
+
+namespace ImportFromNestedCollection
 {
-  IApplication application = excelEngine.Excel;
-  application.DefaultVersion = ExcelVersion.Excel2013;
+    public partial class MainPage : ContentPage
+    {
+	    public MainPage()
+        {
+            this.InitializeComponent();
+        }
+		
+        //Button click to Export data from worksheet to nested class objects. 
+		internal void OnButtonClicked(object sender, EventArgs e)
+        {
+		    using (ExcelEngine excelEngine = new ExcelEngine())
+            {
+                IApplication application = excelEngine.Excel;
+                application.DefaultVersion = ExcelVersion.Excel2013;
+                IWorkbook workbook = application.Workbooks.Open("Sample.xlsx");
+                IWorksheet worksheet = workbook.Worksheets[0];
 
-  //"App" is the class of Portable project
-  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.Sample.xlsx");
-  IWorkbook workbook = application.Workbooks.Open(inputStream);
-  IWorksheet worksheet = workbook.Worksheets[0];
+                //Map column headers in worksheet with class properties. 
+                Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
+                mappingProperties.Add("Customer ID", "CustId");
+                mappingProperties.Add("Customer Name", "CustName");
+                mappingProperties.Add("Customer Age", "CustAge");
+                mappingProperties.Add("Order ID", "CustOrder.Order_Id");
+                mappingProperties.Add("Order Price", "CustOrder.Price");
 
-  //Export worksheet data into Nested Class Objects
-  Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
-  mappingProperties.Add("Customer ID", "CustId");
-  mappingProperties.Add("Customer Name", "CustName");
-  mappingProperties.Add("Customer Age", "CustAge");
-  mappingProperties.Add("Order ID", "CustOrder.Order_Id");
-  mappingProperties.Add("Order Price", "CustOrder.Price");
+                //Export worksheet data into nested class Objects.
+                List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
 
-  List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
+                //Save the document as file and view the saved document
+                //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples
+	            
+                if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+                {
+                    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("NestedClassObjects.xlsx", "application/msexcel", stream);
+                }
+                else
+                {
+                    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("NestedClassObjects.xlsx", "application/msexcel", stream);
+                }
+            }
+        }
+    }
 
-  //Saving the workbook as stream
-  MemoryStream stream = new MemoryStream();
-  workbook.SaveAs(stream);
+    //Customer details class
+    public partial class Customer
+    {
+        public int CustId { get; set; }
+        public string CustName { get; set; }
+        public int CustAge { get; set; }
+        public Order CustOrder { get; set; }
+        public Customer()
+        {
 
-  stream.Position = 0;
+        }
+    }
 
-  //Save the document as file and view the saved document
+    //Order details class
+    public partial class Order
+    {
+        public int Order_Id { get; set; }
+        public double Price { get; set; }
+        public Order()
+        {
 
-  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the xlsio/xamarin section for respective code samples.
-
-  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-  {
-	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("NestedClassObjects.xlsx", "application/msexcel", stream);
-  }
-  else
-  {
-	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("NestedClassObjects.xlsx", "application/msexcel", stream);
-  }
+        }
+    }
 }
 {% endhighlight %}
 {% endtabs %}
-
-The following code snippet provides supporting class for the above code.
-
-The following code snippet provides supporting methods & class for the above code.
-
-{% tabs %}  
-{% highlight c# %}
-//Customer details
-public partial class Customer
-{
-    public int CustId { get; set; }
-    public string CustName { get; set; }
-    public int CustAge { get; set; }
-    public Order CustOrder { get; set; }	
-    public Customer()
-    {
-        
-    }
-}
-//Order details
-public partial class Order
-{
-    public int Order_Id { get; set; }
-    public double Price { get; set; }	
-    public Order()
-    {
-        
-    }
-}
-{% endhighlight %}
-
-{% highlight vb %}
-'Customer details
-Public Partial Class Customer
-    Public Property CustId As Integer
-    Public Property CustName As String
-    Public Property CustAge As Integer
-    Public Property CustOrder As Order
-
-    Public Sub New()
-    End Sub
-End Class
-'Order details
-Public Partial Class Order
-    Public Property Order_Id As Integer
-    Public Property Price As Double
-
-    Public Sub New()
-    End Sub
-End Class
-{% endhighlight %}
-
-{% highlight UWP %}
-//Customer details
-public partial class Customer
-{
-    public int CustId { get; set; }
-    public string CustName { get; set; }
-    public int CustAge { get; set; }
-    public Order CustOrder { get; set; }	
-    public Customer()
-    {
-        
-    }
-}
-//Order details
-public partial class Order
-{
-    public int Order_Id { get; set; }
-    public double Price { get; set; }	
-    public Order()
-    {
-        
-    }
-}
-{% endhighlight %}
-
-{% highlight ASP.NET Core %}
-//Customer details
-public partial class Customer
-{
-    public int CustId { get; set; }
-    public string CustName { get; set; }
-    public int CustAge { get; set; }
-    public Order CustOrder { get; set; }	
-    public Customer()
-    {
-        
-    }
-}
-//Order details
-public partial class Order
-{
-    public int Order_Id { get; set; }
-    public double Price { get; set; }	
-    public Order()
-    {
-        
-    }
-}
-{% endhighlight %}
-
-{% highlight Xamarin %}
-//Customer details
-public partial class Customer
-{
-    public int CustId { get; set; }
-    public string CustName { get; set; }
-    public int CustAge { get; set; }
-    public Order CustOrder { get; set; }	
-    public Customer()
-    {
-        
-    }
-}
-//Order details
-public partial class Order
-{
-    public int Order_Id { get; set; }
-    public double Price { get; set; }	
-    public Order()
-    {
-        
-    }
-}
-{% endhighlight %}
-{% endtabs %} 
 
 ## Importing Data from Microsoft Grid Controls to Worksheet
 
