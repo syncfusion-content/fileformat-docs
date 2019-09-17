@@ -887,6 +887,14 @@ Yes<br/><br/></td>
 <td>Yes<br/><br/></td></tr>
 <tr>
 <td>
+Validate Digital Signature<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td><td>
+Yes<br/><br/></td>
+<td>Yes<br/><br/></td>
+<td>Yes<br/><br/></td></tr>
+<tr>
+<td>
 Encryption and Decryption<br/><br/></td><td>
 Yes<br/><br/></td><td>
 Yes<br/><br/></td><td>
