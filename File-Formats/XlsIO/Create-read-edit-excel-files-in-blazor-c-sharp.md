@@ -429,15 +429,15 @@ using (ExcelEngine excelEngine = new ExcelEngine())
     //Merge cells
     worksheet.Range["D1:E1"].Merge();
 
-    //Enter text to the cell D1 and apply formatting
-    worksheet.Range["D1"].Text = "INVOICE";
-    worksheet.Range["D1"].CellStyle.Font.Bold = true;
-    worksheet.Range["D1"].CellStyle.Font.RGBColor = Color.FromArgb(42, 118, 189);
-    worksheet.Range["D1"].CellStyle.Font.Size = 35;
+    //Enter text to the cell B1 and apply formatting
+    worksheet.Range["B1"].Text = "INVOICE";
+    worksheet.Range["B1"].CellStyle.Font.Bold = true;
+    worksheet.Range["B1"].CellStyle.Font.RGBColor = Color.FromArgb(42, 118, 189);
+    worksheet.Range["B1"].CellStyle.Font.Size = 35;
 
-    //Apply alignment in the cell D1
-    worksheet.Range["D1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
-    worksheet.Range["D1"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
+    //Apply alignment in the cell B1
+    worksheet.Range["B1"].CellStyle.HorizontalAlignment = ExcelHAlign.HAlignRight;
+    worksheet.Range["B1"].CellStyle.VerticalAlignment = ExcelVAlign.VAlignTop;
 
     //Enter values to the cells from D5 to E8
     worksheet.Range["D5"].Text = "INVOICE#";
