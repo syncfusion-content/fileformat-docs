@@ -192,6 +192,8 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}
 
+### Format shapes
+
 Shape can have formatting such as line color, fill color, positioning, wrap formats, etc. The following code example illustrates how to apply formatting options for shape.
 
 {% tabs %}
@@ -206,8 +208,8 @@ WParagraph paragraph = section.AddParagraph() as WParagraph;
 Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
 rectangle.VerticalPosition = 72;
 rectangle.HorizontalPosition = 72;
-paragraph = section.AddParagraph();
-paragraph = rectangle.TextBody.AddParagraph();
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
 IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
 text.CharacterFormat.TextColor = Color.Green;
 text.CharacterFormat.Bold = true;
@@ -238,8 +240,8 @@ Dim paragraph As WParagraph = TryCast(section.AddParagraph(), WParagraph)
 Dim rectangle As Shape = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100)
 rectangle.VerticalPosition = 72
 rectangle.HorizontalPosition = 72
-paragraph = section.AddParagraph()
-paragraph = rectangle.TextBody.AddParagraph()
+paragraph = TryCast(section.AddParagraph(), WParagraph)
+paragraph = TryCast(rectangle.TextBody.AddParagraph(), WParagraph)
 Dim text As IWTextRange = paragraph.AppendText("This text is in rounded rectangle shape")
 text.CharacterFormat.TextColor = Color.Green
 text.CharacterFormat.Bold = True
@@ -270,8 +272,8 @@ IWParagraph paragraph = section.AddParagraph() as WParagraph;
 Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
 rectangle.VerticalPosition = 72;
 rectangle.HorizontalPosition = 72;
-paragraph = section.AddParagraph();
-paragraph = rectangle.TextBody.AddParagraph();
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
 IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
 text.CharacterFormat.TextColor = Color.Green;
 text.CharacterFormat.Bold = true;
@@ -308,8 +310,8 @@ IWParagraph paragraph = section.AddParagraph() as WParagraph;
 Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
 rectangle.VerticalPosition = 72;
 rectangle.HorizontalPosition = 72;
-paragraph = section.AddParagraph();
-paragraph = rectangle.TextBody.AddParagraph();
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
 IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
 text.CharacterFormat.TextColor = Color.Green;
 text.CharacterFormat.Bold = true;
@@ -345,8 +347,8 @@ IWParagraph paragraph = section.AddParagraph() as WParagraph;
 Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
 rectangle.VerticalPosition = 72;
 rectangle.HorizontalPosition = 72;
-paragraph = section.AddParagraph();
-paragraph = rectangle.TextBody.AddParagraph();
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
 IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");
 text.CharacterFormat.TextColor = Syncfusion.Drawing.Color.Green;
 text.CharacterFormat.Bold = true;
@@ -369,6 +371,146 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}
+
+### Rotate shapes
+
+You can rotate the shape and also apply flipping (horizontal and vertical) to it. The following code example explains how to rotate and flip the shape.
+
+{% tabs %}
+
+{% highlight C# %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
+//Sets position for shape
+rectangle.VerticalPosition = 72;
+rectangle.HorizontalPosition = 72;
+//Sets 90 degree rotation
+rectangle.Rotation = 90;
+//Sets horizontal flip
+rectangle.FlipHorizontal = true;
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
+IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");   
+//Saves and closes the Word document
+document.Save("Sample.docx", FormatType.Docx);
+document.Close();
+{% endhighlight %}
+
+{% highlight VB.NET %}
+'Creates a new Word document
+Dim document As WordDocument = New WordDocument()
+'Adds new section to the document
+Dim section As IWSection = document.AddSection()
+'Adds new paragraph to the section
+Dim paragraph As WParagraph = TryCast(section.AddParagraph(), WParagraph)
+Dim rectangle As Shape = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100)
+'Sets position for shape
+rectangle.VerticalPosition = 72
+rectangle.HorizontalPosition = 72
+'Sets 90 degree rotation
+rectangle.Rotation = 90
+'Sets horizontal flip
+rectangle.FlipHorizontal = true
+paragraph = TryCast(section.AddParagraph(), WParagraph)
+paragraph = TryCast(rectangle.TextBody.AddParagraph(), WParagraph)
+Dim text As IWTextRange = paragraph.AppendText("This text is in rounded rectangle shape")
+'Saves and closes the Word document
+document.Save("Sample.docx", FormatType.Docx)
+document.Close
+{% endhighlight %}
+
+{% highlight UWP %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
+//Sets position for shape
+rectangle.VerticalPosition = 72;
+rectangle.HorizontalPosition = 72;
+//Sets 90 degree rotation
+rectangle.Rotation = 90;
+//Sets horizontal flip
+rectangle.FlipHorizontal = true;
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
+IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");   
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+//Closes the document
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
+//Sets position for shape
+rectangle.VerticalPosition = 72;
+rectangle.HorizontalPosition = 72;
+//Sets 90 degree rotation
+rectangle.Rotation = 90;
+//Sets horizontal flip
+rectangle.FlipHorizontal = true;
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
+IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");   
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+stream.Position = 0;
+//Download Word document in the browser
+return File(stream, "application/msword", "Sample.docx");
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//Creates a new Word document
+WordDocument document = new WordDocument();
+//Adds new section to the document
+IWSection section = document.AddSection();
+//Adds new paragraph to the section
+WParagraph paragraph = section.AddParagraph() as WParagraph;
+Shape rectangle = paragraph.AppendShape(AutoShapeType.RoundedRectangle, 150, 100);
+//Sets position for shape
+rectangle.VerticalPosition = 72;
+rectangle.HorizontalPosition = 72;
+//Sets 90 degree rotation
+rectangle.Rotation = 90;
+//Sets horizontal flip
+rectangle.FlipHorizontal = true;
+paragraph = section.AddParagraph() as WParagraph;
+paragraph = rectangle.TextBody.AddParagraph() as WParagraph;
+IWTextRange text = paragraph.AppendText("This text is in rounded rectangle shape");   
+//Saves the Word document to MemoryStream
+MemoryStream stream = new MemoryStream();
+document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
+//Save the stream as a file in the device and invoke it for viewing
+Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
