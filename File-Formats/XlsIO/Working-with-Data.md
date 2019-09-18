@@ -532,14 +532,14 @@ Import hierarchical data from nested collections to Excel worksheet helps the us
 
 Data import can be done with the layout options:
 
-* Default - Parent records imported in the first row of its collection.
-* Merge - Parent records imported in merged rows. 
-* Repeat - Parent records imported in all the rows. 
+* **Default** - Parent records imported in the first row of its collection.
+* **Merge** - Parent records imported in merged rows. 
+* **Repeat** - Parent records imported in all the rows. 
 
 Imported data can be grouped with the grouping options:
 
-* Collapse Group - Groups will be collapsed at the mentioned level, upto the maximum of 8 levels. 
-* Expand Group - Entire group will be expanded after import 
+* **Collapse** - Groups will be collapsed at the mentioned level, upto the maximum of 8 levels. 
+* **Expand** - Entire group will be expanded after import 
 
 Let’s see these options in detail along with code examples and screenshots.
 
@@ -796,13 +796,6 @@ Namespace ImportFromNestedCollection
 			
 			'Set layout options.
             importDataOptions.NestedDataLayoutOptions = ExcelNestedDataLayoutOptions.Default
-			
-			'Set grouping options with collapse level.
-            importDataOptions.NestedDataGroupOptions = ExcelNestedDataGroupOptions.Collapse
-            
-			'Set grouping options with collapse level.
-			importDataOptions.CollapseLevel = 2
-			
 			'Import data from the nested collection.
             worksheet.ImportData(vehicles, importDataOptions)
 						
@@ -1708,8 +1701,8 @@ Hierarchical data imported into Excel worksheet must be shown its structure to a
 
 The following are the options that is supported to group on import.
 
-* Expand – Imported data will be grouped and expanded.
-* Collapse – Imported data will be grouped and collapsed at first level, by default.
+* **Expand** – Imported data will be grouped and expanded.
+* **Collapse** – Imported data will be grouped and collapsed at first level, by default.
 
 In addition, `CollapseLevel` will group and collapse the mentioned level, upto the maximum of 8 levels.
 
