@@ -165,7 +165,9 @@ Essential Presentation library provides you the ability to customize the Present
 
 When a font used in a PowerPoint presentation is unavailable in the environment where it is converted to PDF, then the library substitutes the ‘Microsoft Sans Serif’ as a default font for text rendering. This leads to a difference in text layouts of PowerPoint presentation and the converted PDF document.  To avoid this, the Essential Presentation library allows you to set an alternate font for the missing font used in the PowerPoint presentation.
 
-The following code example demonstrates how to set a substitute font for a missing font using alternate font name while converting a PowerPoint presentation to PDF document. The provided alternate font should be installed in the production environment.
+### Set alternate font
+
+The following code example demonstrates how to set alternate font name for a missing font while converting a PowerPoint presentation to PDF. The provided alternate font should be installed in the production environment.
 
 {% tabs %}
 {% highlight c# %}
@@ -303,6 +305,8 @@ private static void SubstituteFont(object sender, SubstituteFontEventArgs args)
 
 {% endhighlight %}
 {% endtabs %}
+
+### Upload font stream
 
 The following code example demonstrates how to upload a font stream for missing font while converting a PowerPoint presentation to PDF. The provided alternate font stream is not mandatory to be installed in the production environment.
 
