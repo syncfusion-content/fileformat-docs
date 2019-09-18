@@ -20,7 +20,7 @@ For more details, refer to this [Assemblies Required](/File-Formats/PDF/Assembli
 
 ## Steps to create PDF document in Blazor Server-Side application
 
-Step 1: Create a new C# Blazor server-side application project. Select ASP.NET Core Web Application from the template and click the Next button.
+Step 1: Create a new C# Blazor server-side application project. Select Blazor App from the template and click the Next button.
 
 ![Create Blazor Server Side application in Visual Studio](Create_PDF_Blazor/Blazor_create_project.png)
 
@@ -29,7 +29,7 @@ Step 2: Now, the project configuration window appears. Click Create button to cr
 
 ![Create Blazor Server Side application in Visual Studio](Create_PDF_Blazor/Blazor_images_Server_Creation.png)
 
-Step 3: Choose Blazor (server-side) from the dashboard and click Create button to create a new Blazor server-side application. Make sure that .NET Core and ASP.NET Core 3.0 are selected at the top.
+Step 3: Choose Blazor Server App from the dashboard and click Create button to create a new Blazor server-side application.
 
 ![Create Blazor Server Side application in Visual Studio](Create_PDF_Blazor/Blazor_images_Server.png)
 
@@ -144,7 +144,7 @@ Create a button in the ``FetchData.razor`` using the following code.
 
 {% tabs %}
 {% highlight CSHTML %}
-<button class="btn btn-primary" onclick="@ExportToPdf">Export to PDF</button>
+<button class="btn btn-primary" @onclick="@ExportToPdf">Export to PDF</button>
 {% endhighlight %}
 {% endtabs %}
 
@@ -174,7 +174,7 @@ Step 7: Create a class file with  ``FileUtil`` name and add the following code t
 
 public static class FileUtil
 {
-    public static Task SaveAs(this IJSRuntime js, string filename, byte[] data)
+    public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
        => js.InvokeAsync<object>(
            "saveAsFile",
            filename,
@@ -220,7 +220,7 @@ N> It is recommended to use Blazor Server-Side application to reduce the pay bac
 
 ## Steps to create PDF document in Blazor client-side application:
 
-Step 1: Create a new C# Blazor client-side application project. Select ASP.NET Core Web Application from the template and click the Next button.
+Step 1: Create a new C# Blazor client-side application project. Select Blazor App from the template and click the Next button.
 
 ![Create Blazor Client Side application in Visual Studio](Create_PDF_Blazor/Blazor_create_project.png)
 
@@ -228,9 +228,9 @@ Step 2: Now, the project configuration window appears. Click Create button to cr
 
 ![Create Blazor Client Side application in Visual Studio](Create_PDF_Blazor/Blazor_Client_NewProject.png)
 
-Step 3: Choose Blazor (client-side) from the dashboard and click Create button to create a new Blazor client-side application. Make sure that .NET Core and ASP.NET Core 3.0 are selected at the top.
+Step 3: Blazor WebAssembly App from the dashboard and click Create button to create a new Blazor client-side application. 
 
-![Create Blazor Client Side application in Visual Studio](Create_PDF_Blazor/Blazor_Client_Template.jpg)
+![Create Blazor Client Side application in Visual Studio](Create_PDF_Blazor/Blazor_Client_Template.png)
 
 Step 4: Install the [Syncfusion.PDF.Net.Core](https://www.nuget.org/packages/Syncfusion.pdf.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org).
 
@@ -254,7 +254,7 @@ Step 6: Create a button in the ``FetchData.razor`` using the following code.
 
 {% tabs %}
 {% highlight CSHTML %}
-<button class="btn btn-primary" onclick="@ExportToPdf">Export to PDF</button>
+<button class="btn btn-primary" @onclick="@ExportToPdf">Export to PDF</button>
 {% endhighlight %}
 {% endtabs %}
 
@@ -326,7 +326,7 @@ Step 7: Create a class file with ``FileUtil`` name and add the following code to
 
 public static class FileUtil
 {
-    public static Task SaveAs(this IJSRuntime js, string filename, byte[] data)
+    public static ValueTask<object> SaveAs(this IJSRuntime js, string filename, byte[] data)
        => js.InvokeAsync<object>(
            "saveAsFile",
            filename,
