@@ -1,14 +1,14 @@
 ---
-title: Create an excel file from scratch | Getting started | Syncfusion
+title: Create Excel file in C#, VB.NET | Getting started | Syncfusion
 description: Learn how to create an excel file from data source or scratch; export & import Excel data; create formatted excel report by filling data like Mail merge.
 platform: File-formats
 control: XlsIO
 documentation: UG
 ---
 
-# Getting Started
+# Getting Started - Create Excel File in C# and VB.NET
 
-This section explains how to create a simple Excel document using XlsIO. The following assemblies must be referred in your application to create and manipulate the Excel document.
+This section explains how to create a simple Excel file in C# and VB.NET using XlsIO. The following assemblies must be referred in your application to create and manipulate the Excel document.
 
 <table>
 <thead>
@@ -57,7 +57,7 @@ using Syncfusion.XlsIO;
 {% endhighlight %}
 {% endtabs %}  
 
-## Creating a Hello World sample
+## Create a Hello World Excel File
 
 The following code example explains how to create a hello world sample.
 
@@ -231,7 +231,11 @@ using (ExcelEngine excelEngine = new ExcelEngine())
 {% endhighlight %}
 {% endtabs %}
 
-## Create a simple Excel Document
+The output screen-shot of the above code.
+
+![Hello World output](Getting-Started_images/Getting-Started_HelloWorld.jpeg)
+
+## Create a Simple Excel File
 
 An instance of the ExcelEngine gives access to create an application instance that is similar to launching Microsoft Excel application. The following code snippet shows how to initialize the application object for creating or manipulating Excel documents.
 
@@ -962,7 +966,7 @@ The output screen-shot of the above code.
 ![Getting-Started output](Getting-Started_images/Getting-Started_img1.jpeg)
 
 
-## Importing Data to Worksheets
+## Import Data to Excel Worksheets
 
 XlsIO helps to import data from various data sources into a worksheet. The following data sources can be imported using XlsIO:
 
@@ -1348,7 +1352,7 @@ public class Employee
 
 You can refer various importing options in the “Importing Data to Worksheet” section.
 
-## Exporting Data from Worksheets 
+## Export Data from Excel Worksheets 
 
 The worksheet data can be exported to a data table using the **ExportDataTable****()** method. This method provides various options that allows to export data through ExcelExportDataTableOptions. 
 
