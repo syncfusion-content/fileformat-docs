@@ -538,8 +538,8 @@ Data import can be done with the layout options:
 
 Imported data can be grouped with the grouping options:
 
-* **Collapse** - Groups will be collapsed at the mentioned level, upto the maximum of 8 levels. 
-* **Expand** - Entire group will be expanded after import 
+* **Expand** – Imported data will be grouped and expanded.
+* **Collapse** – Imported data will be grouped and collapsed at first level, by default.
 
 Let’s see these options in detail along with code examples and screenshots.
 
