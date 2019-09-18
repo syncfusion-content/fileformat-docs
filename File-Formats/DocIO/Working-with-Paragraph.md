@@ -4934,6 +4934,10 @@ textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
 //Sets top and bottom margin values
 textbox.TextBoxFormat.InternalMargin.Bottom = 5f;
 textbox.TextBoxFormat.InternalMargin.Top = 5f;
+//Sets 90 degree rotation
+textbox.TextBoxFormat.Rotation = 90;
+//Sets horizontal flip
+textbox.TextBoxFormat.FlipHorizontal = true;
 //Saves and closes the Word document
 document.Save("Sample.docx", FormatType.Docx);
 document.Close(); 
@@ -4967,6 +4971,10 @@ textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page
 'Sets top and bottom margin values
 textbox.TextBoxFormat.InternalMargin.Bottom = 5.0F
 textbox.TextBoxFormat.InternalMargin.Top = 5.0F
+'Sets 90 degree rotation
+textbox.TextBoxFormat.Rotation = 90
+'Sets horizontal flip
+textbox.TextBoxFormat.FlipHorizontal = true
 'Saves and closes the Word document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close() 
@@ -5000,6 +5008,10 @@ textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
 //Sets top and bottom margin values
 textbox.TextBoxFormat.InternalMargin.Bottom = 5f;
 textbox.TextBoxFormat.InternalMargin.Top = 5f;
+//Sets 90 degree rotation
+textbox.TextBoxFormat.Rotation = 90;
+//Sets horizontal flip
+textbox.TextBoxFormat.FlipHorizontal = true;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -5007,6 +5019,7 @@ await document.SaveAsync(stream, FormatType.Docx);
 document.Close();
 //Saves the stream as Word file in local machine
 Save(stream, "Result.docx");
+
 //Please refer the below link to save Word document in UWP platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %} 
@@ -5039,6 +5052,10 @@ textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
 //Sets top and bottom margin values
 textbox.TextBoxFormat.InternalMargin.Bottom = 5f;
 textbox.TextBoxFormat.InternalMargin.Top = 5f;
+//Sets 90 degree rotation
+textbox.TextBoxFormat.Rotation = 90;
+//Sets horizontal flip
+textbox.TextBoxFormat.FlipHorizontal = true;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
@@ -5077,6 +5094,10 @@ textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
 //Sets top and bottom margin values
 textbox.TextBoxFormat.InternalMargin.Bottom = 5f;
 textbox.TextBoxFormat.InternalMargin.Top = 5f;
+//Sets 90 degree rotation
+textbox.TextBoxFormat.Rotation = 90;
+//Sets horizontal flip
+textbox.TextBoxFormat.FlipHorizontal = true;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -5084,6 +5105,7 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
 //Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
 //https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
