@@ -458,11 +458,19 @@ private static void FontSettings_SubstituteFont(object sender, SubstituteFontEve
 
 ## Show Warning for unsupported elements
 
-The Presentation library allows you to skip a PowerPoint presentation to PDF conversion in ASP.NET Core and Xamarin platforms, when the Presentation library contains unsupported elements in PDF conversion such as Metafile images and charts (supported from Net Standard 2.0) used in a PowerPoint document.
+The Presentation library shows warning message about the unsupported elements such as Metafile images and charts (supported from .NET Standard 2.0) present in the input PowerPoint presentation, during PowerPoint to PDF conversion. It also allows you to cancel or continue the PowerPoint to PDF conversion, when any unsupported elements is present in the input PowerPoint presentation.
 
-The following code sample demonstrates how to skip a PowerPoint to PDF conversion, when the unsupported elements (Metafile and Chart) are used in PowerPoint presentation by using the listed warnings.
+The following code example demonstrates how to cancel or continue the PowerPoint presentation to PDF conversion, when an unsupported elements (Metafile and Chart) are present in the input PowerPoint presentation.
 
 {% tabs %}
+
+{% highlight c# %}
+//Essential Presentation library supports Show warning for unsupported elements feature in ASP.NET Core, Blazor server-side application and Xamarin platforms alone.
+{% endhighlight %}
+
+{% highlight vb.net %}
+//Essential Presentation supports library Show warning for unsupported elements feature in ASP.NET Core, Blazor server-side application and Xamarin platforms alone.
+{% endhighlight %}
 
 {% highlight ASP.NET Core %}
 
