@@ -28,5 +28,6 @@ The following list shows the key features available in the Essential PDF.
 * Support for [PDF/X1-A](https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance#adding-support-for-pdfx-1a-conformance),[PDF/A1-B](https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance#adding-support-for-pdfa-1b-conformance),[PDF/A3-B](https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance#adding-support-for-pdfa-2b-conformance) and [PDF/A1-B](https://help.syncfusion.com/file-formats/pdf/working-with-pdf-conformance#adding-support-for-pdfa-3b-conformance) conformances. 
 * Support to create [accessible PDF or tagged PDF (PDF/UA)](https://help.syncfusion.com/file-formats/pdf/working-with-tagged-pdf) with section 508 compliant. 
 * Support to [redact text and images](https://help.syncfusion.com/file-formats/pdf/working-with-redaction) in the PDF files.  
-* Support to [digitally sign PDF](https://help.syncfusion.com/file-formats/pdf/working-with-digitalsignature). 
+* Support to digitally [sign](https://help.syncfusion.com/file-formats/pdf/working-with-digitalsignature) and [validate](https://help.syncfusion.com/file-formats/pdf/working-with-digitalsignature) signature in PDF document. 
+* Support to [find the corrupted PDF document](https://help.syncfusion.com/file-formats/pdf/working-with-document#find-corrupted-pdf-document). 
 * Support for .NET Standard 1.2 onwards. 
