@@ -243,7 +243,7 @@ By executing the program, you will get the **PowerPoint document** as follows.
 
 ![Select .NET Core, ASP.NET Core 3.0 and Blazor server_side.](Workingwith_Blazor/Core_application_Client.png)
 
-4.To **create a PowerPoint document in Server-side application**, install [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) to the Blazor project.
+4.To **create a PowerPoint document in Client-side application**, install [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) to the Blazor project.
 
 ![Install .NET Core Nuget Package](Workingwith_Blazor/NuGet.png)
 
