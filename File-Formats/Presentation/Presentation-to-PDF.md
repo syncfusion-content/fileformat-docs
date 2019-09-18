@@ -605,11 +605,6 @@ public class DocumentWarning : IWarning
                 //Continue the PowerPoint to PDF conversion by setting the isContinueConversion as true.
                 isContinueConversion = true;
             }
-			else
-			{
-				//Skips the PowerPoint to Pdf conversion by setting isContinueConversion value as false.
-				isContinueConversion = false;
-			}
         }
         return isContinueConversion;
     }
