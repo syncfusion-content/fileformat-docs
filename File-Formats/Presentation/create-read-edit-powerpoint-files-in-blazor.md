@@ -241,7 +241,7 @@ By executing the program, you will get the **PowerPoint document** as follows.
 
 3.Choose Blazor WebAssembly App and click Create button to create a new Blazor Client-Side application for .NET Core 3.0.0-preview9.
 
-![Select .NET Core, ASP.NET Core 3.0 and Blazor server_side.](Workingwith_Blazor/Core_application_Client.png)
+![Select .NET Core, ASP.NET Core 3.0 and Blazor Client_side.](Workingwith_Blazor/Core_application_Client.png)
 
 4.To **create a PowerPoint document in Client-side application**, install [Syncfusion.Presentation.Net.Core](https://www.nuget.org/packages/Syncfusion.Presentation.Net.Core) to the Blazor project.
 
@@ -400,7 +400,7 @@ public static class FileUtils
 
 By executing the program, you will get the **PowerPoint document** as follows.
 
-![Blazor Server-side output PowerPoint document](Workingwith_Blazor/Output.png)
+![Blazor Client-side output PowerPoint document](Workingwith_Blazor/Output.png)
 
 N> Even though PowerPoint library works in client-side, it is recommended to use server-side deployment. Since the client-side deployment increases the application payload size.
 
