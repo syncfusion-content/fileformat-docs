@@ -1985,7 +1985,9 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "applica
 
 {% endtabs %}  
 
-Absolute positioned images have properties such as position, wrap formats, and alignments. These properties are not applicable when the text wrapping style is inline.
+### Format and rotate Images
+
+Absolute positioned images have properties such as position, wrap formats, and alignments. These properties are not applicable when the text wrapping style is inline. You can also rotate an image and apply flipping (horizontal and vertical) to it.
 
 The following code example illustrates how various picture formats can be applied to the picture:
 
@@ -2000,7 +2002,7 @@ IWSection section = document.AddSection();
 IWParagraph paragraph = section.AddParagraph();
 paragraph.AppendText("This paragraph has picture. ");
 //Appends new picture to the paragraph
-IWPicture picture = paragraph.AppendPicture(Image.FromFile("Image.png"));
+WPicture picture = paragraph.AppendPicture(Image.FromFile("Image.png")) as WPicture;
 //Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
 picture.TextWrappingStyle = TextWrappingStyle.Square;
 //Sets horizontal and vertical origin
@@ -2016,6 +2018,10 @@ picture.Name = "PictureName";
 //Sets horizontal and vertical alignments
 picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
 picture.VerticalAlignment = ShapeVerticalAlignment.Bottom;
+//Sets 90 degree rotation
+picture.Rotation = 90;
+//Sets horizontal flip
+picture.FlipHorizontal = true;
 //Saves the Word document
 document.Save("Sample.docx", FormatType.Docx);
 //Closes the document
@@ -2031,7 +2037,7 @@ Dim section As IWSection = document.AddSection()
 Dim paragraph As IWParagraph = section.AddParagraph()
 paragraph.AppendText("This paragraph has picture. ")
 'Appends new picture to the paragraph
-Dim picture As IWPicture = paragraph.AppendPicture(Image.FromFile("Image.png"))
+Dim picture As WPicture = TryCast(paragraph.AppendPicture(Image.FromFile("Image.png")), WPicture)
 'Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
 picture.TextWrappingStyle = TextWrappingStyle.Square
 'Sets horizontal and vertical origin
@@ -2047,6 +2053,10 @@ picture.Name = "PictureName"
 'Sets horizontal and vertical alignments
 picture.HorizontalAlignment = ShapeHorizontalAlignment.Center
 picture.VerticalAlignment = ShapeVerticalAlignment.Bottom
+'Sets 90 degree rotation
+picture.Rotation = 90
+'Sets horizontal flip
+picture.FlipHorizontal = true
 'Saves the Word document
 document.Save("Sample.docx", FormatType.Docx)
 'Closes the document
@@ -2064,7 +2074,7 @@ paragraph.AppendText("This paragraph has picture. ");
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
 //Appends new picture to the paragraph
-IWPicture picture = paragraph.AppendPicture(imageStream);
+WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
 //Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
 picture.TextWrappingStyle = TextWrappingStyle.Square;
 //Sets horizontal and vertical origin
@@ -2080,6 +2090,10 @@ picture.Name = "PictureName";
 //Sets horizontal and vertical alignments
 picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
 picture.VerticalAlignment = ShapeVerticalAlignment.Bottom;
+//Sets 90 degree rotation
+picture.Rotation = 90;
+//Sets horizontal flip
+picture.FlipHorizontal = true;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -2134,7 +2148,7 @@ IWParagraph paragraph = section.AddParagraph();
 paragraph.AppendText("This paragraph has picture. ");
 FileStream imageStream = new FileStream(@"Image.png", FileMode.Open, FileAccess.ReadWrite);
 //Appends new picture to the paragraph
-IWPicture picture = paragraph.AppendPicture(imageStream);
+WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
 //Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
 picture.TextWrappingStyle = TextWrappingStyle.Square;    
 //Sets horizontal and vertical origin
@@ -2150,6 +2164,10 @@ picture.Name = "PictureName";
 //Sets horizontal and vertical alignments
 picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
 picture.VerticalAlignment = ShapeVerticalAlignment.Bottom;
+//Sets 90 degree rotation
+picture.Rotation = 90;
+//Sets horizontal flip
+picture.FlipHorizontal = true;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
@@ -2171,7 +2189,7 @@ paragraph.AppendText("This paragraph has picture. ");
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream imageStream = assembly.GetManifestResourceStream("CreateWordSample.Assets.Image.png");
 //Appends new picture to the paragraph
-IWPicture picture = paragraph.AppendPicture(imageStream);
+WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
 //Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
 picture.TextWrappingStyle = TextWrappingStyle.Square;
 //Sets horizontal and vertical origin
@@ -2187,6 +2205,10 @@ picture.Name = "PictureName";
 //Sets horizontal and vertical alignments
 picture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
 picture.VerticalAlignment = ShapeVerticalAlignment.Bottom;
+//Sets 90 degree rotation
+picture.Rotation = 90;
+//Sets horizontal flip
+picture.FlipHorizontal = true;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -5867,9 +5889,13 @@ document.Close();
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream); 
 {% endhighlight %} 
 
-{% endtabs %}  
+{% endtabs %}
 
-Textbox has its own formatting such as outline color, fill effects, text direction, wrap formats, etc. The following code example illustrates how to apply formatting for textbox.
+### Format and rotate TextBox  
+
+Text box has its own formatting such as outline color, fill effects, text direction, wrap formats, and more. You can also rotate the text box and apply flipping (horizontal and vertical) to it.
+
+The following code example explains how to apply formatting and rotation for text box.
 
 {% tabs %}  
 
@@ -5901,6 +5927,10 @@ textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
 //Sets top and bottom margin values
 textbox.TextBoxFormat.InternalMargin.Bottom = 5f;
 textbox.TextBoxFormat.InternalMargin.Top = 5f;
+//Sets 90 degree rotation
+textbox.TextBoxFormat.Rotation = 90;
+//Sets horizontal flip
+textbox.TextBoxFormat.FlipHorizontal = true;
 //Saves and closes the Word document
 document.Save("Sample.docx", FormatType.Docx);
 document.Close(); 
@@ -5934,6 +5964,10 @@ textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page
 'Sets top and bottom margin values
 textbox.TextBoxFormat.InternalMargin.Bottom = 5.0F
 textbox.TextBoxFormat.InternalMargin.Top = 5.0F
+'Sets 90 degree rotation
+textbox.TextBoxFormat.Rotation = 90
+'Sets horizontal flip
+textbox.TextBoxFormat.FlipHorizontal = true
 'Saves and closes the Word document
 document.Save("Sample.docx", FormatType.Docx)
 document.Close() 
@@ -5967,6 +6001,10 @@ textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
 //Sets top and bottom margin values
 textbox.TextBoxFormat.InternalMargin.Bottom = 5f;
 textbox.TextBoxFormat.InternalMargin.Top = 5f;
+//Sets 90 degree rotation
+textbox.TextBoxFormat.Rotation = 90;
+//Sets horizontal flip
+textbox.TextBoxFormat.FlipHorizontal = true;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -6039,6 +6077,10 @@ textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
 //Sets top and bottom margin values
 textbox.TextBoxFormat.InternalMargin.Bottom = 5f;
 textbox.TextBoxFormat.InternalMargin.Top = 5f;
+//Sets 90 degree rotation
+textbox.TextBoxFormat.Rotation = 90;
+//Sets horizontal flip
+textbox.TextBoxFormat.FlipHorizontal = true;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word document to  MemoryStream
@@ -6077,6 +6119,10 @@ textbox.TextBoxFormat.HorizontalOrigin = HorizontalOrigin.Page;
 //Sets top and bottom margin values
 textbox.TextBoxFormat.InternalMargin.Bottom = 5f;
 textbox.TextBoxFormat.InternalMargin.Top = 5f;
+//Sets 90 degree rotation
+textbox.TextBoxFormat.Rotation = 90;
+//Sets horizontal flip
+textbox.TextBoxFormat.FlipHorizontal = true;
 //Saves and closes the Word document instance
 MemoryStream stream = new MemoryStream();
 //Saves the Word file to MemoryStream
@@ -6084,6 +6130,9 @@ document.Save(stream, FormatType.Docx);
 document.Close();
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
+
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
