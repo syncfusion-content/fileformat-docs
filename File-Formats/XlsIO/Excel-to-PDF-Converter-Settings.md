@@ -227,7 +227,7 @@ It is recommended to implement `IWarning` interface in a supporting class. The i
 *	**Type** – the element that failed to convert
 *	**Description** – the description of the failed element
 
-In addition, a decision to continue the conversion process can be done here by setting boolean value to the property `Cancel`. If `Cancel` is set to TRUE the conversion continues, else the conversion cancels.
+In addition, a decision to continue the conversion process can be done here by setting boolean value to the property `Cancel`. If `Cancel` is set to TRUE the conversion cancels, else the conversion continues.
 
 The following code snippet shows how to capture warnings during Excel-to-PDF conversion.
 {% tabs %}  
@@ -264,8 +264,10 @@ namespace CaptureWarnings
              //Convert Excel document into PDF document.
              PdfDocument pdfDocument = converter.Convert(settings);
            
-             //Save the PDF file.
-             pdfDocument.Save("ExcelToPDF.pdf");
+             //If conversion process canceled null returned.
+             if(pdfDocument != null)
+               //Save the PDF file.
+               pdfDocument.Save("ExcelToPDF.pdf");
            }
         }
     }
@@ -318,9 +320,11 @@ Namespace CaptureWarnings
            
                'Convert Excel document into PDF document.
                Dim pdfDocument As PdfDocument = converter.Convert(settings)
-           
-               'Save the PDF file.
-               pdfDocument.Save("ExcelToPDF.pdf")
+			   
+               'If conversion process canceled null returned.
+               If pdfDocument IsNot Nothing Then
+                  'Save the PDF file.
+                  pdfDocument.Save("ExcelToPDF.pdf")
            End Using
         End Sub
     End Class
@@ -383,15 +387,18 @@ namespace CaptureWarnings
               
             	//Convert Excel document into PDF document.
             	PdfDocument pdfDocument = renderer.ConvertToPDF(workbook, settings);
+                
+                //If conversion process canceled null returned.
+                if(pdfDocument != null)
+                {
+            	  //Save the PDF document to stream.
+            	  MemoryStream stream = new MemoryStream();
             
-            	//Save the PDF document to stream.
-            	MemoryStream stream = new MemoryStream();
-            
-            	await pdfDocument.SaveAsync(stream);
-            	Save(stream, "ExcelToPDF.pdf");
-            
+            	  await pdfDocument.SaveAsync(stream);
+            	  Save(stream, "ExcelToPDF.pdf");
+                  stream.Dispose();
+                }
             	excelStream.Dispose();
-            	stream.Dispose();
             }
         }		
 
@@ -480,13 +487,16 @@ namespace CaptureWarnings
               //Convert Excel document into PDF document.
               PdfDocument pdfDocument = renderer.ConvertToPDF(workbook, settings);
            
-              //Save the PDF file.
-              Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
-              pdfDocument.Save(stream);
-           
-              excelStream.Dispose();
-              stream.Dispose();
-           }
+              //If conversion process canceled null returned.
+              if(pdfDocument != null)
+              {
+                //Save the PDF file.
+                Stream stream = new FileStream("ExcelToPDF.pdf", FileMode.Create, FileAccess.ReadWrite);
+                pdfDocument.Save(stream);
+                stream.Dispose();
+              }
+              excelStream.Dispose();              
+            }
         }
     }
 
@@ -546,24 +556,27 @@ namespace CaptureWarnings
             	//Convert Excel document into PDF document 
             	PdfDocument pdfDocument = renderer.ConvertToPDF(workbook, settings);
             
-            	//Save the PDF document to stream.
-            	MemoryStream stream = new MemoryStream();
-            	pdfDocument.Save(stream);
-            
-            	stream.Position = 0;
-            
-            	//Save the stream into pdf file
-            	if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-            	{
-            		Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-            	}
-            	else
-            	{
-            		Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
-            	}
-            
+                //If conversion process canceled null returned.
+                if(pdfDocument != null)
+                {
+            	   //Save the PDF document to stream.
+            	   MemoryStream stream = new MemoryStream();
+            	   pdfDocument.Save(stream);
+                   
+            	   stream.Position = 0;
+                   
+            	   //Save the stream into pdf file
+            	   if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+            	   {
+            	   	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+            	   }
+            	   else
+            	   {
+            	   	Xamarin.Forms.DependencyService.Get<ISave>().Save("ExcelToPDF.pdf", "application/pdf", stream);
+            	   }
+                   stream.Dispose();
+                }
             	excelStream.Dispose();
-            	stream.Dispose();
             }
         }
     }
