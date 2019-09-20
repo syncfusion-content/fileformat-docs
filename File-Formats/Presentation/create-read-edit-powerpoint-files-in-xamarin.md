@@ -1,5 +1,5 @@
 ---
-title: Create and edit PowerPoint files in Xamarin | Syncfusion
+title: Create and edit PowerPoint files in Xamarin |Syncfusion|
 description: Xamarin PowerPoint library to create, read, edit and convert PowerPoint files in Xamarin.Forms, Xamarin.Android and Xamarin.iOS platforms
 platform: file-formats
 control: PowerPoint
@@ -226,9 +226,7 @@ Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("GettingStared.pptx", "
 
 {% endtabs %}
 
-## Helper files for Xamarin
-
-Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+8.Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
@@ -293,7 +291,7 @@ Download the helper files from this [link](http://www.syncfusion.com/downloads/s
   </tr>
 </table>
 
-Compile and execute the application.
+9.Compile and execute the application. 
 
 The output of the above code example will generate the below PowerPoint slide.
 

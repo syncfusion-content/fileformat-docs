@@ -11,6 +11,7 @@ A template marker is a special marker symbol created in an Excel template that a
 
 * DataTable
 * Collection objects
+* Nested collection objects
 * Arrays
 
 ## Template marker Syntax
@@ -51,6 +52,26 @@ Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;;jump:R2C2
 **copyrange****:[****top****-****left** **cell** **reference** **in** **R1C1****]:[****bottom****-****right** **cell** **reference** **in** **R1C1****]-**Copies the specified cells after each cell import.
 
 Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;;copyrange:R2C2:R4C4
+
+**default**-This argument adds the property value once per object for the corresponding records in the column while importing nested collection objects.
+
+Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;default
+
+**merge**-This argument merges the cells in the column for each object set while importing nested collection objects.
+
+Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;merge
+
+**repeat**-This argument repeats the property value for the corresponding records in the column while importing nested collection objects.
+
+Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;repeat
+
+**collapsegroup**-This argument groups the cells in the column for each object set and collapse the data while importing nested collection objects.
+
+Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;collapsegroup
+
+**expandgroup**-This argument groups the cells in the column for each object set and expand the data while importing nested collection objects.
+
+Syntax: %&lt;MarkerVariable&gt;.&lt;Property&gt;expandgroup
 
 ## Bind from Array
 
@@ -708,6 +729,518 @@ Generated output
 
 
 You can also refer to the [Template based data filling using Template Markers](/file-formats/xlsio/getting-started#template-based-data-filling-using-template-markers) section in [Getting Started](/file-formats/xlsio/getting-started) for the sample regarding template marker with images.
+
+## Bind from Nested Collection Objects with import data and group options
+
+You can bind the data from Nested collection objects with import data options and group options.
+
+The import data options are:
+
+* Default
+* Merge
+* Repeat
+
+The import data group options are:
+
+* Collapse Group
+* Expand Group
+
+The following code snippet illustrates how to import data from nested collection objects with template marker.
+
+{% tabs %}  
+{% highlight c# %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+    IApplication application = excelEngine.Excel;
+    IWorkbook workbook = application.Workbooks.Open("TemplateMarker.xlsx")
+
+    //Create Template Marker Processor
+    ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+    //Add collection to the marker variables where the name should match with input template
+    marker.AddVariable("Customer", GetSalesReports());
+
+    //Process the markers in the template
+    marker.ApplyMarkers();
+
+    workbook.SaveAs("TemplateMarkerNestedCollection.xlsx");
+}
+{% endhighlight %}
+
+{% highlight vb %}
+using excelEngine As ExcelEngine = new ExcelEngine()
+  Dim workbook As IWorkbook = excelEngine.Excel.Workbooks.Open("TemplateMarker.xlsx")
+
+  'Create Template Marker Processor
+  Dim marker As ITemplateMarkersProcessor = workbook.CreateTemplateMarkersProcessor()
+ 
+  'Add collection to the marker variables where the name should match with input template
+   marker.AddVariable("Customer", GetSalesReports())
+
+  'Process the markers and detect the number format along with the data type in the template
+  marker.ApplyMarkers()
+
+  workbook.SaveAs("TemplateMarkerNestedCollection.xlsx");
+End Using
+
+{% endhighlight %}
+
+{% highlight UWP %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+
+  //Instantiates the File Picker
+  FileOpenPicker openPicker = new FileOpenPicker();
+  openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  openPicker.FileTypeFilter.Add(".xlsx");
+  openPicker.FileTypeFilter.Add(".xls");
+  StorageFile openFile = await openPicker.PickSingleFileAsync();
+
+  //Opens the workbook
+  IWorkbook workbook = await application.Workbooks.OpenAsync(openFile);
+  
+  //Create Template Marker Processor
+  ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+  //Add collection to the marker variables where the name should match with input template
+  marker.AddVariable("Customer", GetSalesReports());
+
+  //Process the markers in the template
+  marker.ApplyMarkers();
+
+  //Initializes FileSavePicker
+  FileSavePicker savePicker = new FileSavePicker();
+  savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+  savePicker.SuggestedFileName = "TemplateMarkerNestedCollection";
+  savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+
+  //Creates a storage file from FileSavePicker
+  StorageFile storageFile = await savePicker.PickSaveFileAsync();
+
+  //Saves changes to the specified storage file
+  await workbook.SaveAsAsync(storageFile);
+}
+{% endhighlight %}
+{% highlight asp.net core %}
+
+//Binding data from data table is supported only from ASP.NET Core 2.0
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  FileStream fileStream = new FileStream("TemplateMarker.xlsx", FileMode.Open, FileAccess.Read);
+  IWorkbook workbook = application.Workbooks.Open(fileStream);
+
+  //Create Template Marker Processor
+    ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+  //Add collection to the marker variables where the name should match with input template
+  marker.AddVariable("Customer", GetSalesReports());
+
+  //Process the markers in the template
+  marker.ApplyMarkers();
+
+  //Saving the workbook as stream
+
+  FileStream stream = new FileStream("TemplateMarkerNestedCollection.xlsx", FileMode.Create, FileAccess.ReadWrite);
+  workbook.SaveAs(stream);
+  stream.Dispose();
+}
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+using (ExcelEngine excelEngine = new ExcelEngine())
+{
+  IApplication application = excelEngine.Excel;
+  application.DefaultVersion = ExcelVersion.Excel2013;
+  Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+  Stream inputStream = assembly.GetManifestResourceStream("SampleBrowser.XlsIO.Samples.Template.TemplateMarker.xlsx");
+  IWorkbook workbook = application.Workbooks.Open(inputStream);
+
+  //Create Template Marker Processor
+  ITemplateMarkersProcessor marker = workbook.CreateTemplateMarkersProcessor();
+
+  //Add collection to the marker variables where the name should match with input template
+  marker.AddVariable("Customer", GetSalesReports());
+
+  //Process the markers in the template
+  marker.ApplyMarkers();
+
+  //Saving the workbook as stream
+  MemoryStream stream = new MemoryStream();
+  workbook.SaveAs(stream);
+
+  stream.Position = 0;
+
+  //Save the document as file and view the saved document
+
+  //The operation in SaveAndView under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer xlsio/xamarin section for respective code samples.
+
+  if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+  {
+	Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().SaveAndView("TemplateMarkerNestedCollection.xlsx", "application/msexcel", stream);
+  }
+  else
+  {
+	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TemplateMarkerNestedCollection.xlsx", "application/msexcel", stream);
+  }
+}
+{% endhighlight %}
+{% endtabs %}  
+
+The following code snippet provides supporting methods and classes for the previous code.
+
+{% tabs %}  
+{% highlight c# %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight vb %}
+'Gets a list of sales reports
+Public Shared Function GetSalesReports() As List(Of Customer)
+    Dim reports As List(Of Customer) = New List(Of Customer)()
+    Dim orders As List(Of Order) = New List(Of Order)()
+    orders.Add(New Order(1408, 451.75))
+    orders.Add(New Order(1278, 340.00))
+    orders.Add(New Order(1123, 290.50))
+    Dim c1 As Customer = New Customer(002107, "Andy Bernard", 45)
+    c1.Orders = orders
+    Dim c2 As Customer = New Customer(011564, "Jim Halpert", 34)
+    c2.Orders = orders
+    Dim c3 As Customer = New Customer(002097, "Karen Fillippelli", 35)
+    c3.Orders = orders
+    Dim c4 As Customer = New Customer(001846, "Phyllis Lapin", 37)
+    c4.Orders = orders
+    Dim c5 As Customer = New Customer(012167, "Stanley Hudson", 41)
+    c5.Orders = orders
+    reports.Add(c1)
+    reports.Add(c2)
+    reports.Add(c3)
+    reports.Add(c4)
+    reports.Add(c5)
+    Return reports
+End Function
+
+'Customer details
+Public Class Customer
+    Public Property Id As Integer
+    Public Property Name As String
+    Public Property Age As Integer
+    Public Property Orders As IList(Of Order)
+
+    Public Sub New(ByVal id As Integer, ByVal name As String, ByVal age As Integer)
+        Id = id
+        Name = name
+        Age = age
+    End Sub
+End Class
+'Order details
+Public Class Order
+    Public Property Order_Id As Integer
+    Public Property Price As Double
+
+    Public Sub New(ByVal id As Integer, ByVal price As Double)
+        Order_Id = id
+        Price = price
+    End Sub
+End Class
+{% endhighlight %}
+
+{% highlight UWP %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Gets a list of sales reports
+public static List<Customer> GetSalesReports()
+{
+    List<Customer> reports = new List<Customer>();
+
+    List<Order> orders = new List<Order>();
+    orders.Add(new Order(1408, 451.75));
+    orders.Add(new Order(1278, 340.00));
+    orders.Add(new Order(1123, 290.50));
+
+    Customer c1 = new Customer(002107, "Andy Bernard", 45);
+    c1.Orders = orders;
+    Customer c2 = new Customer(011564, "Jim Halpert", 34);
+    c2.Orders = orders;
+    Customer c3 = new Customer(002097, "Karen Fillippelli", 35);
+    c3.Orders = orders;
+    Customer c4 = new Customer(001846, "Phyllis Lapin", 37);
+    c4.Orders = orders;
+    Customer c5 = new Customer(012167, "Stanley Hudson", 41);
+    c5.Orders = orders;
+
+    reports.Add(c1);
+    reports.Add(c2);
+    reports.Add(c3);
+    reports.Add(c4);
+    reports.Add(c5);
+
+    return reports;
+}
+
+//Customer details
+public partial class Customer
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public IList<Order> Orders { get; set; }
+    public Customer(int id, string name, int age)
+    {
+        Id = id;
+        Name = name;
+        Age = age;
+    }
+}
+//Order details
+public partial class Order
+{
+    public int Order_Id { get; set; }
+    public double Price { get; set; }
+
+    public Order(int id, double price)
+    {
+        Order_Id = id;
+        Price = price;
+    }
+}
+{% endhighlight %}
+{% endtabs %} 
+
+The output of all the import data and group options with input templates are as follows.
+
+**Default** **option** **input** **and** **output**
+
+Input template
+
+![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img20.jpeg)
+
+
+Generated output
+
+![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img21.jpeg)
+
+
+**Merge** **option** **input** **and** **output**
+
+Input template
+
+![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img22.jpeg)
+
+
+Generated output
+
+![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img23.jpeg)
+
+
+**Repeat** **option** **input** **and** **output**
+
+Input template
+
+![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img24.jpeg)
+
+
+Generated output
+
+![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img25.jpeg)
+
+
+**Collapse** **group** **option** **input** **and** **output**
+
+Input template
+
+![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img26.jpeg)
+
+
+Generated output
+
+![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img27.jpeg)
+
+
+**Expand** **group** **option** **input** **and** **output**
+
+Input template
+
+![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img28.jpeg)
+
+
+Generated output
+
+![Import nested collection objects Example](Working-with-Template-Markers_images/Working-with-Template_Markers_img29.jpeg)
+
 
 ## Template marker with conditional formatting
 

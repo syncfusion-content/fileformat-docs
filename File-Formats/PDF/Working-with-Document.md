@@ -2632,7 +2632,7 @@ End Sub
 {% endhighlight %}
 {% endtabs %}
 
-##Uniform Resource Naming in PDF document
+## Uniform Resource Naming in PDF document
 
 The Essential PDF allows you to create a PDF document with proper uniform resource naming by using the [EnableUniqueResourceNaming](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument~EnableUniqueResourceNaming.html) property available in the [PdfDocument](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.PdfDocument.html) instance. By default, the resource naming is added uniquely. Disabling the ```EnableUniqueResourceNaming``` property will create a PDF document with uniform resource names.
 
@@ -3002,5 +3002,148 @@ else
 {
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
 }
+{% endhighlight %}
+{% endtabs %}
+
+## Find corrupted PDF document   
+
+Syncfusion PDF Library provides support to check whether the existing PDF document is corrupted or not with corruption details. The following code snippet explains how to find the corrupted PDF document.
+
+{% tabs %}
+{% highlight C# %}
+//Create a new instance for the PDF analyzer
+PdfDocumentAnalyzer analyzer = new PdfDocumentAnalyzer("Input.pdf");
+
+//Get the syntax errors
+SyntaxAnalyzerResult result = analyzer.AnalyzeSyntax();
+
+//Check whether the document is corrupted or not
+if (result.IsCorrupted)
+{
+   //Get syntax error details from results.error
+   StringBuilder builder = new StringBuilder();
+   builder.AppendLine("The PDF document is corrupted.");
+   int count = 1;
+   foreach (PdfException exception in result.Errors)
+   {
+     builder.AppendLine(count++.ToString() + ": " + exception.Message);
+   }
+}
+else               
+{
+   //No syntax error found in the provided PDF document
+}             
+analyzer.Close();
+{% endhighlight %}
+
+{% highlight vb.net %}
+'Create a new instance for the PDF analyzer
+Dim analyzer As PdfDocumentAnalyzer = New PdfDocumentAnalyzer("Input.pdf")
+
+'Get the syntax errors
+Dim result As SyntaxAnalyzerResult = analyzer.AnalyzeSyntax
+
+'Check whether the document is corrupted or not
+If result.IsCorrupted Then
+   'Get syntax error details from results.error
+    builder = New StringBuilder
+    builder.AppendLine("The PDF document is corrupted.")
+    Dim count = 1
+    For Each exception As PdfException In result.Errors
+         builder.AppendLine(Math.Min(Threading.Interlocked.Increment(count), count - 1).ToString & ": " & exception.Message)
+    Next
+
+Else
+   'No syntax error found in the provided PDF document.
+End If
+analyzer.Close()
+{% endhighlight %}
+
+{% highlight UWP %}
+//Load the PDF document as stream 
+Stream pdfStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");                                                                                                               
+             
+//Create a new instance for the PDF analyzer
+PdfDocumentAnalyzer analyzer = new PdfDocumentAnalyzer(pdfStream);
+
+//Get the syntax errors.
+SyntaxAnalyzerResult result = analyzer.AnalyzeSyntax();
+
+//Check whether the document is corrupted or not
+if (result.IsCorrupted)
+{
+     //Get syntax error details from results.error
+     StringBuilder builder = new StringBuilder();
+     builder.AppendLine("The PDF document is corrupted.");
+     int count = 1;
+     foreach (PdfException exception in result.Errors)
+     {
+        builder.AppendLine(count++.ToString() + ": " + exception.Message);
+     }              
+}
+else               
+{
+      //No syntax error found in the provided PDF document
+}                    
+analyzer.Close();
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+//Load the PDF document 
+FileStream  docStream = new  FileStream("Input.pdf", FileMode.Open, FileAccess.Read); 
+
+//Create a new instance for the PDF analyzer
+PdfDocumentAnalyzer analyzer = new PdfDocumentAnalyzer(docStream);
+
+//Get the syntax errors
+SyntaxAnalyzerResult result = analyzer.AnalyzeSyntax();
+
+//Check whether the document is corrupted or not
+if (result.IsCorrupted)
+{
+    //Get syntax error details from results.error
+    StringBuilder builder = new StringBuilder();
+    builder.AppendLine("The PDF document is corrupted.");
+    int count = 1;
+    foreach (PdfException exception in result.Errors)
+    {
+       builder.AppendLine(count++.ToString() + ": " + exception.Message);
+    }              
+    
+}
+else               
+{
+    //No syntax error found in the provided PDF document
+}                    
+analyzer.Close();
+{% endhighlight %}
+
+{% highlight Xamarin %}
+//Load the PDF document as stream 
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+//Create a new instance for the PDF analyzer
+PdfDocumentAnalyzer analyzer = new PdfDocumentAnalyzer(docStream);
+
+//Get the syntax errors
+SyntaxAnalyzerResult result = analyzer.AnalyzeSyntax();
+
+//Check whether the document is corrupted or not
+if (result.IsCorrupted)
+{
+    //Get syntax error details from results.error
+    StringBuilder builder = new StringBuilder();
+    builder.AppendLine("The PDF document is corrupted.");
+    int count = 1;
+    foreach (PdfException exception in result.Errors)
+    {
+       builder.AppendLine(count++.ToString() + ": " + exception.Message);
+    }              
+}
+else               
+{
+    //No syntax error found in the provided PDF document
+}                    
+analyzer.Close();
 {% endhighlight %}
 {% endtabs %}

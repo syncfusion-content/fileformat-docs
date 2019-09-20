@@ -3080,3 +3080,1100 @@ else
 
 {% endtabs %}
 
+## Adding a digital signature with customization
+
+The PdfSignatureSettings allows you to add customized digital signatures to the PDF document.
+
+### Adding a digital signature with CAdES format
+
+As per the PDF specification 2.0, now Syncfusion PDF library supports digital signature based on CAdES (CMS Advanced Electronics Signature). The CAdES based digital signature can remain valid for long periods, even if underlying cryptographic algorithms are broken. Using the API “CryptographicStandard”, you can change the standard between CMS (Cryptographic Message Syntax) and CAdES.
+
+The following code example explains how to add a digital signature with cryptographic standard (CAdES) to the PDF document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key
+
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets signature settings to customize cryptographic standard specified
+
+PdfSignatureSettings settings = signature.Settings;
+
+settings.CryptographicStandard  = CryptographicStandard.CADES;
+
+//Sets an image for signature field
+
+PdfBitmap signatureImage = new PdfBitmap(@"signature.jpg");
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Saves and closes the document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Creates a new PDF document
+
+Dim document As New PdfDocument()
+
+'Adds a new page
+
+Dim page As PdfPageBase = document.Pages.Add()
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Creates a certificate instance from PFX file with private key
+
+Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
+
+'Creates a digital signature
+
+Dim signature As New PdfSignature(document, page, pdfCert, "Signature")
+
+'Sets signature settings to customize cryptographic standard specified
+
+Dim settings As PdfSignatureSettings = signature.Settings
+
+settings.CryptographicStandard  = CryptographicStandard.CADES
+
+'Sets an image for signature field
+
+Dim signatureImage As New PdfBitmap("signature.jpg")
+
+'Sets signature info
+
+signature.Bounds = New RectangleF(New PointF(0, 0), signatureImage.PhysicalDimension)
+
+signature.ContactInfo = "johndoe@owned.us"
+
+signature.LocationInfo = "Honolulu, Hawaii"
+
+signature.Reason = "I am author of this document."
+
+'Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0)
+
+'Saves and closes the document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets signature settings to customize cryptographic standard specified
+
+PdfSignatureSettings settings = signature.Settings;
+
+settings.CryptographicStandard  = CryptographicStandard.CADES;
+
+//Sets an image for signature field
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.signature.jpg");
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key
+
+FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets signature settings to customize cryptographic standard specified
+
+PdfSignatureSettings settings = signature.Settings;
+
+settings.CryptographicStandard  = CryptographicStandard.CADES;
+
+//Sets an image for signature field
+
+FileStream imageStream = new FileStream("signature.jpg", FileMode.Open, FileAccess.Read);
+
+//Sets an image for signature field
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets signature settings to customize cryptographic standard specified
+
+PdfSignatureSettings settings = signature.Settings;
+
+settings.CryptographicStandard  = CryptographicStandard.CADES;
+
+//Sets an image for signature field
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signature.jpg");
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
+
+### Customize digestion algorithm
+
+In addition, you can now set the different message digest algorithm to sign PDF document using the “DigestAlgorithm” enum available in the class “PdfSignatureSettings”. 
+
+The following message digest algorithms are now supported:
+
+* SHA1
+* SHA256
+* SHA384
+* SHA512
+* RIPEMD160
+
+The following code example explains how to add a digital signature with various digest algorithms to the PDF document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key
+
+PdfCertificate pdfCert = new PdfCertificate(@"PDF.pfx", "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets signature settings to customize digest algorithm specified
+
+PdfSignatureSettings settings = signature.Settings;
+
+settings.DigestAlgorithm = DigestAlgorithm.SHA256;
+
+//Sets an image for signature field
+
+PdfBitmap signatureImage = new PdfBitmap(@"signature.jpg");
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Saves and closes the document
+
+document.Save("Output.pdf");
+
+document.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Creates a new PDF document
+
+Dim document As New PdfDocument()
+
+'Adds a new page
+
+Dim page As PdfPageBase = document.Pages.Add()
+
+Dim graphics As PdfGraphics = page.Graphics
+
+'Creates a certificate instance from PFX file with private key
+
+Dim pdfCert As New PdfCertificate("PDF.pfx", "syncfusion")
+
+'Creates a digital signature
+
+Dim signature As New PdfSignature(document, page, pdfCert, "Signature")
+
+'Sets signature settings to customize digest algorithm specified
+
+Dim settings As PdfSignatureSettings = signature.Settings
+
+settings.DigestAlgorithm = DigestAlgorithm.SHA256
+
+'Sets an image for signature field
+
+Dim signatureImage As New PdfBitmap("signature.jpg")
+
+'Sets signature info
+
+signature.Bounds = New RectangleF(New PointF(0, 0), signatureImage.PhysicalDimension)
+
+signature.ContactInfo = "johndoe@owned.us"
+
+signature.LocationInfo = "Honolulu, Hawaii"
+
+signature.Reason = "I am author of this document."
+
+'Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0)
+
+'Saves and closes the document
+
+document.Save("Output.pdf")
+
+document.Close(True)
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets signature settings to customize digest algorithm specified
+
+PdfSignatureSettings settings = signature.Settings;
+
+settings.DigestAlgorithm = DigestAlgorithm.SHA256;
+
+//Sets an image for signature field
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.signature.jpg");
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document
+
+document.Close(true);                                                                   
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key
+
+FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets signature settings to customize digest algorithm specified
+
+PdfSignatureSettings settings = signature.Settings;
+
+settings.DigestAlgorithm = DigestAlgorithm.SHA256;
+
+//Sets an image for signature field
+
+FileStream imageStream = new FileStream("signature.jpg", FileMode.Open, FileAccess.Read);
+
+//Sets an image for signature field
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+stream.Position = 0;
+
+//Close the documents
+
+document.Close(true);
+
+//Defining the ContentType for pdf file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name.
+
+return File(stream, contentType, fileName);
+
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+
+//Creates a new PDF document
+
+PdfDocument document = new PdfDocument();
+
+//Adds a new page
+
+PdfPageBase page = document.Pages.Add();
+
+PdfGraphics graphics = page.Graphics;
+
+//Creates a certificate instance from PFX file with private key
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
+
+PdfCertificate pdfCert = new PdfCertificate(certificateStream, "syncfusion");
+
+//Creates a digital signature
+
+PdfSignature signature = new PdfSignature(document, page, pdfCert, "Signature");
+
+//Sets signature settings to customize digest algorithm specified
+
+PdfSignatureSettings settings = signature.Settings;
+
+settings.DigestAlgorithm = DigestAlgorithm.SHA256;
+
+//Sets an image for signature field
+
+Stream imageStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.signature.jpg");
+
+PdfBitmap signatureImage = new PdfBitmap(imageStream);
+
+//Sets signature information
+
+signature.Bounds = new RectangleF(new PointF(0, 0), signatureImage.PhysicalDimension);
+
+signature.ContactInfo = "johndoe@owned.us";
+
+signature.LocationInfo = "Honolulu, Hawaii";
+
+signature.Reason = "I am author of this document.";
+
+//Draws the signature image
+
+graphics.DrawImage(signatureImage, 0, 0);
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Closes the document
+
+document.Close(true);
+
+//Save the stream into pdf file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
+## Digital signature validation
+
+Added a support to validate the digital signatures in an existing PDF document. Digital signature validation covers the following steps to ensure validity of the signatures:
+
+* Validate the document modification.
+* Validate the certificate chain.
+* Ensure the signature with timestamp time.
+* Check the revocation status of the certificate with OCSP and CRL.
+* Ensure the multiple digital signatures.
+
+You can use the “ValidateSignature” method available in the “PdfLoadedSignatureField" class to validate the digital signature. 
+
+You can get the overall status from the “IsSignatureValid” property available in the “PdfSignatureValidationResult” class.
+
+The following code example explains how to validate digitally signed PDF document signature.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Load an existing signed PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Get signature field
+
+PdfLoadedSignatureField signatureField = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+
+//X509Certificate2Collection to check the signer's identity using root certificates
+
+X509CertificateCollection collection = new X509CertificateCollection();
+
+//Create new X509Certificate2 with the root certificate
+
+X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "syncfusion");
+
+//Add the certificate to the collection
+
+collection.Add(certificate);
+
+//Validate signature and get the validation result
+
+PdfSignatureValidationResult result = signatureField.ValidateSignature(collection);
+
+//Checks whether the signature is valid or not
+
+SignatureStatus status = result.SignatureStatus;
+
+//Checks whether the document is modified or not
+
+bool isModified = result.IsDocumentModified;
+
+//Checks whether the LTV is enabled or not
+
+bool isLTVEnabled = result.IsLTVEnabled;
+
+//Checks the signature validity based on the timestamp, signing, or current time
+
+bool isValidAtTimestampTime = result.IsValidAtTimeStampTime;
+
+bool isValidAtSignedTime = result.IsValidAtSignedTime;
+
+bool isValidAtCurrentTime = result.IsValidAtCurrentTime;
+
+//Signature details
+
+string signatureAlgorithm = result.SignatureAlgorithm;
+
+DigestAlgorithm digestAlgorithm = result.DigestAlgorithm;
+
+//Revocation validation details
+
+RevocationResult revocationDetails = result.RevocationResult;
+
+RevocationStatus revocationStatus = revocationDetails.OcspRevocationStatus;
+
+bool isRevokedCRL = revocationDetails.IsRevokedCRL;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Load an existing signed PDF document
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Get signature field
+
+Dim signatureField As PdfLoadedSignatureField = loadedDocument.Form.Fields[0] As PdfLoadedSignatureField
+
+'X509Certificate2Collection to check the signer's identity using root certificates
+
+Dim collection As X509CertificateCollection = New X509CertificateCollection()
+
+'Create new X509Certificate2 with the root certificate
+
+Dim certificate As X509Certificate2 = New X509Certificate2("PDF.pfx", "syncfusion")
+
+'Add the certificate to the collection
+
+collection.Add(certificate)
+
+'Validate signature and get the validation result
+
+Dim result As PdfSignatureValidationResult = signatureField.ValidateSignature(collection)
+
+'Checks whether the signature is valid or not
+
+Dim status As SignatureStatus = result.SignatureStatus
+
+'Checks whether the document is modified or not
+
+Dim isModified As Boolean = result.IsDocumentModified
+
+'Checks whether the LTV is enabled or not
+
+Dim isLTVEnabled As Boolean = result.IsLTVEnabled
+
+'Checks the signature validity based on the timestamp, signing, or current time
+
+Dim isValidAtTimestampTime As Boolean = result.IsValidAtTimeStampTime
+
+Dim isValidAtSignedTime As Boolean = result.IsValidAtSignedTime
+
+Dim isValidAtCurrentTime As Boolean = result.IsValidAtCurrentTime
+
+'Signature details
+
+Dim signatureAlgorithm As String = result.SignatureAlgorithm
+
+Dim digestAlgorithm As DigestAlgorithm = result.DigestAlgorithm
+
+'Revocation validation details
+
+Dim revocationDetails As RevocationResult = result.RevocationResult
+
+Dim revocationStatus As RevocationStatus = revocationDetails.OcspRevocationStatus
+
+Dim isRevokedCRL As Boolean = revocationDetails.IsRevokedCRL
+
+'Close the document
+
+loadedDocument.Close(true)
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Get the stream from the document
+
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+
+//Load an existing signed PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//Get signature field
+
+PdfLoadedSignatureField signatureField = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+
+//X509Certificate2Collection to check the signer's identity using root certificates
+
+X509CertificateCollection collection = new X509CertificateCollection();
+
+//Creates a certificate instance from PFX file with private key
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+
+byte[] data = new byte[certificateStream.Length];
+
+certificateStream.Read(data, 0, data.Length);
+
+//Create new X509Certificate2 with the root certificate
+
+X509Certificate2 certificate = new X509Certificate2(data, "syncfusion");
+
+//Add the certificate to the collection
+
+collection.Add(certificate);
+
+//Validate signature and get the validation result
+
+PdfSignatureValidationResult result = signatureField.ValidateSignature(collection);
+
+//Checks whether the signature is valid or not
+
+SignatureStatus status = result.SignatureStatus;
+
+//Checks whether the document is modified or not
+
+bool isModified = result.IsDocumentModified;
+
+//Checks whether the LTV is enabled or not
+
+bool isLTVEnabled = result.IsLTVEnabled;
+
+//Checks the signature validity based on the timestamp, signing, or current time
+
+bool isValidAtTimestampTime = result.IsValidAtTimeStampTime;
+
+bool isValidAtSignedTime = result.IsValidAtSignedTime;
+
+bool isValidAtCurrentTime = result.IsValidAtCurrentTime;
+
+//Signature details
+
+string signatureAlgorithm = result.SignatureAlgorithm;
+
+DigestAlgorithm digestAlgorithm = result.DigestAlgorithm;
+
+//Revocation validation details
+
+RevocationResult revocationDetails = result.RevocationResult;
+
+RevocationStatus revocationStatus = revocationDetails.OcspRevocationStatus;
+
+bool isRevokedCRL = revocationDetails.IsRevokedCRL;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+
+//Get the stream from the document
+
+FileStream documentStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load an existing signed PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//Get signature field
+
+PdfLoadedSignatureField signatureField = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+
+//X509Certificate2Collection to check the signer's identity using root certificates
+
+X509CertificateCollection collection = new X509CertificateCollection();
+
+//Creates a certificate instance from PFX file with private key
+
+FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+
+byte[] data = new byte[certificateStream.Length];
+
+certificateStream.Read(data, 0, data.Length);
+
+//Create new X509Certificate2 with the root certificate
+
+X509Certificate2 certificate = new X509Certificate2(data, "syncfusion");
+
+//Add the certificate to the collection
+
+collection.Add(certificate);
+
+//Validate signature and get the validation result
+
+PdfSignatureValidationResult result = signatureField.ValidateSignature(collection);
+
+//Checks whether the signature is valid or not
+
+SignatureStatus status = result.SignatureStatus;
+
+//Checks whether the document is modified or not
+
+bool isModified = result.IsDocumentModified;
+
+//Checks whether the LTV is enabled or not
+
+bool isLTVEnabled = result.IsLTVEnabled;
+
+//Checks the signature validity based on the timestamp, signing, or current time
+
+bool isValidAtTimestampTime = result.IsValidAtTimeStampTime;
+
+bool isValidAtSignedTime = result.IsValidAtSignedTime;
+
+bool isValidAtCurrentTime = result.IsValidAtCurrentTime;
+
+//Signature details
+
+string signatureAlgorithm = result.SignatureAlgorithm;
+
+DigestAlgorithm digestAlgorithm = result.DigestAlgorithm;
+
+//Revocation validation details
+
+RevocationResult revocationDetails = result.RevocationResult;
+
+RevocationStatus revocationStatus = revocationDetails.OcspRevocationStatus;
+
+bool isRevokedCRL = revocationDetails.IsRevokedCRL;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+
+//Get the stream from the document
+
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+//Load an existing signed PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//Get signature field
+
+PdfLoadedSignatureField signatureField = loadedDocument.Form.Fields[0] as PdfLoadedSignatureField;
+
+//X509Certificate2Collection to check the signer's identity using root certificates
+
+X509CertificateCollection collection = new X509CertificateCollection();
+
+//Creates a certificate instance from PFX file with private key
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
+
+byte[] data = new byte[certificateStream.Length];
+
+certificateStream.Read(data, 0, data.Length);
+
+//Create new X509Certificate2 with the root certificate
+
+X509Certificate2 certificate = new X509Certificate2(data, "syncfusion");
+
+//Add the certificate to the collection
+
+collection.Add(certificate);
+
+//Validate signature and get the validation result
+
+PdfSignatureValidationResult result = signatureField.ValidateSignature(collection);
+
+//Checks whether the signature is valid or not
+
+SignatureStatus status = result.SignatureStatus;
+
+//Checks whether the document is modified or not
+
+bool isModified = result.IsDocumentModified;
+
+//Checks whether the LTV is enabled or not
+
+bool isLTVEnabled = result.IsLTVEnabled;
+
+//Checks the signature validity based on the timestamp, signing, or current time
+
+bool isValidAtTimestampTime = result.IsValidAtTimeStampTime;
+
+bool isValidAtSignedTime = result.IsValidAtSignedTime;
+
+bool isValidAtCurrentTime = result.IsValidAtCurrentTime;
+
+//Signature details
+
+string signatureAlgorithm = result.SignatureAlgorithm;
+
+DigestAlgorithm digestAlgorithm = result.DigestAlgorithm;
+
+//Revocation validation details
+
+RevocationResult revocationDetails = result.RevocationResult;
+
+RevocationStatus revocationStatus = revocationDetails.OcspRevocationStatus;
+
+bool isRevokedCRL = revocationDetails.IsRevokedCRL;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% endtabs %}

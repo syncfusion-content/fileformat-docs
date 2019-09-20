@@ -1,5 +1,5 @@
 ---
-title: Required NuGet Packages for PowerPoint library | Syncfusion
+title: Required NuGet Packages for PowerPoint library |Syncfusion|
 description: Required NuGet Packages for PowerPoint library
 platform: file-formats
 control: PowerPoint

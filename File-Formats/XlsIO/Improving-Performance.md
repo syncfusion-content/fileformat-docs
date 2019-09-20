@@ -1,5 +1,5 @@
 ---
-title: Improving Performance | Syncfusion
+title: Improving Performance
 description: Brief about improving performance in XlsIO
 platform: File-Formats
 control: XlsIO
@@ -298,9 +298,9 @@ Minimize AutoFit manipulations which reduces the time consumption.
 {% highlight c# %}
 DataTable table = Worksheet.ExportDataTable(1, 1, Worksheet.UsedRange.LastRow, Worksheet.UsedRange.LastColumn, ExcelExportDataTableOptions.DetectColumnTypes); 
 
-//Enable ImportOnSave option along with column header.
+//Enabling the import on save options.
 
-workbook.Worksheets[0].ImportDataTable(table, 1, 1, true, true);
+workbook.Worksheets[0].ImportDataTable(table, 1, 1, true);
 
 workbook.Version = ExcelVersion.Excel2013; 
 
@@ -313,9 +313,9 @@ workbook.SaveAs("Output.xlsx");
 {% highlight vb %}
 Dim table As DataTable = Worksheet.ExportDataTable(1, 1, Worksheet.UsedRange.LastRow, Worksheet.UsedRange.LastColumn, ExcelExportDataTableOptions.DetectColumnTypes)
 
-'Enable ImportOnSave option along with column header.
+'Enabling the import on save options.
 
-workbook.Worksheets(0).ImportDataTable(table, 1, 1, True, True)
+workbook.Worksheets(0).ImportDataTable(table, 1, 1, True)
 
 workbook.Version = ExcelVersion.Excel2013
 

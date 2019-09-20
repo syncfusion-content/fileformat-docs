@@ -259,7 +259,7 @@ N> Starting with v16.2.0.x, if you reference Syncfusion assemblies from trial se
 {% tabs %}
 
 {% highlight C# %}
-@page "/DocIO"
+@page "/Presentation"
 @inject Microsoft.JSInterop.IJSRuntime JS
 @using Syncfusion.DocIO
 @using Syncfusion.DocIO.DLS

@@ -1,5 +1,5 @@
 ---
-title: Create, read and edit PowerPoint slides in CSharp | Syncfusion
+title: Create, read and edit PowerPoint slides in CSharp |Syncfusion|
 description: Create, read and edit PowerPoint slides in CSharp; Adding and modifying the slides in PowerPoint presentation
 platform: file-formats
 control: PowerPoint
@@ -21,7 +21,7 @@ The following code example demonstrates how to add a blank slide to the Presenta
 IPresentation pptxDoc = Presentation.Create();
 //Adds a slide to the PowerPoint presentation
 ISlide slide = pptxDoc.Slides.Add();
-//Saves the Presentation to the file system
+//Saves the Presentation to the file system.
 pptxDoc.Save("Sample.pptx");
 //Closes the Presentation instance
 pptxDoc.Close();
@@ -34,7 +34,7 @@ pptxDoc.Close();
 Dim pptxDoc As IPresentation = Presentation.Create()
 'Adds a slide to the PowerPoint presentation
 Dim slide As ISlide = pptxDoc.Slides.Add()
-'Saves the Presentation to the file system
+'Saves the Presentation to the file system.
 pptxDoc.Save("Sample.pptx")
 'Closes the Presentation instance
 pptxDoc.Close()
@@ -45,7 +45,7 @@ pptxDoc.Close()
 
 //Creates a PowerPoint instance
 IPresentation pptxDoc = Presentation.Create();
-//Adds new Blank type of slide
+//Adds new Blank type of slide.
 ISlide slide = pptxDoc.Slides.Add();
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
@@ -81,9 +81,9 @@ pptxDoc.Close();
 IPresentation pptxDoc = Presentation.Create();
 //Adds a slide to the PowerPoint presentation
 ISlide slide = pptxDoc.Slides.Add();
-//Create new memory stream to save Presentation
+//Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format
+//Save Presentation in stream format.
 pptxDoc.Save(stream);
 //Close the presentation
 pptxDoc.Close();
@@ -94,8 +94,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -154,7 +152,6 @@ pptxDoc.Close()
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of blank layout type
 ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -184,26 +181,24 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% highlight Xamarin %}
+
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of blank layout type
 ISlide slide1 = pptxDoc.Slides.Add(SlideLayoutType.Blank);    
-//Create new memory stream to save Presentation
+//Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format
+//Save Presentation in stream format.
 pptxDoc.Save(stream);
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
-
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -213,6 +208,7 @@ The following code example demonstrates how to add a slide with all other predef
 {% tabs %}
 
 {% highlight c# %}
+
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of blank layout type
@@ -241,9 +237,11 @@ ISlide slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText);
 pptxDoc.Save("Sample.pptx");
 //Close the PowerPoint instance
 pptxDoc.Close();
+
 {% endhighlight %}
 
 {% highlight vb.net %}
+
 'Create a PowerPoint file
 Dim pptxDoc As IPresentation = Presentation.Create()
 'Add a slide of blank layout type
@@ -272,9 +270,11 @@ Dim ISlide As slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText)
 pptxDoc.Save("Sample.pptx")
 'Close the PowerPoint instance
 pptxDoc.Close()
+
 {% endhighlight %}
 
 {% highlight UWP %}
+
 //Create a PowerPoint presentation
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of blank layout type
@@ -299,7 +299,6 @@ ISlide slide9 = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
 ISlide slide10 = pptxDoc.Slides.Add(SlideLayoutType.TwoContent);
 //Add a slide of VerticalTitleAndText type
 ISlide slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText);
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -309,9 +308,11 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
+
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
+
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of Blank type
@@ -336,7 +337,6 @@ ISlide slide9 = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
 ISlide slide10 = pptxDoc.Slides.Add(SlideLayoutType.TwoContent);
 //Add a slide of VerticalTitleAndText type
 ISlide slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText);    
-
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
 pptxDoc.Save(outputStream);
@@ -344,9 +344,11 @@ pptxDoc.Save(outputStream);
 outputStream.Dispose();
 //Close the PowerPoint presentation
 pptxDoc.Close();
+
 {% endhighlight %}
 
 {% highlight Xamarin %}
+
 //Create a new instance of PowerPoint Presentation file
 IPresentation pptxDoc = Presentation.Create();
 //Add a slide of Blank type
@@ -371,10 +373,9 @@ ISlide slide9 = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
 ISlide slide10 = pptxDoc.Slides.Add(SlideLayoutType.TwoContent);
 //Add a slide of VerticalTitleAndText type
 ISlide slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText);     
-
-//Create new memory stream to save Presentation
+//Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format
+//Save Presentation in stream format.
 pptxDoc.Save(stream);
 //Close the presentation
 pptxDoc.Close();
@@ -385,8 +386,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -442,12 +441,12 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
+
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
 //Add a new custom layout slide to the master collection with a specific layout type and name
@@ -461,7 +460,6 @@ Stream pictureStream = assembly.GetManifestResourceStream("UWP.Data.Image.png");
 layoutSlide.Shapes.AddPicture(pictureStream, 100, 100, 100, 100);
 //Add a slide of new designed custom layout to the presentation
 ISlide slide = pptxDoc.Slides.Add(layoutSlide);
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -471,6 +469,7 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
+
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -499,7 +498,8 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//"App" is the class of Portable project
+
+//"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
 //Loads or open an PowerPoint Presentation
@@ -514,10 +514,9 @@ Stream pictureStream = assembly.GetManifestResourceStream(picturePath);
 layoutSlide.Shapes.AddPicture(pictureStream, 100, 100, 100, 100);
 //Add a slide of new designed custom layout to the presentation
 ISlide slide = pptxDoc.Slides.Add(layoutSlide);
-
-//Create new memory stream to save Presentation
+//Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format
+//Save Presentation in stream format.
 pptxDoc.Save(stream);
 //Close the presentation
 pptxDoc.Close();
@@ -527,9 +526,7 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-	
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
+
 {% endhighlight %}
 
 {% endtabs %}
@@ -555,7 +552,7 @@ foreach (ILayoutSlide layout in layoutSlides)
 		break;
 	}
 }
-//Add slide with the desired layout
+//Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
 //Save the presentation
 pptxDoc.Save("Output.pptx");
@@ -579,7 +576,7 @@ For Each layout As ILayoutSlide In layoutSlides
 		Exit For
 	End If
 Next
-'Add slide with the desired layout
+'Add slide with the desired layout.
 Dim slide As ISlide = pptxDoc.Slides.Add(slideLayout)
 'Save the presentation
 pptxDoc.Save("Output.pptx")
@@ -596,7 +593,6 @@ openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
 //Add a new custom layout slide to the master collection with a specific layout type and name
@@ -614,9 +610,8 @@ foreach (ILayoutSlide layout in layoutSlides)
 	  break;
    }
 }
-//Add slide with the desired layout
+//Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -647,7 +642,7 @@ foreach (ILayoutSlide layout in layoutSlides)
 		break;
 	}
 }
-//Add slide with the desired layout
+//Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
@@ -661,7 +656,7 @@ pptxDoc.Close();
 
 {% highlight XAMARIN %}
 
-//"App" is the class of Portable project
+//"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
 //Loads or open an PowerPoint Presentation
@@ -679,12 +674,11 @@ foreach (ILayoutSlide layout in layoutSlides)
 		break;
 	}
 }
-//Add slide with the desired layout
+//Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
-
-//Create new memory stream to save Presentation
+//Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format
+//Save Presentation in stream format.
 pptxDoc.Save(stream);
 //Close the presentation
 pptxDoc.Close();
@@ -695,8 +689,6 @@ if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -709,19 +701,19 @@ You can create a deep copy of a slide by cloning the slide. The cloned slide is 
 
 {% highlight c# %}
 
-//Opens an existing Presentation
+//Opens an existing Presentation.
 IPresentation pptxDoc = Presentation.Open("Presentation.pptx");
-//Retrieves the slide instance
+//Retrieves the slide instance.
 ISlide slide = pptxDoc.Slides[0];
-//Creates a cloned copy of slide
+//Creates a cloned copy of slide.
 ISlide slideClone = slide.Clone();
-//Adds a new text box to the cloned slide
+//Adds a new text box to the cloned slide.
 IShape textboxShape = slideClone.AddTextBox(0, 0, 250, 250);
-//Adds a paragraph with text content to the shape
+//Adds a paragraph with text content to the shape.
 textboxShape.TextBody.AddParagraph("Hello Presentation");
-//Adds the slide to the Presentation
+//Adds the slide to the Presentation.
 pptxDoc.Slides.Add(slideClone);
-//Saves the Presentation to the file system
+//Saves the Presentation to the file system.
 pptxDoc.Save("Output.pptx");
 //Closes the Presentation
 pptxDoc.Close();
@@ -730,19 +722,19 @@ pptxDoc.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing Presentation
+'Opens an existing Presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("Presentation.pptx")
-'Retrieves the slide instance
+'Retrieves the slide instance.
 Dim slide As ISlide = pptxDoc.Slides(0)
-'Creates a cloned copy of slide
+'Creates a cloned copy of slide.
 Dim slideClone As ISlide = slide.Clone()
-'Adds a new text box to the cloned slide
+'Adds a new text box to the cloned slide.
 Dim textboxShape As IShape = slideClone.AddTextBox(0, 0, 250, 250)
-'Adds a paragraph with text content to the shape
+'Adds a paragraph with text content to the shape.
 textboxShape.TextBody.AddParagraph("Hello Presentation")
-'Adds the slide to the Presentation
+'Adds the slide to the Presentation.
 pptxDoc.Slides.Add(slideClone)
-'Saves the Presentation to the file system
+'Saves the Presentation to the file system.
 pptxDoc.Save("Output.pptx")
 'Closes the Presentation
 pptxDoc.Close()
@@ -757,20 +749,18 @@ openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-//Retrieves the slide instance
+//Retrieves the slide instance.
 ISlide slide = pptxDoc.Slides[0];
-//Creates a cloned copy of slide
+//Creates a cloned copy of slide.
 ISlide slideClone = slide.Clone();
-//Adds a new text box to the cloned slide
+//Adds a new text box to the cloned slide.
 IShape textboxShape = slideClone.AddTextBox(0, 0, 250, 250);
-//Adds a paragraph with text content to the shape
+//Adds a paragraph with text content to the shape.
 textboxShape.TextBody.AddParagraph("Hello Presentation");
 //Adds the slide to the Presentation.
 pptxDoc.Slides.Add(slideClone);
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -788,15 +778,15 @@ await pptxDoc.SaveAsync(storageFile);
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
-//Retrieves the slide instance
+//Retrieves the slide instance.
 ISlide slide = pptxDoc.Slides[0];
-//Creates a cloned copy of slide
+//Creates a cloned copy of slide.
 ISlide slideClone = slide.Clone();
-//Adds a new text box to the cloned slide
+//Adds a new text box to the cloned slide.
 IShape textboxShape = slideClone.AddTextBox(0, 0, 250, 250);
-//Adds a paragraph with text content to the shape
+//Adds a paragraph with text content to the shape.
 textboxShape.TextBody.AddParagraph("Hello Presentation");
-//Adds the slide to the Presentation
+//Adds the slide to the Presentation.
 pptxDoc.Slides.Add(slideClone);
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
@@ -810,38 +800,34 @@ pptxDoc.Close();
 
 {% highlight XAMARIN %}
 
-//"App" is the class of Portable project
+//"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-//Retrieves the slide instance
+//Retrieves the slide instance.
 ISlide slide = pptxDoc.Slides[0];
-//Creates a cloned copy of slide
+//Creates a cloned copy of slide.
 ISlide slideClone = slide.Clone();
-//Adds a new text box to the cloned slide
+//Adds a new text box to the cloned slide.
 IShape textboxShape = slideClone.AddTextBox(0, 0, 250, 250);
-//Adds a paragraph with text content to the shape
+//Adds a paragraph with text content to the shape.
 textboxShape.TextBody.AddParagraph("Hello Presentation");
-//Adds the slide to the Presentation
+//Adds the slide to the Presentation.
 pptxDoc.Slides.Add(slideClone);
-
-//Create new memory stream to save Presentation
+//Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format
+//Save Presentation in stream format.
 pptxDoc.Save(stream);
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
-
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
@@ -898,7 +884,6 @@ openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
 //Creates a storage file from FileOpenPicker
 StorageFile sourceStorageFile = await openPicker.PickSingleFileAsync();
-
 //Opens the source Presentation
 IPresentation sourcePresentation = await Presentation.OpenAsync(sourceStorageFile);
 //Creates a storage file from FileOpenPicker
@@ -909,7 +894,6 @@ IPresentation destinationPresentation = await Presentation.OpenAsync(destination
 ISlide clonedSlide = sourcePresentation.Slides[0].Clone();
 //Merges the cloned slide to the destination Presentation with paste option - Destination Theme
 destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme, sourcePresentation); 
-
 //Saves the destination Presentation
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
@@ -945,7 +929,7 @@ destinationPresentation.Close();
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//"App" is the class of Portable project
+//"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(sourcePresentationPath);
 Stream outputStream = assembly.GetManifestResourceStream(destinationPresentationPath);
@@ -957,23 +941,19 @@ IPresentation destinationPresentation = Presentation.Open(outputStream);
 ISlide clonedSlide = sourcePresentation.Slides[0].Clone();
 //Merges the cloned slide to the destination Presentation with paste option - Destination Theme
 destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme, sourcePresentation);
-
-//Create new memory stream to save Presentation
+//Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format
+//Save Presentation in stream format.
 destinationPresentation.Save(stream);
 //Close the presentation
 destinationPresentation.Close();
 stream.Position = 0;
-
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-	
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
+
 {% endhighlight %}
 
 {% endtabs %}
@@ -986,13 +966,13 @@ The Essential Presentation provides the ability to delete a slide by its instanc
 
 {% highlight c# %}
 
-//Opens an existing presentation
+//Opens an existing presentation.
 IPresentation pptxDoc = Presentation.Open("Presentation1.pptx");
-//Retrieves the slide instance
+//Retrieves the slide instance.
 ISlide slide = pptxDoc.Slides[0];
-//Removes the specified slide from the Presentation
+//Removes the specified slide from the Presentation.
 pptxDoc.Slides.Remove(slide);
-// Removes the slide from the specified index
+// Removes the slide from the specified index.
 pptxDoc.Slides.RemoveAt(1);
 //Saves the destination Presentation	
 pptxDoc.Save("Output.pptx");
@@ -1003,13 +983,13 @@ pptxDoc.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing Presentation
+'Opens an existing Presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("Presentation1.pptx")
-'Retrieves the slide instance
+'Retrieves the slide instance.
 Dim slide As ISlide = pptxDoc.Slides(0)
-'Removes the specified slide from the Presentation
+'Removes the specified slide from the Presentation.
 pptxDoc.Slides.Remove(slide)
-'Removes the slide from the specified index
+'Removes the slide from the specified index.
 pptxDoc.Slides.RemoveAt(1)
 'Saves the destination Presentation
 pptxDoc.Save("Output.pptx")
@@ -1026,16 +1006,14 @@ openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-//Retrieves the slide instance
+//Retrieves the slide instance.
 ISlide slide = pptxDoc.Slides[0];
-//Removes the specified slide from the Presentation
+//Removes the specified slide from the Presentation.
 pptxDoc.Slides.Remove(slide);
-//Removes the slide from the specified index
+//Removes the slide from the specified index.
 pptxDoc.Slides.RemoveAt(1);
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -1053,11 +1031,11 @@ await pptxDoc.SaveAsync(storageFile);
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
-//Retrieves the slide instance
+//Retrieves the slide instance.
 ISlide slide = pptxDoc.Slides[0];
-//Removes the specified slide from the Presentation
+//Removes the specified slide from the Presentation.
 pptxDoc.Slides.Remove(slide);
-//Removes the slide from the specified index
+// Removes the slide from the specified index.
 pptxDoc.Slides.RemoveAt(1);
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
@@ -1070,34 +1048,31 @@ pptxDoc.Close();
 {% endhighlight %}
 
 {% highlight XAMARIN %}
-//"App" is the class of Portable project
+
+//"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-//Retrieves the slide instance
+//Retrieves the slide instance.
 ISlide slide = pptxDoc.Slides[0];
-//Removes the specified slide from the Presentation
+//Removes the specified slide from the Presentation.
 pptxDoc.Slides.Remove(slide);
-//Removes the slide from the specified index
+// Removes the slide from the specified index.
 pptxDoc.Slides.RemoveAt(1);
-
-//Create new memory stream to save Presentation
+//Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format
+//Save Presentation in stream format.
 pptxDoc.Save(stream);
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
-
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
-	
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
+
 {% endhighlight %}
 
 {% endtabs %}
@@ -1139,26 +1114,26 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
+
 //Load the presentation file using open picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.FileTypeFilter.Add(".pptx");
 StorageFile inputFile = await openPicker.PickSingleFileAsync();
 IPresentation pptxDoc = await Presentation.OpenAsync(inputFile);
-
-//Pick the folder to save the converted images
+//Pick the folder to save the converted images.
 FolderPicker folderPicker = new FolderPicker();
 folderPicker.ViewMode = PickerViewMode.Thumbnail;
 folderPicker.FileTypeFilter.Add("*");
 StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
-
-//Create a cancellation token to cancel the image rendering instantly
+//Create a cancellation token to cancel the image rendering instantly.
 CancellationTokenSource cancellationToken = new CancellationTokenSource();
-//Convert the slide to image
+//Convert the slide to image.
 ISlide slide1 = pptxDoc.Slides[0];
 StorageFile imageFile = await storageFolder.CreateFileAsync("Slide1.png", CreationCollisionOption.ReplaceExisting);
 await slide1.SaveAsImageAsync(imageFile, cancellationToken.Token);
 //Close the presentation instance
 pptxDoc.Close();
+
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -1187,19 +1162,19 @@ The following code example demonstrates setting the background for a slide.
 
 {% highlight c# %}
 
-//Opens an existing Presentation
+//Opens an existing Presentation.
 IPresentation pptxDoc = Presentation.Open("Presentation1.pptx");
-//Retrieves the slide instance
+//Retrieves the slide instance.
 ISlide slide = pptxDoc.Slides[0];
-//Retrieves the background instance
+//Retrieves the background instance.
 IBackground background = slide.Background;
-//Sets the fill type of the background to gradient
+//Sets the fill type of the background to gradient.
 background.Fill.FillType = FillType.Gradient;
-//Retrieves the fill of the background to the IGradientFill instance
+//Retrieves the fill of the background to the IGradientFill instance.
 IGradientFill gradient = background.Fill.GradientFill;
-//Adds the first gradient stop of the gradient fill
+//Adds the first gradient stop of the gradient fill.
 gradient.GradientStops.Add(ColorObject.Green, 20);
-//Adds the second gradient stop of the gradient fill
+//Adds the second gradient stop of the gradient fill.
 gradient.GradientStops.Add(ColorObject.Yellow, 50);
 //Saves the Presentation to the file system
 pptxDoc.Save("Output.pptx");
@@ -1210,19 +1185,19 @@ pptxDoc.Close();
 
 {% highlight vb.net %}
 
-'Opens an existing Presentation
+'Opens an existing Presentation.
 Dim pptxDoc As IPresentation = Presentation.Open("Presentation1.pptx")
-'Retrieves the slide instance
+'Retrieves the slide instance.
 Dim slide As ISlide = pptxDoc.Slides(0)
-'Retrieves the background instance
+'Retrieves the background instance.
 Dim background As IBackground = slide.Background
-'Sets the fill type of the background to gradient
+'Sets the fill type of the background to gradient.
 background.Fill.FillType = FillType.Gradient
-'Retrieves the fill of the background to the IGradientFill instance
+'Retrieves the fill of the background to the IGradientFill instance.
 Dim gradient As IGradientFill = background.Fill.GradientFill
-'Adds the first gradient stop of the gradient fill
+'Adds the first gradient stop of the gradient fill.
 gradient.GradientStops.Add(ColorObject.Green, 20)
-'Adds the second gradient stop of the gradient fill
+'Adds the second gradient stop of the gradient fill.
 gradient.GradientStops.Add(ColorObject.Yellow, 50)
 'Saves the Presentation to the file system
 pptxDoc.Save("Output.pptx")
@@ -1232,28 +1207,27 @@ pptxDoc.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
+
 //Instantiates the File Picker
 FileOpenPicker openPicker = new FileOpenPicker();
 openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
 openPicker.FileTypeFilter.Add(".pptx");
 //Creates a storage file from FileOpenPicker
 StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
-
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc= await Presentation.OpenAsync(inputStorageFile);
-//Retrieves the slide instance
+//Retrieves the slide instance.
 ISlide slide = pptxDoc.Slides[0];
-//Retrieves the background instance
+//Retrieves the background instance.
 IBackground background = slide.Background;
-//Sets the fill type of the background to gradient
+//Sets the fill type of the background to gradient.
 background.Fill.FillType = FillType.Gradient;
-//Retrieves the fill of the background to the IGradientFill instance
+//Retrieves the fill of the background to the IGradientFill instance.
 IGradientFill gradient = background.Fill.GradientFill;
-//Adds the first gradient stop of the gradient fill
+//Adds the first gradient stop of the gradient fill.
 gradient.GradientStops.Add(ColorObject.Green, 20);
-//Adds the second gradient stop of the gradient fill
+//Adds the second gradient stop of the gradient fill.
 gradient.GradientStops.Add(ColorObject.Yellow, 50);
-
 //Initializes FileSavePicker
 FileSavePicker savePicker = new FileSavePicker();
 savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
@@ -1263,23 +1237,25 @@ savePicker.FileTypeChoices.Add("PowerPoint Files", new List<string>() { ".pptx" 
 StorageFile storageFile = await savePicker.PickSaveFileAsync();
 //Saves changes to the specified storage file
 await pptxDoc.SaveAsync(storageFile);
+
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
+
 //Loads or open an PowerPoint Presentation
 FileStream inputStream = new FileStream(inputFileName,FileMode.Open);
 IPresentation pptxDoc = Presentation.Open(inputStream);
-//Retrieves the slide instance
+//Retrieves the slide instance.
 ISlide slide = pptxDoc.Slides[0];
-//Retrieves the background instance
+//Retrieves the background instance.
 IBackground background = slide.Background;
-//Sets the fill type of the background to gradient
+//Sets the fill type of the background to gradient.
 background.Fill.FillType = FillType.Gradient;
-//Retrieves the fill of the background to the IGradientFill instance
+//Retrieves the fill of the background to the IGradientFill instance.
 IGradientFill gradient = background.Fill.GradientFill;
-//Adds the first gradient stop of the gradient fill
+//Adds the first gradient stop of the gradient fill.
 gradient.GradientStops.Add(ColorObject.Green, 20);
-//Adds the second gradient stop of the gradient fill
+//Adds the second gradient stop of the gradient fill.
 gradient.GradientStops.Add(ColorObject.Yellow, 50);
 //Save the PowerPoint Presentation as stream
 FileStream outputStream = new FileStream(OutputFileName, FileMode.Create);
@@ -1288,45 +1264,41 @@ pptxDoc.Save(outputStream);
 outputStream.Dispose();
 //Closes the Presentation
 pptxDoc.Close();
+
 {% endhighlight %}
 
 {% highlight XAMARIN %}
 
-//"App" is the class of Portable project
+//"App" is the class of Portable project.
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 Stream inputStream = assembly.GetManifestResourceStream(resourcePath);
 //Loads or open an PowerPoint Presentation
 IPresentation pptxDoc = Presentation.Open(inputStream);
-
-//Retrieves the slide instance
+//Retrieves the slide instance.
 ISlide slide = pptxDoc.Slides[0];
-//Retrieves the background instance
+//Retrieves the background instance.
 IBackground background = slide.Background;
-//Sets the fill type of the background to gradient
+//Sets the fill type of the background to gradient.
 background.Fill.FillType = FillType.Gradient;
-//Retrieves the fill of the background to the IGradientFill instance
+//Retrieves the fill of the background to the IGradientFill instance.
 IGradientFill gradient = background.Fill.GradientFill;
-//Adds the first gradient stop of the gradient fill
+//Adds the first gradient stop of the gradient fill.
 gradient.GradientStops.Add(ColorObject.Green, 20);
-//Adds the second gradient stop of the gradient fill
+//Adds the second gradient stop of the gradient fill.
 gradient.GradientStops.Add(ColorObject.Yellow, 50);
-
-//Create new memory stream to save Presentation
+//Create new memory stream to save Presentation.
 MemoryStream stream = new MemoryStream();
-//Save Presentation in stream format
+//Save Presentation in stream format.
 pptxDoc.Save(stream);
 //Close the presentation
 pptxDoc.Close();
 stream.Position = 0;
-
 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer presentation/xamarin section for respective code samples.
 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
     Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 else
     Xamarin.Forms.DependencyService.Get<ISave>().Save("Sample.pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation", stream);
 
-//Download the helper files from the following link to save the stream as file and open the file for viewing in Xamarin platform
-//https://help.syncfusion.com/file-formats/presentation/create-read-edit-powerpoint-files-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}
