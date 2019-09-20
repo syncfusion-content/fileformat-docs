@@ -189,7 +189,7 @@ IWSection section = document.AddSection();
 //Adds a paragraph to a section
 IWParagraph paragraph = section.AddParagraph();
 //Appends the text to paragraph
-paragraph.AppendText("Working with footnotes");
+paragraph.AppendText("Working with endnotes");
 //Formats the text
 paragraph.ApplyStyle(BuiltinStyle.Heading1);
 //Adds a paragraph to a section
@@ -216,7 +216,7 @@ Dim section As IWSection = document.AddSection()
 'Adds a paragraph to a section
 Dim paragraph As IWParagraph = section.AddParagraph()
 'Appends the text to paragraph
-paragraph.AppendText("Working with footnotes")
+paragraph.AppendText("Working with endnotes")
 'Formats the text
 paragraph.ApplyStyle(BuiltinStyle.Heading1)
 'Adds a paragraph to a section
@@ -243,7 +243,7 @@ using (WordDocument document = new WordDocument())
 	//Adds a paragraph to a section
 	IWParagraph paragraph = section.AddParagraph();
 	//Appends the text to paragraph
-	paragraph.AppendText("Working with footnotes");
+	paragraph.AppendText("Working with endnotes");
 	//Formats the text
 	paragraph.ApplyStyle(BuiltinStyle.Heading1);
 	//Adds a paragraph to a section
@@ -253,7 +253,7 @@ using (WordDocument document = new WordDocument())
 	//Sets the endnote character format
 	endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
 	//Inserts the text into the paragraph
-	paragraph.AppendText("Sample content for footnotes").CharacterFormat.Bold = true;
+	paragraph.AppendText("Sample content for endnotes").CharacterFormat.Bold = true;
 	//Adds endnote text
 	paragraph = endnote.TextBody.AddParagraph();
 	paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
@@ -277,7 +277,7 @@ using (WordDocument document = new WordDocument())
 	//Adds a paragraph to a section
 	IWParagraph paragraph = section.AddParagraph();
 	//Appends the text to paragraph
-	paragraph.AppendText("Working with footnotes");
+	paragraph.AppendText("Working with endnotes");
 	//Formats the text
 	paragraph.ApplyStyle(BuiltinStyle.Heading1);
 	//Adds a paragraph to a section
@@ -309,7 +309,7 @@ using (WordDocument document = new WordDocument())
 	//Adds a paragraph to a section
 	IWParagraph paragraph = section.AddParagraph();
 	//Appends the text to paragraph
-	paragraph.AppendText("Working with footnotes");
+	paragraph.AppendText("Working with endnotes");
 	//Formats the text
 	paragraph.ApplyStyle(BuiltinStyle.Heading1);
 	//Adds a paragraph to a section
@@ -319,7 +319,7 @@ using (WordDocument document = new WordDocument())
 	//Sets the endnote character format
 	endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
 	//Inserts the text into the paragraph
-	paragraph.AppendText("Sample content for footnotes").CharacterFormat.Bold = true;
+	paragraph.AppendText("Sample content for endnotes").CharacterFormat.Bold = true;
 	//Adds endnote text
 	paragraph = endnote.TextBody.AddParagraph();
 	paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
