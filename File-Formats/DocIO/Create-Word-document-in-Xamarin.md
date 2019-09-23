@@ -325,7 +325,7 @@ void OnButtonClicked(object sender, EventArgs args)
 
 ## Helper files for Xamarin
 
-8.Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
+Download the helper files from this [link](http://www.syncfusion.com/downloads/support/directtrac/general/HELPER~1-696201504.ZIP) and add them into the mentioned project. These helper files allow you to save the stream as a physical file and open the file for viewing.
 
 <table>
   <tr>
@@ -410,7 +410,7 @@ void OnButtonClicked(object sender, EventArgs args)
   </tr>
 </table>
 
-9.Compile and execute the application. Now this application **creates a Word document**.
+Compile and execute the application. Now this application **creates a Word document**.
 
 By executing the program, you will get the Word document as follows.
 
