@@ -382,7 +382,7 @@ WordDocument document = new WordDocument(@"TestDocument.docx");
 //Processes the body contents for each section in the Word document
 foreach (WSection section in document.Sections)
 {
-    Accesses the Body of section where all the contents in document are apart
+    //Accesses the Body of section where all the contents in document are apart
     WTextBody sectionBody = section.Body;
     IterateTextBody(sectionBody);
     WHeadersFooters headersFooters = section.HeadersFooters;
