@@ -40,58 +40,20 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of a WordDocument
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	WordDocument document = new WordDocument();
-	document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-	//Encrypts the Word document with a password
-	document.EncryptDocument("password");
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Sample.docx");
-	document.Close();
-}
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if(!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	// Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
+//Creates an instance of a WordDocument
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument();
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+//Encrypts the Word document with a password
+document.EncryptDocument("password");
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -107,8 +69,6 @@ async void Save(MemoryStream streams, string filename)
 {% endhighlight %}
 
 {% endtabs %}  
-
-N> 1. Encryption is not supported in ASP.NET Core, Blazor and Xamarin platforms.
 
 ## Opening the encrypted Word document
 
@@ -153,7 +113,7 @@ using (WordDocument document = new WordDocument())
 	Save(stream, "Result.doc");
 	document.Close();
 }
-// Saves the Word document
+//Saves the Word document
 async void Save(MemoryStream streams, string filename)
 {
 	streams.Position = 0;
@@ -175,7 +135,7 @@ async void Save(MemoryStream streams, string filename)
 	{
 	using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
 	{
-		// Write compressed data from memory to file
+		//Write compressed data from memory to file
 		using (Stream outstream = zipStream.AsStreamForWrite())
 		{
 			byte[] buffer = streams.ToArray();
@@ -184,7 +144,7 @@ async void Save(MemoryStream streams, string filename)
 		}
 	}
 }
-// Launch the saved Word file
+//Launch the saved Word file
 await Windows.System.Launcher.LaunchFileAsync(stFile);
 }
 
@@ -260,46 +220,12 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 	MemoryStream stream = new MemoryStream();
 	await document.SaveAsync(stream, FormatType.Docx);
 	//Saves the stream as Word file in local machine
-	Save(stream, "Protection.docx");          
+	Save(stream, "Protection.docx");  
+	//Please refer the below link to save Word document in UWP platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp	
 	//Closes the Word document
 	document.Close();
 }
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx;
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-//Launch the saved Word file
-await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
@@ -335,6 +261,8 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Protection.docx", "application/msword", stream);
 	//Closes the Word document
 	document.Close();
+	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
 
 {% endhighlight %}
