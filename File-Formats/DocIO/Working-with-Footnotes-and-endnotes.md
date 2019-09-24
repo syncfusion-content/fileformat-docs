@@ -21,7 +21,6 @@ The following code example shows how to insert the footnotes into the Word docum
 {% tabs %} 
 
 {% highlight c# %}
-
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Creates a section
@@ -46,11 +45,9 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 //Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates a new Word document
 Dim document As New WordDocument()
 'Creates a section
@@ -75,11 +72,42 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 ‘Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
+{% endhighlight %}
 
+{% highlight UWP %}
+using (WordDocument document = new WordDocument())
+{
+	//Creates a section
+	IWSection section = document.AddSection();
+	//Adds a paragraph to a section
+	IWParagraph paragraph = section.AddParagraph();
+	//Appends the text to paragraph
+	paragraph.AppendText("Working with footnotes");
+	//Formats the text
+	paragraph.ApplyStyle(BuiltinStyle.Heading1);
+	//Adds a paragraph to a section
+	paragraph = section.AddParagraph();
+	//Appends the footnotes
+	WFootnote footnote = (WFootnote)paragraph.AppendFootnote(Syncfusion.DocIO.FootnoteType.Footnote);
+	//Sets the footnote character format
+	footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+	//Inserts the text into the paragraph
+	paragraph.AppendText("Sample content for footnotes").CharacterFormat.Bold = true;
+	//Adds footnote text
+	paragraph = footnote.TextBody.AddParagraph();
+	paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+	MemoryStream stream = new MemoryStream();
+	//Saves the Word file to MemoryStream
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Result.docx");
+	document.Close();
+	//Please refer the below link to save Word document in UWP platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+}
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -110,79 +138,9 @@ using (WordDocument document = new WordDocument())
 	//Download Word document in the browser
 	return File(stream, "application/msword", "Result.docx");
 }
-
-{% endhighlight %}
-
-{% highlight UWP %}
-
-using (WordDocument document = new WordDocument())
-{
-	//Creates a section
-	IWSection section = document.AddSection();
-	//Adds a paragraph to a section
-	IWParagraph paragraph = section.AddParagraph();
-	//Appends the text to paragraph
-	paragraph.AppendText("Working with footnotes");
-	//Formats the text
-	paragraph.ApplyStyle(BuiltinStyle.Heading1);
-	//Adds a paragraph to a section
-	paragraph = section.AddParagraph();
-	//Appends the footnotes
-	WFootnote footnote = (WFootnote)paragraph.AppendFootnote(Syncfusion.DocIO.FootnoteType.Footnote);
-	//Sets the footnote character format
-	footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-	//Inserts the text into the paragraph
-	paragraph.AppendText("Sample content for footnotes").CharacterFormat.Bold = true;
-	//Adds footnote text
-	paragraph = footnote.TextBody.AddParagraph();
-	paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	document.Close();
-}
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
 using (WordDocument document = new WordDocument())
 {
 	//Creates a section
@@ -210,8 +168,9 @@ using (WordDocument document = new WordDocument())
 	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
 	//Closes the documents               
 	document.Close();
+	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
-
 {% endhighlight %}
 
 {% endtabs %}
@@ -223,7 +182,6 @@ The following code example shows how to insert the endnotes into the Word docume
 {% tabs %}  
 
 {% highlight c# %}
-
 //Creates a new document
 WordDocument document = new WordDocument();
 //Creates a section
@@ -231,7 +189,7 @@ IWSection section = document.AddSection();
 //Adds a paragraph to a section
 IWParagraph paragraph = section.AddParagraph();
 //Appends the text to paragraph
-paragraph.AppendText("Working with footnotes");
+paragraph.AppendText("Working with endnotes");
 //Formats the text
 paragraph.ApplyStyle(BuiltinStyle.Heading1);
 //Adds a paragraph to a section
@@ -248,11 +206,9 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 //Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates a new document
 Dim document As New WordDocument()
 'Creates a section
@@ -260,7 +216,7 @@ Dim section As IWSection = document.AddSection()
 'Adds a paragraph to a section
 Dim paragraph As IWParagraph = section.AddParagraph()
 'Appends the text to paragraph
-paragraph.AppendText("Working with footnotes")
+paragraph.AppendText("Working with endnotes")
 'Formats the text
 paragraph.ApplyStyle(BuiltinStyle.Heading1)
 'Adds a paragraph to a section
@@ -277,11 +233,42 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 ‘Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
+{% endhighlight %}
 
+{% highlight UWP %}
+using (WordDocument document = new WordDocument())
+{
+	//Creates a section
+	IWSection section = document.AddSection();
+	//Adds a paragraph to a section
+	IWParagraph paragraph = section.AddParagraph();
+	//Appends the text to paragraph
+	paragraph.AppendText("Working with endnotes");
+	//Formats the text
+	paragraph.ApplyStyle(BuiltinStyle.Heading1);
+	//Adds a paragraph to a section
+	paragraph = section.AddParagraph();
+	//Appends the endnotes
+	WFootnote endnote = (WFootnote)paragraph.AppendFootnote(Syncfusion.DocIO.FootnoteType.Endnote);
+	//Sets the endnote character format
+	endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+	//Inserts the text into the paragraph
+	paragraph.AppendText("Sample content for endnotes").CharacterFormat.Bold = true;
+	//Adds endnote text
+	paragraph = endnote.TextBody.AddParagraph();
+	paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+	MemoryStream stream = new MemoryStream();
+	//Saves the Word file to MemoryStream
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Result.docx");
+	document.Close();
+	//Please refer the below link to save Word document in UWP platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+}
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -290,7 +277,7 @@ using (WordDocument document = new WordDocument())
 	//Adds a paragraph to a section
 	IWParagraph paragraph = section.AddParagraph();
 	//Appends the text to paragraph
-	paragraph.AppendText("Working with footnotes");
+	paragraph.AppendText("Working with endnotes");
 	//Formats the text
 	paragraph.ApplyStyle(BuiltinStyle.Heading1);
 	//Adds a paragraph to a section
@@ -312,79 +299,9 @@ using (WordDocument document = new WordDocument())
 	//Download Word document in the browser
 	return File(stream, "application/msword", "Result.docx");
 }
-
-{% endhighlight %}
-
-{% highlight UWP %}
-
-using (WordDocument document = new WordDocument())
-{
-	//Creates a section
-	IWSection section = document.AddSection();
-	//Adds a paragraph to a section
-	IWParagraph paragraph = section.AddParagraph();
-	//Appends the text to paragraph
-	paragraph.AppendText("Working with footnotes");
-	//Formats the text
-	paragraph.ApplyStyle(BuiltinStyle.Heading1);
-	//Adds a paragraph to a section
-	paragraph = section.AddParagraph();
-	//Appends the endnotes
-	WFootnote endnote = (WFootnote)paragraph.AppendFootnote(Syncfusion.DocIO.FootnoteType.Endnote);
-	//Sets the endnote character format
-	endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-	//Inserts the text into the paragraph
-	paragraph.AppendText("Sample content for footnotes").CharacterFormat.Bold = true;
-	//Adds endnote text
-	paragraph = endnote.TextBody.AddParagraph();
-	paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	document.Close();
-}
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
 using (WordDocument document = new WordDocument())
 {
 	//Creates a section
@@ -392,7 +309,7 @@ using (WordDocument document = new WordDocument())
 	//Adds a paragraph to a section
 	IWParagraph paragraph = section.AddParagraph();
 	//Appends the text to paragraph
-	paragraph.AppendText("Working with footnotes");
+	paragraph.AppendText("Working with endnotes");
 	//Formats the text
 	paragraph.ApplyStyle(BuiltinStyle.Heading1);
 	//Adds a paragraph to a section
@@ -402,7 +319,7 @@ using (WordDocument document = new WordDocument())
 	//Sets the endnote character format
 	endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
 	//Inserts the text into the paragraph
-	paragraph.AppendText("Sample content for footnotes").CharacterFormat.Bold = true;
+	paragraph.AppendText("Sample content for endnotes").CharacterFormat.Bold = true;
 	//Adds endnote text
 	paragraph = endnote.TextBody.AddParagraph();
 	paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
@@ -412,8 +329,9 @@ using (WordDocument document = new WordDocument())
 	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
 	//Closes the documents               
 	document.Close();
+	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
-
 {% endhighlight %}
 
 {% endtabs %}  
@@ -431,7 +349,6 @@ The following code example shows how to change the default footnote separator.
 {% tabs %} 
 
 {% highlight c# %}
-
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Creates a section
@@ -459,11 +376,9 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 //Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates a new Word document
 Dim document As New WordDocument()
 'Creates a section
@@ -491,11 +406,45 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 ‘Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
-
 {% endhighlight %}  
 
-{% highlight ASP.NET CORE %}
+{% highlight UWP %}
+using (WordDocument document = new WordDocument())
+{
+	//Creates a section
+	IWSection section = document.AddSection();
+	//Adds a paragraph to a section
+	IWParagraph paragraph = section.AddParagraph();
+	//Appends the text to paragraph
+	paragraph.AppendText("Working with footnotes");
+	//Formats the text
+	paragraph.ApplyStyle(BuiltinStyle.Heading1);
+	//Adds a paragraph to a section
+	paragraph = section.AddParagraph();
+	//Appends the footnotes
+	WFootnote footnote = (WFootnote)paragraph.AppendFootnote(Syncfusion.DocIO.FootnoteType.Footnote);
+	WTextBody separator = document.Footnotes.Separator;
+	//Replaces the default footnote separated by text
+	separator.Paragraphs[0].Text = "Footnote separator";
+	//Sets the footnote character format
+	footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+	//Inserts the text into the paragraph
+	paragraph.AppendText("Sample content for endnotes").CharacterFormat.Bold = true;
+	//Adds footnote text
+	paragraph = footnote.TextBody.AddParagraph();
+	paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+	MemoryStream stream = new MemoryStream();
+	//Saves the Word file to MemoryStream
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Result.docx");
+	document.Close();
+	//Please refer the below link to save Word document in UWP platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+}
+{% endhighlight %}
 
+{% highlight ASP.NET CORE %}
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -529,82 +478,9 @@ using (WordDocument document = new WordDocument())
 	//Download Word document in the browser
 	return File(stream, "application/msword", "Result.docx");
 }
-
-{% endhighlight %}
-
-{% highlight UWP %}
-
-using (WordDocument document = new WordDocument())
-{
-	//Creates a section
-	IWSection section = document.AddSection();
-	//Adds a paragraph to a section
-	IWParagraph paragraph = section.AddParagraph();
-	//Appends the text to paragraph
-	paragraph.AppendText("Working with footnotes");
-	//Formats the text
-	paragraph.ApplyStyle(BuiltinStyle.Heading1);
-	//Adds a paragraph to a section
-	paragraph = section.AddParagraph();
-	//Appends the footnotes
-	WFootnote footnote = (WFootnote)paragraph.AppendFootnote(Syncfusion.DocIO.FootnoteType.Footnote);
-	WTextBody separator = document.Footnotes.Separator;
-	//Replaces the default footnote separated by text
-	separator.Paragraphs[0].Text = "Footnote separator";
-	//Sets the footnote character format
-	footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-	//Inserts the text into the paragraph
-	paragraph.AppendText("Sample content for endnotes").CharacterFormat.Bold = true;
-	//Adds footnote text
-	paragraph = footnote.TextBody.AddParagraph();
-	paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	document.Close();
-}
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
 using (WordDocument document = new WordDocument())
 {
 	//Creates a section
@@ -631,12 +507,13 @@ using (WordDocument document = new WordDocument())
 	paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 	MemoryStream stream = new MemoryStream();
 	document.Save(stream, FormatType.Docx);         
-	//Save the stream as a file in the device and invoke it for viewing     
+	//Save the stream as a file in the device and invoke it for viewing
 	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
 	//Closes the documents               
 	document.Close();
+	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
-
 {% endhighlight %}
 
 {% endtabs %}  
@@ -646,7 +523,6 @@ The following code example shows how to change the default endnote separator.
 {% tabs %} 
 
 {% highlight c# %}
-
 //Creates a new Word document
 WordDocument document = new WordDocument();
 //Creates a section
@@ -674,11 +550,9 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 //Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx);
 document.Close();
-
 {% endhighlight %}
 
 {% highlight vb.net %}
-
 'Creates a new Word document
 Dim document As New WordDocument()
 'Creates a section
@@ -706,11 +580,45 @@ paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the
 ‘Saves and closes the Word document instance
 document.Save("Sample.docx", FormatType.Docx)
 document.Close()
+{% endhighlight %}
 
+{% highlight UWP %}
+using (WordDocument document = new WordDocument())
+{
+	//Creates a section
+	IWSection section = document.AddSection();
+	//Adds a paragraph to a section
+	IWParagraph paragraph = section.AddParagraph();
+	//Appends the text to paragraph
+	paragraph.AppendText("Working with footnotes");
+	//Formats the text
+	paragraph.ApplyStyle(BuiltinStyle.Heading1);
+	//Adds a paragraph to a section
+	paragraph = section.AddParagraph();
+	//Appends the endnotes
+	WFootnote endnote = (WFootnote)paragraph.AppendFootnote(Syncfusion.DocIO.FootnoteType.Endnote);
+	WTextBody separator = document.Endnotes.Separator;
+	//Replaces the default endnote separated by text
+	separator.Paragraphs[0].Text = "Endnote separator";
+	//Sets the endnote character format
+	endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
+	//Inserts the text into the paragraph
+	paragraph.AppendText("Sample content for endnotes").CharacterFormat.Bold = true;
+	//Adds endnote text
+	paragraph = endnote.TextBody.AddParagraph();
+	paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
+	MemoryStream stream = new MemoryStream();
+	//Saves the Word file to MemoryStream
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Result.docx");
+	document.Close();
+	//Please refer the below link to save Word document in UWP platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+}
 {% endhighlight %}
 
 {% highlight ASP.NET CORE %}
-
 //Creates a new instance of WordDocument (Empty Word Document)
 using (WordDocument document = new WordDocument())
 {
@@ -744,82 +652,9 @@ using (WordDocument document = new WordDocument())
 	//Download Word document in the browser
 	return File(stream, "application/msword", "Result.docx");
 }
-
-{% endhighlight %}
-
-{% highlight UWP %}
-
-using (WordDocument document = new WordDocument())
-{
-	//Creates a section
-	IWSection section = document.AddSection();
-	//Adds a paragraph to a section
-	IWParagraph paragraph = section.AddParagraph();
-	//Appends the text to paragraph
-	paragraph.AppendText("Working with footnotes");
-	//Formats the text
-	paragraph.ApplyStyle(BuiltinStyle.Heading1);
-	//Adds a paragraph to a section
-	paragraph = section.AddParagraph();
-	//Appends the endnotes
-	WFootnote endnote = (WFootnote)paragraph.AppendFootnote(Syncfusion.DocIO.FootnoteType.Endnote);
-	WTextBody separator = document.Endnotes.Separator;
-	//Replaces the default endnote separated by text
-	separator.Paragraphs[0].Text = "Endnote separator";
-	//Sets the endnote character format
-	endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-	//Inserts the text into the paragraph
-	paragraph.AppendText("Sample content for endnotes").CharacterFormat.Bold = true;
-	//Adds endnote text
-	paragraph = endnote.TextBody.AddParagraph();
-	paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-	MemoryStream stream = new MemoryStream();
-	//Saves the Word file to MemoryStream
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	document.Close();
-}
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() {".docx"});
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
-
 {% endhighlight %}
 
 {% highlight Xamarin %}
-
 using (WordDocument document = new WordDocument())
 {
 	//Creates a section
@@ -850,8 +685,9 @@ using (WordDocument document = new WordDocument())
 	Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WorkingWorddoc.docx", "application/msword", stream);
 	//Closes the documents               
 	document.Close();
+	//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+	//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 }
-
 {% endhighlight %}
 
 {% endtabs %}

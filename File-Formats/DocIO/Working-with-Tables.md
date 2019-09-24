@@ -115,91 +115,55 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of WordDocument class 
-	WordDocument document = new WordDocument();
-	//Adds a section into Word document
-	IWSection section = document.AddSection();
-	//Adds a new paragraph into Word document and appends text into paragraph
-	IWTextRange textRange = section.AddParagraph().AppendText("Price Details");
-	textRange.CharacterFormat.FontName = "Arial";
-	textRange.CharacterFormat.FontSize = 12;
-	textRange.CharacterFormat.Bold = true;
-	section.AddParagraph();
-	//Adds a new table into Word document
-	IWTable table = section.AddTable();
-	//Specifies the total number of rows & columns
-	table.ResetCells(3, 2);
-	//Accesses the instance of the cell (first row, first cell) and adds the content into cell
-	textRange = table[0, 0].AddParagraph().AppendText("Item");
-	textRange.CharacterFormat.FontName = "Arial";
-	textRange.CharacterFormat.FontSize = 12;
-	textRange.CharacterFormat.Bold = true;
-	//Accesses the instance of the cell (first row, second cell) and adds the content into cell
-	textRange = table[0, 1].AddParagraph().AppendText("Price($)");
-	textRange.CharacterFormat.FontName = "Arial";
-	textRange.CharacterFormat.FontSize = 12;
-	textRange.CharacterFormat.Bold = true;
-	//Accesses the instance of the cell (second row, first cell) and adds the content into cell
-	textRange = table[1, 0].AddParagraph().AppendText("Apple");
-	textRange.CharacterFormat.FontName = "Arial";
-	textRange.CharacterFormat.FontSize = 10;
-	//Accesses the instance of the cell (second row, second cell) and adds the content into cell
-	textRange = table[1, 1].AddParagraph().AppendText("50");
-	textRange.CharacterFormat.FontName = "Arial";
-	textRange.CharacterFormat.FontSize = 10;
-	//Accesses the instance of the cell (third row, first cell) and adds the content into cell
-	textRange = table[2, 0].AddParagraph().AppendText("Orange");
-	textRange.CharacterFormat.FontName = "Arial";
-	textRange.CharacterFormat.FontSize = 10;
-	//Accesses the instance of the cell (third row, second cell) and adds the content into cell
-	textRange = table[2, 1].AddParagraph().AppendText("30");
-	textRange.CharacterFormat.FontName = "Arial";
-	textRange.CharacterFormat.FontSize = 10;
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Table.docx");
-	//Releases the resources occupied by WordDocument instance
-	document.Close();
-}
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	// Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Creates an instance of WordDocument class 
+WordDocument document = new WordDocument();
+//Adds a section into Word document
+IWSection section = document.AddSection();
+//Adds a new paragraph into Word document and appends text into paragraph
+IWTextRange textRange = section.AddParagraph().AppendText("Price Details");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 12;
+textRange.CharacterFormat.Bold = true;
+section.AddParagraph();
+//Adds a new table into Word document
+IWTable table = section.AddTable();
+//Specifies the total number of rows & columns
+table.ResetCells(3, 2);
+//Accesses the instance of the cell (first row, first cell) and adds the content into cell
+textRange = table[0, 0].AddParagraph().AppendText("Item");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 12;
+textRange.CharacterFormat.Bold = true;
+//Accesses the instance of the cell (first row, second cell) and adds the content into cell
+textRange = table[0, 1].AddParagraph().AppendText("Price($)");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 12;
+textRange.CharacterFormat.Bold = true;
+//Accesses the instance of the cell (second row, first cell) and adds the content into cell
+textRange = table[1, 0].AddParagraph().AppendText("Apple");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 10;
+//Accesses the instance of the cell (second row, second cell) and adds the content into cell
+textRange = table[1, 1].AddParagraph().AppendText("50");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 10;
+//Accesses the instance of the cell (third row, first cell) and adds the content into cell
+textRange = table[2, 0].AddParagraph().AppendText("Orange");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 10;
+//Accesses the instance of the cell (third row, second cell) and adds the content into cell
+textRange = table[2, 1].AddParagraph().AppendText("30");
+textRange.CharacterFormat.FontName = "Arial";
+textRange.CharacterFormat.FontSize = 10;
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Table.docx");
+//Releases the resources occupied by WordDocument instance
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -246,6 +210,8 @@ textRange.CharacterFormat.FontSize = 10;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Table.docx");
@@ -299,6 +265,8 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Table.docx", "application/msword", stream);
 //Releases the resources occupied by WordDocument instance
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
@@ -454,118 +422,82 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of WordDocument class
-	WordDocument document = new WordDocument();
-	IWSection section = document.AddSection();
-	section.AddParagraph().AppendText("Price Details");
-	section.AddParagraph();
-	//Adds a new table into Word document
-	IWTable table = section.AddTable();
-	//Adds the first row into table
-	WTableRow row = table.AddRow();
-	//Adds the first cell into first row 
-	WTableCell cell = row.AddCell();
-	//Specifies the cell width
-	cell.Width = 200;
-	cell.AddParagraph().AppendText("Item");
-	//Adds the second cell into first row 
-	cell = row.AddCell();
-	//Specifies the cell width
-	cell.Width = 200;
-	cell.AddParagraph().AppendText("Price($)");
-	//Adds the second row into table
-	row = table.AddRow(true, false);
-	//Adds the first cell into second row
-	cell = row.AddCell();
-	//Specifies the cell width
-	cell.Width = 200;
-	cell.AddParagraph().AppendText("Apple");
-	//Adds the second cell into second row
-	cell = row.AddCell();
-	//Specifies the cell width
-	cell.Width = 200;
-	cell.AddParagraph().AppendText("50");
-	//Adds the third row into table
-	row = table.AddRow(true, false);
-	//Adds the first cell into third row 
-	cell = row.AddCell();
-	//Specifies the cell width
-	cell.Width = 200;
-	cell.AddParagraph().AppendText("Orange");
-	//Adds the second cell into third row 
-	cell = row.AddCell();
-	//Specifies the cell width
-	cell.Width = 200;
-	cell.AddParagraph().AppendText("30");
-	//Adds the fourth row into table
-	row = table.AddRow(true, false);
-	//Adds the first cell into fourth row
-	cell = row.AddCell();
-	//Specifies the cell width
-	cell.Width = 200;
-	cell.AddParagraph().AppendText("Banana");
-	//Adds the second cell into fourth row 
-	cell = row.AddCell();
-	//Specifies the cell width
-	cell.Width = 200;
-	cell.AddParagraph().AppendText("20");
-	//Adds the fifth row to table
-	row = table.AddRow(true, false);
-	//Adds the first cell into fifth row 
-	cell = row.AddCell();
-	//Specifies the cell width
-	cell.Width = 200;
-	cell.AddParagraph().AppendText("Grapes");
-	//Adds the second cell into fifth row 
-	cell = row.AddCell();
-	//Specifies the cell width
-	cell.Width = 200;
-	cell.AddParagraph().AppendText("70");
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Table.docx");
-	//Closes the document instance
-	document.Close();
-}
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	// Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+section.AddParagraph().AppendText("Price Details");
+section.AddParagraph();
+//Adds a new table into Word document
+IWTable table = section.AddTable();
+//Adds the first row into table
+WTableRow row = table.AddRow();
+//Adds the first cell into first row 
+WTableCell cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("Item");
+//Adds the second cell into first row 
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("Price($)");
+//Adds the second row into table
+row = table.AddRow(true, false);
+//Adds the first cell into second row
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("Apple");
+//Adds the second cell into second row
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("50");
+//Adds the third row into table
+row = table.AddRow(true, false);
+//Adds the first cell into third row 
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("Orange");
+//Adds the second cell into third row 
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("30");
+//Adds the fourth row into table
+row = table.AddRow(true, false);
+//Adds the first cell into fourth row
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("Banana");
+//Adds the second cell into fourth row 
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("20");
+//Adds the fifth row to table
+row = table.AddRow(true, false);
+//Adds the first cell into fifth row 
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("Grapes");
+//Adds the second cell into fifth row 
+cell = row.AddCell();
+//Specifies the cell width
+cell.Width = 200;
+cell.AddParagraph().AppendText("70");
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Table.docx");
+//Closes the document instance
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -639,6 +571,8 @@ cell.AddParagraph().AppendText("70");
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Table.docx");
@@ -719,6 +653,8 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Table.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}  
 
 {% endtabs %}  
@@ -814,87 +750,51 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of WordDocument class
-	WordDocument document = new WordDocument();
-	IWSection section = document.AddSection();
-	section.AddParagraph().AppendText("Price Details");
-	IWTable table = section.AddTable();
-	table.ResetCells(3, 2);
-	table[0, 0].AddParagraph().AppendText("Item");
-	table[0, 1].AddParagraph().AppendText("Price($)");
-	table[1, 0].AddParagraph().AppendText("Items with same price");
-	//Adds a nested table into the cell (second row, first cell).
-	IWTable nestTable = table[1, 0].AddTable();
-	//Creates the specified number of rows and columns to nested table
-	nestTable.ResetCells(3, 1);
-	//Accesses the instance of the nested table cell (first row, first cell)
-	WTableCell nestedCell = nestTable.Rows[0].Cells[0];
-	//Specifies the width of the nested cell
-	nestedCell.Width = 200;
-	//Adds the content into nested cell
-	nestedCell.AddParagraph().AppendText("Apple");
-	//Accesses the instance of the nested table cell (second row, first cell)
-	nestedCell = nestTable.Rows[1].Cells[0];
-	//Specifies the width of the nested cell
-	nestedCell.Width = 200;
-	//Adds the content into nested cell
-	nestedCell.AddParagraph().AppendText("Orange");
-	//Accesses the instance of the nested table cell (third row, first cell)
-	nestedCell = nestTable.Rows[2].Cells[0];
-	//Specifies the width of the nested cell
-	nestedCell.Width = 200;
-	//Adds the content into nested cell
-	nestedCell.AddParagraph().AppendText("Mango");
-	//Accesses the instance of the cell (second row, second cell)
-	nestedCell = table.Rows[1].Cells[1];
-	table[1, 1].AddParagraph().AppendText("85");
-	table[2, 0].AddParagraph().AppendText("Pomegranate");
-	table[2, 1].AddParagraph().AppendText("70");
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "NestedTable.docx");
-	//Closes the document instance
-	document.Close();
-}
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			// Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	// Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+section.AddParagraph().AppendText("Price Details");
+IWTable table = section.AddTable();
+table.ResetCells(3, 2);
+table[0, 0].AddParagraph().AppendText("Item");
+table[0, 1].AddParagraph().AppendText("Price($)");
+table[1, 0].AddParagraph().AppendText("Items with same price");
+//Adds a nested table into the cell (second row, first cell).
+IWTable nestTable = table[1, 0].AddTable();
+//Creates the specified number of rows and columns to nested table
+nestTable.ResetCells(3, 1);
+//Accesses the instance of the nested table cell (first row, first cell)
+WTableCell nestedCell = nestTable.Rows[0].Cells[0];
+//Specifies the width of the nested cell
+nestedCell.Width = 200;
+//Adds the content into nested cell
+nestedCell.AddParagraph().AppendText("Apple");
+//Accesses the instance of the nested table cell (second row, first cell)
+nestedCell = nestTable.Rows[1].Cells[0];
+//Specifies the width of the nested cell
+nestedCell.Width = 200;
+//Adds the content into nested cell
+nestedCell.AddParagraph().AppendText("Orange");
+//Accesses the instance of the nested table cell (third row, first cell)
+nestedCell = nestTable.Rows[2].Cells[0];
+//Specifies the width of the nested cell
+nestedCell.Width = 200;
+//Adds the content into nested cell
+nestedCell.AddParagraph().AppendText("Mango");
+//Accesses the instance of the cell (second row, second cell)
+nestedCell = table.Rows[1].Cells[1];
+table[1, 1].AddParagraph().AppendText("85");
+table[2, 0].AddParagraph().AppendText("Pomegranate");
+table[2, 1].AddParagraph().AppendText("70");
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "NestedTable.docx");
+//Closes the document instance
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -937,6 +837,8 @@ table[2, 1].AddParagraph().AppendText("70");
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "NestedTable.docx");
@@ -986,6 +888,8 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("NestedTable.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}   
 
 {% endtabs %}  
@@ -1160,94 +1064,58 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of WordDocument class (Empty Word Document)
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	WordDocument document = new WordDocument();
-	//Opens an existing Word document into DocIO instance
-	document.Open(assembly.GetManifestResourceStream("Sample.Assets.Table.docx"), FormatType.Docx);
-	//Accesses the instance of the first section in the Word document
-	WSection section = document.Sections[0];
-	//Accesses the instance of the first table in the section
-	WTable table = section.Tables[0] as WTable;
-	//Specifies the title for the table
-	table.Title ="PriceDetails";
-	//Specifies the description of the table
-	table.Description = "This table shows the price details of various fruits";
-	//Specifies the left indent of the table
-	table.IndentFromLeft = 50;
-	//Specifies the background color of the table
-	table.TableFormat.BackColor = Color.FromArgb(192, 192, 192);
-	//Specifies the horizontal alignment of the table
-	table.TableFormat.HorizontalAlignment = RowAlignment.Left;
-	//Specifies the left, right, top and bottom padding of all the cells in the table
-	table.TableFormat.Paddings.All = 10;
-	//Specifies the auto resize of table to automatically resize all cell width based on its content
-	table.TableFormat.IsAutoResized = true;
-	//Specifies the table top, bottom, left and right border line width
-	table.TableFormat.Borders.LineWidth = 2f;
-	//Specifies the table horizontal border line width
-	table.TableFormat.Borders.Horizontal.LineWidth = 2f;
-	//Specifies the table vertical border line width
-	table.TableFormat.Borders.Vertical.LineWidth = 2f;
-	//Specifies the tables top, bottom, left and right border color
-	table.TableFormat.Borders.Color = Color.Red;
-	//Specifies the table Horizontal border color
-	table.TableFormat.Borders.Horizontal.Color = Color.Red;
-	//Specifies the table vertical border color
-	table.TableFormat.Borders.Vertical.Color = Color.Red;
-	//Specifies the table borders border type
-	table.TableFormat.Borders.BorderType = BorderStyle.Double;
-	//Accesses the instance of the first row in the table
-	WTableRow row = table.Rows[0];
-	//Specifies the row height
-	row.Height = 20;
-	//Specifies the row height type
-	row.HeightType = TableRowHeightType.AtLeast;	
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "TableFormatting.docx");
-	//Closes the document instance
-	document.Close();
-}
-
-// Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Creates an instance of WordDocument class (Empty Word Document)
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument();
+//Opens an existing Word document into DocIO instance
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Table.docx"), FormatType.Docx);
+//Accesses the instance of the first section in the Word document
+WSection section = document.Sections[0];
+//Accesses the instance of the first table in the section
+WTable table = section.Tables[0] as WTable;
+//Specifies the title for the table
+table.Title ="PriceDetails";
+//Specifies the description of the table
+table.Description = "This table shows the price details of various fruits";
+//Specifies the left indent of the table
+table.IndentFromLeft = 50;
+//Specifies the background color of the table
+table.TableFormat.BackColor = Color.FromArgb(192, 192, 192);
+//Specifies the horizontal alignment of the table
+table.TableFormat.HorizontalAlignment = RowAlignment.Left;
+//Specifies the left, right, top and bottom padding of all the cells in the table
+table.TableFormat.Paddings.All = 10;
+//Specifies the auto resize of table to automatically resize all cell width based on its content
+table.TableFormat.IsAutoResized = true;
+//Specifies the table top, bottom, left and right border line width
+table.TableFormat.Borders.LineWidth = 2f;
+//Specifies the table horizontal border line width
+table.TableFormat.Borders.Horizontal.LineWidth = 2f;
+//Specifies the table vertical border line width
+table.TableFormat.Borders.Vertical.LineWidth = 2f;
+//Specifies the tables top, bottom, left and right border color
+table.TableFormat.Borders.Color = Color.Red;
+//Specifies the table Horizontal border color
+table.TableFormat.Borders.Horizontal.Color = Color.Red;
+//Specifies the table vertical border color
+table.TableFormat.Borders.Vertical.Color = Color.Red;
+//Specifies the table borders border type
+table.TableFormat.Borders.BorderType = BorderStyle.Double;
+//Accesses the instance of the first row in the table
+WTableRow row = table.Rows[0];
+//Specifies the row height
+row.Height = 20;
+//Specifies the row height type
+row.HeightType = TableRowHeightType.AtLeast;	
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "TableFormatting.docx");
+//Closes the document instance
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -1297,6 +1165,8 @@ row.HeightType = TableRowHeightType.AtLeast;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "TableFormatting.docx");
@@ -1353,6 +1223,8 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TableFormatting.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
@@ -1436,81 +1308,46 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of WordDocument class
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	WordDocument document = new WordDocument();
-	document.Open(assembly.GetManifestResourceStream("Sample.Assets.Table.docx"), FormatType.Docx);
-	WSection section = document.Sections[0];
-	WTable table = section.Tables[0] as WTable;
-	//Accesses the instance of the first row in the table
-	WTableRow row = table.Rows[0];
-	//Specifies the row height
-	row.Height = 20;
-	//Specifies the row height type
-	row.HeightType = TableRowHeightType.AtLeast;
-	//Accesses the instance of the first cell in the row
-	WTableCell cell = row.Cells[0];
-	//Specifies the cell back ground color
-	cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
-	//Specifies the same padding as table option as false to preserve current cell padding
-	cell.CellFormat.SamePaddingsAsTable = false;
-	//Specifies the left, right, top and bottom padding of the cell
-	cell.CellFormat.Paddings.Left = 5;
-	cell.CellFormat.Paddings.Right = 5;
-	cell.CellFormat.Paddings.Top = 5;
-	cell.CellFormat.Paddings.Bottom = 5;
-	//Specifies the vertical alignment of content of text
-	cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
-	//Accesses the instance of the second cell in the row
-	cell = row.Cells[1];
-	cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
-	cell.CellFormat.SamePaddingsAsTable = false;
-	//Specifies the left, right, top and bottom padding of the cell
-	cell.CellFormat.Paddings.All = 5;
-	cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "TableCellFormatting.docx");
-	document.Close();
-}
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Creates an instance of WordDocument class
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument();
+document.Open(assembly.GetManifestResourceStream("Sample.Assets.Table.docx"), FormatType.Docx);
+WSection section = document.Sections[0];
+WTable table = section.Tables[0] as WTable;
+//Accesses the instance of the first row in the table
+WTableRow row = table.Rows[0];
+//Specifies the row height
+row.Height = 20;
+//Specifies the row height type
+row.HeightType = TableRowHeightType.AtLeast;
+//Accesses the instance of the first cell in the row
+WTableCell cell = row.Cells[0];
+//Specifies the cell back ground color
+cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
+//Specifies the same padding as table option as false to preserve current cell padding
+cell.CellFormat.SamePaddingsAsTable = false;
+//Specifies the left, right, top and bottom padding of the cell
+cell.CellFormat.Paddings.Left = 5;
+cell.CellFormat.Paddings.Right = 5;
+cell.CellFormat.Paddings.Top = 5;
+cell.CellFormat.Paddings.Bottom = 5;
+//Specifies the vertical alignment of content of text
+cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Accesses the instance of the second cell in the row
+cell = row.Cells[1];
+cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
+cell.CellFormat.SamePaddingsAsTable = false;
+//Specifies the left, right, top and bottom padding of the cell
+cell.CellFormat.Paddings.All = 5;
+cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "TableCellFormatting.docx");
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -1549,6 +1386,8 @@ cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "TableCellFormatting.docx");
@@ -1594,6 +1433,8 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TableCellFormatting.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
@@ -1633,57 +1474,21 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of WordDocument class
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Table.docx"), FormatType.Docx);
-	WSection section = document.Sections[0];
-	WTable table = section.Tables[0] as WTable;
-	//Applies "LightShading" built-in style to table
-	table.ApplyStyle(BuiltinTableStyle.LightShading);
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "TableStyle.docx");
-	document.Close();
-}
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Creates an instance of WordDocument class
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Table.docx"), FormatType.Docx);
+WSection section = document.Sections[0];
+WTable table = section.Tables[0] as WTable;
+//Applies "LightShading" built-in style to table
+table.ApplyStyle(BuiltinTableStyle.LightShading);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "TableStyle.docx");
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -1697,6 +1502,8 @@ table.ApplyStyle(BuiltinTableStyle.LightShading);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "TableStyle.docx");
@@ -1717,6 +1524,8 @@ document.Save(stream, FormatType.Docx);
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TableStyle.docx", "application/msword", stream);
 //Closes the document instance
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}   
 
 {% endtabs %}  
@@ -1778,69 +1587,34 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of WordDocument class
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Table.docx"), FormatType.Docx);
-	WSection section = document.Sections[0];
-	WTable table = section.Tables[0] as WTable;
-	//Applies "LightShading" built-in style to table
-	table.ApplyStyle(BuiltinTableStyle.LightShading);
-	//Enables special formatting for banded columns of the table 
-	table.ApplyStyleForBandedColumns = true;
-	//Enables special formatting for banded rows of the table
-	table.ApplyStyleForBandedRows = true;
-	//Disables special formatting for first column of the table
-	table.ApplyStyleForFirstColumn = false;
-	//Enables special formatting for header row of the table
-	table.ApplyStyleForHeaderRow = true;
-	//Enables special formatting for last column of the table
-	table.ApplyStyleForLastColumn = true;
-	//Disables special formatting for last row of the table
-	table.ApplyStyleForLastRow = false;
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "TableStyle.docx");	
-	document.Close();
-}
+//Creates an instance of WordDocument class
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Table.docx"), FormatType.Docx);
+WSection section = document.Sections[0];
+WTable table = section.Tables[0] as WTable;
+//Applies "LightShading" built-in style to table
+table.ApplyStyle(BuiltinTableStyle.LightShading);
+//Enables special formatting for banded columns of the table 
+table.ApplyStyleForBandedColumns = true;
+//Enables special formatting for banded rows of the table
+table.ApplyStyleForBandedRows = true;
+//Disables special formatting for first column of the table
+table.ApplyStyleForFirstColumn = false;
+//Enables special formatting for header row of the table
+table.ApplyStyleForHeaderRow = true;
+//Enables special formatting for last column of the table
+table.ApplyStyleForLastColumn = true;
+//Disables special formatting for last row of the table
+table.ApplyStyleForLastRow = false;
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "TableStyle.docx");	
+document.Close();
 
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -1866,6 +1640,8 @@ table.ApplyStyleForLastRow = false;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "TableStyle.docx");
@@ -2129,58 +1905,22 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of WordDocument class
-	WordDocument document = new WordDocument();
-	IWSection section = document.AddSection();
-	section.AddParagraph().AppendText("Horizontal merging of Table cells");
-	IWTable table = section.AddTable();
-	table.ResetCells(5, 5);
-	//Specifies the horizontal merge from second cell to fifth cell in third row
-	table.ApplyHorizontalMerge(2, 1, 4);
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "HorizontalMerge.docx");
-	document.Close();
-}
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+section.AddParagraph().AppendText("Horizontal merging of Table cells");
+IWTable table = section.AddTable();
+table.ResetCells(5, 5);
+//Specifies the horizontal merge from second cell to fifth cell in third row
+table.ApplyHorizontalMerge(2, 1, 4);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "HorizontalMerge.docx");
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -2195,6 +1935,8 @@ table.ApplyHorizontalMerge(2, 1, 4);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "HorizontalMerge.docx");
@@ -2215,6 +1957,8 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HorizontalMerge.docx", "application/msword", stream);
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
@@ -2252,58 +1996,22 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of WordDocument class
-	WordDocument document = new WordDocument();
-	IWSection section = document.AddSection();
-	section.AddParagraph().AppendText("Vertical merging of Table cells");
-	IWTable table = section.AddTable();
-	table.ResetCells(5, 5);
-	//Specifies the vertical merge to the third cell, from second row to fifth row
-	table.ApplyVerticalMerge(2, 1, 4);
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "VerticalMerge.docx");
-	document.Close();
-}
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+section.AddParagraph().AppendText("Vertical merging of Table cells");
+IWTable table = section.AddTable();
+table.ResetCells(5, 5);
+//Specifies the vertical merge to the third cell, from second row to fifth row
+table.ApplyVerticalMerge(2, 1, 4);
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "VerticalMerge.docx");
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -2318,6 +2026,8 @@ table.ApplyVerticalMerge(2, 1, 4);
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "VerticalMerge.docx");
@@ -2338,6 +2048,8 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("VerticalMerge.docx", "application/msword", stream);
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
@@ -2393,67 +2105,31 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of WordDocument class
-	WordDocument document = new WordDocument();
-	IWSection section = document.AddSection();
-	section.AddParagraph().AppendText("Horizontal merging of Table cells");
-	IWTable table = section.AddTable();
-	table.ResetCells(2, 2);
-	//Adds content to table cell
-	table[0, 0].AddParagraph().AppendText("First row, First cell");
-	table[0, 1].AddParagraph().AppendText("First row, Second cell");
-	table[1, 0].AddParagraph().AppendText("Second row, First cell");
-	table[1, 1].AddParagraph().AppendText("Second row, Second cell");
-	//Specifies the horizontal merge start to first row, first cell
-	table[0, 0].CellFormat.HorizontalMerge = CellMerge.Start;
-	//Modifies the cell content
-	table[0, 0].Paragraphs[0].Text = "Horizontally merged cell";
-	//Specifies the horizontal merge continue to second row second cell
-	table[0, 1].CellFormat.HorizontalMerge = CellMerge.Continue;
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "HorizontalMerge.docx");
-	document.Close();
-}
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+section.AddParagraph().AppendText("Horizontal merging of Table cells");
+IWTable table = section.AddTable();
+table.ResetCells(2, 2);
+//Adds content to table cell
+table[0, 0].AddParagraph().AppendText("First row, First cell");
+table[0, 1].AddParagraph().AppendText("First row, Second cell");
+table[1, 0].AddParagraph().AppendText("Second row, First cell");
+table[1, 1].AddParagraph().AppendText("Second row, Second cell");
+//Specifies the horizontal merge start to first row, first cell
+table[0, 0].CellFormat.HorizontalMerge = CellMerge.Start;
+//Modifies the cell content
+table[0, 0].Paragraphs[0].Text = "Horizontally merged cell";
+//Specifies the horizontal merge continue to second row second cell
+table[0, 1].CellFormat.HorizontalMerge = CellMerge.Continue;
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "HorizontalMerge.docx");
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -2477,6 +2153,8 @@ table[0, 1].CellFormat.HorizontalMerge = CellMerge.Continue;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "HorizontalMerge.docx");
@@ -2506,6 +2184,8 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("HorizontalMerge.docx", "application/msword", stream);
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
@@ -2561,67 +2241,31 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of WordDocument class
-	WordDocument document = new WordDocument();
-	IWSection section = document.AddSection();
-	section.AddParagraph().AppendText("Vertical merging of Table cells");
-	IWTable table = section.AddTable();
-	table.ResetCells(2, 2);
-	//Adds content to table cells
-	table[0, 0].AddParagraph().AppendText("First row, First cell");
-	table[0, 1].AddParagraph().AppendText("First row, Second cell");
-	table[1, 0].AddParagraph().AppendText("Second row, First cell");
-	table[1, 1].AddParagraph().AppendText("Second row, Second cell");
-	//Specifies the vertical merge start to first row first cell
-	table[0, 0].CellFormat.VerticalMerge = CellMerge.Start;
-	//Modifies the cell content
-	table[0, 0].Paragraphs[0].Text = "Vertically merged cell";
-	//Specifies the vertical merge continue to second row first cell
-	table[1, 0].CellFormat.VerticalMerge = CellMerge.Continue;
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "VerticalMerge.docx");
-	document.Close();
-}
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+section.AddParagraph().AppendText("Vertical merging of Table cells");
+IWTable table = section.AddTable();
+table.ResetCells(2, 2);
+//Adds content to table cells
+table[0, 0].AddParagraph().AppendText("First row, First cell");
+table[0, 1].AddParagraph().AppendText("First row, Second cell");
+table[1, 0].AddParagraph().AppendText("Second row, First cell");
+table[1, 1].AddParagraph().AppendText("Second row, Second cell");
+//Specifies the vertical merge start to first row first cell
+table[0, 0].CellFormat.VerticalMerge = CellMerge.Start;
+//Modifies the cell content
+table[0, 0].Paragraphs[0].Text = "Vertically merged cell";
+//Specifies the vertical merge continue to second row first cell
+table[1, 0].CellFormat.VerticalMerge = CellMerge.Continue;
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "VerticalMerge.docx");
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -2645,6 +2289,8 @@ table[1, 0].CellFormat.VerticalMerge = CellMerge.Continue;
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "VerticalMerge.docx");
@@ -2674,6 +2320,8 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("VerticalMerge.docx", "application/msword", stream);
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}  
@@ -2739,67 +2387,32 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
+//Creates an instance of WordDocument class
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+IWTable table = section.AddTable();
+table.ResetCells(50, 1);
+WTableRow row = table.Rows[0];
+//Specifies the first row as a header row of the table
+row.IsHeader = true;
+row.Height = 20;
+row.HeightType = TableRowHeightType.AtLeast;
+row.Cells[0].AddParagraph().AppendText("Header Row");
+for (int i = 1; i < 50; i++)
 {
-	//Creates an instance of WordDocument class
-	WordDocument document = new WordDocument();
-	IWSection section = document.AddSection();
-	IWTable table = section.AddTable();
-	table.ResetCells(50, 1);
-	WTableRow row = table.Rows[0];
-	//Specifies the first row as a header row of the table
-	row.IsHeader = true;
+	row = table.Rows[i];
 	row.Height = 20;
 	row.HeightType = TableRowHeightType.AtLeast;
-	row.Cells[0].AddParagraph().AppendText("Header Row");
-	for (int i = 1; i < 50; i++)
-	{
-		row = table.Rows[i];
-		row.Height = 20;
-		row.HeightType = TableRowHeightType.AtLeast;
-		row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
-	}
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "TableWithHeaderRow.docx");
-	document.Close();
+	row.Cells[0].AddParagraph().AppendText("Text in Row" + i.ToString());
 }
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "TableWithHeaderRow.docx");
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -2824,6 +2437,8 @@ for (int i = 1; i < 50; i++)
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "TableWithHeaderRow.docx");
@@ -2854,6 +2469,8 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("TableWithHeaderRow.docx", "application/msword", stream);
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %} 
 
 {% endtabs %}  
@@ -2894,58 +2511,22 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
-{
-	//Creates an instance of WordDocument class
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-	WSection section = document.Sections[0];
-	WTable table = section.Tables[0] as WTable;
-	//Disables breaking across pages for all rows in the table.
-	foreach (WTableRow row in table.Rows)
-		row.RowFormat.IsBreakAcrossPages = false;
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Result.docx");
-	document.Close();
-}
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Creates an instance of WordDocument class
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+WSection section = document.Sections[0];
+WTable table = section.Tables[0] as WTable;
+//Disables breaking across pages for all rows in the table.
+foreach (WTableRow row in table.Rows)
+	row.RowFormat.IsBreakAcrossPages = false;
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Result.docx");
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -2960,6 +2541,8 @@ foreach (WTableRow row in table.Rows)
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Result.docx");
@@ -2980,6 +2563,8 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Result.docx", "application/msword", stream);
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}  
 
 {% endtabs %} 
@@ -3039,70 +2624,34 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-private async void OnButtonClicked(object sender, RoutedEventArgs e)
+//Creates an instance of WordDocument class
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
+WSection section = document.Sections[0];
+WTable table = section.Tables[0] as WTable;
+//Iterates the rows of the table
+foreach (WTableRow row in table.Rows)
 {
-	//Creates an instance of WordDocument class
-	Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-	WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Sample.Assets.Template.docx"), FormatType.Docx);
-	WSection section = document.Sections[0];
-	WTable table = section.Tables[0] as WTable;
-	//Iterates the rows of the table
-	foreach (WTableRow row in table.Rows)
+	//Iterates through the cells of rows
+	foreach (WTableCell cell in row.Cells)
 	{
-		//Iterates through the cells of rows
-		foreach (WTableCell cell in row.Cells)
+		//Iterates through the paragraphs of the cell
+		foreach (WParagraph paragraph in cell.Paragraphs)
 		{
-			//Iterates through the paragraphs of the cell
-			foreach (WParagraph paragraph in cell.Paragraphs)
-			{
-				//When the paragraph contains text Panda then apply green as back color to cell
-				if (paragraph.Text.Contains("panda"))
-					cell.CellFormat.BackColor = Color.Green;
-			}
+			//When the paragraph contains text Panda then apply green as back color to cell
+			if (paragraph.Text.Contains("panda"))
+				cell.CellFormat.BackColor = Color.Green;
 		}
 	}
-	//Saves the Word file to MemoryStream
-	MemoryStream stream = new MemoryStream();
-	await document.SaveAsync(stream, FormatType.Docx);
-	//Saves the stream as Word file in local machine
-	Save(stream, "Sample.docx");
-	document.Close();
 }
-
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-	streams.Position = 0;
-	StorageFile stFile;
-	if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-	{
-		FileSavePicker savePicker = new FileSavePicker();
-		savePicker.DefaultFileExtension = ".docx";
-		savePicker.SuggestedFileName = filename;
-		savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-		stFile = await savePicker.PickSaveFileAsync();
-	}
-	else
-	{
-		StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-		stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-	}
-	if (stFile != null)
-	{
-		using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-		{
-			//Write compressed data from memory to file
-			using (Stream outstream = zipStream.AsStreamForWrite())
-			{
-				byte[] buffer = streams.ToArray();
-				outstream.Write(buffer, 0, buffer.Length);
-				outstream.Flush();
-			}
-		}
-	}
-	//Launch the saved Word file
-	await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Saves the Word file to MemoryStream
+MemoryStream stream = new MemoryStream();
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+document.Close();
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
 
 {% highlight ASP.NET Core %}
@@ -3129,6 +2678,8 @@ foreach (WTableRow row in table.Rows)
 //Saves the Word document to MemoryStream
 MemoryStream stream = new MemoryStream();
 document.Save(stream, FormatType.Docx);
+//Closes the document
+document.Close();
 stream.Position = 0;
 //Download Word document in the browser
 return File(stream, "application/msword", "Sample.docx");
@@ -3161,6 +2712,8 @@ document.Save(stream, FormatType.Docx);
 //Save the stream as a file in the device and invoke it for viewing
 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
 document.Close();
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
 {% endhighlight %}
 
 {% endtabs %}

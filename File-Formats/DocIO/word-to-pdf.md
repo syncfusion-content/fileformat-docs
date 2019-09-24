@@ -632,7 +632,7 @@ wordDocument.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-//"App" is the class of Portable project.
+//"App" is the class of Portable project
 Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")),
@@ -1858,7 +1858,8 @@ PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
 wordDocument.Close();
 //Releases the resources occupied by DocToPDFConverter instance
 converter.Dispose();
-//Saves the PDF file  pdfDocument.Save("WordtoPDF.pdf");
+//Saves the PDF file
+pdfDocument.Save("WordtoPDF.pdf");
 //Closes the instance of PDF document object
 pdfDocument.Close();
 {% endhighlight %}
