@@ -32,56 +32,22 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-async void Main(string[] args)
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.html")), FormatType.Html))
 {
-    //"App" is the class of Portable project.
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    //Opens an existing document from file system through constructor of WordDocument class
-    using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.html")), FormatType.Html))
-    {
-        MemoryStream stream = new MemoryStream();
-        //Saves the Word file to MemoryStream
-        await document.SaveAsync(stream, FormatType.Docx);
-        //Saves the stream as Word file in local machine
-        Save(stream, "Result.docx");
-        document.Close();
-    }
+	MemoryStream stream = new MemoryStream();
+	//Saves the Word file to MemoryStream
+	await document.SaveAsync(stream, FormatType.Docx);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Result.docx");
+	document.Close();
 }
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-    streams.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".docx";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".docx" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-        {
-            //Write compressed data from memory to file
-            using (Stream outstream = zipStream.AsStreamForWrite())
-            {
-                byte[] buffer = streams.ToArray();
-                outstream.Write(buffer, 0, buffer.Length);
-                outstream.Flush();
-            }
-        }
-    }
-    //Launch the saved Word file
-    await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
 FileStream fileStreamPath = new FileStream(@"Data/Hello World.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
@@ -96,6 +62,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Html)
      return File(stream, "application/msword", "Result.docx");
 }
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //DocIO supports HTML conversion in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP and ASP.NET CORE platforms alone.
 {% endhighlight %}
@@ -123,58 +90,24 @@ document.Close()
 {% endhighlight %}
 
 {% highlight UWP %}
-async void Main(string[] args)
+//"App" is the class of Portable project.
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Opens an existing document from file system through constructor of WordDocument class
+using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
 {
-    //"App" is the class of Portable project.
-    Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-    //Opens an existing document from file system through constructor of WordDocument class
-    using (WordDocument document = new WordDocument((assembly.GetManifestResourceStream("CreateWordSample.Assets.Test.docx")), FormatType.Docx))
-    {
-        MemoryStream stream = new MemoryStream();
-        //Saves the Word file to MemoryStream
-        await document.SaveAsync(stream, FormatType.Html);
-        //Saves the stream as Word file in local machine
-        Save(stream, "Result.html");
-        document.Close();
-    }
+	MemoryStream stream = new MemoryStream();
+	//Saves the Word file to MemoryStream
+	await document.SaveAsync(stream, FormatType.Html);
+	//Saves the stream as Word file in local machine
+	Save(stream, "Result.html");
+	document.Close();
 }
-//Saves the Word document
-async void Save(MemoryStream streams, string filename)
-{
-    streams.Position = 0;
-    StorageFile stFile;
-    if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
-    {
-        FileSavePicker savePicker = new FileSavePicker();
-        savePicker.DefaultFileExtension = ".html";
-        savePicker.SuggestedFileName = filename;
-        savePicker.FileTypeChoices.Add("Word Documents", new List<string>() { ".html" });
-        stFile = await savePicker.PickSaveFileAsync();
-    }
-    else
-    {
-        StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-        stFile = await local.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-    }
-    if (stFile != null)
-    {
-        using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
-        {
-            //Write compressed data from memory to file
-            using (Stream outstream = zipStream.AsStreamForWrite())
-            {
-                byte[] buffer = streams.ToArray();
-                outstream.Write(buffer, 0, buffer.Length);
-                outstream.Flush();
-            }
-        }
-    }
-    //Launch the saved Word file
-    await Windows.System.Launcher.LaunchFileAsync(stFile);
-}
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
 {% endhighlight %}
+
 {% highlight ASP.NET CORE %}
-FileStream fileStreamPath = new FileStream(@"Data/Hello World.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream(@"Data/Hello World.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Opens an existing document from file system through constructor of WordDocument class
 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
 {
@@ -187,6 +120,7 @@ using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx)
      return File(stream, "application/chrome", "Result.html");
 }
 {% endhighlight %}
+
 {% highlight XAMARIN %}
 //DocIO supports HTML conversion in Windows Forms, WPF, ASP.NET, ASP.NET MVC, UWP and ASP.NET CORE platforms alone.
 {% endhighlight %}
@@ -218,10 +152,10 @@ bool isValidHtml = document.LastSection.Body.IsValidXHTML(htmlstring, XHTMLValid
 //When the Html string passes validation, it is inserted to the document
 if (isValidHtml)
 {
-//Appends Html string as first item of the second paragraph in the document
-document.Sections[0].Body.InsertXHTML(htmlstring, 2, 0);
-//Appends the Html string to first paragraph in the document
-document.Sections[0].Body.Paragraphs[0].AppendHTML(htmlstring);
+	//Appends Html string as first item of the second paragraph in the document
+	document.Sections[0].Body.InsertXHTML(htmlstring, 2, 0);
+	//Appends the Html string to first paragraph in the document
+	document.Sections[0].Body.Paragraphs[0].AppendHTML(htmlstring);
 }
 //Saves and closes the document
 document.Save("Sample.docx");
@@ -237,10 +171,10 @@ Dim htmlstring As String = "<p><b>This text is inserted as HTML string.</b></p>"
 Dim isValidHtmlAs Boolean = document.LastSection.Body.IsValidXHTML(htmlstring, XHTMLValidationType.Transitional)
 'When the Html string passes validation, it is inserted to document
 If isValidHtmlThen
-'Appends Html string as first item of the second paragraph in the document
-document.Sections(0).Body.InsertXHTML(htmlstring, 2, 0)
-'Appends the Html string to first paragraph in the document
-document.Sections(0).Body.Paragraphs(0).AppendHTML(htmlstring)
+	'Appends Html string as first item of the second paragraph in the document
+	document.Sections(0).Body.InsertXHTML(htmlstring, 2, 0)
+	'Appends the Html string to first paragraph in the document
+	document.Sections(0).Body.Paragraphs(0).AppendHTML(htmlstring)
 End If
 'Saves and closes the document
 document.Save("Sample.docx")
