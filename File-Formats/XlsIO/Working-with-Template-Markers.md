@@ -647,8 +647,8 @@ The image is applied to cell width and height.<br/><br/></td></tr>
 <tr>
 <td>
 3<br/><br/></td><td><span style="font-weight:bold">
-size:</span>width,height<br/><br/>Ex:<br/><br/>%Reports.Image;size:60<br/><br/>(or)<br/><br/>%Reports.Image;size:60,60<br/><br/></td><td>
-Image is applied to the specified size (width, height).<br/><br/>Height parameter is optional. Value of width is applied when height is not specified.<br/><br/></td></tr>
+size:</span>width,height<br/><br/>Ex:<br/><br/>%Reports.Image;size:60<br/><br/>(or)<br/><br/>%Reports.Image;size:60,60<br/><br/>(or)<br/><br/>%Reports.Image;size:60,auto<br/><br/>(or)<br/><br/>%Reports.Image;size:auto,60<br/><br/>(or)<br/><br/>%Reports.Image;size:auto,auto<br/><br/></td><td>
+Image is applied to the specified size (width, height).<br/><br/>Height parameter is optional. Value of width is applied when height is not specified.<br/><br/><br/><br/>You can specify either width or height value as "auto" to set ratio value of other size value.<br/><br/>If both width and height value is set as "auto" then the Image is applied to the original size</td></tr>
 <tr>
 <td>
 4<br/><br/></td><td><span style="font-weight:bold">
