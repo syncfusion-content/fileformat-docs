@@ -4137,6 +4137,224 @@ else
 
 {% endtabs %}  
 
+## Set appearance to the PDF form fields
+
+After filling the form fields in the PDF document, it may appear empty due to the absence of the appearance dictionary. By setting false to the [SetDefaultAppearance] (https://help.syncfusion.com/cr/aspnetmvc/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfForm~SetDefaultAppearance.html) method in [PdfForm](https://help.syncfusion.com/cr/cref_files/aspnetmvc/Syncfusion.Pdf.Base~Syncfusion.Pdf.Interactive.PdfForm.html) class, you can create the appearance dictionary. By this, the text will be visible in all PDF Viewers.
+
+The following code snippet explains how to set appearance to the PDF form fields.
+
+{% tabs %}  
+
+{% highlight c# %}
+
+
+//Load the PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(fileName);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Set the default appearance
+loadedForm.SetDefaultAppearance(false);
+
+//Get the loaded form field
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text = "Text";
+//Save the document
+
+loadedDocument.Save("Form.pdf");
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Load the PDF document
+
+Dim loadedDocument As New PdfLoadedDocument(fileName)
+
+'Get the loaded form
+
+Dim loadedForm As PdfLoadedForm = loadedDocument.Form
+
+'Set the default appearance
+
+loadedForm.SetDefaultAppearance(False)
+
+'Get the loaded form field
+
+Dim loadedTextBoxField As PdfLoadedTextBoxField = TryCast(loadedForm.Fields(0), PdfLoadedTextBoxField)
+
+loadedTextBoxField.Text = "Text"
+
+'Save the document
+
+loadedDocument.Save("Form.pdf")
+
+'Close the document
+
+loadedDocument.Close(True)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Set the default appearance
+
+loadedForm.SetDefaultAppearance(false);
+
+//Get the loaded form field
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text = "Text"
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+await loadedDocument.SaveAsync(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Form.pdf");
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Set the default appearance
+
+loadedForm.SetDefaultAppearance(false);
+
+
+//Get the loaded form field
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text ="text";
+
+//Save the document into stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+stream.Position = 0;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Defining the content type for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Form.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Sample.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Get the loaded form
+
+PdfLoadedForm loadedForm = loadedDocument.Form;
+
+//Set the default appearance
+
+loadedForm.SetDefaultAppearance(false);
+
+//Get the loaded form field
+
+PdfLoadedTextBoxField loadedTextBoxField = loadedForm.Fields[0] as PdfLoadedTextBoxField;
+
+loadedTextBoxField.Text ="text";
+
+
+//Save the PDF document to stream
+
+MemoryStream stream = new MemoryStream();
+
+loadedDocument.Save(stream);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.RuntimePlatform == Device.UWP)
+{
+Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Form.pdf", "application/pdf", stream);
+}
+else
+{
+Xamarin.Forms.DependencyService.Get<ISave>().Save("Form.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %} 
 
 ## Modifying the existing form field in PDF document 
 
