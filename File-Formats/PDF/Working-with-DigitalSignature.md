@@ -3082,11 +3082,11 @@ else
 
 ## Adding a digital signature with customization
 
-The PdfSignatureSettings allows you to add customized digital signatures to the PDF document.
+The [PdfSignatureSettings](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureSettings.html) allows you to add customized digital signatures to the PDF document.
 
 ### Adding a digital signature with CAdES format
 
-As per the PDF specification 2.0, now Syncfusion PDF library supports digital signature based on CAdES (CMS Advanced Electronics Signature). The CAdES based digital signature can remain valid for long periods, even if underlying cryptographic algorithms are broken. Using the API “CryptographicStandard”, you can change the standard between CMS (Cryptographic Message Syntax) and CAdES.
+As per the PDF specification 2.0, now Syncfusion PDF library supports digital signature based on CAdES (CMS Advanced Electronics Signature). The CAdES based digital signature can remain valid for long periods, even if underlying cryptographic algorithms are broken. Using the API [CryptographicStandard](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureSettings~CryptographicStandard.html), you can change the standard between CMS (Cryptographic Message Syntax) and CAdES.
 
 The following code example explains how to add a digital signature with cryptographic standard (CAdES) to the PDF document.
 
@@ -3429,7 +3429,7 @@ else
 
 ### Customize digestion algorithm
 
-In addition, you can now set the different message digest algorithm to sign PDF document using the “DigestAlgorithm” enum available in the class “PdfSignatureSettings”. 
+In addition, you can now set the different message digest algorithm to sign PDF document using the [DigestAlgorithm](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureSettings~DigestAlgorithm.html) enum available in the class [PdfSignatureSettings](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureSettings.html). 
 
 The following message digest algorithms are now supported:
 
@@ -3787,9 +3787,9 @@ Added the support to validate the digital signatures in an existing PDF document
 * Check the revocation status of the certificate with OCSP and CRL.
 * Ensure the multiple digital signatures.
 
-You can use the “ValidateSignature” method available in the “PdfLoadedSignatureField" class to validate the digital signature. 
+You can use the [ValidateSignature](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedSignatureField~ValidateSignature.html) method available in the [PdfLoadedSignatureField](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedSignatureField.html) class to validate the digital signature. 
 
-You can get the overall status from the “IsSignatureValid” property available in the “PdfSignatureValidationResult” class.
+You can get the overall status from the [IsSignatureValid](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureValidationResult~IsSignatureValid.html) property available in the [PdfSignatureValidationResult](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureValidationResult.html) class.
 
 The following code example explains how to validate the digitally signed PDF document signature.
 
@@ -4152,7 +4152,7 @@ loadedDocument.Close(true);
 
 Added the support to validate all the digital signatures in an existing PDF document. 
 
-You can use the “ValidateSignatures” method available in the “PdfLoadedFormFieldCollection" class to validate all the digital signatures. You can get the list of “PdfSignatureValidationResult” from "ValidateSignatures" method.
+You can use the ```ValidateSignatures``` method available in the [PdfLoadedFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class to validate all the digital signatures. You can get the list of [PdfSignatureValidationResult](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureValidationResult.html) from ```ValidateSignatures``` method.
 
 The following code example explains how to validate all the signatures in digitally signed PDF document.
 
