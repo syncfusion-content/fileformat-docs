@@ -1438,6 +1438,234 @@ else
 
 {% endtabs %} 
 
+## Importing pages from an existing document without bookmarks.
+
+You can import a page or range of pages from one document to other without bookmarks. Refer to the following code sample. 
+
+N> Performance will be effective only in the large PDF document.
+
+{% tabs %}   
+
+{% highlight c# %}
+
+
+//Load the PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//Create the new PDF document
+
+PdfDocument document = new PdfDocument();
+
+int startIndex = 0;
+
+int endIndex = loadedDocument.Pages.Count - 1;
+
+//Import all the pages to the new PDF document without bookmarks
+
+document.ImportPageRange(loadedDocument, startIndex, endIndex,false);
+
+//Save the document
+
+document.Save("Output.pdf");
+
+//Close both document instances
+
+loadedDocument.Close(true);
+
+document.Close(true);
+
+System.Diagnostics.Process.Start("Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Load the PDF document
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'Create the new PDF document
+
+Dim document As PdfDocument = New PdfDocument()
+
+Dim startIndex As Integer = 0
+
+Dim endIndex As Integer = loadedDocument.Pages.Count - 1
+
+'Import all the pages to the new PDF document without bookmarks
+
+document.ImportPageRange(loadedDocument, startIndex, endIndex, False)
+
+'Save the document
+
+document.Save("Output.pdf")
+
+'Close both the document instances
+
+loadedDocument.Close(True)
+
+document.Close(True)
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+//Create the file open picker
+
+var picker = new FileOpenPicker();
+
+picker.FileTypeFilter.Add(".pdf");
+
+//Browse and choose the file
+
+StorageFile file = await picker.PickSingleFileAsync();
+
+//Creates an empty PDF loaded document instance
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument();
+
+//Loads or opens an existing PDF document through Open method of PdfLoadedDocument class
+
+await loadedDocument.OpenAsync(file);
+
+//Create the new PDF document
+
+PdfDocument document = new PdfDocument();
+
+int startIndex = 0;
+
+int endIndex = loadedDocument.Pages.Count - 1;
+
+//Import all the pages to the new PDF document
+
+document.ImportPageRange(loadedDocument, startIndex, endIndex, false);
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+await document.SaveAsync(stream);
+
+//Close the document instances
+
+loadedDocument.Close(true);
+
+document.Close(true);
+
+//Save the stream as PDF document file in local machine. Refer to the PDF/UWP section for respective code samples
+
+Save(stream, "Output.pdf");
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+//Load the PDF document
+
+FileStream docStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load the PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the new PDF document
+
+PdfDocument document = new PdfDocument();
+
+int startIndex = 0;
+
+int endIndex = loadedDocument.Pages.Count - 1;
+
+//Import all the pages to the new PDF document
+
+document.ImportPageRange(loadedDocument, startIndex, endIndex, false);
+
+//Creating the stream object
+
+MemoryStream stream = new MemoryStream();
+
+//Save the document as stream
+
+document.Save(stream);
+
+//If the position is not set to '0', then the PDF will be empty
+
+stream.Position = 0;
+
+//Close the document instances
+
+document.Close(true);
+
+loadedDocument.Close(true);
+
+//Defining the ContentType for PDF file
+
+string contentType = "application/pdf";
+
+//Define the file name
+
+string fileName = "Output.pdf";
+
+//Creates a FileContentResult object by using the file contents, content type, and file name
+
+return File(stream, contentType, fileName);
+
+{% endhighlight %}
+
+
+{% highlight Xamarin %}
+
+//Load the file as stream
+
+Stream docStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream);
+
+//Create the new PDF document
+
+PdfDocument document = new PdfDocument();
+
+int startIndex = 0;
+
+int endIndex = loadedDocument.Pages.Count - 1;
+
+//Import all the pages to the new PDF document
+
+document.ImportPageRange(loadedDocument, startIndex, endIndex, false);
+
+//Save the document as stream
+
+MemoryStream stream = new MemoryStream();
+
+document.Save(stream);
+
+//Close the document instances
+
+document.Close(true);
+
+loadedDocument.Close(true);
+
+//Save the stream into PDF file
+
+//The operation in Save under Xamarin varies between Windows Phone, Android, and iOS platforms. Refer to the PDF/Xamarin section for respective code samples
+
+if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
+{
+    Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
+}
+else
+{
+    Xamarin.Forms.DependencyService.Get<ISave>().Save("Output.pdf", "application/pdf", stream);
+}
+
+{% endhighlight %}
+
+{% endtabs %} 
 
 ## Rearranging pages in an existing document
 
