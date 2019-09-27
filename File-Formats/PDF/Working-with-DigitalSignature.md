@@ -3082,11 +3082,11 @@ else
 
 ## Adding a digital signature with customization
 
-The PdfSignatureSettings allows you to add customized digital signatures to the PDF document.
+The [PdfSignatureSettings](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureSettings.html) allows you to add customized digital signatures to the PDF document.
 
 ### Adding a digital signature with CAdES format
 
-As per the PDF specification 2.0, now Syncfusion PDF library supports digital signature based on CAdES (CMS Advanced Electronics Signature). The CAdES based digital signature can remain valid for long periods, even if underlying cryptographic algorithms are broken. Using the API “CryptographicStandard”, you can change the standard between CMS (Cryptographic Message Syntax) and CAdES.
+As per the PDF specification 2.0, now Syncfusion PDF library supports digital signature based on CAdES (CMS Advanced Electronics Signature). The CAdES based digital signature can remain valid for long periods, even if underlying cryptographic algorithms are broken. Using the API [CryptographicStandard](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureSettings~CryptographicStandard.html), you can change the standard between CMS (Cryptographic Message Syntax) and CAdES.
 
 The following code example explains how to add a digital signature with cryptographic standard (CAdES) to the PDF document.
 
@@ -3429,7 +3429,7 @@ else
 
 ### Customize digestion algorithm
 
-In addition, you can now set the different message digest algorithm to sign PDF document using the “DigestAlgorithm” enum available in the class “PdfSignatureSettings”. 
+In addition, you can now set the different message digest algorithm to sign PDF document using the [DigestAlgorithm](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureSettings~DigestAlgorithm.html) enum available in the class [PdfSignatureSettings](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureSettings.html). 
 
 The following message digest algorithms are now supported:
 
@@ -3779,7 +3779,7 @@ else
 
 ## Digital signature validation
 
-Added a support to validate the digital signatures in an existing PDF document. Digital signature validation covers the following steps to ensure validity of the signatures:
+Added the support to validate the digital signatures in an existing PDF document. Digital signature validation covers the following steps to ensure the validity of the signatures:
 
 * Validate the document modification.
 * Validate the certificate chain.
@@ -3787,11 +3787,11 @@ Added a support to validate the digital signatures in an existing PDF document. 
 * Check the revocation status of the certificate with OCSP and CRL.
 * Ensure the multiple digital signatures.
 
-You can use the “ValidateSignature” method available in the “PdfLoadedSignatureField" class to validate the digital signature. 
+You can use the [ValidateSignature](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedSignatureField~ValidateSignature.html) method available in the [PdfLoadedSignatureField](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedSignatureField.html) class to validate the digital signature. 
 
-You can get the overall status from the “IsSignatureValid” property available in the “PdfSignatureValidationResult” class.
+You can get the overall status from the [IsSignatureValid](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureValidationResult~IsSignatureValid.html) property available in the [PdfSignatureValidationResult](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureValidationResult.html) class.
 
-The following code example explains how to validate digitally signed PDF document signature.
+The following code example explains how to validate the digitally signed PDF document signature.
 
 {% tabs %}
 
@@ -3830,19 +3830,13 @@ SignatureStatus status = result.SignatureStatus;
 
 bool isModified = result.IsDocumentModified;
 
-//Checks whether the LTV is enabled or not
-
-bool isLTVEnabled = result.IsLTVEnabled;
-
-//Checks the signature validity based on the timestamp, signing, or current time
-
-bool isValidAtTimestampTime = result.IsValidAtTimeStampTime;
-
-bool isValidAtSignedTime = result.IsValidAtSignedTime;
-
-bool isValidAtCurrentTime = result.IsValidAtCurrentTime;
-
 //Signature details
+
+string issuerName = signatureField.Signature.Certificate.IssuerName;
+
+DateTime validFrom = signatureField.Signature.Certificate.ValidFrom;
+
+DateTime validTo = signatureField.Signature.Certificate.ValidTo;
 
 string signatureAlgorithm = result.SignatureAlgorithm;
 
@@ -3899,19 +3893,13 @@ Dim status As SignatureStatus = result.SignatureStatus
 
 Dim isModified As Boolean = result.IsDocumentModified
 
-'Checks whether the LTV is enabled or not
-
-Dim isLTVEnabled As Boolean = result.IsLTVEnabled
-
-'Checks the signature validity based on the timestamp, signing, or current time
-
-Dim isValidAtTimestampTime As Boolean = result.IsValidAtTimeStampTime
-
-Dim isValidAtSignedTime As Boolean = result.IsValidAtSignedTime
-
-Dim isValidAtCurrentTime As Boolean = result.IsValidAtCurrentTime
-
 'Signature details
+
+Dim issuerName As String = signatureField.Signature.Certificate.IssuerName
+
+Dim validFrom As DateTime = signatureField.Signature.Certificate.ValidFrom
+
+Dim validTo As DateTime = signatureField.Signature.Certificate.ValidTo
 
 Dim signatureAlgorithm As String = result.SignatureAlgorithm
 
@@ -3980,19 +3968,13 @@ SignatureStatus status = result.SignatureStatus;
 
 bool isModified = result.IsDocumentModified;
 
-//Checks whether the LTV is enabled or not
-
-bool isLTVEnabled = result.IsLTVEnabled;
-
-//Checks the signature validity based on the timestamp, signing, or current time
-
-bool isValidAtTimestampTime = result.IsValidAtTimeStampTime;
-
-bool isValidAtSignedTime = result.IsValidAtSignedTime;
-
-bool isValidAtCurrentTime = result.IsValidAtCurrentTime;
-
 //Signature details
+
+string issuerName = signatureField.Signature.Certificate.IssuerName;
+
+DateTime validFrom = signatureField.Signature.Certificate.ValidFrom;
+
+DateTime validTo = signatureField.Signature.Certificate.ValidTo;
 
 string signatureAlgorithm = result.SignatureAlgorithm;
 
@@ -4061,19 +4043,13 @@ SignatureStatus status = result.SignatureStatus;
 
 bool isModified = result.IsDocumentModified;
 
-//Checks whether the LTV is enabled or not
-
-bool isLTVEnabled = result.IsLTVEnabled;
-
-//Checks the signature validity based on the timestamp, signing, or current time
-
-bool isValidAtTimestampTime = result.IsValidAtTimeStampTime;
-
-bool isValidAtSignedTime = result.IsValidAtSignedTime;
-
-bool isValidAtCurrentTime = result.IsValidAtCurrentTime;
-
 //Signature details
+
+string issuerName = signatureField.Signature.Certificate.IssuerName;
+
+DateTime validFrom = signatureField.Signature.Certificate.ValidFrom;
+
+DateTime validTo = signatureField.Signature.Certificate.ValidTo;
 
 string signatureAlgorithm = result.SignatureAlgorithm;
 
@@ -4142,19 +4118,13 @@ SignatureStatus status = result.SignatureStatus;
 
 bool isModified = result.IsDocumentModified;
 
-//Checks whether the LTV is enabled or not
-
-bool isLTVEnabled = result.IsLTVEnabled;
-
-//Checks the signature validity based on the timestamp, signing, or current time
-
-bool isValidAtTimestampTime = result.IsValidAtTimeStampTime;
-
-bool isValidAtSignedTime = result.IsValidAtSignedTime;
-
-bool isValidAtCurrentTime = result.IsValidAtCurrentTime;
-
 //Signature details
+
+string issuerName = signatureField.Signature.Certificate.IssuerName;
+
+DateTime validFrom = signatureField.Signature.Certificate.ValidFrom;
+
+DateTime validTo = signatureField.Signature.Certificate.ValidTo;
 
 string signatureAlgorithm = result.SignatureAlgorithm;
 
@@ -4167,6 +4137,219 @@ RevocationResult revocationDetails = result.RevocationResult;
 RevocationStatus revocationStatus = revocationDetails.OcspRevocationStatus;
 
 bool isRevokedCRL = revocationDetails.IsRevokedCRL;
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% endtabs %}
+
+### Validate all signatures in PDF document
+
+Added the support to validate all the digital signatures in an existing PDF document. 
+
+You can use the ```ValidateSignatures``` method available in the [PdfLoadedFormFieldCollection](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Parsing.PdfLoadedFormFieldCollection.html) class to validate all the digital signatures. You can get the list of [PdfSignatureValidationResult](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSignatureValidationResult.html) from ```ValidateSignatures``` method.
+
+The following code example explains how to validate all the signatures in digitally signed PDF document.
+
+{% tabs %}
+
+{% highlight c# %}
+
+
+//Load an existing signed PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument("Input.pdf");
+
+//X509Certificate2Collection to check the signer's identity using root certificates
+
+X509CertificateCollection collection = new X509CertificateCollection();
+
+//Create new X509Certificate2 with the root certificate
+
+X509Certificate2 certificate = new X509Certificate2("PDF.pfx", "syncfusion");
+
+//Add the certificate to the collection
+
+collection.Add(certificate);
+
+//Validate all signatures in loaded PDF document and get the list of validation result
+
+List<PdfSignatureValidationResult> results;
+
+bool isValid = loadedDocument.Form.Fields.ValidateSignatures(collection, out results);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight vb.net %}
+
+
+'Load an existing signed PDF document
+
+Dim loadedDocument As PdfLoadedDocument = New PdfLoadedDocument("Input.pdf")
+
+'X509Certificate2Collection to check the signer's identity using root certificates
+
+Dim collection As X509CertificateCollection = New X509CertificateCollection()
+
+'Create new X509Certificate2 with the root certificate
+
+Dim certificate As X509Certificate2 = New X509Certificate2("PDF.pfx", "syncfusion")
+
+'Add the certificate to the collection
+
+collection.Add(certificate)
+
+'Validate all signatures in loaded PDF document and get the list of validation result
+
+Dim results As List<PdfSignatureValidationResult>
+
+Dim isValid As Boolean = loadedDocument.Form.Fields.ValidateSignatures(collection, out results)
+
+'Close the document
+
+loadedDocument.Close(true)
+
+
+
+{% endhighlight %}
+
+{% highlight UWP %}
+
+
+//Get the stream from the document
+
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.Input.pdf");
+
+//Load an existing signed PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//X509Certificate2Collection to check the signer's identity using root certificates
+
+X509CertificateCollection collection = new X509CertificateCollection();
+
+//Creates a certificate instance from PFX file with private key
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Data.PDF.pfx");
+
+byte[] data = new byte[certificateStream.Length];
+
+certificateStream.Read(data, 0, data.Length);
+
+//Create new X509Certificate2 with the root certificate
+
+X509Certificate2 certificate = new X509Certificate2(data, "syncfusion");
+
+//Add the certificate to the collection
+
+collection.Add(certificate);
+
+//Validate all signatures in loaded PDF document and get the list of validation result
+
+List<PdfSignatureValidationResult> results;
+
+bool isValid = loadedDocument.Form.Fields.ValidateSignatures(collection, out results);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight ASP.NET Core %}
+
+
+//Get the stream from the document
+
+FileStream documentStream = new FileStream("Input.pdf", FileMode.Open, FileAccess.Read);
+
+//Load an existing signed PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//X509Certificate2Collection to check the signer's identity using root certificates
+
+X509CertificateCollection collection = new X509CertificateCollection();
+
+//Creates a certificate instance from PFX file with private key
+
+FileStream certificateStream = new FileStream("PDF.pfx", FileMode.Open, FileAccess.Read);
+
+byte[] data = new byte[certificateStream.Length];
+
+certificateStream.Read(data, 0, data.Length);
+
+//Create new X509Certificate2 with the root certificate
+
+X509Certificate2 certificate = new X509Certificate2(data, "syncfusion");
+
+//Add the certificate to the collection
+
+collection.Add(certificate);
+
+//Validate all signatures in loaded PDF document and get the list of validation result
+
+List<PdfSignatureValidationResult> results;
+
+bool isValid = loadedDocument.Form.Fields.ValidateSignatures(collection, out results);
+
+//Close the document
+
+loadedDocument.Close(true);
+
+
+
+{% endhighlight %}
+
+{% highlight Xamarin %}
+
+
+//Get the stream from the document
+
+Stream documentStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.Input.pdf");
+
+//Load an existing signed PDF document
+
+PdfLoadedDocument loadedDocument = new PdfLoadedDocument(documentStream);
+
+//X509Certificate2Collection to check the signer's identity using root certificates
+
+X509CertificateCollection collection = new X509CertificateCollection();
+
+//Creates a certificate instance from PFX file with private key
+
+Stream certificateStream = typeof(MainPage).GetTypeInfo().Assembly.GetManifestResourceStream("Sample.Assets.PDF.pfx");
+
+byte[] data = new byte[certificateStream.Length];
+
+certificateStream.Read(data, 0, data.Length);
+
+//Create new X509Certificate2 with the root certificate
+
+X509Certificate2 certificate = new X509Certificate2(data, "syncfusion");
+
+//Add the certificate to the collection
+
+collection.Add(certificate);
+
+//Validate all signatures in loaded PDF document and get the list of validation result
+
+List<PdfSignatureValidationResult> results;
+
+bool isValid = loadedDocument.Form.Fields.ValidateSignatures(collection, out results);
 
 //Close the document
 
