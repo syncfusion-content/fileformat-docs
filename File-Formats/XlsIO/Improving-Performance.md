@@ -1,4 +1,4 @@
-﻿---
+---
 title: Improving Performance | Syncfusion
 description: Brief about improving performance in XlsIO
 platform: File-Formats
