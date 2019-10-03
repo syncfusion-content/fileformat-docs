@@ -1005,17 +1005,11 @@ else
 
 Now, the Syncfusion PDF library has provided options to encrypt the PDF document as follows: 
 
-*   Encrypt all contents 
-  
-         All contents of the document will be encrypted.
+*   **Encrypt all contents** – All contents of the document will be encrypted.
 
-*	Encrypt all contents except Metadata  
-	
-         All contents of the document will be encrypted except metadata.
+*	**Encrypt all contents except Metadata** – All contents of the document will be encrypted except metadata.
 
-*	Encrypt only attachments
-	
-         Encrypts only the file attachments, rest of the document will be left unencrypted.
+*	**Encrypt only attachments**  – Encrypts only the file attachments, rest of the document will be left unencrypted.
 
 The default value of EncryptionOptions is EncryptAllContents. You can choose any one of these options using the property “EncryptionOptions” available in the class [PdfSecurity](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.Pdf.Security.PdfSecurity.html).
 
