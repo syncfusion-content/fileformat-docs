@@ -788,7 +788,7 @@ The following code shows, how to save Word document with same word version compa
 {% highlight C# %}
 //Opens an existing Word document
 WordDocument document = new WordDocument("Template.docx");
-//Enables MaintainCompatibilityMode to maintain same Word version
+//Enables flag to maintain compatibility with same Word version
 document.SaveOptions.MaintainCompatibilityMode = true;
 //Saves and close the Word document
 document.Save("Sample.docx");
@@ -798,7 +798,7 @@ document.Close();
 {% highlight VB.NET %}
 'Opens an existing Word document
 Dim document As WordDocument = New WordDocument("Template.docx")
-'Enables MaintainCompatibilityMode to maintain same Word version
+'Enables flag to maintain compatibility with same Word version
 document.SaveOptions.MaintainCompatibilityMode = true
 'Saves and close the Word document
 document.Save("Sample.docx")
@@ -815,7 +815,7 @@ StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
 WordDocument document = new WordDocument();
 await document.OpenAsync(inputStorageFile);
 
-//Enables MaintainCompatibilityMode to maintain same Word version
+//Enables flag to maintain compatibility with same Word version
 document.SaveOptions.MaintainCompatibilityMode = true;
 
 //Creates an instance of memory stream
@@ -839,7 +839,7 @@ using (WordDocument document = new WordDocument())
     FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
     //Loads or opens an existing Word document through Open method of WordDocument class 
     document.Open(fileStreamPath, FormatType.Automatic);
-    //Enables MaintainCompatibilityMode to maintain same Word version
+    //Enables flag to maintain compatibility with same Word version
     document.SaveOptions.MaintainCompatibilityMode = true;
     //Creates an instance of memory stream
     MemoryStream stream = new MemoryStream();
@@ -863,7 +863,7 @@ using (WordDocument document = new WordDocument())
     Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Template.docx");
     //Loads or opens an existing Word document through Open method of WordDocument class
     document.Open(inputStream, FormatType.Automatic);
-    //Enables MaintainCompatibilityMode to maintain same Word version
+    //Enables flag to maintain compatibility with same Word version
     document.SaveOptions.MaintainCompatibilityMode = true;
     //Creates an instance of memory stream
     MemoryStream stream = new MemoryStream();
