@@ -779,6 +779,108 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 
 {% endtabs %}
 
+### Saving Word document with compatibility
+
+The following code shows, how to save Word document with same word version compatibility
+
+{% tabs %}  
+
+{% highlight C# %}
+//Opens an existing Word document
+WordDocument document = new WordDocument("Template.docx");
+//Enables flag to maintain compatibility with same Word version
+document.SaveOptions.MaintainCompatibilityMode = true;
+//Saves and close the Word document
+document.Save("Sample.docx");
+document.Close();
+{% endhighlight %}
+
+{% highlight VB.NET %}
+'Opens an existing Word document
+Dim document As WordDocument = New WordDocument("Template.docx")
+'Enables flag to maintain compatibility with same Word version
+document.SaveOptions.MaintainCompatibilityMode = true
+'Saves and close the Word document
+document.Save("Sample.docx")
+document.Close
+{% endhighlight %}
+
+{% highlight UWP %}
+//Instantiates the File Picker
+FileOpenPicker openPicker = new FileOpenPicker();
+openPicker.SuggestedStartLocation = PickerLocationId.Desktop;
+openPicker.FileTypeFilter.Add(".docx");
+//Creates a storage file from FileOpenPicker
+StorageFile inputStorageFile = await openPicker.PickSingleFileAsync();
+WordDocument document = new WordDocument();
+await document.OpenAsync(inputStorageFile);
+
+//Enables flag to maintain compatibility with same Word version
+document.SaveOptions.MaintainCompatibilityMode = true;
+
+//Creates an instance of memory stream
+MemoryStream stream = new MemoryStream();
+//Saves the Word file to MemoryStream
+await document.SaveAsync(stream, FormatType.Docx);
+//Saves the stream as Word file in local machine
+Save(stream, "Sample.docx");
+//Closes the document
+document.Close();
+
+//Please refer the below link to save Word document in UWP platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-uwp#save-word-document-in-uwp
+{% endhighlight %}
+
+{% highlight ASP.NET CORE %}
+//Creates an empty WordDocument instance
+using (WordDocument document = new WordDocument())
+{
+    //Loads or opens an existing Word document from stream
+    FileStream fileStreamPath = new FileStream(@"Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+    //Loads or opens an existing Word document through Open method of WordDocument class 
+    document.Open(fileStreamPath, FormatType.Automatic);
+    //Enables flag to maintain compatibility with same Word version
+    document.SaveOptions.MaintainCompatibilityMode = true;
+    //Creates an instance of memory stream
+    MemoryStream stream = new MemoryStream();
+    //Saves the document to stream
+    document.Save(stream, FormatType.Docx);
+    //Closes the document
+    document.Close();
+    stream.Position = 0;
+    //Download Word document in the browser
+    return File(stream, "application/msword", "Sample.docx");
+}
+{% endhighlight %}
+
+{% highlight XAMARIN %}
+//"App" is the class of Portable project
+Assembly assembly = typeof(App).GetTypeInfo().Assembly;
+//Creates an empty WordDocument instance
+using (WordDocument document = new WordDocument())
+{
+    //Loads or opens an existing Word document from stream
+    Stream inputStream = assembly.GetManifestResourceStream("XamarinFormsApp1.Assets.Template.docx");
+    //Loads or opens an existing Word document through Open method of WordDocument class
+    document.Open(inputStream, FormatType.Automatic);
+    //Enables flag to maintain compatibility with same Word version
+    document.SaveOptions.MaintainCompatibilityMode = true;
+    //Creates an instance of memory stream
+    MemoryStream stream = new MemoryStream();
+    //Saves the document to stream
+    document.Save(stream, FormatType.Docx);
+    //Closes the document
+    document.Close();
+    //Save the stream as a file in the device and invoke it for viewing
+    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+}
+
+//Please download the helper files from the below link to save the stream as file and open the file for viewing in Xamarin platform
+//https://help.syncfusion.com/file-formats/docio/create-word-document-in-xamarin#helper-files-for-xamarin
+{% endhighlight %}
+
+{% endtabs %}
+
 ### Open a Word (*.doc) document containing incremental save information
 
 Essential DocIO process the content that are preserved in the last complete save operation alone from a Word (.doc) document and it doesn't process the incremental save information. 
