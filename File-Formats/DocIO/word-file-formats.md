@@ -781,7 +781,7 @@ using (WordDocument document = new WordDocument((assembly.GetManifestResourceStr
 
 ### Saving Word document with compatibility
 
-The following code shows, how to save Word document with maintain compatibility using DocIO
+The following code shows, how to save Word document with same word version compatibility
 
 {% tabs %}  
 
